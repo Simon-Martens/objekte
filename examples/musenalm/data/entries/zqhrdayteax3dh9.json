@@ -1,0 +1,67 @@
+{
+  "annotation": "Jgg 1802-1807 Fortsetzung von Almanach der Fortschritte in Wissenschaft, Künsten, Manufakturen und Handwerken 1797-1801",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1802",
+    "norm": "",
+    "biblio": 200028,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1193,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "J. J. Bellermann",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / neuesten Fortschritte, Erfindungen / und Entdeckungen / in den / spekulativen und positiven / Wissenschaften / von Ostern 1800. bis Ostern 1801. / herausgegeben von / J. J. Bellermann / ordentl. Professor der Theologie und Philo- / sophie, Direktor des Gymnasiums, beständ Sekre- / tär der Kurf. Akademie nützl. Wissensch. etc / in Erfurt. / Erster Jahrgang. / Erfurt 1802 / bei Georg Adam Keyser",
+  "updated": "2026-06-11 10:18:55.096Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "8lps2qux168h7op"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "mh920n2vrhsvdug"
+    }
+  ]
+}

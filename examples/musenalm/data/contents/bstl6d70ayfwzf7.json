@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1791 (Sammlung INr 9401, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Im Arm der Liebe ruht sich's wohl / Wohl auch im Schooß der Erde;",
+  "language": [],
+  "musenalm_id": 9446,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XLV. / Das Liedchen von der Ruhe. / Mel. steht in den Liedern im Volkston von M. Hau- / sius Dresd. u. Leipzig 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Ueltzen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XLV. / Das Liedchen von der Ruhe. / Mel. steht in den Liedern im Volkston von M. Hau- / sius Dresd. u. Leipzig 1791",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.383Z",
+      "agent": "f19nlby6rz6ae27",
+      "source_id": "256sro9ngu6zyve"
+    }
+  ]
+}

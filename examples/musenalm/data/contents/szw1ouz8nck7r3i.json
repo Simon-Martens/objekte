@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der Tugend Bild, die Menschen froh / beglückt, / Das ist das Bild, das hier entzückt:",
+  "language": [],
+  "musenalm_id": 17339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein Gemählde / von der / Königinn Majestät",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein Gemählde / von der / Königinn Majestät",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.691Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "dt7j4po782t9lxk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 63300-63303, Obj 7-10 /) Rheinische Sagen (Sammlung INr 63298, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63299,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28-31. Karl der Große. / (In vier Romanzen nach einer Chronik.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28-31. Karl der Große. / (In vier Romanzen nach einer Chronik.)",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.256Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "dpvo1708addw23i"
+    }
+  ]
+}

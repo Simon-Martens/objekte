@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, gT, T, 3 BB W, SS I-XVI G-Verz, SS XVII- XX I-Verz, G, SS 1-300 darin 8 GG, K",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues von Nürnberg 1822",
+    "norm": "~",
+    "biblio": 404546,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3070,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Riegel und Wiessner)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch, Neues von Nürnberg 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 138; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / von Nürnberg. / Zweiter Theil. / Mit / Beiträgen von Mannert, Siebenkees u. a. / dann / Kunstblättern von Geißler, Fleischmann, Du- / tenhofer etc, gest. Umschlag, gez. von Heideloff, Vignetten und einem Kärtchen vom vor- / maligen Nürnbergischen Gebiete. / Nürnberg / bey Riegel und Wießner. / 1822",
+  "updated": "2026-06-11 10:18:55.382Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "i3sh428urn187u9"
+  ],
+  "contents": [
+    "d5fy35hdoy8nn9b",
+    "62no9a08nf9nv9h",
+    "d7hqgm1dnjpzc5f",
+    "pfi5zbxqxq3xvnk",
+    "t0cie4min71k59c",
+    "kuepujsfnjvkkxa",
+    "163blnffahwey7i",
+    "wtxz78ljofn6mqz",
+    "lwlzzn3p060mmr7",
+    "ubbo4wj8nfnzwxo",
+    "9qct6a3vwaqgv80",
+    "omly0oee0pe9qxe",
+    "945j2kne1sfk655",
+    "7v3qhbc0m8lsga6",
+    "64hnikzmse6tk6o",
+    "4i5e1khfkfs6ibs",
+    "w08bc4bxantb2wn",
+    "o1rw5ntsvb61duk",
+    "khb7t3supt8jhwg",
+    "gtax8zfiqwmse80",
+    "y41pb159rmpbx2e",
+    "qkyprw6dwyp49ry",
+    "3zwqbt0gzt319ta",
+    "6ggvdluad8ons4b",
+    "qqjd2eyb0lp6nxm",
+    "y5prtfqutbdu1uw",
+    "97km0syvvjkotoc",
+    "piq29xgdilfof0r",
+    "c9k7bi8v99112pc",
+    "6cuoi03ytxkuton",
+    "ux3qqib0kp6dkpe",
+    "5iu40dc8yldle9v",
+    "fentadbf9f9zynt",
+    "jhh8e79h2l6n1jx",
+    "jn4uv7fcpfsg62w",
+    "e7cq2r5a0qe526u",
+    "4zzoks9yjpknuek"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "5sa9n01hkze72w4",
+      "source_id": "pvild000hwqwt9n"
+    }
+  ]
+}

@@ -1,0 +1,592 @@
+{
+  "annotation": "",
+  "biographical_data": "1730-1809",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.254Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2051813-4",
+          "label": "Academia Julia"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Gelehrter, Polyhistor, Arzt u. Physiker"
+      ],
+      "dateOfBirth": [
+        "1730-02-28"
+      ],
+      "dateOfDeath": [
+        "1809-09-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "(Original text: Hans Haase: Die Universität Helmstedt 1576–1810. Bilder aus ihrer Geschichte, Jacobi-Verlag Bremen/Wolfenbüttel 1976, ISBN&nbsp;3-87447-052-0, S. 75)Original definitiv weit vor 1900 / Scan vom Februar 2010 (27 February 2010 (original upload date))"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottfried%20Christoph%20Beireis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottfried%20Christoph%20Beireis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gottfried%20Christoph%20Beireis.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-06-04T17:24:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119059339/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119059339",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#21.5p",
+          "label": "Personen zu Physik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119059339",
+      "oldAuthorityNumber": [
+        "(DE-588c)4296130-0",
+        "(DE-588a)119059339"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4024344-8",
+          "label": "Helmstedt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4040466-3",
+          "label": "Mühlhausen/Thüringen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4024344-8",
+          "label": "Helmstedt"
+        }
+      ],
+      "preferredName": "Beireis, Gottfried Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried Christoph"
+        ],
+        "surname": [
+          "Beireis"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045968-8",
+          "label": "Physiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4009985-4",
+          "label": "Chirurg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4009836-9",
+          "label": "Chemiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Beireis, Gottfried C.: Ein Morgengesicht oder eine Erscheinung des Hofraths und Profess*",
+        "Beireis, Gottfried C.: De utilitate et necessitate historiae naturalis",
+        "Beireis, Gottfried C.: Verzeichniß einer ansehnlichen Sammlung von mannigfaltigen großent*",
+        "Godofr. Christophori Beireis bibliotheca",
+        "Beireis, Gottfried C.: Godofr. Christophori Bereis bibliotheca",
+        "Verzeichniß einer Sammlung goldener ... Münzen aus dem Nachlasse des Dr. G. Ch. Beireis",
+        "Beireis, Gottfried C.: Medicamenta inania in medicinam recepta",
+        "Beireis, Gottfried C.: Diss. ... de medicorum observata diiudicandi ratione",
+        "Beireis, Gottfried C.: Diss. inaug. med. de paralysi gravissima femorum crurumque sanata"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nb2011010485"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77117416"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q91211"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119059339/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottfried_Christoph_Beireis"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Christoph_Beireis"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_Christoph_Beireis"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000118782301"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119059339"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1760_roi;19"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1772_feuerlein;96"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1774_dehne;8"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_voigt;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1778_pricelius;19"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_behrens;5"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_henninges;11"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_grove;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_lademann;32"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_meibom;5"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_wolffram;39"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_jahn;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_zellmann;17"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_haenichen;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1784_pott;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1788_willemer;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1789_crell;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1789_crell;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1791_strombeck;1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119059339"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119059339.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119059339.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119059339"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119059339"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Beireis, Godofried C.",
+        "Beireis, Godefredus Christophorus",
+        "Beireisius, Godofredus Christophorus",
+        "Beireis, Gottf. Chr.",
+        "Beireis, Godofredus C.",
+        "Bereus, Godofredus Christophorus",
+        "Beireis, Gottfried C.",
+        "Beireis, Christoph Gottfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Godofredus Christophorus"
+          ],
+          "surname": [
+            "Bereus"
+          ]
+        },
+        {
+          "forename": [
+            "Godofried C."
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        },
+        {
+          "forename": [
+            "Godefredus Christophorus"
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        },
+        {
+          "forename": [
+            "Godofredus Christophorus"
+          ],
+          "surname": [
+            "Beireisius"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Gottfried"
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        },
+        {
+          "forename": [
+            "Gottf. Chr."
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        },
+        {
+          "forename": [
+            "Godofredus C."
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried C."
+          ],
+          "surname": [
+            "Beireis"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Christoph_Beireis",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_Christoph_Beireis"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:21Z",
+    "gnd_query_biographical_data": "1730-1809",
+    "gnd_query_name": "beireis, gottfried christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 154,
+  "name": "Beireis, Gottfried Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB II, 293",
+  "updated": "2026-06-11 13:29:21.522Z",
+  "uri": "https://d-nb.info/gnd/119059339",
+  "editor": ""
+}

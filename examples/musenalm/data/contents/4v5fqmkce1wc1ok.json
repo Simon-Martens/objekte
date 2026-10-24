@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Ein Reisender, der mit gelehrten Blicken / In einen Büchersaal die Rücken / Der Marmorbände still besah,",
+  "language": [],
+  "musenalm_id": 10297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Der reisende Gelehrte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Der reisende Gelehrte",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.382Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "3gn53hd46jgwfj0"
+    }
+  ]
+}

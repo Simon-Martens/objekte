@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Du kennst doch, holde Leserin und geneigter Leser, Herrn Fliederthee, den Arzt, der mehr Wagen als Kenntnisse besitzt.",
+  "language": [],
+  "musenalm_id": 44824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gespenst schleicht in das Studierzimmer / eines Arztes, verwandelt sich daselbst in / einen Todtenkopf und beobachtet den / Sohn Aesculaps",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gespenst schleicht in das Studierzimmer / eines Arztes, verwandelt sich daselbst in / einen Todtenkopf und beobachtet den / Sohn Aesculaps",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.245Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "j492ywr3jb9xvy7"
+    }
+  ]
+}

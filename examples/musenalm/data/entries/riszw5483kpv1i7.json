@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 3 BB , B I-Verz, SS 1-354 darin 4 GG, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hortensia 1812",
+    "norm": "~",
+    "biblio": 409160,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 434,
+  "parallel_title": "",
+  "place_statement": "Berlin (Kunst- und Industrie-Comtoir)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Hortensia 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 64; nicht bei L/R; Goed VIII. 76, 137; Goed VIII. 119, 300",
+  "responsibility_statement": "August Kuhn",
+  "subtitle_statement": "",
+  "title_statement": "Hortensia / ein / Taschenbuch für Damen / auf das Jahr 1812. / Herausgegeben von / August Kuhn. / Mit 6 Kupfern. / Berlin, / im Kunst- und Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:55.671Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "9tn0o2up7wq9bji"
+  ],
+  "contents": [
+    "5wkt76hvaoq2hq3",
+    "wsmeb3lq2cdna0c",
+    "iuw5hawzcum3mr1",
+    "shotfwwzuh05v8e",
+    "cxdoswbr6i2hss8",
+    "ie9em0wxq2k3gkg",
+    "62z5i8htu9dybi3",
+    "akwow3tzir88cgj",
+    "mlrh0pmmru41k1z",
+    "ryzf2eg36k7dxcs",
+    "bckrrjqnr2hpy7b",
+    "ivgqkdrqrzpdtsg",
+    "9o8i0vvoh1jc8re",
+    "nen5naxcrusgnb1",
+    "byjynul4fehfp16",
+    "jymjtlpfud2abpa",
+    "aqxvxr5fp3qf6kq",
+    "eak4awsrzet0u64",
+    "f3lg3a107nobb7c",
+    "gfduuhj4fkrfuyq",
+    "sawu8ao1nxm6ynk",
+    "jk1p5960hqih4cm",
+    "sqpzxqaoem6f9nd",
+    "uwcfjb52wgaet4e",
+    "v17kufclt1uqmsw",
+    "a7l5sm8zqhypzq8",
+    "oo9ujg5ax9w6ksp",
+    "8awmv3r26wmzhxt",
+    "0rwsphbcimvs1o2",
+    "94a9m4ezfubaloh",
+    "l2i2fqyvxdvsf87",
+    "8gmy18285zxvlt1",
+    "yh8z2fmqgikfqzi",
+    "4ti16k1yumkfvuv",
+    "svrei9yhocw4cf2",
+    "0dlztwtvz8iygj7",
+    "h12mhyb1vmse44w",
+    "xq8xag9mdi521oy",
+    "n9snvkw47egoxom"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "lob1ezlykpp1imx",
+      "source_id": "cz5sc4077rd43id"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.661Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.661Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "mvz13l6eavz0abj"
+    }
+  ]
+}

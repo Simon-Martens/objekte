@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrisches Intermezzo (Sammlung INr 95912, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Drei Worte umfassen des Sterblichen Glück, / Umfassen den seligen Frieden,",
+  "language": [],
+  "musenalm_id": 95917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glaube, Hoffnung, Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rudolf Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glaube, Hoffnung, Liebe",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.607Z",
+      "agent": "z276kpo6m8d5nvd",
+      "source_id": "kl542a7bzysvz88"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "fortgesetzt durch Jgg 1850 ff: Neueste Folge; Hrsg: G. Th. Ruthardt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1849",
+    "norm": "",
+    "biblio": 200735,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2793,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "Joseph von Hormayr",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die vaterländische Geschichte./ Herausgegeben / von / Joseph Freiherrn von Hormayr. / XXXVIII. Jahrgang der gesammten und / XX. der neuen Folge. / 1849. / Berlin, bei G. Reimer",
+  "updated": "2026-06-11 10:18:54.696Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "e0re9qhoq97ae7u"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.146Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.146Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "e1g112tvynbbfk8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.136Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.136Z",
+      "agent": "qtba1dg2hv0ov1a",
+      "source_id": "r8kkqqemxbycmwg"
+    }
+  ]
+}

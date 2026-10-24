@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Wie mild sich's aufschaut zu der Sternenhelle! / Wie klar die ew'gen Lichter droben stehn!",
+  "language": [],
+  "musenalm_id": 79332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einem sternhellen Abend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Still",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einem sternhellen Abend",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.998Z",
+      "agent": "4rkhkr2si8r091f",
+      "source_id": "e4vsw1wtsz5jva5"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Junge; Frosch)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge; Frosch",
+  "scans": [
+    "alm_301_22487_y3wbz12b03.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.942Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "9fyz8sza9dpo60t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.942Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "pzotvcfxkcr3tol"
+    }
+  ]
+}

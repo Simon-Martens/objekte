@@ -1,0 +1,113 @@
+{
+  "annotation": "Jgg 1797, 1798, 1800, 1800, 1801; Berlin 1797, 1798: Berlin (Oehmigke); 1800: Berlin (beim Verfasser) 1801: (beim Verfasser u. Oehmigke) [TA von 1798] ; Hrsgg.: 1797; Julius Cäsar, 1798: Caesar, 1800, 1801: Julius Cäsar /) fortgesetzt durch: Almanach, Berliner für Karten-  Schach- und Pharospieler (Oehmigke) 1804 u. 1805 [vermutl. TA von 1804] Alm-3734 /) mit falscher Paginierung: ar5: SS 65-66 fehlen bei fortlaufendem Text",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, ar: SS 1-23, ar1: SS 1-109, ar2: SS 3-44, ar3: SS 3-32, ar4: SS 3-67, ar5: SS 3-70, ar6: SS 3-53",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach (Berlin) 1797",
+    "norm": "~",
+    "biblio": 106712,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2631,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Spiel-Almanach (Berlin) 1797",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 103; L/R 196",
+  "responsibility_statement": "Julius Cäsar",
+  "subtitle_statement": "",
+  "title_statement": "Spiel-Almanach, / enthaltend / die neueste Anweisung / in / einer gründlichen und leichten Erlernung / des Whist- l'Hombre- Quadrille- Tarok- Kasino- Kon- / nektionen- Piquet- Treset- Reversy- Boston- Pa- / tience- Kabale- Homme- Imperial- Triumpf- Schach- / Tokkategli- Billard- Kegel- und Ballspiel, nebst einer / Auswahl der unterhaltendsten Gesellschaftsspielen, / Räthseln, Charaden und Gesängen / herausgegeben / von / Julius Cäsar. / Berlin, 1797. / Bei Wilhelm Oehmigke dem Jüngern",
+  "updated": "2026-06-11 10:18:55.418Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "gdf27eg92u9000v"
+  ],
+  "contents": [
+    "a73yzgy0qdq5gfw",
+    "7draiwox5640z20",
+    "jitnerv64vluyee",
+    "jow5v83d4exzrhq",
+    "2in82otem9op17n",
+    "sylkuyc7auxoclk",
+    "1a4gzt7tf3xt90y",
+    "cnxpah1iw0knhf2",
+    "og563ag6r6e2uq9",
+    "pqk3eedocf06ayf",
+    "i95e26arlntvh9b",
+    "v7sjkxeatmcjrzi",
+    "ms2acvk42lj2cbw",
+    "gfzvossv96tie1w",
+    "1gduvww8joq9y2o",
+    "xaqjmr8rckn89ao",
+    "pia9ieup44wedre",
+    "os43bo9r13z6xiy",
+    "tpzxmjx645cwq94",
+    "8mpy8jurdckh1j0",
+    "kj1vqet39x4suxt",
+    "2ij35qz1rjb0kob",
+    "lab766owicec4ds",
+    "fso3minx2jkxdnm",
+    "vfphm3jawrxgrf6",
+    "ro1uopm63oe383c",
+    "vppauwl5bpyu0k1",
+    "btp3zlsbq1cxbip",
+    "l394o6je0r2xat9",
+    "5p5xa4hhq0t74ie",
+    "pxn67as18cfge67",
+    "qnqcukotsnb4bw8",
+    "4hdosdgbgsp7flk",
+    "y4jrd0cumed0bxq",
+    "d7u4gb8tyzzwp0f",
+    "ylzz9lnb0tyu38x",
+    "63dr07im2bsbq4n",
+    "5fn00eav8zomg8s",
+    "l5zl7u2hcxg7ptb",
+    "pllfck51srsfpa5",
+    "fkdq8sweh2g338k",
+    "ax35wfgusod64ov",
+    "6rq8kihf823ypxf",
+    "pgnoeanpx2ftz8e",
+    "vthsiwu7erul7a4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "dc8vm6zcmpjcdxh"
+    }
+  ]
+}

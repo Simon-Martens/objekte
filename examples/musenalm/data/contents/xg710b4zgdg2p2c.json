@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Frisch, der Wein soll reichlich fliessen, / Nichts verdrieslich weh' uns an:",
+  "language": [],
+  "musenalm_id": 43060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rechenschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rechenschaft",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.083Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "r8tb08oj1snbxxs"
+    }
+  ]
+}

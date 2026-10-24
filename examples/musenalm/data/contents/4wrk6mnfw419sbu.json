@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Als Krieger hab' ich manche Nacht / In Sturm und Regen durchgewacht,",
+  "language": [],
+  "musenalm_id": 94094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Losungswort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Barbarina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Losungswort",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.447Z",
+      "agent": "kzden0pkha3xf40",
+      "source_id": "nrvjiqtqlj9oc2q"
+    }
+  ]
+}

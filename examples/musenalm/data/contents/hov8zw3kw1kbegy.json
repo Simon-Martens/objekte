@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 112715, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112714,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BEFEHL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender del. J. Axmann sc.",
+  "scans": [
+    "alm_2482_112714_iwu32uczpf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BEFEHL",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.332Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "ki0nkpbgntghcyh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.332Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "nsmz6kgpsaa8hoe"
+    }
+  ]
+}

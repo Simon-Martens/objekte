@@ -1,0 +1,45 @@
+{
+  "annotation": "Motto des zweiten Teils",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Versag ihr dein Lob nicht, / Da sie mit feurigem Muth die Bande der gothischen Reime / abgeworfen,",
+  "language": [],
+  "musenalm_id": 52538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Versag ihr dein Lob nicht, / Da sie mit feurigem Muth die Bande der gothischen Reime / abgeworfen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.727Z",
+      "agent": "wj40krq87n1bwgw",
+      "source_id": "4kohtp3274eznay"
+    }
+  ]
+}

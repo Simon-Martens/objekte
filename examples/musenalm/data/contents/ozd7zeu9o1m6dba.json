@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 84800, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Wer mit Trinkern leben will, / Muß auch tapfer trinken. / Und nicht etwa stumm und sttill in sich selbst versinken.",
+  "language": [],
+  "musenalm_id": 84808,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied. / Melodie. Lasset heut' im edeln Kreis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied. / Melodie. Lasset heut' im edeln Kreis",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.219Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "mre6sqjaq38oqly"
+    }
+  ]
+}

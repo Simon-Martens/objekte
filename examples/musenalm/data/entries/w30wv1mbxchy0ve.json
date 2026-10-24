@@ -1,0 +1,82 @@
+{
+  "annotation": "Kurzdarstellung: Umschlag und Titel sind als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 BB G-Verz, 12 GG, 1-340",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für die Geschichte der Menschheit (Schlenkert) 1796 (Titelauflage)",
+    "norm": "~",
+    "biblio": 201008,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1090,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für die Geschichte der Menschheit (Schlenkert) 1796 (Titelauflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 21",
+  "responsibility_statement": "F. C. Schlenkert",
+  "subtitle_statement": "",
+  "title_statement": "Darstellung / aus der / GESCHICHTE der MENSCHHEIT / von / F. C. Schlenkert / mit 13 Kupfern / Leipzig / bey Friedr. August Leo.",
+  "updated": "2026-06-11 10:18:54.916Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "4ou1urraokp9gvd"
+  ],
+  "contents": [
+    "uvopz64wbhl2mwq",
+    "ltojx04bh852b99",
+    "3r3htqwlkzsij3l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.819Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.819Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "a5ya4c5ofealeu0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.091Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.091Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "cx1uka6oot8nvby"
+    }
+  ]
+}

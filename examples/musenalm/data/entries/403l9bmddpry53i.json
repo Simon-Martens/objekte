@@ -1,0 +1,55 @@
+{
+  "annotation": "KVK, SBB gibt Jgg 1804-1821; KVK, Österreichische Nationalbibliothek gibt Fortsetzung Jgg 1821-1908 an. Genaue Erscheinungsweise unklar; bei K 63 und Goed VIII. 131, 29: Jg 1825",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater Jounal, Wiener 1826",
+    "norm": "",
+    "biblio": 409493,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-12-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4479,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater Jounal, Wiener 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R; nicht bei Goed VIII. 131, 29",
+  "responsibility_statement": "Koller und Csaerny",
+  "subtitle_statement": "",
+  "title_statement": "Wiener / Hoftheater-Journal / auf das / Jahr 1826. / Herausgegegeben / von / Koller und Cserny, / Souffleurs des k.k. Hofburgtheaters. / Gedruckt bey den P. P. Mechitaristen",
+  "updated": "2026-06-11 10:18:55.666Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "23yv6bybe14qivs"
+  ],
+  "contents": [],
+  "agents": []
+}

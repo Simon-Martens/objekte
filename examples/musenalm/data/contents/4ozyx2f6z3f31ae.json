@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Der Papagei« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1804 INr 12151",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12287,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da sehen Sie das einfältige Mädchen! / Ebendaselbst S. 218",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Meno Haas sc. Berlin 1804",
+  "scans": [
+    "alm_210_12287_36whl55tdl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da sehen Sie das einfältige Mädchen! / Ebendaselbst S. 218",
+  "updated": "2001-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.505Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "5xnh39yfnbb895t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.505Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "qx3cra4h6fbx1e8"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; unter der Graphik: zu pag. 7 /) Illustration zu »Die Königswahl« von H. Döring INr 98473, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98470,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. von Ramberg. gest. von Schwerdgeburth)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. von Ramberg. gest. von Schwerdgeburth",
+  "scans": [
+    "alm_3535_98470_9ksysx1pt7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.730Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "4kg9d2otqdttnm9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.730Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "rr84pdqjm7h5tn2"
+    }
+  ]
+}

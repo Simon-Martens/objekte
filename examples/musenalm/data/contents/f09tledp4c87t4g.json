@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 40467, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Unser Taschenbuch gab in diesem Jahre der hohen Dame, von welcher es den Namen trägt, den ihr vor Allen gebührenden Ehrenplatz.",
+  "language": [],
+  "musenalm_id": 40471,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Patronin der Kunst. / Zur / Erklärung des Titelkupfers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Blumenhagen, Dr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Patronin der Kunst. / Zur / Erklärung des Titelkupfers",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.138Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "dquo8c5q07drs50"
+    }
+  ]
+}

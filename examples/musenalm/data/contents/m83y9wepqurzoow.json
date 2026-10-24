@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksprüche (Sammlung INr 15844, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Nicht nur der Aus- und Eingang des Lebens, das Leben / selber ist vielfach verschleiert und zugehüllt.",
+  "language": [],
+  "musenalm_id": 15847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicht nur der Aus- und Eingang des Lebens, das Leben / selber ist vielfach verschleiert und zugehüllt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.658Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "w785g8nph7e88us"
+    }
+  ]
+}

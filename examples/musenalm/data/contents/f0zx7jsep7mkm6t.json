@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 79254, Obj 36 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sitzung des Jacobiner Clubs im Februar 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Mansfeld",
+  "scans": [
+    "alm_2490_79256_tvphcee2g1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sitzung des Jacobiner Clubs im Februar 1792",
+  "updated": "2012-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.877Z",
+      "agent": "x056xs6zlyqcn0t",
+      "source_id": "yvmvzfzvuce6vaw"
+    }
+  ]
+}

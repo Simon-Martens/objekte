@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Wie jauchzt aus deinem Wort, mein Herz, / Begeisterung der Liebesglut,",
+  "language": [],
+  "musenalm_id": 100002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 166,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schicksalschluß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schicksalschluß",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.857Z",
+      "agent": "gpow9s19ygz3th4",
+      "source_id": "9ld2wqujr2htmsc"
+    }
+  ]
+}

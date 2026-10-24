@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58351,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sielbecker Lustgarten bey Eutin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Strack del. J. A. Darnstedt sc.1797",
+  "scans": [
+    "alm_311_58351_wz9s1p6tyz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sielbecker Lustgarten bey Eutin",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.730Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "u6pky2di4kfp1de"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.730Z",
+      "agent": "w7gyb4f5e9renta",
+      "source_id": "v5nmxpdqxjo3h8v"
+    }
+  ]
+}

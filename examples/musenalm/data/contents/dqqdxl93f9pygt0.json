@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81273, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Leb wohl mein stolzes Weib! Wir sind geschieden, / Getrennte Gatten wie es tausend gibt;",
+  "language": [],
+  "musenalm_id": 81275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Byron's Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Byron's Abschied",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.802Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "0zvqt2ue5yeu1dk"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Agathonika« von W. A. Lindau. Taschenbuch zum geselligen Vergnügen 1822, INr 20246",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20347,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agathonika v. W. A. Lindau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. F. Fleischmann sc.",
+  "scans": [
+    "alm_272_20347_9nq55hyu4a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agathonika v. W. A. Lindau",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.686Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "0rm3i7ldcr9ii6i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.686Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "e5ou4k5r3flq60x"
+    }
+  ]
+}

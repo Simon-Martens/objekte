@@ -1,0 +1,126 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-IV I-Verz, SS 1-468 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iris (Mailath, Saphir) 1842",
+    "norm": "~",
+    "biblio": 200800,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 769,
+  "parallel_title": "",
+  "place_statement": "Pesth (Heckenast)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Iris (Mailath, Saphir) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 67; L/R 100",
+  "responsibility_statement": "Johann Graf Mailáth",
+  "subtitle_statement": "",
+  "title_statement": "Iris / Taschenbuch / für das Jahr 1842. / Herausgegeben / von / Johann Graf Mailáth / Dritter Jahrgang. / Mit sechs Stahlstichen / Pesth. / Verlag von Gustav Heckenast",
+  "updated": "2026-06-11 10:18:55.714Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "vzgyzslhd1fyiue"
+  ],
+  "contents": [
+    "v66oo34vsgsphqi",
+    "w7dqliqysid5eyl",
+    "z6xvy960j9ohnkb",
+    "y2mhhvysc1ovlo7",
+    "mfldcsp9kxcwb5i",
+    "ms0ud60iawbxryh",
+    "ssqc85xizlfuy0i",
+    "q3iu5fq6zn7com9",
+    "didikwuwfacl060",
+    "ivedqn0webqs2kq",
+    "b1bw4z8nma4jkub",
+    "qar3duijv0rb791",
+    "pni6kcrmpx7fkiy",
+    "oplx3gv3pkvynn3",
+    "8tdrzkukxwq38kc",
+    "hw1c5dgbpniqk60",
+    "9zyx7yg5cc4it9w",
+    "q9rpalk6wbfq2n0",
+    "cfux21mjsqmcww0",
+    "nwrl857pjumivpv",
+    "qxdn7izui5afcgp",
+    "8ugq8kiwdd81yuv",
+    "y1c2kfkukiij0w0",
+    "4l1b2tcnp8qvfrz",
+    "d7gkett9963b4qm",
+    "1sv9m0ghwqo61i1",
+    "9vhldq88y6jt4qc",
+    "ryjg4nu4sh7bfru",
+    "fnrundp9v94vukb",
+    "m6l8pc7so8to73y",
+    "eb09wdnkqgch7ow",
+    "n2au3q63ax5eog2",
+    "66snfkmixt6tzhd",
+    "tyorbrwqdo2z1s4",
+    "x9moitaxheusne5",
+    "kurau3pfnz3l3oa",
+    "yoxfe58eva17ugb",
+    "l5ikpcg5cyey9zu",
+    "jz7ccbaowoffd5m",
+    "defchreu6amluzo",
+    "6uvmsjheutwkx48",
+    "754pgz2uczlww2p",
+    "5rbcft9ds1a9c6a",
+    "sq8ne8qzjm2v84g",
+    "2502f4mclah9uk9",
+    "h9329a4uyrva8xu",
+    "t5jk1bg7p9m6ezo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.977Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.977Z",
+      "agent": "q7zyxdz5dehimfg",
+      "source_id": "jiqa017i9i23zoo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.775Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.775Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "suqegsba3vg7p6m"
+    }
+  ]
+}

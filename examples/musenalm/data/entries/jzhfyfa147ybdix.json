@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sphynx 1834",
+    "norm": "",
+    "biblio": 200259,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2629,
+  "parallel_title": "",
+  "place_statement": "Berlin (Krause)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Sphynx 1834",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 103; L/R 194; Goed VIII. 126, 331",
+  "responsibility_statement": "Freimund Ohnesorgen",
+  "subtitle_statement": "",
+  "title_statement": "Sphynx. / Ein / Räthsel-Almanach / auf das Jahr / 1834. / Von Freimund Ohnesorgen. / Mitarbeiter: / Achat. Adele v. F. Charlotte B. Baller. Förster. / Glasbrenner. Hell. Herloßsohn. Jacobi. John. Kah- / lert. Kind. Langbein. Lasker. Liber. L. v. W. / Minette v. P. Müller. Ohnesorgen. Puffendorf. Pul- / vermacher. Saphir. v. Sommerfeld. v. T. / v. Zedlitz. / (Fünfter Jahrgang.) / Berlin. / Verlag der L. W. Krause'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.415Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "l6usbrndsn8u2uw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.081Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.081Z",
+      "agent": "lngx6eyfw5qrzas",
+      "source_id": "dmusxmtxt4rtc2f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.110Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.110Z",
+      "agent": "kolm0v6jb6xsvh5",
+      "source_id": "k9x2kdg7yveex9m"
+    }
+  ]
+}

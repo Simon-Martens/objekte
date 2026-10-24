@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>kol. Karte</div>",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72275,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / DRAMBURGSCHE CREIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Sotzmann",
+  "scans": [
+    "alm_826_72275_gxazw63008.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER / DRAMBURGSCHE CREIS",
+  "updated": "2026-07-23 10:00:48.553Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-07-23 10:00:48.552Z",
+      "agent": "llfbsdoltk6o89d",
+      "source_id": "l6j4xgi46x3dqq5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmm",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Vor Jahren war beym Untersperg, / Nicht weit vom weißen Bach, / Ein Sedel, da ein Fräulein wohnt'; / Ihr gieng ein Ritter nach.",
+  "language": [],
+  "musenalm_id": 131013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Ritter Kunz / von / Rosemund, / und das / Fräulein Kunigunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Ritter Kunz / von / Rosemund, / und das / Fräulein Kunigunde",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.080Z",
+      "agent": "0b9nelfb23buwgh",
+      "source_id": "amffnz4iu7n210z"
+    }
+  ]
+}

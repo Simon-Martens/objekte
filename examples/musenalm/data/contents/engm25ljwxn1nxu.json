@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration über dem Gedicht s. Graphik INr 30917, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Du warst mein Wecker, Sined! bliesest an / Den Funken, der in meiner Seele schlief",
+  "language": [],
+  "musenalm_id": 30918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Neugeweihte und Sined. / Der Neugeweihte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Neugeweihte und Sined. / Der Neugeweihte",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.928Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "mgzlfjdou6fvty1"
+    }
+  ]
+}

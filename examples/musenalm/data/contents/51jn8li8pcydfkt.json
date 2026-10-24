@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gesänge (Sammlung INr 78038, Obj 164) mit einer Musikbeigabe s. INr 78053, Obj 179",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Wollt ihr junge Rosen pflücken, / Die am dicht umblühten Strauch, / Mit den rothen Knospen nicken,",
+  "language": [],
+  "musenalm_id": 78054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 180,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. Rosenpflücker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. E. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. Rosenpflücker",
+  "updated": "2010-09-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.483Z",
+      "agent": "maje80twv7ynq1d",
+      "source_id": "hkqso3mb1nluzxl"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Graphiken des Almanachs /) Illustration zu »Anselma von Norfeld« von E. Selbig INr 29679, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus Anselma von Norfeld, Erz. von Elise Selbig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_384_29680_rsnwjvs4ml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus Anselma von Norfeld, Erz. von Elise Selbig",
+  "updated": "2002-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.316Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "o61zw1p7la8rqx0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.316Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "oz3m5bxx79uq9r7"
+    }
+  ]
+}

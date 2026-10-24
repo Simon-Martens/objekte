@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Dich möcht' ich besingen, Dich mit dem Lorbeer / Herrlich gekrönte, Musen verwandte Frau!",
+  "language": [],
+  "musenalm_id": 114603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / meine verehrte Freundinn / Caroline von Pichler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weissenthurn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / meine verehrte Freundinn / Caroline von Pichler",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.516Z",
+      "agent": "athxhstryt7anbh",
+      "source_id": "21t8dld11hqcua9"
+    }
+  ]
+}

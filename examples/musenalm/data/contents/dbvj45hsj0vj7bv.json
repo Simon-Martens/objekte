@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 9. /) Illustration zu »Weibesmuth.  Im 13ten Jahrhunderte« INr 92907 , Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auch des Weibes Muth ist gross in Gefahr!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Matthaei J. Blaschke sc.",
+  "scans": [
+    "alm_4082_92908_qlhnzv4odt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auch des Weibes Muth ist gross in Gefahr!",
+  "updated": "2013-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.272Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "hpw0blwmd2pqp9r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.272Z",
+      "agent": "k01z45djkjhmx1a",
+      "source_id": "u2p9gxthrrh1g3n"
+    }
+  ]
+}

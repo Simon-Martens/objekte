@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124078, Obj 2); Illustration zu »Der Weiberfeind« von Lebrun (INr 124082, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Susanne. / Unser eins kennt seine Leute, mit den jungen Herrn wird man bald fertig, aber die Alten, / ach die sind gar zu schlimm. / Der Weiberfeind. / 5ter Auftritt.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Böttger senior sc.",
+  "scans": [
+    "alm_1292_124083_bm6houryhu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "II. / Susanne. / Unser eins kennt seine Leute, mit den jungen Herrn wird man bald fertig, aber die Alten, / ach die sind gar zu schlimm. / Der Weiberfeind. / 5ter Auftritt.",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.786Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "r6xu0eas3pqwdaf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.786Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "wzlpgj79own7mks"
+    }
+  ]
+}

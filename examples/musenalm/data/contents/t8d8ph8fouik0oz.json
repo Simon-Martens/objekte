@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Harmonie, du Göttinn holder Töne! / Wähle mich zu deiner Priesterinn!",
+  "language": [],
+  "musenalm_id": 33683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theodas Weihelied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theodas Weihelied",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.408Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "cl9iis8kehnkj9t"
+    }
+  ]
+}

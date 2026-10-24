@@ -1,0 +1,131 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.520Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1778"
+      ],
+      "dateOfDeath": [
+        "1828-11-07"
+      ],
+      "describedBy": {
+        "dateModified": "2023-10-16T08:14:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-715",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-715"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/1206944439/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "1206944439",
+      "id": "https://d-nb.info/gnd/1206944439",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4069695-9",
+          "label": "Brüx"
+        }
+      ],
+      "preferredName": "Zettler, Alois",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alois"
+        ],
+        "surname": [
+          "Zettler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/196152742895527730634"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1206944439/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000407788160"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1206944439"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:26:30Z",
+    "gnd_query_biographical_data": "1778-1828",
+    "gnd_query_name": "zettler, alois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3225,
+  "name": "Zettler, Alois",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 2279",
+  "updated": "2026-06-11 13:29:25.890Z",
+  "uri": "https://d-nb.info/gnd/1206944439",
+  "editor": ""
+}

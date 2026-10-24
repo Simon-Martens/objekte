@@ -1,0 +1,45 @@
+{
+  "annotation": "Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Kann nicht reden, kann nicht schweigen, / Kann nicht sagen, wie mir ist,",
+  "language": [],
+  "musenalm_id": 49049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.482Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "45un0tsswk4m70r"
+    }
+  ]
+}

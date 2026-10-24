@@ -1,0 +1,78 @@
+{
+  "annotation": "Der Jg 1869: Thalia. Ausgabe der Cornelia für Oesterreich 1869: Wien (Dirnböck. J. Draudt);  fortgesetzt durch: Neue Thalia, Ausgabe der Cornelia für Oesterreich 1871-1874, Wien (Perles) /) s.a. u.: Cornelia 1870 var-1874 var.; dort die abweichenden Titel etc. als Vollbilder /) s.a. u.: Cornelia 1869 var.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, S III G-Verz I-Verz, SS V-XVI G-Verz, gT, 6 GG, SS 1-359",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Vogl, Ziegelhauser) 1869 id. mit Cornelia 1869",
+    "norm": "~",
+    "biblio": 200441,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-10-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3883,
+  "parallel_title": "",
+  "place_statement": "Wien (Dirnböck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Vogl, Ziegelhauser) 1869 id. mit Cornelia 1869",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177; Goed VIII. 92",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Thalia. / Taschenbuch für 1869. / Ausgabe der Cornelia für Oesterreich. / Sechsundfünfzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / Verlag von Jacob Dirnböck's Buchhandlung / (Georg Draudt)",
+  "updated": "2026-06-11 10:18:55.149Z",
+  "variant_title": "",
+  "year": 1869,
+  "editor": "",
+  "items": [
+    "xx5hdtyer33stdg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.732Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.732Z",
+      "agent": "ogvv0aphvy1zxcd",
+      "source_id": "mp0ur4v4f16yfhh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.741Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.741Z",
+      "agent": "idlig2tliyyubpm",
+      "source_id": "vv94x2osw8zqhln"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Don Carlos« von Fr. Schiller /) s. Textbezug im Kalendarium INr 90110, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90111,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er stirbt - und seine Mörderin bin / ich",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc.",
+  "scans": [
+    "alm_1703_90111_arg384bl3x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er stirbt - und seine Mörderin bin / ich",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.409Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "6cd4cqww6fja0zd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.409Z",
+      "agent": "nroqcxxwwrnp5ol",
+      "source_id": "xfxaq2onxjd2nlt"
+    }
+  ]
+}

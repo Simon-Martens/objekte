@@ -1,0 +1,67 @@
+{
+  "annotation": "TA von: Helena 1837 (Hrsg. Leop. Schefer) Alm Nr 1832",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergissmeinnicht, eine Prämiengabe zum Thüringer Stadt- und Landboten 1844",
+    "norm": "",
+    "biblio": 408900,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3662,
+  "parallel_title": "",
+  "place_statement": "Saalfeld (Niese)",
+  "places": [
+    "22p0q45efkr87vt"
+  ],
+  "preferred_title": "Vergissmeinnicht, eine Prämiengabe zum Thüringer Stadt- und Landboten 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "VERGISSMEINICHT. / TASCHENBUCH. / Zweiter Jahrgang. / EINE PRAEMIENGABE / zum / Thüringer Stadt- u. Landboten / auf das Jahr / 1844. / SAALFELD / Buch- und Papierhandlung / Constantin Niese",
+  "updated": "2026-06-11 10:18:55.491Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "c2119fsx76ejhy2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.113Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.113Z",
+      "agent": "6ooll9gftlct0be",
+      "source_id": "3dny0fne0389oj1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 27377, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Von weitem hör ich zarten Ton / Wie Silberglöckchen läuten;",
+  "language": [],
+  "musenalm_id": 27379,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Schneeglöckchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Trinius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Schneeglöckchen",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.029Z",
+      "agent": "r4o522ozdhhdj78",
+      "source_id": "0b0w3fsfgu7icqo"
+    }
+  ]
+}

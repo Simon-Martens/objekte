@@ -1,0 +1,128 @@
+{
+  "annotation": "Vorzugsausgabe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I vT, S II VrlgM, S III T, SS V-VI I-Verz, S VII G-Verz, S IX zT, SS X-XX dazu 6 GG, SS XXI-L Vrwrt d Hrsg, SS 1-504, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1820",
+    "norm": "~ +++ 406568 (Titelportrait)",
+    "biblio": 100988,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 43,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "F. A. Brockhaus",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch / auf / das Jahr 1820. / Neue Folge, zweiter Jahrgang. / Mit acht Kupfern: / Ernst Schulze's Bildniß gest. von Coupé in / Paris; sechs Darstellungen zu Hamlet, nach / Opiz von Bein, Cardon, Leclerc und Vil- / lerey in Paris, und einem Vasenbilde. / (Ausgabe mit Kupfern vor der Schrift.) / Leipzig: / F. A. Brockhaus / 1820",
+  "updated": "2026-06-11 10:18:55.499Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "7nlyrl7pck7w2sj",
+    "qvo7puzcd7zjkh8"
+  ],
+  "contents": [
+    "z8hcht8a54os39r",
+    "wq5nggxgv215f6q",
+    "mp0pkeoupg3nfgw",
+    "ntf4fgntt38w1wr",
+    "pva82cb5eyxmexu",
+    "3m84a6hk2x2cr5n",
+    "rim0xpou4a4g1q3",
+    "2y4ye3vucog11k2",
+    "gmhv8vfh7cica5a",
+    "korfqugh7qskoat",
+    "k0ove2i0krcqeac",
+    "av1zogvl81jy6mf",
+    "546lwclyjb9fil2",
+    "d096rp1jvx8wygl",
+    "nmvm0cuqvtwv01m",
+    "wjs242r3psxhy1v",
+    "t76ceud46c7m6gp",
+    "xyutiht4tnco7yh",
+    "fbwn5lf3zhxse9t",
+    "ksg4wp81tek6b1n",
+    "95dhwh3xl80497v",
+    "f3nlh5dclug2hvc",
+    "dte3y7o2c5aw4w6",
+    "azwl49e2voz2095",
+    "ky4n8bcckulxwdk",
+    "2qjqdbmopa6v5z3",
+    "jartfvvxo3lvntr",
+    "8kkzvg1k16ztw54",
+    "uztgnqxjl12nvu7",
+    "c51no141iqj6w9g",
+    "to2rr529qdhvl75",
+    "ko5u7vepscztvqg",
+    "p3luq061on9l2wp",
+    "ch5zz50bzkwr19z",
+    "07echdo5phsee4f",
+    "3dnow1mms1p1nu6",
+    "ebn3cb7b2tnw1f5",
+    "f4uvmo5fj1cuo3u",
+    "xm5bu2r1t4e3kn0",
+    "vdh4sk2ph6zxeq3",
+    "vfg0ptodb30ag0e",
+    "do33g4k0tq4s54j",
+    "qyqownb91wb2cgo",
+    "71mq2p90lvgjx8b",
+    "653xtkx1lvvsals",
+    "38msagridtbbxg3",
+    "sa163hgf2tcbono",
+    "q5tq1s4hw3wuixe"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.596Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.596Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "p43xa4hqcm5p297"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.195Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.195Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "zvn7cfpo73xdtl4"
+    }
+  ]
+}

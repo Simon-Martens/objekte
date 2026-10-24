@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 59291, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Dein Herz und Geist verherrlichen Dich! / Dich segnen Freund' und Gäste,",
+  "language": [],
+  "musenalm_id": 59299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Toast an Olympia's Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Toast an Olympia's Geburtstage",
+  "updated": "2008-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.021Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "gzpzuepso3krxvd"
+    }
+  ]
+}

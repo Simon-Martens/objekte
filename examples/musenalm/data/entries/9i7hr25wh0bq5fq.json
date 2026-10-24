@@ -1,0 +1,100 @@
+{
+  "annotation": "K gibt 13 GG an /) $ vermutl. fehlt  Graphik im Kalendarium Nov.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 11 GG $, ar: SS 1-330, SS 331-336 G-Verz, ar1: SS 1-104, ar2: SS 1-55, S, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1828",
+    "norm": "~",
+    "biblio": 106395,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 863,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / Kalender / auf / das Schalt-Jahr 1828. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.751Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "112pnmur4bx0jhv"
+  ],
+  "contents": [
+    "kn93b0rc78u1y5y",
+    "bjt5p6i84653d37",
+    "8mtqvw2xm983gzd",
+    "cgew5yil9v2tofd",
+    "zub84d8l3mb41y3",
+    "5n8d21bsqwn4lkq",
+    "ervpdmaujxtrzfe",
+    "xtj0s176y7nlvqh",
+    "xyun2wpop4obkt6",
+    "bv6uc7lrl89u5xb",
+    "33vjftd1l845ruw",
+    "ql9c70l3bpoceag",
+    "r8miy8txqruwn3i",
+    "2xnvrj01zqi12ps",
+    "n14su4g1ysmu1vi",
+    "sqbe1x66s7wtl9j",
+    "xfdqzr1tetjpozn",
+    "zt54gx08pxt5elp",
+    "jiqo11nzj53g1up",
+    "iat1z5geu0h5hgk",
+    "pyjwq275tlq77ul",
+    "vnbavdw4tev0gdh",
+    "tt43nrru9ykmbcy",
+    "9olx5pv6unn8d5w",
+    "44meo99hk2l731c",
+    "5cz4wdk97msswj5",
+    "ms7s2sp4p2ki8qm",
+    "z5ebz5xgjhmsom8",
+    "8w4a5fj1mcpt8ht",
+    "bwpr6v8xofaodyn",
+    "zwmld0q0jkh1srd",
+    "z620y5hgkv66piv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.208Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.208Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "ay23o6upfc7zfbe"
+    }
+  ]
+}

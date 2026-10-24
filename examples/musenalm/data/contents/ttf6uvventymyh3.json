@@ -1,0 +1,45 @@
+{
+  "annotation": "Agnes. Bruchstücke einer ländlichen Todtenfeyer. 1812 (Sammlung INr 34053, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Als du dein Aug' einst von der Erde Auen / Zu dem des Himmels hieltst empor gerichtet,",
+  "language": [],
+  "musenalm_id": 34070,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVII.",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.668Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "1qapbnj9eeizv4a"
+    }
+  ]
+}

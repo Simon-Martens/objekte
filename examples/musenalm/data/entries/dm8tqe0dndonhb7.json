@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–82, SS1–58, SS1–34, SS1–60",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1848",
+    "norm": "~",
+    "biblio": 200869,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3449,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1848",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / auf das Jahr 1848 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Fünfundzwanzigstes Bändchen. / Enthält: / Das salische Gesetz. / Lustspiel in 2 Aufzügen. / Der Plagegeist. / Scherz in 3 Acten. / Ein Zimmer mit zwei Betten. / Schwank in 1 Aufzuge. / § 213, oder: / Der Ehemann ist seiner Frau Schutz schuldig. / Lustspiel in 1 Aufzuge. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1848",
+  "updated": "2026-06-11 10:18:55.495Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "4m63dzoy7yl5kdj"
+  ],
+  "contents": [
+    "ndzwpwmfikvzkgn",
+    "hdgtycrzb18p27x",
+    "chx3x0r0wi5bpfk",
+    "djxw9dl3n5nj7da",
+    "vf4y1eda4fsjixo",
+    "l3jtaqidezhm3n5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.481Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.481Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "qmcrdrluzqrypzl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.222Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.222Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "t7u6ivyrifk38x9"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 3. /) Illustration zu »Der Hungertod, eine spanische Novelle« INr 92895, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sein Tod besiegelt unser Unglück!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Matthaei J. Blaschke sc.",
+  "scans": [
+    "alm_4082_92896_q4g6i5ss0b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sein Tod besiegelt unser Unglück!",
+  "updated": "2013-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.247Z",
+      "agent": "k01z45djkjhmx1a",
+      "source_id": "csv9igtfu6cka1d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.247Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "g7bq758kzw2iin5"
+    }
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.290Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118524461",
+          "label": "Delacroix, Eugène"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116088451",
+          "label": "Devéria, Achille"
+        }
+      ],
+      "dateOfBirth": [
+        "1798-12-05"
+      ],
+      "dateOfDeath": [
+        "1875-11-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Attributed to Alexandre-Marie Colin / Formerly attributed to Théodore Géricault"
+          ],
+          "creditText": [
+            "Own work, Theo (talk&nbsp;· contribs)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Alexandre%20Colin%20%28self%20portrait%29.JPG",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0",
+              "name": "Creative Commons Attribution-Share Alike 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Alexandre%20Colin%20%28self%20portrait%29.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Alexandre%20Colin%20%28self%20portrait%29.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-04T15:33:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1052291805/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1365854442",
+          "label": "Colin, Adèle-Anaïs"
+        },
+        {
+          "forename": [
+            "Paul-Alfred"
+          ],
+          "surname": [
+            "Colin"
+          ]
+        },
+        {
+          "forename": [
+            "Paul Hubert"
+          ],
+          "surname": [
+            "Colin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1367760216",
+          "label": "Noël, Laure"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1034264850",
+          "label": "Leloir, Héloïse"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1052291805",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1367760216",
+          "label": "Noël, Laure"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1365854442",
+          "label": "Colin, Adèle-Anaïs"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1034264850",
+          "label": "Leloir, Héloïse"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118524461",
+          "label": "Delacroix, Eugène"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1052291805",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Colin, Alexandre-Marie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alexandre-Marie"
+        ],
+        "surname": [
+          "Colin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "publication": [
+        "Jeux des jeunes filles de tous les pays"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12225764k"
+        },
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb144387288"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr93001448"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7739547"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2833555"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1052291805/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alexandre-Marie_Colin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000073611778"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1052291805"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Colin, Alexandre",
+        "Colin, A.",
+        "Colin, Alexandre Marie"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alexandre Marie"
+          ],
+          "surname": [
+            "Colin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Colin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Colin"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:07:57Z",
+    "gnd_query_biographical_data": "1798-1875",
+    "gnd_query_name": "colin, alexandre marie"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 427,
+  "name": "Colin, Alexandre Marie",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VII, 204",
+  "updated": "2026-06-11 13:29:21.900Z",
+  "uri": "https://d-nb.info/gnd/1052291805",
+  "editor": ""
+}

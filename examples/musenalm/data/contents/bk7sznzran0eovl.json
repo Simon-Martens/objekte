@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 11036, Obj 178)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Nach meinem ersten Wort muß sich der größte / Mann / So wie der kleinste Bettler fügen.",
+  "language": [],
+  "musenalm_id": 11038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 180,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Jünger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.535Z",
+      "agent": "wbllku5shw1eqif",
+      "source_id": "xj3s52yhcjyfwv0"
+    }
+  ]
+}

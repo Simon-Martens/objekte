@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, S I vT, S III T, SS V-VIII Vrwrt d Hrsg, S IX I-Verz, SS 1-245",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Tribun, Der. Geschichtliches Taschenbuch für das deutsche Volk. 1846",
+    "norm": "",
+    "biblio": 410708,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-04-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4708,
+  "parallel_title": "",
+  "place_statement": "Hannover (C. F. Kius)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Tribun, Der. Geschichtliches Taschenbuch für das deutsche Volk. 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Adolf Bock",
+  "subtitle_statement": "",
+  "title_statement": "Der Tribun. / Geschichtliches Taschenbuch / für das deutsche Volk. / Herausgegeben / von / Adolf Bock. / Hannover, 1846. / Verlag von C. F. Kius",
+  "updated": "2026-06-11 10:18:54.950Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "lis27xbw13q2e3o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.632Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.632Z",
+      "agent": "wyumhqugnicknt1",
+      "source_id": "tsgrt3vtmbckjvb"
+    }
+  ]
+}

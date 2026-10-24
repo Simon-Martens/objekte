@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Satyrisch theologischer 1800",
+    "norm": "",
+    "biblio": 100176,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2189,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leupold)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender, Satyrisch theologischer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; nicht bei L/R; H.-G. III, 508",
+  "responsibility_statement": "F. A. Leupold",
+  "subtitle_statement": "",
+  "title_statement": "Satyrischer / theologischer Kalender / auf / das Jahrhundert 1800. / In allerlei Nutz und Anwendung. / Mit einem Titelkupfer. / In Kommission / bei dem Buchhändler F. A. Leupold / in Leipzig",
+  "updated": "2026-06-11 10:18:55.897Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "b4sgc85kifmobt1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "2wqvqmjjgdtj21g",
+      "source_id": "2lfoyfnpzb3q2lh"
+    }
+  ]
+}

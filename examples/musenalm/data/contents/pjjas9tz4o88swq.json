@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied der Freude« von v. Schmidt-Phiseldek INr 4299, Obj 89 (Photos 4300,01; 4300,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4300,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied der Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grönland",
+  "scans": [
+    "alm_94_4300_01_y2dlcxjq89.jpg",
+    "alm_94_4300_02_4bv6ey23cb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied der Freude",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.123Z",
+      "agent": "t4tgiy2ivvm5rbd",
+      "source_id": "uizp6iv3pr8eemo"
+    }
+  ]
+}

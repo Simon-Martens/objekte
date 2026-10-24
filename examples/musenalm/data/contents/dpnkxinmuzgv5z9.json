@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 29904, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Weit ausgespannt sein goldnes Klanggefieder / Ein kühner Schwan in einer Göttin Schooße,",
+  "language": [],
+  "musenalm_id": 29910,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harfnerin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Silvio Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harfnerin",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.300Z",
+      "agent": "rw4d1lc8bcz0sk7",
+      "source_id": "8j0cu1pc64pkr90"
+    }
+  ]
+}

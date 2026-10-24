@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Der Kaffee« von Röller (INr 130292, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Fest gemauert in der Erden / Steht die Form, aus Lehm gebrannt. / Heute muss die Glocke werden, Frisch, Gesellen! seyd zur Hand.",
+  "language": [],
+  "musenalm_id": 130291,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied von der Glocke, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied von der Glocke, / von / Schiller",
+  "updated": "2009-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.064Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "fferdevg0p909bl"
+    }
+  ]
+}

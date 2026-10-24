@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 10242, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Zu dem zweifelhaften Bunde, / Der des Lebens Freyheit raubt",
+  "language": [],
+  "musenalm_id": 9595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu dem zweifelhaften Bunde, / Der des Lebens Freyheit raubt…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.210Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "yenml9urvg6vr55"
+    }
+  ]
+}

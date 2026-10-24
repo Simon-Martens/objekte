@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Gegenstück zu einem Gedicht: Die Weihung, im Frauentaschenbuch 1819. s. Gedicht »Die Weihung« von Rese in: Frauentaschenbuch 1819; INr 26969",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Ach! wohl hart ist's, hinzusinken / In der Jugensonne Licht!",
+  "language": [],
+  "musenalm_id": 83880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Mädchens Bitte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Mädchens Bitte",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.679Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "h8m8ze6tn3x4y25"
+    }
+  ]
+}

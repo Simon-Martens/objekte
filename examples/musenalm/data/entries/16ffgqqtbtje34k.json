@@ -1,0 +1,127 @@
+{
+  "annotation": "§$ vermutl. fehlt Titelgraphik",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 2 BB, B I-Verz, SS 1-441 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Fortuna 1828",
+    "norm": "~",
+    "biblio": 408002,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-08-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1773,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler u. von Manstein)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Fortuna 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 96; Goed VIII. 113, 265",
+  "responsibility_statement": "Franz Xaver Told",
+  "subtitle_statement": "",
+  "title_statement": "FORTUNA. / Ein Taschenbuch / für / das Jahr 1828. / Herausgegeben / von / FRANZ XAVER TOLD. / Fünfter Jahrgang / mit Sechs Kupferstichen / WIEN / bey Tendler und von Manstein",
+  "updated": "2026-06-11 10:18:54.631Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "vaygw2s8b8faqry"
+  ],
+  "contents": [
+    "832xiqqaoow17kw",
+    "c8a5llyjbt05mgq",
+    "pvdsbr0s20vctla",
+    "rqxcgetvki8mf7v",
+    "leycsrfsbxlqxgc",
+    "5rsc98y8m1ny7qp",
+    "x2u1tojh9lw5si2",
+    "vkwbs4yuhgy3hs1",
+    "ynqzqrqxjblvq5o",
+    "vo0zrz8p1xsjifq",
+    "u674zoq2odz7nfo",
+    "y3a9474ovwwb8rx",
+    "qpoabi1fwp4ztsn",
+    "usnun7dabcll46r",
+    "vpaw9eim5dfqfwv",
+    "me400kqawgwk7vf",
+    "1wnpale5s7dfs23",
+    "lx6oq1g19dekoiu",
+    "kh90vuka7z8dfmt",
+    "vus8isgqubwrmel",
+    "kx7z4v4qnbz21pc",
+    "xem5ajwj7q7uzus",
+    "3xfgspwhon40puf",
+    "tue4tlq0fj62qh7",
+    "cms03mu7x9ujixn",
+    "o5gxdx0zzfsv7si",
+    "9ra6stiwo00viqn",
+    "3t6h6k5dp7t0biu",
+    "e2q9wlbntd7mrmu",
+    "dkcu19uhnqle66z",
+    "u5ucr1i3d6a1qa8",
+    "n36g0fvs1gakjiu",
+    "ej8kik8iyajbcyg",
+    "380x3t50bo88e9o",
+    "v1hgrk30nns6cdw",
+    "6znu2qc18bkcs10",
+    "6twsh4wiyvz22qi",
+    "aljqktlf7alj1qm",
+    "e6gd4n3hn6w4a0s",
+    "rd18hoiv4mvcpcn",
+    "4dmtnyho2dwf23y",
+    "1b0m8mr279wab5a",
+    "dma3k9yt2zclxef",
+    "zsx3oqlli7ku3a5",
+    "sfkkb6h3jt2irhr",
+    "r13fw9ryrs5bkd0",
+    "nqmuoj2zdj1xpfl",
+    "sdllx85tofh36aj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "lxngazxhjdim5r0",
+      "source_id": "4zwjiou6k83dygt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.970Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.970Z",
+      "agent": "tglq0d4pyb420do",
+      "source_id": "d92t1ty0g74ibx8"
+    }
+  ]
+}

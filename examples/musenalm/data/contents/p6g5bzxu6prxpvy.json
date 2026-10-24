@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Versteigerung« von F. Bührlen INr 30051, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30052,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die Versteigerung, von Fr. Ludw. Bührlen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_389_30052_dvzq9j1mda.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die Versteigerung, von Fr. Ludw. Bührlen",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.535Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "c7qc4x2x0fcd0hb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.535Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "xgr6ivkewzeqjo6"
+    }
+  ]
+}

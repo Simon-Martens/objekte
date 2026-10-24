@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Auf die Ohren! lerne hören / Auch kein Horchen ist verboten / Jeder Laut erklingt von Lehren / Der Lebendigen, der Todten:",
+  "language": [],
+  "musenalm_id": 45296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aller Welt Gemeinlehre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aller Welt Gemeinlehre",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.294Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "h8en1fikba2bm1o"
+    }
+  ]
+}

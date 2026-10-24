@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Ueber den Bergen und Thälern des Rheines leuchtete ein prächtiger Septembertag.",
+  "language": [],
+  "musenalm_id": 44503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Studienreise. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Studienreise. / Novelle",
+  "updated": "2006-07-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.407Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "fpqo8bitd10fmpy"
+    }
+  ]
+}

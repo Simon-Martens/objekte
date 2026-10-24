@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 40686, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "495",
+  "incipit_statement": "Immer derselbige Sinn! Was kam, was entschwun- / den, geblieben, / Nichts von allem gewahrt, immer derselbige Sinn:",
+  "language": [],
+  "musenalm_id": 40691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unheilbare",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto, Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Unheilbare",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.012Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "kc9eje39c7oo3l5"
+    }
+  ]
+}

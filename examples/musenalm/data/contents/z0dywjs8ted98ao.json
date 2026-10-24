@@ -1,0 +1,45 @@
+{
+  "annotation": "28. Nachträge zu den (ungedruckten) Kindertodtenliedern (Sammlung INr 25517, Obj 48) Gedichte (Sammlung INr 25479, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Wenn ich euer denke, / Ists alsob sich senke / Himmel in die Brust,",
+  "language": [],
+  "musenalm_id": 25523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.049Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "p9vijr8ln0iag3b"
+    }
+  ]
+}

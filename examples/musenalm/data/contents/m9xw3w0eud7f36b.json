@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33373, Ob 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scenen aus der Kinder- und Jugendwelt. Der erste Gang in die Schule #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_463_33394_4c1mf6nk6x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scenen aus der Kinder- und Jugendwelt. Der erste Gang in die Schule #",
+  "updated": "2003-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "0vrq5k9i302atvo"
+    }
+  ]
+}

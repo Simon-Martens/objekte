@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Wir haben jetzt ein gedrängtes aber vollständiges Gemälde von dem merkwürdigen Archipelagus zu geben versucht,",
+  "language": [],
+  "musenalm_id": 42373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Philippinen] Allgemeine Betrachtungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Philippinen] Allgemeine Betrachtungen",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.387Z",
+      "agent": "q5rzjlx40lnqx6r",
+      "source_id": "kkdvhlhy5mnr6wq"
+    }
+  ]
+}

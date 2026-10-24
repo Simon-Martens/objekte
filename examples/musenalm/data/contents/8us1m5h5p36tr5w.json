@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Es steige wer da will, durch Kunst und Schmei- / cheleien, / Den glatten Pfad des Hofs bis zu dem Thron / empor,",
+  "language": [],
+  "musenalm_id": 11468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "84. / Sonnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "84. / Sonnet",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.507Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "pnc74ouw4yxt6a6"
+    }
+  ]
+}

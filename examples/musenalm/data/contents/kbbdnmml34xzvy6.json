@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Der Esel trat als Suplikant / Zum Löwen. Sir, darf ich es wagen,",
+  "language": [],
+  "musenalm_id": 2927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Esel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Esel",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.139Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "le2qw340igqudiq"
+    }
+  ]
+}

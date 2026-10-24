@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. / Erklärung der Kupfer (Sammlung INr 60085, Obj 22) s. Graphik INr 60087, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Die Anekdote, auf welche sich diese Vorstellung gründet, ist aus den merkwürdigen Briefen genommen, welche die letzten Hefte, der zu früh geendigten Girtannerschen Annalen, enthalten.",
+  "language": [],
+  "musenalm_id": 60086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der biedere Neu-Franke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der biedere Neu-Franke",
+  "updated": "2008-09-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.135Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "db5j6z3lmmt0lwu"
+    }
+  ]
+}

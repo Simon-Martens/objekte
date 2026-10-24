@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Die Kinder des verworfnen Drachen, / Die Laster, reisten über Land,",
+  "language": [],
+  "musenalm_id": 96873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Laster und die Strafe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lichtwer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Laster und die Strafe",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.361Z",
+      "agent": "nn1x55o0j1701k4",
+      "source_id": "ymykzeg72kwwed0"
+    }
+  ]
+}

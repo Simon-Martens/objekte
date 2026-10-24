@@ -1,0 +1,56 @@
+{
+  "annotation": "Tabulae votivae (Sammlung INr 38033, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Was bedeutet dein Werk? so fragt ihr / den Bildner des Schönen,",
+  "language": [],
+  "musenalm_id": 38129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bedeutung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bedeutung",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.885Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "0pylmbai66wro6q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.885Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "jfdpnggne9dxuyu"
+    }
+  ]
+}

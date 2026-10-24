@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72340,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otto Carl Friedrich von Voss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_828_72340_wk509i87j4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Otto Carl Friedrich von Voss",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.612Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "ygs33gaezneb6hl"
+    }
+  ]
+}

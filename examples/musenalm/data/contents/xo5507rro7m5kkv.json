@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Übersetzung ins Provencalische s. INr 23382, Obj 36 und einer Musikbeigabe s. INr 23384, Obj 38 /) Herbst (Sammlung INr 23373, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Sagt, wo sind die Veilchen hin, / Die so freudig glänzten,",
+  "language": [],
+  "musenalm_id": 23383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sagt, wo sind die Veilchen hin, / Die so freudig glänzten,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.203Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "i36jm567cdgjtl2"
+    }
+  ]
+}

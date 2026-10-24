@@ -1,0 +1,45 @@
+{
+  "annotation": "Frische Liedlein in gutem Tone (Sammlung INr 680329, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Schön ist es in der Schenke, / Wo's Fläschchen Rheinwein lacht",
+  "language": [],
+  "musenalm_id": 68030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.246Z",
+      "agent": "xojpiwzkdga93tk",
+      "source_id": "49m8cwoprquddib"
+    }
+  ]
+}

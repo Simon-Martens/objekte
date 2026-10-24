@@ -1,0 +1,45 @@
+{
+  "annotation": "Teutsche Gedichte (Sammlung INr 131914, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Eure Sonnen sollen wieder tagen, auf Hellenen, / Männer! auf zu siegen / Laßt empor des Zornes Flammen schlagen, wollt / nicht ew'gem Tode ihr erliegen.",
+  "language": [],
+  "musenalm_id": 131915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Hellenische Stimme (Aug. 1821.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Hellenische Stimme (Aug. 1821.)",
+  "updated": "2013-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.045Z",
+      "agent": "y3vcu2p4zhikm7w",
+      "source_id": "zgwaesxhye4a919"
+    }
+  ]
+}

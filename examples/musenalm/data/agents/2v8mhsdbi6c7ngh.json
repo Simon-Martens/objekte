@@ -1,0 +1,282 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1845",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.360Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1784"
+      ],
+      "dateOfDeath": [
+        "1845"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Hortense Haudebourt-Lescot"
+          ],
+          "creditText": [
+            "originally uploaded to de.wikipedia&nbsp;by Thyra (talk&nbsp;· contribs)&nbsp;on 29 December 2007, 01:33&nbsp;under the file name Hortense Haudebourt-Lescot.jpg.(+/−)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hortense%20Haudebourt-Lescot.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hortense%20Haudebourt-Lescot.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hortense%20Haudebourt-Lescot.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2016-11-15T12:28:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1011521512/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1011521512",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1011521512",
+      "oldAuthorityNumber": [
+        "(DE-588a)1011521512",
+        "(DE-588c)7744705-0"
+      ],
+      "preferredName": "Haudebourt-Lescot, Antoinette Cécile Hortense",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Antoinette Cécile Hortense"
+        ],
+        "surname": [
+          "Haudebourt-Lescot"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037223-6",
+          "label": "Malerin"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149658703"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2016117093"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71658029"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1396313"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1011521512/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hortense_Haudebourt-Lescot"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Hortense_Haudebourt-Lescot"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000119360856"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1011521512"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1011521512"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Lescot, Antoinette-Cécile-Hortense",
+        "Lescot, Hortense",
+        "Lescaut, Antoinette Cécile Hortense Haudebourt-",
+        "Viel, Hortense",
+        "Haudebourt-Lescot, Antoinette-Cécile-Hortense",
+        "Lescot, Antoinette Cécile Hortense"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Antoinette Cécile Hortense Haudebourt-"
+          ],
+          "surname": [
+            "Lescaut"
+          ]
+        },
+        {
+          "forename": [
+            "Antoinette-Cécile-Hortense"
+          ],
+          "surname": [
+            "Haudebourt-Lescot"
+          ]
+        },
+        {
+          "forename": [
+            "Antoinette Cécile Hortense"
+          ],
+          "surname": [
+            "Lescot"
+          ]
+        },
+        {
+          "forename": [
+            "Antoinette-Cécile-Hortense"
+          ],
+          "surname": [
+            "Lescot"
+          ]
+        },
+        {
+          "forename": [
+            "Hortense"
+          ],
+          "surname": [
+            "Lescot"
+          ]
+        },
+        {
+          "forename": [
+            "Hortense"
+          ],
+          "surname": [
+            "Viel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hortense_Haudebourt-Lescot",
+          "label": "https://de.wikipedia.org/wiki/Hortense_Haudebourt-Lescot"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:40:36Z",
+    "gnd_query_biographical_data": "1784-1845",
+    "gnd_query_name": "haudebourt-lescot, antoinette cécile hortense"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1090,
+  "name": "Haudebourt-Lescot, Antoinette Cécile Hortense",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVI, 125",
+  "updated": "2026-06-11 13:29:22.823Z",
+  "uri": "https://d-nb.info/gnd/1011521512",
+  "editor": ""
+}

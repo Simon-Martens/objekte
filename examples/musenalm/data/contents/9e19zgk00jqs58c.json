@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 97197, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Auf zur Schlacht! / Thor ruft uns aus Aasgards Hallen! / Donnerschläge krachend fallen!",
+  "language": [],
+  "musenalm_id": 97196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlachtgesang / Mit einer Tonweise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schlachtgesang / Mit einer Tonweise",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.618Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "4k02uicgwlf724g"
+    }
+  ]
+}

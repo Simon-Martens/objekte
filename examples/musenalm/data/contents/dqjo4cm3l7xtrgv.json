@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 99958-99960, Obj 122-124",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder aus Italien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cajetan Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder aus Italien",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.912Z",
+      "agent": "ett5544anganpff",
+      "source_id": "tx9gidgm7bvg3o6"
+    }
+  ]
+}

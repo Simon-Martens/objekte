@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 13 BB Kal, ar: SS 1-222 darin 8 GG, ar1: SS 1-160",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Braunschweig) 1799",
+    "norm": "~",
+    "biblio": 101319,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1124,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Braunschweig) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 125; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / KALENDER / auf / das Jahr 1799. / enthaltend / die Geschichte Italiens / und / ein genealogisches Verzeichniss / mit / historisch-genealogisch-statistischen Nachrichten / von den neuesten Begebenheiten / der Länder und ihrer Bewohner, / nebst / Kupfern und Landkarte. / Braunschweig / in der Schulbuchhandlung",
+  "updated": "2026-06-11 10:18:55.882Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "ehxz2duas9qihrz"
+  ],
+  "contents": [
+    "wpst7d4zyn5s9cs",
+    "ed1v5qg1a31fxan",
+    "5yawmjpac39hr9r",
+    "wj5krxlmpnqbeg4",
+    "set2v7wpli9i4e6",
+    "yhpt7zp1sw23t7i",
+    "8bblh8ui82nnlg9",
+    "igze2quofpoufkq",
+    "2x90cyrw18au6ht",
+    "g5vvmrrj9ri6hj5",
+    "7ggaskpm7otlg3m",
+    "8c4sq761jekiwmy",
+    "vdjkx4zqtsggsw8",
+    "5lsczpa5eel1fde",
+    "4cmtjn7nzcpade4",
+    "90n0j4f6bxjkuag",
+    "qjhi7a2g0viyxsl",
+    "7qz2vvh16rm5cra",
+    "2jvs755stab7iev",
+    "jkw6pgkhqc0q97h",
+    "en7l8u90mzs30xe",
+    "1uhbgwcxpfe78p7",
+    "zoxrs3ndrwks15a",
+    "gfdu6wlsn5egbyu",
+    "7480wtlnniye79n",
+    "thuiskarmeneh13",
+    "22by9h7ztgwbg9a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "kfywe1nipsbm9r2"
+    }
+  ]
+}

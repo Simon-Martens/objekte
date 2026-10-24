@@ -1,0 +1,109 @@
+{
+  "annotation": "§$ wahrscheinlich fehlt T; nach dem Kalendarium: der autopsierte nT /) Erscheinungsverlauf unklar. Vorh.: Jgg 1809, 1814, 1815 Wien (Grämmer). Bei Grämmer erschien 1792-1833 der Toilettenkalender für Frauenzimmer unter versch. Titeln",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, 14 BB Kal darin 12 GG, nT, I-Verz, ar: SS 1-36, ar1: SS 1-8 Tab, 8 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichterfreunde (Wien) 1809",
+    "norm": "~",
+    "biblio": 409629,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-09-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4585,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Dichterfreunde (Wien) 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichterfreunde. / Mit 13 von Herrn Blaschke gestochenen / Kupfern. / Wien, 1809. / Bey Joseph Grämmer, Buchbinder",
+  "updated": "2026-06-11 10:18:55.809Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "lms1tpryouzw53d"
+  ],
+  "contents": [
+    "0n0t2qo9snf05io",
+    "0b0x0h0tg36832p",
+    "pffrv0bawige17k",
+    "i4s8h8yqqopwzn0",
+    "p1nagvrgj8n17kz",
+    "cfpq82v9n2eqgsa",
+    "0ni1ke7biunqktq",
+    "dyepn0ledfia3c4",
+    "3xbjv5oeeymc1xm",
+    "9nqls7gqsw2pcfh",
+    "if82qqercx4o5qd",
+    "a38yjer56qw36jc",
+    "n57ajv83odbkokt",
+    "5ruabzgvhydo6df",
+    "3stkj2zlyytubq6",
+    "hlu8l9zyqxu47k1",
+    "vubcphtu0seffle",
+    "uawxgfsyntrouit",
+    "k3s89brgc0i5o6r",
+    "h1f07u6m2vblcrd",
+    "gps6qokwcv4seje",
+    "ngeplgkqct9s3fb",
+    "6o9baad1skvgksf",
+    "vyg5t18fjennsa6",
+    "ezqzq3ysqbx5yp0",
+    "45xxlwpoucw014t",
+    "xeuufx48a00mwys",
+    "48m9ptf8aesmqkd",
+    "dlswnt5krdlbwt2",
+    "4msk1z59flxgwg7",
+    "oqai6xssw88xka8",
+    "utmlhanxnwqwnx5",
+    "qt8d7o4zmktxste",
+    "j4iotwf0wc38bby",
+    "myvcr95474av9lc",
+    "pm5au6rj4lmu4rq",
+    "rublhni1afhjvb9",
+    "xjikhutauirkdf5",
+    "opd31g0vxny7l81",
+    "ju6oxk0308irxbs",
+    "ugurwhzapzguzh4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.927Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.927Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "gugtq2sum1ta66x"
+    }
+  ]
+}

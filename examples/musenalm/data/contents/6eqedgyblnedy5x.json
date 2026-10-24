@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Vernichtiger der Sterblichkeit, / Tod, du benimmst uns unsrer Erde, / Und alle Plagen dieser Zeit!",
+  "language": [],
+  "musenalm_id": 118208,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Lied vom Tode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Lied vom Tode",
+  "updated": "2010-02-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.583Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "tjnyw0gnpjtjqh1"
+    }
+  ]
+}

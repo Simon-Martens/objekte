@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Und kommt von dir ein Schmerz, / Er soll willkommen seyn!",
+  "language": [],
+  "musenalm_id": 42586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Treue",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.257Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "polpmmvb1k57im8"
+    }
+  ]
+}

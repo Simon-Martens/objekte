@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei neue Lieder (Sammlung INr 23050, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Die Blumen sind verwelket, / Die Du empfingst von mir;",
+  "language": [],
+  "musenalm_id": 23052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.893Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "2hghfguq1qlfj8i"
+    }
+  ]
+}

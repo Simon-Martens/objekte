@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Wanderleben (Sammlung INr 80349, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Ein Wanderbursch mit dem Stab in der Hand / Kommt wieder heim aus dem fremden Land.",
+  "language": [],
+  "musenalm_id": 80351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Erkennen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Erkennen",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.013Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "upnrevdt0zhcqbe"
+    }
+  ]
+}

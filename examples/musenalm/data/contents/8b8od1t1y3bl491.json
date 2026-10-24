@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Ich möchte nicht ein Kaiser seyn! / Ach! der erwacht an jedem Morgen / Zu neuen, immer größern Sorgen,",
+  "language": [],
+  "musenalm_id": 52929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kaiser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kaiser",
+  "updated": "2007-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.477Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "y8hp2hei1u28dms"
+    }
+  ]
+}

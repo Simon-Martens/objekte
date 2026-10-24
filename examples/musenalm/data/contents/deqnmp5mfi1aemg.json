@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg« INr 47681, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dieser Kranz sey euerer Unschuld Preiss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch del. et sc. Wien",
+  "scans": [
+    "alm_649_47680_54rnuuehy4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dieser Kranz sey euerer Unschuld Preiss",
+  "updated": "2007-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.602Z",
+      "agent": "nhcnwrqiq042uja",
+      "source_id": "akhjpwhv5buw2tw"
+    }
+  ]
+}

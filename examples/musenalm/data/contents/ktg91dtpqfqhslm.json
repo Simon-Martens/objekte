@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder (INr 93373, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Was funkelt ihr so mild mich an? / Ihr Sterne, hold und hehr!",
+  "language": [],
+  "musenalm_id": 93384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fellinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sterne",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.556Z",
+      "agent": "1qmtp93bgh7ryk0",
+      "source_id": "qlrva9le600fkv0"
+    }
+  ]
+}

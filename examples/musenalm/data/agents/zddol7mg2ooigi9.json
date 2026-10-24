@@ -1,0 +1,650 @@
+{
+  "annotation": "",
+  "biographical_data": "1748-1776",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.373Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter, Angehöriger u. Mitbegründer des Göttinger Hainbundes"
+      ],
+      "dateOfBirth": [
+        "1748-12-21"
+      ],
+      "dateOfDeath": [
+        "1776-09-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Christian Benjamin Gottschick / After Adolf Baumann"
+          ],
+          "creditText": [
+            "ÖNB, Porträtsammlung, Inventarnummer PORT_00090113_01 via: http://www.portraitindex.de/documents/obj/oai:baa.onb.at:7670733"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottschick%20nach%20Baumann%20Portr%C3%A4t%20H%C3%B6lty%201844.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottschick%20nach%20Baumann%20Portr%C3%A4t%20H%C3%B6lty%201844.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gottschick%20nach%20Baumann%20Portr%C3%A4t%20H%C3%B6lty%201844.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/186791860",
+        "https://d-nb.info/gnd/160388422",
+        "https://d-nb.info/gnd/187579709",
+        "https://d-nb.info/gnd/1014883490",
+        "https://d-nb.info/gnd/142258679"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:59:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118552023/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118552023",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118552023",
+      "oldAuthorityNumber": [
+        "(DE-588a)186791860",
+        "(DE-588)142258679",
+        "(DE-588)186791860",
+        "(DE-588a)187579709",
+        "(DE-588)160388422",
+        "(DE-588a)1014883490",
+        "(DE-588)187579709",
+        "(DE-588)1014883490",
+        "(DE-588c)4025386-7",
+        "(DE-588a)118552023",
+        "(DE-588a)160388422",
+        "(DE-588a)142258679"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4218420-4",
+          "label": "Neustadt-Mariensee"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "preferredName": "Hölty, Ludwig Christoph Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Christoph Heinrich"
+        ],
+        "surname": [
+          "Hölty"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Haus, Karl: Bekränzet die Tonnen und zapfet mir Wein",
+        "Schubert, Franz: [Auf den Tod einer Nachtigall D 201]",
+        "Abendroth, Walter: Hölty-Trilogie",
+        "Sämtlich hinterlassne Gedichte nebst einiger Nachricht aus des Dichters*",
+        "Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr88004982"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64179984"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q71456"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014883490"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118552023/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/142258679"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160388422"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186791860"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187579709"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Christoph_Heinrich_H%C3%B6lty"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_H%C3%B6lty"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Christoph_Heinrich_H%C3%B6lty"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Christoph_Heinrich_H%C3%B6lty"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109094574"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118552023"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118552023"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118552023.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118552023.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118552023"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118552023"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hölty, Christoph L.",
+        "Hölty, Ludewig Christoph Heinrich",
+        "Hölty, L.H. Chr.",
+        "Hölty, L. H.",
+        "Hoelty, L. H. C.",
+        "Hoelty, Ludwig Heinrich Christian",
+        "Hölty, L. Chr. H.",
+        "Hölty, Ludwig Christian Heinrich",
+        "Hölty, L. H. Chr.",
+        "Hölty, Ludwig H.",
+        "Hoelty, Ludwig Christoph Heinrich",
+        "Hölty, Ludwig C.H.",
+        "Hoelty, Ludwig Heinrich Christoph",
+        "Hoelty, Christoph Ludwig Heinrich",
+        "Hölty, Ludwig Heinrich Christian",
+        "Hölty, Ludwig Heinrich A.",
+        "Hölty, Ludw.",
+        "Hölty, L.H.",
+        "Hölty, Ludwig",
+        "Hölty, Ludwig C. H.",
+        "Hölty, Ludwig Heinrich",
+        "Hölty, Christian L.",
+        "Hölty, Ludewig H.",
+        "Hölty, Christian Ludwig Heinrich",
+        "Hoelty, Ludewig Heinrich Christoph",
+        "Hölty, Ludwig C.",
+        "Chël'ti, L.",
+        "Hoelty, L.H.C.",
+        "Hölty, Christoph Ludwig Heinrich",
+        "Hölty, Ludewig Heinrich Christoph",
+        "Hölty, Ludwig Heinrich Christoph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "L. H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Heinrich Christoph"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich Christian"
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "L. H. C."
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Christoph Heinrich"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "L.H. Chr."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich Christoph"
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "L.H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "L. H. Chr."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Christian Heinrich"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig C. H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Ludwig Heinrich"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Heinrich Christoph"
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich Christian"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Christoph Heinrich"
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig C.H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "L.H.C."
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Chël'ti"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich Christoph"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Christian L."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ludwig Heinrich"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich A."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich"
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph L."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig C."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Ludwig Heinrich"
+          ],
+          "surname": [
+            "Hoelty"
+          ]
+        },
+        {
+          "forename": [
+            "L. Chr. H."
+          ],
+          "surname": [
+            "Hölty"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_H%C3%B6lty",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_H%C3%B6lty"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:47:33Z",
+    "gnd_query_biographical_data": "1748-1776",
+    "gnd_query_name": "hölty, ludwig christoph heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1230,
+  "name": "Hölty, Ludwig Christoph Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 1040",
+  "updated": "2026-06-11 13:29:22.971Z",
+  "uri": "https://d-nb.info/gnd/118552023",
+  "editor": ""
+}

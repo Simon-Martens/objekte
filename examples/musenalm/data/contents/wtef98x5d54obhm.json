@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 12. /) Graphik nach dem Kalendarium s. Textbezug INr 82305, Obj 81",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82242,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Meil inv. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv. et sc.",
+  "scans": [
+    "alm_3854_82242_zmxj3vfzwb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.126Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "c4evjuqbjcise85"
+    }
+  ]
+}

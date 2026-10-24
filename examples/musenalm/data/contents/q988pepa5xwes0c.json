@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai paginiert 3. /) Illustration zu »Theseus« von W. G. Becker INr 10372, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62165,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theseus erlegt den Minothaurus und rettet / die jungen Athenienser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. Cl. Kohl V.",
+  "scans": [
+    "alm_133_62165_imwdvt1ygx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theseus erlegt den Minothaurus und rettet / die jungen Athenienser",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.845Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "78f07q2o47himaf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.845Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "8fwyhnk87lg1vgt"
+    }
+  ]
+}

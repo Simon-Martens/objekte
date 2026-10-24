@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 3. /) Illustration zum Gedicht »Der Königssohn« von S. Ch. Pape INr 4291, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein armer Mann ist todt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Böttger sc.",
+  "scans": [
+    "alm_94_4400_o1ifngm198.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein armer Mann ist todt",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "wcgp34o9bo9vgcc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "iypyb8g8bxed1eq",
+      "source_id": "yh0yb75rnzd93ze"
+    }
+  ]
+}

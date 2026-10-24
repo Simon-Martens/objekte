@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Schon mahnen die Flocken / In Bart und in Locken / Der Winter sey nah'",
+  "language": [],
+  "musenalm_id": 114155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die fröhliche Ansicht. / Trinklied für Greise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die fröhliche Ansicht. / Trinklied für Greise",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.523Z",
+      "agent": "5dlgex4wmvni1qx",
+      "source_id": "641kfujvn0ah8t0"
+    }
+  ]
+}

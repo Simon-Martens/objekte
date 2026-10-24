@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug u. Anmerkung INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34196,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HEILIGE FAMILIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach A. Thorwaldsen gest. von C. W. Schenk in Braunschweig",
+  "scans": [
+    "alm_474_34196_cq3eewfx7f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HEILIGE FAMILIE",
+  "updated": "2003-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.765Z",
+      "agent": "1zd0cuoegg3dmx5",
+      "source_id": "3b9f7q9rfwshp8a"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.765Z",
+      "agent": "voq5dlml9870uhq",
+      "source_id": "7kewhue8o9mjkd6"
+    }
+  ]
+}

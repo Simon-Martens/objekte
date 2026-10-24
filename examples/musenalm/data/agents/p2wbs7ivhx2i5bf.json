@@ -1,0 +1,443 @@
+{
+  "annotation": "",
+  "biographical_data": "1794-1854",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.253Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1794-09-30"
+      ],
+      "dateOfDeath": [
+        "1854-11-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Joseph Begas"
+          ],
+          "creditText": [
+            "Villa Grisebach"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Joseph%20Begas%20Selbstbildnis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Joseph%20Begas%20Selbstbildnis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Joseph%20Begas%20Selbstbildnis.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1157488285",
+        "https://d-nb.info/gnd/172758157"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-26T00:31:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119181304/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117582255",
+          "label": "Begas, Karl, Sohn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11610905X",
+          "label": "Begas, Oskar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119469081",
+          "label": "Begas, Reinhold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117582220",
+          "label": "Begas, Adalbert Franz Eugen"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119181304",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11610905X",
+          "label": "Begas, Oskar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119469081",
+          "label": "Begas, Reinhold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117582220",
+          "label": "Begas, Adalbert Franz Eugen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117582255",
+          "label": "Begas, Karl, Sohn"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119181304",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/174182333",
+          "label": "Begas, Familie : 17. -20. Jh."
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)1157488285",
+        "(DE-588c)4352895-8",
+        "(DE-588a)172758157",
+        "(DE-588)172758157",
+        "(DE-588a)119181304"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4024225-0",
+          "label": "Heinsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Begas, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Begas"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Der grosse Christoph"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr95029382"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/216452770"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q66123"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157488285"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119181304/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172758157"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Joseph_Begas"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Joseph_Begas"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Joseph_Begas"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066609821"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119181304"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119181304"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119181304.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119181304.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119181304"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119181304"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Begas, Karl Joseph, der Ältere",
+        "Begas, Carl Joseph",
+        "Begas, Carl",
+        "Begas, Karl, Vater",
+        "Begas, Karl, der Ältere",
+        "Begas, Carl J.",
+        "Begas, Karl Joseph",
+        "Begasse, Carl Joseph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Joseph"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Joseph"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "nameAddition": [
+            "Vater"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Joseph"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Carl J."
+          ],
+          "surname": [
+            "Begas"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Joseph"
+          ],
+          "surname": [
+            "Begasse"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Joseph_Begas",
+          "label": "https://de.wikipedia.org/wiki/Carl_Joseph_Begas"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:09Z",
+    "gnd_query_biographical_data": "1794-1854",
+    "gnd_query_name": "begas, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 150,
+  "name": "Begas, Karl",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 181",
+  "updated": "2026-06-11 13:29:21.519Z",
+  "uri": "https://d-nb.info/gnd/119181304",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 11452, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Schlummre sanft, geliebtes Kind, / Hier am Mutterbusen! / Werde groß und gut gesinnt,",
+  "language": [],
+  "musenalm_id": 11451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "64. / Wiegenlied für die Frau Capellmeisterin / Naumann. / Die Compos. ist von H. Capellmstr. Himmel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "64. / Wiegenlied für die Frau Capellmeisterin / Naumann. / Die Compos. ist von H. Capellmstr. Himmel",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.515Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "f1gnvln4ir7u9vs"
+    }
+  ]
+}

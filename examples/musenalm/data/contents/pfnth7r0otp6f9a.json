@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Gedichten INr 1634, 9309-9317, Obj 68-77",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Otto der Schütz. / Zehn Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Otto der Schütz. / Zehn Romanzen",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.515Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "05p6wx9lx3fjlcy"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Trommsdorfs f. Ärzte, Chemiker u. Pharmazeutiker 1804",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4294,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch, Trommsdorfs f. Ärzte, Chemiker u. Pharmazeutiker 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 162; L/R 172",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.280Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,238 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.313Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "gemeinsame Schul- und Studienjahre mit Joseph in Breslau, Halle, Heidelberg und Wien; Aufnahme in österreichischen Staatsdienst; Leben in Tirol, als Gubernialrat in Trient; starb als Kreishauptmann in Innsbruck",
+        "Dichter; k.k. Wirklicher Gubernialrat; Kreishauptmann in Trient"
+      ],
+      "dateOfBirth": [
+        "1786-09-14"
+      ],
+      "dateOfDeath": [
+        "1849-01-07"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/175424306"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-21T07:19:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116410221/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118529390",
+          "label": "Eichendorff, Joseph von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116410175",
+          "label": "Eichendorff, Luise von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116410221",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116410175",
+          "label": "Eichendorff, Luise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118529390",
+          "label": "Eichendorff, Joseph von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116410221",
+      "oldAuthorityNumber": [
+        "(DE-588)175424306",
+        "(DE-588a)175424306",
+        "(DE-588a)116410221"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/10132266-5",
+          "label": "Łubowice"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4027096-8",
+          "label": "Innsbruck"
+        }
+      ],
+      "preferredName": "Eichendorff, Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Eichendorff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "publication": [
+        "J.u.W.v.E.'s Jugendgedichte - 1906",
+        "E's Jugendgedichte aus der Schulzeit - 1915"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/62299378"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2575859"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116410221/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/175424306"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Eichendorff"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010397380"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116410221"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Eichendorff",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_von_Eichendorff"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:17:51Z",
+    "gnd_query_biographical_data": "1786-1849",
+    "gnd_query_name": "eichendorff, wilhelm von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 629,
+  "name": "Eichendorff, Wilhelm von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB V, 728",
+  "updated": "2026-06-11 13:29:22.142Z",
+  "uri": "https://d-nb.info/gnd/116410221",
+  "editor": ""
+}

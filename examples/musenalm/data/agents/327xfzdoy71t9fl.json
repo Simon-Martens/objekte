@@ -1,0 +1,145 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.282Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1798"
+      ],
+      "dateOfDeath": [
+        "1832"
+      ],
+      "describedBy": {
+        "dateModified": "2018-01-05T12:09:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1031194746/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1031194746",
+      "id": "https://d-nb.info/gnd/1031194746",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Burkhart, David",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "David"
+        ],
+        "surname": [
+          "Burkhart"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/295062434"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q59653379"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1031194746/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1031194746"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/1031194746"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:04:09Z",
+    "gnd_query_biographical_data": "1798-1837",
+    "gnd_query_name": "burkhart, david"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 351,
+  "name": "Burkhart, David",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B V, 262",
+  "updated": "2026-06-11 13:29:21.804Z",
+  "uri": "https://d-nb.info/gnd/1031194746",
+  "editor": ""
+}

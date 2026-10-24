@@ -1,0 +1,214 @@
+{
+  "annotation": "",
+  "biographical_data": "1744-~1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.262Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1744"
+      ],
+      "dateOfDeath": [
+        "1800"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/109065734X"
+      ],
+      "describedBy": {
+        "dateModified": "2018-02-07T01:15:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/131783610/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "131783610",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/131783610",
+      "oldAuthorityNumber": [
+        "(DE-588a)131783610",
+        "(DE-588)109065734X",
+        "(DE-588c)7531940-8"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Binet, Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louis"
+        ],
+        "surname": [
+          "Binet"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n97848498"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19884944"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3261273"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/109065734X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131783610/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Louis_Binet"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080992046"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/131783610"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Binet, L.",
+        "Binet"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Binet"
+          ]
+        },
+        {
+          "personalName": [
+            "Binet"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T10:56:36Z",
+    "gnd_query_biographical_data": "1744-~1800",
+    "gnd_query_name": "binet, louis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 200,
+  "name": "Binet, Louis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B IV, 39",
+  "updated": "2026-06-11 13:29:21.583Z",
+  "uri": "https://d-nb.info/gnd/131783610",
+  "editor": ""
+}

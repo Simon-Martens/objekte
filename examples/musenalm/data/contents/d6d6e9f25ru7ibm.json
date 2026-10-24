@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Dritte Lieferung. Aus Washington Irving's Columbus. - Aus Cooper's rothem Freibeuter. -Grenzbewohner (Sammlung INr 43819, Obj 4) s. Graphik INr 43827, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Don Francisco de Bobadilla, Beamter beim Hofstaat des Königs, erhielt im Jahr 1500 in Folge mannigfacher Klagen,",
+  "language": [],
+  "musenalm_id": 43826,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[I. Aus Washington Irving's Columbus] 4. / Columbus wird in Ketten nach Spanien gebracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[I. Aus Washington Irving's Columbus] 4. / Columbus wird in Ketten nach Spanien gebracht",
+  "updated": "2006-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.457Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "s8bz0x309dwsyzd"
+    }
+  ]
+}

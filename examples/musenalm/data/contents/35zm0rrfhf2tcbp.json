@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "In Basel befand sich bis 1805 auf dem Prediger-Kirchhof in der St. Johannes Vorstadt ein auf Mauer gemalter Todtentanz,der oft und viel unserm Künstler zugeschrieben wurde,",
+  "language": [],
+  "musenalm_id": 54010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Todtentanz von Basel. / (Fragment aus Holbeins Lebens-Geschichte.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Todtentanz von Basel. / (Fragment aus Holbeins Lebens-Geschichte.)",
+  "updated": "2008-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.820Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "c0oazp0ycv78kp2"
+    }
+  ]
+}

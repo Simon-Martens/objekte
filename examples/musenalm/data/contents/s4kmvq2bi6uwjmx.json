@@ -1,0 +1,45 @@
+{
+  "annotation": "An Jean Paul (Sammlung INr 1417, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Böse bestrafend erglühst du, ein göttlich zürnender Paulus. / Aber auch Liebe regiert, sanfter Johannes! dein Herz.",
+  "language": [],
+  "musenalm_id": 19371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.911Z",
+      "agent": "08be5slqlt4odk1",
+      "source_id": "auiwcy05hmco7u5"
+    }
+  ]
+}

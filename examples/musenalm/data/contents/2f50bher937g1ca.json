@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 43264, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43274,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wimpfen im Thal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer del. Haldenwang sc.",
+  "scans": [
+    "alm_567_43274_58a7asxfr7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wimpfen im Thal",
+  "updated": "2006-04-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.773Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.773Z",
+      "agent": "ojcl4on55yemj53",
+      "source_id": "480emea32a2lnkn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.774Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "70f5ma8iymvtb8m"
+    }
+  ]
+}

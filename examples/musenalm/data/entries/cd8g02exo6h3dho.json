@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK-GBV:  3 Jgg 1845-1847",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde der Geologie 1845",
+    "norm": "",
+    "biblio": 407709,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3932,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Schweizerbart)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenbuch für Freunde der Geologie 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Cäsar v. Leonhard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde der Geologie / in allgemein faßlicher Weise bearbeitet / von / Karl Cäsar v. Leonhard. / Erster Jahrgang. / Mit einem Stahlstiche, einer Lithographie und mehrern Zwischendrücken. / Stuttgart. / E. Schweizerbart'sche Verlagsbuchhandlung. / 1845",
+  "updated": "2026-06-11 10:18:54.712Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "19ik4h4lm9f0kx6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.151Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.151Z",
+      "agent": "s85o5v81tb81kng",
+      "source_id": "ikt44b64zoe0o3m"
+    }
+  ]
+}

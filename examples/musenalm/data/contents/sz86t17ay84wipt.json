@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 86313, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Kühle Morgennebel steigen, / Lerchen wirbeln himmelwärts,",
+  "language": [],
+  "musenalm_id": 86316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Ermuthigung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Ermuthigung",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.267Z",
+      "agent": "ut3gc8g2lomjo63",
+      "source_id": "sv3pgirz4940kgp"
+    }
+  ]
+}

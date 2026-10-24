@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus der Oper: Der Narrenthurm von Perinet (Sammlung INr 131415, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Ja ja, so gehts den Mädchen allen, / Im Anfang sind sie delicat, / Kein Mannsbild will recht mehr gefallen,",
+  "language": [],
+  "musenalm_id": 131417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Duett. / Mad. Buchholz. / Hr. Winklemann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Duett. / Mad. Buchholz. / Hr. Winklemann",
+  "updated": "2016-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.034Z",
+      "agent": "k0pr8qnl9uye038",
+      "source_id": "mj5rroa5xbup0oo"
+    }
+  ]
+}

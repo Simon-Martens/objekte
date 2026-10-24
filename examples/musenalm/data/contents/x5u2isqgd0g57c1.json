@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85782,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schauspielhaus in Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. Engraved by Cook",
+  "scans": [
+    "alm_895_85782_zbaqax1fzd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schauspielhaus in Berlin",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.243Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "fjubqksnvwrvcu5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.243Z",
+      "agent": "a7m5750fz1o3qqp",
+      "source_id": "o227vl098739dxf"
+    }
+  ]
+}

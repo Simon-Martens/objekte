@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24055, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Was klopft so schwer, wenn der Tag erwacht, / Wenn der Mittag glüht, wenn der Vollmond lacht,",
+  "language": [],
+  "musenalm_id": 24058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Dichterlehrling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Dichterlehrling",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.000Z",
+      "agent": "y4sojkg698u6ihg",
+      "source_id": "qbw3zsoet2739tk"
+    }
+  ]
+}

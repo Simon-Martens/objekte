@@ -1,0 +1,184 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.502Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1781"
+      ],
+      "describedBy": {
+        "dateModified": "2014-04-25T09:16:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1050298837/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-UA",
+          "label": "Ukraine"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RO",
+          "label": "Rumänien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1050298837",
+      "id": "https://d-nb.info/gnd/1050298837",
+      "periodOfActivity": [
+        "1830"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035304-7",
+          "label": "Lemberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4073842-5",
+          "label": "Kronstadt (Siebenbürgen)"
+        }
+      ],
+      "preferredName": "Vitali, Johann Baptist",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Baptist"
+        ],
+        "surname": [
+          "Vitali"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4391928-5",
+          "label": "Prosaist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Militärverpflegungsverwalter",
+        "Lesebuchautor"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/308197919"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94693540"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050298837/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Vitali, János",
+        "Vitali, Johann Baptist von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "János"
+          ],
+          "surname": [
+            "Vitali"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vitali"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:15:06Z",
+    "gnd_query_biographical_data": "1781-?",
+    "gnd_query_name": "vitali, johann baptist von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2995,
+  "name": "Vitali, Johann Baptist von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 2109",
+  "updated": "2026-06-11 13:29:25.556Z",
+  "uri": "https://d-nb.info/gnd/1050298837",
+  "editor": ""
+}

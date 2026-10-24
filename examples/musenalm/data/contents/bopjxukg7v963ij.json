@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert 4. /) Graphik im Kalendarium Junil /) s. Textbezüge INr 82261, Obj 37 und INr 82297, Obj 73",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82233,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Meil inv. et sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv. et sc.",
+  "scans": [
+    "alm_3854_82233_1h8z8gu3dn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.020Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "iko5cwp4q5lfh9l"
+    }
+  ]
+}

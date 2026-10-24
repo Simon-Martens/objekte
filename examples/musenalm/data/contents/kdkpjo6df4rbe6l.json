@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Trauer (Sammlung INr 45645, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Nimm, Herr, von meiner Brust die Klammer, / Die auf ihr lastet, schwer wie Erz!",
+  "language": [],
+  "musenalm_id": 45648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.512Z",
+      "agent": "4irsdlf9sfhpmc0",
+      "source_id": "n7lpg3thqdzy5b8"
+    }
+  ]
+}

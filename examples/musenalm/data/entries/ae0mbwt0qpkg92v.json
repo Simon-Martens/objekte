@@ -1,0 +1,70 @@
+{
+  "annotation": "Es sind lediglich die Titel INr 36693, 36694; Obj 1, 2 als Photos wiedergegeben /) G-C gibt als Verlag Delalain an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Muses 1766",
+    "norm": "~ G-C gibt als Verlag Delalain an",
+    "biblio": 100003,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2004-02-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 496,
+  "parallel_title": "",
+  "place_statement": "Paris (Vallat la Chapelle)",
+  "places": [
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Almanach des Muses 1766",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 24, G-C 92, 377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES / MUSES / AU / DIEU / DES SAISONS / ET DES VERS / A PARIS / Chez VALLAT LA CHAPELLE, Libraire, au Palais sur le Perron de la Sainte Chapelle. 1766",
+  "updated": "2026-06-11 10:18:55.130Z",
+  "variant_title": "",
+  "year": 1766,
+  "editor": "",
+  "items": [
+    "hmmyzdm39j64m6p"
+  ],
+  "contents": [
+    "ykg4kklz08677gj",
+    "e5cpr8hteit5y7a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "rmkah074vyi3fzj",
+      "source_id": "bw8hhpvrrvmyrp2"
+    }
+  ]
+}

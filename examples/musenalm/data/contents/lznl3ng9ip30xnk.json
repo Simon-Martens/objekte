@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Sind sie zufrieden, lieber Karl? / Wer sollte da nicht zufrieden seyn, meine himmlische Amalie!",
+  "language": [],
+  "musenalm_id": 129885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mir gelingt Alles! / Lustspiel in vier Akten / von / Albini",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albini",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mir gelingt Alles! / Lustspiel in vier Akten / von / Albini",
+  "updated": "2022-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.050Z",
+      "agent": "j7o4gfpm608mbdy",
+      "source_id": "2kx4g7kjufuua7n"
+    }
+  ]
+}

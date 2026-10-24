@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Fünfte Lieferung. Quentin Durward. - Waverley. - Nigel's Schicksale. - Rokeby (Sammlung INr 43722, Obj 6) s. Graphik INr 43737, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Aus fernen Landen, Mathilda, - erzählte Mortham - brachte ich Editha nach Mortham-Schloß, der Rückkehr des edlen Mannes harrend,",
+  "language": [],
+  "musenalm_id": 43738,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rokeby",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rokeby",
+  "updated": "2006-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.223Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "ebmbon185b7awle"
+    }
+  ]
+}

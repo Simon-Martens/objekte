@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Es truurigs Stückli will i zelle, / Ihr Meitscheni get ordli Acht!",
+  "language": [],
+  "musenalm_id": 52678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entstehung der Alpenrose. / magnis tamen excidit ausis. / Ovid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Entstehung der Alpenrose. / magnis tamen excidit ausis. / Ovid",
+  "updated": "2007-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.591Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "bgg5siab3bg5bdj"
+    }
+  ]
+}

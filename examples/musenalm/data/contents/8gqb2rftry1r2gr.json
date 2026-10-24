@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Juni",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135892,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helene / Herzogin von Albany",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Weger sc. Leipzig",
+  "scans": [
+    "alm_2136_135892_7x133dj89p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Helene / Herzogin von Albany",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1884,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.155Z",
+      "agent": "rikdy6r8rigq41t",
+      "source_id": "x1dsdjn7hpja0gk"
+    }
+  ]
+}

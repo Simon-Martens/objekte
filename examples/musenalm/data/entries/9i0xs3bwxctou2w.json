@@ -1,0 +1,98 @@
+{
+  "annotation": "$ vermutl. fehlt Titelgraphik (Portrait)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 10 BB Kal darin 12 GG, 2 BB G-Verz, 10 BB, 60 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1776",
+    "norm": "~",
+    "biblio": 404177,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 787,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Schalt-Jahr / 1776. / mit Kupfern gezieret / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.761Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "items": [
+    "frb4rhd2y2cd74l"
+  ],
+  "contents": [
+    "frt7u4g4t1kj59x",
+    "hip9iovc2ovlpgc",
+    "pbkjxa7gcwyv9q5",
+    "5tsrkytth4wibxp",
+    "4iec75q0azroggf",
+    "0reco9cvfdcmfz0",
+    "fjwuc1we5ktk3e7",
+    "njof8nhao1dah1f",
+    "moyq6i8871o5f5m",
+    "25td8eegkxo3xki",
+    "al3v6iitqmdywcf",
+    "ckm6e4r28pb6d0n",
+    "kbhtar68tz2xutf",
+    "cjpobmn6tr95lcn",
+    "cautw8pbg7wxnxu",
+    "hd48ge9tog1mh0j",
+    "k6ucyfo0y2ziyji",
+    "ki3n3bjhqfkirj5",
+    "ytf6irm18c6yipl",
+    "3s1rp35ei1s47qv",
+    "6mmb3rsr2py36qj",
+    "v4lbg1iq8trxn8x",
+    "3lt7vr2xortdnt4",
+    "kstdm0q39da35mv",
+    "n4e8juy4mxndxus",
+    "qksxldbp60tfjb3",
+    "waw3sc4ertbroyu",
+    "lemhrq764u9001o",
+    "xcs1rhnz9zg7ce7",
+    "e3zubtan0rn83nd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "uwfsbvb1begljle"
+    }
+  ]
+}

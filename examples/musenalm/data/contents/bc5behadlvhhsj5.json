@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Ermunterung« von J. D. Gries INr 12975, Obj 75 (Photos 12976,01; 12976,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermunterung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mascheck",
+  "scans": [
+    "alm_214_12976_01_2cdr6nbrt5.jpg",
+    "alm_214_12976_02_upcnh6updk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ermunterung",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.568Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "pdepfe5ndhqrxly"
+    }
+  ]
+}

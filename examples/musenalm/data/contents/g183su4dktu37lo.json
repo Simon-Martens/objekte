@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Dein Beichtiger, wenn er Dich erblickt, / Verliert des Geistes heilge Ruh.",
+  "language": [],
+  "musenalm_id": 42594,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ****",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Eckermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ****",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.273Z",
+      "agent": "kzwzs9hnc6kboxh",
+      "source_id": "e0bxv7gunl4kqp8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Kleinere gemeinnützige Aufsätze aus der Forst- und Jagdkunde (Sammlung INr 79938, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Das Forstwesen als eine empirische Wissenschaft betrachtet, welche sich ganz auf wirkliche Erfahrungen und reine Beobachtungen gründen sollte, wird erst die Stufe der Vollkommenheit erreichen, wenn sie auf diesem Wege gehörig geleitet und entwickelt wird.",
+  "language": [],
+  "musenalm_id": 79939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die Abneigung gegen das Wissen- / schaftliche und die Litteratur des / Forstwesens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. P. Laurop",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die Abneigung gegen das Wissen- / schaftliche und die Litteratur des / Forstwesens",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "f08ofcawnsoaw1y"
+    }
+  ]
+}

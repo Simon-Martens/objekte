@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Poetisches für Reisende (Schreiber) 1815",
+    "norm": "",
+    "biblio": 100710,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3086,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Taschenbuch, Poetisches für Reisende (Schreiber) 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 142; nicht bei L/R; Goed VIII. 89, 174",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Poetisches / Taschenbuch / für / Reisende. / Zugabe / zu den beyden Schriften für Reisende: / Vollständiges Handbuch für / Reisende am Rhein (etc.). von Hrn. Hofrath Schreiber, und / Gemählde von Heidelberg, Mannheim, Schwetzingen, dem / Odenwald und dem Neckarthale (etc.) / Heidelberg, / bey Joseph Engelmann. / 1815",
+  "updated": "2026-06-11 10:18:55.366Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "t2bkxwhz4att3wp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.459Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.459Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "owkawyvkw5qhonl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.783Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.783Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "tkkm80luxw8n9s9"
+    }
+  ]
+}

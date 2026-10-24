@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Wo bist du hin, du Tröster in Beschwerde, / Mein goldner Schlaf?",
+  "language": [],
+  "musenalm_id": 92376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den verlornen Schlaf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den verlornen Schlaf",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.427Z",
+      "agent": "b9k8fa9bjxcqs84",
+      "source_id": "3p71ui3ywvf3vvq"
+    }
+  ]
+}

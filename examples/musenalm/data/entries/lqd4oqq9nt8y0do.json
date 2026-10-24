@@ -1,0 +1,111 @@
+{
+  "annotation": "Erscheinungsverlauf unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, 6 GG, BB Kal darin 12 GG, S Tab, ar: S 1 T, S 2 I-Verz, SS 3-36, ar1: SS 1-16 Tab, 7 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichterfreunde (Wien) 1814",
+    "norm": "~",
+    "biblio": 409327,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-10-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4341,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Dichterfreunde (Wien) 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichterfreunde. / Mit 12 von Herrn Blaschke gestochenen / Kupfern. / Wien, 1814. / Bey Joseph Grämmer, bürgl. Buchbinder / in der Grünangergasse Nro 885",
+  "updated": "2026-06-11 10:18:55.809Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "ojvm6hohkwgmp3x"
+  ],
+  "contents": [
+    "5cna7sd86t20hsb",
+    "nj1b5qnwnqnzl5y",
+    "pogc7ffedoaskxx",
+    "1yorfoh89l8woqr",
+    "7l2cu0ah5bouoch",
+    "fufh0jr7yduwuwv",
+    "e4nyjhkoauca4t4",
+    "tduka5wn3pj4pmn",
+    "5oz0th05fh7fr3e",
+    "70ln0qu671nu6ah",
+    "b1y95zr8n1qtzjd",
+    "s7ulaid39d54lwe",
+    "zkt6jsrm4zxfoh5",
+    "g239nh6mxiszkvw",
+    "uyt9bwth1wt0yo2",
+    "18f968b5q6dud74",
+    "uo00s956fo0kwps",
+    "tyuj2g6u0klpwjq",
+    "w7h6ubvwo98kdzy",
+    "dj0qv3emwda9j6k",
+    "5srwdcmsvs3nx22",
+    "2xry5rm909hf3gd",
+    "irnjlb16fkmhpak",
+    "qk18oqdjcnttp35",
+    "xh5kbbb6t8lpx45",
+    "0fc5hy062vqc8se",
+    "2mhbceffdr94ghj",
+    "lmoe8er8my8avai",
+    "opma0qiezoqq3vg",
+    "0wkjersmc10li8u",
+    "zlzpicykx6cifms",
+    "jzxqw4hnn74e41r",
+    "t55q31acn1425h7",
+    "so2dq6i7yb49cn0",
+    "h2zrqjnkghmrr3m",
+    "muz2t9yflwld023",
+    "3gpdrvtor6gdu4z",
+    "davmwq9jwfhjnz7",
+    "n4gxo87zpofh5df",
+    "vrtx0mgo3urd8qu",
+    "1i7yf4q03ixhkme",
+    "k7ygyjl1srwlxzd",
+    "a5euemt12ee3b9y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.927Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.927Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "5pabyj8227d2ls3"
+    }
+  ]
+}

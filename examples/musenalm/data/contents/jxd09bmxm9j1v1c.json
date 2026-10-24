@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Gedichte (Sammlung INr 132473, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Der Frauen Herz - es ist ein stiller See, / Das Bild des Himmels trägt sein klarer Spiegel,",
+  "language": [],
+  "musenalm_id": 132474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Frauenliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Frauenliebe",
+  "updated": "2022-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.093Z",
+      "agent": "cvs1lz6mp4pj8h4",
+      "source_id": "pfd17hp2medvuaz"
+    }
+  ]
+}

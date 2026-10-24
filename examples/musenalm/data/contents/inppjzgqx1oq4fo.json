@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Herr Nicolaus Klimm erfand / Mehr Länder, als ich Reime,",
+  "language": [],
+  "musenalm_id": 92381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mezendore",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mezendore",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.592Z",
+      "agent": "b9k8fa9bjxcqs84",
+      "source_id": "4zyrsvl5qjtp0rn"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bühnen-Almanach, Deutscher 1855",
+    "norm": "",
+    "biblio": 405527,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2540,
+  "parallel_title": "",
+  "place_statement": "Berlin (Lassar)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Bühnen-Almanach, Deutscher 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 31; L/R 130",
+  "responsibility_statement": "A. Heinrich",
+  "subtitle_statement": "",
+  "title_statement": "Deutscher / Bühnen-Almanach / Herausgegeben / von / A. Heinrich, / Souffleur a. D. des Königl. Theaters in Berlin. / Neunzehnter Jahrgang. / Berlin, / den 1. Januar 1855. / Comissions-Verlag von Leopold Lassar",
+  "updated": "2026-06-11 10:18:55.557Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "5mtvxqzt98iosw0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "ozsxe47lx5mdbgr",
+      "source_id": "w7vkiionuz3nyx2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Mein Möpschen und ich, wir sitzen, / und liegen, / Und schlafen und träumen,",
+  "language": [],
+  "musenalm_id": 18274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Möpschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Möpschen",
+  "updated": "2001-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.901Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "4qza2iaqzrc9hlu"
+    }
+  ]
+}

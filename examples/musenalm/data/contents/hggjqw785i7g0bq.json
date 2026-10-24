@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Der November ist ein verrufener Monat, die Tradition hat ihn geächtet. Alles Uebel, welches der traurige Uebergang vom Herbste zum Winter mit sich bringt, die tiefen Nebel, die düstern grauen Wolken,",
+  "language": [],
+  "musenalm_id": 103678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klippenfahrt. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klippenfahrt. / Novelle",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.219Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "7owdxvbsqrjgrw9"
+    }
+  ]
+}

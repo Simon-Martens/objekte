@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "O, glaubt mir! sprach ein Arzt mit einem / ernsten Winke, / Zum alten Zecher Veit, o! glaubt mir; laßt / den Wein,",
+  "language": [],
+  "musenalm_id": 32880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das langsame Gift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das langsame Gift",
+  "updated": "2003-04-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.499Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "ryh8wt32muwf3si"
+    }
+  ]
+}

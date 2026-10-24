@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort des Bearbeiters (INr 125551, Obj 8), zwei Illustrationen (INr 125552 u 125553 Obj 9 u 10) u einer Nachschrift des Hrsg. (INr 125554, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Dacht’ ich es doch! da sitzt der Arme wieder, / Und senkt den Kopf ganz traurig nieder. / Er ist verliebt; ich habe recht gesehn.",
+  "language": [],
+  "musenalm_id": 125550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Donna Diana. / Lustspiel in drei Akten. / Nach dem Spanischen des Don Agustin / Moreto / von Carl August West",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agustin Moreto [bearb.] Carl August West [Pseud.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Donna Diana. / Lustspiel in drei Akten. / Nach dem Spanischen des Don Agustin / Moreto / von Carl August West",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.881Z",
+      "agent": "ks6j3ite531t4h3",
+      "source_id": "59ca7yjnxuw75d0"
+    }
+  ]
+}

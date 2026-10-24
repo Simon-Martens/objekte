@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Physiognomischer 1792",
+    "norm": "",
+    "biblio": 100763,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1472,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Physiognomischer 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; L/R 187",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Physiognomischer / Almanach / für / das Jahr 1792. / Berlin. / Bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.180Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "yaxwz572zjb2kib"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.912Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.912Z",
+      "agent": "47j5607xidp5gwx",
+      "source_id": "dz8lhdy1iar3yxp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.170Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.170Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "ov3nkw6nxcmlhy1"
+    }
+  ]
+}

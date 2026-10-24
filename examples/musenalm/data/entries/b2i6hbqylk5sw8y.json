@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Literarischer 1831",
+    "norm": "",
+    "biblio": 100250,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1458,
+  "parallel_title": "",
+  "place_statement": "München (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Almanach, Literarischer 1831",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 13; nicht bei L/R",
+  "responsibility_statement": "Lic. Simon Ratzeberger der Jüngste",
+  "subtitle_statement": "",
+  "title_statement": "Literarischer / Almanach / für / 1831. / So nützlich und angenehm, als unterhaltend und / lustig zu lesen. / Von / Lic. Simon Ratzenberger / dem Jüngsten. / Fünfter Jahrgang. / München. / In der Lindauer'schen Verlagshandlung / und Hofbuchdruckerei",
+  "updated": "2026-06-11 10:18:55.171Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "r4idixtn37o0xdn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.100Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.100Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "7vksl372vemazgi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.910Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.910Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "x97tjmqnnk2ket1"
+    }
+  ]
+}

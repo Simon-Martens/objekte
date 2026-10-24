@@ -1,0 +1,503 @@
+{
+  "annotation": "",
+  "biographical_data": "1646-1699",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.230Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Lyriker schles. Herkunft; Dichter; Diplomat, Übersetzer",
+        "Studium der Rechte in Straßburg und Leyden; Landesbestallter des Herzogtums Liegnitz; Übersetzer italienischer Lyrik"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1646-02-04"
+      ],
+      "dateOfDeath": [
+        "1699-04-22"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:26:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118500279/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Erasmus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118500279",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118500279",
+      "oldAuthorityNumber": [
+        "(DE-588a)118500279",
+        "(DE-588c)4000216-0"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Würbitz"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035683-8",
+          "label": "Liegnitz"
+        }
+      ],
+      "preferredName": "Abschatz, Hans Assmann von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hans Assmann"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Abschatz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Hans Erasmus"
+          ],
+          "surname": [
+            "Aßmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Poetische Uebersetzungen und Gedichte",
+        "Ubersetzungen und Gedichte",
+        "Guarini, Giovanni B.: Der Treue Schäffer",
+        "Logau, Friedrich von: Auserlesene Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb121749413"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031625"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/36959625"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q67633"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118500279/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Hans_Erasmus_A%C3%9Fmann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hans_A%C3%9Fmann_von_Abschatz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Hans_A%C3%9Fmann_von_Abschatz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Hans_Erasmus_A%C3%9Fmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000439590298"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118500279"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118500279"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118500279.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118500279.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118500279"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Abschatz, Hans Erasmus von",
+        "Abschatz, Johann Erasmus von",
+        "Assmann, Hans",
+        "Abschatz, Hans Aßmann von",
+        "Abschatz, Hans A. von",
+        "Abschatz, Johannes Asmannus",
+        "Abschatz, Hannß Aßmann von",
+        "Assmann von Abschatz, Hans",
+        "Abschatz, Hans von",
+        "Aßmann, Hans Erasmus",
+        "Abschatz, Hanns Aßmann von",
+        "Abschatz et Camin, Johannes Erasmus ab",
+        "Abschatz et Camin, Johannes Erasmus, liber baro ab",
+        "Assmann, Hans, Freiherr von Abschatz",
+        "Camin, Johannes Erasmus liber baro ab Abschatz",
+        "Abschatz, Johann Erasmus Assmann, Freiherr von",
+        "Abschatz, Johann Erasmus Assmann von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Assmann von Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Erasmus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Assmann"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Erasmus liber baro ab Abschatz"
+          ],
+          "surname": [
+            "Camin"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Aßmann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Erasmus"
+          ],
+          "surname": [
+            "Aßmann"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Erasmus"
+          ],
+          "prefix": [
+            "ab"
+          ],
+          "surname": [
+            "Abschatz et Camin"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Erasmus Assmann"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Erasmus Assmann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Erasmus"
+          ],
+          "nameAddition": [
+            "liber baro ab"
+          ],
+          "surname": [
+            "Abschatz et Camin"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Erasmus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "nameAddition": [
+            "Freiherr von Abschatz"
+          ],
+          "surname": [
+            "Assmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hannß Aßmann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Hanns Aßmann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Asmannus"
+          ],
+          "surname": [
+            "Abschatz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hans_A%C3%9Fmann_von_Abschatz",
+          "label": "https://de.wikipedia.org/wiki/Hans_A%C3%9Fmann_von_Abschatz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:47:06Z",
+    "gnd_query_biographical_data": "1646-1699",
+    "gnd_query_name": "abschatz, hans aßmann von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 8,
+  "name": "Abschatz, Hans Aßmann von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 271",
+  "updated": "2026-06-11 13:29:21.280Z",
+  "uri": "https://d-nb.info/gnd/118500279",
+  "editor": ""
+}

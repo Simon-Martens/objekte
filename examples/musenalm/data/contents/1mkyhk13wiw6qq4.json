@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Es war noch früh am Morgen und auch die Geschäftigkeit des Tages drückte noch jenes eigenthümliche Sotto voce, in welchem alle kräftigeren Töne zu schlummern scheinen,",
+  "language": [],
+  "musenalm_id": 56506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musiker und Musikant. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musiker und Musikant. / Novelle",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.660Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "3i721atxsv0cqdx"
+    }
+  ]
+}

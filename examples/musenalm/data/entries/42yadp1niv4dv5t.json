@@ -1,0 +1,111 @@
+{
+  "annotation": "5 Jgg 1826-1831; 1826: Basel (Stupanus) 1827-1831: Basel (Schweighauser); Hrsg: Markus Lutz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B Vrwrt d Hrsg, SS 1-126 darin 3 GG, S VrlgM, B Kal",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rauracis 1826",
+    "norm": "~",
+    "biblio": 406931,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-12-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3735,
+  "parallel_title": "",
+  "place_statement": "Basel (Stupanus)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Rauracis 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; ADB XIX, 714",
+  "responsibility_statement": "Markus Lutz",
+  "subtitle_statement": "",
+  "title_statement": "Rauracis. / Ein / TASCHENBUCH / mit / Kupfern für 1826. / den / Freunden der Vaterlandskunde / gewidmet / von / M. Lutz. / BASEL / bei Jeremias Stupanus Buchbinder / auf der Rheinbrücke",
+  "updated": "2026-06-11 10:18:55.946Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "3huw7vxkln2mk21"
+  ],
+  "contents": [
+    "aj50jsv57svjw64",
+    "hro23en6z6drw5c",
+    "ti57zpyetd4sj48",
+    "e63ns8dwbhlupwk",
+    "esz6x9aq72doqx2",
+    "yp7n9rr88b1p7be",
+    "3z0p002axtdbe8f",
+    "ui0e5mote7hbn2h",
+    "ndqs2d8oj9fv2sy",
+    "r7tfektv9kacor7",
+    "c575u4q49aprwvo",
+    "ol3v3p6u1d6kdpu",
+    "yqn1ktdrcks2sx0",
+    "xlhzlie8lcy5ntg",
+    "56iyqieyqp12s6f",
+    "zz90qkvp7nkpb54",
+    "s9os6ptlf9l9dm0",
+    "ae7ff4ahl7k5kwu",
+    "9desul6x6rzobui",
+    "t5cornwcyjl8whq",
+    "zzvptynkusiap52",
+    "rbdj5phlh42ado4",
+    "4vmyr1jepsi2ls4",
+    "7863cy58tkm65ye",
+    "5706uelmlk8ss98",
+    "r157oabmmilc9ee",
+    "rpj7ytif5vxzmjw",
+    "ged4nu9k0ay34e0",
+    "jq3cgosi6ukcbzv",
+    "c2jurcmrcktsm9m",
+    "c9hd46bxl9hyaoc",
+    "7ebp5rjunluepmu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.288Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.288Z",
+      "agent": "bpbq38swi2zmert",
+      "source_id": "emxcbnoi5uptpy5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "3kgjpq6407t2d3h",
+      "source_id": "tnprbzs3xtfqz0k"
+    }
+  ]
+}

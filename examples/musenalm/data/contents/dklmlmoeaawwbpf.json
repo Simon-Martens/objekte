@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert VIII. Illustration zu »Scenen aus der Familie Ehrenberg. 2. Amalia« INr 48285, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schändlicher, meide diese geheiligte / Stelle; Dein Reich ist nun zu Ende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_657_48247_hif5y7w44y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schändlicher, meide diese geheiligte / Stelle; Dein Reich ist nun zu Ende",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.346Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "vz83d8ivntkv3ab"
+    }
+  ]
+}

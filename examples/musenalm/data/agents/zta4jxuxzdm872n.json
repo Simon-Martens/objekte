@@ -1,0 +1,711 @@
+{
+  "annotation": "",
+  "biographical_data": "1744-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.463Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/4515642-6",
+          "label": "Philanthropin Dessau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/806636-X",
+          "label": "Erziehungsanstalt Schnepfenthal"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Evangelischer Theologe, Reformpädagoge; 1768 Pfarrer in Rohrborn bei Erfurt, 1772 Diakon, 1772-1781 Oberpfarrer an St. Andreas in Erfurt, 1781-1784 Professor, Liturg und Religionslehrer am Philanthropin in Dessau, gründete 1784 das Philanthropin Schnepfenthal bei Gotha"
+      ],
+      "dateOfBirth": [
+        "1744-06-01"
+      ],
+      "dateOfDeath": [
+        "1811-10-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian-Gotthilf-Salzmann.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian-Gotthilf-Salzmann.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian-Gotthilf-Salzmann.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174107641",
+        "https://d-nb.info/gnd/174167792",
+        "https://d-nb.info/gnd/174038771",
+        "https://d-nb.info/gnd/108923449X",
+        "https://d-nb.info/gnd/174053061",
+        "https://d-nb.info/gnd/186362412"
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-08T15:12:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118605232/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Sophia Magdalena"
+          ],
+          "surname": [
+            "Schnell"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137224001",
+          "label": "Salzmann, Ernst Julius Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479546",
+          "label": "Salzmann, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139477934",
+          "label": "Salzmann, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116777257",
+          "label": "Salzmann, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13947935X",
+          "label": "Salzmann, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479414",
+          "label": "Salzmann, Christiane"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139477942",
+          "label": "Salzmann, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117765090",
+          "label": "Ausfeld, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1103051962",
+          "label": "Lenz, Magdalena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479392",
+          "label": "Salzmann, Gotthilf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118605232",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/13947935X",
+          "label": "Salzmann, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479546",
+          "label": "Salzmann, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479392",
+          "label": "Salzmann, Gotthilf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1103051962",
+          "label": "Lenz, Magdalena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137224001",
+          "label": "Salzmann, Ernst Julius Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116777257",
+          "label": "Salzmann, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139479414",
+          "label": "Salzmann, Christiane"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139477942",
+          "label": "Salzmann, Friedrich"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/139477934",
+          "label": "Salzmann, Johann Christian"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118605232",
+      "oldAuthorityNumber": [
+        "(DE-588a)174107641",
+        "(DE-588a)174038771",
+        "(DE-588)174107641",
+        "(DE-588)186362412",
+        "(DE-588)174167792",
+        "(DE-588c)4051448-1",
+        "(DE-588)174053061",
+        "(DE-588a)118605232",
+        "(DE-588)108923449X",
+        "(DE-588a)174053061",
+        "(DE-588a)186362412",
+        "(DE-588a)174167792",
+        "(DE-588)174038771"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011536-7",
+          "label": "Dessau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1041249357",
+          "label": "Rohrborn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4335241-8",
+          "label": "Sömmerda"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/2113072-3",
+          "label": "Schnepfenthal"
+        }
+      ],
+      "preferredName": "Salzmann, Christian Gotthilf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gotthilf"
+        ],
+        "surname": [
+          "Salzmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127948-7",
+          "label": "Schulleiter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1041366884",
+          "label": "Lutherischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4367572-4",
+          "label": "Tanzlehrer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carlsberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Über die heimlichen Sünden der Jugend",
+        "Nachrichten für Kinder aus dem Schnepfenthal",
+        "Moralisches Elementarbuch",
+        "Carl von Carlsberg oder über das menschliche Elend",
+        "Sebastian Kluge",
+        "Unterhaltungen für Kinder und Kinderfreunde",
+        "Constants curiose Lebensgeschichte und sonderbare Fatalitäten",
+        "Hrsg. von: Wollstonecraft, Mary: Rettung der Rechte des Weibes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81072231"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/2506438"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215060"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/108923449X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118605232/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174038771"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174053061"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174107641"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174167792"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186362412"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_Gotthilf_Salzmann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Salzmann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_Gotthilf_Salzmann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Gotthilf_Salzmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108627009"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118605232"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118605232.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118605232.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118605232"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118605232"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Salzmann, C.G.",
+        "Salzmann, Chr. G.",
+        "Salzmann, C. G.",
+        "Saltzmann, C. G.",
+        "Salzmann, Gotthilf",
+        "Saltzmann, Christian Gotthilf",
+        "Salzmann, Christian Gottfried",
+        "Saltzmann, C.G.",
+        "Saltzman, C.G.",
+        "Saltzman, C. G.",
+        "Salzzmann, Christian Gotthilf",
+        "Carlsberg, Carl von",
+        "Salzmann, Christ. Gotthelf",
+        "Salzmann, Christian Gotthelf",
+        "Salzmann, Christ. Gotth.",
+        "Salzmann",
+        "Salzmann, Chr. Gotth.",
+        "Salzmann, J.",
+        "Salzmann, Christianus Gotthilf",
+        "Salzmann, Christian G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Chr. Gotth."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gotthilf"
+          ],
+          "surname": [
+            "Saltzmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Saltzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C.G."
+          ],
+          "surname": [
+            "Saltzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthilf"
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Gotthelf"
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Gotth."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C.G."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. G."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carlsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gotthelf"
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Saltzman"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gotthilf"
+          ],
+          "surname": [
+            "Salzzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gottfried"
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Gotthilf"
+          ],
+          "surname": [
+            "Salzmann"
+          ]
+        },
+        {
+          "forename": [
+            "C.G."
+          ],
+          "surname": [
+            "Saltzman"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Salzmann",
+          "label": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Salzmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:44:06Z",
+    "gnd_query_biographical_data": "1744-1811",
+    "gnd_query_name": "salzmann, christian gotthilf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2369,
+  "name": "Salzmann, Christian Gotthilf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 487",
+  "updated": "2026-06-11 13:29:24.489Z",
+  "uri": "https://d-nb.info/gnd/118605232",
+  "editor": ""
+}

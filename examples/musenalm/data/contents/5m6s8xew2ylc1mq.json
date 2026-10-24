@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Nikander soll ungläubig seyn? / Das räum ich keinem Menschen ein;",
+  "language": [],
+  "musenalm_id": 18849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wiederlegung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Küttner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wiederlegung",
+  "updated": "2001-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.402Z",
+      "agent": "h461np79qaxx2wu",
+      "source_id": "jfjgjf3zvuvux4y"
+    }
+  ]
+}

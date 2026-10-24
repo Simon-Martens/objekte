@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Das gemeine Flügelvolk / Gab dem Straus die Stimme,",
+  "language": [],
+  "musenalm_id": 62358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Königswahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahler Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Königswahl",
+  "updated": "2009-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.915Z",
+      "agent": "xudibmgptrwrx3w",
+      "source_id": "tgvrenl4ytrmfts"
+    }
+  ]
+}

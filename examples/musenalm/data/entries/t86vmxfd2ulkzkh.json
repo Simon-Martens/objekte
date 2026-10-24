@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 BB W, B I-Verz, nT, 6 GG, SS 1-296",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Gräffer, Seidl) 1840",
+    "norm": "~",
+    "biblio": 106427,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1595,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl) Leipzig (Liebeskind)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aurora (Gräffer, Seidl) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; L/R 96; Goed VIII. 111, 264",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "subtitle_statement": "",
+  "title_statement": "AURORA / TASCHENBUCH / für das Jahr / 1840 / Herausgegeben / von / Johann Gabriel Seidl. / Sechzehnter Jahrgang. / WIEN / bei Franz Riedl's / k.k. Hof- und bürgl. Buchbinders, seel. Wittwe & Sohn / im Schottenhofe No. 136. / Leipzig, bei A. Liebeskind",
+  "updated": "2026-06-11 10:18:55.526Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "fynfpk1awuor4ek"
+  ],
+  "contents": [
+    "5hpph7oetqs3jf2",
+    "bagv2zjmusslmc7",
+    "fgrh1hjioh13l1a",
+    "cuzim7iggm7s8ii",
+    "wbp0fqqxhto03c6",
+    "vll319perudt3f2",
+    "zi1eut5womzc1d9",
+    "uvj641uvzetoh3x",
+    "0fx4qlccxvndg0l",
+    "5n4x4jcfkjsukxu",
+    "elsqszsvr472bbj",
+    "ynhnddr8x5t8a4z",
+    "s6ykkjtn29x2p00",
+    "eid6nkb8beoc0uc",
+    "ubcwe3g8h7ww617",
+    "gdr7jw2bt62wwlx",
+    "rxdggd309jn4rs2",
+    "4v504ypvh1o3fa0",
+    "n9slhk3p1hvzly9",
+    "wpd49odev8cyotf",
+    "eic32uxfey3le0v",
+    "fttdw3rjlkt4aog",
+    "96px0p04soav1qw",
+    "144xwydouxnjpnd",
+    "kkh8z1uiq0q5z91",
+    "wamb8vqhq2qosw2",
+    "85yxe4lmubb5xut",
+    "5v6zvkf82b0xoeg",
+    "kzvdtacht3ohkj5",
+    "19hohrel2sx24z1",
+    "izqs3h8pdrcljsh",
+    "b1548jwgscmtpv5",
+    "t0tpgd0kumo3wra",
+    "az7acr4196rue9d",
+    "cvqh1mahk1674om",
+    "d57l2wv2cqpz8xt",
+    "mmepc4uef1onv19",
+    "ol4wmk9xb8kfms5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "1dutf6ybyoh63id"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.934Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.934Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "d7w88zer797uzfi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "2gh9s9bmjxl8x1h",
+      "source_id": "wx1gdy2mpm6nq20"
+    }
+  ]
+}

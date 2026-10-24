@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Schwaben (Sammlung INr 99100, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Geschloßnes Bild von Wies' und Acker, / Von Berg und Thal, von Dorf und Wald,",
+  "language": [],
+  "musenalm_id": 99107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfänglichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfänglichkeit",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.650Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "yq2qkr60bdp4pn0"
+    }
+  ]
+}

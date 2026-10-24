@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Bav, der sein Ich nur immer fühlt, / Gleicht meinem Hunde",
+  "language": [],
+  "musenalm_id": 2485,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bav",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wp.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bav",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.784Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "hsxrhl6bi8mgqxh"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Geheimniß. An meinen Freund K...« von G. J. Kuhn INr 53090, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. Lory del. F. Hegi sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory del. F. Hegi sc.",
+  "scans": [
+    "alm_728_53091_6okkmbdz5q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.856Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "q4m1wwd13cthjax"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.856Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "xd26yey1bjiblku"
+    }
+  ]
+}

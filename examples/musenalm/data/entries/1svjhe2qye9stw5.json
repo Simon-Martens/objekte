@@ -1,0 +1,93 @@
+{
+  "annotation": "$ vielleicht fehlt Titelgraphik",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 2 GG, 4 BB G-Verz darin 3 GG, SS 9-203 darin G, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater-Taschenbuch, Wiener 1808",
+    "norm": "~",
+    "biblio": 200741,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1848,
+  "parallel_title": "",
+  "place_statement": "Wien (Bauer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater-Taschenbuch, Wiener 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 119",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Hof-Theater / TASCHENBUCH / auf das Jahr / 1808. / Fünfter Jahrgang / Wien, / Bey B. Ph. Bauer",
+  "updated": "2026-06-11 10:18:55.668Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "j390dvujn6gdly1"
+  ],
+  "contents": [
+    "026x8l71yewd29x",
+    "3pf196vtqfbtv9y",
+    "zr2vx237esyf22u",
+    "jb9lxgq5rhycj74",
+    "jfefz09mch79cvw",
+    "hp6tu08ujff5twh",
+    "p0ydqofxnja65ih",
+    "y28wmh4ughh33i2",
+    "3o74upo1530oju1",
+    "rrq090rz3yihw6f",
+    "73bv4wxmommbyqc",
+    "d2rvkphdu0yhuim",
+    "9f5j1fsc1zeyida",
+    "v4lpdvgf8tqag6q",
+    "wzblidtlxmriwp8",
+    "0xlsyw1wwxgdinj",
+    "vraazk7qyw9kvb9",
+    "2ky6y1tkh9xcr91",
+    "zzlw3til0v5z6n8",
+    "airtu6bq2ccregz",
+    "hkpoqv4pphatet2",
+    "77wyctgkopayqak",
+    "r7y1kjs3uyk9qyw",
+    "ngog2g4va1bbzvn",
+    "3ki04us2tjm4421"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.495Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.495Z",
+      "agent": "k1jku113rjb6em0",
+      "source_id": "bd1mfog1mtp4qzv"
+    }
+  ]
+}

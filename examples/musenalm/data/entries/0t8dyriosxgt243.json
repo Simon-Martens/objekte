@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I-Verz, 7 SS G-Verz, §2§ Kal, 10 GG, 3 SS Tab §3§ fehlen, ar: S 1 zT, SS 3-48, ar1: S 1 zT, SS 3-286",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1814; s. a. Hofkalender, Großherzoglich Hessischer 1814",
+    "norm": "~ +++ 406510 (Titel) /) Gegenüber den umgebenden Jahrgängen die als »Großherzoglich Hessischer Hofkalender« autopsiert sind, offenbar Abweichung in der Ausstattung: ohne Kalendarium,  ebenso ohne 3 SS Tab:  »Geburtstage des Großherzoglich Hessischen Hauses« und »Stammtafel des Großherzoglich Hessischen Hauses«",
+    "biblio": 100759,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 569,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1814; s. a. Hofkalender, Großherzoglich Hessischer 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1814. / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.363Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "4diht2sg1si2lfx",
+    "c8ay0k7v2fl7jb1"
+  ],
+  "contents": [
+    "io0nvxkrb6rejpz",
+    "dnhj3iw24tekdan",
+    "ok01ckzzu7brwdk",
+    "5b3hl6sych1y10f",
+    "9wml15y0ntd0jj0",
+    "omibbyqxg44f5pc",
+    "dtayqxuzdtublwa",
+    "zun5l28biafxz7q",
+    "khnrnmlmqvlkb02",
+    "vkxirnxrs70qogr",
+    "ghexmc0lxjy0w25",
+    "zuf9qb29amz47zp",
+    "qzgo3x4xvt3ncl7",
+    "b5q29k0gdwrjd5a",
+    "qhghq904oq2kc4t",
+    "4o5ryasgdu75lj8",
+    "x1y5nei8hovftoa",
+    "e2jrzvmuxftuief",
+    "w5xnn7ujt187b27",
+    "bdan88znh5ujv8c",
+    "bf1ehw5f2d464dg",
+    "emnxaxvbnbmpbxz",
+    "j00xtb2wvfs8miv",
+    "x6vop42yvir4qm3",
+    "nttsk0yssopm64p",
+    "zb6wnpghelwl3aw",
+    "gibb9nk5efhwaz5",
+    "cdv9jw7ujrw8gxx",
+    "bpfgtjj486eyxrw",
+    "t2bvhdkgv655rck",
+    "66yf3kvmim546em",
+    "aa26jb2lef3xsem",
+    "6zrv9b3l9zz6xid"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.450Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.450Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "19xmuos4wxrv6c5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.009Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.009Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "zwxxlajfdon5grr"
+    }
+  ]
+}

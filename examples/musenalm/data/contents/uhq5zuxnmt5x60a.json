@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Beträgen (INr 119870–119871)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119869,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlieder",
+  "updated": "2018-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.678Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "d5aez9cfmu89mm9"
+    }
+  ]
+}

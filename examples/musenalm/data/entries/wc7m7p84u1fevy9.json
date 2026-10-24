@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1-384",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1843",
+    "norm": "~",
+    "biblio": 101011,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 69,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1843. / Neue Folge. / Fünfter Jahrgang. / Mit dem Bildnisse Meyerbeer's. / Leipzig: / F. A. Brockhaus. / 1843",
+  "updated": "2026-06-11 10:18:54.886Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "1ea1xe7e0wjlis2"
+  ],
+  "contents": [
+    "s86fgzhvkn2fuls",
+    "p34up549bwqnko9",
+    "f672mjh8xy4du0e",
+    "1kp02gy7my8g0qf",
+    "vkw72ebyjqy0tuq",
+    "oqcp3n2j2c1fuey",
+    "mnddyj0k0yeq6a9",
+    "dw1iubm548ze0e7",
+    "00aiqzp581g7qfw",
+    "06ohxin7hw873i5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.605Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.605Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "wjbj9um1gmuww1v"
+    }
+  ]
+}

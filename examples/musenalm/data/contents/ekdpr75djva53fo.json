@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Schmückte mein Kleid ein blitzender Stern, / Schmückte mein Haupt eine strahlende Krone,",
+  "language": [],
+  "musenalm_id": 11799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Töne der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Töne der Liebe",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.409Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "6wqv5vry4hzfyrq"
+    }
+  ]
+}

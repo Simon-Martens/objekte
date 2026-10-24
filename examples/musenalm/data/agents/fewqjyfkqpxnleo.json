@@ -1,0 +1,390 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.266Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/510068-9",
+          "label": "Königliche Sternwarte zu Berlin"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Herausgeber des Berliner astronomischen Jahrbuchs; Direktor des Berliner Observatoriums (1786); Entdecker des nach ihm benannten Kometen C/1779 A1."
+      ],
+      "dateOfBirth": [
+        "1747-01-19"
+      ],
+      "dateOfDeath": [
+        "1826-11-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source; This file was derived from: Johann Elert Bode reversed.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Elert%20Bode.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Elert%20Bode.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Elert%20Bode.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T22:13:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116215372/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116215372",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#20p",
+          "label": "Personen zu Astronomie, Weltraumforschung"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116215372",
+      "oldAuthorityNumber": [
+        "(DE-588c)4750104-2",
+        "(DE-588a)116215372"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Bode, Johann Elert",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Elert"
+        ],
+        "surname": [
+          "Bode"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003310-7",
+          "label": "Astronom"
+        }
+      ],
+      "publication": [
+        "Deutliche Abhandlung von dem ... Durchgang der Venus durch die Sonnensch*",
+        "Anleitung zur Kenntniß des gestirnten Himmels",
+        "Deutliche Anleitung zur Kenntniß des gestirnten Himmels",
+        "Anleitung zur allgemeinen Kenntniß der Erdkugel",
+        "Kurzgefaßte Abhandlung ... von der partialen Mondfinsterniß 1771",
+        "Kurzgefaßte Abhandlung von den Cometen 1769"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb104634498"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88643409"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/31986104"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76966"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116215372/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Elert_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Elert_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Elert_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Elert_Bode"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108845321"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116215372"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116215372"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116215372.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116215372"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116215372"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bode, ...",
+        "Bode, Johann Ehlert",
+        "Bode, J. E.",
+        "Bode, Joh. Elert",
+        "Elert Bode, Johann",
+        "Bode, Joannes Elertus",
+        "Bode, Johann E.",
+        "Bode, Elert",
+        "Bode, Joannis Elerti"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joannes Elertus"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Elert Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Elert"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "J. E."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Joannis Elerti"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann E."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Elert"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ehlert"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Elert_Bode",
+          "label": "https://de.wikipedia.org/wiki/Johann_Elert_Bode"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:58:21Z",
+    "gnd_query_biographical_data": "1747-1826",
+    "gnd_query_name": "bode, johann ehlert"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 235,
+  "name": "Bode, Johann Ehlert",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB III, 1",
+  "updated": "2026-06-11 13:29:21.640Z",
+  "uri": "https://d-nb.info/gnd/116215372",
+  "editor": ""
+}

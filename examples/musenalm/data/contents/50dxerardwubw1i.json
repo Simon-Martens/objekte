@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Postillons-Nacht (Sammlung INr 45790, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Trara! Trara! Trara! / Der Morgen steht am Himmel schon, / Mein Schätzchen merkt noch nichts davon.",
+  "language": [],
+  "musenalm_id": 45795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 202,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.333Z",
+      "agent": "43zf9fb3jx70ouy",
+      "source_id": "see9lh2o192v9if"
+    }
+  ]
+}

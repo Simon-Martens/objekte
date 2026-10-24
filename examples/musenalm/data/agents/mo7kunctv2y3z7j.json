@@ -1,0 +1,427 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.473Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1805-1813 Professor der Ästhetik an der Universität Heidelberg; Badischer Historiker und Schriftsteller; seit 1813 Hofhistoriograf in Karlsruhe"
+      ],
+      "dateOfBirth": [
+        "1761-10-12"
+      ],
+      "dateOfDeath": [
+        "1841-10-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "http://www.8ung.at/bahnstadt-hd.de/schreiber.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Alois%20Wilhelm%20Schreiber.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Alois%20Wilhelm%20Schreiber.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Alois%20Wilhelm%20Schreiber.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/106275185X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T18:20:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100400159/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100400159",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100400159",
+      "oldAuthorityNumber": [
+        "(DE-588c)7532315-1",
+        "(DE-588)106275185X",
+        "(DE-588a)100400159"
+      ],
+      "periodOfActivity": [
+        "1788-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008726-8",
+          "label": "Bühl (Baden)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008726-8",
+          "label": "Bühl (Baden)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4809761-5",
+          "label": "Oos (Baden-Baden)"
+        }
+      ],
+      "preferredName": "Schreiber, Alois Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alois Wilhelm"
+        ],
+        "surname": [
+          "Schreiber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4798807-1",
+          "label": "Reiseschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Gemählde der Kindheit und des häuslichen Glücks",
+        "Badische Geschichte",
+        "Vom Geschäftsstyl und dem mündlichen Vortrage",
+        "Baaden in der Marggraffschaft mit seinen Bädern",
+        "Vollständiges Handbuch für Reisende in der Schweiz, Tyrol, Salzburg,*",
+        "Baden im Großherzogthum mit seinen Heilquellen",
+        "Die Verfassung von Rom zur Zeit der Republik",
+        "Handbuch für Reisende am Rhein",
+        "Der Waldbruder im Eichthale",
+        "Heidelberg und seine Umgebungen historisch und topographisch beschri*",
+        "Topographischer Nomenclator der ganzen Rheinküste"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14806094q"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79095178"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51954558"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q119183"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100400159/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/106275185X"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Aloys_Schreiber"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Alois_Wilhelm_Schreiber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116422732"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100400159"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100400159"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100400159.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100400159"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100400159"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "DDB"
+      ],
+      "variantName": [
+        "Schreiber",
+        "Schreiber, A.",
+        "Schreiber, Aloys",
+        "Schrbr",
+        "Schreiber, Alois",
+        "Schreiber, Aloys Wilhelm",
+        "Schreiber, W.",
+        "Schreiber, Wilhelm Aloysius",
+        "Schreiber, Aloys Wilhelm von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alois"
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "forename": [
+            "Aloys Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "personalName": [
+            "Schreiber"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Aloysius"
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "forename": [
+            "Aloys"
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "personalName": [
+            "Schrbr"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "forename": [
+            "Aloys Wilhelm"
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Schreiber"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Aloys_Schreiber",
+          "label": "https://de.wikipedia.org/wiki/Aloys_Schreiber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:52:36Z",
+    "gnd_query_biographical_data": "1761-1841",
+    "gnd_query_name": "schreiber, aloys wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2539,
+  "name": "Schreiber, Aloys Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 367; Goed VII, 190; Goed XI/1, 230",
+  "updated": "2026-06-11 13:29:24.810Z",
+  "uri": "https://d-nb.info/gnd/100400159",
+  "editor": ""
+}

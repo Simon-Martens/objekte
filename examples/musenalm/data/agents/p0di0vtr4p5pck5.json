@@ -1,0 +1,220 @@
+{
+  "annotation": "",
+  "biographical_data": "1812-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.267Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2003761-2",
+          "label": "Akademie der Bildenden Künste Wien"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "hauptsächlich Stahlstecher nach diversen künstlerischen Vorlagen; auch Illustrator, verfertigte zahlreiche kleine Ansichten zu F.X. Schweickhards von 1831-1841 in Wien erschienener Darstellung des Erzherzogthums Oesterreich unter der Ems"
+      ],
+      "dateOfBirth": [
+        "1812"
+      ],
+      "dateOfDeath": [
+        "1859-10-31"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-20T15:05:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1038240263/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1038240263",
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/117263834",
+          "label": "Stöber, Franz Xaver"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1038240263",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4301332-6",
+          "label": "Vranov nad Dyjí"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4136052-7",
+          "label": "Wien-Gumpendorf"
+        }
+      ],
+      "preferredName": "Bogner, Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton"
+        ],
+        "surname": [
+          "Bogner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117263834",
+          "label": "Stöber, Franz Xaver"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n97874142"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/18986213"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q56007347"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1038240263/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000045667344"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bogner, Antal",
+        "Bogner, A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bogner"
+          ]
+        },
+        {
+          "forename": [
+            "Antal"
+          ],
+          "surname": [
+            "Bogner"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:58:45Z",
+    "gnd_query_biographical_data": "1812-1859",
+    "gnd_query_name": "bogner, anton"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 243,
+  "name": "Bogner, Anton",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B IV, 219",
+  "updated": "2026-06-11 13:29:21.654Z",
+  "uri": "https://d-nb.info/gnd/1038240263",
+  "editor": ""
+}

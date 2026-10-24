@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, B, verso G, T, 7 BB dazu 6 GG, SS I-IV darin G, SS V-XXVI, SS 1-375, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1822",
+    "norm": "~",
+    "biblio": 106030,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2393,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1822",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1822. / Herausgegeben / von / Theodor Hell. / 11r. Jahrgang. / Mit 8 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.316Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "510vtph585wn7q4"
+  ],
+  "contents": [
+    "0xjeuuw8sjuihib",
+    "x2fjilbtsn5dgd8",
+    "rzokies8effxfsx",
+    "z87gnlscb4p55bl",
+    "cmyg7y31e7224d9",
+    "itqvttoi6khq1p1",
+    "40v8dtbj2y3wsyy",
+    "twokcx8drypezct",
+    "jdnt8rwdrkgghzz",
+    "gzd3ub2t1zlrap4",
+    "dwilgf40rbdokdr",
+    "l5vt20zoc0narms",
+    "la8q5bnor1kgts7",
+    "r47lce7xhwrznvm",
+    "ix1b621j8y3cl5y",
+    "eextmw02168lsil",
+    "zztbv1lytz9ejpv",
+    "3xheu59j0q0l9k4",
+    "khwlr7zj4hh6o88",
+    "tys9p71obgjptn9",
+    "zza20rfzsmoznnr",
+    "0l60zwh8mq084b6",
+    "5m6ez0idhai01mi",
+    "74cgsyynq31fhnj",
+    "qh2h1m8tyxtvso9",
+    "11nfuecl3smnyak",
+    "qtezbb1akxu9mqf",
+    "70a58dl58otx4fj",
+    "s9uwjpafgpx1nef",
+    "1toubcewh6uixe2",
+    "2zhf5o586oqgdfl",
+    "wluntc3rxmiou8t",
+    "aba8xu9z2rg517s",
+    "kljhj9nf6u3ndvt",
+    "5ts9zlqoevjnl0g",
+    "rt52v4rq8uw37cp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.018Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.018Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "atdqdvteaw8bm1x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.067Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.067Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "u8nvb9x1951lk5a"
+    }
+  ]
+}

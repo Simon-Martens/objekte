@@ -1,0 +1,114 @@
+{
+  "annotation": "3 Jgg 1822, 1830, 1830: Leipzig (Brockhaus); Hrsg: Fr. F. Hempel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch ohne Titel 1822",
+    "norm": "~",
+    "biblio": 100719,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-06-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1087,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch ohne Titel 1822",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 140, L/R 210; Goed VIII. 105, 241; VI. 395, 34",
+  "responsibility_statement": "P. Spiridon",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / ohne Titel / für / das Jahr / 1822. / Mit drei Zeitblättern. / Leipzig. / F. A. Brockhaus / 1822",
+  "updated": "2026-06-11 10:18:55.048Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "ddyws4sw3lfulng"
+  ],
+  "contents": [
+    "cojyfczbz3m5e2s",
+    "evxafmei71o8kbw",
+    "zv166sagimk5foh",
+    "2vvea4ytvbvg331",
+    "3dn79k4mzhn3dk2",
+    "vwzd199qgbodxc9",
+    "ckhtanj81ww036h",
+    "gx6aurd79kvzza0",
+    "03700rdgrbl4dkq",
+    "ukto3wr143g13ff",
+    "8eiz6m2l3617uyv",
+    "ky4wv42javhfusv",
+    "16qxx1ecuoec0jw",
+    "wrk12sy3x51ku0j",
+    "h7kz7gby2k7vxpu",
+    "vdg3zyvo0kbmraw",
+    "0mxb3gqe8b6avaq",
+    "hjlaxaur33xw2u4",
+    "m0cftybaivgps4y",
+    "vwnmno3jjhmlx9p",
+    "0wwaicx9tvgzyxz",
+    "5ppvvtsexujxt5j",
+    "be88x2mmurzkgkc",
+    "sag246xa1isgoy9",
+    "czbrypz4ter651l",
+    "eq5yqyp0v6tlela",
+    "drh3fklsmwrpc2s",
+    "pml9y1nsksaefcb",
+    "7j0s3ec1xci6cy9",
+    "61f2f855rraq5i0",
+    "akflbm96skbk181",
+    "k567u78vtcjh5wm",
+    "f7yrgotyulnza6u",
+    "n47y25mg5znd6g1",
+    "6bc4clujmba1y6f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.819Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.819Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "aguxd97pd6b76yf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.596Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.596Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "bg0f16dpu0vt2d4"
+    }
+  ]
+}

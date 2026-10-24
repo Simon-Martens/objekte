@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wer zog da im Prunke zum heiligen Dom'? / Der Kaiser von Östreich, gut edel und / fromm",
+  "language": [],
+  "musenalm_id": 135368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der österreichische Monarch, / als Erbkaiser. / Ein Volkslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der österreichische Monarch, / als Erbkaiser. / Ein Volkslied",
+  "updated": "2025-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.147Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "8hsigistwvc1wru"
+    }
+  ]
+}

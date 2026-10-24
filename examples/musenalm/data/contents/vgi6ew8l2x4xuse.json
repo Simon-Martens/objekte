@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht im Beitrag »Das Marmorbild« INr 26943, Obj 192",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Die KIänge verrinnen, / Es bleichet das Grün,",
+  "language": [],
+  "musenalm_id": 36449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die KIänge verrinnen, / Es bleichet das Grün,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.864Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "fd7yp2lwuhcfz3o"
+    }
+  ]
+}

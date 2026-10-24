@@ -1,0 +1,75 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, S 1 T, SS 3-326",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1847",
+    "norm": "",
+    "biblio": 405334,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1631,
+  "parallel_title": "",
+  "place_statement": "Berlin (Puttkammer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Müller",
+  "subtitle_statement": "",
+  "title_statement": "Bettlers Gabe. / Taschenbuch für 1847 / von / Wilhelm Müller. / Dreizehnter Jahrgang. / Berlin. / Verlag von C. G. von Puttkammer",
+  "updated": "2026-09-24 08:50:31.369Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "y0kiq457f35brpl"
+  ],
+  "contents": [
+    "pk9a9hrm1axfyfc",
+    "zv0xeabznlpn4ya",
+    "j5avh7abig0or51",
+    "us99tr5cpgee8gy",
+    "idkqdk948zv52m6",
+    "4a6whjtqgl4nebi",
+    "up8jh9ytn9qkqyf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.133Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-09-24 08:50:31.371Z",
+      "agent": "3y9su3bvjb6unzc",
+      "source_id": "7qg0fkfd5kj9fwl"
+    }
+  ]
+}

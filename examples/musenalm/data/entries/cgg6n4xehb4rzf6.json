@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1839",
+    "norm": "",
+    "biblio": 200507,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2994,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "Friedrich von Raumer",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Mit Beiträgen / von / Arendt, Barthold, Böttiger, Schubert, / herausgegeben / von / Friedrich von Raumer. / Zehnter Jahrgang. / Leipzig. / F. A. Brockhaus / 1839",
+  "updated": "2026-06-11 10:18:54.771Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "6vb394moe8uks3g"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.169Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.169Z",
+      "agent": "gjmd3adkws0h0dh",
+      "source_id": "6qtfozdluepjnf6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.590Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.590Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "runetz0x9u5nxtb"
+    }
+  ]
+}

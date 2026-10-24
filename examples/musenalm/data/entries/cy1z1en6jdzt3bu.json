@@ -1,0 +1,116 @@
+{
+  "annotation": "# Bez. s. L/R 202 /) einziger Jahrgang /) die Textbeiträge von: Karl von Knoblauch auf Hatzbach",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S 1 nT, SS 3-120 darin 12 GG, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Aufklärer und Nichtaufklärer 1791",
+    "norm": "~",
+    "biblio": 406169,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-09-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3605,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für Aufklärer und Nichtaufklärer 1791",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 108; L/R 202; H.-G VII, 592",
+  "responsibility_statement": "Karl von Knoblauch zu Hatzbach",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Aufklärer und Nichtaufklärer / auf das Jahr / 1791. / Berlin. / Gedrukt und verlegt bei Joh. Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.822Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "i4tg2ci49y88isz"
+  ],
+  "contents": [
+    "bxwx4ebw19qqwl4",
+    "2zux527gmk8oni6",
+    "sikc996zn922iin",
+    "3pwbsxai9un7oji",
+    "w0bfyd8aezohg4r",
+    "1vk26ocagjn7px6",
+    "ks6b9qgqmxsqabw",
+    "7dhmzjce2e3ep0d",
+    "wpvylqlgl6rftv3",
+    "wizw2k6ojbqwiiw",
+    "hrel9ew11jc4szx",
+    "wm5cvnv8w45hihl",
+    "9y6ukci6jopux0i",
+    "3wglk0giwwp9mjs",
+    "pa334zjwh4oxbmo",
+    "j8kca1cl4eudll5",
+    "ek1wxdgfkiiwbza",
+    "u1gy97r3v25udl2",
+    "v7lc7ij8n8qpvdt",
+    "b0bwhmbi4t0iuis",
+    "ufw55tu5kizd5m6",
+    "obo7jyehf9v2gbc",
+    "57a23c36pbx2ses",
+    "4l3mt9b2wl5i4je",
+    "1htonjwhhqhznj1",
+    "6z92viwtu0wvi1s",
+    "irbkk2nc36rbgta",
+    "joj7rzlnakl3o3c",
+    "d8vk2l3dng0xh2n",
+    "9kyvd676bvaxgi3",
+    "v4oqkktrucxurqb",
+    "jmlts2tgy61402r",
+    "iusgj3vsqrs746l",
+    "r3vyen49j8u7sgo",
+    "auwnk60ofku58yk",
+    "ukn4uaf78qej1bj",
+    "v286mh5eg3wd2mo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.170Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.170Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "263s3bqn8hc82z2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.269Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.269Z",
+      "agent": "a1tvqjbk8115iq7",
+      "source_id": "mvtxyy0o5esoova"
+    }
+  ]
+}

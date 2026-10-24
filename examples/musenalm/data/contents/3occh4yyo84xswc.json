@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. am 8. Blatt der Suite /) kol. Graphik im Kalendarium - Dezember; s. Gedicht INr 56671, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56670,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_32_56670_459njk22dv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Winter",
+  "updated": "2008-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.777Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "b1lrnfofo6lxcha"
+    }
+  ]
+}

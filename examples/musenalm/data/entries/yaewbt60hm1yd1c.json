@@ -1,0 +1,92 @@
+{
+  "annotation": "Autor des einzigen Beitrags »Fortgesetzte Geschichte der französischen Staatsumwälzung« INr 79716 ist: Joachim Christoph Friedrich Schulz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 14 BB Kal darin 12 GG, verso G, T, 2 BB G-Verz, SS 1-219, S, 51 BB Tab, 2 BB Anm d Verf, S VrlgM, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Braunschweig) 1791",
+    "norm": "~",
+    "biblio": 407207,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3784,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Braunschweig) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IV/1; 934, 90",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH GENEALOGISHER [sic] / ALMANACH / fürs IIte. Jahr der Freiheit / ENTHALTEND / Die fortgesetzte Geschichte / der französischen Staatsumwälzung. / BRAUNSCHWEIG 1791. / In der Schul Buchhandlung",
+  "updated": "2026-06-11 10:18:55.881Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "caa0wammubknhg4"
+  ],
+  "contents": [
+    "fhg687a9ysbbbnd",
+    "ixso5k3ocaccynl",
+    "4v4106j7iqxhx7r",
+    "8zjw6b348xs1ksi",
+    "4zhac8ppl7yipef",
+    "npmxjgu9od3docw",
+    "07bppaoxvpxjg5t",
+    "2i74hl312d20m84",
+    "2lifd8mdc35bkyf",
+    "0vius15wzlh2h7g",
+    "luik4xxwqgnoqsm",
+    "3huqoz0qv1638la",
+    "uabg4uw6t09iezz",
+    "in7ij9s78q3qefm",
+    "3ep0py7gh9ehuj2",
+    "2c1hfoh0fj7ym2x",
+    "oednpo00x5t21je",
+    "w29hw2mn8wien9j",
+    "fo5kueknqkkh7w8",
+    "c0ah4jkwcrbsej9",
+    "m2k9f4dyoofd1x4",
+    "07gqiqlyitfj0u6",
+    "1px5urqgw33i6p4",
+    "z54tqhji5i03qww"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "53xm5j0f03e2r4l"
+    }
+  ]
+}

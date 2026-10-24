@@ -1,0 +1,92 @@
+{
+  "annotation": "Umschlag recto und verso eines zweiten Exemplars sind als Photos beigegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B Vrwrt d Hrsg, SS 1-322, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1844",
+    "norm": "~",
+    "biblio": 407707,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1628,
+  "parallel_title": "",
+  "place_statement": "Berlin (Deutsche Verlagsbuchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Müller",
+  "subtitle_statement": "",
+  "title_statement": "Bettlers / Gabe. / Taschenbuch für 1844 / von / Wilhelm Müller. / Zehnter Jahrgang. / Mit dem Portrait des Verfassers. / Berlin. / Deutsche Verlagsbuchhandlung. / (C. G. von Puttkammer.)",
+  "updated": "2026-06-11 10:18:55.538Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "379wgs3niygclnh"
+  ],
+  "contents": [
+    "jz5ydxcyfmb76eo",
+    "7kpe84jui9gff6c",
+    "d0fd7hobx02cpf5",
+    "czfp8dte5abkgst",
+    "8tz539oltj6hpke",
+    "qg312rg7t9xby71",
+    "iqydb3wih6oll4y",
+    "uz2rw92tbw3krmb",
+    "1jjlwvqpjg8g0tc",
+    "6gg8mciiq8nij3u",
+    "82q2ksqbqtb5h5v",
+    "0n40665whotxe0a",
+    "h6qanwzdvl6sw7h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.944Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.944Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "a00ssbruo7botqs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.720Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.720Z",
+      "agent": "molas2xdoy9zddb",
+      "source_id": "sootfu2kck204fs"
+    }
+  ]
+}

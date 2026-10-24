@@ -1,0 +1,282 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.459Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "aus Breslau, Landschaftsmaler, Professor, seit 1820 Mitlgied der Akademie",
+        "Landschaftsmaler"
+      ],
+      "dateOfBirth": [
+        "1768-10-09"
+      ],
+      "dateOfDeath": [
+        "1843-07-08"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ludwig Emil Grimm"
+          ],
+          "creditText": [
+            "www.galerie-fach.de/themen/kat_93_g5.html Galerie und Kunstantiquariat Joseph Fach GmbH"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Samuel%20Roesel%201.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Samuel%20Roesel%201.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Samuel%20Roesel%201.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/126883416"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-15T17:47:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115362320/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115362320",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115362320",
+      "oldAuthorityNumber": [
+        "(DE-588a)115362320",
+        "(DE-588a)126883416",
+        "(DE-588)126883416"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Rösel, Samuel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Samuel"
+        ],
+        "surname": [
+          "Rösel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4332866-0",
+          "label": "Landschaftsmaler"
+        }
+      ],
+      "publication": [
+        "Ein schön frisch Liedlein von Doctor Faust"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/45031272"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1729579"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115362320/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/126883416"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Samuel_R%C3%B6sel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066770375"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115362320"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115362320"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/115362320"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/115362320"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Rösel, Johann Gottlob Samuel",
+        "Rösel, Johann G.",
+        "Rösel, S."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Rösel"
+          ]
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "surname": [
+            "Rösel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob Samuel"
+          ],
+          "surname": [
+            "Rösel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Samuel_R%C3%B6sel",
+          "label": "https://de.wikipedia.org/wiki/Samuel_R%C3%B6sel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:41:15Z",
+    "gnd_query_biographical_data": "1768-1843",
+    "gnd_query_name": "rösel, johann gottlob samuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2312,
+  "name": "Rösel, Johann Gottlob Samuel",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVIII, 498",
+  "updated": "2026-06-11 13:29:24.388Z",
+  "uri": "https://d-nb.info/gnd/115362320",
+  "editor": ""
+}

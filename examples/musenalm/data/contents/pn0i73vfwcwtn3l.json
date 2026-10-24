@@ -1,0 +1,45 @@
+{
+  "annotation": "Liederspenden (Sammlung INr 114947, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Du sollst nicht nicht lange bangen, / Weil das, was du bedacht, / Nicht nach dem reichen Wunsche / Auch ward' zu End' gebracht.",
+  "language": [],
+  "musenalm_id": 114948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Wunsch und Erfüllung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Wunsch und Erfüllung",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.481Z",
+      "agent": "h1jhs52naysyy4l",
+      "source_id": "h66011c42f9lgey"
+    }
+  ]
+}

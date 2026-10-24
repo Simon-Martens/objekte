@@ -1,0 +1,47 @@
+{
+  "annotation": "2. Vertonung des Gedichts »Waldgesang« von J. H. Voß INr 6681, Obj 58",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WALDGESANG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. A. Kunzen",
+  "scans": [
+    "alm_129_6683_qr83879g67.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WALDGESANG",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.337Z",
+      "agent": "4ier54ik5eaxash",
+      "source_id": "fju2brfb9geg6zc"
+    }
+  ]
+}

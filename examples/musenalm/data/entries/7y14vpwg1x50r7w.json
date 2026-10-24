@@ -1,0 +1,125 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, S 2 Anm d Hrsg, SS 3-242 darin 3 MusBB, SS 243-248 Nwrt d Hrsg, S 249 C, SS 250-252 I-Verz C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Salzburger 1788",
+    "norm": "~",
+    "biblio": 405969,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 435,
+  "parallel_title": "",
+  "place_statement": "Salzburg (Verlag der hochfürstl. Waisenhausbuchhandlung)",
+  "places": [
+    "rf9k8kvx4ugh24k"
+  ],
+  "preferred_title": "Musenalmanach, Salzburger 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 88; nicht bei L/R; Goed IV/1. 965, 34 a",
+  "responsibility_statement": "Lorenz Hübner",
+  "subtitle_statement": "",
+  "title_statement": "Salzburger / Musenalmanach / auf das Jahr / 1788. / Herausgegeben / von / Lorenz Hübner. / Salzburg, / Im Verlage der hochfürstl. Waisen- / hausbuchhandlung",
+  "updated": "2026-06-11 10:18:55.977Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "ayzrnxj0jj1a7xk"
+  ],
+  "contents": [
+    "h5ek69yfp1vkc2z",
+    "fj2ko4wm04po9jn",
+    "ebyf82pc2jgbedh",
+    "qwz9389cruw7ya8",
+    "h53sio1obcif9s7",
+    "4fnypjf7zkvy596",
+    "zwf495cfdxgemd5",
+    "tw8vkcfiwg32lyc",
+    "i3uzqwrm0j4qapu",
+    "c89k6hcsj1p3nal",
+    "lm2db0ksedalb8y",
+    "k4ppoxe30lcmw4f",
+    "2o1xb50gxlcc6nz",
+    "ocwfukrck6pjoei",
+    "s7jugr5wxxvnxnk",
+    "grt259ekaa24gxf",
+    "if7w47mkb3gxi0r",
+    "ilhh4t9ccpnsrw6",
+    "8c5eoqbtejhcioy",
+    "iutm0ob7s7uupra",
+    "bxj91xxfaisxnis",
+    "ms4vubrqolpruzt",
+    "0s6kxq1peaefjl5",
+    "fa7vo4vjaew6ha6",
+    "2jknfvudznkhuk0",
+    "3qgydtvl9z01bm9",
+    "cxq3j9dndjx9898",
+    "hwdqrostskfrn2y",
+    "z0zj6h3r2gz7cmh",
+    "r5ywysvudbjyrzq",
+    "feft5zl5lu3bfvg",
+    "yi8l5g19aicn2sb",
+    "9lw9q6k6lik0iob",
+    "l9gmwm54kpohy95",
+    "88aiqsbzy01wk0d",
+    "jjp13l372knfycg",
+    "txb2hr3ghkm8mei",
+    "gbzf9uxkiao0xeo",
+    "ei3it0nywe35b43",
+    "hm64h1v9wemidtv",
+    "awxq4ztjy7e7l5l",
+    "1wa1avnl5jmbevw",
+    "8irwuyonh0t8yoe",
+    "33jakxu3x1hhf6b",
+    "lfqnbrvj5wymkzj",
+    "zjbzsc1kc45by8i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.662Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.662Z",
+      "agent": "0b9nelfb23buwgh",
+      "source_id": "u0wqyp7roherdp8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "kp79ci5vhkzjixy",
+      "source_id": "yg8rj67rhqty3d3"
+    }
+  ]
+}

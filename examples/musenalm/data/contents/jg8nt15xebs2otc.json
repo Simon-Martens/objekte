@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Schlegler« von E. F. S. Lohmann INr 30280, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schlegler. / Erzählung von Friederike Lohmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Ludw. Meÿer jun. sc. Berlin",
+  "scans": [
+    "alm_395_30281_j0fuebiza3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schlegler. / Erzählung von Friederike Lohmann",
+  "updated": "2002-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.590Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9aso8jasehp179o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.590Z",
+      "agent": "l5ef0nkmotzvzwh",
+      "source_id": "e55iks8yguehsdo"
+    }
+  ]
+}

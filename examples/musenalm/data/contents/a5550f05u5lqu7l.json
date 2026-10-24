@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Sieh da! Kömmst du schon wieder an, / Freund Fuchs? Hast du das Deinige gethan,",
+  "language": [],
+  "musenalm_id": 2639,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tiger und der Fuchs. / Eine Fabel. / (Nach dem Französischen des Herrn Abt Lemmonier)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tiger und der Fuchs. / Eine Fabel. / (Nach dem Französischen des Herrn Abt Lemmonier)",
+  "updated": "2000-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.657Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "awlg0c64p226ay5"
+    }
+  ]
+}

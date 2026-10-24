@@ -1,0 +1,131 @@
+{
+  "annotation": "§$ vermutl.  fehlen Titelportrait und weitere Graphiken",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, S 1 T, ar: SS 3-254 darin MusB, ar1: SS 1-14 Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1837",
+    "norm": "~",
+    "biblio": 405650,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2719,
+  "parallel_title": "",
+  "place_statement": "Wien (Ludwig)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 148; L/R 119; Goed VIII. 81, 161",
+  "responsibility_statement": "Carl Meisl und August Schmidt",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für das / k.k. privilegirte Theater / in der / Leopoldstadt, / auf das Jahr / 1837. / Zum Besten der Wittwe des Schauspielers / Ziegelhauser. / Herausgegeben von / Carl Meisl / August Schmidt. / Wien. / Gedruckt bey Franz Ludwig",
+  "updated": "2026-06-11 10:18:54.749Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "rhbkx7skjgkpa36"
+  ],
+  "contents": [
+    "rl6stxeg9436wvw",
+    "xdgp6y8xbb7qg5n",
+    "ssvo12bqyfy9uh3",
+    "lhd6yb3tfg10q4n",
+    "nt3e3k47ve725ug",
+    "z10g63egidoorg7",
+    "epp5upmo39zoi2c",
+    "t6ef0moyvwf74nl",
+    "s6ykjteiylhb1xu",
+    "nyr9oskknjcs8wu",
+    "hec4ph4h8rlskqq",
+    "13ct81jmvvutg0y",
+    "ouiwp81iqwv5tep",
+    "2ol5ozc9lvyc0wd",
+    "fnx5oxuvfpie4aa",
+    "nuk16mnqjvfrz73",
+    "7v1o6izgwcdmcsc",
+    "i94isn97dgok7he",
+    "hi3j98rg7kk1ey4",
+    "crr8dl7v82ol6vd",
+    "5mgvpbcidjbcsuq",
+    "85noajh1lrqsmmf",
+    "8fqap98i2u987tk",
+    "efvytdcnih345sb",
+    "uhub7f0vsy108kq",
+    "mt7gnl9363ipdma",
+    "v8m8wbclful5qad",
+    "kn82quf1b5v497w",
+    "h64crk6n98fcguu",
+    "g6ou1nlhaufpu41",
+    "9x8rf4pcsd073y3",
+    "17p72iw1652vcsj",
+    "rzzczimq9tqdekp",
+    "bs9fhkg722pt9mn",
+    "3fd2pmji8gzjthb",
+    "re8mj1bmvdq8h2a",
+    "zanvcsgrgiicn7t",
+    "wepaavw2593lvlc",
+    "y5aahmyhtj8sdq4",
+    "r02k3j053130vpa",
+    "aqnbfoict1pzcw2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.129Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.129Z",
+      "agent": "7hwx2whrgf8fkrg",
+      "source_id": "4jlsqr1bxsh9x95"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.130Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.130Z",
+      "agent": "17xjqe49v1xcoot",
+      "source_id": "yaisztqc7oxftyu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.102Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.102Z",
+      "agent": "hazrisf8oiw6g6r",
+      "source_id": "z6eagsbsif731pv"
+    }
+  ]
+}

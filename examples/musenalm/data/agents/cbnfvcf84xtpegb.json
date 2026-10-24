@@ -1,0 +1,505 @@
+{
+  "annotation": "",
+  "biographical_data": "1728-1779",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1035621568",
+          "label": "Königlich Sächsische Mengsische Museum"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler und Kunstschriftsteller; Historienmaler; Hofmaler; Direktor der Malerakademie in Dresden",
+        "Künstler"
+      ],
+      "dateOfBirth": [
+        "1728"
+      ],
+      "dateOfDeath": [
+        "1779"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anton Raphael Mengs"
+          ],
+          "creditText": [
+            "Source: Steffi Roettgen, Anton Raphael Mengs 1728-1779, vol. 2: Leben und Wirken (Munich: Hirmer, 2003), plate 46. Scan: James Steakley"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Mengs%2C%20Selbstbildnis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Mengs%2C%20Selbstbildnis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Mengs%2C%20Selbstbildnis.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160434831",
+        "https://d-nb.info/gnd/1325003115"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118783270/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/123589959",
+          "label": "Mengs, Ismael"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118783270",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/123589959",
+          "label": "Mengs, Ismael"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118783270",
+      "oldAuthorityNumber": [
+        "(DE-588)1325003115",
+        "(DE-588a)160434831",
+        "(DE-588c)4110695-7",
+        "(DE-588)160434831",
+        "(DE-588a)118783270"
+      ],
+      "preferredName": "Mengs, Anton Raphael",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Raphael"
+        ],
+        "surname": [
+          "Mengs"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/188432582",
+          "label": "Spalletti, Giuseppe"
+        }
+      ],
+      "publication": [
+        "Mengs, Anton R.: Lettera a Don Antonio Ponz",
+        "Mengs, Anton R.: Opere di Antonio Raffaello Mengs, primo pittore della Maesta del Re catt*",
+        "Mengs, Anton R.: Gedanken über die Schönheit und über den Geschmack in der Malerey",
+        "Mengs, Anton R.: Schreiben an Herrn Anton Pons über Malerei und Kunst überhaupt"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12112400d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79089094"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/mengs-anton-raphael/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54179382"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76718"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118783270/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325003115"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160434831"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Anton_Raphael_Mengs"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anton_Raphael_Mengs"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Anton_Raphael_Mengs"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108575632"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118783270"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118783270"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118783270.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118783270.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118783270"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118783270"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Mengs, Antoine R.",
+        "Mengs, Rafael",
+        "Mengs, Antonio Raffaello",
+        "Mengs, R.",
+        "Mengs, Anthony R.",
+        "Mengs, B.",
+        "Mengs, Antonio R.",
+        "Meng, Anton Rafael",
+        "Mengs, Antonius Raphael",
+        "Mengz, Antonio R.",
+        "Mengs, Anton R.",
+        "Mengs, Raphael",
+        "Mengs, Anton Raffael",
+        "Mengs, Anton Rafael",
+        "Mengz, Antonio Raffaele",
+        "Mengs, Antonio Rafael",
+        "Mengs, Raf."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Antonius Raphael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio R."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio Rafael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Raffael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "R."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Anton R."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony R."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Raphael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Rafael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio Raffaele"
+          ],
+          "surname": [
+            "Mengz"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Rafael"
+          ],
+          "surname": [
+            "Meng"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Rafael"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio Raffaello"
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine R."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio R."
+          ],
+          "surname": [
+            "Mengz"
+          ]
+        },
+        {
+          "forename": [
+            "Raf."
+          ],
+          "surname": [
+            "Mengs"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anton_Raphael_Mengs",
+          "label": "https://de.wikipedia.org/wiki/Anton_Raphael_Mengs"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:15:09Z",
+    "gnd_query_biographical_data": "1728-1779",
+    "gnd_query_name": "mengs, anton raphael"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1785,
+  "name": "Mengs, Anton Raphael",
+  "profession": "Graphik u. Text",
+  "pseudonyms": "",
+  "refs": "T/B XXIV, 390",
+  "updated": "2026-06-11 13:29:23.777Z",
+  "uri": "https://d-nb.info/gnd/118783270",
+  "editor": ""
+}

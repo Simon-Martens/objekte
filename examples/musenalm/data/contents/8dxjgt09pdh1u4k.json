@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Drei Predigten in jeder Woche? / Ists Kinderspiel?",
+  "language": [],
+  "musenalm_id": 63068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sagen und Thun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sagen und Thun",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.210Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "vxrmfkgr1thenhj"
+    }
+  ]
+}

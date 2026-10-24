@@ -1,0 +1,45 @@
+{
+  "annotation": "Polymeter (Sammlung INr 33078, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Neue erfreuliche Spiele zeigtest du sonst, stiegst du langsam hinauf.",
+  "language": [],
+  "musenalm_id": 33080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei einem brennenden Theater-Vorhang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei einem brennenden Theater-Vorhang",
+  "updated": "2003-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.688Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "vp6larr9pzhyvaj"
+    }
+  ]
+}

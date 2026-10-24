@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64652, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landschaft #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. C. Nakken pinx. W. Steelink sculps.",
+  "scans": [
+    "alm_1079_64658_31wxkbdkhs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landschaft #",
+  "updated": "2009-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "lwzw1g7isc1pjy6",
+      "source_id": "9y0v4aq3f4yfy3s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "yl986oje8pm1hj7",
+      "source_id": "rwcyn1l34mlmx1c"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "NEUE TAENZE (Sammlung INr 62184, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62189,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pannenberg",
+  "scans": [
+    "alm_133_62189_8zdct8s67i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angloise I.",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.104Z",
+      "agent": "xcvglhwosgzvu0f",
+      "source_id": "9fr1d1tmsgphzht"
+    }
+  ]
+}

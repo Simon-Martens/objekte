@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "In einer Stadt an der Saale war / Ein Bader vor alter Zeit, / Der schwatzte den ganzen Tag, wie ein Staar, / Und immer gewaltig breit.",
+  "language": [],
+  "musenalm_id": 122252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bader an der Saale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bader an der Saale",
+  "updated": "2011-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.818Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "gb5zyp2j0rhsgun"
+    }
+  ]
+}

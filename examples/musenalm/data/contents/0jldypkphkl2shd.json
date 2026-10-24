@@ -1,0 +1,45 @@
+{
+  "annotation": "Alte Gedichte aus dem Spanischen (Sammlung INr 15300, Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Reine Magd, von klarem Golde / Hat dir Gott ein Herz gegeben,",
+  "language": [],
+  "musenalm_id": 15301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die heilige Catharina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die heilige Catharina",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.675Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "kftapxl2ax9u3e2"
+    }
+  ]
+}

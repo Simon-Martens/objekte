@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "An der Gränze des Herbstes, als schon der Winter seine eisige Hand nach den wenigen Resten von Laub und Gras ausstreckte,",
+  "language": [],
+  "musenalm_id": 63319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pathen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Pathen",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.154Z",
+      "agent": "o98cykqmxxu1sx9",
+      "source_id": "32lv1pokcfglr6y"
+    }
+  ]
+}

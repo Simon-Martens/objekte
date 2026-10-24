@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an den übrigen Gedichten der Sammlung /) Gesänge (Sammlung INr 41075, Obj 100) mit einer Musikbeigabe s. INr 41079, Obj 104",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ich denke dein, so lange Kraft zu denken, / Dem Geiste bleibt, der in mir denkt",
+  "language": [],
+  "musenalm_id": 41080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Lied",
+  "updated": "2005-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.073Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "l83tpybviqguhrx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Beiträgen INr 61366, 61367; Obj 29, 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61365,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Proben einer Uebersetzung des Klaudianischen Gedichtes wider den Eutrop",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Proben einer Uebersetzung des Klaudianischen Gedichtes wider den Eutrop",
+  "updated": "2009-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.011Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "4ivpqdmy3ggeqwa"
+    }
+  ]
+}

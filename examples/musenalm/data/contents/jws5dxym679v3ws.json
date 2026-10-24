@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus F. G. Wetzels Nachlasse (Sammlung INr 22405, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Wie brennt mein ganzes Herz nach dir, / Dein liebes Bild schwebt stets vor mir,",
+  "language": [],
+  "musenalm_id": 22409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sehnsucht",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.989Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "yrrx98bd3satdgx"
+    }
+  ]
+}

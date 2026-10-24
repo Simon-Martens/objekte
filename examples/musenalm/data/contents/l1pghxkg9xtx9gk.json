@@ -1,0 +1,45 @@
+{
+  "annotation": "übernommen aus: Taschenbuch zum geselligen Vergnügen 1813; mit eienr Illustration s. Graphik INr 133483, Obj10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Vor König Arthurs Tafelrunde / Erschien ein Weib, gar hoch und schön,",
+  "language": [],
+  "musenalm_id": 133482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahl des Gatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahl des Gatten",
+  "updated": "2024-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.108Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "q64rep35zybs26f"
+    }
+  ]
+}

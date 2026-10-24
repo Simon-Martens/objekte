@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel s. Textbezug INr 27845, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27844,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1827, / herausgegeben / von / Georg Döring. / Nürnberg, / bei Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Förster del. Dalbon sc.",
+  "scans": [
+    "alm_357_27844_wjo743q8kx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1827, / herausgegeben / von / Georg Döring. / Nürnberg, / bei Joh. Leonh. Schrag",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.238Z",
+      "agent": "42w3wulg3fl03j4",
+      "source_id": "75tzzsqvnmivqik"
+    }
+  ]
+}

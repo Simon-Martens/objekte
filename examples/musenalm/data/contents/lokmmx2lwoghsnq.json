@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 16809, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Eil, o May, mit deinem Brautgesange! / Eil, und röthe meines Mädchens Wange,",
+  "language": [],
+  "musenalm_id": 16810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selma",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selma",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.638Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "3zi7et2kbf62a7i"
+    }
+  ]
+}

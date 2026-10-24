@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 62551, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62546,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karoline Auguste / Kaiserin von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Portmann gez.",
+  "scans": [
+    "alm_1026_62546_yshicejlm7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karoline Auguste / Kaiserin von Oesterreich",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.530Z",
+      "agent": "dtwggxcbl5w7fng",
+      "source_id": "trglju8jlzb50aw"
+    }
+  ]
+}

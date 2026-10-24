@@ -1,0 +1,107 @@
+{
+  "annotation": "Erscheinungsweise unklar: KVK, GVB: 13 Jgg erschienen zwischen 1836-1853",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, B, S I T, SS III-VIVrwrt d Hrsg, SS V G-Verz, SS VIII-VIII I-Verz, SS 1-293, SS 294-297, S C, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues für Natur-, Forst- und Jagdfreunde 1855",
+    "norm": "~",
+    "biblio": 409111,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-10-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4223,
+  "parallel_title": "",
+  "place_statement": "Weimar (Voigt)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch, Neues für Natur-, Forst- und Jagdfreunde 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "G. von Schultes; J. C. L. Schultze",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / für / Natur-, Forst- und Jagdfreunde. / Angefangen von / G. von Schultes, fortgesetzt von / J. C. L. Schultze, / Herzogl. Braunschw. Forstsecretär in Stadtoldendorf. / Dreizehnter Jahrgang / auf das Jahr 1853. / Mit einem Titelkupfer. / Weimar, 1853. / Druck, Verlag und Lithographie von Bernh. Friedr. Voigt",
+  "updated": "2026-06-11 10:18:55.383Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "6ohfaizspwz46b6"
+  ],
+  "contents": [
+    "atodan5zhh6hep6",
+    "6rhvkks7ayge269",
+    "h6owvznv5een39x",
+    "e4f4ecqaind5bvx",
+    "qg9gf9qr55ztddk",
+    "th9779ebdi4nfw6",
+    "703cvbd7g2ln6ci",
+    "aghrum6ix4qkzv4",
+    "qb6y2v7uxdu0kgs",
+    "kbgb7amaaopks4m",
+    "ix5r35mdacl0r5o",
+    "zl5f2eewjm91ke8",
+    "x11ed90s0b7gtjf",
+    "fw81kdgjmoc8esf",
+    "7ptd4cop14j3e41",
+    "xyovvxj8p6jiq7s",
+    "nrpgix00375c7td",
+    "69i0avf5yhrgu70",
+    "95y90tmgr3nua6w",
+    "wpq5qz4e8vxxt1z",
+    "ta46v5mb8rlhlc2",
+    "1vtnmdx8zojwm8x",
+    "idluvg0oh7xoiil",
+    "qlyw4ook94bj1xi",
+    "5igbp1o70hyu6wk",
+    "yujy04grk98q4fw",
+    "i25uspm4c58zgsn",
+    "ms44jtbj6atoxmd",
+    "qgwwro0acs8l8io",
+    "6xyfl3b64wgnq7h",
+    "qqq0uyn75ibccyg",
+    "axdhw0w7ym50afv",
+    "cm13bhn82ec3b8j",
+    "z22hpifi3t5lg9q",
+    "tru1dmsu7aw89jk",
+    "m5v51xm93gicu86",
+    "b09cachritv40qf",
+    "8c1p3fhvx5wyscg",
+    "iegvwthwu0261a1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "cc0a6jcink173zd"
+    }
+  ]
+}

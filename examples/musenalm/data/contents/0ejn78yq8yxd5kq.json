@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Was regst du, mein Wein, in dem Faß dich? / Es brachten die Düfte mir Kunde",
+  "language": [],
+  "musenalm_id": 15278,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idylle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "***",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Idylle",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.196Z",
+      "agent": "927x9iudx02bl66",
+      "source_id": "0514kooa04s3wdr"
+    }
+  ]
+}

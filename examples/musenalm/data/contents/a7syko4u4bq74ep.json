@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 115179, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Armida, die heidnische Zauberinn, verlockte, um die Macht des Kreuzheeres zu schwächen, durch das frevelhafte Spiel ihrer Schönheit, die tapfersten christlichen Ritter",
+  "language": [],
+  "musenalm_id": 115180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Armida und Rinaldo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Armida und Rinaldo",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.289Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "g0zx80yh5vpxds2"
+    }
+  ]
+}

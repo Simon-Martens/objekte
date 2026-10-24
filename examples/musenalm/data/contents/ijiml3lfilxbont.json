@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. Illustration zu »Das Waldfräulein« von Fr. de la Motte Fouqué INr  43503, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Waldfräulein / von Fouqué. / S. 162",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Ramberg gest. v. Esslinger",
+  "scans": [
+    "alm_573_43486_69iyf6wsxd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Waldfräulein / von Fouqué. / S. 162",
+  "updated": "2006-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.136Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "0yx5400ryh729tq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.135Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "hlzeu68x39rjz6f"
+    }
+  ]
+}

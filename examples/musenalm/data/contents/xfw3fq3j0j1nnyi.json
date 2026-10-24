@@ -1,0 +1,45 @@
+{
+  "annotation": "Deutsches Künstlerfest in Rom. (Sammlung INr 27473, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Vom Himmel stammt, das Gott mir gab, das Licht; / Ich neide nicht, was andre Künst' erwarben.",
+  "language": [],
+  "musenalm_id": 27476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mahlerei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mahlerei",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.296Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "z4ewwdi37dgpxir"
+    }
+  ]
+}

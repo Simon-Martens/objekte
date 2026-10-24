@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Aufgewacht, aufgewacht! / Laß sie flieh'n, des Traumes Schwingen, / Denn ein Lied will ich hier singen,",
+  "language": [],
+  "musenalm_id": 94238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.308Z",
+      "agent": "rpi79icfm69ol8h",
+      "source_id": "b6bohs5xeqbe7wv"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "annotation": "3 Jgg 1823-1825, Frankfurt (Wilmans) Hrsg: St. Schütze /) Fortsetzung von: Wintergarten, Der 1816, 1818-1822",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S VrlgM, verso G, T, B I-Verz, SS 1-312, SB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frühlingsbote, Der 1823",
+    "norm": "~",
+    "biblio": 407001,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-12-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3746,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Frühlingsbote, Der 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 94, 184 b",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Der / Frühlingsbote. / Herausgegeben von St. Schütze. / Frankfurt am Main / bei Friedrich Wilmans. / 1823",
+  "updated": "2026-06-11 10:18:54.685Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "sxtnu96ipg49vgh"
+  ],
+  "contents": [
+    "o4xsplusdg8qitf",
+    "xs690vuh8vw0vy2",
+    "km4wocgesv37vn7",
+    "wlr6odc6iu0b2b9",
+    "2cstwdptbzzk703",
+    "ay1x9kjwk39eqsx",
+    "yko1n5atvnhhxec",
+    "44hv0u2vjvjujnq",
+    "99u4jabc6384a6e",
+    "iowm5bt6p7syu6p",
+    "0imd76dooosxh9j",
+    "vq2r31o76ds8onw",
+    "1ly651rbyeji2u3",
+    "5kiznl295zquhib",
+    "ybpbd3brfobasnr",
+    "p7wf757lngjgixe",
+    "r09tgbhzkslqmny",
+    "4191r9lpxrx8jen",
+    "xwpg51awl3ub6aj",
+    "lphv2ezo9aggdz2",
+    "gfiowq2zclhcmo8",
+    "lmxf3k70n2kaboz",
+    "f3oxyoid4kuvs9j",
+    "19pbkzudl4q9noi",
+    "1txwrvy0kdy39tb",
+    "5hy0bq98dhjbnd2",
+    "mctlbe7udsv6m9h",
+    "9af8e9inzfj1v82",
+    "7m2d1e9i8dvo43a",
+    "qx49qegdi71mxze"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "b9tljv0oey372as"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.291Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.291Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "xszwfh6gi15dz7y"
+    }
+  ]
+}

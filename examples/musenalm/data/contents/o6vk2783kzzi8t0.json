@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Miethen und Allegorien (INr 124155, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Im Frühling war's, am Meeresstrand, / Da stand ein holder Knab' und weinte;",
+  "language": [],
+  "musenalm_id": 125156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kindes Fahrt zum Himmel. / Der Zeit nach ist Erfahrung die erste Kenntniß des Menschen. / Kant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Zettler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Kindes Fahrt zum Himmel. / Der Zeit nach ist Erfahrung die erste Kenntniß des Menschen. / Kant",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.868Z",
+      "agent": "gjd8cankfqkmj50",
+      "source_id": "fzr7u5lsjt2op05"
+    }
+  ]
+}

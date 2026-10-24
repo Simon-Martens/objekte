@@ -1,0 +1,121 @@
+{
+  "annotation": "im Schüber mit Rückenschild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I vT, S II VrlgM, verso G, S III T, SS V-VI I-Verz, S VII G-Verz, G, SS IX-XX G-Verz darin 6 GG, SS 1-524",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1827",
+    "norm": "~",
+    "biblio": 100995,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 51,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch / auf / das Jahr 1827. / Mit acht Kupfern. / Leipzig: / F. A. Brockhaus. / 1827",
+  "updated": "2026-06-11 10:18:54.893Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "yhrd7yg4vsbssvz"
+  ],
+  "contents": [
+    "njd88pw18k1ggm5",
+    "m5swumtxpb8qcaw",
+    "omew3auyuc0627i",
+    "cwd6fxn7bv3xm9n",
+    "0vzvz5ipqbcor14",
+    "gfumi4sqnbbu3ds",
+    "2lacj8hzcbwmvby",
+    "lr79bmrxumdi6cy",
+    "ladswqr7ob75840",
+    "gqpxcoh5ldmg5ky",
+    "xvqmbs7ufo2mjtn",
+    "nwz0a03e44madqg",
+    "66v1xy3seje7vv5",
+    "y78o3ipiu96yjg7",
+    "424gqv0r03v79xh",
+    "kdv7hccf6kbpr9l",
+    "p3rb7wtasqlo96t",
+    "wn73t282b2kq4hl",
+    "h48iifdina6lg4b",
+    "9hpunbck3lf5jli",
+    "xojjonubstquk33",
+    "qe9ml39uwi2cvug",
+    "fwrvotl2qtwtnvb",
+    "ott54z5x1otlj9b",
+    "ewyrbb94vb71a4h",
+    "ismmeo36n0l5nsn",
+    "ongenv7msnjkh3r",
+    "ykbh42mpsifsyg5",
+    "n52dfjamtfjxrsw",
+    "imbrjdiax4b92tk",
+    "duk5tkz1f61sj0g",
+    "28ysaokldb6ehll",
+    "nujq2ni2l9n69tp",
+    "wif0gypfzbhjgqp",
+    "m1nrk0x65ukzd2h",
+    "j9uu3mvo0f8fb10",
+    "oiboheu0c02yvxw",
+    "ljl5wqawdo6j5ur",
+    "lnksxxno7ipp7vd",
+    "6me889p3iybrgq1",
+    "dq1gyocs8z94325",
+    "yphy30r6pgmyfq3",
+    "sjjf673xu7ovdp5",
+    "x3nqxybqcyzd7fy",
+    "fhb13opjntzha9q",
+    "9ksk3x9jnpytb5s",
+    "84vauqi0pl1wo9j",
+    "1ll99hdbmgh86n5",
+    "gjz9tmgd35iw9z6",
+    "k9jsyts0zdn4tll",
+    "karish0asm0r9f2",
+    "5jopumvx1bc2rcy",
+    "0phfvc9jgs6942r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.597Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.597Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "jvln6c832pouea9"
+    }
+  ]
+}

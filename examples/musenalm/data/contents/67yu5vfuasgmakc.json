@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1813 (Sammlung INr 39437, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "461",
+  "incipit_statement": "Vorwärts klimm ich auf die Felsen, / Bin gewandt, und schnell und leicht,",
+  "language": [],
+  "musenalm_id": 39438,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Palindrom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Palindrom",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.159Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "87gjzx10ra2esa8"
+    }
+  ]
+}

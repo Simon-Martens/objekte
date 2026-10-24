@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 14 BB Kal darin 12 GG, 4 BB G-Verz, SS 1-240, 54 BB, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Braunschweig) 1797",
+    "norm": "~",
+    "biblio": 404905,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1122,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Braunschweig) 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 125; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch genealogischer / KALENDER / auf / das Jahr 1797. / Deutschland, / ein historisches Gemälde. / Braunschweig / in der Schulbuchhandlung",
+  "updated": "2026-06-11 10:18:55.882Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "ur5vruu278dwn69"
+  ],
+  "contents": [
+    "qfi4b4cqgbuo9ws",
+    "jvqjf7wo601ebdc",
+    "rb9h02cvltwgyxs",
+    "43f4o87i0t3sk3r",
+    "fe6tl2xa95nugxy",
+    "g1wdy9lqzadsut9",
+    "51nw6rrf4mgd4dc",
+    "71a5tamgn2uxdjf",
+    "0d9i6a9lhe1rzja",
+    "s9yy2cmhrakhrk6",
+    "6ibldz3m9yqtyjr",
+    "ferijiettq8hvoc",
+    "0zz4aw8kk1nni6j",
+    "jzc8n4yyuntwmb2",
+    "p8ymce9kc4uc0e4",
+    "7igztiiod1100nj",
+    "p9dhztb8p953v0f",
+    "sjhyprssehrxevz",
+    "lx74b3gp33tb0tk",
+    "sxtqo5jzk4b0h7h",
+    "kr0kiu6ll83k87o",
+    "wwoa1wm431ujh0c",
+    "t2dh37bsr7ycz0j",
+    "mkrjgo4lw5g9hks",
+    "20859fqbekoail6",
+    "eqkg8cv4g143hgv",
+    "t923jqmv54y04dp",
+    "b08f13xu5u7ft66",
+    "4isyq76xqzadap2",
+    "ao26jf9zjjz87t0",
+    "x1da1cwjh2fgapy",
+    "ksjhxe1zs52wcbq",
+    "yto0oaou186rbc4",
+    "9z6pjg6vhl8tf72",
+    "0n3272noby10sat",
+    "9u6oyldx34wtkod",
+    "k0kwy5oki22rz2l",
+    "690ae403awegz83",
+    "55c02tpi2bxq13p",
+    "thgl4228pdxc3mn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "fki14yb3280f26u"
+    }
+  ]
+}

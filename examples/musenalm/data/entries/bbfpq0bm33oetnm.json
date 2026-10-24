@@ -1,0 +1,133 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S II, SS III-VI W, SS VI-X, SS XI-XIX dazu 4 GG, SS 1-318, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Vogl, Ziegelhauser) 1855",
+    "norm": "~",
+    "biblio": 110601,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3222,
+  "parallel_title": "",
+  "place_statement": "Wien (Schwarz)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Vogl, Ziegelhauser) 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "subtitle_statement": "",
+  "title_statement": "THALIA. / Taschenbuch / für / 1855. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Zweiundvierzigster Jahrgang. / Mit sechs Stahlstichen. / WIEN. / Druck und Papier von Leopold Schwarz",
+  "updated": "2026-06-11 10:18:55.154Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "p6qzd1poxdp3z52"
+  ],
+  "contents": [
+    "g97jy3co4nodoqj",
+    "mb71dkecww3s1kq",
+    "1zejhcsb4ed6v65",
+    "yaq8ug40sxf2vv2",
+    "6fjbjnv78kw5gqz",
+    "si0o8fxi1o1k8r5",
+    "owh0dyxccncf5br",
+    "fkuygxllesjs6je",
+    "eabiwq3cq8gvgni",
+    "3t6pr9b4f3w6kf6",
+    "s5me8271r3endz3",
+    "2y8y4rol8guw5vs",
+    "5nb3h8h32koqy1g",
+    "uuyxchyj8xudn3f",
+    "caa2ttiml9u4ia6",
+    "ggx324v29mw9oqp",
+    "p36tlcnvagiq5sm",
+    "hy4bi8dssrguwlb",
+    "33let5qnr00cns8",
+    "judgo878w1ynrpn",
+    "vv4omjsm7xig5je",
+    "15n0qp2uohkdmaw",
+    "qwg68wdj99888ng",
+    "qqc3yotf4abycaz",
+    "2f01pvrnvmayazr",
+    "xpt4wm0aghqddhs",
+    "ki2e0shun44ho6l",
+    "ohtrghwt75zn7rc",
+    "wjl8v5fnud3joj3",
+    "1cx3ihecjy9leka",
+    "xy1l5t05wa10uvd",
+    "wc2cwkld4h6pbvx",
+    "8j2ieg767v243xe",
+    "70rfiz8pqvvjsio",
+    "eg7tkowusfm6735",
+    "uzks5ncpl5zzc2u",
+    "l8bcc8vq7bwb4fq",
+    "oiet0kbtezj6drn",
+    "kilhrw5knu6imsu",
+    "ofkw20yugyh6xeq",
+    "a2jd13zio386fzp",
+    "yd9soh8ep0kce9c",
+    "pflst85445ubspr",
+    "d9j0dm5lrlrf1y8",
+    "rhvtpjyozydqfj6",
+    "vlidvl4kmua9qjk",
+    "12zq0sujn6vzl4k",
+    "t2wo3w66r6du628",
+    "j7t59bs52k8d6xo",
+    "aeovuyj6p0kvaes",
+    "e366vavn9w3w334",
+    "7rj6v7urnt9g32v",
+    "ewx9833c7hy3j79",
+    "e81qkdsgfo2e2ke"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.087Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.087Z",
+      "agent": "ptf53f9p9yqey7h",
+      "source_id": "ksc9wxzptopc1qa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.190Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.190Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "oc5k0ir3lawswlr"
+    }
+  ]
+}

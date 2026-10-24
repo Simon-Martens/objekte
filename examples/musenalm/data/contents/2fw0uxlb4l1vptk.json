@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11763,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rechenberg, bei Frauenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_208_11763_f7deb8eve9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rechenberg, bei Frauenstein",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.602Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "gy3ei4e5txgifrn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.602Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "wn9xjetqdrqtwr4"
+    }
+  ]
+}

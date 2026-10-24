@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisische Vierzeilen (Sammlung INr 14835, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Zehn Tage währt, wie Rosen, unser Leben; / Laß uns in Lust vertosen unser Leben.",
+  "language": [],
+  "musenalm_id": 14837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.485Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "8w2iy8rk2iyqiis"
+    }
+  ]
+}

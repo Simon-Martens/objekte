@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64624, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64631,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das hohe Haus zu Muyden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Calisch pinx. D. J. Syluyter sculps.",
+  "scans": [
+    "alm_1077_64631_622600pm8t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das hohe Haus zu Muyden #",
+  "updated": "2009-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1869,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.111Z",
+      "agent": "lxkw0pi082wa1ak",
+      "source_id": "6xydp1fgoptyxaa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.111Z",
+      "agent": "q03fax89m2beyit",
+      "source_id": "ccqo5swaq1onavo"
+    }
+  ]
+}

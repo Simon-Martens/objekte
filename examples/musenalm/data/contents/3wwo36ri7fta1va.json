@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Einst liebt' ich blos an ihr den Liebreiz der Gestalt, / Des morgenfrischen Munds bezaubernde Gewalt,",
+  "language": [],
+  "musenalm_id": 64610,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Frauen",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.028Z",
+      "agent": "87b0ropx1b7ybuw",
+      "source_id": "r8q37o78yks59jd"
+    }
+  ]
+}

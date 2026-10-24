@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "427",
+  "incipit_statement": "Die Ros' und Lilie, die im Gedichte blüht, / Ist die nicht die zu blühn auf unsrer Flur sich müht.",
+  "language": [],
+  "musenalm_id": 37174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 299,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ros' und Lilie, die im Gedichte blüht, / Ist die nicht die zu blühn auf unsrer Flur sich müht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.839Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "chz53xeuiqez0hl"
+    }
+  ]
+}

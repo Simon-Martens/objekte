@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Christenthums 1814",
+    "norm": "",
+    "biblio": 405670,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2820,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Raw)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Christenthums 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 118; L/R 177, Goed IV/1. 690, 4, 16",
+  "responsibility_statement": "Dr. Johann Heinrich genannt Stilling",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Christenthums. / Auf das Jahr nach Christi Geburt / 1814. / Von / Dr. Johann Heinrich Jung / genannt Stilling / Grosherzoglich Badischer Geheimer / Hofrath. / Nürnberg, / im Verlag der Raw'schen Buchhandlung",
+  "updated": "2026-06-25 09:54:42.600Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "k4wyxgb73ss7j2k"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-25 09:54:27.017Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-25 09:54:42.600Z",
+      "agent": "a22nkw5sbrlw9i8",
+      "source_id": "8j4vb8wqcfva1br"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-25 09:54:27.017Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-25 09:54:42.601Z",
+      "agent": "695vs8iz9x8sp3z",
+      "source_id": "gtfexxycz28waol"
+    }
+  ]
+}

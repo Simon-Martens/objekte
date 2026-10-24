@@ -1,0 +1,45 @@
+{
+  "annotation": "Reminiscenzen (Sammlung INr 119182, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "In der ersten Hälfte des Sommers 1854, wenige Tage nachdem der Grundstein zum neuen israelit. Tempel in Leipzig gelegt worden war, erwartete ich Albert Cohn,",
+  "language": [],
+  "musenalm_id": 119184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Provisorisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ad. Jellinek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Provisorisch",
+  "updated": "2017-07-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.586Z",
+      "agent": "3216lkpr9up9wgq",
+      "source_id": "0vlyr6nqp3unrzm"
+    }
+  ]
+}

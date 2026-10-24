@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Wenig bleibt mir selbst zu sagen, / Da mein Freund Roncali endet;",
+  "language": [],
+  "musenalm_id": 46305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diego Leon / 1. Vor dem Kriegsgericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Diego Leon / 1. Vor dem Kriegsgericht",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.623Z",
+      "agent": "43zf9fb3jx70ouy",
+      "source_id": "3r1agofgg2cmom3"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1829",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.514Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "schottischer Landschaftsmaler"
+      ],
+      "dateOfBirth": [
+        "1773"
+      ],
+      "dateOfDeath": [
+        "1829"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Henry Raeburn"
+          ],
+          "creditText": [
+            "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof. This may be due to recognition of the \"sweat of the brow\" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement. Please see Commons:When to use the PD-Art tag for more information."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hugh%20William%20Williams%20by%20Sir%20Henry%20Raeburn.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hugh%20William%20Williams%20by%20Sir%20Henry%20Raeburn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hugh%20William%20Williams%20by%20Sir%20Henry%20Raeburn.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2020-02-14T11:24:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132561204/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "132561204",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/132561204",
+      "oldAuthorityNumber": [
+        "(DE-588c)7557744-6",
+        "(DE-588a)132561204"
+      ],
+      "preferredName": "Williams, Hugh William",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hugh William"
+        ],
+        "surname": [
+          "Williams"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1634608"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132561204/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132561204"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Williams, H. W.",
+        "Williams, Hugh"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hugh"
+          ],
+          "surname": [
+            "Williams"
+          ]
+        },
+        {
+          "forename": [
+            "H. W."
+          ],
+          "surname": [
+            "Williams"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:22:39Z",
+    "gnd_query_biographical_data": "1773-1829",
+    "gnd_query_name": "williams, hugh william"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3146,
+  "name": "Williams, Hugh William",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXVI, 25",
+  "updated": "2026-06-11 13:29:25.770Z",
+  "uri": "https://d-nb.info/gnd/132561204",
+  "editor": ""
+}

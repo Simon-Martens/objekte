@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sulamith 1838",
+    "norm": "",
+    "biblio": 405610,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2606,
+  "parallel_title": "",
+  "place_statement": "Berlin (Heymann)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Sulamith 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 105; nicht bei L/R",
+  "responsibility_statement": "Carl Grumbach",
+  "subtitle_statement": "",
+  "title_statement": "SULAMITH / ein / Christliches / TASCHENBUCH / zur Belebeung häuslicher und öffentlicher / Erbauung / herausgegeben / von / CARL GRUMBACH / Mit 3 Lithographien / BERLIN / bey Carl Heymann / 1838",
+  "updated": "2026-06-11 10:18:55.430Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "ih52dn81cmsp38n"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.011Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.011Z",
+      "agent": "6bh1f9wamci70n6",
+      "source_id": "d39xxg8hcbse8jv"
+    }
+  ]
+}

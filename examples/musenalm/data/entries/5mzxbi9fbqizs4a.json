@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S 1 T, SS 3-128 darin 3 GG, B Kal",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rauracis 1830",
+    "norm": "~",
+    "biblio": 406934,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-12-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3738,
+  "parallel_title": "",
+  "place_statement": "Basel (Schweighauser)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Rauracis 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; ADB XIX, 714",
+  "responsibility_statement": "Markus Lutz",
+  "subtitle_statement": "",
+  "title_statement": "Rauracis. / Ein / Taschenbuch / für / 1830 / den Freunden der Vaterlandskunde / gewidmet / von / Markus Lutz. / Mit lithogr. Portrait und Ansichten. / Basel, / in der Schweighauser'schen Buchhand- / lung",
+  "updated": "2026-06-11 10:18:55.946Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "r8jiubxdee3f8gu"
+  ],
+  "contents": [
+    "5b4a6xwa8yy9875",
+    "1ve18l4etuedf5g",
+    "ve4n99jvywd9yzc",
+    "dtwm39w8mrrw119",
+    "rxnyxkif5ae8z8z",
+    "7zlf1huu7wlj63p",
+    "3ma58opspn1nl5j",
+    "v1i7gqvx0jpg7b9",
+    "g6htaj7zu0sg80q",
+    "hi0sc5xdujz1kza",
+    "sbfspm6g9r9hpi4",
+    "0czmqwmzxx2py7y",
+    "fuck1gblklln5tg",
+    "9a65umb23h53e4t",
+    "w93xmqnisaae74g",
+    "x5lprse51pwlq9y",
+    "9ourcwziv3q6hu2",
+    "9hnr9p2ssy2jz6k",
+    "ngvtt5sny016719"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.290Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.290Z",
+      "agent": "bpbq38swi2zmert",
+      "source_id": "6llf35sl3umosad"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.151Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.151Z",
+      "agent": "sdel9pv3gwbaibx",
+      "source_id": "synsmr2ezyrwakz"
+    }
+  ]
+}

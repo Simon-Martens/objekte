@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119268,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Ferdinand Vte legt den Inaugural-Eid ab",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "V. R. Grüner del. et sc.",
+  "scans": [
+    "alm_4447_119268_q78ix41dtm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Ferdinand Vte legt den Inaugural-Eid ab",
+  "updated": "2017-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.698Z",
+      "agent": "mwvtf64bmzwstck",
+      "source_id": "ttbf8d2go07bxb7"
+    }
+  ]
+}

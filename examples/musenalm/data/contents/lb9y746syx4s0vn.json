@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Des Herrn ist überall die Erde. / Die Scholle einzig ist es nicht, / Auf welcher Gottes heilig Werde / Dich führte an der Sonne Licht",
+  "language": [],
+  "musenalm_id": 122958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 217,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Wanderschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Wanderschaft",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.825Z",
+      "agent": "dkhes601qllyio7",
+      "source_id": "qmiqhmqyfke6bst"
+    }
+  ]
+}

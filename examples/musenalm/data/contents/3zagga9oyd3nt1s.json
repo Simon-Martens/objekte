@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli nummeriert 12. s. Textbezug INr 135085, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gaeta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hoessel  sc. 1817",
+  "scans": [
+    "alm_2058_135094_m3xyapefij.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gaeta",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.136Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "hykjfcynsa35oj7"
+    }
+  ]
+}

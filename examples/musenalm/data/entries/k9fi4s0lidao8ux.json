@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alpenrosen 1852",
+    "norm": "",
+    "biblio": 101201,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1488,
+  "parallel_title": "",
+  "place_statement": "Aarau und Thun (Christen)",
+  "places": [
+    "m0gbyp7o5hl2p3l",
+    "js4tnjtapbdivk3"
+  ],
+  "preferred_title": "Alpenrosen 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 22; nicht bei L/R; Goed VIII. 76, 134",
+  "responsibility_statement": "A. E. Fröhlich, Jeremias Gotthelf, Ed. Dößekel, / Fr. Isenschmied, Fr. Kruter, Th. Meyer-Merian,/  Fr. Oser, B. Reber, J. J. Reithard",
+  "subtitle_statement": "",
+  "title_statement": "Alpenrosen / auf / das Jahr 1852. / von / A. E. Fröhlich, Jeremias Gotthelf, Ed. Dößekel, / Fr. Isenschmied, Fr. Kruter, Th. Meyer-Merian, / Fr. Oser, B. Reber, J. J. Reithard. / Aarau und Thun, / Verlag von J. J. Christen",
+  "updated": "2026-06-11 10:18:55.193Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "r0w5d91eqncpaxq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.652Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.652Z",
+      "agent": "1whf67qwk14y3gh",
+      "source_id": "rnymw4sq3s3dpm2"
+    }
+  ]
+}

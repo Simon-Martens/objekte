@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Ganz gewiß, mein gnädiges Fräulein, hat Philaide Sie gegen mich aufgewiegelt,",
+  "language": [],
+  "musenalm_id": 79160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Legende von dem Heiligen Hyppolitus, und / dem seeliggesprochenen Gericus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Legende von dem Heiligen Hyppolitus, und / dem seeliggesprochenen Gericus",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.790Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "d3z4e2k9hg0qk00"
+    }
+  ]
+}

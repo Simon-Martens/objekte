@@ -1,0 +1,67 @@
+{
+  "annotation": "wohl Titelauflage oder Teilveröffentlichung von: Allgemeiner Militäralmanach, (Darmstadt) 1828; (K 77; L/R 180). Auf diesen Almanach bezieht sich dem Anschein nach die: »Auflösung der Charaden im ersten Jahrgange des Militär-Almanach« am Ende des vorliegenden Taschenbuchs",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Krieger und Freunde des Kriegerstandes [oJ]",
+    "norm": "",
+    "biblio": 404537,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2853,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch für Krieger und Freunde des Kriegerstandes [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 129; nicht bei L/R;",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch für Krieger / und / Freunde des Kriegerstandes. / Erstes Bändchen. / Mit vier Portraits. / (Aus dem Allgemeinen Militär-Almanach besonders abgedruckt.) / Darmstadt. / Druck und Verlag von Carl Wilhelm Leske",
+  "updated": "2026-06-11 10:18:54.731Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "rd8x8wt4zhfqazk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "tfnkgl7lhnxzxmh"
+    }
+  ]
+}

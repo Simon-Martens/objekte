@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Männer bedarf die kommende Zeit! du reisst ihr / entgegen! / Werd' ein Mann! und der Ruhm schlinge dir / Palmen ums Haupt!",
+  "language": [],
+  "musenalm_id": 69260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den jungen Emil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den jungen Emil",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.416Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "mt0hhbjrp94owi2"
+    }
+  ]
+}

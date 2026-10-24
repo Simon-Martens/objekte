@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Du liebes, rundes, glänzendes Metall! / Du Zauberborn der Wollust und der Freude!",
+  "language": [],
+  "musenalm_id": 91701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sterbende Geizhals",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rud. Magenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der sterbende Geizhals",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.399Z",
+      "agent": "7kqox787dbawbv4",
+      "source_id": "2jvsnpvqecwmhs9"
+    }
+  ]
+}

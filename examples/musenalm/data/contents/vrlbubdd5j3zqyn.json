@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der Sammlung INr 122204, Obj 280",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Waldmeisterlein, Waldmeisterlein, / Nach dir schmacht’ ich voll Herzenspein, / Du Kräutlein, schlank und zart und frisch, / O zeig dich unter’m Nußgebüsch",
+  "language": [],
+  "musenalm_id": 122208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 284,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Asperula odorata",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Schauenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Asperula odorata",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.701Z",
+      "agent": "1x8pyaa35fn2e7t",
+      "source_id": "dr1uedqtac6u52j"
+    }
+  ]
+}

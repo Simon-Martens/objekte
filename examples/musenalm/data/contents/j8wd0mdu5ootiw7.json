@@ -1,0 +1,45 @@
+{
+  "annotation": "(Sammlung INr 77473, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Saht ihr schon des Königs Hand? / Ausgebreitet ist zum Segen,",
+  "language": [],
+  "musenalm_id": 77477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Des Königs Hand",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Des Königs Hand",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.679Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "r8xz1c307yq7elf"
+    }
+  ]
+}

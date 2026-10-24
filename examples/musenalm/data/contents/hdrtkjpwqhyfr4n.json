@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel s. Textbezug INr 63999, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63995,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1847 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 32. JAHRGANG / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Nilson del. A. Schad. sc.",
+  "scans": [
+    "alm_1055_63995_hp7az0i0wt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1847 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 32. JAHRGANG / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+  "updated": "2009-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.986Z",
+      "agent": "8bb100zizr2ji3a",
+      "source_id": "w8xvba9rz7prsn0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.986Z",
+      "agent": "3gnzs7actzcxdwq",
+      "source_id": "wd7joqpynv9s7ad"
+    }
+  ]
+}

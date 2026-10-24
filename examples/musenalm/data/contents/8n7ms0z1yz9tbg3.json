@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 14 Gedichten INr 95251-95264, Obj 47-60",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zahme Xenien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zahme Xenien",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.682Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "r1a0z4z3gptushe"
+    }
+  ]
+}

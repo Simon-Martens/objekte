@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Die bretterne Kammer / Der Todten erbebt, / Wann zwölfmal der Hammer / Die Mitternacht hebt.",
+  "language": [],
+  "musenalm_id": 32847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geistertanz. / Pulvis et umbra sumus. / Hor.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthison",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geistertanz. / Pulvis et umbra sumus. / Hor.",
+  "updated": "2003-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.666Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "ea794z34caz6tpw"
+    }
+  ]
+}

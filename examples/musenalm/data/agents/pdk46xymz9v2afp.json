@@ -1,0 +1,254 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.480Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "dateOfBirth": [
+        "1805-07-31"
+      ],
+      "dateOfDeath": [
+        "1855-07-01"
+      ],
+      "describedBy": {
+        "dateModified": "2022-10-10T20:18:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117340138/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117340138",
+      "id": "https://d-nb.info/gnd/117340138",
+      "oldAuthorityNumber": [
+        "(DE-588a)117340138"
+      ],
+      "preferredName": "Siebert, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Siebert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Kornfeger"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Siebert, August: Die Hermannsfeier",
+        "Siebert, August: Stuben- und Reisebilder eines phantastischen Mediciners. - 1838 - 1842",
+        "Aschenbrenner, Melchior: Die neueren Arzneimittel und Arzneibereitungsformen",
+        "Siebert, August: Zur Genesis und Therapeutik der epidemischen Cholera und über deren Verh*",
+        "Siebert, August: Zur Genesis und Therapeutik der rothen Ruhr und deren Verhältniß zum Ery*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no91006890"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25377192"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q23067360"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117340138/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Siebert"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000043208726"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117340138"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117340138.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117340138"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kornfeger, August",
+        "Siebert, Aug...",
+        "Siebert, Augustus",
+        "Siebert, A.",
+        "Siebert, August Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Kornfeger"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Siebert"
+          ]
+        },
+        {
+          "forename": [
+            "Aug..."
+          ],
+          "surname": [
+            "Siebert"
+          ]
+        },
+        {
+          "forename": [
+            "August Friedrich"
+          ],
+          "surname": [
+            "Siebert"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus"
+          ],
+          "surname": [
+            "Siebert"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Siebert",
+          "label": "https://de.wikipedia.org/wiki/August_Siebert"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:58:21Z",
+    "gnd_query_biographical_data": "1805-1855",
+    "gnd_query_name": "siebert, august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2655,
+  "name": "Siebert, August",
+  "profession": "Text",
+  "pseudonyms": "[Dr.] August Kornfeger",
+  "refs": "E 338",
+  "updated": "2026-06-11 13:29:25.012Z",
+  "uri": "https://d-nb.info/gnd/117340138",
+  "editor": ""
+}

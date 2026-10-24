@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Dichter und das Liebespaar« von St. Schütze INr 13091, Obj 26 /) Anhang zu Beckers Taschenbuch 1808 (Sammlung INr 61535, Obj 146) (Photos 61539,01; 61539,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61539,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter und das Liebespaar. / (Zu Seite 46.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bergt",
+  "scans": [
+    "alm_215_61539_01_77tjhhtq15.jpg",
+    "alm_215_61539_02_hjear2gv58.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter und das Liebespaar. / (Zu Seite 46.)",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.464Z",
+      "agent": "25ubfkw7g6ebn5g",
+      "source_id": "txh9fgyqe408vkg"
+    }
+  ]
+}

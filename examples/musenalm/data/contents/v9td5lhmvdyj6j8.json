@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Theolinde« von K. Geib INr 63250-63253, Obj 14-17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63259,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theolinde. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Götzenberger del. Rist sc.",
+  "scans": [
+    "alm_1036_63259_kgxetw88wr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theolinde. / Romanzen von C. Geib",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.984Z",
+      "agent": "k52j0ci4hisa6dc",
+      "source_id": "13lygcfynnkjhy0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.984Z",
+      "agent": "0m3r585b0p98uxw",
+      "source_id": "rzktgwy1cdj2xwc"
+    }
+  ]
+}

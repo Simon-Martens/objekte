@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Im Hôtel Richelieu ging es überaus fröhlich zu. In dem Salon, der an den Garten stiess, sassen ein Dutzend Kavaliere um einen grossen runden Tisch, der sich unter der Zahl der Flaschen beugte.",
+  "language": [],
+  "musenalm_id": 59669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Bruchstück aus einem Bruchstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Bruchstück aus einem Bruchstück",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.743Z",
+      "agent": "zi8zh5xhvi7k26j",
+      "source_id": "zs0bs9hv2r2akaj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Zu dir erhebt sich mein Lied, o ewige Quelle / des Lebens! / O du, von den Lippen danksagender Weisen / Jehova gegrüsset, / Und Oromazes und Gott!",
+  "language": [],
+  "musenalm_id": 92467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Anbeter der Gottheit. / Ein Bruchstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Anbeter der Gottheit. / Ein Bruchstück",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.439Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "2sb6vcrfhpj7b51"
+    }
+  ]
+}

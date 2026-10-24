@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August, nummeriert 5 /) s. Textbezug INr 122115, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todt Friedrichs des Zweyten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. & sc. 1791",
+  "scans": [
+    "alm_160_122066_ez6balsyna.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Todt Friedrichs des Zweyten",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.764Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "8w0e3yt9pp0vnbi"
+    }
+  ]
+}

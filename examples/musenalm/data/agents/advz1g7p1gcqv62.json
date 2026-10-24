@@ -1,0 +1,455 @@
+{
+  "annotation": "",
+  "biographical_data": "1737-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.424Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/104198419",
+          "label": "Mechel, Johann Jacob von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1306493331",
+          "label": "Mechel, Christian von (Firma)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Basler Kupferstecher, Verleger (v.a. von Stichen u. Karten) u. Kunsthändler; zwischenzeitlich auch in Paris tätig; 1779-1884 ordnete Mechel die kaiserl. Gemäldegalerie in Wien nach kunstgeschichtl. Kriterien neu; nach der Auflösung seines Geschäfts übersiedelte er von Basel nach Berlin, wo er auch starb"
+      ],
+      "dateOfBirth": [
+        "1737-04-04"
+      ],
+      "dateOfDeath": [
+        "1817-04-11"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.collect.152157"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Christian%20von%20Mechel%2C%20RP-P-1907-1172.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Christian%20von%20Mechel%2C%20RP-P-1907-1172.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Christian%20von%20Mechel%2C%20RP-P-1907-1172.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:02:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116976659/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/104198419",
+          "label": "Mechel, Johann Jacob von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116976659",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/104198419",
+          "label": "Mechel, Johann Jacob von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116976659",
+      "oldAuthorityNumber": [
+        "(DE-588a)116976659",
+        "(DE-588c)4613297-1"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4004617-5",
+          "label": "Basel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4004617-5",
+          "label": "Basel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Mechel, Christian von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Mechel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Mechel, Christian von: Explication du tableau comparatif des montagnes de la lune",
+        "Mechel, Christian von: Die eiserne Hand des ... Götz von Berlichingen",
+        "Mechel, Christian von: Explication du tableau des hauteurs ... du globe terrestre",
+        "Cahier de six différentes vues de la solitude romantique d'Arlesheim dans l'évêché de Basle, à une lieuë de la ville de Basle",
+        "Mechel, Christian von: Neuestes Exerzier-Reglement für die Infanterie",
+        "Mechel, Christian von: Costumes de paysans de la Suisse. - [ca. 1800]",
+        "Mechel, Christian von: Verzeichniß der Gemälde der k.k. Bildergallerie in Wien",
+        "Lucas Cranach's Stammbuch",
+        "Itinéraire du St. Gothard, d'une partie de Vallais et des contrées de la Suisse ..",
+        "Mechel, Christian von: Schweizer Ansichten",
+        "Mechel, Christian von: Vorstellungen und Plane des Krieges der Oesterreicher und Russen .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr93024397"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37158474"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D26059.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q121319"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116976659/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_von_Mechel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_von_Mechel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_von_Mechel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121284186"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116976659"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=17xx_mechel1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=17xx_mechel2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1805_mechel"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116976659"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116976659.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116976659.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116976659"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116976659"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Mechel, Chrétien de",
+        "Mechel, Christoph von",
+        "Mechel, Chr.",
+        "Von Mechel, Christian",
+        "Mechel, Chretien de",
+        "Méchel, Christian de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Von Mechel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Méchel"
+          ]
+        },
+        {
+          "forename": [
+            "Chr."
+          ],
+          "surname": [
+            "Mechel"
+          ]
+        },
+        {
+          "forename": [
+            "Chrétien"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Mechel"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mechel"
+          ]
+        },
+        {
+          "forename": [
+            "Chretien"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Mechel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_von_Mechel",
+          "label": "https://de.wikipedia.org/wiki/Christian_von_Mechel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:14:00Z",
+    "gnd_query_biographical_data": "1737-1817",
+    "gnd_query_name": "mechel, christian von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1762,
+  "name": "Mechel, Christian von",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIV, 324",
+  "updated": "2026-06-11 13:29:23.753Z",
+  "uri": "https://d-nb.info/gnd/116976659",
+  "editor": ""
+}

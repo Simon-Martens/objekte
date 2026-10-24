@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3910,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN / ALMANACH / 1795 / Göttingen bei J. C. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_92_3910_d0yjc6oehr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN / ALMANACH / 1795 / Göttingen bei J. C. Dieterich",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.094Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "2w210miidrpdxak"
+    }
+  ]
+}

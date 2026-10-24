@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Eine Stunde voller Schmerz, / Bald wird sie erscheinen,",
+  "language": [],
+  "musenalm_id": 17496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor der Trennung. / 1798. / Im Tone: »Traurig sehen wir uns an«, u. w.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor der Trennung. / 1798. / Im Tone: »Traurig sehen wir uns an«, u. w.",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.415Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "5hxwwcrmca0d1jl"
+    }
+  ]
+}

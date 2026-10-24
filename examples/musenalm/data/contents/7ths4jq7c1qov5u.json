@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Die große Glocke der Kathedrale zeigte Mitternacht an; die kleinern Uhren wiederholten diese Neuigkeit,",
+  "language": [],
+  "musenalm_id": 44037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der rothe Zwerg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der rothe Zwerg",
+  "updated": "2006-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.456Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "wxb6q66bt52h45s"
+    }
+  ]
+}

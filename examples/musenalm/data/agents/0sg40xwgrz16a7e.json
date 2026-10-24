@@ -1,0 +1,427 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1872",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.513Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller, Publizist, Redakteur; Wortführer des \"Jungen Deutschland\""
+      ],
+      "dateOfBirth": [
+        "1802-12-25"
+      ],
+      "dateOfDeath": [
+        "1872-01-02"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/183304241",
+        "https://d-nb.info/gnd/13910576X"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:08:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118807226/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118807226",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118807226",
+      "oldAuthorityNumber": [
+        "(DE-588)183304241",
+        "(DE-588a)13910576X",
+        "(DE-588)13910576X",
+        "(DE-588a)118807226",
+        "(DE-588a)183304241",
+        "(DE-588c)4118008-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4085080-8",
+          "label": "Altona"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4106692-3",
+          "label": "Schleswig"
+        }
+      ],
+      "preferredName": "Wienbarg, Ludolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludolf"
+        ],
+        "surname": [
+          "Wienbarg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller",
+        "Lehrer"
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1168739098",
+          "label": "Freimund, Hans"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ludolf"
+          ],
+          "surname": [
+            "Vineta"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Radewell"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Menzel und die junge Literatur",
+        "Holland in den Jahren 1831 und 1832",
+        "Zur neuesten Literatur",
+        "Paganini's Leben und Charakter",
+        "Aesthetische Feldzüge",
+        "Vorträge über altdeutsche Sprache",
+        "Tagebuch von Helgoland",
+        "Wanderungen durch den Thierkreis",
+        "Soll die plattdeutsche Sprache gepflegt oder ausgerottet werden?",
+        "Die Dramatiker der Jetztzeit"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84187311"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5727383"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q73929"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118807226/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/13910576X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183304241"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludolf_Wienbarg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludolf_Wienbarg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludolf_Wienbarg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludolf_Wienbarg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109507914"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118807226"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118807226"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118807226.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118807226"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Wienbarg, Ludolphus",
+        "Wienberg, Ludolf Christian",
+        "Wienbarg, Ludwig",
+        "Wienbarg, L.",
+        "Wienbarg, Ludolph",
+        "Radewell, Friedrich",
+        "Wienbarg, Ludolf C.",
+        "Vineta, Ludolf",
+        "Wienbarg, Ludolf Christian"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf Christian"
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolphus"
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf C."
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Radewell"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf C."
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolph"
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf Christian"
+          ],
+          "surname": [
+            "Wienberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf"
+          ],
+          "surname": [
+            "Vineta"
+          ]
+        },
+        {
+          "forename": [
+            "Ludolf Christian"
+          ],
+          "surname": [
+            "Wienbarg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludolf_Wienbarg",
+          "label": "https://de.wikipedia.org/wiki/Ludolf_Wienbarg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:21:54Z",
+    "gnd_query_biographical_data": "1802-1872",
+    "gnd_query_name": "wienbarg, ludolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3131,
+  "name": "Wienbarg, Ludolf",
+  "profession": "Text",
+  "pseudonyms": "Friedrich Radewell; Ludolf Vineta",
+  "refs": "Goed (H) 553",
+  "updated": "2026-06-11 13:29:25.741Z",
+  "uri": "https://d-nb.info/gnd/118807226",
+  "editor": ""
+}

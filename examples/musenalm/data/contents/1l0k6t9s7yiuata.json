@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Neig' aus deines Vaters Halle, / Felsentochter, mir dein Ohr!",
+  "language": [],
+  "musenalm_id": 16903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Nymfe des Negenborns. / 1775",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Nymfe des Negenborns. / 1775",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.487Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "sy2e9yy0cla49v6"
+    }
+  ]
+}

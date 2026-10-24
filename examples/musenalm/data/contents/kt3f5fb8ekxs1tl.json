@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50835,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ufnau, im Zürcher-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer f.",
+  "scans": [
+    "alm_690_50835_gwx00amejg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ufnau, im Zürcher-See",
+  "updated": "2007-07-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.650Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "mjvnqg5m065qcet"
+    }
+  ]
+}

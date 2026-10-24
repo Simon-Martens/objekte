@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Sintram« von Fouqué s.Textbezug INr 26761, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sintram",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. M. Esslinger sc.",
+  "scans": [
+    "alm_349_26762_tupcvr35di.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sintram",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "27me4xgyfxrehgx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "z2yu0qf5qansp2z"
+    }
+  ]
+}

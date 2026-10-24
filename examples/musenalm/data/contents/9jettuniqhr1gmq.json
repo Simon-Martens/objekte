@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Schöne Lina! schmollst Du nicht? / Darfs mein Mund, o Lina, wagen, / Was so süß im Innern spricht, / Laut Dir, Lina, jetzt zu sagen?",
+  "language": [],
+  "musenalm_id": 97185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lina",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.779Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "2fkkse4nui09kjy"
+    }
+  ]
+}

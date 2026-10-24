@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Der Bassa, der, vertieft in seine Pfeife - / Knaster, / Auf Sparta's Trümmern hockt mit träg ver- / schränktem - Bein,",
+  "language": [],
+  "musenalm_id": 123311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonaparte / nach aufgegebenen Endreimen und Thema / im Jänner 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Broxtermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bonaparte / nach aufgegebenen Endreimen und Thema / im Jänner 1799",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.830Z",
+      "agent": "765ndhq8ws4fsg1",
+      "source_id": "k2j8dba6jesruiy"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toiletten-Geschenk für die feine Welt, Ein 1845",
+    "norm": "",
+    "biblio": 409883,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4632,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Jügel)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Toiletten-Geschenk für die feine Welt, Ein 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Dies Buch gehört den Damen. / Ein / Toiletten-Geschenk / für die feine Welt. / Nach dem Englischen / des / »THE LADIES' HAND-BOOK OF THE TOILET« / bearbeitet. / Frankfurt am Main. / Verlegt bei Carl Jügel",
+  "updated": "2026-06-11 10:18:54.968Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "fmz2v700042a48o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.073Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.073Z",
+      "agent": "awco0dafugcyug6",
+      "source_id": "q75j4ze3z7n9rgy"
+    }
+  ]
+}

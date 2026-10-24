@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ha! War das nicht Hörnerschall? / Ja, er ist’s, er kommt, er naht!",
+  "language": [],
+  "musenalm_id": 129989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Expositions-Scenen / aus der dramatischen Dichtung: / Des Lebens Schattenbild. / Von Grillparzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Expositions-Scenen / aus der dramatischen Dichtung: / Des Lebens Schattenbild. / Von Grillparzer",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.054Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "b6mlyu49wy0a9xh"
+    }
+  ]
+}

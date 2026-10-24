@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juli, nummeriert 7 /) Illustration zu »Centifolium stultorum« von Abraham a Santa Clara d. i. Ulrich Megerle; s. Textbezug INr 129073, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129049,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bau-Narr. / Manie de bâtir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Rosmaesler sc.",
+  "scans": [
+    "alm_157_129049_1ml9v6e38c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bau-Narr. / Manie de bâtir",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.001Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "gp9kesfvo88l0a0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.001Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "jj50l5pwc97adda"
+    }
+  ]
+}

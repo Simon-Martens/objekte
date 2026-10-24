@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Was Liebe sey, soll ich dir offenbaren? / Schau' in dich selbst, schau ' in die Welt,",
+  "language": [],
+  "musenalm_id": 91079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.440Z",
+      "agent": "9zdfy29sj074b5x",
+      "source_id": "sdq8upu9473cgcc"
+    }
+  ]
+}

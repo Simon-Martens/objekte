@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Es mag seyn, wie ich einst behaupten hörte, daß Menschen, denen die Zeit lang geworden,",
+  "language": [],
+  "musenalm_id": 16211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicotianus Raucher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nicotianus Raucher",
+  "updated": "2001-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.626Z",
+      "agent": "imr7l7jckky4gjp",
+      "source_id": "da7n2d5u0jwqgrv"
+    }
+  ]
+}

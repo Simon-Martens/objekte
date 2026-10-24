@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Am Ende des Aprils 1775 gieng ich über den St. Bernhard nach Piemont. Die kleine Caravane, in deren Gesellschaft ich diesen Berg erklettere, kam mit mir um 4 Uhr Nachmittags auf dem Gipfel desselben an,",
+  "language": [],
+  "musenalm_id": 75929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab der Insel Jennings",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab der Insel Jennings",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.944Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "ri3y4nfwzjqksn9"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 16 /) Graphik im Kalendarium Januar /) Illustration zu »Teich-Lenchen. Parodirende Novelle« von C. W. Koch INr 89475, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teich-Lenchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cle. Russ del. S. Langer sc.",
+  "scans": [
+    "alm_3349_89463_sc66u3oatj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Teich-Lenchen",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.067Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "kcx38nw95vtlnj3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.067Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "xb3to4vr7els93b"
+    }
+  ]
+}

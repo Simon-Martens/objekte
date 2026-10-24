@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Nicht der kundigen Hand, noch dem Hauch des Meisters / gelehrig, / Schlummre wenn Flöten umher tönen, und schallt das / Klavier,",
+  "language": [],
+  "musenalm_id": 51444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Itai's Aeolische Harfe. / Den 28. August 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Leopold Graf zu / Stollberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Itai's Aeolische Harfe. / Den 28. August 1804",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.578Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "7o89n4qls3zjrmv"
+    }
+  ]
+}

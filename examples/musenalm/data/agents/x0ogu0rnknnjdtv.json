@@ -1,0 +1,380 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.478Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/3019725-9",
+          "label": "Universität Dorpat"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt.-estn. Künstler"
+      ],
+      "dateOfBirth": [
+        "1770-03-12"
+      ],
+      "dateOfDeath": [
+        "1838-01-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Karl August Senff"
+          ],
+          "creditText": [
+            "radikal.ru"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20August%20Senff%201808.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20August%20Senff%201808.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20August%20Senff%201808.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2020-03-03T12:59:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119131994/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1034212664",
+          "label": "Senff, Karl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118814737",
+          "label": "Senff, Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104138246",
+          "label": "Senff, Karl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104196386",
+          "label": "Senff, Carl Julius"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-EE",
+          "label": "Estland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119131994",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/104196386",
+          "label": "Senff, Carl Julius"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/104138246",
+          "label": "Senff, Karl Friedrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118814737",
+          "label": "Senff, Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1034212664",
+          "label": "Senff, Karl Friedrich"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117530034",
+          "label": "Vogel, Christian Leberecht"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119131994",
+      "oldAuthorityNumber": [
+        "(DE-588a)119131994",
+        "(DE-588c)4329544-7",
+        "(DE-588a)11747293X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1069588091",
+          "label": "Kreypau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1029285-8",
+          "label": "Tartu"
+        }
+      ],
+      "preferredName": "Senff, Karl August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl August"
+        ],
+        "surname": [
+          "Senff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4302182-7",
+          "label": "Kunsterzieher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117530034",
+          "label": "Vogel, Christian Leberecht"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr95008580"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54926630"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q821116"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119131994/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Senff"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_August_Senff"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066776603"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119131994"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119131994"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/119131994"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Zenf, Karl Avgust",
+        "Senft, Carl August",
+        "Senff, Carl August",
+        "Senf, Carl August",
+        "Senf, Karl August",
+        "Zenf, Karl August"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Zenf"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Senff"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Senf"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Senft"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Avgust"
+          ],
+          "surname": [
+            "Zenf"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Senf"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Senff",
+          "label": "https://de.wikipedia.org/wiki/Karl_August_Senff"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:57:09Z",
+    "gnd_query_biographical_data": "1770-1838",
+    "gnd_query_name": "senff, carl august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2631,
+  "name": "Senff, Carl August",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 497",
+  "updated": "2026-06-11 13:29:24.971Z",
+  "uri": "https://d-nb.info/gnd/119131994",
+  "editor": ""
+}

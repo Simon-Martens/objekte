@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86256, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Gemsenjäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gauermann sen. pinx. C. Rahl sculpsit",
+  "scans": [
+    "alm_1598_86257_0bimj4bn3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der / Gemsenjäger",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.313Z",
+      "agent": "d645btewd8dbrsc",
+      "source_id": "2lt0shujrb0bvzd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.313Z",
+      "agent": "2mva6jy22bwfmo3",
+      "source_id": "q522p3yg1n8cfex"
+    }
+  ]
+}

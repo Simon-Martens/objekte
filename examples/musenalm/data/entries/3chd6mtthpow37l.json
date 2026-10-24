@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, BB Kal § darin 8 GG, ar: SS 1-316, ar1: SS 1-98 Tab, ar2: SS 1-113 Tab,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1843",
+    "norm": "~ K gibt 13 GG an",
+    "biblio": 404163,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 878,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / KALENDER / auf das / GEMEIN-JAHR / 1843. / MIT STAHLSTICHEN / Herausgegeben von der / Königl. Preuss. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.755Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "mca36pbmgv6afh1"
+  ],
+  "contents": [
+    "pk4b0bhjmfgfpw3",
+    "fwzvpuny09ka7nq",
+    "4zhzvkad5xsw716",
+    "gmmtd6evwlnyufq",
+    "hs2tlm9rfp41k9g",
+    "mku2tr2yuq7bffn",
+    "zm3bvwflc1bigr8",
+    "rw4gm9z4s5evehh",
+    "sqlksytx532ecft",
+    "vvgn17et7mt03vu",
+    "772yy3h90drb9s2",
+    "1ayvzi7ubv4jc8y",
+    "ptx3qcgq9p32wf7",
+    "mbjsaeu9roj108y",
+    "nzk7hn1zssj821x",
+    "ngp3yieentc6mbv",
+    "8hf4p0704d208v5",
+    "zhf6nxkkdry3476",
+    "gr8iqsxksewdl44",
+    "vb0uskgjjrdjpjz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "l1gt0j8avo1ctqp"
+    }
+  ]
+}

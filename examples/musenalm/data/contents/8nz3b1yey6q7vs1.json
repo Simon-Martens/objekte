@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Juni /) s. Textbezug INr 96122, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Rudolph / von / Bischofswerder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bollinger sc. Berlin 1796",
+  "scans": [
+    "alm_2180_96099_dle18zhe3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Rudolph / von / Bischofswerder",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.728Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "rqh1jinoe3mmbi4"
+    }
+  ]
+}

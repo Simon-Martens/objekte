@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Graf Ezel war der verruchteste Mann, / Ein Schrecken umher in den Gauen;",
+  "language": [],
+  "musenalm_id": 77419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen von Bern. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen von Bern. / Romanze",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.860Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "atsa5nx2h5thu90"
+    }
+  ]
+}

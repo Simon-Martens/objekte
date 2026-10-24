@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez.: Aus Schillers Wilhelm Tell /) aus »Wilhelm Tell « [2. Aufzug] Einleitung zu »Charakterzüge aus dem Vertheidigungskriege Unterwaldens, im Jahre 1798. Gesammelt von J. H. Meyer« INr 53866, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Entrüstet fand ich diese graden Seelen / Ob dem gewaltsam neuen Regiment, / Denn so wie ihre Alpen fort und fort / dieselben Kräuter nähren",
+  "language": [],
+  "musenalm_id": 53867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entrüstet fand ich diese graden Seelen / Ob dem gewaltsam neuen Regiment, / Denn so wie ihre Alpen fort und fort / dieselben Kräuter nähren…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.780Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "um1b1h5ftz4vsbk"
+    }
+  ]
+}

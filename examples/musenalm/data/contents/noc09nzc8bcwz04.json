@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Nina, reiche mir die Rechte! / Leite durch des Lebens Nächte / Mich ins helle Vaterland!",
+  "language": [],
+  "musenalm_id": 3360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meiner Erwählten / Katharina Linden / am Tage unsrer hochzeitlichen Verbindung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Theob. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meiner Erwählten / Katharina Linden / am Tage unsrer hochzeitlichen Verbindung",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.802Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "go4u7aoqi84jeb8"
+    }
+  ]
+}

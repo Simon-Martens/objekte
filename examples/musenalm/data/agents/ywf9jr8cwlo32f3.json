@@ -1,0 +1,306 @@
+{
+  "annotation": "",
+  "biographical_data": "1810-1864",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.240Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Musikalienhändler; Gitarrekomponist; Hrsg."
+      ],
+      "dateOfBirth": [
+        "1810"
+      ],
+      "dateOfDeath": [
+        "1864"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Scivl"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Wilhelm%20Arnold.tif",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Wilhelm%20Arnold.tif?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Wilhelm%20Arnold.tif?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1073401537"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:10:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/10247575X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10247575X",
+      "id": "https://d-nb.info/gnd/10247575X",
+      "oldAuthorityNumber": [
+        "(DE-588a)1017399980",
+        "(DE-588)1073401537",
+        "(DE-588a)10247575X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4096105-9",
+          "label": "Heilbronn-Sontheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4070734-9",
+          "label": "Elberfeld"
+        }
+      ],
+      "preferredName": "Arnold, Friedrich Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Wilhelm"
+        ],
+        "surname": [
+          "Arnold"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170799-0",
+          "label": "Musikalienhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        }
+      ],
+      "publication": [
+        "Rheinisches Krieger-Lied",
+        "Das deutsche Volkslied",
+        "Lochamer Liederbuch"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12220076f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93028650"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56660592"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q30045574"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10247575X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073401537"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Arnold"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Wilhelm_Arnold"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008384601X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10247575X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10247575X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10247575X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10247575X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Arnold, Friedrich",
+        "Arnold, F. W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Arnold"
+          ]
+        },
+        {
+          "forename": [
+            "F. W."
+          ],
+          "surname": [
+            "Arnold"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Arnold",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Arnold"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:49:51Z",
+    "gnd_query_biographical_data": "1810-1864",
+    "gnd_query_name": "arnold, friedrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 63,
+  "name": "Arnold, Friedrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB I, 585",
+  "updated": "2026-06-11 13:29:21.380Z",
+  "uri": "https://d-nb.info/gnd/10247575X",
+  "editor": ""
+}

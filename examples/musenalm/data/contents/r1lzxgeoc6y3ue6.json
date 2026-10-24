@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Du wunderst dich, daß alle volle Kästen / Den reichen Harpagon nicht mästen?",
+  "language": [],
+  "musenalm_id": 107735,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geizhals",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geizhals",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.238Z",
+      "agent": "cy9b9aoe3fw07h4",
+      "source_id": "yddzpoz82i8yybb"
+    }
+  ]
+}

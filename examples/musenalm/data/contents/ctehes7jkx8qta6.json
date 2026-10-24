@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Du liebe, kleine Lerche singe / Nur fröhlich an Aurorens Thor.",
+  "language": [],
+  "musenalm_id": 53078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lerche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lerche",
+  "updated": "2007-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.695Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "85kuk9esgyf16gk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Kleine Veilchen, blüht nur, blüht! / Wenn der Lenz uns wiedersieht,",
+  "language": [],
+  "musenalm_id": 818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Gleims Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Gleims Garten",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.789Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "a6nxk030upg8t4n"
+    }
+  ]
+}

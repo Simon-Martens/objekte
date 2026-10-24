@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel s. Textbezug 26379, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1816 / von / de la Motte Fouqué, / Nürnberg / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haller von Hallerstein inv. et del. Albt. Reindel sc.",
+  "scans": [
+    "alm_340_26372_rwogr14po5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1816 / von / de la Motte Fouqué, / Nürnberg / bei / Joh. Leonh. Schrag",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.899Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "bq7a0vp9c9u4mvj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.899Z",
+      "agent": "9vh2kvwpmqn4agb",
+      "source_id": "oxexvndeji9m5bz"
+    }
+  ]
+}

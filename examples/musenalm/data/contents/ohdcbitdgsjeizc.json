@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Stürme rollen über unsern Häuptern, / Blitze theilen die empörten Lüfte,",
+  "language": [],
+  "musenalm_id": 71859,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Strom. / Eine Persische Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Strom. / Eine Persische Idylle",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.433Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "1ahf0geid5m3l29"
+    }
+  ]
+}

@@ -1,0 +1,729 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.329Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1772-02-16"
+      ],
+      "dateOfDeath": [
+        "1847-05-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Ludmilla Antonia Steyskal"
+          ],
+          "creditText": [
+            "Ludmilla Antonia Steyskal: „Johanna Franul von Weissenthurn als Schauspielerin am Burgtheater“ (1963)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jugendfoto.JPG",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jugendfoto.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jugendfoto.JPG?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089896182",
+        "https://d-nb.info/gnd/1055098208"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-23T19:36:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116752505/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "surname": [
+            "Grünberg"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Rachel Theresia"
+          ],
+          "surname": [
+            "Grünberg"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Teichmann"
+          ]
+        },
+        {
+          "forename": [
+            "Maximiliane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Alois Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Magdalena"
+          ],
+          "surname": [
+            "Schemenauer"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116752505",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.3p",
+          "label": "Personen zu Film"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116752505",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4838037-4",
+        "(DE-588)1055098208",
+        "(DE-588a)116752505",
+        "(DE-588)1089896182",
+        "(DE-588a)100682332"
+      ],
+      "periodOfActivity": [
+        "1816-1842"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Franul von Weißenthurn, Johanna",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johanna"
+        ],
+        "surname": [
+          "Franul von Weißenthurn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4153179-6",
+          "label": "Schauspielerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123077-2",
+          "label": "Dramatikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4153179-6",
+          "label": "Schauspielerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Rahel Theresia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Graf Lohrenburg",
+        "Die beschämte Eifersucht",
+        "Schauspiele",
+        "Pelletier de Volméranges, Benoît: Versöhnung",
+        "Die Radikalkur",
+        "Der Wald bei Hermanstadt",
+        "Die Erben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2006122722"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8147834"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1696932"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055098208"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089896182"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116752505/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johanna_Franul_von_Wei%C3%9Fenthurn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johanna_Franul_von_Wei%C3%9Fenthurn"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000117409791"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116752505"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1835_franul"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116752505"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_G/Gruenberg_Johanna_1772_1847.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116752505.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116752505.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116752505"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116752505"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Weißenthurn, Johanna von",
+        "Weissenthurn, Johanna v.",
+        "Weissenthurn, Johanna",
+        "Grünberg, Johanna",
+        "Franul von Weißenthurn, Johanna Rachel Theresia",
+        "Grünberg, Johanna Rachel Theresia",
+        "Franul von Weissenthurn, Johanna",
+        "Weissenthurn, Johanna Franul von",
+        "Weißenthurn, Johanna Franul von",
+        "Franul von Weissenthurn, Johanna Veronika",
+        "Rahel Theresia",
+        "Grünberg, Johanna Franul",
+        "Weissenthurn, Johanna von",
+        "Franul v. Weissenthurn, Johanna",
+        "Weißenthurn, Johanna Rahel Theresia",
+        "Weißenthurn, Johanna Veronika Franul von",
+        "Weissenthurn, Johanna F. von",
+        "Franul, Johanna",
+        "Grünberg, Johanna Veronika Franul",
+        "Grüneberg, Johanna Franul",
+        "Franul von Weißenthurm, Johanna",
+        "Franul v. Weißenthurn, Johanna",
+        "Weißenthurm, Johanna Franul von",
+        "Franul Grünberg, Johanna",
+        "Weißenthurn, Johanna Rachel Theresia Franul von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul von Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Rachel Theresia"
+          ],
+          "surname": [
+            "Franul von Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Veronika"
+          ],
+          "surname": [
+            "Franul von Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "surname": [
+            "Grüneberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul v. Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurm"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul von Weißenthurm"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Veronika Franul"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Rahel Theresia"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Franul v. Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Rachel Theresia"
+          ],
+          "surname": [
+            "Grünberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Rachel Theresia Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        },
+        {
+          "personalName": [
+            "Rahel Theresia"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weissenthurn"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Veronika Franul"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weißenthurn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johanna_Franul_von_Wei%C3%9Fenthurn",
+          "label": "https://de.wikipedia.org/wiki/Johanna_Franul_von_Wei%C3%9Fenthurn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:25:03Z",
+    "gnd_query_biographical_data": "1773-1847",
+    "gnd_query_name": "franul von weißenthurn, johanna"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 775,
+  "name": "Franul von Weißenthurn, Johanna",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VII, 276; LV, 889",
+  "updated": "2026-06-11 13:29:22.361Z",
+  "uri": "https://d-nb.info/gnd/116752505",
+  "editor": ""
+}

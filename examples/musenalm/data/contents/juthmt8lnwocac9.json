@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Wer bist Du, Wandrer, bleich und trübe? / Im Winde flattert Dein Gewand,",
+  "language": [],
+  "musenalm_id": 86579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der stumme Pilger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der stumme Pilger",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.283Z",
+      "agent": "ut3gc8g2lomjo63",
+      "source_id": "tutb2atfx2lfe0x"
+    }
+  ]
+}

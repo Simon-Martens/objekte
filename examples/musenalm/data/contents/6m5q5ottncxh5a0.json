@@ -1,0 +1,45 @@
+{
+  "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Die Beisetzung der Leiche der Fürstin war vorüber, - in tiefster Trauer kehrte Fürst Irenäus nach Sieghartshof zurück.",
+  "language": [],
+  "musenalm_id": 36362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Bannet Furcht und bannet Sorgen! / Unser Kahn - ruht im sichern Port. / (Pietro's Barcarole aus / die Stumme von Portici.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Luca fa presto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Bannet Furcht und bannet Sorgen! / Unser Kahn - ruht im sichern Port. / (Pietro's Barcarole aus / die Stumme von Portici.)",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.813Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "f9vkzaje65ec913"
+    }
+  ]
+}

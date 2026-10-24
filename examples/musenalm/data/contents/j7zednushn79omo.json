@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Hochzeitmorgen. Glosse (INr 25926, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Lieblich in des Bräutchens Locken / Sind die Blumen anzuschauen,",
+  "language": [],
+  "musenalm_id": 25927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lieblich in des Bräutchens Locken / Spielt der jungfräuliche Kranz, / Wenn die hellen Kirchenglocken / Laden zu des Festes Glanz. / Schiller",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lieblich in des Bräutchens Locken / Spielt der jungfräuliche Kranz, / Wenn die hellen Kirchenglocken / Laden zu des Festes Glanz. / Schiller",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.357Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "i7pwmtrt0tok3t8"
+    }
+  ]
+}

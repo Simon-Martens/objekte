@@ -1,0 +1,45 @@
+{
+  "annotation": "Wort- und Sylben-Räthsel (Sammlung INr 65175, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "412",
+  "incipit_statement": "Wer ist der fromme Mann, / Der ruhig in Gefahrn,",
+  "language": [],
+  "musenalm_id": 65184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Frage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Frage",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.039Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "puxxadq5pwscr3r"
+    }
+  ]
+}

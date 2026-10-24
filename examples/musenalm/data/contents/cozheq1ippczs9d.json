@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Am Fenster die Biene / Aengstlich schwirrt. / Sie hat in mein Zimmer / Herein sich verirrt.",
+  "language": [],
+  "musenalm_id": 100884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Biene am Fenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Biene am Fenster",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.730Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "iotwdojf78r8bvk"
+    }
+  ]
+}

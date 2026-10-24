@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115763,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUTTERLIEBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franceschini pinx. Kovatsch sculps.",
+  "scans": [
+    "alm_3208_115763_dc4t0rn5u9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUTTERLIEBE",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.455Z",
+      "agent": "lszhmg1bcftf05a",
+      "source_id": "2zfp2f6dwbymn6f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.455Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "p4dx5b8a7snlxwq"
+    }
+  ]
+}

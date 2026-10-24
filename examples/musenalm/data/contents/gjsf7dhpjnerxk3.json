@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die gestrenge Meisterin Kritik wird diese Erezugnisse meiner Muse nicht als schulgerechte Lustspiele gelten lassen. Immerhin! so mögen sie als Schwänke in die Welt gehen, welche keinen andern Zweck als den der Erheiterung und Belustigung haben.",
+  "language": [],
+  "musenalm_id": 78140,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.868Z",
+      "agent": "ig1o98q79i5gv1i",
+      "source_id": "3ncuth56hrp1u5e"
+    }
+  ]
+}

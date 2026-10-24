@@ -1,0 +1,210 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.437Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1800"
+      ],
+      "dateOfDeath": [
+        "1833"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Lucas"
+          ],
+          "creditText": [
+            "Sammlung von Bildnissen deutscher Künstler in Rom (Erstes Künstleralbum) – Bibliotheca Hertziana Rom https://www.bildindex.de/document/obj08100457?medium=bhped61366&amp;part=15"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portr%C3%A4t%20Wilhelm%20Noack%2C%20gezeichnet%20von%20August%20Lucas%2C%20Rom%20um%201830.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portr%C3%A4t%20Wilhelm%20Noack%2C%20gezeichnet%20von%20August%20Lucas%2C%20Rom%20um%201830.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portr%C3%A4t%20Wilhelm%20Noack%2C%20gezeichnet%20von%20August%20Lucas%2C%20Rom%20um%201830.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-04-14T09:39:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117035122/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117035122",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117035122",
+      "oldAuthorityNumber": [
+        "(DE-588a)117035122"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4197375-6",
+          "label": "Bessungen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "preferredName": "Noack, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Noack"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/305191741"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55841252"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117035122/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117035122"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117035122"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/117035122"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Noack, Wilhelm Johann Adam"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm Johann Adam"
+          ],
+          "surname": [
+            "Noack"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:24:15Z",
+    "gnd_query_biographical_data": "1800-1833",
+    "gnd_query_name": "noack, wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1969,
+  "name": "Noack, Wilhelm",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 492",
+  "updated": "2026-06-11 13:29:23.968Z",
+  "uri": "https://d-nb.info/gnd/117035122",
+  "editor": ""
+}

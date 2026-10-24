@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 85703, 85704; Obj 27, 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Balladen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Balladen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.120Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "txzrof4l0gfravp"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89309, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER FREISCHÜTZ. / IIIr. Aufz. 2r. Auftr. / Agathe. Und ob die Wolke sie verhülle, / Die Sonne bleibt am Himmelszelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. F. W. Meyer senior sc. Berol.",
+  "scans": [
+    "alm_2367_89310_7gg4jkg5kk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER FREISCHÜTZ. / IIIr. Aufz. 2r. Auftr. / Agathe. Und ob die Wolke sie verhülle, / Die Sonne bleibt am Himmelszelt",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.100Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "jgf222ecd49c2k6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.100Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "mtv50by63rq153j"
+    }
+  ]
+}

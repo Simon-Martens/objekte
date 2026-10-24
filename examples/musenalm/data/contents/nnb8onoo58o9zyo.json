@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 24 Rätseln INr 40441-40464, Obj 91-114",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "497",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Agrionien / für das Jahr 1822. / gesammelt von Theodor Hell",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Agrionien / für das Jahr 1822. / gesammelt von Theodor Hell",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.915Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "38vqulfed9ieei0"
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1799",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.475Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Er war Hofmusikus der Königin Mutter von Preussen."
+      ],
+      "dateOfBirth": [
+        "1766-05-06"
+      ],
+      "dateOfDeath": [
+        "1799-05-10"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-20T21:45:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1144538335/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118762494",
+          "label": "Schulz, Johann Abraham Peter"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1144538335",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118762494",
+          "label": "Schulz, Johann Abraham Peter"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1144538335",
+      "periodOfActivity": [
+        "1798"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036512-8",
+          "label": "Lüneburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Schulz, W. F.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "W. F."
+        ],
+        "surname": [
+          "Schulz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        }
+      ],
+      "publication": [
+        "Lieder am Clavier"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/43151110557437060006"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1144538335/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schulz, Wilhelm Friedrich",
+        "Schulz, Friedrich Wilhelm",
+        "Schultz, Friedr. Wilh.",
+        "Schultz, Friedrich Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Friedrich"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Schultz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Wilh."
+          ],
+          "surname": [
+            "Schultz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:54:21Z",
+    "gnd_query_biographical_data": "1766-1799",
+    "gnd_query_name": "schulz, friedrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2574,
+  "name": "Schulz, Friedrich Wilhelm",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 1865",
+  "updated": "2026-06-11 13:29:24.868Z",
+  "uri": "https://d-nb.info/gnd/1144538335",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Beitrag »Vorrede« INr 23290, Obj 5 nachgestellt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Ich vergaß das Wesentlichste: die Verzierungen des überflüßigen Taschenbuchs.",
+  "language": [],
+  "musenalm_id": 23290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschreiben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Heinrich Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschreiben",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.060Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "hc1bz7ouk4xuz1f"
+    }
+  ]
+}

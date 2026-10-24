@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 1711, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Wer hat die Gleichen sich beschaut? / Sie sind am gleichen Tag gebaut,",
+  "language": [],
+  "musenalm_id": 1714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die beiden Gleichen bei Göttingen. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die beiden Gleichen bei Göttingen. / Romanze",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.978Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "l461l6ltwwyxd47"
+    }
+  ]
+}

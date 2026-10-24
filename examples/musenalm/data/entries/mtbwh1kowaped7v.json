@@ -1,0 +1,121 @@
+{
+  "annotation": "Thalia Neue Folge: weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, T, B Vrwrt d Hrsg, G, 2 BB, SS 1-239 darin G, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Vogl, Ziegelhauser) 1868 Neue Folge (Steinebach) 1868",
+    "norm": "~",
+    "biblio": 409098,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3235,
+  "parallel_title": "",
+  "place_statement": "Wien (Dirnböck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Vogl, Ziegelhauser) 1868 Neue Folge (Steinebach) 1868",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R",
+  "responsibility_statement": "Fr. Steinebach",
+  "subtitle_statement": "",
+  "title_statement": "Thalia. / Taschenbuch / für 1868. / Von / Friedrich Steinebach. / Mit 4 Kupfern. / Neue Folge. Erster Jahrgang. / Wien. / Verlag von Jacob Dirnböck's Buchhandlung (Georg Draudt.)",
+  "updated": "2026-06-11 10:18:55.150Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "items": [
+    "q69gsgfnpg9g2wy"
+  ],
+  "contents": [
+    "3e2eajjznnl4li3",
+    "jk2pgqwv60lyo5n",
+    "9gtsen5vho0rr2c",
+    "7pfr0eww9yco5ax",
+    "n3h8wdq29yo1wd1",
+    "ymawk7vm9hlwdzr",
+    "x58rmc4chka3sxc",
+    "w052xdxtfu6903s",
+    "55fql3on0nlsdpf",
+    "dyispzwfpjozn8n",
+    "ntt21ncf4litgw4",
+    "d7mwqnhey1bukrm",
+    "3f7hnimljboatbe",
+    "24caa9j42n0tmz7",
+    "1qy4rb9qtoxqayf",
+    "r6bn3msv60d4a5a",
+    "kpkn71braq71kdd",
+    "hxfmgstme6x5oe8",
+    "ssyzsct6n347qo2",
+    "tli6yneg7ztcxg3",
+    "tuqw1i4fn6alr00",
+    "xt3b65ff7ztkhs2",
+    "wh3zxt1yw14fofd",
+    "ulgei0jpq3ynmtp",
+    "2841le558lgybaj",
+    "jpupk7wu7ktju8f",
+    "hnpcfgau5s4vl5c",
+    "jsrhke3ugzd4wc2",
+    "o5i18r2yxfhqlro",
+    "reqfwlki5svj3v0",
+    "ak23nmrlbm54hkr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.741Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.741Z",
+      "agent": "idlig2tliyyubpm",
+      "source_id": "k62hdiuapgddox7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.732Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.732Z",
+      "agent": "ogvv0aphvy1zxcd",
+      "source_id": "pn7ryetf45tmpha"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.192Z",
+      "agent": "lzi1zyn6aqla0ny",
+      "source_id": "ygq8p3ebvddl1cq"
+    }
+  ]
+}

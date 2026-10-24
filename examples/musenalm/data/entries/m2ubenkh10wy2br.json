@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-XV darin 5 GG, SS 1-317, 2 SS G-Verz I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1845",
+    "norm": "~",
+    "biblio": 200679,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1802,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Pfautsch u. Comp.)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke Mein! / TASCHENBUCH / für / 1845. / Vierzehnter Jahrgang. / Mit sechs Stahlstichen. / WIEN und LEIPZIG. / Verlag von Pfautsch & Compagnie",
+  "updated": "2026-06-11 10:18:55.637Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "ibviwu43venhnu4"
+  ],
+  "contents": [
+    "i0teo1oe23554g6",
+    "qc4u7wdd59pjgfr",
+    "ebz0vj6cp60xxhk",
+    "4br1z0awz9d49u1",
+    "af80gfxtu6oo4q1",
+    "0lht75tbym3nx3z",
+    "c48sll4tukw8pv0",
+    "5nso72whc0ajxjo",
+    "cehn6qutf065vbm",
+    "954rkiw8jg3ssvo",
+    "xip2lg8eyzxmtn0",
+    "h9uqb9xh9hwtjn7",
+    "cfmzi3k2l03if93",
+    "ytzm2panxvlnhia",
+    "3oum1h5m6etpgp6",
+    "b8ua4sawagmln6i",
+    "jglngsgrb5m89md",
+    "r0yu4uquwji8hku",
+    "i2a3jmyslsa1jwt",
+    "gahys0c02eemh2x",
+    "rtrv7qu84vns1ps",
+    "calhgnz1tjojjfn",
+    "4ryznhe5dt0fhpc",
+    "st550ljjcvjjai8",
+    "rrxklk1t437ktga",
+    "mumlvemwsb7cjmb",
+    "bgz7xznp4d3qgk2",
+    "z29jft484crg2l0",
+    "fmykxqkijxleitf",
+    "5qfundodi7g3xmx",
+    "ecuwgfxu7lxf3r6",
+    "jv5p5cxfoqjt18k",
+    "1654iirign4avg7",
+    "c99c40j2ayjsuwc",
+    "kl616rz03g88zps",
+    "488rohx9m9kwk0t",
+    "mouso2td00oi9uw",
+    "k64e14tksga8nb4",
+    "k1wnqc7bhcjmnms",
+    "85w5kjhrs2pqwcm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.130Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.130Z",
+      "agent": "u4t2m1i1755p4j1",
+      "source_id": "infq6azusv1lrjr"
+    }
+  ]
+}

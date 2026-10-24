@@ -1,0 +1,58 @@
+{
+  "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78175, Obj 22 u. INr 78162, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Du hast dein Volk erlöset / gewaltiglich! / Ps. 77. Vers. 16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri inv. P. J. Laminit sc. 1805",
+  "scans": [
+    "alm_2197_78176_jludcke76f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IV. Du hast dein Volk erlöset / gewaltiglich! / Ps. 77. Vers. 16.",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.853Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "9kzjg3j5ky42oen"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.853Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "ec6l3ene3pqxcyr"
+    }
+  ]
+}

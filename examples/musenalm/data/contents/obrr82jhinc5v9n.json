@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "393",
+  "incipit_statement": "Das wird ein lustiger Tag werden! sagte die Bergräthin Steinfeld zu ihrer Stieftochter.",
+  "language": [],
+  "musenalm_id": 39941,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Der entscheidende Tag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Der entscheidende Tag",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.207Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "q92l6arw085c27s"
+    }
+  ]
+}

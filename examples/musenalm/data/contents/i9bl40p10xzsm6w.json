@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "An dem Gange der auswärtigen Vorfälle hatte Oesterreich, wie wir sahen, dieses Jahr durch keinen entscheidenden Antheil genommen;",
+  "language": [],
+  "musenalm_id": 91061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Innere Angelegenheiten Oesterreichs. / Verbesserungen im Finanzfache, dem Kriegswesen, / (ungerischer Landtag), dem Geschäftsgange, im / Religionswesen, in der Gesetzgebung. Neue An- / ordnungen im Erziehungswesen, im Polizey- / fache, Begünstigungen des Handels. Edle Hand- / lungen der Privaten.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Innere Angelegenheiten Oesterreichs. / Verbesserungen im Finanzfache, dem Kriegswesen, / (ungerischer Landtag), dem Geschäftsgange, im / Religionswesen, in der Gesetzgebung. Neue An- / ordnungen im Erziehungswesen, im Polizey- / fache, Begünstigungen des Handels. Edle Hand- / lungen der Privaten.",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.320Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "ptuxwg8pk4i0cdh"
+    }
+  ]
+}

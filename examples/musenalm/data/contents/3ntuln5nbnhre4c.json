@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Die Episode, Freund, gleicht einem Fischer- / nachen, / Der, wenn das Orlogschiff / regiert,",
+  "language": [],
+  "musenalm_id": 4164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Episode. / An einen Kunstjünger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Episode. / An einen Kunstjünger",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.205Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "s12cf7d0n4t6yfj"
+    }
+  ]
+}

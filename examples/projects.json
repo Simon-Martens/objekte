@@ -1,0 +1,7 @@
+{
+  "default": "lenz-archiv",
+  "projects": [
+    { "id": "lenz-archiv", "name": "Lenz-Archiv", "path": "lenz-archiv" },
+    { "id": "musenalm", "name": "Musenalm", "path": "musenalm" }
+  ]
+}

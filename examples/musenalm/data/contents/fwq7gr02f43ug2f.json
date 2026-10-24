@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Die unter diesem Titel erscheinende Zeitschrift des in Anpreisung dieses Baums so unermüdeten Herrn Reg. Rath Medicus zu Mannheim würde ich gewiß schon früher hier angezeigt haben,",
+  "language": [],
+  "musenalm_id": 69604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Unechter Acacienbaum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Unechter Acacienbaum",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.376Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "xqzf7sporqglj3e"
+    }
+  ]
+}

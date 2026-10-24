@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 29024, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Was fesselt uns und macht doch frei, / Gibt und verliehrt doch nichts dabei,",
+  "language": [],
+  "musenalm_id": 29029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Das ewige Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Das ewige Räthsel",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.508Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "k77mino6t5q92nj"
+    }
+  ]
+}

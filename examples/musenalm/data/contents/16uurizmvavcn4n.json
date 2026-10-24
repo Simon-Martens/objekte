@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Vor ihrem Spiegel saß Dione, / und ordnete das goldne Haar,",
+  "language": [],
+  "musenalm_id": 17121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der goldne Apfel. / An Phyllis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der goldne Apfel. / An Phyllis",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.780Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "kqna68lmbp9vjaq"
+    }
+  ]
+}

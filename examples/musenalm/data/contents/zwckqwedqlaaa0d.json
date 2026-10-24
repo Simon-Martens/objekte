@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Sonette (INr 93335, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Die erste Liebe füllt das Herz mit Sehnen / Nach einem unbekannten Geisterlande.",
+  "language": [],
+  "musenalm_id": 93339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die erste Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fellinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die erste Liebe",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.299Z",
+      "agent": "1qmtp93bgh7ryk0",
+      "source_id": "6l3u7kfakv1abp4"
+    }
+  ]
+}

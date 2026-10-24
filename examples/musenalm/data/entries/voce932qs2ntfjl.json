@@ -1,0 +1,112 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I-Verz, SS I-XVI darin 8 GG, S 1 nT, SS 3-370, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1829",
+    "norm": "~",
+    "biblio": 106716,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 584,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / TASCHENBUCH / auf das Jahr 1829. / Herausgegeben / von / Dr. ADRIAN / FRANKFURT a/M / bei Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.359Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "a95y296s92ny2bw"
+  ],
+  "contents": [
+    "ozji8per03g9819",
+    "ln79rn1ku5lu4t2",
+    "yix8eq01j2n7oxg",
+    "6g6ou5krrj4s8dt",
+    "eafl3jc1bwzq067",
+    "rt5zwxhtat9acc6",
+    "bglxn17g8q92iux",
+    "ohnp9xewh0i9ry6",
+    "tc0dc1pbukq48cr",
+    "l0lpmwmgrehp3rh",
+    "pgv5hh4129acz9l",
+    "9835pexhko7t570",
+    "65vnb9eyil8o1fv",
+    "o2jnqyy6j552ypc",
+    "ojt9ekh8ieuozkf",
+    "6a3vkatb83t9xc8",
+    "rblnfzliux822jq",
+    "f8jcuh4ku22zct3",
+    "43q5uxqxaxxt4jg",
+    "hh68z0p416crea8",
+    "ouoq60anez69br0",
+    "pxxfq6xils4pk1l",
+    "a7t73re6183ryag",
+    "wl0edj7w5nu8jkd",
+    "ld1wsiz8wqnmsme",
+    "tgon38gsvvp8th5",
+    "wy0q1umnd8mdtd7",
+    "b5tjxms7rks2mv9",
+    "t716tlaojoleyvi",
+    "ra22dz5jjzloq02",
+    "xfluukkvvkqu400",
+    "tliau5gpqu2osxr",
+    "gfzv102gzc0mkr8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "b2851xkrymhy4ba"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.708Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.708Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "me7cigkq0duv1hw"
+    }
+  ]
+}

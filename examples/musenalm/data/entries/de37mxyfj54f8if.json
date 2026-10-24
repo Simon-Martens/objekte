@@ -1,0 +1,93 @@
+{
+  "annotation": "Aus Flittners Reihe: Gynäologie",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS I-XVI darin 4 GG, SS 1-176",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kunst, Die mit Weibern glücklich zu seyn 1800",
+    "norm": "~",
+    "biblio": 409204,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4282,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kunst, Die mit Weibern glücklich zu seyn 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 74; nicht bei L/R; Goed (H) 128; Hayn-",
+  "responsibility_statement": "Flittner",
+  "subtitle_statement": "",
+  "title_statement": "Gynäologie. / Erstes Supplement oder XIV. Bändchen. / Die / Kunst mit Weibern glücklich zu seyn. / Mit V Kupfertafeln. / Berlin, 1800. / Bei Oehmigke dem Jüngern",
+  "updated": "2026-06-11 10:18:55.912Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "oey9i2bq29sglf3"
+  ],
+  "contents": [
+    "38nsrpxz52zr6g6",
+    "4y4hendmt9xdwu5",
+    "rtuwfq7mv6ns1h6",
+    "q65yktpwz6t3xv6",
+    "fpzp18j66yrgnoa",
+    "3o0yrll2cmlc60b",
+    "8iwn7seo8m82nwf",
+    "3miqnkv7w0aym1n",
+    "5euquxymc5bv66t",
+    "opj4m5ze35dn03n",
+    "i6ri1vbu4o4eeb7",
+    "txfd3jnu3a9akd1",
+    "a8p81zkgzsmtc9m",
+    "4lm4e4j8dsal9lr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.359Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.359Z",
+      "agent": "a0il1qgyia0yjs4",
+      "source_id": "53pe73vv7ndg5dn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "5ursqrefqnvzmf8"
+    }
+  ]
+}

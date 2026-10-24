@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, S 1 nT, SS 1-405 darin G, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wintergarten, Der 1820",
+    "norm": "~",
+    "biblio": 100947,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3535,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Wintergarten, Der 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 175; L/R 91; Goed VIII. 94, 186 a",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Vierter Band. / Frankfurt am Main / bei den Gebrüdern Wilmans. / 1820",
+  "updated": "2026-06-11 10:18:54.494Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "p662cev9nx4hc0e"
+  ],
+  "contents": [
+    "0kl29tlyor8zbq2",
+    "6o5lsfdn2lcql5s",
+    "qrt4mlfdypbdpzp",
+    "0zifn1ufju92lc5",
+    "wn9wqmhcadtq1ir",
+    "afclz4xb88tdog1",
+    "clsq9mwbtv1ju8v",
+    "jisvgssft51vp3r",
+    "wsw9coxot8wvzyh",
+    "8dzyrgu7lj5bhtb",
+    "57tag6lo3swyafe",
+    "u76nkcnxdk3ittm",
+    "wx69vn4kw2rjg09",
+    "xw81roc768jtxc2",
+    "tg3bb853410e89f",
+    "2f8zxnfwwmd6xdn",
+    "zlxriv9l1h3666g",
+    "ouztrxuz2k9wp2w",
+    "pmoxprrcibwg4ep",
+    "ui3sn93zipxuvor",
+    "z374ehj1kn8x68o",
+    "67v2do93pgbo9nq",
+    "t230m6sypw5e9cm",
+    "ave78z2osva3kfq",
+    "5e2lzhy9bg5be74",
+    "wvkdrqj4je6uuxs",
+    "jb4bntkddu3q52i",
+    "jwqtdjiragn8cog",
+    "l7e98o58k1ez4p7",
+    "dlrdmqwc2xg6nv1",
+    "e413yaxl7wd5sez"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "dysv4ap9uemvmpt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.257Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.257Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "ydppcfhelhpdy5c"
+    }
+  ]
+}

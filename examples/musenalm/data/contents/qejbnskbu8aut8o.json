@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehende Seite INr 81338, Obj 10 /) Illustration zu »Bauernbreughel« von A. v. Tschabuschnigg INr 81343, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81339,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hannes und Ammaraile",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nürnberg",
+  "scans": [
+    "alm_1810_81339_9inomi2685.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hannes und Ammaraile",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.928Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "craeftg8vb9yyij"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.928Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "gth7wcsnsf54egq"
+    }
+  ]
+}

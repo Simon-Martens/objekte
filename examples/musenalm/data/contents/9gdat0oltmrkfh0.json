@@ -1,0 +1,45 @@
+{
+  "annotation": "XIX. Erklärung der Kupfer (Sammlung INr 60034, Obj 33) s. Graphik INr 60033, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Es war am 13. November des vergangenen Jahres, als Hr. Villecrose, Commissär des martialischen Volkstribunals",
+  "language": [],
+  "musenalm_id": 60035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Räumung von Toulon. / Aus dem Briefe eines geflüchteten Touloner Kauf- / manns. Oneglia den 13.Jänner 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Räumung von Toulon. / Aus dem Briefe eines geflüchteten Touloner Kauf- / manns. Oneglia den 13.Jänner 1784",
+  "updated": "2008-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.979Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "mzvg0w8hhnf250z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli; Illustration zu »Der Klausner« INr 120858, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120844,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Klausner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_4585_120844_pi4mfu6rpw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Klausner",
+  "updated": "2018-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.632Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "q38dpit7rnsjr1z"
+    }
+  ]
+}

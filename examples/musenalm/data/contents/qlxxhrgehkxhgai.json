@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Quelle, die aus diesen wilden / freudelosen Berggefilden,",
+  "language": [],
+  "musenalm_id": 16555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von der Quelle des Pfeffers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wessenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von der Quelle des Pfeffers",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.813Z",
+      "agent": "ct6ke46zkjmvu7l",
+      "source_id": "6ls2a0x6saqym8r"
+    }
+  ]
+}

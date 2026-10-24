@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # vollständige Bezeichnung und Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22853,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Margarethe #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael pinx. C. Rahl",
+  "scans": [
+    "alm_304_22853_izffuqcc0c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Margarethe #",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.006Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "djixne3n1s8espd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.006Z",
+      "agent": "d645btewd8dbrsc",
+      "source_id": "og39wkp22890r88"
+    }
+  ]
+}

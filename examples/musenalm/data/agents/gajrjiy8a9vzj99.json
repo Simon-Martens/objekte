@@ -1,0 +1,213 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1879",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.250Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5214167-6",
+          "label": "Royal Society of British Artists"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1023738-0",
+          "label": "Royal Academy of Arts"
+        }
+      ],
+      "dateOfBirth": [
+        "1809-03"
+      ],
+      "dateOfDeath": [
+        "1879-01-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "John &amp; Charles Watkins"
+          ],
+          "creditText": [
+            "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/-Charles%20Baxter-%20MET%20DP-386-013.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/-Charles%20Baxter-%20MET%20DP-386-013.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:-Charles%20Baxter-%20MET%20DP-386-013.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2021-08-09T15:21:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-G16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-G16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1165187612/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576-3",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576-3"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "1165187612",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1165187612",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Baxter, Charles",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Charles"
+        ],
+        "surname": [
+          "Baxter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4332867-2",
+          "label": "Bildnismaler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14969168k"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19953049"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q5075479"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1165187612/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Charles_Baxter_%28painter%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011748808X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Baxter, R. B. A. Ch."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "R. B. A. Ch."
+          ],
+          "surname": [
+            "Baxter"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:09Z",
+    "gnd_query_biographical_data": "1809-1879",
+    "gnd_query_name": "baxter, charles"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 130,
+  "name": "Baxter, Charles",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 94",
+  "updated": "2026-06-11 13:29:21.499Z",
+  "uri": "https://d-nb.info/gnd/1165187612",
+  "editor": ""
+}

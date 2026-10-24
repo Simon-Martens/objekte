@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Als ich Dorinden jüngst den ersten Kuß / entrissen, / Gerieth sie wider mich in Zorn,",
+  "language": [],
+  "musenalm_id": 3974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wehr und Gegenwehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wehr und Gegenwehr",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.929Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "fuvtqzk8de9i16n"
+    }
+  ]
+}

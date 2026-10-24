@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Was nun bringst du hier zum Grabe / Mit dem Blick dem hoffnungslosen?",
+  "language": [],
+  "musenalm_id": 67953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22.",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.227Z",
+      "agent": "690p6l7d7zmbgvd",
+      "source_id": "krk3uqojzyx4aab"
+    }
+  ]
+}

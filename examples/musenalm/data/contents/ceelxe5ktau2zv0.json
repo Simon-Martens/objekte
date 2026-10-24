@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit einem Vorwort: Man hat das Mährchen verlangt, von welchem ich zu Ende des zweyten Bandes meiner Bekenntnisse gesprochen. Leider werde ich es jetzo in seiner ersten unschuldigen Freyheit nicht überliefern,[...] .Der Beitrag wird im Taschenbuch für Damen 1819 fortgesetzt s. INr 34198",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wir hatten uns eines Abends, eine Gesellschaft junger Leute, im Weinhause versammelt, um ein kleines Fest zu feyern.",
+  "language": [],
+  "musenalm_id": 34038,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die neue Melusine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die neue Melusine",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.725Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "1tet2gtysg1rksx"
+    }
+  ]
+}

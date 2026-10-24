@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Neunte Lieferung. Faust. Zweite Hälfte ( Sammlung INr 40867, Obj 5) s. Graphik INr 40876, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Befehlt eure Seele Gott zu Gnaden! / Wollt ihr noch Läst'rung auf euch laden?",
+  "language": [],
+  "musenalm_id": 40877,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII. / Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIII. / Nacht",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.184Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "r4lzmslx3rr0g80"
+    }
+  ]
+}

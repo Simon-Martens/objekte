@@ -1,0 +1,45 @@
+{
+  "annotation": "Fliegende Blätter (Sammlung INr 55899, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Am Großen wird das Kleine groß; am Kleinen bleibt das Große klein.",
+  "language": [],
+  "musenalm_id": 55915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Großen wird das Kleine groß; am Kleinen bleibt das Große klein.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.543Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "rzrqd2tee419j6q"
+    }
+  ]
+}

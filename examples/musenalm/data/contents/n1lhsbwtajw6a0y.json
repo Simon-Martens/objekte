@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Gern sieht seinen Winter erscheinen der fröh- / liche Weise, / Wie nach herlichem Tag kommt die balsamische / Nacht,",
+  "language": [],
+  "musenalm_id": 17260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie. / Nach einem altfranzösischen Liede der / Barbara de Verrue / aus dem dreizehnten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie. / Nach einem altfranzösischen Liede der / Barbara de Verrue / aus dem dreizehnten Jahrhundert",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.789Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "5kn7l6c5a8r4bd0"
+    }
+  ]
+}

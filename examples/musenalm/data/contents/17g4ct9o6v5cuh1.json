@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen (Sammlung INr 61578, Obj 22) Kleinigkeiten aus J. Carl Ungers ungedruckten Schriften (Sammlung INr 61575, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "In dem, durch seine Betriebsamkeit rühmlich bekannten Zipferlande, am Fuße der höchsten Karpathen, beschäftigte sich das Frauenvolk nebst den nothwendigen Wirthschaftsarbeiten ausschließlich mit dem Flachsanbau und der Leineweberey.",
+  "language": [],
+  "musenalm_id": 61581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rockenstube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rockenstube",
+  "updated": "2009-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.962Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "fua42ka7u3nizvg"
+    }
+  ]
+}

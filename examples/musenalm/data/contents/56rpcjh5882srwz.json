@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Kinder von Pyrrha's Stamme, was seid ihr? ihr spielt / miteinander",
+  "language": [],
+  "musenalm_id": 28489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Menschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Menschen",
+  "updated": "2002-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.196Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "fcp5a03c5m86bht"
+    }
+  ]
+}

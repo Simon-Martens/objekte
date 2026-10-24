@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "In des Winters Stürmen schliefen / Wir an warmer Mutterbrust;",
+  "language": [],
+  "musenalm_id": 47899,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen",
+  "updated": "2007-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.535Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "4xgcoi67l3oufar"
+    }
+  ]
+}

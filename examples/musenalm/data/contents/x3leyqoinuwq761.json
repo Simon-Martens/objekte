@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer IIllustration s. Graphik INr 123267, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Graf Wilhelm zog aus seinem Schloß. / Im schönen Land Tyrol, / Zu Maxens Heer mit Mann und Roß,",
+  "language": [],
+  "musenalm_id": 113279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brunhilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brunhilde",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.531Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "heo12641763hpni"
+    }
+  ]
+}

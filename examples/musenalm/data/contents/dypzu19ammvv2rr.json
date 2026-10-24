@@ -1,0 +1,45 @@
+{
+  "annotation": "Erinnerungen an die Heimat (Sammlung INr 122292, Obj 316); # Bezeichnung an der Sammlung INr 122292, Obj 316",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "369",
+  "incipit_statement": "Ich kenne einen König, / Groß ist sein Reich am Rhein, / Dem Alle unterthänig / Gar gerne möchten sein.",
+  "language": [],
+  "musenalm_id": 122296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 320,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. König Wein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Wihl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. König Wein",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.688Z",
+      "agent": "z9zzha2tz10lf47",
+      "source_id": "ejd1gmiee0efflb"
+    }
+  ]
+}

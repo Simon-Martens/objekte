@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59232,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "erfunden und radirt von Wilhelm Hensel",
+  "scans": [
+    "alm_891_59232_rx73azb1kn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell",
+  "updated": "2008-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.753Z",
+      "agent": "902nw56856wz9rx",
+      "source_id": "812axq7rhs5eb4k"
+    }
+  ]
+}

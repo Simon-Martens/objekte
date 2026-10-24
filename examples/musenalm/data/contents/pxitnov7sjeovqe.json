@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11 /) Illustration zu »Der Ehe- und Wehestand des Herrn Baron von Steppelburg« von A. G. Eberhard in: Taschenbuch zum geselligen Vergnügen 1807 INr 12991",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da sehn Sie den großen griechischen Affen, sprach er zu dem Apostel. / Da sehn Sie die große griechische Schlange!« sprach er zu der Baronin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Meno Haase sc.",
+  "scans": [
+    "alm_215_13081_hd8ro3un0k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da sehn Sie den großen griechischen Affen, sprach er zu dem Apostel. / Da sehn Sie die große griechische Schlange!« sprach er zu der Baronin",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.555Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "9l3wydryqnsa6dk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.555Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "eqj5oxf7qhhakbj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Zu Ende ist die Ordination, / Mein Seel, ich bin im Schweiße ganz gebadet, / Es kostet wahrlich viele Mühe schon.",
+  "language": [],
+  "musenalm_id": 94397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Organe der Liebe. / Ein allegorischer Schwank, allenfalls zur Deklamation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Organe der Liebe. / Ein allegorischer Schwank, allenfalls zur Deklamation",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.391Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "s3tx3dzxyp4kfj5"
+    }
+  ]
+}

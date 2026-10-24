@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten (INr 122794–122796); # Bezeichnung am Gedicht INr 122792, Obj 135",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schleswig-Holsteinische Lieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schleswig-Holsteinische Lieder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.697Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "56uuwrtkzrvms2n"
+    }
+  ]
+}

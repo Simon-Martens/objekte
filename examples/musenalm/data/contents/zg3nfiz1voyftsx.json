@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Welch Volk, Thuiskons Volk, gesteht / den Rang dir zu?",
+  "language": [],
+  "musenalm_id": 5004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Deutsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Deutsche",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.169Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "upzttqurvz4vost"
+    }
+  ]
+}

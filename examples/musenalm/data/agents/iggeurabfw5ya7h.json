@@ -1,0 +1,154 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1866",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.464Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1806"
+      ],
+      "dateOfDeath": [
+        "1866-10-17"
+      ],
+      "describedBy": {
+        "dateModified": "2015-10-08T13:56:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/139483918/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118794558",
+          "label": "Saphir, Moritz Gottlieb"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        }
+      ],
+      "gndIdentifier": "139483918",
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/118794558",
+          "label": "Saphir, Moritz Gottlieb"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/139483918",
+      "oldAuthorityNumber": [
+        "(DE-588a)139483918"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008684-7",
+          "label": "Budapest"
+        }
+      ],
+      "preferredName": "Saphir, Sigmund",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Sigmund"
+        ],
+        "surname": [
+          "Saphir"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/101218382"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55860554"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/139483918/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/139483918"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:44:36Z",
+    "gnd_query_biographical_data": "1806-1866",
+    "gnd_query_name": "saphir, sigmund"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2379,
+  "name": "Saphir, Sigmund",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB-NDB XXII, 433",
+  "updated": "2026-06-11 13:29:24.502Z",
+  "uri": "https://d-nb.info/gnd/139483918",
+  "editor": ""
+}

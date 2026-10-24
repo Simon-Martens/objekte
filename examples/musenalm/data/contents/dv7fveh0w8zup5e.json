@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130094, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Armer Thyrsis! lispeln des Lenzes Blumen, / Die im stillen Thale verborgen sprossen;",
+  "language": [],
+  "musenalm_id": 130096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ungeliebte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ungeliebte",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.004Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "5vw1x81k09ccm6j"
+    }
+  ]
+}

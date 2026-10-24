@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Komm mit deinen blassen Wangen, / Müder Mensch, an meine Brust;",
+  "language": [],
+  "musenalm_id": 19392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freude und Leid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freude und Leid",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.930Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "1u8502o2eisp3mv"
+    }
+  ]
+}

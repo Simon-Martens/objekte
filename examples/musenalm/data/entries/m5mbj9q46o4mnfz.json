@@ -1,0 +1,108 @@
+{
+  "annotation": "3 Jgg 1798-1, 1798-2, 1799, 1800; Leipzig (Seeger); Hrsg.: Christian Ehrenfried Seyfert von Tennecker; fortgesetzt durch: Taschenbuch zur belehrenden Unterhaltung für Liebhaber der Pferde 1801-1803 Und: Taschenbuch, Neues Leipziger für Liebhaber der Pferde 1804; 1. und 2. Bändchen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S II, SS III-VIII Vrwrt d Hrsg, SS IX- XXXII G-Verz dazu 7 GG, G SS 1-190, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Meßgeschenk zur belehrenden Unterhaltung für Liebhaber der Pferde 1798-1",
+    "norm": "~",
+    "biblio": 404931,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2249,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Meßgeschenk zur belehrenden Unterhaltung für Liebhaber der Pferde 1798-1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 135",
+  "responsibility_statement": "Seyffert von Tennecker",
+  "subtitle_statement": "",
+  "title_statement": "Meßgeschenk / zur / belehrenden Unterhaltung / für / Liebhaber der Pferde. / Herausgegeben / von / Seyffert von Tennecker, / Sous-Lieutenant beim Churfürstl. Sächsis. Husaren- / Regimente / Mit illuminirten und schwarzen Kupfern. / Ostermesse 1798. / Leipzig, / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.929Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "rdb1mu2aqhmjpwp"
+  ],
+  "contents": [
+    "yhxjpqmkqd8c1by",
+    "pk30vl1v5u1wz2c",
+    "fzjwvwe0imhk1s7",
+    "aetrcr7xc87hmpm",
+    "0vs2c6bb9dj8uhf",
+    "ejg4ytuzmnn7oln",
+    "3brsdfu7hh8ot3k",
+    "39zb0ul19cmcwa2",
+    "731y081g0pifqny",
+    "21muecl50gv0bmk",
+    "s0t3mhxx8xyfcd6",
+    "cjb2c8jfgesxo8l",
+    "m96kso9ojy65koa",
+    "1ddh9ij47pq4h53",
+    "jtdco53ameuncj6",
+    "25jpe4jkc76pz84",
+    "jckcdprd4kx460v",
+    "9a23c9b4ve9jlsf",
+    "q434sc5c9us4jui",
+    "4jjwois5qz9qi6i",
+    "9vu1yq0sfn3ebc9",
+    "4gftv8dzix8nirr",
+    "fkmby1kpiqm6tb4",
+    "grqlz38qf9v2x73",
+    "288zj7f83lacdal",
+    "37e0yzwkh1ri0e4",
+    "5tzq0wmqjc3nnry",
+    "w2nyqujfe5cdi1l",
+    "o5ftv9p3aljf5ek"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.019Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.019Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "26jlh5o3vjmxxg1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "oh8qm7ysvaiyt10"
+    }
+  ]
+}

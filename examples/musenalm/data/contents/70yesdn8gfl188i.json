@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. und Titel s. Textbezug INr 63943, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63949,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christus am Ölberg #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. Champaigne # W. Otto sc.",
+  "scans": [
+    "alm_1053_63949_2vtg50qkod.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christus am Ölberg #",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.924Z",
+      "agent": "f10p4d6dab4zy5g",
+      "source_id": "7dxeiqyx462mb15"
+    }
+  ]
+}

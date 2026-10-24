@@ -1,0 +1,56 @@
+{
+  "annotation": "unter der Graphik: Carlsruhe, im Kunst Verlag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE TRAUERNDEN JUDEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bendemann pinx. A. Duttenhofer sc.",
+  "scans": [
+    "alm_2930_78096_uw5vqn0r69.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE TRAUERNDEN JUDEN",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.800Z",
+      "agent": "n6gy5dn9ed5g96z",
+      "source_id": "cjvi3dnov3qv663"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.800Z",
+      "agent": "tgvn6iyntlkd9zp",
+      "source_id": "wn4bze82z3ivz7e"
+    }
+  ]
+}

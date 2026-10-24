@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Es ruht der See in tiefem Traume, / Umwallt von leichtem Nebelgrau,",
+  "language": [],
+  "musenalm_id": 80883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Seeblume. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Seeblume. / Romanze",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.695Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "cbt3d4gh43qhvlz"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 11036, Obj 178)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Das erste ist Signal, / Das andre Form des Ganzen,",
+  "language": [],
+  "musenalm_id": 11059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 201,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Ein aus zwei zweisilbigen Wörtern / zusammengesetztes Wort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [
+    "alm_2242_11059_6joiiw5itc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "23. / Ein aus zwei zweisilbigen Wörtern / zusammengesetztes Wort",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.373Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "so0amsq0twgenp4"
+    }
+  ]
+}

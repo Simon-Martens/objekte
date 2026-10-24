@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blüthen und Früchte (Salzburg) 1798",
+    "norm": "",
+    "biblio": 409681,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-11-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4608,
+  "parallel_title": "",
+  "place_statement": "Salzburg (Mayer)",
+  "places": [
+    "rf9k8kvx4ugh24k"
+  ],
+  "preferred_title": "Blüthen und Früchte (Salzburg) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Joseph Wismayr",
+  "subtitle_statement": "",
+  "title_statement": "Blüthen und Früchte. / Zur / Aufmunterung und Veredlung / jugendlcher Talente / herausgegeben / von / Joseph Wismayr, / Präfekten des lodronisch-rupertinischen Erziehungs- / Stiftes in Salzburg. / Zweytes Bändchen. / Mit Melodien / von A. J. Emmert und B. Hacker. / Salzburg 1798. / Im Verlage der Mayerischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.550Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "qo11zv1z5k6gz40"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.394Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.394Z",
+      "agent": "emvb6u8lhpvrudm",
+      "source_id": "rtl3ov8u4wkpq1r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.104Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.104Z",
+      "agent": "w7fv2ee9xso2h80",
+      "source_id": "zsmhgcuwqbhxw72"
+    }
+  ]
+}

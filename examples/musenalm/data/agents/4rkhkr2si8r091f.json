@@ -1,0 +1,212 @@
+{
+  "annotation": "",
+  "biographical_data": "1782-1834",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.494Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin und Übersetzerin",
+        "Schriftstellerin, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1782-06-12"
+      ],
+      "dateOfDeath": [
+        "1834-05-30"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T17:17:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117262994/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117262994",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117262994",
+      "oldAuthorityNumber": [
+        "(DE-588c)4607360-7",
+        "(DE-588a)117262994"
+      ],
+      "preferredName": "Thiesen, Charlotte",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Charlotte"
+        ],
+        "surname": [
+          "Thiesen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Stille"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Thiesen, Charlotte: Kleine Erzählungen. - 1822",
+        "Thiesen, Charlotte: Maria Leszinska, Gemahlin Ludwig XV. und ihre Umgebung ... - 1829"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/785475"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55901790"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117262994/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117262994"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117262994"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Still, Caroline",
+        "Thiesen, Anna Charlotte",
+        "Stille, Caroline",
+        "Still, Karoline"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Stille"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Still"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Charlotte"
+          ],
+          "surname": [
+            "Thiesen"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Still"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:09:48Z",
+    "gnd_query_biographical_data": "1782-1834",
+    "gnd_query_name": "thiesen, charlotte"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2887,
+  "name": "Thiesen, Charlotte",
+  "profession": "Text",
+  "pseudonyms": "Caroline Stille",
+  "refs": "E 358",
+  "updated": "2026-06-11 13:29:25.390Z",
+  "uri": "https://d-nb.info/gnd/117262994",
+  "editor": ""
+}

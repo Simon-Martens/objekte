@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Aus der tiefen Einsamkeit dieses abgeschiedenen Thals, das den höchsten Berg der alten Welt in seinem Schooße trägt,",
+  "language": [],
+  "musenalm_id": 437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chamouny. / Ein Fragment aus einem Reisejournale, Caroline von L. gewidmet.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeldt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chamouny. / Ein Fragment aus einem Reisejournale, Caroline von L. gewidmet.",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.817Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "z08v48h6t93zfpr"
+    }
+  ]
+}

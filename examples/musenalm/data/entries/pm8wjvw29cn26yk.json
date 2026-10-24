@@ -1,0 +1,111 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt /) 2. Titel (der des Kalendariums) lautet: Kalender für 1810. Augsburg, bey H. G. Bloßfeld, Senior, Buchbinder bey dem Barfüßerthor",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Kal, SS 1-96 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ernst und Scherz (Augsburg) 1810",
+    "norm": "~",
+    "biblio": 407383,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-09-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3601,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Bloßfeld)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Ernst und Scherz (Augsburg) 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Ernst und Scherz. / Ein Taschenbuch / zur / angenehmen und nüzlichen / Unterhaltung / für das Jahr / 1810. / Augsburg",
+  "updated": "2026-06-11 10:18:55.621Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "",
+  "items": [
+    "t9tm3o4afodrfuc"
+  ],
+  "contents": [
+    "s6p90hdu2jv4ojp",
+    "8da2hrx8ytmy7jt",
+    "l1mg0bwjd92pjw4",
+    "vxf5khz470lbz1f",
+    "nlsa1c695t2278e",
+    "9i9vz0t5di90kwb",
+    "prai7tq5l1z6ob7",
+    "xnxaj8r38090dgr",
+    "eplsz3veyvy07ep",
+    "o0v1283qpdhqp59",
+    "sul8w0wlvmrhb23",
+    "0kwndvo0gmrd87e",
+    "289nxgenwo1xzpi",
+    "9z0v519fdwdw1l8",
+    "n2wlbhffm2oanl4",
+    "5x0w78dlci9tlve",
+    "d2adgrebgwau4jc",
+    "6vcumuabz9pfptq",
+    "gx4avqg4r7n7n24",
+    "qecea5hpg0sj614",
+    "0lwopyr83n9e4jk",
+    "07f7re40oa4f6bb",
+    "of9aypssv8qesnw",
+    "mmx0pd5hbz4muo9",
+    "n3wzrvmuwur74pt",
+    "dmhtmsong5cfuad",
+    "yyfdfvs6gfnm6pj",
+    "y7u35lix7t2svhs",
+    "71xkduyn2se16db",
+    "wq8j5ltyssjno0s",
+    "sh9267cxiukwann",
+    "kvucfu2iyuz7icu",
+    "f902g608b03ah9r",
+    "0puln2mmtjjnunw",
+    "uvx2n787xfrides",
+    "ai20na36o2w08b2",
+    "iuye748mpsva2l4",
+    "jwo0o85fxisizql",
+    "mltt7689ivec0n8",
+    "m7j732n3xyzvmf0",
+    "sk146o1pn0sp0xe",
+    "92jskgudh83dbsn",
+    "o0yv7ho8yz345xw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.546Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.546Z",
+      "agent": "qryj0w4tq07nzt1",
+      "source_id": "52mq6hncncn9nod"
+    }
+  ]
+}

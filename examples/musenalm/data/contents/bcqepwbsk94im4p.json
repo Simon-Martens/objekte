@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95337, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Adolf Theer gemalt. Stahlst. v. C. Mahlknecht)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer gemalt. Stahlst. v. C. Mahlknecht",
+  "scans": [
+    "alm_1882_95336_l3xwqg65s4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.692Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "j2sryuxy1wx0swm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.692Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "z5wke91evexjn8t"
+    }
+  ]
+}

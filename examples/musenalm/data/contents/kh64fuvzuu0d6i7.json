@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 123944, Obj 2); Illustration zu »Brief und Antwort« von Lebrun (INr 123950, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Capit. Holst. / Ich mag freche Menschen leiden – wenn ich auch selbst nicht frech seyn kann – / Brief und Antwort. / 6r Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1289_123951_j02awz1ozv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "III. / Capit. Holst. / Ich mag freche Menschen leiden – wenn ich auch selbst nicht frech seyn kann – / Brief und Antwort. / 6r Auftr.",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.856Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "5vfw31zwr5d556i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.856Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "tc6vady4at5cxue"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Blumen (Sammlung INr 84228, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Gäb' euch Worte der Lenz, so wie er Duft euch verleihet; / Wahrlich ihr sprächet uns zu,",
+  "language": [],
+  "musenalm_id": 84236,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.947Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "idq3qsslv69sf0x"
+    }
+  ]
+}

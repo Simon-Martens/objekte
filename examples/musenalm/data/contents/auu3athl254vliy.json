@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert 7. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48100,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joseph Ekhel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48100_vtu75vekgk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joseph Ekhel",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.583Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "8pu88ye0rniexnb"
+    }
+  ]
+}

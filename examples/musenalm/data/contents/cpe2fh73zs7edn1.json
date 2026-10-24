@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Es war um Perseus geschehn, / Hätt' er Medusen nicht im Spiegelschild ge- / sehn!",
+  "language": [],
+  "musenalm_id": 96383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gefährliche Anblick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gefährliche Anblick",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.761Z",
+      "agent": "x9u4n2qst16e030",
+      "source_id": "0jp6kzrzueovxme"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 277. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann.« INr 47456, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebe wohl! und werde ein braver Mann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del D. Berger sc. 1797",
+  "scans": [
+    "alm_643_47458_cx722rkrmo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebe wohl! und werde ein braver Mann",
+  "updated": "2007-01-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.382Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "epq1i1s7hmddwdd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.382Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "o8xs88no7cg84kv"
+    }
+  ]
+}

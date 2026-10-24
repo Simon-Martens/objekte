@@ -1,0 +1,78 @@
+{
+  "annotation": "KVK, K10plus-Verbundkatalog von GBV und SWB: 1833-1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbüchlein zur Unterhaltung und zum Nutzen zunächst für Ostfriesland und Harrlingerland 1835",
+    "norm": "",
+    "biblio": 410747,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-06-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4736,
+  "parallel_title": "",
+  "place_statement": "Emden (Woortmann jr.)",
+  "places": [
+    "ps4axcazhxum1hi"
+  ],
+  "preferred_title": "Jahrbüchlein zur Unterhaltung und zum Nutzen zunächst für Ostfriesland und Harrlingerland 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "G. W. Bueren",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbüchlein / zur / Unterhaltung und zum Nutzen, / zunächst für / Ostfriesland und Harrlingerland. / Auf das Jahr 1835. / Herausgegeben / von / G. W. Bueren. / Doctor der Rechte und Stadtsecretair in Emden. / Emden 1834. / Gedruckt bei H. Woortman jr., Stadtbuchdr.",
+  "updated": "2026-06-11 10:18:55.732Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "vhfaup9wj6ch9zu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "kcd1ujolnnb7xmb",
+      "source_id": "aqmp9j26fkrg701"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.414Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.414Z",
+      "agent": "5y1y8nf1h7agmbv",
+      "source_id": "pgq4nxshl77kqi0"
+    }
+  ]
+}

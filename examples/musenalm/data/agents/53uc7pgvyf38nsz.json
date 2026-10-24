@@ -1,0 +1,380 @@
+{
+  "annotation": "",
+  "biographical_data": "1790-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.303Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Statistiker und Nationalökonom"
+      ],
+      "dateOfBirth": [
+        "1790"
+      ],
+      "dateOfDeath": [
+        "1859"
+      ],
+      "describedBy": {
+        "dateModified": "2023-01-14T09:31:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100842453/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100842453",
+      "id": "https://d-nb.info/gnd/100842453",
+      "oldAuthorityNumber": [
+        "(DE-588a)100842453"
+      ],
+      "preferredName": "Dieterici, Karl Friedrich Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Friedrich Wilhelm"
+        ],
+        "surname": [
+          "Dieterici"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4182956-6",
+          "label": "Statistiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398825-8",
+          "label": "Regierungsrat"
+        }
+      ],
+      "publication": [
+        "Dieterici, Karl F.: Ergebnisse der in den Jahren 1848-1857 angestellten Beobachtungen des*",
+        "Dieterici, Carl: Zur Geschichte der Steuer-Reform in Preussen von 1810 bis 1820",
+        "Die Bevölkerung des Preussischen Staats nach der amtlichen Aufnahme des Jahres 1846",
+        "Dieterici, Karl F.: Der Volkswohlstand im Preußischen Staate",
+        "Dieterici, Karl F.: Die Resultate der Verwaltung",
+        "Die Statistischen Tabellen des Preussischen Staats nach der amtlichen Aufnahme des Jahr*",
+        "Tabellen... für das Jahr 1852...",
+        "Dieterici, Karl F.: Handbuch der Statistik des preußischen Staats",
+        "Tabellen... für das Jahr 1855...",
+        "Die Gewerbe-Tabelle enthaltend die mechanischen Künstler und Handwerker, bei denen der Me*",
+        "Dieterici, Karl F.: Statistische Uebersicht der wichtigsten Gegenstände des Verkehrs und *",
+        "Dieterici, Carl: Zur Geschichte der Steuer-Reform in Preußen von 1810 bis 1820"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83199585"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/42194861"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q95965"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100842453/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Friedrich_Wilhelm_Dieterici"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Dieterici"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Friedrich_Wilhelm_Dieterici"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108920918"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100842453"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100842453"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100842453.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100842453.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100842453"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Dieterici, Karl Wilhelm",
+        "Dieterici",
+        "Dieterici, W.",
+        "Dieterici, Carl F.",
+        "Dieterici, C. W.",
+        "Dieterici, Carl",
+        "Dieterici, Karl Friedr. Wilhelm",
+        "Dieterici, Carl Friedrich Wilhelm",
+        "Dieterici, Karl F.",
+        "Dieterici, Carolus Fridericus Guilelmus",
+        "Dieterici, Carolus F.",
+        "Dieterici, Wilhelm",
+        "Dieterici, Carl F. W.",
+        "Dieterici, C. F. W.",
+        "Dieterici, Carl Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. W."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus Guilelmus"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F. W."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedr. Wilhelm"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "personalName": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus F."
+          ],
+          "surname": [
+            "Dieterici"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Dieterici",
+          "label": "https://de.wikipedia.org/wiki/Carl_Friedrich_Dieterici"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:13:45Z",
+    "gnd_query_biographical_data": "1790-1859",
+    "gnd_query_name": "dieterici, karl friedrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 545,
+  "name": "Dieterici, Karl Friedrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB V, 159",
+  "updated": "2026-06-11 13:29:22.056Z",
+  "uri": "https://d-nb.info/gnd/100842453",
+  "editor": ""
+}

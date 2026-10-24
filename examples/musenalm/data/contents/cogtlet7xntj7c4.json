@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38996, Obj 184)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Die Märchen sind halt Nürnberger Waar' / Wenn der Mond Nachts in die Boutiquen scheint;",
+  "language": [],
+  "musenalm_id": 38999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 187,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / An Professor Vischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / An Professor Vischer",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.927Z",
+      "agent": "sazh274fui35fcn",
+      "source_id": "cuenw7q32vlipxn"
+    }
+  ]
+}

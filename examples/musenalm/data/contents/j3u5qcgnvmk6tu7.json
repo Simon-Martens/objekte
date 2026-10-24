@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "O, theurer Engel, Dein vergeß ich nicht, / Du meiner Erde Leben, Luft und Licht!",
+  "language": [],
+  "musenalm_id": 81422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gruß an die Entfernte!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Siegmund",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gruß an die Entfernte!",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.025Z",
+      "agent": "fpnd1gzhfjqx9bk",
+      "source_id": "o4ccg5hsuhytm9o"
+    }
+  ]
+}

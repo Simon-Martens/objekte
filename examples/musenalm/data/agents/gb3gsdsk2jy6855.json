@@ -1,0 +1,354 @@
+{
+  "annotation": "",
+  "biographical_data": "1807-1866",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schauspieler, Dichter; Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1817-08-30"
+      ],
+      "dateOfDeath": [
+        "1866-09-12"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-12T07:46:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115749446/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117061409",
+          "label": "Schröder, Auguste"
+        },
+        {
+          "forename": [
+            "Auguste"
+          ],
+          "surname": [
+            "Schlönbach"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115749446",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117061409",
+          "label": "Schröder, Auguste"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115749446",
+      "oldAuthorityNumber": [
+        "(DE-588a)115749446"
+      ],
+      "periodOfActivity": [
+        "1845-1846"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4010325-0",
+          "label": "Coburg"
+        }
+      ],
+      "preferredName": "Schloenbach, Carl Arnold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Arnold"
+        ],
+        "surname": [
+          "Schloenbach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        }
+      ],
+      "publication": [
+        "Aus Vergangenheit und Gegenwart",
+        "Was sich der Wein erzählt",
+        "Die Hohenstaufen",
+        "Zwölf Frauenbilder aus der Goethe-Schiller-Epoche",
+        "Der letzte König von Thüringen",
+        "Das Deutsche Bauernbuch oder: So lebt das Volk"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Karl Arnold"
+          ],
+          "surname": [
+            "Schlönbach"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88645909"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35193524"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q696113"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115749446/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/115749446"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Arnold_Schloenbach"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Arnold_Schloenbach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120176829"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115749446"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115749446"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115749446.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115749446"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schloenbach, Karl Arnold",
+        "Schloenbach, C. A.",
+        "Schloenbach, Arnold",
+        "Schloenbach, C.A.",
+        "Schlönbach, Karl Arnold",
+        "Schloenbach, Carl A.",
+        "Schlönbach, Arnold"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Arnold"
+          ],
+          "surname": [
+            "Schlönbach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Schloenbach"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Schloenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Arnold"
+          ],
+          "surname": [
+            "Schlönbach"
+          ]
+        },
+        {
+          "forename": [
+            "C.A."
+          ],
+          "surname": [
+            "Schloenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold"
+          ],
+          "surname": [
+            "Schloenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Arnold"
+          ],
+          "surname": [
+            "Schlönbach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Arnold"
+          ],
+          "surname": [
+            "Schloenbach"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Arnold_Schloenbach",
+          "label": "https://de.wikipedia.org/wiki/Arnold_Schloenbach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:49:21Z",
+    "gnd_query_biographical_data": "1807-1866",
+    "gnd_query_name": "schloenbach, karl arnold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2474,
+  "name": "Schloenbach, Karl Arnold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXI, 526",
+  "updated": "2026-06-11 13:29:24.681Z",
+  "uri": "https://d-nb.info/gnd/115749446",
+  "editor": ""
+}

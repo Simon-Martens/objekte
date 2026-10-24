@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Hier sitz' ich von dem Nordwind / Umheulet: ihm zu wehren",
+  "language": [],
+  "musenalm_id": 8433,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Abreise Antoniens von Oesterreich / bestimmter Gemahlin des Dauphins; im / April 1770. Ein Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mastalier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Abreise Antoniens von Oesterreich / bestimmter Gemahlin des Dauphins; im / April 1770. Ein Fragment",
+  "updated": "2026-06-23 09:01:04.895Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.447Z",
+      "agent": "f2jay1ec3g5rdgn",
+      "source_id": "di0u3tyfv4t9big"
+    }
+  ]
+}

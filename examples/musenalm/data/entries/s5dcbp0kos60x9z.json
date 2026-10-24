@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 11 BB Kal, 18 SS darin 6 GG, G, ar: SS 1-332 darin 6 GG, ar1: SS 1-28, ar2: SS 1-102, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Berlinischer 1821",
+    "norm": "~ K gibt 12 GG an",
+    "biblio": 101296,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 891,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender, Berlinischer 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 156; nicht bei L/R; Goed VIII. 92, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINISCHER / Taschen-Kalender / auf / das Gemein Jahr 1821. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.251Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "5qw924au37xmst1"
+  ],
+  "contents": [
+    "s5rd72lfg5d94ix",
+    "9xu4nafctfw6d3j",
+    "ta3wvr75a24aezk",
+    "vgopip6ab15852e",
+    "i417cyj3cls5yqw",
+    "m2h1n17mbfia0cm",
+    "5gb6ple9m1wwdna",
+    "0zoe226rk4km6cy",
+    "0drbnwq9t7piv4q",
+    "x0403csq7pep0e2",
+    "j94smxo3epkb9m7",
+    "60q5k9aqq8u4spa",
+    "feoeipzvczitx1m",
+    "llnu63m0dp31fu9",
+    "mjlzifpkyaaeu5y",
+    "sm9g5m567fswgvq",
+    "br7ptxg9xdgs102",
+    "3cettm7b0xj2y1i",
+    "ct41w2xyvb3j9jb",
+    "stm3tx1ydo2iohz",
+    "77h9m0cjg0qmx1h",
+    "85tfu8y83m0witx",
+    "gm5vrfka26fsf17",
+    "i7u7c3gwsl9xinm",
+    "hd8e6yvj9hkit9p",
+    "mngitxel67nrr39",
+    "xtr3vyrfedhb1a5",
+    "9tdgm5mbiatrczi",
+    "8ah3ncwu4ruhre2",
+    "uqxc9p9vni81z32",
+    "kyfmgssujybu12t",
+    "14m4wh4lmw3v21s",
+    "dxxj37vyjgpf06a",
+    "1yzrj4kgb9kul4i",
+    "nffnjsktt2rkfbh",
+    "bbq3devmy2xht89",
+    "5lt8rv54yyo134d",
+    "5xxqtosf3r4ntmx",
+    "eii5eagylvppv56",
+    "n672zmr01qcp7d3",
+    "pdsvfx4px2p3e55"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "o5vciiispr1hef0"
+    }
+  ]
+}

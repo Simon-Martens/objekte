@@ -1,0 +1,100 @@
+{
+  "annotation": "auf der letzten Seite: Druck und Papier von C. L. Brede in Offenbach /) $ die unbezeichneten Prosabeiträge wahrscheinlich von Clauren, d. i. K. G. S. Heun",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I-Verz, 2 BB, 8 BB dazu 4 GG, SS 1-473 darin 4 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Clauren) 1821",
+    "norm": "~",
+    "biblio": 100844,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3366,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Clauren) 1821",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 165; L/R 94; Goed VIII. 98, 202",
+  "responsibility_statement": "H. Clauren",
+  "subtitle_statement": "",
+  "title_statement": "Vergissmeinnicht / ein / TASCHENBUCH / für / 1821. / von / H. Clauren. / Leipzig, / bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:54.867Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "fkp9vk1h8kogwof"
+  ],
+  "contents": [
+    "730p3j7vpwg7i44",
+    "ppgjsd4ozf22eg1",
+    "2td6kr28luyaiwf",
+    "f5zpoafd1earl9p",
+    "du2kedfu4c4ods9",
+    "oh7fkjz9w7usuuk",
+    "9aehqu9hg1klfs0",
+    "h6rw8ic2qnmrt06",
+    "ft7jy582wpc5pa5",
+    "hwb8l1fun96p6zs",
+    "wanwyd19bik7d3c",
+    "6gb7802ck9rw4gf",
+    "ghmc3pssmbmyax2",
+    "czvpzd1jkbfijqk",
+    "s4m4368fke8fj9a",
+    "gpjz5mwg2ynsbc1",
+    "o8pyccc8jmkdwbc",
+    "amxjuj0k648harr",
+    "9evlcpovoglrzds",
+    "14ym7fsk4oflb8j",
+    "k6krdzt0y2lntoz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.204Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.204Z",
+      "agent": "zhpoyrlt9ionxj2",
+      "source_id": "9gnjq9tbom07pnw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.093Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.093Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "jga0ruwgbv2339m"
+    }
+  ]
+}

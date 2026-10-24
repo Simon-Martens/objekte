@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11901, Obj 20) mit 2 Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1803 INr 12064, 12065",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Für gewöhnlich war der alte Doctor Mannfahl ziemlich mürrisch, und einsilbig und langweilig.",
+  "language": [],
+  "musenalm_id": 11907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Polyp im Herzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Polyp im Herzen",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "yugc9z0flqyqcv8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Vertief' ich mich in deine Blätter, / Da weht's um mich wie Frühlingsduft;",
+  "language": [],
+  "musenalm_id": 58094,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adalbert Stifter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adalbert Stifter",
+  "updated": "2008-06-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.730Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "5mkin8pwfgl8yds"
+    }
+  ]
+}

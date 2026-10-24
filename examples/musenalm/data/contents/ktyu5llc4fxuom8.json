@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Ich muß zu Feld, mein Töchterlein, / Und Böses dräut der Sterne Schein,",
+  "language": [],
+  "musenalm_id": 26564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Nothhemd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Nothhemd",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.074Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "y48510g40du45s1"
+    }
+  ]
+}

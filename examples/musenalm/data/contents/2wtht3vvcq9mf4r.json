@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 41860-41864, Obj 62-66",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.217Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "gq0grcsmdeksefg"
+    }
+  ]
+}

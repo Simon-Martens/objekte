@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. Graphik im Kalendarium /) Illustration zu »Schweizerisch-Burgundischer Krieg« INr 72510, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72506,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. 228. / Des Herzogs Leiche gefunden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_849_72506_f4uhcfjk98.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. 228. / Des Herzogs Leiche gefunden",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.745Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "clwho9oy017djuv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.745Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "rtaacicub1lz6i2"
+    }
+  ]
+}

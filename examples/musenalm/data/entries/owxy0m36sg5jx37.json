@@ -1,0 +1,129 @@
+{
+  "annotation": "Sammlungen mit mehreren Beiträgen werden lediglich mit Incipit des ersten Beitrags dargestellt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, SS I- IV Vrwrt d Hrsg, SS VVIII I-Verz, 2 GG, SS 1-225 darin 12 GG, SS 226-228 G-Verz darin 4 GG, S 248 C, 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Revolutions-Almanach 1803 (Friedens-Almanach 1803)",
+    "norm": "~",
+    "biblio": 100464,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-10-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 944,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Revolutions-Almanach 1803 (Friedens-Almanach 1803)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 18",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Friedens- / Almanach / von 1803. / Als Schluß und Supplement / des / Revolutions-Almanachs. / Göttingen. / Bey Heinrich Dieterich",
+  "updated": "2026-06-11 10:18:55.951Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "090mw63ct67nkj5"
+  ],
+  "contents": [
+    "gxr5xa53pqypf7x",
+    "coeoe8g8jzyuc3s",
+    "njfumhwqd6oshmi",
+    "mweicnnt89dp16n",
+    "2l8j4zb4hzeqpd4",
+    "on7t4dc66l5zqd7",
+    "vzh4mq0bsrtlzli",
+    "c7vf5j3vy9p2zs9",
+    "z4ta3fpsq8jqdlb",
+    "v0l7acxze03hulk",
+    "ttnqpe0mrbyv0oz",
+    "58z8yc89alq5q3h",
+    "g3ikdq1d47c84ib",
+    "0fnn7z4t50ottrx",
+    "3z2vubsc52ual8w",
+    "5vgr7o2zvv7gg1r",
+    "31vc9v3ueuwjpt0",
+    "cbi3n6l0ecqpz24",
+    "23lb3laub4mr35l",
+    "0vy1t9q71cm2qom",
+    "on8guj5z023206b",
+    "pgu1xj52520pyed",
+    "8tcsk25bqps9ng8",
+    "xi9dwf5ig84fjul",
+    "ohtia96c61sbwcl",
+    "blxuehifzz7gt9l",
+    "hxgankq2s79wwdc",
+    "zln9mgyneo6w92b",
+    "hycpauqdne0h0dk",
+    "l3gsrhqegdu7t0g",
+    "fcd30itoccz0omv",
+    "0civeo6p6x1juys",
+    "t53h6xs7x6our4f",
+    "mm3dbiwnqy1683x",
+    "nv4azalb2ws6kix",
+    "cb3m13l9v128icq",
+    "ct5bsnlnjrcyjds",
+    "o7tvtur37o0zhpt",
+    "a3eos8xji2zzu72",
+    "25ct2y57596q42y",
+    "d3dqjenj9otayy8",
+    "bo0lz23qjlrcd33",
+    "w39ipizvce36o0g",
+    "dnsdn4lj4p46pjo",
+    "6j9evlez6oj2wjp",
+    "xi3hslst8dozot8",
+    "qerjagl5mpoyib3",
+    "mahlhexejqaqeel",
+    "kj3bufeo6dz9n4c",
+    "yw47olvspfsp0jd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.783Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.783Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "33rmcib428crhs7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.943Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.943Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "xgn7wuofoukjnm3"
+    }
+  ]
+}

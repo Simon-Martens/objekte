@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehende Seite INr 81503, Obj 7 /) Illustration zu »Die beiden Vettern« von Klara von Massow INr 81510, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81504,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Corona",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nbg",
+  "scans": [
+    "alm_1812_81504_n91890uzbz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Corona",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.820Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "q8xzi8l9t2r3jf0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.820Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "tfwaq0ss5j18pn0"
+    }
+  ]
+}

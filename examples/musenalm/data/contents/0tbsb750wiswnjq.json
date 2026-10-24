@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) # Titel s. Textbezug (Gedicht) INr 83980, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Herzensdame #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vaudecamp pinxt. W. Baumann sculpt.",
+  "scans": [
+    "alm_1067_83975_pq2sbsel95.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Herzensdame #",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.926Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "73ia7hrqagqjtir"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.926Z",
+      "agent": "fap8zc1obgwl9u7",
+      "source_id": "ry0oxtlpcsfzx3h"
+    }
+  ]
+}

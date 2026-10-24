@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57622, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Jetzt weinen, und noch eh' die Thräne / Dir ganz herablief, armer Freund,",
+  "language": [],
+  "musenalm_id": 57623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Ansicht der Kehrseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Ansicht der Kehrseite",
+  "updated": "2008-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.696Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "oorzc93swycr0z5"
+    }
+  ]
+}

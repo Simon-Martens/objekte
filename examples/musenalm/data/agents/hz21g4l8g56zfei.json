@@ -1,0 +1,583 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.392Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil. <1847>"
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/251912-4",
+          "label": "Große Loge von Preußen, Genannt Royal York zur Freundschaft"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5079170-9",
+          "label": "Friedrichs-Werdersche Gewerbeschule (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Kartograph; Historiker; Geograph; Naturforscher; Schriftsteller; Direktor; Gründer und Leiter der Preußischen Gewerbeschule in Berlin; 1853: Nobilitierung; 1855: in den Ruhestand getreten."
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1786-05-21"
+      ],
+      "dateOfDeath": [
+        "1856-01-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Kalchbrenner; Obernetter"
+          ],
+          "creditText": [
+            "http://reader.digitale-sammlungen.de/de/fs1/object/display/bsb11182382_00008.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Friedrich%20von%20Kl%C3%B6den.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Friedrich%20von%20Kl%C3%B6den.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Friedrich%20von%20Kl%C3%B6den.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:05:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118563343/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116231661",
+          "label": "Klöden, Gustav Adolf von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118563343",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116231661",
+          "label": "Klöden, Gustav Adolf von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118563343",
+      "oldAuthorityNumber": [
+        "(DE-588c)4031206-9",
+        "(DE-588a)118563343"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046948-7",
+          "label": "Potsdam"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Klöden, Karl Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Klöden"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4127948-7",
+          "label": "Schulleiter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "publication": [
+        "Beiträge zur mineralogischen und geognostischen Kenntniß der Mark ...",
+        "Lebens- und Regierungsgeschichte Friedrich Wilhelms des Dritten ...",
+        "Die ältere Geschichte des Köllnischen Gymnasiums",
+        "Grundlinien zu einer neuen Theorie der Erdgestaltung",
+        "Die Mark Brandenburg unter Kaiser Karl IV. bis ...",
+        "Apologie der Universität zu London",
+        "Über die Entstehung, das Alter und die früheste Geschichte ...",
+        "Erläuterung einiger Abschnitte des alten Berlinischen Stadtbuches",
+        "Zur Geschichte der Marien-Verehrung",
+        "Nachricht an das Publikum über den Zweck und die Einrichtungen ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88255774"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69721675"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214153"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118563343/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Friedrich_von_Kl%C3%B6den"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_von_Kl%C3%B6den"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Friedrich_von_Kl%C3%B6den"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Friedrich_von_Kl%C3%B6den"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081500955"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118563343"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118563343"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563343.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563343.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118563343"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Klöden, C. F.",
+        "Klöden, C. Fr. von",
+        "Klöden, Karl Friedrich",
+        "Klöden, Karl F.",
+        "Klöden, C. F. von",
+        "Klöden, K.F.",
+        "Klöden, Karl Friedrich v.",
+        "Kloeden, Carl Friedrich von",
+        "Klöden, Karl F. von",
+        "Kloeden, Karl Friedrich von",
+        "Klöden, C.",
+        "Klöden, Friedrich von",
+        "Kloeden, Carl Friedrich",
+        "Klöden, Carl F.",
+        "Klöden, C.F.",
+        "Kloeden, Karl Friedrich v.",
+        "Klöden, K. F.",
+        "Kloeden, Karl Friedrich",
+        "Klöden, Carl F. von",
+        "Klöden, Carl Friedrich von",
+        "Klöden, C.F. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Kloeden"
+          ]
+        },
+        {
+          "forename": [
+            "C.F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "K. F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "C. Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "C.F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "K.F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kloeden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Kloeden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Kloeden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kloeden"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Klöden"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_von_Kl%C3%B6den",
+          "label": "https://de.wikipedia.org/wiki/Karl_Friedrich_von_Kl%C3%B6den"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:56:54Z",
+    "gnd_query_biographical_data": "1786-1856",
+    "gnd_query_name": "klöden, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1418,
+  "name": "Klöden, Karl Friedrich",
+  "profession": "Graphik u. Sonst.",
+  "pseudonyms": "",
+  "refs": "ADB XVI, 203",
+  "updated": "2026-06-11 13:29:23.251Z",
+  "uri": "https://d-nb.info/gnd/118563343",
+  "editor": ""
+}

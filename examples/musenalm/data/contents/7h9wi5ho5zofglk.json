@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64709, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64715,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen am Fenster #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. S. Vodigel del. F. Molenaar sculps.",
+  "scans": [
+    "alm_1083_64715_1i0b4y5k4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen am Fenster #",
+  "updated": "2009-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.028Z",
+      "agent": "qijadzj1tmqi5h0",
+      "source_id": "mbf365akum3n23u"
+    }
+  ]
+}

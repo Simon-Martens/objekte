@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Theilt euch wie Brüder! Es sind der Würste / gerade zwey Dutzend,",
+  "language": [],
+  "musenalm_id": 38755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 618,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorschlag zur Güte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorschlag zur Güte",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.895Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "m1cpawnxwbehkrt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.894Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "rhyrl859l6k4joj"
+    }
+  ]
+}

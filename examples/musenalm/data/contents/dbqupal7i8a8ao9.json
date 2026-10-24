@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Verwittert und geborsten, / Bedeckt mit grünem Moos, / Erhebt sich von Stein, ein Pfeiler",
+  "language": [],
+  "musenalm_id": 111707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor dem Heiligenbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eligius Franz Joseph Freiherr von Münch-Bellinghausen (Friedrich Halm.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor dem Heiligenbild",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.384Z",
+      "agent": "g5bo98tjkpy8a15",
+      "source_id": "j9g31d31a256ffw"
+    }
+  ]
+}

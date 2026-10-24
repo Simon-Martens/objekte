@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Blümchen, so wie diese, / Giebt uns Wald und Wiese, / Berg und Thal;",
+  "language": [],
+  "musenalm_id": 5552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Frau v. D*. / Zum Geburtstage den 23 Febr. 1781. / (Bei Uebersendung eines Strausses / von getrockneten Blumen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Frau v. D*. / Zum Geburtstage den 23 Febr. 1781. / (Bei Uebersendung eines Strausses / von getrockneten Blumen)",
+  "updated": "2000-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.125Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "p37t19paz3ig6e3"
+    }
+  ]
+}

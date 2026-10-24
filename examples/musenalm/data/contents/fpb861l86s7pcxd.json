@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Des Fremdlings Abendlied« von G. P. Schmidt INr 13128, Obj 63 /) Anhang zu Beckers Taschenbuch 1808 (Sammlung INr 61535, Obj 146) (Photos 61542,01; 61542,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61542,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Fremdlings Abendlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_215_61542_01_e39lu7fzwy.jpg",
+    "alm_215_61542_02_p60na00sn8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Fremdlings Abendlied",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.921Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "pieng02epk77c7o"
+    }
+  ]
+}

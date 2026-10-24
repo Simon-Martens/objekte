@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Mann von vierzig Jahren« Von Lembert INr 94654, Obj 69",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94594,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LADY AUSTIN. / Zur Erzählung: Der Mann von vierzig Jahren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schlesinger pinx. C. Mahlknecht sc. Vieannae",
+  "scans": [
+    "alm_1872_94594_2u37g2bzvq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LADY AUSTIN. / Zur Erzählung: Der Mann von vierzig Jahren",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.736Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "7cl4utye479xz0w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.736Z",
+      "agent": "q0ll739boyttklq",
+      "source_id": "sm21o9ey32x9zk2"
+    }
+  ]
+}

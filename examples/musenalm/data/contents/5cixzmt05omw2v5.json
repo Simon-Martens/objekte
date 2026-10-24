@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9629,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. G. Boettger fec)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. G. Boettger fec",
+  "scans": [
+    "alm_201_9629_ffie1dpzm0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.812Z",
+      "agent": "iypyb8g8bxed1eq",
+      "source_id": "62ssp9fu1adf1g6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.811Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "980yp7yd7yybdbp"
+    }
+  ]
+}

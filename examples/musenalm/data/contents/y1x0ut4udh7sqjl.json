@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Zwischen Kuß und zwischen Kuß / Unterscheid' ich billig:",
+  "language": [],
+  "musenalm_id": 94140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kuss, Genuss, Verdruss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kuss, Genuss, Verdruss",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.658Z",
+      "agent": "cr0uh3kmaadt1st",
+      "source_id": "z61dmc5luypyvjt"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, Kr, T, 11 BB Kal darin 12 GG, ar: SS 1-168, ar1: SS 1- 96, B, ar2: SS 1-111",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1818",
+    "norm": "~",
+    "biblio": 404147,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 853,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1818. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.878Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "p2jbmhfjg9qv22x"
+  ],
+  "contents": [
+    "bkrohqqw0nfja5x",
+    "gm7h5m1cuu72cr8",
+    "33ufril9jgyo6xy",
+    "27ridyyv80rc85f",
+    "x8ngaxlbl6ao5nx",
+    "o645xy5hvmb9jhp",
+    "8y5ezpf3ae2dlr5",
+    "up43s1snauk0y4j",
+    "u583bi7z8h4lr4m",
+    "4r7gxctnldevbn8",
+    "v129vyl9ky6wxqq",
+    "h2cziipwdht6a93",
+    "tkp4u36jn9751r0",
+    "pqy0t3gyrvcfp62",
+    "andf0d2wcmuyqat",
+    "xdt6vqebvp0djdg",
+    "ngffeiutyxslh52",
+    "tgkzpubvjct6w1g",
+    "xqojtlei5ossncv",
+    "s7j75h9znkrd5x9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "fhsazj3k648x22g"
+    }
+  ]
+}

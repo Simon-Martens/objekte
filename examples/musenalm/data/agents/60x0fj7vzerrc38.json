@@ -1,0 +1,1763 @@
+{
+  "annotation": "",
+  "biographical_data": "1483-1546",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.418Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/119648105",
+          "label": "Cruciger, Elisabeth"
+        }
+      ],
+      "dateOfBirth": [
+        "1483-11-10"
+      ],
+      "dateOfDeath": [
+        "1546-02-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lucas Cranach the Elder"
+          ],
+          "creditText": [
+            "GalleriX"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Cranach%20d.%C3%84.%20-%20Martin%20Luther%2C%201528%20%28Veste%20Coburg%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Cranach%20d.%C3%84.%20-%20Martin%20Luther%2C%201528%20%28Veste%20Coburg%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Lucas%20Cranach%20d.%C3%84.%20-%20Martin%20Luther%2C%201528%20%28Veste%20Coburg%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/115776889X",
+        "https://d-nb.info/gnd/7790855-7",
+        "https://d-nb.info/gnd/118080660"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-02T13:44:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118575449/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10051458",
+          "label": "http://lod.gesis.org/thesoz/concept_10051458"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118575430",
+          "label": "Bora, Katharina von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118575449",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/119648105",
+          "label": "Cruciger, Elisabeth"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118575430",
+          "label": "Bora, Katharina von"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118847988",
+          "label": "Arnoldi, Bartholomäus"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118575449",
+      "oldAuthorityNumber": [
+        "(DE-588)118080660",
+        "(DE-588a)142167886",
+        "(DE-588c)4036711-3",
+        "(DE-588a)134450027",
+        "(DE-588a)127246967",
+        "(DE-588a)119748797",
+        "(DE-588a)127246975",
+        "(DE-588)115776889X",
+        "(DE-588a)100734472",
+        "(DE-588a)118080660",
+        "(DE-588)7790855-7",
+        "(DE-588c)7790855-7",
+        "(DE-101c)310140021",
+        "(DE-588a)118575449"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4014013-1",
+          "label": "Eisenach"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066640-2",
+          "label": "Wittenberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4092450-6",
+          "label": "Eisleben"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4092450-6",
+          "label": "Eisleben"
+        }
+      ],
+      "preferredName": "Luther, Martin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Martin"
+        ],
+        "surname": [
+          "Luther"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4177347-0",
+          "label": "Reformator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118847988",
+          "label": "Arnoldi, Bartholomäus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124630642",
+          "label": "Fronsberger, Leonhardt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121801551",
+          "label": "Fuldner, Peter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124222250",
+          "label": "Sunder-Maler, Bartholomaeus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124917801",
+          "label": "Lorichius, Reinhardus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118977407",
+          "label": "Krelj, Sebastijan"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118775006",
+          "label": "Hosius, Stanislaus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119607700",
+          "label": "Antonius, aus Keman"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124617190",
+          "label": "Mechler, Aegidius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124675999",
+          "label": "Sauermann, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104058609",
+          "label": "Corvinus, Johannes"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Fregosus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Eleutherius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Acht Sermon.D.M.Luthers võ im geprediget zue Wittemberg inn der fasten Darinn kurtzlich ...",
+        "Der Deudsch Psalter D. Luthers zu Wittemberg…",
+        "Der thewre schoene Spruch Mosi. Gene. XV. Abraham gleubete dem HERRN vnd das rechent er ...",
+        "Epistel odder vnterricht von den heyligen an die kirch tzu Erffurdt ynn gott verßamlet. ...",
+        "DAs neuw Testamẽt recht grüntlich teütscht. Mit gantz gelerten ... vorredẽ/vnd der ...",
+        "Sapientia. De Wyssheit Salomonis an de Tyrannen. D. Mar. Lut.",
+        "Ain kurtze form der zehen gebot. D.M.L. Ain kurtze form des Glaubens Ain kurtze form ...",
+        "Ein Sermon von der Bereyttung zum Sterben. D.Mart: Luther. Wittemberg…",
+        "Ain kurtze form der zehen gebot. D. M. L. Ain kurtze form des Glaubens. Ain kurtze form ...",
+        "Das Alte Testament"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79089628"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/14773105"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q9554"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118575449"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115776889X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118080660"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118575449/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/7790855-7"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118575449"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Martin_Luther"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Martin_Luther"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Martin_Luther"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Martin_Luther"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118575449"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121214073"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118575449"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1537_gengenbach;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1537_gengenbach;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1540_kohlhans;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1541_zeitlos;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_furtenagel;6"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_lasan;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nna;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnb;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnc;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnd;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nne;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnf;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_reinhold;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_wanckel;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_wesener;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_zeitlos;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_crodel;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nna;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nna;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnb;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnc;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnd;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1544_nna;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1544_nnb;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_even;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_flock;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_hertwigk;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nna;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nnb;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nnc;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_reiffenstein;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_senarclens;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1546_nnb;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1546_reiffenstein;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1549_ulrich;210"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118575449"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118575449.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118575449.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118575449"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118575449"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118575449"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118575449"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Lutr, Marćin",
+        "Lûter, Marṭîn",
+        "Luter, Martí",
+        "Rut'ŏ, Marŭt'in",
+        "Luterus, Mertinas",
+        "Luther, Marcin",
+        "Luther, Maarten",
+        "Lutherus, Martin",
+        "Rutā",
+        "Rutʹo, Marutʹin",
+        "L.D.M.",
+        "Luters, Martinïs",
+        "Luther, Merten",
+        "Lutero, Martim",
+        "Lutterus, Martinus",
+        "马丁·路德",
+        "Luter, Martin",
+        "Martinus, Luther",
+        "Luther, Wartinus",
+        "Lutherus",
+        "Lüther, Martinus",
+        "Lutther, Martinus",
+        "Liuterius, Mertynas",
+        "Luters, MŚartiĆnŚs",
+        "Lutr, Martin",
+        "Luth., Mart.",
+        "Liutērius, Mertinas",
+        "マルティン・ルター",
+        "M. L., Doctor",
+        "Luters, Martins",
+        "Luther, Martthin",
+        "Eleutherius",
+        "Liuter, Martin",
+        "Luthēros, Martinos",
+        "Lutter, Martinus",
+        "Lüther, Martin",
+        "Luther, Marthin",
+        "Luther, Marcźin",
+        "Luther, Mertyn",
+        "Lutera, Mahrtina",
+        "D. M. L. A.",
+        "Luther, Martinn",
+        "Fregosus, Fridericus",
+        "Luther, Marttin",
+        "Luther, Mar.",
+        "Lude, Mading",
+        "Luther, Märtin",
+        "Ljuter, Martin",
+        "Lutther, Martin",
+        "Luters, Martīņš",
+        "Luther, D.",
+        "Luther, Martí",
+        "Liuterio, Martyno",
+        "Luther, Martti",
+        "Lutteris, Mertinas",
+        "Lutera, Mārtiņa",
+        "Lúther, Marteinn",
+        "Luyther, Martinus",
+        "Lutter, Martin",
+        "Luteraus, Mertino",
+        "Luther, Morten",
+        "Lutero, Martin",
+        "Liuteris, Martynas",
+        "Lutherius, Martin",
+        "Luta, Matin",
+        "Lut., Martinus",
+        "Luther, Johannes Martin",
+        "Luth., Martn",
+        "Luther, Martino",
+        "לותר, מרטין",
+        "Luderus, Martinus",
+        "Luther, D. Martin",
+        "Luther, Márton",
+        "Lutherus, Martinus",
+        "Eleutherius, Martinus",
+        "Martinus Eleutherius",
+        "Luther, Martinius",
+        "Luth., Martṇ",
+        "Luttherus, Martinus",
+        "Rutā, Marutin",
+        "Lutterus, Mertinas",
+        "Lutherus, Mar.",
+        "Luterus, Martinus",
+        "Luder, Martinus",
+        "Lutero, Martín",
+        "Luther, Marton",
+        "Luttar cāstiri",
+        "Luhter, Martin",
+        "Luter, Marcin",
+        "Lutero, M.",
+        "Luters, Mārtiņš",
+        "Lūdheảr̮, Mār̮ṯin",
+        "Lutero, Martino",
+        "Luther, Martinus",
+        "Ludder, Martinus",
+        "D. M. L.",
+        "Luterius, Martin",
+        "Luther, M.",
+        "Luder, Martin",
+        "Luter, Martinus",
+        "Ludder, Martin",
+        "Luther, Marten"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lüther"
+          ]
+        },
+        {
+          "forename": [
+            "Merten"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lutterus"
+          ]
+        },
+        {
+          "forename": [
+            "Marćin"
+          ],
+          "surname": [
+            "Lutr"
+          ]
+        },
+        {
+          "personalName": [
+            "マルティン・ルター"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Luder"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luter"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luderus"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lutter"
+          ]
+        },
+        {
+          "forename": [
+            "Márton"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marṭîn"
+          ],
+          "surname": [
+            "Lûter"
+          ]
+        },
+        {
+          "personalName": [
+            "Eleutherius"
+          ]
+        },
+        {
+          "forename": [
+            "Martín"
+          ],
+          "surname": [
+            "Lutero"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Ludder"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luterus"
+          ]
+        },
+        {
+          "forename": [
+            "D. Martin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martinius"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Mertino"
+          ],
+          "surname": [
+            "Luteraus"
+          ]
+        },
+        {
+          "personalName": [
+            "Lutherus"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Liuter"
+          ]
+        },
+        {
+          "forename": [
+            "Martṇ"
+          ],
+          "surname": [
+            "Luth."
+          ]
+        },
+        {
+          "forename": [
+            "Martynas"
+          ],
+          "surname": [
+            "Liuteris"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Luther"
+          ],
+          "personalName": [
+            "Martinus"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Mahrtina"
+          ],
+          "surname": [
+            "Lutera"
+          ]
+        },
+        {
+          "forename": [
+            "Martinïs"
+          ],
+          "surname": [
+            "Luters"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutter"
+          ]
+        },
+        {
+          "forename": [
+            "MŚartiĆnŚs"
+          ],
+          "surname": [
+            "Luters"
+          ]
+        },
+        {
+          "forename": [
+            "Marton"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "personalName": [
+            "L.D.M."
+          ]
+        },
+        {
+          "forename": [
+            "Martinn"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marttin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marcin"
+          ],
+          "surname": [
+            "Luter"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Lutero"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luttherus"
+          ]
+        },
+        {
+          "forename": [
+            "Märtin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lüther"
+          ]
+        },
+        {
+          "forename": [
+            "Morten"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "personalName": [
+            "Luttar cāstiri"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luder"
+          ]
+        },
+        {
+          "forename": [
+            "Mar."
+          ],
+          "surname": [
+            "Lutherus"
+          ]
+        },
+        {
+          "forename": [
+            "Mertinas"
+          ],
+          "surname": [
+            "Luterus"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martn"
+          ],
+          "surname": [
+            "Luth."
+          ]
+        },
+        {
+          "forename": [
+            "Martino"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marten"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Eleutherius"
+          ]
+        },
+        {
+          "forename": [
+            "Martim"
+          ],
+          "surname": [
+            "Lutero"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Luter"
+          ]
+        },
+        {
+          "forename": [
+            "Martti"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutero"
+          ]
+        },
+        {
+          "forename": [
+            "Mertinas"
+          ],
+          "surname": [
+            "Liutērius"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutr"
+          ]
+        },
+        {
+          "forename": [
+            "Martinos"
+          ],
+          "surname": [
+            "Luthēros"
+          ]
+        },
+        {
+          "forename": [
+            "Mertynas"
+          ],
+          "surname": [
+            "Liuterius"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Fregosus"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Luyther"
+          ]
+        },
+        {
+          "forename": [
+            "Mār̮ṯin"
+          ],
+          "surname": [
+            "Lūdheảr̮"
+          ]
+        },
+        {
+          "forename": [
+            "Marthin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutherius"
+          ]
+        },
+        {
+          "personalName": [
+            "D. M. L. A."
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Luterius"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Ludder"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lutherus"
+          ]
+        },
+        {
+          "personalName": [
+            "Rutā"
+          ]
+        },
+        {
+          "forename": [
+            "Mar."
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Maarten"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marutin"
+          ],
+          "surname": [
+            "Rutā"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutherus"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lut."
+          ]
+        },
+        {
+          "forename": [
+            "Marŭt'in"
+          ],
+          "surname": [
+            "Rut'ŏ"
+          ]
+        },
+        {
+          "forename": [
+            "Mart."
+          ],
+          "surname": [
+            "Luth."
+          ]
+        },
+        {
+          "forename": [
+            "Martīņš"
+          ],
+          "surname": [
+            "Luters"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Martin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martí"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Martins"
+          ],
+          "surname": [
+            "Luters"
+          ]
+        },
+        {
+          "forename": [
+            "מרטין"
+          ],
+          "surname": [
+            "לותר"
+          ]
+        },
+        {
+          "forename": [
+            "Mārtiņš"
+          ],
+          "surname": [
+            "Luters"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Lutther"
+          ]
+        },
+        {
+          "forename": [
+            "Mārtiņa"
+          ],
+          "surname": [
+            "Lutera"
+          ]
+        },
+        {
+          "forename": [
+            "Martthin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Doctor"
+          ],
+          "personalName": [
+            "M. L."
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Luhter"
+          ]
+        },
+        {
+          "personalName": [
+            "马丁·路德"
+          ]
+        },
+        {
+          "forename": [
+            "Matin"
+          ],
+          "surname": [
+            "Luta"
+          ]
+        },
+        {
+          "forename": [
+            "Martyno"
+          ],
+          "surname": [
+            "Liuterio"
+          ]
+        },
+        {
+          "personalName": [
+            "Martinus Eleutherius"
+          ]
+        },
+        {
+          "forename": [
+            "Mertinas"
+          ],
+          "surname": [
+            "Lutterus"
+          ]
+        },
+        {
+          "forename": [
+            "Mertinas"
+          ],
+          "surname": [
+            "Lutteris"
+          ]
+        },
+        {
+          "forename": [
+            "Marcźin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "personalName": [
+            "D. M. L."
+          ]
+        },
+        {
+          "forename": [
+            "Marcin"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Marteinn"
+          ],
+          "surname": [
+            "Lúther"
+          ]
+        },
+        {
+          "forename": [
+            "Martí"
+          ],
+          "surname": [
+            "Luter"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Lutther"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Ljuter"
+          ]
+        },
+        {
+          "forename": [
+            "Martino"
+          ],
+          "surname": [
+            "Lutero"
+          ]
+        },
+        {
+          "forename": [
+            "Marutʹin"
+          ],
+          "surname": [
+            "Rutʹo"
+          ]
+        },
+        {
+          "forename": [
+            "Mertyn"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Wartinus"
+          ],
+          "surname": [
+            "Luther"
+          ]
+        },
+        {
+          "forename": [
+            "Mading"
+          ],
+          "surname": [
+            "Lude"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Martin_Luther",
+          "label": "https://de.wikipedia.org/wiki/Martin_Luther"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:10:24Z",
+    "gnd_query_biographical_data": "1483-1546",
+    "gnd_query_name": "luther, martin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1688,
+  "name": "Luther, Martin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed II, 150",
+  "updated": "2026-06-11 13:29:23.682Z",
+  "uri": "https://d-nb.info/gnd/118575449",
+  "editor": ""
+}

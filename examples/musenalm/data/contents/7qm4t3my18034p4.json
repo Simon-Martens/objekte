@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Herr Rath, es freut mich sehr, daß wir / uns wiedersehn. / Mich nicht -",
+  "language": [],
+  "musenalm_id": 4304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schmausereien / Ein satyrischer Dialog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schmausereien / Ein satyrischer Dialog",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.123Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "zmrvd6uhgh1y4cr"
+    }
+  ]
+}

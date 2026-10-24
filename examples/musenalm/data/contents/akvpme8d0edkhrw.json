@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Lied von der Glocke (Sammlung INr 24680, Obj 258) /) Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Wenn jemand schwatzt die Kreuz die Quer / Was ihm in Sinn kommt ungefähr,",
+  "language": [],
+  "musenalm_id": 24681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 258,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / A propos de cloches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / A propos de cloches",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.035Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "lo4sl0kcyiqtz0w"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach oder Taschen-Buch für die Brüder Freimäurer (Bode) 1779",
+    "norm": "",
+    "biblio": 100931,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1355,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Almanach oder Taschen-Buch für die Brüder Freimäurer (Bode) 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 178; Goed IV/I. 585, 31",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / oder / Taschen-Buch / für die / Brüder Freymäurer / der vereinigten / Deutschen und Schwedischen Logen / auf das Jahr Christi / 1779. / 4. / Mit Genehmigung der Obern. / Zu finden in den Logen / (als Handschrift für Brüder.)",
+  "updated": "2026-06-11 10:18:54.936Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "nxu001rrgaimtyr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.883Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.883Z",
+      "agent": "o0i0vpsw2t5asy1",
+      "source_id": "jcy55vk8x3s3baw"
+    }
+  ]
+}

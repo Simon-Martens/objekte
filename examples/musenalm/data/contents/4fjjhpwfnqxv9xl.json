@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ein edler Barde war vor Zeiten; / Sein Nam' ist Agathon. / Hold klang der Ton aus seinen Saiten,",
+  "language": [],
+  "musenalm_id": 48,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AGATHON. / VOLKSSAGE AUS DER ALTEN GRIECHENZEIT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "CLAMER SCHMIDT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AGATHON. / VOLKSSAGE AUS DER ALTEN GRIECHENZEIT",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.964Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "aaw4ui9g5vve3pv"
+    }
+  ]
+}

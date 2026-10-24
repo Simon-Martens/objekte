@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Logogriphen(Sammlung INr 22478, Obj 101) Charaden und Räthsel (Sammlung INr 22471, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "420",
+  "incipit_statement": "Schreibst du das Wort mit einem O am Ende, / So ist's ein Wort, ein Spruch, den viele Bände",
+  "language": [],
+  "musenalm_id": 22479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.060Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "pb9jng7iwke46bw"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 43380, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43387,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Frankenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. C. Haldenwang sc.",
+  "scans": [
+    "alm_570_43387_p5f98i9cus.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Frankenstein",
+  "updated": "2006-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.336Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "nm08nj5k1m80ss2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.336Z",
+      "agent": "mwin9klvyol78mm",
+      "source_id": "wr9jt4anrfbyzdv"
+    }
+  ]
+}

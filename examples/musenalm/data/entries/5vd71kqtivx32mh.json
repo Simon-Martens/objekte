@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 7 BB Tab darin 6 GG, B I-Verz, G, B G-Verz, G, SS 1-270, 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1812",
+    "norm": "~",
+    "biblio": 106021,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2383,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1812",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1812 / der / Häuslichkeit und Eintracht / gewidmet / von / Fr. Kind, Fr. Laun, E. Meyer etc / Herausgegeben / von / Theodor Hell. / Mit zehn Kupfern und Landschaften, und zwei Tafeln mit / den neuesten Desseins zur Modestickerei. / Leipzig, / bei J. C. Hinrichs",
+  "updated": "2026-06-11 10:18:55.313Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "e0bmso024qjv2b7"
+  ],
+  "contents": [
+    "xokijyq9wm2i94q",
+    "bbq7f9rerwfvno7",
+    "5551puqg9oqbqyx",
+    "0ohcax82cvdtt48",
+    "jtpoxjtjoo4foci",
+    "pmeodlq0nv4xqdv",
+    "01miko7242x6flp",
+    "jwmm3lfb4vowyjt",
+    "eaplgefs9x3idxg",
+    "tuht3ctd1kdmcy5",
+    "ison0d15ltcldyh",
+    "69tmf9f4z509311",
+    "kbbkcsaeq4quaim",
+    "9cmb7zbbdh996eo",
+    "9d38v1jjj5w0v5d",
+    "zreyzyhqaonhbva",
+    "p9gaecfx5vy3un5",
+    "6jywbiprp8imipu",
+    "fvc2r5c1yunjkox",
+    "g2u0eaxzh2qw91z",
+    "rcxwk44s6hsr57u",
+    "h42gfykvcliw9ja",
+    "72118prnt3qkcoj",
+    "v9751911y1xh8g7",
+    "z9576nsr5pgjlzf",
+    "6sw54qo7ptylkoo",
+    "hz47056v39uxgut",
+    "mev6u53zgeitz5q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.014Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.014Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "6cbk26ji2ucywre"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.061Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.061Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "f2cfl7dl9ea2mjs"
+    }
+  ]
+}

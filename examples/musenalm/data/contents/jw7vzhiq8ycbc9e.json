@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40813, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40804,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust 6s.Blatt. / Siebel. Helft! Feuer! Helft! Die Hoelle brennt!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. R. del. J. A.sculp.",
+  "scans": [
+    "alm_532_40804_0krskh9jxg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust 6s.Blatt. / Siebel. Helft! Feuer! Helft! Die Hoelle brennt!",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.130Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7xnwobre2hh7ejj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.130Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "rtk12yepg0y6dsw"
+    }
+  ]
+}

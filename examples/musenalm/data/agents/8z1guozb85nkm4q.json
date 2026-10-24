@@ -1,0 +1,501 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1870",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.359Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "geb. auf Ibenshof/Wobbenbüll bei Husum, gestorben in England; Lehre am Zollamt Husum; Kunststudium in Kopenhagen (1817/18)"
+      ],
+      "dateOfBirth": [
+        "1798-08-28"
+      ],
+      "dateOfDeath": [
+        "1870-05-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Ferdinand Stelzner"
+          ],
+          "creditText": [
+            "http://www.bassenge.com/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Harro%20Harring%20by%20Stelzner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20Harro%20Harring%20by%20Stelzner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20of%20Harro%20Harring%20by%20Stelzner.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-15T15:13:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118701711/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/101662607X",
+          "label": "Harring, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116485027",
+          "label": "Harring, Therese"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082399531",
+          "label": "Harring, Wilhelmine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118701711",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/116485027",
+          "label": "Harring, Therese"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082399531",
+          "label": "Harring, Wilhelmine"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/101662607X",
+          "label": "Harring, Martin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118701711",
+      "oldAuthorityNumber": [
+        "(DE-588a)118701711",
+        "(DE-588a)107309254",
+        "(DE-588c)4094759-2"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4042011-5",
+          "label": "New York, NY"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4331890-3",
+          "label": "Wobbenbüll"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4539859-8",
+          "label": "Saint Hélier"
+        }
+      ],
+      "preferredName": "Harring, Harro Paul",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Harro Paul"
+        ],
+        "surname": [
+          "Harring"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177943-5",
+          "label": "Revolutionär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Rhongar"
+          ],
+          "surname": [
+            "Jarr"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Rhongar-Jarr"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Harro-Harring"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Rhongar Jarr"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Harring, Harro: Splitter und Balken",
+        "Harring, Harro: Memoiren über Polen unter Russischer Herrschaft",
+        "Harring, Harro: Der Großfürst Constantin wie er war",
+        "Harring, Harro: Die Monarchie oder die Geschichte vom König Saul",
+        "Harring, Harro: Serenaden und Phantasien eines friesischen Sängers nebst Klängen während *",
+        "Harring, Harro: Rhonghar Jarr",
+        "Harring, Harro: Der Pole",
+        "Harring, Harro: Rosabianca",
+        "Harring, Harro: Erzählungen aus den Papieren eines Reisenden",
+        "Harring, Harro: Blutstropfen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89007940"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/285365161"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q20668"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118701711/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Harro_Harring"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Harro_Harring"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Harro_Harring"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110357829"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118701711"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118701711"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118701711.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118701711.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118701711"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Harro-Harring, Paul",
+        "Jarr, Rhongar",
+        "Rhongar Jarr",
+        "Harring, Paolo Harro",
+        "Harring, Harro P.",
+        "Harro-Harring, Poul",
+        "Harring, Harro Paul Kasimir",
+        "Harring, P. H.",
+        "Rhongar-Jarr",
+        "Harro-Harring",
+        "Rhonghar, Jarr",
+        "Harring, Harro",
+        "Harro",
+        "Harring, Harro Paul Kazimirow"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Harro Paul Kazimirow"
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "forename": [
+            "P. H."
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Harro"
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Harro-Harring"
+          ]
+        },
+        {
+          "personalName": [
+            "Harro-Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Harro P."
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Rhongar"
+          ],
+          "surname": [
+            "Jarr"
+          ]
+        },
+        {
+          "forename": [
+            "Jarr"
+          ],
+          "surname": [
+            "Rhonghar"
+          ]
+        },
+        {
+          "forename": [
+            "Poul"
+          ],
+          "surname": [
+            "Harro-Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Harro Paul Kasimir"
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "forename": [
+            "Paolo Harro"
+          ],
+          "surname": [
+            "Harring"
+          ]
+        },
+        {
+          "personalName": [
+            "Rhongar-Jarr"
+          ]
+        },
+        {
+          "personalName": [
+            "Harro"
+          ]
+        },
+        {
+          "personalName": [
+            "Rhongar Jarr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Harro_Harring",
+          "label": "https://de.wikipedia.org/wiki/Harro_Harring"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:39:45Z",
+    "gnd_query_biographical_data": "1798-1870",
+    "gnd_query_name": "harring, harro paul"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1073,
+  "name": "Harring, Harro Paul",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 375; Goed XI/1, 383; Goed XV, 452",
+  "updated": "2026-06-11 13:29:22.803Z",
+  "uri": "https://d-nb.info/gnd/118701711",
+  "editor": ""
+}

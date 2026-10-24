@@ -1,0 +1,887 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1794",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.282Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. phil."
+      ],
+      "affiliationAsLiteral": [
+        "Göttinger Musenalmanach"
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1789 Professor für Ästhetik in Göttingen; Verfasser von Balladen; studierte bis 1768 in Halle (Saale)"
+      ],
+      "dateOfBirth": [
+        "1747-12-31"
+      ],
+      "dateOfDeath": [
+        "1794-06-08"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Heinrich Tischbein"
+          ],
+          "creditText": [
+            "http://museum-digital.de/nat/index.php?t=objekt&amp;oges=889"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottfried%20August%20B%C3%BCrger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gottfried%20August%20B%C3%BCrger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gottfried%20August%20B%C3%BCrger.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-16T15:20:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118517104/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Elise Marie Christine"
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118517090",
+          "label": "Bürger, Elise"
+        },
+        {
+          "forename": [
+            "Amadeus Gottfried Adolf"
+          ],
+          "surname": [
+            "Müllner"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118517104",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118517104",
+      "oldAuthorityNumber": [
+        "(DE-101c)310365503",
+        "(DE-588a)134675509",
+        "(DE-588c)4008762-1",
+        "(DE-588a)118517104"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Бюргер, Готфрид Август"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/106775797X",
+          "label": "Molmerswende"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Bürger, Gottfried August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried August"
+        ],
+        "surname": [
+          "Bürger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Dietrich"
+          ],
+          "surname": [
+            "Schofelschreck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Bajacco"
+          ],
+          "surname": [
+            "Romano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Serius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Iocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Dietrich"
+          ],
+          "surname": [
+            "Menschenschreck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Anonymus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ursula Blandine"
+          ],
+          "surname": [
+            "Menschenschreck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Iacosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Gottfried Aug. Bürgers Ehestands-Geschichte",
+        "Text zu: Teyber, Franz: Rudolph von Hochburg",
+        "Briefe an Marianne Ehrmann",
+        "Bürger, Gottfried A.: Gedichte",
+        "Ueber Anweisung zur teutschen Sprache",
+        "Actenstücke über einen poetischen Wettstreit"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb118939838"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50045566"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95167251"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213675"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118517104/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottfried_August_B%C3%BCrger"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_August_B%C3%BCrger"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gottfried_August_B%C3%BCrger"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_August_B%C3%BCrger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000119925036"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118517104"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118517104"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118517104.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118517104.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118517104"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/A1A0B5869FAE4F01A138D2AF116AF523"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118517104"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Serius, Jocosus",
+        "Hilarius, Iocosus",
+        "בירגר, גוטפריד אוגוסט",
+        "Byurugā",
+        "Bürger, Gottfried A.",
+        "Buerger, Augusto",
+        "Bürger, Gottfr. Aug.",
+        "Birger",
+        "Birger, Gotfid August",
+        "Bjurger, Gottfrid Avgust",
+        "Bürger, G. A.",
+        "Бюргер, Готфрид Август",
+        "Bürger, Gottfried Augustus",
+        "Buerger, G. A.",
+        "Schofelschreck, Dietrich",
+        "Hilarius, Iacosus",
+        "Birger, Gotfrid August",
+        "Bürgher, Gottfried Augustus",
+        "ビュルガー, ゴットフリート アウグスト",
+        "Ge-Ao-Bi'erge",
+        "Burger, Gottfried August",
+        "Bjurger, G.",
+        "Bürger, G.A.",
+        "Buerger, Gottfried August",
+        "Menschenschreck, Ursula Blandine",
+        "Romano, Bajacco",
+        "Buergher, Gottfried Augustus",
+        "Būrgir, G.",
+        "Bi'erge, Ge-Ao",
+        "Bjurger, Gotfrid August",
+        "Bjurher, Hotfryd Aŭhust",
+        "Anonymus",
+        "Bürger, Friedrich August",
+        "Birger, G. A.",
+        "Lasibo-Bierge",
+        "La si bo Bi er ge",
+        "Bürger, Gotfryd August",
+        "Bürger",
+        "Bjurger, G. A.",
+        "Bürger, Gottfried",
+        "Bjurger, Gotfrid A.",
+        "Menschenschreck, Dietrich",
+        "Hilarius, Jocosus",
+        "Burger",
+        "Bierge, Lasibo",
+        "Burger, Gotfried August",
+        "Biurgeris, Gotfrydas Augustas",
+        "Birgers, Gotfrīds Augusts"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "ゴットフリート アウグスト"
+          ],
+          "surname": [
+            "ビュルガー"
+          ]
+        },
+        {
+          "forename": [
+            "Ursula Blandine"
+          ],
+          "surname": [
+            "Menschenschreck"
+          ]
+        },
+        {
+          "forename": [
+            "G.A."
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "Augusto"
+          ],
+          "surname": [
+            "Buerger"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrid August"
+          ],
+          "surname": [
+            "Birger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Augustus"
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Būrgir"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfryd August"
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "personalName": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "Bajacco"
+          ],
+          "surname": [
+            "Romano"
+          ]
+        },
+        {
+          "forename": [
+            "Iocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Buerger"
+          ]
+        },
+        {
+          "personalName": [
+            "La si bo Bi er ge"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfrid Avgust"
+          ],
+          "surname": [
+            "Bjurger"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfid August"
+          ],
+          "surname": [
+            "Birger"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrid A."
+          ],
+          "surname": [
+            "Bjurger"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Bjurger"
+          ]
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Serius"
+          ]
+        },
+        {
+          "forename": [
+            "Dietrich"
+          ],
+          "surname": [
+            "Schofelschreck"
+          ]
+        },
+        {
+          "forename": [
+            "Iacosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfried August"
+          ],
+          "surname": [
+            "Burger"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrydas Augustas"
+          ],
+          "surname": [
+            "Biurgeris"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried August"
+          ],
+          "surname": [
+            "Burger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried August"
+          ],
+          "surname": [
+            "Buerger"
+          ]
+        },
+        {
+          "forename": [
+            "גוטפריד אוגוסט"
+          ],
+          "surname": [
+            "בירגר"
+          ]
+        },
+        {
+          "forename": [
+            "Ge-Ao"
+          ],
+          "surname": [
+            "Bi'erge"
+          ]
+        },
+        {
+          "personalName": [
+            "Lasibo-Bierge"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrid August"
+          ],
+          "surname": [
+            "Bjurger"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Birger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Augustus"
+          ],
+          "surname": [
+            "Buergher"
+          ]
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Augustus"
+          ],
+          "surname": [
+            "Bürgher"
+          ]
+        },
+        {
+          "personalName": [
+            "Birger"
+          ]
+        },
+        {
+          "forename": [
+            "Готфрид Август"
+          ],
+          "surname": [
+            "Бюргер"
+          ]
+        },
+        {
+          "personalName": [
+            "Burger"
+          ]
+        },
+        {
+          "forename": [
+            "Lasibo"
+          ],
+          "surname": [
+            "Bierge"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Bjurger"
+          ]
+        },
+        {
+          "personalName": [
+            "Ge-Ao-Bi'erge"
+          ]
+        },
+        {
+          "forename": [
+            "Hotfryd Aŭhust"
+          ],
+          "surname": [
+            "Bjurher"
+          ]
+        },
+        {
+          "forename": [
+            "Dietrich"
+          ],
+          "surname": [
+            "Menschenschreck"
+          ]
+        },
+        {
+          "personalName": [
+            "Byurugā"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrīds Augusts"
+          ],
+          "surname": [
+            "Birgers"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried A."
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        },
+        {
+          "personalName": [
+            "Anonymus"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfr. Aug."
+          ],
+          "surname": [
+            "Bürger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_August_B%C3%BCrger",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_August_B%C3%BCrger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:03:54Z",
+    "gnd_query_biographical_data": "1747-1794",
+    "gnd_query_name": "bürger, gottfried august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 346,
+  "name": "Bürger, Gottfried August",
+  "profession": "Text",
+  "pseudonyms": "[Dietrich] Menschenschreck; Dietrich Schofelschreck; Bajacco Romano; Ursula Blandina Lachtaube verehelichte Menschenschreck; acosus Serius; Hans Schlau; Ossian; Krittelhold alias Menschenschreck; Sansculotte",
+  "refs": "Goed IV/1, 988; E 49",
+  "updated": "2026-06-11 13:29:21.799Z",
+  "uri": "https://d-nb.info/gnd/118517104",
+  "editor": ""
+}

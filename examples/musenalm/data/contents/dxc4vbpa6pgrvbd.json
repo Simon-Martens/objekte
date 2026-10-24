@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Ilustrationen s. Graphiken INr 33021, 33022; Obj 45, 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Eine Frau von Geist sagte, daß ihr Mariens Charakter in Schillers Trauerspiel durch nichts so anschaulich geworden wäre, wie durch Mortimers Betragen",
+  "language": [],
+  "musenalm_id": 33020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Stuart und die Jungfrau von Orleans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. F. Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria Stuart und die Jungfrau von Orleans",
+  "updated": "2003-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.391Z",
+      "agent": "j6zj4e02mmgth5i",
+      "source_id": "8277pdeetf9l6vx"
+    }
+  ]
+}

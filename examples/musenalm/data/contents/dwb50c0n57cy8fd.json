@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75687, Obj 34 /) s. Textbezug INr 75689, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75692,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cardinal Herzog / von Richelieu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips sulp.",
+  "scans": [
+    "alm_2143_75692_e9fbkc5pc7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cardinal Herzog / von Richelieu",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.383Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "h0kio142qqvu42y"
+    }
+  ]
+}

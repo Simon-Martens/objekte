@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. am 1. Gedicht der Suite /) s. Graphik INr 95338, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Erscheinst Du gleich von mildem Ernst beschattet, / So klar und stolz, gleichwie gehüllt in Erz,",
+  "language": [],
+  "musenalm_id": 95339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.693Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "9k6aovivljcnyqn"
+    }
+  ]
+}

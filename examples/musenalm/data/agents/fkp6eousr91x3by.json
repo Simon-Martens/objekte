@@ -1,0 +1,519 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1851",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.352Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Lexikograph, Literaturhistoriker und Philosoph; Professor in Wittenberg und Halle-Wittenberg; Mitbegründer der Allgemeinen Encyclopädie der Wissenschaften und Künste (Ersch-Gruber)"
+      ],
+      "dateOfBirth": [
+        "1774-11-29"
+      ],
+      "dateOfDeath": [
+        "1851-08-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Kneisel"
+          ],
+          "creditText": [
+            "Martin-Luther-Universität Halle-Wittenberg, Universitätsarchiv, UAH Rep. 40 I G2"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Kneisel%20nach%20A%20Fulda%20-%20Johann%20Gottfried%20Gruber%20%28Lithographie%201848%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20Kneisel%20nach%20A%20Fulda%20-%20Johann%20Gottfried%20Gruber%20%28Lithographie%201848%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:A%20Kneisel%20nach%20A%20Fulda%20-%20Johann%20Gottfried%20Gruber%20%28Lithographie%201848%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1067965696"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:19:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118823248/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/12003395X",
+          "label": "Gruber, Adolph Julius"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118823248",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/12003395X",
+          "label": "Gruber, Adolph Julius"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118823248",
+      "oldAuthorityNumber": [
+        "(DE-588a)118823248",
+        "(DE-588)1067965696",
+        "(DE-588c)4138050-2"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4041445-0",
+          "label": "Naumburg (Saale)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Gruber, Johann Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "surname": [
+          "Gruber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4504156-8",
+          "label": "Polyhistor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4247850-9",
+          "label": "Lexikograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100805949",
+          "label": "Ersch, Johann Samuel"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Iocosus Hilarius\""
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Jocosus Hilarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "aus der"
+          ],
+          "surname": [
+            "Grube"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Grimm"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Christoph Martin Wieland. - 1815 - 1816",
+        "Etwas über Franz von Sonnenbergs Leben",
+        "Geschichte des menschlichen Geschlechts aus dem Gesichtspunkte der Hum*",
+        "August Lafontaines Leben und Wirken",
+        "Sitten, Gebräuche und Kleidung der Russen in St. Petersburg. - [1801 - 1803]",
+        "Sitten und Gebräuche der merkwürdigsten Nationen",
+        "Friedrich Schiller",
+        "Wörterbuch zum Behuf der Aesthetik, der schönen Künste*",
+        "Wörterbuch der altklassischen Mythologie und Religion",
+        "Encyclopaedie der Alterthumer Griechenlands"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87803263"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22938305"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q75929"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1067965696"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118823248/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118823248"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottfried_Gruber"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Gruber"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Gottfried_Gruber"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottfried_Gruber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109598406"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118823248"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118823248.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118823248.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118823248"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118823248"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Grimm, Adolf",
+        "Grüber, Johann Gottfried",
+        "Hilarius, Jocosus",
+        "Gruber, Johannes Gottfried",
+        "Gruber, J. G.",
+        "Gruberus, Johannes Godofredus",
+        "Gruber, Ioannes Godofredus",
+        "Jocosus Hilarius",
+        "Iocosus Hilarius\"",
+        "Grube, Joseph aus der",
+        "Grjuber, Iogann Gottfrid",
+        "Gruber, Johannes Godofredus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Iocosus Hilarius\""
+          ]
+        },
+        {
+          "personalName": [
+            "Jocosus Hilarius"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Godofredus"
+          ],
+          "surname": [
+            "Gruber"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Godofredus"
+          ],
+          "surname": [
+            "Gruber"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "aus der"
+          ],
+          "surname": [
+            "Grube"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Grüber"
+          ]
+        },
+        {
+          "forename": [
+            "Jocosus"
+          ],
+          "surname": [
+            "Hilarius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Godofredus"
+          ],
+          "surname": [
+            "Gruberus"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Gottfried"
+          ],
+          "surname": [
+            "Gruber"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Gruber"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Gottfrid"
+          ],
+          "surname": [
+            "Grjuber"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Grimm"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Gruber",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Gruber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:35:33Z",
+    "gnd_query_biographical_data": "1774-1851",
+    "gnd_query_name": "gruber, johann gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 988,
+  "name": "Gruber, Johann Gottfried",
+  "profession": "Text",
+  "pseudonyms": "Adolf Grimm, Joseph aus der Grube",
+  "refs": "Goed V, 524",
+  "updated": "2026-06-11 13:29:22.683Z",
+  "uri": "https://d-nb.info/gnd/118823248",
+  "editor": ""
+}

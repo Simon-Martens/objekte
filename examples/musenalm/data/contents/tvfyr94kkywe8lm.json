@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Anekdoten (Sammlung INr 67552, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Auf erhobene Beschwerde einiger Gutsbesitzer mußte ein Augenschein wegen Beschädigung durch Wildprett Statt finden.",
+  "language": [],
+  "musenalm_id": 67576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freih. v. d. Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.038Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "eeo84mlk75g50yo"
+    }
+  ]
+}

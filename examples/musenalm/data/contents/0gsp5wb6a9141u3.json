@@ -1,0 +1,54 @@
+{
+  "annotation": "# Bez. an der Monatstabelle Januar der Jgg 1803-1805 /) Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 89974, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89984,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OCTOBER",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. J. Gerstner sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "OCTOBER",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.451Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "aiqjkigcmuem01w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.451Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "j10t2b2v52ebfrz"
+    }
+  ]
+}

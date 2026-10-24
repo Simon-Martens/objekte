@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Marianchens Spinnerlied« von Anton Wall /) Photos 76143,01; 76143,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Rädchen, Rädchen, gehe, gehe, Fädchen, Fädchen, drehe, drehe, dreh' dich ohne still zu stehn.",
+  "language": [],
+  "musenalm_id": 76143,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marianchens Spinnerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3281_76143_01_jtpg98vemt.jpg",
+    "alm_3281_76143_02_m3vkmv9nzq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marianchens Spinnerlied",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.857Z",
+      "agent": "cx1t1g6vij8mhnm",
+      "source_id": "vvsu12rhgmfprzt"
+    }
+  ]
+}

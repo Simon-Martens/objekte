@@ -1,0 +1,75 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 14 BB Kal, SS 1-260, 37 BB, 2 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender (Schiller: Die Jungfrau von Orleans) 1802",
+    "norm": "~",
+    "biblio": 100911,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2004-01-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 493,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender (Schiller: Die Jungfrau von Orleans) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 55; Goed V. 222, 6",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "KALENDER / AUF DAS JAHR 1802. / DIE / JUNGFRAU VON ORLEANS. / EINE ROMANTISCHE TRAGÖDIE / VON / SCHILLER. / BERLIN. / BEI JOHANN FRIEDRICH UNGER",
+  "updated": "2026-06-11 10:18:55.741Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "5krjqiycrgokl6m"
+  ],
+  "contents": [
+    "ahfz7r7ja2aawnk",
+    "r70tfd8ypqz8onz",
+    "bk2gaq6wsqq9omk",
+    "sabo71ydi987mr3",
+    "u18kygayy3mvqic",
+    "ikdzs62vsg7ntly",
+    "tl96w2eeo74l79x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "4t399flyzstmpvb"
+    }
+  ]
+}

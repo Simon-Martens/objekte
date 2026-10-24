@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Röschen und Alexis, oder Liebe um Liebe. Nach einer neueren wahren Begebenheit« INr 47586, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie also will mir meinen Sohn vorenthalten?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch del. et sc. Wien",
+  "scans": [
+    "alm_648_47588_ipq1bcaz3a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie also will mir meinen Sohn vorenthalten?",
+  "updated": "2007-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.373Z",
+      "agent": "nhcnwrqiq042uja",
+      "source_id": "gcikpwk2gyzyfss"
+    }
+  ]
+}

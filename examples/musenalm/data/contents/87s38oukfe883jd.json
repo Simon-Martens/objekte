@@ -1,0 +1,45 @@
+{
+  "annotation": "Häuser, die zu verkaufen sind (Sammlung INr 37320, Obj 47) Intelligenz-Blatt. Nro. I (Sammlung INr 37316, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Trautmann Veränderlich ein junger Candidatus Theologicä, welcher nach den Zeichnungen Tellers, Hermes, Jerusalems u. a. m. sich ein theologisches Häuschen erbaut hat,",
+  "language": [],
+  "musenalm_id": 37321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trautmann Veränderlich ein junger Candidatus Theologicä, welcher nach den Zeichnungen Tellers, Hermes, Jerusalems u. a. m. sich ein theologisches Häuschen erbaut hat,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.927Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "3phocq1xtkeqxxi"
+    }
+  ]
+}

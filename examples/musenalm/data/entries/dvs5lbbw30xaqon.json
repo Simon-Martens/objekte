@@ -1,0 +1,73 @@
+{
+  "annotation": "Die  Veröffentlichung ist eine Entgegnung auf den Beitrag »Der  Leopoldsberg, Kallenberg und Cobenzl'sberg« in: Taschenbuch, Wiener 1805; alm-3101, INr 88004. Als Autor dieses Beitrags wird hier J. A. Schultes angegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, SS III-VI, SS 7-44 , S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Wiener 1805; Beilage",
+    "norm": "~",
+    "biblio": 409353,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4364,
+  "parallel_title": "",
+  "place_statement": "Wien (Grund)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Wiener 1805; Beilage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 147",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Beylage / zu dem / Wiener-Taschenbuche / für 1805 / Bey J. B. Degen, / das Schloß auf dem Leopoldsberge / und / die Entstehung der Stadt Wien betreffend. / Wider / den im obigen Taschenbuche befindlichen Aufsatz / des / Herrn Doctors und Prof. Schultes. / Mit einem Kupfer, / (welches die alte burg zu Klosterneuburg vorstellet.) / Wien, / bey Ignaz Grund, bürgerl. Buchbinder zum grünen Buch am / St. Stephansplatz neben dem Bischofshofe",
+  "updated": "2026-06-11 10:18:55.276Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "589iierv6eaebiq"
+  ],
+  "contents": [
+    "ofo4ftug3tzjims",
+    "icxcko5v2v7joem",
+    "3xm4xs3w0bopr8s",
+    "6alvrrk4h9pp3uh",
+    "lrl6vabrdhhaa37"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.936Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.936Z",
+      "agent": "6kkdbji0h0tng04",
+      "source_id": "656vshu7mrjvrna"
+    }
+  ]
+}

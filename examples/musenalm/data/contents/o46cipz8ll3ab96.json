@@ -1,0 +1,45 @@
+{
+  "annotation": "Slovenische Sagen und Geschichten (Sammlung INr 89695, Obj 19) mit einer Illustration s. Graphik im Kaldendarium INr 89686, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Auf einem abgelegenen Bergrücken im westlichen Winkel der windischen Mark, über Fraßlau hinaus, liegt das einsame Kirchlein Maria in Tschriett.",
+  "language": [],
+  "musenalm_id": 89702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Die verlorene Glocke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Die verlorene Glocke",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.376Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "ltnc6n2qr7fva48"
+    }
+  ]
+}

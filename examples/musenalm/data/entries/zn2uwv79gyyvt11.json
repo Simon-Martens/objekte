@@ -1,0 +1,107 @@
+{
+  "annotation": "Jgg 1795-1797, Jg 1797 erscheint als Neue Auflage des Jahrgangs 1796; Eisenach (Krumbhaar)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 3 GG, ar: SS 1- 19 G-Verz, SS 20-24 Vrwrt d Hrsg, 33 BB Kal darin 12 GG, ar1: SS 1-134, S 134 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender für Deutsche 1795",
+    "norm": "~",
+    "biblio": 404004,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1967,
+  "parallel_title": "",
+  "place_statement": "Eisenach (Krumbhaar)",
+  "places": [
+    "ku73yb3lujbr7md"
+  ],
+  "preferred_title": "Kalender für Deutsche 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 69; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / für / Deutsche. / Auf das Jahr 1795. / Eisenach, / bey August Krumbhaar",
+  "updated": "2026-06-11 10:18:55.745Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "pl2kz6ahza11rre"
+  ],
+  "contents": [
+    "3rmpcx869ilbamw",
+    "7wa6y5tf6iz0usx",
+    "b7brufw8yvcm7mt",
+    "xc5w51d32eiu7yc",
+    "9poo1iu59sgvisg",
+    "wvoac8ovjkcwoer",
+    "2cyls2og0a0ntuo",
+    "67dbj2rlhh7wxpn",
+    "ge0cd2vqoxvnipn",
+    "y7eauwsqyx7evtg",
+    "sll2ot874k2z2t6",
+    "cgjzs43zlwqpwrc",
+    "t34mzyiafu7nizz",
+    "4m9pchdlxn70ef6",
+    "hlw1mzjmgd9zmdc",
+    "9bsiftt6k10xe46",
+    "uxkqegayjdgc8cy",
+    "dosxbj4kkcfz77r",
+    "xpbih0je0tik8r2",
+    "gj7xkkn60ia2h4r",
+    "t21dscl6x9omv85",
+    "6k3tgeq1iunff44",
+    "zh77zzkpl9f0fjw",
+    "egof45d1o23c7zo",
+    "1vc76cautsvpfhx",
+    "g3i87yuy5oqgw9z",
+    "un5etckh6bux56m",
+    "31eydqup8vbfp6w",
+    "xt72k916t6qht9t",
+    "oahvdf1uacvrypm",
+    "fe6dezwdfnfnhwu",
+    "2dzg2vey8ekighy",
+    "h8lh1back5w4hyx",
+    "w5tlk0ks4ncnp5s",
+    "0qhr17fkan1rok0",
+    "jic1esirknx0glt",
+    "xzfhkk99fczmx51",
+    "o4fz7pwogrd8agx",
+    "ubunokcf9zzjzxg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "tkfzh164ytb86lu",
+      "source_id": "xn7siplk0jybzqi"
+    }
+  ]
+}

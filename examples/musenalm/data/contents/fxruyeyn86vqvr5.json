@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 125344, Obj 9); $ vermutl. Jean-François-Alfred Bayard (vgl. NBG IV, Sp. 863); $ vermutlich Jacques-Arsène-François-Polycarpe Ancelot (vgl. NBG II, Sp. 498ff.)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Meine Vormundschaftsrechnungen sind nun geschlossen, und nichts steht der Verbindung unserer jungen Leute mehr im Wege.",
+  "language": [],
+  "musenalm_id": 125343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / letzte Starkenberg. / Lustspiel in einem Akte / nach Ancelot / von / C. W. Koch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ancelot $ [bearb.] C. W. Koch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / letzte Starkenberg. / Lustspiel in einem Akte / nach Ancelot / von / C. W. Koch",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.888Z",
+      "agent": "snm7ivv5m1ogx5v",
+      "source_id": "9jnslxuooclok53"
+    }
+  ]
+}

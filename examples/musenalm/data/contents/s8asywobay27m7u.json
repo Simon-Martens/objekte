@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Für diese Welt und jene / Hielt Tetzel Ablaß feil, / Daß er in Wollust dehne / Die Glieder hier derweil.",
+  "language": [],
+  "musenalm_id": 44337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tetzel's Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tetzel's Tod",
+  "updated": "2006-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.259Z",
+      "agent": "dgebk50hujqbvc5",
+      "source_id": "1jsf33sxx6uei0x"
+    }
+  ]
+}

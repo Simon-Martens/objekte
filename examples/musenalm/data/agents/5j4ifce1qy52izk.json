@@ -1,0 +1,279 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Komponist, Organist"
+      ],
+      "dateOfBirth": [
+        "1781-10-05"
+      ],
+      "dateOfDeath": [
+        "1811-10-17"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-18T19:17:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104287071/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104287071",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104287071",
+      "oldAuthorityNumber": [
+        "(DE-588a)104287071"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4104905-6",
+          "label": "Rathenow"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Schneider, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Schneider"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7818987"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2574949"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104287071/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Schneider_%28Komponist%29"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104287071"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104287071.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104287071"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schneider, J. W.",
+        "Schneider, Johann Georg Wilhelm",
+        "Schneider, Johann Wilhelm",
+        "Schneider, J. G. W.",
+        "Schneider, Wilhelm Joh. Georg",
+        "Schneider, W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "J. G. W."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Wilhelm"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Joh. Georg"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Schneider_%28Komponist%29",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_Schneider_%28Komponist%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:50:48Z",
+    "gnd_query_biographical_data": "1781-1811",
+    "gnd_query_name": "schneider, johann georg wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2503,
+  "name": "Schneider, Johann Georg Wilhelm",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 144",
+  "updated": "2026-06-11 13:29:24.734Z",
+  "uri": "https://d-nb.info/gnd/104287071",
+  "editor": ""
+}

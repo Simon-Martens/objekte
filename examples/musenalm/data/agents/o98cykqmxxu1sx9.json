@@ -1,0 +1,262 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1830",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.415Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin, die zeitweise unter dem Namen ihrer Mutter schrieb"
+      ],
+      "dateOfBirth": [
+        "1783-05-29"
+      ],
+      "dateOfDeath": [
+        "1830-09-16"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172769191"
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-21T07:11:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118182765/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117196126",
+          "label": "Lohmann, Friederike"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118182765",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117196126",
+          "label": "Lohmann, Friederike"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118182765",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)172769191",
+        "(DE-588c)7842949-3",
+        "(DE-588a)172769191",
+        "(DE-588a)118182765"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4303569-3",
+          "label": "Schönebeck (Elbe)"
+        }
+      ],
+      "preferredName": "Lohmann, Emilie Friederike Sophie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Emilie Friederike Sophie"
+        ],
+        "surname": [
+          "Lohmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Die Gräfin Puttlitz. - 1828",
+        "Neueste gesammelte Erzählungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/196330342"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q37982695"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118182765/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172769191"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118182765"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118182765"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Lohmann, Friederike, die Jüngere",
+        "Lohmann, Emilie",
+        "Lohmann, Johanna Friederike",
+        "Lohmann, Emilie Friederike Sophia",
+        "Lohmann, Emilie F.",
+        "Lohmann, Friederike"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johanna Friederike"
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "nameAddition": [
+            "die Jüngere"
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        },
+        {
+          "forename": [
+            "Emilie Friederike Sophia"
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        },
+        {
+          "forename": [
+            "Emilie"
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        },
+        {
+          "forename": [
+            "Emilie F."
+          ],
+          "surname": [
+            "Lohmann"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:09:12Z",
+    "gnd_query_biographical_data": "1774-1830",
+    "gnd_query_name": "lohmann, emilie friederike sophie"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1664,
+  "name": "Lohmann, Emilie Friederike Sophie",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1277",
+  "updated": "2026-06-11 13:29:23.637Z",
+  "uri": "https://d-nb.info/gnd/118182765",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Die Ideale« von Fr. Schiller IINr 77144, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77145,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ideale v. Schiller 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Büscher sculps",
+  "scans": [
+    "alm_2398_77145_6ec8rvdd9x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Ideale v. Schiller 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.720Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "5yybofuss88dg04"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.720Z",
+      "agent": "rookj8hzrynkcws",
+      "source_id": "wvzlopivz9y06cr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Ich bin in Konstantinopel geboren; mein Vater war ein Dragoman (Dolmetscher) bei der Pforte (dem türkischen Hof), und trieb nebenbei einen ziemlich einträgigen Handel mit wohlriechenden Essenzen und seidenen Stoffen.",
+  "language": [],
+  "musenalm_id": 41632,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geschichte von der abgehaue- / nen Hand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geschichte von der abgehaue- / nen Hand",
+  "updated": "2005-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.133Z",
+      "agent": "ntl4yryhhmz1v3s",
+      "source_id": "wijah2dn6dm82er"
+    }
+  ]
+}

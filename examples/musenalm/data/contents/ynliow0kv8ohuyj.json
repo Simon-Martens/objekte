@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Der sinkende Trinkbruder« (INr 130522, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Sonne, du sinkst! / Sonne, du sinkst! / Sink’ in Frieden, o Sonne! – Still und ruhig ist deines Scheidens Gang",
+  "language": [],
+  "musenalm_id": 130521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Die untergehende Sonne, / von / Kosegarten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Die untergehende Sonne, / von / Kosegarten",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.073Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "pc4maupmjsl2yik"
+    }
+  ]
+}

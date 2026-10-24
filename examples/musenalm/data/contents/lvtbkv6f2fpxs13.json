@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 116723-116725, Obj 20-22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Balladen und Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Balladen und Romanzen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.317Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "7ff025xwmjshwpi"
+    }
+  ]
+}

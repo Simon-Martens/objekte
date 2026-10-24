@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Der Jüngling zog den Pfortenring! / Gott geb' euch, Vater, Frieden!",
+  "language": [],
+  "musenalm_id": 13410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Klosterbruder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Klosterbruder",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.575Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "n03wpc81iin3vdz"
+    }
+  ]
+}

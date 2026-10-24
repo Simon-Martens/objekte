@@ -1,0 +1,45 @@
+{
+  "annotation": "Thalia (Sammlung INr 76510, Obj 30) mit einer Illustration in: Tempel der Musen und Grazien 1797, alm-4605 INr121454",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Der Bräutigam aus der Fremde will die Ehre haben, aufzuwarten. / Wer? / Weiter weiß ich nichts.",
+  "language": [],
+  "musenalm_id": 76511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Szenen aus der / Schachmaschine. / Lustspiel frei nach dem Engl. in 4 Aufzügen / von Beck. Mspt. [Erster Aufzug]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Beck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Szenen aus der / Schachmaschine. / Lustspiel frei nach dem Engl. in 4 Aufzügen / von Beck. Mspt. [Erster Aufzug]",
+  "updated": "2011-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.377Z",
+      "agent": "ps5azdhlznt1fc2",
+      "source_id": "mok8zxzpmey7fe4"
+    }
+  ]
+}

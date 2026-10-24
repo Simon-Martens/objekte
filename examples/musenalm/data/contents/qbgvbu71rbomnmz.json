@@ -1,0 +1,45 @@
+{
+  "annotation": "der Beitrag wird fortgesetzt in: Taschenbuch für Damen 1801 s. INr 32882",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "In einem stillen Thale der Schweiz lebten zwey Familien durch die engste Freundschaft verbunden.",
+  "language": [],
+  "musenalm_id": 32845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walther und Nanny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. d. Verf. v. Agnes v. Lilien",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Walther und Nanny",
+  "updated": "2003-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.666Z",
+      "agent": "ngiqzohpakvtqf9",
+      "source_id": "k067yb96boxz44v"
+    }
+  ]
+}

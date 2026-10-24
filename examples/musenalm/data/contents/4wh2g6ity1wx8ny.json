@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Angaben zur Saujagd 1563",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "In einem gewissen Archive finden sich folgende Original-Briefe",
+  "language": [],
+  "musenalm_id": 66460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Jagdfreuden der Vorzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Jagdfreuden der Vorzeit",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.251Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "afgdwuqzxhr7tx6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Vollend' in dir den harten Streit, / Kein Seufzer werde wach! [...] August Graf von Platen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In tieffster Einsamkeit lag die wild-schöne Gebirgslandschaft. Es war Hochmittag. Die Sonne brannte über den zerklüfteten Felsen, welche ihre seltsam geformten Zacken in den blauen wolkenlosen Himmel erhoben;",
+  "language": [],
+  "musenalm_id": 64229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Herz von Stahl. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Herz von Stahl. / Novelle",
+  "updated": "2009-05-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.364Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "ccabhd4wns9127g"
+    }
+  ]
+}

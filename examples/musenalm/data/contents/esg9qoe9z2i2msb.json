@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte von Friedrich Koelle (Sammlung INr 49117, Obj 145)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Ihr wißt noch, wie in schwerer Trübsal Tagen / Sich unser Blick der Gegenwart entzog,",
+  "language": [],
+  "musenalm_id": 49132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Freunden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Koelle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den Freunden",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.294Z",
+      "agent": "c98kgeq0jg98qoh",
+      "source_id": "ss9rt7uqbm64brk"
+    }
+  ]
+}

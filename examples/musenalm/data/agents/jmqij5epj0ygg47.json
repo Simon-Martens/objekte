@@ -1,0 +1,355 @@
+{
+  "annotation": "",
+  "biographical_data": "1748-1812",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.476Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Komponist, Kapellmeister in Dresden"
+      ],
+      "dateOfBirth": [
+        "1748-08-11"
+      ],
+      "dateOfDeath": [
+        "1812-07-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Christian Benjamin Gottschick / After Friedrich Ludwig von Vieth"
+          ],
+          "creditText": [
+            "Bibliothèque nationale de France"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Schuster%20%28composer%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Schuster%20%28composer%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Schuster%20%28composer%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119267632/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1301537969",
+          "label": "Schuster, Joseph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119267632",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1301537969",
+          "label": "Schuster, Joseph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119267632",
+      "oldAuthorityNumber": [
+        "(DE-588c)4382742-1",
+        "(DE-588a)119267632",
+        "(DE-588a)135314704",
+        "(DE-101c)311004709"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Schuster, Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "surname": [
+          "Schuster"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117108189",
+          "label": "Schubert, Franz Anton"
+        }
+      ],
+      "publication": [
+        "Schuster, Joseph: [Stabat mater / Arr.]",
+        "Schuster, Joseph: [Lob der Musik]",
+        "Schuster, Joseph: [Pièces, Kl]",
+        "Schuster, Joseph: [Sinfonien C-Dur]. - 1975"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14850022f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85023275"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19949023"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q551505"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=119267632"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119267632/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_Schuster_(composer)"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_Schuster_%28Komponist%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_Schuster_%28composer%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010877130X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119267632"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119267632"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119267632.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119267632"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119267632"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Schuster, Josef",
+        "Schuster, Gioseffo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Schuster"
+          ]
+        },
+        {
+          "forename": [
+            "Gioseffo"
+          ],
+          "surname": [
+            "Schuster"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_Schuster_%28Komponist%29",
+          "label": "https://de.wikipedia.org/wiki/Joseph_Schuster_%28Komponist%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:55:03Z",
+    "gnd_query_biographical_data": "1748-1812",
+    "gnd_query_name": "schuster, joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2588,
+  "name": "Schuster, Joseph",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXIII, 103",
+  "updated": "2026-06-11 13:29:24.894Z",
+  "uri": "https://d-nb.info/gnd/119267632",
+  "editor": ""
+}

@@ -1,0 +1,449 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.455Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Schriftsteller; Freiherrr; Hofsekretär"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "dateOfBirth": [
+        "1754-06-25"
+      ],
+      "dateOfDeath": [
+        "1824-10-15"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089540574"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-27T00:30:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116450223/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Wenzel Hadrian"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Marie Benedicte"
+          ],
+          "nameAddition": [
+            "Baronin"
+          ],
+          "surname": [
+            "Palazzi-Romani"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116450223",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116450223",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4997062-8",
+        "(DE-588a)116450223",
+        "(DE-588)1089540574"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4033043-6",
+          "label": "Krems an der Donau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Retzer, Joseph Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Retzer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4190697-4",
+          "label": "Zensor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4116469-6",
+          "label": "Sekretär"
+        }
+      ],
+      "publication": [
+        "Sonnenfels, Josef von: Erste Vorlesung in diesem akademischen Jahrgange",
+        "Denis, Michael: Literarischer Nachlaß. - 1801 - 1802",
+        "Gesammelte Schriften der Frau Herzogin Julie von Giovane geb. Reichsgräfin von Mudersbach",
+        "Retzer, Joseph F. von: Nachrichten von dem Leben ... des Bischofs Gurk Hieron. Balbi",
+        "Retzer, Joseph F. von: An Gleim ... Bey Uebersendung meines Bildnisses",
+        "Balbi, Girolamo: Opera poetica, oratoria, ac politico-moralia. - 1791 - 1792",
+        "Retzer, Joseph F. von: Metastasio, eine Skizze für seinen künftigen Biographen",
+        "Retzer, Joseph F. von: Sieben Gedichte",
+        "Makó, Pál: Physikalische Abhandlung von den Eigenschaften des Donners .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059165"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30288159"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55134272"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089540574"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116450223/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083426293"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116450223"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_R/Retzer_Josef-Friedrich_1754_1824.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116450223.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116450223"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116450223"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Retzer, Josephus de",
+        "Retzer, Joseph",
+        "Rezzer, Giuseppe di",
+        "Retzer, Josef von",
+        "Retzer, Friedrich Joseph von",
+        "Rezer, Giuseppe di",
+        "Retzer, Joseph von",
+        "Di Rezer, Giuseppe",
+        "Retzer, Joseph Friedrich, Freiherr von",
+        "Retzer, Joseph de",
+        "Retzer, Josephus Fridericus de",
+        "Retzer, Joseph Friedrich von, Freiherr",
+        "Retzer, Josef Friedrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe"
+          ],
+          "surname": [
+            "Di Rezer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Josephus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Rezer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Josephus Fridericus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Rezzer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Retzer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:37:51Z",
+    "gnd_query_biographical_data": "1754-1824",
+    "gnd_query_name": "retzer, joseph friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2243,
+  "name": "Retzer, Joseph Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 200; Goed VI, 531",
+  "updated": "2026-06-11 13:29:24.270Z",
+  "uri": "https://d-nb.info/gnd/116450223",
+  "editor": ""
+}

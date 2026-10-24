@@ -1,0 +1,47 @@
+{
+  "annotation": "Gesellschaftliche Tänze (Sammlung INr 20188, Obj 109) (Photo 20193 u. 20194)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20193,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Céphise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_269_20193_grwgelipfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Céphise",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.806Z",
+      "agent": "czigb25jnrfsy98",
+      "source_id": "he6e8kjezo9aryn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Brunk II. 214. Jacobs III. 26.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Gleich, als wäre der Tod dir nah', so genieße / der Güter;",
+  "language": [],
+  "musenalm_id": 17506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lehre. / Nach dem Griechischen der Anthologie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lehre. / Nach dem Griechischen der Anthologie #",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.905Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "qbqqtvayb5wgnvv"
+    }
+  ]
+}

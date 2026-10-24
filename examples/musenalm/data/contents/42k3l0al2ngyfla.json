@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7353,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ei mein lieber Herr Fix. das wäre ja Schön / 1. Th. 234. S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+  "scans": [
+    "alm_149_7353_wdbbalu2md.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ei mein lieber Herr Fix. das wäre ja Schön / 1. Th. 234. S.",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.203Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "sns0609flyfp7ct"
+    }
+  ]
+}

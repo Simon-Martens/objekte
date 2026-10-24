@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "O Wunder über alle Wunder! / Die ganze Stadt weiß sich jezunder",
+  "language": [],
+  "musenalm_id": 5514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Doris",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Doris",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.132Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "4vvb8tx2wgm5ygw"
+    }
+  ]
+}

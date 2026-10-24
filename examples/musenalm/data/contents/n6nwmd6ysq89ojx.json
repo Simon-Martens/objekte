@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Den Tag vor Eurem Hochzeitfeste / Erschienen alle Tugenden als Gäste",
+  "language": [],
+  "musenalm_id": 76349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ein Brautpaar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ein Brautpaar",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.827Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "pmuvslhodmdjav6"
+    }
+  ]
+}

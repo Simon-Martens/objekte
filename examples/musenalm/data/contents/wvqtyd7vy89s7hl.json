@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5120,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen Almanach. / A. MDCCLXXXIV. / Göttingen bey J. C. Dietrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thönert del. sc.",
+  "scans": [
+    "alm_108_5120_45uita51vf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen Almanach. / A. MDCCLXXXIV. / Göttingen bey J. C. Dietrich",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.692Z",
+      "agent": "knrhgn52aqjwh89",
+      "source_id": "f0axj6nfk20uirh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "In dem lachenden Thale, welches die Saale in der Gegend von Naumburg bildet, liegt ein einsames Landhaus,",
+  "language": [],
+  "musenalm_id": 34519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rezensent. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rezensent. / Novelle",
+  "updated": "2003-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.592Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "pvx17jiheknryhr"
+    }
+  ]
+}

@@ -1,0 +1,323 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.433Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "War ein deutscher Dichter und Verleger, der im Jahre 1853 nach New York übersiedelte, Wirkungsorte: Wertheim/Main, New York"
+      ],
+      "dateOfBirth": [
+        "1809-11-15"
+      ],
+      "dateOfDeath": [
+        "1875-08-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "Neuere Lieder und Gedichte"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Niklas%20Mueller%201809%201875.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Niklas%20Mueller%201809%201875.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Niklas%20Mueller%201809%201875.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-14T05:31:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117608114/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "117608114",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117608114",
+      "oldAuthorityNumber": [
+        "(DE-588a)117608114"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4126896-9",
+          "label": "Langenau (Alb-Donau-Kreis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042011-5",
+          "label": "New York, NY"
+        }
+      ],
+      "preferredName": "Müller, Niclas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Niclas"
+        ],
+        "surname": [
+          "Müller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr98006699"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25384355"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q100334"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117608114/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Niclas_M%C3%BCller"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Niklas_M%C3%BCller"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Niclas_M%C3%BCller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000052741039"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117608114"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117608114.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117608114"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Mueller, Niklas",
+        "Müller, Nikolaus",
+        "Müller, Niklas",
+        "Müller, Nicolaus",
+        "N. M.",
+        "Mueller, Nikolaus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Nicolaus"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Niklas"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolaus"
+          ],
+          "surname": [
+            "Mueller"
+          ]
+        },
+        {
+          "forename": [
+            "Niklas"
+          ],
+          "surname": [
+            "Mueller"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolaus"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "personalName": [
+            "N. M."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Niklas_M%C3%BCller",
+          "label": "https://de.wikipedia.org/wiki/Niklas_M%C3%BCller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:20:27Z",
+    "gnd_query_biographical_data": "1809-1875",
+    "gnd_query_name": "müller, niklas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1892,
+  "name": "Müller, Niklas",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXII, 655; Goed (H) 349",
+  "updated": "2026-06-11 13:29:23.885Z",
+  "uri": "https://d-nb.info/gnd/117608114",
+  "editor": ""
+}

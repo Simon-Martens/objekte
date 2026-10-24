@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Titelgraphik. /) nummeriert No. 1. /) s. Textbezug INr 90240, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Blaschke sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_1306_90238_kfxivcnxv2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.375Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "c045ynu1eexovbk"
+    }
+  ]
+}

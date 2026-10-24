@@ -1,0 +1,272 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1885",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.311Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1809-01-20"
+      ],
+      "dateOfDeath": [
+        "1885-04-09"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-17T11:31:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10011881X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Cristine Auguste"
+          ],
+          "surname": [
+            "Wittkoff"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Ed"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Amalie Pauline"
+          ],
+          "surname": [
+            "Seitzam"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118662473",
+          "label": "Boy-Ed, Ida"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10011881X",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118662473",
+          "label": "Boy-Ed, Ida"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10011881X",
+      "oldAuthorityNumber": [
+        "(DE-588a)139507434",
+        "(DE-588a)10011881X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4049461-5",
+          "label": "Rendsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        }
+      ],
+      "preferredName": "Ed, Christoph Marquard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christoph Marquard"
+        ],
+        "surname": [
+          "Ed"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Christoph"
+          ],
+          "surname": [
+            "Stallknecht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ed, Christoph M.: Die Hamburger Säcularfeier der Erfindung des Buchdrucks. - 1840",
+        "Ed, Christoph M.: Geschichte der Buchdruckerei. - 1839"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84160004"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52030609"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1085488"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10011881X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christoph_Marquard_Ed"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000027122607"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10011881X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10011881X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Ed, C. M.",
+        "Stallknecht, Christoph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. M."
+          ],
+          "surname": [
+            "Ed"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph"
+          ],
+          "surname": [
+            "Stallknecht"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christoph_Marquard_Ed",
+          "label": "https://de.wikipedia.org/wiki/Christoph_Marquard_Ed"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:17:15Z",
+    "gnd_query_biographical_data": "1809-1885",
+    "gnd_query_name": "ed, christoph marquard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 617,
+  "name": "Ed, Christoph Marquard",
+  "profession": "Text",
+  "pseudonyms": "Stallknecht",
+  "refs": "E 74",
+  "updated": "2026-06-11 13:29:22.135Z",
+  "uri": "https://d-nb.info/gnd/10011881X",
+  "editor": ""
+}

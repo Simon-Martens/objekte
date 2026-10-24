@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-09 08:58:03.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "In des Berges stillen Gründen, / In dem laubig dunkeln Hain, / Wo sich kühle Quellen winden, / Senk' ich meine Klagen ein",
+  "language": [],
+  "musenalm_id": 140531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Heliodore",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Heliodore",
+  "updated": "2026-09-09 09:02:41.425Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-09 09:02:41.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-09 09:02:41.427Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "pdvr6dlpas2cr83"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Zu Gefährtinnen gab dem Jüngling' in liebli- / chem Wechsel, / Auf der rosigen Bahn, Freundschaft und / Liebe, Natur:",
+  "language": [],
+  "musenalm_id": 75241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. Gf. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundschaft und Liebe",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.425Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "0562ucvhm7s9kge"
+    }
+  ]
+}

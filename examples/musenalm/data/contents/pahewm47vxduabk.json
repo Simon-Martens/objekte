@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Die deutsche Literatur erschient in ihrem vor- und diesjährigen Verlauf so gehäuft, gedrängt, und, im scheinbaren Widerspruch damit, dennoch so auseinandergefallen, so einheitslos, so in die feindseligsten Gegensätze sich auflösend,",
+  "language": [],
+  "musenalm_id": 78073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Physiognomie / der deutschen Literaur / in den Jahren 1835 und 1836.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Marggraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Physiognomie / der deutschen Literaur / in den Jahren 1835 und 1836.",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.562Z",
+      "agent": "xpfslvhm6lhhpgp",
+      "source_id": "dskx3j8cyiqiw1y"
+    }
+  ]
+}

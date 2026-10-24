@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 37670, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es ist doch wunderbar, daß manche / Classe / Nie gern bei ihrem Leisten blieb!",
+  "language": [],
+  "musenalm_id": 37669,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Afterpolitiker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Von dem Verfasser der bekannten Eipeldauerbriefe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Afterpolitiker",
+  "updated": "2005-04-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.887Z",
+      "agent": "vnh3lwvt81shntt",
+      "source_id": "03hiauhmr6oclyj"
+    }
+  ]
+}

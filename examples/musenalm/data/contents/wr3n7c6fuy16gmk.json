@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 80413-80424, Obj 40-51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Knospen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Knospen",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.578Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "3iu74st9uoxv80s"
+    }
+  ]
+}

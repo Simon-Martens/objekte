@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57614, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Die Luft mit ätherblauen Schwingen / Um Brust und Wange schmeichelnd haucht,",
+  "language": [],
+  "musenalm_id": 57618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Elemente. / Die Elemente hassen. / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Elemente. / Die Elemente hassen. / Schiller",
+  "updated": "2008-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.696Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "c2v7e0e7a1pqulx"
+    }
+  ]
+}

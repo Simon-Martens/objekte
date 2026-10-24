@@ -1,0 +1,56 @@
+{
+  "annotation": "Vielen (Sammlung INr 38138, Obj 2079)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Zierde wärst du der Gärten, doch wo du / erscheinest, da sagest du:",
+  "language": [],
+  "musenalm_id": 38154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 223,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kornblume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kornblume",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.901Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "79vqcl74noaze2v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.901Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "ammh1o54jkei1ko"
+    }
+  ]
+}

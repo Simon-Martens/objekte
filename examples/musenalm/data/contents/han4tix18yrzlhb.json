@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die beyden Müllermeister. Ländliches Gemählde« von W. A. Gerle INr 85427, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85420,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helene schluchzte und ... entschlummert' endlich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. Langer sc.",
+  "scans": [
+    "alm_1580_85420_4ciw8xoktl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Helene schluchzte und ... entschlummert' endlich",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.103Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "56igebvrtyw3q9j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.103Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "ddk9rzieacygsp9"
+    }
+  ]
+}

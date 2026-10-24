@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 9. s. Textbezug INr 7077, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7052,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wittwe. / Veuve",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert, D. inv. del.",
+  "scans": [
+    "alm_142_7052_3lp9amne9d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wittwe. / Veuve",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.410Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "9hh17imo938c06f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.410Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "rdiguf4nq378d80"
+    }
+  ]
+}

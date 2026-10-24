@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Minneglück« von E. C. Eccard INr 37535, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37534,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minneglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Müller",
+  "scans": [
+    "alm_505_37534_k04bxd9nz0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Minneglück",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.734Z",
+      "agent": "gsmgkc8acx85e65",
+      "source_id": "t0f6zgfni77oajb"
+    }
+  ]
+}

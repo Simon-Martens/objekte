@@ -1,0 +1,594 @@
+{
+  "annotation": "",
+  "biographical_data": "1796-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.481Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller, Journalist, katholischer Pfarrer, 1848 Mitglied der Frankfurter Nationalversammlung; anfangs Hauslehrer, 1822 Priester, Religionslehrer, 1828 Pfarrer in Hersel, 1832 Oberpfarrer in Münstereifel, 1835 in Nideggen, 1836 in Blatzheim (Kreis Bergheim (Erft)), 1844 Kanonikus am Münster von Aachen"
+      ],
+      "dateOfBirth": [
+        "1796-09-15"
+      ],
+      "dateOfDeath": [
+        "1848-10-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "J. P. Scheuren / Neubauer"
+          ],
+          "creditText": [
+            "Google Books"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20Smets.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20Smets.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Wilhelm%20Smets.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T16:17:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118888722/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/127940944",
+          "label": "Smets von Erenstein, Johann Nicolaus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118761889",
+          "label": "Schröder, Sophie"
+        },
+        {
+          "forename": [
+            "Sophie"
+          ],
+          "surname": [
+            "Schröder (Lütkens)"
+          ]
+        },
+        {
+          "forename": [
+            "J.N."
+          ],
+          "surname": [
+            "Stollmer (Smets)"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118888722",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/127940944",
+          "label": "Smets von Erenstein, Johann Nicolaus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118761889",
+          "label": "Schröder, Sophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118888722",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4222828-1",
+        "(DE-588a)118888722"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/1070489298",
+          "label": "Hersel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040616-7",
+          "label": "Bad Münstereifel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4076684-6",
+          "label": "Reval"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4000003-5",
+          "label": "Aachen"
+        }
+      ],
+      "preferredName": "Smets, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Smets"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138623-1",
+          "label": "Religionslehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030020-1",
+          "label": "Katholischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reval"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Theobald"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Lenz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Prag"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Justus"
+          ],
+          "surname": [
+            "Walther"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Smets, Wilhelm: Trauerrede auf den Tod Sr. Heiligkeit, des Pabstes, Pius VII ..",
+        "Des Kronprinzen von Preußen Jubelfahrt auf dem Rheine am 30. Okt. 1833",
+        "Ferdinand Franz Wallraf",
+        "Das Mährchen von der Päpstin Johanna",
+        "Tasso's Tod",
+        "August Wilhelm von Schlegels in Berlin erschienene Schrift \"Berichtigung einiger Mißdeutungen\"",
+        "Gedichte",
+        "Die Blutbraut",
+        "Was that der Jesuiten-Orden für die Wissenschaft?"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ph. Carl Josef Anton Wilehlm"
+          ],
+          "surname": [
+            "Smets"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr93000197"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54946347"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2575138"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118888722/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Smets"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Wilhelm_Smets"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081344040"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118888722"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1841_schorn;17"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118888722"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Smets_Wilhelm_1796_1848.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118888722.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118888722"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118888722"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Prag, Lenz von",
+        "Smets, Guilelmus",
+        "Smets, Guillelmus",
+        "Smets, Guilelmus Wilhelm",
+        "Theobald",
+        "Smets, Philipp K.",
+        "Smets, Guilhelmus",
+        "Walther, Justus",
+        "Smets, Guil.",
+        "Smets von Ehrenstein, Philipp Karl Joseph Anton Johann Wilhelm",
+        "Smets, Ph. Carl Josef Anton Wilehlm",
+        "Schmets, Wilhelm",
+        "Ehrenstein, Philipp Karl Joseph Anton Johann Wilhelm Smets von",
+        "Stollmer, Wilhelm",
+        "Smets, Guil. Wilhelm",
+        "Reval, Wilhelm von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Guillelmus"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Guilelmus"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Lenz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Prag"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp K."
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Ph. Carl Josef Anton Wilehlm"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "personalName": [
+            "Theobald"
+          ]
+        },
+        {
+          "forename": [
+            "Guil."
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Stollmer"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Karl Joseph Anton Johann Wilhelm Smets"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ehrenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Schmets"
+          ]
+        },
+        {
+          "forename": [
+            "Guil. Wilhelm"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Guilhelmus"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Karl Joseph Anton Johann Wilhelm"
+          ],
+          "surname": [
+            "Smets von Ehrenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Justus"
+          ],
+          "surname": [
+            "Walther"
+          ]
+        },
+        {
+          "forename": [
+            "Guilelmus Wilhelm"
+          ],
+          "surname": [
+            "Smets"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reval"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Smets",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_Smets"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:59:24Z",
+    "gnd_query_biographical_data": "1796-1848",
+    "gnd_query_name": "smets, wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2676,
+  "name": "Smets, Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "Theobald",
+  "refs": "Goed X, 613; Goed XI/1, 376; Goed XIII, 511; E 340",
+  "updated": "2026-06-11 13:29:25.039Z",
+  "uri": "https://d-nb.info/gnd/118888722",
+  "editor": ""
+}

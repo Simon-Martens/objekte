@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Die Oberfläche der Erde wird auf 9,000,000 gevierte Meilen geschäzt. Sie besteht theils aus Land, theils aus Wasser.",
+  "language": [],
+  "musenalm_id": 75170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von der Oberfläche der Erde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von der Oberfläche der Erde",
+  "updated": "2011-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.613Z",
+      "agent": "58byfz890fzelu8",
+      "source_id": "kj4jaw9ryjjf0q0"
+    }
+  ]
+}

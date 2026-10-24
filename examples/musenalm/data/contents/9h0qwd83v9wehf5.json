@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Holdes Kind, das in der Mutter Schooß / Eingeschlummert liegt! des Himmels Melodien / Tönen dir im Traum,",
+  "language": [],
+  "musenalm_id": 23342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruhe in Egypten / ein Gemählde / von / Hannibal Carraccio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruhe in Egypten / ein Gemählde / von / Hannibal Carraccio",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.030Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "y15xp0xbjd4ulna"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Drüben auf dem Gänserasen / Gehn so still die Gänslein grasen, / Daß die Hirtin ruhevoll / Einschlief, die sie hüten soll.",
+  "language": [],
+  "musenalm_id": 100761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gänsehirtin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gänsehirtin",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.859Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "h5bdan2sa5qh0rg"
+    }
+  ]
+}

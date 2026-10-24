@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Ehrenheim und Auguste. Eine romantische Skizze« INr 81977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hülfe! Hülfe! (S. 148)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_3830_81978_ok8qzjb7mq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hülfe! Hülfe! (S. 148)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.803Z",
+      "agent": "47esr93u2wyl7ta",
+      "source_id": "szkhns9f3nil9up"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.803Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "z4pfhnodnk1ast8"
+    }
+  ]
+}

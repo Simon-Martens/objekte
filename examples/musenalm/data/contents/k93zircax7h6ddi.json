@@ -1,0 +1,48 @@
+{
+  "annotation": "Tänze fürs Klavier von Vinzenz Mascheck (Sammlung INr 12260, Obj 209) (Photos 12267,01; 12267,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12267,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 217,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadrille allemande 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_211_12267_01_he9g952lqb.jpg",
+    "alm_211_12267_02_638yf1b1fm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadrille allemande 2",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.483Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "j1ehhnh75r2fa7t"
+    }
+  ]
+}

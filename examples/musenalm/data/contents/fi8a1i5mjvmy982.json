@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosa Siciliana (Sammlung INr 2755, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Wie Aetna stolz hab' ich das Haupt erhoben, / Dieß Eiland und sein Meer zu überschaun,",
+  "language": [],
+  "musenalm_id": 27526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXI.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.248Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "6gqoxcw39ben8z2"
+    }
+  ]
+}

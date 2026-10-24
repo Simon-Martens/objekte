@@ -1,0 +1,45 @@
+{
+  "annotation": "Chinesisch-Deutsche Jahres- und Tageszeiten (Sammlung INr 42471, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Hingesunken alten Träumen / Buhlst mit Rosen, sprichst mit Bäumen,",
+  "language": [],
+  "musenalm_id": 42483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII.",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.957Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "veutov023vthtua"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "annotation": "Der variante Titel als Vollbild /) s. Titel: alm-4178",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Muses 1768 [var.]",
+    "norm": "",
+    "biblio": 100005,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4179,
+  "parallel_title": "",
+  "place_statement": "Berlin; Paris (De Lalain)",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Almanach des Muses 1768 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 24, G-C 92, 377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES MUSES. / A BERLIN, et se trouve A PARIS / Chez VALLAT LA CHAPELLE, Libraire, au Palais, / sur le Perron de la Sainte Chapelle. 1768",
+  "updated": "2026-06-11 10:18:55.131Z",
+  "variant_title": "",
+  "year": 1768,
+  "editor": "",
+  "items": [
+    "ar9ia58ht1r38jc"
+  ],
+  "contents": [
+    "1wgiv7r5yipln6d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.719Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.719Z",
+      "agent": "wdyiby59wmt7gix",
+      "source_id": "x5nuvatel4ask10"
+    }
+  ]
+}

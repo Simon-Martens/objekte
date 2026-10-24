@@ -1,0 +1,163 @@
+{
+  "annotation": "",
+  "biographical_data": "1772–1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.242Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Konrektor am Gymnasium poeticum in Regensburg, Gymnasialprofessor in Landshut, Salzburg und Passau"
+      ],
+      "dateOfBirth": [
+        "1772"
+      ],
+      "dateOfDeath": [
+        "1817"
+      ],
+      "describedBy": {
+        "dateModified": "2008-04-05T17:03:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124788009/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "gndIdentifier": "124788009",
+      "id": "https://d-nb.info/gnd/124788009",
+      "oldAuthorityNumber": [
+        "(DE-588a)124788009"
+      ],
+      "preferredName": "Aurnhammer, Emmerich Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Emmerich Jakob"
+        ],
+        "surname": [
+          "Aurnhammer"
+        ]
+      },
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5875017"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55904232"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124788009/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124788009"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Aurnhammer, E. J.",
+        "Aurnhammer, Emerich Jakob",
+        "Aurnhammer, Emerich Jacob",
+        "Aurnhammer, Emmerich Jacob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "E. J."
+          ],
+          "surname": [
+            "Aurnhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Emerich Jacob"
+          ],
+          "surname": [
+            "Aurnhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Emmerich Jacob"
+          ],
+          "surname": [
+            "Aurnhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Emerich Jakob"
+          ],
+          "surname": [
+            "Aurnhammer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:50:39Z",
+    "gnd_query_biographical_data": "1772–1817",
+    "gnd_query_name": "aurnhammer, emmerich jakob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 79,
+  "name": "Aurnhammer, Emmerich Jakob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 77",
+  "updated": "2026-06-11 13:29:21.414Z",
+  "uri": "https://d-nb.info/gnd/124788009",
+  "editor": ""
+}

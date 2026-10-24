@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27672, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Frühlingswind hat die Rose geweckt, / Wie hat er die blöde Rose erschreckt,",
+  "language": [],
+  "musenalm_id": 27673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.300Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "4t2li7v4yui57s2"
+    }
+  ]
+}

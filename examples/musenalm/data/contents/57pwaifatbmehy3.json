@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29175, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "In Spanien lebte vor Zeiten, unweit den Pyrenäen auf einer ihrer Burgen die Wittwe eines vornehmen Ritters,",
+  "language": [],
+  "musenalm_id": 29174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI / Ginevra die Blonde, / nach Bandello",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI / Ginevra die Blonde, / nach Bandello",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.925Z",
+      "agent": "9mav4omm7dqt3ib",
+      "source_id": "evk6b8249kbvftj"
+    }
+  ]
+}

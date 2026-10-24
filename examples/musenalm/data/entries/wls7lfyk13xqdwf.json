@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Klio (Wien) 1820",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-06-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4437,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Almanach für Theater und Theaterfreunde 1809 s. u. Almanach fürs Theater (Iffland) 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-18 09:04:12.709Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

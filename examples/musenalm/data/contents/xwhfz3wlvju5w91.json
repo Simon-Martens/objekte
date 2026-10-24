@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Der Reisende, der seinen Fuß über die Clyde setzt, fühlt es bald an den Lüften, die ihm entgegen weh'n, daß er das Land wundervoller Sagen die klangreiche Heimat des galischen Fingal betreten.",
+  "language": [],
+  "musenalm_id": 133578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rob Roys Höhle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andreas Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rob Roys Höhle",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.028Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "g1klk49ocjebpco"
+    }
+  ]
+}

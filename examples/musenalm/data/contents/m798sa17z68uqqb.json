@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Rosenzeit« vonJ. N. Vogl /Nr 57973, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROSENZEIT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer gez. Stahlst. v. C. Mahlknecht in Wien",
+  "scans": [
+    "alm_771_57972_gbw69s2mln.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROSENZEIT",
+  "updated": "2008-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.962Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "e6mre6y7itcjx32"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.962Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "z8ax67lh4hy9utt"
+    }
+  ]
+}

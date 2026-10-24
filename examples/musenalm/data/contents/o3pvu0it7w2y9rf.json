@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Mit dem Beginn unsres Jahrhunderts hat die Bühne so wesentliche [...] Veränderungen erfahren [...], daß es dem darstellenden Künstler wohl ziemt, einmal [...] zu prüfen; welche Vortheile und welche Nachteile seiner Kunst auf diesem Wege entstanden sind.",
+  "language": [],
+  "musenalm_id": 125953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Über die Nothwendigkeit der Errichtung ei- / nes Vereines dramatischer Künstler für dra- / matische Kunst, / von / Eduard Devrient. / Motto: Der Menschheit Würde ist in eure Hand gegeben, / Bewahret sie!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Devrient",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Über die Nothwendigkeit der Errichtung ei- / nes Vereines dramatischer Künstler für dra- / matische Kunst, / von / Eduard Devrient. / Motto: Der Menschheit Würde ist in eure Hand gegeben, / Bewahret sie!",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.870Z",
+      "agent": "k58kpm3nqws8rfg",
+      "source_id": "mfcon42rrazi6u5"
+    }
+  ]
+}

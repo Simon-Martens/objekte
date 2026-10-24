@@ -1,0 +1,95 @@
+{
+  "annotation": "Leipzig, gedruckt bei G. D. Schulze /) In der Verlagsmitteilung werden beworben: «Gedichte« von Carl Heidenreich und »Musikalische Todtenfeier, den Manen Leopolds des Weisen geheiligt«. Beide Werke erschienen in Leipzig bei Baumgärtner 1792. Als Erscheinungsjahr des vorliegenden »Kleines Buch für Frauenzimmer die gern denken [...]« ist 1792 anzunehmen /) Herausgeber und Autor vielleicht Karl Heinrich Heydenreich",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, B Vrwrt d Hrsg, SS 1-136 darin 2 GG, G, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch, Kleines für Frauenzimmer, die gern denken [oJ]",
+    "norm": "~",
+    "biblio": 411278,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-03-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4813,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgartner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Buch, Kleines für Frauenzimmer, die gern denken [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "KLEINES BUCH / für / Frauenzimmer / die gern dencken / als etwas Nützliches / in den Strickbeutel / Mit bunt gedruckten / Kupfern und einer gemahl- / ten Schlussvignette. / Leipzig / Bei F. G. Baumgartner",
+  "updated": "2026-06-11 10:18:55.553Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "x48ypj9gr1b5bjp"
+  ],
+  "contents": [
+    "4a4q35ogaskc9vi",
+    "t3qmue6ktlu25ey",
+    "00n45ndgxjouepm",
+    "shmrcq5tzqbvgj5",
+    "670fx7n090hgceg",
+    "kj0h4epg1dvbi5u",
+    "0uzia7pc6vc3g12",
+    "d6g1qhhtj1flufg",
+    "tujzxjjw5decex8",
+    "n5o5jx8t5zte0qm",
+    "rzx2cd7lub6ido2",
+    "4qyxe7dvvvz5lui",
+    "aol9bzdrfrc4847",
+    "ipdorwg7e8qecci",
+    "j82qmbjrfxl4yb1",
+    "q04aiaybrfshq16",
+    "4cdld60ueh2rzyg",
+    "b2npgrxg434nqoa",
+    "d3lnlidk21pt5wa",
+    "p9tvwkj0astaqt9",
+    "dbwnyreoyyuujtd",
+    "9nderqhidyevbb0",
+    "sknzod8r59tp3g5",
+    "n1cken9a4jn99dj",
+    "vb6238lxazmc39e",
+    "ggrndj4ep909863",
+    "0qg666d1p2cdr16"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.501Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.501Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "b9ilwxtyvo4ejkd"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s.Textbezug INr 30043, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Lavecq pinx. F. Geissler sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavecq pinx. F. Geissler sc.",
+  "scans": [
+    "alm_389_30042_ny1bjdqxaz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.360Z",
+      "agent": "lrkrew9008cf19w",
+      "source_id": "128q6h1o21o3h93"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.360Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "pi667jv1f5731rc"
+    }
+  ]
+}

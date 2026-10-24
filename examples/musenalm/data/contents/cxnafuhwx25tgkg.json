@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Köstlich ist das Jahr, o Mädchen, / Das auf ihrem goldnen Rädchen / Uns die ernsten Schwestern spinnen;",
+  "language": [],
+  "musenalm_id": 1480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neujahrsplan des Jünglings",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neujahrsplan des Jünglings",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.932Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "cabcgc9tw7fgfpc"
+    }
+  ]
+}

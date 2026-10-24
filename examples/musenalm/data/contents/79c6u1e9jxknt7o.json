@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Es bäumt sich die Welle wider den Fluß, / Es grollt der Schatten dem Licht;",
+  "language": [],
+  "musenalm_id": 95495,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mündig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mündig",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.707Z",
+      "agent": "cvs1lz6mp4pj8h4",
+      "source_id": "7radjsbxfw9k265"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder (Sammlung INr 58940, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Der Herbstglanz geht zu Ende, / Der alte Wintermann / Regt schon die emsgen Hände / Und fängt sein Wesen an.",
+  "language": [],
+  "musenalm_id": 58944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winterabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winterabend",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.040Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "34vhwmsux0mi07p"
+    }
+  ]
+}

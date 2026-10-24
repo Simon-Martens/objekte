@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92584,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Swieten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke sc.",
+  "scans": [
+    "alm_4016_92584_598q9o24ao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Swieten",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.615Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "91p5ksxa0x6dbpx"
+    }
+  ]
+}

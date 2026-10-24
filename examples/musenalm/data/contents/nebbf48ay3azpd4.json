@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Allergnädigster Monarch! / Wem anders, als dem durch Macht und Ehre und Güter der Welt bekannten erhabenen Beherrscher der Preußen, konnte die bewunderungswürdige Geschichte Preußischer Thaten zugeeignet werden?",
+  "language": [],
+  "musenalm_id": 78260,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zueigungsschrift / an / Se. Königl. Majestät / von Preußen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "allerunterthänigster J. W. von Archenholtz, vormals Königl. Preuß. Hauptmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zueigungsschrift / an / Se. Königl. Majestät / von Preußen",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.684Z",
+      "agent": "5t8j3g93hqkrq0k",
+      "source_id": "39piwucz1dsr866"
+    }
+  ]
+}

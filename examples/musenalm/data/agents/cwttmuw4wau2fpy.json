@@ -1,0 +1,152 @@
+{
+  "annotation": "",
+  "biographical_data": "o. A.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.499Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1764-06-21"
+      ],
+      "dateOfDeath": [
+        "1840-12-28"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-13T19:29:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1049268083/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1049268083",
+      "id": "https://d-nb.info/gnd/1049268083",
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007194-7",
+          "label": "Blomberg (Kreis Lippe)"
+        }
+      ],
+      "preferredName": "Ulmenstein, Christian Ulrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Ulrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Ulmenstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4398825-8",
+          "label": "Regierungsrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4307427-3",
+          "label": "Drost"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/307307719"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q72938690"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1049268083/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Ulmenstein, Christian Valentin Ulrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Valentin Ulrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ulmenstein"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 3,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:13:00Z",
+    "gnd_query_biographical_data": "o. A.",
+    "gnd_query_name": "ulmenstein, christian ulrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2952,
+  "name": "Ulmenstein, Christian Ulrich von",
+  "profession": "Text u. Musik u. Graphik u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 2084",
+  "updated": "2026-06-11 13:29:25.497Z",
+  "uri": "https://d-nb.info/gnd/1049268083",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Zweyerley Wirkungen oder die Büsten. Ein Herbsttag in Brenners Landhause« von F. K. Lang INr 75965, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75945,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brenner und Amalie. / aus Zweyerley Wirkungen p. 67",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Junge del. C. Schule sc. 1806",
+  "scans": [
+    "alm_3666_75945_xtprgsdeco.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brenner und Amalie. / aus Zweyerley Wirkungen p. 67",
+  "updated": "2011-05-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.945Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "s4puzlck8soq0fu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.945Z",
+      "agent": "r0f9z5qk88f9kze",
+      "source_id": "zjp8fjceii6wnde"
+    }
+  ]
+}

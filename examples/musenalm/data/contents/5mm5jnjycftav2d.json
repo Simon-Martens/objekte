@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Es schrieb der Dichter Juvenal / Eine Satire gar bitter;",
+  "language": [],
+  "musenalm_id": 95453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Satiriker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Satiriker",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.370Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "fefgg92t8x0vl01"
+    }
+  ]
+}

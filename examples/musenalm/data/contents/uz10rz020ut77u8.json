@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63733, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Wer stets das Beste wollen kann, / Der ist der rechte Mann.",
+  "language": [],
+  "musenalm_id": 63739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der rechte Mann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der rechte Mann",
+  "updated": "2009-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.164Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "qdhijvhrr5sjdvv"
+    }
+  ]
+}

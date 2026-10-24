@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "In den Wassern der Laguna / Schwimmt das goldne Bild der Luna,",
+  "language": [],
+  "musenalm_id": 37044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gondelfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Em. Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gondelfahrt",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.791Z",
+      "agent": "h8j0pzrwje92vvq",
+      "source_id": "zkqeei0cfyvazsq"
+    }
+  ]
+}

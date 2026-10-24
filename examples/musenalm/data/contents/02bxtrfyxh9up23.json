@@ -1,0 +1,45 @@
+{
+  "annotation": "Italienische Volkslieder (Sammlung INr 81526, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Ihr Seufzer geht, wohin ich euch sende; / Daß ihr mir jedes Zaudern meidet!",
+  "language": [],
+  "musenalm_id": 81529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Botschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Botschaft",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.937Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "kj2uhlkkb964ji0"
+    }
+  ]
+}

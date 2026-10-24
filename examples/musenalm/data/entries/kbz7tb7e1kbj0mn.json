@@ -1,0 +1,119 @@
+{
+  "annotation": "Titelauflage von: Romantisch-Ländliche Gedichte von F. W. A. Schmidt, Prediger zu Werneuchen Mit Kupfern und Musik. Berlin 1798, bei Wilhelm Oemigke d. J.; s.a Titelauflage 1799: alm-4509 /) F. W. A. Schmidt auf der Musenalm: Neuer Berliner Musenalmanach 1793-1797 (F. W. A. Schmidt u. E. C. Bindemann): Alm 3674-3678 (vorh.: 1796: Alm-3976); Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1798: Alm-512; Kalender der Musen und Grazien (F. W. A. Schmidt) 1796: Alm-15; Kalender der Musen und Grazien (F. W. A. Schmidt) 1797: Alm-665 (Titel- bzw. Restauflage des Jg 1796); Almanach für Verehrer der Natur, Freundschaft und Liebe (F. W. A. Schmidt) 1801: Alm-500; Almanach der Musen und Grazien (F. W. A. Schmidt) 1802: Alm-499 (Titelauflage von: Almanach für Verehrer der Natur, Freundschaft und Liebe auf das Jahr 1801) s. a. Goed IV/1. 1100, 5-8; Goed IV/1. 957, 40b; Jen. Allg. Lit. Ztg. 1798 Nr. 382 (A. W. Schlegel)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, B VrlgM, verso G, S I T, SS III-VI Vrwrt d Hrsg, SS 1-152 darin 3 GG u MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1798",
+    "norm": "~",
+    "biblio": 200579,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-07-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 512,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IV/1. 1100, 7",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / ROMANTISCH-LÄNDLICHER / GEMÄHLDE / FÜR MDCCIIC / VON / F. W. A. SCHMIDT, / PREDIGER ZU WERNEUCHEN. / MIT KUPFERN UND MUSIK. / Berlin 1798, / bei Wilhelm Oehmigke d. J.",
+  "updated": "2026-06-11 10:18:54.800Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "inl69ge11e2yl1o"
+  ],
+  "contents": [
+    "aukimvevr12awa4",
+    "wioafnofal5jq41",
+    "cxb1uw90p18cv8b",
+    "gjcpfwt7c7lr8gf",
+    "oofck6g3sx8fofq",
+    "te58us7ak5mxuzj",
+    "s2qh24wv31vtarl",
+    "1dlrd3van8mhcfe",
+    "3cfreall0k7ue2c",
+    "3jeq2ve2kja5x2f",
+    "uly7186qg7gqy4e",
+    "vo3kwqok9mcok3s",
+    "yox10vj4uc5em2i",
+    "tsqzwt628q6mlw3",
+    "nb3w3qy5ks4zqn6",
+    "dbgvpp6jml0ah52",
+    "l1i3tsgz1cg69fd",
+    "ctgifn1z0dw01ce",
+    "igbz2ncocy4l2ij",
+    "y2900d1sah0iwwd",
+    "gpffuaejmg5ra9f",
+    "wnvuub7d0eikf0w",
+    "496pz6brfixopf8",
+    "4fou10rcy6r0fd7",
+    "petoxxx27ma0m29",
+    "q18c3yqud8wyy8o",
+    "fk5iflqo8xy42k0",
+    "rbvfezskmck6tge",
+    "khbecmlh59y64qm",
+    "l0zkz74xu7qqtzr",
+    "mtrwznqnl1t9pqi",
+    "blgfdxc96ckxj2j",
+    "yrwwr2nx41x8uje",
+    "xeep92qsmgyo3rk",
+    "3l4xdftzzp3wh4r",
+    "95kis1x0rjahogt",
+    "hb3jmgq0knh3jts",
+    "kzz1acrymrpkamy",
+    "lmnmro084sdsc1s",
+    "kcp4e0n01frel7w"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "lde86prdpyae698"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.692Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.692Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "n0ex9porj3mcizv"
+    }
+  ]
+}

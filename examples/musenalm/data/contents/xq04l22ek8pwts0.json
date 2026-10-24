@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "O Freundinn, scheide / Nie von der Freude / Dein gutes Herz!",
+  "language": [],
+  "musenalm_id": 128887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In ein Stammbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In ein Stammbuch",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.989Z",
+      "agent": "fd94g9jto2pspie",
+      "source_id": "eseb12fo6pwmgy5"
+    }
+  ]
+}

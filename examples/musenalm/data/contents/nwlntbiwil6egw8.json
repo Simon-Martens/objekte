@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Es war des Herzogs Vorfahr, den man nur / Den grünen Grafen nannte. Dieser zog / Mit Heeresmacht durch unser Thal hinauf, / Um sich das Oberland zu unterwerfen.",
+  "language": [],
+  "musenalm_id": 92826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scenen aus dem Drama: / Die Republikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Fröbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scenen aus dem Drama: / Die Republikaner",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.372Z",
+      "agent": "pwqzkwx0matdkik",
+      "source_id": "ztxsp9rpdzrb3wo"
+    }
+  ]
+}

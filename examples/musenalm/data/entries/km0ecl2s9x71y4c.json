@@ -1,0 +1,116 @@
+{
+  "annotation": "Nachtitel lautet: Taschenbuch für 1823. herausgegeben von Georg Döring /) Kalender, od. Taschenbuch od. Taschenkalender (Offenbach: Brede; Buri; Doering) vermutlich Jgg 1783-1824; auf der Musenalm: Jgg 1803, 1813, 1815, 1817, 1823 aufrufbar unter: »Offenbach«  im Reihen-Titel. /) s. Goed VIII. 101, 223; Heidelb. Jahrb. 1821 S. 1233; 1822 Nr. 74 S. 1183",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, S 1 nT, SS 3-87, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Offenbach: Doering) 1823",
+    "norm": "~",
+    "biblio": 100695,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-04-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 62,
+  "parallel_title": "",
+  "place_statement": "Offenbach (Brede)",
+  "places": [
+    "d456jtegcum96ql"
+  ],
+  "preferred_title": "Taschenbuch (Offenbach: Döring) 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 107; K 158; nicht bei L/R; Goed. VIII. 42, 1; Goed VIII. 101, 223",
+  "responsibility_statement": "Georg Doering",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1823. / im Verlag / von C. L. Brede / in Offenbach",
+  "updated": "2026-06-11 10:18:55.457Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "l2oov8huwllbe1r"
+  ],
+  "contents": [
+    "x4b7pkhj7tslprr",
+    "5g76ag793iguxo8",
+    "rpqjw1pqphp8nob",
+    "wpn0rdgaa7e30nw",
+    "u2jm6clra7kcqbk",
+    "64ib3e4vimpremt",
+    "3wlzcwrx30a8f7k",
+    "w7vb5lx4wxv0zyw",
+    "2jzrrd5qsxwqteh",
+    "l0p60ld4s2fgoin",
+    "awn0cmykrjyafjs",
+    "d34jaz1q1umup9s",
+    "39rp2ihcd2xqsz4",
+    "i38pyi3ffsyjgr9",
+    "oxhawac8dnwwklx",
+    "qzkn5fslhrdeaft",
+    "etu0tkvlltme7vz",
+    "g1kwmxsvxo16xw9",
+    "7jd8yi138fvxw77",
+    "m4sdhnzg9zrkj8z",
+    "mnzdo7k015wyrv4",
+    "70f9t414kfx2cmt",
+    "hnch9wvhkscs6xc",
+    "ev5rwmx4pxbbjjg",
+    "xjwblcktx2kyb6v",
+    "begqctpv8a2o9g0",
+    "meu2u2s7x5lyl4u",
+    "kxin7ft0wjipzgr",
+    "gytvj6hqhi0twqd",
+    "75mwbnm9sd6ybek",
+    "b10bbipvctinbv8",
+    "50qwyx00x5kx2bh",
+    "jy05ku2k9m5ryab",
+    "nf3lfqbkncr8tco",
+    "iee2w5upbbtxjjy",
+    "4ahsf95rdylr2kn",
+    "kjzkhayf504al65"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.573Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.573Z",
+      "agent": "7d3jxs1yyjk5gwl",
+      "source_id": "23u2px47lqoj736"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.195Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.195Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "9geotdw4ossw9tw"
+    }
+  ]
+}

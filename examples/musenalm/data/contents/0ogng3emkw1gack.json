@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23407,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Gräfl. Baudisinschen Park zu Knoop / bey Kiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Strack del. P. L. Lütke sc.",
+  "scans": [
+    "alm_312_23407_9yvl3i5tvd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Gräfl. Baudisinschen Park zu Knoop / bey Kiel",
+  "updated": "2002-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "1y6xbfxhnpqc2nc",
+      "source_id": "8p6nd8w59z2xp3j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "w7gyb4f5e9renta",
+      "source_id": "hou0y2focm070nl"
+    }
+  ]
+}

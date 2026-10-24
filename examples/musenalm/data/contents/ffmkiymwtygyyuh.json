@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Liebliche Blümchen die, am kalten Busen / Noch das sterbende Jahr mit Liebe hegte,",
+  "language": [],
+  "musenalm_id": 84458,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 279,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstblumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stollberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstblumen",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.696Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "dwjw6dl1r9xaxmc"
+    }
+  ]
+}

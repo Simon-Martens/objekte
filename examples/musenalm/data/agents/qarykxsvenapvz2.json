@@ -1,0 +1,197 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.465Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1753"
+      ],
+      "dateOfDeath": [
+        "1833-02-02"
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-01T08:25:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-14",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-14"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1016970005/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1016970005",
+      "id": "https://d-nb.info/gnd/1016970005",
+      "oldAuthorityNumber": [
+        "(DE-588a)1016970005"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Kehl"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4085080-8",
+          "label": "Altona"
+        }
+      ],
+      "preferredName": "Schäffer, Johann Christian Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christian Heinrich"
+        ],
+        "surname": [
+          "Schäffer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Antiquar",
+        "Lyriker",
+        "Bühnenschriftsteller"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/215837592"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q26220074"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1016970005/about"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Christian_Heinrich_Sch%C3%A4ffer"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1016970005"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Sch-r., J. C. H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. C. H."
+          ],
+          "surname": [
+            "Sch-r."
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:45:33Z",
+    "gnd_query_biographical_data": "1753-1833",
+    "gnd_query_name": "schäffer, johann christian heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2398,
+  "name": "Schäffer, Johann Christian Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 306",
+  "updated": "2026-06-11 13:29:24.536Z",
+  "uri": "https://d-nb.info/gnd/1016970005",
+  "editor": ""
+}

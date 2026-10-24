@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2 /) Graphik im Kalendarium Februar /) Illustration zu »Promenades de Mr. Le Noble. Tom. III. nouv. 6« s. G-Verz INr 69948, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69937,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blasius bey einer Betrügerin die sich für / seine Muhme ausgiebt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_787_69937_ja9lglv16t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blasius bey einer Betrügerin die sich für / seine Muhme ausgiebt",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.418Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "ef5x5nlg2nye83o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.418Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "mfttecvxanwo9sy"
+    }
+  ]
+}

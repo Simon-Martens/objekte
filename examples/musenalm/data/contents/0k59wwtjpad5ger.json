@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. III. /) kol. Illustration zu »Die Brandente« von Fischer INr 68644, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anas Tadorna. Die Brandente. (Männchen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del.",
+  "scans": [
+    "alm_1148_68643_iiedtb441t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anas Tadorna. Die Brandente. (Männchen)",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.379Z",
+      "agent": "93i1cvgb16cjfey",
+      "source_id": "88hhfsgy47va4kl"
+    }
+  ]
+}

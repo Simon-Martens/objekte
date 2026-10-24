@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) Graphik im Kalendarium November, paginiert 11., zu S.165 /) Illustration zu »Beschreibung von Brasilien« von Link INr 70379, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Anhima. / Nach einem ausgestopften Exemplar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Jügel sculp",
+  "scans": [
+    "alm_853_70377_dt5v66gblg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Anhima. / Nach einem ausgestopften Exemplar",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.369Z",
+      "agent": "flivu8hnh9tq1va",
+      "source_id": "0xhql0p64lk1827"
+    }
+  ]
+}

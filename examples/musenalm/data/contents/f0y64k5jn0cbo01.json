@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 95333, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95329,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Kriehuber gez. Druck von Kaufmann Stahlst. v. Mahlknecht in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kriehuber gez. Druck von Kaufmann Stahlst. v. Mahlknecht in Wien",
+  "scans": [
+    "alm_1882_95329_gnnv6vgh5l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.789Z",
+      "agent": "85voz4onher3lz8",
+      "source_id": "3rco6rn6hawy2b8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.789Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "pln3usjk6iaxsxs"
+    }
+  ]
+}

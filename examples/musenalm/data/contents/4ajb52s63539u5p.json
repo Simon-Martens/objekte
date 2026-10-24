@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Brüder, das ist deutscher Wein, / Darum ist er klar und stille,",
+  "language": [],
+  "musenalm_id": 62509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinweinlied / auf dem Rhein zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rheinweinlied / auf dem Rhein zu singen",
+  "updated": "2009-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.072Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "dkq5c158xp3vcji"
+    }
+  ]
+}

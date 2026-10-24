@@ -1,0 +1,430 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1798",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.287Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliationAsLiteral": [
+        "Königlich Dänische Kunstakademie"
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Maler des deutschen Klassizismus, Porträtist; 1790 Prof. an der Kunstakad. in Berlin, ab 1792 in Rom tätig",
+        "dt. Maler, Zeichner, Porträtist, Illustrator, Bildhauer"
+      ],
+      "dateOfBirth": [
+        "1754-05-10"
+      ],
+      "dateOfDeath": [
+        "1798-05-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Asmus Jacob Carstens"
+          ],
+          "creditText": [
+            "dic.academic.ru"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/AsmusCarstens.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/AsmusCarstens.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:AsmusCarstens.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-03-18T07:30:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118519298/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Christian"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118519298",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118519298",
+      "oldAuthorityNumber": [
+        "(DE-588c)4009525-3",
+        "(DE-588a)118519298"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4052689-6",
+          "label": "Schleswig (Stadt)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "preferredName": "Carstens, Asmus Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Asmus Jakob"
+        ],
+        "surname": [
+          "Carstens"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4139550-5",
+          "label": "Bildhauer"
+        }
+      ],
+      "publication": [
+        "der Argonautenzug",
+        "Carstens Werke",
+        "Carstens Werke in ausgewählten Umriss-Stichen",
+        "3. Aufl",
+        "2. Aufl",
+        "Carstens' Werke. - 18XX"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no90022081"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54420647"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q819197"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118519298/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Asmus_Jacob_Carstens"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Asmus_Carstens"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Asmus_Jacob_Carstens"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000006662874X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118519298"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118519298"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118519298.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118519298.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118519298"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118519298"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Karstens, Asmund Jacob",
+        "Carstens, Jakob Asmus",
+        "Carstens, Asmus Jacobus",
+        "Carstens, Asmus J.",
+        "Carstens, Jacob Asmus",
+        "Carstens, A. J.",
+        "Carstens, Asmus Jacob",
+        "Carstens, Asmus",
+        "Carstens, Asmus Jacques",
+        "Jacob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Asmus"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Asmus Jacobus"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Asmus"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Asmus Jacob"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Asmund Jacob"
+          ],
+          "surname": [
+            "Karstens"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Asmus"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "personalName": [
+            "Jacob"
+          ]
+        },
+        {
+          "forename": [
+            "Asmus Jacques"
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "A. J."
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        },
+        {
+          "forename": [
+            "Asmus J."
+          ],
+          "surname": [
+            "Carstens"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Asmus_Carstens",
+          "label": "https://de.wikipedia.org/wiki/Asmus_Carstens"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:05:51Z",
+    "gnd_query_biographical_data": "1754-1798",
+    "gnd_query_name": "carstens, asmus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 385,
+  "name": "Carstens, Asmus",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VI, 84",
+  "updated": "2026-06-11 13:29:21.840Z",
+  "uri": "https://d-nb.info/gnd/118519298",
+  "editor": ""
+}

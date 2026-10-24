@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Unsers Pfarrers Lehren nach / Geht zu unsrer Mädchen Schlafgemach",
+  "language": [],
+  "musenalm_id": 10771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "74. / Reflexion eines Landjunkers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Jünger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "74. / Reflexion eines Landjunkers",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.425Z",
+      "agent": "wbllku5shw1eqif",
+      "source_id": "z0blc9em8zoqv6e"
+    }
+  ]
+}

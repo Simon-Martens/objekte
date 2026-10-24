@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VI. 147, 5 /) Sammlung von 3 Gedichten INr 51264-51266, Obj 12-14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Perlen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "VON EINER UNGENANNTEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Perlen",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.631Z",
+      "agent": "t59v9lajt8yljq5",
+      "source_id": "6utalini76dxpvl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Oft hat er noch, der alte Gloß, / Einfälle voller Witz,",
+  "language": [],
+  "musenalm_id": 3061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Gloß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Gloß",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.960Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "x2fxeuf3dsxa2ls"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Andenken an drei große verstorbene Deutsche (Sammlung INr 78331, Obj 21) s. Textbezüge INr 78337-7840, Obj 28-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HERDER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Tischbein pi. T. J. Poll sc. A. V.",
+  "scans": [
+    "alm_2196_78341_muvn7rl0ef.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HERDER",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.758Z",
+      "agent": "ihw95n9iakzowyo",
+      "source_id": "eufvm3ro7qnr797"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.758Z",
+      "agent": "7ep62xtwxw4dhgq",
+      "source_id": "fz67tph925lhs4f"
+    }
+  ]
+}

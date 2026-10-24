@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 32075, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32068,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebet eure Aeltern - Sie haben euch geliebt!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Ramberg del. G. G. Endner sc. 1796",
+  "scans": [
+    "alm_432_32068_wd12bwxc4t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebet eure Aeltern - Sie haben euch geliebt!",
+  "updated": "2003-02-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.670Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "hmyopg9e845hl7y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.670Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "xnupjyltoo57z1h"
+    }
+  ]
+}

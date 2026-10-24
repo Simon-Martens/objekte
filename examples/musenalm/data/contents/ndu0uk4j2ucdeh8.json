@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage (INr 98783, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Das größte Unrecht wärs, wenn diese gute Prosaistin und fleißige Schriftstellerin nicht eine Stelle im Bellettristinnen-Almanach einnähme.",
+  "language": [],
+  "musenalm_id": 98795,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madam la Roche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Madam la Roche",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.792Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "xm0hiyovk3g2ld6"
+    }
+  ]
+}

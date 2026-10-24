@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Die ekle Welt, der Mode Thorenspiel / Und Tüncherey zum Spotte hingegeben",
+  "language": [],
+  "musenalm_id": 1308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Muse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "CONZ",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Muse",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.893Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "fiebgoq3t3kbp8u"
+    }
+  ]
+}

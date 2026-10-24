@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110836,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HELENE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Friedr. Stöber gst. in Stahl Wien",
+  "scans": [
+    "alm_3467_110836_xl5egpousu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HELENE",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.389Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "evr3wbrnzzdax0p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.389Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "rrprvjk4cxr1uf6"
+    }
+  ]
+}

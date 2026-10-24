@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) mit einem Gedicht INr 60932, Obj 34; s. Graphik INr 60917, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die schöne That der Weiber zu Weinsberg, welche ein neuerer Dichter verewigt hat, mag uns hier ein alter deutscher Sänger erzählen, indem er den Herzog Welf von Baiern folgender Maßen reden läßt,",
+  "language": [],
+  "musenalm_id": 60931,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.818Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "66vnf9p7yktaul8"
+    }
+  ]
+}

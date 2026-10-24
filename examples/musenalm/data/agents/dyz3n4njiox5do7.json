@@ -1,0 +1,218 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1823",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.494Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler, Zeichner, Radierer, Architekt"
+      ],
+      "dateOfBirth": [
+        "1761-09-26"
+      ],
+      "dateOfDeath": [
+        "1823-07-26"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-13T19:05:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-631",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-631"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1012367541/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1012778495",
+          "label": "Thierry, Ferdinand"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1012367541",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1012778495",
+          "label": "Thierry, Ferdinand"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1012367541",
+      "oldAuthorityNumber": [
+        "(DE-588a)1012367541",
+        "(DE-588c)7854156-6"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008388-3",
+          "label": "Bruchsal"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4105066-6",
+          "label": "Rudolstadt"
+        }
+      ],
+      "preferredName": "Thierry, Wilhelm Adam",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm Adam"
+        ],
+        "surname": [
+          "Thierry"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002844-6",
+          "label": "Architekt"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96217079"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q28531307"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1012367541/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Thierry"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1012367541"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1012367541"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Thierry, Wilhelm",
+        "Thiery, Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Thierry"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Thiery"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Thierry",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_Thierry"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:09:42Z",
+    "gnd_query_biographical_data": "1761-1823",
+    "gnd_query_name": "thierry, wilhelm adam"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2885,
+  "name": "Thierry, Wilhelm Adam",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXIII, 34",
+  "updated": "2026-06-11 13:29:25.387Z",
+  "uri": "https://d-nb.info/gnd/1012367541",
+  "editor": ""
+}

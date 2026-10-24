@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 27295, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Wär' ich ein blanker Spiegel, / So wollt' ich Liebesach, / Dich spiegelnd, dir erwecken.",
+  "language": [],
+  "musenalm_id": 27312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17.",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.340Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "nndiobq179g2ax6"
+    }
+  ]
+}

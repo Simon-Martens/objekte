@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Am Horizont dämmerte der Tag - vom nicht mehr fernen Inselufer herüber trug der warme Nachthauch die süßen würzigen Düfte tropischer Vegetation,",
+  "language": [],
+  "musenalm_id": 44448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schoonerfahrt. / Eine Neuseeländische Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Gerstäcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schoonerfahrt. / Eine Neuseeländische Skizze",
+  "updated": "2006-07-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.241Z",
+      "agent": "dwrg9ycvjrih35y",
+      "source_id": "l2pnynaauazx64c"
+    }
+  ]
+}

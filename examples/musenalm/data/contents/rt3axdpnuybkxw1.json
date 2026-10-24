@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des römischen Karneval (Sammlung INr 69033, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Und warum nicht, heit're Muse, / Lied und Lob dem Carnevale? / Bienen konntest du besingen, / Konntest schöne Frauen ehren,",
+  "language": [],
+  "musenalm_id": 69034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Lied",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.373Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "we69f5fxnwzep03"
+    }
+  ]
+}

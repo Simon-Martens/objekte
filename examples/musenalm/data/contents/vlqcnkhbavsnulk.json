@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das jüngste Gericht. Novelle aus dem Leben niederländischer Mahler« von Fr. X. Told von Doldenburg INr 90785, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margaretha und Hemling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Decker del. M . Hofmann sc.",
+  "scans": [
+    "alm_4011_90786_q86o7ysifl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Margaretha und Hemling",
+  "updated": "2013-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.244Z",
+      "agent": "80ynrlk6xwlunry",
+      "source_id": "4myv5hioptwa89z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.244Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "stmrkgi2e284m2v"
+    }
+  ]
+}

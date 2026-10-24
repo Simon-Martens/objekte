@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 34 /) Illustration zu »Standesverhältnisse« von H. W. Adelmi INr 93017, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93008,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Standesverhältnisse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. M. Hofmann sc. Viennae",
+  "scans": [
+    "alm_1588_93008_2z320j2f5u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Standesverhältnisse",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.487Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "764m84nqt65ib67"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.487Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "xgrhmnh56a0akgv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Die Jagd« von C. F. Weisse",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10642,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Jagd von Weisse. 2. Act. 12. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. & sc.",
+  "scans": [
+    "alm_202_10642_ohiq24btaj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Jagd von Weisse. 2. Act. 12. Auftr.",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.578Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "3w2k77ycma6e5nt"
+    }
+  ]
+}

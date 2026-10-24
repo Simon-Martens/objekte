@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Einträgen. /) Erläuterungen zu den vorstehenden Gedichten (Übersetzungen) INr 91744-91747, Obj 13-16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Horaz eifert in dieser Satyre gegen die Unzufriedenheit und unersättliche Habgier seiner Zeitgenossen.",
+  "language": [],
+  "musenalm_id": 91748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkungen",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.296Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "9hx4xs5yj8et56e"
+    }
+  ]
+}

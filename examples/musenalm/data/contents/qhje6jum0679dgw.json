@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Plündre Griechen, Römer, Gallier und Britten, / Mische etwas drein von vaterländischen Sitten",
+  "language": [],
+  "musenalm_id": 88488,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Recept, ein Dichter zu werden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Zöllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Recept, ein Dichter zu werden",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.936Z",
+      "agent": "ql1vb475nfbxqnk",
+      "source_id": "zzjwswz2k0kahsd"
+    }
+  ]
+}

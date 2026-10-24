@@ -1,0 +1,101 @@
+{
+  "annotation": "Übersetzung nach »ALMANACH HISTORIQUE DE LA RÉVOLUTION FRANÇOISE, POUR L'ANNÉE 1792, RÉDIGÉ Par M. J. P. RABAUT. On y a joint l'Acte constitutionnel des Francois avec le Discours d'acceptation du Roi. Ouvrage orné de gravures d'après les dessins de Moreau. A PARIS, Chez ONFROY, Libraire, rue S.-Victor, No. 11. A STRASSBOURG, Chez J. C. TREUTTEL, Libraire. De l'Imprimerie de DIDOT L'AÎNÉ; alm-3776 /)  hier: zusätzliche chronol. Tabelle und Neustich der Graphiken",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, ar: S 1 vT, SS 3-98 Tab, T, verso G, ar1: SS 1-341 darin 5 GG, S C, ar2: SS 1 zT, SS 3-52, ar3: S 1 zT, SS 3-110, 2 BB I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Franken enthaltend die Geschichte der französischen Revolution 1792 (deutsche Fassung von: Almanach historique de la Revolution Francoise 1792)",
+    "norm": "~",
+    "biblio": 407172,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3775,
+  "parallel_title": "",
+  "place_statement": "Straßburg (Treuttel); Paris (Onfroi und Denne)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "1q8z8aa12br1w4q"
+  ],
+  "preferred_title": "Taschenbuch der Franken enthaltend die Geschichte der französischen Revolution 1792 (deutsche Fassung von: Almanach historique de la Revolution Francoise 1792)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; G-C 275, 1042",
+  "responsibility_statement": "Rabaut",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Franken, / enthaltend / die Geschichte / der / französischen Revolution, / von / Hrn. Rabaut de St. Etienne / Mitglied der constituirenden / Nationalversammlung, / nebst der / Constitutions-Akte. / Aus dem Französischen übersezt. / Mit Kupfern. / Straßburg 1792. / bey Johann Georg Treuttel, / zu Paris, bey Onfroi und Denne",
+  "updated": "2026-06-11 10:18:55.452Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "sv1vtr9a9ykmvex"
+  ],
+  "contents": [
+    "f71a1swbzbq34ld",
+    "wu8ngz2fqcsp696",
+    "uirm19cuomb3n3f",
+    "c8zcr8ak2gi1vne",
+    "76stbcp9tajk8hf",
+    "2jqe860s9klyzh0",
+    "iywobn4prtvhuwh",
+    "ysya38k9taxu6gf",
+    "ka91u4jclcnxbcz",
+    "auszjrkobdoj655",
+    "bdd3jvt0ylk3hc7",
+    "6kznfnvfw9b0njn",
+    "trxzovh982mzr2t",
+    "volk3ikt7lftrfb",
+    "7wuva7qhyl5rj9y",
+    "1xymz2n21pq2bn8",
+    "bngmoxjtcfd2uoj",
+    "fiwne4sv6ux62g2",
+    "lwlm87o72viyluv",
+    "0wtg4i56hqh3646",
+    "mar53unfu3rrv0g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.165Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.165Z",
+      "agent": "1zu0y53dr2n5y9v",
+      "source_id": "1tgokhn4fs6ugn7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.116Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.116Z",
+      "agent": "524rwhmuxs85aig",
+      "source_id": "vcab2317e52um6g"
+    }
+  ]
+}

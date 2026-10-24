@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Zürnst du, daß ich deine Töne / Unterbrach durch einen Kuß.",
+  "language": [],
+  "musenalm_id": 5055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Betty",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Betty",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.246Z",
+      "agent": "57y4of9yk0759mz",
+      "source_id": "229fgki3g8qyli3"
+    }
+  ]
+}

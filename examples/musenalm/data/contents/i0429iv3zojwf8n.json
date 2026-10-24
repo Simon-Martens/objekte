@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "O! Welche Stimme schwieg! Sie klang so sanft, / Wie Berges-Echo, wenn gelinde Weste / Zur Sommerzeit in Grotten sich begegnen;",
+  "language": [],
+  "musenalm_id": 63353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihre Stimme. / Frey nach Cornwall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihre Stimme. / Frey nach Cornwall",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.165Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "5a514pnsm2mzxhf"
+    }
+  ]
+}

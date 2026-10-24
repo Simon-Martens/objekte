@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration in: Taschenbuch zum geselligen Vergnügen 1823 (2) INr 20347",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Schon lange hatte Kaiser Diocletianus die Christen grausam verfolgen lassen",
+  "language": [],
+  "musenalm_id": 20246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agathonika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Lindau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Agathonika",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.021Z",
+      "agent": "082sspsj3rz0i1b",
+      "source_id": "ckdwnkphoy038w1"
+    }
+  ]
+}

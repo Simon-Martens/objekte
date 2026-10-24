@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Tyrol (Sammlung INr 64505, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Wie über's Geschröf die Geister des Sturms / Graubraunes Gewölke spannen!",
+  "language": [],
+  "musenalm_id": 64508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Achen-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Achen-See",
+  "updated": "2009-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.973Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "ih7tlt3mzc7tnaz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf Frühlingswanderungen (Sammlung INr 100194, Obj 134)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Wie liegt der prächt'ge Eichbaum hier, / Vom Beile jüngst geschlagen!",
+  "language": [],
+  "musenalm_id": 100198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Mitgefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Mitgefühl",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.850Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "9spm46gjg3l9nay"
+    }
+  ]
+}

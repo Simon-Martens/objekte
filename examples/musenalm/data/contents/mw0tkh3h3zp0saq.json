@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik im Kalendarium November; paginiert 11. Illustration zu »Die Brüder« nach Terenz s. Textbezug INr 59650, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59649,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "- - ich zieh mich ab - - - such mir / Ein Winkelchen - nick ein - und lass es stürmen. / die Brüder. Abtheil. 4. Sc. 9.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.Wolf del. F. W. Meyer sc.",
+  "scans": [
+    "alm_922_59649_l0bnufgzbw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "- - ich zieh mich ab - - - such mir / Ein Winkelchen - nick ein - und lass es stürmen. / die Brüder. Abtheil. 4. Sc. 9.",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.995Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "j5f30p7toh1e77e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.995Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "qncgvzwvj9dx3xp"
+    }
+  ]
+}

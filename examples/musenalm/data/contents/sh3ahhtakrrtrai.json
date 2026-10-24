@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Du fragst mich, Jüngling, liebvertraut, / Ob ich auch deiner liebend denke?",
+  "language": [],
+  "musenalm_id": 84530,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 352,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stiefmütterchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Fr. B. Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stiefmütterchen",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.986Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "izerwtvwgua8uuh"
+    }
+  ]
+}

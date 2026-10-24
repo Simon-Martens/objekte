@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Schreib', unsterblicher Vater! Was du / schreibst, / ist ein neues, ein leicht errungenes Blatt",
+  "language": [],
+  "musenalm_id": 4230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen berühmten Schriftsteller, / als ich ihm geschnittene Federn brachte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lm.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen berühmten Schriftsteller, / als ich ihm geschnittene Federn brachte",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.050Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "imqi2r0bw22gmgh"
+    }
+  ]
+}

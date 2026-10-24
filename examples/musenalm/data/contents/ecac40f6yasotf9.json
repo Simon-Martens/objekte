@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55057, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Laßt mich still im Schatten liegen, / Wo ein Bächlein murmelnd geht,",
+  "language": [],
+  "musenalm_id": 55061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laßt mich still im Schatten liegen, / Wo ein Bächlein murmelnd geht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.660Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "vdbpxxk5tsvb2jo"
+    }
+  ]
+}

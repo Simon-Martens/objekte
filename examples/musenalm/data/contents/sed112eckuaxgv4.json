@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Franzensbad bei Eger (Sammlung INr 77677, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Die Kolonade geh' ich auf und nieder / Nicht seh' ich sie, geh' ich gleich immer wieder",
+  "language": [],
+  "musenalm_id": 77680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Die Kolonade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Die Kolonade",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.672Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "vvehoy98ehvdptj"
+    }
+  ]
+}

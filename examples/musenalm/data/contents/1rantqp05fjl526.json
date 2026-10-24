@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Nach dieser Darlegung dessen was sich etwa von der Population der Hindus vermuthen ließe, verlassen wir dieses wichtige Volk, und wenden uns zu den fremden in Hindostan angesiedelten Nationen, wovon die meisten sich dem Lande aufgedrängt haben.",
+  "language": [],
+  "musenalm_id": 42332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Mensch, der Bewohner Hindostans] B Die fremden dort angesiedelten Nationen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Mensch, der Bewohner Hindostans] B Die fremden dort angesiedelten Nationen #",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.309Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "g3ye5q5ares6zgb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium November; nummeriert 11.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107558,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marcolf, der beym Toback sein Haus in Glut gebracht, / Lässt nun zum Wächter sich erlesen [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sculpsit",
+  "scans": [
+    "alm_2158_107558_08fg606v9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marcolf, der beym Toback sein Haus in Glut gebracht, / Lässt nun zum Wächter sich erlesen [...]",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.141Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "38c9waxy68mk1u4"
+    }
+  ]
+}

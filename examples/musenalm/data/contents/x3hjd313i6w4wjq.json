@@ -1,0 +1,51 @@
+{
+  "annotation": "paginiert 1-5; Vertonung des Gedichts »An den Sonnenschein« von R. Reinick /) Photos 56433,01-56433,05",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "O Sonnenschein! o Sonnenschein, wie blickst du mir in's Herz hinein, weckst drinnen lauter Liebeslust, das mir zu enge wird die Brust!",
+  "language": [],
+  "musenalm_id": 56433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN DEN SONNENSCHEIN / Gedicht von R. Reinick / Musik von H. Marschner, / königl. hannoverischem Hofkapellmeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Marschner",
+  "scans": [
+    "alm_757_56433_01_rhtwwd0wkr.jpg",
+    "alm_757_56433_02_fc39bj9ap0.jpg",
+    "alm_757_56433_03_s136cmiz7g.jpg",
+    "alm_757_56433_04_gftmid1esp.jpg",
+    "alm_757_56433_05_a9dcjkdt2h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AN DEN SONNENSCHEIN / Gedicht von R. Reinick / Musik von H. Marschner, / königl. hannoverischem Hofkapellmeister",
+  "updated": "2008-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.005Z",
+      "agent": "q5dzmcxy6uu4m53",
+      "source_id": "ce0swkz64n5aj3c"
+    }
+  ]
+}

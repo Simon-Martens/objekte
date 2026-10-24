@@ -1,0 +1,47 @@
+{
+  "annotation": "<div>Illustration zu <em>Sneewittchen</em> INr 140789</div>",
+  "content_type": [],
+  "created": "2026-10-21 09:03:58.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sneewittchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steindr. v. C. W. Medau in Leitmeritz",
+  "scans": [
+    "alm_4887_140758_jg8g0bi4kt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sneewittchen",
+  "updated": "2026-10-22 10:12:47.471Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22 09:33:10.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22 10:12:47.470Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "a8rt3z9kw4bq0q2"
+    }
+  ]
+}

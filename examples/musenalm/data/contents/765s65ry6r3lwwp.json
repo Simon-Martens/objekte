@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der Unterzeichnete sendet hier den sechsten Jahrgang des von ihm herausgegeben »Almanachs für Schauspielfreunde« in die Welt, mit dem Wunsche, daß er sich der Gunst seiner Leser ebenso würdig machen möge, wie seine Vorgänger.",
+  "language": [],
+  "musenalm_id": 126219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.834Z",
+      "agent": "nm5lk02wastwpnb",
+      "source_id": "bvgjsgv452j1abh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Wann im duftenden Thal längere Schatten sich / Bilden, wann der Gesang schweiget im / Buchenhain,",
+  "language": [],
+  "musenalm_id": 17982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abend. / Im Junius, 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abend. / Im Junius, 1787",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.650Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "utbs4m2f2n94r78"
+    }
+  ]
+}

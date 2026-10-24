@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Daß bey den Spielen die ihr saht / Kein Jüngling auf den Schauplatz trat,",
+  "language": [],
+  "musenalm_id": 17578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog / nach den Milchschwestern und dem / Weynachtsgeschenke; von Julien ge- / sprochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog / nach den Milchschwestern und dem / Weynachtsgeschenke; von Julien ge- / sprochen",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.735Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "nx1eamdzl74ubx8"
+    }
+  ]
+}

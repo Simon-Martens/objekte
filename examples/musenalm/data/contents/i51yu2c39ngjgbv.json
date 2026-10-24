@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Appenzeller-Krieg, in neun Romanzen (Sammlung INr 54220, Obj 42) mit einer Illustration s. Titelgraphik INr 54180, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Auf der Burg zu Werdenberg / Lebt es wieder in den Mauren, / Und der Herr im Hirtenhemd / Sitzt, ein Bauer zwischen Bauren,",
+  "language": [],
+  "musenalm_id": 54231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Wie der Abt gefangen ward",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Wie der Abt gefangen ward",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.683Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "vw84gszq16xkezm"
+    }
+  ]
+}

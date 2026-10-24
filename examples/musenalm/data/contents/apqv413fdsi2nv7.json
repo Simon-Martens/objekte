@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Geschichte Al-Mansors« von W. Hauff INr 41652, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Almansor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. V. D. Fohr. Gest. b. A. Klauber v. F. P. Edelwirth",
+  "scans": [
+    "alm_550_41651_fqtw45q9a4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Almansor",
+  "updated": "2005-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.184Z",
+      "agent": "0w2wp8jkpgtwflf",
+      "source_id": "zve0ieepdcqe21r"
+    }
+  ]
+}

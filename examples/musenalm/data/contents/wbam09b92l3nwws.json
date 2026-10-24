@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Am Süderpole liegt ein Staat, / Den noch kein Magellan betrat.",
+  "language": [],
+  "musenalm_id": 12116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lampe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lampe",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.327Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "u29focscimyuze0"
+    }
+  ]
+}

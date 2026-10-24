@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz; Illustration zu »Die Wahlverwandschaften« von J. W. v. Goethe, Tübingen 1809; s. a. Textbezug INr 9212, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9208,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Die fertige Kapelle #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling del. J. S. Ringck sc.",
+  "scans": [
+    "alm_38_9208_mp90pcyfhs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "III. Die fertige Kapelle #",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.330Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "7oyze1ilfzxriia"
+    }
+  ]
+}

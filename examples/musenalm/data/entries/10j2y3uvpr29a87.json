@@ -1,0 +1,99 @@
+{
+  "annotation": "§ Titel fehlt, hier nur Zwischentitel, §§ Kal unvollständig, §$ vermutl. fehlt Titelgraphik",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, § T, 3 SS Vrwrt d Hrsg, S I-Verz, zT, 9 SS Kal, SS 3-294",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ehestandsalmanach 1800",
+    "norm": "",
+    "biblio": 100200,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1729,
+  "parallel_title": "",
+  "place_statement": "Regensburg",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Ehestandsalmanach 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 43; L/R 170",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Ehestandsalmanach / für / das Jahr 1800. [Ein Taschenbuch für Eheleute und Ehelustige]",
+  "updated": "2026-06-11 10:18:55.612Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "bo8z2xd2exa3r2u"
+  ],
+  "contents": [
+    "6szxqugs7mfbq0o",
+    "fqt46r8lw00jprw",
+    "yaqecagdu2cs0yk",
+    "jayzujr1o4fzugr",
+    "vsg5lat85u2qxnk",
+    "e7hpoct1yl2t5cm",
+    "jsgajjodj7e6jme",
+    "r2jdc4t70lctazg",
+    "kfyo9x96gu9x2ly",
+    "vycn1ftowa31gh2",
+    "6zcdnsh02cwy62v",
+    "c44g1dasyfio0rt",
+    "d6jupkoaire7jqs",
+    "fwb5pm0gsemwya9",
+    "qinnvnhzrxkfxfw",
+    "pvmmx4hfsve2nde",
+    "3khm5dte5vqrur6",
+    "zjlbz9v4a9pnty2",
+    "1b1msr41um7l8vh",
+    "wzrzz3meo115ape"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "cd11rvd1kfhc02z",
+      "source_id": "06pbt5lrcdzr9bl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "jc0tm322n6jhz3l",
+      "source_id": "lbg662rmdr5ye5v"
+    }
+  ]
+}

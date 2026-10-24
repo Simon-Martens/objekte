@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Was den Dichtern in Haus und Hofe trifft / Besitzen alle in seiner Schrift.",
+  "language": [],
+  "musenalm_id": 42738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was den Dichtern in Haus und Hofe trifft / Besitzen alle in seiner Schrift.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.203Z",
+      "agent": "5fdnbj9xwyjpym9",
+      "source_id": "lk4vlg7kqdxbsqk"
+    }
+  ]
+}

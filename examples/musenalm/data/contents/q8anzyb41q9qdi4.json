@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Warum entfliehn die schüchternen Musen / Doch so aus dem entflammten Busen,",
+  "language": [],
+  "musenalm_id": 88385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterfrage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterfrage",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.155Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "h7o7tlgtwox6z0e"
+    }
+  ]
+}

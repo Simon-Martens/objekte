@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rheinfelsen an der Saar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler in Berlin 1832",
+  "scans": [
+    "alm_868_82336_f00bc6kc83.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Rheinfelsen an der Saar",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.084Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "bg3ws1ezaqksji7"
+    }
+  ]
+}

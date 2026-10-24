@@ -1,0 +1,56 @@
+{
+  "annotation": "Vignette des graph. Titels INr 82098, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nürnbergs ältestes Stadtwappen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. F. Weisbeck sc.",
+  "scans": [
+    "alm_3070_82099_nh6a09kw47.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nürnbergs ältestes Stadtwappen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.923Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "zn5xl8z3pa8kr84"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.923Z",
+      "agent": "1yq819tqy4kbasy",
+      "source_id": "zz8wxuv6x30xq4h"
+    }
+  ]
+}

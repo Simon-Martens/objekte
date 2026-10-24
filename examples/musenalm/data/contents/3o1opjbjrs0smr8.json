@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Aus dem Klingenwald (Sammlung INr 100608, Obj 271)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "Ein Reiher wandert im Abendroth / Mit seinem einsam wilden Schrei,",
+  "language": [],
+  "musenalm_id": 100631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 295,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.710Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "bynrvdq9d0xedx9"
+    }
+  ]
+}

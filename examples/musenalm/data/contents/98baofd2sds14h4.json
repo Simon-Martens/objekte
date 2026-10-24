@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. und Titel s. Titelblatt. Einleitung zu den Kapiteln INr 60888-60895, Obj 20-27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Kaum hat das Schiksal den weisesten und tapfersten Beherrscher der fränkischen Monarchie von dem Schauplatz seiner rastlosen Thätigkeit abgerufen; kaum hat sich das Gerücht von Karl's des Großen Tode in den weiten Bezirken seines Reichs verbreitet,",
+  "language": [],
+  "musenalm_id": 60887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutschland ein historisches Gemaelde #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutschland ein historisches Gemaelde #",
+  "updated": "2008-11-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.069Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "h9u9lboekh25g80"
+    }
+  ]
+}

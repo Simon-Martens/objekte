@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 98518, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Der Frühling sprach zu mir: / Ich kann nicht bleiben hier.",
+  "language": [],
+  "musenalm_id": 98540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.778Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "91uxq3g7vuwuefx"
+    }
+  ]
+}

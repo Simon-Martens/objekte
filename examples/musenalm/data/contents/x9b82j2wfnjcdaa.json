@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Eine der leidigsten Begebenheiten in einem Obstgarten ist das Brandigwerden der Bäume; Apfel- und Birnbäume sind ihm beynahe auschliessend unterworfen:",
+  "language": [],
+  "musenalm_id": 74464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von der Verhütung und Heilung des Bran- / des der Bäume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Plouquet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von der Verhütung und Heilung des Bran- / des der Bäume",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.740Z",
+      "agent": "qeagi1x6xs8ly50",
+      "source_id": "2mdb8qpvms8tln7"
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "annotation": "",
+  "biographical_data": "1735-1805",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.341Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Buchhalter",
+        "Königl.-Preuß. Hauptbank-Buchhalter"
+      ],
+      "dateOfBirth": [
+        "1735-05-04"
+      ],
+      "dateOfDeath": [
+        "1805-09-30"
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-25T05:39:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132938162/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/132939436",
+          "label": "Gerhardt, Johann Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "132938162",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/132939436",
+          "label": "Gerhardt, Johann Heinrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/132938162",
+      "oldAuthorityNumber": [
+        "(DE-588a)100485618",
+        "(DE-588a)132938162"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Gerhardt, Marcus Rudolf Balthasar",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Marcus Rudolf Balthasar"
+        ],
+        "surname": [
+          "Gerhardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4122969-1",
+          "label": "Buchhalter"
+        }
+      ],
+      "publication": [
+        "Nelkenbrecher, Johann Christian: Taschenbuch der Münz- Maaß- und Gewichtskunde für Kaufleute",
+        "Taschen-Cabinet der Münzkunde aller Länder",
+        "Allgemeiner Contorist",
+        "Anhang zu Nelkenbrechers Taschenbuch für Banquiers und Kaufleute",
+        "Handbuch der deutschen Münz-, Maaß- und Gewichts-Kunde"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no91006627"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/380149294309080521677"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q113809839"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132938162/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066878503"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132938162"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gerhardt, Markcus Rudolf Balthasar",
+        "Gerhard, Marcus Rudolph Balthasar",
+        "Gerhardt, Mark Rud. Balth.",
+        "Gerhardt, M. R. B., senior",
+        "Gerhardt, M. R. B.",
+        "Gerhardt, Rudolf B.",
+        "Gerhardt, Markus Rudolph Balthasar",
+        "Gerhardt, Marcus Rudolph Balthasar, senior",
+        "Gerhardt, Marcus Rudolf Balthasar, sen.",
+        "Gerhard, Marcus Rudolf Balthasar",
+        "Gerhardt, Mark Rudolph Balthazar",
+        "Gerhardt, Markus Rudolf Balthasar",
+        "Gerhardt, Marcus Rudolf Balthasar, senior",
+        "G.",
+        "Gerhardt, Marcus Rudolph Balthasar",
+        "Gerhardt, Marcus R.",
+        "Gerhardt, Markus R.",
+        "Gerhardt, Rudolf Balthasar"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "M. R. B."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus R."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf B."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Mark Rudolph Balthazar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "personalName": [
+            "G."
+          ]
+        },
+        {
+          "forename": [
+            "Mark Rud. Balth."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolph Balthasar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "M. R. B."
+          ],
+          "nameAddition": [
+            "senior"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Markus Rudolph Balthasar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolf Balthasar"
+          ],
+          "nameAddition": [
+            "senior"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolph Balthasar"
+          ],
+          "nameAddition": [
+            "senior"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolf Balthasar"
+          ],
+          "nameAddition": [
+            "sen."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolph Balthasar"
+          ],
+          "surname": [
+            "Gerhard"
+          ]
+        },
+        {
+          "forename": [
+            "Markus R."
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Markus Rudolf Balthasar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Rudolf Balthasar"
+          ],
+          "surname": [
+            "Gerhard"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf Balthasar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Markcus Rudolf Balthasar"
+          ],
+          "surname": [
+            "Gerhardt"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:29:36Z",
+    "gnd_query_biographical_data": "1735-1805",
+    "gnd_query_name": "gerhardt, markus rudolph balthasar"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 868,
+  "name": "Gerhardt, Markus Rudolph Balthasar",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 651",
+  "updated": "2026-06-11 13:29:22.494Z",
+  "uri": "https://d-nb.info/gnd/132938162",
+  "editor": ""
+}

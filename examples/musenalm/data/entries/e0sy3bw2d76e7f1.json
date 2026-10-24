@@ -1,0 +1,131 @@
+{
+  "annotation": "Die vier Graphiken mit den separat paginerten Textbezügen vor den Beiträgen SS 1-152",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 4 GG dazu 4 BB, 2 SS I-Verz, S 1 zT, SS 3-86, S 87 zT, SS 89-152,15 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wieland, Goethe) 1804",
+    "norm": "~",
+    "biblio": 100684,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 6,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch (Wieland, Goethe) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; L/R 53",
+  "responsibility_statement": "Wieland und Goethe",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr 1804. / Herausgegeben / von / Wieland und Goethe. / Tübingen, / in der Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.447Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "vkcexhr3pqit7o2"
+  ],
+  "contents": [
+    "qup7tfjxtx9zh1c",
+    "6mgsu51p5wajbm6",
+    "lw0j8nzp77uhu8x",
+    "tffo8jg6r5z6tu6",
+    "cs8grwu8j491u1n",
+    "tga4hqxe4lzbl7f",
+    "zrvn9r2mrvg1wer",
+    "1zueyitsjl1a2en",
+    "o3q5kk3e89fupwk",
+    "saem0xbpw26jgqm",
+    "op22gkpkjzj7oab",
+    "dggga8u5l1s9248",
+    "fogdjd7rvtm02rg",
+    "0yqrkbi23tq99qy",
+    "6wju7zzbduw09v5",
+    "rqsk5dlzgjnrx50",
+    "s26di9694wbdwb6",
+    "y3unkro77t3gpga",
+    "vuq4np18sve9bu1",
+    "6tu7rfzlctfr8np",
+    "hu5uej5j13yfy7x",
+    "guwkkw9gjwpq4sn",
+    "cpttrwx75vsancp",
+    "qr142qvcbfxji0e",
+    "zkrqj3o6v1os3g6",
+    "iatolfm54w15ocw",
+    "1u7cwmk3bhztn0s",
+    "4rx0g5h5u4hz4bx",
+    "e265r5h297054eo",
+    "9z67lj6q55udh6n",
+    "uztah1ziqo2zgvl",
+    "zrz5iho6andud0i",
+    "jcj8s453okyghnc",
+    "m17wd3pw7nycc6t",
+    "kh6ijgyhqstf7ds",
+    "hd9e78d7k0ehwgl",
+    "k13sgjmdlxb4ag3",
+    "4qryrr6m0586q8o",
+    "gu9ie3f51kjpt3c",
+    "k6gjetxn302i1bo",
+    "spw0iu5pwvps0o2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.192Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "a3euexo001qers7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.192Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "u7s6ama4y55pzl0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.680Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.680Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "vywsh5cnpwg5edm"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Oster-Taschenbuch von Weimar 1801",
+    "norm": "",
+    "biblio": 100420,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2376,
+  "parallel_title": "",
+  "place_statement": "Weimar (Gädicke)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Oster-Taschenbuch von Weimar 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 54; Goed VIII. 57, 38",
+  "responsibility_statement": "Seckendorf",
+  "subtitle_statement": "",
+  "title_statement": "Oster / Taschenbuch / von / Weimar, / auf das / Jahr 1801. / Herausgegeben von Seckendorf. / Weimar, / gedruckt und verlegt bey den Gebrüdern Gädicke",
+  "updated": "2026-06-11 10:18:55.326Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "h8i4qy8l7j7myac"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.059Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.059Z",
+      "agent": "evf4zdjsze706g2",
+      "source_id": "2875v0v994gmt6z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.884Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.884Z",
+      "agent": "bp0wy4vzabjbr2y",
+      "source_id": "izba8pwta2n6jq4"
+    }
+  ]
+}

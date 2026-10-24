@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Schön ist's, schön ist's in Gottes Welt! / Drum laßt uns fröhlich seyn.",
+  "language": [],
+  "musenalm_id": 11202,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "55. / Aufforderung zur Freude. / Mel. Die Felder sind nun alle leer etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Nachtigal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "55. / Aufforderung zur Freude. / Mel. Die Felder sind nun alle leer etc",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.219Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "9zlnezm5lbwvet1"
+    }
+  ]
+}

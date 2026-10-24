@@ -1,0 +1,309 @@
+{
+  "annotation": "",
+  "biographical_data": "1620-1664",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.253Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler, Radierer",
+        "Niederl. Maler u. Grafiker",
+        "Geburtsjahr ca., auch 1632"
+      ],
+      "dateOfBirth": [
+        "1631"
+      ],
+      "dateOfDeath": [
+        "1664"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Cornelis Pietersz Bega"
+          ],
+          "creditText": [
+            "Peter van den Brink und Bernd Wolfgang Lindemann (Herausgeber): Cornelis Bega: Eleganz und raue Sitten. Belser, Stuttgart 2012, ISBN&nbsp;978-3-7630-2619-7."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Selbstbildnis%20%28Cornelis%20Pietersz.%20Bega%29%20ca.%201649-50.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Selbstbildnis%20%28Cornelis%20Pietersz.%20Bega%29%20ca.%201649-50.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Selbstbildnis%20%28Cornelis%20Pietersz.%20Bega%29%20ca.%201649-50.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2019-03-01T12:38:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118654772/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "118654772",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118654772",
+      "oldAuthorityNumber": [
+        "(DE-588a)174182325",
+        "(DE-588a)118654772",
+        "(DE-588c)4087066-2"
+      ],
+      "preferredName": "Bega, Cornelis Pietersz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Cornelis Pietersz"
+        ],
+        "surname": [
+          "Bega"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr91028224"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8181099"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q421775"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118654772/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Cornelis_Pietersz_Bega"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Cornelis_Pietersz._Bega"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Cornelis_Pietersz_Bega"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066748477"
+        },
+        {
+          "collection": {
+            "abbr": "ISNI",
+            "icon": "https://www.isni.org/sites/default/files/isni_new_favicon.ico",
+            "id": "https://isni.org",
+            "name": "International Standard Name Identifier (ISNI)",
+            "publisher": "International Standard Name Identifier (ISNI)"
+          },
+          "id": "https://isni.org/isni/0000000362633770"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118654772"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118654772.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118654772"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118654772"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Bega, Cornelis",
+        "Bega, Cornelisz",
+        "Bega, Cornelius",
+        "Bega, Cornelis P.",
+        "Bega, Corneille"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Cornelisz"
+          ],
+          "surname": [
+            "Bega"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelis P."
+          ],
+          "surname": [
+            "Bega"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelis"
+          ],
+          "surname": [
+            "Bega"
+          ]
+        },
+        {
+          "forename": [
+            "Corneille"
+          ],
+          "surname": [
+            "Bega"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelius"
+          ],
+          "surname": [
+            "Bega"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Cornelis_Pietersz._Bega",
+          "label": "https://de.wikipedia.org/wiki/Cornelis_Pietersz._Bega"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:54:06Z",
+    "gnd_query_biographical_data": "1620-1664",
+    "gnd_query_name": "bega, cornelis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 149,
+  "name": "Bega, Cornelis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 174",
+  "updated": "2026-06-11 13:29:21.518Z",
+  "uri": "https://d-nb.info/gnd/118654772",
+  "editor": ""
+}

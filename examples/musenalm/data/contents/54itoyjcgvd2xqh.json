@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Was ist die Bibel? Ein Buch, wo jeder, was / ihn gelüstet,",
+  "language": [],
+  "musenalm_id": 17022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bibel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bibel",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.871Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "pftsr96hrbq4nhl"
+    }
+  ]
+}

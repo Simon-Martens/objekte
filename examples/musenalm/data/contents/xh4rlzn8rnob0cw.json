@@ -1,0 +1,56 @@
+{
+  "annotation": "Schilderung des Ottomanischen Reiches (Sammlung INr 88127, Obj 7) s. Textbezug INr 88129, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88128,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oeffentliches Frauenbad in Constantinopel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Le Barbier pinx. J. Gerstner sc.",
+  "scans": [
+    "alm_3103_88128_1pxqoavkpf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oeffentliches Frauenbad in Constantinopel",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.257Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "j9hc4t2uxuylv7t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.257Z",
+      "agent": "vt7d1zueyjqlfnt",
+      "source_id": "lael9dbozqrj7ex"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "So trüb und sinnend? / Soll ich heiter seyn? / Der Knabe ist noch immer nicht zurück.",
+  "language": [],
+  "musenalm_id": 25907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blutrache. / Drama in einem Aufzuge. / Aufgeführt auf dem k.k. Hoftheater nächst der Burg in / Wien am 27. November",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blutrache. / Drama in einem Aufzuge. / Aufgeführt auf dem k.k. Hoftheater nächst der Burg in / Wien am 27. November",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.345Z",
+      "agent": "rxn9x0k5ac10jd7",
+      "source_id": "2jmuostkeah7dnu"
+    }
+  ]
+}

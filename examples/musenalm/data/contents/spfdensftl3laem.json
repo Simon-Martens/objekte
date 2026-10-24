@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Es sind im Wintermonat zwanzig Jahre, daß ich eines Abends, als es schon dunkel war, schwerbeladen in dem Marktflecken R. eintraf,",
+  "language": [],
+  "musenalm_id": 62960,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Leben eines Geringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Leben eines Geringen",
+  "updated": "2009-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.967Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "40lmdj845et95ou"
+    }
+  ]
+}

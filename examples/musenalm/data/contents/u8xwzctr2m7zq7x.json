@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Eloa sahs, wie sie die Glaskrystallen spielte, / Wie sie die Himmelstöne fühlte,",
+  "language": [],
+  "musenalm_id": 17096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die geschickte Spielerin der Harmo- / nika Mamsel Bause zu Leipzig / gestorben war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als die geschickte Spielerin der Harmo- / nika Mamsel Bause zu Leipzig / gestorben war",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.584Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "opvneljsswioic7"
+    }
+  ]
+}

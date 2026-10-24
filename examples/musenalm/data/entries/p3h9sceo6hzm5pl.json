@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, T, SS I–VIII Vrwt, SS 1–312, darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1820",
+    "norm": "~ +++ 410765 (UG recto u verso, INr 125393, 125394, Obj 1, 14)",
+    "biblio": 100049,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1288,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von KOTZEBUE. / Achtzehnter Jahrgang / Leipzig. / bei P. G. Kummer. / 1820",
+  "updated": "2026-06-11 10:18:55.001Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "0hd1xjs0jt57swu",
+    "4id0sq25lfc0pov",
+    "80j29bpvum4yrt3",
+    "rp3a2u3hh0y3oib"
+  ],
+  "contents": [
+    "q811cl4vk21fm5m",
+    "64q63hzbangq8hk",
+    "flkcb1grzdrgbyb",
+    "pe4qtogmslrghw6",
+    "9faa0uu30zw7mb8",
+    "73ibfvpd5o8mvh3",
+    "096x4zn8pgsnkq2",
+    "shg6cfqm8nunq9r",
+    "sa099s2dqp84nt5",
+    "p8w56ldnvk88a3u",
+    "jw4yv5h1l5r49de",
+    "v9sxur83py56g2i",
+    "cmz7rxr841birdt",
+    "6lirwcokxci411z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.876Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.876Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "4hg5duzsbwvu6dc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "bop41d210mn7438"
+    }
+  ]
+}

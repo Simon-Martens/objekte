@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ei was kann mein Herz dafür, / Daß es alle Blumen locken?",
+  "language": [],
+  "musenalm_id": 94230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blumen und Bienen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blumen und Bienen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.419Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "jk6i1suxk4glh1w"
+    }
+  ]
+}

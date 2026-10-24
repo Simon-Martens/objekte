@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 21861, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Weggeschwunden ist ihr der Jugend güldener Morgen, / Und ihr Mittag neiget sich zum milderen Abend.",
+  "language": [],
+  "musenalm_id": 21860,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Matrone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Matrone",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.024Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "auqjdbgqokd5i1a"
+    }
+  ]
+}

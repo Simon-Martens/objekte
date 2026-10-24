@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Du, der du spielend siegst / Im Wetteflug mit jeder leichten Wolke,",
+  "language": [],
+  "musenalm_id": 6098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen ziehenden Kranich. / Meinem Freunde Matthisson gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen ziehenden Kranich. / Meinem Freunde Matthisson gewidmet",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.930Z",
+      "agent": "anq3gu79zmuyrfg",
+      "source_id": "fqzqoowgm3xucx1"
+    }
+  ]
+}

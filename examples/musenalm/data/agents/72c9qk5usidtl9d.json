@@ -1,0 +1,423 @@
+{
+  "annotation": "",
+  "biographical_data": "1697-1769",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.493Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1697-11-25"
+      ],
+      "dateOfDeath": [
+        "1769-04-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Heiligenlexikon"
+          ],
+          "creditText": [
+            "Fotgrafie eines Gemäldes eines unbekannten Künstlers. Abbildung entnommen von Joachim Schäfer - &lt;a href=\"www.heiligenlexikon.de\"&gt;Ökumenisches Heiligenlexikon&lt;/a&gt;"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gerhard%20Tersteegen2.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gerhard%20Tersteegen2.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gerhard%20Tersteegen2.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118621378/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118621378",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118621378",
+      "oldAuthorityNumber": [
+        "(DE-588a)135043662",
+        "(DE-588a)127311815",
+        "(DE-588a)118621378",
+        "(DE-101c)310733669",
+        "(DE-588c)4059537-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4039916-3",
+          "label": "Moers"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4040475-4",
+          "label": "Mülheim an der Ruhr"
+        }
+      ],
+      "preferredName": "Tersteegen, Gerhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gerhard"
+        ],
+        "surname": [
+          "Tersteegen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4139959-6",
+          "label": "Seelsorger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130322-2",
+          "label": "Prediger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4136235-4",
+          "label": "Mystiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Nelle, Wilhelm: G. Tersteegens Geistliche Lieder",
+        "Des geistlichen Blumengärtleins drittes Büchlein ..",
+        "Zugabe einiger Loose, vom Kindlein Jesu empfangen ..",
+        "Unparteiischer Abriß Christlicher Grundwahrheiten",
+        "Über den Philosophen von Sanssouci",
+        "Geistliche Lieder",
+        "Leben heiliger Seelen",
+        "Von der wahren Gottseligkeit",
+        "Geistliches Blumen-Gärtlein Inniger Seelen ..",
+        "Gedanken"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80149601"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9861535"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q67283"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118621378/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gerhard_Tersteegen"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gerhard_Tersteegen"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gerhard_Tersteegen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gerhard_Tersteegen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110208524"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118621378"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118621378"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118621378.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118621378.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118621378"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "G. T. St.",
+        "Terstegen, Gerhard",
+        "G.T.ST.",
+        "Ter Steegen, Gerrit",
+        "Zum Stegen, Gerh.",
+        "Terstegen, G.",
+        "Teerstegen, G.",
+        "Zum Stegen, Gerhard",
+        "Steegen, Gerrit ter",
+        "Stegen, Gerhard zum",
+        "Ter-Stegen, Gerhard",
+        "TerSteegen, Gerrit"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "Ter Steegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Ter-Stegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Terstegen"
+          ]
+        },
+        {
+          "personalName": [
+            "G.T.ST."
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "prefix": [
+            "ter"
+          ],
+          "surname": [
+            "Steegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "TerSteegen"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Terstegen"
+          ]
+        },
+        {
+          "personalName": [
+            "G. T. St."
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Teerstegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerh."
+          ],
+          "surname": [
+            "Zum Stegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Zum Stegen"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "prefix": [
+            "zum"
+          ],
+          "surname": [
+            "Stegen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gerhard_Tersteegen",
+          "label": "https://de.wikipedia.org/wiki/Gerhard_Tersteegen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:54Z",
+    "gnd_query_biographical_data": "1697-1769",
+    "gnd_query_name": "tersteegen, gerhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2869,
+  "name": "Tersteegen, Gerhard",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXVII, 578",
+  "updated": "2026-06-11 13:29:25.366Z",
+  "uri": "https://d-nb.info/gnd/118621378",
+  "editor": ""
+}

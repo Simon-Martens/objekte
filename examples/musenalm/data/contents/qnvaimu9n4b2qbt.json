@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Hört des armen Selmars Klage, / Liebt das Glück euch mehr als ihn;",
+  "language": [],
+  "musenalm_id": 17772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.937Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "lxgbrokpd4km9g1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Tändeleien (Sammlung INr 29525, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Jüngling seyn und gar nicht lieben, / Mann seyn und nicht Werke üben",
+  "language": [],
+  "musenalm_id": 29530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Lebensarmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Lebensarmuth",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.775Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "oi1nhqxg7hpocbk"
+    }
+  ]
+}

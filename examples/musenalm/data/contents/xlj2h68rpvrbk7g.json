@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Vermischte Gedichte (Sammlung INr 104499, Obj 45) Gedichte (Sammlung INr 104466, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Halt du auf deine Bühne viel! / Halt deine Dichter theuer!",
+  "language": [],
+  "musenalm_id": 104508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Nation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Nation",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.143Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "9w2x2v5r0m1v084"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Mit der Geliebten allein durchstrich ich das duftende Treibhaus, / Wo sich Gewächs an Gewächs thürmt auf dem hohen Gestell.",
+  "language": [],
+  "musenalm_id": 44283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mimosa Pudica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Lersch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mimosa Pudica",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.197Z",
+      "agent": "qrhjyn8fqybjp8a",
+      "source_id": "molji7wj9kg2r1s"
+    }
+  ]
+}

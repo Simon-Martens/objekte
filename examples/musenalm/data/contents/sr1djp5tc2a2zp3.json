@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Titelgraphik INr 68613, Obj 0,2 /) Das Original befindet sich in der königl. Gemählde-Gallerie zu Paris",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sanct Margareth, die jung, geheim erwählet, / Als Bräut'gam Christum, ihrenGott und Hewrrn,",
+  "language": [],
+  "musenalm_id": 68615,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 0.4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / St. Margaretha. / Gemählde von Raphael d'Urbino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / St. Margaretha. / Gemählde von Raphael d'Urbino",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.472Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "bd5mcwfhl7rk92a"
+    }
+  ]
+}

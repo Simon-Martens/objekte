@@ -1,0 +1,45 @@
+{
+  "annotation": "Norische Bergsagen (Sammlung INr 124795, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Im höchsten Winkel des Alpenthales, welches die kleine Sölk heißt, liegt der reizende Schwarzensee,",
+  "language": [],
+  "musenalm_id": 124841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Hirschrain",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Hirschrain",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.865Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "okjolenkxo2wtpf"
+    }
+  ]
+}

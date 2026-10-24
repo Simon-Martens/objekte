@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Am Fuße des Latmos wölbt sich eine tiefe Grotte, / Vom Finger der Natur der Kunst Vitruvs zum Spotte",
+  "language": [],
+  "musenalm_id": 32711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Galathea. 1764",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Galathea. 1764",
+  "updated": "2003-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.536Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "ns3s7mw51tv1dq4"
+    }
+  ]
+}

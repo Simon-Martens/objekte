@@ -1,0 +1,45 @@
+{
+  "annotation": "Biographische Skizzen (Sammlung INr 77748, Obj 4) s. Graphiken INr 77751, 77752; Obj 7, 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Wir geben in diesem Jahrgange unsers Taschenbuchs dem Beschauer zwei Stahlstiche nach plastischen Arbeiten einer weiblichen Hand, die, wenn sie auch nicht einer Fürstin angehört hätte, durch ihre Kunstschöpfungen sich dauernden Nachruhm erworben",
+  "language": [],
+  "musenalm_id": 77750,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Marie Herzogin von Würtemberg, / geborne Prinzessin von Orleans",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Marie Herzogin von Würtemberg, / geborne Prinzessin von Orleans",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.819Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "fmwpom13zcpzo2g"
+    }
+  ]
+}

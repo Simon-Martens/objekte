@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Der Bischof vom Altare / Sah knieen ein Maid, / Mit lichtem blonden Haare / Und schneeig weißem Kleid.",
+  "language": [],
+  "musenalm_id": 99966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jungfrau und das Vater-Unser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Plönnies",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Jungfrau und das Vater-Unser",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.023Z",
+      "agent": "x92gop17wjmkkw4",
+      "source_id": "i50kti9t88glw43"
+    }
+  ]
+}

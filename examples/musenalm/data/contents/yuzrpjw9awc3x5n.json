@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Erzählungen (INr 93351, Obj 36) mit einer Illustration s. Graphik INr 93352, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Ich bin nunmehr ein alter Tabakraucher geworden, und meine Haare haben die Farbe des Dampfes angenommen, der aus meinen Lippen und aus dem Herde meiner Pfeife hervorqualmt.",
+  "language": [],
+  "musenalm_id": 93353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schicksale / eines verliebten Tabakrauchers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. E. Veith",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schicksale / eines verliebten Tabakrauchers",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.390Z",
+      "agent": "qfipgoo804kgoao",
+      "source_id": "dtfoagsgpqfblrr"
+    }
+  ]
+}

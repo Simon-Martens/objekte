@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Als einst der König Salomo, / Den selbst der Himmel weise machte,",
+  "language": [],
+  "musenalm_id": 96363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn*** / Bey seiner Vermählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn*** / Bey seiner Vermählung",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.681Z",
+      "agent": "bhyvkh2a1vif6bg",
+      "source_id": "0qkxn1wrwz7g8ln"
+    }
+  ]
+}

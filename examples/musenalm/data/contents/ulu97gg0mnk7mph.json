@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinere gemeinnützige Aufsätze aus der Forst- und Jagdkunde (Sammlung INr 679071, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Es liegt die Zeit noch nicht weit hinter uns, wo man Jäger und Forstmann für gleichbedeutend hielt, und wo man die Forstwirthschaft in gute Hände gelegt zu haben glaubte, wenn sie einem sogenannten hirschgerechten Jäger anvertrauet war.",
+  "language": [],
+  "musenalm_id": 67072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die wissenschaftliche Bildung des / Forstmanns in Forst-Lehranstalten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Laurop",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die wissenschaftliche Bildung des / Forstmanns in Forst-Lehranstalten",
+  "updated": "2009-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.321Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "3pjf2k0umz3lua0"
+    }
+  ]
+}

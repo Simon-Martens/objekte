@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ewig trägt im Mutterschooße / Süße Königin der Flur, / Dich und mich die stille, große, / Allblebende Natuir!",
+  "language": [],
+  "musenalm_id": 91644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Rose",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.559Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "97chkwj77m1f1un"
+    }
+  ]
+}

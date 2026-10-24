@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30178, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Kalte Todesnebel ziehen, / Alle Lichter löschen aus,",
+  "language": [],
+  "musenalm_id": 30182,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spätherbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spätherbst",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.633Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "n4p9yqbanpms6rl"
+    }
+  ]
+}

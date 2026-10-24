@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Wilhelm Tell« von Fr. Schiller Titel aus dem I-Verz s. Textbezug INr 33460, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Scenen aus Schillers Wilhelm Tell #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Autenrieth sc.",
+  "scans": [
+    "alm_464_33477_qnx9a23rj6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Scenen aus Schillers Wilhelm Tell #",
+  "updated": "2003-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.681Z",
+      "agent": "494d92fqsi62f1e",
+      "source_id": "ssjr0vdobh6dcat"
+    }
+  ]
+}

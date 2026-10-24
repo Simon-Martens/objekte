@@ -1,0 +1,459 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.474Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "dateOfBirth": [
+        "1805-06-28"
+      ],
+      "dateOfDeath": [
+        "1875-12-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Adolf Schrödter"
+          ],
+          "creditText": [
+            "Digitalisat von einer Presse-CD der Städtischen Galerie Karlsruhe"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolph%20Schroedter-Selbstbildnis-1835.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolph%20Schroedter-Selbstbildnis-1835.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adolph%20Schroedter-Selbstbildnis-1835.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1050555155"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:14:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118761919/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1012245519",
+          "label": "Schroedter, Hans"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118761919",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1012245519",
+          "label": "Schroedter, Hans"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118761919",
+      "oldAuthorityNumber": [
+        "(DE-588)1050555155",
+        "(DE-588a)136596037",
+        "(DE-588a)118761919",
+        "(DE-588c)4107132-3"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4297951-1",
+          "label": "Schwedt/Oder"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        }
+      ],
+      "preferredName": "Schroedter, Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adolf"
+        ],
+        "surname": [
+          "Schroedter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4232470-1",
+          "label": "Karikaturist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunstmaler"
+      ],
+      "publication": [
+        "Detmold, Johann Hermann: Thaten und Meinungen des Herrn Piepmeyer .... - 1848-49",
+        "Murner, Thomas: Till Eulenspiegels auserlesene Schwänke. - 1856"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14966335f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82024652"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7658482"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q365522"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050555155"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118761919/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adolf_Schr%C3%B6dter"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adolph_Schroedter"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adolf_Schr%C3%B6dter"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118761919"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108676388"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118761919"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118761919"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118761919.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118761919"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118761919"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118761919"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schroedter, Adolph",
+        "AS",
+        "A S",
+        "S., A.",
+        "Schroeter, A. v.",
+        "Schrödter, Adolf",
+        "Schroedter, A.",
+        "Schröder, Adolf",
+        "Schrötter",
+        "Schrödter, A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Schroedter"
+          ]
+        },
+        {
+          "personalName": [
+            "Schrötter"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Schrödter"
+          ]
+        },
+        {
+          "personalName": [
+            "AS"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Schrödter"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Schröder"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schroeter"
+          ]
+        },
+        {
+          "personalName": [
+            "A S"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Schroedter"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adolph_Schroedter",
+          "label": "https://de.wikipedia.org/wiki/Adolph_Schroedter"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:52:54Z",
+    "gnd_query_biographical_data": "1805-1875",
+    "gnd_query_name": "schrödter, adolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2545,
+  "name": "Schrödter, Adolf",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 290",
+  "updated": "2026-06-11 13:29:24.823Z",
+  "uri": "https://d-nb.info/gnd/118761919",
+  "editor": ""
+}

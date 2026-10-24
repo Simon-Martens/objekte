@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peter der Große, gerettet durch seine Mutter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steuben pinx. C. Deucker sc. Fkfurt",
+  "scans": [
+    "alm_1052_63924_0rwglknqd9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Peter der Große, gerettet durch seine Mutter #",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.046Z",
+      "agent": "o82hjun2z18aur7",
+      "source_id": "buv2ysccqc8dg8r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.046Z",
+      "agent": "3aem7a5l4b7l07o",
+      "source_id": "k3wei2duxd4o3rg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Das Haus Cornaro gehörte zu den ältesten und angesehensten der ehemaligen Republik Venedig. In der zweiten Hälfte des funfzehnten Jahrhunderts bekleidete Marco Cornaro die Würde des Dogen.",
+  "language": [],
+  "musenalm_id": 63827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Katharina Cornaro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Katharina Cornaro",
+  "updated": "2009-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.097Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "cf5y1i2nx4x06vm"
+    }
+  ]
+}

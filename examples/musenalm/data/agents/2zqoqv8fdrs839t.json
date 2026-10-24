@@ -1,0 +1,899 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.521Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schweizer Schriftsteller dt. Herkunft, übernahm zahlreiche politische Ämter und wirkte als liberaler Vorkämpfer und Volksaufklärer."
+      ],
+      "dateOfBirth": [
+        "1771-03-22"
+      ],
+      "dateOfDeath": [
+        "1848-06-27"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ludwig Albert von Montmorillon"
+          ],
+          "creditText": [
+            "Sammlung Stadtmuseum Aarau, 2005.09.05.S306."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Montmorillon%20Zschokke%201817.tif",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Montmorillon%20Zschokke%201817.tif?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Montmorillon%20Zschokke%201817.tif?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1014850509"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-19T00:31:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118637266/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Heinrich Daniel"
+          ],
+          "surname": [
+            "Schock"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johann Heinrich Daniel"
+          ],
+          "surname": [
+            "Schocke"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1070955043",
+          "label": "Zschokke, Alfred"
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1078748365",
+          "label": "Sauerländer, Christiane Karoline Cölestine"
+        },
+        {
+          "forename": [
+            "Anna Elisabeth [Nanny]"
+          ],
+          "surname": [
+            "Nüsperli"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/133111180",
+          "label": "Zschokke, Achilles"
+        },
+        {
+          "forename": [
+            "Dorothea Elisabeth"
+          ],
+          "surname": [
+            "Jordan"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119658799X",
+          "label": "Zschokke, Nanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139879277",
+          "label": "Zschokke, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117019143",
+          "label": "Zschokke, Friedrich"
+        },
+        {
+          "forename": [
+            "Eugen"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/138527431",
+          "label": "Zschokke, Olivier"
+        },
+        {
+          "forename": [
+            "Cölestine"
+          ],
+          "surname": [
+            "Sauerländer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/104170271",
+          "label": "Zschokke, Theodor"
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/13693126X",
+          "label": "Zschokke, Alexandre"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118637266",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1070955043",
+          "label": "Zschokke, Alfred"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104170271",
+          "label": "Zschokke, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139879277",
+          "label": "Zschokke, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13693126X",
+          "label": "Zschokke, Alexandre"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1078748365",
+          "label": "Sauerländer, Christiane Karoline Cölestine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133111180",
+          "label": "Zschokke, Achilles"
+        },
+        {
+          "id": "https://d-nb.info/gnd/138527431",
+          "label": "Zschokke, Olivier"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/117019143",
+          "label": "Zschokke, Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118637266",
+      "oldAuthorityNumber": [
+        "(DE-588a)1014850509",
+        "(DE-588)1014850509",
+        "(DE-588a)118637266",
+        "(DE-588a)107781697",
+        "(DE-588c)4067978-0",
+        "(DE-588a)134095294"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036934-1",
+          "label": "Magdeburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4000018-7",
+          "label": "Aarau"
+        }
+      ],
+      "preferredName": "Zschokke, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Zschokke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Magdeburg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Weber"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Magdeburg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ideen zur psychologischen Aesthetik",
+        "Der Creole",
+        "Die drei ewigen Bünde im hohen Rhätien",
+        "Stephan Bathori, König von Polen",
+        "Der schweitzerische Gebürgsförster",
+        "Historische Denkwürdigkeiten der helvetischen Staatsumwälzung",
+        "Die Alpenwälder",
+        "Der Bayerischen Geschichten ... Buch",
+        "Des Schweitzerlands Geschichten",
+        "Betrachtungen über das Bayerische Konkordat"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johannes Heinrich Daniel"
+          ],
+          "surname": [
+            "Schocke"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50016894"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56743380"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q66207"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014850509"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118637266/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Heinrich_Zschokke"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Zschokke"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Heinrich_Zschokke"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Zschokke"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108577494"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118637266"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118637266"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118637266.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118637266"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/1AE0DAC5BF2946D8B1336EFC6D691EB7"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118637266"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Zschokke, Johannes Heinrich David",
+        "Zschokke, Joh. Heinr. Dan.",
+        "Zschokke, Johann Heinrich D.",
+        "Z., J. J. D.",
+        "Zschokke, Henri",
+        "Zschokke, Johann D.",
+        "Schock, Johann Heinrich Daniel",
+        "Zschokke, Johann Heinrich",
+        "Jhdz",
+        "Johann, von Magdeburg",
+        "Zschokke, Enrico",
+        "Zschokke, H.",
+        "Zschokke, J. H. D.",
+        "Zschokke, Johann Daniel Heinrich",
+        "Zschocke, Heinrich",
+        "Magdeburg, Johannes von",
+        "J h d z",
+        "Weber, L.",
+        "J. H. D. Z.",
+        "Zschokke, Heinrich David",
+        "Zschokke, Heinrich D.",
+        "Zschokke, Johann Heinrich David",
+        "Zschokke, Henrik",
+        "R., M. J.",
+        "Zschokke, Jean Henri Daniel",
+        "Schocke, Johannes Heinrich Daniel",
+        "Zschokke, Johann Heinrich Daniel",
+        "Magdeburg, Johann von",
+        "Schocke, Johann Heinrich Daniel",
+        "Tschokke, Heinrich",
+        "Zschokke, Heinr.",
+        "Zschokke, Johann David",
+        "Zschokke, Johann Daniel",
+        "Zschocke",
+        "Zschokke, Heinrich Daniel",
+        "M. J. R.",
+        "Zchokke, Heinrich",
+        "Zschokke, Johannes Heinrich Daniel",
+        "Zschokke",
+        "Zschokke, Johann H.",
+        "Zschokke, Heinz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Magdeburg"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Zchokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Daniel Heinrich"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Henri Daniel"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "J. H. D."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Daniel"
+          ],
+          "surname": [
+            "Schock"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Daniel"
+          ],
+          "surname": [
+            "Schocke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich D."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "personalName": [
+            "J. H. D. Z."
+          ]
+        },
+        {
+          "personalName": [
+            "Jhdz"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Daniel"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Daniel"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "personalName": [
+            "J h d z"
+          ]
+        },
+        {
+          "forename": [
+            "Henri"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Daniel Heinrich"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich David"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich Daniel"
+          ],
+          "surname": [
+            "Schocke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann D."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Henrik"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Magdeburg"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich Daniel"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich David"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "M. J."
+          ],
+          "surname": [
+            "R."
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Tschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Daniel"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "personalName": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Magdeburg"
+          ],
+          "personalName": [
+            "Johann"
+          ]
+        },
+        {
+          "forename": [
+            "Enrico"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinr."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinz"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich D."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Zschocke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich David"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "personalName": [
+            "Zschocke"
+          ]
+        },
+        {
+          "forename": [
+            "J. J. D."
+          ],
+          "surname": [
+            "Z."
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Heinr. Dan."
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "personalName": [
+            "M. J. R."
+          ]
+        },
+        {
+          "forename": [
+            "Johann David"
+          ],
+          "surname": [
+            "Zschokke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Zschokke",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Zschokke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:27:24Z",
+    "gnd_query_biographical_data": "1771-1848",
+    "gnd_query_name": "zschokke, johann heinrich daniel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3244,
+  "name": "Zschokke, Johann Heinrich Daniel",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 58",
+  "updated": "2026-06-11 13:29:25.912Z",
+  "uri": "https://d-nb.info/gnd/118637266",
+  "editor": ""
+}

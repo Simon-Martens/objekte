@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK-SWB: 7 Jgg 1827-1833;  Greiz (Henning); Hrsgg.. D. C. B. Meißner; D. G. Schmidt; E. Hoffmann,  vorh. auch: Theodulia. Neue Folge Jg. 1855",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theodulia 1827",
+    "norm": "",
+    "biblio": 105916,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3267,
+  "parallel_title": "",
+  "place_statement": "Greiz (Henning)",
+  "places": [
+    "awp29e616wenigz"
+  ],
+  "preferred_title": "Theodulia 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "D. C. B. Meißner; D. G. Schmidt; E. Hoffmann",
+  "subtitle_statement": "",
+  "title_statement": "THEODULIA. / Jahrbuch / für häusliche Erbauung / auf 1827. / Mit Beiträgen von / Alberti, Angeri, v. Fouqué, Francke, Gi- / rardet, H. Hoffmann, Hundeiker, Kochen, / Köthe, Leo, Marheinecke, Münkner, Ober- / länder, Trautschold, und Andern / herausgegeben / von / M. C. B. Meißner, D. G. Schmidt, / E. Hoffmann. / herausgegeben / von / M. C. B. Meißner, D. G. Schmidt, / E. Hoffmann. / Mit vier Musikblättern. / Greiz, / Druck und Verlag von C. H. Henning",
+  "updated": "2026-06-11 10:18:54.975Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "gr3vkspppfsd3ac"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.988Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.988Z",
+      "agent": "viypozfj2rtaa6w",
+      "source_id": "hwscahlygjss1yk"
+    }
+  ]
+}

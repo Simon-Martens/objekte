@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Auf einem sanften Hügel neben einer der zahlreichen Krümmungen des Rheinstromes stand eine Burg, deren letzte Spuren bereits seit zwei Jahrhunderten verschwunden sind.",
+  "language": [],
+  "musenalm_id": 117195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Novize von Santa Clara. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Novize von Santa Clara. / Historische Novelle",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.586Z",
+      "agent": "onb8bft2jljf6eb",
+      "source_id": "32rolgk0abscq6y"
+    }
+  ]
+}

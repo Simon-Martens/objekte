@@ -1,0 +1,347 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1801",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.369Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter, Prof. der Philosophie in Leipzig"
+      ],
+      "dateOfBirth": [
+        "1764-02-18"
+      ],
+      "dateOfDeath": [
+        "1801-04-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Christian Benjamin Gottschick"
+          ],
+          "creditText": [
+            "originally uploaded to de.wikipedia&nbsp;by Bibhai (talk&nbsp;· contribs)&nbsp;on 9 August 2008, 14:22&nbsp;under the file name Heydenreich 1815 gottschik.jpg.(+/−)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heydenreich%201815%20gottschik.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heydenreich%201815%20gottschik.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heydenreich%201815%20gottschik.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-09T17:07:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100166962/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1028274742",
+          "label": "Heydenreich, August Ludwig Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100166962",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1028274742",
+          "label": "Heydenreich, August Ludwig Heinrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100166962",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)100166962",
+        "(DE-588c)7582653-7"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Heydenreich, Karl Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Heinrich"
+        ],
+        "surname": [
+          "Heydenreich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Heydenreich, Karl H.: Grundsätze des natürlichen Staatsrechts und seiner Anwendung",
+        "Heydenreich, Karl H.: Gedichte. - [ca. 1795]",
+        "Heydenreich, Karl H.: Psychologische Entwickelung des Aberglaubens",
+        "Heydenreich, Karl H.: Grundsaetze der moralischen Gotteslehre",
+        "Heydenreich, Karl H.: Mann und Weib",
+        "Heydenreich, Karl H.: Encyclopaedische Einleitung in das Studium der Philosophie",
+        "Heydenreich, Karl H.: Natur und Gott nach Spinoza",
+        "Heydenreich, Karl H.: Originalideen über die interessantesten Gegenstaende der Philosophie. - 1793 - 1796",
+        "Heydenreich, Karl H.: Betrachtungen über die Philosophie der natürlichen Religion. - 1790 - 1791",
+        "Heydenreich, Karl H.: Philosophie über die Leiden der Menschheit. - 1797 - 1799",
+        "Originalideen über die interessantesten Gegenstände der Philosophie ... - Leipzig: Baumgärtner 1793-1796"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n90663143"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56952897"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214744"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100166962/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Heinrich_Heydenreich"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Heydenreich"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Heinrich_Heydenreich"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Heinrich_Heydenreich"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109047102"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100166962"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100166962.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100166962"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100166962"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Heydenreich, Carolus Henricus",
+        "Heydenreich, Karl H.",
+        "Heydenreich, K. H.",
+        "Heydenreich, Carl Heinrich",
+        "Heidenreich, Carl H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carolus Henricus"
+          ],
+          "surname": [
+            "Heydenreich"
+          ]
+        },
+        {
+          "forename": [
+            "K. H."
+          ],
+          "surname": [
+            "Heydenreich"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "surname": [
+            "Heydenreich"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "surname": [
+            "Heidenreich"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Heinrich"
+          ],
+          "surname": [
+            "Heydenreich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Heydenreich",
+          "label": "https://de.wikipedia.org/wiki/Karl_Heinrich_Heydenreich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:45:09Z",
+    "gnd_query_biographical_data": "1764-1801",
+    "gnd_query_name": "heydenreich, karl heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1181,
+  "name": "Heydenreich, Karl Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 274",
+  "updated": "2026-06-11 13:29:22.926Z",
+  "uri": "https://d-nb.info/gnd/100166962",
+  "editor": ""
+}

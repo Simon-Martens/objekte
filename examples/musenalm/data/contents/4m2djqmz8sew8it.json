@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Das Bildniß auf der Caffeetasse / Soll, wie du sagst, nicht ähnlich seyn.",
+  "language": [],
+  "musenalm_id": 10282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / An Fr. S. B. in Kf. / bei Uibersendung seiner Büste von Gyps",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Goeking",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / An Fr. S. B. in Kf. / bei Uibersendung seiner Büste von Gyps",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.512Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "lmz97pfbekebaic"
+    }
+  ]
+}

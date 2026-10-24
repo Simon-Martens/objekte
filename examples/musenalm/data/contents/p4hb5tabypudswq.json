@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Ladika's Lampe« von C. v. Wachsmann INr 110074, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bertha",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2243_110066_nigto05whv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bertha",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.333Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "r01icjpgv7vn5k7"
+    }
+  ]
+}

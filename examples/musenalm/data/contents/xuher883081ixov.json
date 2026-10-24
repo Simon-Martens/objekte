@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Die Schwalbe! / Die Schwalbe! / Was will sie wohl? / Was will sie wohl?",
+  "language": [],
+  "musenalm_id": 51403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwalbe. / Ein Kanon für vier Stimmen, nach der Melodie / eines Ammenliedes: Der Besen, der Besen etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Leopold Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwalbe. / Ein Kanon für vier Stimmen, nach der Melodie / eines Ammenliedes: Der Besen, der Besen etc",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.717Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "dex9352hwkd2g1n"
+    }
+  ]
+}

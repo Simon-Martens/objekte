@@ -1,0 +1,45 @@
+{
+  "annotation": "West-Oestlicher Divan. Versammelt von Goethe. In den Jahren 1814-1815 ( Sammlung INr 34025, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Ueber meines Liebchens Aeugeln, / Stehn verwundert alle Leute;",
+  "language": [],
+  "musenalm_id": 34036,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Glückliches Geheimniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Glückliches Geheimniß",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.725Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "7iwmx7vmzrfojgn"
+    }
+  ]
+}

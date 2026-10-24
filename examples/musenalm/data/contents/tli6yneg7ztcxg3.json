@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 118101, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Wie rieselt lau der Regen nieder / Erquickend auf die trock'ne Flur;",
+  "language": [],
+  "musenalm_id": 118103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Im lauen Regen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Im lauen Regen",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.517Z",
+      "agent": "onb8bft2jljf6eb",
+      "source_id": "mn922r61gdgjo9s"
+    }
+  ]
+}

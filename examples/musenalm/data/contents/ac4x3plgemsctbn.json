@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Geheimniß der Liebe. Eine erzählende Dichtung, in drei Romanzen (Sammlung INr 15110, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "O Leben, sonnenwarme Quelle, / In der der Lenz, die Liebe haust!",
+  "language": [],
+  "musenalm_id": 15113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritte Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritte Romanze",
+  "updated": "2001-05-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.622Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "f47xk17z1lgiutk"
+    }
+  ]
+}

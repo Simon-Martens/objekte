@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Am Osterfeiertag, wenn kaum der Morgen graut, / Da wandl' ich gerne / Vom Menschen ferne",
+  "language": [],
+  "musenalm_id": 46414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Osterfrühfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Osterfrühfeier",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.595Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "qe120m7hla1m3rh"
+    }
+  ]
+}

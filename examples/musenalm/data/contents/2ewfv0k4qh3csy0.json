@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. s. Almanach-Titel /) Graphik im Kalendarium Juni /) s. Gedicht INr 71815, Obj 17 und Textbezug INr 71919, Obj 121",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71807,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ahndest du nicht den nahen / Feind?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg und Jury",
+  "scans": [
+    "alm_2671_71807_7p7d9opaql.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ahndest du nicht den nahen / Feind?",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.370Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "ci3b87ph2wcq79g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.370Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "tt813mntg0jkrxj"
+    }
+  ]
+}

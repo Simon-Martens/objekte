@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T,S I-Verz, 8 BB darin 7 GG, SS 1-402",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1830",
+    "norm": "~",
+    "biblio": 100434,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2401,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1830",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "PENELOPE / TASCHENBUCH / für das Jahr 1830. / Herausgegeben / von / THEODOR HELL. / 19r. Jahrgang. Mit Kupfern. / Leipzig. / J. C. Hinrichs'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.953Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "yq8ag7x39bsa2p7"
+  ],
+  "contents": [
+    "htt8ailzlnnouky",
+    "8hze4a4yusm0umv",
+    "9q0gklzyh00ac9k",
+    "qx82m9kjlwnaous",
+    "0zl46ttlvo1l3lh",
+    "bmzfifu3l04eyhi",
+    "0w3g1pt7tfehxpk",
+    "dg933zuhs7rnry9",
+    "dfb1ycb2gfqtuq9",
+    "hx5xlsenug65105",
+    "kh8sxof49igp7if",
+    "aszf3y0025nuvl7",
+    "eyx9kvgswvgk56e",
+    "q3zaatuo1mwohe9",
+    "3gsl7tgt56o7isn",
+    "bt4qynhgw6kbrrd",
+    "rejx89p14b5gogc",
+    "hjidvqcm4wf20yf",
+    "o6d0avg6c9gft1h",
+    "z9lqh7vgt8fj3ad",
+    "129mrv9ulqu4ota",
+    "7lspx746rf056ig",
+    "clq6pqffn0knqcq",
+    "y95g70vzpck9vex",
+    "xl9mwqsljpsvwe1",
+    "drxglnrkllj1bdg",
+    "pclxs3105n0hmik",
+    "l4090a69wpazuhu",
+    "qii2vqduyfpi6ry"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.014Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.014Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "czhyixhzhmvsky2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.072Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.072Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "rry0rfc9tznopo4"
+    }
+  ]
+}

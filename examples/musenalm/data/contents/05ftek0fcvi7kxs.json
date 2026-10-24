@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Du die im Alter ohne Klage / Auf deine viel durchlebten Tage",
+  "language": [],
+  "musenalm_id": 8251,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Dame, / bey ihrem zwey und siebzigsten Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. A. von Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Dame, / bey ihrem zwey und siebzigsten Geburtstage",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.229Z",
+      "agent": "t5xduzz1g6d3iy5",
+      "source_id": "xuhjmtlvwi0wcph"
+    }
+  ]
+}

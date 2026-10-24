@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Schrei' er nur zu, Herr Krittelwicht, / Beschrei' Er mich und mein Gedicht",
+  "language": [],
+  "musenalm_id": 17930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied auf ewig / von Sr. Wohlweisheit, dem Herrn / Peter Hecht genannt Krittelwicht, wie / auch der ganzen hohen Krittelwichtischen / Familie zu ** zu** zu** / etc",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Krittelhold alias Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied auf ewig / von Sr. Wohlweisheit, dem Herrn / Peter Hecht genannt Krittelwicht, wie / auch der ganzen hohen Krittelwichtischen / Familie zu ** zu** zu** / etc",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.751Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "fx2mu9z4br1ndzp"
+    }
+  ]
+}

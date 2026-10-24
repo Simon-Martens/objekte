@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Der prophetische 1825",
+    "norm": "",
+    "biblio": 405252,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1418,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach, Der prophetische 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / prophetische Almanach / auf das Jahr 1825; / oder / Nachrichten von allen merkwürdigen Begeben- / heiten und Ereignissen in der politischen, mora- / lischen und physischen Welt in diesem / Jahre. / Aus einer alten in der Stiftsbibliothek zu ... / gefundenen Handschrift. / Die Gegenwart geht mit der Zukunft schwanger. / Leibnitz. / Dritter Jahrgang. / Leipzig, 1825",
+  "updated": "2026-06-11 10:18:54.823Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "orbysanhlwa1z8c"
+  ],
+  "contents": [],
+  "agents": []
+}

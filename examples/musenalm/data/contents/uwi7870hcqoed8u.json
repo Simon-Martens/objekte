@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 119582,119583; Obj 51, 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Knospen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T-e Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Knospen",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.613Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "g55lqmrjbcc74s8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Es ist so süß, an treuer Brust zu liegen, / Und, ruhend in dem innigsten Vertrauen, / Des Herzens Wunsch im Auge klar zu schauen,",
+  "language": [],
+  "musenalm_id": 91101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesglück",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.268Z",
+      "agent": "9zdfy29sj074b5x",
+      "source_id": "g88gmrjcjow7p4e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Kastenmännchen. Ein Scherz mit 8 Bildern (Sammlung INr 60554, Obj 4) s. Graphik INr 60564, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Die Neuheit der Gegenstände versetzte den Exkönig in eine Art von Taumel. Vor seinen Fenstern wiegte sich in hoher Luft die Palme,",
+  "language": [],
+  "musenalm_id": 60563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2002-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.810Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "ovkoejtr83vt3wr"
+    }
+  ]
+}

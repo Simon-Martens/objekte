@@ -1,0 +1,45 @@
+{
+  "annotation": "Sizilianische Lieder (Sammlung INr 24356, Obj 136)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Immer zu Pferde; schon kehret der Mond, schon füllt / er die Scheibe",
+  "language": [],
+  "musenalm_id": 24360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viertes Lied. / Chiron",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viertes Lied. / Chiron",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.936Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "cziwoej0qanffwl"
+    }
+  ]
+}

@@ -1,0 +1,541 @@
+{
+  "annotation": "",
+  "biographical_data": "1817-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.367Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1817-05-31"
+      ],
+      "dateOfDeath": [
+        "1875-04-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Arnold Gonzenbach, upload by User:Xarax"
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Herwegh%2C%20Georg.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Herwegh%2C%20Georg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Herwegh%2C%20Georg.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189421665",
+        "https://d-nb.info/gnd/1014884101"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118550128/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Camille"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/141336331",
+          "label": "Herwegh, Marcel"
+        },
+        {
+          "forename": [
+            "Horace"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1136446958",
+          "label": "Souza, Antonio Francisco de Paula"
+        },
+        {
+          "id": "https://d-nb.info/gnd/105610953X",
+          "label": "Siegmund, Gustav August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116755679",
+          "label": "Herwegh, Emma"
+        },
+        {
+          "forename": [
+            "Rosine Catharina"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Ernst"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118550128",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/141336331",
+          "label": "Herwegh, Marcel"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116755679",
+          "label": "Herwegh, Emma"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118550128",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)189421665",
+        "(DE-588)1014884101",
+        "(DE-588a)118550128",
+        "(DE-588c)4024625-5",
+        "(DE-588a)159105617",
+        "(DE-588)189421665",
+        "(DE-588c)7798564-3",
+        "(DE-588a)1014884101"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/65461-9",
+          "label": "Baden (Baden)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4753844-2",
+          "label": "Lichtenthal, Baden"
+        }
+      ],
+      "placeOfExile": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "preferredName": "Herwegh, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Herwegh"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177943-5",
+          "label": "Revolutionär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Neue Gedichte",
+        "Einundzwanzig Bogen aus der Schweiz",
+        "1848",
+        "Gedichte eines Lebendigen",
+        "Le centenaire de Georges Horwegh (1817-1917)",
+        "Zwei Preussenlieder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80086574"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56698500"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D28117.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57945"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014884101"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118550128/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189421665"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Georg_Herwegh"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Herwegh"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Georg_Herwegh"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Herwegh"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121342286"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118550128"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118550128"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118550128.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118550128.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118550128"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118550128"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Herwegh, Georges",
+        "Herwegh, Georg F.",
+        "Qiujihawei",
+        "秋雞哈威",
+        "Herwegh, Friedrich Rudolf Georg Theodor",
+        "Herwegh, Friedrich R.",
+        "Herwegh, Friedrich Rudolph Georg Theodor",
+        "Gerweg, Georg",
+        "Herwegh, Georg Friedrich Rudolf Theodor Andreas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "秋雞哈威"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Gerweg"
+          ]
+        },
+        {
+          "personalName": [
+            "Qiujihawei"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Rudolf Georg Theodor"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich R."
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Georges"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Rudolf Theodor Andreas"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Rudolph Georg Theodor"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Rudolf Theodor Andreas"
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Herwegh"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Herwegh",
+          "label": "https://de.wikipedia.org/wiki/Georg_Herwegh"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:44:24Z",
+    "gnd_query_biographical_data": "1817-1875",
+    "gnd_query_name": "herwegh, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1166,
+  "name": "Herwegh, Georg",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 214",
+  "updated": "2026-06-11 13:29:22.910Z",
+  "uri": "https://d-nb.info/gnd/118550128",
+  "editor": ""
+}

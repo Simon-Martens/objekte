@@ -1,0 +1,45 @@
+{
+  "annotation": "Scherz und Ernst in Sonetten (Sammlung INr 54643, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Ich schaudre, denk' ich noch, wie in den Klassen / der Schule man von dem Tyrann erzählte,",
+  "language": [],
+  "musenalm_id": 54644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Epilogischer Prolog / zur verurtheilenden Entschuldigung nachstehender Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Epilogischer Prolog / zur verurtheilenden Entschuldigung nachstehender Sonette",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.936Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "bjlxhfln6kru0tn"
+    }
+  ]
+}

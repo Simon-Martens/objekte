@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 59667, 59668; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenländische Sagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenländische Sagen",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.832Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "u5xkfo0t3741kcn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Anm. INr 26796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Es ist zwar wahr, daß Gott Dich selig machen will;",
+  "language": [],
+  "musenalm_id": 26884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "88) Wer zuviel glaubt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Angelus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "88) Wer zuviel glaubt",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.146Z",
+      "agent": "u6qx1yh697eqyvy",
+      "source_id": "x32e35o9208rs3a"
+    }
+  ]
+}

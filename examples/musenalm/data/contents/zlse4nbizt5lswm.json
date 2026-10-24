@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Liebhaber nennen sich die Glieder dieser Bühne? / Mich dünkt, mit Recht! - Die Herr'n sind rasch und / jung, die Damen von nicht übler Miene.",
+  "language": [],
+  "musenalm_id": 75813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf manches Gesellschaftstheater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf manches Gesellschaftstheater",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.464Z",
+      "agent": "j34hzsrw81cdjdh",
+      "source_id": "xmoxmhwcw2ielww"
+    }
+  ]
+}

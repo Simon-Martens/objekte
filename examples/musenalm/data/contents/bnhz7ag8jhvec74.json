@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) paginiert S. 73. /) Illustration zu »Thomas Damascena« INr 89396, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89384,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weh mir! das traf!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. I. Krepp sc.",
+  "scans": [
+    "alm_3342_89384_u41kun64jo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weh mir! das traf!",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "5xlvaqbm0dlp757"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "z64ev7tzpav4ds5",
+      "source_id": "p363eregqa6vjsd"
+    }
+  ]
+}

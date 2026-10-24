@@ -1,0 +1,482 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1870",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.365Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2023768-6",
+          "label": "Universität Bern"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schweizer Historiker; Gegner des Ultramontanismus; 1826-1834 Stiftarchivar am Stiftsarchiv St. Gallen; 1842-1855 ao. Professor für Geschichte an der Univ. Bern; 1855-1861 Stiftsbibliothekar an der Stiftsbibliothek St. Gallen; 1862-1870 Sekretär des kantonalen Erziehungsdepartements"
+      ],
+      "dateOfBirth": [
+        "1798-07-22"
+      ],
+      "dateOfDeath": [
+        "1870-11-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Anton%20Henne.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Anton%20Henne.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Anton%20Henne.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118886649/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120474808",
+          "label": "Henne am Rhyn, Otto"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135933544",
+          "label": "Henne, Hugo"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136929125",
+          "label": "Henne, Rudolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118886649",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/120474808",
+          "label": "Henne am Rhyn, Otto"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135933544",
+          "label": "Henne, Hugo"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118886649",
+      "oldAuthorityNumber": [
+        "(DE-588c)4221926-7",
+        "(DE-588a)127737340",
+        "(DE-588a)118886649"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005762-8",
+          "label": "Bern"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4051594-1",
+          "label": "Sankt Gallen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4105348-5",
+          "label": "Sargans"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4321197-5",
+          "label": "Wolfhalden"
+        }
+      ],
+      "preferredName": "Henne, Josef Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Josef Anton"
+        ],
+        "surname": [
+          "Henne"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Sagensammler"
+      ],
+      "publication": [
+        "Henne, Joseph A.: Lieder u. Sagen aus der Schweiz",
+        "Henne, Joseph A.: Der Sonderbund u. dessen Auflösung durch die Tagsatzung im November 1*",
+        "Die Klingenberger Chronik",
+        "Henne, Joseph A.: Diviko und das Wunderhorn oder die Lemanschlacht",
+        "Henne, Joseph A.: Synoptische Tafel der altenn Chronologie",
+        "Snell, Ludwig: Pragmatische Erzählung der Kirchlichen Ereignisse in der Katholischen Schw*",
+        "Henne, Joseph A.: Manethós, die Origines unserer Geschichte und Chronologie",
+        "Schweizerchronik ...",
+        "Neue Schweizerchronik fürs Volk ..",
+        "Henne, Joseph A.: Die Faraone Aegüptens, nach den ägüptischen, assürischen, sikuonische*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no98097179"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/50023678"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D32160.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q119326"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118886649/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Josef_Anton_Henne"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anton_Henne"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Josef_Anton_Henne"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Josef_Anton_Henne"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080192495"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118886649"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118886649.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118886649"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Henne, Josef A.",
+        "Henne, Anton",
+        "Sargans, Joseph A. von",
+        "Henne von Sargans, Josef A.",
+        "Henne von Sargans, Josef Anton",
+        "Sargans, Anton H. von",
+        "Henne, Jos. Anton",
+        "Henne, Joseph A.",
+        "Henne von Sargans, Anton",
+        "Sargans, Henne von",
+        "Henne, A.",
+        "Henne, Joseph Anton",
+        "Henne, Josef Alexander Anton"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef Anton"
+          ],
+          "surname": [
+            "Henne von Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "Josef A."
+          ],
+          "surname": [
+            "Henne von Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. Anton"
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "Josef A."
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "Anton H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Henne"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Alexander Anton"
+          ],
+          "surname": [
+            "Henne"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Henne von Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sargans"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Anton"
+          ],
+          "surname": [
+            "Henne"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anton_Henne",
+          "label": "https://de.wikipedia.org/wiki/Anton_Henne"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:43:15Z",
+    "gnd_query_biographical_data": "1798-1870",
+    "gnd_query_name": "henne, joseph anton"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1143,
+  "name": "Henne, Joseph Anton",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 847",
+  "updated": "2026-06-11 13:29:22.890Z",
+  "uri": "https://d-nb.info/gnd/118886649",
+  "editor": ""
+}

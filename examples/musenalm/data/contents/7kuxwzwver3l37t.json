@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Der bunte Haushahn krähet; / Des Regens harrend, spähet / Der Landmann, hocherfreut",
+  "language": [],
+  "musenalm_id": 6162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gewitter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gewitter",
+  "updated": "2000-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.260Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "8flngtr2fh3o5oz"
+    }
+  ]
+}

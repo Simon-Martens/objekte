@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. G-Verz: Illustration zu »Fragmente in Sterne's Manier, ein Seitenstück zu Yoricks empfindsamen Reisen« [übers. von A. Wilhelmi]; Leipzig (Sommer) [1800]",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61135,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. F. Stoelzel f. 1800)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Stoelzel f. 1800",
+  "scans": [
+    "alm_953_61135_v5sdmd7vf8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.985Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "cbt7jla88e3898t"
+    }
+  ]
+}

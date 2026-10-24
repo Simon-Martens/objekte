@@ -1,0 +1,56 @@
+{
+  "annotation": "AUS DER GALATEA (Sammlung INr 71326, Obj 113) /) CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Wer liesse wohl wo seine Heerden grasen, / Die frischen Kräuter und die frischen Quellen?",
+  "language": [],
+  "musenalm_id": 71329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / GELASIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cervantes; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / GELASIA",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "weyfjsfook5ewzx",
+      "source_id": "h0k78az9wuhwyjx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "vkwvdafx6dtf8b6"
+    }
+  ]
+}

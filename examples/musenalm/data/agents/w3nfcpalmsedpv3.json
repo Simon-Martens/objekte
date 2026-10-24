@@ -1,0 +1,318 @@
+{
+  "annotation": "",
+  "biographical_data": "1792-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.461Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1230143-7",
+          "label": "Universität Bamberg (1773-1803)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1081209-X",
+          "label": "Bayerisches Allgemeines Reichsarchiv"
+        }
+      ],
+      "dateOfBirth": [
+        "1792"
+      ],
+      "dateOfDeath": [
+        "1860"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-03T18:12:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119526247/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119526247",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119526247",
+      "oldAuthorityNumber": [
+        "(DE-588a)100325351",
+        "(DE-588a)119526247",
+        "(DE-588c)4481292-9"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Rudhart, Georg Thomas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Thomas"
+        ],
+        "surname": [
+          "Rudhart"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        }
+      ],
+      "publication": [
+        "Rudhart, Georg T.: Ist Regino's Babenbergk die Altenburg bei Bamberg?",
+        "Rudhart, Georg T.: Aelteste Geschichte Bayerns und der in neuester Zeit zum Königreiche B*",
+        "Rudhart, Georg T.: Thomas Morus",
+        "Rudhart, Georg T.: Ueber den Unterschied der Kelten und Germanen",
+        "Rudhart, Georg T.: Ist die Altenburg bei Bamberg wirklich das Castrum Babenbergk Regino's",
+        "Rudhart, Georg T.: Ueber die Behandlungsweise der bayer'schen Geschichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13530563b"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29692635"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55126230"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119526247/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Thomas_Rudhart"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061413731"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119526247"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119526247.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119526247.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119526247"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Rudhart, G. Th. v.",
+        "Rudhart, Georg T.",
+        "Rudhart, Georg Thomas von",
+        "Rudhart, G. Th.",
+        "Rudhart, Chrn. T.",
+        "Rudhart, G. Th. von",
+        "Rudhart, George T.",
+        "Rudhart, G. T."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg T."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "G. Th."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "G. Th."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "G. T."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "George T."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "G. Th."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Thomas"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        },
+        {
+          "forename": [
+            "Chrn. T."
+          ],
+          "surname": [
+            "Rudhart"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Thomas_Rudhart",
+          "label": "https://de.wikipedia.org/wiki/Georg_Thomas_Rudhart"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:42:33Z",
+    "gnd_query_biographical_data": "1792-1860",
+    "gnd_query_name": "rudhart, georg thomas von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2338,
+  "name": "Rudhart, Georg Thomas von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XXIX, 457",
+  "updated": "2026-06-11 13:29:24.428Z",
+  "uri": "https://d-nb.info/gnd/119526247",
+  "editor": ""
+}

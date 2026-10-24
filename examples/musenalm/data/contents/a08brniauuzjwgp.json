@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 83984, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erfrischung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Landseer pinxt. W. Baumann sculpt.",
+  "scans": [
+    "alm_1067_83991_symb19065h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erfrischung #",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.984Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "bf3dey8m4f9zi9f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.984Z",
+      "agent": "9b2uxqkf8x5d4i0",
+      "source_id": "werv0ieta22wtkp"
+    }
+  ]
+}

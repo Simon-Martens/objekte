@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Heilig, wie aus Fabel-Träumen / Leise Schauer uns umwehn,",
+  "language": [],
+  "musenalm_id": 25393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das stille Haus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Diotima",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das stille Haus",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.256Z",
+      "agent": "52k4ehvv6ogs74t",
+      "source_id": "othodnyf9e20bhm"
+    }
+  ]
+}

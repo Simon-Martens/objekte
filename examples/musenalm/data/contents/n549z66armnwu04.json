@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Klosterruine in Norwegen« von L. Kruse INr 94078, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Novelle: Die Klosterruine / in Norwegen von Kruse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1866_94079_u0vojjuudk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Novelle: Die Klosterruine / in Norwegen von Kruse",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.623Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "885b52e5glfd89i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.623Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "u4yusxut3q66x9m"
+    }
+  ]
+}

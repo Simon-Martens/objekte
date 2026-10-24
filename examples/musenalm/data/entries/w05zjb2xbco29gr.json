@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer (Westenrieder) 1799",
+    "norm": "",
+    "biblio": 404828,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1994,
+  "parallel_title": "",
+  "place_statement": "München (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Kalender, Historischer (Westenrieder) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 174; L/R 20",
+  "responsibility_statement": "L. Westenrieder",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / 1799 / von / L. Westenrieder / München bey Jos. Lindauer",
+  "updated": "2026-06-11 10:18:55.863Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "hg881r1jpcltd07"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.996Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.996Z",
+      "agent": "nx4goeqb48r7zw8",
+      "source_id": "jj715okix6xy1jb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.099Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.099Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "vmzj2nxfx7pe4dn"
+    }
+  ]
+}

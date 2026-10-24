@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Ich kam von einem fröhlichen Schmause, des Weins war nicht geschont worden, und die Gäste gingen in ziemlich erhöhter Stimmung auseinander.",
+  "language": [],
+  "musenalm_id": 87797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nacht in der Portechaise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nacht in der Portechaise",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.195Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "rrii5rbix7wl54q"
+    }
+  ]
+}

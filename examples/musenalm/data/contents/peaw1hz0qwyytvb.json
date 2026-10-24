@@ -1,0 +1,45 @@
+{
+  "annotation": "Jahres- und Tageszeiten (Sammlung INr 49008, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Dem stillen Hause blick' ich zu, / Gelehnt an einen Baum;",
+  "language": [],
+  "musenalm_id": 49028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachts",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Volker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachts",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.657Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "t9uiwuas9dgrywl"
+    }
+  ]
+}

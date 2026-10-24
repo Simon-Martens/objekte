@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Erinnerungen von Prag« von Fr. Sartori INr 92196, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Prager Brücke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. S. Göbwart sc. 1816",
+  "scans": [
+    "alm_3060_92197_5kiojsna0n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Prager Brücke",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.546Z",
+      "agent": "noepczcbklm6eif",
+      "source_id": "0ilh1tj9oydwyth"
+    }
+  ]
+}

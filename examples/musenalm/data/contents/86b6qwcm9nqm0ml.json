@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Unwissend ist Herr Franz / Und frech und lüderlich;",
+  "language": [],
+  "musenalm_id": 17650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Franz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr Franz",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.721Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "cavtri57a3f9boy"
+    }
+  ]
+}

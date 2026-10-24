@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Balladen und Romanzen (INr 124138, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Auf Brüder, schon rauschet mit goldenen Schwingen / Der herrlichste Sieg uns entgegen!",
+  "language": [],
+  "musenalm_id": 125145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Breuners Tod. / 1716",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Weidmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Breuners Tod. / 1716",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.867Z",
+      "agent": "e499h9zfmuf983p",
+      "source_id": "f7e6xlvlvf48z6w"
+    }
+  ]
+}

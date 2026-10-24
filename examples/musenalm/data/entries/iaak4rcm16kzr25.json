@@ -1,0 +1,82 @@
+{
+  "annotation": "Die vom Hess. Hofkalender abweichenden Umschlaggraphiken und der Titel als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1813 s. u. Hofkalender, Großherzoglich Hessischer 1813",
+    "norm": "~",
+    "biblio": 409214,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4067,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1813 s. u. Hofkalender, Großherzoglich Hessischer 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1813. / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.363Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "vs60ue9gu88r3v0"
+  ],
+  "contents": [
+    "js4xaftphf48x4d",
+    "sjcocgpxavk69iy",
+    "huy04saz3bepcya"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.450Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.450Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "go5zd2nhmvqpx31"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "t2pkgri0e29tmb4"
+    }
+  ]
+}

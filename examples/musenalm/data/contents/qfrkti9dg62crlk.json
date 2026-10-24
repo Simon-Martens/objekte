@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 2 Teilen INr 88228, 88229; Obj 16, 17 /) Gedichte (Sammlung INr 88225, Obj 13) Anm. am Gedicht: Dieses und die folgenden Lieder des ausgezeichneten jungen Dichters sind entlehnt aus dem »deutschen Taschenbuch, Verlag des litt. Compt. in Zürich u. Winterthur /) s. Taschenbuch, Deutsches (G. Keller) 1845; 23577 ff",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Denker und Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Denker und Dichter",
+  "updated": "2013-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.183Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "mqb0c7qgtqa2sli"
+    }
+  ]
+}

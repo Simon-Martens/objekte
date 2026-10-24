@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Ein Engel an Gestalt und Geist und Milde / War Sie, die Mutter ganz im Ebenbilde,",
+  "language": [],
+  "musenalm_id": 94254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift / Marianens Freyinn von Exggelet, geborne von / Henikstein, geb. den 26. July 1807, gest. den 21. / März 1827. / (Auf dem Kirchhofe zu Döbling.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift / Marianens Freyinn von Exggelet, geborne von / Henikstein, geb. den 26. July 1807, gest. den 21. / März 1827. / (Auf dem Kirchhofe zu Döbling.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.375Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "afa8btwh7tbgtpa"
+    }
+  ]
+}

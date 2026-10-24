@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, G, 11 BB Kal darin 10 GG, ar: SS 1-263, ar1: SS 1-106, 37 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1810",
+    "norm": "~ K gibt 10 GG an",
+    "biblio": 404138,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 845,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Jahr 1810. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.876Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "l9atignqykef01z"
+  ],
+  "contents": [
+    "iubz0wukc17qlhh",
+    "29gr66ypodn1h55",
+    "hlx950303i9d6oy",
+    "boa5jd1q6a6lje3",
+    "1ueclbn7f1umsoz",
+    "f7ebf5f2d2hcppp",
+    "vhi5e8iyyzcssfh",
+    "a955n6w0fc0tqoz",
+    "vg3e850h0s6bisa",
+    "1i6timy89ax0gsq",
+    "4srzxwhklwn0ca8",
+    "nad54wqsjdh6x94",
+    "j6hhnyln4y1044g",
+    "czu0d4a58s22pyd",
+    "kn36d9zvw1mz6jf",
+    "qcu208xeo28aw5i",
+    "ny8qgu7smdmjg4y",
+    "1rh4yp1pktu0jx3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "lbb1xuk6v8hznz2"
+    }
+  ]
+}

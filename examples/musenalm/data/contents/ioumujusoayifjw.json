@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "An einem brennenden Sommerabend des Jahres 1815 kam der alte Pfarrer von San Pietro, einem kleinen Dörfchen, einige Meilen von Sevilla,",
+  "language": [],
+  "musenalm_id": 77506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kirche zum Glas Wasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kirche zum Glas Wasser",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.862Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "vx1l8ty3fbw3j0z"
+    }
+  ]
+}

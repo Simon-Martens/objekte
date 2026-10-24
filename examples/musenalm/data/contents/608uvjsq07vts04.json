@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No. 1. /) s. Textbezug INr 72775, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72767,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die glückliche Ehe / nicht nach der Mode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. et d. C. F. Stoelzel sc. Dresd. 1802",
+  "scans": [
+    "alm_2657_72767_h0b7rbux95.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die glückliche Ehe / nicht nach der Mode",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.709Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "gu9j8kbpka2fq7h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.709Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "s1njfsiniluo7az"
+    }
+  ]
+}

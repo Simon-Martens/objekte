@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Du, willkommne Philomele, / Flötest uns den Tag herab,",
+  "language": [],
+  "musenalm_id": 4396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechselgesang. / Der Frau geheimen Räthinn von / Arnstedt gesungen von Karoline / und Julie von Arnstedt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wechselgesang. / Der Frau geheimen Räthinn von / Arnstedt gesungen von Karoline / und Julie von Arnstedt",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.179Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "7i2stmqpy512s28"
+    }
+  ]
+}

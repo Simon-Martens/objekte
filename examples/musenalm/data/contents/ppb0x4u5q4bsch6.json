@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten und einer Sammlung mit 11 Gedichten INr 74951-74964, Obj 6-20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Dichtungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Dichtungen",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.163Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "wsju3i8vuu7soqj"
+    }
+  ]
+}

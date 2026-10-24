@@ -1,0 +1,56 @@
+{
+  "annotation": "AUS DER GALATEA (Sammlung INr 71326, Obj 113) /) CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Weg mit dem Feu'r, dem Pfeil, dem Frost, der Schlinge / Amors, der brennt, trifft, kältet und verstricket;",
+  "language": [],
+  "musenalm_id": 71327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / GALATHEA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cervantes; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / GALATHEA",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.559Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "nd5i5cddvznhsmt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.559Z",
+      "agent": "weyfjsfook5ewzx",
+      "source_id": "tr1uzv08evmxbg9"
+    }
+  ]
+}

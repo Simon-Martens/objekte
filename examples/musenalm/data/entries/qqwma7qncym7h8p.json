@@ -1,0 +1,67 @@
+{
+  "annotation": "3 Jgg 1843-1846",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Volksbote, Der 1844",
+    "norm": "",
+    "biblio": 110629,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3486,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hoffmann)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Volksbote, Der 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 168; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / Volksbote / für / das Jahr 1844. / Mit vielen colorirten und schwarzen Bildern. / Stuttgart. / Hoffmann'sche Verlags-Buchhandlung. / 1843",
+  "updated": "2026-06-11 10:18:54.508Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "r5em5qztqwpgh8f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.037Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.037Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "go5ncbqrurwrfa2"
+    }
+  ]
+}

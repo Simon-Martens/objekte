@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Selige Veränderung! / Denn dein Blick hat mich beglücket.",
+  "language": [],
+  "musenalm_id": 5071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Celsus an Emma",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Q.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Celsus an Emma",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.247Z",
+      "agent": "5zi0b6u2dct0970",
+      "source_id": "g81ssyriem3vtu5"
+    }
+  ]
+}

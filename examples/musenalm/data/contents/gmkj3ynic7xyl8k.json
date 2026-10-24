@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräche mit Bäumen (Sammlung INr 90599, Obj 195)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Fern im Garten steht ein Flieder, / Welcher Blüthen reichlich trägt,",
+  "language": [],
+  "musenalm_id": 90604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 200,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Flieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Flieder",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.221Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "3xshujigf753k77"
+    }
+  ]
+}

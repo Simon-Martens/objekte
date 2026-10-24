@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) s. Graphik (Portrait) INr 58297, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Charles Etienne Jordan wurde im Jahre 1700 zu Berlin gebohren. Seine Familie stammt aus dem Delphinat ab, und hatte ihr Vaterland zur Zeit der reiligiösen Verfolgungen verlassen.",
+  "language": [],
+  "musenalm_id": 58303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Brunn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.837Z",
+      "agent": "9atfjl81ec3ypoy",
+      "source_id": "kqj46toblxnyk3u"
+    }
+  ]
+}

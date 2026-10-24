@@ -1,0 +1,381 @@
+{
+  "annotation": "",
+  "biographical_data": "1801-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller u. Bibliothekar"
+      ],
+      "dateOfBirth": [
+        "1801-02-22"
+      ],
+      "dateOfDeath": [
+        "1849-08-23"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-15T08:11:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119396289/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118814664",
+          "label": "Stieglitz, Charlotte"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "119396289",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118814664",
+          "label": "Stieglitz, Charlotte"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119396289",
+      "oldAuthorityNumber": [
+        "(DE-588a)119396289",
+        "(DE-588c)4432493-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003019-2",
+          "label": "Bad Arolsen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4062501-1",
+          "label": "Venedig"
+        }
+      ],
+      "preferredName": "Stieglitz, Heinrich Wilhelm August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Wilhelm August"
+        ],
+        "surname": [
+          "Stieglitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "publication": [
+        "Paride Zajotti",
+        "Ein Besuch auf Montenegro",
+        "Gedichte",
+        "De M. Pacuvii Duloreste",
+        "Istrien und Dalmatien",
+        "Deutschland, Oesterreich, Italien",
+        "Dionysosfest",
+        "Gruß an Berlin",
+        "Stimmen der Zeit in Liedern",
+        "Erinnerungen an Rom und den Kirchenstaat im ersten Jahre seiner Verjüngung"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n92027764"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22950465"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q88395"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119396289/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Wilhelm_Stieglitz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061462664"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119396289"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1823_stieglitz"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119396289"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119396289.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119396289"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Stieglitz, Heinr. W. A.",
+        "Stieglitz, Heinrich W.",
+        "Stieglitz",
+        "Stieglitz, Heinr. W.A.",
+        "Stieglitz, Henricus",
+        "Stieglitz, Heinrich",
+        "Stieglitz, H.",
+        "Stiglic, Hajnrih",
+        "Stieglitz, Henricus Guilelmus Augustus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinr. W. A."
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Heinr. W.A."
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich W."
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Hajnrih"
+          ],
+          "surname": [
+            "Stiglic"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus Guilelmus Augustus"
+          ],
+          "surname": [
+            "Stieglitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Stieglitz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Wilhelm_Stieglitz",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Wilhelm_Stieglitz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:04:09Z",
+    "gnd_query_biographical_data": "1801-1849",
+    "gnd_query_name": "stieglitz, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2774,
+  "name": "Stieglitz, Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIII, 305",
+  "updated": "2026-06-11 13:29:25.213Z",
+  "uri": "https://d-nb.info/gnd/119396289",
+  "editor": ""
+}

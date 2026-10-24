@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ardinghello« von J. J. W. Heinse s. Textbezug INr 130548, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Dähling del. 1801 F. Jügel sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling del. 1801 F. Jügel sc.",
+  "scans": [
+    "alm_4339_131079_p2rryajk9o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.020Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "341osi12fjtvmky"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.020Z",
+      "agent": "flivu8hnh9tq1va",
+      "source_id": "gx8dsy8spdzbclk"
+    }
+  ]
+}

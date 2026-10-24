@@ -1,0 +1,47 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 81293, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81294,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fenster des Gefangenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H. Payne sc.",
+  "scans": [
+    "alm_1809_81294_hgijw3wkc8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fenster des Gefangenen",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.724Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "a6ljeu0m48y57w5"
+    }
+  ]
+}

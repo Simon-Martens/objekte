@@ -1,0 +1,827 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1801",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.408Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schweizischer evangelischer Theologe, Philosoph und Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1741-11-15"
+      ],
+      "dateOfDeath": [
+        "1801-01-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Friedrich Oelenhainz"
+          ],
+          "creditText": [
+            "http://www.phil.upenn.edu/~cubowman/fichte/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Kaspar%20Lavater.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Kaspar%20Lavater.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Kaspar%20Lavater.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-17T21:06:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118570293/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119157128",
+          "label": "Lavater, Diethelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116600101",
+          "label": "Geßner, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/132420945",
+          "label": "Lavater, Johann Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1089449208",
+          "label": "Geßner, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/101138082X",
+          "label": "Muralt, Anna Barbara von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11901341X",
+          "label": "Lavater, Familie : 1446-"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116772069",
+          "label": "Lavater, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120191024",
+          "label": "Lavater, Johann Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1043672370",
+          "label": "Lavater, Louisa"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118570293",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#5.5p",
+          "label": "Personen zu Psychologie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/132420945",
+          "label": "Lavater, Johann Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1043672370",
+          "label": "Lavater, Louisa"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1089449208",
+          "label": "Geßner, Anna"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/120191024",
+          "label": "Lavater, Johann Heinrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/119157128",
+          "label": "Lavater, Diethelm"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116772069",
+          "label": "Lavater, Anna"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118570293",
+      "oldAuthorityNumber": [
+        "(DE-588a)118570293",
+        "(DE-588c)4034786-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "preferredName": "Lavater, Johann Caspar",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Caspar"
+        ],
+        "surname": [
+          "Lavater"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Einsiedler vom Berg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jonathan"
+          ],
+          "surname": [
+            "Asahel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "An das Direktorium der französischen Republik",
+        "Ueber Lavatern",
+        "Antwort an den ... Moses Mendelssohn zu Berlin",
+        "Sammlung christlicher Gebether",
+        "Aussichten in die Ewigkeit",
+        "Freymüthige Briefe über das Deportationswesen",
+        "Bethtags-Predigt über 2. Könige, XXII,11",
+        "Antworten auf wichtige und würdige Fragen und Briefe weiser ...",
+        "Erweckung zur Buße",
+        "Betrachtungen über die wichtigsten Stellen der Evangelien"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119114023"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80046189"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27067242"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D10444.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q123918"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118570293/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118570293"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Kaspar_Lavater"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Caspar_Lavater"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Caspar_Lavater"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Kaspar_Lavater"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121251309"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118570293"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1776_lavater"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118570293"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118570293.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118570293.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118570293"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118570293"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Lavater, Joh. Caspar",
+        "Einsiedler vom Berg",
+        "Lavaterus",
+        "Lafater, Iogan K.",
+        "Lavaterus, Ioannes Casparus",
+        "Lavater, Hans C.",
+        "Lavater, J. K.",
+        "Lavater, Johann Kasper",
+        "Lavater, Hans Caspar",
+        "Lavater, Jean Gaspard",
+        "Lafater, Gaspard",
+        "Lavater, Gaspar",
+        "Lavater, Jean-Gaspard",
+        "Lavaterus, I. C.",
+        "Lavater, Jean Caspar",
+        "Lafater, Iogann Kaspar",
+        "Lavater-Schinz, Johann Caspar",
+        "Lawater, Johann Caspar",
+        "Lavater, Johann C.",
+        "Lavater, J. C.",
+        "Lafater",
+        "Lavater, Iohann K.",
+        "Natalion, a Sacra Rupe",
+        "Lavater, Johannes Caspar",
+        "Lavater, Johann Casper",
+        "Lavater, Johannes Kaspar",
+        "Lavater, Johann Kaspar",
+        "Nathalion, a Sacra Rvpe",
+        "Lavater, Gaspard",
+        "Lavater, Kaspar",
+        "Asahel, Jonathan",
+        "Lavater, John Caspar",
+        "Schinz, Johann Caspar Lavater-",
+        "Lavaterus, Johannes C.",
+        "Lavaterus, Joannes Casparus",
+        "Lavater, Jean G.",
+        "Lavater",
+        "Lavater, John C.",
+        "Lavater, Hans Kaspar",
+        "Lavater, Johann K.",
+        "Nathalion, a Sacra Rupe",
+        "Lavater, Caspar",
+        "Lavaterus, Johannes Casparus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Gaspard"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "John Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "personalName": [
+            "Einsiedler vom Berg"
+          ]
+        },
+        {
+          "personalName": [
+            "Lafater"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Caspar"
+          ],
+          "surname": [
+            "Lawater"
+          ]
+        },
+        {
+          "nameAddition": [
+            "a Sacra Rupe"
+          ],
+          "personalName": [
+            "Nathalion"
+          ]
+        },
+        {
+          "forename": [
+            "J. K."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Gaspard"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Caspar Lavater-"
+          ],
+          "surname": [
+            "Schinz"
+          ]
+        },
+        {
+          "forename": [
+            "John C."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Jean G."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "I. C."
+          ],
+          "surname": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Casper"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Iogan K."
+          ],
+          "surname": [
+            "Lafater"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann K."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan"
+          ],
+          "surname": [
+            "Asahel"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Kaspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kaspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "nameAddition": [
+            "a Sacra Rupe"
+          ],
+          "personalName": [
+            "Natalion"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Casparus"
+          ],
+          "surname": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Gaspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Hans C."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Casparus"
+          ],
+          "surname": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kasper"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Kaspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Kaspar"
+          ],
+          "surname": [
+            "Lafater"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Caspar"
+          ],
+          "surname": [
+            "Lavater-Schinz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes C."
+          ],
+          "surname": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "forename": [
+            "Kaspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Caspar"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Casparus"
+          ],
+          "surname": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Gaspard"
+          ],
+          "surname": [
+            "Lavater"
+          ]
+        },
+        {
+          "personalName": [
+            "Lavaterus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "a Sacra Rvpe"
+          ],
+          "personalName": [
+            "Nathalion"
+          ]
+        },
+        {
+          "forename": [
+            "Gaspard"
+          ],
+          "surname": [
+            "Lafater"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Caspar_Lavater",
+          "label": "https://de.wikipedia.org/wiki/Johann_Caspar_Lavater"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:04:51Z",
+    "gnd_query_biographical_data": "1741-1801",
+    "gnd_query_name": "lavater, johann kaspar"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1577,
+  "name": "Lavater, Johann Kaspar",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 242, 1118",
+  "updated": "2026-06-11 13:29:23.511Z",
+  "uri": "https://d-nb.info/gnd/118570293",
+  "editor": ""
+}

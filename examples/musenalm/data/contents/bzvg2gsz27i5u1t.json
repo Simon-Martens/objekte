@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Die kleine Betty kam aus der Schule nach Hause. Hu, sagte sie, schauernd vor Kälte, hier ist's fast so kalt, wie beim Lehrer.",
+  "language": [],
+  "musenalm_id": 86767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Kind mit dem Briefe. / Ein Wintermährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Kürnberger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Kind mit dem Briefe. / Ein Wintermährchen",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.268Z",
+      "agent": "jgwh2sp1f3gnsbe",
+      "source_id": "q0m3rb6x4hhkoc9"
+    }
+  ]
+}

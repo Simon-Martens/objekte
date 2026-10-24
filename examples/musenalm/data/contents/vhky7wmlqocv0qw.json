@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 3 /) kol. Illustration zu »IV. Naturgeschichte des Schneehuhns« INr 89325, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. G. Endner sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. G. Endner sc.",
+  "scans": [
+    "alm_1115_89326_haypyp1xeu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.087Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "oog1visrx4ivv4q"
+    }
+  ]
+}

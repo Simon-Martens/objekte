@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Blumen (Sammlung INr 84228, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Ahnd' ich den tiefern Sinn, der aus dem dunkelen Kelch / spricht,",
+  "language": [],
+  "musenalm_id": 84235,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viole",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viole",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.019Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "cl82aahs6ln6gj6"
+    }
+  ]
+}

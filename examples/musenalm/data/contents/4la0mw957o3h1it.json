@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus dem Schenkenbuch (Sammlung INr 100052, Obj 216)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "402",
+  "incipit_statement": "Und nirgends steht geschrieben, / Daß Gott der Herr den Wein, / Da er den Kloß geknetet, / Gegossen mitten drein.",
+  "language": [],
+  "musenalm_id": 100054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 218,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.997Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "2xbp1vb4c95k38p"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Ehe du noch lesen kannst, schreibe ich schon an dich, liebliches Kind.",
+  "language": [],
+  "musenalm_id": 28349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Briefe an Thekla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Briefe an Thekla",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.422Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "pz9golffkxy4lgj"
+    }
+  ]
+}

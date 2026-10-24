@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisische Vierzeilen (Sammlung INr 14835, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Kann Lächeln deinem Munde ferne seyn? / Ich kann dir keine Stunde ferne seyn.",
+  "language": [],
+  "musenalm_id": 14843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.745Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "mhfyd835mlwhq5c"
+    }
+  ]
+}

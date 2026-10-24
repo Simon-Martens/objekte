@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn die Reben blühen, dann durchzuckt es auch den ältesten, auch den wenigst begeisteten Wein. Er möchte hinaus in's Freie, um mitzublühen,-",
+  "language": [],
+  "musenalm_id": 91074,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn die Reben blühen, dann durchzuckt es auch den ältesten, auch den wenigst begeisteten Wein. Er möchte hinaus in's Freie, um mitzublühen,-…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. C.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.331Z",
+      "agent": "9zdfy29sj074b5x",
+      "source_id": "8l40pm4roy8fvmd"
+    }
+  ]
+}

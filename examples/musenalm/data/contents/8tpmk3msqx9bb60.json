@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60776, Obj 11 /) unter der Graphik Graphik: Druck v. J. Becker, vormals Altmayer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHLOSS BABELSBERG BEI POTSDAM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. C. Graeb. Gest v. Sagert",
+  "scans": [
+    "alm_885_60775_jbee2w02k4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHLOSS BABELSBERG BEI POTSDAM",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.000Z",
+      "agent": "kvb3cdehg6i8s0c",
+      "source_id": "4ldqwxrquffn257"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.000Z",
+      "agent": "7m6015m4p6c81a1",
+      "source_id": "d7n3yxnxtoxnprr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Zwei Herren machten einen Bund / Zum Heil und Glück der Welt,",
+  "language": [],
+  "musenalm_id": 11092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 170.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "114. / Tischlied / in fröhlicher Gesellschaft. / Nach der Melodie: Wer niemals einen Rausch etc / in der Oper: Das neue Sonntagskind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "114. / Tischlied / in fröhlicher Gesellschaft. / Nach der Melodie: Wer niemals einen Rausch etc / in der Oper: Das neue Sonntagskind",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.397Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "zvmtoqqrboykgsu"
+    }
+  ]
+}

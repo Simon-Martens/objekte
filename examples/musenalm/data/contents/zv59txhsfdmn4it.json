@@ -1,0 +1,56 @@
+{
+  "annotation": "Nummeriert III. /) Graphik im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104564,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Ekhof als Lord Heckingbom / im Spleen: / in der Tiefe sein Bedienter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. G. A. Liebe sc.",
+  "scans": [
+    "alm_3249_104564_o0ym488w8c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herr Ekhof als Lord Heckingbom / im Spleen: / in der Tiefe sein Bedienter",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.984Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "9va7oxnhqxu7jhj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.984Z",
+      "agent": "v0k80momy67j3zt",
+      "source_id": "x86lzgblbz6y5kj"
+    }
+  ]
+}

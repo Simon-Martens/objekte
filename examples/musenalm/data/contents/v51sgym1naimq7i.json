@@ -1,0 +1,47 @@
+{
+  "annotation": "mit kleiner Graphik unter dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Leise sprach der Gott der Liebe / Zu der Göttinn seines Herzens,",
+  "language": [],
+  "musenalm_id": 4399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor und Psyche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [
+    "alm_94_4399_ha22uvlr2t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor und Psyche",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "lw3jbe63suihewv"
+    }
+  ]
+}

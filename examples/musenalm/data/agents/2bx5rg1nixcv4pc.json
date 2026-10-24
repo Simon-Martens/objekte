@@ -1,0 +1,710 @@
+{
+  "annotation": "",
+  "biographical_data": "1821-1877",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.431Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1821-01-14"
+      ],
+      "dateOfDeath": [
+        "1877-02-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://gutenberg.spiegel.de/autoren/bilder/mosenthl.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Salomon%20Hermann%20Mosenthal.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Salomon%20Hermann%20Mosenthal.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Salomon%20Hermann%20Mosenthal.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187238138",
+        "https://d-nb.info/gnd/157839915",
+        "https://d-nb.info/gnd/18629641X",
+        "https://d-nb.info/gnd/157320561",
+        "https://d-nb.info/gnd/131211390"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-08T08:14:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/101363184/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XY",
+          "label": "Juden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "101363184",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/101363184",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)157839915",
+        "(DE-101c)310157021",
+        "(DE-588a)18629641X",
+        "(DE-588a)187238138",
+        "(DE-588)131211390",
+        "(DE-588a)131211390",
+        "(DE-588)157320561",
+        "(DE-588)18629641X",
+        "(DE-588a)134467027",
+        "(DE-588a)101363184",
+        "(DE-588)187238138",
+        "(DE-588a)157320561",
+        "(DE-588)157839915",
+        "(DE-588c)4499009-1"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Mosenthal, Salomon Hermann von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Salomon Hermann"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Mosenthal"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11725634X",
+          "label": "Weilen, Joseph von"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Lechner"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82208536"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76441946"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2214998"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101363184/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131211390"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157320561"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157839915"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18629641X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187238138"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/101363184"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Salomon_Hermann_Mosenthal"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Salomon_Hermann_Mosenthal"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Salomon_Hermann_Mosenthal"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083955419"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101363184"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/101363184"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_M/Mosenthal_Salomon-Hermann_1821_1877.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd101363184.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd101363184.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101363184"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/1F0FD0745CD1408191372A4F679E91A4"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Mosenthal, Hermann S.",
+        "Mosenthal, Samuel Hermann v.",
+        "Mosenthal, Salomon Hermann von, Ritter",
+        "Mosenthal, H. S.",
+        "Mosenthal, Hermann G.",
+        "Mosenthal, Hermann Salomon von",
+        "Mosenthal, H. S. v.",
+        "Mosenthal, Salomon von",
+        "Mosenthal, Solomon Hermann von",
+        "Mosenthal, S. H. von",
+        "Mosenthal, Hermann S. von",
+        "Mosenthal, Salomon Hermann, Ritter von",
+        "Mosenthal, S.",
+        "Mösenthal, Hermann Salomon",
+        "Mosenthal, Salomon H.",
+        "Mosenthal, Salomon H. von",
+        "Mosenthal, Hermann von",
+        "Mosenthal, Hermann Salomon",
+        "Mosenthal, S. H.",
+        "Mosenthal, Solomon H.",
+        "Mosenthal, H. S. von",
+        "Mosenthal, Salomon Hermann",
+        "Mosenthal, Hermann",
+        "Mosenthal, Heinrich",
+        "Lechner, Friedrich",
+        "Mösenthal, H. S.",
+        "Mösenthal, Hermann S."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Salomon H."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "S. H."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon Hermann"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon Hermann"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "H. S."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Lechner"
+          ]
+        },
+        {
+          "forename": [
+            "H. S."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann S."
+          ],
+          "surname": [
+            "Mösenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann S."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "H. S."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon Hermann"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Salomon"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "S. H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann G."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "H. S."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Hermann"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "H. S."
+          ],
+          "surname": [
+            "Mösenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Solomon H."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann S."
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Solomon Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mosenthal"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Salomon"
+          ],
+          "surname": [
+            "Mösenthal"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Salomon_Hermann_Mosenthal",
+          "label": "https://de.wikipedia.org/wiki/Salomon_Hermann_Mosenthal"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:19:03Z",
+    "gnd_query_biographical_data": "1821-1877",
+    "gnd_query_name": "mosenthal, salomon hermann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1864,
+  "name": "Mosenthal, Salomon Hermann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 342",
+  "updated": "2026-06-11 13:29:23.856Z",
+  "uri": "https://d-nb.info/gnd/101363184",
+  "editor": ""
+}

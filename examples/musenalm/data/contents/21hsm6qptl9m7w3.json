@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18615,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / für / die neuste Geschichte. / Dritter Jahrgang. / 1796.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Vogel scrip. & sc. Nürnbg.",
+  "scans": [
+    "alm_192_18615_h4nn5su8ii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / die neuste Geschichte. / Dritter Jahrgang. / 1796.",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.215Z",
+      "agent": "k5mzhsnsldwkcu7",
+      "source_id": "8zcffaayuobabhz"
+    }
+  ]
+}

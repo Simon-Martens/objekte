@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz /) Bildbeigabe zu »Der Liebeszauber. Zur Erklärung eines antiken Vasengemäldes« von C. A. Böttiger INr 1599, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "504",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helena von Paris bethört . / Millingen: Vases grecs pl. 72",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Stölzel; Skerl",
+  "scans": [
+    "alm_43_9286_qjdgk291bq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Helena von Paris bethört . / Millingen: Vases grecs pl. 72",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.338Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "vve96hgmniplk6q"
+    }
+  ]
+}

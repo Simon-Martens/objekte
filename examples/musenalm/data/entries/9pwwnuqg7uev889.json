@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freimaurer (Dresden) 1827",
+    "norm": "",
+    "biblio": 200465,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2803,
+  "parallel_title": "",
+  "place_statement": "Dresden (Gärtner)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Taschenbuch für Freimaurer (Dresden) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Br. K.",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freimaurer / auf / die Jahre 1826 und 1827 / vom / Br. K. / Manuscript für Brüder. / Dresden, / gedruckt bei Gottlob Gärtner",
+  "updated": "2026-06-11 10:18:54.710Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "uwmc5m5slbukp27"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.885Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.885Z",
+      "agent": "hj7ijwl96uc1ymv",
+      "source_id": "wyu1d4yse2o5ufz"
+    }
+  ]
+}

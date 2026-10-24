@@ -1,0 +1,107 @@
+{
+  "annotation": "S 88: Berlin, gedruckt bey Johann Friedrich Unger /) Hrsg: vermutl. Siwicke /) weiteres Ex. mit Umschlaggraphik wie Jg 1795",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 12 GG, Kr, SS 1-66 darin Tab, SS 66-83 SS G-Verz, 3 SS VrlgM, 141 SS, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1794",
+    "norm": "~",
+    "biblio": 404195,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 805,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Calender / zur / angenehmen und nüzlichen / Unterhaltung / auf das Jahr / 1794 / MIT GENEHMHALTUNG / d. Königl. Academ. d. Wisenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.768Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "mo9846h9hiitqs5"
+  ],
+  "contents": [
+    "4zc3i3pseuypcva",
+    "ljdxu0yrg7xiwam",
+    "q11nbmo873ktqf9",
+    "rsuxjfd40enxkl1",
+    "mco0q710yhrj4id",
+    "0du8mez50vcta8v",
+    "sfe3c2wlc723x19",
+    "ch46vyr12bcr43n",
+    "9zv2a0it8o62c73",
+    "6nu5uvkhqf8gb26",
+    "3ikjqazf9j7vo00",
+    "1bawgpachz9agw6",
+    "3ljon7eo20cz3cf",
+    "bkae7wslt5ujbkn",
+    "zs2iozdqxe1rczi",
+    "nmplve1nhxwa2oa",
+    "xxnuykpq2c6xfel",
+    "i46za9714i0bgjs",
+    "2xwwh6c3ww6lpjq",
+    "8fdk59tvqxqvgpt",
+    "s813y5tu10ov1to",
+    "lgub57g5fi956ij",
+    "turviunfizb3whp",
+    "yv7smk41rwctabc",
+    "ymb6u7o49432x8v",
+    "a0gpxyzih8d44u2",
+    "bcv2kkt3cemx3ma",
+    "kgmkklstvy00f0e",
+    "ceodjy130wb0frx",
+    "rpkeokag1y89eay",
+    "662td3qu5fb871a",
+    "bzk3ucovv068jd5",
+    "7z6sb6vjo8e8cw3",
+    "0di2hwlkgikjrji",
+    "xrd9i011rjoz7fa",
+    "gxymyy8xahi3opj",
+    "uw3y2vmov1fv5er",
+    "skkn5ume3yr7jy9",
+    "sfrn9twmp11onrp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "dvs9s99u2vwhew7"
+    }
+  ]
+}

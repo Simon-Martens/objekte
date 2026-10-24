@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Zauberspiegel« von A. F. E. Langbein INr 29497, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Der Zauberspiegel, von A. F. E. / Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+  "scans": [
+    "alm_381_29498_kus45q381t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Der Zauberspiegel, von A. F. E. / Langbein",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.401Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "snjw366lfix17p2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.401Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "w3naagq8notp08b"
+    }
+  ]
+}

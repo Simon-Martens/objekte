@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Muley Abdallah hatte Hunde / Was wird man da für Wunder sehn?",
+  "language": [],
+  "musenalm_id": 5174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die tapfern Hunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler der Ä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die tapfern Hunde",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.103Z",
+      "agent": "c3et8csns3az9ko",
+      "source_id": "e17x63h3za2lh30"
+    }
+  ]
+}

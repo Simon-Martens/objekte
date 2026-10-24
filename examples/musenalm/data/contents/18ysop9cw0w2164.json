@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Die verschwiegene Nachtigall« von Walther von der Vogelweide",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100653,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 316,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verschwiegene Nachtigall. / Musik von Ludwig Spohr. / Text von Walter von der Vogelweide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Spohr",
+  "scans": [
+    "alm_2305_100653_u6ulj4pn1r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die verschwiegene Nachtigall. / Musik von Ludwig Spohr. / Text von Walter von der Vogelweide",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.026Z",
+      "agent": "jrwrq41ysoptpri",
+      "source_id": "od89c4i9jiy9fwo"
+    }
+  ]
+}

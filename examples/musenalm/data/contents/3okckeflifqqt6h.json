@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Graphik im Kalendarium Juli /) s. Textbezug INr 81566, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81547,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So nährt das Thier den Bettelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HR. Grape sc.",
+  "scans": [
+    "alm_3834_81547_bgh93b35ki.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So nährt das Thier den Bettelmann",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "t2z8lq4qwm3oov7",
+      "source_id": "2wrx6iyeex0isxo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9zyzessx0m77ykq"
+    }
+  ]
+}

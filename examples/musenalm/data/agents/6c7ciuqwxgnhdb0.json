@@ -1,0 +1,473 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.479Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Lehre bei Hofkupferstecher Boetius; danach bei Casanova  u. Stölzel; später Lehrer und Inspektor an der Dresdener Kunstakademie"
+      ],
+      "dateOfBirth": [
+        "1760-07-07"
+      ],
+      "dateOfDeath": [
+        "1824-03-29"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1021051004"
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-23T17:23:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132610620/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "132610620",
+      "id": "https://d-nb.info/gnd/132610620",
+      "oldAuthorityNumber": [
+        "(DE-588)1021051004",
+        "(DE-588a)132610620",
+        "(DE-588a)1021051004"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Seyfert, Johann Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottlieb"
+        ],
+        "surname": [
+          "Seyfert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunstmaler",
+        "Pastellmaler"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14801855t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2005015034"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/773161763112422560004"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q52154366"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1021051004"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132610620/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066575430"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/132610620"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd132610620.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132610620"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/132610620"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Seyffert, Johann Gotthelf",
+        "Seifert, Johann Gotthelf",
+        "Seyffert, Johann Gotthold",
+        "Seiffert, Johann Gotthelf",
+        "Seyffert, Johann Gottfried",
+        "Seyfert, Johann Gotthold",
+        "Seiffert, Johann Gotthold",
+        "Seiffert, Johann G.",
+        "Seyfert, Johann Gottlob",
+        "Seiffert, I. G.",
+        "Seyfert, Johann G.",
+        "Seifert, Johann Gottlob",
+        "Seifert, Johann Gottlieb",
+        "Seyffert, Johann Gottlob",
+        "Seyfert, J. G.",
+        "Seyffert, J. G.",
+        "Seyfert, Johann Gottfried",
+        "Seiffert, Johann Gottfried",
+        "Seifert, Johann Gottfried",
+        "Seyfert, Johann Gotthelf",
+        "Seyffert, Johann Gottlieb",
+        "Seyffert, Johann G.",
+        "Seiffert, Johann Gottlieb",
+        "Seifert, Johann Gotthold",
+        "Seiffert, Johann Gottlob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Gotthold"
+          ],
+          "surname": [
+            "Seifert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthold"
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthelf"
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthelf"
+          ],
+          "surname": [
+            "Seifert"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Seifert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthelf"
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlieb"
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlieb"
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Seifert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthelf"
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthold"
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthold"
+          ],
+          "surname": [
+            "Seiffert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlieb"
+          ],
+          "surname": [
+            "Seifert"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:57:51Z",
+    "gnd_query_biographical_data": "1761-1824",
+    "gnd_query_name": "seyfert, johann gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2645,
+  "name": "Seyfert, Johann Gottlieb",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 552",
+  "updated": "2026-06-11 13:29:24.996Z",
+  "uri": "https://d-nb.info/gnd/132610620",
+  "editor": ""
+}

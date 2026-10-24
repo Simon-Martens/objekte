@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 103581, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Durch die Eisenbahn ist manch schöne Wirthschaft zu Grund gegangen, das muß wahr sein; wenn aber der schwarze Bär zu Moorhausen sich darauf ausredet, so lügt er wie ein Schalk.",
+  "language": [],
+  "musenalm_id": 103580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schenke zum Judas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schenke zum Judas",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.200Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "dn7iaa78fsamwmo"
+    }
+  ]
+}

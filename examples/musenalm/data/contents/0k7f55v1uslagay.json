@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Von der dunkeln Nacht umgeben, / Die für mich kein Sternchen hat,",
+  "language": [],
+  "musenalm_id": 41099,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Nachtreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Nachtreise",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.152Z",
+      "agent": "41u796off43ym0d",
+      "source_id": "ct339l3zv9adi2q"
+    }
+  ]
+}

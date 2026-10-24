@@ -1,0 +1,560 @@
+{
+  "annotation": "",
+  "biographical_data": "1756-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.435Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Romanschriftstellerin und Märchensammlerin; Ehefrau von Lorenz Wilhelm Holderieder (Kaufmann, Rittergutsbesitzer in Naumburg), dann von Johann Georg Naubert (Kaufmann in Naumburg und Leipzig)"
+      ],
+      "dateOfBirth": [
+        "1752-09-13"
+      ],
+      "dateOfDeath": [
+        "1819-01-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Daniel Caffé"
+          ],
+          "creditText": [
+            "fu-berlin.de"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Benedikte%20Naubert.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Benedikte%20Naubert.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Benedikte%20Naubert.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-21T09:20:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118586564/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Benedikte"
+          ],
+          "surname": [
+            "Holderieder"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Benedikte"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116555424",
+          "label": "Hebenstreit, Johann Ernst"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118586564",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#17.4p",
+          "label": "Personen zu Volkskunde, Völkerkunde"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116555424",
+          "label": "Hebenstreit, Johann Ernst"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118586564",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4041431-0",
+        "(DE-588a)118586564"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Naubert, Benedikte",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Benedikte"
+        ],
+        "surname": [
+          "Naubert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Brock"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Naubert, Benedikte: Brunilde",
+        "Naubert, Benedikte: Alme oder Egyptische Mährchen. - 1793 - 1797",
+        "Naubert, Benedikte: Edwy und Elgiva oder die Wunder des heiligen Dunstan",
+        "Naubert, Benedikte: Sitten und Launen der Grossen",
+        "Naubert, Benedikte: Pauline Frankini, oder Täuschungen d. Leidenschaft u. Freuden d. Liebe",
+        "Naubert, Benedikte: Heerfort und Klärchen",
+        "Naubert, Benedikte: Heerfort et Claire",
+        "Naubert, Benedikte: Ulrich Holzer, Bürgermeister in Wien",
+        "Naubert, Benedikte: Barbara Blomberg, vorgebliche Maitresse Kaiser Karls des Fünften",
+        "Naubert, Benedikte: Konradin von Schwaben. Oder Geschichte des unglücklichen Enkels Kaise*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/160191966"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q817035"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118586564/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118586564"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Benedikte_Naubert"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Benedikte_Naubert"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000107559956"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118586564"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118586564.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118586564.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118586564"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Naubert, C. B.",
+        "Naubert, Christiane Benedikte Eugenie",
+        "Holderieder, Benedicte",
+        "Hebenstreit, Christiane B.",
+        "Holderrieder, Christiane Benedikte Eugenie",
+        "Naubert, B.",
+        "Hebenstreit, Benedicte",
+        "Rebenstreit, Christiane Benedikte",
+        "Rebenstreit, Benedicte",
+        "Hebenstreit, Benedikte",
+        "Naubert, Christiane Benedicte",
+        "Naubert, Christiane B.",
+        "Naubert, Christiane Benedikte",
+        "Rebenstreit, Christiane Benedikte Eugenie",
+        "Holderieder, Benedikte",
+        "Rebenstreit, Christiane Benedicte Eugenie",
+        "Rebenstreit, Benedikte",
+        "Naubert, Christiane Benedicte Eugenie Hebenstreit",
+        "Naubert, Benedicte",
+        "Brock de",
+        "Hebenstreit, Christiana Benedicta",
+        "Hebenstreit, Christiane Benedikte Eugenie",
+        "Rebenstreit, Christiane B.",
+        "Naubert, Christiane Benedicte Eugenie",
+        "Naubert, Christiane Benedikte Eugenia",
+        "Holderrieder, Christiane Benedikte Eugenia",
+        "Naubert, Benedikte Christine",
+        "Naubert, Christiane Bened. Eug."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikte"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "C. B."
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedicte Eugenie"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenia"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedicte Eugenie"
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Benedicte"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenie"
+          ],
+          "surname": [
+            "Holderrieder"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikte"
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikte"
+          ],
+          "surname": [
+            "Holderieder"
+          ]
+        },
+        {
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Brock"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenie"
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Bened. Eug."
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane B."
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiana Benedicta"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Benedicte"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedicte"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane B."
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane B."
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Benedicte"
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenia"
+          ],
+          "surname": [
+            "Holderrieder"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedicte Eugenie Hebenstreit"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Benedicte"
+          ],
+          "surname": [
+            "Holderieder"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenie"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte"
+          ],
+          "surname": [
+            "Rebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Benedikte Eugenie"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        },
+        {
+          "forename": [
+            "Benedikte Christine"
+          ],
+          "surname": [
+            "Naubert"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:22:00Z",
+    "gnd_query_biographical_data": "1756-1819",
+    "gnd_query_name": "naubert, christiane benedicte"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1923,
+  "name": "Naubert, Christiane Benedicte",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 497",
+  "updated": "2026-06-11 13:29:23.924Z",
+  "uri": "https://d-nb.info/gnd/118586564",
+  "editor": ""
+}

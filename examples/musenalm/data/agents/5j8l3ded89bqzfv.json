@@ -1,0 +1,343 @@
+{
+  "annotation": "",
+  "biographical_data": "e. 1808",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.374Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1808-03-14"
+      ],
+      "dateOfDeath": [
+        "1884-08-18"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-18T18:04:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116927852/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Hölzl"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SK",
+          "label": "Slowakei"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116927852",
+      "id": "https://d-nb.info/gnd/116927852",
+      "oldAuthorityNumber": [
+        "(DE-588a)137683685",
+        "(DE-588a)103903542",
+        "(DE-588a)116927852"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Malaczka"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Fünfkirchen"
+      ],
+      "preferredName": "Hölzl, Franz Seraphin Thomas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz Seraphin Thomas"
+        ],
+        "surname": [
+          "Hölzl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "[Quartette, Vl 1 2 Va Vc op. 22]. - [1859]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30300078"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15445530"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116927852/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Seraphin_H%C3%B6lzl"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116927852"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116927852"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hölzl, Franz",
+        "Hölzl, F. Ser.",
+        "Hoelzl, Franz Seraphin Thomas",
+        "Hölzl, Franz Seraphicus",
+        "Hölzl, Ferenc Szeráf",
+        "Hölzl, František Seraf",
+        "Hoelzl, F. S.",
+        "Hölzl, František Serafín",
+        "Hölzl, Franz Seraph. Thomas",
+        "Hoelzl, Franz Severin",
+        "Hölzl, F. S.",
+        "Hölzl, Franz S.",
+        "Hölzl, Szeráf Ferenc",
+        "Hölzl, Franz Seraf",
+        "Hölzl, Franz Seraph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F. S."
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Szeráf Ferenc"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraph. Thomas"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Severin"
+          ],
+          "surname": [
+            "Hoelzl"
+          ]
+        },
+        {
+          "forename": [
+            "František Serafín"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "František Seraf"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraphicus"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Ferenc Szeráf"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraf"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "F. S."
+          ],
+          "surname": [
+            "Hoelzl"
+          ]
+        },
+        {
+          "forename": [
+            "F. Ser."
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz S."
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraphin Thomas"
+          ],
+          "surname": [
+            "Hoelzl"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraph"
+          ],
+          "surname": [
+            "Hölzl"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Seraphin_H%C3%B6lzl",
+          "label": "https://de.wikipedia.org/wiki/Franz_Seraphin_H%C3%B6lzl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:47:36Z",
+    "gnd_query_biographical_data": "e. 1808",
+    "gnd_query_name": "hölzl, franz seraphin thomas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1231,
+  "name": "Hölzl, Franz Seraphin Thomas",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 908",
+  "updated": "2026-06-11 13:29:22.972Z",
+  "uri": "https://d-nb.info/gnd/116927852",
+  "editor": ""
+}

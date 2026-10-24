@@ -1,0 +1,45 @@
+{
+  "annotation": "Hymnen (Sammlung INr 15312, Obj 99)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Apollo, wirst du diese Gluth noch lindern? / Ich selber sprang hinunter in die Tiefen,",
+  "language": [],
+  "musenalm_id": 15313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.659Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "9c33r8d6a067o9f"
+    }
+  ]
+}

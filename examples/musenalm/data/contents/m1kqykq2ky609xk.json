@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 93707, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Noch rauchten die Trümmer von Friedland und in gespannter Erwartung sah Europa dem Schicksale der kommenden Tage entgegen.",
+  "language": [],
+  "musenalm_id": 93787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siegmar. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidore Grönau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siegmar. / Erzählung",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.665Z",
+      "agent": "g0j6mv6qukm8k8t",
+      "source_id": "2yxyz1s19xo704g"
+    }
+  ]
+}

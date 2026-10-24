@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu: Bilder (Sammlung INr 27085, Obj 115) # s. Frauentaschenbuch 1819: Sammlung von 7 Beiträgen INr 26914-26920, Obj 163-169",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "In der Hoffnung, daß dich, werthester Leser, die Bilder, welche dir vorm Jahre durch Freundes Hand in diesem Büchlein mitgetheilt wurden, #",
+  "language": [],
+  "musenalm_id": 27084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Hoffnung, daß dich, werthester Leser, die Bilder, welche dir vorm Jahre durch Freundes Hand in diesem Büchlein mitgetheilt wurden, #…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.219Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "sh8361epzhedgak"
+    }
+  ]
+}

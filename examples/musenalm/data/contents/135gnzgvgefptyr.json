@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122023, Obj 177)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Wann seh’ ich dich wohl wieder, / Du süßes blaues Meer? / Wann trägst du auf und nieder / Mich wieder süßes Meer?",
+  "language": [],
+  "musenalm_id": 122024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ida von Düringsfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frage",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.621Z",
+      "agent": "aynjnikxgmzv0y5",
+      "source_id": "j0vu4hc8xz8q6yd"
+    }
+  ]
+}

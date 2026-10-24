@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Faßt mich nun wieder, ihr Wogen des Lebens, / Stürzt mich auf's neu' in den Strudel der Welt!",
+  "language": [],
+  "musenalm_id": 65925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem Lande, im Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie George",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem Lande, im Herbst",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.326Z",
+      "agent": "zb739ct7crr5tqg",
+      "source_id": "8eduq4bjob38ph3"
+    }
+  ]
+}

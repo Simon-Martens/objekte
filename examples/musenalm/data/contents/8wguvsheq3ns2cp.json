@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Felskapelle« von Joh. N. Vogl INr 106448, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106400,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE FELDKAPELLE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Metzler del. C. Kotterba sc.",
+  "scans": [
+    "alm_1790_106400_4ef1043rbp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE FELDKAPELLE",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.102Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "k2mvkdgdoufp1k6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.102Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "twnbijh5j8dqs5h"
+    }
+  ]
+}

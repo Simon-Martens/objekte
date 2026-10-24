@@ -1,0 +1,103 @@
+{
+  "annotation": "§ Graphik (Portrait Blücher) fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, 2 GG, SS I-CCIV Tab, SS CCV-CCVI, SS CCVII-CCVIII C, S 1 T, SS 3-174, SS 175-176 G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kronos 1817",
+    "norm": "~",
+    "biblio": 101340,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2211,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch); Wien (Gerold)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Kronos 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 74; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kronos / genealogisch-historisches / Taschenbuch / auf das Jahr / 1817. / Mit Beyträgen / von / Albers, R. von Bosse, H. W. Brandes, W. Drumann, / C. A. Fischer, H. A. von Halem, C. F. Jacobi und / Ungenannten. / Mit Kupfern. / Leipzig / bey Joh. Friedr. Gleditsch / Wien / bey Carl Gerold",
+  "updated": "2026-06-11 10:18:55.910Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "hch4kzv330j8nox"
+  ],
+  "contents": [
+    "yqgtec8tqod83q9",
+    "7r0gjay8ehu90ly",
+    "nfkbu1lwgug3zsy",
+    "hlch8vn43luas0s",
+    "hmdlerrbu4o1mr2",
+    "9olubiwp9wmtsv7",
+    "zbqrpn8t7qi001v",
+    "vi6gxafxldrz8ij",
+    "4res4zs0je8x57u",
+    "dg0xrolic0mf4gp",
+    "6etqrydxo7wtb04",
+    "ga8vnwz5tr0e2eu",
+    "bv3ziz01koz827o",
+    "zvnrqvpsy26sqep",
+    "n5kb7guu36cgjw7",
+    "50t59nglomazym4",
+    "m03ylycv34doyjx",
+    "comwcyfenb0qly2",
+    "hthytihrwfv4746",
+    "ttql8nea3b4nszm",
+    "4zggsfg9bqgxjgf",
+    "3lexfl1dydw0214",
+    "zlqdl0dacqdrfmi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.892Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.892Z",
+      "agent": "nurakxtx6easbnq",
+      "source_id": "cqlkzqlbru3h1oq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.904Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.904Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "p8vbt0xzzagmbck"
+    }
+  ]
+}

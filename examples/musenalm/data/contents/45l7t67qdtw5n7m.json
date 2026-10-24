@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Bei Tagesfrühe ganz allein / Maria sitzt im Kämmerlein;",
+  "language": [],
+  "musenalm_id": 13095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verkündigung. / Altdeutsches Kirchenbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verkündigung. / Altdeutsches Kirchenbild",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.211Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "2uhrpv9nui8rk9g"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122165, Obj 240)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Vor Zeiten lebt ein Admiral / Im fernen Schwedenland, / Der kehrte glücklich jedesmal / Zurück zum Heimathstrand.",
+  "language": [],
+  "musenalm_id": 122166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 241,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Admiral Wetterhut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Admiral Wetterhut",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.760Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "yi9kdq0rlfkjmuu"
+    }
+  ]
+}

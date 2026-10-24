@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Gegrüsst mir, Alster-Stadt, ob zwar im Schmerz, / Im tiefen Schmerz um deine furchtbar'n Flammen!",
+  "language": [],
+  "musenalm_id": 59664,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hamburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hamburg",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.832Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "bdbgejzloqxjlg0"
+    }
+  ]
+}

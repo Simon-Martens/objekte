@@ -1,0 +1,305 @@
+{
+  "annotation": "",
+  "biographical_data": "1735-1806",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.478Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt.-böhm. Gelehrter, Pädagoge, Philosoph u. Verleger"
+      ],
+      "dateOfBirth": [
+        "1735"
+      ],
+      "dateOfDeath": [
+        "1806"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "U. Raehmel (18th century) and Wilhelm Hecht (1843 - 1920) according to table of contents of the book"
+          ],
+          "creditText": [
+            "Die Österreichisch-ungarische Monarchie in Wort und Bild , Band \"Boehmen\", Seite 140. See also Kronprinzenwerk."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Heinrich%20Seibt%201896%20Raehmel%20Hecht.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Heinrich%20Seibt%201896%20Raehmel%20Hecht.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Heinrich%20Seibt%201896%20Raehmel%20Hecht.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-19T07:43:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/120530872/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "120530872",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/120530872",
+      "oldAuthorityNumber": [
+        "(DE-588c)4518292-9",
+        "(DE-588a)120530872"
+      ],
+      "preferredName": "Seibt, Carl Heinrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Heinrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Seibt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        }
+      ],
+      "publication": [
+        "Seibt, Carl H. von: Von dem Unterschiede des zierlichen, des Hof- und Curialstyls",
+        "Seibt, Carl H. von: Von dem Einflusse der Erziehung auf die Glückseligkeit des Staates",
+        "Seibt, Carl H. von: Akademische Vorübungen ... über die deutsche Schreibart",
+        "Seibt, Carl H. von: Klugheitslehre oder die Kunst aus dem Umgange mit Menschen die mögl*",
+        "Seibt, Carl H. von: Von dem Nutzen der Moral in der Beredtsamkeit",
+        "Seibt, Carl H. von: Katholisches Lehr- und Gebetbuch",
+        "Seibt, Carl H. von: Akademische Blumenlese",
+        "Seibt, Carl H. von: Lehr- und Gebetbuch für die Kath. Jugend"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb17016262w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2022150753"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22974481"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1731509"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/120530872/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Seibt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Heinrich_Seibt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055374086"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/120530872"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd120530872.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/120530872"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/120530872"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Seibt, Karl Heinrich",
+        "Seibt, Carl H. von",
+        "Seibt, Karl Heinrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seibt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seibt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich"
+          ],
+          "surname": [
+            "Seibt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Seibt",
+          "label": "https://de.wikipedia.org/wiki/Karl_Heinrich_Seibt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:56:33Z",
+    "gnd_query_biographical_data": "1735-1806",
+    "gnd_query_name": "seibt, karl heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2619,
+  "name": "Seibt, Karl Heinrich",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XXXIII, 612",
+  "updated": "2026-06-11 13:29:24.953Z",
+  "uri": "https://d-nb.info/gnd/120530872",
+  "editor": ""
+}

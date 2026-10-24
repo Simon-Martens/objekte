@@ -1,0 +1,45 @@
+{
+  "annotation": "Akkorde (Sammlung INr 89526, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Welch freudiges Gedränge / Mit lautem Jubelschall, / Welch festliches Gedränge / Zeigt heut sich überall!",
+  "language": [],
+  "musenalm_id": 89509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weihnachtsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Weihnachtsabend",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.150Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "jtid83ahwzlke80"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Tabellen für die Einnahme und Ausgabe (Sammlung INr 50288, Obj 20) # Bez. am ersten Blatt der Suite",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50292,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_7_50292_1ofks0k002.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Merz",
+  "updated": "2007-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.726Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "8226cssha9qrks9"
+    }
+  ]
+}

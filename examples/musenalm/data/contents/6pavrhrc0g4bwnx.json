@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Aurora zeiht die Schleier der Nacht von ihrem Heimathlande; das tyrrhenische Meer erglüht von ihren jungen Küssen.",
+  "language": [],
+  "musenalm_id": 43967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Dämonen der Vesper. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Dämonen der Vesper. / Novelle",
+  "updated": "2006-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.260Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "brgqhcq1g1d4y5b"
+    }
+  ]
+}

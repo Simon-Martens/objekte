@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1819 (franz. Ausgabe: Almanach pour l’anné 1819)",
+    "norm": "",
+    "biblio": 409276,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-04-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4306,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1819 (franz. Ausgabe: Almanach pour l’anné 1819)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / de / GOTHA / POUR L'ANNÉE / 1819. / Cinquante sixième année / GOTHA, / chez Justus Perthes",
+  "updated": "2026-06-11 10:18:55.793Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "zg3iiz63lhssncq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.122Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.122Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "dc6fk1b0wzyyjql"
+    }
+  ]
+}

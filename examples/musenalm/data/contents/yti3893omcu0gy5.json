@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 117916-117918, Obj 18-20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Balladen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Balladen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.546Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "x2qie7zoxxmohgs"
+    }
+  ]
+}

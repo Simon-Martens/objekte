@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage (INr 98783, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Professor der Mathematik in Wittenberg, mag immer als Wochenschriftsteller auch sein Plätzchen einnehmen.",
+  "language": [],
+  "musenalm_id": 98790,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joh. Jakob Ebert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Joh. Jakob Ebert",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.791Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "bz96ajx58vo2xsh"
+    }
+  ]
+}

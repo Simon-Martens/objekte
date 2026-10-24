@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Halt' am Glauben: Alles werde / Wieder, was es war zuvor!",
+  "language": [],
+  "musenalm_id": 19728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergeistigung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergeistigung",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.999Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "9qmgw6x1hk84gbu"
+    }
+  ]
+}

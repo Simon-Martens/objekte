@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 6. /) s. Textbezug INr 88166, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88177,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niederländ. Schule. / Paul Potter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Potter pinx. gez. von F. H. Müller C. Haldenwang sc.",
+  "scans": [
+    "alm_575_88177_mck37i7yrk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Niederländ. Schule. / Paul Potter",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "j12p4vv4qgvdxl0",
+      "source_id": "0w0fklzwh1gabv4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "eyjf7kx3uy92bkc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "7pbddcrp3v216ld",
+      "source_id": "q1w7sriaxhmtx82"
+    }
+  ]
+}

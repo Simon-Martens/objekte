@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "492",
+  "incipit_statement": "Lächeln uns der Ersten Blicke, / Sind die Zweiten auch zu schauen,",
+  "language": [],
+  "musenalm_id": 42462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "25. / Viersylbige Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "25. / Viersylbige Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.880Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "dykkt9w59s8z1ms"
+    }
+  ]
+}

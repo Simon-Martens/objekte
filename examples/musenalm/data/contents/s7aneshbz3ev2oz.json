@@ -1,0 +1,45 @@
+{
+  "annotation": "Philanthropisten-Wäldchen (Sammlung INr 34085, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "In einem Taschenbuche für Frauen dürfen wol ein paar oder mehrere Erziehregeln wenigstens unverheiratheten nicht mißfallen,",
+  "language": [],
+  "musenalm_id": 34090,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Kleinste Zusätze zur Levana",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Friedrich Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Kleinste Zusätze zur Levana",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.432Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "h00b52hn4i9cbqm"
+    }
+  ]
+}

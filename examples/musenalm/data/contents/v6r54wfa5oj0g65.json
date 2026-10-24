@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Ist's ein Stern, / Was dort fern / Tief am dunkeln Himmel flimmert?",
+  "language": [],
+  "musenalm_id": 62999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Russisches Lied. / Uebersetzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Russisches Lied. / Uebersetzung",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.338Z",
+      "agent": "tetas6nm69fwpjp",
+      "source_id": "kmnqouzcv90mb6g"
+    }
+  ]
+}

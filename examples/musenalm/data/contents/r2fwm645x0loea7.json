@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Auf wem der stolze Marmor raget? / Auf einem wohlgepriesnen Mann,",
+  "language": [],
+  "musenalm_id": 6786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GRABSCHRIFT",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GRABSCHRIFT",
+  "updated": "2000-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.349Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "4naf3nnjje9pt2t"
+    }
+  ]
+}

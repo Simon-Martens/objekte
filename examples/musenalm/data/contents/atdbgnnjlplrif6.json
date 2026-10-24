@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Erkennst du den Morgen im neblichten Flor? / Er hebt nicht den dunkelnden Schleier empor,",
+  "language": [],
+  "musenalm_id": 67787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trennungsmorgen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trennungsmorgen",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.133Z",
+      "agent": "zb739ct7crr5tqg",
+      "source_id": "7tl2twpdjhawefl"
+    }
+  ]
+}

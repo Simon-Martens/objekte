@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17288,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese kleine Sammlung wird keiner großen Vorrede bedürfen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Diese kleine Sammlung wird keiner großen Vorrede bedürfen.",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.548Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "4l2wqhqswt23ecp"
+    }
+  ]
+}

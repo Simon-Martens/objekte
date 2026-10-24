@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 68154, Obj 171)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Du fühlst die Wehmuth nicht, / Welche der Frühling bringet,",
+  "language": [],
+  "musenalm_id": 68158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.329Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "jyrfprqa8s1osc5"
+    }
+  ]
+}

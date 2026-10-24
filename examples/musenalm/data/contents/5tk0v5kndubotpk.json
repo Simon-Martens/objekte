@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Die Wahrheit mischt sich oft in Täuschun- / gen der Nacht:",
+  "language": [],
+  "musenalm_id": 17763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Egle. / Nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Egle. / Nach dem Französischen",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.763Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "wq7glp52n3z2i5x"
+    }
+  ]
+}

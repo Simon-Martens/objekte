@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 29 Distichen INr 80215-80243, Obj 34-62",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80214,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Distichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Distichen",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.624Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "8gpsso6qhyyu3yt"
+    }
+  ]
+}

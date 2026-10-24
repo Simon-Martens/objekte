@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Ich war ein Sonderling, / Du sahst mich freundlich an; / Ich war ein düst'rer Geist; / Dir hatt' ich's angethan;",
+  "language": [],
+  "musenalm_id": 120944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abrechnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freih. v. Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abrechnung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.768Z",
+      "agent": "9hjrqh1l94hv21m",
+      "source_id": "mpr4lpgzpfz2dxz"
+    }
+  ]
+}

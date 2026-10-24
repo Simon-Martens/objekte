@@ -1,0 +1,67 @@
+{
+  "annotation": "L/R 134 gibt Jgg 1790 ff an. Erscheinungsweise unklar /) vorh.: Jgg 1792, 1795, 1798, 1799, 1800, 1802, 1804; Regensburg (Montag und Weiß), Taschenbuch Botanisches Neues 1807, Nürnberg und Altdorf ( Monath und Kußler); Hrsg: D. H. Hoppe /) KVK, StaBi Berlin: 1790-1849",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Botanisches 1792",
+    "norm": "",
+    "biblio": 405854,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3627,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Montag und Weiß)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Taschenbuch, Botanisches 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136; nicht bei L/R",
+  "responsibility_statement": "David Heinrich Hoppe",
+  "subtitle_statement": "",
+  "title_statement": "Botanisches / Taschenbuch / für die / Anfänger dieser Wissenschaft und / der Apothekerkunst / auf das Jahr 1792. / Herausgegeben / von / David Heinrich Hoppe, / der Hallischen naturforschenden und der Regensbur- / gischen botanischen Gesellschaft ordentlichem / Mitgliede. / Regensburg, 1792. / In der Montag- und Weißischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.570Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "vwhw6nmmks6to96"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.107Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.107Z",
+      "agent": "cd11rvd1kfhc02z",
+      "source_id": "74oiqs04yto8kqw"
+    }
+  ]
+}

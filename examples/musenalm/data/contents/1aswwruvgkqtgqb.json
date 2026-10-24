@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7083,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1791 / bey Joh. Christian Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. Dornheim sc.",
+  "scans": [
+    "alm_143_7083_enlj65ig67.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1791 / bey Joh. Christian Dieterich",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "praird5i9f22ccy",
+      "source_id": "8ycx0r4zpfy8haj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ohljmyh8k5jwzql"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Die Alten, hatten, und die Neuern haben sehr Recht, die Zeit als einen finstern Greis zu mahlen.",
+  "language": [],
+  "musenalm_id": 33843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschwerden einer Dame über die Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschwerden einer Dame über die Zeit",
+  "updated": "2003-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.693Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "xdn0l5izj7j8ce1"
+    }
+  ]
+}

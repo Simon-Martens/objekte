@@ -1,0 +1,89 @@
+{
+  "annotation": "# bei K 119: Jg 1814",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, SS1–158 darin T, Kal, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die Freunde des hiesigen Hoftheaters 1815",
+    "norm": "~",
+    "biblio": 200645,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2753,
+  "parallel_title": "",
+  "place_statement": "Darmstadt",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch für die Freunde des hiesigen Hoftheaters 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 119 #; nicht bei L/R",
+  "responsibility_statement": "A. Moll",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die Freunde / des hiesigen / Hoftheaters. / Herausgegeben / von / A.  Moll. / Darmstadt 1815",
+  "updated": "2026-06-11 10:18:55.807Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "tgdchn0xmybxzuj"
+  ],
+  "contents": [
+    "dbaww87d25dxauw",
+    "ka8ruv9vhsb3fzg",
+    "wwi86nup9d6kzln",
+    "dkf1ae00dfxae9r",
+    "nmis5q612do5dnx",
+    "nb0i3xskwom7dls",
+    "vbge1nbweld8spr",
+    "gbfbdihfv4fs5wn",
+    "s3ndlz4kvfjt1q4",
+    "8b4spbv1lcap8ot",
+    "7h383ocovynisq4",
+    "zvjx7u5lxn0ai9a",
+    "uo3bjb7ivqd1895",
+    "idsska1xdhqze04",
+    "mea389nrtf9eew1",
+    "77u2tjigaa8hvdj",
+    "40xxoiigr7enaku",
+    "zuin4ylu98im9r5",
+    "dr6100x0lzne7ix",
+    "lvd5zjm26zzdu0q",
+    "9qbkho5v9het0zn",
+    "bwwoplw1y2bw91w",
+    "gd81mgy6fj1xlux",
+    "rmyfzodoyssxgzf",
+    "g6s4w07azw1jexn",
+    "1qyw5vlr4tk12xh",
+    "bbtmnea90f88ezq",
+    "2cmnd6cpnkjiodk",
+    "m9tdhnkwgzstfki",
+    "y7sn70uccjezr7z",
+    "p9t2lt23ccvm7le",
+    "4pyznv387tvdrby",
+    "ewt0b05otpef51e"
+  ],
+  "agents": []
+}

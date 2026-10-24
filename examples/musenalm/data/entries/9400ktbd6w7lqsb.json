@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Botanisches 1802",
+    "norm": "",
+    "biblio": 407107,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3759,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Montag und Weiß)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Taschenbuch, Botanisches 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 134",
+  "responsibility_statement": "David Heinrich Hoppe",
+  "subtitle_statement": "",
+  "title_statement": "Botanisches / Taschenbuch / für die / Anfänger dieser Wissenschaft und / der Apothekerkunst / auf das Jahr 1802. / Herausgegeben / von / Dr. David Heinrich Hoppe, / der Hallischen und Zürichischen naturforschenden, der / Regensburgischen botanischen, / der Göttingischen  physi- / kalischen und phytographischen, und der Jenai- / schen / mineralogischen Gesellschaft Mitgliede. / Regensburg,  / in der Montag- und Weißischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.565Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "58d8y2d8cl0hcdw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "cd11rvd1kfhc02z",
+      "source_id": "os4lpelheh0aghv"
+    }
+  ]
+}

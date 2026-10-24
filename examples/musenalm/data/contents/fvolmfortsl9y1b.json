@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Illustration zu <em>Der Rattenfänger</em> von Hameln INr 140789</div>",
+  "content_type": [],
+  "created": "2026-10-22 09:22:57.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rattenfänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rattenfänger",
+  "updated": "2026-10-22 09:36:28.602Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22 09:35:37.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22 09:36:28.604Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "h2a16mt3swyxjh6"
+    }
+  ]
+}

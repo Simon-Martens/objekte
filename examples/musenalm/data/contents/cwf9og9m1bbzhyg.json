@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Erste Lieferung. Irving's Erzählungen eines Reisenden. - Skizzenbuch. - Eingemachtes. - Cooper's Spion. - Der Lootse. - Der Letzte Mohikaner (Sammlung INr 43787, Obj 5) s. Graphik INr 43790, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Der Abschnitt, aus welchem unser Künstler seine Darstellung wählte, ist »Das Weib« überschrieben. Ein reicher Stoff, hör' ich einige Hagestolzen ausrufen.",
+  "language": [],
+  "musenalm_id": 43791,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Washington Irving's Skizzenbuch. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Washington Irving's Skizzenbuch. / 1.",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.406Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "rom06l8s5we0fy7"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Bamberger 1803",
+    "norm": "",
+    "biblio": 408593,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4146,
+  "parallel_title": "",
+  "place_statement": "Bamberg (Reindl)",
+  "places": [
+    "8lhjg1fp51faz5c"
+  ],
+  "preferred_title": "Hofkalender, Bamberger 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Bamberger / Hofkalender / für das Jahr 1803. / Mit Kupfern. / Bamberg / bey Johann Baptist Reindl, Hofbuchdrucker",
+  "updated": "2026-06-11 10:18:55.656Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "ab4hl6i948xtoe4"
+  ],
+  "contents": [
+    "dd35n6q4ow4xiui"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "el1wpc1w4lyqid8",
+      "source_id": "d60jbv0l4lx036g"
+    }
+  ]
+}

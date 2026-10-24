@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Albina, TB für Wanderer in der sächsischen Schweiz 1821",
+    "norm": "",
+    "biblio": 409776,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1185,
+  "parallel_title": "",
+  "place_statement": "Pirna",
+  "places": [
+    "0t6lug4nf3yorcq"
+  ],
+  "preferred_title": "Albina, TB für Wanderer in der sächsischen Schweiz 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; L/R 129",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Albina. / Ein / Taschenbuch / für / Wanderer in der sächsischen Schweiz, / enthaltend: / eine Beschreibung des meißner Hochlandes / und der merkwürdigsten umliegenden / Oerter. / Zweite verbesserte und vermehrte Auflage, / mit 16 Kupfern, 8 radirten Ansichten, gezeichnet und / gestochen von Professor C. A. Richter in Dresden, / und einer Reisecharte / Pirna und Dresden 1821 / bei Conrad Diller und in Commission der / Arnoldischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.845Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "aj134ea1c5bly6m"
+  ],
+  "contents": [],
+  "agents": []
+}

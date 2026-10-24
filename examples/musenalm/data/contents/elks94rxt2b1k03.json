@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Schön blühte meines Gartens Zier, / Die Rose, die der Mai gebar;",
+  "language": [],
+  "musenalm_id": 62023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen und die Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg geb. Wehrs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen und die Rose",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.796Z",
+      "agent": "u7poegszzbmufqb",
+      "source_id": "1e4zrvy7ut2pvua"
+    }
+  ]
+}

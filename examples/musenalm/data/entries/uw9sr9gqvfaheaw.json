@@ -1,0 +1,78 @@
+{
+  "annotation": "Reprint: www.facsimilepublisher.com /) Fortsetzung durch Pomona 18120 s. Alm-4165 /) s.a. Almanach für die israelitische Jugend 1819-1821 (Goed VIII. 99, 209)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Na-ami 1818",
+    "norm": "",
+    "biblio": 408872,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-12-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4165,
+  "parallel_title": "",
+  "place_statement": "Berlin (Heinemann)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Na-ami 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 89; K 96; nicht bei L/R; Goed VIII. 99, 206 a; Goed VIII. 199, 206 b",
+  "responsibility_statement": "J. Heinemann",
+  "subtitle_statement": "",
+  "title_statement": "NA-AMI / Taschen-Buch / zur / Belehrung / und / Unterhaltung / der Jugend / Herausgegeben / von / J. Heinemann / Berlin / in der Heinemannschen Erziehungsanstalt",
+  "updated": "2026-06-11 10:18:55.967Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "jqebh2e3wn8devk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.337Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.337Z",
+      "agent": "o4bt9vb9ouxxu2o",
+      "source_id": "63y6l08rc4d7b9u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.981Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.981Z",
+      "agent": "lvpo7q56ginv4nb",
+      "source_id": "wh8c9is7rlhp63j"
+    }
+  ]
+}

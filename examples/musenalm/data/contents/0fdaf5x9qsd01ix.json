@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Die hohe Liebe« von W. G. Becker in: Taschenbuch zum geselligenVergnügen 1806 INr 12562",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12912,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allegorische Anspielung auf den tragischen Aus- / gang der Erzählung von W. G. Becker: Die hohe Liebe. / Ebendaselbst S. 256",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl sc.",
+  "scans": [
+    "alm_214_12912_w49rq88ugk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Allegorische Anspielung auf den tragischen Aus- / gang der Erzählung von W. G. Becker: Die hohe Liebe. / Ebendaselbst S. 256",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.603Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "vfq4adu2rgaqlnn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.603Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "xm0ei7umysyeo0b"
+    }
+  ]
+}

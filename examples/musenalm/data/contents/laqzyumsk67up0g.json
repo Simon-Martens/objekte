@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 99. /) Vertonung des Gedichts »Der fröhliche Bauer« von Brückner INr 16972, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der fröhliche Bauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Witthauer",
+  "scans": [
+    "alm_118_16971_2zywe0p6ee.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der fröhliche Bauer",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.826Z",
+      "agent": "4vkz44wpp8c90ec",
+      "source_id": "9x4r6vief3xnnin"
+    }
+  ]
+}

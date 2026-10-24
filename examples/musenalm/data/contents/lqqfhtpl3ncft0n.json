@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Wenn der Mann sagt: ich bitte, und das Weib: ich will! dann verfehlen gewiß beide ihren Zweck.",
+  "language": [],
+  "musenalm_id": 10165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn der Mann sagt: ich bitte, und das Weib: ich will! dann verfehlen gewiß beide ihren Zweck.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. v. Wallenrodt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.571Z",
+      "agent": "hcd8t0hxbx8bldt",
+      "source_id": "y49fqdpqyjgux5t"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "annotation": "§1§ Karte fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, §1§ Kr, 12 BB Kal darin 12 GG, 146 SS, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1790",
+    "norm": "~",
+    "biblio": 404191,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 801,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Gemein-Jahr / 1790, / mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie der Wissenschaften / zu Berlin herausgegeben",
+  "updated": "2026-06-11 10:18:55.767Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "iik3sux4ynvarvo"
+  ],
+  "contents": [
+    "0zwzj0pi9lofqyd",
+    "hlmbw3quge1ci85",
+    "5svmu75fnoyglw1",
+    "wp7pqvxv8x37c1q",
+    "t4k2wp9ofo0wcx9",
+    "n91798ccx9z2uyp",
+    "2z5a6m9z6c7e3p7",
+    "y8z4rtkli92fmam",
+    "gavbygtj9jsczoe",
+    "9iw7d12ipodeoq1",
+    "bweihbmv3un8vyy",
+    "dmrru1utjujdny0",
+    "fs52cenjw23pw7c",
+    "dixgmja76e50ujd",
+    "18xrojczf563efc",
+    "de8eqihrxhymhoq",
+    "3o10owi1qrza5qd",
+    "wl8xqb23cvedtse",
+    "fqf71s5dxmy5wrv",
+    "yxdtgwllh00rozt",
+    "armjeizj3e0xcex",
+    "fp0suzqciga7ml6",
+    "uhrbx84i2rxh98c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "oesgr07z4m4hzqn"
+    }
+  ]
+}

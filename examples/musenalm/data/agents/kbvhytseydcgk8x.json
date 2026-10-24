@@ -1,0 +1,442 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1874",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.521Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Staatsbeamter, Gelegenheitsdichter"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1802-08-07"
+      ],
+      "dateOfDeath": [
+        "1870-09-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Roller."
+          ],
+          "creditText": [
+            "Illustrirte Zeitung, Bd. 09 (1847), S. 312."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Zu%20Rhein%201847%20%28IZ%2009-312%20Roller%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Zu%20Rhein%201847%20%28IZ%2009-312%20Roller%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20von%20Zu%20Rhein%201847%20%28IZ%2009-312%20Roller%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-03-05T09:55:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115599649/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117026719",
+          "label": "Rhein, Maximilian Joseph von zu"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115599649",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117026719",
+          "label": "Rhein, Maximilian Joseph von zu"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115599649",
+      "oldAuthorityNumber": [
+        "(DE-588c)4501820-0",
+        "(DE-588a)115599649"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4067037-5",
+          "label": "Würzburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4067037-5",
+          "label": "Würzburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4067037-5",
+          "label": "Würzburg"
+        }
+      ],
+      "preferredName": "Rhein, Friedrich August von zu-",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich August"
+        ],
+        "prefix": [
+          "von zu-"
+        ],
+        "surname": [
+          "Rhein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177413-9",
+          "label": "Regierungspräsident"
+        }
+      ],
+      "publication": [
+        "Gedicht zur Feier der 23jährigen Stiftung des polytechnisch*",
+        "Prolog bei Gelegenheit der Wiedereröffnung der Schaubühne z*",
+        "Prolog zur Feier des Allerhöchsten Namensfestes Seiner Maje*",
+        "Beiträge zur Gesetzgebung und praktischen Jurisprudenz. - 1826 - 1831",
+        "Lyrische Kränze",
+        "Über Frohnen den deren Ablösung nach Bestimmungen der baier*",
+        "Cantate bey der erfreulichsten Anwesenheit Allerhöchst Ihre*",
+        "Eröffnungschor des Concertes des kön. musikalischen Institu*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10579589"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1459152"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115599649/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Zu_Rhein"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115599649"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115599649"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115599649"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Zu-Rhein, Friedrich A. von",
+        "Rhein, Friedrich Carl von zu",
+        "Rhein, Friedrich August von und zu",
+        "Rhein, Friedrich von und zu",
+        "ZuRhein, Friedrich August von",
+        "ZuRhein, Friedrich von",
+        "ZuRhein, Friedrich Carl von",
+        "Zurhein, Friedrich August von",
+        "Zu Rhein, Friedrich von",
+        "Zu Rhein, Friedrich Carl von",
+        "Rhein, Friedrich von zu-",
+        "Zu Rhein, Friedrich August von",
+        "Zu-Rhein, Friedrich August von",
+        "Zu Rhein, Baron",
+        "Zu-Rhein von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von zu-"
+          ],
+          "surname": [
+            "Rhein"
+          ]
+        },
+        {
+          "personalName": [
+            "Zu-Rhein"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zu Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "ZuRhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zu-Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zurhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zu Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl"
+          ],
+          "prefix": [
+            "von zu"
+          ],
+          "surname": [
+            "Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "ZuRhein"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Baron"
+          ],
+          "personalName": [
+            "Zu Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zu-Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "ZuRhein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zu Rhein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Zu_Rhein",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_Zu_Rhein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:27:27Z",
+    "gnd_query_biographical_data": "1802-1874",
+    "gnd_query_name": "zu rhein, friedrich august von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3245,
+  "name": "Zu Rhein, Friedrich August von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 2296",
+  "updated": "2026-06-11 13:29:25.914Z",
+  "uri": "https://d-nb.info/gnd/115599649",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragmente aus meiner Schreibtafel. Auf einer Sommerreise 1796 gesammelt. (Sammlung INr 51199, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Wer von Urseren in's Bündnerland will, und ohne Wegweiser (wenn er alles Bemühens und Bezahlens ungeachtet, wie ich damals wegen der Heuerndte, keinen erhalten kann) dahin die Reise machen will,",
+  "language": [],
+  "musenalm_id": 51204,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber den Oberalp am Crispalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber den Oberalp am Crispalt",
+  "updated": "2007-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.592Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "2b4l4q18kgcph2c"
+    }
+  ]
+}

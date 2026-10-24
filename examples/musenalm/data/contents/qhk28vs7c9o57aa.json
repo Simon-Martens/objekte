@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 61754, Obj 117",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Froh, wie ein Fischlein munter sich schwinget, / Flink, wie ein Vöglein hüpfet im Strauch,",
+  "language": [],
+  "musenalm_id": 19554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebchen zu Hause. / Mit Composition von Minna Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebchen zu Hause. / Mit Composition von Minna Schütze",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.832Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "bk8lt0ov47ve8q0"
+    }
+  ]
+}

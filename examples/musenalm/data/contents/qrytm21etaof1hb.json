@@ -1,0 +1,45 @@
+{
+  "annotation": "# Johann Joachim Winckelmann: »Abhandlung von der Fähigkeit der Empfindung des Schönen in der Kunst und dem Unterrichte in derselben« Dresden 1763: Beigabe zu »Begriffe vom Unterschied des Schönen, Guten, Vollkommenen, Wahren, Grossen und Angenehmen.« von Schüz; (Sammlung INr 72740, Obj 1013) Kurze Aufsätze von verschiedenen in die schönen Künste einschlagenden Materien (Sammlung INr 72738, Obj 111)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Die Fähigkeit des Schönen hat der Himmel allen vernünftigen Geschöpfen, aber in sehr verschiedenem Grade gegeben. #",
+  "language": [],
+  "musenalm_id": 72747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fähigkeit des Schönen hat der Himmel allen vernünftigen Geschöpfen, aber in sehr verschiedenem Grade gegeben. #…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkelmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.498Z",
+      "agent": "g5vjnr93hqyo2tp",
+      "source_id": "fw6lsc7rtp3d6h0"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Die Produkte des menschlichen Erfindungsgeistes aus dem vorigen Jahre, weches bekanntlich allen literarischen, technischen und Kunstunternehmungen seine Unterstützung versagte",
+  "language": [],
+  "musenalm_id": 67020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Neue Erfindungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Neue Erfindungen",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.287Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "fd8drmfjjw66bdw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.287Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "l344ocvm7yzybao"
+    }
+  ]
+}

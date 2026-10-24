@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April /)  # Bez. und Titel s. Textbezug INr 101830, Obj 110",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101733,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod der Lukretia #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pozzo, Heß",
+  "scans": [
+    "alm_1017_101733_69rmmttk0i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod der Lukretia #",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.132Z",
+      "agent": "mgojj6av5dkdk13",
+      "source_id": "kawtq8vya4rarxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.132Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "w2tcguq49bmfjud"
+    }
+  ]
+}

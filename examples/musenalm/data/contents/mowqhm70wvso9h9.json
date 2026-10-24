@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Amor, hold von Scherzen umflogen, / Die er selber sich erzogen,",
+  "language": [],
+  "musenalm_id": 17478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grübchen im Kinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Grübchen im Kinn",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.526Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "9cuqo2225j1qkow"
+    }
+  ]
+}

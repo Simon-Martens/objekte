@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Englische Zeitung, die ich herausgebe, betitelt: The British Mecury, wovon jetzt 3 Bände heraus sind,",
+  "language": [],
+  "musenalm_id": 78299,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Archenholtz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.841Z",
+      "agent": "5t8j3g93hqkrq0k",
+      "source_id": "ithlg2z6xtp3z7r"
+    }
+  ]
+}

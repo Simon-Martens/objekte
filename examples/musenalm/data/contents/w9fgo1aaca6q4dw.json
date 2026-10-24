@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37; mit einer Musikbeigabe s. INr 5621, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Fern mit ihm sind alle Freuden! / In der Seele steht das Scheiden!",
+  "language": [],
+  "musenalm_id": 5619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sehnsucht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. Spl.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sehnsucht",
+  "updated": "2000-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.121Z",
+      "agent": "wgaq4m6br8ub93b",
+      "source_id": "vey93ekfwwwhnry"
+    }
+  ]
+}

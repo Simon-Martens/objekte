@@ -1,0 +1,175 @@
+{
+  "annotation": "",
+  "biographical_data": "1757-1818",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.486Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler, Radierer, Schweiz",
+        "Schweiz. Maler",
+        "Schweizer Landschaftsmaler und Radierer; aus Winterthur"
+      ],
+      "dateOfBirth": [
+        "1757"
+      ],
+      "dateOfDeath": [
+        "1818"
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-19T15:26:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118617427/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118617427",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118617427",
+      "oldAuthorityNumber": [
+        "(DE-588c)4057157-9",
+        "(DE-588a)118617427"
+      ],
+      "preferredName": "Steiner, Johann Conrad",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Conrad"
+        ],
+        "surname": [
+          "Steiner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20473470"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q56006915"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118617427/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118617427"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Steiner, Hans Conrad",
+        "Steiner, Johann Hans Conrad",
+        "Steiner, Conrad"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Hans Conrad"
+          ],
+          "surname": [
+            "Steiner"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad"
+          ],
+          "surname": [
+            "Steiner"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Conrad"
+          ],
+          "surname": [
+            "Steiner"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:21Z",
+    "gnd_query_biographical_data": "1757-1818",
+    "gnd_query_name": "steiner, johann conrad"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2757,
+  "name": "Steiner, Johann Conrad",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 556",
+  "updated": "2026-06-11 13:29:25.182Z",
+  "uri": "https://d-nb.info/gnd/118617427",
+  "editor": ""
+}

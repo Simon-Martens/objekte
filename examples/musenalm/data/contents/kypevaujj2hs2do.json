@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Das Fräulein vom See« von Walter Scott s. Textbezug INr 43609, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43610,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fräulein vom See, von Walter Scott. / Sechster Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff gez. J. Lips gest.",
+  "scans": [
+    "alm_579_43610_wfhj2tfdii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fräulein vom See, von Walter Scott. / Sechster Gesang",
+  "updated": "2006-05-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.369Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "crpjac1f9loiue3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.369Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "ye8i0erty2rw08e"
+    }
+  ]
+}

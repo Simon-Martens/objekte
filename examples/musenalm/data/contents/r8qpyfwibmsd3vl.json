@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30037, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Pynaker pinx. Geissler sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pynaker pinx. Geissler sculp.",
+  "scans": [
+    "alm_389_30036_0014wd6qak.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.310Z",
+      "agent": "hrwh0sevjh1j8pq",
+      "source_id": "he70jzg59d090yz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.310Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "zt1qkh4stq2ad92"
+    }
+  ]
+}

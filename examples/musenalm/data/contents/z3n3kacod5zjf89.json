@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Nun feyert ihr Ruder, die Segel sie schwellen, / Leicht schwebet mein Schifflein auf saphirner Flur;",
+  "language": [],
+  "musenalm_id": 63342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schifferin und der Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schifferin und der Fremde",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.182Z",
+      "agent": "tetas6nm69fwpjp",
+      "source_id": "6dvl09zyi743q7f"
+    }
+  ]
+}

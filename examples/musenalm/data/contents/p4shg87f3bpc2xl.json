@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 29025-29029, Obj 54-58",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Gedichte",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.088Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "jgz8lyrpm5jao08"
+    }
+  ]
+}

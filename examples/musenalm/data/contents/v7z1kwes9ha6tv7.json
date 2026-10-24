@@ -1,0 +1,45 @@
+{
+  "annotation": "Kriegslust. Eine Sonnetten-Trias (Sammlung INr 53385, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Der Mann muß glühend lieben, glühend hassen; / Dem Weibe ziemt die süße Zaubermilde.",
+  "language": [],
+  "musenalm_id": 53386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stähele",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.550Z",
+      "agent": "5aofsap5le76xfp",
+      "source_id": "yrjj3duw6e13yg3"
+    }
+  ]
+}

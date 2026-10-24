@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Gemälde« von Ung. INr 2827, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ph. Schönfeld",
+  "scans": [
+    "alm_80_2828_01_nkwnvsyg4e.jpg",
+    "alm_80_2828_02_a9oxo54fmk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gemälde",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.975Z",
+      "agent": "intx1623ah0wnv6",
+      "source_id": "mf7a4gyftoih6ji"
+    }
+  ]
+}

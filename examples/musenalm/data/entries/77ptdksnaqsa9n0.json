@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 10 GG, S I-Verz, SS 1-374, SS 375-380 G-Verz, S C, ar1: SS 1-96, VrlgM, ar2: SS 1-87, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1835",
+    "norm": "~ K gibt fälschlich 13 GG an",
+    "biblio": 200859,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 870,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / KALENDER / auf / das Gemein Jahr / 1835. / MIT KUPFERN / HERAUSGEGEBEN / VON DER KÖN. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.753Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "yeam6nflmx6rq9d"
+  ],
+  "contents": [
+    "y8ao6grwq12red7",
+    "tae9r8cwcq73vj1",
+    "t2buz4tjxs1irju",
+    "v2tz2w9l85io6na",
+    "p75fpjash1ytlu8",
+    "3p9isg7uc2duud3",
+    "x2ztabdnbztovvp",
+    "n2ezjsxbqre3uc3",
+    "yq0kafqstd0n5qy",
+    "uz3rwld68yvvv2l",
+    "0ilp2l8tu4j9v6e",
+    "l1bkdrh61986lio",
+    "295xpcejp35c8ty",
+    "uwqb5ixghutfoql",
+    "0pqk6cmqu7oz2up",
+    "5dwrczgp35ad09c",
+    "o1oh68gry7jbn1x",
+    "0ovn6skduzkgdxf",
+    "dfyiy1fumuwy6u7",
+    "czkcnjhsxnuob7w",
+    "e4ayitiaz1adsid",
+    "nw8g7sm7nhhdgti",
+    "xa9lnk5wruiyjvr",
+    "vae68iipqsql1pf",
+    "x4uj0ptnwej0etg",
+    "j5iu98n6ckebwih",
+    "yag4in0z4rc6pl7",
+    "f9cgjjxrh2asdj6",
+    "9h9lwo23ew8307h",
+    "yse9vddtqinls7d",
+    "xtzs3cp94jbbm7c",
+    "w9cmhn9rnbidb4d",
+    "7vwhwr53xn16xiu",
+    "j8jppnvpnjslz55",
+    "nn0lnhjn18xgj1t",
+    "0ol70uscf2doq03"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "dqse0c0gvuo4qjm"
+    }
+  ]
+}

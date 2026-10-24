@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Mein Auge mustert unruhvoll des Hafens wimpel- / reich Revier, / Doch deines richtet lächelnd sich auf meines Hutes / Federzier:",
+  "language": [],
+  "musenalm_id": 30530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mirage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mirage",
+  "updated": "2002-11-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.677Z",
+      "agent": "vmnuom11udo0f3y",
+      "source_id": "kkyqgqlm9rp508y"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 100468, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Umhülle mich mit deinen dunk'len Schleiern / Und drücke mich an deine Brust, O Nacht!",
+  "language": [],
+  "musenalm_id": 100470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanfte Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanfte Nacht",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.890Z",
+      "agent": "k07t75rmsi2tkuk",
+      "source_id": "egwu14xwj3clmbr"
+    }
+  ]
+}

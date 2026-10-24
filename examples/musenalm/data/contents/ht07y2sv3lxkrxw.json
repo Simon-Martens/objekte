@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik auf dem Buchrücken s. Textbezug INr 30649, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30664,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hamb. priv. Steindruck v. Speckter & co. J. P. T. Lyser dell)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hamb. priv. Steindruck v. Speckter & co. J. P. T. Lyser dell",
+  "scans": [
+    "alm_405_30664_vcrjt4dp32.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.655Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "m6u2x4nboa2e24h"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "O vergieb, vergieb der Thräne, / Die an diesem Tage fließt,",
+  "language": [],
+  "musenalm_id": 16828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Daphnens Geburtstage, / 1773",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Miller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Daphnens Geburtstage, / 1773",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.847Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "dyb4513ticmp0x9"
+    }
+  ]
+}

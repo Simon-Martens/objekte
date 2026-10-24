@@ -1,0 +1,45 @@
+{
+  "annotation": "Musikalische Fragmente aus Ritter Franz von Walldorf, einem ungedruckten Schauspiele (Sammlung INr 30907, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Sehnen, unnennbares Sehnen! / O und diese heissen Thränen: / Diese brausende Begier:",
+  "language": [],
+  "musenalm_id": 30909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Walldorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Walldorf",
+  "updated": "2003-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.708Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "8sapotb7h3wb7ex"
+    }
+  ]
+}

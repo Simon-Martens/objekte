@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Gedicht: Die Dichterin fand Chateaubriand in den 20ger Jahren in Berlin, und er erwähnte ihrer in seinen Memoiren.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Einst zog dein kühner Geist durch alle Zonen, / Du suchtest Glück in deinem Ideal,",
+  "language": [],
+  "musenalm_id": 45914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chateaubriands Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise von Hohenhausen geb. von Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chateaubriands Grab",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.236Z",
+      "agent": "egwykz1ou8cu8sz",
+      "source_id": "u4hjbho2hu143cr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vrwt. zu »Nummer 777« von Lebrün (INr 123990, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Den mündlichen Relationen eines Freundes, und den Expositionen in den Pariser Blättern verdanke ich den Stoff zu dieser Posse.",
+  "language": [],
+  "musenalm_id": 123991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.736Z",
+      "agent": "dlpgk2os95jpmjk",
+      "source_id": "gh1nudyag05brps"
+    }
+  ]
+}

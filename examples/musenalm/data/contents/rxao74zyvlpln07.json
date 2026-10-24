@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Bei vollem Krug / Ist es nicht klug, / Noch Freiheit zu begehren:",
+  "language": [],
+  "musenalm_id": 100225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zecher-Polik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Freiherr von Leutrum-Ertingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zecher-Polik",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.991Z",
+      "agent": "sjdkhvhq60b5nsf",
+      "source_id": "rnmsfz34rx9csb7"
+    }
+  ]
+}

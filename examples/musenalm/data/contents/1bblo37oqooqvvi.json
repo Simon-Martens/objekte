@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dieser zweite Jahrgang des Taschenbuchs der Reisen hat gerade diejenigen Theile der Erde zum Gegenstande, welche wegen der jüngsten Ereignisse auf St. Domingo und wegen der jetzt beim Frieden abgetretenen und zurückgegebenen Inseln Westindiens",
+  "language": [],
+  "musenalm_id": 41248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2005-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.726Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "am63zrn4nap42k1"
+    }
+  ]
+}

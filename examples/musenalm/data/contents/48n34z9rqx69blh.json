@@ -1,0 +1,45 @@
+{
+  "annotation": "# Autorname am Ende einer Folge von zwei Gedichten (INr 119992–119993) desselben Autors",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Wenn dich mein Ohr nicht hören kann, / Mein Aug’ dich nimmer sehen, / Dann fängt die treue Sehnsucht an",
+  "language": [],
+  "musenalm_id": 119992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treue der Sehnsucht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Treue der Sehnsucht",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.678Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "9a46n406ug870d4"
+    }
+  ]
+}

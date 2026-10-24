@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "Glaubet, Freunde, glaubt dem biedern Dichter; / Unpartheisch ist der Censor Kuhn;",
+  "language": [],
+  "musenalm_id": 11562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "83. / Censor Kuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "83. / Censor Kuhn",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.502Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "aid42cw7vcktyka"
+    }
+  ]
+}

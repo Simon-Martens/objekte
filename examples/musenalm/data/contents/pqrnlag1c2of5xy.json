@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 12 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CXII. Anecdote / Peter des Großen Lebens Ende oder / Veranlaßung dazu / p. 333",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7227_1a7fw0q5il.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CXII. Anecdote / Peter des Großen Lebens Ende oder / Veranlaßung dazu / p. 333",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.299Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "wdxm0y33zaad4co"
+    }
+  ]
+}

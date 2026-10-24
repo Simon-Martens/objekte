@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Mir Vöglein in den Lüften / Gehört die weite Welt;",
+  "language": [],
+  "musenalm_id": 91084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängers Lust",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängers Lust",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.294Z",
+      "agent": "9zdfy29sj074b5x",
+      "source_id": "858pnjy0lk7f4ac"
+    }
+  ]
+}

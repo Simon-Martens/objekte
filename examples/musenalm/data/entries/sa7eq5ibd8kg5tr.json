@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-IV Vrwrt d Hrsg G-Verz, S I-Verz, 7 GG, SS 1-393, 6 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1826",
+    "norm": "~",
+    "biblio": 100636,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2369,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Orphea 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 96; Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1826. / Dritter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU MOZART'S ZAUBERFLÖTE / LEIPZIG. / Ernst Fleischer",
+  "updated": "2026-06-11 10:18:55.329Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "zgvgr191bzc82cb"
+  ],
+  "contents": [
+    "lyuzeqtko87pvei",
+    "wh3btq3l5pn0qps",
+    "7ultbk1wyab1xp7",
+    "dga0cmirjaw943s",
+    "w8gdlahnke1v2zt",
+    "27sm831ogujzrkd",
+    "fnrh03nsw0syzww",
+    "rleu3ohglnsfqqi",
+    "er75wzcubdawjdo",
+    "hn573y8oqvzwiem",
+    "kuhdcwpxqx5zjog",
+    "ym7kclu82ipcjus",
+    "ag3sfp1xlvwvkt8",
+    "exlwwooe68a1lo0",
+    "z6crpj4vz911kjg",
+    "129b6z7vx9yk89y",
+    "r49kf7rc1cqyr90",
+    "tlgbu8fhzehdztq",
+    "mqm2x6ygkki6rzf",
+    "k2g4ov45inn1txa",
+    "w3h5x2dpbm72rw8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.850Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.850Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "n3bzrar1mlytfv5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.055Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.055Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "oj95qeukr5v05wo"
+    }
+  ]
+}

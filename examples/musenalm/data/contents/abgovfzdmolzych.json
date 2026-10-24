@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39468, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39469,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braut von Messina / Der erste Chor. / Was stehen wir hier noch feindlich geschieden, / Da die Fürsten sich liebend umfassen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_518_39469_kbyywnyjil.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braut von Messina / Der erste Chor. / Was stehen wir hier noch feindlich geschieden, / Da die Fürsten sich liebend umfassen?",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.166Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "osn4w5uzlbmqbyi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.166Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "xf1vd0t24acocvx"
+    }
+  ]
+}

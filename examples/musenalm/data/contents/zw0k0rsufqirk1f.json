@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Freust du dich deines Lebens o Wandrer, / so soll es mir lieb seyn,",
+  "language": [],
+  "musenalm_id": 37986,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.043Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "8zfj70vcd4dudc3"
+    }
+  ]
+}

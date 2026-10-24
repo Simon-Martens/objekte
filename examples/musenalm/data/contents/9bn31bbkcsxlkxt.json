@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Nun hat der Lenz sein Werk vollendet, / Geschmückt die weite, weite Welt.",
+  "language": [],
+  "musenalm_id": 100443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest des Lenzes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kahlert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest des Lenzes",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.887Z",
+      "agent": "l9ob2970ns5k8js",
+      "source_id": "rvdsnjk7uk804c2"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; Graphik im Kalendarium März; paginiert 6.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59613,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schwert wird wiederum / zur Sense",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf; Riepenhausen",
+  "scans": [
+    "alm_921_59613_4p9egzkt5j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schwert wird wiederum / zur Sense",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.017Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "rzdzkz0sisd5g1y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.017Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "vg6b62549k9svgn"
+    }
+  ]
+}

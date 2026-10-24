@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Übersetzung INr 75200, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "All Nature and her Laws lay hid in Night. / God said: let Newton be! and all was Light!",
+  "language": [],
+  "musenalm_id": 75199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Uebersezung der berühmten Grabschrift des grossen POPE auf den grossen NEWTON]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pope",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Uebersezung der berühmten Grabschrift des grossen POPE auf den grossen NEWTON]",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.057Z",
+      "agent": "3avan8jtjd825y2",
+      "source_id": "dlnc030xsv4s92q"
+    }
+  ]
+}

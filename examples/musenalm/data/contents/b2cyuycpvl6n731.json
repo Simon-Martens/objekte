@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik in: Taschenbuch zum geselligen Vernügen 1821 INr 20096",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Gieb König, hoher König! mir / Von deinem großen Welt-Revier / Dort in Columbus Zone,",
+  "language": [],
+  "musenalm_id": 20375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wihelm Penn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wihelm Penn",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.923Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "xn7xqygy2kse2n6"
+    }
+  ]
+}

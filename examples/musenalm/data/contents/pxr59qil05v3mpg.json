@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten (INr 122154–122157) # Bezeichnung an der Sammlung Inr 122137, Obj 213",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Ein Rabe flieht am Mond vorbei / Mit spätem Dämmerungsgeschrei. / Was hat man ihm noch angethan? – / O daß doch jeder dunkle Wahn, / Daß ach der Erde Geist, der wüste, / Bald so vorüberklagen müßte!",
+  "language": [],
+  "musenalm_id": 122156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 231,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gen Himmel wünschend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gen Himmel wünschend",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.759Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "2tpcng236yr1ejf"
+    }
+  ]
+}

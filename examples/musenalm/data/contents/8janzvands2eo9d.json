@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni /) Illustration zu »Geschichte von Pommern und Rügen« von F. W. Barthold INr 81146, Obj 18 /) s.a. Textbezug  in: Kalender, Berliner 1838; INr 88748",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81138,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER OTTOBRUNNEN UND DAS OTTOSTIFT BEI PYRITZ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Most. gest. v. H. Fincke",
+  "scans": [
+    "alm_872_81138_1fuodco5xl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER OTTOBRUNNEN UND DAS OTTOSTIFT BEI PYRITZ",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "mfu7ubmq9z1in6l",
+      "source_id": "juya2fa7wo0qc4i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "ws0cr24c1r6bhv9"
+    }
+  ]
+}

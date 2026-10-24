@@ -1,0 +1,51 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1809",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 973,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:54.668Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

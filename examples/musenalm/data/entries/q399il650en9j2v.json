@@ -1,0 +1,78 @@
+{
+  "annotation": "KVK, OVV: Jgg 1834,1836, 1845",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele (Wien, Lembert) 1836",
+    "norm": "",
+    "biblio": 409631,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-07-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4569,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele (Wien, Lembert) 1836",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Lembert",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Spiele / für das Jahr / 1836. / Von / Lembert. / Zweiter Jahrgang. / WIEN. / Verlag von Franz Tendler",
+  "updated": "2026-06-11 10:18:55.136Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "01h1fnh1fm5wd8d"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.161Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.161Z",
+      "agent": "21vzp0r4uzcromq",
+      "source_id": "lunzte7x0eyyg3r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.389Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.389Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "q06ta7r898dxh89"
+    }
+  ]
+}

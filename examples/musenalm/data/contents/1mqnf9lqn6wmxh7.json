@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 189 /) Illustration zu » 'S End vom Liad« von J. G. Seidl INr 93045, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93013,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwoa Bild'ln von der Alm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Rieder del. G. Leybold sc.",
+  "scans": [
+    "alm_1588_93013_zf4sb0trry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwoa Bild'ln von der Alm",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.642Z",
+      "agent": "zefb5ir07ld7tkj",
+      "source_id": "c8us7kivw7ghgh1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.642Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "wswlfwd3xh9bulh"
+    }
+  ]
+}

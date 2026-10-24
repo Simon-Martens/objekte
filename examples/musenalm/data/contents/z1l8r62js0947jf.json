@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Wie doch unter dem Mond Alles so niedlich ist, / Männer und Weiber sich freun, Mädchen und Jüng- / ling sich küßt,",
+  "language": [],
+  "musenalm_id": 83745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedankenspäne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Burmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedankenspäne",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.069Z",
+      "agent": "bzzrah5fx2452jq",
+      "source_id": "sw1i143ddj4dqcy"
+    }
+  ]
+}

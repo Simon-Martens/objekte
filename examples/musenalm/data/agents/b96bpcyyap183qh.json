@@ -1,0 +1,297 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.484Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Prof. für Staatswirtschaft u. Forstwirtschaft an der Univ. Heidelberg"
+      ],
+      "dateOfBirth": [
+        "1762"
+      ],
+      "dateOfDeath": [
+        "1827"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:38:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117485624/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117485624",
+      "id": "https://d-nb.info/gnd/117485624",
+      "oldAuthorityNumber": [
+        "(DE-588a)117485624"
+      ],
+      "preferredName": "Sponeck, Carl Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Sponeck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4227984-7",
+          "label": "Reichsgraf"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Oberforstrat"
+      ],
+      "publication": [
+        "Über den Anbau und die Behandlung des wein und spitzblätterigen A*",
+        "Handbuch des Flosswesens",
+        "Ueber den Holzdiebstahl",
+        "Ueber die Veräusserung von Staatswaldflächen zu landwirthschaftli*",
+        "Forstliche Aufsätze und Bemerkungen",
+        "Sammlung naturhistorischer und vorzüglich Jäger-Beobachtungen und*",
+        "Über den Anbau und die forstliche Behandlung des ... Ahorns",
+        "Forstwissenschaftliche und botanische Abhandlungen und Bemerkungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77094719"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1725715"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117485624/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Christian_Wilhelm_von_Sponeck"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117485624"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117485624"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117485624.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117485624"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4227984-7",
+          "label": "Reichsgraf"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sponeck, C. F. von",
+        "Sponeck, Karl F. von",
+        "Sponeck, C. F. C. W. von",
+        "Sponeck, Carl F. von",
+        "Sponeck, Carl Friedrich Christian Wilhelm von",
+        "Sponeck, Karl Friedrich Christian Wilhelm von",
+        "Sponek, ...",
+        "Sponeck, Karl Friedrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. C. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich Christian Wilhelm von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Sponek"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Christian Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sponeck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Christian_Wilhelm_von_Sponeck",
+          "label": "https://de.wikipedia.org/wiki/Karl_Friedrich_Christian_Wilhelm_von_Sponeck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:01:27Z",
+    "gnd_query_biographical_data": "1762-1827",
+    "gnd_query_name": "sponeck, karl friedrich christian wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2717,
+  "name": "Sponeck, Karl Friedrich Christian Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXV, 259",
+  "updated": "2026-06-11 13:29:25.121Z",
+  "uri": "https://d-nb.info/gnd/117485624",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "O, daß die Zeit so schnell verfloß; / Wo mich ein Nichts mit Wonne lezte,",
+  "language": [],
+  "musenalm_id": 63031,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen / am Geburtstage, den 3. März 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen / am Geburtstage, den 3. März 1779",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.192Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "f4wzgv53mjvwbou"
+    }
+  ]
+}

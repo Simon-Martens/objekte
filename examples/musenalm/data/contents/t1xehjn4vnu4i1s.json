@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 18725, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9167,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moreau / Obergeneral der franz. / Armee am Rhein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner 1800",
+  "scans": [
+    "alm_200_9167_qnnyo1tjnv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Moreau / Obergeneral der franz. / Armee am Rhein",
+  "updated": "2001-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.522Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "1u3hpo98gi4ktoo"
+    }
+  ]
+}

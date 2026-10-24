@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36926, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Bist noch so jung du altes Herz, / Kannst noch hoffen, lieben, dich sehnen.",
+  "language": [],
+  "musenalm_id": 36928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das alte Herz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das alte Herz",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.906Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "xpjw0zr9evpqcyk"
+    }
+  ]
+}

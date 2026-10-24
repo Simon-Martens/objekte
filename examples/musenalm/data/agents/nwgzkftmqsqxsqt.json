@@ -1,0 +1,334 @@
+{
+  "annotation": "",
+  "biographical_data": "1748-1813",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.476Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5110626-7",
+          "label": "Elisabetanisches Gymnasium (Breslau)"
+        }
+      ],
+      "dateOfBirth": [
+        "1748-05-08"
+      ],
+      "dateOfDeath": [
+        "1813-12-23"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-26T10:12:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118762648/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118762648",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118762648",
+      "oldAuthorityNumber": [
+        "(DE-588c)4107215-7",
+        "(DE-588a)118762648"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4706047-5",
+          "label": "Zatonie (Woiwodschaft Niederschlesien)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Schummel, Johann Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottlieb"
+        ],
+        "surname": [
+          "Schummel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        }
+      ],
+      "publication": [
+        "Baretti, Giuseppe: Beschreibung der Sitten und Gebräuche in Italien",
+        "Der kleine Voltäre",
+        "Übersetzer-Bibliothek",
+        "Spitzbart",
+        "Empfindsame Reisen durch Deutschland",
+        "Garve und Füllhorn",
+        "Kleine Welt-Statistik",
+        "Die Eroberung von Magdeburg",
+        "Das Wohl des Staats gebaut auf Zwietracht",
+        "Ptolemäus"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb134778447"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86806303"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/schummel-johann-gottlieb/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56759909"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1694208"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118762648/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Schummel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121015656"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118762648"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118762648.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118762648"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Schummel, Jeen Gottlieb",
+        "Schummel, Gottlieb",
+        "Schummel",
+        "Schummel, J.G.",
+        "Schummel, Joh. Gottlieb",
+        "Schl.",
+        "Schummel, J. G.",
+        "Schoummel, Jean Théophile",
+        "Schummel, Johann G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jeen Gottlieb"
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Théophile"
+          ],
+          "surname": [
+            "Schoummel"
+          ]
+        },
+        {
+          "personalName": [
+            "Schummel"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        },
+        {
+          "forename": [
+            "J.G."
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottlieb"
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        },
+        {
+          "personalName": [
+            "Schl."
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb"
+          ],
+          "surname": [
+            "Schummel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Schummel",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Schummel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:54:51Z",
+    "gnd_query_biographical_data": "1748-1813",
+    "gnd_query_name": "schummel, johann gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2584,
+  "name": "Schummel, Johann Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 590",
+  "updated": "2026-06-11 13:29:24.887Z",
+  "uri": "https://d-nb.info/gnd/118762648",
+  "editor": ""
+}

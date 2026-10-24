@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "In rothen Gluthen sank der Tag; / Ihm glänzt, von Thau befeuchtet,",
+  "language": [],
+  "musenalm_id": 18237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Abende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Abende",
+  "updated": "2001-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.637Z",
+      "agent": "lw3uqo50dp1mpif",
+      "source_id": "5ggd1t3hh9ppeo8"
+    }
+  ]
+}

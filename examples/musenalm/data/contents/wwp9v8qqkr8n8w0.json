@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Deutsch ist der Rhein, deutsch ist der Rhein, / Und wird es ewig bleiben!",
+  "language": [],
+  "musenalm_id": 39046,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der deutsche Rhein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Christian Tenner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der deutsche Rhein",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.166Z",
+      "agent": "h2od5uetg73g87x",
+      "source_id": "czclnhmuofg3v39"
+    }
+  ]
+}

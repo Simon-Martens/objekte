@@ -1,0 +1,67 @@
+{
+  "annotation": "1821-1847, 1849; Hamburg; Hrsg.: G. Lotz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wintergrün 1821",
+    "norm": "",
+    "biblio": 409595,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-06-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4540,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Wintergrün 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 175; nicht bei L/R; Goed VIII. 103, 234",
+  "responsibility_statement": "Georg Lotz",
+  "subtitle_statement": "",
+  "title_statement": "Wintergrün / von / Georg Lotz. / Hamburg, / bei Hoffmann und Campe / 1821",
+  "updated": "2026-06-11 10:18:54.491Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "vl4z2t8wcgl95nd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.043Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.043Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "m40xvivytycem6v"
+    }
+  ]
+}

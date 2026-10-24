@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 5. /) s. Textbezug INr 72812, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Thé - médisant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg inv. Riep. sc.",
+  "scans": [
+    "alm_2658_72813_887lztyxe9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Thé - médisant",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.477Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "6fywhrhnhddiyeo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.477Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "yapq71dmjeu6349"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Trautes Röschen, sieh, wie hell / Ueber Geisblatt dieser Quell",
+  "language": [],
+  "musenalm_id": 2302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Röschen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Röschen",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.925Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "ntva02j66lnkxh2"
+    }
+  ]
+}

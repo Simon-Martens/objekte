@@ -1,0 +1,51 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.378Z",
+  "dimensions": "",
+  "edit_comment": "Weder erfasst noch autopsiert, obwohl eine Biblio-ID vergeben wurde; bitte überprüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Tabaksliebhaber 1801",
+    "norm": "",
+    "biblio": 409870,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-05-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4630,
+  "parallel_title": "",
+  "place_statement": "Berlin (Maurer)",
+  "places": [],
+  "preferred_title": "Taschenbuch für Tabaksliebhaber 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei L/R, nicht bei K",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Nicotiana / Oder: / Taschenbuch / für / Tabaksliebhaber / zur / Unterhaltung / für / Tabaksraucher und Schnupfer, / auf das Jahr 1801. / Ein / kleiner Beitrag / zur / Geschichte der Gewohnheiten und des Luxus. / Maxima est vis vetustatis et consuetudinis. / CICERO. / Berlin, / bei Friedrich Maurer, 1801.",
+  "updated": "2026-06-11 10:18:55.058Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "0y0i82pnx9598o4"
+  ],
+  "contents": [],
+  "agents": []
+}

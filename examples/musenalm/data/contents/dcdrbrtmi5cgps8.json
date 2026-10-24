@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Herr Valentin ging Abends aus / Zum Kartentisch im rothen Drachen.",
+  "language": [],
+  "musenalm_id": 3328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freunde",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.648Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "jwuhdrmx7jvnw7m"
+    }
+  ]
+}

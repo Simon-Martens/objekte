@@ -1,0 +1,49 @@
+{
+  "annotation": "Walzer. Für drey Hände oder für Fortepiano und Flöte oder Violine (Sammlung INr 13563, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37385,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 206,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riem",
+  "scans": [
+    "alm_217_37385_01_fl2v1eznx7.jpg",
+    "alm_217_37385_02_a3xieez0ou.jpg",
+    "alm_217_37385_03_nnmxsen2pp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.719Z",
+      "agent": "uoz96fdvbrhaw9f",
+      "source_id": "764rno2xb2hby7v"
+    }
+  ]
+}

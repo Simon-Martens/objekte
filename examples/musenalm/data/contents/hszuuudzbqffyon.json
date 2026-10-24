@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 27015, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Wie dem Kranich, der schon oft in geflügeltem Heer / Mit des Lenzes Gruß aus dem Sonnenlande kam,",
+  "language": [],
+  "musenalm_id": 27016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An L. M. Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An L. M. Fouqué",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.012Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "mymmrusxfkjsfe6"
+    }
+  ]
+}

@@ -1,0 +1,201 @@
+{
+  "annotation": "",
+  "biographical_data": "1793-1858",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.406Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "österr. Schriftsteller u. Philanthrop"
+      ],
+      "dateOfBirth": [
+        "1793-04-07"
+      ],
+      "dateOfDeath": [
+        "1858-01-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Own work Peter Geymayer"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Langer%20Litho.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Langer%20Litho.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Langer%20Litho.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-06T17:11:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeAW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeAW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1018255648/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1018255648",
+      "id": "https://d-nb.info/gnd/1018255648",
+      "oldAuthorityNumber": [
+        "(DE-588a)1018255648"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Langer, Johann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann"
+        ],
+        "surname": [
+          "Langer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7607862-0",
+          "label": "Mäzen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/220468699"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1598849"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1018255648/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Langer_%28Schriftsteller%29"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_L/Langer_Johann_1793_1858.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Langer_%28Schriftsteller%29",
+          "label": "https://de.wikipedia.org/wiki/Johann_Langer_%28Schriftsteller%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:03:45Z",
+    "gnd_query_biographical_data": "1793-1858",
+    "gnd_query_name": "langer, johann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1555,
+  "name": "Langer, Johann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1213",
+  "updated": "2026-06-11 13:29:23.489Z",
+  "uri": "https://d-nb.info/gnd/1018255648",
+  "editor": ""
+}

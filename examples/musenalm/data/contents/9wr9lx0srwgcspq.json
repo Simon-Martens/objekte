@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "420",
+  "incipit_statement": "Die Rose taucht den Fuß in Wasser doch und Koth; / Was würzt ihr denn den Mund und macht die Wang' / ihr roth?",
+  "language": [],
+  "musenalm_id": 37160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 285,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose taucht den Fuß in Wasser doch und Koth; / Was würzt ihr denn den Mund und macht die Wang' / ihr roth?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.868Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "2ekfcbkl8f97h4c"
+    }
+  ]
+}

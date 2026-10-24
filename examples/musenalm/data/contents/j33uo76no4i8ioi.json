@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Hoch auf einem schroffen Fels in Finnland erhob sich die Burg Arcona mit ihren gewaltigen Mauern und Thürmen,",
+  "language": [],
+  "musenalm_id": 133557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rache des Dämons. / Romantische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rache des Dämons. / Romantische Erzählung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.111Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "md6s3w531hexmcd"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der letzte Mohikaner« von  J. F. Cooper ; am oberen rechten Rand: Cooper's Werke B. 1. S. 65 s. Textbezug in 43806, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43807,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Letzte der Mohikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heidleoff gez. C. Barth gest.",
+  "scans": [
+    "alm_585_43807_7tk9ymfy9h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Letzte der Mohikaner",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.760Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "3lq6umjlaxoyi7y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.760Z",
+      "agent": "ak2qa5c9tflxdbf",
+      "source_id": "vbhnvbc6k94hvwk"
+    }
+  ]
+}

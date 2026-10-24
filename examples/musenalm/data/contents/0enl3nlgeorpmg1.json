@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. A. R. Mgr. le Prince / FREDERIC HENRI / CHARLES, / PRINCE DE PRUSSE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schleuen s.",
+  "scans": [
+    "alm_778_91225_r3wmw5m052.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. A. R. Mgr. le Prince / FREDERIC HENRI / CHARLES, / PRINCE DE PRUSSE",
+  "updated": "2008-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1767,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.187Z",
+      "agent": "znun8xp4hmee1nu",
+      "source_id": "zg06ef3uk5w1w7f"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 9219, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Wo ich durch liebes Thal geirrt, / Auf Bergen vernommen des Adlers Schrey,",
+  "language": [],
+  "musenalm_id": 1434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Der Sänger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Der Sänger",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.731Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "que454vjesy12cl"
+    }
+  ]
+}

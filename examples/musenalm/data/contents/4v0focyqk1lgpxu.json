@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Zu einem tapfern Prinzen kam / Ein altes Weib, das Söhnlein loszubitten, / Das man zum Trommelschläger nahm.",
+  "language": [],
+  "musenalm_id": 130497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unterschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Unterschied",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.072Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "11st7ha5hoc68db"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 94831-94836, Obj 11-16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lyrisches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lyrisches",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.744Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "ck26cjeo17yrxdm"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II. /) # Titel s. Textbezug INr 72805, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72803,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Festtag des häuslichen Glücks #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Fr. Bolt sc. 1803",
+  "scans": [
+    "alm_2658_72803_194tegzlir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Festtag des häuslichen Glücks #",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.754Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "kohfohkcte86mey"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.754Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "pljrgg95odzrz8j"
+    }
+  ]
+}

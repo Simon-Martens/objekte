@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts von J. H. Voß INr 101114, Obj 53 /) Photos 101163,01-101163,03",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Der Wein erfreut des Menschen Herz drum gab uns Gott den Wein",
+  "language": [],
+  "musenalm_id": 101163,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_1824_101163_01_0hqrm4c579.jpg",
+    "alm_1824_101163_02_bhdi0eb09o.jpg",
+    "alm_1824_101163_03_i2wwkn9kyb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 4.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.852Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "zi0z8yr92bypbc0"
+    }
+  ]
+}

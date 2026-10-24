@@ -1,0 +1,395 @@
+{
+  "annotation": "",
+  "biographical_data": "1744-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.256Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/125742-0",
+          "label": "Akademie der Künste und Mechanischen Wissenschaften zu Berlin"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1778 Mitglied der Akademie der Künste zu Berlin und seit 1787 dortiger Professor der Kupferstecherkunst, Vizedirektor der Akademie."
+      ],
+      "dateOfBirth": [
+        "1744-10-25"
+      ],
+      "dateOfDeath": [
+        "1825-11-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friderich Berger"
+          ],
+          "creditText": [
+            "Bassenge"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Daniel%20Berger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20Daniel%20Berger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20Daniel%20Berger.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1157461166"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-24T15:07:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116130709/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/130236268",
+          "label": "Berger, Friedrich Gottlieb"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116130709",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/130236268",
+          "label": "Berger, Friedrich Gottlieb"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116130709",
+      "oldAuthorityNumber": [
+        "(DE-588a)116130709",
+        "(DE-588)1157461166",
+        "(DE-588c)4714258-3"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Berger, D.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "D."
+        ],
+        "surname": [
+          "Berger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4478374-7",
+          "label": "Außerordentlicher Professor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/139493921",
+          "label": "Lesueur, Blaise-Nicolas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116988703",
+          "label": "Meckel, Johann F."
+        }
+      ],
+      "publication": [
+        "Dreissig Kupfer und Sechs Titelvignetten nach Daniel Chodowiecki gestochen von D. Berger zum Don Quixote von Cervantes",
+        "Ill. zu: Basedow, Johann Bernhard: Kupfersammlung zu J.B. Basedows Elementarwerke für die Jugend und ihre Freunde",
+        "Landgraviatus Hassiae Inferioris Comitatus Waldeciae Eichsfeldia Tabula Geographica",
+        "Carte de la Crimée",
+        "Ill zu: Sotzmann, Daniel Friedrich: Charte von den oberhalb und seitwärts dem Schwarzen Meere gelegenen Russischen und Türkischen Ländern"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Gottfried Daniel"
+          ],
+          "surname": [
+            "Berger"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007069013"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9625196"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q123361"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157461166"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116130709/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Daniel_Berger_%28Kupferstecher%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Daniel_Berger_%28engraver%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010776997X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116130709"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116130709"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116130709.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116130709"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/116130709"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116130709"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Berger, Dan.",
+        "Berger, Daniel",
+        "Berger, Gottfried Daniel"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Dan."
+          ],
+          "surname": [
+            "Berger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Daniel"
+          ],
+          "surname": [
+            "Berger"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Berger"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Daniel"
+          ],
+          "surname": [
+            "Berger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Daniel_Berger_%28Kupferstecher%29",
+          "label": "https://de.wikipedia.org/wiki/Daniel_Berger_%28Kupferstecher%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:54:57Z",
+    "gnd_query_biographical_data": "1744-1824",
+    "gnd_query_name": "berger, daniel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 166,
+  "name": "Berger, Daniel",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 394",
+  "updated": "2026-06-11 13:29:21.531Z",
+  "uri": "https://d-nb.info/gnd/116130709",
+  "editor": ""
+}

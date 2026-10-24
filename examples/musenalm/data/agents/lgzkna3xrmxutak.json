@@ -1,0 +1,433 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.299Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1809-10-03"
+      ],
+      "dateOfDeath": [
+        "1878-01-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "KOch, Frankfurter Nationalversammlung, 1998"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Paulskirche%20Daxenberger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Paulskirche%20Daxenberger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Paulskirche%20Daxenberger.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:21:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116041994/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116041994",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116041994",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116041994"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Daxenberger, Sebastian Franz von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Sebastian Franz"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Daxenberger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "C. F."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "C.F."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Fernau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Fernau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Huldigung dem hohen Stammhaus Wittelsbach ...",
+        "Psyche und der Genius",
+        "Mythische Gedichte",
+        "Die Sendlinger Schlacht am Christtage 1705",
+        "Ode den Manen ...",
+        "Edgar, oder Blätter aus dem Leben eines Dichters",
+        "Nonnullae observationes ad tit. 2. Dig. ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058740"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77057191"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2262713"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116041994"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116041994/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Sebastian_Franz_von_Daxenberger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000047634968"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116041994"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116041994"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116041994.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116041994"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116041994"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Daxenberger, Franz von",
+        "C. F.",
+        "Daxenberger, S.F.",
+        "C.F.",
+        "Daxenberger, Samuel",
+        "Daxenberger, S. F.",
+        "Fernau, Karl",
+        "Daxenberger, Sebastian",
+        "Daxenberger, Sebastian Franz",
+        "Daxenberger, S.",
+        "Fernau, Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "C. F."
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "S.F."
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Fernau"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel"
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "S. F."
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "personalName": [
+            "C.F."
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Fernau"
+          ]
+        },
+        {
+          "forename": [
+            "Sebastian Franz"
+          ],
+          "surname": [
+            "Daxenberger"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Fernau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Sebastian_Franz_von_Daxenberger",
+          "label": "https://de.wikipedia.org/wiki/Sebastian_Franz_von_Daxenberger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:11:45Z",
+    "gnd_query_biographical_data": "1809-1878",
+    "gnd_query_name": "daxenberger, sebastian franz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 505,
+  "name": "Daxenberger, Sebastian Franz von",
+  "profession": "Text",
+  "pseudonyms": "Karl Fernau",
+  "refs": "ADB XLVII, 628",
+  "updated": "2026-06-11 13:29:22.007Z",
+  "uri": "https://d-nb.info/gnd/116041994",
+  "editor": ""
+}

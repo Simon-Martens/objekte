@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 28059, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28058,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wiedertäufer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Näcke del. J. Axmann sc.",
+  "scans": [
+    "alm_361_28058_573c476dpf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wiedertäufer #",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.374Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "8i21k0jqlwupgur"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.374Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "xj0dxaf7n8fgc8e"
+    }
+  ]
+}

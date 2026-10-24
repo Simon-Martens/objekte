@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Oft und viel von sich selbst reden, verrräth einen eitlen und eingebildeten Menschen..",
+  "language": [],
+  "musenalm_id": 73447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Rede, so viel möglich, nie von dir / selbst.- Erfordern dieses aber die / Umstände: so wache über die Art dein- / es Ausdrucks, daß du nicht den Schein gewinnest, als gingest du auf / Beyfall aus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Rede, so viel möglich, nie von dir / selbst.- Erfordern dieses aber die / Umstände: so wache über die Art dein- / es Ausdrucks, daß du nicht den Schein gewinnest, als gingest du auf / Beyfall aus",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.457Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "0h1gq3cqy5k10rr"
+    }
+  ]
+}

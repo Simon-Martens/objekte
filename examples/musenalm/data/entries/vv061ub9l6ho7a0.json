@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Kal, SS 1-271, S Nwrt d Vrf C, 11 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Herbstfeier, Die Ein Taschenbuch (Neuffer) 1802",
+    "norm": "~",
+    "biblio": 200766,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-12-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3640,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Steinkopf)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Herbstfeier, Die Ein Taschenbuch (Neuffer) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed V. 449, 12",
+  "responsibility_statement": "C. L. Neuffer",
+  "subtitle_statement": "",
+  "title_statement": "DIE HERBSTFEIER / Ein Sittengemaehlde / in / Neun Gesaengen / von C. L. Neuffer. / EIN TASCHENBUCH / auf das Jahr / 1802 / Stuttgart / bei / Joh. Frid. Steinkopf",
+  "updated": "2026-06-11 10:18:55.651Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "08rzcgorjsf539f"
+  ],
+  "contents": [
+    "go0hnk2lf52rj6a",
+    "lf74n33sq5dvxt0",
+    "o0hu3dixgk76do8",
+    "dys3gq24ce465hd",
+    "qat4le02im33gi0",
+    "ifsru92eg0goqk5",
+    "ssau8ychd15agyn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "sdmlbck2bik4ni0",
+      "source_id": "l7dqdgk9o8u3gyn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.271Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.271Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "sbkcc765gblzzr9"
+    }
+  ]
+}

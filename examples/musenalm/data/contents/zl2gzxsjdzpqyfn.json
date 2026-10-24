@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert V. kol. Illustration zu »Der Kormoran« von V. F. S. Fischer INr 67249, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carbo Cormoranus (Meyer.) Kormoran-Scharbe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas ad viv. del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1149_67250_06wjoos4vn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carbo Cormoranus (Meyer.) Kormoran-Scharbe",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.256Z",
+      "agent": "93i1cvgb16cjfey",
+      "source_id": "399tptz3eafgynu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.256Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "fuc1fztu6kn1mzj"
+    }
+  ]
+}

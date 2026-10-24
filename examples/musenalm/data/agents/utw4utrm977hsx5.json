@@ -1,0 +1,322 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1868",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.417Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "dt. Assekuranzenmakler, Glashändler u. Schriftsteller, Mitglied der Bürgerschaft der Freien und Hansestadt Hamburg 1859 - 1862"
+      ],
+      "dateOfBirth": [
+        "1797-10-26"
+      ],
+      "dateOfDeath": [
+        "1868-04-05"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1055247777"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-28T19:14:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/130231444/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "130231444",
+      "id": "https://d-nb.info/gnd/130231444",
+      "oldAuthorityNumber": [
+        "(DE-588a)130231444",
+        "(DE-588)1055247777"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Luck, Johann Peter Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Peter Carl"
+        ],
+        "surname": [
+          "Luck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4128272-3",
+          "label": "Kaufmann"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/172774322",
+          "label": "Hold, Karl"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Hold"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Amandus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Theobald"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Theobald"
+          ],
+          "surname": [
+            "Amandus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hold, Karl: Elektrizitätsversorgung und Gemeinden",
+        "Luck, Johann P.: Anton Halm und sein Schützling",
+        "Paulus <Apostolus>: Erklärung des Briefes des hl. Apostel Pauli an die Galater",
+        "Luck, Johann P.: Versuch einer Reformations- u. Kirchen-Geschichte der Grafschaft Erbach *",
+        "Luck, Johann P.: Versuch einer Reformations- und Kirchengeschichte der Grafschaft Erbach *",
+        "Luck, Johann P.: Anton Halm u. sein Schützling",
+        "Luck, Johann P.: Historische Genealogie des Reichsgräflichen Hauses Erbach ..",
+        "Luck, Johann P.: Schuld um Schuld und die Rache des Schicksals",
+        "Luck, Johann P.: Der Spanier oder die Pflegesöhne des Sechzigers",
+        "Hold, Carl: Anton Halm und sein Schützling",
+        "Luck, Johann P.: Historische Genealogie des Reichsgräflichen Hauses Erbach"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8487713"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19506674"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055247777"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/130231444/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Peter_Carl_Luck"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Theobald",
+        "Luck, Johann Peter Karl",
+        "Luck, Karl",
+        "Amandus, Theobald",
+        "Luckius, J. P.",
+        "Hold, Carl",
+        "Luck, Johann P.",
+        "Luckius, Joannes P.",
+        "Luckius, Johannes P.",
+        "Amandus",
+        "Luck, J. P. Karl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Luckius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Luck"
+          ]
+        },
+        {
+          "forename": [
+            "J. P. Karl"
+          ],
+          "surname": [
+            "Luck"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Hold"
+          ]
+        },
+        {
+          "personalName": [
+            "Theobald"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Karl"
+          ],
+          "surname": [
+            "Luck"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Luck"
+          ]
+        },
+        {
+          "forename": [
+            "Theobald"
+          ],
+          "surname": [
+            "Amandus"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes P."
+          ],
+          "surname": [
+            "Luckius"
+          ]
+        },
+        {
+          "personalName": [
+            "Amandus"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes P."
+          ],
+          "surname": [
+            "Luckius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Peter_Carl_Luck",
+          "label": "https://de.wikipedia.org/wiki/Johann_Peter_Carl_Luck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:09:48Z",
+    "gnd_query_biographical_data": "1797-1868",
+    "gnd_query_name": "luck, johann peter carl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1676,
+  "name": "Luck, Johann Peter Carl",
+  "profession": "Text",
+  "pseudonyms": "Karl Hold; Carl Hold",
+  "refs": "E 214",
+  "updated": "2026-06-11 13:29:23.661Z",
+  "uri": "https://d-nb.info/gnd/130231444",
+  "editor": ""
+}

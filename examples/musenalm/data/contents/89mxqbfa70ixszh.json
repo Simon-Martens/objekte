@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: In der Kirche Santa Maria del Carmine zu Neapel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Du Stauffe, dem zum Thone / Ein Blutgerüst verliehn",
+  "language": [],
+  "musenalm_id": 46663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 206,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Grabe Conradin's #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Grabe Conradin's #",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "4irsdlf9sfhpmc0",
+      "source_id": "wjnx1aovikc93m5"
+    }
+  ]
+}

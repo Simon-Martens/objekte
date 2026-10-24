@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik vor dem Kalendarium Januar /) # Titel s. Textbezug INr 85051, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein englischer Whiskys #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Ar. sc.",
+  "scans": [
+    "alm_3122_85037_05d6yo6kr1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein englischer Whiskys #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.990Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "t13w89jhk0jso22"
+    }
+  ]
+}

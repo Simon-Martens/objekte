@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 79058, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Begegnung von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_2395_79059_rze40oclqe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Begegnung von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.856Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "6mg9pbll4f4330a"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.856Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "cguk0f3qt86ww52"
+    }
+  ]
+}

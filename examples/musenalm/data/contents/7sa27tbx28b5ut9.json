@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Schmetterlinge (Sammlung INr 111901, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Das heut'ge Stück - von Schiller oder Lessing - / Heißt doch curios",
+  "language": [],
+  "musenalm_id": 111914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lesefehler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lesefehler",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.286Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "upbpkybyw5fr9m4"
+    }
+  ]
+}

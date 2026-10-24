@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Gedichte (Sammlung INr 57088, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Traure, Staude, mit mir! Du bist / ein Pflegling des Todten;",
+  "language": [],
+  "musenalm_id": 57102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Grabe meines Vaters. / (Auf dem Kirchhofe zu Offenbach.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B-i.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Grabe meines Vaters. / (Auf dem Kirchhofe zu Offenbach.)",
+  "updated": "2008-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.823Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "j1qzew2trq8mua4"
+    }
+  ]
+}

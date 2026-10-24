@@ -1,0 +1,43 @@
+{
+  "annotation": "Die frühe Liebschaft INr 29320, Obj 5 s. Graphik INr 29342, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Endlich wohnen sie denn in seliger Eintracht im ländlichen Pfarrhause, der Schornstein raucht",
+  "language": [],
+  "musenalm_id": 29341,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.451Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "895abma2p3btrui"
+    }
+  ]
+}

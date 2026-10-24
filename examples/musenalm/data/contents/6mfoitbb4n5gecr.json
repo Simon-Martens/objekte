@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Ein Leichenzug bewegte sich über den Marktplatz. Dem Sarge voraus schritten außer dem Kruzträger eine Anzahl von sechzehn bis zwanzig Knaben,",
+  "language": [],
+  "musenalm_id": 44629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brodschüler. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Willkomm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Brodschüler. / Erzählung",
+  "updated": "2006-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.472Z",
+      "agent": "b3aavcm0crynmuo",
+      "source_id": "vjraw5ll386y9c2"
+    }
+  ]
+}

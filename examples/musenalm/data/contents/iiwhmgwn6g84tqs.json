@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "In einem von Fremden aller Art vollgepfropften schlechten Schankhause eines slavonischen Dorfes, in dem eben Jahrmarkt gehalten wurde, trafen sich zwei Männer in abgeschabten verblichenen Kleidern,",
+  "language": [],
+  "musenalm_id": 113257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Meisterlügner. / Ein slavonisches Märchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Meisterlügner. / Ein slavonisches Märchen",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.439Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "j3e5h3owu2oewzq"
+    }
+  ]
+}

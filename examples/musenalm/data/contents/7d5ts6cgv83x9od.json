@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Wer war so gut, wie Sie! wo war / so rein ein Wille! / Hell war Ihr edler Geist,",
+  "language": [],
+  "musenalm_id": 12794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Sie war. / Den 4ten May 1782",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ung.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie Sie war. / Den 4ten May 1782",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.475Z",
+      "agent": "zewmxfx0vayv75q",
+      "source_id": "yj1mo8v5s5zuu6s"
+    }
+  ]
+}

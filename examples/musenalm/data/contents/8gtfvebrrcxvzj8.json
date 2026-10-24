@@ -1,0 +1,45 @@
+{
+  "annotation": "Erster Abschnitt. Regeln für Reisende (Sammlung INr 97392, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Kleidung ist ein Gegenstand, welcher der Wichtigkeit halber von dem Reisenden nie ausser Augen gesezt werden darf.",
+  "language": [],
+  "musenalm_id": 97401,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Aeusserlich anzuwendende Dinge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Aeusserlich anzuwendende Dinge",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.632Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "qvy9mydp6xxsd75"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Schade dass die Natur nur Einen Menschen / aus dir schuf,",
+  "language": [],
+  "musenalm_id": 38196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 269,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Prophet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Prophet",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.017Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "8s0xhkor50fzekw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.017Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "q93kw801uqbi5p6"
+    }
+  ]
+}

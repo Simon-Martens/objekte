@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Distichen an die vollendete Ida (Sammlung INr 116460, Ob 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Hier auf diesem bethräneten Grab will dulden ich lernen,",
+  "language": [],
+  "musenalm_id": 116466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idas Grab",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Idas Grab",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.599Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.599Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "mfkrofvjcn2h5h4"
+    }
+  ]
+}

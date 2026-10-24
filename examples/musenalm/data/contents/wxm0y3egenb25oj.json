@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102334, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Vom eis'gen Wintersturme tönt die Luft / Dicht treibt der Schnee im wilden Hauch des Windes,",
+  "language": [],
+  "musenalm_id": 102336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Begräbnis des Kindes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Begräbnis des Kindes",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.458Z",
+      "agent": "nicecucaceak00n",
+      "source_id": "xrbfoz4ul9lfcxn"
+    }
+  ]
+}

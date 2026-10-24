@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32915,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Kaiserlichen Majestät / der verwittweten Kaiserin von Rußland / Marie / Feoderowne / in tiefster Ehrfurcht geweiht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Kaiserlichen Majestät / der verwittweten Kaiserin von Rußland / Marie / Feoderowne / in tiefster Ehrfurcht geweiht",
+  "updated": "2003-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.533Z",
+      "agent": "0rnyqiybfu5n3e2",
+      "source_id": "xffs0rtiu6dw5xx"
+    }
+  ]
+}

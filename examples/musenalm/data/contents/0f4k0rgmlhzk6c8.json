@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Dich haben die Großen der Welt nicht im Solde, / Kein Reicher erkauft dich, o Freude, mit Golde:",
+  "language": [],
+  "musenalm_id": 13676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Freude",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.460Z",
+      "agent": "cxnpeuic3nrym95",
+      "source_id": "jq77yzyl3fecykg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Scenen aus dem Volksleben (Sammlung INr 43880, Obj 26) Dem Text vorangestellt: Uhu! Schuhu! tönt es näher, / Kauz und Kibitz und der Häher, / Sind sie alle wach geblieben?  Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Nach einer Stunde war es still im Städtchen. Der junge Mond ging hinter den Tannen des Odenwalds zur Ruhe, ein Licht nach dem andern erlosch an den Fenstern",
+  "language": [],
+  "musenalm_id": 43882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Geheimniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Geheimniß",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "ptgz3b89qd2ujn0"
+    }
+  ]
+}

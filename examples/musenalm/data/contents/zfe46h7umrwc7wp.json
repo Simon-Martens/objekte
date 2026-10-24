@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April; paginiert 5. /) Illustration zu »Der Pilger«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95704,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deine Tochter ist entehrt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc. 1795",
+  "scans": [
+    "alm_4093_95704_1oiqmf3ob9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deine Tochter ist entehrt",
+  "updated": "2014-03-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.721Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "3rq05ems2rhsz4w"
+    }
+  ]
+}

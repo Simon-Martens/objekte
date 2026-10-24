@@ -1,0 +1,113 @@
+{
+  "annotation": "s. Taschenbuch für edle teutsche Frauen 1802; alm-2794",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 3 BB W, B I-Verz,SS I-XXIV I-Verz dazu 3 GG, SS 1-342 darin 2 GG, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für edle teutsche Weiber 1800",
+    "norm": "~",
+    "biblio": 407274,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3804,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Müller)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für edle teutsche Weiber 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / edle teutsche Weiber / mit Kupfern / 1800 / LEIPZIG / bei Heinrich Müller",
+  "updated": "2026-06-11 10:18:54.699Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "mimgc80oxroxzjo"
+  ],
+  "contents": [
+    "fdmkmsn6br4fbf9",
+    "vx4lngqy6z0n53x",
+    "hcqvcsjgzdj5hn5",
+    "n4n1xkml91alwkt",
+    "inc9xstksfrs5gj",
+    "73w4h1t28u00dlj",
+    "2sve5z30fg52h9j",
+    "2eawlzbiptk9jjz",
+    "ij1e7aglj0db8bg",
+    "ozrnbathzdvsedp",
+    "xik86dokm0r8wf6",
+    "w111wsarifne07b",
+    "9bs3rz2ftp20zty",
+    "08ur7i22yp9iae2",
+    "wq34p248qc3tb77",
+    "xn1xvq8gshz37c0",
+    "ls10y4eyezdpi4h",
+    "n6f7cxzasezw5sp",
+    "b07ue3da2gnrrl5",
+    "iekhyaejk31sshp",
+    "jt7omi01zsboac2",
+    "mlllczt63tq61yu",
+    "jdk0hq2a5z86inf",
+    "l8pgbl1gcvuh6of",
+    "3jwntqodsw4x66v",
+    "50vo10hoady7h7n",
+    "8e4wpxy1x0v25ve",
+    "2byso28quifgxk3",
+    "tpcq4rsv3pez8xt",
+    "lwbgjj4grx2tmq2",
+    "aj5g9572dzwzhre",
+    "mhso3qbap7bd177",
+    "p2bofevpjh6n6eh",
+    "leirybuf09p6foj",
+    "epzzd9hhu1rhg4d",
+    "rnnlmyjog4tvqxp",
+    "e3um060e3kod63l",
+    "06f66hqrndzxa5n",
+    "hohfibovim5h613",
+    "k2xd99veymgrg77",
+    "gsi2dy7kaqgb33h",
+    "rfutrhalig6vfp5",
+    "xl30j5y6vaxm9kl",
+    "m4gze3xmd9k65rf",
+    "qg4m7qmpf7hi8yv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.109Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.109Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "5li5ar1lhm31tbo"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "annotation": "Nachtitel lautet: Kleine Romanen-Bibliothek  Von B****, August Lafontaine, Mademoiselle Levesque, Sophie Mereau, Karl Reinhard, und G. W. K. Starke. Mit Kupferstichen. Göttingen, bei Johann Christian Dieterich. 1799 /) §1§ Graphik fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 16 BB Kal, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, SS 1-325 darin 5 GG §1§, S 326 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1799",
+    "norm": "~",
+    "biblio": 100764,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 619,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Romanen-Kalender 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 82; Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für das Jahr 1799. / Von / B****, August Lafontaine, Mademoiselle / Levesque, Sophie Mereau, Karl Reinhard, / und G. W. K. Starke. / Mit Kupferstichen. / Göttingen, / bei Johann Christian Dieterich",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "cwyhdar0omf298r"
+  ],
+  "contents": [
+    "uvbb8hhort8ndta",
+    "qko4bp4tty4a0b6",
+    "ez1fp7azb4ri5qq",
+    "gv7a5bl9gb9c44d",
+    "iisr4qamtga0isa",
+    "okpktgad7t631gc",
+    "s2k8pysd05cmyom",
+    "h2716n2cuo93uy3",
+    "p7h2jd9qd94we2g",
+    "hutys06mekel4rg",
+    "xc1427xkkyr1s44",
+    "ow29vv5dgkzfgyq",
+    "0cfu5am3sp58szh",
+    "se6rp7fao85919u",
+    "6l3y17ohszqeru6",
+    "pdybocinkp9bx43",
+    "cqaw2cwsgooz2th",
+    "dzyaz6689w1jnfu",
+    "gd2wwvr8rvdlha0",
+    "ks5xbjbp3l0jnop",
+    "9lb23bs1cef671t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.065Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.065Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "4rmpc3jrvx5ovdf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.719Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.719Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "omt8jj1bbdnhzwl"
+    }
+  ]
+}

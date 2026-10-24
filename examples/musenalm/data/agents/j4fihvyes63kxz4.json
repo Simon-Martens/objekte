@@ -1,0 +1,144 @@
+{
+  "annotation": "",
+  "biographical_data": "1774->1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.307Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1774"
+      ],
+      "describedBy": {
+        "dateModified": "2013-07-08T12:08:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/143528920/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "143528920",
+      "id": "https://d-nb.info/gnd/143528920",
+      "oldAuthorityNumber": [
+        "(DE-588a)143528920"
+      ],
+      "periodOfActivity": [
+        "1822"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4115319-4",
+          "label": "Mariabrunn (Wien)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4007467-5",
+          "label": "Böhmen"
+        }
+      ],
+      "preferredName": "Drexler, Anton Ferdinand",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Ferdinand"
+        ],
+        "surname": [
+          "Drexler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Adjunkt"
+      ],
+      "publication": [
+        "Die kleinen Gratulanten. - 1816"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/168051947"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q95316743"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143528920/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:15:18Z",
+    "gnd_query_biographical_data": "1774->1822",
+    "gnd_query_name": "drexler, anton ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 577,
+  "name": "Drexler, Anton Ferdinand",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 761",
+  "updated": "2026-06-11 13:29:22.100Z",
+  "uri": "https://d-nb.info/gnd/143528920",
+  "editor": ""
+}

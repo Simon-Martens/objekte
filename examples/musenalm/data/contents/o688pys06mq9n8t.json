@@ -1,0 +1,45 @@
+{
+  "annotation": "Teinach 1824 (Sammlung INr 54183, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Ist die Gesellschaft gut? Ach nein, sie spielt / ja nicht Karten, / Spricht kein französisches Wort,",
+  "language": [],
+  "musenalm_id": 54185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Vornehme Frage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Vornehme Frage",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.724Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "cp76puh34mdc2zi"
+    }
+  ]
+}

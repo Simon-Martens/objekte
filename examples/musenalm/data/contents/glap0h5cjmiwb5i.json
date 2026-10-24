@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kurze geographische Darstellung des Kantons Zürich« INr 51644, Obj 7 s.a. Textbezug INr 51664, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zürich / von der Nordseite gezeichnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König st.",
+  "scans": [
+    "alm_703_51648_f9pgq0s4sy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zürich / von der Nordseite gezeichnet",
+  "updated": "2007-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.686Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "3vzu0uqv2n584y9"
+    }
+  ]
+}

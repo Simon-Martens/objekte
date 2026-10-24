@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Cathedrale von Sevilla« INr 57796, Obj 92",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "420",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kathedrale zu Sevila",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Roberts pinx. A. Payne sculp.",
+  "scans": [
+    "alm_768_57797_sy25ufc452.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kathedrale zu Sevila",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.777Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "5c31r77scgdvecv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.777Z",
+      "agent": "pu7b66nswzrap1d",
+      "source_id": "n3b0cmfqdm3pq3h"
+    }
+  ]
+}

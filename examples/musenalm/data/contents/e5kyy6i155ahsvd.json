@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Graphik paginiert I /)  paginiert III /) kol. Illustration zu »Seltener Rehbock« von v. Wildungen INr 69683, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seltner Rehbock",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del.",
+  "scans": [
+    "alm_1134_69682_qnskjb1dyk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seltner Rehbock",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.492Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "4avbehx5e7mv5q3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.492Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "ak34yq2z74aomcn"
+    }
+  ]
+}

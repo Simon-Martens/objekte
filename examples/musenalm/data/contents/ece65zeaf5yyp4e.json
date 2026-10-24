@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlings-Abend und Nacht. Sechs Lieder (Sammlung INr 30592, Obj 30) /) Gedichte (Sammlung INr 30591, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Die Abendglocke läutet / Den todten Tag zu Grab.",
+  "language": [],
+  "musenalm_id": 30595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Abendtöne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Abendtöne",
+  "updated": "2002-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.171Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "rc1eiynioz3himu"
+    }
+  ]
+}

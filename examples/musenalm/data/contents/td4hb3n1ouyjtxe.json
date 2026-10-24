@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Zeitverse (Sammlung INr 64840, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Auf eilet! zu den gastlichen Gestaden / Der Spree und sammelt euch zum hohen Feste!",
+  "language": [],
+  "musenalm_id": 64845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / die Isispriester / zum / 18ten September 1828",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Cebes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / die Isispriester / zum / 18ten September 1828",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.045Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "phkxu0xjbko1mig"
+    }
+  ]
+}

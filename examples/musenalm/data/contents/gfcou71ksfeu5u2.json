@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Blätter aus Agathens Papieren (Sammlung INr 39552, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Recht innig freue ich mich der köstlichen Blumen, die hier um mich in hoher Pracht und lieblicher Schönheit aufgeblüht sind.",
+  "language": [],
+  "musenalm_id": 39553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Seyn und Werden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Seyn und Werden",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.937Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "jlge2aweol4wljg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Beide Taschen des abgelebten grünen Überrockes, in welchem der Kandidatus Theologiä Richard Simplicius Ehrenpreiß",
+  "language": [],
+  "musenalm_id": 30177,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Beruf. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weisflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Beruf. / Erzählung",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.632Z",
+      "agent": "iv41ps6uccpba1n",
+      "source_id": "ddwv7elk84i76ew"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Ich sterbe, - setzt nach meinem Leben / Nur keinen kalten Leichenstein;",
+  "language": [],
+  "musenalm_id": 112133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Letzter Wille / eines Zechers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Letzter Wille / eines Zechers",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.375Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "dtpql4mntov7x9l"
+    }
+  ]
+}

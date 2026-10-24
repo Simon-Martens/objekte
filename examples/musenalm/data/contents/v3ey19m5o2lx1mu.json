@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Jüngst sang ich der Begeisterung ein Lied, / Und stellte mich von ihr durchglüht:",
+  "language": [],
+  "musenalm_id": 12849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rufins Bekänntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rufins Bekänntniß",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.387Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "p8c08hs4twn5xtd"
+    }
+  ]
+}

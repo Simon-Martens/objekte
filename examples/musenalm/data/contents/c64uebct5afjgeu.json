@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "In einer der größeren Residenz-Städte Deutschlands, deren eigentlicher Nahme unsern schönen Leserinnen wohl ziemlich gleichgültig seyn kann.",
+  "language": [],
+  "musenalm_id": 107332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gattinn treue Liebe ist des Erdenlebens / höchsten Glück. / Erzählung aus der großen Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rittler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gattinn treue Liebe ist des Erdenlebens / höchsten Glück. / Erzählung aus der großen Welt",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.227Z",
+      "agent": "9ln1r7p8kwjoxp7",
+      "source_id": "71myjwq8m7j2sr4"
+    }
+  ]
+}

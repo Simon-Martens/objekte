@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Die Nacht ist gar schön, und der Vollmond scheint; / Dort drüben unter der Linde / Da sitzen gar frohe Gesellen vereint",
+  "language": [],
+  "musenalm_id": 85626,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gerippe. / (Ballade.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Ritter v. Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gerippe. / (Ballade.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.358Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "asx5lxy8q1l7j47"
+    }
+  ]
+}

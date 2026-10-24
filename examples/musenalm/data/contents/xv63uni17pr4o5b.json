@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 33",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Mit Ohnmacht paart in mir der Unmut sich; / Ich fürcht' und hoffe, glüh und starre,",
+  "language": [],
+  "musenalm_id": 5488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Petrarch's 104tes Sonnet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gn.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Petrarch's 104tes Sonnet",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.127Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "9r44hkyszg34t8v"
+    }
+  ]
+}

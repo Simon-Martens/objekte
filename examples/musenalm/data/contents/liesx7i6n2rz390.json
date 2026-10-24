@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Lilis Park« von J. W. von Goethe INr 40253, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40252,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lili's Park",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_525_40252_4ppdyd10w4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lili's Park",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.749Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "3of1lvcmvib7rjk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.749Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "vq4quxwlvsr80x0"
+    }
+  ]
+}

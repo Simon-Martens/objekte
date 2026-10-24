@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Wir duften so süß, wir lächeln so mild, / Uns wählt man die Freude zu krönen,",
+  "language": [],
+  "musenalm_id": 62876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die edlesten Gaben der Götter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie Freifr. von Bechtolsheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die edlesten Gaben der Götter",
+  "updated": "2009-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.070Z",
+      "agent": "7wewn5gfr0shp0v",
+      "source_id": "9oqyd1j4pvbzib6"
+    }
+  ]
+}

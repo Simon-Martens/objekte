@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Oft sitzt man so an trüben Feiertagen, / Und sieht die Leute fröhlich geh'n und weilen,",
+  "language": [],
+  "musenalm_id": 94837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wehmuth. / (Im Jahre 1823.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wehmuth. / (Im Jahre 1823.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.745Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "ofu6azkeuktx4zc"
+    }
+  ]
+}

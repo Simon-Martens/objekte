@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Ezzelin von Romano« von G. Pfitzer INr 99083; Obj 109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH UND EZZELIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fellner del. A. Gnauth sc.",
+  "scans": [
+    "alm_1785_98975_4vgplvd7lq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH UND EZZELIN",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.885Z",
+      "agent": "msrf0wfavicqjbz",
+      "source_id": "5umd43yjy6uh606"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.885Z",
+      "agent": "9z4h7ka6ovxy0ac",
+      "source_id": "opjmsplbynh76q5"
+    }
+  ]
+}

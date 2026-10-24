@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Ihr nicht, der Sterbenden, gilt das siegeslächelnde / Antlitz;",
+  "language": [],
+  "musenalm_id": 23916,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sterbende Arete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sterbende Arete",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.196Z",
+      "agent": "q7zvyheam3iyblc",
+      "source_id": "vgtu5o6cs5ffx5d"
+    }
+  ]
+}

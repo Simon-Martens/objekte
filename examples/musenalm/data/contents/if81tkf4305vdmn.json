@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Gedichten INr 45411-45420, Obj 120-129",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spanische Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spanische Lieder",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.522Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "7xxf2ei6a9smylu"
+    }
+  ]
+}

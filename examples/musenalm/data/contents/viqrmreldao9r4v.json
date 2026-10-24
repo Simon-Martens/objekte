@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 19347, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9258,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise zur Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. Gottschick sc.",
+  "scans": [
+    "alm_41_9258_c8prwjrzvo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise zur Ruhe",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "6m45uu4zo40o25z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "bx5sav78pa9v54e"
+    }
+  ]
+}

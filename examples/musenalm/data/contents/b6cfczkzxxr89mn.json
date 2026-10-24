@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86267, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Gleich einer kaum erlosch'nen Fackel, die dem Feuer / Genaht wird, schlägt die Liebe hell in Flammen aus,",
+  "language": [],
+  "musenalm_id": 86276,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Griechischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Griechischen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.231Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "fwqwrpvowfwcwk5"
+    }
+  ]
+}

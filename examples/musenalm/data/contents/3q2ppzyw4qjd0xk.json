@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Fünf Briefe (Sammlung INr 40829, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "Dein Brief war Herzensstärkung für mich, Lieber Müller, ohnerachtet ein düsteres Wölkchen drüber hin floß.",
+  "language": [],
+  "musenalm_id": 40831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Stuttgardt, den 6ten Dezember 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart, der Vater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Stuttgardt, den 6ten Dezember 1787",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.723Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "c7gvyyn7tgnzkn1"
+    }
+  ]
+}

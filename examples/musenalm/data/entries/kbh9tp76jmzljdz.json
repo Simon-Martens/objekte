@@ -1,0 +1,88 @@
+{
+  "annotation": "§1§ Graphik fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, S I gT, S III T, G, S V G-Verz u. I-Verz, SS VII-XVI darin 3 §1§ GG, SS 1-388",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1858",
+    "norm": "~",
+    "biblio": 100784,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-08-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 611,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1858. / Mit Beiträgen / von / Gisbert Freiherrn Vincke, Claire von Glümer, / Josef Rank, Ernst Willkomm, Franz Trautmann und / Franz J. Englert. / Mit 5 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+  "updated": "2026-06-11 10:18:55.288Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "2hkjiqa1h1vhbxn"
+  ],
+  "contents": [
+    "6m91imn669xkmgv",
+    "72edl6i8xjapev8",
+    "xl84h5e44yo4gj3",
+    "dyig5p9um1yfmqf",
+    "ijntrjqa6ubpjyz",
+    "3tq96tbgvjvsp6f",
+    "v75c0g3zvbupcl3",
+    "icr73dvwrvmo55r",
+    "a5t1ptxa8a1utm6",
+    "0p0933vtkwxmh4r",
+    "0c90xw2blmt1otz",
+    "idqvosjld2g0gov",
+    "uhb5cvwtormcmrf",
+    "iv0zxwikmfvhrdz",
+    "9u25boatqi2j3w0",
+    "qrmtjjycqezslv3",
+    "niq5c7mhpha0wxw",
+    "6mfoitbb4n5gecr",
+    "zi4o5y4b5aubikk",
+    "nnjpiuzonkzqjjk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.068Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.068Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "hy4znc1j6j7o3pd"
+    }
+  ]
+}

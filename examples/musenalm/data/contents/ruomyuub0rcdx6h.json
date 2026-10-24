@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Ein Habicht schoß auf eine singende Nachtgall. Da du so lieblich singst, sprach er, wie vortrefflich wirst du schmecken!",
+  "language": [],
+  "musenalm_id": 92389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachtigall und der Habicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachtigall und der Habicht",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.594Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "53sj2it27buh220"
+    }
+  ]
+}

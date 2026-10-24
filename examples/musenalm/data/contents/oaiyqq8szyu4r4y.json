@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Wie glänzt der Tag so freundlich nieder! / Die Lerch' ist wach, der Fink und ich; / Und Adolph bläst schon richtig wieder;",
+  "language": [],
+  "musenalm_id": 98380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der goldene Regen. / Ein ländliches Spiel in einem Akte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der goldene Regen. / Ein ländliches Spiel in einem Akte",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.690Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "5n6d9k6c2kf5sdf"
+    }
+  ]
+}

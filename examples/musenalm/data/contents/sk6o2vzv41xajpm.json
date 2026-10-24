@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Mit Müh, und voller Furcht, daß nicht / die Blätter reissen,",
+  "language": [],
+  "musenalm_id": 17337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Musenalmanach / auf dem Schnitte vergoldet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Musenalmanach / auf dem Schnitte vergoldet",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.690Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "1uqvajya3dutit6"
+    }
+  ]
+}

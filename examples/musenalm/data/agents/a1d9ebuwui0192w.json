@@ -1,0 +1,257 @@
+{
+  "annotation": "",
+  "biographical_data": "1801-1868",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.345Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/136256-2",
+          "label": "Universität Prag (-1882)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Studium in Prag. Bibliotheks-Skriptor in der Prager Universitätsbibliothek. Glaser begründete die Zeitschrift \"Ost und West\" (Prag 1837-1848), deren Ziel es war, slawische Literatur und Wissenschaft einem deutschsprachigen Publikum zu vermitteln. Glasers Frau Juliane (geb. 1806), geborene Ebert, Schwester des Dichters Karl Egon Ebert (1801-1882), war ausgebildete Sängerin und beschäftigte sich ebenfalls mit literarischen Arbeiten."
+      ],
+      "dateOfBirth": [
+        "1801-06-14"
+      ],
+      "dateOfDeath": [
+        "1868-08-14"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/116653914"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-29T15:14:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1037894332/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Glaser"
+          ]
+        },
+        {
+          "forename": [
+            "Juliane"
+          ],
+          "surname": [
+            "Ebert"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1044003480",
+          "label": "Glaser, Juliane"
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Glaser"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1037894332",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1044003480",
+          "label": "Glaser, Juliane"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://lithes.uni-graz.at/reg_glaser_rudolf.html",
+          "label": "http://lithes.uni-graz.at/reg_glaser_rudolf.html"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1037894332",
+      "oldAuthorityNumber": [
+        "(DE-588)116653914",
+        "(DE-588a)116653914"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "preferredName": "Glaser, Rudolph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Rudolph"
+        ],
+        "surname": [
+          "Glaser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Denkbuch über die Anwesenheit Ihrer K.K. Majestäten Franz der Ersten und Caroline Auguste in Böhmen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/62305910"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94692445"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037894332/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116653914"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055355424"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1037894332"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Glaser, Rudolf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Glaser"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:31:15Z",
+    "gnd_query_biographical_data": "1801-1868",
+    "gnd_query_name": "glaser, rudolph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 901,
+  "name": "Glaser, Rudolph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 670",
+  "updated": "2026-06-11 13:29:22.540Z",
+  "uri": "https://d-nb.info/gnd/1037894332",
+  "editor": ""
+}

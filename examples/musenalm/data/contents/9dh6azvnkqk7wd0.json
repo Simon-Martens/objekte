@@ -1,0 +1,45 @@
+{
+  "annotation": "Ghaselen (Sammlung INr 45606, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Schöne Rose, wie so plötzlich bist du über Nacht ge- / storben!",
+  "language": [],
+  "musenalm_id": 45609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die gestorbene Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die gestorbene Rose",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.160Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "eq5unky7qo5e5lc"
+    }
+  ]
+}

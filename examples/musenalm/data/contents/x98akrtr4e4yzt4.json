@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77766, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Ich hielt ein Kindlein in den Armen / Und trug es tänzelnd auf und ab.",
+  "language": [],
+  "musenalm_id": 77768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Licht und Schatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Licht und Schatten",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.781Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "ddin599kp60sku5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Agrionien für 1827. Gesammelt von Theodor Hell (Sammlung INr 40761, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "382",
+  "incipit_statement": "Wenn das Wörtchen sich mir naht / Nach der heißen Arbeit Mühen,",
+  "language": [],
+  "musenalm_id": 40794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "26. / Logogryph",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "26. / Logogryph",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.157Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "44z76omkylvodo9"
+    }
+  ]
+}

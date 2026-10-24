@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132148,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. B.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. B.",
+  "scans": [
+    "alm_4835_132148_25wh0fagey.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2023-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.087Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "7lu0pdst9494f7f"
+    }
+  ]
+}

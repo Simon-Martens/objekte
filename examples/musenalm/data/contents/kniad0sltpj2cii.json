@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Gedicht: Die Rettung des Hauses Sachsen 1455 (Sammlung INr 20541, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Von Isenberg im Trosse / Ging's fort zu Fuß und Rosse.",
+  "language": [],
+  "musenalm_id": 20547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Bothschaft der Elstern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf v. Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Bothschaft der Elstern",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.661Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "7zp1a18os5ml6xt"
+    }
+  ]
+}

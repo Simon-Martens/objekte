@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Nieten? Nieten? Nichts, als kahle Nie- / ten? / Nun so niete dich denn sat und mat!!!",
+  "language": [],
+  "musenalm_id": 2881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortunens Pranger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fortunens Pranger",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.841Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "amsdo3y9iv1qmma"
+    }
+  ]
+}

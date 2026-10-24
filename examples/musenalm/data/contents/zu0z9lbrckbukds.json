@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit einer Illustration s. Graphik INr 59530, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Überwunden und gefangen, in dem Kerker zu / Sonzino / Ohne Laut und ohne Regung sitzt der greise Eze- / lino,",
+  "language": [],
+  "musenalm_id": 59529,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ezelin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ezelin",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.766Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "fn1wkyfltn7kqrd"
+    }
+  ]
+}

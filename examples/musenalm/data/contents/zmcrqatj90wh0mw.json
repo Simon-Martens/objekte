@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Hätt' ich sieben Wünsch' in meiner Gewalt: / Was wünscht' ich?",
+  "language": [],
+  "musenalm_id": 129323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sieben Wünsche. / Nach einem alten deutschen Liede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sieben Wünsche. / Nach einem alten deutschen Liede",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.013Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "1gvsjxk6oitvsxk"
+    }
+  ]
+}

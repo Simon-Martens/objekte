@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Das Volk: frei, aufgeklärt, im Glauben ungezwungen, immer das Gesetz achtend, die Ordnung liebend,",
+  "language": [],
+  "musenalm_id": 70696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Mein Ideal eines Staates",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Mein Ideal eines Staates",
+  "updated": "2010-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.333Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "78qinhmyf3ixm08"
+    }
+  ]
+}

@@ -1,0 +1,371 @@
+{
+  "annotation": "",
+  "biographical_data": "1746-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.254Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1782 Hofviolinist und Cammer-Compositeur am Hof von Ludwigslust; ab 1788 in Königsberg tätig"
+      ],
+      "dateOfBirth": [
+        "1746-09-04"
+      ],
+      "dateOfDeath": [
+        "1792-03-20"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:50:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116117710/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Georg Anton"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118655329",
+          "label": "Benda, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117664",
+          "label": "Benda, Felicitas Agnesia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1057764787",
+          "label": "Benda, Justina"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116117710",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118655329",
+          "label": "Benda, Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1057764787",
+          "label": "Benda, Justina"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116117664",
+          "label": "Benda, Felicitas Agnesia"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116117710",
+      "oldAuthorityNumber": [
+        "(DE-588a)134773039",
+        "(DE-101c)310463033",
+        "(DE-588a)116117710",
+        "(DE-588a)103868704"
+      ],
+      "periodOfActivity": [
+        "04.09.1750"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4248203-3",
+          "label": "Schloss Ludwigslust (Ludwigslust)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "preferredName": "Benda, Friedrich Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ludwig"
+        ],
+        "surname": [
+          "Benda"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4231707-1",
+          "label": "Konzertmeister"
+        }
+      ],
+      "publication": [
+        "Mariechen",
+        "Benda, Friedrich L.: [Mariechen]",
+        "Benda, Friedrich L.: [Der Barbier von Sevilla]",
+        "Der Herr ist König",
+        "Benda, Friedrich L.: [Louise]",
+        "III Concerti per il Violino Principale, Accompagnati da Due Corni, Due Oboi, Due Flauti, Due Violini, Due Viole, Violoncello obligato, e Basso ripieno",
+        "Louise"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2024011726"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/45046502"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2546912"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116117710"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116117710/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Benda"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Ludwig_Benda"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000059613101"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116117710"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116117710"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Benda",
+        "Benda, Friedrich L.",
+        "Benda, Friedrich",
+        "Benda,_, der Jüngere",
+        "Benda, Ludwig",
+        "Benda, Bedřich Ludvík"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Benda,_"
+          ]
+        },
+        {
+          "forename": [
+            "Bedřich Ludvík"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Benda",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Benda"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:24Z",
+    "gnd_query_biographical_data": "1746-1792",
+    "gnd_query_name": "benda, friedrich ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 155,
+  "name": "Benda, Friedrich Ludwig",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 141; ADB II, 314",
+  "updated": "2026-06-11 13:29:21.523Z",
+  "uri": "https://d-nb.info/gnd/116117710",
+  "editor": ""
+}

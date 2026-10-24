@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "verso G, ar: S 1 T, 4 GG, SS 3-60 Kal darin 4 GG, T, ar1: SS 1-76, ar2: SS 1-85 darin 5 GG, SS 86-88 G-Verz, ar3: SS 1-38, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1810 (franz. Ausg.: Almanach de poche de Goettingue 1810)",
+    "norm": "~",
+    "biblio": 408400,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2014-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4088,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1810 (franz. Ausg.: Almanach de poche de Goettingue 1810)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / de poche de Goettingue / pour l'année 1810 / A Goettinge / chez Henri Dieterich",
+  "updated": "2026-06-11 10:18:55.215Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "c95p18l6yu59an1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.943Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.943Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "hi3osxnp4jiei7e"
+    }
+  ]
+}

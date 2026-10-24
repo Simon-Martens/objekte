@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Die Arme über's Mieder verschränkt, / Das Köpfchen melancholisch gesenkt,",
+  "language": [],
+  "musenalm_id": 86528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Thomasnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Thomasnacht",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.338Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "zlohdsth0ornhox"
+    }
+  ]
+}

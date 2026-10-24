@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz (INr 21767, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21763,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Thalgegend in Schwaben #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinkopf del. D'Argent sc.",
+  "scans": [
+    "alm_295_21763_cc17zm21f7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Thalgegend in Schwaben #",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.024Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "pu3gutrm6dsaz7z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.024Z",
+      "agent": "sqtw3zg1u8ixd3n",
+      "source_id": "wku3m4lv312yh0k"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz /) Sammlung von 4 Rätseln INr 45239-45242, Obj 53-56",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charaden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charaden",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.334Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "b5ydwme6qj6vaf3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "In der Sonne Frührothstrahle, / Auf des Haines Dunkelgrün / Seh' ich hoch das Schloß erglüh'n,",
+  "language": [],
+  "musenalm_id": 66366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gut und Groß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Sondershausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gut und Groß",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.198Z",
+      "agent": "36njivcmrbhn7t6",
+      "source_id": "pg2sjnq8j2k7n9w"
+    }
+  ]
+}

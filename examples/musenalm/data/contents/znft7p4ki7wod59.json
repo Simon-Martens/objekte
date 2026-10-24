@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Ogilvie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl",
+  "scans": [
+    "alm_3475_110978_eerp7n62zt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Ogilvie",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.271Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "cgafx7xdaq1eevd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.271Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "fzqtu9i1v62y0xo"
+    }
+  ]
+}

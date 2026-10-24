@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Die Sprache zieht die wahrhaften Gränzen der Völker. Die Musik ist eine allgemeine Sprache der Empfindungen, darum überschreitet sie die Völkergränzen,",
+  "language": [],
+  "musenalm_id": 78122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber / den Zustand der Musik / in Deutschland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber / den Zustand der Musik / in Deutschland",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.726Z",
+      "agent": "zi8zh5xhvi7k26j",
+      "source_id": "l5y8txp8z2ov8fe"
+    }
+  ]
+}

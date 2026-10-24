@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, 15 BB Kal darin 12 GG, S 1 T, SS 3-190 darin Kr, SS 190-224 G-Verz, SS 224-283 darin 2 GG, S I-Verz VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1790",
+    "norm": "~",
+    "biblio": 106617,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2168,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg); Göttingen (Siedentopf)",
+  "places": [
+    "auiohpkcp2mbx23",
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1790. / mit Kupfern von Chodowiecki / Lauenburg / bey J. G. Berenberg / in Commission / bey H. C. Siedentopf / in Göttingen",
+  "updated": "2026-06-11 10:18:55.891Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "79147lr7eolgdd8"
+  ],
+  "contents": [
+    "ehzsyuo3tbw7ptv",
+    "5r7wvpf38lz8nap",
+    "4rar2pahpnrylre",
+    "obvmpsyz57g841e",
+    "6f84zzt47vv5rwm",
+    "8194v8hn67dfd1p",
+    "t6832jzou9p4n08",
+    "or7cgszqok67ig6",
+    "9xm46he09utc7og",
+    "indzko14t87k9qh",
+    "sfhc5vnpo3eq1c6",
+    "lyyf6f0t8ymeqzk",
+    "59c6icqxs84sc67",
+    "hj85ezxkwj1ycjw",
+    "mxt619mpben24bm",
+    "wn750dg9cyijt6l",
+    "lsv2egujfj7gyri",
+    "ohyttqbp21il0di",
+    "cjihug2z8z7fgrw",
+    "yc9xqd782j3cgm5",
+    "mc001tae6q7dhi3",
+    "g1kvo521wf8m9bo",
+    "thilqgicm8k3g1y",
+    "o53nc3ika2dkk73",
+    "9hexkfq9hnophiy",
+    "5iqacsbufzx9p2z",
+    "yqfb1lsal5xae5u",
+    "pye5dblbl85rasg",
+    "j0ilwb5evnhup2a",
+    "cav3qek3763uu33",
+    "qdzh336uyhsv221",
+    "c8jkc5kgyxppjy2",
+    "c7qab4l9jayg8i8",
+    "fhkm5k7kmt52x3t",
+    "94p8kbpefwyv1ir",
+    "bkww0jhvfuqmzae",
+    "05ommd5l8g0ndl3",
+    "gsgmu3z1u77b9c2",
+    "hiyqqts84djp9gi",
+    "gfsrb6cpxmyke6l",
+    "7t8nvz4zr1hcnqa",
+    "n55ivw3vqpohwyo",
+    "eewspo869ivchpw",
+    "zm0hy4i7xn1tvhh",
+    "f7pf2fobu1oxot2",
+    "2q1czramx8jcrzd",
+    "rfuzdmmt21f96s7",
+    "y1sd7xq22mu2c5e",
+    "3zy87g75k89jt22",
+    "bz85u6zcqpxichy",
+    "sm4kvjkxbglv4h9",
+    "9fiwahvv9trr2nk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.155Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.155Z",
+      "agent": "vs7t3pyl78chwvv",
+      "source_id": "itj23diqcewgahs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.535Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.535Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "txe7h1z5pohen0x"
+    }
+  ]
+}

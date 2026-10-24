@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Jüngling und der Wanderer« von E. v. Houwald INr 20132, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20093,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling und der Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. F. Fleischmann sc.",
+  "scans": [
+    "alm_269_20093_v2y8slc074.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling und der Wanderer",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.947Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "42pu1o4hb60j8ab"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.947Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "wea8sqo495egghj"
+    }
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.424Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1777-08-26"
+      ],
+      "dateOfDeath": [
+        "1838-02-08"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-01T12:41:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116989114/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116989130",
+          "label": "Meddlhammer, Friederike von"
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "personalName": [
+            "Albini"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Medd'lhammer"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116989114",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116989130",
+          "label": "Meddlhammer, Friederike von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116989114",
+      "oldAuthorityNumber": [
+        "(DE-588a)116989114"
+      ],
+      "periodOfActivity": [
+        "1815-1821"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4037446-4",
+          "label": "Marburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Meddlhammer, Albin Johann Baptist von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Albin Johann Baptist"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Meddlhammer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1194211305",
+          "label": "Albini, A."
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Albini"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Flet"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emil"
+          ],
+          "surname": [
+            "Linden"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Flot"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "K.E."
+          ],
+          "surname": [
+            "Adamssohn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Albin"
+          ],
+          "surname": [
+            "Flet"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Alexander"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Flot"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "K. E."
+          ],
+          "surname": [
+            "Adamssohn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Ellrich"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Albini"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Humoristische und historische Skizzen aus den Jahren der Revolutions-Kriege",
+        "Die Ungarn wie sie sind",
+        "Spenden für Freunde des Scherzes",
+        "Genre-Bilder aus Oestreich und den verwandten Ländern",
+        "Schreiben eines deutschen Flohs, welcher mit Herrn Gustav Ni*"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Albin Johann Baptist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meddlhammer"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27836704"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q781097"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116989114/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109619449"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116989114"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116989114"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116989114"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116989114"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel auch unter dem Pseudonym"
+      ],
+      "variantName": [
+        "Mädlhammer, Mädlhammer von",
+        "Medd'lhammer, Johann Baptist von",
+        "Albini, Johann Baptist",
+        "Meddlhammer, Albin von",
+        "Meddlhammer, Albin Johann Baptist von",
+        "Flot",
+        "Linden, Emil",
+        "Albini, A.",
+        "Flot, A.",
+        "Meddlhammer, Albert Johann Baptist von",
+        "Medd'lhammer, Albin von",
+        "Adamssohn, K. E.",
+        "Alexander",
+        "Flet, Johann",
+        "Albini, August",
+        "Medellhammer, Albin Johann Baptist von",
+        "Flet, Albin",
+        "Ellrich, August",
+        "Adamssohn, K.E.",
+        "Albini",
+        "Meddlhammer, Albin J. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Albin Johann Baptist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Medellhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Albin von"
+          ],
+          "surname": [
+            "Meddlhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Albert Johann Baptist von"
+          ],
+          "surname": [
+            "Meddlhammer"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Ellrich"
+          ]
+        },
+        {
+          "forename": [
+            "Albin Johann Baptist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meddlhammer"
+          ]
+        },
+        {
+          "forename": [
+            "K.E."
+          ],
+          "surname": [
+            "Adamssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "surname": [
+            "Albini"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Flet"
+          ]
+        },
+        {
+          "forename": [
+            "Albin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Medd'lhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Mädlhammer"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mädlhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Medd'lhammer"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Flot"
+          ]
+        },
+        {
+          "personalName": [
+            "Albini"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Albini"
+          ]
+        },
+        {
+          "forename": [
+            "Albin J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meddlhammer"
+          ]
+        },
+        {
+          "personalName": [
+            "Flot"
+          ]
+        },
+        {
+          "forename": [
+            "Emil"
+          ],
+          "surname": [
+            "Linden"
+          ]
+        },
+        {
+          "forename": [
+            "K. E."
+          ],
+          "surname": [
+            "Adamssohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Alexander"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Albini"
+          ]
+        },
+        {
+          "forename": [
+            "Albin"
+          ],
+          "surname": [
+            "Flet"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:14:09Z",
+    "gnd_query_biographical_data": "1779-1838",
+    "gnd_query_name": "meddlhammer, albin johann baptist von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1765,
+  "name": "Meddlhammer, Albin Johann Baptist von",
+  "profession": "Text",
+  "pseudonyms": "Albini; Adamssohn; Albini; A. Albini; Alexander; August Ellrich ...",
+  "refs": "E 225",
+  "updated": "2026-06-11 13:29:23.755Z",
+  "uri": "https://d-nb.info/gnd/116989114",
+  "editor": ""
+}

@@ -1,0 +1,354 @@
+{
+  "annotation": "",
+  "biographical_data": "1763-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.470Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "studierte Rechtswissenschaften in Leipzig; Schriftsteller; Theaterdirektor"
+      ],
+      "dateOfBirth": [
+        "1763-06-03"
+      ],
+      "dateOfDeath": [
+        "1815"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/122627377",
+        "https://d-nb.info/gnd/1329921070"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-19T00:32:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115594361/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115594361",
+      "id": "https://d-nb.info/gnd/115594361",
+      "oldAuthorityNumber": [
+        "(DE-588a)122627377",
+        "(DE-588)122627377",
+        "(DE-588a)127407979",
+        "(DE-588a)115594361",
+        "(DE-588)1329921070"
+      ],
+      "periodOfActivity": [
+        "1805-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4223824-9",
+          "label": "Dippoldiswalde"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        }
+      ],
+      "preferredName": "Schmieder, Heinrich Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Gottlieb"
+        ],
+        "surname": [
+          "Schmieder"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Schmieder"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Die Wilden. - 1791",
+        "Schmieder, Heinrich G.: Szenen aus der neuesten Welt",
+        "Breuning, Christian Heinrich: De Lege Hostilia ...",
+        "Schmieder, Heinrich G.: Kronholm, oder Gleich ist der Werther fertig",
+        "Schmieder, Heinrich G.: Über Reise-Nachbetereien und Naturauftritte",
+        "Cherubini, Luigi: Arien und Gesänge aus Lodariska",
+        "Journal für Theater und andere schöne Künste",
+        "Allgemeines Theaterjournal"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb124750672"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39477968"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q30235471"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115594361/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/122627377"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1329921070"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115594361"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115594361"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115594361.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115594361"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schmieder",
+        "Schmieder, H.G.",
+        "Schmieder, Heinrich",
+        "Schmider, Heinrich Gottlieb",
+        "Schmieder, Heinrich Gottlob",
+        "Schmieder, Henricus Gottlieb",
+        "Schmieder, Heinrich G.",
+        "Schmieder, D."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich G."
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus Gottlieb"
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Gottlieb"
+          ],
+          "surname": [
+            "Schmider"
+          ]
+        },
+        {
+          "personalName": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Gottlob"
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        },
+        {
+          "forename": [
+            "H.G."
+          ],
+          "surname": [
+            "Schmieder"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:50:24Z",
+    "gnd_query_biographical_data": "1763-1828",
+    "gnd_query_name": "schmieder, heinrich gottlob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2495,
+  "name": "Schmieder, Heinrich Gottlob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 245",
+  "updated": "2026-06-11 13:29:24.719Z",
+  "uri": "https://d-nb.info/gnd/115594361",
+  "editor": ""
+}

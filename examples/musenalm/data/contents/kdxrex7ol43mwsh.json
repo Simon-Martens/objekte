@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Grazien« von J. G. Jacobi INr 54, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grazien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips del. et sculp.",
+  "scans": [
+    "alm_25_98_e6jyfiirq7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Grazien",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.997Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "14u7zgmq8wpw1zs"
+    }
+  ]
+}

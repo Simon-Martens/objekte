@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Sieh! wie die goldnen Sterne glüh'n / Rund über mir und dir,",
+  "language": [],
+  "musenalm_id": 94455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In der Nacht",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.562Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "28k8w23gomfrkmq"
+    }
+  ]
+}

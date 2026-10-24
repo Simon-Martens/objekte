@@ -1,0 +1,97 @@
+{
+  "annotation": "Neusatz bei gleicher Paginierung unter Verwendung der gestochenen Platten der beigegebenen Kupferstiche und des gestochenen Titels; im I-Verz ist der letzte Titel »Rundgesang, von Gerning« getilgt, der hier, ebenso wie im 1. Exemplar, im gedruckten Textteil fehlt. 4 Vertonungen sind neu angelegt: vermutlich in Flachdruck; die übrigen Musikbeigaben (Tänze) wie in Alm-486; als weitere musikalische Beigabe hier: Vertonung des Gedichts »Lied, im Kreise der Freundschaft zu singen« von Fr. Schäffer wie am Gedicht angegeben; unter der Musikbeigabe: Statt der Karte. /)  § Musikbeigabe von Lohbauer: Vertonung des Gedichts »An die Thränen« von Neuffer fehlt hier; ebenso die Vertonung des Gedichts »Wiegenlied « von Zaininger, das bezogene Gedicht »Wiegenlied« von S. F. Sauter wurde nachgeholt in: Taschenbuch für häusliche und gesellschaftliche Freuden 1799;  Alm-488, Nr 35621",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S, 8 BB Kal darin 7 GG, nT, B Vrwrt d Hrsg, 2 BB I-Verz, SS 1-276 darin 4 MusBB §, S VrlgM, 7 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach und Taschenbuch für häusliche und gesellschaftliche Freuden 1797 [var.2]",
+    "norm": "~ Die Vertonungen im Neudruck des Taschenbuchs sind hier als Vollbild gegeben",
+    "biblio": 405524,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2015-07-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4206,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Guilhauman), Heilbronn (Hrsg)",
+  "places": [
+    "inpa0koig1pzpcp",
+    "a518s47qiaq9s47"
+  ],
+  "preferred_title": "Almanach und Taschenbuch für häusliche und gesellschaftliche Freuden 1797 [var.2]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 117; L/R 105; Goed VIII. 48, 6",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+  "updated": "2026-06-11 10:18:54.803Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "tnrgsl98yjoptni"
+  ],
+  "contents": [
+    "5rv8shly64h746e",
+    "3itoa2pmrje6u6m",
+    "ce8nt0ek1tap65r",
+    "27g6q1ifhs6cl14",
+    "8sorzorjczi08oe",
+    "i4odsmqn1o8b5sx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.937Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.937Z",
+      "agent": "fao1gdwq2he58u0",
+      "source_id": "917oixt4u249owi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.342Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.342Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "d2uz3vutv65re3j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.154Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.154Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "pt0rz3fz9rjwury"
+    }
+  ]
+}

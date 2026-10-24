@@ -1,0 +1,56 @@
+{
+  "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9283, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Schirmt mich und schwingt die Flügel über mir, / Ihr Himmelsschaaren! Was will dein würdig Bild?",
+  "language": [],
+  "musenalm_id": 19248,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritter Aufzug, vierte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritter Aufzug, vierte Scene",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.820Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "dvvq8ba211oyoi4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.820Z",
+      "agent": "confomdodiakpla",
+      "source_id": "vsdv3087sj07j42"
+    }
+  ]
+}

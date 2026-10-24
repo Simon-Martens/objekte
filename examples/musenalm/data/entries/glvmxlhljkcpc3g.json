@@ -1,0 +1,99 @@
+{
+  "annotation": "Im Kalendarium: 12 Blätter (D. Chodowiecki inv. et del. F. Berger sc.) zu »Leben eines schlecht erzogenen Frauenzimmers« und Titelgraphik (Chod. del. D. Berger sc.) »Armuth und Verzeiflung, Folgen des Leichtsinns« als Neustich mit neuer Bezeichnung. Bei Daniel Bauer: »Daniel Nikolaus Chodowiecki. Das druckgraphische Werk. [...], Hannover 1982« No. 603-614: D. Chodowiecki inv & sc und No 615: D. Chodowiecki inv",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G T, Kr, 23 SS Kal darin 12 GG, 16 SS, 129 SS Tabb, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1780",
+    "norm": "~",
+    "biblio": 404181,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 791,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das SchaltJahr / 1780. / mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.762Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [
+    "l5ytsfrj1i6sofd"
+  ],
+  "contents": [
+    "q28csccqgvo4kkf",
+    "ydpjkmrl2cvsrnq",
+    "79o2q7vbpnfkcv4",
+    "11r49wptrjgztxq",
+    "7a11lwuop2i0h26",
+    "7mz39zcau6f04xo",
+    "3t03y97105p295i",
+    "ksaubt0t8uj69n5",
+    "j51ubuz4yksj9p8",
+    "mrryk8p7814n8pf",
+    "lezvnn9a0t8pvsp",
+    "02y91fxutwxvqv3",
+    "whnid45n1vleagi",
+    "3oxnujncr6wswpg",
+    "1ohaeq467k6avda",
+    "frgsfokso2ze6kw",
+    "8lfyoudxfy525hg",
+    "qlg9zi8twwpf7xy",
+    "awzceg01pshb00f",
+    "y68ak0hsre8x7qs",
+    "74y241cqh4qu5sj",
+    "nbjewt9zv4ugbb6",
+    "fdyue3rol21xyvs",
+    "ulma7i7nrsb2q68",
+    "eeu4n43awkpsj8e",
+    "bl2wev4riuzli90",
+    "e3nyk6jdlqfulfq",
+    "4htvdu9nmdvsqq2",
+    "ag2izkect27yiyf",
+    "quywcvtjxc7c1lu",
+    "kwcmymrnd8k6egk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "9at7asqy35rca27"
+    }
+  ]
+}

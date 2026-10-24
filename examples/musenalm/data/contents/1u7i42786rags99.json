@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "So stehst du still, du unruhvolles Herz, / Und bist gegangen zu der stillen Erde?",
+  "language": [],
+  "musenalm_id": 86792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon. / (Geschrieben im Jahre 1821.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon. / (Geschrieben im Jahre 1821.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.272Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "3fp32rrqm33vq18"
+    }
+  ]
+}

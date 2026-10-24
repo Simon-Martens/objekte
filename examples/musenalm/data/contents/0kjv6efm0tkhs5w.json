@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 62987, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Du bisch se frumm, se lieb, se guet, / Wer wott es besser si?",
+  "language": [],
+  "musenalm_id": 62988,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Rosegilge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hoffmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Rosegilge",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.169Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "2l1n1wkhlo313o9"
+    }
+  ]
+}

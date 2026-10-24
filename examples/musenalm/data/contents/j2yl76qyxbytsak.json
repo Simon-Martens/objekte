@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Eine kleine Reparatur, die mit der Barca a Vapor vorgenommen wurde, nöthigte mich und meinen Freund de Paula, eine Corriera zu besteigen.",
+  "language": [],
+  "musenalm_id": 107411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Monogrammen / aus und über Venedig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Monogrammen / aus und über Venedig",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.870Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "1of4lxm0ve72mw1"
+    }
+  ]
+}

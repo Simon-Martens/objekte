@@ -1,0 +1,372 @@
+{
+  "annotation": "",
+  "biographical_data": "1794-1857",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.420Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller, Dichter, im russ. diplomat. Dienst, zuletzt russischer Gesandter in Den Haag"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1794-06-06"
+      ],
+      "dateOfDeath": [
+        "1857-04-25"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-27T17:57:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104222735/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116721758",
+          "label": "Maltitz, Apollonius August von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        }
+      ],
+      "gndIdentifier": "104222735",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116721758",
+          "label": "Maltitz, Apollonius August von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104222735",
+      "oldAuthorityNumber": [
+        "(DE-588a)104222735"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011446-6",
+          "label": "Den Haag"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007708-1",
+          "label": "Boppard"
+        }
+      ],
+      "preferredName": "Maltitz, Franz Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Maltitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Schiller, Friedrich von: Demetrius",
+        "Voltaire: Alzire",
+        "Voltaire Pseud.: Alzire",
+        "Maltitz, Franz F. von: Gedichte",
+        "Racine, Jean: Athalia"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/61983589"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55855587"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104222735/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055288807"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104222735"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104222735"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104222735"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Maltitz, Johann Georg Franz Friedrich von",
+        "Maltitz, Friedrich von",
+        "Maltitz, Franz F. von",
+        "Maltitz, Johann Georg Friedrich Franz von",
+        "Maltitz, Friedrich Franz von",
+        "Maltitz, Franz Friedrich von, Freiherr",
+        "Maltitz, Franz Friedr. Apollonius von",
+        "Maltzitz, Friedrich Franz Apollonius von",
+        "Maltitz, Franz von",
+        "Maltiz, Franz von",
+        "Maltiß, Franz von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Franz Apollonius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltzitz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltiz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltiß"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Friedr. Apollonius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Franz Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Friedrich Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maltitz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:11:15Z",
+    "gnd_query_biographical_data": "1794-1857",
+    "gnd_query_name": "maltitz, friedrich franz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1705,
+  "name": "Maltitz, Friedrich Franz von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 555; Goed XI/1, 310",
+  "updated": "2026-06-11 13:29:23.710Z",
+  "uri": "https://d-nb.info/gnd/104222735",
+  "editor": ""
+}

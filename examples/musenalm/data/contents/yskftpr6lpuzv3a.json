@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Die Zecher sitzen still umher, / Als ob sie Träume hätten.",
+  "language": [],
+  "musenalm_id": 24850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zechbrüder Niederlage. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zechbrüder Niederlage. / Romanze",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.031Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "o1ructhwqaa5zps"
+    }
+  ]
+}

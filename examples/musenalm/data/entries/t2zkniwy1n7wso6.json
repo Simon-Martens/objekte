@@ -1,0 +1,72 @@
+{
+  "annotation": "einziger Jahrgang /) Eine  Titelauflage des Almanachs erschien unter: »Des lustigen Nachbars Anekdoten zur Erweckung guter Laune. Neue Auflage. Leipzig, bei J. G. Schiegg 1808.« ohne Widmung und 7 Blatt Vorrede des Hrsg, dafür mit 4 Blatt Inhaltsverzeichnis /) Kurzaufnahme. Photos von Titelgraphik, Titel u. I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, VB, S 1 T, S 3 W, SS 5-18 Vrwrt d Hrsg, SS 19-256, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Nachbar, Der lustige. Taschenbuch zur Erweckung guter Laune 1806",
+    "norm": "~ +++ 100401",
+    "biblio": 200536,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-09-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 536,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Schiegg)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Nachbar, Der lustige. Taschenbuch zur Erweckung guter Laune 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Peter Matthias Punkt",
+  "subtitle_statement": "",
+  "title_statement": "Der / lustige Nachbar. / Taschenbuch / zur / Erweckung guter Laune / für / 1806. / Leipzig, / bei Johann Balthasar Schiegg",
+  "updated": "2026-06-11 10:18:55.967Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "bmwm1txf97pyit8",
+    "fz7qctj3x2r23xt"
+  ],
+  "contents": [
+    "hh3cw330pi9n6wd",
+    "ni9iromu4k3wf62",
+    "hpcad3esfrqic6r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.050Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.050Z",
+      "agent": "ejbgxkeqg7hu332",
+      "source_id": "t0t5127e5vbyi9d"
+    }
+  ]
+}

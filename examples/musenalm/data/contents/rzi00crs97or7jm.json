@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesang (Sammlung INr 49062, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Der Sänger schwebt in Harmonieen / Sanft zur Unsterblichkeit empor;",
+  "language": [],
+  "musenalm_id": 49068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sänger. / An Justinus Kerner",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sänger. / An Justinus Kerner",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.473Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "vpeeu745gn39jpr"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "annotation": "",
+  "biographical_data": "1808-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.479Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Zeichner, Stecher, Kartengraveur und Verleger; seit den 40er Jahren in Amerika"
+      ],
+      "dateOfBirth": [
+        "1808"
+      ],
+      "dateOfDeath": [
+        "1878"
+      ],
+      "describedBy": {
+        "dateModified": "2018-10-16T09:37:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/128682590/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "128682590",
+      "id": "https://d-nb.info/gnd/128682590",
+      "oldAuthorityNumber": [
+        "(DE-588a)128682590"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "preferredName": "Serz, Johann Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Georg"
+        ],
+        "surname": [
+          "Serz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029820-6",
+          "label": "Kartograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        }
+      ],
+      "publication": [
+        "Provinz Posen. - 1849"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14801768w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr91006799"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76580394"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q53507138"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128682590/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000001489953"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/128682590"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/128682590"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Serz, ...",
+        "Serz, Johann Gottlob",
+        "Serz, J. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Serz"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Serz"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Serz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:57:24Z",
+    "gnd_query_biographical_data": "1808-?",
+    "gnd_query_name": "serz, johann georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2636,
+  "name": "Serz, Johann Georg",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 529",
+  "updated": "2026-06-11 13:29:24.980Z",
+  "uri": "https://d-nb.info/gnd/128682590",
+  "editor": ""
+}

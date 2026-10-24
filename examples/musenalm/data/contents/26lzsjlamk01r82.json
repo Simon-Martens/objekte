@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort s. INr 39503, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "So kindlich gut, so fröhlicher und unbefangener Natur auch der 73jährige Dichtergreis ist, so eifersüchtig ist er doch auf gewisse Vorrechte,",
+  "language": [],
+  "musenalm_id": 39504,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Klopstock, / im Sommer 1795. / Ein / Bruchstück aus meinem Tagebuche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Klopstock, / im Sommer 1795. / Ein / Bruchstück aus meinem Tagebuche",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.180Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "zeoyueac7m1wfgy"
+    }
+  ]
+}

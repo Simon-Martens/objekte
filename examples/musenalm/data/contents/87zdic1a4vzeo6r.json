@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite/) kol. Trachtenkupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72449,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bürgerlicher",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. Bollinger sc. 96",
+  "scans": [
+    "alm_834_72449_y8bmzqhhoh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bürgerlicher",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.669Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "8errgpgt7gvx0hc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.669Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "mefc2v66gqmo3dg"
+    }
+  ]
+}

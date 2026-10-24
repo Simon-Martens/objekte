@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Wenn dich der böse Leumund sticht, / So laß zum Trost dir sagen; / Die schlecht'sten Früchte sind es nicht, / Woran die Wespen nagen. / Bürger",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Wohl uns Weidmännern, daß das kanonische Recht uns nicht mehr anhaben kann!",
+  "language": [],
+  "musenalm_id": 66813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Unverdienter Bannfluch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Unverdienter Bannfluch",
+  "updated": "2009-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.233Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "6a81wb4rrydkj1m"
+    }
+  ]
+}

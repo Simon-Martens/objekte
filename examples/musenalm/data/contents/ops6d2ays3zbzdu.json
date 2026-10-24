@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 166",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Monument von unsrer Zeiten Schande! / Ew'ge Schandschrift deiner Mutterlande!",
+  "language": [],
+  "musenalm_id": 41669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roußeau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roußeau",
+  "updated": "2005-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.201Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "i62i5h45n21131r"
+    }
+  ]
+}

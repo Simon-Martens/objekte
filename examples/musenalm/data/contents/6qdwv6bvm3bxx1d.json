@@ -1,0 +1,50 @@
+{
+  "annotation": "Photos 114797,01-114797,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114797,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage. / Gedicht von Ludwig Löwe, / k.k. Hof- Schauspieler. / Musik von Adolf Müller, Hofkapellmeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Müller",
+  "scans": [
+    "alm_3837_114797_01_t723jxy56s.jpg",
+    "alm_3837_114797_02_9aid98x1ia.jpg",
+    "alm_3837_114797_03_4o44l3pejk.jpg",
+    "alm_3837_114797_04_xj9ql00nys.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klage. / Gedicht von Ludwig Löwe, / k.k. Hof- Schauspieler. / Musik von Adolf Müller, Hofkapellmeister",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.565Z",
+      "agent": "1x3wweh7slzeyeq",
+      "source_id": "akvfevcabgbj4a9"
+    }
+  ]
+}

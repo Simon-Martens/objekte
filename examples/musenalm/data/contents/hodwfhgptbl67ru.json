@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: pag. 122 /) Illustration zu »Der Tag von Granson« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110805, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Naeke del. J. Axmann sc.1828)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. J. Axmann sc.1828",
+  "scans": [
+    "alm_3465_110807_p1dvnjkyen.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.174Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "3bbvz5105pojqrn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.174Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "ng60yaxn1aqwcrm"
+    }
+  ]
+}

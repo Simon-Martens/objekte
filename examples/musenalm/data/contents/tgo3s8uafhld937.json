@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Kinder wohl zu ziehen, / Soll man Härte fliehen.",
+  "language": [],
+  "musenalm_id": 17965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mahnung. / Nach Walter'n von der Vogelweide",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mahnung. / Nach Walter'n von der Vogelweide",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.673Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "3vq7ht0kdezxzdk"
+    }
+  ]
+}

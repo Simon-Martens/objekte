@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 20240, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Hurtig dreht die Räder, Mädchen, / Laßt die flinken Spulen knarr'n,",
+  "language": [],
+  "musenalm_id": 20282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klingelschnur / Parodie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Semler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klingelschnur / Parodie",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.036Z",
+      "agent": "nytz5qlmuogkuy2",
+      "source_id": "dxlp0s585p76n3z"
+    }
+  ]
+}

@@ -1,0 +1,569 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.504Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Jurastudent in Jena, später Sekretär, Bibliothekar, Schriftsteller; Schwager Goethes"
+      ],
+      "dateOfBirth": [
+        "1762-01-22"
+      ],
+      "dateOfDeath": [
+        "1827-06-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "J. Schmeller"
+          ],
+          "creditText": [
+            "Goethe Zeitportal"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Vulpius.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Vulpius.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Vulpius.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:57:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118770489/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        },
+        {
+          "forename": [
+            "Margarethe"
+          ],
+          "surname": [
+            "Riehl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/136069711",
+          "label": "Vulpius, Johann Friedrich"
+        },
+        {
+          "forename": [
+            "Rinaldo"
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118628011",
+          "label": "Goethe, Christiane von"
+        },
+        {
+          "forename": [
+            "Christiane"
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Helene"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Ahna"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118770489",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136069711",
+          "label": "Vulpius, Johann Friedrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118628011",
+          "label": "Goethe, Christiane von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118770489",
+      "oldAuthorityNumber": [
+        "(DE-588a)118770489",
+        "(DE-588c)4108601-6"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Vulpius, Christian August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian August"
+        ],
+        "surname": [
+          "Vulpius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4116469-6",
+          "label": "Sekretär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Tirso de"
+          ],
+          "surname": [
+            "Milano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anselmus Marcellus"
+          ],
+          "surname": [
+            "Thuring"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anselmo Marcello"
+          ],
+          "surname": [
+            "Thuring"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ehestandsproben",
+        "Vulpius, Christian A.: Carl XII. bey Bender",
+        "Vulpius, Christian A.: Leidenschaft und Liebe",
+        "Vulpius, Christian A.: Erlinde, die Ilm-Nixe",
+        "Amalie die schöne Solotänzerin",
+        "Vulpius, Christian A.: Glücksproben",
+        "Liebe und Freundschaft",
+        "Vulpius, Christian A.: Abentheuer, Meinungen und Schwänke galanter Männer",
+        "Rinaldo Rinaldini",
+        "Vulpius, Christian A.: Die Zigeuner",
+        "Glücksproben",
+        "Leidenschaft und Liebe",
+        "Die Zigeuner",
+        "Carl XII. bey Bender",
+        "Vulpius, Christian A.: Ehestandsproben",
+        "Erlinde, die Ilm-Nixe",
+        "Vulpius, Christian A.: Beichten wie sie gebeichtet worden ..",
+        "Abentheuer, Meinungen und Schwänke galanter Männer",
+        "Vulpius, Christian A.: Amalie die schöne Solotänzerin",
+        "Beichten wie sie gebeichtet worden ..",
+        "Vulpius, Christian A.: Liebe und Freundschaft"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12165246x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr88006184"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19718047"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q65376"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118770489/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_August_Vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_August_Vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_August_Vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_August_Vulpius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108763545"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118770489"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1808_vulpius3;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1781_vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1787_vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1808_vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1808_vulpius3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1811_vulpius"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118770489"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118770489.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118770489"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Thuring, Anselmus Marcellus",
+        "Milano, Tirso de",
+        "Knigge-Vulpius",
+        "Vulpius, Christian A.",
+        "Vulpius, C. A.",
+        "de Milano, Tirso",
+        "Vulpius",
+        "Thuring, Anselmo Marcello",
+        "Vulpius, Ch. A.",
+        "Vulʹpius, Kristian Avgust",
+        "Vulpius, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Knigge-Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Tirso de"
+          ],
+          "surname": [
+            "Milano"
+          ]
+        },
+        {
+          "forename": [
+            "Kristian Avgust"
+          ],
+          "surname": [
+            "Vulʹpius"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. A."
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Anselmus Marcellus"
+          ],
+          "surname": [
+            "Thuring"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Christian A."
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Tirso"
+          ],
+          "surname": [
+            "de Milano"
+          ]
+        },
+        {
+          "personalName": [
+            "Vulpius"
+          ]
+        },
+        {
+          "forename": [
+            "Anselmo Marcello"
+          ],
+          "surname": [
+            "Thuring"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_August_Vulpius",
+          "label": "https://de.wikipedia.org/wiki/Christian_August_Vulpius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:16:27Z",
+    "gnd_query_biographical_data": "1762-1827",
+    "gnd_query_name": "vulpius, christian august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3022,
+  "name": "Vulpius, Christian August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 511; Goed XIII, 152",
+  "updated": "2026-06-11 13:29:25.590Z",
+  "uri": "https://d-nb.info/gnd/118770489",
+  "editor": ""
+}

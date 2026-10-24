@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Eines Mittags fragte mich in Paris ein Landsmann, mit dem ich oft zusammen traf, während wir bei einem Restaurateur auf dem Boulevard aßen,",
+  "language": [],
+  "musenalm_id": 95222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte zweier Vettern. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte zweier Vettern. / Novelle",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.454Z",
+      "agent": "jfhywk4cbxcodws",
+      "source_id": "8pb8butaj0g0sh2"
+    }
+  ]
+}

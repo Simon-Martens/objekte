@@ -1,0 +1,102 @@
+{
+  "annotation": "$ vermutl. fehlt I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 8 BB Kal, 4 BB , SS I-XLIV Vrwrt d Hrsg, SS 1-271, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1866",
+    "norm": "~",
+    "biblio": 409428,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-06-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4431,
+  "parallel_title": "",
+  "place_statement": "Wien (Herzfeld u. Bauer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1866",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "S. Szántó",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Israeliten / auf das Jahr 5626 / (1865-1866). / Mit Beiträgen von / Dr. L. A. Frankl, - Dr. Freudenthal [...] Begründet / von / Josef Wertheimer und Dr. Leop. Kompert. / (In neuer Folge herausgegeben von S. Szántó, Redacteur der »Neuzeit«.) / Zweite Folge, erster Jahrgang. / Wien, 1866. / Verlag von Herzfeld & Bauer",
+  "updated": "2026-06-11 10:18:55.726Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "items": [
+    "xphovom6l80gtf0"
+  ],
+  "contents": [
+    "skbdvdohrpuzk7h",
+    "lgoxxp9o5dg4jjo",
+    "axkgndi40garn7k",
+    "nlhc5us72vf520o",
+    "o2p3zrou8cquekp",
+    "8e3us8rzfyz1sao",
+    "f4vo08xfj5g94v8",
+    "tau8yord8m59m0e",
+    "5vd8kpsczx455vw",
+    "juvye5vj76nj769",
+    "yfurjt6d9txa559",
+    "elo1occgopyh4vi",
+    "loq1hdnvdp5t1pl",
+    "4uqzn83ushan7ov",
+    "4n8hzmouy29xnij",
+    "xqyw55rru3kmc3r",
+    "vvdu7bgwlv3wfgy",
+    "1id2k5g63dngnou",
+    "5b3emruzh9nc492",
+    "ngp41awh1f47n32",
+    "313y00aeanin5s7",
+    "493ncyfd8mb9cpr",
+    "8pcocdnymar2jbs",
+    "gny11qbxsuqsold",
+    "2v3r6gadbsjeu77",
+    "6seyjzpb5xbiry4",
+    "kfmp4ko9ozob0fx",
+    "8my91i66hdxm58y",
+    "do7tzxk4uvs2pjq",
+    "c5sqg7x10d9kug1",
+    "pbnei3zg683rhye",
+    "ev4pqdomt74cfdc",
+    "cvv7e4am4ei3ez6",
+    "wrxmc92vco5qhtc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.004Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.004Z",
+      "agent": "7upxgl9uokknpoa",
+      "source_id": "3m9aarkfz15y4w0"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "K gibt 10 Graphiken (Portraits) an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 11 BB Kal darin 8 GG, Kr, ar: SS 1 -204, ar1: SS 1-42 Tab, SS 43- 64 G-Verz, 78 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1803",
+    "norm": "~",
+    "biblio": 101356,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2186,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1803. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.896Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "o0hi8b2q42f6x0b"
+  ],
+  "contents": [
+    "bf1tdm4df2nqntx",
+    "5nqeaym0objblwy",
+    "o0opkl34t5qbv7q",
+    "u6yi7djraloubl9",
+    "6a51p4cbv3kj1r1",
+    "mpsjztvamngpqfi",
+    "imt3idmr6zo7vvu",
+    "z7a4jd6rs3dn3g4",
+    "lymmz636btbkyq8",
+    "qhi6xq6r3sal6x2",
+    "m39cm76rea0x6aa",
+    "c6741p0ah0bsluu",
+    "sqoy6wm8ecpgh3h",
+    "0crt9sbd5xw70ar",
+    "cw8aeom04aasjbs",
+    "qj62z81xmxwwtsb",
+    "wp68qj00t2zx0qb",
+    "w8fvmy1yr21f9sf",
+    "62vkt8d8i3mipnr",
+    "mulg6wc7bgtbxds",
+    "zokfguwkcka1nm6",
+    "i2jj1p067v211ta",
+    "z54bmaqxufqr6mj",
+    "neh7m14tua0yzyq",
+    "g1dj1a2izhz6crp",
+    "pjs4zwoe2xm6l5w",
+    "qpqllaxz37is0db"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.170Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.170Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "r5bf2icciv309pw"
+    }
+  ]
+}

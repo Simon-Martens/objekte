@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I T, SS III-IV I-Verz, 17 SS Kal, SS XIII- XL, SS 1-349, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1858",
+    "norm": "~",
+    "biblio": 409426,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-06-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4430,
+  "parallel_title": "",
+  "place_statement": "Wien (Schmid u. Busch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Joseph Wertheimer",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Israeliten, auf das Jahr 5619 / (1858-1859). / Mit Beiträgen von: / Dr. Bärwald in Wien, - Dr. Beer in Dresden, [...] Herausgegeben / von / Joseph Wertheimer. / Neue Folge, fünfter Jahrgang / WIEN, 1858. / Druck und Verlag des Franz Edlen von Schmid & J. J. Busch",
+  "updated": "2026-06-11 10:18:55.725Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "skraik3p01o418e"
+  ],
+  "contents": [
+    "6rdpjrq24icns6x",
+    "i3idquysojxzvlg",
+    "qiq627hqxrychj7",
+    "ubv61suii6uvvey",
+    "uuf2fy6ocy3zj4q",
+    "ldjjxe4zsbxcfek",
+    "yc1xvlhzj7b0df7",
+    "v7d3yp4wqym29qc",
+    "yge9fps7d3ksg6v",
+    "84sze16fsezcmkd",
+    "uaictr0c7em7yyt",
+    "chmg284mkzox0g9",
+    "0z0ey2z1zuv4z71",
+    "xcso6qgvkkc2deu",
+    "n4o2ue61nedqnqk",
+    "o5gplx1wgn2ah4p",
+    "3147mnbhlhpe30d",
+    "5icw85rqfqxwcz2",
+    "ux467xycnp6iezf",
+    "bs0dki6814cuz5y",
+    "790d20ju3hvn2v7",
+    "ti77s8hnmvtb4ht",
+    "32ghys3t2pkwx61",
+    "y5oxqh4ttpetci4",
+    "2s9acjeg9fnoz71",
+    "i2y1ghvjkuc13ha",
+    "9wkwn380fdyvqhj",
+    "1f383nfusf8ac43",
+    "z07eoqtcliqyqw5",
+    "o4uqyhs3qz5viuy",
+    "hrh5ur7xzaxzjbz",
+    "xdvfdjhdqkwlk8t",
+    "038jwsg5zz8uu93",
+    "bz9gxqdyndi8mc1",
+    "doj0gwfjqtut2he",
+    "y8rabpit461l25i",
+    "penjooh2h31pptk",
+    "6bk4u7lus6831ln",
+    "8jp2a0nqn8j75gv",
+    "jhrlbj0hf599vsm",
+    "ult0u03mlmejovz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.376Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.376Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "ajh2eeqclg5yfzz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "0s9t9275aejerak",
+      "source_id": "romujhnngfrwhob"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Von dem Humore wurde er erzeugt, / Die gute Laune hat ihn mütterlich gesäugt; / Der Witz vertrat bey ihm die Pathenstelle,",
+  "language": [],
+  "musenalm_id": 121421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Schauspieler Raimund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Meisl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Schauspieler Raimund",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.729Z",
+      "agent": "7hwx2whrgf8fkrg",
+      "source_id": "o90c1dxo9fqw45f"
+    }
+  ]
+}

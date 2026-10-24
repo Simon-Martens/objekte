@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 29 Gedichten in 4 Sammlungen INr 54712-54744, Obj 25-57 /) dem Beitrag »Erinnerungen aus dem Leben eines Klosterbruders« von A. E. Fröhlich beigegeben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Benedikts poetischem Nachlasse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Benedikts poetischem Nachlasse",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.902Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "wrlkk1oxpm929q2"
+    }
+  ]
+}

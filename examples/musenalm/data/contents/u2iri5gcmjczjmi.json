@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Was spricht die Welt von mir? Fragt ein / gelehrter Affe / Den Bären, der zerprügelt, hungrig, lahm",
+  "language": [],
+  "musenalm_id": 4078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Affe und der Tanzbär",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Affe und der Tanzbär",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.137Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "5b5ieow996ltxlv"
+    }
+  ]
+}

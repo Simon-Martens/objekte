@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Ein lieblich Gottgeheimniß, schreitet / Der Lenz heran, von Kraft geschwellt,",
+  "language": [],
+  "musenalm_id": 100173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenz und Auferstehung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lenz und Auferstehung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.860Z",
+      "agent": "biljcxuc46g2kmt",
+      "source_id": "jjsfle9k0qzuy7s"
+    }
+  ]
+}

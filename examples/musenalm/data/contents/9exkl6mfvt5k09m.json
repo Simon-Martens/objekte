@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 131308, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "477",
+  "incipit_statement": "Still ist die feyernde Nacht, und klar der Himmel, / und lieblich / Strömet in laurer Luft süßer balsamischer Hauch.",
+  "language": [],
+  "musenalm_id": 131357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 242,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sternschnuppen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sternschnuppen",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.031Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "tr4dbqkmft69gz0"
+    }
+  ]
+}

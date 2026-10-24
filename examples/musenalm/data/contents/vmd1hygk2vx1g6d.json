@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer koll. Illustration (INr 124872, Obj 15); # Bezeichnung aus dem Titel (INr 124859, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Ich kann kaum fassen und weiß Dir, Lieber Hans, nicht zu sagen, ob meine Freude oder mein Staunen größer ist, daß Du noch lebst.",
+  "language": [],
+  "musenalm_id": 124871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Wiedersehen. / Ländliche Scene, als Fortsetzung / von / Hans am Scheidewege",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Wiedersehen. / Ländliche Scene, als Fortsetzung / von / Hans am Scheidewege",
+  "updated": "2019-05-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.865Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "rq9lx801bheauxf"
+    }
+  ]
+}

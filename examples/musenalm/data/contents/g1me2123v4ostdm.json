@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Mit Recht nennen wir unser Jahrhundert das speculative, weil es ein regerer Forschungstrieb und die immer mehr sich verbreitende Aufklärung, weit über alle vorhergehende erheben.",
+  "language": [],
+  "musenalm_id": 66606,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Woher kommt es, daß das Forstwesen, / so mancher Verbesserungsanstalten unge- / achtet, in vielen Ländern doch den er- / wünschten Fortgang noch nicht gewinnt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Oberjägermeister von Witzleben zu Cassel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Woher kommt es, daß das Forstwesen, / so mancher Verbesserungsanstalten unge- / achtet, in vielen Ländern doch den er- / wünschten Fortgang noch nicht gewinnt.",
+  "updated": "2009-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.183Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "jybi0ql23310bck"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Triumph des deutschen Witzes 1799",
+    "norm": "",
+    "biblio": 406647,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-05-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3669,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgarten)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Triumph des deutschen Witzes 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "Goed V. 391, 7; H.-G. VII, 710",
+  "responsibility_statement": "C. F. T. Voigt",
+  "subtitle_statement": "",
+  "title_statement": "TRIUMPH / DES / DEUTSCHEN WITZES / in / einer Sammlung der stechendsten Sinngedichte / Und wichtigsten Einfälle deutscher Köpfe / herausgegeben / von / C. F. T. Voigt / d. f. K. M. / ZWEYTES BÄNDCHEN. / Mit Kupfern. / Leipzig / bey F. G. Baumgarten",
+  "updated": "2026-06-11 10:18:54.949Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "w32ce8z5yf573vl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.500Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.500Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "dj3a34shdskl94k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.276Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.276Z",
+      "agent": "ist0hhj6cs5q2wv",
+      "source_id": "hmht4ojszftua2c"
+    }
+  ]
+}

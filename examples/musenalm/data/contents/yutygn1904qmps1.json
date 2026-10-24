@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Mein Thyrsis, laß dich nicht von Gram und / Furcht besiegen, / Den Geiern des Gemüths!",
+  "language": [],
+  "musenalm_id": 92444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Thyrsis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Thyrsis",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.387Z",
+      "agent": "8pyn3ffhglggkdl",
+      "source_id": "d151t1njxs7ndjo"
+    }
+  ]
+}

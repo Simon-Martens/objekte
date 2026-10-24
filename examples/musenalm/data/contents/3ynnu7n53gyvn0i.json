@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 15306-15308, Obj 93-95",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnen / nach dem Lateinischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnen / nach dem Lateinischen",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.675Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "53u5ya82huzc6g0"
+    }
+  ]
+}

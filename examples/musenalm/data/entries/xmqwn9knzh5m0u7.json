@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bürger-Almanach, Wiener 1840",
+    "norm": "",
+    "biblio": 409659,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4592,
+  "parallel_title": "",
+  "place_statement": "Wien (Grund)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Bürger-Almanach, Wiener 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Mohr",
+  "subtitle_statement": "",
+  "title_statement": "Wiener / Bürger-Almanach / für das Jahr / 1840. / Herausgegeben / von / Karl Rohr, / Wiener-Magistrats-Beamten. / Der Reinertrag ist dem neuen Bürger-Versor- / gungshaus-Baufonde gewidmet. / Wien, 1840. / Gedruckt und im Verlage bei Leopold Grund, / (Stephansplatz Nr. 868.)",
+  "updated": "2026-06-11 10:18:55.565Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "mojzbfuwtqccu4f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.936Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.936Z",
+      "agent": "6kkdbji0h0tng04",
+      "source_id": "o3csvd2ekh78qgu"
+    }
+  ]
+}

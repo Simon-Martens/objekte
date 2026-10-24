@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim (Sammlung INr 74116, Obj 10) mit einer Illustration s. Graphik INr 74129, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Gleich von dem Wachthaus geht man dem über alles hervorragenen prächtigen Sibillen-Tempel zu. Dort sahen wir schon den Anfang der Tuffsteinfelsen, die sich nun hier gegen das Ende des Gartens fortziehen,",
+  "language": [],
+  "musenalm_id": 74128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sibillen-Tempel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sibillen-Tempel",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.618Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "wvjzi7wgu6jgr1y"
+    }
+  ]
+}

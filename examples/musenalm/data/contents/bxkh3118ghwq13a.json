@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Wie mancher, dessen Muth dem Unglück / widerstand, / Erliegt dem bessern Wechsel, und vertauschet,",
+  "language": [],
+  "musenalm_id": 262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachlaß von Gotter. / An Frau Charlotte Freyfrau v. Lauer- / Münchhofen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachlaß von Gotter. / An Frau Charlotte Freyfrau v. Lauer- / Münchhofen",
+  "updated": "2001-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.694Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "mjs6fuh4mjiysoj"
+    }
+  ]
+}

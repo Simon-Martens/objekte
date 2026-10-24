@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Die stürmischen Zeit der Guelphen und Gibellinen, die furchtbaren Parteyungen des Adels und Volkes in Florenz waren vorüber,",
+  "language": [],
+  "musenalm_id": 34253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erste Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geb. v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erste Liebe",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.709Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "n0mb3j0pnofxxap"
+    }
+  ]
+}

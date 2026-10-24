@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Ein Staar verlegte sich einmal / mit Leidenschaft auf fremde Zungen.",
+  "language": [],
+  "musenalm_id": 35215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dollmetscher. / Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlez",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dollmetscher. / Fabel",
+  "updated": "2003-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.728Z",
+      "agent": "emp0e7sw474z41u",
+      "source_id": "770aq3zo2vz7ar4"
+    }
+  ]
+}

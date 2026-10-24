@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kunstgespräch in der Alpenhütte« INr 53688, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kunstgespräch in der Alpenhütte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi sc.",
+  "scans": [
+    "alm_734_53689_y4vhjv4v25.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kunstgespräch in der Alpenhütte",
+  "updated": "2007-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.415Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "jrkwzo8s1uffjls"
+    }
+  ]
+}

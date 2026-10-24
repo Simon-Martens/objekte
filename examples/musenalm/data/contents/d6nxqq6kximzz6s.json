@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wir eröffnen hiermit eine Reihe von Beiträgen zur Geschichte unserer Zeit, in denen die politischen Formen der Menschheit, welche die Freiheit erreichten oder ihr widerstreiten, positiv geschildert",
+  "language": [],
+  "musenalm_id": 93146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Leser",
+  "updated": "2014-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.280Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "5pxt4197txpc9nf"
+    }
+  ]
+}

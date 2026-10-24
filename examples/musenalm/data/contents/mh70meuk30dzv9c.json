@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Grenzbewohner« von J. F. Cooper; am oberen rechten Rand: Cooper's Werke B. 52. S. 116 s. Textbezug INr 43832, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43833,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grenzbewohner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff pinx. gest. v. Sebastian Langer in Wien",
+  "scans": [
+    "alm_587_43833_lk010lwmqz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Grenzbewohner",
+  "updated": "2006-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.457Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "nan3tkdyrha1wk7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.457Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "xhermh4wb36g5m7"
+    }
+  ]
+}

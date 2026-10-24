@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32748,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der besten Fürstin, / Die von ihrer Königlichen Mutter / lernte Weib zu seyn / Und ihrem Geschlecht ein Vorbild / Der auf dem Throne / Der Glanz weiblicher Würde gnügt / Bringet als Opfer / der Ehrfurcht und der Bewunderung / Diese Blätter / Den Fortschritten weiblicher Bildung / geweyht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verleger Cotta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der besten Fürstin, / Die von ihrer Königlichen Mutter / lernte Weib zu seyn / Und ihrem Geschlecht ein Vorbild / Der auf dem Throne / Der Glanz weiblicher Würde gnügt / Bringet als Opfer / der Ehrfurcht und der Bewunderung / Diese Blätter / Den Fortschritten weiblicher Bildung / geweyht",
+  "updated": "2003-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.776Z",
+      "agent": "0rnyqiybfu5n3e2",
+      "source_id": "lsgnyhful9jr0xj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Du bist wie einer jener milden Sterne, / Die durch die Nacht ihr göttlich Licht verstreuen,",
+  "language": [],
+  "musenalm_id": 45377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Alexander von Humboldt. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Curtius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Alexander von Humboldt. / 1.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.404Z",
+      "agent": "bmboy2xxmlf33nl",
+      "source_id": "p1c1ljesrk68zjv"
+    }
+  ]
+}

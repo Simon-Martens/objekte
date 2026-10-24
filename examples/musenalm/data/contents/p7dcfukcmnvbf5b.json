@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Dankbarer, als aus Amor's Händen / Sie jüngst mein Herz, nehm' ich dieß Glas / aus Ida's Hand.",
+  "language": [],
+  "musenalm_id": 4804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Ida einschenkte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als Ida einschenkte",
+  "updated": "2000-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.044Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "nxoqac4kmxnw4w1"
+    }
+  ]
+}

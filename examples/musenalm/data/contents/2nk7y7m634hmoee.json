@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (Sammlung INr 117864, Obj 20) mit einer Illustration s. Graphik INr 117853, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Czinka Panna! Czinka Panna! / Schallt es wie aus einem Munde, / Welch ein Toben, Schwenken, Klatsche / Welch ein Jubel in der Runde.",
+  "language": [],
+  "musenalm_id": 117867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Czinka Panna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Czinka Panna",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.502Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "cw4jfxpu4tsrgvx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Sanft wallt dein Silberlicht herab / O Mond, auf meiner Betti Grab,",
+  "language": [],
+  "musenalm_id": 6007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beim Grabe meiner Betty",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline von der Lühe, geb. v. Brandenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beim Grabe meiner Betty",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.953Z",
+      "agent": "onngiedfb9nax3f",
+      "source_id": "6xh19s8fbbybif7"
+    }
+  ]
+}

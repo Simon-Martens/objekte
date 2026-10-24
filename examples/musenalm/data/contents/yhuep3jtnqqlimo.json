@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 72897, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zum Abschied singt uns noch ein schönes Lied. / Nun wird der Zither Saitenklang / Auf lange wohl in Thal und Wald verstummen!",
+  "language": [],
+  "musenalm_id": 72896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Richard und Blondel. / Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Richard und Blondel. / Sage",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.671Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "qjige17rc8z44uh"
+    }
+  ]
+}

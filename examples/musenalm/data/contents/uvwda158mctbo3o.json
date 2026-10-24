@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Ehedem Maler in Mannheim; sol jezt in Rom zur katholischen Kirche übergetreten sein. Er hat sich uns als Dichter bekannt gemacht.",
+  "language": [],
+  "musenalm_id": 98729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Müller",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.892Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "taqfhqa1amyr9z7"
+    }
+  ]
+}

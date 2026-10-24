@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Dem Schattenreich entflohen und dem Thor der Nacht, / Wo Aides, fern den Himmelsgöttern, haus't, erschein'",
+  "language": [],
+  "musenalm_id": 68047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hekabe. / Probe einer Uebersetzung dieser Tagödie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] A. Glanthau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hekabe. / Probe einer Uebersetzung dieser Tagödie",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.231Z",
+      "agent": "vyyml0vjt2yncs9",
+      "source_id": "fgu1z702e03u65b"
+    }
+  ]
+}

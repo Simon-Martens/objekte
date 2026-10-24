@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderung. Jagd. Krieg. (Sammlung INr 49029, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Ein junger Trubadur, / Der Waffen froh und Lieder, / Kehrt in die Heimat wieder / Auf treuer Liebe Spur.",
+  "language": [],
+  "musenalm_id": 49034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze. / Aus dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Varnhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze. / Aus dem Französischen",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.505Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "0pq5t5i9sfgmmrr"
+    }
+  ]
+}

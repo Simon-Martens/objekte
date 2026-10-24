@@ -1,0 +1,102 @@
+{
+  "annotation": "&nbsp;identisch mit Iduna 1857",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 6 BB G-Verz darin 4 GG, 11 BB Kal, B, SS 1-192, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Wien, Lienhart) 1858",
+    "norm": "identisch mit Iduna 1857",
+    "biblio": 200785,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3422,
+  "parallel_title": "",
+  "place_statement": "Wien (Lienhart)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Vergißmeinnicht (Wien, Lienhart) 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "VERGISSMEINNICHT / Ein / Taschenbuch / für 1858. / Wien. / Bei Ignaz Lienhart",
+  "updated": "2026-06-11 10:18:54.853Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "uyr7jwqp6o72n82"
+  ],
+  "contents": [
+    "deu2c9i8u29j3lt",
+    "lqivxmk3fnmhxmz",
+    "v4gyd7kyumw2tjk",
+    "yfwat23nb2ydn2n",
+    "7ldvq93euqoyarr",
+    "a9swny0loa0872e",
+    "jivm4aw2snckff9",
+    "bcijczuc4jkndn4",
+    "a7ypmbovvastk9e",
+    "ul1bif75trc413l",
+    "c0bn2ku3pq8lzcd",
+    "47335utgf2syxnm",
+    "ezc3vgcdw18qzrp",
+    "baylxy683f94pbl",
+    "zthm7kgs2ztluh9",
+    "qumdgonhfedc8st",
+    "v4225r4jtuye5ox",
+    "zblpd47zzzjrk14",
+    "wgbwtu849ncg8tp",
+    "08bvp0m7ob059v5",
+    "ivd1ye2g9t5wx4y",
+    "d6q32b60s9l4jsv",
+    "z7q3u6i24tyypo7",
+    "m15s2u5i4yf84ef",
+    "p65zzuejk5990no",
+    "rlyu2p1gffguu3s",
+    "d05etfkg2ascyqx",
+    "r3twwwzl12xztzp",
+    "9nrl2a2tsi9v0dh",
+    "ykbmb4inl2owt9v",
+    "xy9ehdonjoezkmt",
+    "wa6egv6zbcm9q8z",
+    "0hiio8elelzm3dr",
+    "qedpcs0l08lir3k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.098Z",
+      "agent": "w2bayedwdqvhj9v",
+      "source_id": "tj2ba7jcfz6gpky"
+    }
+  ]
+}

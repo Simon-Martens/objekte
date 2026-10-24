@@ -1,0 +1,92 @@
+{
+  "annotation": "§ 4 Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Gräffer, Seidl) 1826 [var.]",
+    "norm": "~Exemplar mit Namensprägung auf dem Umschlag und Widmung des Zeichers Ign. G. Weissenberg an »Kathi Blau« mit 4 Zeichnungen und zugehörigen handgeschriebenen 4 Gedichten /) § 4 Graphiken fehlen /) Die von der Norm abweichenden Beigaben sind hier als Vollbild gegeben",
+    "biblio": 106415,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-10-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4225,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aurora (Gräffer, Seidl) 1826 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; L/R 96; Goed VIII. 111, 264",
+  "responsibility_statement": "Franz Gräffer",
+  "subtitle_statement": "",
+  "title_statement": "AURORA / Taschenbuch / für das Jahr / 1826. / Herausgegeben / von / FRANZ GRAEFFER. / Dritter Jahrgang. / Wien, / bey Jos. Riedls sel. Wwe. / im Schottenhofe / No. 136",
+  "updated": "2026-06-11 10:18:55.523Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "su3owufje30mulo"
+  ],
+  "contents": [
+    "xano0abke1c98wm",
+    "2ty3smmdn7dhayg",
+    "sj2a48lbxxg4eg4",
+    "v2sdb43bjd3snfl",
+    "wzr6b523i6gue4b",
+    "b75dcjr2clanyni",
+    "vi30gtjgw6lwbvw",
+    "vc0fsc1h65xze1d",
+    "n1r9m37id9zhonp",
+    "zy7vqficssnyuko",
+    "tk58wmtyxqaq5ke",
+    "mju24ox726bf4do",
+    "7wxg7voc0ki1oxt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.345Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.345Z",
+      "agent": "cjjmyv8q19tuj7i",
+      "source_id": "d8n71bcqd0id8iz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "qscstmcbr22j03k"
+    }
+  ]
+}

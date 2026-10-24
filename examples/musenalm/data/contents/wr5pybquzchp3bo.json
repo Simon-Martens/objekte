@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123177, Obj 9; # Bezeichnung aus dem Vorwort (INr 123169, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Die Mutter gab sie mir. / Ich habe sie erwischt. / Sie ist recht schwer von alten Münzen. / Viel Silber und mit Gold vermischt",
+  "language": [],
+  "musenalm_id": 123178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hygea. / Ein Vorspiel am Geburtstage eines guten / Vaters.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hygea. / Ein Vorspiel am Geburtstage eines guten / Vaters.",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.687Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "zgfoajnjje2asmj"
+    }
+  ]
+}

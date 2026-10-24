@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Sanct Elisabethen-Brunnen« INr 72875, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Cornelius d. Fr. Bolt sc. 1812)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cornelius d. Fr. Bolt sc. 1812",
+  "scans": [
+    "alm_2692_72877_m10yfe8yi5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "nnblb7i0jb5k933"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "ns8syak978vfvbp",
+      "source_id": "tsjb3n58rthdqpp"
+    }
+  ]
+}

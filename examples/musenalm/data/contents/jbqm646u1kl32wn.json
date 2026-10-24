@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Die Pflichten und die Wunde. zwei Gesänge (Sammlung INr 40917, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Ich lag an rauhem Pfade / Wie Lemnos menschenleer, / Fern stürmte das Gestade / Ein segelloses Meer.",
+  "language": [],
+  "musenalm_id": 40920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Wunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Wunde",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.252Z",
+      "agent": "e5lgme10winug6a",
+      "source_id": "tiihj9xfv5tfwgc"
+    }
+  ]
+}

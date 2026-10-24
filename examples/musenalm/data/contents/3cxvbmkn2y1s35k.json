@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Zwei Bilder, schöner als mein ganzes Leben, / Als Alles, was mir mag die Zukunft geben,",
+  "language": [],
+  "musenalm_id": 80114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bilder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduar Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bilder",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.951Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "bnfvgc4eno3l33h"
+    }
+  ]
+}

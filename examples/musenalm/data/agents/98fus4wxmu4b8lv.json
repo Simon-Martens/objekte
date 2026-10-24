@@ -1,0 +1,235 @@
+{
+  "annotation": "",
+  "biographical_data": "1551(?)-1629",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.448Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Künstler"
+      ],
+      "dateOfBirth": [
+        "1561"
+      ],
+      "dateOfDeath": [
+        "1629"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carlo Cesare Malvasia"
+          ],
+          "creditText": [
+            "Carlo Cesare Malvasia, Felsina pittrice: vite de pittori bolognesi, vol I, 1678. Illustrazioni di Giovanni Francesco Cassioni, Carlo Cesare Malvasia o altri."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20Procaccini%20-%20felsinapittricev01malv%200300.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Camillo%20Procaccini%20-%20felsinapittricev01malv%200300.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Camillo%20Procaccini%20-%20felsinapittricev01malv%200300.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174329423"
+      ],
+      "describedBy": {
+        "dateModified": "2022-01-05T00:30:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119072432/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/128943688",
+          "label": "Procaccini, Ercole"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "119072432",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/128943688",
+          "label": "Procaccini, Ercole"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119072432",
+      "oldAuthorityNumber": [
+        "(DE-588a)119072432",
+        "(DE-588c)4302658-8",
+        "(DE-588)174329423",
+        "(DE-588a)174329423"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4115856-8",
+          "label": "Parma"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4037100-1",
+          "label": "Mailand"
+        }
+      ],
+      "preferredName": "Procaccini, Camillo",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Camillo"
+        ],
+        "surname": [
+          "Procaccini"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/305409219"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q366999"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119072432/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174329423"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119072432"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119072432"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Procaccini, Camille"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Camille"
+          ],
+          "surname": [
+            "Procaccini"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:32:15Z",
+    "gnd_query_biographical_data": "1551(?)-1629",
+    "gnd_query_name": "procaccini, camillo"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2130,
+  "name": "Procaccini, Camillo",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVII, 413",
+  "updated": "2026-06-11 13:29:24.121Z",
+  "uri": "https://d-nb.info/gnd/119072432",
+  "editor": ""
+}

@@ -1,0 +1,290 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.407Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1827 Mitbegründer der literarischen Wochenzeitschrift \"Sundine\", befreundet mit Ernst Moritz Arndt"
+      ],
+      "dateOfBirth": [
+        "1773-04-24"
+      ],
+      "dateOfDeath": [
+        "1843-10-28"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-10T10:31:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119282739/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1116972077",
+          "label": "Meves, Ida"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119282739",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1116972077",
+          "label": "Meves, Ida"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119282739",
+      "oldAuthorityNumber": [
+        "(DE-588a)119282739",
+        "(DE-588c)4387791-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/7754214-9",
+          "label": "Pütte"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4263679-6",
+          "label": "Wusterhusen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4057860-4",
+          "label": "Stralsund"
+        }
+      ],
+      "preferredName": "Lappe, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Lappe"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Linné, Carl von: Eigenhändige Aufzeichnungen",
+        "Lappe, Karl: Sämmtliche poetische Werke",
+        "Linné, Carl von: Eigenhändige, Anzeichnungen über sich selbst",
+        "Lappe, Karl: Blätter",
+        "Lappe, Karl: Vermischte Schriften",
+        "Sjöborg, Gustaf: Schwedische Sprachlehre für Deutsche"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/lappe-karl/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77122232"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1625525"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119282739/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Lappe"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Lappe"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110299075"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119282739"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119282739"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119282739.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119282739"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Lappe, Karl Gottfried",
+        "Lappe, Karl Gottlieb",
+        "Lappe, Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Gottfried"
+          ],
+          "surname": [
+            "Lappe"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Lappe"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gottlieb"
+          ],
+          "surname": [
+            "Lappe"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Lappe",
+          "label": "https://de.wikipedia.org/wiki/Karl_Lappe"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:04:06Z",
+    "gnd_query_biographical_data": "1773-1843",
+    "gnd_query_name": "lappe, karl gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1562,
+  "name": "Lappe, Karl Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 436; Goed X, 582; Goed XIV, 48, 981",
+  "updated": "2026-06-11 13:29:23.500Z",
+  "uri": "https://d-nb.info/gnd/119282739",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Laß mich ein, mein süßes Schäzchen! / Finster ist mein Kämmerlein.",
+  "language": [],
+  "musenalm_id": 26412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das kalte Liebchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freyherr v. Eichendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das kalte Liebchen",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.362Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "cql9bz54ew1nbmd"
+    }
+  ]
+}

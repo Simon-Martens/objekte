@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Herr Charles« von J. P. Hebel INr 55831, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2te. Sc. aus Herr Charles von Hebel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi sc.",
+  "scans": [
+    "alm_753_55833_vqy846zhft.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "2te. Sc. aus Herr Charles von Hebel",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.603Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "y29o1wcfqacb1te"
+    }
+  ]
+}

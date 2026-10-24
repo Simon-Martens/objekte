@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Perlen 1846",
+    "norm": "",
+    "biblio": 100808,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2425,
+  "parallel_title": "",
+  "place_statement": "Leipzig und Nürnberg (Korn)",
+  "places": [
+    "d7kbujq7399g22j",
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Perlen 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 94; nicht bei L/R",
+  "responsibility_statement": "Robert Heller",
+  "subtitle_statement": "",
+  "title_statement": "Perlen. / Taschenbuch / für / 1846. / Von / Robert Heller. / Fünfter Jahrgang. / Leipzig und Nürnberg. / Verlag der Friedr. Korn'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.957Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "wa1wcuojrvj1zw9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.090Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.090Z",
+      "agent": "piabqusdjzazh86",
+      "source_id": "de2rs8sybd41sno"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.079Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.079Z",
+      "agent": "k0fk4lrvgxeyjnw",
+      "source_id": "irqdv9dxmjt5iqc"
+    }
+  ]
+}

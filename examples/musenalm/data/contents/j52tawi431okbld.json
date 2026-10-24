@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Wie glänzt Herr Niklas Braut, Lisette / In ihrem goldnen Hochzeitskranz!",
+  "language": [],
+  "musenalm_id": 17574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prognostikon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prognostikon",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.735Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "2ts1le24qcglwle"
+    }
+  ]
+}

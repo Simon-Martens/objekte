@@ -1,0 +1,303 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.519Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Studierte an der Universität Leipzig und in Dresden Theologie; ab 1828 Diakon in Mittweida und ab 1843 Hauptpfarrer in Zschopau"
+      ],
+      "dateOfBirth": [
+        "1800"
+      ],
+      "dateOfDeath": [
+        "1876"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "various"
+          ],
+          "creditText": [
+            "Google Books"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Die%20Gartenlaube%20%281864%29%20b%20069.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Die%20Gartenlaube%20%281864%29%20b%20069.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Die%20Gartenlaube%20%281864%29%20b%20069.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:11:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117374997/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117374997",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117374997",
+      "oldAuthorityNumber": [
+        "(DE-588a)117374997"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4109065-2",
+          "label": "Zschopau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4039759-2",
+          "label": "Mittweida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4111252-0",
+          "label": "Leisnig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4111252-0",
+          "label": "Leisnig"
+        }
+      ],
+      "preferredName": "Würkert, Friedrich Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ludwig"
+        ],
+        "surname": [
+          "Würkert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Rhein"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Rein"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Würkert, Friedrich L.: Antike Novellen",
+        "Würkert, Friedrich L.: Der Todtengräber von Bacharach",
+        "Würkert, Friedrich L.: Novellen",
+        "Würkert, Friedrich L.: Dramatische Dichtungen",
+        "Würkert, Friedrich L.: Gesammelte Novellen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77091850"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1875214"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117374997/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_W%C3%BCrkert"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_W%C3%BCrkert"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010676312"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117374997"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117374997"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Rein, Ludwig",
+        "Würkert, Ludwig",
+        "Würkert, Ludwig Friedrich",
+        "Rhein, Ludwig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Würkert"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Rhein"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Friedrich"
+          ],
+          "surname": [
+            "Würkert"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Rein"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_W%C3%BCrkert",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_W%C3%BCrkert"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:25:27Z",
+    "gnd_query_biographical_data": "1800-1876",
+    "gnd_query_name": "würkert, friedrich ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3204,
+  "name": "Würkert, Friedrich Ludwig",
+  "profession": "Text",
+  "pseudonyms": "Ludwig Rein",
+  "refs": "E 391",
+  "updated": "2026-06-11 13:29:25.872Z",
+  "uri": "https://d-nb.info/gnd/117374997",
+  "editor": ""
+}

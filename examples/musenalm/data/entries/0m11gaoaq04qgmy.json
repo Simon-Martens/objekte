@@ -1,0 +1,51 @@
+{
+  "annotation": "DNB: 1707-1807",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Adres-Calender der Kgl. Preuß. Haupt u. Residenzstädte 1782",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1172,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Adres-Calender der Kgl. Preuß. Haupt u. Residenzstädte 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5; nicht bei L/R",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.491Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25106, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Was willst auf dieser Station / So breit dich niederlassen!",
+  "language": [],
+  "musenalm_id": 25114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Wander-Sprüche / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Wander-Sprüche / 2.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.015Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "k5dx18ylzmws6ou"
+    }
+  ]
+}

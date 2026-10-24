@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Abendlied für -« von A. W. Schlegel INr 10466, Obj 104",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 104.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied für -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_133_62176_n4fki3mesb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied für -",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.015Z",
+      "agent": "ubitdekwc4vpg28",
+      "source_id": "ctx63z3m7elab3c"
+    }
+  ]
+}

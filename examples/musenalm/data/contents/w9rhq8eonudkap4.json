@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13; Antwortgedicht auf INr 3729, Obj 69; s. a. Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "In Schwaben ist mit zwanzig Jahren / Ein Mädchen nicht so unerfahren;",
+  "language": [],
+  "musenalm_id": 3730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort / an Frau Menschenschreck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort / an Frau Menschenschreck",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.912Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "txdkmfga5wd7ggl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4 /) s. INr 18597, Obj 13 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18595,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dampierre: Dies schadet der Sache / nichts. Es lebe die Nation! es lebe die Republik",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_191_18595_0ntualdopa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dampierre: Dies schadet der Sache / nichts. Es lebe die Nation! es lebe die Republik",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.271Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "c63pwd0kpkeqnt3"
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.421Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Bibliothekar, Philologe, Pädagoge, Historiker, Philosoph und Gymnasialrektor"
+      ],
+      "dateOfBirth": [
+        "1760-05-26"
+      ],
+      "dateOfDeath": [
+        "1826-06-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.COLLECT.82904"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Johann%20Caspar%20Friedrich%20Manso%2C%20RP-P-1914-2297.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Johann%20Caspar%20Friedrich%20Manso%2C%20RP-P-1914-2297.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Johann%20Caspar%20Friedrich%20Manso%2C%20RP-P-1914-2297.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325002895"
+      ],
+      "describedBy": {
+        "dateModified": "2024-06-12T00:31:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104268433/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104268433",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104268433",
+      "oldAuthorityNumber": [
+        "(DE-588a)104268433",
+        "(DE-588c)4833095-4",
+        "(DE-588)1325002895"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1185094164",
+          "label": "Zella (Zella-Mehlis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Manso, Johann Caspar Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Caspar Friedrich"
+        ],
+        "surname": [
+          "Manso"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        }
+      ],
+      "publication": [
+        "Manso, Johann C.: Geschichte des Preussischen Staates vom Frieden zu Hubertsburg bis zur *. - 1835 - 1836",
+        "Manso, Johann C.: Sparta. - 1800 - 1805",
+        "Manso, Johann C.: Ueber das rhetorische Gepräge der römischen Litteratur",
+        "Manso, Johann C.: Über den poetischen Charakter Theokrits",
+        "Manso, Johann C.: Geschichte des Ost-gothischen Reiches in Italien",
+        "Manso, Johann C.: Leben Constantins des Großen",
+        "Manso, Johann C.: Ueber die Begründung der Demokratie in den griechischen Staaten",
+        "Manso, Johann C.: Versuche über einige Gegenstände aus der Mythologie der Griechen und Rö*",
+        "Manso, Johann C.: Ueber die Verfassung des Magdalenaeums seit 1710 zur Ankündigung der öf*",
+        "Manso, Johann C.: Vermischte Abhandlungen und Aufsätze"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058968"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71827062"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q110090"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104268433/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325002895"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Kaspar_Friedrich_Manso"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Kaspar_Friedrich_Manso"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Kaspar_Friedrich_Manso"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115742638"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104268433"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104268433.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104268433"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/104268433"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104268433"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Manso, F.",
+        "Manso, Johann K.",
+        "Manso, Johann Caspar",
+        "Manso, Johann Kaspar Fridericus",
+        "Manso, Johann Kaspar",
+        "Manso, J. K. F.",
+        "Manso, J. C.",
+        "Manso, Johann Kaspar Friedrich",
+        "Manso, Johann C.",
+        "Manso, Friedrich",
+        "Manso, Io. Casp. Frid."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. K. F."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Caspar"
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kaspar Friedrich"
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kaspar Fridericus"
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Io. Casp. Frid."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kaspar"
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Manso"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Manso"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Kaspar_Friedrich_Manso",
+          "label": "https://de.wikipedia.org/wiki/Johann_Kaspar_Friedrich_Manso"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:11:42Z",
+    "gnd_query_biographical_data": "1760-1826",
+    "gnd_query_name": "manso, johann caspar friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1715,
+  "name": "Manso, Johann Caspar Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 457; Goed VI, 302; Goed VII, 430;",
+  "updated": "2026-06-11 13:29:23.717Z",
+  "uri": "https://d-nb.info/gnd/104268433",
+  "editor": ""
+}

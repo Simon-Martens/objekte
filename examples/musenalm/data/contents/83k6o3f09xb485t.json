@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Wer sitzt dort unter dem blauen Zelt? / Das ist der König Rhein!",
+  "language": [],
+  "musenalm_id": 26519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ritter und der Rhein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Hensel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ritter und der Rhein",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.272Z",
+      "agent": "902nw56856wz9rx",
+      "source_id": "qillei9xvm13f70"
+    }
+  ]
+}

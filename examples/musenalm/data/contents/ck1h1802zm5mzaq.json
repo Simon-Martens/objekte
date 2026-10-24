@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Mann für uns« von Boutterweck INr 3445, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3446,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mann für uns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Queck",
+  "scans": [
+    "alm_86_3446_n1icv58n6t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mann für uns",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.133Z",
+      "agent": "9ayonyltogbumpo",
+      "source_id": "xeh7ldyqw3wiu6w"
+    }
+  ]
+}

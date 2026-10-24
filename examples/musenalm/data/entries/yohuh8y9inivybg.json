@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, 3 SS G-Verz, G, 10 SS Kal darin 9 GG, 3 SS Tab, ar: S 1 zT, SS 3-46, ar1: S1 zT, SS 3-44 Tab, ar2: SS 1-3, SS 5 zT, SS 7-81, S 83 zT, SS 85-268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Großherzoglich Hessischer 1812; s. a. Taschenbuch, Rheinisches 1812",
+    "norm": "~",
+    "biblio": 101259,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 567,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Hofkalender, Großherzoglich Hessischer 1812; s. a. Taschenbuch, Rheinisches 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1812. / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.656Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "b91wt8zvotu0say"
+  ],
+  "contents": [
+    "4t7jk748gthlln9",
+    "d5eaziz3htbogdu",
+    "a5cwsnu82nwikqb",
+    "27nvh8yq9zw7f4g",
+    "ox4pjpswudfnhov",
+    "d9oq8ndm1sjrq71",
+    "0c9mouib4iivxz6",
+    "ob9jkql50gl6yij",
+    "l07n85wg6zpenht",
+    "19redibe143jfxa",
+    "kok2yrq80xtfrsg",
+    "bu1ouqhfsrxc3ek",
+    "po2i9roadenful4",
+    "h4r9mj1x80ctb2f",
+    "itt2qc0ytov63kr",
+    "ao55a4akwvtrmmh",
+    "9whvzzti0klhxmf",
+    "sb4sjxvtmx7wu79",
+    "8fd7v88vvpdhlpy",
+    "0ltfa7dfpejkeu3",
+    "4mubccys2c3685r",
+    "2f50bher937g1ca",
+    "0v9fkxfmbcqiw8f",
+    "yw9q03sanos16wo",
+    "ehqbotmgnz9mren",
+    "x8yvnozchrosj8s",
+    "507hkkasjmzbmwu",
+    "f0zqhj1q1i3aj8m",
+    "3672fueli0ka4wc",
+    "oq087akawlg2qsj",
+    "5rsxcl53amesd32",
+    "gl2nx7mb1ufkadr",
+    "cb5fekykz3xnmnd",
+    "bih1mksxedzbh3k",
+    "x15r6kz6o14qug2",
+    "9rwnnyter3noe6t",
+    "ms0j82upgwnxbl7",
+    "l7ddoo5h4tjsrph",
+    "qyju8x20vrct3wf",
+    "pt5bbo9rc6r5c5p",
+    "s82txyv2ya7u0xv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.005Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.005Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "ccecvic6yuzhhii"
+    }
+  ]
+}

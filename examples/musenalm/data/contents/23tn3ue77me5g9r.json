@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Anette und Sabine schmückten sich auf's Schönste; sie sollten mit der Tante spazieren fahren und fuhren so gern",
+  "language": [],
+  "musenalm_id": 29912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schmerzt. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das schmerzt. / Erzählung",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.300Z",
+      "agent": "tiijnij1nbeebby",
+      "source_id": "cqubv8xe7r9ha2b"
+    }
+  ]
+}

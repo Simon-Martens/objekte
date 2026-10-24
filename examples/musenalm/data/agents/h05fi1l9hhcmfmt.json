@@ -1,0 +1,497 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.433Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2025003-4",
+          "label": "Université de Liège"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2024338-8",
+          "label": "Albert-Ludwigs-Universität Freiburg"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Historiker und Publizist, Hofrat, Oberbibliothekar, Prof. der Deutschen Literatur",
+        "Historiker, Publizist, Bibliothekar, Jurist, Literaturwissenschaftler",
+        "Historiker und Publizist, Hofrat, Prof. der Deutschen Literatur, Bibliothekar"
+      ],
+      "dateOfBirth": [
+        "1798-10-25"
+      ],
+      "dateOfDeath": [
+        "1841-06-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://www.tripota.uni-trier.de/single_picture.php?signatur=385_0042"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Hermann%20Joseph%20M%C3%BCnch%20%281798-1841%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Hermann%20Joseph%20M%C3%BCnch%20%281798-1841%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ernst%20Hermann%20Joseph%20M%C3%BCnch%20%281798-1841%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-18T11:11:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100217281/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "100217281",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100217281",
+      "oldAuthorityNumber": [
+        "(DE-588a)100217281"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011446-6",
+          "label": "Den Haag"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074361-5",
+          "label": "Lüttich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018272-1",
+          "label": "Freiburg im Breisgau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4049753-7",
+          "label": "Rheinfelden (Aargau)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4049753-7",
+          "label": "Rheinfelden (Aargau)"
+        }
+      ],
+      "preferredName": "Münch, Ernst Hermann Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst Hermann Joseph"
+        ],
+        "surname": [
+          "Münch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398113-6",
+          "label": "Kirchenhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kirchenrechtler"
+      ],
+      "publication": [
+        "Geschichte des Hauses und Landes Fürstenberg. - 1829 - 1847",
+        "Denkwürdigkeiten zur politischen Reformations- und Sittengeschichte der let*",
+        "Geschichte von Portugal",
+        "König Enzius",
+        "Die Fürstinnen des Hauses Burgund-Oesterreich in den Niederlanden",
+        "Geschichte des Hauses Nassau-Oranien. - 1831 - 1833",
+        "Erinnerungen, Lebensbilder und Studien aus den ersten 37 Jahren eines deuts*. - 1836 - 1838",
+        "Allgemeine Geschichte der neuesten Zeit",
+        "Die Heereszüge des christlichen Europa wider die Osmanen. - 1822 - 1826",
+        "Aletheia"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93002048"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76657521"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D43934.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q107296"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100217281/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_M%C3%BCnch_%28Historiker%2C_1798%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_Hermann_Joseph_M%C3%BCnch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081573249"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100217281"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100217281"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100217281.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100217281"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100217281"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Münch, Ernst Hermann Josef",
+        "Münch, Ernst von",
+        "Münch, Ernst Joseph Hermann von",
+        "Münch, Ernst H. von",
+        "Münch, Ernst H.",
+        "Muench, Ernst Josef Hermann",
+        "Münch, Ernst Josef Hermann von",
+        "Münch, Ernst Joseph Hermann",
+        "Münch, Ernst Herrmann Joseph",
+        "Münch, Ernst Hermann Joseph von",
+        "Münch, Ernst J.",
+        "Münch, Ernst",
+        "Münch, Ernst J. von",
+        "Münch, Ernestus Josephus Hermannus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ernst H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Josef Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst H."
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Joseph Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Joseph Hermann"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Josef Hermann"
+          ],
+          "surname": [
+            "Muench"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Herrmann Joseph"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Hermann Josef"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Hermann Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst J."
+          ],
+          "surname": [
+            "Münch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernestus Josephus Hermannus"
+          ],
+          "surname": [
+            "Münch"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_M%C3%BCnch_%28Historiker%2C_1798%29",
+          "label": "https://de.wikipedia.org/wiki/Ernst_M%C3%BCnch_%28Historiker%2C_1798%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:20:54Z",
+    "gnd_query_biographical_data": "1798-1841",
+    "gnd_query_name": "münch, ernst"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1901,
+  "name": "Münch, Ernst",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 350",
+  "updated": "2026-06-11 13:29:23.892Z",
+  "uri": "https://d-nb.info/gnd/100217281",
+  "editor": ""
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK mit versch. Standorten für Jgg zwischen 1771 und 1811",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Natur-Almanach, Schleswig-Holsteinischer 1788",
+    "norm": "",
+    "biblio": 408798,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4155,
+  "parallel_title": "",
+  "place_statement": "Altona (Burmester)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Natur-Almanach, Schleswig-Holsteinischer 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Matthias Rohlfs",
+  "subtitle_statement": "",
+  "title_statement": "Schleswig-Holsteinischer / Natur-Allmanach / auf das Jahr 1788. / von Matthias Rohlfs. / Dem beygefügt / eine Anweisung und Unterricht / zum Gartenbau, / von / Philipp Ernst Lüders, / weil. Hofprediger und Probsten zu Glücksburg. / Kosten ungebunden 1 1/2 Lübschilling. / Altona, gedruckt und verlegt von den Gebr. Burmester, / Königl. privil. und Gymnasien Buchdr.",
+  "updated": "2026-06-11 10:18:55.962Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "sk2nlhz1aaivj0j"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.629Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.629Z",
+      "agent": "6qfloo0cusn6s4h",
+      "source_id": "vrqclxe9pje55ci"
+    }
+  ]
+}

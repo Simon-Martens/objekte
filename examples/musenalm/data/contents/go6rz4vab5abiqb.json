@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Neue Wolfsjagden« von v. Wildungen INr 69694, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Victoria! der fahle Greis, / Der Räuber Wolf, er liegt!",
+  "language": [],
+  "musenalm_id": 69699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ferdinands Dank an die Wernigerödische / Jägery",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ferdinands Dank an die Wernigerödische / Jägery",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.493Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "wgbpwr6lhi6j4aa"
+    }
+  ]
+}

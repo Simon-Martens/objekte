@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 68609, Obj 3,09",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68608,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.08,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHARITAS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carlo Cignani pt. F. John sc.",
+  "scans": [
+    "alm_232_68608_yhuazwutsg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHARITAS",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.444Z",
+      "agent": "ljxbpe0bzkp08sq",
+      "source_id": "06xjb7d8jzxqhrk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.444Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "elds3r4yf3g5odg"
+    }
+  ]
+}

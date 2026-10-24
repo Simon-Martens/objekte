@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80257, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80256,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Gatten Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Maurin del. Ch. Hoffmeister sculp. Wien",
+  "scans": [
+    "alm_1698_80256_v8ic216fj9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Gatten Heimkehr",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.888Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "g84zu7ae52ofvtv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.887Z",
+      "agent": "1eb159cypt6gq9j",
+      "source_id": "mo5dw2aboegrdyx"
+    }
+  ]
+}

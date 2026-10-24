@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Oftmals, wenn ich ganz allein / Brüte, nachtumgeben, / Fließt's wie sanfter Mondenschein / Plötzlich in mein Leben.",
+  "language": [],
+  "musenalm_id": 111752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzensahnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herzensahnung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.396Z",
+      "agent": "h8j0pzrwje92vvq",
+      "source_id": "e4u2xfizx8ugiyw"
+    }
+  ]
+}

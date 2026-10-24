@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Ein Knabe spielte mit einer zahmen Schlange. Mein liebes Thierchen, sagte der Knabe, ich würde mich mit dir so gemein nicht machen,",
+  "language": [],
+  "musenalm_id": 92399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe und die Schlange",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe und die Schlange",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.596Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "xaaglcl9f0vwfbz"
+    }
+  ]
+}

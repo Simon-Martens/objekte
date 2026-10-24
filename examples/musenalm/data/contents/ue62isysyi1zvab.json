@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130121, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Mit den Blüthenpyramiden / Prangte herrlich die Kastanie, / Wie ein stattliches Gebäude,",
+  "language": [],
+  "musenalm_id": 130123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edmunds Morgenabentheuer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Edmunds Morgenabentheuer",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.057Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "ac1pg80ftxaivi7"
+    }
+  ]
+}

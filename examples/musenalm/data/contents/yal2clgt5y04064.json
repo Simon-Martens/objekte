@@ -1,0 +1,45 @@
+{
+  "annotation": "Anekdoten und Charakterzüge (Sammlung INr 101705, Obj 91)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "In der Mitte des vorigen Winters verheirathete ein reicher Bauer, zu *** auf dem linken Rheinufer, seine einzige Tochter.",
+  "language": [],
+  "musenalm_id": 101706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.007Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "9oacfuo02wdzoph"
+    }
+  ]
+}

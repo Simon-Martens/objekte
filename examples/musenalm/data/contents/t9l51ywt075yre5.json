@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Gefallen war der Mensch! Sein Loos entschieden. / Dem Fluch verfallen, den er selbst erzeugt,",
+  "language": [],
+  "musenalm_id": 95302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Mensch und der Hund. / Rabbinische Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Weidmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Mensch und der Hund. / Rabbinische Legende",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.536Z",
+      "agent": "e499h9zfmuf983p",
+      "source_id": "jrautvek6cupghd"
+    }
+  ]
+}

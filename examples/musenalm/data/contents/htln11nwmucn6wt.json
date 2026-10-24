@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 68652, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "sieht Flemming der Ephorus und Gymnasiarch der Jägerey als das ABC der Jägertugend an;",
+  "language": [],
+  "musenalm_id": 68662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Die Jagd des Eichhorns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Die Jagd des Eichhorns",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.321Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "f2mc3fbc2gutr5j"
+    }
+  ]
+}

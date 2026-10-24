@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräche im Regiezimmer (Sammlung INr 44950, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Haben Sie die heutige Zeitung gelesen? Noch nicht. / Da haben Sie den erbärmlichen Wisch.",
+  "language": [],
+  "musenalm_id": 44953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Director und der erste Intriguant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Director und der erste Intriguant",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.189Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "5nbtns6ku886avh"
+    }
+  ]
+}

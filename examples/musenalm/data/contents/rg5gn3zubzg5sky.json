@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder für die Jugend (Sammlung INr 131676, Obj 11) s. Graphik INr 131369, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Es weht der Sturm mit eisig kaltem Hauche, / Hin über's Feld, es sinkt das letzte Blatt,",
+  "language": [],
+  "musenalm_id": 131678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2022-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.037Z",
+      "agent": "p5nbyct99xa1658",
+      "source_id": "mitetvlf7yh33h2"
+    }
+  ]
+}

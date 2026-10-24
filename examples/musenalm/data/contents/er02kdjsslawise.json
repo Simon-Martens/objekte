@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Die Mitarbeiter an diesem Taschenbuche sind gebohrne oder durch ihren Aufenthalt naturalisierte Elsasser.",
+  "language": [],
+  "musenalm_id": 23788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.111Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "fqaxfrnz3djqyqo"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Illustration zu »Juno« von K. H. Moritz INr 91482, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carstens del. D. Berger sc. 1791)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carstens del. D. Berger sc. 1791",
+  "scans": [
+    "alm_4074_91503_xctbrauc54.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.510Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "sprqu7qlx7udse6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.510Z",
+      "agent": "g3hedbg3ghoqo3o",
+      "source_id": "tchz6tnas69jxd7"
+    }
+  ]
+}

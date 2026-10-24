@@ -1,0 +1,423 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.355Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schweizer Pfarrer und Dichter, Sammler von Volksliedern"
+      ],
+      "dateOfBirth": [
+        "1759"
+      ],
+      "dateOfDeath": [
+        "1837"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "H. Hauser (Zeichner), H. Lips (Stecher)"
+          ],
+          "creditText": [
+            "Jost Bernhard Häfliger: Schweizerische Volkslieder nach der luzernischen Mundart. Luzern 1813 (Frontispiz)."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jost%20Bernhard%20H%C3%A4fliger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jost%20Bernhard%20H%C3%A4fliger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jost%20Bernhard%20H%C3%A4fliger.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/159972256"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:17:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/122403800/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "122403800",
+      "id": "https://d-nb.info/gnd/122403800",
+      "oldAuthorityNumber": [
+        "(DE-588a)159972256",
+        "(DE-588)159972256",
+        "(DE-588a)122403800"
+      ],
+      "preferredName": "Häfliger, Jost Bernhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jost Bernhard"
+        ],
+        "surname": [
+          "Häfliger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        }
+      ],
+      "publication": [
+        "Häfliger, Jost B.: Lieder im helvetischen Volkston, nach der Luzernerischen Mundart",
+        "Häfliger, Jost B.: Schweizerische Volkslieder nach der Luzernischen Mundart"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031956"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25484014"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11852.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55124489"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/122403800/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159972256"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jost_Bernhard_H%C3%A4fliger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000072576106"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/122403800"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd122403800.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/122403800"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Häfliger, Bernhard Barnabas",
+        "Häfflinger, Jost Bernhard Barnabas",
+        "Häflinger, Jost Bernhard",
+        "Haeffliger, J. B.",
+        "Häflinger, Bernard",
+        "Häffliger, J.B.",
+        "Häfflinger, Jost Bernhard",
+        "Häflinger, Bernhard Barnabas",
+        "Häffliger, J. B.",
+        "Häfflinger, Bernhard Barnabas",
+        "Häflinger, Jost Bernhard Barnabas",
+        "Häffliger, Jost Bernhard",
+        "Hefflinger, Bernard Jost",
+        "Häfliger, Pfarrer in Hochdorf",
+        "Haeffliger, Jost B.",
+        "Häffliger, Jost Bernhard Barnabas",
+        "Heflinger, Bernard",
+        "Häfliger, Jost Bernhard Barnabas",
+        "Häffliger, J. Bernhard",
+        "Häffliger, Bernhard Barnabas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Bernard"
+          ],
+          "surname": [
+            "Heflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häflinger"
+          ]
+        },
+        {
+          "forename": [
+            "J. B."
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard"
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernard Jost"
+          ],
+          "surname": [
+            "Hefflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        },
+        {
+          "forename": [
+            "J. B."
+          ],
+          "surname": [
+            "Haeffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häflinger"
+          ]
+        },
+        {
+          "forename": [
+            "J.B."
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost B."
+          ],
+          "surname": [
+            "Haeffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häfflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernard"
+          ],
+          "surname": [
+            "Häflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard"
+          ],
+          "surname": [
+            "Häfflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häfflinger"
+          ]
+        },
+        {
+          "forename": [
+            "J. Bernhard"
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard"
+          ],
+          "surname": [
+            "Häflinger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häfliger"
+          ]
+        },
+        {
+          "forename": [
+            "Jost Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häfliger"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Pfarrer in Hochdorf"
+          ],
+          "personalName": [
+            "Häfliger"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Barnabas"
+          ],
+          "surname": [
+            "Häffliger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jost_Bernhard_H%C3%A4fliger",
+          "label": "https://de.wikipedia.org/wiki/Jost_Bernhard_H%C3%A4fliger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:37:33Z",
+    "gnd_query_biographical_data": "1759-1837",
+    "gnd_query_name": "häfliger, jost bernhard barnabas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1028,
+  "name": "Häfliger, Jost Bernhard Barnabas",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 488; Goed VII, 531; Goed XII, 140",
+  "updated": "2026-06-11 13:29:22.751Z",
+  "uri": "https://d-nb.info/gnd/122403800",
+  "editor": ""
+}

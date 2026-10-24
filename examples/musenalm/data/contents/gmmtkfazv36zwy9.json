@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit 3  Illustrationen s. Graphiken INr 48339-48341, Obj 7-9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Vater Meinhard hatte sich seit einer kleinen Reihe von Jahren in Haynbach äußerst wohl und frey befunden.",
+  "language": [],
+  "musenalm_id": 48376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eduard und Pauline, / oder: / der höhere Sinn des Lebens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eduard und Pauline, / oder: / der höhere Sinn des Lebens",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.407Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "7o7wv8ru97msii6"
+    }
+  ]
+}

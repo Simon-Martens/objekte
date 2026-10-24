@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Nicht so muthlos, weil nicht bald / Früchte deine Mühe lohnen!",
+  "language": [],
+  "musenalm_id": 17587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Saat und Ernte, / an Hrn. Conrector Klein in Darmstadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Saat und Ernte, / an Hrn. Conrector Klein in Darmstadt",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.761Z",
+      "agent": "tvrder99cpa3fos",
+      "source_id": "cfizjeaiomk6q6p"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "422",
+  "incipit_statement": "Das dreitausenjährige chinesische Reich, eine so ungeheure Vereinigung von Staaten und Nationen aller Art, daß ihm im Abendlande die Herrschaft des stolzen Roms nur während vier Jahrhunderten gleich gekommen ist,",
+  "language": [],
+  "musenalm_id": 45054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Asien]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Asien]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.098Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "nfrzaq4gin7dcf2"
+    }
+  ]
+}

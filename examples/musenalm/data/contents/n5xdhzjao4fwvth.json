@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85774,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stadt Frankfurt an der Oder, / von der Bresiniken an der Thon-Gräberey, in der Gubner Vorstadt gesehen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "n. d. Natur gezeichnet von Rösel. J. B. Hössel sc.",
+  "scans": [
+    "alm_895_85774_5hubqsfnhu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Stadt Frankfurt an der Oder, / von der Bresiniken an der Thon-Gräberey, in der Gubner Vorstadt gesehen.",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.944Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "1948wql3bsv010g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.943Z",
+      "agent": "fvvo7u8gqk8l3ze",
+      "source_id": "jhwe8wdcslst2fn"
+    }
+  ]
+}

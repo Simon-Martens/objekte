@@ -1,0 +1,45 @@
+{
+  "annotation": "Miscellen (Sammlung INr 16214, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Eine alte französische Chronik erzählt: Den 17. Oct. 1409. sey dem ehrenvesten Johann von Montague der Kopf abgeschlagen",
+  "language": [],
+  "musenalm_id": 16216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2001-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.401Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "tuq0mvcm7057cy6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. INr 82971",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Schimm're sanft und stille. / Sieh! aus meines Herzens Fülle. / Sing' ich dir ein fohes Lied!",
+  "language": [],
+  "musenalm_id": 82970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An mein Lämpchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An mein Lämpchen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.060Z",
+      "agent": "n32rrka2qx8adlb",
+      "source_id": "lxqabotnqgea97m"
+    }
+  ]
+}

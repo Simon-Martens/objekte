@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesghaselen (Sammlung INr 114269, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Wie Lerchen haßte Fesselzwang mein Herz, / Bis deiner Locken Netz umschlang mein Herz.",
+  "language": [],
+  "musenalm_id": 114272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.429Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "dycl4n11ef4ulhc"
+    }
+  ]
+}

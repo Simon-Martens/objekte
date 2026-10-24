@@ -1,0 +1,45 @@
+{
+  "annotation": "Bonaccia (Sammlung INr 103115, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Ein schnurrbärtiger Fremder saß in einem kleinen Hinterstübchen des Gasthauses zum Maltheserkreuze vor dem für zwei Personen gedeckten Tische,",
+  "language": [],
+  "musenalm_id": 103117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gestirnte Nächte aus dem mittelländischen Meere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gestirnte Nächte aus dem mittelländischen Meere",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.114Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "2rydv39dbj5wjig"
+    }
+  ]
+}

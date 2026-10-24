@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 89427, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89408,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRAUT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Grüne del. I. Krepp gest. in Stahl",
+  "scans": [
+    "alm_3348_89408_eplbc1m06h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRAUT",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.057Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "fe4dchxuh5k4oxe"
+    }
+  ]
+}

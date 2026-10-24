@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 116782-1167884, Obj 24-26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barach-Märzroth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.570Z",
+      "agent": "69l66ginedg3y8r",
+      "source_id": "kfpl7sva0j4vyc1"
+    }
+  ]
+}

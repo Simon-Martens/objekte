@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In einem Bergstädtchen des Thüringerwaldes, das ich aus mancherlei Rücksichten nicht nennen mag, lebte zu Anfang dieses Jahrhunderts eine in ihren glänzenden Vermögensumständen sehr zurückgekommene, in verschiedene Aeste getheilte Familie, Namens Dörling.",
+  "language": [],
+  "musenalm_id": 57807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / erlogene Kind. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / erlogene Kind. / Novelle",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.735Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "hto41vgld8g4m9h"
+    }
+  ]
+}

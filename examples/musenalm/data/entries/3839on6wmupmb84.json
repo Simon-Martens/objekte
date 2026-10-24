@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.066Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Libussa 1859",
+    "norm": "",
+    "biblio": 106609,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2231,
+  "parallel_title": "",
+  "place_statement": "Prag (Calve); Leipzig (Mayer)",
+  "places": [
+    "d7kbujq7399g22j",
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Libussa 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; nicht bei L/R",
+  "responsibility_statement": "Paul Aloys Klar",
+  "subtitle_statement": "",
+  "title_statement": "Libussa. / Jahrbuch für 1859. / Herausgegeben / von / Paul Aloys Klar, [...] Achtzehnter Jahrgang. / Mit einem gestochenen Portrait, zwei gestochenen Kunstblättern und einer / Lithographie. / Prag. / F. Ehrlich's / Buchhandlung / in Prag. / C. H. Mayer's / [Buchhandlung] / in Leipzig",
+  "updated": "2026-06-11 10:18:55.917Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "items": [
+    "rrpaahrabmvetf0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "w7fv2ee9xso2h80",
+      "source_id": "xmym6aag1ooh806"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.638Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.638Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "z8ka76uz2kkl53b"
+    }
+  ]
+}

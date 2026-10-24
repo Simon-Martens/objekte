@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Rufet nicht die Götter, Menschen, / Dass sie euch Gesänge lehren, / Sie erhören euch nicht!",
+  "language": [],
+  "musenalm_id": 1249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Götterhilfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SIEGFR. SCHMIDT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Götterhilfe",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.667Z",
+      "agent": "sp8fzkkoycmk1ye",
+      "source_id": "bcpaiakrmmwl66q"
+    }
+  ]
+}

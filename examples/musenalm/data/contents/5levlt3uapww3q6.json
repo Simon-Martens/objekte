@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 65166, Obj 10,06",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Zu Nerac im Guiennerland, / Wie tummeln vor dem kleinen Schlosse / Die Ritter sich und auch die Rosse,",
+  "language": [],
+  "musenalm_id": 20841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Heinrich und Fleurette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Heinrich und Fleurette",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.025Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "rbzw088m6vrt3m3"
+    }
+  ]
+}

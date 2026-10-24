@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Lieder (Sammlung INr 24531, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Aus seinem Nachglanz läßt sich lesen, / Wie licht der Sonnentag gewesen.",
+  "language": [],
+  "musenalm_id": 24541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In einer Sommernacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In einer Sommernacht",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.233Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "um5tecurlwxcvk8"
+    }
+  ]
+}

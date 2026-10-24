@@ -1,0 +1,56 @@
+{
+  "annotation": "Einer (Sammlung INr 38158, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Welche Schrift ich zweymal, ja dreymal / hinter einander / Lese?",
+  "language": [],
+  "musenalm_id": 38166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 235,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welche Schrift ich zweymal, ja dreymal / hinter einander / Lese?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.827Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "durct67dfwfd9ez"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.827Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "z73ozm6ivf39zk4"
+    }
+  ]
+}

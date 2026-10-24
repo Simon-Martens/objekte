@@ -1,0 +1,71 @@
+{
+  "annotation": "franz. Ausgabe des Kalenders: Bei gleichem Inhalt leichte Abweichungen im Umfang des G-Verz und der div. Tabellen /) Umschlag und Titel als Photo",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 10 BB Kal darin 12 GG, 6 SS G-Verz, 71 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1779 /) (franz. Ausgabe: Almanac généalogique pour l’Année 1779)",
+    "norm": "~",
+    "biblio": 406518,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-02-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3647,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1779 (franz. Ausgabe: Almanac généalogique pour l’Année 1779)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / Généalogique / pour / L'Année / 1779. / avec l'approbation / de L'Académie Royale / des Sciences / et belles Lettres / A Berlin",
+  "updated": "2026-06-11 10:18:55.762Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "p6b4lkpyrba8e70"
+  ],
+  "contents": [
+    "vx3xljshyh5mbum",
+    "ks9amq43bpx0rx0",
+    "qffwuvijl3ozrgp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "wc02u4y7tlm1zma"
+    }
+  ]
+}

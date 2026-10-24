@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Täuschung und Wahrheit« von C. M. Wieland",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28335,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Täuschung und Wahrheit. / Eine Erzählung von Wieland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. del. et fec.",
+  "scans": [
+    "alm_367_28335_b8b7qvfr5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Täuschung und Wahrheit. / Eine Erzählung von Wieland",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.316Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "zoachw4ru5v77ak"
+    }
+  ]
+}

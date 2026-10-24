@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Das Thor, durch welches Töne wallen, / Schloß die Natur bei uns nicht auf:",
+  "language": [],
+  "musenalm_id": 32156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / E. A. Eschke, / Oberschulrath und Director des Taubstummen- / instituts zu Berlin. / (Im Namen seiner Zöglinge.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / E. A. Eschke, / Oberschulrath und Director des Taubstummen- / instituts zu Berlin. / (Im Namen seiner Zöglinge.)",
+  "updated": "2003-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.630Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "osy8nsq6pauu9gf"
+    }
+  ]
+}

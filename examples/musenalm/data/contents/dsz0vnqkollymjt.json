@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Bauerhochzeit« von F. W. A. Schmidt INr 36787, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie streicht der Jungfer Ohr mit Ehstandswitz / ergötzend, / Empor ihr schwarzes Haar, die Hand mit Speichel / netzend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling d. F. W. Bollinger sc.",
+  "scans": [
+    "alm_499_36788_qnb2z3sd8d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie streicht der Jungfer Ohr mit Ehstandswitz / ergötzend, / Empor ihr schwarzes Haar, die Hand mit Speichel / netzend",
+  "updated": "2004-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.797Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "5bbdcurzx4opzgm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.797Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "u2ju08g6qh1hb32"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anhang zweier Lieder (Anhang INr 61904, Obj 136)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Sagt, was ist der Zug der Liebe, / Der der Körper Kräfte füllt?",
+  "language": [],
+  "musenalm_id": 61905,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe, / Schöpferin und Geschaffene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe, / Schöpferin und Geschaffene",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.758Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "wvoai6naoo6juvy"
+    }
+  ]
+}

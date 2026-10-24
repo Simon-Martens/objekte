@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, SS III- XII Vrwrt d Vf, SS XIII- XVI I-Verz, 16 BB Kal darin 12 GG, G, SS 1-168, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund der Schooßhündchen, Der 1797",
+    "norm": "~",
+    "biblio": 404109,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1086,
+  "parallel_title": "",
+  "place_statement": "Königsberg (Nicolovius)",
+  "places": [
+    "estq96n359vg7mv"
+  ],
+  "preferred_title": "Freund der Schooßhündchen, Der 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der Freund der Schooßhündchen / Ein Neujahrs-Geschenk / für / Damen / Auf das Jahr 1797. / Königsberg, / bey Friedrich Nicolovius",
+  "updated": "2026-06-11 10:18:54.665Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "45zlj1d011ygsmq"
+  ],
+  "contents": [
+    "bfn23n3x7xs869k",
+    "vz31tvvqndxr1j8",
+    "bknwtplm4jhw7th",
+    "ue1f04r76a0aihm",
+    "j4umfuza6k5olvw",
+    "bci3eqgznnji7mz",
+    "hatkktne55hf80b",
+    "2yvxuwnlv89immg",
+    "gb6i19rf91vhvwp",
+    "cmpt8mktn8g17kr",
+    "1omuqwo9nrs9qw2",
+    "v3k48lmb36cosvk",
+    "886kw1ln4tlboht",
+    "l4uw24nhsla4yf6",
+    "ctbs34rgq1ki19l",
+    "gzbbch532qa2yig",
+    "01iwb2pyr046eat",
+    "5ju1bmtqav2jt0s",
+    "k08dirg75hbryxk",
+    "1ctunxlccgvanzs",
+    "vv7zht132x1qwfv",
+    "3q7teiddjrbehyr",
+    "bbczqv43ewcxseq",
+    "ggza90dl28y7hpj",
+    "49kwxordnfy942q",
+    "hszca9ou5dqv03l",
+    "m85loxm19gbqxb4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.113Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.113Z",
+      "agent": "zuiycymwu7vlw2f",
+      "source_id": "vgon1wlo930o2gf"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Grazien 1776",
+    "norm": "",
+    "biblio": 101059,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1229,
+  "parallel_title": "",
+  "place_statement": "Cythere bey Ganymedes [Hamburg]",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "244qzi8doa2bw2i"
+  ],
+  "preferred_title": "Almanach der Grazien 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; nicht bei L/R",
+  "responsibility_statement": "Cupido",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Grazien / auf das Jahr 1776. / Ein neuer Almanach der Liebe ! / Und unsrer ehlich keufliche Triebe, / Und zur Erbauung junger Welten, / In Reim' und Ziffern vorgestellt. / Zur Warnung hagesstolzer Sünder / Und zur Erweckung blöder Kinder. / von Cupido. / Cythere, bey Ganymedes.",
+  "updated": "2026-06-11 10:18:55.087Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "items": [
+    "cdc53avb5q6k3il"
+  ],
+  "contents": [],
+  "agents": []
+}

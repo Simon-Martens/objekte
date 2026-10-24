@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Es wallt, ein lichter Funken, / Empor der Morgentraum",
+  "language": [],
+  "musenalm_id": 61792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.107Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "1vilssh63dpy7m9"
+    }
+  ]
+}

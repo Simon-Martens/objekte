@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Wohl nmag am schönen Nieder-Rhein / Man jezt in Künsten hocherfahren, / Gelehrt in jedem Dinge sein,",
+  "language": [],
+  "musenalm_id": 63039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lottchen / auf ihrem Nahmens-Tag, / den 4ten Novbr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lottchen / auf ihrem Nahmens-Tag, / den 4ten Novbr",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.153Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "ppj1l86fl50i9js"
+    }
+  ]
+}

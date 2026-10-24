@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Bräutlich geschmükt, seh' ich im vollen Segen / Umstrahlt, im Frühlingsglanz die Erde prangen;",
+  "language": [],
+  "musenalm_id": 51338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ROSA MARIA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühling",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.644Z",
+      "agent": "7qd9korfk9bcwc9",
+      "source_id": "tmk8dzm81jkxcqb"
+    }
+  ]
+}

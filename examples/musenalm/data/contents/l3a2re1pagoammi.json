@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Du schönes Kind, ich soll dich meiden, / Soll sehn nicht mehr dein Angesicht.",
+  "language": [],
+  "musenalm_id": 46193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du schönes Kind, ich soll dich / meiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Du schönes Kind, ich soll dich / meiden",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.392Z",
+      "agent": "59l3z560kdcow7s",
+      "source_id": "mrykgzysx0gcb24"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Herr Candidatus Viederitt / Hielt neulich Predigt, und zerschnitt / Sein Them in sieben Theile.",
+  "language": [],
+  "musenalm_id": 10735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "42. / Zugemacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "42. / Zugemacht",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.406Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "5vpx1zqp1vkse4k"
+    }
+  ]
+}

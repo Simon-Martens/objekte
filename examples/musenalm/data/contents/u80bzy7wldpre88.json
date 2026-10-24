@@ -1,0 +1,45 @@
+{
+  "annotation": "Mewlana Dschelaleddin Rumi (Sammlung INr 43100, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Verzicht' auf Welt, daß Herr der Welt du seyest. / Tritt aus dir selb, daß Gott gesellt du seyest.",
+  "language": [],
+  "musenalm_id": 43142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XLII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XLII.",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.263Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "vhnmq4sut2oanlr"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-VI G-Verz, S VII I-Verz, S VrlgM, 4 GG, SS 1-320 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1833",
+    "norm": "~",
+    "biblio": 407577,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-04-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1041,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "Cornelia / TASCHENBUCH / für / DEUTSCHE FRAUEN / auf das Jahr / 1833. / HERAUSGEGEBEN / von / Aloys Schreiber. / 18. Jahrgang. Neue Folge 10. Jahrgang. mit 8 Kupfern. / HEIDELBERG. / im Verlag bei Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.586Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "qze6x0kut8ppefy"
+  ],
+  "contents": [
+    "hj3vg3h1wyziss3",
+    "ydaiedwbcwlxh2f",
+    "feauio00fmke4q7",
+    "jeoim4hyyc0v0dd",
+    "a9p5bm0b3jytfd9",
+    "9gh4pwfnq2ezov4",
+    "b9cxvbxkw6snoqf",
+    "wl474crwcd1dh3c",
+    "btmzhzicvnqomn9",
+    "h9agdlzjw4u6xuc",
+    "pbkceiyf2p8aszv",
+    "9fyg77ypmdazska",
+    "hw2s2tmfictv1v2",
+    "nogol81ql1qaiwf",
+    "39inur95pxz9yt5",
+    "i28p8t8cnh6fib9",
+    "biyu3ne3fqtxgx7",
+    "upxncmlplu5axyt",
+    "lqb3v9n7fgbwx2e",
+    "l870b4bjhxq2ta8",
+    "8f9cgrcwpvoyww5",
+    "9zy7e64902jjiyc",
+    "h1ahip4atij9iu0",
+    "99l035z2vgdj9pg",
+    "su2u49nhtwwis5m"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.775Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.775Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "g5g4s7nso6yprs5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.804Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.804Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "p0kx7ojpk5otr4j"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. Graphik im Kalendarium November /) Illustration zu »Geschichte der Stadt Breslau« von Karl Adolf Menzel INr 72534, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72532,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Universitäts Gebäude zu Breslau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Grossmann del. J. B. Hössel sc.",
+  "scans": [
+    "alm_859_72532_ijjuguxhs3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Universitäts Gebäude zu Breslau",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.736Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "9lfnbkxedp3oms2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.736Z",
+      "agent": "vmadsuai90domb8",
+      "source_id": "rd58phur2jqwh8a"
+    }
+  ]
+}

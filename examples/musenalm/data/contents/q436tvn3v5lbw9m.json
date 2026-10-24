@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Neunzehn ungedruckte Epigramme (Sammlung INr 39645, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Mana der Gott (wir nennen den Mond ihn) glaubte, die Sonne / Wär' eine Göttin;",
+  "language": [],
+  "musenalm_id": 39662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Er und Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Er und Sie",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.929Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "ovdpipnbs4c90sj"
+    }
+  ]
+}

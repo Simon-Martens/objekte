@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Oft spannt Amor im Spaß den nimmerrastenden / Bogen; / Bolzen schnellet er dann, statt der Geschoße / hinweg,",
+  "language": [],
+  "musenalm_id": 88689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amors Scherz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amors Scherz",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.163Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "0161c76dtbb7e8f"
+    }
+  ]
+}

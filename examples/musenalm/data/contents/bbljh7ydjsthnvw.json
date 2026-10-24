@@ -1,0 +1,46 @@
+{
+  "annotation": "Verlagsmitteilung",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22989,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verzeichniß / einiger Werke des Herausgebers, die bey / ihm zu Heilbronn am Nekar, und zu / Frankfurt bey Guilauman zu / bekommen sind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verzeichniß / einiger Werke des Herausgebers, die bey / ihm zu Heilbronn am Nekar, und zu / Frankfurt bey Guilauman zu / bekommen sind",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.848Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "fqohi5e8x88ryyk"
+    }
+  ]
+}

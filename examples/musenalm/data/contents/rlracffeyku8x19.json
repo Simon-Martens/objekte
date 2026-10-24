@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Prediger in Zerbst.Hat sich durch viel Schriften bekant gemacht. Affektiren und Haschen nach Witz, ist bei ihm nicht selten,",
+  "language": [],
+  "musenalm_id": 98760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "C. F. Sintenis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "C. F. Sintenis",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.699Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "rkl20o2ry4ohjf4"
+    }
+  ]
+}

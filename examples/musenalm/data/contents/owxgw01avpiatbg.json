@@ -1,0 +1,46 @@
+{
+  "annotation": "mit zwei Illustrationen s. Umschlaggraphiken r. und v. INr 63294, 63321; Obj 1, 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Nikias schrieb an Daphnen. Traurig blickt' er noch einmal nach ihr um, rief: Lebe wohl! Sey glücklich und verschwand durch das Gebüsch.",
+  "language": [],
+  "musenalm_id": 63316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hirten auf Lesbos. / Ein ländliches Gemälde in fünf Idyllen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hirten auf Lesbos. / Ein ländliches Gemälde in fünf Idyllen",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.153Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "n2ze8f5yp5p9j3d"
+    }
+  ]
+}

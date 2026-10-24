@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 14465-14470, Obj 64-69",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sinngedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. J. Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sinngedichte",
+  "updated": "2001-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.474Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "aujet8nv1xx6woi"
+    }
+  ]
+}

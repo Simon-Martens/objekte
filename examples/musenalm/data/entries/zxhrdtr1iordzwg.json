@@ -1,0 +1,51 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Adeona 1804",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1174,
+  "parallel_title": "",
+  "place_statement": "Breslau",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Adeona 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5; nicht bei L/R; Goed VIII. 61, 65; Goed VII. 441, 47",
+  "responsibility_statement": "J. F. L. Brühwein",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.490Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

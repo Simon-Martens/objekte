@@ -1,0 +1,449 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Erzähler, Lyriker, Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1766-11-25"
+      ],
+      "dateOfDeath": [
+        "1839-07-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Skjölding 20:43, 2. Nov. 2009 (CET)"
+          ],
+          "creditText": [
+            "selbst fotografiertSkjölding 20:43, 2. Nov. 2009 (CET)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichGustavSchilling.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0 de",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+              "name": "Creative Commons Attribution-Share Alike 3.0 de"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichGustavSchilling.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:FriedrichGustavSchilling.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T17:19:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117269891/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Eleonore Friederike"
+          ],
+          "surname": [
+            "Ferber"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Neubert"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117269891",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117269891",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)117269891"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Schilling, Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav"
+        ],
+        "surname": [
+          "Schilling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Kukuk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "surname": [
+            "Kukuk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Kuckuck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "surname": [
+            "Kuckuck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Mondstein-Würfe, von Zebedäus Kukuk dem jüngeren, erschlagenen Feld-Ha*. - o. J.",
+        "Orangen",
+        "Das Weib wie es ist",
+        "Guido von Sohnsdom",
+        "Gotthold, ein komischer Roman",
+        "Julchens Schwachheiten",
+        "Wilhelm Winters Jugendgeschichte",
+        "Abendgenossen",
+        "Die Reise nach dem Tode",
+        "Die gute Frau"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88646609"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17995394"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q107267"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117269891/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gustav_Schilling"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Gustav_Schilling"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000072572981"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117269891"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117269891"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117269891.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117269891"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schilling, Gustaf",
+        "S., G.",
+        "Schilling, Friedr. Gust.",
+        "Schilling, Friedrich G.",
+        "Kukuk, Zebedäus, der Jüngere",
+        "Kuckuck, Zebedäus",
+        "Kukuk, Zebedäus",
+        "Kuckuck, Zebedäus, der Jüngere",
+        "G. S.",
+        "Schilling, Friedrich Gustav"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "surname": [
+            "Kuckuck"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gustav"
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Gust."
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "surname": [
+            "Kukuk"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Kuckuck"
+          ]
+        },
+        {
+          "personalName": [
+            "G. S."
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gustav"
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Gustaf"
+          ],
+          "surname": [
+            "Schilling"
+          ]
+        },
+        {
+          "forename": [
+            "Zebedäus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Kukuk"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gustav_Schilling",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Gustav_Schilling"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:47:42Z",
+    "gnd_query_biographical_data": "1766-1839",
+    "gnd_query_name": "schilling, friedrich gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2441,
+  "name": "Schilling, Friedrich Gustav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 483; Goed XI/1, 326",
+  "updated": "2026-06-11 13:29:24.631Z",
+  "uri": "https://d-nb.info/gnd/117269891",
+  "editor": ""
+}

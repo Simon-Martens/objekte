@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107746,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coeffures Berlinoises / 1. a la Brunette; 2. a la Jardiniere / / 3. a L'aimable Simpilicité. 4. Laboxieure / 5. Negligé du Martin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodov.",
+  "scans": [
+    "alm_2161_107746_3dxwml37pw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coeffures Berlinoises / 1. a la Brunette; 2. a la Jardiniere / / 3. a L'aimable Simpilicité. 4. Laboxieure / 5. Negligé du Martin",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.284Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "59zu302p3fp1z0g"
+    }
+  ]
+}

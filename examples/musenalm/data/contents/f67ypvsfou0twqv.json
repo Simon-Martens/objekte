@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Wenn ichs noch erlebe, daß ich Rosen / Auf der lieblichen Albertushöhe",
+  "language": [],
+  "musenalm_id": 8566,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorsatz eines Verliebten. / Nach Walther von der Vogelweide. / Manessische Samml. 1. Th. S. 137",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorsatz eines Verliebten. / Nach Walther von der Vogelweide. / Manessische Samml. 1. Th. S. 137",
+  "updated": "2000-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.722Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "pdkzl73oq3zdimo"
+    }
+  ]
+}

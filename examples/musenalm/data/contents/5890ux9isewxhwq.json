@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Auf Wiesen in Wäldern, / An Strömen, auf Feldern / Quillt glühendes Leben,",
+  "language": [],
+  "musenalm_id": 1282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "LUDWIG TIECK",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Reise",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.705Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "l3vy76ax345hfc4"
+    }
+  ]
+}

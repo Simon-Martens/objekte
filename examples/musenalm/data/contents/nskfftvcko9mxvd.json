@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MINERVA. / für / das Jahr 1811. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg inv. Bolt sc.",
+  "scans": [
+    "alm_515_39235_hgf2zcfnn2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MINERVA. / für / das Jahr 1811. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+  "updated": "2005-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.052Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "43lgq2cnkhr4b1d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.052Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "u3lmqyb7qfh8830"
+    }
+  ]
+}

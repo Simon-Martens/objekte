@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Engel! Kommst du, mich zu strafen? / Nein! Du sollst hinüber schlafen!",
+  "language": [],
+  "musenalm_id": 4261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem Krankenbette. / 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem Krankenbette. / 1790",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.075Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "e0ys7ybgep316wn"
+    }
+  ]
+}

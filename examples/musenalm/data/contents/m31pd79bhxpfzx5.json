@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58208,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Son Altesse Royale / MADAME FREDERIQUE SOPHIE WIL- / HELMINE, Princesse de Prusse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gravé par Schleuen",
+  "scans": [
+    "alm_779_58208_73ciktseka.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Son Altesse Royale / MADAME FREDERIQUE SOPHIE WIL- / HELMINE, Princesse de Prusse",
+  "updated": "2008-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1768,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.869Z",
+      "agent": "znun8xp4hmee1nu",
+      "source_id": "b8ahlmmaiv5sxn9"
+    }
+  ]
+}

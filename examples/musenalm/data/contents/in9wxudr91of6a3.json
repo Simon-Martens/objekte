@@ -1,0 +1,45 @@
+{
+  "annotation": "Monatblüthen. An Adolph Forster (Sammlung INr 80266, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Vergänglich sei die Freude, sagen sie, und kaum / Entfaltet, sänken ihre Blüthen in den Stand. / Allein nicht alle sind so sterblich, alle nicht",
+  "language": [],
+  "musenalm_id": 80274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juli",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.542Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "ogkzi9rvtqk5990"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55057, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Mit einem grünen Kranz umlaubt / Die Locken rings am bleichen Haupt,",
+  "language": [],
+  "musenalm_id": 55062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit einem grünen Kranz umlaubt / Die Locken rings am bleichen Haupt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.750Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "bycp6usug3wwwtr"
+    }
+  ]
+}

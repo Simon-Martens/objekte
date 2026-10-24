@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Auf, Brüderchen! trinkt! / Wir wollen uns freun, / So lange der Wein / Im Glase noch blinkt.",
+  "language": [],
+  "musenalm_id": 5190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Trost",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Trost",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.085Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "2yg6rjgwnb33ur0"
+    }
+  ]
+}

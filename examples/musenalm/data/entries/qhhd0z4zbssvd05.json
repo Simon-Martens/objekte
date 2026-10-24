@@ -1,0 +1,82 @@
+{
+  "annotation": "var. Umschlaggraphiken als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 5 GG dazu 6 BB G-Verz, S 1 nT, SS 3-280, S 281 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaja (Wien) 1829 [var.]",
+    "norm": "~",
+    "biblio": 405639,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2704,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aglaja (Wien) 1829 [var.]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 148; L/R 119; Goed VIII. 81, 161",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1829. / Fünfzehnter Jahrgang. / WIEN / gedruckt und im Verlage / bey Joh. B. Wallishausser",
+  "updated": "2026-06-11 10:18:54.842Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "12c8lq7v95q5xgy"
+  ],
+  "contents": [
+    "nu90c3skkjjfzsz",
+    "4289250mdz4vrny",
+    "k187x606dfao9wb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.443Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.443Z",
+      "agent": "1ernx4twed64bul",
+      "source_id": "gvhqs1e8cmuxn8m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.124Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.124Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "xc38cb9gtstkhxb"
+    }
+  ]
+}

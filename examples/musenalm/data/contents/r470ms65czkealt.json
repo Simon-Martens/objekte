@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Den Efeukranz verdiene Pump? / Vielleicht. / Der Efeu kreucht.",
+  "language": [],
+  "musenalm_id": 17227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Lobdichter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Lobdichter",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.764Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "2tdg0pe0h8spi1g"
+    }
+  ]
+}

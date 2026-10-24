@@ -1,0 +1,333 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.453Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Erzähler, Dramatiker und Sprachwissenschaftler; 1792-1804 Lehrer der dt. Sprache und Literatur an der Petrischule in St. Petersburg"
+      ],
+      "dateOfBirth": [
+        "1766-10-11"
+      ],
+      "dateOfDeath": [
+        "1849-01-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Mariette Zöppritz"
+          ],
+          "creditText": [
+            "Irene Ferchl, Wilfried Setzler: Landpartien in die Romantik . Auf den Spuren der Dichter durch Baden-Württemberg. Tübingen&nbsp;: Silberburg 2006. S. 163."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Reinbeck%20%28Aquarell%20von%20Mariette%20Z%C3%B6ppritz%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Reinbeck%20%28Aquarell%20von%20Mariette%20Z%C3%B6ppritz%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Georg%20Reinbeck%20%28Aquarell%20von%20Mariette%20Z%C3%B6ppritz%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T20:50:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116415878/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116491701",
+          "label": "Reinbeck, Emilie"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        }
+      ],
+      "gndIdentifier": "116415878",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116491701",
+          "label": "Reinbeck, Emilie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116415878",
+      "oldAuthorityNumber": [
+        "(DE-588a)116415878"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Reinbeck, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Reinbeck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter",
+        "Philologe",
+        "Ästhetiker"
+      ],
+      "publication": [
+        "Reinbeck, Georg: Der argwöhnische Ehemann",
+        "Reinbeck, Georg: Heidelberg und seine Umgebungen im Sommer 1807",
+        "Reinbeck, Georg: Andeutungen über die Quelle der schönen Kunst",
+        "Reinbeck, Georg: Die Krönungsfeier",
+        "Reinbeck, Georg: Der Verführer oder die Klugen Frauen",
+        "Reinbeck, Georg: Reiseplaudereien über Ausflüge nach Wien, Salzburg und dem Salzkammergut ..",
+        "Reinbeck, Georg: Situationen",
+        "Reinbeck, Georg: Handbuch der Sprachwissenschaft. - 1813 - 1817",
+        "Reinbeck, Georg: Deutsche Sprachlehre",
+        "Reinbeck, Georg: Flüchtige Bemerkungen auf einer Reise von St. Petersburg nach Deutschland"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2005017869"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54899514"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1505724"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116415878/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Reinbeck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055351968"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116415878"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116415878"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116415878.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116415878"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Reinbeck, G.",
+        "Reinbeck, Georg von",
+        "Reinbeck, Georg Gottlieb Sigismund von",
+        "Reinbeck, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reinbeck"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Gottlieb Sigismund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reinbeck"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Reinbeck"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Reinbeck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Reinbeck",
+          "label": "https://de.wikipedia.org/wiki/Georg_Reinbeck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:36:30Z",
+    "gnd_query_biographical_data": "1766-1849",
+    "gnd_query_name": "reinbeck, georg von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2216,
+  "name": "Reinbeck, Georg von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 445, 19",
+  "updated": "2026-06-11 13:29:24.216Z",
+  "uri": "https://d-nb.info/gnd/116415878",
+  "editor": ""
+}

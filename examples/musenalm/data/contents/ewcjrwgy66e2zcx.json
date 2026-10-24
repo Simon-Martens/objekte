@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 22498,01-22498,04",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22498,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_301_22498_01_uoq8okrzw6.jpg",
+    "alm_301_22498_02_xg0b8xdg8a.jpg",
+    "alm_301_22498_03_keyl0yr5kq.jpg",
+    "alm_301_22498_04_d0i37ymhiv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "G-Verz s. Graphiken im Kalendarium INr 6836-6847, Obj 16-27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Die Monathskupfer zum gegenwärtigen Taschenbuche sind ganz die Erfindung des vortrefflichen Herrn Schuberts in Meissen.",
+  "language": [],
+  "musenalm_id": 6878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung / der Monatskupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet u. Schubert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung / der Monatskupfer",
+  "updated": "2000-11-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.245Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "woe6t5scwny98yh"
+    }
+  ]
+}

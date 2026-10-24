@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS1–367, I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Schiessler) 1827",
+    "norm": "~",
+    "biblio": 409131,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-11-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4239,
+  "parallel_title": "",
+  "place_statement": "Prag (Buchler, Stephani u. Schlosser) Wien (Mayer) Freiburg (Herder)",
+  "places": [
+    "nmnwnqcyxaqev1h",
+    "io20468di3l63af",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Schiessler) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R; Goed VIII. 132, 33",
+  "responsibility_statement": "S. W. Schiessler",
+  "subtitle_statement": "",
+  "title_statement": "THALIA / Almanach dramatischer / Spiele / für das Jahr / 1827 / von S. W. SCHIESSLER. / PRAG bei Buchler, Stephani u. Schlosser. / WIEN bei Jacob Mayer u. Freiburg im Breisg. / in der Herderschen Kunst u. Buchhandlung in Commisssion",
+  "updated": "2026-06-11 10:18:55.159Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "rzh8084auoltova"
+  ],
+  "contents": [
+    "f4wskih8gt53o9h",
+    "hbpnrhoaw24qwj1",
+    "y42hazy44exjems",
+    "n3z65176rd661ae",
+    "mwve3l2umve8d8l",
+    "bxfs9d7z8ccve6x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "w7fv2ee9xso2h80",
+      "source_id": "3jd3uai0o2vv7a2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.347Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.347Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "abakbbbkz77r5i5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.621Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.621Z",
+      "agent": "iuf0ojd8jzuzupw",
+      "source_id": "fbsrqplzbjgzc8f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.991Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.991Z",
+      "agent": "f6b9zpq9wxwtlg7",
+      "source_id": "vgk7pidtn6oi5wl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Von der Landenge von Panama an, dehnt sich die Republik Columbien (ehemals Neu-Granada mit Carracas) mit immer weiteren Gränzen bis zu einem Flächenraume von 1,180,900 nordamerikanischen Quadratmeilen aus.",
+  "language": [],
+  "musenalm_id": 45022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Ehemaliges spanisches Amerika]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Ehemaliges spanisches Amerika]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.366Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "sle6n03rkd3p8x7"
+    }
+  ]
+}

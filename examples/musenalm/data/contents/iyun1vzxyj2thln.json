@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23405,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von Schifbech gegen Hamburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Veith sc.",
+  "scans": [
+    "alm_312_23405_vi98k2rvfp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Von Schifbech gegen Hamburg",
+  "updated": "2002-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "agad4ahnieynhoj",
+      "source_id": "kcdk3b1pgze3yti"
+    }
+  ]
+}

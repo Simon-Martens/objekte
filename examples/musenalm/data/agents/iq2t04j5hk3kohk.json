@@ -1,0 +1,749 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.347Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1070241148",
+          "label": "Strodl, Michael"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10062523-X",
+          "label": "Görres-Gymnasium Koblenz"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1793 Selbststudium der Medizin, Geschichte und Naturwissenschaften und Bruch mit der Katholischen Kirche sowie Beschäftigung als politischer Publizist, 1799 in Paris, 1800 Lehrer der Naturwissenschaften in Koblenz, 1806 Privatdozent an der Universität Heidelberg, 1808 wieder in Koblenz, 1814 Herausgeber des \"Rheinischen Merkurs\", 1816 Exil in Aarau und Straßburg, 1824 Aussöhnung mit der Katholischen Kirche und Mitarbeit an der streng kirchlich-römisch ausgerichteten Zeitschrift \"Der Katholik\", 1827 Professor für \"Allgemeine und Litterärgeschichte\" in München, 1838 Mischehenstreit und Veröffentlichung der Streitschrift \"Athanasius\".",
+        "Dt. kath. Publizist, Historiker und Gelehrter; 1800-1806 und 1808-1814 Lehrer an der École Secondaire in Koblenz (heute: Görres-Gymnasium); 1814 Direktor des öffentlichen Unterrichts im Generalgouvernement Mittelrhein; 1819-1827 Exil im Elsass und in der Schweiz; seit 1839 \"von\" Görres"
+      ],
+      "dateOfBirth": [
+        "1776-01-25"
+      ],
+      "dateOfDeath": [
+        "1848-01-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph Anton Nikolaus Settegast"
+          ],
+          "creditText": [
+            "Mittelrhein-Museum: http://www.mittelrhein-museum.de/vortrag-joseph-anton-nikolaus-settegast/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20J.%20J.%20Von%20G%C3%B6rres.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20of%20J.%20J.%20Von%20G%C3%B6rres.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20of%20J.%20J.%20Von%20G%C3%B6rres.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174172362"
+      ],
+      "describedBy": {
+        "dateModified": "2025-12-03T21:03:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11854019X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1055525157",
+          "label": "Görres, Franz"
+        },
+        {
+          "forename": [
+            "Katharina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Lassaulx"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116002182",
+          "label": "Lassaulx, Franz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116729228",
+          "label": "Görres, Guido"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11854019X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116729228",
+          "label": "Görres, Guido"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1055525157",
+          "label": "Görres, Franz"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://www.pacelli-edition.de/Biographie/7049",
+          "label": "http://www.pacelli-edition.de/Biographie/7049"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11854019X",
+      "oldAuthorityNumber": [
+        "(DE-588a)130969052",
+        "(DE-588a)126312052",
+        "(DE-588a)11854019X",
+        "(DE-588c)4021446-1",
+        "(DE-588a)130969060",
+        "(DE-588)174172362",
+        "(DE-588a)174172362"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Görres, Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Görres"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Politiker"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Hammer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Kirche und Staat nach Ablauf der Cölner Irrung",
+        "Schriftproben von Peter Hammer",
+        "Die Japhetiden und ihre gemeinsame Heimat Armenien",
+        "Exposition der Physiologie",
+        "Resultate meiner Sendung nach Paris",
+        "Die Wallfahrt nach Trier",
+        "Hrsg. von: Rheinischer Merkur. - 1814 - 1816",
+        "Althanasius",
+        "Übers. von: Firdausī: Das Heldenbuch von Iran aus dem Schah nameh des Firdussi",
+        "Aphorismen über Musik"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb120630294"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82154954"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/36940071"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D28500.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215730"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=11854019X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11854019X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174172362"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_G%C3%B6rres"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_G%C3%B6rres"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Joseph_G%C3%B6rres"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_G%C3%B6rres"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?11854019X"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122783673"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11854019X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11854019X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11854019X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11854019X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11854019X"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/11854019X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11854019X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Görres, Josef von",
+        "Görres, Jakob Joseph von",
+        "Görres, Joseph Jacob von",
+        "Görres, Jos. von",
+        "Görres, J.",
+        "Goerres, J.",
+        "Görres, Johann Joseph",
+        "Görres, Johann J. von",
+        "Görres, Jakob Joseph",
+        "Goerres, Josef von",
+        "Görres, Jakob-Joseph",
+        "Görres, Joseph J. von",
+        "Görres, Josef",
+        "Görres, Johann Joseph von",
+        "Görres, J. v.",
+        "Hammer, Peter",
+        "Görres, Jacob Josef von",
+        "Görres, J. J.",
+        "Görres, Jos.",
+        "Goerres, Joseph",
+        "Goerres, Josephus de",
+        "Görres, Joseph Jakob von",
+        "Görres, Joseph",
+        "Görres, I."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob-Joseph"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Joseph"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joseph"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Jos."
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Jakob"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Goerres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Jacob"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Goerres"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Goerres"
+          ]
+        },
+        {
+          "forename": [
+            "Jos."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Josephus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Goerres"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        },
+        {
+          "forename": [
+            "Johann J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Görres"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_G%C3%B6rres",
+          "label": "https://de.wikipedia.org/wiki/Joseph_G%C3%B6rres"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:32:42Z",
+    "gnd_query_biographical_data": "1776-1848",
+    "gnd_query_name": "görres, joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 930,
+  "name": "Görres, Joseph von",
+  "profession": "Text",
+  "pseudonyms": "Peter Hammer",
+  "refs": "Goed VI, 201; H/B 118",
+  "updated": "2026-06-11 13:29:22.578Z",
+  "uri": "https://d-nb.info/gnd/11854019X",
+  "editor": ""
+}

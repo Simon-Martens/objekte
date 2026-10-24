@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Ein verliebtes Wölkchen trübte / Das entzückende Gesicht!",
+  "language": [],
+  "musenalm_id": 2270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ich Erotion / nach verrathenem Liebeshandel / am Fenster sah",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ich Erotion / nach verrathenem Liebeshandel / am Fenster sah",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.018Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "z0k9iebca5ac0ox"
+    }
+  ]
+}

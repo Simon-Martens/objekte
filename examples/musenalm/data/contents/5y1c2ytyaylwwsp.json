@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Wanderer, geht nicht vorüber und ruht hier unter / des Baumes / Kühlendem Schatten euch aus,",
+  "language": [],
+  "musenalm_id": 52751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Auswandernde. / Eine Idylle. / Ein Landmann, der mit Frau und Kindern vor / seiner Hütte sitzt, und ein Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Auswandernde. / Eine Idylle. / Ein Landmann, der mit Frau und Kindern vor / seiner Hütte sitzt, und ein Wanderer",
+  "updated": "2007-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.710Z",
+      "agent": "d7f6gadbvivhufx",
+      "source_id": "mn6ghgsyrkdoe1u"
+    }
+  ]
+}

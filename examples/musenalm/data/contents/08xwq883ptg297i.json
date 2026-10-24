@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Kein dichterischer Genius / In meinem Trauerspiel? / Der ungeschlachte Criticus!",
+  "language": [],
+  "musenalm_id": 4224,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dialog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dialog",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.017Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "o1jwf62t6ixzr5s"
+    }
+  ]
+}

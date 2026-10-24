@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli; paginiert 7. Illustration zu »Auf den Regen folgt Sonnenschein« von W. v. Beguelin INr 59340, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "zu der Erzählung: / Auf den Regen folgt Sonnenschein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. W. Jury sc.",
+  "scans": [
+    "alm_893_59332_7tnowg34qk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "zu der Erzählung: / Auf den Regen folgt Sonnenschein",
+  "updated": "2008-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "ffwqxq0cvhoo3yr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "mqgycqug8hxq3dk"
+    }
+  ]
+}

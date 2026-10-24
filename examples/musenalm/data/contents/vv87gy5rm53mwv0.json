@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Folko und Isula. Lieder eines Troubadours (Sammlung INr 29167, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Mit silberweißem Haar, die Augen halb geschlossen, / Sitz' ich in stiller Burg, ein alter Troubadour.",
+  "language": [],
+  "musenalm_id": 36874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückblick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückblick",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.987Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "r5zvql831ofkyqy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "In einem wilden, einsamen Thale des Schwarzwaldes sieht man noch die Ruinen der alten Burg Scharfenstein.",
+  "language": [],
+  "musenalm_id": 55830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Windspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Windspiel",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.603Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "qdzuux8y8mmdnnj"
+    }
+  ]
+}

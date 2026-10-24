@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Gedichten INr 36435-36442; Obj 89,01-89,08",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldina, / Sage in acht Bildern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Waldina, / Sage in acht Bildern",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.277Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "5uqqifgodvpsv4w"
+    }
+  ]
+}

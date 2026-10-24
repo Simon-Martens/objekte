@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Warm und sternhell war die Frühlingsnacht, / Aus dem Fenster schauten wir die Pracht,",
+  "language": [],
+  "musenalm_id": 99999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Auge der Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Auge der Geliebten",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.857Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "n8qiuf54c511v62"
+    }
+  ]
+}

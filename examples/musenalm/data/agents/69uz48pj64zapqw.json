@@ -1,0 +1,1168 @@
+{
+  "annotation": "",
+  "biographical_data": "1729-1781",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.411Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/8989-8",
+          "label": "Herzog August Bibliothek"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Schriftsteller, Kritiker und Philosoph, Bibliothekar. 1748 Rezensent an der Vossischen Zeitung Berlin. 1767 Dramaturg am Deutschen Nationaltheater Hamburg"
+      ],
+      "dateOfBirth": [
+        "1729-01-22"
+      ],
+      "dateOfDeath": [
+        "1781-02-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anton Graff"
+          ],
+          "creditText": [
+            "Originally uploaded to de:wikipedia from&nbsp;; http://www.uni-leipzig.de/cumpraxi/studium.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gotthold%20Ephraim%20Lessing%20Kunstsammlung%20Uni%20Leipzig.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gotthold%20Ephraim%20Lessing%20Kunstsammlung%20Uni%20Leipzig.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gotthold%20Ephraim%20Lessing%20Kunstsammlung%20Uni%20Leipzig.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325002615",
+        "https://d-nb.info/gnd/141978643"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-05T11:06:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118572121/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Feller"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119033763",
+          "label": "Lessing, Theophil"
+        },
+        {
+          "forename": [
+            "Christlob"
+          ],
+          "surname": [
+            "Mylius"
+          ]
+        },
+        {
+          "forename": [
+            "Traugott"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11856434X",
+          "label": "König, Eva"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1095668765",
+          "label": "Lessing, Justina Salome"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102215219",
+          "label": "Lessing, Gotthold"
+        },
+        {
+          "forename": [
+            "Eva Catharina"
+          ],
+          "surname": [
+            "Hahn (geschied. König)"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/111643492X",
+          "label": "Schumann, Tobias"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10018541X",
+          "label": "Lessing, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116950390",
+          "label": "Lessing, Karl Gotthelf"
+        },
+        {
+          "forename": [
+            "Justina Salome"
+          ],
+          "surname": [
+            "Feller"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118572121",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/119033763",
+          "label": "Lessing, Theophil"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/10018541X",
+          "label": "Lessing, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1095668765",
+          "label": "Lessing, Justina Salome"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116950390",
+          "label": "Lessing, Karl Gotthelf"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/11856434X",
+          "label": "König, Eva"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118572121",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)134619323",
+        "(DE-588a)126612579",
+        "(DE-588a)12640318X",
+        "(DE-588a)141978643",
+        "(DE-588a)131080156",
+        "(DE-588)1325002615",
+        "(DE-588a)118572121",
+        "(DE-588a)131250310",
+        "(DE-588a)127313168",
+        "(DE-588a)126612560",
+        "(DE-588)141978643",
+        "(DE-588a)127313176"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Лессинг, Готхольд Эфраим"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066832-0",
+          "label": "Wolfenbüttel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066640-2",
+          "label": "Wittenberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029407-9",
+          "label": "Kamenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "preferredName": "Lessing, Gotthold Ephraim",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gotthold Ephraim"
+        ],
+        "surname": [
+          "Lessing"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117250686",
+          "label": "Tauentzien, Friedrich Bogislaw Emanuel von"
+        }
+      ],
+      "publication": [
+        "Trauerspiele",
+        "Nöthige Antwort auf eine sehr unnöthige Frage des ..",
+        "Freundschaftlicher Briefwechsel zwischen G. E. L. und seiner Frau",
+        "Minna von Barnhelm, oder das Soldatenglück",
+        "Lessing, Gotthold E.: Nöthige Antwort auf eine sehr unnöthige Frage des ... Göze in Hambu*",
+        "Lessing, Gotthold E.: Briefe antiquarischen Inhalts. - 1768 - 1769",
+        "Lessing, Gotthold E.: Analecten für die Litteratur. - 1785 - 1786",
+        "Analecten für die Litteratur. - 1785 - 1786",
+        "Lessing, Gotthold E.: Minna von Barnhelm, oder das Soldatenglück",
+        "Lessing, Gotthold E.: Trauerspiele",
+        "Lessing, Gotthold E.: Theatralische Bibliothek",
+        "Lessing, Gotthold E.: Freundschaftlicher Briefwechsel zwischen G. E. L. und seiner Frau",
+        "Lessing, Gotthold E.: Wie die Alten den Tod gebildet",
+        "Lessing, Gotthold E.: Berengarius Turonensis, oder Ankündigung eines Werkes desselben",
+        "Berengarius Turonensis, oder Ankündigung eines Werkes desselben",
+        "Wie die Alten den Tod gebildet",
+        "Briefe antiquarischen Inhalts. - 1768 - 1769",
+        "Theatralische Bibliothek",
+        "Lessing, Gotthold E.: Collectaneen zur Literatur",
+        "Collectaneen zur Literatur"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79144996"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/lessing-gotthold-ephraim/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9849550"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q34628"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118572121"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118572121/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325002615"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/141978643"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118572121"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gotthold_Ephraim_Lessing"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gotthold_Ephraim_Lessing"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gotthold_Ephraim_Lessing"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gotthold_Ephraim_Lessing"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122762514"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118572121"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1747_richter;12"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118572121"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572121.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572121.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118572121"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/EAAB9C437D8D4AD38F56ECA92BC72A87"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118572121"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Laisīnǧ, Ǧūthūld Ifrāʾīm",
+        "Lessing, E.",
+        "Лессинг, Г. Е.",
+        "레씽, 고트홀트",
+        "Leßing, Gotthold E.",
+        "Lessing, Boh. Efraim",
+        "Lisīng, Gūthūld Ifrayīm",
+        "Lessing, Gottchol'd Ėfraim",
+        "Lessing, Gotth. E.",
+        "Lesing, Gotold Efraim",
+        "Līsīnǧ, Ǧūthūld Ifrāʾīm",
+        "Lesing, Gotthold Ephraim",
+        "Lessing, G. Efraimo",
+        "Lessing, E.-G.",
+        "Lesing, Gothold Efraim",
+        "Lsings, Gotholds Efraims",
+        "Lessing, Gotthard Ephraim",
+        "Lessing, Gôṭṭhôld Efrayim",
+        "Lessing, Gotthard E.",
+        "Leßing, G. E.",
+        "Go teu hol teu Le sing",
+        "Lessing, Gothold Ephraim",
+        "Lesing, Gotchold Efraim",
+        "Lessing, Gotthelf Ephraim",
+        "Lessing, Ephraim",
+        "Lesingas, Gotholdas Efraimas",
+        "Lessing, G. Ephraim",
+        "Lesingas, G. A.",
+        "Lessing, Gotchol’d Ėfraim",
+        "莱辛",
+        "לסינג, גוטהולד אפריים",
+        "Lessing, Gotthold Ephrain",
+        "Lesing, Goṭhold Efrayim",
+        "Lai xin",
+        "Lessink, Gkottchold Ephraim",
+        "Lessing, Gottfried Ephraim",
+        "Lesings, Gotholds Efraims",
+        "Lessingius, Gotthold Ephraim",
+        "Laixin zhu",
+        "Līssīnǧ, Ǧūthūld Ifrāʾīm",
+        "Lessinga, Gotthold E.",
+        "Lai-shin",
+        "Lessing, Gotth. Ephr.",
+        "Laissīnǧ, Ǧūthūld Ifrāʾīm",
+        "Lessing, Gotcholʹd Ėfraim",
+        "L., G. E.",
+        "Leßing",
+        "Lessing, Gothold Efrajm",
+        "Lessing, Gotthold E.",
+        "Лессинг, Готхольд Эфраим",
+        "Le sing, Go teu hol teu",
+        "Lesingi, Gothold Epraim",
+        "Lessing, Efraimo",
+        "L.",
+        "Resshingu, G. E.",
+        "Lasing, Talif",
+        "Lessing, G. E.",
+        "Lessing, Gotthold-Ephraim",
+        "Lessing, Gotthold Efraim",
+        "Resshingu",
+        "Lisīng, Ǧ. D.",
+        "G. E. L.",
+        "Resshingu, Gottohoruto Efuraimu",
+        "Lessing, Gotchol'd Ėfraim",
+        "고트홀트 레싱",
+        "Lessing, Gotgol'd Efraim",
+        "Lēsing, Gôṭhôld Efrayim",
+        "Laixin",
+        "Lessing, Gotthold",
+        "Lessing",
+        "Lesingi, Gothold Epʹraim",
+        "Lisinǧ",
+        "Lesings, Gothold Efraim"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Laixin"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthelf Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "고트홀트"
+          ],
+          "surname": [
+            "레씽"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold E."
+          ],
+          "surname": [
+            "Lessinga"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold E."
+          ],
+          "surname": [
+            "Leßing"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Talif"
+          ],
+          "surname": [
+            "Lasing"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧūthūld Ifrāʾīm"
+          ],
+          "surname": [
+            "Līssīnǧ"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Epraim"
+          ],
+          "surname": [
+            "Lesingi"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Efraim"
+          ],
+          "surname": [
+            "Lesing"
+          ]
+        },
+        {
+          "forename": [
+            "Boh. Efraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotth. E."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold Ephrain"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "personalName": [
+            "G. E. L."
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold-Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "personalName": [
+            "Leßing"
+          ]
+        },
+        {
+          "forename": [
+            "Gottohoruto Efuraimu"
+          ],
+          "surname": [
+            "Resshingu"
+          ]
+        },
+        {
+          "forename": [
+            "Gotholds Efraims"
+          ],
+          "surname": [
+            "Lesings"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold Ephraim"
+          ],
+          "surname": [
+            "Lessingius"
+          ]
+        },
+        {
+          "forename": [
+            "Gotth. Ephr."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Efrajm"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "G. E."
+          ],
+          "surname": [
+            "Leßing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold Efraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "personalName": [
+            "Go teu hol teu Le sing"
+          ]
+        },
+        {
+          "forename": [
+            "Efraimo"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotchol’d Ėfraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Goṭhold Efrayim"
+          ],
+          "surname": [
+            "Lesing"
+          ]
+        },
+        {
+          "forename": [
+            "G. Efraimo"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "personalName": [
+            "莱辛"
+          ]
+        },
+        {
+          "forename": [
+            "Gotold Efraim"
+          ],
+          "surname": [
+            "Lesing"
+          ]
+        },
+        {
+          "personalName": [
+            "Lessing"
+          ]
+        },
+        {
+          "personalName": [
+            "Lai-shin"
+          ]
+        },
+        {
+          "forename": [
+            "Gotgol'd Efraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotchol'd Ėfraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "G. E."
+          ],
+          "surname": [
+            "Resshingu"
+          ]
+        },
+        {
+          "forename": [
+            "Gottchol'd Ėfraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Go teu hol teu"
+          ],
+          "surname": [
+            "Le sing"
+          ]
+        },
+        {
+          "forename": [
+            "Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Epʹraim"
+          ],
+          "surname": [
+            "Lesingi"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧūthūld Ifrāʾīm"
+          ],
+          "surname": [
+            "Līsīnǧ"
+          ]
+        },
+        {
+          "forename": [
+            "Gothold Efraim"
+          ],
+          "surname": [
+            "Lesings"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧūthūld Ifrāʾīm"
+          ],
+          "surname": [
+            "Laisīnǧ"
+          ]
+        },
+        {
+          "forename": [
+            "Gotholdas Efraimas"
+          ],
+          "surname": [
+            "Lesingas"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotholds Efraims"
+          ],
+          "surname": [
+            "Lsings"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold E."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "E.-G."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "G. E."
+          ],
+          "surname": [
+            "L."
+          ]
+        },
+        {
+          "forename": [
+            "גוטהולד אפריים"
+          ],
+          "surname": [
+            "לסינג"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧ. D."
+          ],
+          "surname": [
+            "Lisīng"
+          ]
+        },
+        {
+          "forename": [
+            "Gkottchold Ephraim"
+          ],
+          "surname": [
+            "Lessink"
+          ]
+        },
+        {
+          "personalName": [
+            "Resshingu"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Lesingas"
+          ]
+        },
+        {
+          "forename": [
+            "Gôṭhôld Efrayim"
+          ],
+          "surname": [
+            "Lēsing"
+          ]
+        },
+        {
+          "forename": [
+            "Г. Е."
+          ],
+          "surname": [
+            "Лессинг"
+          ]
+        },
+        {
+          "personalName": [
+            "고트홀트 레싱"
+          ]
+        },
+        {
+          "personalName": [
+            "Lisinǧ"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotchold Efraim"
+          ],
+          "surname": [
+            "Lesing"
+          ]
+        },
+        {
+          "forename": [
+            "G. E."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotcholʹd Ėfraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gôṭṭhôld Efrayim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard E."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧūthūld Ifrāʾīm"
+          ],
+          "surname": [
+            "Laissīnǧ"
+          ]
+        },
+        {
+          "forename": [
+            "Готхольд Эфраим"
+          ],
+          "surname": [
+            "Лессинг"
+          ]
+        },
+        {
+          "personalName": [
+            "Lai xin"
+          ]
+        },
+        {
+          "forename": [
+            "G. Ephraim"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthold Ephraim"
+          ],
+          "surname": [
+            "Lesing"
+          ]
+        },
+        {
+          "forename": [
+            "Gūthūld Ifrayīm"
+          ],
+          "surname": [
+            "Lisīng"
+          ]
+        },
+        {
+          "personalName": [
+            "L."
+          ]
+        },
+        {
+          "personalName": [
+            "Laixin zhu"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gotthold_Ephraim_Lessing",
+          "label": "https://de.wikipedia.org/wiki/Gotthold_Ephraim_Lessing"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:06:42Z",
+    "gnd_query_biographical_data": "1729-1781",
+    "gnd_query_name": "lessing, gotthold ephraim"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1614,
+  "name": "Lessing, Gotthold Ephraim",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 303, 1122",
+  "updated": "2026-06-11 13:29:23.554Z",
+  "uri": "https://d-nb.info/gnd/118572121",
+  "editor": ""
+}

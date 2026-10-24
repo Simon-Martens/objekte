@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Hier blieb sie stehn, vor dieser Gartenhecke / Und schob die jungen Blätter fort,",
+  "language": [],
+  "musenalm_id": 65861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei einem Spaziergang im Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei einem Spaziergang im Herbst",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.027Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "wvgqgm7cxpi7m6i"
+    }
+  ]
+}

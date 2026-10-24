@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 79516, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79501,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Henriette Eunike / geb. Schüler. / als Elfride",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Schwachhofer -94. Gest. v. A. Karcher. Mannh.",
+  "scans": [
+    "alm_2873_79501_7bg9rdua85.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Henriette Eunike / geb. Schüler. / als Elfride",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.630Z",
+      "agent": "60onksn9m8uebnt",
+      "source_id": "08bld8djtz94gpn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.630Z",
+      "agent": "b334ivfypj3aic9",
+      "source_id": "f2667xre8hggyw2"
+    }
+  ]
+}

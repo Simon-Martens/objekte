@@ -1,0 +1,550 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.362Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024315-7",
+          "label": "Georg-August-Universität Göttingen"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor in Göttingen; Mitglied der Königl. Gesellschaft der Wissenschaften in Göttingen, der Gesellschaft der Alterthümer zu Cassel"
+      ],
+      "dateOfBirth": [
+        "1760-10-25"
+      ],
+      "dateOfDeath": [
+        "1842-03-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ludwig Emil Grimm"
+          ],
+          "creditText": [
+            "Voit Collection"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Voit%20084%20Arnold%20Hermann%20Ludwig%20Heeren.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Voit%20084%20Arnold%20Hermann%20Ludwig%20Heeren.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Voit%20084%20Arnold%20Hermann%20Ludwig%20Heeren.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187114404",
+        "https://d-nb.info/gnd/182715426",
+        "https://d-nb.info/gnd/174130457"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-02T10:52:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118773607/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100998429",
+          "label": "Heeren, Heinrich Erhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116565470",
+          "label": "Heyne-Heeren, Wilhelmine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118773607",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/100998429",
+          "label": "Heeren, Heinrich Erhard"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118773607",
+      "oldAuthorityNumber": [
+        "(DE-588a)118773607",
+        "(DE-588a)187114404",
+        "(DE-588a)174130457",
+        "(DE-588)187114404",
+        "(DE-588c)4109271-5",
+        "(DE-588)182715426",
+        "(DE-588a)182715426",
+        "(DE-588)174130457"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4786307-9",
+          "label": "Arbergen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Heeren, Arnold H. L.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Arnold H. L."
+        ],
+        "surname": [
+          "Heeren"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Heeren, Arnold H.: Ideen über die Politik, den Verkehr und den Handel der vornehmsten Völker ..",
+        "Heeren, Arnold H.: Commentatio in opus caelatum antiquum Musei Pio-Clementini",
+        "Heeren, Arnold H.: Ad audiendam orationem prof. philos. extraord. adeundae causa ...",
+        "Heeren, Arnold H.: Ueber den Einfluß der Normannen auf die französische Sprache ..",
+        "Hüne, Albrecht: Geschichte des Königreichs Hannover u. des Herzogthums Braunschweig",
+        "Heeren, Arnold H.: Versuch einer Entwickelung der folgen der Kreuzzüge für Europa",
+        "Heeren, Arnold H.: Versuche die frühesten Spuren einiger Handelszweige des Alterthums ...",
+        "Geschichte der Europäischen Staaten",
+        "Heeren, Arnold H.: Commentatio in opus caelatum antiquum musei Pio-Clementini"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb134988755"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87896504"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71547594"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q24139"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118773607/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174130457"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182715426"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187114404"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118773607"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Arnold_Hermann_Ludwig_Heeren"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Arnold_Heeren"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Arnold_Hermann_Ludwig_Heeren"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Arnold_Hermann_Ludwig_Heeren"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081515997"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118773607"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118773607"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118773607.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118773607.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118773607"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118773607"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Heeren, Arnoldus",
+        "Heeren, Arnold Germain Louis",
+        "Heeren, Arnoldo",
+        "Heeren, Ludwig",
+        "Heerenius, Arnoldus Hermannus Ludovicus",
+        "Heeren, Hermann L.",
+        "Heeren, Arnold Herrmann Ludwig",
+        "Heeren, Arnold G.",
+        "Heeren",
+        "Heeren, Arnold H.",
+        "Heeren, Arnold Hermann Ludwig",
+        "Heeren, A. H. C.",
+        "Heeren, Arn. Herm. Ludov.",
+        "Heeren, Arnoldus H.",
+        "Heeren, Arnoldus Hermannus Ludovicus",
+        "Heeren, A. H. L.",
+        "Heeren, Arnold"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Arn. Herm. Ludov."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold Germain Louis"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnoldus H."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnoldus Hermannus Ludovicus"
+          ],
+          "surname": [
+            "Heerenius"
+          ]
+        },
+        {
+          "forename": [
+            "Arnoldo"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold G."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "A. H. C."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold H."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnoldus"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnoldus Hermannus Ludovicus"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "A. H. L."
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "personalName": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold Herrmann Ludwig"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold Hermann Ludwig"
+          ],
+          "surname": [
+            "Heeren"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Arnold_Heeren",
+          "label": "https://de.wikipedia.org/wiki/Arnold_Heeren"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:41:36Z",
+    "gnd_query_biographical_data": "1760-1842",
+    "gnd_query_name": "heeren, arnold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1110,
+  "name": "Heeren, Arnold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XI, 244",
+  "updated": "2026-06-11 13:29:22.841Z",
+  "uri": "https://d-nb.info/gnd/118773607",
+  "editor": ""
+}

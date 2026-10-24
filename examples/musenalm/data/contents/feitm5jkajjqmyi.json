@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Schwaben (Sammlung INr 99100, Obj 6) Anm. am Objekt: Ein Freund bezog diese Verse auf Göthe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "In ferne Höh' empor gestiegen / Ist jener Ferne Blau;",
+  "language": [],
+  "musenalm_id": 99104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Berghaupt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Berghaupt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.836Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "v51f8jzdnox3kmx"
+    }
+  ]
+}

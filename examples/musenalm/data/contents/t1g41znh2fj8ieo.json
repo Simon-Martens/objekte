@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Der Regen klatscht, der Sturmwind saust; / Der Bergstrom durch die Tannen braust.",
+  "language": [],
+  "musenalm_id": 26942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ritter und die Nixe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ritter und die Nixe",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.107Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "4naa8kuntkh0fbp"
+    }
+  ]
+}

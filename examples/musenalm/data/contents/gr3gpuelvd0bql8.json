@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei Gedichte nach dem Englischen von Lord Byron (Sammlung INr 26780, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Dir mußte Sorge fruchtlos fröhnen, / Du schiedst und Liebe schied von mir,",
+  "language": [],
+  "musenalm_id": 26781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter ein Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Graf v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter ein Gemälde",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.511Z",
+      "agent": "bt92eejgtvavmav",
+      "source_id": "r0015n0io7hts6c"
+    }
+  ]
+}

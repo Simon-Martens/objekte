@@ -1,0 +1,67 @@
+{
+  "annotation": "5 Jgg 1837-1841: Stuttgart; Hrsg: Heinrich Berghaus",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach den Freunden der Erdkunde gewidmet 1837",
+    "norm": "",
+    "biblio": 404557,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1221,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hoffmann)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Almanach den Freunden der Erdkunde gewidmet 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; nicht bei L/R",
+  "responsibility_statement": "Heinrich Berghaus",
+  "subtitle_statement": "",
+  "title_statement": "Almanach für / das Jahr 1837. / Den / Freunden der Erdkunde gewidmet / von / Heinrich Berghaus. / Stuttgart. / Hoffmann'sche Verlags-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.512Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "1752x13eo082bpi"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.037Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.037Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "ju03fgxnbpc5etn"
+    }
+  ]
+}

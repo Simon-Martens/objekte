@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn die wundersam blonden Haare Euer Eigenthum sind, so erfüllet die demüthige Bitte, morgen zwischen zehn und eilf Uhr in die Sanct Peterskirche zu gehen.",
+  "language": [],
+  "musenalm_id": 67726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das alte Siegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das alte Siegel",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.354Z",
+      "agent": "gqt48yh8xk0p2zo",
+      "source_id": "ie1tdyk07ha72kz"
+    }
+  ]
+}

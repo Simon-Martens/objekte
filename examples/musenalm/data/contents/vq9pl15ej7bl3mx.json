@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. und Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Suchen wir nun das, was die Reisenden in zerstreuten Bruchstücken von den Thieren Borneo's erzählen, zu einer allgemeinen Vorstellung zu sammeln,",
+  "language": [],
+  "musenalm_id": 42307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Borneo] Thiere, Wilde Ochsen, Hirscharten, Pflanzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Borneo] Thiere, Wilde Ochsen, Hirscharten, Pflanzen",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.198Z",
+      "agent": "wa9sa5vspt41k6t",
+      "source_id": "v18xizqbleajn36"
+    }
+  ]
+}

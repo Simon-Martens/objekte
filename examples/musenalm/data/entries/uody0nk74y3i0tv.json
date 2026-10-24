@@ -1,0 +1,84 @@
+{
+  "annotation": "Umschlag, Titel und Inhaltsverzeichnis als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch ohne Titel 1822 /) TA: Manuscript aus Odessa",
+    "norm": "~",
+    "biblio": 406915,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3679,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch ohne Titel 1822 [TA: Manuscript aus Odessa]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 140, L/R 210; Goed VIII. 105, 241; VI. 395, 34",
+  "responsibility_statement": "P. Spiridon",
+  "subtitle_statement": "",
+  "title_statement": "Manuscript aus Odessa. / Miscellen / der / humoristischen Bruderschaft. / Erstes Bändchen. / Mit drei Kupfern. / Leipzig. / F. A. Brockhaus. / 1822",
+  "updated": "2026-06-11 10:18:55.048Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "qqud3adg2ik6smm"
+  ],
+  "contents": [
+    "lq2yortzzdybcez",
+    "x31u67ma5vfz0t4",
+    "ssk2rhu76ejf2lr",
+    "5p9x055q1yfxquy",
+    "9dr7vev6segls9i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.593Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.593Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "asefofqhgj62mih"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.281Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.281Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "id32od1b7bocmhv"
+    }
+  ]
+}

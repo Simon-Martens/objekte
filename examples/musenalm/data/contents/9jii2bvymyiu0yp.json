@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April; paginiert 4.  Illustration zu »Ave Maria« von H. Smidt INr 59497, Obj 16; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59488,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ave Maria #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59488_swl8lejhw7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ave Maria #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.975Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "ys1379irasc3sq4"
+    }
+  ]
+}

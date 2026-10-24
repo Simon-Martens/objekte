@@ -1,0 +1,280 @@
+{
+  "annotation": "",
+  "biographical_data": "1808-1865",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.449Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Veröffentlichungen zur Geschichte der Stadt Maribor; Gymnasiallehrer; Schriftsteller; Pädagoge"
+      ],
+      "dateOfBirth": [
+        "1808-07-10"
+      ],
+      "dateOfDeath": [
+        "1865-06-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "https://museum-mb.si/zbirka/rudolf-gustav-puff-1808-1865/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Rudolf%20Gustav%20Puff%201860.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Rudolf%20Gustav%20Puff%201860.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Rudolf%20Gustav%20Puff%201860.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2018-05-18T11:38:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124774148/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SI",
+          "label": "Slowenien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "124774148",
+      "id": "https://d-nb.info/gnd/124774148",
+      "oldAuthorityNumber": [
+        "(DE-588a)124774148"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4400514-3",
+          "label": "Groß Sankt Florian"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4114985-3",
+          "label": "Maribor"
+        }
+      ],
+      "preferredName": "Puff, Rudolf Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Rudolf Gustav"
+        ],
+        "surname": [
+          "Puff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Bacherer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2003047636"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/50169870"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2172799"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124774148/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Rudolf_Gustav_Puff"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Rudolf_Gustav_Puff"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000033686417"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_P/Puff_Rudolf-Gustav_1808_1865.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd124774148.html#adbcontent"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Puff, Rudolph Gustav",
+        "Bacherer, Rudolf",
+        "Puff, Rudolph",
+        "Puff, Rudolf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Bacherer"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Puff"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph Gustav"
+          ],
+          "surname": [
+            "Puff"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph"
+          ],
+          "surname": [
+            "Puff"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Rudolf_Gustav_Puff",
+          "label": "https://de.wikipedia.org/wiki/Rudolf_Gustav_Puff"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:32:51Z",
+    "gnd_query_biographical_data": "1808-1865",
+    "gnd_query_name": "puff, rudolf gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2142,
+  "name": "Puff, Rudolf Gustav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXVI, 708",
+  "updated": "2026-06-11 13:29:24.138Z",
+  "uri": "https://d-nb.info/gnd/124774148",
+  "editor": ""
+}

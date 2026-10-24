@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 91819-91823, Obj 88-92",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakob Schnerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüche",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.437Z",
+      "agent": "cec33a809o0wki1",
+      "source_id": "kq38ylkninwsadq"
+    }
+  ]
+}

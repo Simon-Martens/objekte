@@ -1,0 +1,45 @@
+{
+  "annotation": "s. gest. Titel INr 129549, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Treue kam nun außer Gang: / Sie brechen ward zur Mode! / Wer spricht noch (wenn nicht im Gesang) / VonTreue bis zum Tode?",
+  "language": [],
+  "musenalm_id": 129568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Feund des schönen Geschlechts. / ( ZumTitel.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Feund des schönen Geschlechts. / ( ZumTitel.)",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.017Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "jiggu7rawyqkeab"
+    }
+  ]
+}

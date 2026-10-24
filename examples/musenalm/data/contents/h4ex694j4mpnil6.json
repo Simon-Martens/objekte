@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Geist Josephens! schau vom Himmel nieder, / Sieh mich weinen über deinem Grab;",
+  "language": [],
+  "musenalm_id": 35571,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken / meiner innigst geliebten Gattin / Josepha, gebohrne Scharpff, / welche im 31. Jahre ihrer Blüthe dahinsank, geheiligt. / Den 30. Dec.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eb. Fried. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken / meiner innigst geliebten Gattin / Josepha, gebohrne Scharpff, / welche im 31. Jahre ihrer Blüthe dahinsank, geheiligt. / Den 30. Dec.",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.702Z",
+      "agent": "0ootbto1f9k75z9",
+      "source_id": "zh6dwem6l4qzqoj"
+    }
+  ]
+}

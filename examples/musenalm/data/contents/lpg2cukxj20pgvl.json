@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende Seite INr 80067, Obj 8 /) Illustration zu »Episoden-Kränze aus dem Leben Don Juan's von Oesterreich« von A. von Fahnenberg INr 80106-80109, Obj 47-50",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Donna Magdalena und Don Juan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Par Oguet. S. Langer sc.",
+  "scans": [
+    "alm_1695_80066_uljr4g36t4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Donna Magdalena und Don Juan",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.692Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "kafoob3tf7knp8l"
+    }
+  ]
+}

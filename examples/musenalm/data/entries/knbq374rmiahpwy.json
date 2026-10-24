@@ -1,0 +1,103 @@
+{
+  "annotation": "ohne Kalendarium /) mit Hinweisen auf Jg 1794, 2.Auflage /) $ vielleicht fehlt eine kol. Graphik paginiert 3; Graphiken paginiert 1, 2, 4 vorhanden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, 3 BB Vrwrt d Hrsg, S 1 nT, SS 3-276 darin 3 GG, Taf",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1801",
+    "norm": "~",
+    "biblio": 404851,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1115,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Küchler)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Taschenbuch / für das Jahr / 1801. / Mit Kupfern. / Leipzig, / bey Karl Wilhelm Küchler",
+  "updated": "2026-06-11 10:18:54.626Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "442jsf5un3380xx"
+  ],
+  "contents": [
+    "h0vieij32yzh80w",
+    "d79ufidbv0p6ywp",
+    "xbql3jl4ia58lvz",
+    "jqm66m4e3z4ytn8",
+    "scanr80hy73z44n",
+    "2oshk8klrglmgf2",
+    "qr0d0j3zs54sjae",
+    "cxlwp1ruz3h3u3d",
+    "lo8jcc83esj1hpd",
+    "hqpnh3pkz4pd5al",
+    "0faviky87soq477",
+    "vhky7wmlqocv0qw",
+    "5yuw5zp3rtw8eq9",
+    "zp4jg3ze13lq9io",
+    "ieg417gq8859cbf",
+    "8syruiif9gj6q0p",
+    "rih6rsjil5ozgr5",
+    "xbcn7qexgv5f9ah",
+    "mgrz50f642ntzr6",
+    "55uxbf350swehw1",
+    "s40utict5371axy",
+    "5xu3xkn5gbg07r9",
+    "pidv7tt1waafc71",
+    "yh9c2bss7ohk1d0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "i9davz1vy72p8ib",
+      "source_id": "8sh5y9wmgsqwilv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.827Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.827Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "92ig9pz76dljqih"
+    }
+  ]
+}

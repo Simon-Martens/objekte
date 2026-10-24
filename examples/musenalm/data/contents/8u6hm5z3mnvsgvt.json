@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Ich ziehe fort, allhier ist nicht mein Bleiben, / Es drängt und treibt den Menschen für und für.",
+  "language": [],
+  "musenalm_id": 53844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abschied aus der Nachbarschaft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abschied aus der Nachbarschaft",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.780Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "j0yus3762zc2z0e"
+    }
+  ]
+}

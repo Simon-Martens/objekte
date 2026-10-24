@@ -1,0 +1,235 @@
+{
+  "annotation": "",
+  "biographical_data": "1813-1881",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.488Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "ausgebildet an der Wiener Akademie; Studium der alten Meister in Rom; Hofmaler in Petersburg"
+      ],
+      "dateOfBirth": [
+        "1813"
+      ],
+      "dateOfDeath": [
+        "1881"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Moritz Michael Daffinger"
+          ],
+          "creditText": [
+            "www.antiquarium.ch"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Daffinger1.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Daffinger1.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Daffinger1.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2018-03-20T14:29:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeAW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeAW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1036912663/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/129283495",
+          "label": "Stohl, Franz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1036912663",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/129283495",
+          "label": "Stohl, Franz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1036912663",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Stohl, Michael",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Michael"
+        ],
+        "surname": [
+          "Stohl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166042-0",
+          "label": "Kunstsammler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Porträtmaler"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2011164030"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96453803"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q50359294"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036912663/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Michael_Stohl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000068740081"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Stohl_Michael_1814_1881.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Michael_Stohl",
+          "label": "https://de.wikipedia.org/wiki/Michael_Stohl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:04:45Z",
+    "gnd_query_biographical_data": "1813-1881",
+    "gnd_query_name": "stohl, michael"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2786,
+  "name": "Stohl, Michael",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXII, 99",
+  "updated": "2026-06-11 13:29:25.235Z",
+  "uri": "https://d-nb.info/gnd/1036912663",
+  "editor": ""
+}

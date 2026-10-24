@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Ich liebe Drachen, Kräusel, Ball, / Die Trommel und der Peitsche Knall.",
+  "language": [],
+  "musenalm_id": 11793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Die Kindereien des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Die Kindereien des Lebens",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.409Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "58mloyggnw5dde7"
+    }
+  ]
+}

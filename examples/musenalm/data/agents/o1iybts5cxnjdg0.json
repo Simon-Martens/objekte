@@ -1,0 +1,329 @@
+{
+  "annotation": "",
+  "biographical_data": "1756-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.262Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/127250-0",
+          "label": "Johannis-Loge Carl zur Gekrönten Säule (Braunschweig)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Historiker, Jurist, Philosoph; \"B-ff\" lt. Meusel"
+      ],
+      "dateOfBirth": [
+        "1756-09-03"
+      ],
+      "dateOfDeath": [
+        "1833-10-25"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1243895543"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-10T17:31:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104114436/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104114436",
+      "id": "https://d-nb.info/gnd/104114436",
+      "oldAuthorityNumber": [
+        "(DE-588a)104114436",
+        "(DE-588)1243895543"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4024344-8",
+          "label": "Helmstedt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Bischoff, Johann Nicolaus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Nicolaus"
+        ],
+        "surname": [
+          "Bischoff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Wahrmund"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Bischoff, Johann N.: Gespräche im Reiche der Lebendigen",
+        "Beckmann, Johann: Versuch einer Geschichte der Färberkunst von ihrer Entstehung an bis au*",
+        "Wahrmund: Über die adeliche oder bürgerliche Herkunft des menschlichen Geschlechts",
+        "Guibert, Jacques A. de: Denkschrift auf Friedrich den Großen",
+        "Bischoff, Johannes N.: Dissertatio ivridica inavgvralis de fevdis [feudis] oblatis. - [1790?]",
+        "Bischoff, Johann N.: Versuch einer Geschichte der Färberkunst von ihrer Entstehung an bis*",
+        "Bischoff, Johann N.: P. A. Fonk und Chr. Hamacher, deren Richter und die Riesen-Assisen z*",
+        "Bischoff, Johann N.: Pragmatische Darstellung der Europäischen Staatshändel v. Tode Fried*",
+        "Guibert, Jacques A. de: Denkschrift auf Friedrich d. Großen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2004074856"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/2897652"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94762740"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104114436/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243895543"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011035672X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104114436"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104114436"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104114436"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Bischoff, Bruder",
+        "Bischoff, Johann Nikolaus",
+        "Bischoff, J. N.",
+        "Bischoff",
+        "Bruder Bischoff",
+        "Bischoff, Ioannes Nicolaus",
+        "B--ff",
+        "Bischoff, Johannes Nicolaus",
+        "Br. B--ff",
+        "Wahrmund",
+        "Bischoff, Johannes Nikolaus",
+        "B--ff, Br."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Bruder Bischoff"
+          ]
+        },
+        {
+          "personalName": [
+            "B--ff"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Nikolaus"
+          ],
+          "surname": [
+            "Bischoff"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Br."
+          ],
+          "personalName": [
+            "B--ff"
+          ]
+        },
+        {
+          "personalName": [
+            "Bischoff"
+          ]
+        },
+        {
+          "forename": [
+            "J. N."
+          ],
+          "surname": [
+            "Bischoff"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Bruder"
+          ],
+          "personalName": [
+            "Bischoff"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Nicolaus"
+          ],
+          "surname": [
+            "Bischoff"
+          ]
+        },
+        {
+          "personalName": [
+            "Wahrmund"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nikolaus"
+          ],
+          "surname": [
+            "Bischoff"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Nicolaus"
+          ],
+          "surname": [
+            "Bischoff"
+          ]
+        },
+        {
+          "personalName": [
+            "Br. B--ff"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:56:51Z",
+    "gnd_query_biographical_data": "1756-1833",
+    "gnd_query_name": "bischoff, johann nicolaus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 205,
+  "name": "Bischoff, Johann Nicolaus",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 115",
+  "updated": "2026-06-11 13:29:21.588Z",
+  "uri": "https://d-nb.info/gnd/104114436",
+  "editor": ""
+}

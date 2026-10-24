@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Weh', Hellas, weh'! in deine Hallen / Stahl fast der Knechtschaft Nacht sich ein,",
+  "language": [],
+  "musenalm_id": 100080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Seher zu Thermopyle. / (1854.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Seher zu Thermopyle. / (1854.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.880Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "6g2ul7otbdr9x2g"
+    }
+  ]
+}

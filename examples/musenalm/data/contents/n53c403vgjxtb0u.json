@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Es war einmal ein Reuter, / Der hatt' ein kostbar Pferd;",
+  "language": [],
+  "musenalm_id": 2255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn **",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.102Z",
+      "agent": "bm6n1x459jfghwe",
+      "source_id": "4wfpvsdu0t0yu2v"
+    }
+  ]
+}

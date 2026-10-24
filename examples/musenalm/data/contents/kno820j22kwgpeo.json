@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Entlocke deinem Saitenspiel / Ein zierliches Getön,",
+  "language": [],
+  "musenalm_id": 65538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesellschaftsfrage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesellschaftsfrage",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.036Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "4pd7zzta2axzi68"
+    }
+  ]
+}

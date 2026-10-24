@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Warum giebt es im Tollhause so bunte Spektakles? Weil mit der Vernunft die Larve der Leidenschaften schwand.",
+  "language": [],
+  "musenalm_id": 10156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warum giebt es im Tollhause so bunte Spektakles? Weil mit der Vernunft die Larve der Leidenschaften schwand.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. v. Wallenrodt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.299Z",
+      "agent": "hcd8t0hxbx8bldt",
+      "source_id": "kcprmo6so8mag69"
+    }
+  ]
+}

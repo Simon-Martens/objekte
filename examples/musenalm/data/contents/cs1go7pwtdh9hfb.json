@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Am Quell, wo im Grase die Veilchen steh'n, / Ruht unter der duftigen Linde / Die liebliche Braut,",
+  "language": [],
+  "musenalm_id": 99936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Barbara Uttmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Böttger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Barbara Uttmann",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.958Z",
+      "agent": "dy67ht7nshcb4v2",
+      "source_id": "z0s1tontpbj10e9"
+    }
+  ]
+}

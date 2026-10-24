@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Allerley. Sentenzen, Betrachtungen, Apophtegmen, Sarkasmen (Sammlung INr 92606, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Die Volksstimme ist der Richter der Könige, die einzige Macht, so über ihnen ist.",
+  "language": [],
+  "musenalm_id": 92613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Volksstimme ist der Richter der Könige, die einzige Macht, so über ihnen ist.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wekhrlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.681Z",
+      "agent": "dmhdtdzyx859r2k",
+      "source_id": "3fki8c6dfd26tav"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Übersetzung s. INr 31184, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Roisiaeas niveis Proras Victoria pennis / Antevolat. Thracum turgida Classis ubi est?",
+  "language": [],
+  "musenalm_id": 31183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "D. CATHARINAE II. AUTOCRATICI / Epinicion. / XI. Augusti, Anno MDCCXCL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "D. CATHARINAE II. AUTOCRATICI / Epinicion. / XI. Augusti, Anno MDCCXCL",
+  "updated": "2003-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.637Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "co4r3lxv3ei5tyh"
+    }
+  ]
+}

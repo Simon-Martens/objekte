@@ -1,0 +1,46 @@
+{
+  "annotation": "Zum biblischen Cyclus (Sammlung INr 18278, Obj 13) Scholien zu den Bildern (Sammlung 9204, Obj 9) s. Graphik INr 9199, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Ein holder Zauber spielt um deine Sinnen, / ergieß ich meinen Strom von Harmonien,",
+  "language": [],
+  "musenalm_id": 19379,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Saul und David",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Saul und David",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.701Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "u7e0pks66c3e12x"
+    }
+  ]
+}

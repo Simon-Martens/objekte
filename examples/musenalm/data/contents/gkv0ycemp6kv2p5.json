@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Sie loben mich oft recht mit Pracht, / Und freun sich dessen, was ich dichte:",
+  "language": [],
+  "musenalm_id": 12844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Mahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Mahler",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.386Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "lulcmst2galz2bt"
+    }
+  ]
+}

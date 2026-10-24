@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Im Kloster zu Prag saßen im Erholungssaale sämmtliche Nonnen an einem Tische und horchten der Äbtissin zu,",
+  "language": [],
+  "musenalm_id": 121967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gefundene Original",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benedict Freiherr von Püchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das gefundene Original",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.661Z",
+      "agent": "dpehzj7q4mv45vc",
+      "source_id": "zwo9mdgi3rzjzd8"
+    }
+  ]
+}

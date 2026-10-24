@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Blos um ein Gleichniß zu machen, sag' ich es - denn' leider ist die Sache sogar den weiberharten Franzosen durch ein Sprichwort bekannt",
+  "language": [],
+  "musenalm_id": 34267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Weiberschmerzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Weiberschmerzen",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.684Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "o50rvtrc0ygbuoo"
+    }
+  ]
+}

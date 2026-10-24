@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Mit Liebe hast du deinen Lauf vollendet, / Und allen Wesen wohlgethan.",
+  "language": [],
+  "musenalm_id": 53465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die untergehende Sonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die untergehende Sonne",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.636Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "h9hitybntb9mmax"
+    }
+  ]
+}

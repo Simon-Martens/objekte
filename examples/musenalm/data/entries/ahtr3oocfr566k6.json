@@ -1,0 +1,107 @@
+{
+  "annotation": "2 Jgg.; Dresden und Leipzig (Richter); Hrsg: C. G. Cramer /) Die unbezeichneten Beiträge wohl von C. G. Cramer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, SS 1-355 darin 6 GG, S 356 C, S I-Verz, S, B Nwrt d Vrlgr, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Geschichts-Almanach, Sächsischer 1792 / Taschenbuch der sächsischen Geschichte 1792",
+    "norm": "~",
+    "biblio": 407151,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3767,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Richter)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Geschichts-Almanach, Sächsischer 1792 / Taschenbuch der sächsischen Geschichte 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 50; nicht bei L/R; T/B IX, 485",
+  "responsibility_statement": "Carl Gottob Cramer",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / der / SAECHSISCH. / Geschichte / 1792 / von Carl Gottlob / Cramer / Dresden und Leipzig, in der / Richterschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.644Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "o87f1che7wd2og7"
+  ],
+  "contents": [
+    "0ujxq996luwvriz",
+    "n0cxsp1rhi7emet",
+    "9r8suh9c7rc0rmv",
+    "q5ybwh0osu3boh0",
+    "o1q7oh3bns2aaxh",
+    "79e3fihrkgrt6zl",
+    "vncyl6dl23o6ewr",
+    "ndzfirpl19dn9y6",
+    "99n8otlyvy0ptfg",
+    "8y129cifkwg53eu",
+    "8t0jxh84bcnyhyw",
+    "6gdi2vx1an9yr32",
+    "bi913y04ditwvl4",
+    "9ns8nxfz4du3tle",
+    "hf5onbbfh6k1zxc",
+    "x690xsqq3ubupvq",
+    "3nbcf1ftuboundp",
+    "q1qrxyvpwpxvyh4",
+    "ea9qjghfipvbg5w",
+    "dyept0tmidzny15",
+    "nnn5lftngjavrve",
+    "tcz73swhevuk0st",
+    "8zisxbdbv46qk1a",
+    "z14ymcuiotzmewa",
+    "xtecvcjh7rvn8a3",
+    "58eqe35uijz40l9",
+    "naqpld8ex6wb2wo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.293Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.293Z",
+      "agent": "amqten9820medl4",
+      "source_id": "9fp9bb0cvpyvzib"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "b4ztpbye7xb6uqv",
+      "source_id": "bx8obag8n6eke0b"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Illustrationen s. Graphiken INr 96924 -96927, Obj 5-8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Festgemauert in der Erden / Steht die Form aus Lehm gebrannt, / Heute muß die Glocke werden, / Frisch, Gesellen! sey zur Hand.",
+  "language": [],
+  "musenalm_id": 96923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Lied von der Glocke. / Vivis voco. Mortuos plango. / Fulgura frango",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Lied von der Glocke. / Vivis voco. Mortuos plango. / Fulgura frango",
+  "updated": "2010-09-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.676Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "60944o4o7k9yyar"
+    }
+  ]
+}

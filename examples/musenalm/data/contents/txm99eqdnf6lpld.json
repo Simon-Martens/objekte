@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Wir fuhren einmal unser mehrere in einem Postwagen. Im Kasten saß ein Vater mit zwei Töchtern, von denen die ältere, ungefähr ein Mädchen von dreizehn, vierzehn Jahren durch ihr ernstes ruhiges Wesen unsere Aufmerksamkeit erregte.",
+  "language": [],
+  "musenalm_id": 58065,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.825Z",
+      "agent": "gqt48yh8xk0p2zo",
+      "source_id": "vvv7fvum1mtd4g5"
+    }
+  ]
+}

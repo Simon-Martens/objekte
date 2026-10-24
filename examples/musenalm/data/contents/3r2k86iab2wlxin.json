@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juli; nummeriert 1. /) s. Textbezug INr 108513, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108501,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abbés l'Enfant und Kastignac, be / reiten in der Abtei St. Germain am 3ten Febr. die / Schlachtopfer zum Tode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc. 93",
+  "scans": [
+    "alm_2172_108501_t65afk6dtm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Abbés l'Enfant und Kastignac, be / reiten in der Abtei St. Germain am 3ten Febr. die / Schlachtopfer zum Tode",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.098Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "ih4hw9w6pckomkt"
+    }
+  ]
+}

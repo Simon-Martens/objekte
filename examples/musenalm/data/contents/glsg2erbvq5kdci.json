@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Bey dieser Kleinigkeit, die dir dein Freund / Verehrt, / Sieh nur auf das Symbol, nicht auf den in- / nern Werth!",
+  "language": [],
+  "musenalm_id": 76380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ich einer Dame eine Hut / zum Geschenk schickte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ich einer Dame eine Hut / zum Geschenk schickte",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.906Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "3auc8dxi2yuvdwj"
+    }
+  ]
+}

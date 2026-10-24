@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 89009, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Wollt ihr der Welt beweisen, / Ihr seid so stark wie Eisen,",
+  "language": [],
+  "musenalm_id": 89015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Nervenprobe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Nervenprobe",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.363Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "t00sm7c23srzkmf"
+    }
+  ]
+}

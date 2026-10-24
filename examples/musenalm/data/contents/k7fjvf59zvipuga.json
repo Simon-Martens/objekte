@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 12000, Obj 115) Auflösung der Rätsel in: Taschenbuch zum geselligen Vergnügen 1803 INr 12191-12215",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Oben blau unten grün, / Macht die besten Kränze blühn.",
+  "language": [],
+  "musenalm_id": 12023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.454Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "udf4xu4gsg87p8t"
+    }
+  ]
+}

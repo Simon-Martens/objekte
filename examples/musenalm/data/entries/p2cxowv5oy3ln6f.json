@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Siama und Galmory) 1801",
+    "norm": "",
+    "biblio": 100685,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2651,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Wolf u. Comp.)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch (Siama und Galmory) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 51; Goed (H) 477",
+  "responsibility_statement": "D. J. S. Siegfried",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1801. / Siama und Galmory / und die / Schöpfung des Weibes. / von / D. J. G. Siegfried. / Leipzig, / bey P. P. Wolf und Compagnie / 1801",
+  "updated": "2026-06-11 10:18:55.443Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "osejjvh5333sdv3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.115Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.115Z",
+      "agent": "xz1tbmlybgjc5rf",
+      "source_id": "kgcb2ssqurg0pg6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "djfwbygvt3405wl",
+      "source_id": "zcdvfnrc744zd74"
+    }
+  ]
+}

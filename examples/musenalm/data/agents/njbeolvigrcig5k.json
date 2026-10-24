@@ -1,0 +1,358 @@
+{
+  "annotation": "",
+  "biographical_data": "1733-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.242Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österreichischer Dramatiker"
+      ],
+      "dateOfBirth": [
+        "1733-05-28"
+      ],
+      "dateOfDeath": [
+        "1819-08-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ayrenhoff%2C%20Cornelius%20von1.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ayrenhoff%2C%20Cornelius%20von1.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ayrenhoff%2C%20Cornelius%20von1.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T16:16:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118869647/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118869647",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118869647",
+      "oldAuthorityNumber": [
+        "(DE-588c)4216014-5",
+        "(DE-588a)118869647"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Ayrenhoff, Cornelius von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Cornelius"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Ayrenhoff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Die große Batterie",
+        "Kleopatra und Antonius",
+        "Erziehung macht den Menschen",
+        "Aurelius",
+        "Schreiben eines aufrichtigen Mannes an seinen Freund über das*",
+        "Der Postzug oder die noblen Paßionen",
+        "Welche ist die beste Nation"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83177835"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76351418"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q112838"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118869647/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Cornelius_Hermann_von_Ayrenhoff"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Cornelius_Hermann_von_Ayrenhoff"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000005510553X"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_A/Ayrenhoff_Cornelius-Hermann_1733_1819.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118869647.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118869647.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118869647"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118869647"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Ayrenhoff, Kornelius Hermann von",
+        "Ayrenhoff, Cornelius H. von",
+        "Ayrenhoff, Kornelius von",
+        "Ayrenhoff, Cornelius Hermann von",
+        "Ayrenhoff, Kornelius H. von",
+        "Ayreuhoff, Cornelius von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Kornelius H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayrenhoff"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelius H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayrenhoff"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelius Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayrenhoff"
+          ]
+        },
+        {
+          "forename": [
+            "Kornelius Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayrenhoff"
+          ]
+        },
+        {
+          "forename": [
+            "Kornelius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayrenhoff"
+          ]
+        },
+        {
+          "forename": [
+            "Cornelius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ayreuhoff"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Cornelius_Hermann_von_Ayrenhoff",
+          "label": "https://de.wikipedia.org/wiki/Cornelius_Hermann_von_Ayrenhoff"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:50:54Z",
+    "gnd_query_biographical_data": "1733-1819",
+    "gnd_query_name": "ayrenhoff, cornelius hermann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 84,
+  "name": "Ayrenhoff, Cornelius Hermann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 143",
+  "updated": "2026-06-11 13:29:21.424Z",
+  "uri": "https://d-nb.info/gnd/118869647",
+  "editor": ""
+}

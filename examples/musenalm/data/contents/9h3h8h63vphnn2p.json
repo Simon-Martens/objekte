@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 129558, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Hui! du Giaur! Hui, spanischer Hund! Winde dich immerhin und knurre! Hunde kennen keine Rache!",
+  "language": [],
+  "musenalm_id": 129573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hundsrache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hundsrache",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.017Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "82nn4kg6uw1q755"
+    }
+  ]
+}

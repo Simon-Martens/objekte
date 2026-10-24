@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Unter denjenigen Gewächsen, welche die Liebhaber schöner und wohlriechender Blumen vor geraumer Zeit aus ihren freien Standorten heraushoben, und in den Gärten auf ihre Erziehung vielen Fleiß und Mühe verwendeten, befindet sich auch die gemeine Nelke",
+  "language": [],
+  "musenalm_id": 74319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erhöhte Nelkenzucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Hedwig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erhöhte Nelkenzucht",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.811Z",
+      "agent": "ane8clotw497vi2",
+      "source_id": "wwd5638kn5585eg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "In freier Luft, im Licht der Stern' und Sonnen, / Bei Vogelschlag, bei'm Lustgeräusch im Schilfe,",
+  "language": [],
+  "musenalm_id": 126615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lob der Musik",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lob der Musik",
+  "updated": "2020-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.838Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "ln8lg4sm3z25ibf"
+    }
+  ]
+}

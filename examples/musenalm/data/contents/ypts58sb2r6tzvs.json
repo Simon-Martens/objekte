@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35380,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dankbares Andenken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sculps. 1797",
+  "scans": [
+    "alm_487_35380_hba036hu61.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dankbares Andenken",
+  "updated": "2003-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.681Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "qehj0qp383616p8"
+    }
+  ]
+}

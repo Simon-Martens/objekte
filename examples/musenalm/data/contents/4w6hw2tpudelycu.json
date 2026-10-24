@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65761, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "die Sächsische Armée ergiebt sich dem / König zu Kriegsgefangenen, im Lager / bey Pirna, am 17. October 1756",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. E. Henne sculp.",
+  "scans": [
+    "alm_1105_65762_x04a4gn2cd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "die Sächsische Armée ergiebt sich dem / König zu Kriegsgefangenen, im Lager / bey Pirna, am 17. October 1756",
+  "updated": "2009-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.925Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "6sii5chsiib1lka"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.925Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "haxeec6h2taujxa"
+    }
+  ]
+}

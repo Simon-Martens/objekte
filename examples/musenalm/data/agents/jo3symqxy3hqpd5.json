@@ -1,0 +1,444 @@
+{
+  "annotation": "",
+  "biographical_data": "1796-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1796-10-16"
+      ],
+      "dateOfDeath": [
+        "1855-07-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Xaver Winterhalter"
+          ],
+          "creditText": [
+            "Thomon"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Winterhalter%20Spindler.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Winterhalter%20Spindler.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Winterhalter%20Spindler.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119164043/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Spindler"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Stanislaus"
+          ],
+          "surname": [
+            "Spindler"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119164043",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119164043",
+      "oldAuthorityNumber": [
+        "(DE-588c)4345938-9",
+        "(DE-588a)119164043",
+        "(DE-588a)10041060X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Freyersbach"
+      ],
+      "preferredName": "Spindler, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Spindler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124076-5",
+          "label": "Romancier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4152967-4",
+          "label": "Erzähler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Spinalba"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Hufnagl"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Hufnagel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Spinalba"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der Jesuit",
+        "Der Jude",
+        "Der Schwärmer",
+        "Kettenglieder",
+        "Freund Pilgram",
+        "Zwillinge",
+        "Blümlein Wunderhold, oder Abentheuer bei dem großen Freischießen zu Straßburg im Jahre 1576",
+        "Sommermalven"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "A. R. Karl"
+          ],
+          "surname": [
+            "Spindler"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85820566"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34614133"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q87477"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119164043/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/119164043"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Spindler"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Spindler_%28Schriftsteller%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Spindler"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Spindler_%28novelist%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108869868"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119164043"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119164043"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119164043.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119164043"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119164043"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Spinalba, Carl",
+        "Spindler, A. R. Karl",
+        "Spindler, Carl",
+        "Spinalba, C.",
+        "Hufnagel, Max",
+        "Hufnagl, Max",
+        "Spindler, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Spindler"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Spinalba"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Spinalba"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Spindler"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Hufnagel"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Hufnagl"
+          ]
+        },
+        {
+          "forename": [
+            "A. R. Karl"
+          ],
+          "surname": [
+            "Spindler"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Spindler_%28Schriftsteller%29",
+          "label": "https://de.wikipedia.org/wiki/Karl_Spindler_%28Schriftsteller%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:01:06Z",
+    "gnd_query_biographical_data": "1796-1855",
+    "gnd_query_name": "spindler, carl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2710,
+  "name": "Spindler, Carl",
+  "profession": "Text",
+  "pseudonyms": "Spinalba",
+  "refs": "Goed X, 351; Goed XI/1, 231; E 342",
+  "updated": "2026-06-11 13:29:25.109Z",
+  "uri": "https://d-nb.info/gnd/119164043",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Schon im letzten Taschenbuche geschah der Crisis, in der sich am Schlusse des Jahrhunderts beynah alle Künste und Wisenschaften befinden, vorläufig Erwähnung:",
+  "language": [],
+  "musenalm_id": 73121,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. D. Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.660Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "u6nu7eqz990qmee"
+    }
+  ]
+}

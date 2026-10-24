@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Auf den brausenden Fluthen ein Kahn vom Sturme / beflügelt, / So die muthige Fahrt, welche der Genius fleugt;",
+  "language": [],
+  "musenalm_id": 23802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die poetische Fahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die poetische Fahrt",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.170Z",
+      "agent": "q7zvyheam3iyblc",
+      "source_id": "3fjttjwou3ga3vh"
+    }
+  ]
+}

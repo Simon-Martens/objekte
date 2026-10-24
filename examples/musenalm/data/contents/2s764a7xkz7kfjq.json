@@ -1,0 +1,45 @@
+{
+  "annotation": "Irische Bull's (Sammlung INr 95614, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Ein Kunstfreund bemerkte, warum man die Meisterwerke der alten Griechen nicht, mit geringen Anpassungen, auf unsere Bühne brächte.",
+  "language": [],
+  "musenalm_id": 95644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "30.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "30.",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.795Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "4pbry9enm6yxgc5"
+    }
+  ]
+}

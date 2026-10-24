@@ -1,0 +1,186 @@
+{
+  "annotation": "",
+  "biographical_data": "?-1804",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.346Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "preußischer Generalleutnant; Geheimer Staats- und Kriegsminister"
+      ],
+      "dateOfBirth": [
+        "1740"
+      ],
+      "dateOfDeath": [
+        "1804"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-20T14:45:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/136095496/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "136095496",
+      "id": "https://d-nb.info/gnd/136095496",
+      "oldAuthorityNumber": [
+        "(DE-588a)136095496"
+      ],
+      "preferredName": "Goltz, Carl Franz von der",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Franz"
+        ],
+        "prefix": [
+          "von der"
+        ],
+        "surname": [
+          "Goltz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4398979-2",
+          "label": "Generalleutnant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130305-2",
+          "label": "Minister"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/80498258"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15444668"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/136095496/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Franz_von_der_Goltz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000057826920"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd136095496.html#adbcontent"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Goltz, Franz Karl von der"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Karl"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Goltz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Franz_von_der_Goltz",
+          "label": "https://de.wikipedia.org/wiki/Karl_Franz_von_der_Goltz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T11:32:21Z",
+    "gnd_query_biographical_data": "?-1804",
+    "gnd_query_name": "goltz, franz karl von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 923,
+  "name": "Goltz, Franz Karl von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB IX, 355",
+  "updated": "2026-06-11 13:29:22.569Z",
+  "uri": "https://d-nb.info/gnd/136095496",
+  "editor": ""
+}

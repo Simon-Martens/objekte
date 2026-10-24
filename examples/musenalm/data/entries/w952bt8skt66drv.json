@@ -1,0 +1,131 @@
+{
+  "annotation": "§1§ und §4§ Umschlaggraphiken fehlen; §2§ Titelportrait fehlt; §3§ Graphik mit 3 Portraits fehlt /) Sammlungen mit mehreren Beiträgen werden lediglich mit Incipit des ersten Beitrags dargestellt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT, 3 BB Vrwrt d Hrsg, B I-Verz, SS 1-334 darin 2 GG, G, SS 335-368 G-Verz darin 12 GG, 2 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Revolutions-Almanach 1797",
+    "norm": "~ +++ 409259 (UGG, verso G, G mit 3 Portraits, SS",
+    "biblio": 100460,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 938,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Revolutions-Almanach 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 18",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Revolutions- / Almanach / von / 1797. / Göttingen, / bey Johann Christian Dieterich",
+  "updated": "2026-06-11 10:18:55.950Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "l5cn4ezie5h8k5z",
+    "xv579i4at4knprt"
+  ],
+  "contents": [
+    "xiy0ud0hc66pqqb",
+    "48xxolhv531eg1v",
+    "07pdt8rzxzrbi4w",
+    "pobeqhhbzx6c3o3",
+    "ct1v3qil6b89e91",
+    "hpxk3qw4ymqv9ad",
+    "oo2kwrmwqtgk25g",
+    "9u43ipdfhy9fi6g",
+    "7ap9qj7q1c7mw3g",
+    "vf2u7kmdsh5reuc",
+    "r81ft8qndso4mx3",
+    "lnzzqbfkbw6sufo",
+    "n7trux5isubrz2r",
+    "afuliv0qaxlh9jj",
+    "wwwntpwkojelfdk",
+    "vlaleb74hv24p7x",
+    "xuw9krvi19casx8",
+    "yd1b4674e8gr906",
+    "rrmbzfek35zr9fn",
+    "wcc6ud97394wn75",
+    "eod979rgds6v438",
+    "2rdg48c4sbp7dln",
+    "z3zzxcadnink0nn",
+    "l5xdjuoh8k39s08",
+    "ex1ogtty1h88i4n",
+    "5c1pvqzuv84lka3",
+    "5p2y7zarjcjh80p",
+    "srvdw9cmot41gc5",
+    "t0lwgz6rznmg3x0",
+    "rgn3c1grvjdpbo6",
+    "rds57z8tnu56sj5",
+    "rgg8bya1xe7mt3o",
+    "u94ra0a5ko0k0xc",
+    "62l7te4kwjtj3vs",
+    "tzn2lq3pozoo0q5",
+    "bjmkmoj0oalvvme",
+    "ket43y0ima7sz1r",
+    "zshc3xdlibdwqgu",
+    "dh615pbylsjoewr",
+    "gg70lhd42iz1uqm",
+    "2ykjpdfaa1h14qb",
+    "f9d1yhmlncnklez",
+    "sejlbaukgnxbu6q",
+    "3zciaacf22e56kr",
+    "quib2gr7eggx9tm",
+    "uidh4n7c4uttkt0",
+    "lagh54mjhzhdnft",
+    "kipcxchs40xc7w4",
+    "sfhufo1wx1k97o7",
+    "eyk0hloze51m5tz",
+    "2b80dw8z4nrzcoa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.781Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.781Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "iplmgsg64j1pbqu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.065Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.065Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "qr6bz4choq01txy"
+    }
+  ]
+}

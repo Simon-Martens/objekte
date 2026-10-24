@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 54986, Obj 1,10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Glückselig Volk, das unter Zweigen wohnet, / Den Mauern fern, den steingewölbten Räumen!",
+  "language": [],
+  "musenalm_id": 54987,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 1.11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Arkadische Hirten. / Gemählde von Poussin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Arkadische Hirten. / Gemählde von Poussin",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.957Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "n5hnepdlb0guuqo"
+    }
+  ]
+}

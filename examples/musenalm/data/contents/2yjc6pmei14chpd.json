@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Als ich vor einigen Jahren für das weibliche Geschlecht einige Beyträge zu ihrer Bildung schrieb,",
+  "language": [],
+  "musenalm_id": 129660,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anrede / an meine Jungen Leser",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anrede / an meine Jungen Leser",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.045Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "zn68f7g24xi508r"
+    }
+  ]
+}

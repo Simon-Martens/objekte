@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Es ist ein weiter Garten / Von wundersamer Art;",
+  "language": [],
+  "musenalm_id": 27791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wunderbare Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wunderbare Garten",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.285Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "m6n9263gbl05il5"
+    }
+  ]
+}

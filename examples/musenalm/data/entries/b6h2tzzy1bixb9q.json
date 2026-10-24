@@ -1,0 +1,92 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Zürich, diesem Kanton ist ebenfalls der Jg 1803 gewidmet s. alm-703. Das (Titel-) portrait S. Gessners ist nicht im G-Verz angegeben ebenso 3 der kolorierten Trachtenkupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, verso G, gT, 4 BB Kal, B Vrwrt d Hrsg, SS 1-246 darin 11 GG Tab, SS 247-250 C, S 251 I-Verz, S 252 G-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1814",
+    "norm": "~",
+    "biblio": 200424,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 714,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1814. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.163Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "0hgbgqak5isvh6r"
+  ],
+  "contents": [
+    "uylsplvetg9yqvo",
+    "zjqejq996kpules",
+    "o0r6di3gyssipp3",
+    "ubls0sc92ry29mc",
+    "afpap7m1cphlkbf",
+    "6mfukz0x9u44r2v",
+    "tv1f62a42ir9y22",
+    "xmxrs83lhdq6l94",
+    "gpejz62mk4t155n",
+    "ow9zaekv9dj4od8",
+    "z2s2g8e6ryc3n5a",
+    "heqvzc6tq3wlslp",
+    "fkaubsodz7yb2tb",
+    "mvo4kz86usmp17e",
+    "5rha4al52lnc2f9",
+    "ppz4sefa4dhrzyc",
+    "uu7e9283j48e25r",
+    "d4nm5cyxj04tdob",
+    "pny0eznhz8qgj1t",
+    "pbsvi4gudwhhrzl",
+    "eylslvw0tt02tdp",
+    "0b6g8teqylhh6ww",
+    "pxpulcp1nxwun6a",
+    "x2ce20ecvbac4j2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "5p0mpo7rp0oheig"
+    }
+  ]
+}

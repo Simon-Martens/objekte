@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Du kennest nicht den rosenfarbnen / Morgen / Und grauen Abend, schönes Kind.",
+  "language": [],
+  "musenalm_id": 38402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.959Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "dflfk20irxxl1ib"
+    }
+  ]
+}

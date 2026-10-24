@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (INr 37822, Obj 114)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Friedlich Dorf! nach alter Sitte / Hast du noch dein Kirchlein stehn",
+  "language": [],
+  "musenalm_id": 37823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Dorfkirchhof",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Dorfkirchhof",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.775Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "wd4fiwv42qv5gm4"
+    }
+  ]
+}

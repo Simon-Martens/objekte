@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Wir bringen Euch, Ihr Müden, / Die Nacht und ihre Ruh. / Dem Schlaf mit seinem Frieden / Deck' alles Leben zu!",
+  "language": [],
+  "musenalm_id": 77283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Genesung. / Cantate in 2 Abtheilungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst von Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Genesung. / Cantate in 2 Abtheilungen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.718Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "jwp45ldpaee5pkf"
+    }
+  ]
+}

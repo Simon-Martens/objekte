@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Schlafende« von Dräxler-Manfred INr 58073,Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SCHLAFENDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Agricola. Stahlst. v. C. Mahlknecht in Wien",
+  "scans": [
+    "alm_774_58074_9sqcv7ivi3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SCHLAFENDE",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.964Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "v8nz2gd5x92so4e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.963Z",
+      "agent": "97s72f57lh9d1qo",
+      "source_id": "z2y61b1gn645li4"
+    }
+  ]
+}

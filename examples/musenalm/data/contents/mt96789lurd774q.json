@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Tischnachbarin« von F. Laun d. i. F. A. Schulze INr 29698, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die Tischnachbarin, Erz. von Fr. Laun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_384_29699_8y0oexxqip.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die Tischnachbarin, Erz. von Fr. Laun",
+  "updated": "2002-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.468Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "2h8rwywbi3ul6bj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.468Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "wdx27bc0tlw5h8l"
+    }
+  ]
+}

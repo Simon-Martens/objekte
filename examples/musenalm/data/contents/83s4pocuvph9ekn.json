@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58505,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Wilhelm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Halle sc.",
+  "scans": [
+    "alm_856_58505_fzy9ho93dk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Wilhelm",
+  "updated": "2008-07-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.751Z",
+      "agent": "u12nsjc3k4ttgv1",
+      "source_id": "2jg6i0bsc430r0p"
+    }
+  ]
+}

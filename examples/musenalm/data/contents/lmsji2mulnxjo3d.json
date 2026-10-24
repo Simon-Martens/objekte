@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz. Gewunden vom Herausgeber (Sammlung INr 86148, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Mit m in seiner Mitt' ist es ein Land, / Woran uns knüpft der Liebe heilig' Band:",
+  "language": [],
+  "musenalm_id": 86153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Logogriph. / (Zweisilbig.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Logogriph. / (Zweisilbig.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.991Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "rjqcfwhsqkeu5t2"
+    }
+  ]
+}

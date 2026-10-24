@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 98163-98166, Obj 34-37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtgemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pannasch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtgemälde",
+  "updated": "2014-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.976Z",
+      "agent": "u92msauqqtde2q3",
+      "source_id": "8dczq2i0a8spie3"
+    }
+  ]
+}

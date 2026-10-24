@@ -1,0 +1,126 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 12 BB mit 12 GG, ar SS 1-72, ar1: SS 1-270, SS 270-272 G-Verz, BI-Verz, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Gemeinnütziger (Berlin) 1795",
+    "norm": "~§$ Kalendarium fehlt vermutlich",
+    "biblio": 410864,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-03-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3652,
+  "parallel_title": "",
+  "place_statement": "Berlin (Felisch)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Gemeinnütziger (Berlin) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 183",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gemeinnütziger / Almanach / für / das Jahr / 1795. / Berlin bey Ernst Felisch",
+  "updated": "2026-06-11 10:18:54.828Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "sw6blb4jtwtdbwf"
+  ],
+  "contents": [
+    "25omqjp3k4dhlwi",
+    "5avwwdwkg5v4isa",
+    "7msb2gkwfd2pxb0",
+    "339pvccfu9aoqxi",
+    "belgmuxjje73qrs",
+    "ereqrzuzsr0s1sz",
+    "mryo4j4g73lkfnu",
+    "nm3qasihm2bj1kh",
+    "jn9yj62hrs7k1gd",
+    "lgstz6xm4c6457t",
+    "wqiyms6t1kwttm7",
+    "hhk05vh38172p0t",
+    "nkaiunc6z2br6mm",
+    "hzag1mllx331fen",
+    "atbmnocjga9niaf",
+    "sd6f6mfrqkiaz8j",
+    "13q2vgldawpaip1",
+    "uau4cniia4l27m7",
+    "cjbqtbs5w4vsl09",
+    "aklxpkrg4h05y21",
+    "r5gcvylptjglk6x",
+    "zirdckpz3rjughe",
+    "bl0x1heiwqoszbr",
+    "346gu8jupx07ct9",
+    "3v6vs81vui3i96o",
+    "f0ddsn7n3h4bima",
+    "lzycl79abak6b6p",
+    "dd0vgziwz0htndi",
+    "llze3x3f3a4716j",
+    "l826iqe357k3j5l",
+    "w0pq3e86rk5slqd",
+    "ocj1nby4zcvwqdt",
+    "0bdvagzb6dtsow2",
+    "mauw4ja2zw9fn10",
+    "z7xvgrj15hr7e3r",
+    "nbqi1pgwyc9ob6i",
+    "rw32sfndnsh6sgh",
+    "mi18xmsomoueg6m",
+    "79q870u5z6p5to1",
+    "4e638gw7qqa9mfk",
+    "rwwguiph9o4grrn",
+    "wmrzgkkf79hgknp",
+    "m7180i1jx4fw5sp",
+    "lodg30s3puxu45f",
+    "im5virvvpp7ixib",
+    "5aof7hzon3ep472",
+    "ptxdqeldgvx598q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.273Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.273Z",
+      "agent": "kmojoi6xgoadif1",
+      "source_id": "btbzt7lsjevzuu9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.840Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.840Z",
+      "agent": "3p5feso82l0p40c",
+      "source_id": "j4ejgvf8d0oc732"
+    }
+  ]
+}

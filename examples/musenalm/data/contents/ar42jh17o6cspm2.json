@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Siehst du dort den Regenbogen? / Kennst du ein schöneres Ordensband",
+  "language": [],
+  "musenalm_id": 23014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Regenbogen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Regenbogen",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.881Z",
+      "agent": "68fm6w3e6854yig",
+      "source_id": "v6xo6sf0ye3un22"
+    }
+  ]
+}

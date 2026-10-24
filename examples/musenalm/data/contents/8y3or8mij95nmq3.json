@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "So oft wir unsere Rundschau antreten, leuchtet uns die Idee des wunderbaren alten Bundes ins Herz hinein:",
+  "language": [],
+  "musenalm_id": 119187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückblick auf das vergangene Jahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückblick auf das vergangene Jahr",
+  "updated": "2017-07-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.586Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "1mhtwek4pzdpv88"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: 1839-1898 nachgewiesen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Frankfurter 1860",
+    "norm": "",
+    "biblio": 410165,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-11-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4680,
+  "parallel_title": "",
+  "place_statement": "Frankfurt ( Adelamann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Theater-Almanach, Frankfurter 1860",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Eduard Noack",
+  "subtitle_statement": "",
+  "title_statement": "Frankfurter / Theater-Almanach / für das Jahr / 1860. / Herausgegeben / und / allen Freunden und Verehrern des Theaters / ehrfurchtsvoll gewidmet / von / Eduard Noack, / Schauspiel-Souffleur. / Frankfurt am Main. / Druck von C. Adelmann. / 1859",
+  "updated": "2026-06-11 10:18:54.812Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "items": [
+    "r1th3afjwvihbwg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.466Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.466Z",
+      "agent": "zf4b3pt347g21wh",
+      "source_id": "pf3zzc82j04lkd0"
+    }
+  ]
+}

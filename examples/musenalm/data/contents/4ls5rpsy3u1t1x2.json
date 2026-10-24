@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105308, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ich sah in einem schönen Traume, / Ein Mädchen ganz allein / Unmuthig wandeln in dem schönen Blüten- / hain.",
+  "language": [],
+  "musenalm_id": 105313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / gehalten im Namen der Bellomoschen / Schauspielergesellschaft zu Altenburg / von Madam Ackermann im April, 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Vulpius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / gehalten im Namen der Bellomoschen / Schauspielergesellschaft zu Altenburg / von Madam Ackermann im April, 1787",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.060Z",
+      "agent": "allpiu4vpyku74f",
+      "source_id": "30hd9cshvfcre2m"
+    }
+  ]
+}

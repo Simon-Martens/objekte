@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 127329, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Wer trabt herab, / Den Berg herab? / Ein Ritter wol gerüstet.",
+  "language": [],
+  "musenalm_id": 127331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Der Schäferinn Raub",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Der Schäferinn Raub",
+  "updated": "2020-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.832Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "vojg3bpv116nflt"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. s. Textbezug INr 26377, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26370,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[unleserlich] von Hallerstein inv. et. del. Crist. Geisler sc.",
+  "scans": [
+    "alm_340_26370_tx5gwaaxwv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.978Z",
+      "agent": "iojwntogak3m4db",
+      "source_id": "n0jk7ng401g06ft"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.978Z",
+      "agent": "9vh2kvwpmqn4agb",
+      "source_id": "tm6e7n3vp1msjin"
+    }
+  ]
+}

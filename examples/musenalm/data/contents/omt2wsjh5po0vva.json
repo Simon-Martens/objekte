@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44487, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44482,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Buonaventura Genelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. C. Rahl Gest. v. C. Gonzenbach",
+  "scans": [
+    "alm_606_44482_nx33aw4573.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Buonaventura Genelli",
+  "updated": "2006-07-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.343Z",
+      "agent": "d645btewd8dbrsc",
+      "source_id": "unpkbtx64338uc7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.344Z",
+      "agent": "5q6ebv8kym3mtpt",
+      "source_id": "z5d87el9ikpgg8z"
+    }
+  ]
+}

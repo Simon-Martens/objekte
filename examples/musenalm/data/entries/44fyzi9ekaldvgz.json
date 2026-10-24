@@ -1,0 +1,128 @@
+{
+  "annotation": "# Kalendarium: Paginierung fehlerhaft",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, ar S 1 T, SS 3-9, SS 10-50 Kal darin 5 GG #, SS 51-369, 6 SS I-Verz, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Herzogl. S. Coburg-Meiningisches jährliches gemeinnütziges 1807",
+    "norm": "~",
+    "biblio": 407222,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3789,
+  "parallel_title": "",
+  "place_statement": "Meiningen (Hartmann); Leipzig (Richter)",
+  "places": [
+    "d7kbujq7399g22j",
+    "gz5hdmtcyhd5d45"
+  ],
+  "preferred_title": "Taschenbuch, Herzogl. S. Coburg-Meiningisches jährliches gemeinnütziges 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Herzogl. S. Coburg-Meiningisches / jährliches / gemeinnütziges Taschenbuch. / 1807. / Mit Kupfern. / Meiningen, / bey dem Hofbuchdrucker Hartmann und dem / Buchbinder Klein. / Leipzig, in Commission bey Carl Friedrich / Enoch Richter",
+  "updated": "2026-06-11 10:18:54.783Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "r0e1hmqupmerkk3"
+  ],
+  "contents": [
+    "iy17on5irx878wj",
+    "re05bkg8w8hv9ki",
+    "lwolb25b9zm1pl3",
+    "xlbe9zbxai192bk",
+    "johdrbo9cfzvsaf",
+    "67fs290gg56sq5g",
+    "fyd2ylhbwma0qst",
+    "rhst4jm97m0ptxp",
+    "gnrwrq6cbzrd4k0",
+    "j6sni51nsrb6h3r",
+    "x0wop9fr6v7vsuj",
+    "kdb5mu2f2rw0cxg",
+    "7nnc161i430i13o",
+    "agh89nfvxocy9og",
+    "2zrsxrlj7mf2rgc",
+    "fzvuukge7749gdy",
+    "edo16n4xtpm0b4y",
+    "qt1wnh09c041j3n",
+    "lqnzos492zzmilt",
+    "3r9sfrlf1ht8yqb",
+    "j1nzsz8u8xru50k",
+    "b7342zpa34kmq5y",
+    "xs707oladpztve9",
+    "fkmw04weawcqz1b",
+    "qrv24ao67h634a2",
+    "w229bzp87ujfpk7",
+    "dxiuyoa9cjkgf62",
+    "ekhafj8zfss58no",
+    "ie904tc5n5nro8p",
+    "7k986jzmc3bs844",
+    "amdp3y1hcm71ttg",
+    "3c0qp8lkd8x8dna",
+    "k117xgov9nm1rkp",
+    "59isrdxi7j1txx9",
+    "wrxmcqsndoyq3lf",
+    "053bln3hzbp7c30",
+    "iw2q5a9h9b4qyp8",
+    "rssh0dj2nehbjxy",
+    "fzgserklweq8cn4",
+    "2k5qplk4obhobjt",
+    "jphzhyvmz8rd0a0",
+    "njy15xvwrwjhubx",
+    "61afclp71nigs7r",
+    "gw6oethziwkvp0g",
+    "kvbtkquvv1acua7",
+    "yp1kuzepvtshd52",
+    "ogwc2hl13j3ed8u",
+    "mmcaf7holzancud"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.968Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.968Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "6mf61zgw8d49jzo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "b4ztpbye7xb6uqv",
+      "source_id": "x3suw2frrw77kb7"
+    }
+  ]
+}

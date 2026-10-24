@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, SS I-VI Vrwrt, 21 SS Kal, 11 GG, SS 1-197, S VrlgM, 84 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1804",
+    "norm": "~",
+    "biblio": 404135,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 839,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Schalt-Jahr 1804. / Anna von Östreich / und / Kardinal Mazarin. / Mit Kupfern. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.874Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "u0x3ks1xniq18la"
+  ],
+  "contents": [
+    "b0psqvsi9pqxe6x",
+    "yrgknah9b0gxo1a",
+    "guvvzpjv9rlsxpf",
+    "ss7w1mitaan83mq",
+    "wmahn4rz4oe3lym",
+    "vmyrfjxvaavzj7p",
+    "kki59kx6r0e4r6v",
+    "izxutbhe3bxzb5v",
+    "i4cr6r7bbgl1vze",
+    "lec1m7n4fpem6wk",
+    "i6xujzip92q290u",
+    "0fimxz6zhn5uqu4",
+    "mm9q6u215lvgs8x",
+    "bdfp1c2ijxqqofg",
+    "m9ggjfmnwpizhy9",
+    "2cgyamjc3iyk9kl",
+    "5dyixhecf8jstfa",
+    "7x2vytndevptzex",
+    "tnuyjzh1681ick4",
+    "cta57coqhdf0ee9",
+    "sk4dmz1f4dtpdxj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "gnkivmek62egwij"
+    }
+  ]
+}

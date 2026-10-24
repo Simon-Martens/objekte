@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87841, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen eines Triumphbogens zu Palmira",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3100_87842_sq0bb4awcp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen eines Triumphbogens zu Palmira",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "hb4q8zh7o3njd2q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "vjgb8niqyl5wdvj"
+    }
+  ]
+}

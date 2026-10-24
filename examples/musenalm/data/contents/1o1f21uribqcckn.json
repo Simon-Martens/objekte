@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Der zweite Tag der Weinlese war vorübergegangen, prächtig und sonnenhell wie der erste. Die Winzer hatten starke Arbeit gemacht.",
+  "language": [],
+  "musenalm_id": 103522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.161Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "s6xwi6vgmbew3lg"
+    }
+  ]
+}

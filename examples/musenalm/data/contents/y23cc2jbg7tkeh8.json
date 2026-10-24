@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Ihr, die in manchem Serail / Mädchen so glatt wie Email, / Mädchen so recht in der Blüte,",
+  "language": [],
+  "musenalm_id": 66234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zuruf eines K.K. Volontairs an die / Türken bey Eröffnung des Feldzugs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zuruf eines K.K. Volontairs an die / Türken bey Eröffnung des Feldzugs",
+  "updated": "2009-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.099Z",
+      "agent": "n5liie3i2dvrx17",
+      "source_id": "w9k6rxj548hew01"
+    }
+  ]
+}

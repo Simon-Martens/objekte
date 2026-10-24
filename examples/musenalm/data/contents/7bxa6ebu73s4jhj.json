@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Du schöner Ahorn, ach! / Entlaubte dich der Nord, / Vom Herbst gesandt?",
+  "language": [],
+  "musenalm_id": 78751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ahorn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ahorn",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.891Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "20uurqo3v7d968t"
+    }
+  ]
+}

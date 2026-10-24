@@ -1,0 +1,79 @@
+{
+  "annotation": "<div>einziger Jahrgang</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S 1 I-Verz G-Verz, SS 3-212 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Frauen 1851",
+    "norm": "~",
+    "biblio": 106802,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 946,
+  "parallel_title": "",
+  "place_statement": "Hannover (Grimpe)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Almanach für Frauen 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed X. 428, 205; bes.: Goed X. 438, 205, 59",
+  "responsibility_statement": "Dr. Hermann Schiff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach für Frauen / auf das Jahr / 1851. / Herausgegeben / von / Dr. Hermann Schiff. / Hannover. / Druck von August Grimpe",
+  "updated": "2026-07-03 10:52:12.473Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "rqkbbxv3wjg2s8z"
+  ],
+  "contents": [
+    "hbr43cm4e54y2zh",
+    "wgqn8eu0uvyyyx3",
+    "g6klztpkjjlxhlj",
+    "34nn16ex18k9jlt",
+    "9g6macagiw47lj2",
+    "ltqrg0w66k52xt4",
+    "qepxyodfs3ofkdr",
+    "17ld7lv4q91a6qz",
+    "ot6y7bm4ca29epy",
+    "37sl51z690h7mu1",
+    "gzc2q1nrbmx7int"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.783Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-07-03 10:52:12.474Z",
+      "agent": "m9vss6nrjywnlrr",
+      "source_id": "0934o9bk2l5vsvc"
+    }
+  ]
+}

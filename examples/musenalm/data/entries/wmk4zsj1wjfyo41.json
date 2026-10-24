@@ -1,0 +1,111 @@
+{
+  "annotation": "2 Jgg 1809, 1810; Schwäbisch Gmünd (Ritter); Hrsg: Fr. Molwitz /) Zweiter Titel lautet: Magische Unterhaltungen von Fr. Molwitz. Erstes Bändchen. Gmünd, bey J. G. Ritter 1809",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, T, B Vrwrt d Hrsg, 2 BB I-Verz, SS 1-230",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für magische Unterhaltung 1809",
+    "norm": "~",
+    "biblio": 407520,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3891,
+  "parallel_title": "",
+  "place_statement": "Schwäbisch Gmünd (Ritter)",
+  "places": [
+    "mvywp7efmt9p4up"
+  ],
+  "preferred_title": "Taschenbuch für magische Unterhaltung 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 149; nicht bei L/R",
+  "responsibility_statement": "Friedrich Molwitz",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / magische Unterhaltung / 1809. / SCHW. GMÜND / bei / J. G. Ritter",
+  "updated": "2026-06-11 10:18:55.068Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "5p0tdwmpacn4oew"
+  ],
+  "contents": [
+    "1t1w0uds6vg360p",
+    "drg25wf2jc68ryy",
+    "q73kk5367h8jd6b",
+    "c7oxarg66vdggqa",
+    "1kq3qpoykp2s7ey",
+    "x3zqh5bjo2ppxdf",
+    "c0l65347lzw0816",
+    "qm0ms8kt3820fec",
+    "wwd8aaphfthoei0",
+    "8lkvegpkhe1sb1g",
+    "xktwdsa9dsh4k6l",
+    "spxpy524klpyaas",
+    "drn84xrbrqxdkdj",
+    "caublm5tclo6vjj",
+    "8zs6qjm2xm2gf1m",
+    "6m9mp0v0wdairp0",
+    "ui67ss9kvnhwjde",
+    "o2673elfrwdgiwj",
+    "qprz2r8djr2z7vb",
+    "afe5pdm6akx1dsv",
+    "i4gs58frle3ycjb",
+    "jp9nla54pmj4l6j",
+    "kmuu4f2irnhms9k",
+    "zpvg60fcka827pp",
+    "tam3dphjiq2k4ed",
+    "9tkihg4upkq4x9x",
+    "kkgjhi72z9rvbtv",
+    "qh9rvjg1bn9plvg",
+    "e4j3c652zbv0zgi",
+    "gn466gp2uswntcy",
+    "pygbps89w69wy0g",
+    "zwjfgv3a92t6ul0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.305Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.305Z",
+      "agent": "n8i1nzykub0v7l7",
+      "source_id": "apqxcjhov2k6rh6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "jx1ov60xku2jrse",
+      "source_id": "h2cl0lsv5sevqru"
+    }
+  ]
+}

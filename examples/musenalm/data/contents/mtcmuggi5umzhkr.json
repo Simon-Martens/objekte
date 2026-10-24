@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Franken (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Es blitzt von Thaugezitter / Der maienfrische Wald.",
+  "language": [],
+  "musenalm_id": 99437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zechenden Waldmeisterlein. / (Waldmährchen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zechenden Waldmeisterlein. / (Waldmährchen.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.721Z",
+      "agent": "szz6mzfzlpcduar",
+      "source_id": "gc2qeootnqwlyff"
+    }
+  ]
+}

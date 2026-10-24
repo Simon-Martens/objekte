@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Sieh! wie durch Uferfelsen, rothbemoos't, / Hindurch sich quält die gelbe Fluth der Saale,",
+  "language": [],
+  "musenalm_id": 83686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruinen des Reusenbergs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruinen des Reusenbergs",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.018Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "gayh651pimq32v9"
+    }
+  ]
+}

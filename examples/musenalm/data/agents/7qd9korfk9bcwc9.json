@@ -1,0 +1,419 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.241Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1783-05-28"
+      ],
+      "dateOfDeath": [
+        "1840-01-22"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189540451",
+        "https://d-nb.info/gnd/180205625"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:13:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116371641/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Rose Marie"
+          ],
+          "surname": [
+            "Varnhagen"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Rosa Maria"
+          ],
+          "surname": [
+            "Varnhagen"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119376377",
+          "label": "Assing, Ludmilla"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102182094",
+          "label": "Assing, David Assur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118626167",
+          "label": "Varnhagen von Ense, Karl August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116211342",
+          "label": "Assing, Ottilia"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116371641",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.6p",
+          "label": "Personen zu Kunsthandwerk"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116211342",
+          "label": "Assing, Ottilia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119376377",
+          "label": "Assing, Ludmilla"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118626167",
+          "label": "Varnhagen von Ense, Karl August"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/102182094",
+          "label": "Assing, David Assur"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116371641",
+      "oldAuthorityNumber": [
+        "(DE-588a)116371641",
+        "(DE-588a)189540451",
+        "(DE-588)189540451",
+        "(DE-588a)101251025",
+        "(DE-588a)180205625",
+        "(DE-588c)7811923-6",
+        "(DE-588)180205625"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Assing, Rosa Maria",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Rosa Maria"
+        ],
+        "surname": [
+          "Assing"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033430-2",
+          "label": "Künstlerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Rosa Maria"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Poetischer Nachlass. - 1841"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031707"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49975155"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q97470"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116371641/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/180205625"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189540451"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Rosa_Maria_Assing"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Rosa_Maria_Assing"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Rosa_Maria_Assing"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000041354463"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116371641"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1804_varnhagen"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116371641"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116371641"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Varnhagen von Ense, Rosa Maria",
+        "Assing, Rosa Maria Antoinette Pauline",
+        "Assing, Rosa Maria Antonetta Paulina",
+        "Rosa Maria",
+        "Varnhagen, Rosa Maria",
+        "Assing, Rosa",
+        "Ense, Rose Marie Varnhagen von",
+        "Varnhagen, Rose Marie"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Rosa Maria"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Rosa Maria Antonetta Paulina"
+          ],
+          "surname": [
+            "Assing"
+          ]
+        },
+        {
+          "forename": [
+            "Rosa Maria Antoinette Pauline"
+          ],
+          "surname": [
+            "Assing"
+          ]
+        },
+        {
+          "personalName": [
+            "Rosa Maria"
+          ]
+        },
+        {
+          "forename": [
+            "Rosa Maria"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Rose Marie"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Rose Marie Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Rosa"
+          ],
+          "surname": [
+            "Assing"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Rosa_Maria_Assing",
+          "label": "https://de.wikipedia.org/wiki/Rosa_Maria_Assing"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:50:15Z",
+    "gnd_query_biographical_data": "1783-1840",
+    "gnd_query_name": "assing, rosa maria"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 71,
+  "name": "Assing, Rosa Maria",
+  "profession": "Text",
+  "pseudonyms": "Rosa Maria",
+  "refs": "Goed VI, 185; H/B 174",
+  "updated": "2026-06-11 13:29:21.395Z",
+  "uri": "https://d-nb.info/gnd/116371641",
+  "editor": ""
+}

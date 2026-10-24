@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 69051, Obj 6) s. Graphik INr 69059, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Olevano, das wilde mörderische Gebirgsdorf in dem Gebiet der alten Herniker, welches vor Jahrzehnten nur wenige neugierige Reisende selten besuchten,",
+  "language": [],
+  "musenalm_id": 69057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.408Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "gqp6u2yxidmrakz"
+    }
+  ]
+}

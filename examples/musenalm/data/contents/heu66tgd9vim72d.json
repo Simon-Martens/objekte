@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesreime (Sammlung INr 62235, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Draußen stürmt es, und im Herzen stürmt mir jetzt das alte / Sehnen - / Von dem Himmel strömt der Regen, und es fließen meine Thänen.",
+  "language": [],
+  "musenalm_id": 62242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einklang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einklang",
+  "updated": "2009-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.242Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "dfb5wndo4ju7o0p"
+    }
+  ]
+}

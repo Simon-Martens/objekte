@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 144. /) Illustration zu »Mutter Ruhberg und ihre zwey Kinder, oder die seltenen Liebhaber« INr 47126, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Herz ist weg, und ich kann wahr-/ haftig nicht dafür",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1792",
+  "scans": [
+    "alm_638_47128_dl92am7et9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Herz ist weg, und ich kann wahr-/ haftig nicht dafür",
+  "updated": "2006-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.604Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "nyzu8grl9julxlm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.604Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "znk9i82zqrps7t7"
+    }
+  ]
+}

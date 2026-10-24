@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Ein Bächlein ist aus reiner Quelle kommen, / Die Seel' ist mit dem Bächlein fortgeschwommen,",
+  "language": [],
+  "musenalm_id": 131211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bächlein. / An F. M.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bächlein. / An F. M.",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.009Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "x517gq51nj6yl8y"
+    }
+  ]
+}

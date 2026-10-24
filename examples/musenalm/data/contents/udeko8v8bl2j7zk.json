@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 27284, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27283,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. Quaglio del. A. Delvaux sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Quaglio del. A. Delvaux sc.",
+  "scans": [
+    "alm_352_27283_rs4rraidfm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.237Z",
+      "agent": "fj6f2vrm4pjvtrc",
+      "source_id": "t8wex4zbals9lhn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.237Z",
+      "agent": "4oq6qeg5u3kwukz",
+      "source_id": "w50h5gtwj0njpgd"
+    }
+  ]
+}

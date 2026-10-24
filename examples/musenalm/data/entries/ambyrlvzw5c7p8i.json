@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S W, 2 GG, ar: SS 1-384, MusB, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach fürs Theater (Iffland) 1812",
+    "norm": "~",
+    "biblio": 106367,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1344,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker und Humblot)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach fürs Theater (Iffland) 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 117; Goed VIII. 128, 2",
+  "responsibility_statement": "August Wilhelm Iffland",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / fürs / Theater / 1812. / von / Aug. Wilh. Iffland. / mit 3 Bildnißen / Berlin / bei Duncker und Humblot",
+  "updated": "2026-06-11 10:18:54.933Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "qd0f82zgbt8576j"
+  ],
+  "contents": [
+    "wpvfjv8ogw5elfw",
+    "853hhowe54eepmn",
+    "8ynp3ox0begtyxk",
+    "gcrdi0xy7cjxxgh",
+    "i7n1qizknr09tx7",
+    "uyh61vbe5w33gbb",
+    "zvv4r0g8nks7g3q",
+    "ytm0snt6wteqm6e",
+    "eybijrci7sam38q",
+    "fda9v3sc4l4d0p6",
+    "hzno6434rbd1cck",
+    "vg94cm7m4cx5aju",
+    "bcs2c7h5x21ul9h",
+    "giwj6wty79zva25"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.745Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.745Z",
+      "agent": "rgoxvg7uuoc3chb",
+      "source_id": "529kp4vtf2plako"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.880Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.880Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "rswoegdoue9jn8x"
+    }
+  ]
+}

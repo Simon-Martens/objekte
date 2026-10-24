@@ -1,0 +1,56 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Um auch in diesem Jahre mit einer Anzeige der neuen Erfindungen nicht zurückzubleiben, wollen wir die geehrten Leser des Sylvans auf folgende aufmerksam machen:",
+  "language": [],
+  "musenalm_id": 67335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Neue Erfindungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Neue Erfindungen",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.274Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "jwqitrvd4uwzuw6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.274Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "th461uqhgefh4p7"
+    }
+  ]
+}

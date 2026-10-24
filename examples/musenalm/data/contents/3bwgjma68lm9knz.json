@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Wir sehen uns nur selten, / Wir sind uns immer fern;",
+  "language": [],
+  "musenalm_id": 86946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Sympathie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Der Dichter der Parallelen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Sympathie",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.175Z",
+      "agent": "wm9mmfgzc6wy00i",
+      "source_id": "1vz48qya5i2lmpj"
+    }
+  ]
+}

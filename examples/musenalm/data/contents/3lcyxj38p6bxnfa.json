@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86715, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86714,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natalie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Ig. Krepp gest.",
+  "scans": [
+    "alm_1605_86714_f1f2dt1e1f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Natalie",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.099Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "3a61tvk2edpfz2w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.099Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "41d9fbod8bu5r8i"
+    }
+  ]
+}

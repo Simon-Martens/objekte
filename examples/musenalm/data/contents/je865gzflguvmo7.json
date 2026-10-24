@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2. /) # Bez. am 1. Blatt der Suite /) Illustration zu »Abriß einer Geschichte des ersten Kreuzzugs der Christen nach Palästina« INr 67763, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67750,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Kreuzfahrer Haufen von 200000 / Menschen nimmt eine Ganz und Ziege zu / seinen Wegweisern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_836_67750_mp8b33h9ps.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Kreuzfahrer Haufen von 200000 / Menschen nimmt eine Ganz und Ziege zu / seinen Wegweisern",
+  "updated": "2008-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.259Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "43dq5zbor2109aq"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S IT, SS III-VI Vrwrt d Hrsg, SS VII-XVI Tab, BB Kal darin 3 GG, SS 1-921 darin G, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1874",
+    "norm": "",
+    "biblio": 405104,
+    "status": null,
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2126,
+  "parallel_title": "",
+  "place_statement": "Gotha",
+  "places": [],
+  "preferred_title": "Kalender, Gothaischer 1874",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / Genealogischer Hofkalender / nebst / Diplomatisch-statistischem Jahrbuch / 1874. / hundert und eilfter Jahrgang. / Zum Vertrieb außerhalb des Herzogthums Gotha. / Gotha / Justus Perthes",
+  "updated": "2026-06-11 10:18:55.481Z",
+  "variant_title": "",
+  "year": 1874,
+  "editor": "",
+  "items": [
+    "2745koynujjyos1"
+  ],
+  "contents": [
+    "qnkxwqsvqicei3v",
+    "v17ezz7aqlxqmzj",
+    "5phvkd7vgxx1b1w",
+    "f9v00o2qazc7ewp",
+    "9xovjpbfb3ktvrz",
+    "kn10xwdrrtkhgo7",
+    "5i16umhdpb8emn8",
+    "i54rkffruwhckwd",
+    "jw8vdk9l4212dkj",
+    "9opqhtgmn5jsnjk",
+    "p7el2jr0se4cucp",
+    "4ijlydmi54fhqn5",
+    "yg8zrwndd0hokbg",
+    "gyxpm9qp2xhlalu",
+    "b4llje6p19zfaot",
+    "ggjh1n717ykuswj",
+    "8bf3ne5s2gxswev",
+    "243qm5pfuag7dim",
+    "3m2ub6p3rmu0ce2",
+    "gdxu2bh8uuzqkjw",
+    "ospyp2wv70w4qcu",
+    "2dibi88ogimth6b",
+    "kadx3t7be3v1d67",
+    "h5gsh6cwyogbn6t",
+    "pthvr9iahmof3yx",
+    "r87qg7h45alg4k9",
+    "ng4upv20c79frqc",
+    "s1q083rf56tw1v3",
+    "i7we0yqox2laaw4",
+    "x3hl8jd47l5h4tr",
+    "bm759a70k2eekv3",
+    "zr5m5lmycando5s",
+    "9rceomwjdn4xvek",
+    "57byy8ud5794i62",
+    "pgmgvi0slah7hob",
+    "a4igom1qdvnuqg3",
+    "w37uurg3jvfoh5v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.204Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.204Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "ph16j7s2kcqbepq"
+    }
+  ]
+}

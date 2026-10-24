@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Erzählungen (INr 125161, Obj 34) mit einer Illustration s. Graphik INr 125182, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Zur Zeit des Kalifen Abu-Giafar-Almanzor lebten zu Bagdad zwey Jünglinge, welche das Band der zärtlichsten, treuesten Freundschaft fest vereinigte.",
+  "language": [],
+  "musenalm_id": 125183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Freunde, / oder / die Reise nach Mekka. / Ein Märchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Freunde, / oder / die Reise nach Mekka. / Ein Märchen",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.874Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "99igmnuk9pt9ioy"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "KVK, GBV: Jgg 1820-1822",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Polycheiria 1820",
+    "norm": "",
+    "biblio": 410092,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-10-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4676,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Selbstverlag)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Polycheiria 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "B. Korsinsky",
+  "subtitle_statement": "",
+  "title_statement": "Polycheiria. / Herausgegeben / von / B. Korsinsky. / 1820. / Stuttgart, / auf Kosten des Herausgebers",
+  "updated": "2026-06-11 10:18:55.298Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "n6qqfsxeb4n39sy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.405Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.405Z",
+      "agent": "wm9j08mfjk3c14b",
+      "source_id": "fvrrdu30ktab8io"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.154Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.154Z",
+      "agent": "wm9j08mfjk3c14b",
+      "source_id": "vqs51an979khzkc"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58850,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUGUSTE / Prinzessin Wilhelm von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet v. F. Krüger gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_865_58850_c91qz7t8o3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUGUSTE / Prinzessin Wilhelm von Preussen",
+  "updated": "2008-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.697Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "t3fyzzwg1g51mis"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.697Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "zqvn8v76b5avhob"
+    }
+  ]
+}

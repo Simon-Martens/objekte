@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert I. /) über der Graphik: Sylvan. Neue Folge. I. Jahrgang /) kol. Illustration zu »Der Auerochs« von V. F. S. Fischer INr 67375, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bos Urus. ( Lin.) Der Auerochs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Kunz del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1151_67374_f0sz5g2qdl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bos Urus. ( Lin.) Der Auerochs",
+  "updated": "2009-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.334Z",
+      "agent": "3sj2vjeruec1crj",
+      "source_id": "7h6jujyoo543z85"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.334Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "s1hfr8ivzbqidhp"
+    }
+  ]
+}

@@ -1,0 +1,479 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin, lebte 1814-1816 in Rußland"
+      ],
+      "dateOfBirth": [
+        "1779-12-17"
+      ],
+      "dateOfDeath": [
+        "1862-06-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friederike Hasse in Dresden"
+          ],
+          "creditText": [
+            "Jahrbücher des Vereins für Mecklenburgische Geschichte und Altertumskunde. Band 68 (1903) S. 177"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/FannyTarnow.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/FannyTarnow.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:FannyTarnow.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1330475844"
+      ],
+      "describedBy": {
+        "dateModified": "2025-01-22T00:31:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118837052/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116223715",
+          "label": "Bölte, Amely"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118837052",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/116223715",
+          "label": "Bölte, Amely"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118837052",
+      "oldAuthorityNumber": [
+        "(DE-588)1330475844",
+        "(DE-588a)118837052",
+        "(DE-588c)4199529-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065247-6",
+          "label": "Weißenfels"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4011536-7",
+          "label": "Dessau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4022477-6",
+          "label": "Güstrow"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011536-7",
+          "label": "Dessau"
+        }
+      ],
+      "preferredName": "Tarnow, Fanny",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Fanny"
+        ],
+        "surname": [
+          "Tarnow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4372438-3",
+          "label": "Übersetzerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132472-9",
+          "label": "Erzieherin"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftstellerin"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Fanny"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Tarnow"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Natalie",
+        "Kleine Erzählungen",
+        "Briefe auf einer Reise nach Petersburg an Freunde geschrieben",
+        "Zwei Jahre in Petersburg",
+        "Auswahl aus Fanny Tarnow's Schriften"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "surname": [
+            "Tarnow"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059378"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10642959"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q98012"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118837052/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1330475844"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fanny_Tarnow"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fanny_Tarnow"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Fanny_Tarnow"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fanny_Tarnow"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081962746"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118837052"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118837052"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118837052.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118837052"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "SWD"
+      ],
+      "variantName": [
+        "Tarnow, Fanny von",
+        "Tarnow, Fanny F.",
+        "Tarnow, Franciska C.",
+        "Tarnow, Franziska",
+        "Fanny",
+        "Tarnow, Franziska Christine Johanna Friederike",
+        "Tarnow, Fanny",
+        "Tarnow, Franziska Christiane Johanne Friederike",
+        "Tarnow, Franziska C.",
+        "Tarnow, Francisca Christ. Johanna Friederike",
+        "Tarnow, Franziska Christiane Johanna Friederike"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska C."
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny F."
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "personalName": [
+            "Fanny"
+          ]
+        },
+        {
+          "forename": [
+            "Franciska C."
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska Christiane Johanna Friederike"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Francisca Christ. Johanna Friederike"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska Christine Johanna Friederike"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska Christiane Johanne Friederike"
+          ],
+          "surname": [
+            "Tarnow"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fanny_Tarnow",
+          "label": "https://de.wikipedia.org/wiki/Fanny_Tarnow"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:12Z",
+    "gnd_query_biographical_data": "1779-1862",
+    "gnd_query_name": "tarnow, fanny"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2855,
+  "name": "Tarnow, Fanny",
+  "profession": "Text",
+  "pseudonyms": "Fanny",
+  "refs": "Goed VI, 432; Goed XI/1, 405; H/B 86",
+  "updated": "2026-06-11 13:29:25.352Z",
+  "uri": "https://d-nb.info/gnd/118837052",
+  "editor": ""
+}

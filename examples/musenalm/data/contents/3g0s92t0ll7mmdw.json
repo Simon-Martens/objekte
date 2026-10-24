@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedenke / Mein! / 1839. / Wien und Leipzig. F. W. Pfautsch, Seitzergasse No. 423",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Langer sc.",
+  "scans": [
+    "alm_1796_80571_qnq9f0tezo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gedenke / Mein! / 1839. / Wien und Leipzig. F. W. Pfautsch, Seitzergasse No. 423",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.908Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "bsy95swl8rusw5h"
+    }
+  ]
+}

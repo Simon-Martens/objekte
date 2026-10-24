@@ -1,0 +1,60 @@
+{
+  "annotation": "<div>mit den Graphiken der ersten Ausgabe 1797</div>",
+  "carrier_type": [],
+  "content_type": [],
+  "created": "2026-06-24 09:41:32.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "unbezeichnet",
+  "extent": "UG, verso G, T, 2 BB I-Verz, SS I-XIX, SS 1-346 darin 3 GG, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": null,
+  "musenalm_id": 5003,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Anmuth und Schönheit aus den Misterien der Natur und Kunst 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 23 #; nicht bei L/R; H.-G. I. 87; Rü 35; Goed (H) 128",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst / für ledige und verheirathete Frauenzimmer. / Ein Almanach für 1803. / Neue Auflage mit Kupfern. / Berlin, 1803. / bey Oehmigke dem Jüngern",
+  "updated": "2026-10-15 09:15:28.788Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "gm79mf8ftjw60p3",
+    "wulh2lvvzgyinpd",
+    "bfkwtr5bf7lit5g",
+    "9ogmlyu56gd1wdn",
+    "ktoj9gifzeoogps",
+    "d6clppd6fi4d67l",
+    "212tul0evwj7ec4",
+    "z82pe3fv7j2g3c9",
+    "quuvi131bbv8uj3",
+    "lk5pecnreuzkyri"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-14 09:20:54.368Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-10-15 09:15:28.788Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "4t2kqrgmxkjjlzb"
+    }
+  ]
+}

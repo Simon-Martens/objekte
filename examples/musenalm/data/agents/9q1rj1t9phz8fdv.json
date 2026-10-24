@@ -1,0 +1,522 @@
+{
+  "annotation": "",
+  "biographical_data": "525-456 v. Chr.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.232Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/119814773",
+          "label": "Sanravius, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116118547",
+          "label": "Caselius, Johannes"
+        },
+        {
+          "forename": [
+            "Matija"
+          ],
+          "surname": [
+            "Grbić"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119619644",
+          "label": "Bertrand, Bernard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117421359",
+          "label": "Toxites, Michael"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130813494",
+          "label": "Ottenthaler, Paul"
+        }
+      ],
+      "dateOfBirth": [
+        "-0525"
+      ],
+      "dateOfDeath": [
+        "-0456"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Tilemachos Efthimiadis"
+          ],
+          "creditText": [
+            "https://www.flickr.com/photos/telemax/5710524254"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Aeschylusathens.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 2.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/2.0",
+              "name": "Creative Commons Attribution-Share Alike 2.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aeschylusathens.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Aeschylusathens.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1027368603",
+        "https://d-nb.info/gnd/1089713886",
+        "https://d-nb.info/gnd/186348444",
+        "https://d-nb.info/gnd/159730058"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-09T18:54:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118500856/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XS",
+          "label": "Griechenland (Altertum)"
+        }
+      ],
+      "gndIdentifier": "118500856",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118500856",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/grc",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/grc"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)159730058",
+        "(DE-588)1027368603",
+        "(DE-588a)186348444",
+        "(DE-588c)4000622-0",
+        "(DE-588a)119601680",
+        "(DE-588a)128026839",
+        "(DE-588)159730058",
+        "(DE-588)186348444",
+        "(DE-588)1089713886",
+        "(DE-588a)118500856"
+      ],
+      "preferredName": "Aeschylus",
+      "preferredNameEntityForThePerson": {
+        "personalName": [
+          "Aeschylus"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Aeschylus: Aeschyli poetae VETVSTISSIMI TRAGOEDIAE sex, quot quidem extant, summa fide ac diligentia ...  1555.  (VD16 A 409)",
+        "Aeschylus: Prometheus vinctus ...",
+        "Aeschylus: Aeschyli tragoediae Prometheus, Persae et Septem ad Thebas, Sophoclis Antigo*",
+        "Aeschylus: Choephori",
+        "Aeschylus: AESCHYLI Prometheus, CVM INTERPRETATIONE MATHIAE GARBITII ILlyrici, Graecae linguae & ...  1559.  (VD16 A 408)",
+        "Aeschylus: Tragōdiai hepta epi Thēbais.  1581.  (VD16 ZV 115)",
+        "Aeschylus: Aeschylus Prometheus, Sophokles Antigone und Euripides Medea",
+        "Aeschylus: Prometheus desmotes, Epta epi Thebais, Persai, Agamemnon, Eumenides, Ichetides",
+        "Aeschylus: Orestia",
+        "Aeschylus: Tragoediae",
+        "Aeschylus: Septem contra Thebas",
+        "Aeschylus: Agamemnon"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/104143945"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q40939"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1027368603"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089713886"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118500856/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159730058"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186348444"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118500856"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Aeschylus"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Aischylos"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118500856"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118500856"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118500856"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118500856"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "udkCode": [
+        "600 - 501 v. Chr. ",
+        "500 - 401 v. Chr. "
+      ],
+      "variantName": [
+        "Asẖīlūs",
+        "Aeschyles",
+        "Eskhil",
+        "Aischylos, von Eleusis",
+        "Eshil",
+        "Aeschyle",
+        "Aishīlūs",
+        "Aischylos",
+        "Eschilo",
+        "Aishils",
+        "Aeschylus, Tragicus",
+        "Eschyle",
+        "Etsylo",
+        "Ėschil",
+        "Æschylus",
+        "Aischylus",
+        "Äschylus",
+        "Eschil",
+        "Äschylos",
+        "Āisḫūlūs",
+        "Eschilis",
+        "Eyskkilas",
+        "Ajschil, mazedon. Sprachform",
+        "Aeschylos",
+        "Aeschylus, Atheniensis",
+        "Aesc'hulos",
+        "Eschylus",
+        "Эсхил",
+        "Esquilo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Aeschylos"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Eleusis"
+          ],
+          "personalName": [
+            "Aischylos"
+          ]
+        },
+        {
+          "personalName": [
+            "Aischylus"
+          ]
+        },
+        {
+          "personalName": [
+            "Eyskkilas"
+          ]
+        },
+        {
+          "personalName": [
+            "Eshil"
+          ]
+        },
+        {
+          "personalName": [
+            "Asẖīlūs"
+          ]
+        },
+        {
+          "personalName": [
+            "Äschylos"
+          ]
+        },
+        {
+          "personalName": [
+            "Eschyle"
+          ]
+        },
+        {
+          "personalName": [
+            "Eschylus"
+          ]
+        },
+        {
+          "personalName": [
+            "Aishils"
+          ]
+        },
+        {
+          "personalName": [
+            "Aesc'hulos"
+          ]
+        },
+        {
+          "personalName": [
+            "Äschylus"
+          ]
+        },
+        {
+          "personalName": [
+            "Aischylos"
+          ]
+        },
+        {
+          "personalName": [
+            "Aischylos"
+          ]
+        },
+        {
+          "personalName": [
+            "Eskhil"
+          ]
+        },
+        {
+          "personalName": [
+            "Ėschil"
+          ]
+        },
+        {
+          "personalName": [
+            "Eschilis"
+          ]
+        },
+        {
+          "personalName": [
+            "Āisḫūlūs"
+          ]
+        },
+        {
+          "personalName": [
+            "Æschylus"
+          ]
+        },
+        {
+          "personalName": [
+            "Eschil"
+          ]
+        },
+        {
+          "personalName": [
+            "Esquilo"
+          ]
+        },
+        {
+          "personalName": [
+            "Aeschyle"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Tragicus"
+          ],
+          "personalName": [
+            "Aeschylus"
+          ]
+        },
+        {
+          "personalName": [
+            "Aishīlūs"
+          ]
+        },
+        {
+          "nameAddition": [
+            "mazedon. Sprachform"
+          ],
+          "personalName": [
+            "Ajschil"
+          ]
+        },
+        {
+          "personalName": [
+            "Эсхил"
+          ]
+        },
+        {
+          "personalName": [
+            "Eschilo"
+          ]
+        },
+        {
+          "personalName": [
+            "Aeschyles"
+          ]
+        },
+        {
+          "personalName": [
+            "Etsylo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Atheniensis"
+          ],
+          "personalName": [
+            "Aeschylus"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T10:47:48Z",
+    "gnd_query_biographical_data": "525-456 v. Chr.",
+    "gnd_query_name": "aischylos"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 22,
+  "name": "Aischylos",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "P I, 193",
+  "updated": "2026-06-11 13:29:21.295Z",
+  "uri": "https://d-nb.info/gnd/118500856",
+  "editor": ""
+}

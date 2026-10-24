@@ -1,0 +1,45 @@
+{
+  "annotation": "Damen-Charaden (Sammlung INr 61699, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Das Erste dankt Ihr einem Handwerks- / manne / Bei dessen Fleiß es stets doch rückwärts / geht.",
+  "language": [],
+  "musenalm_id": 61702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Dreisilbig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Dreisilbig",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.069Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "tugz0rbn9r36v5k"
+    }
+  ]
+}

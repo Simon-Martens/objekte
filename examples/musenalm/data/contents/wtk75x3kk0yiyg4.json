@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Wonneempfindungsvoll steh' ich im Abendrothschein, / Unter mir plätschert der Bach, über mir glühen die Wipfel,",
+  "language": [],
+  "musenalm_id": 80751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwartung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.916Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "xrhosdxnsh1934j"
+    }
+  ]
+}

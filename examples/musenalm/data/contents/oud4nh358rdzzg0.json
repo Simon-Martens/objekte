@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Ein deutsches Herrchen, jung und reich, / Ein Raub des Hypochonders, bleich,",
+  "language": [],
+  "musenalm_id": 8084,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verliebte Verzweiflung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Löwen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die verliebte Verzweiflung",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.406Z",
+      "agent": "d9adsrmbhk70tpd",
+      "source_id": "wca1xptacjpoufp"
+    }
+  ]
+}

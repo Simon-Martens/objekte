@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium August /) s. Textbezug INr 106480, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106466,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. THOMAS",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Monsorno del. Weinrauch sc.",
+  "scans": [
+    "alm_4209_106466_vp6222ftw5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. THOMAS",
+  "updated": "2015-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.218Z",
+      "agent": "h37i7hdd1a10o2d",
+      "source_id": "halm01mobnfia7t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.218Z",
+      "agent": "nhcnwrqiq042uja",
+      "source_id": "sc9zyz94vrantgz"
+    }
+  ]
+}

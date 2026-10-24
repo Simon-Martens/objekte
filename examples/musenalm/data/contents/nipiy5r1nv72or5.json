@@ -1,0 +1,45 @@
+{
+  "annotation": "Plattdeutsche Scherze im Hannöverschen Dialekte (Sammlung INr 67807, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Eck hebb' en lüth Mäken, dat hebb' eck sau leif, / As hör' et min eigen all lange:",
+  "language": [],
+  "musenalm_id": 67808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.999Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "woa2vxmgkb3y6qd"
+    }
+  ]
+}

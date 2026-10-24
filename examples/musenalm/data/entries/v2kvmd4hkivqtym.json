@@ -1,0 +1,78 @@
+{
+  "annotation": "mit einer satirischen Reaktion auf diesen Jahrgang  »Almanacum perpetuum für Aerzte und Nichtärzte im Jahr 1787. ad aeternam rei memoriam dem / Herrn Doktor Christian Gottfr. Gruner in Jena zugeeignet 1787« s. Almanacum perpetuum für Aerzte und Nichtärzte 1787",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Ärzte und Nichtärzte 1787",
+    "norm": "",
+    "biblio": 100086,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1209,
+  "parallel_title": "",
+  "place_statement": "Jena (Cunos Erben)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Almanach für Ärzte und Nichtärzte 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 8; L/R 167",
+  "responsibility_statement": "D. Christian Gottfried Gruner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Aerzte und Nichtaerzte / auf das Jahr 1787. / herausgegeben / von / D. Christian Gottfried Gruner / Jena / verlegens Christ. Heinr. Cuno's Erben. / 1787",
+  "updated": "2026-06-11 10:18:55.010Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "x94sgqnsocb0snm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.853Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.853Z",
+      "agent": "w85itisd8ak8pv4",
+      "source_id": "3dkvsgae5opoh49"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.704Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.704Z",
+      "agent": "cgi3t07gfxqilhe",
+      "source_id": "4jmck26x0w3ol94"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "annotation": "Umschlaggraphiken und Titel dieses Almanachs werden als Photos gegeben. Aufgenommen ist die Titelauflage dieses Almanachs unter: Almanach der Musen und Grazien für das Jahr 1802. Von F. W. A. Schmidt, Prediger zu Werneuchen. Erste Fortsetzung. des Kalenders der Musen und Grazien. Mit Kupfern. Berlin 1802 Bei Oehmigke dem Jüngern. +++ s. Almanach 499; s. a.: Almanach romantisch-ländlicher Gemählde für MDCCIIC von F. W. A. Schmidt, Prediger zu Werneuchen. Mit Kupfern und Musik. Berlin 1798, bei Wilhelm Oehmigke: Almanach 512. /) F. W. A. Schmidt auf der Musenalm: Neuer Berliner Musenalmanach 1793-1797 (F. W. A. Schmidt u. E. C. Bindemann): Alm 3674-3678 (vorh.: 1796: Alm-3976); Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1798: Alm-512; Kalender der Musen und Grazien (F. W. A. Schmidt) 1796: Alm-15; Kalender der Musen und Grazien (F. W. A. Schmidt) 1797: Alm-665 (Titel- bzw. Restauflage des Jg 1796); Almanach für Verehrer der Natur, Freundschaft und Liebe (F. W. A. Schmidt) 1801: Alm-500; Almanach der Musen und Grazien (F. W. A. Schmidt) 1802: Alm-499 (Titelauflage von: Almanach für Verehrer der Natur, Freundschaft und Liebe auf das Jahr 1801) s. a. Goed IV/1. 1100, 5-8; Goed IV/1. 957, 40b; Jen. Allg. Lit. Ztg. 1798 Nr. 382 (A. W. Schlegel)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS 1-4 I-Verz, SS 6-58 darin MusB, SS 59-62 I-Verz, SS 63-112 darin G, SS 113-115 I-Verz, SS 117-146 darin G; SS 147-150 I-Verz, SS 151-198 darin G, SS 199-202 darin G, SS 243-302",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Verehrer der Natur, Freundschaft und Liebe (F. W. A. Schmidt) 1801",
+    "norm": "~",
+    "biblio": 106447,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2004-03-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 500,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Verehrer der Natur, Freundschaft und Liebe (F. W. A. Schmidt) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IV/1. 1100, 8",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "subtitle_statement": "",
+  "title_statement": "Almanach für Verehrer der Natur, Freundschaft und Liebe auf das Jahr 1801. Mit Kupfern und Musik. Berlin, 1801. Bei Wilhelm Oehmigke",
+  "updated": "2026-06-11 10:18:54.930Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "etubl2onumrmgj0"
+  ],
+  "contents": [
+    "5azxe4h6mz5i5l8",
+    "tt2l0skf5pgx2lw",
+    "0nu5u2b91oj4jcg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.687Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.687Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "8hhf27bs76y4w0i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "q7ot9n3ayl2gslh"
+    }
+  ]
+}

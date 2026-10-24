@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem vorangehenden Beitrag beigegeben s. INr 20737, Obj 7 /) Zu den landschaftlichen Kupfern (Sammlung INr 20736, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Unter wechselndem Gedränge / ist der Sommertag verrauscht,",
+  "language": [],
+  "musenalm_id": 20738,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Besuch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Besuch",
+  "updated": "2002-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.788Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "0ly8g586q7p8id6"
+    }
+  ]
+}

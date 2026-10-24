@@ -1,0 +1,47 @@
+{
+  "annotation": "Bez. am 1. Blatt der Suite /) # Pseud. /) Beethoven 1. s. Textbezug INr 36342, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114865,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Lyser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser",
+  "scans": [
+    "alm_492_114865_6x918mw8se.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.509Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "luj9avxp40gy0ml"
+    }
+  ]
+}

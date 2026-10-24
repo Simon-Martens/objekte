@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Wenn ihr den Thee braut, / Wenn ihr den Reis baut,",
+  "language": [],
+  "musenalm_id": 42571,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sina paradisiaca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sina paradisiaca",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.152Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "yjp5gai2ghnr8mn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Morgen, mein William, verlasse ich diese glückliche Insel, auf der ich so frohe, schöne Tage verlebte.",
+  "language": [],
+  "musenalm_id": 28301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reise / von Kopenhagen nach Schweden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reise / von Kopenhagen nach Schweden",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.200Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "wi62d6hdx1q3v9p"
+    }
+  ]
+}

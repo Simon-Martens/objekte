@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Hier an dem Kirchlein ist zu schau'n / Das Bild vom Ritter Sankt Jürgen,",
+  "language": [],
+  "musenalm_id": 100483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Sankt Jürgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Sankt Jürgen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.982Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "h6tzcc4z9upqov4"
+    }
+  ]
+}

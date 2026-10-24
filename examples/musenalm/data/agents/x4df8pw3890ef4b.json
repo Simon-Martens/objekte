@@ -1,0 +1,344 @@
+{
+  "annotation": "",
+  "biographical_data": "1494-1540",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.460Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1494"
+      ],
+      "dateOfDeath": [
+        "1540"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Giorgio Vasari"
+          ],
+          "creditText": [
+            "Houghton Library"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Houghton%20Typ%20525%2068.864%20-%20Vasari%2C%20Le%20vite%20-%20Il%20Rosso.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Houghton%20Typ%20525%2068.864%20-%20Vasari%2C%20Le%20vite%20-%20Il%20Rosso.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Houghton%20Typ%20525%2068.864%20-%20Vasari%2C%20Le%20vite%20-%20Il%20Rosso.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118814206/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118814206",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118814206",
+      "oldAuthorityNumber": [
+        "(DE-588a)118814206",
+        "(DE-588a)113761163",
+        "(DE-588c)4126587-7"
+      ],
+      "preferredName": "Rosso, Fiorentino",
+      "preferredNameEntityForThePerson": {
+        "nameAddition": [
+          "Fiorentino"
+        ],
+        "personalName": [
+          "Rosso"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119729666"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85221402"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/107532392"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q312617"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118814206/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Rosso_Fiorentino"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Rosso_Fiorentino"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Rosso_Fiorentino"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012032385X"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120967962"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118814206"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118814206"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Di Jacopo, Giovanni Battista",
+        "Jacopo, Giovanni Battista di",
+        "Rosso, Giovan Battista di Jacopo",
+        "Rosso, Giovanni Battista",
+        "Guasparre, Giovanni B. di",
+        "Rosso, Fiorentino",
+        "Fiorentino, Rosso",
+        "Jacopo, Giovan Battista di",
+        "Rosso, Giovanni B.",
+        "Rosso, Giovanni Battista di Jacopo di Guasparre"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Rosso"
+          ],
+          "surname": [
+            "Fiorentino"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni B."
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Giovan Battista di Jacopo"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Fiorentino"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Jacopo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Battista di Jacopo di Guasparre"
+          ],
+          "surname": [
+            "Rosso"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni B."
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Guasparre"
+          ]
+        },
+        {
+          "forename": [
+            "Giovan Battista"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Jacopo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "surname": [
+            "Di Jacopo"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Rosso_Fiorentino",
+          "label": "https://de.wikipedia.org/wiki/Rosso_Fiorentino"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:41:45Z",
+    "gnd_query_biographical_data": "1494-1540",
+    "gnd_query_name": "rosso, giovanni battista di jacopo di guasparre"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2322,
+  "name": "Rosso, Giovanni Battista di Jacopo di Guasparre",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 61",
+  "updated": "2026-06-11 13:29:24.412Z",
+  "uri": "https://d-nb.info/gnd/118814206",
+  "editor": ""
+}

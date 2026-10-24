@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Mich grüßt der Morgenschein / In meiner Einsamkeit.",
+  "language": [],
+  "musenalm_id": 27792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Einsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In der Einsamkeit",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.285Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "s0buqboe93x24hg"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "annotation": "Jgg 1845; 1846 [nur bei K 127]; 1845: Leipzig (Teubner); Hrsg.: Otto von Corvin-Wiersbitzki",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "Ug, verso G, gT, S I T, SS III-IV Vrwrt d Hrsg, SS V- VIII I-Verz, SS 1-310 darin 5 GG,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Jäger und Naturfreunde 1845",
+    "norm": "~",
+    "biblio": 404290,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2851,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Teubner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Jäger und Naturfreunde 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 140",
+  "responsibility_statement": "Otto von Corvin-Wiersbitzki",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Jäger und Naturfreunde. / Herausgegeben / von / Otto von Corvin-Wiersbitzki. / Mit einem Stahlstich und vier colorirten Kupferstichen. / Leipzig, / Druck und Verlag von B. G. Teubner. / 1845",
+  "updated": "2026-06-11 10:18:54.734Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "xqkzskcwxc7g9ll"
+  ],
+  "contents": [
+    "2szp3l9a4yku86t",
+    "itnx8ibeb3xveqw",
+    "sqb906szqk5dc1l",
+    "o2exa6pvm32fhc4",
+    "d9jhc179gmrnzk3",
+    "xl4wzpuhbpv7g0t",
+    "1pqeoci4poq4juy",
+    "8ze61kronkz9gpj",
+    "zveo0s8wu16kzh3",
+    "kkf6t5fyolmsw08",
+    "9lu6r3f26fa43zi",
+    "794qoginwrm06c7",
+    "jot4q6fyygy88ft",
+    "os5ndyyxbzg3h2v",
+    "bfhujfw98gljldl",
+    "1cim1z0da680n05",
+    "1tkg93005oz8n2o",
+    "c49cutjy4e9nbqr",
+    "kjicnggvprkdb8v",
+    "b55gkkexztro866",
+    "lnex4p2m72w5wp2",
+    "ux8e98x8c3m4mf9",
+    "jc7d5cppw47fwp8",
+    "7m56po18s137i3u",
+    "luxvenn3duvzlzg",
+    "mtfp4ubh64lhed2",
+    "vgs8dnxrb5o6pnz",
+    "ymy1iuqmfkwc0oj",
+    "iccdu401hwwnvfv",
+    "aonwmowa2ef0pin",
+    "85umi8vkk21cy0q",
+    "c34myiq4ukldaaj",
+    "js6idxssrmel9wn",
+    "vrkvyo6zeuhzbjh",
+    "ucbyfn4cyeibst8",
+    "1qwbr4x3s21lv1v",
+    "s67fv8arp3vz1dj",
+    "k8sj7ajkhhrir4b",
+    "we5c56w2md3sucw",
+    "fknvj3xq54ep0ly",
+    "4jnnxvecqm32djw",
+    "u8e52sbpmz1pvbq",
+    "8mguhpjdnr52o7q",
+    "ro3y4ob825vp12u",
+    "ig6yp8oil2qdvhz",
+    "7xto1izmv01ocmh",
+    "1pfw8t3hx7eo63v",
+    "ygfk50t4h6rrfqn",
+    "pvd7b3117v847nf",
+    "1vekg3wc8wd8hog",
+    "l04c4veie8cbxuc",
+    "e2m8rtpgokoa4ik"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.153Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.153Z",
+      "agent": "cmylaolo9dbcgmr",
+      "source_id": "8kd0nkdyctt9np5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "2mpqn36c4imse0n",
+      "source_id": "oc4ekebp7c62ez5"
+    }
+  ]
+}

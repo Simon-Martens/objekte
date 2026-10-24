@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Es scheint befremdend, daß man bey dem regen Eifer womit die Naturgeschichte betrieben wird,",
+  "language": [],
+  "musenalm_id": 25839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Tibetanische Bergziege, / aus deren zartem Wollhaar die superfeinen / Shawls gewebt werden.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Prof. Blumenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Tibetanische Bergziege, / aus deren zartem Wollhaar die superfeinen / Shawls gewebt werden.",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.225Z",
+      "agent": "qyak5uyzrt5pnxe",
+      "source_id": "cjh2jskdgzwz4cu"
+    }
+  ]
+}

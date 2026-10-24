@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 101500, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "O wie sitz' ich hier so gerne, / Von dem dunklen Laub umwallt,",
+  "language": [],
+  "musenalm_id": 101504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Sonntagsfeyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Sonntagsfeyer",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.898Z",
+      "agent": "nicecucaceak00n",
+      "source_id": "se37hoyhlszufov"
+    }
+  ]
+}

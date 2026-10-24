@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Richte nicht, was du vergabst, in langen und / strengen Gedanken:",
+  "language": [],
+  "musenalm_id": 11257,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "105. / Vergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "105. / Vergebung",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.432Z",
+      "agent": "lw3uqo50dp1mpif",
+      "source_id": "wqvlfnylqksyr7k"
+    }
+  ]
+}

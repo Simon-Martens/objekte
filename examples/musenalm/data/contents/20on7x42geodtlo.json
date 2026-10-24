@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Der Orientale« von O. Prechtler INr 58029, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ORIENTALE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ed. Ender del. Jos. Axmann. C. Mahlknecht sc. Viennae",
+  "scans": [
+    "alm_772_58030_35yynzuy5c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER ORIENTALE",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "snhmlveebr4xkip",
+      "source_id": "41bqi1ymbhwtess"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "794rewhgp6em1l2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "qe8eqs8cuke976q"
+    }
+  ]
+}

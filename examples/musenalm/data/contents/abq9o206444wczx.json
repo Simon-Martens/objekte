@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Der Kirchhof (Sammlung INr 27406, Obj 133) Gedichte (Sammlung INr 27401, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Ein Wanderer kommt; belastet von Beschwerden, / Sieht er hier einen stillen Raum ihm grünen,",
+  "language": [],
+  "musenalm_id": 27408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Wanderrast",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Wanderrast",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.445Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "9fto4jxmo2ppca1"
+    }
+  ]
+}

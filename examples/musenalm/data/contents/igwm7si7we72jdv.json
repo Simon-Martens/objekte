@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Fortsetzung in: Musenalmanach, Rheinisch-westfälischer 1823 INr 67881",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Will euch von der frommen Rose / Ein Geschichtlein kurz erzählen.",
+  "language": [],
+  "musenalm_id": 66012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstück aus einem idyllischen / Gedicht: / »Die Blumenlese vor / dem Frohnleichnamsfeste«",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leonh. Lauffs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstück aus einem idyllischen / Gedicht: / »Die Blumenlese vor / dem Frohnleichnamsfeste«",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.239Z",
+      "agent": "psuy4hua61ncqyq",
+      "source_id": "nd4ld0u7gmt3hcc"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "K gibt TG und 3 GG an, §$ vielleicht fehlt G",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 14 BB Kal darin G, S I nT, SS III-VI Vrwrt d Hrsg, SSVII-VIII I-Verz, SS 1-308 darin G, S 309 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1802",
+    "norm": "~",
+    "biblio": 106722,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 622,
+  "parallel_title": "",
+  "place_statement": "Göttingen (Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Romanen-Kalender 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 82; Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für das Jahr 1802. / Von / Johann Peter Claris de Florian, Karl Gustav / Leopold, August Gottlieb Meißner, Knud / Lyne Rahbek, Karl Reinhard, und / Johann Friedrich Schink",
+  "updated": "2026-06-11 10:18:55.475Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "nnj0cgnszm747br"
+  ],
+  "contents": [
+    "m55zmmk9u8y8i39",
+    "xox9d6ydpr6iyum",
+    "iegk9054owqkc34",
+    "h1c9i5t4dsow62b",
+    "75fwh9u4zuqjqta",
+    "i7xis14t8sd0076",
+    "v0n0tooos3zgkpx",
+    "bp79j5x3up9r0kf",
+    "y2cpuv63aexwzp4",
+    "gpvbdcjttbu0zcq",
+    "8fvmfcdnfqjrt8p",
+    "to2zs3vrj0l7154",
+    "qjxoqqcvbgscpsh",
+    "3ui03ba32a5wnpl",
+    "8eb3nhbgactnjcp",
+    "j1v72xwt8k2dq9p",
+    "3us6n1alluy2am3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.720Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.720Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "48mhxiybui8zjjv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.723Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.723Z",
+      "agent": "3k6mygjjaagwbj8",
+      "source_id": "a6fa69uscnu5eal"
+    }
+  ]
+}

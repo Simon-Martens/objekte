@@ -1,0 +1,911 @@
+{
+  "annotation": "",
+  "biographical_data": "43 v. Chr. -17 n. Chr.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.440Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/102396752",
+          "label": "Iunius, Gallio"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Antiker römischer Dichter"
+      ],
+      "dateOfBirth": [
+        "-0043"
+      ],
+      "dateOfDeath": [
+        "0017"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Lucasaw"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ovid%20by%20an%20anonymous%20sculptor.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ovid%20by%20an%20anonymous%20sculptor.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ovid%20by%20an%20anonymous%20sculptor.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188027858",
+        "https://d-nb.info/gnd/1089120370",
+        "https://d-nb.info/gnd/108992982X",
+        "https://d-nb.info/gnd/1089713762",
+        "https://d-nb.info/gnd/185684599",
+        "https://d-nb.info/gnd/187615357",
+        "https://d-nb.info/gnd/1025671392",
+        "https://d-nb.info/gnd/1089881991"
+      ],
+      "describedBy": {
+        "dateModified": "2025-12-05T16:14:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118590995/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XT",
+          "label": "Römisches Reich"
+        }
+      ],
+      "gndIdentifier": "118590995",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#32.10p",
+          "label": "Personen zu Landwirtschaft, Garten"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118590995",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)187615357",
+        "(DE-588)187615357",
+        "(DE-588)1025671392",
+        "(DE-588)185684599",
+        "(DE-588)1089120370",
+        "(DE-588)188027858",
+        "(DE-588)1089713762",
+        "(DE-588a)185684599",
+        "(DE-588a)174392583",
+        "(DE-588a)188027858",
+        "(DE-588)1089881991",
+        "(DE-588a)118590995",
+        "(DE-588)108992982X",
+        "(DE-588a)174254563"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4282006-6",
+          "label": "Sulmona"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4096764-5",
+          "label": "Constanṭa"
+        }
+      ],
+      "preferredName": "Ovidius Naso, Publius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Publius"
+        ],
+        "surname": [
+          "Ovidius Naso"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Ovidius Naso, Publius: De nuce. 1532. (VD16 ZV 12093)",
+        "Ovidius Naso, Publius: P.OVIDII NASONIS. DE TRISTIBVS. LIBRI V.. 1558. (VD16 O 1695)",
+        "Ovidius Naso, Publius: P. OVIDII METAMORPHOSEON LIBRI .XV. ... Vita Ouidij ex ipsius operibus. Index fabularum,& ... 1515. (VD16 O 1635)",
+        "Ovidius Naso, Publius: PVBLII OVIDII NASONIS DE TRISTIBVS LIBRI QVINQVE DENVO REVISI. ... [Ed.studio (Philippi ... 1513. (VD16 O 1689)",
+        "Ovidius Naso, Publius: PVB. OVIDII NASONIS HEROIDVM EPISTOLAE. Vnà cum alijs eiusdem operibus ... Ex postrema ... 1579. (VD16 O 1543)",
+        "Ovidius Naso, Publius: P. Ouidii Nasonis poetae clarissimi Epistolae Heroides ... . 1505. (VD16 O 1589)",
+        "Ovidius Naso, Publius: P. OVIDII NASONIS AMATORIA. Quorum Indicem sequens continet pagella.. 1546. (VD16 ZV 12095)",
+        "Ovidius Naso, Publius: P. OVIDII NASONIS OPERA, QVAE EXTANT, OMNIA TRIBVTA IN TOMOS TRES. Quorum PRIMO continentur ... 1590. (VD16 ZV 12112)",
+        "Ovidius Naso, Publius: P.OVIDII NASONIS SVLMONENSIS HEROIDVM EPISTOLARVM liber. Adiectis ad singulas ... 1555. (VD16 O 1531)",
+        "Ovidius Naso, Publius: PVB.OVIDII NASONIS de Tristibus Libri Quinque.(CONsolatio ad Liuiam Augustam de ... 1520. (VD16 O 1692)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79041738"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/88342447"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q7198"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1025671392"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089120370"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089713762"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089881991"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/108992982X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118590995/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185684599"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187615357"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188027858"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ovid"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ovid"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ovid"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ovid"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121427757"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118590995"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118590995"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118590995"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118590995"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118590995"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Ovid, Publius N.",
+        "Ovidio",
+        "Ovide",
+        "Naso, Publiusz Owidiusz",
+        "Ovidius Naso, Pub.",
+        "Nason, Publio Ovidio",
+        "Ovidius Nasoo, Publius",
+        "Ovidius, Puellarum",
+        "Ovidij",
+        "Ovidij, Naso",
+        "Ovid",
+        "Nasão, Públio Ovídio",
+        "Ovide, Naso",
+        "Ovidius, Naso",
+        "Ovidij Naso, Publij",
+        "Ovidius, Publius-Naso",
+        "Obidios",
+        "Ovidius Nazoo, Publius",
+        "Ovidius, Poeta",
+        "Owidiusz",
+        "P.O.N.",
+        "Ovidius Naso, P.",
+        "Ovidius, Publius",
+        "Ovidius Naso, Publius",
+        "Ovídio",
+        "Ovide, de Sulmone",
+        "Publius, Ovidius Naso",
+        "Naso, Publius Ovidius",
+        "Ovidio Nasón, Publio",
+        "Ovidio Nasone, Publio",
+        "Ovid, Publius Naso",
+        "Ovidi Nasonis, P.",
+        "Ovidius Naso",
+        "Pseudo Ovid",
+        "Ovidij Nazon, Publij",
+        "Ovidius Nazo, Publius",
+        "Nasone, Publio Ovidio",
+        "Ovid Naso, Publius",
+        "Ovidi Nasó, Publi",
+        "Ovide Grand-Nez, Publius",
+        "Ovidiu",
+        "Ovidius Naso, Pelignensis",
+        "Owidiusz Naso, Publiusz",
+        "Ovideo",
+        "Naso, Publius O.",
+        "Ovide, Poète",
+        "Nason, P. Ovidio",
+        "Naso, Publius",
+        "Ovidii Nasonis, P.",
+        "Owidiusz, Naso",
+        "Ovidij, Publij Nazon",
+        "Ovidius Naso, Publ.",
+        "Nasone, Ovidio",
+        "Ovidius",
+        "Ovidius Naso, Publius, Pelignensis",
+        "Naso, Publij O.",
+        "Owidyusz Nason, Publius",
+        "Ovyde",
+        "Ovidio Nasone, P."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Ovidio"
+          ]
+        },
+        {
+          "forename": [
+            "Publius Naso"
+          ],
+          "surname": [
+            "Ovid"
+          ]
+        },
+        {
+          "personalName": [
+            "P.O.N."
+          ]
+        },
+        {
+          "forename": [
+            "Publiusz Owidiusz"
+          ],
+          "surname": [
+            "Naso"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Poète"
+          ],
+          "personalName": [
+            "Ovide"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovidius Nasoo"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovidij"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Pelignensis"
+          ],
+          "personalName": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovídio"
+          ]
+        },
+        {
+          "forename": [
+            "Públio Ovídio"
+          ],
+          "surname": [
+            "Nasão"
+          ]
+        },
+        {
+          "forename": [
+            "Publij O."
+          ],
+          "surname": [
+            "Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Publio"
+          ],
+          "surname": [
+            "Ovidio Nasone"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovid"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovidiu"
+          ]
+        },
+        {
+          "forename": [
+            "Publio"
+          ],
+          "surname": [
+            "Ovidio Nasón"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovid Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Publ."
+          ],
+          "surname": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Owidiusz"
+          ]
+        },
+        {
+          "forename": [
+            "Naso"
+          ],
+          "surname": [
+            "Ovidij"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Ovidi Nasonis"
+          ]
+        },
+        {
+          "forename": [
+            "Publij"
+          ],
+          "surname": [
+            "Ovidij Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo Ovid"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Poeta"
+          ],
+          "personalName": [
+            "Ovidius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Naso"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Obidios"
+          ]
+        },
+        {
+          "forename": [
+            "Publius O."
+          ],
+          "surname": [
+            "Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovideo"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Ovidii Nasonis"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovide"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Ovidio Nasone"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Ovidius Naso"
+          ],
+          "personalName": [
+            "Publius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius N."
+          ],
+          "surname": [
+            "Ovid"
+          ]
+        },
+        {
+          "forename": [
+            "P. Ovidio"
+          ],
+          "surname": [
+            "Nason"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Naso"
+          ],
+          "personalName": [
+            "Ovide"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovidius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Puellarum"
+          ],
+          "personalName": [
+            "Ovidius"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovyde"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Owidyusz Nason"
+          ]
+        },
+        {
+          "forename": [
+            "Publi"
+          ],
+          "surname": [
+            "Ovidi Nasó"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "personalName": [
+            "Ovidius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "nameAddition": [
+            "Pelignensis"
+          ],
+          "surname": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Publio Ovidio"
+          ],
+          "surname": [
+            "Nasone"
+          ]
+        },
+        {
+          "forename": [
+            "Publius Ovidius"
+          ],
+          "surname": [
+            "Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Ovidio"
+          ],
+          "surname": [
+            "Nasone"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovidius Nazo"
+          ]
+        },
+        {
+          "forename": [
+            "Publio Ovidio"
+          ],
+          "surname": [
+            "Nason"
+          ]
+        },
+        {
+          "forename": [
+            "Pub."
+          ],
+          "surname": [
+            "Ovidius Naso"
+          ]
+        },
+        {
+          "forename": [
+            "Publiusz"
+          ],
+          "surname": [
+            "Owidiusz Naso"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Naso"
+          ],
+          "personalName": [
+            "Ovidius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Naso"
+          ],
+          "personalName": [
+            "Owidiusz"
+          ]
+        },
+        {
+          "forename": [
+            "Publij Nazon"
+          ],
+          "surname": [
+            "Ovidij"
+          ]
+        },
+        {
+          "forename": [
+            "Publius-Naso"
+          ],
+          "surname": [
+            "Ovidius"
+          ]
+        },
+        {
+          "forename": [
+            "Publij"
+          ],
+          "surname": [
+            "Ovidij Nazon"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovide Grand-Nez"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Ovidius Nazoo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "de Sulmone"
+          ],
+          "personalName": [
+            "Ovide"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ovid",
+          "label": "https://de.wikipedia.org/wiki/Ovid"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T12:26:18Z",
+    "gnd_query_biographical_data": "43 v. Chr. -17 n. Chr.",
+    "gnd_query_name": "ovidius naso"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 2011,
+  "name": "Ovidius Naso",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "P IV, 383",
+  "updated": "2026-06-11 13:29:24.012Z",
+  "uri": "https://d-nb.info/gnd/118590995",
+  "editor": ""
+}

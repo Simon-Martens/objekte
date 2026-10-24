@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung der Sammlung INr 16053, Obj 24. Sammlung von 23 Beiträgen INr 36552-36574, Obj 69-91",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Collectaneen-Buch. / (Fortsetzung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Collectaneen-Buch. / (Fortsetzung.)",
+  "updated": "2001-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.778Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "567ijgiz5hn870t"
+    }
+  ]
+}

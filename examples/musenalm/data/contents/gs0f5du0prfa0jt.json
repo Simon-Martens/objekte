@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert No. 6. s. Textbezug INr 59981, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edles Betragen des Englischen Volks im Schauspiel- / hause, bei der Nachricht von Ludwigs XVI Ermor- / dung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59982_4p7on8emnn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Edles Betragen des Englischen Volks im Schauspiel- / hause, bei der Nachricht von Ludwigs XVI Ermor- / dung",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.071Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "jz4di9c1z4252yw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.071Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "w83yy5yza83vooe"
+    }
+  ]
+}

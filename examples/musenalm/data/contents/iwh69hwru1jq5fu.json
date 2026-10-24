@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Lüftchen, die des Abends Kühlung tragen, / Wellen, die das Ufer buhlend schlagen,",
+  "language": [],
+  "musenalm_id": 3981,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inesilla's Vergangenheit und / Zukunft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-r-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Inesilla's Vergangenheit und / Zukunft",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.021Z",
+      "agent": "3xjka4czdksw7yb",
+      "source_id": "dxewf9at64vjm14"
+    }
+  ]
+}

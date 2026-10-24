@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52294, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bauernhaus im Canton Tessin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Dossenbach del. J. H. Meyer sc.",
+  "scans": [
+    "alm_712_52282_4fcd54ydht.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bauernhaus im Canton Tessin",
+  "updated": "2007-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.606Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "hoo8aaojuwboe6w"
+    }
+  ]
+}

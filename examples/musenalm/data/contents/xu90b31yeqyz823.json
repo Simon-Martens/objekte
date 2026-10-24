@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Immer erzieht am Spalier, wie den Fruchtbaum, / so den Geschäftsmann!",
+  "language": [],
+  "musenalm_id": 42706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 239,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arabeske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Brinckmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arabeske",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.188Z",
+      "agent": "9l93ioes6kzj7pb",
+      "source_id": "wveasuu0bzbdv5j"
+    }
+  ]
+}

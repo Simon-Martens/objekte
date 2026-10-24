@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik im Kalendarium August; paginiert 9. s. Textbezug INr 73671, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Greifen sie nur zu meine Herren: für / die anders denkenden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Wolf inv. del. Riephs. sc.",
+  "scans": [
+    "alm_915_73658_phj76yqe01.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Greifen sie nur zu meine Herren: für / die anders denkenden",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.712Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "49fhvamp930uifs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.712Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "7cghg9st70i7pe4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus den Bruchstücken eines Lehrgedichts (Sammlung INr 30474, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Du hast es einmal brav gemacht, und meinest nun, / Du könnt'st ein andermal auch etwas minder thun.",
+  "language": [],
+  "musenalm_id": 30477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.483Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "cpinahcayp3w5ij"
+    }
+  ]
+}

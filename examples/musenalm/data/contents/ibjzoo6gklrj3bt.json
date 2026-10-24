@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Der wackre Hochberg war an einem schönen Herbsttage gegen vier oder fünf Uhr Abends,",
+  "language": [],
+  "musenalm_id": 1436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der glückliche Unfall",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Vitalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der glückliche Unfall",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.731Z",
+      "agent": "9lqdw7znzcy5l7t",
+      "source_id": "glguhjqckpvshm6"
+    }
+  ]
+}

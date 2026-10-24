@@ -1,0 +1,334 @@
+{
+  "annotation": "",
+  "biographical_data": "1743-1807",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.389Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1743"
+      ],
+      "dateOfDeath": [
+        "1807-08-28"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-17T21:15:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116172126/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/137739257",
+          "label": "Kinderling, Johann Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116172126",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137739257",
+          "label": "Kinderling, Johann Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116172126",
+      "oldAuthorityNumber": [
+        "(DE-588a)116172126"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4088946-4",
+          "label": "Calbe (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036934-1",
+          "label": "Magdeburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4088946-4",
+          "label": "Calbe (Saale)"
+        }
+      ],
+      "preferredName": "Kinderling, Johann Friedrich August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich August"
+        ],
+        "surname": [
+          "Kinderling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1137529849",
+          "label": "Palämon, der Jüngere"
+        }
+      ],
+      "publication": [
+        "Kinderling, Johann F.: Ueber die Reinigkeit der deutschen Sprache ..",
+        "Kinderling, Johann F.: Der Somnambulismus unserer Zeit",
+        "Köhler, Johann D.: Anweisung zur Reiseklugheit für junge Gelehrte",
+        "Kinderling, Johann F.: De Bibliotheca Coenobii Bergensis Narratio historico-litteraria",
+        "Kinderling, Johann F.: Grundsätze der Beredsamkeit",
+        "Vollbeding, Johann C.: Versuch einer nähern ... Bestimmung des Geschlechts ..",
+        "Kinderling, Johann F.: Geschichte der Nieder Sächsischen Sprache"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n94084775"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27814826"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q120727"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116172126/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_August_Kinderling"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083672849"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116172126"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116172126.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116172126"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kinderling, Joh. Fr. Aug.",
+        "Kinderling, Johannes Friedrich August",
+        "Kinderling, Johannes Fridericus Augustus",
+        "Kinderlingius, Johannes Fridericus Augustus",
+        "Kinderling, J. Fr. Aug.",
+        "Kinderling, Iohannes Fridericus Augustus",
+        "Kinderling, Joh. Fr. Aug",
+        "Kinderling, M. Joh. Fr. Aug.",
+        "Kinderling, J. F. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. F. A."
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridericus Augustus"
+          ],
+          "surname": [
+            "Kinderlingius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridericus Augustus"
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Friedrich August"
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Fr. Aug."
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "J. Fr. Aug."
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Fr. Aug"
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "M. Joh. Fr. Aug."
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes Fridericus Augustus"
+          ],
+          "surname": [
+            "Kinderling"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_August_Kinderling",
+          "label": "https://de.wikipedia.org/wiki/Johann_Friedrich_August_Kinderling"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:55:33Z",
+    "gnd_query_biographical_data": "1743-1807",
+    "gnd_query_name": "kinderling, johann friedrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1390,
+  "name": "Kinderling, Johann Friedrich August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XV, 754",
+  "updated": "2026-06-11 13:29:23.201Z",
+  "uri": "https://d-nb.info/gnd/116172126",
+  "editor": ""
+}

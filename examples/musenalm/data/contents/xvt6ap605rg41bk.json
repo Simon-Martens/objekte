@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Vorschriften für und Bemerkungen über Leckermäuler (Sammlung INr 50494, Obj 28) Mannigfaltigkeiten zur Belehrung und Belustigung der Leckermäuler (Sammlung INr 50493, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Die Deutschen sind uns hier weit überlegen. Bei ihnen tranchirt der Haushofmeister.",
+  "language": [],
+  "musenalm_id": 50505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Deutschen sind uns hier weit überlegen. Bei ihnen tranchirt der Haushofmeister.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-07-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.674Z",
+      "agent": "ndyaxges5n0jd1z",
+      "source_id": "vd5bf5wtsnfxgxn"
+    }
+  ]
+}

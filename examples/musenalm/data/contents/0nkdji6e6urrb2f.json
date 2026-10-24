@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September; nummeriert 10.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "A. Race over the Round Course at Neumarket",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_3120_107164_yartjhn45r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "A. Race over the Round Course at Neumarket",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.089Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "tftqo4ne4bek95r"
+    }
+  ]
+}

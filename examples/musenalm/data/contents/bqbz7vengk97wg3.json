@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. 3. Die Jubelhochzeit« INr 47884, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lohn's Ihnen Gott! Sie haben uns vom / Hungertod errettet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1806",
+  "scans": [
+    "alm_652_47823_wcpcvzdgs5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lohn's Ihnen Gott! Sie haben uns vom / Hungertod errettet",
+  "updated": "2007-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.624Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "rgfkm8pgyfpl1x6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.624Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "yqzzmmy5toj88jj"
+    }
+  ]
+}

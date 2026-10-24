@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1829",
+    "norm": "",
+    "biblio": 409891,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-05-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4638,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "J. C. Köster",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Jahr 1829. / Von / J. C. Köster, / Geometer. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.212Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "qax655s39r5ma1h"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "tr8ixkp71zvjhyn"
+    }
+  ]
+}

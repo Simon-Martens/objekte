@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Der Leopard, das Krokodill, / Der Tiger, die Hyäne / Begegneten sich einst am Nil,",
+  "language": [],
+  "musenalm_id": 6563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wettstreit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wettstreit",
+  "updated": "2000-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.265Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "ep31wdsm4t6m68h"
+    }
+  ]
+}

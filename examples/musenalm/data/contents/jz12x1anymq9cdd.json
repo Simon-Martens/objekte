@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 61721, Obj 173",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ob ich morgen oder heut / Mein Geheimnis ihr entdecke? / Ob ich durch Empfindsamkeit",
+  "language": [],
+  "musenalm_id": 13955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freierslust. / Mit Musik v. Hrn. A. Methfessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freierslust. / Mit Musik v. Hrn. A. Methfessel",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.542Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "zxcb0pez0408e45"
+    }
+  ]
+}

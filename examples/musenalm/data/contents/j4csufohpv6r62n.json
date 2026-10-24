@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37485, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Auch hier diese rege und geschäftige Phantasie, die über Alles jetzt die finstersten Schlagschatten, jetzt die verklärendsten Strahlen wirft.",
+  "language": [],
+  "musenalm_id": 37493,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / (2 Th. 22 Br.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / (2 Th. 22 Br.)",
+  "updated": "2005-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.917Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "cksx4f4twal3a67"
+    }
+  ]
+}

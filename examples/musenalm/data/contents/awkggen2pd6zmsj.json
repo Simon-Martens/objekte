@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Lienhard und Gertrud« von H. Pestalozzi; s. Textbezug INr 55958, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55957,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Lips gez. u. gest.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Lips gez. u. gest.",
+  "scans": [
+    "alm_755_55957_zj5ny5mzy6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.476Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "rwy2py9ioallzzx"
+    }
+  ]
+}

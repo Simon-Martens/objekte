@@ -1,0 +1,434 @@
+{
+  "annotation": "",
+  "biographical_data": "1697-1764",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.373Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1697-11-10"
+      ],
+      "dateOfDeath": [
+        "1764-10-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "The Tate Britain"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Painter%20and%20His%20Pug%20by%20William%20Hogarth.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Painter%20and%20His%20Pug%20by%20William%20Hogarth.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:The%20Painter%20and%20His%20Pug%20by%20William%20Hogarth.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174039107",
+        "https://d-nb.info/gnd/1325002038",
+        "https://d-nb.info/gnd/174168438"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T12:02:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118552805/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Jane"
+          ],
+          "surname": [
+            "Thornhill"
+          ]
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "James"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Thornhill"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118552805",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118552805",
+      "oldAuthorityNumber": [
+        "(DE-588a)174039107",
+        "(DE-588)1325002038",
+        "(DE-588c)4025531-1",
+        "(DE-588a)174168438",
+        "(DE-588)174039107",
+        "(DE-588)174168438",
+        "(DE-588a)126651418",
+        "(DE-588a)118552805"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4099783-2",
+          "label": "London-Chiswick"
+        }
+      ],
+      "preferredName": "Hogarth, William",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "William"
+        ],
+        "surname": [
+          "Hogarth"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4232470-1",
+          "label": "Karikaturist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunstmaler"
+      ],
+      "publication": [
+        "The analysis of beauty",
+        "Biographicae anecdotis of William Hogarth",
+        "Anecdotes of William Hogarth",
+        "Anecdotes",
+        "Analyse de la Beauté ...",
+        "Meisterwerke der englischen Malerei von Hogarth bis Turner",
+        "Les Satyres de Guillaume Hogarth",
+        "The original Works of William Hogarth"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80126106"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17268409"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q171344"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118552805/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325002038"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174039107"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174168438"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/William_Hogarth"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/William_Hogarth"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/William_Hogarth"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120993749"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118552805"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118552805"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118552805"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118552805"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Chogart, V.",
+        "Hogarth, W.",
+        "Hogarth",
+        "Hogarth, Guglielmo",
+        "Hogarth, Wilhelm",
+        "Hogarth, Guillaume",
+        "Hogarth, Wm.",
+        "Chogart, Uilʹjam"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Chogart"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        },
+        {
+          "personalName": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "Guillaume"
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "Guglielmo"
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "Uilʹjam"
+          ],
+          "surname": [
+            "Chogart"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "Wm."
+          ],
+          "surname": [
+            "Hogarth"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/William_Hogarth",
+          "label": "https://de.wikipedia.org/wiki/William_Hogarth"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:47:03Z",
+    "gnd_query_biographical_data": "1697-1764",
+    "gnd_query_name": "hogarth, william"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1220,
+  "name": "Hogarth, William",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVII, 296",
+  "updated": "2026-06-11 13:29:22.962Z",
+  "uri": "https://d-nb.info/gnd/118552805",
+  "editor": ""
+}

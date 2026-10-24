@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Sind die Seladons gleich aus der Mode, / Ist die Treue nicht mehr guter Ton,",
+  "language": [],
+  "musenalm_id": 37554,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVII. / An Lora. / (Nach Boufflers.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVII. / An Lora. / (Nach Boufflers.)",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.636Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "uvrlhe28cqnqskh"
+    }
+  ]
+}

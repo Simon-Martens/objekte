@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Wuchert dies Leben dich ein mit des Dornen- / kranzes Unschlingung?",
+  "language": [],
+  "musenalm_id": 83915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei wahrhafte Trostworte und eine / wahrhafte Erwiederung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei wahrhafte Trostworte und eine / wahrhafte Erwiederung",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.146Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "wqjqw2ybv92ohec"
+    }
+  ]
+}

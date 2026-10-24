@@ -1,0 +1,45 @@
+{
+  "annotation": "Motto zur folgenden Novelle 28072, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "An seinem Ort gesehn, ist nichts so schlimm / Noch hehr, wie's einzeln in der Ferne scheint,",
+  "language": [],
+  "musenalm_id": 28071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sclavenhändler. / Motto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sclavenhändler. / Motto",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.429Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "o996cc1d1t96hpw"
+    }
+  ]
+}

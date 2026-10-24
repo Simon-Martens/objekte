@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "He da, Vetter von dem Musengotte, / Windvogt Aeol! aus der Wünsche grossen / Grotte / Schickt sofort den besten Seegler mir!",
+  "language": [],
+  "musenalm_id": 76373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Rupert Becker. / 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Rupert Becker. / 1783",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.893Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "5sajxk2u6vr3duy"
+    }
+  ]
+}

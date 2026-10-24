@@ -1,0 +1,101 @@
+{
+  "annotation": "s. Taschenbuch für edle deutsche Weiber 1800; alm-3804",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, 2 BB, SS 1-342 darin 4 GG, MusB, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für edle teutsche Frauen 1802",
+    "norm": "~",
+    "biblio": 200455,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2794,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Müller)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für edle teutsche Frauen 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 115; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / edle teutsche Frauen / mit Kupfern / 1802. / Leipzig, / bei Heinrich Müller",
+  "updated": "2026-06-11 10:18:54.699Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "bxjtnxt2dszxy3x"
+  ],
+  "contents": [
+    "v3rh1d59a42epz3",
+    "hljd93h9cutarm9",
+    "i76pf1xy780htot",
+    "wt2or48in8ohekj",
+    "0qweu8d4dqqaeeq",
+    "zo0fxoezhd851uz",
+    "jfvqosorp2b1nzf",
+    "l8nny91s3k82y5n",
+    "vwgy6nan7u4y3h8",
+    "wtoylavo2n93rxy",
+    "kptnc6dh2kjqddg",
+    "q1xhl7xio22zx1s",
+    "9rncy31us0jj4ze",
+    "o4jjbn0vxw3d38f",
+    "ezwn9jo0i8vsbkn",
+    "r6sb6jmz3pf9xeq",
+    "4e6oyigb0ew644c",
+    "dje9tfqyhullm1t",
+    "65x1rb943vq9o9e",
+    "mbw6qjm387nwgnh",
+    "r0ytx5ug1nuanl0",
+    "uvesrmtl8gcljr1",
+    "trszhpks9w15tom",
+    "p5tlhvr6ircq0f3",
+    "mnvug1tgtcviuu3",
+    "i1rgbxatm22k5us",
+    "efco9jrsnb56i7b",
+    "4pkdjvfs8573u01",
+    "dp22k194wj2a9tl",
+    "gz3noa0gat6fuxx",
+    "mrvei30mr65cxqt",
+    "dyhezbc8gndrqjh",
+    "1e3i0wjfu609mii"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "227b417nw7e5681"
+    }
+  ]
+}

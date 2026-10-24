@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Weis es Gott! ich bin ein ehrlicher Leute ehrliches Kind - habe immer ehrlich mich genährt - zu ehrlicher Gesellschaft mich gehalten - und doch - ach! daß mir ein Mühlstein an den Hals gehängt und ich ersäuft worden wäre im Meer.",
+  "language": [],
+  "musenalm_id": 76839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bilderdieb",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bilderdieb",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.752Z",
+      "agent": "bmrndjx591terfe",
+      "source_id": "rrlofk8wztusams"
+    }
+  ]
+}

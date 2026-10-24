@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Jetzt kömmt er an mein Fensterlein, / Wo Rosen und Gelveielein / Die schönsten Stöcke stehen,",
+  "language": [],
+  "musenalm_id": 70987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Männerart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kölle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Männerart",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.484Z",
+      "agent": "c98kgeq0jg98qoh",
+      "source_id": "g4u2xkcz8ds4m2l"
+    }
+  ]
+}

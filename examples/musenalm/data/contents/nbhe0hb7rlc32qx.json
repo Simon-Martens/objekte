@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 27295, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "In der Gondel gestern Abend / Ich mein schönes Blondchen führte;",
+  "language": [],
+  "musenalm_id": 27326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "31.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "31.",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.305Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "6r85e27jtlcfnbr"
+    }
+  ]
+}

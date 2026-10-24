@@ -1,0 +1,63 @@
+{
+  "annotation": "Jg 1820 mit 2 Heften. /) Publikation am Rand des Almanachwesens mit Beiträgen namhafter Dichterinnen der Zeit",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna, Schriften deutscher Frauen, gewidmet den Frauen 1820 (2)",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1023,
+  "parallel_title": "",
+  "place_statement": "Chemnitz (Kretschmar)",
+  "places": [
+    "ytizcghqg9111a0"
+  ],
+  "preferred_title": "Iduna, Schriften deutscher Frauen, gewidmet den Frauen 1820 (2)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; D 1672",
+  "responsibility_statement": "Ein Verein deutscher Schriftstellerinnen",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.710Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.081Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.081Z",
+      "agent": "h5200jbb8k78xyg",
+      "source_id": "nltzfkg87psxvtd"
+    }
+  ]
+}

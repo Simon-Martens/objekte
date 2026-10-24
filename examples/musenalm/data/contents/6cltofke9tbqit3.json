@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Dürfte sich wohl eine ähnliche Geschichte in unsern Tagen ereignen? Also, vor Alters, war eine Dame, jung, schön, geistvoll, und bei alldem mit ihrem Gemahle glüklich.",
+  "language": [],
+  "musenalm_id": 75932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frau Clara. / Eine Geschichte aus den vorigen Zeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frau Clara. / Eine Geschichte aus den vorigen Zeiten",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.922Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "ot02geagh0cjx9t"
+    }
+  ]
+}

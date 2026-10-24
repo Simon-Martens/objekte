@@ -1,0 +1,87 @@
+{
+  "annotation": "Der einzige Jahrgang in 2 Bändchen /) einziger Beitag: Lebensbeschreibung der Mecklenburgischen Stute Amante von ihr selbst erzählt (Kap. 1-22)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B Vrwrt d Hrsg, B I-Verz, SS 1-144, 7 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues Leipziger für Liebhaber der Pferde 1804-1",
+    "norm": "~",
+    "biblio": 406768,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3708,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Neues Leipziger für Liebhaber der Pferde 1804-1",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "Valentin Trichter",
+  "subtitle_statement": "",
+  "title_statement": "Neues Leipziger / Taschenbuch / für / Liebhaber der Pferde. / Herausgegeben / von / Valentin Trichter. / Erstes Bändchen. / Mit einem Kupfer. / Leipzig, 1804. / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.383Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "ebuz7adphzf7909"
+  ],
+  "contents": [
+    "w8322sqp3ej8t89",
+    "hdivmv8korjmk0o",
+    "8h4n3ivxk5c6bvp",
+    "m9gdz9qdxqwceed",
+    "0gu8n4qjh07rdct",
+    "vo3ulffeqs3bjdi",
+    "j7pdriz1lykhgqo",
+    "8l7gvgwbil3y6s5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.284Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.284Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "igysdnmkxtdio0e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "ln052gefcnqi2f6"
+    }
+  ]
+}

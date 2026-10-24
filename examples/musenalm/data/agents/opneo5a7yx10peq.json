@@ -1,0 +1,468 @@
+{
+  "annotation": "",
+  "biographical_data": "1772–1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.470Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "In erster Ehe bis 1794 verheiratet mit Schauspielerin Louise Wilhelmine Löwe; in zweiter Ehe ab 1796 mit Henriette Moers."
+      ],
+      "dateOfBirth": [
+        "1772-08-05"
+      ],
+      "dateOfDeath": [
+        "1841-04-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Uni Magdeburg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Ludwig%20Schmidt%20%281772%29%20Portr%C3%A4t.gif",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Ludwig%20Schmidt%20%281772%29%20Portr%C3%A4t.gif?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Ludwig%20Schmidt%20%281772%29%20Portr%C3%A4t.gif?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-25T22:19:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104325011/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117504734",
+          "label": "Schmidt, Friedrich Ludwig"
+        },
+        {
+          "forename": [
+            "Helena Margaretha Francisca Henriette"
+          ],
+          "surname": [
+            "Binder"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117515515",
+          "label": "Schmidt, Philipp"
+        },
+        {
+          "forename": [
+            "Philipp Friedric Moses Paul"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste [Louise Mathilde August]"
+          ],
+          "surname": [
+            "Böckmann"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette Auguste Eleonore (gest. 1846)"
+          ],
+          "surname": [
+            "Moers"
+          ]
+        },
+        {
+          "forename": [
+            "Magladene"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Christ. Martin"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Louise Wilhelmine"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette Auguste Eleonore"
+          ],
+          "surname": [
+            "Moers"
+          ]
+        },
+        {
+          "forename": [
+            "Maria Louise Dorothea"
+          ],
+          "surname": [
+            "Heinsen"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104325011",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117515515",
+          "label": "Schmidt, Philipp"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/117504734",
+          "label": "Schmidt, Friedrich Ludwig"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104325011",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)104325011",
+        "(DE-588c)4546575-7",
+        "(DE-588a)127930396",
+        "(DE-588a)153727810"
+      ],
+      "periodOfActivity": [
+        "1808-1841"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Schmidt, Friedrich Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ludwig"
+        ],
+        "surname": [
+          "Schmidt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "publication": [
+        "Die ungleichen Brüder",
+        "Nur er will sprechen",
+        "Der Brautstand oder die Weihnachtsfeyer",
+        "Die Belagerung von Magdeburg im Jahre 1551",
+        "Weiberpolitik",
+        "Johann Vasmer",
+        "Der rechte Arzt. - [1807?]",
+        "Die Neugierigen",
+        "Mathilde von Heideck",
+        "Der Sturm auf Magdeburg"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2001087085"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69366690"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q16471530"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104325011/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Schmidt_%28Schauspieler%2C_1772%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Ludwig_Schmidt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000042049399"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104325011"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104325011"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104325011.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104325011"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104325011"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Schmidt, Friedrich L.",
+        "Schmidt, Fridericus L.",
+        "Schmidt, Ludwig",
+        "Schmidt, Friedrich E.",
+        "Schmidt, F. L.",
+        "Schmidt, Fr. Ludwig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fr. Ludwig"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich E."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus L."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "F. L."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Schmidt_%28Schauspieler%2C_1772%29",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Schmidt_%28Schauspieler%2C_1772%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:49:54Z",
+    "gnd_query_biographical_data": "1772–1841",
+    "gnd_query_name": "schmidt, friedrich ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2485,
+  "name": "Schmidt, Friedrich Ludwig",
+  "profession": "Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XXXI, 721",
+  "updated": "2026-06-11 13:29:24.703Z",
+  "uri": "https://d-nb.info/gnd/104325011",
+  "editor": ""
+}

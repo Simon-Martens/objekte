@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Wer ist der Jüngling hoch und hehr, / In dessen starken Armen / Der Alpe Schnee, das Zuckermeer; In Lust und Freud' erwarmen?",
+  "language": [],
+  "musenalm_id": 71886,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parabel",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.529Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "xubw49qye15ur3p"
+    }
+  ]
+}

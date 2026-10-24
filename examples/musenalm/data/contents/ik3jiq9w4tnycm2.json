@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Was in der Welt unendlich regem Streben / Still durch der Frau verschwiegnen Busen / zieht,",
+  "language": [],
+  "musenalm_id": 90927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was in der Welt unendlich regem Streben / Still durch der Frau verschwiegnen Busen / zieht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie von Hellwig, gebohrne von Imhof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.543Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "bvsajqq8zaj7wmo"
+    }
+  ]
+}

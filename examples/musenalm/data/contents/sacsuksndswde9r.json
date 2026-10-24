@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Vom Kirchhof fort, auf dem die schönen / Linden stehen, / So mahlerisch gruppiert um Kirch' und Thurm,",
+  "language": [],
+  "musenalm_id": 17472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doctor Wurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doctor Wurm",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.733Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "58k2f7enrfp5act"
+    }
+  ]
+}

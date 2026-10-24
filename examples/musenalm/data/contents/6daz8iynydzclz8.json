@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 4. s. Textbezug INr 59976, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faustkampf, des NationalConvents inParis, / im December 1792",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59978_ck62lp51s9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faustkampf, des NationalConvents inParis, / im December 1792",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.084Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "f17dfjvojeyykc3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.084Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "v6n540dxum86zyy"
+    }
+  ]
+}

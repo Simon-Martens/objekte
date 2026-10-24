@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 77730, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77731,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hespera",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hessloehl scpt.",
+  "scans": [
+    "alm_2411_77731_s2d8fo5eib.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hespera",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.659Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "r1ea2o8nu6zims5"
+    }
+  ]
+}

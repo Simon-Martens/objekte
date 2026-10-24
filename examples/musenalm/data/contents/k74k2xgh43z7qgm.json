@@ -1,0 +1,45 @@
+{
+  "annotation": "am Objekt: p. 30. Illustration zu »Niklas. Bruchstück einer größern, noch ungedruckten Erzählung« in: Taschenbuch für häusliche und gesellschaftliche Freuden 1800, INr 35701",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35803,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niklas. / S. Langs Almanach 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seele del. Guttenberg sc.",
+  "scans": [
+    "alm_490_35803_5snrb4y47s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Niklas. / S. Langs Almanach 1800",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.691Z",
+      "agent": "p79994clraf220s",
+      "source_id": "7piq1nqers5jyyl"
+    }
+  ]
+}

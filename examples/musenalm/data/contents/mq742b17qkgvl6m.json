@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Bedarf dein mistisch-philosophisches Gedicht / So eines Commentars, so gieb uns beyde nicht!",
+  "language": [],
+  "musenalm_id": 16667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Carbunculus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Carbunculus",
+  "updated": "2001-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.817Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "fj636zfqfkdxfd3"
+    }
+  ]
+}

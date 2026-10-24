@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "An Königshöfen, in Pallästen / Verweilen scheue Musen nicht; / Sie fliehn dahin, wo unter grünen Aesten / Natur und Wahrheit spricht.",
+  "language": [],
+  "musenalm_id": 132976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Erzherzog Carl, / bey dessen siegreicher Ankunft zu Freyburg / im Breisgau, im Rahmen der k.k. Uni- / versität im October 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Erzherzog Carl, / bey dessen siegreicher Ankunft zu Freyburg / im Breisgau, im Rahmen der k.k. Uni- / versität im October 1796",
+  "updated": "2024-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.101Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "s898rs7nnhz1zzb"
+    }
+  ]
+}

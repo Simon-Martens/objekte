@@ -1,0 +1,45 @@
+{
+  "annotation": "Garten-Miscellen (Sammlung INr 74248, Obj 42) s. Beitrag in: Gartenkalender (Hirschfeld) 1782; INr 15373",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "In Hirschfeld's Gartenkal. 1782 S. 164-166 stehet die Beschreibung eines unterirdischen Gartens. Existirt wohl dieser Garten annoch?",
+  "language": [],
+  "musenalm_id": 74250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Hirschfeld's Gartenkal. 1782 S. 164-166 stehet die Beschreibung eines unterirdischen Gartens. Existirt wohl dieser Garten annoch?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Römer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.570Z",
+      "agent": "isv9wrpng7dwls4",
+      "source_id": "7qncprfryirdhq5"
+    }
+  ]
+}

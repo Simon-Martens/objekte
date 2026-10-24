@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Morgenlied« von M. Claudius INr 5157, Obj 91",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Reichardt",
+  "scans": [
+    "alm_104_5158_o1eq4qp5jj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Morgenlied",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.112Z",
+      "agent": "it8ptc76fbrkd73",
+      "source_id": "7ru6ksxbaar8scw"
+    }
+  ]
+}

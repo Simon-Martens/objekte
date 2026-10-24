@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Genoveva« von L. Tieck # Titel s. Textbezug INr 66256, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66257,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genoveva mit dem Kinde, geführt von Benno und Grimoald #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich v. Ernst Rauch Darmstadt",
+  "scans": [
+    "alm_1100_66257_bojctwqh8q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Genoveva mit dem Kinde, geführt von Benno und Grimoald #",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.193Z",
+      "agent": "902nw56856wz9rx",
+      "source_id": "9cwzwfpg7pctya4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.193Z",
+      "agent": "k7ib4tmw0w1jiao",
+      "source_id": "ulpudps1f01ygdo"
+    }
+  ]
+}

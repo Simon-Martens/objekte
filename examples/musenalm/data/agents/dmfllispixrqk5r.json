@@ -1,0 +1,357 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1830",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.432Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Professor an der Akademie und Kupferstecher in Stuttgart"
+      ],
+      "dateOfBirth": [
+        "1747-05-04"
+      ],
+      "dateOfDeath": [
+        "1830-03-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ernst Morace / After Johann Friedrich August Tischbein"
+          ],
+          "creditText": [
+            "http://www.museen-sh.de/ml/digi_einzBild.php?action=vonsuche&amp;s=2&amp;&amp;LKanz=ja&amp;b=50353&amp;nameInst=&amp;AAr="
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gotthard%20M%C3%BCller%20Tischbein%20Morace.PNG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gotthard%20M%C3%BCller%20Tischbein%20Morace.PNG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gotthard%20M%C3%BCller%20Tischbein%20Morace.PNG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:13:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-521",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-521"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117592757/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-602",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-602"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100149715",
+          "label": "Gmelin, Christian Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117592641",
+          "label": "Müller, Johann Friedrich Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117592757",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117592641",
+          "label": "Müller, Johann Friedrich Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117592757",
+      "oldAuthorityNumber": [
+        "(DE-588c)4611638-2",
+        "(DE-588a)117592757"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Bernhausen <Fildern>"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Mueller, Johann Gotthard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gotthard"
+        ],
+        "surname": [
+          "Mueller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr00022395"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/226791439"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1585979"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117592757/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gotthard_von_M%C3%BCller"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gotthard_von_M%C3%BCller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066494024"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117592757"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117592757"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117592757.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117592757"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117592757"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Müller, J. G.",
+        "Müller, I. G.",
+        "Mueller, J. G.",
+        "Müller, G. M.",
+        "Müller, Joh... Gotth...",
+        "Müller, Johann Gotthard von",
+        "Müller, Johann Gotthard",
+        "Müller, I. Gotth."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Mueller"
+          ]
+        },
+        {
+          "forename": [
+            "G. M."
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Joh... Gotth..."
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "I. Gotth."
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthard"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gotthard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gotthard_von_M%C3%BCller",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gotthard_von_M%C3%BCller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:20:09Z",
+    "gnd_query_biographical_data": "1747-1830",
+    "gnd_query_name": "müller, johann gotthard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1886,
+  "name": "Müller, Johann Gotthard",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 236",
+  "updated": "2026-06-11 13:29:23.879Z",
+  "uri": "https://d-nb.info/gnd/117592757",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 112668, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Der Mittag war heiß und drückend, kein Lüftchen regte sich, im dichten Walde schliefen die Zweige.",
+  "language": [],
+  "musenalm_id": 112677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wilde Rose. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die wilde Rose. / Novelle",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.533Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "xm2wiib5mrwaevz"
+    }
+  ]
+}

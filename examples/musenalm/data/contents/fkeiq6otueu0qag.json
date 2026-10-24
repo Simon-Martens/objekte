@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April; nummeriert 3. /) Illustration zu »Das gerettete Venedig« von Otway",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105006,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "das gerette Venedig von Otway. / Hr. und Mme. BARRY als JAFFIER und / BELVIDERA. Jaff: Horch! / die trauerglocke tönt den Tod!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. Riepenhausen",
+  "scans": [
+    "alm_3256_105006_7i69f8m4lt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "das gerette Venedig von Otway. / Hr. und Mme. BARRY als JAFFIER und / BELVIDERA. Jaff: Horch! / die trauerglocke tönt den Tod!",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.048Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "uqr8t09g0hekfeh"
+    }
+  ]
+}

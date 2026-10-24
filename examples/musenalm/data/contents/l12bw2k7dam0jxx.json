@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 115862, Obj 108)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Wenn die Hochzeitsfackel lodert, / Siehe, welcher Gott sie hält,",
+  "language": [],
+  "musenalm_id": 115863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hochzeitsgötter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hochzeitsgötter",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.593Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "tyyegl3oxxsn4vv"
+    }
+  ]
+}

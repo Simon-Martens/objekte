@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Der Abendstern blikt sanft auf mich; / Der Mond schwimmt dort im Trüben;",
+  "language": [],
+  "musenalm_id": 17576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andenken an meine Lieben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Andenken an meine Lieben",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.735Z",
+      "agent": "jw839qn8xbse64z",
+      "source_id": "tvrrpa4pjgzhb1j"
+    }
+  ]
+}

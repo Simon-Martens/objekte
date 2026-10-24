@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert XIV.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7891,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Coëffures] de Leipsic. / 1. au petit deuil. 2. a la méprisante 3. a la Néréide, 4. a l'imposante",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner del. et sculp",
+  "scans": [
+    "alm_149_7891_9parv79kjc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Coëffures] de Leipsic. / 1. au petit deuil. 2. a la méprisante 3. a la Néréide, 4. a l'imposante",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.059Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "7lvg0tu3ib528hc"
+    }
+  ]
+}

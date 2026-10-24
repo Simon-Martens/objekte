@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug »Des Schottländers Brautschau« von J. V. Adrian INr 43977, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43978,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Constance",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by H. Hawkins Engraved by W. H. Eagleton",
+  "scans": [
+    "alm_593_43978_y8tfytjuzy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Constance",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.372Z",
+      "agent": "pyrgon7mq3eszwd",
+      "source_id": "4gst2sdmjq72kqy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.372Z",
+      "agent": "os68j7do21limr4",
+      "source_id": "vvsfs8l201mye5s"
+    }
+  ]
+}

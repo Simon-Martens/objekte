@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel und Charaden (Sammlung INr 118792, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Das Kind: Sanft schleif ich in der Mutter Schoos, / So wonnenreich, so sorgenlos; / Da weckten mich der Brüder Klagen,",
+  "language": [],
+  "musenalm_id": 118793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.596Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "ap3z25z937kr365"
+    }
+  ]
+}

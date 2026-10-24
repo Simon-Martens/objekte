@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Ach! Wie schrumpfen allhier die dicken / Bände zusammen,",
+  "language": [],
+  "musenalm_id": 38738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 601,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haller",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.220Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "8klr88d7l5g0dq6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.220Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "og8yxxs2aqtk8tk"
+    }
+  ]
+}

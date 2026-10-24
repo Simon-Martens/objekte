@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Beitrag INr 32723, Obj 35 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Wohl ihm, daß er es fühlt, / Der wahre Weg des Lebens sey, / sich seines Lebens freuen,",
+  "language": [],
+  "musenalm_id": 32724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohl ihm, daß er es fühlt, / Der wahre Weg des Lebens sey, / sich seines Lebens freuen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.706Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "2ttd258yl1ma22z"
+    }
+  ]
+}

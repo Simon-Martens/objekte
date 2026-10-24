@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait # nach einem Gipsabguß von Rachette; vollst. Bez. aus der Verlagsmitteilung INr 36590, Obj 139",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5191,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klopstock",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rachette; Geyser",
+  "scans": [
+    "alm_109_5191_3sjdt1shva.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klopstock",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.085Z",
+      "agent": "xqh3daep1j1xdtp",
+      "source_id": "9yn9c329pzdltx6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.085Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "u1jfwi08wu24r0v"
+    }
+  ]
+}

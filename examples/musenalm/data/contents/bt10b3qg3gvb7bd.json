@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Glücklicher Abend, der uns vereint, / Herzlich begrüßen dich Freundin und Freund!",
+  "language": [],
+  "musenalm_id": 11204,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "57. / Gesellschaftslied. / Nach dem Favoritquartet aus Crequi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "57. / Gesellschaftslied. / Nach dem Favoritquartet aus Crequi",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.219Z",
+      "agent": "sg73x8kcyc2ixxl",
+      "source_id": "pvw3s5k3pksx6xl"
+    }
+  ]
+}

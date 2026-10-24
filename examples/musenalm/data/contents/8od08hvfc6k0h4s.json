@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "Bald tobt es laut einher, bald lispelt's dir zu / Füßen;",
+  "language": [],
+  "musenalm_id": 53750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Logogryph. / Einsilbig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Logogryph. / Einsilbig",
+  "updated": "2007-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.608Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "isado7d7opkuzry"
+    }
+  ]
+}

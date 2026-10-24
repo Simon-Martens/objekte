@@ -1,0 +1,43 @@
+{
+  "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29396, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Kinderliebe süße Scenen / Giebt manches Buch im Überfluß;",
+  "language": [],
+  "musenalm_id": 29395,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Kinder-Eintracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Kinder-Eintracht",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.476Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "yb6kb2hseo046fx"
+    }
+  ]
+}

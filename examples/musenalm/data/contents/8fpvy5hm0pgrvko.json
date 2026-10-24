@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es scheint vom Schicksal über meinen Theater-Kalender verhängt zu seyn, daß er, aller Mühe und alles Bestrebens ohngeachtet, nie so früh, als seine übrigen Herrn Kollegen im Publikum erscheinen kann.",
+  "language": [],
+  "musenalm_id": 105081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Publikum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das Publikum",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.992Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "5wofwjx0789iijz"
+    }
+  ]
+}

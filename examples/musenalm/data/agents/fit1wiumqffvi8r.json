@@ -1,0 +1,307 @@
+{
+  "annotation": "",
+  "biographical_data": "1700-1781",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.413Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Kupferstecher, Kunsthändler"
+      ],
+      "dateOfBirth": [
+        "1700-01-13"
+      ],
+      "dateOfDeath": [
+        "1781-03-18"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1041853416",
+        "https://d-nb.info/gnd/1243847719"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T15:57:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116985801/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116985801",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116985801",
+      "oldAuthorityNumber": [
+        "(DE-588a)116985801",
+        "(DE-588)1041853416",
+        "(DE-588)1243847719",
+        "(DE-588c)7519282-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1326466216",
+          "label": "Wöhrd"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "preferredName": "Lichtensteger, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Lichtensteger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4320478-8",
+          "label": "Kunsthändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Trew, Christoph J.: Christoff Jacob Trews Osteologie oder eigentliche Fürstellung und B*",
+        "Lichtensteger, Georg: Vorstellung der Gebeine und Muskeln des menschlichen Körpers",
+        "Lichtensteger, Georg: Die aus der Arithmetik und Geometrie herausgeholten Gründe zur me*",
+        "Catesby, Mark: Piscium, Serpentum, Insectorum, aliorumque nonnullorum animalium, nec non *"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14803396h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2003129167"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12570357"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q30303197"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1041853416"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116985801/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243847719"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000436547745"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116985801"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116985801"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116985801"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116985801"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Lichtenstecher, Georg",
+        "Lichtensteger, G.",
+        "Lichtensteger, Georgius",
+        "Lichtenstegerus, Georgius",
+        "Lichtensteger, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Lichtensteger"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Lichtenstegerus"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Lichtenstecher"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Lichtensteger"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Lichtensteger"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:07:39Z",
+    "gnd_query_biographical_data": "1700-1781",
+    "gnd_query_name": "lichtensteger, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1633,
+  "name": "Lichtensteger, Georg",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIII, 192",
+  "updated": "2026-06-11 13:29:23.590Z",
+  "uri": "https://d-nb.info/gnd/116985801",
+  "editor": ""
+}

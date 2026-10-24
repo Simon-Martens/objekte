@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Also das die alte Stelle! / Und die alte doch auch nicht!",
+  "language": [],
+  "musenalm_id": 53648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neuer Gruß / auf / alter Stelle. / Am Sonntag im Freien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neuer Gruß / auf / alter Stelle. / Am Sonntag im Freien",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.700Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "0vwc1ejp3smvtda"
+    }
+  ]
+}

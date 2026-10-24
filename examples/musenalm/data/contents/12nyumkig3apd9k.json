@@ -1,0 +1,45 @@
+{
+  "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) II. Leuchtkugeln (Sammlung INr 36366, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Heute hörte ich auf einmal wieder Gluck's Iphigenia; und zwar seit zwölf Jahren zum ersten Mal,",
+  "language": [],
+  "musenalm_id": 36367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Gluck's / Iphigenia auf Tauris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von einem alten Musikdirector $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Gluck's / Iphigenia auf Tauris",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.922Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "wyaf479p36aru9k"
+    }
+  ]
+}

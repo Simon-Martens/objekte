@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Das ist eine unbedingtes Gesetz für den Menschen, daß der Gedanke in ihm herrsche,",
+  "language": [],
+  "musenalm_id": 39769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das ist eine unbedingtes Gesetz für den Menschen, daß der Gedanke in ihm herrsche,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.616Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "g59yzj7rz01fldg"
+    }
+  ]
+}

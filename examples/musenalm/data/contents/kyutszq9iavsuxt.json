@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Ein düstrer Flor im Erdenleben, / Umhüllt noch den gedrückten Geist, / Wo nicht der Kunst geheiligt Streben, / Allmächtig seine Fesseln reißt.",
+  "language": [],
+  "musenalm_id": 127521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Künstler, den Genius der Kunst / einführend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Künstler, den Genius der Kunst / einführend",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.943Z",
+      "agent": "lonqcs6pn486ebs",
+      "source_id": "ewcjcm4a8hm7m8n"
+    }
+  ]
+}

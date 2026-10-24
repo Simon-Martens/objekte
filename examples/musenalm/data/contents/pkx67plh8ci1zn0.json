@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Redet! Woher der verborgene Zug des menschli- / chen Geistes, / Lieber der gütige Mann, als der gerechte zu / seyn?",
+  "language": [],
+  "musenalm_id": 83853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gütig, gerecht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gütig, gerecht",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.108Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "0jh90yda8vu0hz7"
+    }
+  ]
+}

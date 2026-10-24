@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Natalie« von A. Patuzzi INr 117377, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117351,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natalie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. Parris  Hac. Fleischmann sc.",
+  "scans": [
+    "alm_3226_117351_j8f40doglw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Natalie",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.338Z",
+      "agent": "9lorjkhsnx1rkjc",
+      "source_id": "n88lugj23flvuma"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.338Z",
+      "agent": "9gep2y6vxxwiktu",
+      "source_id": "rbsrngrx8t6x8lr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 80214, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Selten kommet die Reue zu spät bei dem einzelnen Thoren: / Doch bei den Völkern kommt immer die Reue zu spät.",
+  "language": [],
+  "musenalm_id": 80234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Späte Reue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Späte Reue",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.934Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "yinytxn5yzot9q7"
+    }
+  ]
+}

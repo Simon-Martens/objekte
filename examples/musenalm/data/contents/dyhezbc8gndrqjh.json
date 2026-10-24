@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Würde der Frauen« von Fr. Schiller INr 87317, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87318,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würde der Frauen von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "comp. v. Beczwarzowsky",
+  "scans": [
+    "alm_2794_87318_7l76gkniw9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Würde der Frauen von Schiller",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.448Z",
+      "agent": "65ppshp1bsv9qvc",
+      "source_id": "nr300h5ukfqm0pd"
+    }
+  ]
+}

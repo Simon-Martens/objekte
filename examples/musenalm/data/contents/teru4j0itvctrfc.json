@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Die Rettung« aus »Gemälde aus dem häuslichen Leben« von G. W. C. Starke",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10647,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rettung / V. Gemälde aus dem häuslichen Leben von Starke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sculps. 1795",
+  "scans": [
+    "alm_202_10647_l9xtily8jg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rettung / V. Gemälde aus dem häuslichen Leben von Starke",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.578Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "hjnlzsuu9vrvdn6"
+    }
+  ]
+}

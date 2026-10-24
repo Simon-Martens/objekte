@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Ich weiß nicht, ist es schlimm, ist's gut, / Daß ich so Viele liebe",
+  "language": [],
+  "musenalm_id": 94686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poetisches Tagebuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poetisches Tagebuch",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.452Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "sokdhnlpu5b2suy"
+    }
+  ]
+}

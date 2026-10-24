@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 51 SS Kal darin 6 GG, 6 BB S 1 zT, SS 2-16",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1831",
+    "norm": "~",
+    "biblio": 408882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4171,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "J. C. Köster",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Jahr 1831. / Von / J. C. Köster, / Geometer. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.211Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "uxgfgie57h0u9ly"
+  ],
+  "contents": [
+    "hy6qw92z4sen8wf",
+    "54d2rro2inai6ux",
+    "yuej436joealtx5",
+    "eo2mb25lpbhvan7",
+    "hhkn56c0uwnsrr4",
+    "xy3v7eyp4l9kuul",
+    "gbkxiojhwc066fw",
+    "04u6n1psc8rj1oe",
+    "h0zkk1o8qmj3dft",
+    "6ko1su95vke19v9",
+    "dbv83h4c1tjufse",
+    "zxkz38g4c19cix5",
+    "2ccty9t26hh7cqw",
+    "jc2k6e994bkypd6",
+    "frflpachwbdm83y",
+    "n8a35ouma9mp5jq",
+    "qz58ox7vg25gq57",
+    "gancaxh5ryudgyw",
+    "rc8i0ra5b2hvzql",
+    "bsyxemn5vod1fnz",
+    "k31sz006rkxahnd",
+    "5dh7svwtu3cpfwg",
+    "eiwg9hy1poywwee",
+    "b8ji03kpp8n8k0h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "784j26ak25n7p3g"
+    }
+  ]
+}

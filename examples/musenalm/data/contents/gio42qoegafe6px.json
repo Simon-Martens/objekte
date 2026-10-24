@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Todtenwürfel« von H. Meynert INr 94474, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94441,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung: Die Todtenwürfel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Mezler del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1871_94441_nx6oaiyxvf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung: Die Todtenwürfel",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.430Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "ck44hajfdiugjzu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.430Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "tf4gj01qvcm74vp"
+    }
+  ]
+}

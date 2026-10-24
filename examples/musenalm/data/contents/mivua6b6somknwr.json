@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab III. /) kol. Illustration zu »Der Flamant« von V. F. S. Fischer INr 66997, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phoenicopterus ruber L. Der rothe Flamant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susemihl pinx. et sc.",
+  "scans": [
+    "alm_1144_66996_3whxol6evp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Phoenicopterus ruber L. Der rothe Flamant",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.111Z",
+      "agent": "0krc3qfy4wkj0vx",
+      "source_id": "ayur2c9gae653na"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.111Z",
+      "agent": "kno3jlnpudqvc0i",
+      "source_id": "s21y21k2187l56x"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1-390",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1841",
+    "norm": "~ ++++ 406823 ( UG, B: recto vT, verso VrlgM)",
+    "biblio": 101013,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 67,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1841. / Neue Folge. / Dritter Jahrgang. / Mit dem Bildnisse Karl Friedrich Lessing's. / Leipzig: / F. A. Brockhaus. / 1841",
+  "updated": "2026-06-11 10:18:54.886Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "88u7m02a4k4zdgy",
+    "e7pbw7ytn57uv46"
+  ],
+  "contents": [
+    "8d1yg7rph6kwygr",
+    "5mbxm70zwsvapef",
+    "lj9nilsgxye2q9j",
+    "yo530tzhplyuq8a",
+    "eb5mh1n9kf27kzj",
+    "vhmaib8cgub0uz0",
+    "erqd0gzq71pouvx",
+    "orw40w7qmmzlsdh",
+    "y17rpx4l4epwoee",
+    "0tudon0vzr9250r",
+    "i5qmsqagewmvz02"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.604Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.604Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "xlr1f6cidp1ojbp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 13 Illustrationen s. Titelportrait INr 58921, Obj 2 u. Graphiken INr 58924-58935; Obj 5-16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Natur dieses Landes. Das Land Preußen, das heute einem durch innere Festigkeit, edle geistige Kultur und politische Selbständigkeit hochausgezeichneten Staate ersten Ranges seinen Namen giebt,",
+  "language": [],
+  "musenalm_id": 58939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Historisch-statistisches Gemälde / von / Ost- und Westpreußen.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Schubert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Historisch-statistisches Gemälde / von / Ost- und Westpreußen.]",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.176Z",
+      "agent": "o0b6lrjourw0us8",
+      "source_id": "1nn8f2tjwzj1uja"
+    }
+  ]
+}

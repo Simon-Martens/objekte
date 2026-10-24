@@ -1,0 +1,99 @@
+{
+  "annotation": "Reprint: www.facsimilepublisher.com",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS I-XI Vrwrt d Hrsg, S I-Verz, SS 1-163",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Musikalischer für Deutschland (Forkel) 1789",
+    "norm": "~",
+    "biblio": 201015,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2008-03-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 752,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Schwickert)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach, Musikalischer für Deutschland (Forkel) 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 15; L/R 188",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Musikalischer / Almanach / für / Deutschland / auf das Jahr / 1789. / Leipzig / im Schwickertschen Verlage",
+  "updated": "2026-06-11 10:18:55.177Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "scn00wvgz3xu82u"
+  ],
+  "contents": [
+    "czdulwzbmworm67",
+    "kmoaol4xbv0rhg0",
+    "5niitkzmkxuzhbs",
+    "ns3hnuodi0b7nh1",
+    "hxd1a0u6p7h3n1e",
+    "583wfl2cmbl1upq",
+    "ph055384pg50pti",
+    "z8vyrzctqjq7qnv",
+    "etc5km26wq62ark",
+    "0t8cmlotwhkio52",
+    "mlg20ix6e80qdi0",
+    "1zqv5fk6a8k53ra",
+    "n2cviqh57yjmlia",
+    "ooajlevpot4oc8y",
+    "hrbrpxb1a5huwcd",
+    "6mw0w3fnfn8sp77",
+    "3hw83syskz65ak6",
+    "i46rpj4xhsvtyzu",
+    "zd5o5qblwuurts6",
+    "f7x3f8zdj9f39c3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.767Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.767Z",
+      "agent": "xzypb9tyvvvrc9s",
+      "source_id": "opwdhphupnqu84g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.152Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.152Z",
+      "agent": "z46fpt3pssi6nti",
+      "source_id": "ppw50en5f8wsp3k"
+    }
+  ]
+}

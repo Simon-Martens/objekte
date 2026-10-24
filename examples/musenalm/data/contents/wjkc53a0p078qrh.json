@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / Reichsfrey Hochwohlgebohrnen / Herrn, Herrn / Jobst Wilhelm / von Furtenbach [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gehorsamst ergebener Diener A. W. Küfner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / Reichsfrey Hochwohlgebohrnen / Herrn, Herrn / Jobst Wilhelm / von Furtenbach [...]",
+  "updated": "2013-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.109Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "jhr6m69uhidxx30"
+    }
+  ]
+}

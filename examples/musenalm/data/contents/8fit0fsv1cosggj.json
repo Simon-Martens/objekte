@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Liebe Klein! kommst du wieder? / Zu dem Alten, der dich liebt,",
+  "language": [],
+  "musenalm_id": 17218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Hausschwalbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Hausschwalbe",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.662Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "jd7h0wekxxlq4g7"
+    }
+  ]
+}

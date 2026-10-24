@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Einst erschien in Judäa ein Licht, zu er- / leuchten die Völker;",
+  "language": [],
+  "musenalm_id": 3482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Kant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Kant",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.097Z",
+      "agent": "fu6aysv76d2t1pi",
+      "source_id": "ps8oaxp38x5mkma"
+    }
+  ]
+}

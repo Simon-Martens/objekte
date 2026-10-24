@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Bärbel! - sprach zum einz'gen Kinde / Jüngst der Schulz mit barschem Muth",
+  "language": [],
+  "musenalm_id": 430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gartenhüter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gartenhüter",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.816Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "zig5heu0dazn3qh"
+    }
+  ]
+}

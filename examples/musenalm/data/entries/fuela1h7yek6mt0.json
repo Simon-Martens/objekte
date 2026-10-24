@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1829, 1830 (weitere Jgg nicht ermittelt) Bern (Jenni); Hrsg.: E. Stierlin /) Fortsetzung von: Kalender, Historischer für die Schweizer Jugend 1821-1828; Bern (Jenni) Hrsg.: E. Stierlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für die Schweizerische Jugend 1829",
+    "norm": "",
+    "biblio": 406042,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1129,
+  "parallel_title": "",
+  "place_statement": "Bern (Jenni)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Almanach, Historischer für die Schweizerische Jugend 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "E. Stierlin",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für die / Schweizerische Jugend, / für 1829. / Herausgegeben von E. Stierlin, / Pfarrer am Münster. / Erster Jahrgang. / Bern, bey C. A. Jenni, Buchhändler",
+  "updated": "2026-06-11 10:18:55.168Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "4ivk6ijgw1i33hz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.072Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.072Z",
+      "agent": "29k52bnv6igjhjc",
+      "source_id": "4butrw6j3yzmiwq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.828Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.828Z",
+      "agent": "cnlkd07v6a6w54w",
+      "source_id": "cp3x5af0t869zxr"
+    }
+  ]
+}

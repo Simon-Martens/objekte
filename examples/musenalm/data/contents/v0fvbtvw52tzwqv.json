@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Sehr werthe Freundin! Ich danke Ihnen recht herzlich für das gütige Andenken, welches Sie mir so angenehm bewiesen haben. Mir sind Bücher, über die Erziehung geschrieben, schon von meiner frühen Jugend an, werth gewesen,",
+  "language": [],
+  "musenalm_id": 61170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fräulein von Schlieben an die Tochter der / Karschin. / Crossen, den 10 April 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fräulein von Schlieben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fräulein von Schlieben an die Tochter der / Karschin. / Crossen, den 10 April 1793",
+  "updated": "2008-12-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.879Z",
+      "agent": "u98tiztuupol9nf",
+      "source_id": "ldu4u5nrj9u0fji"
+    }
+  ]
+}

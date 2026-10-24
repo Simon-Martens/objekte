@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Nibelungen Stimmen (Sammlung INr 68124, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Noch manche andre kühne Heldengeister / Hat uns des Sängers hohes Lied genannt,",
+  "language": [],
+  "musenalm_id": 68133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch manche andre kühne Heldengeister / Hat uns des Sängers hohes Lied genannt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Waldeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.286Z",
+      "agent": "6j1axvcf9v8yiru",
+      "source_id": "1x75saku0forham"
+    }
+  ]
+}

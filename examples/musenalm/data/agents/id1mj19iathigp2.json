@@ -1,0 +1,714 @@
+{
+  "annotation": "",
+  "biographical_data": "1790-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.520Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1790-02-28"
+      ],
+      "dateOfDeath": [
+        "1862-03-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie aus eigenem Besitz"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Christian%20Zedlitz.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Christian%20Zedlitz.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Christian%20Zedlitz.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/137521189"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T10:02:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118808346/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Ernestine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Lipthay"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118808346",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118808346",
+      "oldAuthorityNumber": [
+        "(DE-588a)137521189",
+        "(DE-588a)118808346",
+        "(DE-588a)131150618",
+        "(DE-588)137521189",
+        "(DE-588c)4118138-4"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4843346-9",
+          "label": "Javornik (Jesenice, Slowenien)"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Johannesberg, Österr.-Schlesien"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Zedlitz, Joseph Christian von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Christian"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Zedlitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Der Stern von Sevilla",
+        "Gedichte",
+        "Die nächtliche Heerschau. - s.a.",
+        "Waldfräulein",
+        "Byron, George G.: Ritter Harolds Pilgerfahrt",
+        "Dramatische Werke",
+        "Pia Desideria für Ungarn",
+        "Todtenkränze"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz und Nimmersatt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002032243"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/zedlitz-joseph-christian-freiherr-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/68982975"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q429184"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118808346/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/137521189"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118808346"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_Christian_Freiherr_von_Zedlitz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_Christian_von_Zedlitz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_Christian_Freiherr_von_Zedlitz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108149318"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118808346"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118808346"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_Z/Zedlitz-Nimmersatt_Joseph-Christian_1790_1862.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118808346.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118808346"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118808346"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Zedlitz und Nimmersatt, Philipp Gotthard Joseph Christian Karl Anton von",
+        "Zedlitz, J. C. von",
+        "Zedlitz, Johann C. von",
+        "Nimmersatt, Joseph Christian von Zedlitz-",
+        "Zedlitz und Nimmersatt, Philipp Gotthard Joseph Christian Karl Anton von, Freiherr",
+        "Nimmersatt, Philipp Gotthard Joseph Christian Karl Anton, Freiherr",
+        "Zedlitz, Giuseppe C.",
+        "Zedlitz-Nimmersatt, Joseph Christian von",
+        "Zedlitz, Philipp Gotthard Joseph Christian Karl Anton von",
+        "Zedlitz, Joseph Christian, Freiherr von, Schriftsteller",
+        "Zedlitz, Philipp Gotthard Joseph Christian Karl Anton von, Freiherr",
+        "Zedlitz, Joseph C. von",
+        "Zedlitz",
+        "Zedlitz, Joseph Christian von, Baron",
+        "Zedlitz, J. C. von, Freiherr von, Schriftsteller",
+        "Zedlitz und Nimmersatt, Joseph Christian von",
+        "Zedlitz, Josef Christian von, Freiherr",
+        "Zedlitz-Nimmersatt, Philipp Gotthard Josef Christian Karl Anton von",
+        "Zedlitz und Nimmersatt, Joseph Christian, Freiherr von, Schriftsteller",
+        "Zedlitz, Josef von",
+        "Zedlitz, Josef Christian von",
+        "Zedlitz-Nimmersatt, Philipp Gotthard Josef Christian Karl Anton, Freiherr von, Schriftsteller",
+        "Zedlitz Nimmersatt, Joseph Christian von",
+        "Zedlitz, J. C.",
+        "Zedlitz-Nimmersatt, Josef Christian von",
+        "Zedlitz, J. Ch. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz-Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "J. Ch."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Josef Christian Karl Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz-Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz-Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz und Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "nameAddition": [
+            "Baron"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz und Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian von Zedlitz-"
+          ],
+          "surname": [
+            "Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz und Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Josef Christian Karl Anton"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Zedlitz-Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph C. von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Christian"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Zedlitz und Nimmersatt"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe C."
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Christian"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gotthard Joseph Christian Karl Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zedlitz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_Christian_von_Zedlitz",
+          "label": "https://de.wikipedia.org/wiki/Joseph_Christian_von_Zedlitz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:26:06Z",
+    "gnd_query_biographical_data": "1790-1862",
+    "gnd_query_name": "zedlitz, joseph christian von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3217,
+  "name": "Zedlitz, Joseph Christian von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 460; Goed XI/2, 443",
+  "updated": "2026-06-11 13:29:25.884Z",
+  "uri": "https://d-nb.info/gnd/118808346",
+  "editor": ""
+}

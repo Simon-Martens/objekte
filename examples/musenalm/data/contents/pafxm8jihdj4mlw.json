@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Ei, Grill, ihr waret sonst ein guter Kerl; / wie kamet / Ihr denn dazu",
+  "language": [],
+  "musenalm_id": 17836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Junker und der Bauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Junker und der Bauer",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.685Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "rgm2mrdaffqfex3"
+    }
+  ]
+}

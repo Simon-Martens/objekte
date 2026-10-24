@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73310,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1786. No 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen sculps.",
+  "scans": [
+    "alm_159_73310_ot0yi8368r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1786. No 2.",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.799Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "qtake10n2p8pmx8"
+    }
+  ]
+}

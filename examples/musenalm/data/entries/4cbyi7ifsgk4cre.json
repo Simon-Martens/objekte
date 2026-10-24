@@ -1,0 +1,87 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Aargau",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 4 BB Kal, B Vrwrt d Hrsg, SS 1-206 darin 6 GG, S C, S G-Verz I-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1816",
+    "norm": "~",
+    "biblio": 200426,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 716,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1816. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.165Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "300pno7cx01teot"
+  ],
+  "contents": [
+    "hejtq5la738xjyd",
+    "0y9rvbmab6p5zad",
+    "q9q76lfz045uy49",
+    "5yha8svupz0jj3j",
+    "lxk8rbm0wi2b8in",
+    "kj9kph1x5t54awy",
+    "swqfb00n7k80bhw",
+    "5vx0304dd35b3ek",
+    "17m8utjbgppqvuy",
+    "4rvivefijar38rc",
+    "t9fwmiimaqdedtm",
+    "5vgays5f9x5muik",
+    "uk7a17axkln3cq2",
+    "uzk41n58z4zgk3s",
+    "8kv35z3ilbfpvl9",
+    "eoxdkcen4ibh452",
+    "kg2bq3ivt0ocb0y",
+    "7fn26oe4ma1k4hg",
+    "8w56vldrm84mmla"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "8p0uoc2a6eqzawc"
+    }
+  ]
+}

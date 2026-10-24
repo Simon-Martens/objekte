@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Kehret zum Greise zurück, schuldlose Freuden der Kind- / heit! / Denn die Freuden der Welt ekelten lange mich an.",
+  "language": [],
+  "musenalm_id": 13932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.433Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "7nx61g0xpe10pbl"
+    }
+  ]
+}

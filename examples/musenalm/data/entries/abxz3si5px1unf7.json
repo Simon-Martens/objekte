@@ -1,0 +1,102 @@
+{
+  "annotation": "$ vielleicht fehlt Titelportrait, $ Kalendarium vielleicht unvollständig /) Jgg 1784-1789; Berlin (Unger) /) Fortgesetzt durch: Kalender, Militärisch-Genealogischer 1790-1793 und Kalender, Militärischer 1797-1806",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 8 BB Kal darin 12 GG, 34 BB, 131 SS Tabb, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer-Militärischer 1784",
+    "norm": "~",
+    "biblio": 407894,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3956,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer-Militärischer 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Militairischer / CALENDER / auf das Schalt-Jahr / 1784. / mit Kupfern gezieret und mit / Genehmhaltung der Königl. / Academie der Wissenschaften / zu Berlin herausgegeben",
+  "updated": "2026-06-11 10:18:55.774Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "3fvdhew24bnmxb2"
+  ],
+  "contents": [
+    "hr85alxrxxotnqo",
+    "ow3zi0t7codauu0",
+    "tqiz5qvc2r0icr4",
+    "fidk6h91ic76cgf",
+    "6zfel5zmj9npfmz",
+    "dc48zgy1zrm33uz",
+    "o0jllh10xy0eq7i",
+    "8id1vw2gvj26ezl",
+    "4dgivbdt39aq2yx",
+    "elndahh7xr210fn",
+    "ga9dseh1sh1uvpx",
+    "xyvniw6v0tyzy5t",
+    "ef4evsbkiq90pyu",
+    "1e8eliibt22btq2",
+    "njexxakp5kbyi2f",
+    "3oi928ujq9brrx7",
+    "c7qu5ylx3t0dpmq",
+    "ynawd6pxbm6gr8e",
+    "tjx1fi0t4pigw6l",
+    "svrp6z0lmszpdid",
+    "ayuwyye7a9hzxqk",
+    "jne9id1za2em928",
+    "j3kihxzp0qzco6k",
+    "vwo76niw89gz3aa",
+    "lyj8ky675d8axtj",
+    "izyx2z0itcmf6bu",
+    "myg0xsp2v2luyar",
+    "z3ph45d36xvp3u5",
+    "l26pcc9j4izlmn6",
+    "ojfqu8bcn7aaujx",
+    "fdnldsftnl25ita",
+    "lmso4ga9m8wfp94",
+    "7rzna3uob9w22vr",
+    "ftsw694wj95wk7a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "d6mvnov4ys1ldsp"
+    }
+  ]
+}

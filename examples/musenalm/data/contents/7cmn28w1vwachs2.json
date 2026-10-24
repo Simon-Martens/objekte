@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Tanzkunst (Sammlung INr 76203, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Im vorigen Toiletten-Geschenk habe ich mit dem Eintritt-Kompliment geschlossen, indem nur von einer Person die Rede war.",
+  "language": [],
+  "musenalm_id": 76204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Damen-Komplimente. / Fortsetzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Damen-Komplimente. / Fortsetzung",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.769Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "spv7h2ilo0l6t3s"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Jetzt in der Kirche stillen Feierhallen / Sprichst du für mich ein kindlich fromm Gebet,",
+  "language": [],
+  "musenalm_id": 65917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen jungen Freund. / Triolett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen jungen Freund. / Triolett",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.188Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "ypfv6f2f0hfqjmt"
+    }
+  ]
+}

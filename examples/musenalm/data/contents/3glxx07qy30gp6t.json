@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Mit Zügel, Sporn und Peitsch' und Fluch / Weiß Bucephalia den wilden Hengst zu däm- / pfen.",
+  "language": [],
+  "musenalm_id": 96358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Rossebändigerinn / Bucephalica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Rossebändigerinn / Bucephalica",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.650Z",
+      "agent": "x9u4n2qst16e030",
+      "source_id": "fhyx7ibycui6p0f"
+    }
+  ]
+}

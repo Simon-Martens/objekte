@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. G 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Jüngst gieng ich meinem Mädchen nach / Tief in den Wald hinein,",
+  "language": [],
+  "musenalm_id": 8755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schreyn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schreyn",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.374Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "oazlprn4qhh8mcs"
+    }
+  ]
+}

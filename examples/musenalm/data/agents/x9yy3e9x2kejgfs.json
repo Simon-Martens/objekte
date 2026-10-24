@@ -1,0 +1,660 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1806",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.354Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118677330",
+          "label": "Creuzer, Friedrich"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichterin der Romantik; beging Selbstmord, als ihr Liebhaber sie verließ"
+      ],
+      "dateOfBirth": [
+        "1780-02-11"
+      ],
+      "dateOfDeath": [
+        "1806-07-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karoline%20von%20guenderode.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karoline%20von%20guenderode.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karoline%20von%20guenderode.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/186114559",
+        "https://d-nb.info/gnd/1104245167",
+        "https://d-nb.info/gnd/185843093",
+        "https://d-nb.info/gnd/1059855003"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-25T18:10:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118543202/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1222141167",
+          "label": "Günderrode, Louise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1145327265",
+          "label": "Günderrode, Susanna Maria von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222140675",
+          "label": "Du Thil, Wilhelmine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10014831X",
+          "label": "Günderrode, Johann Maximilian von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222141671",
+          "label": "Günderrode, Charlotte von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104324767",
+          "label": "Günderode, Hektor Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116910240",
+          "label": "Günderode, Christian Maximilian von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1175437689",
+          "label": "Günderrode, Carl Gottfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222142406",
+          "label": "Günderrode, Amalie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1144215870",
+          "label": "Günderrode, Luise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116910631",
+          "label": "Günderrode, Friedrich Karl Hektor Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118543202",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/10014831X",
+          "label": "Günderrode, Johann Maximilian von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1145327265",
+          "label": "Günderrode, Susanna Maria von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116910240",
+          "label": "Günderode, Christian Maximilian von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1144215870",
+          "label": "Günderrode, Luise von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/104324767",
+          "label": "Günderode, Hektor Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1144215870",
+          "label": "Günderrode, Luise von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1222140675",
+          "label": "Du Thil, Wilhelmine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116910631",
+          "label": "Günderrode, Friedrich Karl Hektor Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222141167",
+          "label": "Günderrode, Louise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222142406",
+          "label": "Günderrode, Amalie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1222141671",
+          "label": "Günderrode, Charlotte von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118543202",
+      "oldAuthorityNumber": [
+        "(DE-588a)186114559",
+        "(DE-101c)310386934",
+        "(DE-588)1104245167",
+        "(DE-588)1059855003",
+        "(DE-588a)131306669",
+        "(DE-588a)185843093",
+        "(DE-588)186114559",
+        "(DE-588a)13469693X",
+        "(DE-588)185843093",
+        "(DE-588c)4022445-4",
+        "(DE-588a)118543202"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4238608-1",
+          "label": "Winkel (Rheingaukreis)"
+        }
+      ],
+      "preferredName": "Günderode, Karoline von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karoline"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Günderode"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4683584-2",
+          "label": "Librettistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Tian"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Ion"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Jon"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Mitverf. von: Creuzer, Georg F.: Briefe und Dichtungen",
+        "Text zu: Trojahn, Manfred: Spätrot. Vier Gesänge auf Gedichte der Karoline von Günderrode",
+        "Arnim, Bettina von: Die Günderode",
+        "Poetische Fragmente",
+        "Melete",
+        "Mitverf. von: Creuzer, Georg F.: Friedrich Creuzer und Karoline von Günderode",
+        "Gedichte und Phantasien"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12017208n"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82059428"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54159634"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62053"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1059855003"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1104245167"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118543202/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185843093"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186114559"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karoline_von_G%C3%BCnderrode"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karoline_von_G%C3%BCnderrode"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karoline_von_G%C3%BCnderrode"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karoline_von_G%C3%BCnderrode"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118543202"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109019582"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118543202"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118543202"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118543202.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118543202.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118543202"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118543202"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118543202"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Tian",
+        "Гюндероде, Каролина фон",
+        "Günderrode",
+        "Günderode, Caroline von",
+        "Von Günderode, Karoline",
+        "Günderode, Karoline v.",
+        "Günderode, Karoline Friederike Louise Maximiliane von",
+        "Günderrode, Caroline von",
+        "Günderode",
+        "Von Günderrode, Karoline",
+        "Ion",
+        "Günderrode, Karoline von",
+        "Jon",
+        "Günderrode, Carolina von",
+        "Günderrode, Karoline Friederike Louise Maximiliane von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carolina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderrode"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Von Günderode"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderrode"
+          ]
+        },
+        {
+          "forename": [
+            "Каролина"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Гюндероде"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Von Günderrode"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline v."
+          ],
+          "surname": [
+            "Günderode"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Friederike Louise Maximiliane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderode"
+          ]
+        },
+        {
+          "personalName": [
+            "Ion"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Friederike Louise Maximiliane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderrode"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderode"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Günderrode"
+          ]
+        },
+        {
+          "personalName": [
+            "Jon"
+          ]
+        },
+        {
+          "personalName": [
+            "Tian"
+          ]
+        },
+        {
+          "personalName": [
+            "Günderode"
+          ]
+        },
+        {
+          "personalName": [
+            "Günderrode"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karoline_von_G%C3%BCnderrode",
+          "label": "https://de.wikipedia.org/wiki/Karoline_von_G%C3%BCnderrode"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:36:36Z",
+    "gnd_query_biographical_data": "1780-1806",
+    "gnd_query_name": "günderode, karoline von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1009,
+  "name": "Günderode, Karoline von",
+  "profession": "Text",
+  "pseudonyms": "Tian",
+  "refs": "Goed VI, 66; H/B 281",
+  "updated": "2026-06-11 13:29:22.721Z",
+  "uri": "https://d-nb.info/gnd/118543202",
+  "editor": ""
+}

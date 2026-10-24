@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Die Sonne eines heißen Herbsttages warf ihre brennenden Strahlen auf das deutsche Gestade der Ostsee,",
+  "language": [],
+  "musenalm_id": 1951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sturm. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Martell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sturm. / Novelle",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.700Z",
+      "agent": "zrsi43h33yxojuh",
+      "source_id": "uyh7448uvlmfeka"
+    }
+  ]
+}

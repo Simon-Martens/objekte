@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRANKFURT a/M / bey / Friedrich Wilmans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Westermayr inv. & fec.",
+  "scans": [
+    "alm_379_32486_h444ladvr5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRANKFURT a/M / bey / Friedrich Wilmans",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.776Z",
+      "agent": "2d34emvmf13qf3h",
+      "source_id": "bv6qnkai3nokx1j"
+    }
+  ]
+}

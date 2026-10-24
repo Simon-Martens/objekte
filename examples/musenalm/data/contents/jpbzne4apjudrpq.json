@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Nachtigall klagt ihr Leid / Mitten in Seligkeit / Blüthen und Lust, / Sag' mir mein Vögelein",
+  "language": [],
+  "musenalm_id": 62679,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängerlust, Sängerleid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freyhr. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängerlust, Sängerleid",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.223Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "kznllkl2aslnoh2"
+    }
+  ]
+}

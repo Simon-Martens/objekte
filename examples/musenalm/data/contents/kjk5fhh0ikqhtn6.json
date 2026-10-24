@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 61640-61644, Obj 27-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61639,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.781Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "tfc8hvcmopw54i8"
+    }
+  ]
+}

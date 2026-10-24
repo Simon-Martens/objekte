@@ -1,0 +1,73 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS 1-224, 15 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Goethe: Die natürliche Tochter) 1804",
+    "norm": "~",
+    "biblio": 106816,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2004-01-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 494,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch (Goethe: Die natürliche Tochter) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; L/R 53; Goed IV/3. 365, 118; G 6",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr 1804. / Die / natürliche Tochter. / Trauerspiel / von Goethe. / Tübingen, / in der Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.437Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "w3dqmaurlhcb8j2"
+  ],
+  "contents": [
+    "2nj9xyiups30jda",
+    "ic1nm4xy5b59whp",
+    "5gj34m5i6ocfqy7",
+    "sgbhu8l7nyb7z2f",
+    "apl92rrsti6j4s1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.680Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.680Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "9y0ezfazu06cy6b"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Andeutungen zur Erklärung der Kupfer (Sammlung INr 106339, Obj 91) in der »Lösung der Andeutungen« (INr 106360, Obj 112): 2. Ritter Dorn; s. Graphik INr 106257, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Wenn Ihr von van der Velde habt gelesen / Die Gräuel dreißigjähr'ger Kriegeszeit",
+  "language": [],
+  "musenalm_id": 106341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2015-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.127Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "btleah1z2xp53n4"
+    }
+  ]
+}

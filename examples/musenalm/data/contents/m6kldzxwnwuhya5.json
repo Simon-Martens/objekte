@@ -1,0 +1,56 @@
+{
+  "annotation": "Teutsche Uebersetzung des Englischen (Sammlung INr 131897, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Der keck den Zug sich kührte / Hin gen Thermopylä, / Krieg mit dem Perser führte, / Daß frey sein  Land er säh'.",
+  "language": [],
+  "musenalm_id": 131901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Byron [übers.] Wilhelm Reinhold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2013-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.043Z",
+      "agent": "z2vp1av7e4ucapr",
+      "source_id": "awclrr1hpvpxlma"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.043Z",
+      "agent": "m46r0k8xyml7u8e",
+      "source_id": "u37gkmji61gfb3d"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 29904, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Ich seh es an und seh es an auf's neue, / Mir däucht, ich seh es nimmer zur Genüge,",
+  "language": [],
+  "musenalm_id": 29909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ein Bildniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ein Bildniß",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.371Z",
+      "agent": "vmqur31l5jqxgmx",
+      "source_id": "ox1mfnnt6a9uob7"
+    }
+  ]
+}

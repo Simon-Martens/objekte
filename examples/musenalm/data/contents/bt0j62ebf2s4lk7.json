@@ -1,0 +1,51 @@
+{
+  "annotation": "Anmerkung des Herausgebers Photos 17667,01-17667,05",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Neben den Beiträgen zu dieser poetischen Blumenlese werde ich mit vielen, zum theil sehr gutherzigen, freundlichen und schmeichelhaften Briefen beehret,",
+  "language": [],
+  "musenalm_id": 17667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nothgedrungene Nachrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [
+    "alm_107_17667_01_oc730qglgj.jpg",
+    "alm_107_17667_02_zfic7ka6eh.jpg",
+    "alm_107_17667_03_xb2qoef80g.jpg",
+    "alm_107_17667_04_lsj1mtrah0.jpg",
+    "alm_107_17667_05_xunf29wcrs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nothgedrungene Nachrede",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.874Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "5nqzrlaatgk026a"
+    }
+  ]
+}

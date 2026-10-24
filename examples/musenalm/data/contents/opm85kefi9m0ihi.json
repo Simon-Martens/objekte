@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählende Gedichte (Sammlung INr 55049, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Auf einer Reis' in Weimar sank / Melanchthon auf das Lager krank,",
+  "language": [],
+  "musenalm_id": 55055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Der kranke Melanchthon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rudolf Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Der kranke Melanchthon",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.741Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "ilyuwpupsxo7687"
+    }
+  ]
+}

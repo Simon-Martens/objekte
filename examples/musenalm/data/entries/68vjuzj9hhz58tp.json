@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelauflage von: Almanach, Berlinischer dem Vergnügen geselliger Zirkel gewidmet von Adolphi(Oehmigke) 1798; Alm-Nr 3603: Dort das Vorwort des Herausgebers, S I: Nachricht. Die  späte Beendigung des Drucks dieses Almanachs für das Jahr 1788 hat dessen Bekanntmachung und Debit verhindert. Ich habe mich daher entschlossen ihn mit einem neuen Titul auf das Jahr 1799 zu versehen, und biete ihn nun den Liebhabern und Freunden einer fröhlichen Unterhaltung geselliger Zirkel für den heruntergesetztern Preis von 18 Groschen an. Berlin d. I Sept. 1798. Adolphi",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freuden geselliger Zirkel, Die (Adolphi / Oehmigke) 1799 /) Titelauflage von: Almanach, Berlinischer dem Vergnügen geselliger Zirkel gewidmet von Adolphi (Oehmigke) 1798",
+    "norm": "",
+    "biblio": 406834,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-09-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3721,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Freuden geselliger Zirkel, Die (Adolphi / Oehmigke) 1799 [Titelauflage von: Almanach, Berlinischer dem Vergnügen geselliger Zirkel gewidmet von Adolphi (Oehmigke) 1798]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Adolphi",
+  "subtitle_statement": "",
+  "title_statement": "Die / Freuden geselliger Zirkel / Ein Taschenbuch / für's / Jahr 1799. / Mit Kupfern und Musik. / Berlin, 1799. / In Kommission bei Oehmigke dem Jüngern./ (Preis gebunden achtzehn Groschen.)",
+  "updated": "2026-06-11 10:18:54.664Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "lszqwn1j5awd1lq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "gsc2nc1328zdqyu"
+    }
+  ]
+}

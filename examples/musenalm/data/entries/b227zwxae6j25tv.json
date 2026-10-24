@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Weihnachtsblüthen 1852",
+    "norm": "",
+    "biblio": 405956,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3518,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Belser)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Weihnachtsblüthen 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 174; nicht bei L/R",
+  "responsibility_statement": "Dr. Gustav Plieninger",
+  "subtitle_statement": "",
+  "title_statement": "Weihnachtsblüthen. / Ein / Almanach / für / die Jugend / auf das Jahr / 1852. / In Verbindung mit Andern / herausgegeben / von / Dr. Gustav Plieninger. / Fünfzehnter Jahrgang. / Mit vielen Bildern. / Stuttgart. / Druck und Verlag der Chr. Belser'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.536Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "o8trxtjum54q6h4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.529Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.529Z",
+      "agent": "2juzxutoc574f19",
+      "source_id": "rkfq27hiaa8q09p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.251Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.251Z",
+      "agent": "biz64svfje4o2xo",
+      "source_id": "wm66438bkltezxa"
+    }
+  ]
+}

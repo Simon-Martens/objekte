@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 20624, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20628,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albrecht Dürers Grab / auf dem St. Johannis-Kirchhof vor Nürnberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. F. Geißler sculp. 1824",
+  "scans": [
+    "alm_273_20628_k1rsoisfus.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Albrecht Dürers Grab / auf dem St. Johannis-Kirchhof vor Nürnberg",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.883Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "hemfphlntfd5dpv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.883Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "rt03pz2x79me1mj"
+    }
+  ]
+}

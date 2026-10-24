@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; paginiert 2.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59608,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Friedens Segnungen durch / Preussens Adler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf; Riepenhausen",
+  "scans": [
+    "alm_921_59608_enr6z8d99s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Friedens Segnungen durch / Preussens Adler",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.822Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "b9erwwuv3qdcmaj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.822Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "bnli817iyd0h3qb"
+    }
+  ]
+}

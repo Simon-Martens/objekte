@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Erato (Wien) 1821",
+    "norm": "",
+    "biblio": 409682,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-11-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4609,
+  "parallel_title": "",
+  "place_statement": "Wien (Akkermann)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Erato (Wien) 1821 s. u. Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 44; nicht bei L/R",
+  "responsibility_statement": "Ebersberg",
+  "subtitle_statement": "",
+  "title_statement": "Erato. / Taschenbuch für das Jahr 1821. / Eine / Sammlung mannigfaltiger Original-Aufsätze / von / Ebersberg. / Wien, / gedruckt bey J. C. Akkermann",
+  "updated": "2026-06-11 10:18:55.617Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "1fw2if44udpxb9s"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.469Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.469Z",
+      "agent": "tnzgvgiqxvd16ek",
+      "source_id": "95jv6qtxgw96jxw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.394Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.394Z",
+      "agent": "drgggov8zm070kb",
+      "source_id": "ub2e6ku3t4npt7r"
+    }
+  ]
+}

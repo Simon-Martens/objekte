@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Bist endlich da. Gott sei's geklagt, / Hast lange warten lassen; / Nun lehr uns wieder, unverzagt, / Den Feind bei seinem Schopfe fassen,",
+  "language": [],
+  "musenalm_id": 45830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 237,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Fritz / (Zur Enthüllungsfeier.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Fontane",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Fritz / (Zur Enthüllungsfeier.)",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.350Z",
+      "agent": "w23mh2qset0124k",
+      "source_id": "i8m485foee2pf4a"
+    }
+  ]
+}

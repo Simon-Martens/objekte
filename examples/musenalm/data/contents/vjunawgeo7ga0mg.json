@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 3 Abschnitten mit zahlreichen Anmerkungen und einem Vorwort",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Indessen blutige Kriege und gewaltige Revolutionen die Perioden grosser Staaten bestimmten: macht oft die Erbauung einer Kapelle, oder eine Vergabung Epoche in der Geschichte einer einzelnen Stadt.",
+  "language": [],
+  "musenalm_id": 50765,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte / der / Fürstlichen Abtey / zum / Frauen Münster, in / Zürich. / Vom Jahr 853-917. / Ein Versuch in der alten Geschichte dieser / Republik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hans Rudolf Maurer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / der / Fürstlichen Abtey / zum / Frauen Münster, in / Zürich. / Vom Jahr 853-917. / Ein Versuch in der alten Geschichte dieser / Republik",
+  "updated": "2007-07-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.741Z",
+      "agent": "p5gf5jmw6zu623q",
+      "source_id": "2jejs7z6jlwwvo2"
+    }
+  ]
+}

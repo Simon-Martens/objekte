@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli /) nummeriert 4.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93822,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn die Sterne / aus der Ferne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Langer sc.",
+  "scans": [
+    "alm_989_93822_2xov3eklyu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wenn die Sterne / aus der Ferne",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.235Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "7zn2dk8nsdqgewa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.236Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "9yqnlsbhl3edrcm"
+    }
+  ]
+}

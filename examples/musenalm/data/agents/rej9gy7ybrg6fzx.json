@@ -1,0 +1,663 @@
+{
+  "annotation": "",
+  "biographical_data": "1472-1553",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.295Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/100256236",
+          "label": "Rörer, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115690387",
+          "label": "Rhau, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118575449",
+          "label": "Luther, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580485",
+          "label": "Melanchthon, Philipp"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Maler; auch Apotheker, Buchhändler, Papierhändler und Verleger"
+      ],
+      "dateOfBirth": [
+        "1472"
+      ],
+      "dateOfDeath": [
+        "1553-10-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lucas Cranach the Younger"
+          ],
+          "creditText": [
+            "1. The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202. 2. clarus-cranach"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Cranach%20d.%20%C3%84.%20063.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lucas%20Cranach%20d.%20%C3%84.%20063.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Lucas%20Cranach%20d.%20%C3%84.%20063.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1050544757",
+        "https://d-nb.info/gnd/1034676652"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118522582/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11867045X",
+          "label": "Cranach, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139980377",
+          "label": "Pfreundt, Caspar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135674263",
+          "label": "Sunder, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116725427",
+          "label": "Brück, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118522590",
+          "label": "Cranach, Lucas, der Jüngere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/134276531",
+          "label": "Dasch, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/158885457",
+          "label": "Cranach, Barbara"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118522582",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11867045X",
+          "label": "Cranach, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118522590",
+          "label": "Cranach, Lucas, der Jüngere"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/135674263",
+          "label": "Sunder, Hans"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/158885457",
+          "label": "Cranach, Barbara"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118522582",
+      "oldAuthorityNumber": [
+        "(DE-588)1050544757",
+        "(DE-588a)188135979",
+        "(DE-588)1034676652",
+        "(DE-588c)4010680-9",
+        "(DE-588a)187944563",
+        "(DE-588a)118522582",
+        "(DE-588a)126322635",
+        "(DE-588a)185880916",
+        "(DE-588a)119647362"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066640-2",
+          "label": "Wittenberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4033262-7",
+          "label": "Kronach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Cranach, Lucas, der Ältere",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Lucas"
+        ],
+        "nameAddition": [
+          "der Ältere"
+        ],
+        "surname": [
+          "Cranach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002475-1",
+          "label": "Apotheker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        }
+      ],
+      "publication": [
+        "Cranach, Lucas <der Ältere>: Des aelteren Lucas Müller genannt Cranach Handzeichnungen",
+        "Cranach, Lucas: Passio Dn. Jesu Christi vetustissimis imaginibus expressa",
+        "Rhau, Georg: Eine kurze Form der zehn Gebote, eine kurze Form des Glaubens, eine kurze Form des Vaterunsers, Ausz.  1547/1548.  (VD16 R 1683)",
+        "Eyn Clag und Bitt der deutschen Nation an den almechtigen Gott um Erloszung ..",
+        "Dye zaigung des hochlobwirdigen hailigthums der Stifftkirchen aller hailigen zu wittenburg ...  1509.  (VD16 Z 250)",
+        "Des aelteren Lucas Müllers, genannt Cranach Handzeichnungen",
+        "Cranach, Lucas <der Ältere>: Des aelteren Lucas Müllers, genannt Cranach Handzeichnungen",
+        "Das Newe Testament De°utzsch.[Übers.v.Martin Luther",
+        "Luther, Martin: ANTITHESIS FIGVRATA VITAE CHRISTI ET ANTHICHRISTI. ... [Holzschnitte von Lukas Cranach d.Ä.].  1521.  (VD16 L 5589)",
+        "Das Newe Testament De°utzsch. [Übers.v.Martin Luther. Holzschnitte von Lukas Cranach d.Ä.].  1522.  (VD16 B 4319)",
+        "Missale.  1503.  (VD16 M 5606)",
+        "Cranach, Lucas <der Ältere>: Wittenberger Heiltumsbuch",
+        "Cranach, Lucas <der Ältere>: Die Zeichnungen",
+        "Die Zeigung des ... Heiligthums der Stiftkirch aller Heiligen zu Wittenberg",
+        "Lucas Cranach's Stammbuch",
+        "Wittenberger Heiltumsbuch",
+        "Biblia: das ist: Die gantze heilige Schrifft: Deudsch. Auffs new zugericht. D.Mart. ...  1550.  (VD16 B 2728)",
+        "Eyn Clag und Bitt der deutschen Nation an den almechtigen Gott um Erloszung ausz dem Ge*",
+        "Diurnale seu liber precum",
+        "Luther, Martin: ANTITHESIS FIGVRATA VITAE CHRISTI ET ANTI CHRISTI. ... [Holzschnitte von Lukas Cranach d.Ä.].  1521.  (VD16 L 5590)",
+        "Missale Pataüieñ. cũ additionibus. Bñdictionũ. Cereorũ. Cinerũ. Palmarũ. Jgnis ...  1512.  (VD16 M 5611)",
+        "Passional Christi et antichristi in Holzschnitten",
+        "Passio Dn. Jesu Christi vetustissimis imaginibus expressa",
+        "Rhau, Georg: Eine kurze Form der zehn Gebote, eine kurze Form des Glaubens, eine kurze Form des Vaterunsers, Ausz.  1552.  (VD16 ZV 17437)",
+        "Die Zeichnungen",
+        "Des aelteren Lucas Müller genannt Cranach Handzeichnungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12176451h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50020861"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49268177"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q191748"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1034676652"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050544757"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118522582/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118522582"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Lucas_Cranach_the_Elder"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Lucas_Cranach_der_%C3%84ltere"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Lucas_Cranach_the_Elder"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121319721"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118522582"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1543_cranach"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118522582"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118522582.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118522582.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118522582"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/CEDE5443726B452A92122A4ADE2CB925"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118522582"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118522582"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Sunder, Lukas",
+        "Cranach, Lucas, the elder",
+        "Cronach, Lucas",
+        "Sunder-Maler, Lucas",
+        "Cranach, Lukas, der Ältere",
+        "Cranach, Lukas d.Ä.",
+        "Sünder, Lukas",
+        "Kranach, Lukas",
+        "Cranach, Lucas, d. Ä.",
+        "Sunder, Lucas",
+        "Cranach, Lucas st.",
+        "Kurānaha",
+        "Müller, Lucas",
+        "Cranach, Lukas",
+        "Moller, Lucas",
+        "Sünder, Lucas",
+        "Maler, Lucas",
+        "Kranach, Lucas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Maler"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas"
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Moller"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas"
+          ],
+          "surname": [
+            "Sunder"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas"
+          ],
+          "surname": [
+            "Kranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Sünder"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas d.Ä."
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lukas"
+          ],
+          "surname": [
+            "Sünder"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas st."
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "nameAddition": [
+            "the elder"
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Cronach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "nameAddition": [
+            "d. Ä."
+          ],
+          "surname": [
+            "Cranach"
+          ]
+        },
+        {
+          "personalName": [
+            "Kurānaha"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Sunder-Maler"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Kranach"
+          ]
+        },
+        {
+          "forename": [
+            "Lucas"
+          ],
+          "surname": [
+            "Sunder"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Lucas_Cranach_der_%C3%84ltere",
+          "label": "https://de.wikipedia.org/wiki/Lucas_Cranach_der_%C3%84ltere"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:09:45Z",
+    "gnd_query_biographical_data": "1472-1553",
+    "gnd_query_name": "cranach, lucas (d. ä.)"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 465,
+  "name": "Cranach, Lucas (d. Ä.)",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VIII, 55",
+  "updated": "2026-06-11 13:29:21.944Z",
+  "uri": "https://d-nb.info/gnd/118522582",
+  "editor": ""
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Chronik meines Herzens« von Ratschky INr 11190, Obj 84",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11191,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 84.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chronik meines Herzens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuster",
+  "scans": [
+    "alm_206_11191_e1ih9ejpvo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chronik meines Herzens",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.390Z",
+      "agent": "jmqij5epj0ygg47",
+      "source_id": "8frxp7gccujmbeu"
+    }
+  ]
+}

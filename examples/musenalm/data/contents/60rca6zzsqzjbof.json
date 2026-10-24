@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Die Rose keimt am dunklen Strauche, / Ein Blüthenkranz umschlingt den Hain,",
+  "language": [],
+  "musenalm_id": 4584,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Theone'n",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Steigentesch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Theone'n",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.300Z",
+      "agent": "hbndpd23j3pyj28",
+      "source_id": "93znhjjnhzm8gud"
+    }
+  ]
+}

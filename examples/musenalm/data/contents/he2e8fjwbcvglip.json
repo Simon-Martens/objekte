@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Beim Leuen ward, vom wollichten Geschlechte / Der Wolf als Buschmann hart verklagt.",
+  "language": [],
+  "musenalm_id": 13273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Delinquent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Delinquent",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.521Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "7jcx95tgp2m29gs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Horch, wie die Glocke schwingt und klingt, die heulende Klagefrau! Ein Mensch verunglückt auf der Grève! Ein Mensch geht unter in der wachsenden Fluth!",
+  "language": [],
+  "musenalm_id": 104336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das stumme Kind auf der Greve",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das stumme Kind auf der Greve",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.043Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "8aqfevtzwz8b8yn"
+    }
+  ]
+}

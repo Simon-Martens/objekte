@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgeberin und Autorin",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Geneigte Leser! Ich bin immer der Meinung gewesen, daß ästhetische Produktionen sich selbst rechtfertigen und verständlich machen müßten.",
+  "language": [],
+  "musenalm_id": 61140,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Talvi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort!",
+  "updated": "2008-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.937Z",
+      "agent": "7h2sz4yxt1ki0lh",
+      "source_id": "5p7elw6sqysidwl"
+    }
+  ]
+}

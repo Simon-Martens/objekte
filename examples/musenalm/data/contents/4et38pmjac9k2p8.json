@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert p. 287. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann« INr 47265, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest der häusslichen Tugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_640_47266_zf7tdh1r03.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest der häusslichen Tugend",
+  "updated": "2006-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.496Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "untkalwcdx8vx07"
+    }
+  ]
+}

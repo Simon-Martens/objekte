@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29951, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "In ihrem Zimmer saß Ignez Runez, einsam, den Kopf auf ihren Arm gestützt,",
+  "language": [],
+  "musenalm_id": 29950,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Belagerung von Antwerpen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Belagerung von Antwerpen",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.441Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "ab7gxxvpvdm1z11"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Graphik im Kalendarium August, nummeriert V /) Illustration zu »Der Birkhahn« von v. Wildungen INr 120521, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120516,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wolf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del.",
+  "scans": [
+    "alm_1128_120516_sx2ybs1xe1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Wolf",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.749Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "845rt3zo06ncjpu"
+    }
+  ]
+}

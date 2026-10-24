@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an Blatt I. /) paginiert II /) kol. Illustration zu »Das Reh«  von v. Wildungen INr 69587, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69586,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rehgeiß mit Jungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1132_69586_picyxk7kou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rehgeiß mit Jungen",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.267Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "cwh91qmix4cxmoo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.267Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "x2p88a1ehk8qz1x"
+    }
+  ]
+}

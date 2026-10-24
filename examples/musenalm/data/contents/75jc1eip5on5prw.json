@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Selbstgespräche. Sonettenkranz (Sammlung INr 9331, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Und jetzt? - Was einst, dem Morgenduft vergleichbar, / Mein Seyn umwob, verschwand mit meinem Lenze;",
+  "language": [],
+  "musenalm_id": 1685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.641Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "avrm123fcs85de0"
+    }
+  ]
+}

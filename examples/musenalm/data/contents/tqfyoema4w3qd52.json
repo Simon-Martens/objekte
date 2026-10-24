@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Jenseits über fernen Meeren / In der fremden neuen Welt, / Wo das Haupt der Kordilleren / Eisig schaut in's Wolkenzelt;",
+  "language": [],
+  "musenalm_id": 94109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die älteste Wiege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die älteste Wiege",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "ioe5467qcnldl1t"
+    }
+  ]
+}

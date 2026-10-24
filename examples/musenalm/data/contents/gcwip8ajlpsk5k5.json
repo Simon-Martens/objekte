@@ -1,0 +1,45 @@
+{
+  "annotation": "/ VI. Agrionien für das Jahr 1831 (Sammlung INr 75472, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Sein Vaterhaus ist Mutter Erde, / Sein Wirkungskreis ein Art' von Gruft,",
+  "language": [],
+  "musenalm_id": 75476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sylbenräthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sylbenräthsel",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.612Z",
+      "agent": "bmrndjx591terfe",
+      "source_id": "f7mswr35ld80ici"
+    }
+  ]
+}

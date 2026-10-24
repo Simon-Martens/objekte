@@ -1,0 +1,67 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz aus: Kalender, Berliner 1830; INr 58874 /) Graphik im Kalendarium März; Illustration zu »Landeskunde von Indien  von C. Ritter INr 58746, Obj 17,01 s.a. Textbezug INr 58758, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58736,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Buddhistischer Grottentempel auf der Insel Salsette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Daniell # gez. v. Mauch gest. v. G. Cooke",
+  "scans": [
+    "alm_864_58736_t39xmeb3k9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Buddhistischer Grottentempel auf der Insel Salsette",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.658Z",
+      "agent": "qvi69ismyu8brau",
+      "source_id": "513k927gj2gy2v4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.658Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "p6vji7las3gjyh5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.659Z",
+      "agent": "a7m5750fz1o3qqp",
+      "source_id": "rlddt43jkci7cpp"
+    }
+  ]
+}

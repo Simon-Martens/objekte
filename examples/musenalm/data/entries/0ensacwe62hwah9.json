@@ -1,0 +1,89 @@
+{
+  "annotation": "§1§ G fehlt, §2§ S 1 $ vermutl. fehlt nT,  §3§ SS 83, 84 fehlen, §4§ SS 93 ff fehlen; # INr 32100: Hinweis auf »vorigjährige Taschenbücher« ## INr 32106: Hinweis auf Jg 1796 /) KVK-GBV mit Standorten für Jgg 1896-1801",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, gT, 14 BB Kal darin 5 GG §1§, §2§, SS 3-92 §3§ darin Taf, §4§",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Kinder 1799",
+    "norm": "~",
+    "biblio": 200101,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 433,
+  "parallel_title": "",
+  "place_statement": "Göttingen (Wiederhold)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Almanach für Kinder 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "NICHTS / OHNE MÜHE. / ALMANACH / FÜR / KINDER. / Goettingen bei Wiederhold / 1799",
+  "updated": "2026-06-11 10:18:54.908Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "38mskshy6a81w65"
+  ],
+  "contents": [
+    "qjyo1sn2msove18",
+    "gclb85yime96n6h",
+    "72kpt4rsl3nxkca",
+    "etmfok9aa0v1i3c",
+    "b2wwgbilh11pp6q",
+    "zkifaswb9vb98za",
+    "9mu7jjymns47qcx",
+    "79tzk5wxs32s1ie",
+    "cf8bua8ig0caoa4",
+    "d0gji86t28bl7zb",
+    "71f3it97m4yhs3t",
+    "mhixmgi62x0aury",
+    "eazlw9imuehsebr",
+    "19o8d5fcxfafhue",
+    "3psppmhcfctss0g",
+    "vm8xgfdmpx3enpq",
+    "uy6n0joru8tnxwt",
+    "yfw4v06c9vx8he3",
+    "menp5ua3iniei7c",
+    "5pc7yapfgomzcgk",
+    "8eh7irfzstqplng"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "hzo8nzsc0h01w2x",
+      "source_id": "my4l74nma3zvhg3"
+    }
+  ]
+}

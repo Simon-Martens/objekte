@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Gerad' ist's, Freundin, heut ein Jahr, / Daß in Wien an deine Seite,",
+  "language": [],
+  "musenalm_id": 6048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau Gräfin von Bassegli, / in Wien. / Den 28. Jun. 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau Gräfin von Bassegli, / in Wien. / Den 28. Jun. 1786",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.824Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "jfn7nf6sbe099dh"
+    }
+  ]
+}

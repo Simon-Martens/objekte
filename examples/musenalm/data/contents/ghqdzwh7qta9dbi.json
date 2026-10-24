@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Wo ist mein neues Maß hingekommen? Da, auf den Tisch hatt' ich's hingelegt! Was gilt's, das hat schon wieder mein Zeter-Junge, der Gottfried, weggekriegt!",
+  "language": [],
+  "musenalm_id": 53766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Papierstreifen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Papierstreifen",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.786Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "3677gpcvzoeifkd"
+    }
+  ]
+}

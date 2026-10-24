@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. s. Re 41 /) Die Schwestern von Lesbos (Sammlung INr 18553, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Abend senkte sich nun und still vertrau- / liche Dämmrung / Auf die Fluren herab,",
+  "language": [],
+  "musenalm_id": 8707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweyter Gesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweyter Gesang",
+  "updated": "2000-07-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.420Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "ak1hz060oihe0mw"
+    }
+  ]
+}

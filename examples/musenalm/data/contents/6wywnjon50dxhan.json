@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Auf seinem Todbett liegt Lubin, / Sein Weib ist voll Jammer!",
+  "language": [],
+  "musenalm_id": 4885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gründliche / Betrübniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Löwen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die gründliche / Betrübniß",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.288Z",
+      "agent": "d9adsrmbhk70tpd",
+      "source_id": "nm33g96u03fwr6r"
+    }
+  ]
+}

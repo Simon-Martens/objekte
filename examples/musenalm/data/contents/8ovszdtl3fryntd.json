@@ -1,0 +1,45 @@
+{
+  "annotation": "Trilogie der Liebe (Sammlung INr 100076, Obj16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Ich seh' dich wohl, du rosiglichtes Bild, / Durch meines öden Schlummers Träume wallen,",
+  "language": [],
+  "musenalm_id": 100078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Das Idol",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Das Idol",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.880Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "703j6dn7hbv52tu"
+    }
+  ]
+}

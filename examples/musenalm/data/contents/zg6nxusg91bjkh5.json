@@ -1,0 +1,48 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Musen und Grazien in der Mark« von Goethe INr 37984, Obj 53 (Photos 38807,01; 38807,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38807,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 669,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen und Grazien in der Mark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [
+    "alm_511_38807_01_44wntpirhg.jpg",
+    "alm_511_38807_02_gn4pq32r4a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen und Grazien in der Mark",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.941Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "mklxyphrqt3sewo"
+    }
+  ]
+}

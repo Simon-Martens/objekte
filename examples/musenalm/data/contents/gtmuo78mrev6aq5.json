@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 63402, Obj 10 /) unter der Graphik: Druck & Verlag v. G. G. Lange in Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PENELOPE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Strohuber del. Stahst. v. Merz",
+  "scans": [
+    "alm_1055_64007_sqgkz0hfy2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PENELOPE",
+  "updated": "2009-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.174Z",
+      "agent": "lvxce3ttj18wgib",
+      "source_id": "l6cllqyfotaxcyt"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Kohlenbrenner und der Müller« von G. J. Kuhn INr 53316, Obj 25 /) unter der Graphik: Alpenrosen 8. Jahrg. Seite 146",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kohlenbrenner und der Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory fecit.",
+  "scans": [
+    "alm_730_53317_8a4dvksp00.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kohlenbrenner und der Müller",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.632Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "7vdf4h6sk149uxr"
+    }
+  ]
+}

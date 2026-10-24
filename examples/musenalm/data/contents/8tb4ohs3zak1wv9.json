@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27413, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Schnell über die Fluth und die wellende Saat / Rauscht spielend das Lüftchen auf kräuselndem Pfad,",
+  "language": [],
+  "musenalm_id": 27414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Freude",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Freude",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.248Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "wh9mb060bp9tyn5"
+    }
+  ]
+}

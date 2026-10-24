@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 114499, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Ich bin der muntre Scherz! / Und wage mich hervor, / Hervor, hervor!",
+  "language": [],
+  "musenalm_id": 114501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog / nach eben dieser Vorstellung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Collin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog / nach eben dieser Vorstellung",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.442Z",
+      "agent": "o0scxlabqbxt72i",
+      "source_id": "7g4z2z7g92d8k1b"
+    }
+  ]
+}

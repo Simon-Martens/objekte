@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Im tiefen Leid möchte' ich vergehen, / Weil ich dir ferne bleiben muß,",
+  "language": [],
+  "musenalm_id": 56529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Leonhard Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Glück",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.974Z",
+      "agent": "3tut4t2f7uno1ba",
+      "source_id": "f8lziwxn6dsiu0w"
+    }
+  ]
+}

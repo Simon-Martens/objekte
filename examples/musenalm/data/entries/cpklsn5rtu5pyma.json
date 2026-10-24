@@ -1,0 +1,78 @@
+{
+  "annotation": "TA erschien als: Historisches Taschenbuch für das Jahr 1814. Von Ernst Moritz Arndt. Königsberg, bei Friedrich Nicolovius",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Arndt) 1813",
+    "norm": "",
+    "biblio": 404786,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2960,
+  "parallel_title": "",
+  "place_statement": "St. Petersburg (Lissner)",
+  "places": [
+    "isncrim54ia4qr9"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Arndt) 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 23; Goed VII. 824, 30",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch / für / das Jahr 1813. / Von / Ernst Moritz Arndt. / St. Petersburg, / Bei Karl Lissner",
+  "updated": "2026-06-11 10:18:54.781Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "wvt99tnjpo03x5k"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.101Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.101Z",
+      "agent": "tnc1b8cug6j9puh",
+      "source_id": "bsdtp1t5inskvm3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.158Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.158Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "h042pd9azg41ob2"
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1861",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.281Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/12742928X",
+          "label": "Bouvier, Pierre Louis"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Maler, Kupferstecher, Schüler von Pierre Louis Bouvier"
+      ],
+      "dateOfBirth": [
+        "1800-06-19"
+      ],
+      "dateOfDeath": [
+        "1861-06-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Daniel David Burgdorfer (1800-1861)"
+          ],
+          "creditText": [
+            "http://www.wilnitsky.com/print/b/u/r/burgdorfer5863.pdf"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Daniel%20David%20Burgdorfer%20-%20Portr%C3%A4t%20eines%20jungen%20Mannes%201832.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Daniel%20David%20Burgdorfer%20-%20Portr%C3%A4t%20eines%20jungen%20Mannes%201832.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Daniel%20David%20Burgdorfer%20-%20Portr%C3%A4t%20eines%20jungen%20Mannes%201832.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-04-11T17:07:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOELB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOELB"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1036987744/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/124575722",
+          "label": "Burgdorfer, J. J."
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "1036987744",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/124575722",
+          "label": "Burgdorfer, J. J."
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/12742928X",
+          "label": "Bouvier, Pierre Louis"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1036987744",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005762-8",
+          "label": "Bern"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4034750-3",
+          "label": "Lausanne"
+        }
+      ],
+      "preferredName": "Burgdorfer, Daniel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Daniel"
+        ],
+        "surname": [
+          "Burgdorfer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14970830v"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/283560"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q20926505"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036987744/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Daniel_David_Burgdorfer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066597226"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1036987744"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Burgdorfer, Daniel David",
+        "Burgdorfer, Dan.",
+        "Burgdorfer, D."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Daniel David"
+          ],
+          "surname": [
+            "Burgdorfer"
+          ]
+        },
+        {
+          "forename": [
+            "Dan."
+          ],
+          "surname": [
+            "Burgdorfer"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Burgdorfer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Daniel_David_Burgdorfer",
+          "label": "https://de.wikipedia.org/wiki/Daniel_David_Burgdorfer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:03:48Z",
+    "gnd_query_biographical_data": "1800-1861",
+    "gnd_query_name": "burgdorfer, daniel david"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 344,
+  "name": "Burgdorfer, Daniel David",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B V, 244",
+  "updated": "2026-06-11 13:29:21.798Z",
+  "uri": "https://d-nb.info/gnd/1036987744",
+  "editor": ""
+}

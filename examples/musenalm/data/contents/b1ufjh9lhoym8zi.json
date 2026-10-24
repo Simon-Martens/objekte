@@ -1,0 +1,46 @@
+{
+  "annotation": "s. »Mannweiber unter dem Wilde« INr 66446 von L. C. E. H. F. von Wildungen in: Taschenbuch für Forst- und Jagdfreunde 1800",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Sie ist dahin, meine Brüder, die berühmte gehörnte Virago, deren merkwürdige Biographie ich im vorigen Jahrgange Euch erzählt habe.",
+  "language": [],
+  "musenalm_id": 66513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Lieschens Denkmal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Lieschens Denkmal",
+  "updated": "2009-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.028Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "k0sqbqtec3v0vxw"
+    }
+  ]
+}

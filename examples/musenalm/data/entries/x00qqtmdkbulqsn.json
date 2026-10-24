@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelauflage von: Polyanthea 1807, alm 2447 ohne Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Reinhard) 1812 /) Titelauflage von Polyanthea 1807",
+    "norm": "",
+    "biblio": 407934,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-06-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3984,
+  "parallel_title": "",
+  "place_statement": "Münster (Waldeck)",
+  "places": [
+    "k89qkv6pdm7h9jh"
+  ],
+  "preferred_title": "Taschenbuch (Reinhard) 1812 [Titelauflage von Polyanthea 1807]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 95; K 107 nicht bei L/R; Goed V. 423. 84,5",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für das Jahr 1812. / Herausgegeben / von / Karl Reinhard. Mit Kupfern und Musik / Enthaltend: [...] / Münster, / bei Peter Waldeck",
+  "updated": "2026-06-11 10:18:55.440Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "r62jdhnfyi920fs"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.320Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.320Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "5l3ki5brrnelun4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.180Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.180Z",
+      "agent": "jh4yjp6i5j22i66",
+      "source_id": "arl2vjyg6ss6b26"
+    }
+  ]
+}

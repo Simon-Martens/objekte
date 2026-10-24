@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch, Astronomisches (Gruithuisen) 1839",
+    "norm": "",
+    "biblio": 410655,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4793,
+  "parallel_title": "",
+  "place_statement": "München (Finsterin)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Jahrbuch, Astronomisches (Gruithuisen) 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Fr. v. P. Gruituisen",
+  "subtitle_statement": "",
+  "title_statement": "Astronomisches Jahrbuch / für / physische und naturhistorische Himmelsforscher, mit den / für das Jahr 1840 vorausbestimmten / Erscheinungen am Himmel. / Herausgegeben / von / Fr. v. P. Gruithuisen, / Doctor der gesammten Heilkunde, ordentlichen Professor der Astronomie an der Ludwigs-Maximilians-Universität in München [...] / Zweytes Jahr. / München 1839, / bey Jos. A. Finsterlin in Commission",
+  "updated": "2026-06-11 10:18:55.730Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "exspw7j8a209brv"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.841Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.841Z",
+      "agent": "m7qoh2d3q66pi3b",
+      "source_id": "sx8kiquvila3u2m"
+    }
+  ]
+}

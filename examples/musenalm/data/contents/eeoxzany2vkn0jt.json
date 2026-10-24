@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Von fern und nah blizzen so grimmige Augen / Funkelnd den lezten Strahl in sich zu saugen,",
+  "language": [],
+  "musenalm_id": 71159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auflösung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rostorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auflösung",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.469Z",
+      "agent": "nt4h9rywajl3p54",
+      "source_id": "lx7kj2j71d1ldo8"
+    }
+  ]
+}

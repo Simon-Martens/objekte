@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Wie früh wird unsre Jugend klug! / Kaum trägt ein Bube Hosen,",
+  "language": [],
+  "musenalm_id": 5018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der junge Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der junge Dichter",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.173Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "hoesmc4vf4z46qe"
+    }
+  ]
+}

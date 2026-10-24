@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Vermischte Gedichte (Sammlung INr 29190, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "So den lieben ganzen Tag, / Wo der blaue See mir strahlt,",
+  "language": [],
+  "musenalm_id": 29193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tiefsinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tiefsinn",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "mwllg5dlergrl3u"
+    }
+  ]
+}

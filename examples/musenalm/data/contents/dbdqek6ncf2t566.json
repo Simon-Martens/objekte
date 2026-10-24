@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November; paginiert XI /) Illustration zu »Deutschland, ein historisches Gemälde« von F. C. Schlenkert INr 73851, Obj 31 /) s. Textbezug INr 73848, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73835,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistliches Sittengericht, oder die Sünde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc.",
+  "scans": [
+    "alm_3648_73835_olvtu5n6dm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geistliches Sittengericht, oder die Sünde",
+  "updated": "2011-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "68nrinkfa6f2bqq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.496Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "xz5mdvm6tgow4do"
+    }
+  ]
+}

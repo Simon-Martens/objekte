@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 90547, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Voll von Wünschen und Gedanken / Steh' ich nun vor deinem Haus;",
+  "language": [],
+  "musenalm_id": 90549,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Vor dem Fenster der Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gottfried Neumann. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Vor dem Fenster der Geliebten",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.185Z",
+      "agent": "u56d09jffk0z5ur",
+      "source_id": "0n85ebjezrijr1u"
+    }
+  ]
+}

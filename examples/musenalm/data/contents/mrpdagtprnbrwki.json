@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Lieder aus Bastien und Bastienne, einer neubearbeiteten freyen Uebersetzung des Devin du Village von J. J. Rousseau (Sammlung INr 76381, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Hätt' ich manchem Stadtgalane / Einst ein willig Ohr gereicht,",
+  "language": [],
+  "musenalm_id": 76382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Bastienne. / Nach der Ariette: Si des galans de la Vil- / l e etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Bastienne. / Nach der Ariette: Si des galans de la Vil- / l e etc",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.906Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "na16xrjeqm9catp"
+    }
+  ]
+}

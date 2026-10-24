@@ -1,0 +1,65 @@
+{
+  "annotation": "s. Gedicht INr 111143, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111142,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter Mosis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Krusemann pinx. V. Bing del. J.P. Lange sculp.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter Mosis",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.455Z",
+      "agent": "ducaeq2rch9xu7z",
+      "source_id": "5n4uww3b82m939d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.455Z",
+      "agent": "41jzrafysah3hkf",
+      "source_id": "j5cl1tcx4jb574n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.455Z",
+      "agent": "ueyslu5v7u98n57",
+      "source_id": "ym8rskwzk6ss7yu"
+    }
+  ]
+}

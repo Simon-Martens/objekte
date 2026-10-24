@@ -1,0 +1,511 @@
+{
+  "annotation": "",
+  "biographical_data": "1817-1895",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.337Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftstellerin, Erzieherin, später Leiterin e. Erziehungsanstalt in Wien"
+      ],
+      "dateOfBirth": [
+        "1817-10-11"
+      ],
+      "dateOfDeath": [
+        "1895-06-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "nicht bekannt"
+          ],
+          "creditText": [
+            "Scan aus Anna Plothow: Die Begründerinnen der deutschen Frauenbewegung. 5. Aufl. Aufl. Leipzig&nbsp;: Rothbarth 1907."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jeanne%20Marie%20von%20Gayette-Georgens.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jeanne%20Marie%20von%20Gayette-Georgens.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jeanne%20Marie%20von%20Gayette-Georgens.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T20:35:59.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116472804/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Jean Daniel"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116472804",
+      "id": "https://d-nb.info/gnd/116472804",
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Georgens"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116472804"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4073614-3",
+          "label": "Kolberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Gayette-Georgens, Jeanne Marie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jeanne Marie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Gayette-Georgens"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132472-9",
+          "label": "Erzieherin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Jeanne-Marie"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Maximus"
+          ],
+          "surname": [
+            "Casus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jeanne"
+          ],
+          "surname": [
+            "Marie"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Jeanne-Marie"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Brevier der Konversation und gesellschaftlichen Unterhaltung",
+        "Die Frauen in Erwerb und Beruf",
+        "Luigia Sanfelice oder die Revolution in Neapel. - 18XX",
+        "Elisenhof",
+        "Geist des Schönen in Kunst und Leben",
+        "Die Familie. - 18XX",
+        "Oceana"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/282660858"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18916818"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116472804/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jeanne_Marie_von_Gayette-Georgens"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000389302269"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116472804"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116472804"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116472804"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Georgens, Jeanne Marie von Gayette-",
+        "Georgens, Jeanne Marie von",
+        "Marie, Jeanne",
+        "Gayette-Georgens, Johanna Sophie Marie",
+        "de Gayette-Georgens, Jeanne Marie",
+        "Gayette, Marie von",
+        "Gayette-Georgens, Jeanne M. von",
+        "Gayette-Georgens, Jeanne Marie de",
+        "Jeanne-Marie",
+        "Georgens, Johanna Sophie Marie von Gayette-",
+        "Casus, Maximus",
+        "Deinhardt, Jeanne Marie Gayette",
+        "Georgens, Johanna Sophie Marie Gayette-",
+        "Gayette Georgens, Jeanne Sophie Marie von",
+        "Gayette, Jeanne Marie von",
+        "de Gayette, Jeanne Marie",
+        "Gayette, Johanna Sophie Marie",
+        "Georgens, Jeanne Marie de",
+        "Gayette Georgens, Jeanne Marie von",
+        "Gayette, Jeanne Marie de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johanna Sophie Marie von Gayette-"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Sophie Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gayette Georgens"
+          ]
+        },
+        {
+          "personalName": [
+            "Jeanne-Marie"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gayette-Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Sophie Marie Gayette-"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Sophie Marie"
+          ],
+          "surname": [
+            "Gayette-Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie von Gayette-"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gayette"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "surname": [
+            "de Gayette"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie Gayette"
+          ],
+          "surname": [
+            "Deinhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gayette"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gayette Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Gayette"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne"
+          ],
+          "surname": [
+            "Marie"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "surname": [
+            "de Gayette-Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Sophie Marie"
+          ],
+          "surname": [
+            "Gayette"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Gayette-Georgens"
+          ]
+        },
+        {
+          "forename": [
+            "Maximus"
+          ],
+          "surname": [
+            "Casus"
+          ]
+        },
+        {
+          "personalName": [
+            "Jeanne-Marie"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Georgens"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jeanne_Marie_von_Gayette-Georgens",
+          "label": "https://de.wikipedia.org/wiki/Jeanne_Marie_von_Gayette-Georgens"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:28:06Z",
+    "gnd_query_biographical_data": "1817-1895",
+    "gnd_query_name": "gayette-georgens, jeanne marie von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 838,
+  "name": "Gayette-Georgens, Jeanne Marie von",
+  "profession": "Graphik",
+  "pseudonyms": "Jeanne-Marie",
+  "refs": "E 103",
+  "updated": "2026-06-11 13:29:22.444Z",
+  "uri": "https://d-nb.info/gnd/116472804",
+  "editor": ""
+}

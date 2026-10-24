@@ -1,0 +1,45 @@
+{
+  "annotation": "Neugriechische Zwiereime (Sammlung INr 55362, Obj 137)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Vier Blätter hat des Menschen Herz: zwey hats du / mir genommen,",
+  "language": [],
+  "musenalm_id": 55369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2008-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.770Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "g4bm8m2mkzvlybq"
+    }
+  ]
+}

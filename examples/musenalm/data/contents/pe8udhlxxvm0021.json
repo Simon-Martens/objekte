@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 9232, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Oft ist der Genius auch dem gewaltigen Menschen / ein Schicksal;",
+  "language": [],
+  "musenalm_id": 1506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gefahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gefahr",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.643Z",
+      "agent": "08be5slqlt4odk1",
+      "source_id": "xibgwufw7h6azsa"
+    }
+  ]
+}

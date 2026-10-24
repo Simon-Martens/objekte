@@ -1,0 +1,67 @@
+{
+  "annotation": "Erscheinungsverlauf unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Wien) 1863",
+    "norm": "",
+    "biblio": 407187,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-07-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4203,
+  "parallel_title": "",
+  "place_statement": "Wien (Lienhart)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenkalender (Wien, Leinhart)) 1863",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr / nach der Geburt Jesu Christi / 1863. / Wien. / Bei Ignaz Lienhart, / Schottenhof Nr. 136",
+  "updated": "2026-06-11 10:18:55.263Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "items": [
+    "4bnrmb37knp91ip"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.098Z",
+      "agent": "w2bayedwdqvhj9v",
+      "source_id": "j1ynaou5rp3oxod"
+    }
+  ]
+}

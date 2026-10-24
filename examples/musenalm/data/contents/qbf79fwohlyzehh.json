@@ -1,0 +1,45 @@
+{
+  "annotation": "Sylbenräthsel (Sammlung INr 41333, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "408",
+  "incipit_statement": "Der Wald erzeugt die Erste häufig. / Das Dichten ist jetzt so geläufig,",
+  "language": [],
+  "musenalm_id": 41339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.245Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "omwlngrvxcd4fcb"
+    }
+  ]
+}

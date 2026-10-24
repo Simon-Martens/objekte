@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90783,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortuna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Decker del. M. Hofmann sc.",
+  "scans": [
+    "alm_4011_90783_vmmkq8ywvx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fortuna",
+  "updated": "2013-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.244Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "b75yzw1a4bw32cd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.244Z",
+      "agent": "80ynrlk6xwlunry",
+      "source_id": "mz1926oo9vxfiet"
+    }
+  ]
+}

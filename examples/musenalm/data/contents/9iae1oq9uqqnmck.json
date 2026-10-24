@@ -1,0 +1,45 @@
+{
+  "annotation": "Laut einer Fußnote war »dies schöne Gedicht [...] für das Schiller Album bestimmt, jedoch in der Form zu lang befunden ...«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Nun kommen sie aus aller Welt, / Die leichten Dichterboten. / Von wannen flattert nicht ein Blatt / In’s Buch des großen Todten?",
+  "language": [],
+  "musenalm_id": 125972,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Te saxa loquuntur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Te saxa loquuntur",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.898Z",
+      "agent": "vmnuom11udo0f3y",
+      "source_id": "995vqfly1f3fr3n"
+    }
+  ]
+}

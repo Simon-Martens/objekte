@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Glaubt Nur, Herr Diethelm, es ist nicht so leicht, / Bei diesen Zeiten redlich durchzukommen.",
+  "language": [],
+  "musenalm_id": 129880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / graue Männlein. / Schauspiel in fünf Akten / von / Eduard Devrient",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Devrient",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / graue Männlein. / Schauspiel in fünf Akten / von / Eduard Devrient",
+  "updated": "2022-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.050Z",
+      "agent": "k58kpm3nqws8rfg",
+      "source_id": "q935xhfkry0f80s"
+    }
+  ]
+}

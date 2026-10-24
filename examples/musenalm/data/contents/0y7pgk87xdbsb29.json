@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Welch' eine Zeit unsre jetztige! ruft ein neuerer Geschichtschreiber aus, den gewiß selbst der neufränkischeste Deutsche der Partheylichkeit nicht zeihen wird, Posselt - wie sehr verdient sie, daß nicht nur der Politiker von Profession,",
+  "language": [],
+  "musenalm_id": 60220,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht / des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht / des Herausgebers",
+  "updated": "2008-10-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.938Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "jrzw4jkg6vpigmf"
+    }
+  ]
+}

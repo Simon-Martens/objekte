@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Ich stand am fremden Gärtchen, / Und lauschte über'n Zaun.",
+  "language": [],
+  "musenalm_id": 56852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Festrosen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Festrosen",
+  "updated": "2008-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.862Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "l9alemi3y8tunm1"
+    }
+  ]
+}

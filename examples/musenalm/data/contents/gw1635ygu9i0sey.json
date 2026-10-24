@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Das Schicksal zeigte mir jüngst auf / zweenen blumichten Wegen",
+  "language": [],
+  "musenalm_id": 4893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Glück der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Glück der Liebe",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.288Z",
+      "agent": "t5xduzz1g6d3iy5",
+      "source_id": "ywg0fq687fcs03t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Eine arme Wittwe,die lebte in einem kleinen Hüttchen, und vor dem Hüttchen war ein Garten, darin standen zwei Rosenbäumchen, wovon das eine weiße, das andere rothe Rosen trug, und sie hatte zwei Kinder, die glichen den beiden Rosenbäumchen,",
+  "language": [],
+  "musenalm_id": 41650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schneeweischen und Rosenroth",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schneeweischen und Rosenroth",
+  "updated": "2005-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.183Z",
+      "agent": "3grzeu7khs4sl5r",
+      "source_id": "bimwuhz08gv9jfu"
+    }
+  ]
+}

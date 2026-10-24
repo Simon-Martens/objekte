@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Blätten der Suite /) paginiert 9. Illustration zu einem Teil aus »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59893, Obj 13; s.a. Textbezug INr 59926, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bein-Haus zu Murten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert Riepenhausen",
+  "scans": [
+    "alm_934_59925_a35ycoz641.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Bein-Haus zu Murten",
+  "updated": "2008-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.952Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "sagdqgpf0x57jnb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.952Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "vy7vwbk9i866jhi"
+    }
+  ]
+}

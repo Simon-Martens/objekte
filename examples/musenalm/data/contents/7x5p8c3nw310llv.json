@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Gedichten INr 54732-54744, Obj 45-57 /) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54731,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus andern Liedern, Singsprüchen und / Sinngedichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus andern Liedern, Singsprüchen und / Sinngedichten",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.681Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "u9ljk56o6pj0h51"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Einleitung zum Beitrag INr 53026, Obj 54 /) mit einer Illustration s. Graphik INr 127977, Obj 52,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Bald wird uns hier in unserm Almanache mit den Erzählungen aus der Schweizerischen Vorzeit begegnen, was dort in der äsopischen Fabel dem Schäfer mit dem Wolfe.",
+  "language": [],
+  "musenalm_id": 53025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gefangenen Schweizer-Knaben. / Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die gefangenen Schweizer-Knaben. / Vorbericht",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.417Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "7okecbv0qdk8n63"
+    }
+  ]
+}

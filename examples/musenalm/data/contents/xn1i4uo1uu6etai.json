@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Bav wollte dichten, schlug an seinen Kopf, / Und rief: O Wiz komm doch heraus!",
+  "language": [],
+  "musenalm_id": 16891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bav. / Nach Swift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bav. / Nach Swift",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.403Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "2wskq0h1f03b8h3"
+    }
+  ]
+}

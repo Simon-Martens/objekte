@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124388, Obj 1); vgl »Der falsche König Stanislaus« von Kurländer (INr 124452, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Mein König wird die Freyheit entschuldigen, mit der ich spreche, aber wenn man erfährt, daß Seine Majestät – / Wirst du es immer vergessen, daß ich meinen königlichen Titel [...] hier verläugnen, und bloß für Ramirez gelten will?",
+  "language": [],
+  "musenalm_id": 124450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiedervergeltung. / Eine freye Uebersetzung / des / Französischen Lustspiels La Revanche, / in drey Aufzügen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet [übers.] Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiedervergeltung. / Eine freye Uebersetzung / des / Französischen Lustspiels La Revanche, / in drey Aufzügen",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.802Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "pp6cl62caxzk5l1"
+    }
+  ]
+}

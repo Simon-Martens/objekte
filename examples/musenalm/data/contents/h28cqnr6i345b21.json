@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24964, Obj 245)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Schwarzer Knabe! deine Flöte / Lieb' ich vom Acacienbaume,",
+  "language": [],
+  "musenalm_id": 24966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 247,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Flöte. / Aus Clappertons Tagebuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Grüneisen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Flöte. / Aus Clappertons Tagebuch",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.295Z",
+      "agent": "r322n7phj7sp0e1",
+      "source_id": "eo4r1alr70h1hh9"
+    }
+  ]
+}

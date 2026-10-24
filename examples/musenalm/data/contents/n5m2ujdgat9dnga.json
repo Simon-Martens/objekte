@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 22905, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Die Erste wie die beiden Letzten deuten / Bestimmt Dir Maß sowohl als Regel an,",
+  "language": [],
+  "musenalm_id": 22916,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.793Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "x77upp7molbz40h"
+    }
+  ]
+}

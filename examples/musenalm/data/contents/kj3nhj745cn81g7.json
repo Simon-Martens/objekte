@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 25 Gedichten INr 95157-95181, Obj 64-88",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenblätter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauenblätter",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.456Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "uhmjcvp9r0lsnhf"
+    }
+  ]
+}

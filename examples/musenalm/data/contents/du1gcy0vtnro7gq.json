@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. Graphiken INr 76208-76210, Obj 18-20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Die Allemende wurde ehedem allgemein getanzt, und ist nur erst seit ungefähr 20 Jahren nach und nach aus der Mode gekommen,",
+  "language": [],
+  "musenalm_id": 76207,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Allemande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Allemande",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.769Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "qpm8tb0ynvdh385"
+    }
+  ]
+}

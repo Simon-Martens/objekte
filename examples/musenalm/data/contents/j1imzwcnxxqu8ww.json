@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Noch muß ich erinnern, daß H. Prof. Heß, im Begriff, einige grosse, seiner Kunst würdige Platten zu bearbeiten, wenig mehr für solche kleine Blätter thun kann; H. Prof. Thelott hingegen wird seinen vortreffliche Griffel ununterbrochen unserm Institute",
+  "language": [],
+  "musenalm_id": 101835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch muß ich erinnern, daß H. Prof. Heß, im Begriff, einige grosse, seiner Kunst würdige Platten zu bearbeiten, wenig mehr für solche kleine Blätter thun kann; H. Prof. Thelott hingegen wird seinen vortreffliche Griffel ununterbrochen unserm Institute…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.997Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "c5h0vry0m85cf56"
+    }
+  ]
+}

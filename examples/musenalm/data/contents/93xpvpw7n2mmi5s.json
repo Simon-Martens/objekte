@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel und Charaden (Sammlung INr 20174, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "Zwei Sylben, die ein Wörtlein bilden / Sechsfachen Sinns; aus Erdenkluft",
+  "language": [],
+  "musenalm_id": 20175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gleichname",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gleichname",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.839Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "orituyks12sm5a6"
+    }
+  ]
+}

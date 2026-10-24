@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Anekdoten (Sammlung INr 67021, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Ein Eleve eines gewissen Forstinstitutes konnte das Hundegebell, das Katzen- und Hahnengeschgeschrei so genau nachmachen, daß man seine Stimme von jener der genannter Thiere nicht unterscheiden konnte.",
+  "language": [],
+  "musenalm_id": 67028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.458Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "ddaphknuafcx0yj"
+    }
+  ]
+}

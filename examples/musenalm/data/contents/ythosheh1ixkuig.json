@@ -1,0 +1,47 @@
+{
+  "annotation": "paginert S. 76 /) Illustration zu »Adelheid und Eduard III.  Nach D'Arnaud« INr 58621, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. G. L. Crusius sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. G. L. Crusius sc.",
+  "scans": [
+    "alm_624_88775_k46g80pact.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.924Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "nbafqf1mebakdi8"
+    }
+  ]
+}

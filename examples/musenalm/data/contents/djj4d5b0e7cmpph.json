@@ -1,0 +1,54 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68829,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SEINER KÖNIGL. HOHEIT / DEM / KRONPRINZEN VON BAIERN / DEM FREUNDE UND BESCHÜTZER / DER SCHÖNEN KÜNSTE / WIDMEN / DIESEN ZWEITEN JAHRGANG / ALS EINEN BEWEIS IHRER ACHTUNG / IN UNTERTHÄNIGKEIT / DIE HERAUSGEBER. / ROM, IM JULIUS 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SEINER KÖNIGL. HOHEIT / DEM / KRONPRINZEN VON BAIERN / DEM FREUNDE UND BESCHÜTZER / DER SCHÖNEN KÜNSTE / WIDMEN / DIESEN ZWEITEN JAHRGANG / ALS EINEN BEWEIS IHRER ACHTUNG / IN UNTERTHÄNIGKEIT / DIE HERAUSGEBER. / ROM, IM JULIUS 1810",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.424Z",
+      "agent": "5bnzjhrj2xdhtqy",
+      "source_id": "q5o0g9mjf10v6p6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.424Z",
+      "agent": "xeh43apdx4986px",
+      "source_id": "t7tmze00sp70x8y"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Es neigte mit dem Rest der Stunden, / Der noch ihm zubeschieden war,",
+  "language": [],
+  "musenalm_id": 30531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Graurock",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Graurock",
+  "updated": "2002-11-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.677Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "diwxdmi18g0yp4a"
+    }
+  ]
+}

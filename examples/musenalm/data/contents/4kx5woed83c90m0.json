@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03 10:05:24.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Ihr jungen Mädchen, die mit ihren Schätzen / So reich geschmückt die freundliche Natur,",
+  "language": [],
+  "musenalm_id": 140491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rath für junge Mädchen. / (Nach dem Französischen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rath für junge Mädchen. / (Nach dem Französischen)",
+  "updated": "2026-09-03 10:06:53.255Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03 10:06:53.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-03 10:06:53.257Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "j60kv96pkcm20vt"
+    }
+  ]
+}

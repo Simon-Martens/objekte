@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105432, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "So lange unsre liebe runde Welt / mit Ehren sich in ihren alten Angeln hält,",
+  "language": [],
+  "musenalm_id": 105439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / nach Wiedereröffnugn einer Bühne / nach den Fastenwochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Vulpius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / nach Wiedereröffnugn einer Bühne / nach den Fastenwochen",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.148Z",
+      "agent": "allpiu4vpyku74f",
+      "source_id": "ny5limit8km3fq0"
+    }
+  ]
+}

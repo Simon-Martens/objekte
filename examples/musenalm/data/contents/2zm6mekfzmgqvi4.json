@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus den Scholien zu den Bildern (Sammlung 9204, Obj 9) s. Textbezug INr 19379, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9199,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Saul und David #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerh. v. Kuegelchen del. C. F. Stoelzel sc.",
+  "scans": [
+    "alm_37_9199_gmqtzlihcm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Saul und David #",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.339Z",
+      "agent": "g2gt3akj0yc6x1r",
+      "source_id": "izkypawh86updkf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.339Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "r3git6f6rgkdot0"
+    }
+  ]
+}

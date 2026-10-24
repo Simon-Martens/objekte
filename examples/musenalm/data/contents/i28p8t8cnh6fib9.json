@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63449, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63457,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die todte Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Geisler Gest. v. Fleischmann",
+  "scans": [
+    "alm_1041_63457_qbub693pe1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die todte Braut",
+  "updated": "2009-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "15elql6s2628z75"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "5loado5izom95wf"
+    }
+  ]
+}

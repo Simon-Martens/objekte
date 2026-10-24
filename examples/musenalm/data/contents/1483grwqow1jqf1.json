@@ -1,0 +1,45 @@
+{
+  "annotation": "Phantasie zu Beethoven's Pastoral-Symphonie (Sammlung INr 95942, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Als du sanft die Tasten rührtest, / Und mit kindlich zarter Hand / Mich in's Land der Töne führtest / In des Meisters Wunderland",
+  "language": [],
+  "musenalm_id": 95943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widmung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widmung",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.686Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "9msoc5qsexij0if"
+    }
+  ]
+}

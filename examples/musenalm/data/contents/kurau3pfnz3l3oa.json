@@ -1,0 +1,45 @@
+{
+  "annotation": "mit vorstehendem Beitrag INr 57837, Obj 35 Textbezug zur Graphik INr 57839, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "416",
+  "incipit_statement": "Die Kinder schauen mit neugier'gen Blicken / Zu ihr hinauf, als wollten ihre Augen / Der Rednerin das Wort vom Munde saugen,",
+  "language": [],
+  "musenalm_id": 57838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kinder schauen mit neugier'gen Blicken / Zu ihr hinauf, als wollten ihre Augen / Der Rednerin das Wort vom Munde saugen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "m2slfoddlmp882i"
+    }
+  ]
+}

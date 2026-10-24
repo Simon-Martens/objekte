@@ -1,0 +1,556 @@
+{
+  "annotation": "",
+  "biographical_data": "1801-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024315-7",
+          "label": "Georg-August-Universität Göttingen"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1825 Dr. phil., 1841 Übertritt vom Judentum zum Protestantismus; Leipzig, Berlin, Hamburg (Wirkungsorte); Dt. Schriftsteller und Begründer mehrerer Zeitschriften, aus Geldnot auch Schauspieler, Musiker, Ballettänzer",
+        "Schriftsteller, Herausgeber"
+      ],
+      "dateOfBirth": [
+        "1801-04-23"
+      ],
+      "dateOfDeath": [
+        "1867-04-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unbekannter Grafiker der Epoche."
+          ],
+          "creditText": [
+            "llustrirte Zeitung, Bd. 48 (1867), S. 319."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hermann%20Schiff%20%28IZ%2048-1867%20S%20319%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hermann%20Schiff%20%28IZ%2048-1867%20S%20319%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hermann%20Schiff%20%28IZ%2048-1867%20S%20319%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-17T14:20:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/114283850/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "David Bär"
+          ],
+          "surname": [
+            "Schiff"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "114283850",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/114283850",
+      "oldAuthorityNumber": [
+        "(DE-588c)4586812-8",
+        "(DE-588a)114283850",
+        "(DE-588a)127963251"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Schiff, Hermann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hermann"
+        ],
+        "surname": [
+          "Schiff"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4136608-6",
+          "label": "Tänzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4136608-6",
+          "label": "Tänzer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Bernay"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Isaak"
+          ],
+          "surname": [
+            "Bernays"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Issak"
+          ],
+          "surname": [
+            "Bernays"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Isaak"
+          ],
+          "surname": [
+            "Bernoys"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Freese"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Cohen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Freese"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schiff, Hermann: Lebensbilder von Honoré de Balzac",
+        "Schiff, Hermann: Glück und Geld",
+        "Schiff, Hermann: Schief-Levinche mit seiner Kalle oder Polnische Wirtschaft",
+        "Schiff, Hermann: Die Ohrfeige",
+        "Schiff, Hermann: Nachlaß des Katers Murr",
+        "Schiff, Hermann: Gevatter Tod",
+        "Schiff, Hermann: Linchen oder Erziehungsresultate",
+        "Begr. von: Der freie Hamburger",
+        "Schiff, Hermann: Höllenbreughel",
+        "Schiff, Hermann: Gundlingen",
+        "Schiff, Hermann: Pumpauf und Pumprich"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "David Bär"
+          ],
+          "surname": [
+            "Schiff"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb144784942"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no00009910"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56836834"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1029161"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/114283850/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/114283850"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hermann_Schiff"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066583385"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/114283850"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/114283850"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd114283850.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/114283850"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Verfasser des Schief-Levinche",
+        "Bernay, I.",
+        "Schiff, David Bär",
+        "Bernays, Issak",
+        "Bär, David",
+        "Schiff, David Hermann",
+        "Schiff, David B.",
+        "Schiff, Hermann David",
+        "Bernoys, Isaak",
+        "Freese, H.",
+        "Bernays, Isaak",
+        "Schiff, Hermann D.",
+        "Schiff, David",
+        "Cohen, M.",
+        "Freese, Heinrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hermann D."
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "David Bär"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "Isaak"
+          ],
+          "surname": [
+            "Bernays"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann David"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Bernay"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Freese"
+          ]
+        },
+        {
+          "forename": [
+            "David Bär"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "David Bär"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "David B."
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Cohen"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Freese"
+          ]
+        },
+        {
+          "personalName": [
+            "Verfasser des Schief-Levinche"
+          ]
+        },
+        {
+          "forename": [
+            "Isaak"
+          ],
+          "surname": [
+            "Bernoys"
+          ]
+        },
+        {
+          "forename": [
+            "David Hermann"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "Issak"
+          ],
+          "surname": [
+            "Bernays"
+          ]
+        },
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Schiff"
+          ]
+        },
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Bär"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hermann_Schiff",
+          "label": "https://de.wikipedia.org/wiki/Hermann_Schiff"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:47:27Z",
+    "gnd_query_biographical_data": "1801-1867",
+    "gnd_query_name": "schiff, david hermann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2436,
+  "name": "Schiff, David Hermann",
+  "profession": "Text",
+  "pseudonyms": "Isaak Bernays; Heinrich Freese",
+  "refs": "Goed X, 428",
+  "updated": "2026-06-11 13:29:24.621Z",
+  "uri": "https://d-nb.info/gnd/114283850",
+  "editor": ""
+}

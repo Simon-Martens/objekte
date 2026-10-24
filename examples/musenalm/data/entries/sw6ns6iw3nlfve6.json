@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatisirter Sprüchwörter 1835",
+    "norm": "",
+    "biblio": 200372,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1303,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kayser; Beyer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatisirter Sprüchwörter 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IX. 334, 16",
+  "responsibility_statement": "Friedrich von Sydow",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatisirter Sprüchwörter / zur / Unterhaltung in geselligen / Kreisen / und für Privat-Bühnen / von / Friedrich von Sydow, / königl. preuß. Major a. D. / Erster Jahrgang. / Leipzig, 1835. / Ch. G. Kayser'sche Buchhandlung. / (Franz Beyer.)",
+  "updated": "2026-06-11 10:18:55.006Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "ougiq61n3fjx7d5"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.878Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.878Z",
+      "agent": "6xjnjk3hecydoti",
+      "source_id": "4u4r1tm0tc3w24t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.075Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.075Z",
+      "agent": "37n46bvjky80lfp",
+      "source_id": "o23iajnriah3f5d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.545Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.545Z",
+      "agent": "e0e2dfsdrfpe8op",
+      "source_id": "r5ux9jzkmti3mjf"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "2 Jgg 1837, 1838; Berlin (Duncker und Humblot); Hrsg.: Karl Büchner",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, SS IX-X G-Verz, 2 GG, SS 1-403, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Deutsches (Büchner) 1837",
+    "norm": "~",
+    "biblio": 100652,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2929,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker und Humblot)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Deutsches (Büchner) 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "Karl Büchner",
+  "subtitle_statement": "",
+  "title_statement": "Deutsches Taschenbuch / auf das Jahr 1837. / Mit Beiträgen / von / Willibald Alexis, Adelbert v. Chamisso, Jos. Frhrn. v. / Eichendorff, E. Ferrand, Franz Frhrn. Gaudy, Em. / Geibel, O. F. Gruppe, Aug. Kopisch, H. Marggraff, / Th. Mundt, L. Rellstab und H. Stieglitz. / Herausgegeben / von / Karl Büchner. / Mit 3 Kupfern. / Berlin. / Verlegt von Duncker und Humblot",
+  "updated": "2026-06-11 10:18:54.555Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "pehhlr084ob6qdb"
+  ],
+  "contents": [
+    "3znbu4e40jpwdx8",
+    "l02tpukxn30sxl0",
+    "0rxvi3c381mdr0j",
+    "9aa8qwgz90y02ug",
+    "zrf2ik6ue0tvntf",
+    "468ctt5yvlw53aj",
+    "o2aaamq9bo217cq",
+    "azhe8elmifba5ku",
+    "tj6bnsrer4jmmq5",
+    "itqy7txxmpw3ezn",
+    "2nifrjo1yszqbpc",
+    "1sbjopp6c3098oa",
+    "pahewm47vxduabk",
+    "31l1m46gf181l8t",
+    "5xjluzckr1vxdnp",
+    "6jtpkkwv3noqmgd",
+    "bigf2pqsw9sb61l",
+    "blffjtltbcdcl8j",
+    "i3a87cbx3chd03o",
+    "eluyqvsdw8y840e",
+    "ycyfqqc6boyqk3f",
+    "vi2j79ywte70bdm",
+    "q9ollhxbovpnjeb",
+    "sod9wsb0cacops9",
+    "kyy6rgscyl6b8fl",
+    "0ywitaly3c2gpmo",
+    "x8yobwi71yum0il",
+    "4zpjr0765far1gs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.752Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.752Z",
+      "agent": "rgoxvg7uuoc3chb",
+      "source_id": "y1cfbkj0ngxzdk1"
+    }
+  ]
+}

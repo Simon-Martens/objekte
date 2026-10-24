@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anmerkung am Objekt: Siehe Schmids Lied der Trennung. Musenalmanach 1785. Entgegnung auf Kl. Schmidts »Lied der Trennung« in: Musenalmanach (Göttingen) 1785 INr 3068",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Wohl weinen Gottes Engel, / Wann Liebende sich trennen.",
+  "language": [],
+  "musenalm_id": 17704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luisens Antwort #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Theobul Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Luisens Antwort #",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.649Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "zsqwil3lphvimfr"
+    }
+  ]
+}

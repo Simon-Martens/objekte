@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79278,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / der / SAECHSISCH. / Geschichte / 1792 / von Carl Gottlob / Cramer / Dresden und Leipzig, in der / Richterschen Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dornheim del et sc.",
+  "scans": [
+    "alm_3767_79278_4agg5bzmox.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / der / SAECHSISCH. / Geschichte / 1792 / von Carl Gottlob / Cramer / Dresden und Leipzig, in der / Richterschen Buchhandlung",
+  "updated": "2012-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.972Z",
+      "agent": "praird5i9f22ccy",
+      "source_id": "j8u9f75cuzjun7u"
+    }
+  ]
+}

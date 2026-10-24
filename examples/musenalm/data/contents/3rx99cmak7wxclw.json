@@ -1,0 +1,45 @@
+{
+  "annotation": "Steppenlieder (Sammlung INr 104159, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "Weit verloren von der Heerde, / Scheu die Blicke rückgewandt, / Sprengt ein Rudel wilder Pferde,",
+  "language": [],
+  "musenalm_id": 104164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.126Z",
+      "agent": "j7plmb89f8s4m2q",
+      "source_id": "tfq50iripibvs4g"
+    }
+  ]
+}

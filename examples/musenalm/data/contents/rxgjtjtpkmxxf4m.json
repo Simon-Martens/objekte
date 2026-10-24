@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Wie hehr im stillen Schweizerlande / So mancher Bund gedeiht!",
+  "language": [],
+  "musenalm_id": 53848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schweizerische Kriegerverein / unter den / schweizerischen Kunst- und Wissenschaftsvereinen. / Gedichtet zur freundschaftlichen Zusammenkunft schweizerischer / Offiziere in Langenthal, am 18. July 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schweizerische Kriegerverein / unter den / schweizerischen Kunst- und Wissenschaftsvereinen. / Gedichtet zur freundschaftlichen Zusammenkunft schweizerischer / Offiziere in Langenthal, am 18. July 1822",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.780Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "dnmeaw9rhtg7pmw"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, S III I-Verz, SS IV-VI Tab, 24 B Kal darin 7 GG, ar SS1-420, ar1: SS 1-30 Tabb, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1836",
+    "norm": "",
+    "biblio": 407642,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2088,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Hof-Kalender / auf das Jahr / 1836. / Drei und Siebzigster Jahrgang. / Gotha, / bei Justus Perthes",
+  "updated": "2026-06-17 08:58:23.977Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "dv3u6gfcqzx25z7"
+  ],
+  "contents": [
+    "8hvacare941wbv3",
+    "hu679pgkajg7yxw",
+    "kab6c2qlwj352kr",
+    "4ai2knpylqoqxh3",
+    "v6ijf8hfhq3rue9",
+    "sgunl2loni2pbdq",
+    "iiyudadas27fcin",
+    "2a19cp28zl1pcpo",
+    "0601xuu86713zsp",
+    "q8dyoegvcej03n4",
+    "tfyhmmfvgpm0y63",
+    "8wmch7megv6oftv",
+    "q7da0m2ish0cx00",
+    "98bfos3zxugn3xl",
+    "ktw2aoblwoci93c",
+    "iypeh97b2vpl7qt",
+    "owly4vdfze7own5",
+    "17dbhmyj9rzspzv",
+    "rsj7warlcxbqxgv",
+    "vfsnjvqfynps0nc",
+    "m0qixro7ho63b04",
+    "19h2qycc58l3bhi",
+    "50ynxrpkn096bu3",
+    "f0busnu52jnpdlr",
+    "2zde6kyt0e705h4",
+    "qolj8p1ivuj1woi",
+    "bqqbi23rnxqld17",
+    "1exzu8xws0jecif"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.123Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-17 08:58:23.978Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "34a1af1v09qm95u"
+    }
+  ]
+}

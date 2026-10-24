@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Schwerlich zeigt sich dem Ethographen ein so auffallender Beweis für die Einwirkung, des Klimas auf Denkart und Sitten, als bei dem Contrast der einander so nahe gelegenen Länder von China und Japan.",
+  "language": [],
+  "musenalm_id": 41746,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. W. v. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2005-12-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.339Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "zp5ihd3mtmwag0b"
+    }
+  ]
+}

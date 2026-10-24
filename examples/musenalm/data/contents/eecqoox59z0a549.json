@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Lieblicher fleusst, o Bach; die stille Lethe / Durch Elysiens Fluren nicht;",
+  "language": [],
+  "musenalm_id": 1322,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GRIES",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bach",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.972Z",
+      "agent": "29ohnryhyvah0tt",
+      "source_id": "8g7xrqhe4ugtokl"
+    }
+  ]
+}

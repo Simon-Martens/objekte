@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Puh! Herunter, mit dem alten Staube; / Sei gedruckt, und zeige dich der Welt.",
+  "language": [],
+  "musenalm_id": 5553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter an sein Manus- / kript",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter an sein Manus- / kript",
+  "updated": "2000-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.125Z",
+      "agent": "cxnpeuic3nrym95",
+      "source_id": "04ncblng1d1z1qu"
+    }
+  ]
+}

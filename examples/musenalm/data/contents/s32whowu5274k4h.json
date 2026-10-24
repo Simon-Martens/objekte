@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ich kenn' ein schönes Land voll Rosen, / Wo oft mein Geist in Düften irrt.",
+  "language": [],
+  "musenalm_id": 3631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cytherens Reich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cytherens Reich",
+  "updated": "2000-09-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.035Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "zwt6wfo436yes23"
+    }
+  ]
+}

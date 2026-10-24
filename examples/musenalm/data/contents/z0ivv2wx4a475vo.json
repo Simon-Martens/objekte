@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Galatea (Sammlung INr 22543, Obj 57) Distichen (Sammlung INr 22522, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "O Galatea, du Holde, wie reifende Trauben so / glänzend, / Scheu wie das flüchtige Reh!",
+  "language": [],
+  "musenalm_id": 22546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.874Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "gma8km8ssts1bfb"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am letzten Blatt der Suite. Graphik im Kalendarium paginiert 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In üppiger Fülle von Früchten prangt glüend der Sommer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. f.",
+  "scans": [
+    "alm_165_7729_wtb6lpvljr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In üppiger Fülle von Früchten prangt glüend der Sommer",
+  "updated": "2000-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.278Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "9b7oj6iu9qe5e97"
+    }
+  ]
+}

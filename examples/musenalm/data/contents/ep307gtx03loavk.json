@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Was wir aus ihrem Munde hören, / kann sie bey ihrem Bart beschwören.",
+  "language": [],
+  "musenalm_id": 2690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chlorindens Vorzüge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chlorindens Vorzüge",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.046Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "3k5vbggh8ydbrsm"
+    }
+  ]
+}

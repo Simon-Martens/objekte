@@ -1,0 +1,240 @@
+{
+  "annotation": "",
+  "biographical_data": "1782-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.345Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Geboren in Vogelsdorf (Schlesien); lebte zeitweise (ab 1831) in Leipzig und Altenburg, wo er eine Verlagsbuchhandlung gründete und die Zeitschrift \"Der Eremit\" herausgab"
+      ],
+      "dateOfBirth": [
+        "1782-11-24"
+      ],
+      "dateOfDeath": [
+        "1842"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-29T15:15:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116657847/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Gleich"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        }
+      ],
+      "gndIdentifier": "116657847",
+      "id": "https://d-nb.info/gnd/116657847",
+      "oldAuthorityNumber": [
+        "(DE-588a)116657847"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7555896-8",
+          "label": "Ptaszkowa"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Altenburg bei Leipzig"
+      ],
+      "preferredName": "Gleich, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Gleich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4152967-4",
+          "label": "Erzähler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031922"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30293403"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1459267"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116657847/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gleich"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Gleich"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109627262"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116657847"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116657847"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Gleich, Fr."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Gleich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gleich",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Gleich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:31:27Z",
+    "gnd_query_biographical_data": "1782-1842",
+    "gnd_query_name": "gleich, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 905,
+  "name": "Gleich, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 200; Goed XI/1, 19, 288, 428",
+  "updated": "2026-06-11 13:29:22.546Z",
+  "uri": "https://d-nb.info/gnd/116657847",
+  "editor": ""
+}

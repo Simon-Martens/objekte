@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Der See verschlief, er träumt so tief, / Das Schilf wagt nicht zu wanken;",
+  "language": [],
+  "musenalm_id": 111687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pfau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der See",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.369Z",
+      "agent": "faiv8kpnorpjyle",
+      "source_id": "ftvd2mjfoi1reg2"
+    }
+  ]
+}

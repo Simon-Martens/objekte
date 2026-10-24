@@ -1,0 +1,687 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118613480",
+          "label": "Seume, Johann Gottfried"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1810 öffent. Lehrer an der Königl. Sächs. Akad. der bildenden Künste in Leipzig; illustrierte die Werke von Wieland und Klopstock; auch Theatermaler"
+      ],
+      "dateOfBirth": [
+        "1764-05-11"
+      ],
+      "dateOfDeath": [
+        "1841-04-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Veit Hanns Schnorr von Carolsfeld"
+          ],
+          "creditText": [
+            "Vorstand der Deutschen Jahrhundertausstellung (Herausgeber): „Katalog zur Ausstellung deutscher Kunst aus der Zeit von 1775–1875 in der Königlichen Nationalgalerie Berlin.“. Verlag F. Bruckmann AG, München 1906 (2 Bände); self scanned from own book"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jahrhundertausstellung%201906%20KatNr.%201579.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jahrhundertausstellung%201906%20KatNr.%201579.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jahrhundertausstellung%201906%20KatNr.%201579.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/178679488"
+      ],
+      "describedBy": {
+        "dateModified": "2024-02-13T20:20:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115752870/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/139711805",
+          "label": "Schnorr von Carolsfeld, Johann Gottlieb"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118609823",
+          "label": "Schnorr von Carolsfeld, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1068243023",
+          "label": "Schnorr von Carolsfeld, Wilhelmine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/12168623X",
+          "label": "Schnorr von Carolsfeld, Johann Gottlieb"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208841505",
+          "label": "Schnorr von Carolsfeld, Charlotte Sophia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/110625693X",
+          "label": "Hempel, Christina Juliana"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1022006363",
+          "label": "Krug, Charlotte"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118609815",
+          "label": "Schnorr von Carolsfeld, Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1033485039",
+          "label": "Schnorr, Franz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115752870",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118609815",
+          "label": "Schnorr von Carolsfeld, Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118609823",
+          "label": "Schnorr von Carolsfeld, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1022006363",
+          "label": "Krug, Charlotte"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118613480",
+          "label": "Seume, Johann Gottfried"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1208841505",
+          "label": "Schnorr von Carolsfeld, Charlotte Sophia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139711805",
+          "label": "Schnorr von Carolsfeld, Johann Gottlieb"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1033485039",
+          "label": "Schnorr, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/12168623X",
+          "label": "Schnorr von Carolsfeld, Johann Gottlieb"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115752870",
+      "oldAuthorityNumber": [
+        "(DE-588a)178679488",
+        "(DE-588a)131016237",
+        "(DE-588c)4618061-8",
+        "(DE-588)178679488",
+        "(DE-588a)115752870"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4052988-5",
+          "label": "Schneeberg (Erzgebirgskreis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Schnorr von Carolsfeld, Veit Hans Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Veit Hans Friedrich"
+        ],
+        "surname": [
+          "Schnorr von Carolsfeld"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4491207-9",
+          "label": "Theatermaler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118563386",
+          "label": "Klopstock, Friedrich Gottlieb"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118786792",
+          "label": "Oeser, Adam Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118632477",
+          "label": "Wieland, Christoph Martin"
+        }
+      ],
+      "publication": [
+        "Schnorr von Carolsfeld, Veit H.: Unterricht in der Zeichenkunst. - 1810"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb166170091"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2001033445"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17959378"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q13290961"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115752870/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/178679488"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Veit_Hanns_Schnorr_von_Carolsfeld"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Veit_Hanns_Schnorr_von_Carolsfeld"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116018561"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115752870"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115752870"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115752870.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115752870"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/115752870"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Carolsfeld, Hans Veit Schnorr von",
+        "Schnorr von Carolsfeld, Hans Veit",
+        "Carolsfeld, Veit Hans Friedrich Schnorr von",
+        "Schnorr von Carolsfeld, Johann Veit",
+        "Schnorr von Carolsfeld, Veit H.",
+        "Schnor von Carolsfeld, Veit Hans Friedrich",
+        "Schnorr von K, Veit Hans",
+        "Schnorr von Carolsfeld, Veit Hanns Friedrich",
+        "Karolsfeld, Veit Hans Friedrich Schnorr von",
+        "Schnorr, Veit Hans",
+        "Schnorr von Carolsfeld, Veit",
+        "Karolsfeld, Veit Hans Schnorr von",
+        "Schnorr",
+        "Schnorr von Karolsfeld, Veit Hans",
+        "Schnorr von Karolsfeld, Veit Hans Friedrich",
+        "Carolsfeld, Hans Veit Friedrich Schnorr von",
+        "Schnorr von Carolsfeld, Veit Hanns",
+        "Schnorr von Carolsfeld, Johann Veit Friedrich",
+        "Schnorr v. K., V. H.",
+        "Carolsfeld, Veit Hanns Schnorr von",
+        "Schnorr von Carolsfeld, Veit Hans",
+        "Schnorr v. K...",
+        "Schnorr von Carolsfeld",
+        "Schnorr von Carolsfeld, Hans Veit Friedrich",
+        "Carolsfeld, Johann Veit Friedrich Schnorr von",
+        "Johann Veit Friedrich",
+        "Schnorr, V. K.",
+        "Schnorr, Veit Hans Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "V. H."
+          ],
+          "surname": [
+            "Schnorr v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Johann Veit Friedrich Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Friedrich"
+          ],
+          "surname": [
+            "Schnorr von Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans"
+          ],
+          "surname": [
+            "Schnorr von K"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Veit"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hanns Friedrich"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans"
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Veit Friedrich"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Veit H."
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Johann Veit Friedrich"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Veit Friedrich"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans"
+          ],
+          "surname": [
+            "Schnorr von Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "V. K."
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Veit Friedrich Schnorr von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Friedrich"
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Veit Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Veit Friedrich Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Friedrich Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hanns Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnorr v. K..."
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Friedrich Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Veit"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hanns"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Veit Hans Friedrich"
+          ],
+          "surname": [
+            "Schnor von Carolsfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Veit_Hanns_Schnorr_von_Carolsfeld",
+          "label": "https://de.wikipedia.org/wiki/Veit_Hanns_Schnorr_von_Carolsfeld"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:51:18Z",
+    "gnd_query_biographical_data": "1764-1841",
+    "gnd_query_name": "schnorr von carolsfeld, hans veit"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2513,
+  "name": "Schnorr von Carolsfeld, Hans Veit",
+  "profession": "Graphik u. Text",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 206",
+  "updated": "2026-06-11 13:29:24.757Z",
+  "uri": "https://d-nb.info/gnd/115752870",
+  "editor": ""
+}

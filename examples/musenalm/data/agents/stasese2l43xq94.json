@@ -1,0 +1,1119 @@
+{
+  "annotation": "",
+  "biographical_data": "1744-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.366Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Evangelisch-lutherischer Superintendent, Literaturkritiker, Lehrer, Dichter, Dramatiker; 1762 Hilfslehrer an der Elementarschule des Collegium Fridericianum, 1764-1769 Collaborator an der Domschule Riga, später auch Pfarradjunkt, 1771-1776 Oberprediger und Konsistorialrat in Bückeburg, 1776-1803 Generalsuperintendent in Weimar, zugleich Direktor des Wilhelm-Ernst-Gymnasiums und „Ephorus der Schulen“ im gesamten Herzogtum Sachsen-Weimar und Eisenach"
+      ],
+      "dateOfBirth": [
+        "1744-08-25"
+      ],
+      "dateOfDeath": [
+        "1803-12-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anton Graff"
+          ],
+          "creditText": [
+            "http://museum-digital.de/nat/index.php?t=objekt&amp;oges=917"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Herder%202.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Herder%202.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gottfried%20Herder%202.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188319107",
+        "https://d-nb.info/gnd/103009926X",
+        "https://d-nb.info/gnd/18831234X",
+        "https://d-nb.info/gnd/160165075",
+        "https://d-nb.info/gnd/160380340"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-26T13:30:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118549553/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116940247",
+          "label": "Hoffmann, Karl Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116730919",
+          "label": "Herder, Emil Gottfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732385",
+          "label": "Herder, Wilhelm Gottfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118549561",
+          "label": "Herder, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135923077",
+          "label": "Herder, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115485864",
+          "label": "Herder, Carl Emil Adelbert von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732288",
+          "label": "Herder, Siegmund August Wolfgang von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11724791X",
+          "label": "Stichling, Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732245",
+          "label": "Herder, Rinaldo von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118549553",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/135923077",
+          "label": "Herder, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115485864",
+          "label": "Herder, Carl Emil Adelbert von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11724791X",
+          "label": "Stichling, Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732288",
+          "label": "Herder, Siegmund August Wolfgang von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116730919",
+          "label": "Herder, Emil Gottfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732245",
+          "label": "Herder, Rinaldo von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116732385",
+          "label": "Herder, Wilhelm Gottfried von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118549553",
+      "oldAuthorityNumber": [
+        "(DE-101c)310405580",
+        "(DE-588a)118549553",
+        "(DE-588a)127834567",
+        "(DE-588)188319107",
+        "(DE-588)160165075",
+        "(DE-588a)127834559",
+        "(DE-588a)188319107",
+        "(DE-588)18831234X",
+        "(DE-588a)160380340",
+        "(DE-588a)134715586",
+        "(DE-588)160380340",
+        "(DE-588a)160165075",
+        "(DE-588a)18831234X",
+        "(DE-588a)130975702",
+        "(DE-588)103009926X"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "sr-cyrl",
+          "@value": "Хердер, Јохан Готфрид"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4101115-6",
+          "label": "Mohrungen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Herder, Johann Gottfried von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Herder"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398098-3",
+          "label": "Generalsuperintendent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127948-7",
+          "label": "Schulleiter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167874-6",
+          "label": "Literaturkritiker"
+        }
+      ],
+      "publication": [
+        "Briefe zur Beförderung der Humanität",
+        "Zerstreute Blätter",
+        "Abhandlungen, und Briefe über schöne Literatur und Kunst",
+        "Blumenlese aus morgenländischen Dichtern",
+        "Ansichten des klassischen Alterthums",
+        "Adrastea",
+        "Kalligone",
+        "Aeon und Aeonis",
+        "Dissertation Sur l'influence des Sciences sur le Gouvernement Et du Gouvernement sur les Sciences",
+        "Zewy Scherflein zur neusten deutschen Litteratur",
+        "Kritische Wälder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79145902"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/herder-johann-gottfried/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95187266"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q155547"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118549553"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103009926X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118549553/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160165075"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160380340"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18831234X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188319107"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118549553"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottfried_Herder"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Herder"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Gottfried_Herder"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottfried_Herder"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121031883"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118549553"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_cropp;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_michaelis;22"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1778_iffland;31"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_nnl;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_bach;29"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_schroeder;65"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_brak;33"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_matthisson;164"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1783_rinck;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1784_berzeviczy1;46"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1785_stein;10"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1789_prahmer;26"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1795_duvau;8"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1797_walin;66"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1800_goethe2;118"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118549553"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118549553.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118549553.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118549553"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/49E0349FA5F9455990005F2E2EFD129B"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118549553"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118549553"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Herder, M. J. J.",
+        "Herder, Johann",
+        "Гердер, Иоганн Готфрид",
+        "Гердер, И. Г.",
+        "He'erde, J. G.",
+        "Herder, Joh. Gottfr. v.",
+        "Herder, G. v.",
+        "ヨハン・ゴットフリート・フォン・ヘルダー",
+        "赫尔德, 约翰·哥特弗里特",
+        "Herder, Johann Gottfried",
+        "Herder, Joh. Gottfried",
+        "Herder, John Godfrey",
+        "ヘルダー, ヨハン　ゴットフリート　フォン",
+        "Gerder, I. G.",
+        "Herder, Johan Gotfrid",
+        "Hearde, J. G.",
+        "Herder, J. Gottfried",
+        "Von Herder, Johann Gottfried",
+        "Cherder, Jochan Gotfrid",
+        "Herder, J. G.",
+        "Herder, Gottfried v.",
+        "Herderus, Joannus Godofredus",
+        "赫特爾",
+        "Herder, Gottfried",
+        "Heerde, J. G.",
+        "Herder, Joannus Godofredus",
+        "Gerder, Iogann G.",
+        "Heteer",
+        "Herder, Joh. Gottfr.",
+        "Heerder",
+        "Herder, J. J.",
+        "Herder, J. G. v.",
+        "Herder, Giovanni Goffredo",
+        "Herder, Joh. Ge. von",
+        "Gerder",
+        "הרדר, יוהאן גוטפריד",
+        "Gerder, Jogann Gotfrid",
+        "Herder, Johann George",
+        "Herder, Joh. Gottfr. von",
+        "Herder, Yôhan Gôtfrîd fôn",
+        "Herder, J. G. von",
+        "Herder",
+        "约翰·哥特弗里特·赫尔德",
+        "Herder, Juan Godofredo de",
+        "Gerder, Iogann Gotfrid",
+        "Herder, I. G. v."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Von Herder"
+          ]
+        },
+        {
+          "forename": [
+            "John Godfrey"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Goffredo"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfr."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "personalName": [
+            "Gerder"
+          ]
+        },
+        {
+          "personalName": [
+            "Heerder"
+          ]
+        },
+        {
+          "personalName": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "personalName": [
+            "Heteer"
+          ]
+        },
+        {
+          "personalName": [
+            "赫特爾"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "surname": [
+            "Gerder"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Gotfrid"
+          ],
+          "surname": [
+            "Gerder"
+          ]
+        },
+        {
+          "forename": [
+            "И. Г."
+          ],
+          "surname": [
+            "Гердер"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann G."
+          ],
+          "surname": [
+            "Gerder"
+          ]
+        },
+        {
+          "personalName": [
+            "约翰·哥特弗里特·赫尔德"
+          ]
+        },
+        {
+          "personalName": [
+            "ヨハン・ゴットフリート・フォン・ヘルダー"
+          ]
+        },
+        {
+          "forename": [
+            "Yôhan Gôtfrîd"
+          ],
+          "prefix": [
+            "fôn"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "J. Gottfried"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Jogann Gotfrid"
+          ],
+          "surname": [
+            "Gerder"
+          ]
+        },
+        {
+          "forename": [
+            "Joannus Godofredus"
+          ],
+          "surname": [
+            "Herderus"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "ヨハン　ゴットフリート　フォン"
+          ],
+          "surname": [
+            "ヘルダー"
+          ]
+        },
+        {
+          "forename": [
+            "M. J. J."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfr."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Ge."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "He'erde"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Johann George"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Hearde"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfr."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfried"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Gotfrid"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Jochan Gotfrid"
+          ],
+          "surname": [
+            "Cherder"
+          ]
+        },
+        {
+          "forename": [
+            "约翰·哥特弗里特"
+          ],
+          "surname": [
+            "赫尔德"
+          ]
+        },
+        {
+          "forename": [
+            "יוהאן גוטפריד"
+          ],
+          "surname": [
+            "הרדר"
+          ]
+        },
+        {
+          "forename": [
+            "Joannus Godofredus"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Иоганн Готфрид"
+          ],
+          "surname": [
+            "Гердер"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Heerde"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Herder"
+          ]
+        },
+        {
+          "forename": [
+            "Juan Godofredo"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Herder"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Herder",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Herder"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:43:51Z",
+    "gnd_query_biographical_data": "1744-1803",
+    "gnd_query_name": "herder, johann gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1155,
+  "name": "Herder, Johann Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 695",
+  "updated": "2026-06-11 13:29:22.900Z",
+  "uri": "https://d-nb.info/gnd/118549553",
+  "editor": ""
+}

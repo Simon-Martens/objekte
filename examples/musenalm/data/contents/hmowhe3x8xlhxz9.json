@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "Es brennen am Berge drei Flämmelein, / Mit seltsam grün und blauem Schein,",
+  "language": [],
+  "musenalm_id": 1499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind im Berge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind im Berge",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.850Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "zg0pffl1y3ufqez"
+    }
+  ]
+}

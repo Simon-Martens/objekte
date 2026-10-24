@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai; paginiert 5.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59330,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stubbenkammer auf Rügen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. W. Jury sc.",
+  "scans": [
+    "alm_893_59330_g4e4a4huqp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Stubbenkammer auf Rügen",
+  "updated": "2008-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.701Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "j5uv5yzeqql5w5s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.701Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "un1712w9mzfph5h"
+    }
+  ]
+}

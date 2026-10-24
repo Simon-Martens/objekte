@@ -1,0 +1,586 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1825",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schwägerin von Jean Paul; Dt. Schriftstellerin"
+      ],
+      "dateOfBirth": [
+        "1777-05-10"
+      ],
+      "dateOfDeath": [
+        "1825-03-11"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/124440313X"
+      ],
+      "describedBy": {
+        "dateModified": "2022-11-23T00:32:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10110555X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Meyer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna C."
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanne Caroline Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanne Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117481726",
+          "label": "Spazier, Richard Otto"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11732342X",
+          "label": "Uthe, Johann Andreas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117481718",
+          "label": "Spazier, Karl"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10110555X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117481726",
+          "label": "Spazier, Richard Otto"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117481718",
+          "label": "Spazier, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11732342X",
+          "label": "Uthe, Johann Andreas"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10110555X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Johanna Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Uthe"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)10110555X",
+        "(DE-588c)4833528-9",
+        "(DE-588)124440313X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4101150-8",
+          "label": "Neustrelitz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Spazier, Johanne Karoline Wilhelmine",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johanne Karoline Wilhelmine"
+        ],
+        "surname": [
+          "Spazier"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035097-6",
+          "label": "Lehrerin"
+        }
+      ],
+      "publication": [
+        "Krankenkost",
+        "Sinngrün",
+        "Briefe der Lespinasse",
+        "Handzeichnungen aus dem Kreise des ... Lebens. Neue Aufl",
+        "Lespinasse, Julie de: Briefe der Lespinasse",
+        "Ligne, Charles J. de: Briefe, Charaktere und Gedanken"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059425"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22497674"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1697057"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10110555X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124440313X"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johanne_Karoline_Wilhelmine_Spazier"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000043120759"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10110555X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10110555X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10110555X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Uthe Spazier, Johanne C.",
+        "Spazier, Uthe",
+        "Spazier, J. C.",
+        "Meyer, Johanne K.",
+        "Mayer, Johanne Karoline Wilhelmine",
+        "Mayer, Johanne K.",
+        "Spazier, Wilhelmine U.",
+        "Mayer, Johann K.",
+        "Mayer, Johanne Caroline Wilhelmine",
+        "Spazier, Johanne C.",
+        "Uthe-Spazier, Johanna Karoline Wilhelmine",
+        "Uthe, Johanna Karoline Wilhelmine",
+        "Uthe-Spazier, Johanne C.",
+        "Uthe, Johanne Caroline Wilhelmine",
+        "Uthe-Spazier, Wilhelmine",
+        "Uthe-Spazier, Johanne Karoline Wilhelmine",
+        "Spazier, Johanne K.",
+        "Mayer, Wilhelmine",
+        "Spazier, Johanna K.",
+        "Mayer, Minna",
+        "Uthe Spazier, Wilhelmine",
+        "Uthe-Spazier, Johanne K.",
+        "Mayer, Johanna C.",
+        "Spazier, Minna",
+        "Spazier, Johanna C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johanne Caroline Wilhelmine"
+          ],
+          "surname": [
+            "Uthe"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Caroline Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne C."
+          ],
+          "surname": [
+            "Uthe Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Uthe"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne C."
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna C."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne K."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna C."
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Minna"
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna K."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Uthe"
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne C."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Minna"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine U."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Karoline Wilhelmine"
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Uthe-Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Spazier"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Uthe Spazier"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johanne_Karoline_Wilhelmine_Spazier",
+          "label": "https://de.wikipedia.org/wiki/Johanne_Karoline_Wilhelmine_Spazier"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:00:42Z",
+    "gnd_query_biographical_data": "1777-1825",
+    "gnd_query_name": "spazier, johanne karoline wilhelmine"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2702,
+  "name": "Spazier, Johanne Karoline Wilhelmine",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed X, 145; ADB XXXV, 73",
+  "updated": "2026-06-11 13:29:25.093Z",
+  "uri": "https://d-nb.info/gnd/10110555X",
+  "editor": ""
+}

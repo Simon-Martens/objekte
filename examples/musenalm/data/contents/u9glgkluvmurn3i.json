@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Die wahre gleicht dem milden Sonnenlicht: / Es glänzet, wärmt, erquickt, befruchtet allgemach.",
+  "language": [],
+  "musenalm_id": 3302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wahre und falsche Aufklärung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wahre und falsche Aufklärung",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "n34llksnqhljpai"
+    }
+  ]
+}

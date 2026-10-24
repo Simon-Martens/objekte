@@ -1,0 +1,56 @@
+{
+  "annotation": "Deutsche Uebersetzung (Sammlung INr 131902, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Unsre Vorwelt, wo die alten / Helden und Halbgötter walten, / Kraft zu Thaten uns verleiht,",
+  "language": [],
+  "musenalm_id": 131908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2013-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.044Z",
+      "agent": "m46r0k8xyml7u8e",
+      "source_id": "15jj7g8uxe06pi1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.044Z",
+      "agent": "y3vcu2p4zhikm7w",
+      "source_id": "5mqs00yaje63kbn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Auf wechselndem Gefieder, / Geliebte Freundinn, flieht, / Leicht, wie ein Schäferlied, / Dir heut ein Jährchen wieder",
+  "language": [],
+  "musenalm_id": 31538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amalien. / Den 29. April 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amalien. / Den 29. April 1785",
+  "updated": "2003-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.262Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "enewdqonc2jynya"
+    }
+  ]
+}

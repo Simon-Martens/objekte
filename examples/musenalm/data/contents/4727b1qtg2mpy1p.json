@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Schlummre, kleiner Engel, / Sanft sey deine Ruh!",
+  "language": [],
+  "musenalm_id": 47855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Eck der Sohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2007-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.628Z",
+      "agent": "t4962qj1xtqcfm9",
+      "source_id": "gz3ymb0ct82cbly"
+    }
+  ]
+}

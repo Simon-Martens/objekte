@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>mit einer Illustration s. Graphik INr 140189</div>",
+  "content_type": [],
+  "created": "2026-07-15 10:00:50.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Der Reiche fährt in Scherz und Lust, / Dahin wohl durch die Welt,",
+  "language": [],
+  "musenalm_id": 140206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Armen Wanderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Armen Wanderung",
+  "updated": "2026-07-16 08:56:08.760Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-15 10:01:15.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-07-16 08:56:08.761Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "u11ey5ytrdct7d2"
+    }
+  ]
+}

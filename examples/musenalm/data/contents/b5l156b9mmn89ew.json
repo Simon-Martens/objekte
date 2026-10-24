@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Nicht minder thätig betrieb man / Unterdessen den Krieg, der auf Lybiens Feldern / entbrannte;",
+  "language": [],
+  "musenalm_id": 128711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstücke / einer metrischen Uebersetzung der Pharsalien / Lukans. / Geschichte des Riesen Antäus und Beschreibung / seines Zweykampfs mit Herkuln. Buch IV. / V. 581-660",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstücke / einer metrischen Uebersetzung der Pharsalien / Lukans. / Geschichte des Riesen Antäus und Beschreibung / seines Zweykampfs mit Herkuln. Buch IV. / V. 581-660",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.994Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "2juf0z4u7eapzyh"
+    }
+  ]
+}

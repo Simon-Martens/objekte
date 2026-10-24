@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Du fandest mich um alte Liebe klagen, / Dein freundlich Auge sah mich tröstend an;",
+  "language": [],
+  "musenalm_id": 71012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Irrthum. An A. L.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Irrthum. An A. L.",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.375Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "yk0wzmg5s48m5pv"
+    }
+  ]
+}

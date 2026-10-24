@@ -1,0 +1,93 @@
+{
+  "annotation": "$§ vermutl. fehlt Graphik »Kreuzigung«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T u I-Verz, S-G-Verz, SS 1-480 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1831",
+    "norm": "~",
+    "biblio": 100787,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3467,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1831",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. v. Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1831. / Von / A. v. Tromlitz",
+  "updated": "2026-06-11 10:18:54.500Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "vm38wsf5jfjf32y"
+  ],
+  "contents": [
+    "yj1eyypcn9i9q8c",
+    "jbrpoxv799i038m",
+    "rffa3po74ujjkk9",
+    "y2fzmpq2gwurc29",
+    "ggfn7mb4ip4pek2",
+    "cg54fip41pq4coe",
+    "4zvniyago0qrre7",
+    "j9zzfs9j1x75ya6",
+    "8f1mywbfxiq6xpj",
+    "x7kplmuva23uhsa",
+    "wnsckc8ahe08syx",
+    "j4ml2r05xkdin6a",
+    "bry1pvrvcax8yqr",
+    "mk6iyt47dc8v8pz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.048Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.048Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "794ipexuew62etf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.228Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.228Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "av7xlwmixubetso"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Einige Blumen auf Schutdorf's Grab (Sammlung INr 17750, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Sorgsam sah'n wir unsern Armen ihn / Zur Gesundheitsquell entflieh'n",
+  "language": [],
+  "musenalm_id": 17751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sorgsam sah'n wir unsern Armen ihn / Zur Gesundheitsquell entflieh'n…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.690Z",
+      "agent": "jn3l1dg6imwx04v",
+      "source_id": "fknri8emjtrclje"
+    }
+  ]
+}

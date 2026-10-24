@@ -1,0 +1,53 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Landsturmsalmanach, Mainzer 1800",
+    "norm": "",
+    "biblio": 409479,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-09-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4469,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Landsturmsalmanach, Mainzer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 74; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Mainzer / LandsturmsAlmanach / für / DIE FREUNDE / des deutschen Vaterlands / auf das Jahr / 1800 / Mit 3 Kupfern u. Musik. / Mainstrom",
+  "updated": "2026-06-11 10:18:55.912Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "atqq33w4dlwln3w"
+  ],
+  "contents": [],
+  "agents": []
+}

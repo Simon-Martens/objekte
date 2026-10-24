@@ -1,0 +1,71 @@
+{
+  "annotation": "franz. Ausgabe des Taschenkalenders. Keine detaillierte Aufnahme. Die von der deutschen Ausgabe abweichenden Umschlaggraphiken und die Titel sind als Photos gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, g T, 14 GG, 28 BB Kal darin 12 GG, S 1T, SS 3-228, 2 SS I-Verz, S C, S VrlgM, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1790 (franz. Ausg.: Almanac de Goettingue 1790)",
+    "norm": "~",
+    "biblio": 409342,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2016-12-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4355,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1790 (franz. Ausg.: Almanac de Goettingue 1790)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de / Göttingue / pour l'année / 1790. / chez J. C. Dieterich",
+  "updated": "2026-06-11 10:18:55.227Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "v8o5xlfrnp6vswq"
+  ],
+  "contents": [
+    "dxe9vc0gaeml6r2",
+    "r39onk2blnap4ts",
+    "upfu7yfz9o14snl"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.052Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.052Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "gynaqt0vl43m7n5"
+    }
+  ]
+}

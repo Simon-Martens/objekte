@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) so auch im Jg 1815",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93318,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fr. Stöber sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Stöber sc.",
+  "scans": [
+    "alm_2614_93318_80kictunb5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.432Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "uos3ho9hnguexgn"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. III. /) kol. Illustration zu »Das Wiesel« von L. C. E. H. F. von Wildungen INr 66542, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mustela Erminea. Das grosse Wiesel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gebr. Susemihl gm. u. gest.",
+  "scans": [
+    "alm_1137_66541_4yof9miwsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mustela Erminea. Das grosse Wiesel",
+  "updated": "2009-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.356Z",
+      "agent": "0krc3qfy4wkj0vx",
+      "source_id": "g5rt2cxupsiljvl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.356Z",
+      "agent": "kno3jlnpudqvc0i",
+      "source_id": "uixihhmicyjtgym"
+    }
+  ]
+}

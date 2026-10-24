@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Sag an, was zu der schwarzen That / Dich Bösewicht, bewogen hat!",
+  "language": [],
+  "musenalm_id": 41151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Richter und der Dieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Richter und der Dieb",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.331Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "zfno4fl469faihd"
+    }
+  ]
+}

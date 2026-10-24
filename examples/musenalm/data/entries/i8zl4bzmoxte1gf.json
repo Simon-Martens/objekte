@@ -1,0 +1,94 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, 17 SS Kal darin 4 GG, 7 SS Tabb, SS 1-71, S 72 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1825",
+    "norm": "~",
+    "biblio": 405415,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1891,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / Almanach für das Jahr 1825. / Frohen Erheiterungen gewidmet. / WIEN / Verlag des F. W. Pfautsch, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:55.701Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "xsicjhnhp01w6x2"
+  ],
+  "contents": [
+    "nij5hluwqd3tskj",
+    "nszlykddvuhwcmt",
+    "zlbss4f201rfkks",
+    "3rbig2t9p5grg8c",
+    "a4sb43iudpp4vdp",
+    "1i3mxhrx3r585u5",
+    "tpbhf3w6wedvpqb",
+    "a22a9zilsijm29w",
+    "7ic8w5rqt0m30j8",
+    "ca6ic3utspqajww",
+    "2dvs4820mumh3lj",
+    "4xiesfrl9c54p0e",
+    "tya98ltt5321sqm",
+    "2b3ealhe63prh6n",
+    "xbm0fn4ezo8lfww",
+    "zlurig3bw6z2r3x",
+    "fl6xirzsal1o7rb",
+    "915gamkcq9yq8wx",
+    "pm70ktlvedjkxqy",
+    "cdskp083nevxcmq",
+    "s2ssdu2x5kgyly0",
+    "dy9ans8z715t7bd",
+    "3b7kjsw9clcb6z2",
+    "8c7niopxb30aeuj",
+    "pycrpugg2bej0rv",
+    "kz1thz7k3846guw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "f1h8v7p9cy3v571"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Brautwahl« von K. G. Prätzel INr 93671, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brautwahl. / Erzählung von K. G. Prätzel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Passini sc.",
+  "scans": [
+    "alm_1860_93670_9vvgkkcmzk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Brautwahl. / Erzählung von K. G. Prätzel",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.353Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "drl7o5hfmn5e8iy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.353Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "kbr47f6nlvcwea7"
+    }
+  ]
+}

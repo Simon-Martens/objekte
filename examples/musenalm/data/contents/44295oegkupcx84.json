@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphik INr 14067, 14068, Obj 14, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Eine unstäte Schauspielergesellschaft, die ihr Theater auf einem Karren, den ein Esel zog, bei sich führte,",
+  "language": [],
+  "musenalm_id": 14122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sprechende Hund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der sprechende Hund",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.598Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "9zpau1amlyyhgko"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Anm. INr 26796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ein Narr ist viel bemüht; des Weisen ganzes Thun",
+  "language": [],
+  "musenalm_id": 26892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "96) Des Weisen Verrichtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Angelus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "96) Des Weisen Verrichtung",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.081Z",
+      "agent": "u6qx1yh697eqyvy",
+      "source_id": "swa3fedifmqwt1k"
+    }
+  ]
+}

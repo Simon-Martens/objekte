@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Goldschwesterchen, an deinem liebesvollsten Tage, / Bring' ich dir auch mein Liederdeputat,",
+  "language": [],
+  "musenalm_id": 8971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Hochzeitstage meiner Schwester",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Hochzeitstage meiner Schwester",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.427Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "x0ha46j0l9otw40"
+    }
+  ]
+}

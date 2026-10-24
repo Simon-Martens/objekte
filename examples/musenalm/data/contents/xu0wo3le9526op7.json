@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed IV/1, 1038, 18; mit einer Musikbeigabe s. INr 5778, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Der Abend sinkt, / Kein Sternlein blinkt, / Am Himmel winkt / Der Mond uns nicht / Mit mildem Licht.",
+  "language": [],
+  "musenalm_id": 5776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie an ihn. / Auf der Reise",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sie an ihn. / Auf der Reise",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.100Z",
+      "agent": "eqtbdj8gy4m2hsw",
+      "source_id": "3ywjzf169qufdxn"
+    }
+  ]
+}

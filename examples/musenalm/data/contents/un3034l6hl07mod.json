@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Daß mich ein Mädchen, deren Kuß / Schon mancher Weichling kennen muß,",
+  "language": [],
+  "musenalm_id": 88372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aristipp, als er Lais liebte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aristipp, als er Lais liebte",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.046Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "i3xo68s20sy3tsj"
+    }
+  ]
+}

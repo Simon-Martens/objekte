@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Vor dem greisen Vater im Schloßportal / Stehen drei Söhne in Schwert und Stahl.",
+  "language": [],
+  "musenalm_id": 20535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Greisen Söhne. / Ballade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Greisen Söhne. / Ballade",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.926Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "6fj65swlju9xum0"
+    }
+  ]
+}

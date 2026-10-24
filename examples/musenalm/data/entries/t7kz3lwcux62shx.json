@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 5 BB dazu 6 GG, S I-Verz, SS 1-473, S, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1840",
+    "norm": "~",
+    "biblio": 100770,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2482,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1840. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.471Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "o2jnaj7wcji91v8"
+  ],
+  "contents": [
+    "uq7wki3sugd14q1",
+    "amtz0v2hkt6twgl",
+    "duwfl40db9bt4wn",
+    "bnvndlf8p4et66y",
+    "j4ards0etq6si36",
+    "qtiayl2lbxjiyoe",
+    "q8vwzwe72v7wu4h",
+    "bnhn30q1p4lwiar",
+    "hov8zw3kw1kbegy",
+    "s6xfozausmigy4z",
+    "61kzrfu0mmahuw2",
+    "kon23xbgw6ifmu3",
+    "xuujlbz9nu9ne4d",
+    "18xqx9dw6da10fh",
+    "b5xgcelhgrp1tu1",
+    "gth2jbfkfhz2i59",
+    "l5e6ho2dnycze0x",
+    "681hoyleghfk0j3",
+    "pcq1tkeoopehzvj",
+    "ixglix504ki4tql",
+    "a8nz1hi0x9fs3zd",
+    "nm4ztuwi7xacxy3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "k53f16ssz7qdq5s"
+    }
+  ]
+}

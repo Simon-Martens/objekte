@@ -1,0 +1,135 @@
+{
+  "annotation": "",
+  "biographical_data": "e. 1813/24",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.428Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Geboren in Cumlosen bei Wittenberg, studierte Theologie in Halle, Burschenschaftler, cand. theol. in Warnow bei Zechlin, 1836 vom Kammergericht Berlin wegen Teilnahme an der Burschenschaft zu sechs Jahren Festungshaft verurteilt, 1839 begnadigt, seit 1853 Rektor an der Töchter-Oberschule in Wittstock, vorher war er Lehrer in Berlin"
+      ],
+      "dateOfBirth": [
+        "1813"
+      ],
+      "describedBy": {
+        "dateModified": "2020-09-18T16:55:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1217884424/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1217884424",
+      "id": "https://d-nb.info/gnd/1217884424",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Meyer, Ludwig Friedrich Peter Erdmann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Friedrich Peter Erdmann"
+        ],
+        "surname": [
+          "Meyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Burschenschaftler"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/1677160062404635790004"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1217884424/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Meyer, Ludwig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T12:16:48Z",
+    "gnd_query_biographical_data": "e. 1813/24",
+    "gnd_query_name": "meyer, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1819,
+  "name": "Meyer, Ludwig",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIV, 490",
+  "updated": "2026-06-11 13:29:23.808Z",
+  "uri": "https://d-nb.info/gnd/1217884424",
+  "editor": ""
+}

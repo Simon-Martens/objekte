@@ -1,0 +1,45 @@
+{
+  "annotation": "Politische Allerlei (Sammlung INr 34364,Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Die stärksten Lawinen sind wegen der Breite diejenigen, welche aufwärts von der Volksebene gegen die Höhen rollen.",
+  "language": [],
+  "musenalm_id": 34367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Für und wider Preßfreiheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Für und wider Preßfreiheit",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.530Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "l0jv0sh3fas3y3j"
+    }
+  ]
+}

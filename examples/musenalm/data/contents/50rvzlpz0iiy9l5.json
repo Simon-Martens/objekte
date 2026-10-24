@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Ausflug durch das untere Emmenthal nach dem Jura« INr 54153, Obj 64 /) unter der Graphik: Alpenrosen 1826",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss und Pfarrkirche von Burgdorf. / Cant. Bern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gezeichnet und gestochen v. D. Burgdorfer",
+  "scans": [
+    "alm_738_54154_3hbo22xauz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss und Pfarrkirche von Burgdorf. / Cant. Bern",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.783Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "r3xfeerydgbsuqu"
+    }
+  ]
+}

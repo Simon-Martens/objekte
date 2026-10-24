@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Vor'm Leben ist mir bang, / Rief Null, der Müßiggänger,",
+  "language": [],
+  "musenalm_id": 13915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nulls Bangigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nulls Bangigkeit",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.500Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "an3x8e6vsu1mvhd"
+    }
+  ]
+}

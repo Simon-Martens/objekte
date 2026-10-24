@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Da drüben hinter dem Rosenbusch / Stand jeden Abend ein Paar,",
+  "language": [],
+  "musenalm_id": 87010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Alles wechselt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Alles wechselt",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.023Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "bs62b2z2szaqf4d"
+    }
+  ]
+}

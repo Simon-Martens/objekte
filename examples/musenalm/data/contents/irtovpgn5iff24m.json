@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Hör' ich ferne nur her, wenn ich für mich geklagt, / Saitenspiel und Gesang, schweigt mir das Herz doch gleich;",
+  "language": [],
+  "musenalm_id": 21889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Launischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Launischen",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.742Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "2tsmllrvm7z2ztq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "So weit dieser Gartenkalender gelesen wird, ersuche ich die Gartenfreunde um eine Gefälligkeit,",
+  "language": [],
+  "musenalm_id": 15494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. C. L. Hirschfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bitte des Herausgebers",
+  "updated": "2001-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.524Z",
+      "agent": "aeds1phnefxrmnb",
+      "source_id": "z8r9s8n8lgrkgfe"
+    }
+  ]
+}

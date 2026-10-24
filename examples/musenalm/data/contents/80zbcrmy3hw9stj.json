@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 4. s. Textbezug INr 7122, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7087,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laßt nicht beständig die Höflinge / mit eurem Scepter spielen / herrscht mit eigener Hand. / II. Aufz. 3. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_143_7087_swaosjbo2y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Laßt nicht beständig die Höflinge / mit eurem Scepter spielen / herrscht mit eigener Hand. / II. Aufz. 3. Auft.",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ifpfmad3rdgocr5"
+    }
+  ]
+}

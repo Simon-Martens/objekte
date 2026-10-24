@@ -1,0 +1,562 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.493Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Tierarzt, Spezialgebiet Pferde",
+        "Ober-Pferdearzt und Lehrer an der Königlichen Veterinärschule Dresden",
+        "Königlich-sächsischer Major der Kavallerie",
+        "Ritter des Königlich-sächsischen Zivildienstordens",
+        "Komandant Trainbataillon",
+        "Husarenoffizier",
+        "Stallmeister Sachsen-Koburg"
+      ],
+      "dateOfBirth": [
+        "1770"
+      ],
+      "dateOfDeath": [
+        "1839"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/182795381"
+      ],
+      "describedBy": {
+        "dateModified": "2022-07-21T17:47:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100807348/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100807348",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.4p",
+          "label": "Personen zu politischer Theorie, Militär"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100807348",
+      "oldAuthorityNumber": [
+        "(DE-588a)160986788",
+        "(DE-588a)100807348",
+        "(DE-588a)127833420",
+        "(DE-588a)182795381",
+        "(DE-588a)110618211",
+        "(DE-588)182795381"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Tennecker, Christian Ehrenfried Seifert von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Ehrenfried Seifert"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Tennecker"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4128774-5",
+          "label": "Tierarzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Valentius"
+          ],
+          "surname": [
+            "Trichter"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Valentinus"
+          ],
+          "surname": [
+            "Trichter"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Valentin"
+          ],
+          "surname": [
+            "Trichter"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Handbuch der prakt[ischen] Heilmittellehre zum Gebrauche für ..",
+        "Mittheilungen aus dem Umfang der Pferdezucht, Pferdekenntnis, Reitkunst und denen dahin ..",
+        "Lehrbuch der Gestütswissenschaft",
+        "Handbuch der prakt[ischen] Heilmittellehre z. Gebr[auch] f. ...",
+        "Lehrbuch der pferdeärztlichen Geburtshülfe und Heilung der ...",
+        "Lehrbuch der Veterinair-Wundarzneykunst",
+        "Erinnerungen aus meinem Leben",
+        "Bruchstücke über Kenntnisse von Pferden",
+        "Praktische Beobachtungen ... über die ... unter den Pferden ...",
+        "Praktischer Unterricht für Oekonomen über die Erkenntniß und ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no99058082"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56965387"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55136080"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100807348/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182795381"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Ehrenfried_Seifert_von_Tennecker"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116493530"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100807348"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100807348.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100807348"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100807348"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Seyfert von Tennecker, Christian Ehrenfried",
+        "Tennecker, Christian Ehrenfried Seyfert von",
+        "Tennecker, C. von",
+        "Tennecker, Seyfert von",
+        "Trichter, Valentin",
+        "Tennecker, Christian Ehrenfried Seyffert von",
+        "Trichter, Valentius",
+        "Tennecker, Seyffert von",
+        "Seyffert, Christian E.",
+        "Tennecker, Seufert von",
+        "Seyfert von Tennecker, Christian E.",
+        "Seifert von Tennecker, Christian Ehrenfried",
+        "Tennecker, S. von",
+        "Tennecker, Christian E.",
+        "Tennecker, Seifert von",
+        "Seyffert von Tennecker, Christian E.",
+        "Tennecker, F. von",
+        "Tennecker, Seiffert von",
+        "Seyfert von Tennecker, ...",
+        "Tennecker, Christian E. von",
+        "Tennecker, Seyfried von",
+        "Seyfert-Tennecker, Christian E.",
+        "Seyfert, Christian E.",
+        "Trichter, Valentinus",
+        "Tenneker, Seyfert von",
+        "Seyffert von Tennecker, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Seyffert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Seyfert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Seyfert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Seiffert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Seyffert"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Seyffert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ehrenfried"
+          ],
+          "surname": [
+            "Seyfert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Seufert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Valentinus"
+          ],
+          "surname": [
+            "Trichter"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Seyfert"
+          ]
+        },
+        {
+          "forename": [
+            "Seifert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Seyfert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tenneker"
+          ]
+        },
+        {
+          "forename": [
+            "Seyfert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Valentius"
+          ],
+          "surname": [
+            "Trichter"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Seyfried"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ehrenfried Seyfert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ehrenfried"
+          ],
+          "surname": [
+            "Seifert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Seyffert von Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Valentin"
+          ],
+          "surname": [
+            "Trichter"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ehrenfried Seyffert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Seyfert-Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "surname": [
+            "Tennecker"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Ehrenfried_Seifert_von_Tennecker",
+          "label": "https://de.wikipedia.org/wiki/Christian_Ehrenfried_Seifert_von_Tennecker"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:45Z",
+    "gnd_query_biographical_data": "1770-1839",
+    "gnd_query_name": "tennecker, christian ehrenfried seifert von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2866,
+  "name": "Tennecker, Christian Ehrenfried Seifert von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "Valentin Trichter",
+  "refs": "ADB XXXVII, 565",
+  "updated": "2026-06-11 13:29:25.364Z",
+  "uri": "https://d-nb.info/gnd/100807348",
+  "editor": ""
+}

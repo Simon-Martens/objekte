@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphiken INr 77083, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Hast Du den Säugling gesehn, der, unbewußt noch / der Liebe, / Die ihn wärmet und wiegt, schlafend von Arme zu Arm / Wandert,",
+  "language": [],
+  "musenalm_id": 77082,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der philosophische Egoist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der philosophische Egoist",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.758Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "1rokwx2pvd76jui"
+    }
+  ]
+}

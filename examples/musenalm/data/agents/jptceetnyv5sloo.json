@@ -1,0 +1,313 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.337Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Kunstschriftsteller, Philosoph"
+      ],
+      "dateOfBirth": [
+        "1804-11-08"
+      ],
+      "dateOfDeath": [
+        "1840-08-26"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/136375707",
+        "https://d-nb.info/gnd/154370738"
+      ],
+      "describedBy": {
+        "dateModified": "2023-01-25T00:30:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10405672X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "10405672X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10405672X",
+      "oldAuthorityNumber": [
+        "(DE-588a)136375707",
+        "(DE-588a)10405672X",
+        "(DE-588c)7530819-8",
+        "(DE-588a)154370738",
+        "(DE-588)154370738",
+        "(DE-588)136375707"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4106518-9",
+          "label": "Tönning"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "preferredName": "Gaye, Johannes",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johannes"
+        ],
+        "surname": [
+          "Gaye"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        }
+      ],
+      "publication": [
+        "Gaye, Johannes: Disquisitiones de vita Desiderii Erasmi specimen ab anno natali usque ad *",
+        "Gaye, Johannes: Carteggio inedito d'Artisti dei Secoli XIV. XV. XVI.",
+        "Gaye, Johannes: Carteggio inedito d'Artisti dei Secoli XIV. XV. XVI.. - 1839 - 40",
+        "Gaye, Johannes: Disquisitiones de vita Desiderii Erasmi specimen [inaug.]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5356435"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1697543"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10405672X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/136375707"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/154370738"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johannes_Gaye"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061304199"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10405672X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10405672X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10405672X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Gaye, Johann",
+        "Gaye, Johann W.",
+        "Gaye, Johannes Wilhelm",
+        "Gaye, Giovanni",
+        "Gaye, Joannes",
+        "Gaye, Johann Wilhelm",
+        "Gaye, Johannes W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes W."
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Wilhelm"
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Johann W."
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni"
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Gaye"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johannes_Gaye",
+          "label": "https://de.wikipedia.org/wiki/Johannes_Gaye"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:28:03Z",
+    "gnd_query_biographical_data": "1804-1840",
+    "gnd_query_name": "gaye, johann wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 837,
+  "name": "Gaye, Johann Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VIII, 446",
+  "updated": "2026-06-11 13:29:22.442Z",
+  "uri": "https://d-nb.info/gnd/10405672X",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "An einem nebligen Winterabende ging mein Urgroßvater, welcher sich Geschäfte halber zu Bremen befand, in einem abgelegenen Gäßchen hinter der Kirche spazieren.",
+  "language": [],
+  "musenalm_id": 95517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tobias Guarnerius. / Eine phantastische Künstlernovelle aus den Contes bruns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tobias Guarnerius. / Eine phantastische Künstlernovelle aus den Contes bruns",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.771Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "l9flv5g3fw7lc1y"
+    }
+  ]
+}

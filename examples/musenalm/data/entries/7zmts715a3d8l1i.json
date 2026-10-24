@@ -1,0 +1,129 @@
+{
+  "annotation": "Jgg 1819, 1822, 1824, 1825; Karlsruhe G. Braun; Hrsg: A. W. Schreiber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, vT, W, 6 BB G-Verz darin 5 GG, S 1 T, SS 3-253 darin 2 GG, 2 SS I-Verz, S Vrlg M",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rheinblüten 1819",
+    "norm": "~",
+    "biblio": 112653,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-03-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 753,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (Braun)",
+  "places": [
+    "ouysrvcrf9nrnri"
+  ],
+  "preferred_title": "Rheinblüten 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 95; Goed VIII. 99, 211",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinblüten. / Taschenbuch / auf das Jahr 1819 / mit acht Kupfern. / Mit Beyträgen / von Hebel, Schreiber und andern. / Karlsruhe, / bey Gottlieb Braun. / 1819",
+  "updated": "2026-06-11 10:18:55.952Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "kjg8fw4aodwhpdi"
+  ],
+  "contents": [
+    "5sfavf8mb8bqo6f",
+    "y8owrbsmod4ysz9",
+    "rr97nzo97yftdzg",
+    "zex2q9whw2ryk80",
+    "nkrplrssw7pagvz",
+    "3gbxkqwih7jlb15",
+    "86pz2mlowh3wecc",
+    "9yshpabo0vf6irf",
+    "8plsttd8n8swwrl",
+    "jhuatmgq4vl8qzd",
+    "59vrcoogap5i03d",
+    "yf5fv2zshn1g8so",
+    "l8e87nbf7qoo36e",
+    "wu22tr1egre8u69",
+    "n1cvzo4lloqwp7w",
+    "lbyvej94oo0glbk",
+    "ws8stvxfp43ibfc",
+    "kssibki2unzru7p",
+    "nwjlt8p5864bci2",
+    "mg1t9ee82ba9ndm",
+    "1x8vllqniefq6d3",
+    "9f6twsk18sliyyb",
+    "r0y65exkp3jfoat",
+    "9eg87neplop8ud1",
+    "zmxnj8vv7t0vs0b",
+    "93j8b2wianq7ou6",
+    "fyupklnupb0dlra",
+    "ne41e2goyu4hf6u",
+    "8p6iwl0kedocqc8",
+    "fjp6ppdxzzgp50h",
+    "v1t22b9ekszvk6c",
+    "hmmb9ki93he1ykk",
+    "y9uigbhnc1glmd0",
+    "r1xxgc7s5lu8t1v",
+    "lbwtbpzjhex5rrc",
+    "k06hrk79jxlkwpe",
+    "5v2kqal4sofxk2r",
+    "dmtxd5mcg7lf6fb",
+    "joc5bmswn1iatat",
+    "du9dvxk2kg2jlt4",
+    "bj73cyq85u917ur",
+    "1z9xrhghmm8r4ob",
+    "ilmd5lmv068r29e",
+    "xumtf97vxtlhflt",
+    "6zxeu6hy0icjtbh",
+    "qf0i23nrezsnlfb",
+    "sbia7dczn8icn3z",
+    "f8k82n6s0u76jwd",
+    "y67b19tws0vtsm6",
+    "f2pkwj8d7wki8a6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.568Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.568Z",
+      "agent": "7gdav6vfi7cd56a",
+      "source_id": "0smwcj1k2ucn2w6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.767Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.767Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "oq4sqqm07h3gur3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 114834, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Hm! - Sonderbar! / Ach! - Sagt mir doch, Herr Ritter, / Ist dieses öde Schloß hier wohl des Königs?",
+  "language": [],
+  "musenalm_id": 114835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Ponsard [übers.] J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Interdict. / (Agnès de Méranie. Tagédie en cinq actes et en vers. Par / F. Ponsard. Acte II. Scene 1.)",
+  "updated": "2012-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.295Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "5d1zpk7qydk2va3"
+    }
+  ]
+}

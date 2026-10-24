@@ -1,0 +1,427 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.346Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1806"
+      ],
+      "dateOfDeath": [
+        "1867"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-10T17:39:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10014960X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "10014960X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10014960X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10014960X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "preferredName": "Legis-Glückselig, August Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August Anton"
+        ],
+        "surname": [
+          "Legis-Glückselig"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Legis"
+          ],
+          "surname": [
+            "Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav Thormond"
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Legis-Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav Theodor"
+          ],
+          "surname": [
+            "Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Legis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav T."
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Legis Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav T."
+          ],
+          "surname": [
+            "Legis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav Thormud"
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Zimmermann, Jan N.: Diplomatische Geschichte der aufgehobenen Klöster, Kirchen und Kapell*",
+        "Glückselig, Anton T.: Handbuch der altdeutschen und nordischen Götterlehre",
+        "Oehlenschläger, Adam G.: Die Götter Nordens",
+        "Glückselig, Anton T.: Fundgruben des alten Nordens",
+        "Glückselig, Anton T.: Aktenmäßige Darstellung des königlich böhmischen Erbhuldigungs-, Be*",
+        "Glückselig, Anton T.: Biographie des Abbé Joh. Dobrowsky ...",
+        "Aktenmäßige Darstellung des kgl. böhmischen Erbhuldigungs-, Belehnungs- und Krönungs-Cere*",
+        "Glückselig, Anton T.: Topographischer Grundriss von Prag und dessen Umgebungen",
+        "Glückselig, Anton T.: Studien über den Ursprung des Oesterreichischen Kaiserhauses",
+        "Glückselig, Anton T.: Alkuna"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no96007890"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12645721"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60223646"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10014960X/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000063122583"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10014960X"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_G/Glueckselig_Gustav-Thormod_1806_1867.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10014960X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Legis, Gustav Thormod",
+        "Glückselig, August Anton Selig-",
+        "Glückselig, August A.",
+        "Glückselig, Gustav Thormod",
+        "Glückselig, Gustav Theodor",
+        "Glückselig, Anton Thormond",
+        "Legis-Glückselig, Gustav Thormod",
+        "Legis, Gustav T.",
+        "Glückselig, Aug. A.",
+        "Legis-Glückselig, Gustav Thormud",
+        "Legis Glückselig",
+        "Glückselig, Legis",
+        "Legis-Glückselig",
+        "Legis-Glückselig, Gustav Thormond",
+        "Glückselig, August Anton",
+        "Legis",
+        "Legis-Glückselig, Gustav T."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gustav Thormud"
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Theodor"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "personalName": [
+            "Legis-Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Thormond"
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav T."
+          ],
+          "surname": [
+            "Legis"
+          ]
+        },
+        {
+          "forename": [
+            "August A."
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Thormond"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Legis"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Thormod"
+          ],
+          "surname": [
+            "Legis"
+          ]
+        },
+        {
+          "personalName": [
+            "Legis Glückselig"
+          ]
+        },
+        {
+          "personalName": [
+            "Legis"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Thormod"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "August Anton"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Thormod"
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Aug. A."
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "August Anton Selig-"
+          ],
+          "surname": [
+            "Glückselig"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav T."
+          ],
+          "surname": [
+            "Legis-Glückselig"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:31:45Z",
+    "gnd_query_biographical_data": "1806-1867",
+    "gnd_query_name": "glückselig, gustav thormod"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 911,
+  "name": "Glückselig, Gustav Thormod",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "E 109",
+  "updated": "2026-06-11 13:29:22.555Z",
+  "uri": "https://d-nb.info/gnd/10014960X",
+  "editor": ""
+}

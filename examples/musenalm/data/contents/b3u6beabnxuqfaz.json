@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 1. /) Illustration zum Gedicht »Die Nachtfeier der Venus. 1. Vorgesang« von Bürger INr 4061, Obj 6 # Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegten Sie entzückte Wogen / An des Ufers Blumenrand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nahl #; Riepenhausen",
+  "scans": [
+    "alm_93_4063_6fotqre01c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiegten Sie entzückte Wogen / An des Ufers Blumenrand",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.051Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "4chug2gvzks8nu5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.051Z",
+      "agent": "19dpt0c5iom2ho8",
+      "source_id": "fixvi17ptvwcbll"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Elwill, Elwill, du mein Gram, mein / Sehnen, / Mein erwählter, mein verlorner Freund,",
+  "language": [],
+  "musenalm_id": 3559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elwinens Klage um Elwill",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Th. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elwinens Klage um Elwill",
+  "updated": "2000-09-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.149Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "0frdajbepl92r1v"
+    }
+  ]
+}

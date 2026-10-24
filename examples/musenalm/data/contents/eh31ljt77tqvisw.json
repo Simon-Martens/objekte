@@ -1,0 +1,45 @@
+{
+  "annotation": "Lichtlehre der Ssofi. Aus dem persischen Dichter Ssaib (Sammlung INr 15129, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Im Rosenbeet sey Nachtigall, / Und in Ruinen Eule, / Erbrause mit dem Wasserfall",
+  "language": [],
+  "musenalm_id": 15133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Rosenbeet sey Nachtigall, / Und in Ruinen Eule, / Erbrause mit dem Wasserfall…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.737Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "zir19e2vubj8r4r"
+    }
+  ]
+}

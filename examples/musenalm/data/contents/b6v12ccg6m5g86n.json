@@ -1,0 +1,56 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke;  Verlag von J. D. Sauerländer] graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44098,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch. 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Zwecker gez.W. J. Cooke gest.",
+  "scans": [
+    "alm_598_44098_sx54n8t095.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch. 1843",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.101Z",
+      "agent": "uohs1l6y8ng1p96",
+      "source_id": "ke7nz3rnumj4hzn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.101Z",
+      "agent": "usgtr6dipvre26m",
+      "source_id": "njh446c1004wgvq"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30376, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein einz'ger schöner Augenblick, / Der plötzlich unser Herz erfaßt,",
+  "language": [],
+  "musenalm_id": 30377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Bedenklichkeit im Heirathen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Bedenklichkeit im Heirathen",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.660Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "a14aax632newgf3"
+    }
+  ]
+}

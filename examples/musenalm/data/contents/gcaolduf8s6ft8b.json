@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Ich gehe - fliehe - immer kehr' ich wieder - / Bin festgebannt in diesen Zauberkreis, / Sie sieht mich an - ich schlag' die Augen nieder,",
+  "language": [],
+  "musenalm_id": 107412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter ihrem Fenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter ihrem Fenster",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.870Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "az5pq3z6vke8tvq"
+    }
+  ]
+}

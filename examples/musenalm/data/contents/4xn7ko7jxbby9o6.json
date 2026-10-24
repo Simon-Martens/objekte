@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Aus dem 3. Theil, dem Isistempel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Erhebt euch, Guido! solch' ein Mensch, wie ihr, / Kniet vor dem Menschen, vor dem Staube nicht",
+  "language": [],
+  "musenalm_id": 72035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment / aus den / Hieroglyphen / einem epischen Roman: / In Palästina",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus Orientalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment / aus den / Hieroglyphen / einem epischen Roman: / In Palästina",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.479Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "ccgkcuszcaq17cn"
+    }
+  ]
+}

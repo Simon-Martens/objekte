@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 13 Illustrationen s.Titelportrait INr 58466, Obj 1 und Graphiken im Kalendarium INr 58469-58480, Obj 4-15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Napoleons Welteroberungsplan war in Rußland gescheitert. Die Elemente und das Schwerdt hatten seine Heere zerstört; er selbst in armseligem Aufzuge flüchtend war mit Mühe dem Verderben entronnen.",
+  "language": [],
+  "musenalm_id": 58481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uebersicht der Kriegssjahre / 1813. 1814. 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Pfuel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uebersicht der Kriegssjahre / 1813. 1814. 1815",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.982Z",
+      "agent": "pxuk32vnf5uhl0a",
+      "source_id": "9arsuqzwk8wd1ku"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königlicher Pavillon zu Freienwalde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blechen del. C. Frommel sculps.",
+  "scans": [
+    "alm_866_58899_d74c104mpd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königlicher Pavillon zu Freienwalde",
+  "updated": "2008-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.722Z",
+      "agent": "yxu70p4laeh97im",
+      "source_id": "ddm8r1l9d6s5w3b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.722Z",
+      "agent": "iyauzg61pbtokgc",
+      "source_id": "gzggu7tgcpc3agc"
+    }
+  ]
+}

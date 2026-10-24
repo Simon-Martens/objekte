@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Nicht des Herrschers Blick und Gunst / will ein teutsches Lied erschmeicheln;",
+  "language": [],
+  "musenalm_id": 33510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode, an den Herzog von G. 1807",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode, an den Herzog von G. 1807",
+  "updated": "2003-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.533Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "rowf5wpzit7xi7n"
+    }
+  ]
+}

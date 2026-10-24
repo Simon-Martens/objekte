@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Schwebt mein Geist, entlastet seiner Bande, / Einst an Lethe's stillem Uferrande,",
+  "language": [],
+  "musenalm_id": 37471,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Dauer der Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Dauer der Erinnerung",
+  "updated": "2005-03-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.917Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "mjkg9vl48xpasdt"
+    }
+  ]
+}

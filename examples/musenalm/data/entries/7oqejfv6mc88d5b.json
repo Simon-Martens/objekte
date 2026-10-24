@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1810",
+    "norm": "",
+    "biblio": 408516,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4384,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta); Paris (Xhrouët)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; nicht bei L/R; G-C 359, 1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES DAMES. / pour l'an 1810. / À TUBINGUE, Chez Cotta Libraire. / À PARIS, Chez Xhrouët Imprimeur",
+  "updated": "2026-06-11 10:18:55.115Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "g20rxjgmjjf8qdy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.672Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.672Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "234x79e71xaxb2q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "ggo264w4huocl8x",
+      "source_id": "4446vbfsv96xry0"
+    }
+  ]
+}

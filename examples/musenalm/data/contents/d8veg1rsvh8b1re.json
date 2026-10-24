@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86211, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Das Fräulein zu dem Ritter sprach; / Hört ihr des Adlers fernen Schrei / Verhallen in der Wüstenei?",
+  "language": [],
+  "musenalm_id": 86222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Buch im See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freih. v. Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Buch im See",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.179Z",
+      "agent": "9hjrqh1l94hv21m",
+      "source_id": "dehw9unub6djyu9"
+    }
+  ]
+}

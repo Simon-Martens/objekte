@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 80608, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Auf weichem Pfühl gebettet lag / Ein Mütterchen gar krank,",
+  "language": [],
+  "musenalm_id": 80611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Mutter Fleh'n",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Mutter Fleh'n",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.054Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "r2xzyecc36u86hp"
+    }
+  ]
+}

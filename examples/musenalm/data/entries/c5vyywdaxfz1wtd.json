@@ -1,0 +1,67 @@
+{
+  "annotation": "Wiederholung des Jahrgangs 1823; ohne Widmung; S. 454: Wien, 1823. Gedruckt bey den Edlen von Ghelen'schen Erben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, T, SS III-IV, S nT, SS 1-454 darin 8 GG MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Balsaminen 1837",
+    "norm": "~",
+    "biblio": 407391,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2012-07-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3851,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Manz)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Balsaminen 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; L/R 95; Goed VIII. 106, 250",
+  "responsibility_statement": "E. J. Veith",
+  "subtitle_statement": "",
+  "title_statement": "Balsaminen. / Von / E. J. Veith. / Mit Beiträgen von F. L. Z. Werner. / Zweite Ausgabe. / Mit Vignetten und Musikbeilage. / Regensburg, 1837. / Verlag von G. Joseph Manz",
+  "updated": "2026-06-11 10:18:55.533Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "j8t8coxhe1t2i4l"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "g9pkwb8iodgvv90",
+      "source_id": "kbxnofk2tx5gs8a"
+    }
+  ]
+}

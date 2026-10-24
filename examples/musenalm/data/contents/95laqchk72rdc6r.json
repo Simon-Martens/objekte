@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "So bringst du mich um meine Liebe, / Unseliger Genuß? Betrübter Tag für mich!",
+  "language": [],
+  "musenalm_id": 92359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Genuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Genuß",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.475Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "zplj2dqnzsa5jn6"
+    }
+  ]
+}

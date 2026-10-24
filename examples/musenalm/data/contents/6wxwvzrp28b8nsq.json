@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Einer nur ist einzig in Allem: Einer nur einig.",
+  "language": [],
+  "musenalm_id": 23918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einzig und Einig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einzig und Einig",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.196Z",
+      "agent": "q7zvyheam3iyblc",
+      "source_id": "h7959s0c0fwkbn9"
+    }
+  ]
+}

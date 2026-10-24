@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "Der Bruder schlägt auf den König, / Und raubt die stille Braut, / Und achtet alles wenig,",
+  "language": [],
+  "musenalm_id": 77025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königsschein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmine v. Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Königsschein",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.641Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "u7qc7mleecnpey3"
+    }
+  ]
+}

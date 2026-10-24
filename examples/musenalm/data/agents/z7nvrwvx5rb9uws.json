@@ -1,0 +1,165 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.461Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1805"
+      ],
+      "dateOfDeath": [
+        "1867"
+      ],
+      "describedBy": {
+        "dateModified": "2021-06-22T05:36:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-30",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-30"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/132245396/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-30",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-30"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "gndIdentifier": "132245396",
+      "id": "https://d-nb.info/gnd/132245396",
+      "oldAuthorityNumber": [
+        "(DE-588a)132245396"
+      ],
+      "preferredName": "Ruperti, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Ruperti"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2017062329"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/50382420"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132245396/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010353046"
+        },
+        {
+          "collection": {
+            "abbr": "ISNI",
+            "icon": "https://www.isni.org/sites/default/files/isni_new_favicon.ico",
+            "id": "https://isni.org",
+            "name": "International Standard Name Identifier (ISNI)",
+            "publisher": "International Standard Name Identifier (ISNI)"
+          },
+          "id": "https://isni.org/isni/0000000019381852"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/132245396"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132245396"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Ruperti, Fr."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Ruperti"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:43:03Z",
+    "gnd_query_biographical_data": "1806-1867",
+    "gnd_query_name": "ruperti, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2348,
+  "name": "Ruperti, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1733",
+  "updated": "2026-06-11 13:29:24.448Z",
+  "uri": "https://d-nb.info/gnd/132245396",
+  "editor": ""
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An Amarant« von Nantchen, d. i. Goekingk INr 2422, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amarant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dresler",
+  "scans": [
+    "alm_77_2523_c6pmexn703.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An Amarant",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.915Z",
+      "agent": "1anhey70qa9n5qm",
+      "source_id": "hpl2emxmt019fmr"
+    }
+  ]
+}

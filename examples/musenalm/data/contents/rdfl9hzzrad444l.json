@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Schon in einiger Entfernung macht das Ganze dieses weitläufigen und hoch emporsteigenden Gebirges einen Eindruck der Schönheit und Größe.",
+  "language": [],
+  "musenalm_id": 92087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Ansicht einer innern Karpathen- / Gegend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. J. Genersich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Ansicht einer innern Karpathen- / Gegend",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.465Z",
+      "agent": "gtqx9e08ugzg95x",
+      "source_id": "6thcah629sf25zg"
+    }
+  ]
+}

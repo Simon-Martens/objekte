@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Ptolemäus Lagus fragte den Geometer, ob man seine Wissenschaft nicht leichter lernen könnte,",
+  "language": [],
+  "musenalm_id": 4048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Euklid hätte nicht zum Hofprediger / getaugt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Euklid hätte nicht zum Hofprediger / getaugt",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.097Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "zor6g1n31vqp7hk"
+    }
+  ]
+}

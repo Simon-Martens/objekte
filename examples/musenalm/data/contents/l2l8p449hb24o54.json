@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Wehmut, die mich hüllt, / Welche Gottheit stillt / Mein unendlich Sehnen!",
+  "language": [],
+  "musenalm_id": 23428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Theob. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2002-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.244Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "c61gjakh64gokj0"
+    }
+  ]
+}

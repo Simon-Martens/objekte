@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "In einem kleinen Oertchen, in dem sich mancher fromme Gebrauch der Vorzeit noch erhalten hatte, war der alte Cantor Melander - wie er sich gern nennen ließ, obgleich sein eigentlicher Name Daniel Schwarzmann lautete, - eines Tages beschäftigt",
+  "language": [],
+  "musenalm_id": 76939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dreykönigsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Borromäus, Freiherr von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dreykönigsabend",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.551Z",
+      "agent": "e36ydmk4x9m4umt",
+      "source_id": "1b118h3u1fed0nt"
+    }
+  ]
+}

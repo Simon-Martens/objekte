@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Graphik im Kalendarium  Mai /) Graphik im Kalendarium Juni; paginiert 6. /) s. Textbezug INr 96032, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96019,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einnahme von Gorcum den 17. Sept. 1787",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fe.",
+  "scans": [
+    "alm_3961_96019_e3npimk452.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einnahme von Gorcum den 17. Sept. 1787",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.765Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "14nacfnp2svs7at"
+    }
+  ]
+}

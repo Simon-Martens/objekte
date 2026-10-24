@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Es ist unerklärbar, warum noch Niemand vor mir auf die Idee verfallen ist, dem Carneval, welcher ohne Grund so soft verschrieen worden, eine Schutzrede zu halten?",
+  "language": [],
+  "musenalm_id": 106268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schutzrede für den Carneval",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Nork",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schutzrede für den Carneval",
+  "updated": "2015-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.901Z",
+      "agent": "5cvnujd53ixzu3s",
+      "source_id": "0buikosyuqo2c7a"
+    }
+  ]
+}

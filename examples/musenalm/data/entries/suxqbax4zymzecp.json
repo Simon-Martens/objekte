@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 11 BB Kal darin 9 GG, ar: SS 1- 303, S, ar1: SS 1-96, ar2: SS 1-109",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1840",
+    "norm": "~ +++409844 (3 Graphiken: Landschaften)",
+    "biblio": 404162,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 875,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / KALENDER / auf das / Schalt-Jahr / 1840. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.754Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "12br88fo9je66bv",
+    "95c4jun6dlnxcu4"
+  ],
+  "contents": [
+    "6c4kkqvv949agbr",
+    "7f6r8vvq5ld98df",
+    "idyuuigxf7v9k6z",
+    "u7efowdauk9k8gz",
+    "iz76pzq63czn5z6",
+    "bhyuxt8kptwlzyx",
+    "jxl7edk2f8yluxq",
+    "y04vuip05ll2da3",
+    "dw987o64i763r2v",
+    "912vd06bojxeb3a",
+    "ebvq32scy5f7u8b",
+    "2k0k9t4y8rib35j",
+    "xpaleybjc0tno86",
+    "s2wgva3thaoagci",
+    "qw5nv6xalibvxfy",
+    "j9yrjczrmalp44a",
+    "c8earirbmv8k3o5",
+    "ydoltvbhp5zt63j",
+    "yb2eklwf1ewzd3u",
+    "mhy8tnzfenurv6o",
+    "vap0mercz9mpa1k",
+    "6s47igz02zbz53t",
+    "tpzm3un0lflr3gp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "nl03xjm9r7fneq1"
+    }
+  ]
+}

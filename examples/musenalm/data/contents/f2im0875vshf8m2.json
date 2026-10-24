@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 72145, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Schnell altert ein Jahr; / Mit silbernem Haar / Versinkt's in die Ruhe der Zeiten.",
+  "language": [],
+  "musenalm_id": 72149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jahreswechsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jahreswechsel",
+  "updated": "2010-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.698Z",
+      "agent": "0lth2adu21imy6k",
+      "source_id": "ars4mc0ag0yitcq"
+    }
+  ]
+}

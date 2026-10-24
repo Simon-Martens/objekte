@@ -1,0 +1,791 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.482Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Schriftsteller, Theaterleiter, Publizist, Politiker und Nationalökonom. Laut \"Tschirch, Otto: Die Flugschrift \"Deutschland in seiner tiefen Erniedrigung\" und ihr Verfasser., in: Historische Zeitschrift ; 165, S. 47 ff. mutmaßlicher Verfasser der 1806 anonym erschienenen Flugschrift, vgl. auch Christoph Preu (IDN 128532343), Johann Christian Heinrich Adler (IDN 128532505), August von Steigentesch (IDN 118913840), Johann Jakob Willemer (IDN 118633244), Julius Conrad von Yelin (IDN 116944528) sowie Philipp Christian Gottlieb Yelin (IDN 128532734)"
+      ],
+      "dateOfBirth": [
+        "1754-12-04"
+      ],
+      "dateOfDeath": [
+        "1831-06-12"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160260256",
+        "https://d-nb.info/gnd/131174487",
+        "https://d-nb.info/gnd/15959250X",
+        "https://d-nb.info/gnd/160963125",
+        "https://d-nb.info/gnd/187606463"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:34:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118852027/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Karl Julius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Charlotte"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rauber"
+          ]
+        },
+        {
+          "forename": [
+            "Beate Louise"
+          ],
+          "nameAddition": [
+            "Freiin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pfeil"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Julia Franziska"
+          ],
+          "nameAddition": [
+            "Freiin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "nameAddition": [
+            "Freiin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schilling von Cannstadt"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Gabriel"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandrine Friederica Louise Juliane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118852027",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.1p",
+          "label": "Personen zu Wirtschaftsgeschichte (bis ca. 1900)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118852027",
+      "oldAuthorityNumber": [
+        "(DE-588)131174487",
+        "(DE-588a)135249961",
+        "(DE-588a)131174487",
+        "(DE-588)15959250X",
+        "(DE-588a)15959250X",
+        "(DE-588c)4208827-6",
+        "(DE-588a)160963125",
+        "(DE-588)160963125",
+        "(DE-588a)187606463",
+        "(DE-588)160260256",
+        "(DE-588)187606463",
+        "(DE-588a)118852027",
+        "(DE-101c)310939968",
+        "(DE-588a)160260256"
+      ],
+      "periodOfActivity": [
+        "1807-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002170-1",
+          "label": "Ansbach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "preferredName": "Soden, Julius von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Soden"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Nationalökonom",
+        "Dichter",
+        "Staatsmann <Preußen>"
+      ],
+      "publication": [
+        "Das agrarische Gesetz",
+        "Zwey national-ökonomistische Ausführungen",
+        "Geist der deutschen Criminal-Gesetze",
+        "Geist der peinlichen Gesetzgebung Teutschlands",
+        "Die anonarische Gesetzgebung",
+        "Doktor Faust",
+        "Über Nürnbergs Finanzen",
+        "Anna Boley, Königinn von England",
+        "Die Franzosen in Franken im Jahre 1796",
+        "Entwurf eines allgemeinen Kredit-Vereins .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85312340"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20477754"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q103911"
+        },
+        {
+          "collection": {
+            "abbr": "AAA",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://aaa.gf-franken.de",
+            "name": "Album Academicum Altorphinum (AAA)",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://aaa.gf-franken.de/de/recherche.html?permaLink=14504"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118852027/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131174487"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/15959250X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160260256"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160963125"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187606463"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julius_von_Soden_%28Schriftsteller%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121233346"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118852027"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118852027"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118852027.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118852027"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118852027"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Soden, Friedrich Julius Heinrich von, Graf",
+        "Soden, Julius Graf von",
+        "Soden, Julius Reichsgraf von",
+        "Soden, Friedrich Julius Heinrich von",
+        "Soden, Julius von, Graf",
+        "Soden, Julius Freiherr von",
+        "Soden, Julius Friedrich von",
+        "Soden, Julius, Graf von",
+        "Soden, Julius Heinrich Graf von",
+        "Soden, Julius Heinrich von",
+        "Sassanfart, Friedrich Julius Heinrich von Soden von",
+        "Soden, Julius Heinrich",
+        "Soden, F. J. H. von",
+        "Soden, Friedrich Julius",
+        "Von Soden, Julius, Graf",
+        "Soden von Sassanfart, Friedrich Julius Heinrich von",
+        "Sassanfart, Julius Soden von",
+        "Soden von Sassanfahrt, Friedrich Julius Heinrich von",
+        "Sooden, Julius von",
+        "Soden von Sassanfart, Julius",
+        "Sassanfahrt, Friedrich Julius Heinrich von, Graf",
+        "Soden, Friedrich Julius von",
+        "Soden, Guilio di",
+        "Soden von Sassanfart, Friedrich Julius von",
+        "Soden, Friedrich Julius Heinrich",
+        "Soden, Friedrich Julius Heinrich Graf von",
+        "Soden von Sassanfahrt, Friedrich Julius Heinrich",
+        "Soden, Julius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Von Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "surname": [
+            "Soden von Sassanfahrt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Heinrich"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden von Sassanfart"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sassanfahrt"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Soden"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sassanfart"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "prefix": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich von Soden"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sassanfart"
+          ]
+        },
+        {
+          "forename": [
+            "F. J. H. von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Guilio"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sooden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden von Sassanfahrt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden von Sassanfart"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius Heinrich Graf von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Soden von Sassanfart"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Heinrich Graf von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "prefix": [
+            "Reichsgraf von"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius von"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Soden"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julius_von_Soden_%28Schriftsteller%29",
+          "label": "https://de.wikipedia.org/wiki/Julius_von_Soden_%28Schriftsteller%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:59:36Z",
+    "gnd_query_biographical_data": "1754-1831",
+    "gnd_query_name": "soden, julius von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2680,
+  "name": "Soden, Julius von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 260; Goed XI/1, 188",
+  "updated": "2026-06-11 13:29:25.044Z",
+  "uri": "https://d-nb.info/gnd/118852027",
+  "editor": ""
+}

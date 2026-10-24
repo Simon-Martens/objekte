@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 30453, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30452,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Sonderland del. Leop. Beyer sc. V.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. Leop. Beyer sc. V.",
+  "scans": [
+    "alm_400_30452_xrvq6niwn3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.578Z",
+      "agent": "qy6yej73pl7anzc",
+      "source_id": "4hk828n8wcyhd5q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.578Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "kfpirg9lrobl8f3"
+    }
+  ]
+}

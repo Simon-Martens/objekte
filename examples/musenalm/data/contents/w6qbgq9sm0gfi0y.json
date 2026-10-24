@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23172,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen. / von / W. G. Becker / für 1796. / mit Churfürstl. Saechs. Privilegio / Leipzig bei Voss und Compagnie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petermann fecit",
+  "scans": [
+    "alm_202_23172_6yat7gcx1p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen. / von / W. G. Becker / für 1796. / mit Churfürstl. Saechs. Privilegio / Leipzig bei Voss und Compagnie",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.951Z",
+      "agent": "nmh87mne4tvopif",
+      "source_id": "3wea6vddvneuegp"
+    }
+  ]
+}

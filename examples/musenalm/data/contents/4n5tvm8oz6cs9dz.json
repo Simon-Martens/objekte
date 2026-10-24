@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 80488, 80489; Obj 37-38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.074Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "0wj4gq1xwzmunw7"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S III, INr 81378, Obj 5 /) Illustration zu »Schicksalswechsel« von Klara von Massow INr 81388, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81375,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurelia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nürnberg",
+  "scans": [
+    "alm_1811_81375_8d2buc2bti.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurelia",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.999Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "8reiwba30kw4rl0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.999Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "xtlqf5ulovi2iat"
+    }
+  ]
+}

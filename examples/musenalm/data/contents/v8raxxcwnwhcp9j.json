@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95339, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Adolf Theer pt. Stahlst. v. C. Kotterba)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer pt. Stahlst. v. C. Kotterba",
+  "scans": [
+    "alm_1882_95338_5neqs0kgmi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.692Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "0aolks6bki9dcv4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.692Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "fl7zdkagpaqfmds"
+    }
+  ]
+}

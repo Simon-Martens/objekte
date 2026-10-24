@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Denker und Dichter INr 88227, Obj 15 /) Gedichte (Sammlung INr 88225, Obj 13) Anm. am Gedicht: Dieses und die folgenden Lieder des ausgezeichneten jungen Dichters sind entlehnt aus dem »deutschen Taschenbuch, Verlag des litt. Compt. in Zürich u. Winterthur /) s. Taschenbuch, Deutsches (G. Keller) 1845; 23577 ff",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Wohlan, ihr neun mal Weisen! / Ich ford're euch heraus;",
+  "language": [],
+  "musenalm_id": 88228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2013-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.183Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "0prnhqeb8bhinwa"
+    }
+  ]
+}

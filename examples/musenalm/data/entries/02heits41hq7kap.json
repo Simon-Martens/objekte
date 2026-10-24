@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ich gedachte Dein! Ein Taschenbuch zur geselligen Unterhaltung in Bädern 1838",
+    "norm": "",
+    "biblio": 411239,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-06-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4647,
+  "parallel_title": "",
+  "place_statement": "Waltershof (Selbstverlag)",
+  "places": [
+    "9tl2w9g7qzbg8zu"
+  ],
+  "preferred_title": "Ich gedachte Dein! Ein Taschenbuch zur geselligen Unterhaltung in Bädern 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Johannes Greger",
+  "subtitle_statement": "",
+  "title_statement": "Ich gedachte Dein! / Ein Taschenbuch / zur / geselligen Unterhaltung in Bädern / von / Johannes Greger. [...] / Waltershof im Fichtelgebirg. / Auf Kosten des Verfassers. / 1838",
+  "updated": "2026-06-11 10:18:55.699Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "uoyuog875limjhm"
+  ],
+  "contents": [],
+  "agents": []
+}

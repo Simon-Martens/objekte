@@ -1,0 +1,121 @@
+{
+  "annotation": "Das Taschenbuch beginnt mit: Kalender für Israeliten auf das Jahr 1847 5607 1848 nach Erschaffung der Welt /) Titel des Kalendariums; Titel, I-Verz der ersten 6 Jahrgänge des Jahrbuchs und  Inhaltsverzeichnis des Jahrgangs 1847 als Volbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "SS III-LIV darin 6 BB Kal, S 1 T, SS 1-6 Vrwrt d Hrsg, SS 7-358, SS 359-369 I-Verz, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1847",
+    "norm": "~",
+    "biblio": 409168,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4250,
+  "parallel_title": "",
+  "place_statement": "Wien (Fr. v. Schmid u. J. J. Busch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Isidor Busch",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Israeliten, auf das Jahr / 1847 5608 1848 / Mit Beiträgen von: / Theodor Creizenach, Dr. L. A. Frankl, [...] Herausgegeben von / Isidor Busch. / Sechster Jahrgang / WIEN 1847. / Druck und Verlag des Franz Edlen von Schmid & J. J. Busch",
+  "updated": "2026-06-11 10:18:55.724Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "153pli90n5ia2gn"
+  ],
+  "contents": [
+    "dwwczi2jgsre9oq",
+    "woz3nwpk3evdo2q",
+    "2fizipocnp4zrva",
+    "rpr91dwdafuml59",
+    "1x6hxrmoyfnjjam",
+    "db3wh13ic9lkhao",
+    "2djlum39ysogvs8",
+    "5pt42exf3ppnbyn",
+    "jh7ca72bt72e42t",
+    "1adcpi83198oj7l",
+    "89xnufxal8a403m",
+    "p67k8a0ms2sh7l5",
+    "9b1luqv2q24orw6",
+    "dood77eueqaooga",
+    "8fqfsyhuumgt7fa",
+    "umlmiwxd7gw43oi",
+    "1297t4l5uy4paax",
+    "4bkoydrgc76ae7h",
+    "2pcfiealf2i91ti",
+    "lfh7olqdhvovwwy",
+    "o8920cxjbs0ctl4",
+    "draf8bddowzirfb",
+    "x94mbhsxjytre2p",
+    "3ahaeungsyt605p",
+    "2wgjjm4gxn0pt0w",
+    "gwb8oelexkhblwl",
+    "9vqqtvkcqrbwvmd",
+    "69i81uvt2y9ypj9",
+    "1ufrnx26szb4208",
+    "jrow39ct2vt6wvm",
+    "f6pnjghs1jvf43c",
+    "c19rtqeqy1hnrbo",
+    "asuanh7dwfx6c5q",
+    "rk1gbt2j4nrfr3u",
+    "h7t3wob7oyfrkzd",
+    "xq2cs53ogkw9nr4",
+    "fnd3103bqb6isqt",
+    "4ptqggt02ig8ak6",
+    "g5cabyz0n93wu50",
+    "mmidbo356t4rd5h",
+    "1tjowhdal19zne8",
+    "dh11t4ibsw4zwc0",
+    "tgq2iv8zb3ewbai",
+    "czhjjrfhze74w19",
+    "so8ffpg29agenim",
+    "cnujfhjimqqtpu0",
+    "spyqn1ddcb445fx",
+    "miwaw79q28mazv1",
+    "6wzucsi8vvwg6bj",
+    "8j6jf8kl2nhfwhs",
+    "uyjzn1dnpawv0rs",
+    "68dt1khexdzq2x7",
+    "2ekfvcokepjgwbk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.866Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.866Z",
+      "agent": "nxpx6vwz8eipuof",
+      "source_id": "cl7212cygnlkc6u"
+    }
+  ]
+}

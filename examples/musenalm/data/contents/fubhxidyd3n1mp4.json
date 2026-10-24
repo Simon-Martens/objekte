@@ -1,0 +1,43 @@
+{
+  "annotation": "Anm. des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Herr Bister scheint es für gut zu finden, in seiner neuen, berlinischen Monatsschrift, einige Monate auf Kosten der Charité zu leben,",
+  "language": [],
+  "musenalm_id": 73088,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anhang. / Erklärung über einen neuen Angriff des Herrn Biester, im Juniusstück seiner / neuen Berlinischen Monatsschrift, im Betreff der Charité",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anhang. / Erklärung über einen neuen Angriff des Herrn Biester, im Juniusstück seiner / neuen Berlinischen Monatsschrift, im Betreff der Charité",
+  "updated": "2010-02-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.545Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "u4u3b6osculcoko"
+    }
+  ]
+}

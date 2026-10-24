@@ -1,0 +1,101 @@
+{
+  "annotation": "§§ Titel fehlt. Die Prosabeiträge sind unbezeichnet, als Autor ist der Herausgeber F. W. Bruckbräu anzunehmen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, §§, nT, 2 SS W, S, B I-Verz, SS 1-311",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eichenkronen 1833",
+    "norm": "~",
+    "biblio": 200037,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 764,
+  "parallel_title": "",
+  "place_statement": "München (Hübschmann)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Eichenkronen 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; nicht bei L/R; Goed X. 318, 26",
+  "responsibility_statement": "Frierich Wilhelm Bruckbraeu",
+  "subtitle_statement": "",
+  "title_statement": "§§",
+  "updated": "2026-06-11 10:18:55.613Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "2ydqwjiqnl7764x"
+  ],
+  "contents": [
+    "bhw3vk1pkr0tyrb",
+    "mx3btf1udg8kv9a",
+    "0r5yxndzzdk6ci0",
+    "yqossr9wcsvjbho",
+    "ykoi7ygf4ovlyh8",
+    "3r5wmt60y2vgh4z",
+    "sh56fq34metslfn",
+    "bew9w8oqbortrd4",
+    "i7v1vx4ibt7v20a",
+    "pplkwvhyvhqx5wu",
+    "3wj6j3pf85ftrxk",
+    "b9br6vtatxhxy1q",
+    "u5pn7krfk62e63k",
+    "u4uq4r0iww4okb1",
+    "q3otug7g16odbap",
+    "3rn0wzt185h3saj",
+    "l2peh1h426dmcqr",
+    "zm990qs88m8i4d6",
+    "iey04ilqys9qf66",
+    "7xdck76bm352gj1",
+    "lnx2yhvv0vcbbjc",
+    "t4czzf4zcs78ifn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.045Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.045Z",
+      "agent": "doirmqr9ue3j0mn",
+      "source_id": "4azwd84uujhcdke"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.772Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.772Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "b00w7xxowymsmc8"
+    }
+  ]
+}

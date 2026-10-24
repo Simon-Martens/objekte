@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der eleganten und bürgerlichen Kochkunst",
+    "norm": "",
+    "biblio": 409498,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4495,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Taschenbuch der eleganten und bürgerlichen Kochkunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Carl Wilh. Juch",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der eleganten und bürgerlichen / Kochkunst. / Deutschen Frauen aus allen / Ständen gewidmet. / herausgegeben / von / Dr. Carl Wilh. Juch. / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:55.452Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "fiyfsyfai664wcd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "r5q39vtieoegihr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "An meines Vaters Hügel, / Da steht ein schöner Baum: / Gern singt das Waldgeflügel / An meines Vaters Hügel,",
+  "language": [],
+  "musenalm_id": 6108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Landmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Landmädchen",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.048Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "e23wky3ead5j0rv"
+    }
+  ]
+}

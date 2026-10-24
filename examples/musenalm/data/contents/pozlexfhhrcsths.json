@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neusel (Sammlung INr 98898, Obj 100) Abendlied des Wandrers; INr 98904 f unklar: Auf welche folgenden Gedichte der Sammlung bezieht sich die Zwischenüberschrift?",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied des Wanderes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied des Wanderes",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.893Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "uim7muvx0weh4sl"
+    }
+  ]
+}

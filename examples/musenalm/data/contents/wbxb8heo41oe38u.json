@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "In manchen, auch wol vielen Stücken anderer Meynung zu seyn,als Andere, ist eben so häufig der Fall, als die Sache begreiflich ist.",
+  "language": [],
+  "musenalm_id": 73433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Hüte dich vor der Demonstrir- / und Disputirsucht und erlaube dir / keine entscheidenden Aussprüche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Hüte dich vor der Demonstrir- / und Disputirsucht und erlaube dir / keine entscheidenden Aussprüche",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.702Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "x9srisky9vcq72d"
+    }
+  ]
+}

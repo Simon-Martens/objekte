@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. des Verfassers: Dieses Gedicht ist zwar bereits in einer frühern Sammlung von mir abgedruckt worden; in der neuen Ausgabe (Tübingen, 1819-20) hingegen, ließ ich es hinweg,",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Land meiner seligsten Gefühle, / Vom reinsten Morgenthau bestreut,",
+  "language": [],
+  "musenalm_id": 87109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jugendzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jugendzeit",
+  "updated": "2013-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.978Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "cf65xh8qzydy7iy"
+    }
+  ]
+}

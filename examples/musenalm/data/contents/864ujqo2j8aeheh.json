@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Denksprüche (Sammlung INr 10375, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Klage nicht über Mangel an Freuden. Sie sprießen am Wege des Lebens überall",
+  "language": [],
+  "musenalm_id": 10390,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streithorst",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15.",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.323Z",
+      "agent": "8ory2boej7zqotd",
+      "source_id": "m0n8d8px5sxwiqk"
+    }
+  ]
+}

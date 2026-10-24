@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 36894-36898, Obj 19-23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.061Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "fevgzmeg22ia47d"
+    }
+  ]
+}

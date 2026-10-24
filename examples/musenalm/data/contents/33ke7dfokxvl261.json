@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Das war das Städtchen: Lauben, / Das in der Lausitz liegt, / Das schien vom süßen Frieden / Für immer eingewiegt.",
+  "language": [],
+  "musenalm_id": 99918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schwedenstiefel zu Lauben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuk Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schwedenstiefel zu Lauben",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.907Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "etjccvdj2g7l906"
+    }
+  ]
+}

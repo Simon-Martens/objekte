@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Stunden, Tage, Jahre zählen / Misvergnügte nur. / Ach! sie hoffen, fürchten immer;",
+  "language": [],
+  "musenalm_id": 5974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neujahrs- Lied. / An meine Freundin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neujahrs- Lied. / An meine Freundin",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.281Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "j426ebxdc81nb1q"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erinnerungen an Rafael Sanzio von Urbino. Dreihundert Jahre nach seinem Tode (Sammlung INr 1609, Obj 36) Übersetzung des Gedichts INr 19236, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Ja, süß sind der Erinnerung Gedanken, / Ich freute mich der freundlichen Gewährung",
+  "language": [],
+  "musenalm_id": 19237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lust und Schweigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rafael; [übers.] Friedrich Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lust und Schweigen",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.935Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "zi7xeu4xce3c7cr"
+    }
+  ]
+}

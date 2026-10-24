@@ -1,0 +1,45 @@
+{
+  "annotation": "# Legenden aus Luthers Leben s. INr 22207, Obj 87",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "517",
+  "incipit_statement": "Als bald darauf Lutherus Mönch geworden / Im finstern Kloster zu Sanct Augustin,",
+  "language": [],
+  "musenalm_id": 22208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Lutherus Mönchsstand #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Lutherus Mönchsstand #",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.117Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "u8h0b0tgj15pj9t"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Beigabe zu »Ausflug in die Alpen des Kantons Freyburg« von Fr. Kuenlin INr 53778, Obj 24 /) Vertonung des Savoyerlieds »Coraula« INr 53858, Obj 104 /) Photos 53857,01; 53857,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coraula",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Huber",
+  "scans": [
+    "alm_735_53857_01_k44jhdbsd8.jpg",
+    "alm_735_53857_02_uuiocy84j8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coraula",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.712Z",
+      "agent": "sotbd7eujnrv6f6",
+      "source_id": "rosegkkuwz360hq"
+    }
+  ]
+}

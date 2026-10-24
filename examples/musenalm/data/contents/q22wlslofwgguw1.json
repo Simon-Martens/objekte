@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 27227-27230, Obj 89-92",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Denkmäler deutscher Dichterinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Denkmäler deutscher Dichterinnen",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.174Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "rluogsme6gyrasj"
+    }
+  ]
+}

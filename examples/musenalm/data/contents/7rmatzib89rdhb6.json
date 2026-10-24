@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort s. INr 93884, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Sehr vergnügt hat mich die Nachricht, daß auch Ihre Philosophie dem Rufe der Natur Gehör gegeben und Sie sich entschlossen haben, den ehelosen Stand zu verlassen.",
+  "language": [],
+  "musenalm_id": 93885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berlin d. 15. März 1784. Bester Freund!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Ihrige Moses Mendelssohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berlin d. 15. März 1784. Bester Freund!",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.622Z",
+      "agent": "7flxiure8533yje",
+      "source_id": "ghhtg199skroovn"
+    }
+  ]
+}

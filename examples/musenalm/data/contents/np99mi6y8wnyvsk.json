@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Im Gedränge der Zurüstungen zum Abschiede von meinem geliebten Vaterlande, der meinem liebenden Herzen so unaussprechlich schwer wird, werde ich von meinem Herrn Verleger aufgefordert, eine Vorrede zu diesem Taschenbuche zu schreiben.",
+  "language": [],
+  "musenalm_id": 83317,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.087Z",
+      "agent": "gmsxseq0l1x8zfa",
+      "source_id": "yf6wdnfyg3isrmz"
+    }
+  ]
+}

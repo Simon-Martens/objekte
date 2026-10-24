@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Brich aus Gesang, und tön' auf meinem Munde / Lautjubelnd hin, von Land zu Land!",
+  "language": [],
+  "musenalm_id": 70627,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / den Kaiser Franz, den Zweiten. / (Im August 1813.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / den Kaiser Franz, den Zweiten. / (Im August 1813.)",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.430Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "djj8s32bycd0sag"
+    }
+  ]
+}

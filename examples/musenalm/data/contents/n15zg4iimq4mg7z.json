@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36112,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Heideloff de. C. Wiesner sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff de. C. Wiesner sc.",
+  "scans": [
+    "alm_351_36112_fusvcdxwfm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "ozbcnea803wc4mb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "v6whpg6896rh6jd",
+      "source_id": "zgp42yhm93cdv56"
+    }
+  ]
+}

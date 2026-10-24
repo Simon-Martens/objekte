@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "biographical_data": "1826-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.423Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftstellerin, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1826"
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-13T18:54:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1089260008/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#ZZ",
+          "label": "Land unbekannt"
+        }
+      ],
+      "gndIdentifier": "1089260008",
+      "id": "https://d-nb.info/gnd/1089260008",
+      "preferredName": "Mauritius, Frau von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Frau"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Mauritius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/395145857122222922811"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089260008/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1089260008"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Isidor"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Isidor"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:13:24Z",
+    "gnd_query_biographical_data": "1826-?",
+    "gnd_query_name": "mauritius, frau von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1750,
+  "name": "Mauritius, Frau von",
+  "profession": "Text",
+  "pseudonyms": "Isidor; Isidor v. M.",
+  "refs": "E 223",
+  "updated": "2026-06-11 13:29:23.744Z",
+  "uri": "https://d-nb.info/gnd/1089260008",
+  "editor": ""
+}

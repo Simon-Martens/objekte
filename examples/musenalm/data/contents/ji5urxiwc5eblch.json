@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 7 s. Textbezug 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7221,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LXXXVIII. Anecdote / Peter des Großen Strenge in Criminal- / gesetzen / p. 250",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7221_y7glpotgp5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LXXXVIII. Anecdote / Peter des Großen Strenge in Criminal- / gesetzen / p. 250",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.149Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "kjatg9yhs49y65u"
+    }
+  ]
+}

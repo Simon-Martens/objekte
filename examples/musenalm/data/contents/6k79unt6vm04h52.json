@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 44040, 44041; Obj 20, 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelheid von Stolterfoth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2006-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.760Z",
+      "agent": "3jhgiv1hh1vm2en",
+      "source_id": "swfwh7pv4cbtkhx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Freundinn soll sie dir seyn nicht deine / Geliebte, dies schöne / Kind des Himmels?",
+  "language": [],
+  "musenalm_id": 82959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gefährliche Freundinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Jos. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die gefährliche Freundinn",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.989Z",
+      "agent": "56d4anfaubc9l80",
+      "source_id": "lrbgyh2f6rualv2"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "annotation": "Almanah (sic)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, ar: S 1 T, SS 3- IV Vrwrt d Hrsg, SS 3-224, B I-Verz ar1: SS 1-16 mit 4 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für das kaiserl. königl. Hofoperntheater 1845",
+    "norm": "~",
+    "biblio": 404900,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1304,
+  "parallel_title": "",
+  "place_statement": "Wien (Schmid u. Busch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach für das kaiserl. königl. Hofoperntheater 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ludwig Bergmann",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / das kaiserl. königl. Hofoperntheater / nächst dem Kärntnerthore / auf das Jahr / 1845. / Herausgegeben / von / Ludwig Bergmann, / Mitglied des Chores. / Wien. / Gedruckt bei Franz Edlen v. Schmid & J. J. Busch",
+  "updated": "2026-06-11 10:18:54.912Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "551maeeztpxligh"
+  ],
+  "contents": [
+    "lhxk0d7cxttg754",
+    "aiu4kru1ycrwxdw",
+    "cachzmy23528z2o",
+    "1omnu246ezdgeza",
+    "ss4q3mz3e12jge7",
+    "bsewtpjseghq2vo",
+    "vgwdhe6zmmn0ksi",
+    "qh8xcov0u7lhmia",
+    "qrj1bcd8ei5pjh7",
+    "thxjxn1q9m1jlga",
+    "tztrhrbd9bq24g1",
+    "0s0x487yc8v7jpy",
+    "rj69m1l3uytrxza",
+    "wnl32gejfqrhizk",
+    "8yn1rt1fu087ndq",
+    "9y92l84naat1mmq",
+    "bzugwpqfy1k3he1",
+    "qu4jvyeodrfegcx",
+    "misxexoxtloz0h6",
+    "gp5oaziyb1gqkbr",
+    "64nowdzpwa53f4n",
+    "jkb9aw8tqdi23t2",
+    "trab4fj21a3e78l",
+    "rxcza2pfewuf9q4",
+    "ahrokf18vgrblrm",
+    "6nr986r0s7ha4bd",
+    "yf53i9wdn40cjf1",
+    "gahu93xvnlj7z2m",
+    "wqoetmoc97k2c04",
+    "t7bu6vbjahai0e5",
+    "p12ojrx3bgyd8v6",
+    "hm6eftiyeqykmp9",
+    "99c7k7of7h3rdys",
+    "lhml6xsqx272pdj",
+    "m7hyabjf4dpaher",
+    "t08qzkk04hx2k2y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "0s9t9275aejerak",
+      "source_id": "4wbp3kyoxn2qrz1"
+    }
+  ]
+}

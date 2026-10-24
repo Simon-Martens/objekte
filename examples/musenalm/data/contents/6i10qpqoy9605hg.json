@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Habt ihr gesehn das Bildniß der Madonne / Wie sich die Hände trämrisch bittend heben, / Wie um den Mund das menschlich süße Leben, / Das Spätroth glüht gesunkner Erdenwonne?",
+  "language": [],
+  "musenalm_id": 122957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie / Ein Fragment aus früher Zeit. / Erster Theil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Rodenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marie / Ein Fragment aus früher Zeit. / Erster Theil",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.825Z",
+      "agent": "mx1vnd1yqx32ae7",
+      "source_id": "dx80tmc1lvrw8fh"
+    }
+  ]
+}

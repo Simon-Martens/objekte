@@ -1,0 +1,52 @@
+{
+  "annotation": "Erscheinungsverlauf unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.421Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4853,
+  "parallel_title": "",
+  "place_statement": "Wien (Trattner)",
+  "places": [],
+  "preferred_title": "Almanach de la cour imperiale et royale (Wien 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DE LA / COUR / IMPERIALE ET ROYALE / POUR / L'ANNÉE BISSEXTILE / 1776. / Avec Privilege de sa Maj. Imp. Roy. / A VIENNE, / CHEZ J. THOM. NOBL. DE TRATTNERN / LIBR. ET IMPR. DE LA COUR",
+  "updated": "2023-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "items": [
+    "dy9olqbgmsjnjil",
+    "wty8j8jjw26aldk"
+  ],
+  "contents": [],
+  "agents": []
+}

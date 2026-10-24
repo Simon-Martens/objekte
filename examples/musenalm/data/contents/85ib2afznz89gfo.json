@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Mai; nummeriert 3. /) s. Textbezug INr 96254, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96233,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kommt nur hier neben mir, und fasst / meinen Steigriemen an / p. 41",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki f.",
+  "scans": [
+    "alm_2184_96233_5u9m2ga0po.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kommt nur hier neben mir, und fasst / meinen Steigriemen an / p. 41",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.710Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "z4g1f4eo9yj3od5"
+    }
+  ]
+}

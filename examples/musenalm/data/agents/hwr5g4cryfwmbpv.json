@@ -1,0 +1,257 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1823",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.252Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Jurist, Schriftsteller",
+        "Jurist, Schriftsteller, Übersetzer"
+      ],
+      "dateOfBirth": [
+        "1759-04-20"
+      ],
+      "dateOfDeath": [
+        "1823-02-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-27T18:15:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/121175790/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#ZZ",
+          "label": "Land unbekannt"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "121175790",
+      "id": "https://d-nb.info/gnd/121175790",
+      "oldAuthorityNumber": [
+        "(DE-588a)121175790"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Becker, Gotthelf Wilhelm Rupert",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gotthelf Wilhelm Rupert"
+        ],
+        "surname": [
+          "Becker"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Begebenheiten aus dem gesellschaftlichen Leben",
+        "Die schöne Bäkkerin",
+        "Späne aus der Werkstatt Meister Sachsens eines unmittelbaren Abkömml*",
+        "Geschichte der Regierung Ferdinand des Katholischen Königs von Spani*",
+        "Karl der Kühne, Herzog von Burgund",
+        "Romantische Chroniken"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Gotthelf Wilhelm Rupert"
+          ],
+          "surname": [
+            "Becker"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031713"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/50075661"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q109832559"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/121175790/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Rupert_Becker"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120255105"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/121175790"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/121175790"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Becker, Gotthelf W.",
+        "Bekker, Rupert",
+        "Becker, Gotthelf Wilhelm Rupert",
+        "Becker, Rupert"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gotthelf Wilhelm Rupert"
+          ],
+          "surname": [
+            "Becker"
+          ]
+        },
+        {
+          "forename": [
+            "Rupert"
+          ],
+          "surname": [
+            "Bekker"
+          ]
+        },
+        {
+          "forename": [
+            "Rupert"
+          ],
+          "surname": [
+            "Becker"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthelf W."
+          ],
+          "surname": [
+            "Becker"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Rupert_Becker",
+          "label": "https://de.wikipedia.org/wiki/Rupert_Becker"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:39Z",
+    "gnd_query_biographical_data": "1759-1823",
+    "gnd_query_name": "becker, gotthelf wilhelm rupert"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 140,
+  "name": "Becker, Gotthelf Wilhelm Rupert",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 514",
+  "updated": "2026-06-11 13:29:21.507Z",
+  "uri": "https://d-nb.info/gnd/121175790",
+  "editor": ""
+}

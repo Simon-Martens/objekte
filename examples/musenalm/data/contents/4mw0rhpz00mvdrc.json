@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 27289, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27290,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Petrus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "gez. u. gest. von Albert Reindel",
+  "scans": [
+    "alm_352_27290_8mb79fabri.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Petrus",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.301Z",
+      "agent": "2j4fmhpjuaqhaao",
+      "source_id": "3rp21o408jjnamy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.301Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "pavwnflz9jv7r9s"
+    }
+  ]
+}

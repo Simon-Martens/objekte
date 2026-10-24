@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März paginiert 3. /) # Titel s. Textbezug INr 10709, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107195,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese 2 Monatskupfer stellen die modernste Art von Cabriolet- oder Chaisen-Geschirren vor. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent",
+  "scans": [
+    "alm_3124_107195_rcidey5yw9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diese 2 Monatskupfer stellen die modernste Art von Cabriolet- oder Chaisen-Geschirren vor. #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.084Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "uv041lul2l2oexd"
+    }
+  ]
+}

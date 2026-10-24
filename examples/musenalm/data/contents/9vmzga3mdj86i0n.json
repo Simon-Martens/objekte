@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Höheren Menschengefühls war keiner unter den / Guelfen! / Fremdling, forsche nicht",
+  "language": [],
+  "musenalm_id": 5933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf das Denkmal des Herzogs Leo- / pold, bey Frankfurt a. d. Oder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf das Denkmal des Herzogs Leo- / pold, bey Frankfurt a. d. Oder",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.266Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "hc3lvvkdxdylvyt"
+    }
+  ]
+}

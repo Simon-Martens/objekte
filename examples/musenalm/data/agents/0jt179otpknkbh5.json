@@ -1,0 +1,552 @@
+{
+  "annotation": "",
+  "biographical_data": "1713–1784",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.616Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/15514-7",
+          "label": "Königliche Akademie der Wissenschaften (Berlin)"
+        }
+      ],
+      "dateOfBirth": [
+        "1713-10-05"
+      ],
+      "dateOfDeath": [
+        "1784-07-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Pierre-Michel Alix"
+          ],
+          "creditText": [
+            "Aquatinta von Pierre-Marie Alix nach Lou-Michel Vanloo"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis%20Diderot%20-%20Alix%20-%20Vanloo.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Denis%20Diderot%20-%20Alix%20-%20Vanloo.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Denis%20Diderot%20-%20Alix%20-%20Vanloo.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1057668818",
+        "https://d-nb.info/gnd/18757880X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T11:27:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118525263/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Jacques François Denis"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Didier-Pierre"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1179137310",
+          "label": "Diderot, Marie Angélique"
+        },
+        {
+          "forename": [
+            "Didier"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Angélique"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Angélique"
+          ],
+          "surname": [
+            "Vigneron"
+          ]
+        },
+        {
+          "forename": [
+            "Denis-Laurant"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Antoinette [Nanette]"
+          ],
+          "surname": [
+            "Champion"
+          ]
+        },
+        {
+          "forename": [
+            "Angélique"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Denise [Soeurette]"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Marie-Angélique"
+          ],
+          "surname": [
+            "Caroillon"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118525263",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1179137310",
+          "label": "Diderot, Marie Angélique"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118525263",
+      "oldAuthorityNumber": [
+        "(DE-588c)4012138-0",
+        "(DE-588)1057668818",
+        "(DE-588a)13091228X",
+        "(DE-588a)118525263",
+        "(DE-588)18757880X",
+        "(DE-588a)18757880X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4099044-8",
+          "label": "Langres"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Diderot, Denis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Denis"
+        ],
+        "surname": [
+          "Diderot"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Tommaso"
+          ],
+          "surname": [
+            "Crudeli"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Dargir"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Thomas"
+          ],
+          "surname": [
+            "Crudeli"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hrsg. von: Encyclopédie",
+        "Memoires sur différents sujets de mathematiques",
+        "Jacob und sein Herr",
+        "Rameau's Neffe",
+        "L'apocalypse de la raison",
+        "Les bijoux indiscrets",
+        "Moralische Erzählungen. - 1949 -- ABER: die Titel \"Des Herrn Diderot moralische Wercke\" bzw. \"Les oeuvres morales de Mr. Diderot\" gehören nicht zu Diderot, sondern Thiroux D'Arconville, Marie Geneviève Charlotte",
+        "Le neveu de Rameau",
+        "Jacques le fataliste et son maître",
+        "Oeuvres de théatre",
+        "La religieuse"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79081610"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54146831"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q448"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1057668818"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118525263/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18757880X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Denis_Diderot"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Denis_Diderot"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Denis_Diderot"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Denis_Diderot"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012133370X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118525263"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118525263"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118525263"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/C3FAD45372DC4CA687D87668BA4373CB"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118525263"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Didro, Deni",
+        "Dargir",
+        "Didro, Denis",
+        "D***",
+        "Crudeli, Tommaso",
+        "Crudeli, Thomas",
+        "Diderot",
+        "Ntintero, Nteni",
+        "Diderot, Monsier",
+        "Diderot, M.",
+        "Diderot, Dionisio",
+        "Diderot, Dionysius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Tommaso"
+          ],
+          "surname": [
+            "Crudeli"
+          ]
+        },
+        {
+          "nameAddition": [
+            "M."
+          ],
+          "personalName": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Denis"
+          ],
+          "surname": [
+            "Didro"
+          ]
+        },
+        {
+          "personalName": [
+            "D***"
+          ]
+        },
+        {
+          "forename": [
+            "Deni"
+          ],
+          "surname": [
+            "Didro"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Monsier"
+          ],
+          "personalName": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Dionisio"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "forename": [
+            "Nteni"
+          ],
+          "surname": [
+            "Ntintero"
+          ]
+        },
+        {
+          "forename": [
+            "Thomas"
+          ],
+          "surname": [
+            "Crudeli"
+          ]
+        },
+        {
+          "personalName": [
+            "Dargir"
+          ]
+        },
+        {
+          "forename": [
+            "Dionysius"
+          ],
+          "surname": [
+            "Diderot"
+          ]
+        },
+        {
+          "personalName": [
+            "Diderot"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Denis_Diderot",
+          "label": "https://de.wikipedia.org/wiki/Denis_Diderot"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:28:57Z",
+    "gnd_query_biographical_data": "1713–1784",
+    "gnd_query_name": "diderot, denis"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4031,
+  "name": "Diderot, Denis",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "NBU XIV, 79",
+  "updated": "2026-06-11 13:29:25.964Z",
+  "uri": "https://d-nb.info/gnd/118525263",
+  "editor": ""
+}

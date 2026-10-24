@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1880",
+    "norm": "",
+    "biblio": 200981,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3038,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1880",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "W. H. Riehl",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Begründet von Friedrich von Raumer. / Herausgegeben / von / W. H. Riehl. / Fünfte Folge. Zehnter Jahrgang. / Leipzig. / F. A. Brockhaus. / 1880",
+  "updated": "2026-06-11 10:18:54.761Z",
+  "variant_title": "",
+  "year": 1880,
+  "editor": "",
+  "items": [
+    "6oqavcxo0c4iqmq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.577Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.577Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "1nppi3tzatngy0e"
+    }
+  ]
+}

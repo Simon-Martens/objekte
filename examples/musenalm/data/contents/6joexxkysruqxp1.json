@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug u. Anmerkung INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34194,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aristaeus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Albrier Gest. v. Bein in Paris",
+  "scans": [
+    "alm_474_34194_a3alxcolp1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aristaeus",
+  "updated": "2003-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.765Z",
+      "agent": "zmvjdej6nue3uh9",
+      "source_id": "64vs4be1ylx111z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.765Z",
+      "agent": "96z5widx3aa60z4",
+      "source_id": "f0i3fkmwzaujhu0"
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österreich. Schriftsteller, Zensor und Militär"
+      ],
+      "dateOfBirth": [
+        "1781-11-26"
+      ],
+      "dateOfDeath": [
+        "1848-12-06"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/102573064X"
+      ],
+      "describedBy": {
+        "dateModified": "2020-10-20T16:05:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/134100417/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "134100417",
+      "id": "https://d-nb.info/gnd/134100417",
+      "oldAuthorityNumber": [
+        "(DE-588)102573064X",
+        "(DE-588a)134100417"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Stierle-Holzmeister, Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "surname": [
+          "Stierle-Holzmeister"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4190697-4",
+          "label": "Zensor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4039305-7",
+          "label": "Militär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7607862-0",
+          "label": "Mäzen"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Muzius der Pfeifensclave"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Stierle"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/65215002"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55902186"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/102573064X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/134100417/about"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Stierle-Holzmeister_Josef_1781_1848.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Holzmeister, Joseph",
+        "Holzmeister, Josef",
+        "Stierle-Holzmeister, Joseph Johann Baptist",
+        "Holzmeister, Johann Joseph",
+        "Holzmeister, Johann Joseph Stierle-",
+        "Stierle-Holzmeister, Johann Joseph",
+        "Muzius, der Pfeifensclave",
+        "Holzmeister, Joseph Johann Baptist Stierle-",
+        "Muzius der Pfeifensclave",
+        "Stierle-Holzmeister, Josef",
+        "Holzmeister, Josef Stierle-",
+        "Holzmeister, Joseph Stierle-",
+        "Stierle-Holzmeister, J.",
+        "Stierle, Josef",
+        "Stierle, Joseph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Stierle-Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Stierle-Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Stierle"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joseph"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joseph"
+          ],
+          "surname": [
+            "Stierle-Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Johann Baptist Stierle-"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Johann Baptist"
+          ],
+          "surname": [
+            "Stierle-Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Stierle-"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Stierle-"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Stierle"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Pfeifensclave"
+          ],
+          "personalName": [
+            "Muzius"
+          ]
+        },
+        {
+          "personalName": [
+            "Muzius der Pfeifensclave"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joseph Stierle-"
+          ],
+          "surname": [
+            "Holzmeister"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:04:12Z",
+    "gnd_query_biographical_data": "1781-1848",
+    "gnd_query_name": "stierle-holzmeister, joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2775,
+  "name": "Stierle-Holzmeister, Joseph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1980",
+  "updated": "2026-06-11 13:29:25.215Z",
+  "uri": "https://d-nb.info/gnd/134100417",
+  "editor": ""
+}

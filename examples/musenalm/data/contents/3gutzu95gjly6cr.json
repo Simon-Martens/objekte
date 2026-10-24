@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "O daß nicht ungekannt, / Nicht unberühmt im Grabe schliefe",
+  "language": [],
+  "musenalm_id": 4190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stoßseufzer eines Publicisten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-au-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stoßseufzer eines Publicisten",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.987Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "77wtedzyvsx8ir4"
+    }
+  ]
+}

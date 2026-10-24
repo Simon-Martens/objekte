@@ -1,0 +1,45 @@
+{
+  "annotation": "Scenen aus dem Volksleben (Sammlung INr 43880, Obj 26) Dem Text vorangestellt: Von Menschen sind die Wälle rings erfüllt, / Von friedlichen, die in die Lüfte grüßen. / Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Die große Wiese vor dem Mainthor bot einen prachtvollen Anblick dar. Die Zuschauer jenseits des Mains hatten sich in Gruppen niedergesetzt,",
+  "language": [],
+  "musenalm_id": 43886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Das Mittagsmahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Das Mittagsmahl",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.221Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "1c26qsm5950muog"
+    }
+  ]
+}

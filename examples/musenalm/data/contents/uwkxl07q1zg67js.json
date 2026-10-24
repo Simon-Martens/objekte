@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;An Adelaiden. Sonnettenkranz (Sammlung INr 140500)&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-09-08 09:24:24.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Des Riesenberges Scheitel glänzt im Schneee, / Ein Felsen von phantastischer Gestalt,",
+  "language": [],
+  "musenalm_id": 140503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Am See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Freiherr v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Am See",
+  "updated": "2026-09-08 09:31:44.849Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08 09:25:39.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08 09:31:44.850Z",
+      "agent": "ox2w0lw2pa3no6e",
+      "source_id": "963a1idz879jdg5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Glossen (Sammlung INr 14869, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Mischet zum Ernste den Scherz, zur Andacht die Lust und / die Liebe, / Glauben zur Wahrheit, und Licht zart zu der kühlerern Nacht.",
+  "language": [],
+  "musenalm_id": 14872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mischet zum Ernste den Scherz, zur Andacht die Lust und / die Liebe, / Glauben zur Wahrheit, und Licht zart zu der kühlerern Nacht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.459Z",
+      "agent": "gvrm573djft0g9v",
+      "source_id": "4q3renrbuprkku5"
+    }
+  ]
+}

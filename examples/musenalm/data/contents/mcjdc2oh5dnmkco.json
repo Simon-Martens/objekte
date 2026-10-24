@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Amor ist ein Vogel, er nistet in Herzen der / Knaben / Und der Mädchen,",
+  "language": [],
+  "musenalm_id": 5900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.105Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "x7uvbbuufksgmf7"
+    }
+  ]
+}

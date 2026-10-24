@@ -1,0 +1,84 @@
+{
+  "annotation": "ohne Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, I-Verz, SS 1–284",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1818",
+    "norm": "~",
+    "biblio": 200266,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1246,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishauser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "Franz August von Kurländer",
+  "subtitle_statement": "",
+  "title_statement": "Almanach dramatischer Spiel / für / Gesellschafts-Theater. / Von / Franz August von Kurländer. / Achter Jahrgang. / Wien 1818. / Im Verlag bey J. B. Wallishausser",
+  "updated": "2026-06-11 10:18:55.139Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "y0mjkvwtvysqr77"
+  ],
+  "contents": [
+    "pix8kmi9wa4oxvi",
+    "4y73e3zgsy1m5pl",
+    "mf10frvzgtgyvzo",
+    "aj2e65yesmzszjv",
+    "3hb3lzv19bf4ezo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.861Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.861Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "1syal9um5weos6v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.181Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.181Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "smnl7b2xvxjz5nv"
+    }
+  ]
+}

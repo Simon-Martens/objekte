@@ -1,0 +1,109 @@
+{
+  "annotation": "8 Jgg 1837-1844; Wien (Haas)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I-Verz, 7 BB G-Verz darin 6 GG, SS 1-340",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Immergrün 1837",
+    "norm": "~",
+    "biblio": 200164,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1926,
+  "parallel_title": "",
+  "place_statement": "Wien (Haas)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Immergrün 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 100",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IMMERGRÜN / TASCHENBUCH FÜR DAS JAHR / 1837 / Mit Beiträgen / von A. v. Tromlitz, Friedr. Laun, / Ad. Ritter v. Tschabuschnigg, J. N. Vogl, / F. Dingelstedt, M. G. Saphir. / WIEN / Verlag der Haas'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.710Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "j1122e7i0koe6ii"
+  ],
+  "contents": [
+    "pkh00jbw3pvsrzu",
+    "jatm8y59cnrfxja",
+    "es3ifgx7hcn8jpj",
+    "ep1p87l0cncmxio",
+    "7w6229xwrq75ai0",
+    "rsmpp1ljhbkmx54",
+    "bbp5kjli70mphk3",
+    "cfgp8z3pa9uyv8s",
+    "xn47943d1ebxae8",
+    "2ym6vwpghwyomd3",
+    "ufcw8dchhioun3e",
+    "cdyiaphp8qbywca",
+    "6gz1vivens1e3k7",
+    "91ru6q0zcdmiql4",
+    "435sfky9nxhk4xa",
+    "znd4b9azwh7kokr",
+    "s5onf4yejrcai20",
+    "qvc2e7qazvtfj9i",
+    "trs9pl3ujs4zxrx",
+    "ezamof02azjlviw",
+    "ctrdqp0ifqxy5rx",
+    "sgxrtkws8vosyjq",
+    "vvkt5hm9z9ud7i6",
+    "6dhj99bdcmnotau",
+    "0ow8r80xxberyug",
+    "m3rk4irsowt15j1",
+    "a4xskbx91ihoxfe",
+    "v749vwdcy6gyslb",
+    "lvedtgoexm2es7x",
+    "ujmr5x3sdoq0t82",
+    "gtnl8vl48gqgk7g",
+    "o2uv16zbg4w7ib8",
+    "4ls0ym3vh3yq33m",
+    "rn2czk4o4q8oeq7",
+    "dpefuqewx3y4w6z",
+    "1hfyh9uuvdgygxe",
+    "9j15erm8medt3xu",
+    "g0bs4qkb5bsihyr",
+    "xnliuscfmyzhz33",
+    "k5gbh3s08mfwa5r",
+    "6o93mbtz94wvorx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.947Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.947Z",
+      "agent": "08507nfa5xa0xby",
+      "source_id": "l3us7s9tnh11d83"
+    }
+  ]
+}

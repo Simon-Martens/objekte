@@ -1,0 +1,119 @@
+{
+  "annotation": "varianter Umschlag eines zweiten Exemplars ist als Vollbild beigegeben s. Photo 123895",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, Kr, 12 BB Kal darin 12 GG, 36 BB, 141 SS Tabb, 1 S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer-Militärischer 1785",
+    "norm": "~++409527 (Karte)",
+    "biblio": 410144,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3957,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer-Militärischer 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33, L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Militairischer / CALENDER / auf das Jahr / 1785 / mit Kupfern gezieret und mit / Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin heraus- / gegeben",
+  "updated": "2026-06-11 10:18:55.774Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "p038f650kh2ql0a",
+    "ulnjf8xvr3be4ar"
+  ],
+  "contents": [
+    "gq9kz1n95w04lr6",
+    "m4whzcg9aq8nz1z",
+    "ehoc040gjzkjxk9",
+    "id4ncqgt4kg3322",
+    "w4nbfyytvfn6faa",
+    "ztm71zpwwjkk12l",
+    "ba7duhyls8eiwsg",
+    "56sewzncz9rj376",
+    "qcan3u016rklj7q",
+    "no703d1w66ngb6a",
+    "x4jpe92wnj5rntt",
+    "jf2cvfv81f34yw6",
+    "6t2w6n560kd8eq8",
+    "e1uql8ltgquscu8",
+    "dz09t92ll57zxoi",
+    "gmqgwtkwp9i6ydz",
+    "6rjzzza3salgi69",
+    "ryerlx0brcw9gti",
+    "3x4hsxxtqvzuiar",
+    "hxqbvmhzo2p06np",
+    "u6h20j9rxwckz0i",
+    "l6b73ud5gz6j6i1",
+    "yizjaks0rbs3heu",
+    "sv70z6y5gz20diu",
+    "cyd9sbsogjq9u4f",
+    "2txrcrtavstdlqb",
+    "okec1k6e4plqtzj",
+    "tz4xs373mwzlla4",
+    "8ti628by6oxgwki",
+    "xe1b458wrshmyor",
+    "yqzrdq0ptce03q2",
+    "h1p83ucxet45kth",
+    "gh0et6kmxtpxhio",
+    "2chyfi1zvtvng0g",
+    "y6dqjh5ggd7wcbn",
+    "8dg5wmbjmnnejer",
+    "an04otan80z1oen",
+    "rph8n7nkifmy7jo",
+    "f8uxb5avgd1szsx",
+    "yotd0v4lqcxcxkv",
+    "qk0fs0ngkue98wd",
+    "74p1e01iksahiza",
+    "tj4kz50vmvscsy2",
+    "ykacaazl3qivk0a",
+    "1149b50nxlegjko",
+    "a2vmyekhc6rl4yo",
+    "3euxkucax5kjges",
+    "5efxza2b1ov9toi",
+    "pwwoojae87s9h7x",
+    "7u4pd6c8wbjhjmt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "tkmyqrynvfe2nbu"
+    }
+  ]
+}

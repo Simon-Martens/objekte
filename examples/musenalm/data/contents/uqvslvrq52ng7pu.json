@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Stahlstichen gestochen von Ed. Schuler, Fleischmann und Roßmäsler (Sammlung INr 63765, Obj 5) s. Graphik Nr 63776, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Hoch sprudelte Champagnerwein / Und jubelnd kreis'te der Pokal;",
+  "language": [],
+  "musenalm_id": 63770,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Der Liebe Schwanenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Ed.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Der Liebe Schwanenlied",
+  "updated": "2009-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.051Z",
+      "agent": "2k8x09vp5cub27j",
+      "source_id": "pagip45ul3qhjrm"
+    }
+  ]
+}

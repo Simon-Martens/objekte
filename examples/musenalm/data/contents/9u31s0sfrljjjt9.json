@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März s. Textbezug INr 72221, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72203,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tempel der Minerva Sunias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. J. G. Martini sculp. Berlin 1831",
+  "scans": [
+    "alm_867_72203_229clmgk8h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tempel der Minerva Sunias",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.657Z",
+      "agent": "bix4netz2kpq0qd",
+      "source_id": "7sw886spyty6a19"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.657Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "t2w6rf3r7wncvdj"
+    }
+  ]
+}

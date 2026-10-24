@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert S. 139. /) lllustration zu »Clementia von Entragues oder die Belagerung von Aubigny. Nach D'Ußieux« INr 46793, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. W. Hoffmann del. D. Berger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Hoffmann del. D. Berger sc.",
+  "scans": [
+    "alm_631_46794_nzofpx53vi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.985Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "7vg7xo4hmxn5vdj"
+    }
+  ]
+}

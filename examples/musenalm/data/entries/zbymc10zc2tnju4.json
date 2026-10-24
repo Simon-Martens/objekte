@@ -1,0 +1,90 @@
+{
+  "annotation": "Fortsetzung: Kalender, Berliner 1827-1850",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 12 BB Kal darin 12 GG, ar: SS 1-310, S 311 G-Verz, S C, ar1: SS 1-112, ar2: SS 1-61",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1826",
+    "norm": "~",
+    "biblio": 200856,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 861,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1826. / mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.880Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "jmickfvfgtpupjq"
+  ],
+  "contents": [
+    "yaljpwlgvgxzy5c",
+    "t8s6bukm1qa8ehf",
+    "i9mib8tyic7n5oa",
+    "rr7m11wq42e7e6j",
+    "zoz991hpdiv29it",
+    "1yx09jqlndhc5o4",
+    "bk5otwdu5q361cl",
+    "5468bfw8mi99dnk",
+    "vf5j6623rhp69ql",
+    "xdza4cqlhc6bhpl",
+    "fpln96q52o4xscy",
+    "21945lgkixrgqq9",
+    "srskxgxxyu1k2ih",
+    "5at714t3gs1iz3k",
+    "q8hzs4lbw4js5pj",
+    "50hrdwr30s0itw5",
+    "34f5y4esbv21f7l",
+    "337sc2p00img27v",
+    "ie8qo2vvn89w86x",
+    "jgcv9o96t2dmdy2",
+    "fct5dyc7j05ir5x",
+    "pjlvynm1jxmonwh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "e0ezuse1vhp0olf"
+    }
+  ]
+}

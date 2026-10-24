@@ -1,0 +1,45 @@
+{
+  "annotation": "Stunden des Friedens (Sammlung INr 80981, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Nun hält mich der Liebe blühend' Bereich / Nach langer Fahrt voll Grauen;",
+  "language": [],
+  "musenalm_id": 80985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Das Eiland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Das Eiland",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.051Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "jwtjukfaannybes"
+    }
+  ]
+}

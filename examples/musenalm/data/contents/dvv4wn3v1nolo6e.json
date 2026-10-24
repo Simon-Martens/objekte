@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Unsere verehrtesten Leser erhalten hier den vierten Jahrgang des bisher so gütig aufgenommenen Taschenbuches für Geschichte und Unterhaltung,",
+  "language": [],
+  "musenalm_id": 95807,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.649Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "zchh18q18u1u019"
+    }
+  ]
+}

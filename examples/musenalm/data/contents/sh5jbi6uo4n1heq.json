@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Nach einem harten Waffenstreit, / Den König Löw' und König Tieger,",
+  "language": [],
+  "musenalm_id": 4266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wolf und der Tieger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wolf und der Tieger",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.075Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "xiev4xn3lgynh4u"
+    }
+  ]
+}

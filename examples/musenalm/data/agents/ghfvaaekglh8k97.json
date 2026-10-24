@@ -1,0 +1,295 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.514Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher lutherische Geistlicher, Landschafts- und Architektur-Zeichner, Radierer, Autor und Dichter."
+      ],
+      "dateOfBirth": [
+        "1783"
+      ],
+      "dateOfDeath": [
+        "1838"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:12:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117380296/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11738027X",
+          "label": "Wilder, Georg Christoph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117380296",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/11738027X",
+          "label": "Wilder, Georg Christoph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117380296",
+      "oldAuthorityNumber": [
+        "(DE-588a)117380296"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4001388-1",
+          "label": "Altdorf b. Nürnberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "preferredName": "Wilder, Johann Christoph Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christoph Jakob"
+        ],
+        "surname": [
+          "Wilder"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Otfried"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Nürnberg",
+        "Der Sammler für Kunst und Alterthum in Nürnberg",
+        "Huldigung Seiner Majestät dem König Ludwig von Bayern geweiht",
+        "Der schöne Brunnen in Nürnberg",
+        "Züge aus dem Leben des Herrn Christ. Gottl. Müller Amts- und Gegenschr*",
+        "Lieder und Bilder aus Albrecht Dürers Leben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35232741"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1321193"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117380296/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Jakob_Wilder"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066764661"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117380296"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117380296"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Wilder, ...",
+        "Wilder, Johann Christoph Jacob",
+        "Wilder, Johann C.",
+        "Wilder, Ch.",
+        "Wilderer, Johann Christoph Jakob",
+        "Wilder, Christoph",
+        "Otfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Christoph Jakob"
+          ],
+          "surname": [
+            "Wilderer"
+          ]
+        },
+        {
+          "forename": [
+            "Ch."
+          ],
+          "surname": [
+            "Wilder"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Wilder"
+          ]
+        },
+        {
+          "personalName": [
+            "Otfried"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Wilder"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph Jacob"
+          ],
+          "surname": [
+            "Wilder"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph"
+          ],
+          "surname": [
+            "Wilder"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Jakob_Wilder",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christoph_Jakob_Wilder"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:22:15Z",
+    "gnd_query_biographical_data": "1783-1838",
+    "gnd_query_name": "wilder, johann christoph jacob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3138,
+  "name": "Wilder, Johann Christoph Jacob",
+  "profession": "Text",
+  "pseudonyms": "Ot[t]fried",
+  "refs": "DBI 2213; H/B 204",
+  "updated": "2026-06-11 13:29:25.754Z",
+  "uri": "https://d-nb.info/gnd/117380296",
+  "editor": ""
+}

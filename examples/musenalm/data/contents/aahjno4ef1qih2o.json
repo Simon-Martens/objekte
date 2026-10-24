@@ -1,0 +1,45 @@
+{
+  "annotation": "Agnes. Bruchstücke einer ländlichen Todtenfeyer. 1812 (Sammlung INr 34053, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Du Rose, wenn du neidenswerth willst sterben / So laß frühmorgens pflücken dich vom Strauche,",
+  "language": [],
+  "musenalm_id": 34059,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.079Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "en8z1w5ffxkhhz2"
+    }
+  ]
+}

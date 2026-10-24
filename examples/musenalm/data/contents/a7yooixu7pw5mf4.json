@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Verschwunden sind sie, die Bilder, / Du reicher Garten, ade!",
+  "language": [],
+  "musenalm_id": 45615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Nach Norden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gisbert Freiherr Vincke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Nach Norden",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.161Z",
+      "agent": "9yqqagre869w9wq",
+      "source_id": "xatt15mo1m5rewq"
+    }
+  ]
+}

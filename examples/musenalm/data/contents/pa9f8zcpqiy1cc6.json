@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106567,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HELENA / TASCHENBUCH / für / 1838. / Zweiter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stich v. A. Kneisel",
+  "scans": [
+    "alm_1833_106567_w7duwy1m70.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HELENA / TASCHENBUCH / für / 1838. / Zweiter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.135Z",
+      "agent": "dodnuedv0qnyg7z",
+      "source_id": "zyj67kfcocwgi6o"
+    }
+  ]
+}

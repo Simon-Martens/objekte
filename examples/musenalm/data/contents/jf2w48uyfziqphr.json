@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Stolzes Britannien, du! du raubst von Osten / und Westen",
+  "language": [],
+  "musenalm_id": 929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "England und Deutschland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "England und Deutschland",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.974Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "lctx74jusizgyak"
+    }
+  ]
+}

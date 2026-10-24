@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Nein! vergessen will ich nimmer Bataviens / Freunde, / Und die Lieben, wo der Frühling lieblicher lä- / chelt,",
+  "language": [],
+  "musenalm_id": 31560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In's Stammbuch von Marie van / Herzeels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerining",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In's Stammbuch von Marie van / Herzeels",
+  "updated": "2003-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.411Z",
+      "agent": "ka1wm9mc4kl7y0b",
+      "source_id": "trxvy1gpenca46f"
+    }
+  ]
+}

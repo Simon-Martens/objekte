@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Viele werden es als eine Verbitterung des Kunstgenusses ansehn, im Museum in Berlin nach Durchwandlung der Räume, in denen die Gemälde nach Schulen geordnet sind, in die dritte Abtheilung zu treten, wo das abgeschiedene Alterthum in gespenstischen Larven",
+  "language": [],
+  "musenalm_id": 60765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber / mittelalterliche Kunstvorstellungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber / mittelalterliche Kunstvorstellungen",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.909Z",
+      "agent": "1js33mmqeo20b02",
+      "source_id": "hqhls249dlujwky"
+    }
+  ]
+}

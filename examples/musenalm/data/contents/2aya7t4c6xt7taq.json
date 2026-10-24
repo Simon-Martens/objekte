@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Graphik INr 79063, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Siehe, voll Hoffnung vertraust du der Erde den gold- / denen / Samen / Und erwartest im Lenz fröhlich die keimende Saat;",
+  "language": [],
+  "musenalm_id": 79062,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sämann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sämann",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.875Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "92ylh7yngn6u1la"
+    }
+  ]
+}

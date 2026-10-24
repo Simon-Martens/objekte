@@ -1,0 +1,45 @@
+{
+  "annotation": "Antikritiken und Berichtigungen (Sammlung INr 105606, Obj 50) Abhandlungen und vermischte Aufsätze (Sammlung INr 105583, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Anmerkung des Herausgebers. Da es mir ohnmöglich ist, zu entscheiden, ob die eingeschickten Nachrichten stes das Gepräge der Wahrheit tragen, so rücke ich jede Vertheidigung gern ein,",
+  "language": [],
+  "musenalm_id": 105607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkung des Herausgebers. Da es mir ohnmöglich ist, zu entscheiden, ob die eingeschickten Nachrichten stes das Gepräge der Wahrheit tragen, so rücke ich jede Vertheidigung gern ein,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.166Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "521nfjkwdv5ckt5"
+    }
+  ]
+}

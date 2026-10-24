@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Sieh, Wandrer, so entkeimt des dunkeln / Grabes Nacht / Einst Gottessamen Korn, versenkt im Erden- / thale!",
+  "language": [],
+  "musenalm_id": 189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BEY DEM GRAB EINER WÖCHNERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. SALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "BEY DEM GRAB EINER WÖCHNERIN",
+  "updated": "2001-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.897Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "w1z0sghaipexkib"
+    }
+  ]
+}

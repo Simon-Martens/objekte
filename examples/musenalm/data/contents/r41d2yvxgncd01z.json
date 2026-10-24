@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Schäferin. Nach dem Ital. des Poliziano« von J. D. Gries in: Taschenbuch zum geselligen Vergnügen 1799 INr 11208 /) Unter der Musikbeigabe: Beckers Taschenbuch 1799. Gries, nach dem Italiänischen des Poliziano /) Lieder zum musikalischen Taschenbuche 1803 der Brüder Werden componirt von Wilhelm Schneider (Sammlung INr 56317, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Frühe geht die Schäferin, / führt die Lämmchen auf die Weide;",
+  "language": [],
+  "musenalm_id": 56324,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schäferin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_23_56324_5g07rnj7ya.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schäferin",
+  "updated": "2008-03-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.833Z",
+      "agent": "5j4ifce1qy52izk",
+      "source_id": "24f0sknuz7tw60n"
+    }
+  ]
+}

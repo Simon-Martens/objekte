@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 121304-121307, Obj 19-22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüchlein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüchlein",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.659Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "00puy026p3pys0w"
+    }
+  ]
+}

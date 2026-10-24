@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Im Winterschlaf ist rings das Land befangen, / Die Ströme wallen langsam unterm Eise, / Dem starken Schild mit hellem Spiegelprangen, / D’rin schaut die Sonne sich – und lächelt leise",
+  "language": [],
+  "musenalm_id": 122834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thauwetter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thauwetter",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.775Z",
+      "agent": "wdljo1hy3zp7qgu",
+      "source_id": "oe80qqrgztkyqel"
+    }
+  ]
+}

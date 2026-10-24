@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung aus dem Textbezug. Illustration (paginiert d) zum Beitrag »Neue Aussichten für die Physignomik« INr 7596, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Wilhelm Tischbein, Riepenhausen)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Tischbein, Riepenhausen",
+  "scans": [
+    "alm_163_7598_anh4j2a4zc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.302Z",
+      "agent": "1r1bjnmct205k7o",
+      "source_id": "czhc34s0btncphh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.302Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "xbzryulyvtme9r4"
+    }
+  ]
+}

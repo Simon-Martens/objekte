@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Bringet Winzer, Winzerinnen, / Jungen Most und alten Wein,",
+  "language": [],
+  "musenalm_id": 78414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Untersteyrisches Leselied. / Gesungen zu Lutenberg in der Eisenthür am 29. October / 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Untersteyrisches Leselied. / Gesungen zu Lutenberg in der Eisenthür am 29. October / 1812",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.001Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "1o3ax9y117k8non"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Dichten will ich ein Lied der unver- / gänglichen Tugend, / Dichten will ich es heiß und kühn,",
+  "language": [],
+  "musenalm_id": 3036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an die Tugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Theob. Kosegarten",
+  "scans": [
+    "alm_82_3036_orfwt3vbf2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an die Tugend",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.970Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "471ewbf7wlgbhi6"
+    }
+  ]
+}

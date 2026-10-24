@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragmente aus meiner Schreibtafel. Auf einer Sommerreise 1796 gesammelt. (Sammlung INr 51199, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "So stand ich im Kern, im Herzen der schönen Schweiz, dieses occidentalischen Tempe's",
+  "language": [],
+  "musenalm_id": 51200,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Vierwaldstätter See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Vierwaldstätter See",
+  "updated": "2007-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.591Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "nox3gvotk42i19r"
+    }
+  ]
+}

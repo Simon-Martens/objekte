@@ -1,0 +1,784 @@
+{
+  "annotation": "",
+  "biographical_data": "1818-1893",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.519Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1818-04-11"
+      ],
+      "dateOfDeath": [
+        "1893-08-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Emil Oprawil (–1875)"
+          ],
+          "creditText": [
+            "https://www.bildarchivaustria.at/Pages/ImageDetail.aspx?p_iBildID=8075001"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Constantin%20von%20Wurzbach%20%281818%E2%80%931893%29%20OeNB%208075001%20A.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Constantin%20von%20Wurzbach%20%281818%E2%80%931893%29%20OeNB%208075001%20A.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Constantin%20von%20Wurzbach%20%281818%E2%80%931893%29%20OeNB%208075001%20A.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/151360820",
+        "https://d-nb.info/gnd/157577503"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T17:41:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-386",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-386"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119532522/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Theodora"
+          ],
+          "surname": [
+            "Fiedler-von Wurzbach"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117359084",
+          "label": "Wurzbach, Alfred von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116499982",
+          "label": "Fiedler-Wurzbach, Theodore von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SI",
+          "label": "Slowenien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "119532522",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116499982",
+          "label": "Fiedler-Wurzbach, Theodore von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117359084",
+          "label": "Wurzbach, Alfred von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119532522",
+      "oldAuthorityNumber": [
+        "(DE-588a)119532522",
+        "(DE-588a)157577503",
+        "(DE-588a)151360820",
+        "(DE-588c)4483158-4",
+        "(DE-588)151360820",
+        "(DE-588)157577503"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/510428-2",
+          "label": "Laibach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005574-7",
+          "label": "Berchtesgaden"
+        }
+      ],
+      "preferredName": "Wurzbach, Constantin von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Constantin"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Wurzbach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4247850-9",
+          "label": "Lexikograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4349925-9",
+          "label": "Bibliograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4277852-9",
+          "label": "Biograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Rachiruscello"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Ronsceau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Racine"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Rottinbrough"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Constant"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Seebach"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Biographisches Lexicon des Kaiserthums Oesterreich, enth. die*",
+        "Historische Wörter, Sprichwörter und Redensarten in Erläuteru*",
+        "Die Sprichwörter der Polen",
+        "Joseph Freiherr von Hammer-Purgstall",
+        "Cyclamen",
+        "Parallelen",
+        "Glimpf und Schimpf in Spruch und Wort",
+        "Das Schillerbuch",
+        "Bibliographisch-statistische Uebersicht der Literatur des öst*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86871520"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/wurzbach-tannenberg-constantin-ritter-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/46994763"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q25856"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=119532522"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119532522/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/151360820"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157577503"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Constantin_von_Wurzbach"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Constantin_von_Wurzbach"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Constantin_von_Wurzbach"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Constant_von_Wurzbach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108964945"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119532522"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119532522"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_W/Wurzbach-Tannenberg_Constant_1818_1893.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119532522.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119532522"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Racine",
+        "Wurzbach von Tannenberg, Constantin von",
+        "Tannenberg, Constantin von Wurzbach-",
+        "Wurzbach, Konstantin von",
+        "Tannenberg, Konstantin W.-",
+        "Ronsceau",
+        "Constant, W.",
+        "Rottinbrough",
+        "Wurzbach Tannenberg, Constantin von",
+        "Wurzbach-Tannenberg, Constantin von",
+        "Wurzbach, Constant v.",
+        "Seebach, Friedrich",
+        "Wurzbach, Constantin",
+        "Wurzbach von Tannenberg, Konstantin",
+        "Tannenberg, Konstantin von, Ritter",
+        "Wurzbach von Tanneberg, Constantin",
+        "Wurzbach von Tannenberg, Constantin",
+        "Wurzbach, Constant von",
+        "Tannenberg, Constant W. von",
+        "Tanneberg, Constantin W. von",
+        "Wurzbach von Tannenberg, Constant",
+        "Tannenberg, Constantin Wurzbach von",
+        "Wurzbach, W. C. von",
+        "Wurzbach-Tannenberg, Konstantin",
+        "Tanneberg, Constantin Wurzbach von",
+        "Wurzbach-Tannenberg, Constant von",
+        "Rachiruscello",
+        "Tannenberg, Constantin W. von",
+        "Wurzbach a Tannenberg, Constant",
+        "Tannenberg, Constant Wurzbach von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Seebach"
+          ]
+        },
+        {
+          "personalName": [
+            "Racine"
+          ]
+        },
+        {
+          "personalName": [
+            "Ronsceau"
+          ]
+        },
+        {
+          "forename": [
+            "Konstantin W.-"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Konstantin"
+          ],
+          "surname": [
+            "Wurzbach von Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Konstantin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach"
+          ]
+        },
+        {
+          "forename": [
+            "W. C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin Wurzbach"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tanneberg"
+          ]
+        },
+        {
+          "forename": [
+            "Konstantin"
+          ],
+          "surname": [
+            "Wurzbach-Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Wurzbach"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach-Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach von Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant Wurzbach"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "surname": [
+            "Wurzbach"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Constant"
+          ]
+        },
+        {
+          "personalName": [
+            "Rottinbrough"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "surname": [
+            "Wurzbach von Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant"
+          ],
+          "surname": [
+            "Wurzbach a Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Konstantin"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin"
+          ],
+          "surname": [
+            "Wurzbach von Tanneberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tanneberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin Wurzbach"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constantin von Wurzbach-"
+          ],
+          "surname": [
+            "Tannenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Rachiruscello"
+          ]
+        },
+        {
+          "forename": [
+            "Constant"
+          ],
+          "surname": [
+            "Wurzbach von Tannenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Constant"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurzbach-Tannenberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Constantin_von_Wurzbach",
+          "label": "https://de.wikipedia.org/wiki/Constantin_von_Wurzbach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:25:36Z",
+    "gnd_query_biographical_data": "1818-1893",
+    "gnd_query_name": "wurzbach (-tannenberg), constant von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3207,
+  "name": "Wurzbach (-Tannenberg), Constant von",
+  "profession": "Text",
+  "pseudonyms": "W. Constant; W. Konstant; Seebach; Der Dichter der Parallelen",
+  "refs": "ADB LV, 135; E 392",
+  "updated": "2026-06-11 13:29:25.875Z",
+  "uri": "https://d-nb.info/gnd/119532522",
+  "editor": ""
+}

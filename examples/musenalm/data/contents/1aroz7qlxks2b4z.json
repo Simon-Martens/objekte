@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus den Burgunderkriegen (Sammlung INr 100381, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Der Herzog Sigmund von Oesterreich / Ist traurig nach Frankreich geritten,",
+  "language": [],
+  "musenalm_id": 100382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Ludwig der Elfte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Balthasar Reber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "König Ludwig der Elfte",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.835Z",
+      "agent": "dzhprhqu0sih6o6",
+      "source_id": "ofp7xo7fr3tw8yb"
+    }
+  ]
+}

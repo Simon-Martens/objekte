@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK, OBV: 1820-1831",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bikure Haitim (Erste Früchte der Zeiten) 1822",
+    "norm": "",
+    "biblio": 410929,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-02-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4775,
+  "parallel_title": "",
+  "place_statement": "Wien (Anton Schmid)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Bikure Haitim (Erste Früchte der Zeiten) 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Bikure haitim (erste Früchte der Zeiten.) / WIEN, bey ANTON SCHMID k.k. Buchdrucker 1822",
+  "updated": "2026-06-11 10:18:55.539Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "38z1shr5x00pxdy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.473Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.473Z",
+      "agent": "c5imli5v8ttewrl",
+      "source_id": "86ecexg4yf8yixu"
+    }
+  ]
+}

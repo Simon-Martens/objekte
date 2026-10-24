@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 48873, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Die Venetianische Malerschule, bei ihrem Entstehen zwischen den Lagunen, isolirt vom Unterricht der Antike und vom Geisteshauche des Griechischen und Römischen Geschmacks.",
+  "language": [],
+  "musenalm_id": 48872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 6. / Die Ermordung / des / H. Peter von Meyland. / Das Meisterbild von Titian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W..... in Köln $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 6. / Die Ermordung / des / H. Peter von Meyland. / Das Meisterbild von Titian",
+  "updated": "2007-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.647Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "bbarccccdyx1std"
+    }
+  ]
+}

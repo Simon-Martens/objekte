@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Ein Traum, Geliebte! - Unter den Fittigen / Des sanften Schlummers ruht' ich wie in dem Nest / Das Vöglein",
+  "language": [],
+  "musenalm_id": 112103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Theodora",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Theodora",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.233Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "y7b8ifvim7efxfg"
+    }
+  ]
+}

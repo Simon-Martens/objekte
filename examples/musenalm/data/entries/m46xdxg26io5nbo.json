@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1827",
+    "norm": "",
+    "biblio": 409388,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4399,
+  "parallel_title": "",
+  "place_statement": "Paris (Treuttel u. Würtz), Tübingen (Cotta)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; nicht bei L/R; G-C 359, 1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / des Dames, / pour l'An 1827. / A PARIS, Chez Treuttel & Würtz, Libraires, / Rue de Bourbon, No 17 / A TUBINGUE, Chez J. G. Cotta, Libraire",
+  "updated": "2026-06-11 10:18:55.123Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "05vsjw3ch6td9ci"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.166Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.166Z",
+      "agent": "16leuy5yi4jkh5m",
+      "source_id": "wznb2u6u08dg0tx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.667Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.667Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "zq4z2g8uy90oaca"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Eine Schale des Harms, eine der Freuden / wog / Gott dem Menschengeschlecht;",
+  "language": [],
+  "musenalm_id": 2185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.992Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "6k75v3tg3y82dsy"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 34236, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34235,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moses aus dem Wasser gerettet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Poussin Pinxt. Lambert sculp",
+  "scans": [
+    "alm_475_34235_elr0m8spzv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Moses aus dem Wasser gerettet",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.819Z",
+      "agent": "o7lqwdeddlwmr62",
+      "source_id": "hblqc51bfw1e8uf"
+    }
+  ]
+}

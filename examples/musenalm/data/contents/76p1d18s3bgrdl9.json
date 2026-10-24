@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrisches (Sammlung INr 86138, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Einst saßen wir zusammen / Im dumpfen Schulenhaus,",
+  "language": [],
+  "musenalm_id": 86144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einem Schauspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Ritter von Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einem Schauspieler",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.098Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "30u0ehhkfg57m59"
+    }
+  ]
+}

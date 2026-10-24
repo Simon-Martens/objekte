@@ -1,0 +1,79 @@
+{
+  "annotation": "KVK-HeBiS: Stuttgart, Tübingen: Cotta: 1830-1834/35, 1837-1839; Hrsgg.: 1830-1835:  Wolfgang Menzel, 1836-1839: Friedrich Thiersch; bei L/R nur Jg 1830 /) s. Bernhard Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832; Taschenbuch der neuesten Geschichte 1830, 1831, 1832:  Nr. 2045, 2152, 2238, 2239; s. Anm. Jg .1832; der Jg 1839 erschien als 7. Jg.: Zählung der Jahrgänge nicht identisch mit Erscheinungsweise",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der neuesten Geschichte (Cotta) 1830",
+    "norm": "",
+    "biblio": 404291,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2682,
+  "parallel_title": "",
+  "place_statement": "Stuttgart u. Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch der neuesten Geschichte (Cotta) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 22",
+  "responsibility_statement": "Wolfgang Menzel",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / neuesten Geschichte. / Herausgegeben / von / Dr. Wolfgang Menzel. / Erster Jahrgang. / Geschichte des Jahres 1829. / Mit 24 Portraits. / Stuttgart und Tübingen, / in der J. G. Cotta'schen Buchhandlung. / 1830",
+  "updated": "2026-06-11 10:18:55.841Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "55otcn9ybb5sx98"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.682Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.682Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "vlg7d6lmr0yn0j0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.119Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.119Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "z48vvsn7a6n9lk7"
+    }
+  ]
+}

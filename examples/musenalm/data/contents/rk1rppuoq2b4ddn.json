@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Unsere Zeit (Sammlung INr 55186, Obj 196) Epigramme (Sammlung INr 55162, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "Die Haare wild zerzaust, / Preßbengel in der Faust,",
+  "language": [],
+  "musenalm_id": 55198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tageshelden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tageshelden",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.793Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "439a67fs5gbi4eg"
+    }
+  ]
+}

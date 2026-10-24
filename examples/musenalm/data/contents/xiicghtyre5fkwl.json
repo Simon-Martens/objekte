@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Drei Scenen der Schweizergeschichte (Sammlung INr 54843, Obj 9) Kupfer der Alpenrosen von 1833 (Sammlung INr 54841, Obj 6) s. Graphik INr 54853, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Sie wollen treu sein Rütlis theurem Eide, / Er ist geschworen und die Zeugen waren, / Der Sterne und der Engel heil'ge Schaaren;",
+  "language": [],
+  "musenalm_id": 54852,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eidgenossen / vor der Schlacht bei Mogarten / um den / Rudolf Reding von Bibereck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eidgenossen / vor der Schlacht bei Mogarten / um den / Rudolf Reding von Bibereck",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.790Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "2fv23fov30ri3mq"
+    }
+  ]
+}

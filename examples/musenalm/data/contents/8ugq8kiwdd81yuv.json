@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 57825-57827, Obj 23-25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Legenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bülow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Legenden",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.857Z",
+      "agent": "s80i7s99e9gsncg",
+      "source_id": "i5s0deci6642c42"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Festtagskranz (Sammlung INr 29830, Obj 86) XII. Gedichte (Sammlung INr 29828, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Heil! Dank und Preis! heut ist der Herr geboren / Dies Licht erleuchtet alle gläub'gen Seelen.",
+  "language": [],
+  "musenalm_id": 29841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Christfest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie Schoppe, geb. Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Christfest",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.381Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "1zeamxm8kfl2tfl"
+    }
+  ]
+}

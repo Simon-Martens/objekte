@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Was flatterst du so müßig hier im Rosenbusch? / Komm, komm, fliege mit mir ins Thal;",
+  "language": [],
+  "musenalm_id": 8116,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zephyrs, / eine neue Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geßner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zephyrs, / eine neue Idylle",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.407Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "8nbua48ya19ng2k"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "In Stunden öder Mitternacht / Hast du mir Stern schon oft gelacht,",
+  "language": [],
+  "musenalm_id": 1490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abendstern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Plessen, geb. Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abendstern",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.849Z",
+      "agent": "8rvl5809t0jasvv",
+      "source_id": "pptn54hhjairdsm"
+    }
+  ]
+}

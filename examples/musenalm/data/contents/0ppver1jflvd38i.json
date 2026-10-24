@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilagen (Sammlung INr 22061, Obj 13) 2. Italien (Sammlung INr 22073, Obj 32) # Bez. aus Cottas Vorrede",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Wer hätte, nach den hier beschriebenen Feldzügen, welche durch die Kühnheit und Neuheit der Unternehmungen,",
+  "language": [],
+  "musenalm_id": 22077,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonaparte's Feldzug von 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Posselt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bonaparte's Feldzug von 1800",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.868Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "bk2laqvbob6anlq"
+    }
+  ]
+}

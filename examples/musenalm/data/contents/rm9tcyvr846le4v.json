@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Wiederholen zwar kann der Verstand, was da schon gewesen. Was die Natur gebaut, bauet er wählend nach. [...] Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Matthäus Loder wurde am 30. May 1780 in Wien geboren, wo sein Vater bürgerlicher Tapezierer war.",
+  "language": [],
+  "musenalm_id": 92046,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Mattheus Loder, / Historien- und Landschaften-Zeichner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Mattheus Loder, / Historien- und Landschaften-Zeichner",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.477Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "amyvtr9tq12ymdb"
+    }
+  ]
+}

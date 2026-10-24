@@ -1,0 +1,352 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.346Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2028432-9",
+          "label": "Bremen. Senat"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Jurist, Schriftsteller, Senator"
+      ],
+      "dateOfBirth": [
+        "1765-09-26"
+      ],
+      "dateOfDeath": [
+        "1832-01-30"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1067074430"
+      ],
+      "describedBy": {
+        "dateModified": "2025-12-02T14:27:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104126310/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1067074686",
+          "label": "Gondela, Christine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115508813",
+          "label": "Gondela, Christian Adam"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104126310",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.1p",
+          "label": "Personen (Politologen, Staatstheoretiker)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/115508813",
+          "label": "Gondela, Christian Adam"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1067074686",
+          "label": "Gondela, Christine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104126310",
+      "oldAuthorityNumber": [
+        "(DE-588c)4611311-3",
+        "(DE-588)1067074430",
+        "(DE-588a)104126310"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        }
+      ],
+      "preferredName": "Gondela, Simon Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Simon Heinrich"
+        ],
+        "surname": [
+          "Gondela"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4180978-6",
+          "label": "Senator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Simon Heinrich"
+          ],
+          "surname": [
+            "Alednog"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2015066877"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27495643"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q23815636"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104126310/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1067074430"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Simon_Henrich_Gondela"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000007190354"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104126310"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104126310"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gondela, Simon Henrich",
+        "Gondela, Simon Heinrich (Jurist)",
+        "Alednog, Simon Heinrich",
+        "Gondela, Heinrich",
+        "Gondella, Simon Henricus",
+        "Alednog",
+        "Gondela, S. H.",
+        "Gondela, Simon H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Alednog"
+          ]
+        },
+        {
+          "forename": [
+            "Simon Heinrich (Jurist)"
+          ],
+          "surname": [
+            "Gondela"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Gondela"
+          ]
+        },
+        {
+          "forename": [
+            "Simon H."
+          ],
+          "surname": [
+            "Gondela"
+          ]
+        },
+        {
+          "forename": [
+            "S. H."
+          ],
+          "surname": [
+            "Gondela"
+          ]
+        },
+        {
+          "forename": [
+            "Simon Henricus"
+          ],
+          "surname": [
+            "Gondella"
+          ]
+        },
+        {
+          "forename": [
+            "Simon Heinrich"
+          ],
+          "surname": [
+            "Alednog"
+          ]
+        },
+        {
+          "forename": [
+            "Simon Henrich"
+          ],
+          "surname": [
+            "Gondela"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Simon_Henrich_Gondela",
+          "label": "https://de.wikipedia.org/wiki/Simon_Henrich_Gondela"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:32:24Z",
+    "gnd_query_biographical_data": "1765-1832",
+    "gnd_query_name": "gondela, simon heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 924,
+  "name": "Gondela, Simon Heinrich",
+  "profession": "Text",
+  "pseudonyms": "Alednog",
+  "refs": "E 111",
+  "updated": "2026-06-11 13:29:22.571Z",
+  "uri": "https://d-nb.info/gnd/104126310",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April # Titel s. Textbezüge INr 78791, 78792; Obj 122, 123",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78680,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klytie, eine Ozeannymfe, vom Sonnengotte geliebt, verlassen, und endlich in einen Sonnenwender verwandelt #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Annibal Caracci pinxit E. Thelott sculpsit",
+  "scans": [
+    "alm_1019_78680_ilt6gfr4ee.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klytie, eine Ozeannymfe, vom Sonnengotte geliebt, verlassen, und endlich in einen Sonnenwender verwandelt #",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.794Z",
+      "agent": "bqfhzpplxu9hy7t",
+      "source_id": "5fbtjymghv9uene"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.794Z",
+      "agent": "f8vs62ntusa9nl2",
+      "source_id": "r6ctsw1d0x4v1y2"
+    }
+  ]
+}

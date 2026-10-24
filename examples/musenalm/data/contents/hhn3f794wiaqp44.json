@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung aus: Frauenzimmer-Almanach 1792, INr 47084",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Was soll man aber anfangen, hörte ich einige von ihnen im Geist am Schluß meiner letzten Rede fragen, wenn uns die Natur das Glück versagt, mit eigener Milch unsrer Kinder nähren zu können,",
+  "language": [],
+  "musenalm_id": 47145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Ehrenbergs Reden / über / die körperliche Erziehung. / Zehnte Rede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz Ehrenbergs Reden / über / die körperliche Erziehung. / Zehnte Rede",
+  "updated": "2006-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.505Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "637zask4235h53l"
+    }
+  ]
+}

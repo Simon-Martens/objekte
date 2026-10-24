@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 90476, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Im Schutt versunk'ner Tage / Wühlt die Erinnerung,",
+  "language": [],
+  "musenalm_id": 90479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Erinnerung",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.160Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "1cfqch5iub0rcfi"
+    }
+  ]
+}

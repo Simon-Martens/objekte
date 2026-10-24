@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Die Geschichte der Bartholomäusnacht oder die Bluthochzeit zu Paris (Beschluß) INr 91205, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91190,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coligni's Abschied von seiner Frau. / Adieux de Coligni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_4019_91190_zyo0hicdy5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coligni's Abschied von seiner Frau. / Adieux de Coligni",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.384Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "gvx7k1pkb8o4lzx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 3 Märchen INr 44015-44017, Obj 19-21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Wer hat in Rußland nicht von jenen sonderbaren Wesen, die im Wasser leben, im Wasser athmen und unter den rauschenden Fluthen wohnen, gehört?",
+  "language": [],
+  "musenalm_id": 44014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Russalki. / Sagen-Ciclus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Russalki. / Sagen-Ciclus",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.385Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "689gtff6n55kspz"
+    }
+  ]
+}

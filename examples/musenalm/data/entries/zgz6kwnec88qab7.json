@@ -1,0 +1,98 @@
+{
+  "annotation": "mit Illustrationen; §§ fehlende Musikbeilage von Carl Maria von Weber (zu INr 125557, Obj 12)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, SS I–X: T, Vrwrt, Vrwrt, I-Verz, SS 1–517 darin 4 GG, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Privatbühnen (Müllner) 1819",
+    "norm": "",
+    "biblio": 100756,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1339,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für Privatbühnen (Müllner) 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; L/R 125; Goed VIII. 130, 17",
+  "responsibility_statement": "Amandus Gottfried Adolph Müllner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Privatbühnen. / Drittes Bändchen / auf / das Jahr 1819. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+  "updated": "2026-06-11 10:18:54.929Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "4jgtuybtrkqz0q9"
+  ],
+  "contents": [
+    "xqrx3mc5dtjb3ce",
+    "4qw6tqnr8htjxt4",
+    "ycf8kso7qnyx0xs",
+    "zd9sf6eqpwwn8sn",
+    "tj1juw6gt513yxw",
+    "ajk2fhzzq7d9lr1",
+    "b2qm2j05sz5pcqd",
+    "sb3eb6sj1w1f2se",
+    "uh0wnvon40i2ryh",
+    "y3xheikkqvdxnzk",
+    "aq8sby3pu1q4ppp",
+    "3e8mahwbp95rpf1",
+    "ha548z3io0anqfn",
+    "rsxpy91pop8qxp7",
+    "35l6yk5wi6aeso5",
+    "tgwmaytsgj59q7p",
+    "1o6mcf50426p41v",
+    "tv5r088dm5076xb",
+    "ho6yfztnfjvb6sy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.914Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.914Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "0km8dbri9w3rlm4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.879Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.879Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "l6mvxz3crtlc8d7"
+    }
+  ]
+}

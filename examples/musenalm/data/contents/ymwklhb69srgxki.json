@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 59844, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59845,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHARLOTTE CORDAY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Bolt sc. 1794",
+  "scans": [
+    "alm_933_59845_vbiysu875s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHARLOTTE CORDAY",
+  "updated": "2008-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.957Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "3afuu3b3p8v7hxa"
+    }
+  ]
+}

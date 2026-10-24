@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103864, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HEIL. MAGDALENA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Füger pinx. S. v. Perger del. J. Axmann sculp.",
+  "scans": [
+    "alm_1928_103863_1w780qnsq4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HEIL. MAGDALENA",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.173Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "cmfcor7g83vmj8s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.173Z",
+      "agent": "1wu4h08v9ndrssx",
+      "source_id": "izpwv1jusoxdx20"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.173Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "t8gqn8l94e7nzdd"
+    }
+  ]
+}

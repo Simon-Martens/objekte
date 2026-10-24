@@ -1,0 +1,129 @@
+{
+  "annotation": "Das Vorwort des Herausgebers mit einer Auflistung der Themen der je 12 Graphiken aus den 13 Jgg 1811-1823  ist mit den Photos 29927,01-29927,03 dargestellt /) kol. Umschlaggraphiken eines 2. Exemplars als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, ar: SS 1-4 Vrwrt d Hrsg, B I-Verz, SS 5-20 darin 8 GG, ar1: SS 1-314 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Liebe und Freundschaft gewidmet 1824",
+    "norm": "~+++405517 (kol. Umschlaggraphiken)",
+    "biblio": 101104,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 387,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (F. Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch der Liebe und Freundschaft gewidmet 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; L/R 71; Goed VIII. 51, 16a",
+  "responsibility_statement": "Dr. St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für das Jahr 1824. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. ST. SCHÜTZE. / Frankfurt am Main, / bei Friedrich Wilmans",
+  "updated": "2026-06-11 10:18:55.847Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "dj917x0nyeg7dtq",
+    "e6qityhpaleqfan"
+  ],
+  "contents": [
+    "d2w6ipgqztffwu8",
+    "tm6fe6xfhugg101",
+    "o5ku2jd22edacgj",
+    "zmw4c5gag0q01av",
+    "tn41nm6hrt3l70y",
+    "51mx3wsie5z4dpr",
+    "k4zc1bpldgpyj3o",
+    "vno6zv1dcwbvvbv",
+    "esp2skazmdoubbl",
+    "v8fm4pyyk2gjlwq",
+    "q40aeho8u5m7hbh",
+    "m5nqj6b14mfcs3r",
+    "v0q18dxgpgal6r4",
+    "sfxo4pnkrm8zs45",
+    "9a3qe8ydy8251ej",
+    "ly958e01ht0r8hl",
+    "34g607jqb5p29ad",
+    "ql6x0p3tb4dgw7h",
+    "80n9kehdljl0u89",
+    "4iwp22yqjp3pv20",
+    "r2qucmml19o34cm",
+    "chu4tiwsbiuma51",
+    "dscqyk3kkxmku2i",
+    "l5qtevosw35bv9o",
+    "hke1aqiylqgarqc",
+    "3s7gm0pxchqt9w5",
+    "b9jic5r45yuetie",
+    "pmnloo7d18mlsi4",
+    "rfguqb5dpwokg4a",
+    "vkc2rz01vmqhqpm",
+    "w2knwmimlsr8qpu",
+    "kvx640ral2ni2lf",
+    "6a08sfqa0y6ae8x",
+    "tcgxqt6y188twzp",
+    "g24qmtbc824caxt",
+    "cqem4ix6bvuwhx6",
+    "cutwq9n7vdexaop",
+    "otboystyqmvdvaw",
+    "9beqskt694v2dno",
+    "ly55y4rel2q78vq",
+    "boxoj84wixr40a1",
+    "dbqykrd1lxjxwjq",
+    "3fboheuxjdhpm1j",
+    "4xzdofblu1bbdai",
+    "4zqiy9fk1oey7xk",
+    "jl6kg4quo2xjwm0",
+    "ugar9pyy2cs5z2n",
+    "3ahogsp2mdymw44",
+    "p6vrdkcb1y7c53y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.833Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.833Z",
+      "agent": "0qaz8c0e7e434j0",
+      "source_id": "5vz0oybywjakl9n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.637Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.637Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "u2fqsyyukba338x"
+    }
+  ]
+}

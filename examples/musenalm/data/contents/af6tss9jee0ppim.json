@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die drei Waisen« INr 102837, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Konradine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_3373_102839_chf0slu4we.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Konradine",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.927Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "3dhacpkw12v0iq2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.927Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "tuz49xxvzaj4zkd"
+    }
+  ]
+}

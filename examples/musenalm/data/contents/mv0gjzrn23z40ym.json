@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Rudolf von Erlachs Tod « von J.R. Wysz d.J. INr 54411, Obj 79",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolf von Erlach's Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heidlof del. J. P. Walther sc. 1827",
+  "scans": [
+    "alm_740_54412_bzdlrn86m3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rudolf von Erlach's Tod",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.689Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "p6m8w41uenbve3g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.689Z",
+      "agent": "f52qfr3kaiovdte",
+      "source_id": "tbjmvqppn9cv8ps"
+    }
+  ]
+}

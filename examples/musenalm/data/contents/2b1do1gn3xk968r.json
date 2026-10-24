@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Meiner ersten Jugend Geliebte, / Doris! Oder wie sonst in seinen süßen",
+  "language": [],
+  "musenalm_id": 2518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Doris",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bm.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Doris",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.993Z",
+      "agent": "quu68xfhyzxlogj",
+      "source_id": "79pvgy5orbtoi5f"
+    }
+  ]
+}

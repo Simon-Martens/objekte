@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 104740, Obj 30) Gedichte Sammlung (INr 104727, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Jeden Schlag von meinem Herzen / Dankt Dir feurig mein Gesang!",
+  "language": [],
+  "musenalm_id": 104750,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Madame Neuhaus, / nach der Vostellung von Gotters / Mariane. / Gotha, den 18. Novemb. 1778",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wagenseil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Madame Neuhaus, / nach der Vostellung von Gotters / Mariane. / Gotha, den 18. Novemb. 1778",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.158Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "5adffjg43okrl2c"
+    }
+  ]
+}

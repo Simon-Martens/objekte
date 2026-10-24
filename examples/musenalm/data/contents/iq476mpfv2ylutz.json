@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz; paginiert V",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "URANIA",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick",
+  "scans": [
+    "alm_218_13663_6s1qtkln5v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "URANIA",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.545Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "g60ykvxupt0uzti"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "vorh.: Jgg 1827, 1828",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Erinnerungs-Almanach für die Jugend 1827",
+    "norm": "",
+    "biblio": 200340,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1753,
+  "parallel_title": "",
+  "place_statement": "Linz (Eurich)",
+  "places": [
+    "t0i4f0s6jhqfqiz"
+  ],
+  "preferred_title": "Erinnerungs-Almanach für die Jugend 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Franz Xav. Arming",
+  "subtitle_statement": "",
+  "title_statement": "ERINNERUNGS-ALMANACH / für die / Jugend, / auf / das Jahr 1827, / Herausgegeben / von / Franz Xav. Arming. / Der dritte Theil des Ertrages ist für das, noch mit / gar keinem Fonde begabte Blinden-Institut / in Linz bestimmt. / Linz, / gedruckt bey Friedrich Eurich",
+  "updated": "2026-06-11 10:18:55.620Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "kmnelfypurao93y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.816Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.816Z",
+      "agent": "oxsv4v8p8indnwu",
+      "source_id": "tav0s9q6puouw8t"
+    }
+  ]
+}

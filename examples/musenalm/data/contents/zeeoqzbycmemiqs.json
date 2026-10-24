@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "O treuste Herzen, o der Jugend Freunde mir, / Ihr Persergreise, welch ein Drang bedrängt die Stadt?",
+  "language": [],
+  "musenalm_id": 62571,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Aeschylos Persern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aeschylos; [übers.] H. Voß der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Aeschylos Persern",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.844Z",
+      "agent": "kqtjs5z40p79gpq",
+      "source_id": "1uszgrczj47r7l7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.844Z",
+      "agent": "9q1rj1t9phz8fdv",
+      "source_id": "i1roxhb0qnos9zd"
+    }
+  ]
+}

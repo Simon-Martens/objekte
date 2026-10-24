@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten und 2 Sammlungen mit 6 Gedichten INr 54799-54808, Obj 112-121",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "384",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.878Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "lfo2jftn3kmimv6"
+    }
+  ]
+}

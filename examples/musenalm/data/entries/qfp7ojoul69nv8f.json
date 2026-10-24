@@ -1,0 +1,85 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S VrlgM, T, verso G, S I T, SS III-VII Vrwrt d Hrsg, 4 BB Kal, B I-Verz, SS 1-252, Kr, Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Universität Heidelberg 1813",
+    "norm": "~",
+    "biblio": 408942,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4188,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Almanach der Universität Heidelberg 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Julius Lampadius",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Universität Heidelberg / auf das Jahr 1813. / Für / Studirende, deren Eltern, und für / Gelehrte. / Herausgegeben / von / Julius Lampadius. / Mit dem Portrait des Senior Universitatis, Hrn. geh. Rath Mai, / und einem Plan der Stadt und deren Umgebung. / Heidelberg, / gedruckt und verlegt bey Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.108Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "h19vq4rjsanevg2"
+  ],
+  "contents": [
+    "u0rcyhl87kv5735",
+    "45wfhuh3d018kbv",
+    "oatynzw5c4zwcdx",
+    "rfg48kv7l6rnmzy",
+    "casozlr099v1jyd",
+    "ma3sqqyqeurx064",
+    "po1l2z7ie61z9qo",
+    "2n5zonly4dgbzv1",
+    "mslrjww199c60jx",
+    "1cwase968fwofxz",
+    "9szt8dq1tyq9v3u",
+    "mvbog5koq2snvcn",
+    "f3k2rf6l1vf88iu",
+    "06dgpv0hpc2rpj7",
+    "qfikatyntq23iv5",
+    "ypreb5sqkgog196",
+    "hiek000kjucta7r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.771Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.771Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "rqocmgyrxs48z2n"
+    }
+  ]
+}

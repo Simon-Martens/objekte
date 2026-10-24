@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Ach, wie lang' ich liebe, leid' und klage, / Florida, wie lang' ich hülflos zage,",
+  "language": [],
+  "musenalm_id": 13633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Florida. / Nach Georg Rudolph Weckherlin. 1618",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Florida. / Nach Georg Rudolph Weckherlin. 1618",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.497Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "81kl7tqbfer7ynj"
+    }
+  ]
+}

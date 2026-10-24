@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. G-Verz mit einer Illustration §3§ bez. Graphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Maria kam auf íhrer Flucht / Gen Mittag in ein wüstes Thal;",
+  "language": [],
+  "musenalm_id": 62558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria und das Milchmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria und das Milchmädchen",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.937Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "9fhl8rmoznieoxz"
+    }
+  ]
+}

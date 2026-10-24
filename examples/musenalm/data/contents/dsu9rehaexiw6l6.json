@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Wer nicht Gottes unbegreiflich Wesen / In der Schöpfung Pracht vermag zu lesen,",
+  "language": [],
+  "musenalm_id": 101468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gotteserkenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Passy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gotteserkenntniß",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.709Z",
+      "agent": "gzy7khu1txc8z5v",
+      "source_id": "kcdbi61tbvtze0s"
+    }
+  ]
+}

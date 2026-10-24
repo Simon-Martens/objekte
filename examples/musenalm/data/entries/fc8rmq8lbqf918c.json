@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1874",
+    "norm": "",
+    "biblio": 407190,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3779,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Verlag der literarisch-artistischen Anstalt von C. Dittmarsch)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1874",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter Kalender / und / Novellen-Almanach / für 1874. / Mit Beiträgen von / Elise Polko, Marie Giese, Fr. Menk-Dittmarsch, / Al. Mair. / Herausgegeben / von / F. Menk-Dittmarsch. / Wien und Leipzig. / Verlag der literarisch-artistischen Anstalt von C. Dittmarsch. / Druck von Wilh. Zöller, Barnabitengasse 7",
+  "updated": "2026-06-11 10:18:55.344Z",
+  "variant_title": "",
+  "year": 1874,
+  "editor": "",
+  "items": [
+    "aikkp68wa5nle9a"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "rzdsv5jkhhdkhl1",
+      "source_id": "3ay9op7ji333lsi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.295Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.295Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "9329qebznwmkfru"
+    }
+  ]
+}

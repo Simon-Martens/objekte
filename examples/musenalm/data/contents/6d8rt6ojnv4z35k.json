@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Im Dunkeln sieht der tief gelehrte Mann / Minervens Eule für Minerven an.",
+  "language": [],
+  "musenalm_id": 17469,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grübler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bk.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Grübler",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.810Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "3nc1mhfx8zdylln"
+    }
+  ]
+}

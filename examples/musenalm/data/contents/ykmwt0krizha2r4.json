@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79477,01; 79477,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Melodramatische Begleitungs-Musik aus dem ersten Aufzuge des Trauer- / spiels: Die Damascener von Dr. Kuhn, / in Musik gesetzt von G. A. Schneider",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Schneider",
+  "scans": [
+    "alm_436_79477_01_2f39dh7x8y.jpg",
+    "alm_436_79477_02_95n98fe4x2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Melodramatische Begleitungs-Musik aus dem ersten Aufzuge des Trauer- / spiels: Die Damascener von Dr. Kuhn, / in Musik gesetzt von G. A. Schneider",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.867Z",
+      "agent": "owhnb6y19jl4oqh",
+      "source_id": "g0qjq340jj3tceo"
+    }
+  ]
+}

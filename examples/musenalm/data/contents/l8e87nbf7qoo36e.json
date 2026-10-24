@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 55817, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55818,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindliche Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Peroux del. Kessler u. Fr. Haldenwang sculpt.",
+  "scans": [
+    "alm_753_55818_pzy3odknob.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kindliche Treue",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.959Z",
+      "agent": "47qewoncojtfn7g",
+      "source_id": "5ygdzg7d8k52es1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.959Z",
+      "agent": "37rjw48k1z9br4u",
+      "source_id": "7xvgrwzel078xt6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.959Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "efbzpn05nr6yvwr"
+    }
+  ]
+}

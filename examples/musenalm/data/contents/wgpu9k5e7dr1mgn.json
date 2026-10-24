@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Ankunft« von R. Frohberg INr 80481, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80459,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Victor und Malwina. / Zur Erzählung von Regina Frohberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1793_80459_515ksf5w3m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Victor und Malwina. / Zur Erzählung von Regina Frohberg",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.918Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "9izqw6kl6ufi8sn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.917Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "x0bry18sswm81xl"
+    }
+  ]
+}

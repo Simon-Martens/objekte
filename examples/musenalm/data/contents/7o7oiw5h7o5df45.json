@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 69524, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Spähend nach dem Eisengitter / Bei des Mondes hellem Schein, / Steht ein Minstrel mit der Zother / Vor dem Schlosse Dürrenstein;",
+  "language": [],
+  "musenalm_id": 69523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blondel's Lied. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blondel's Lied. / Romanze",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.043Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "lk8h4avq9mpmeex"
+    }
+  ]
+}

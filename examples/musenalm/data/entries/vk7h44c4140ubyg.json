@@ -1,0 +1,101 @@
+{
+  "annotation": "1827-1832/1833, 1834-1837; Leipzig (Leo); Hrsg.1827-1830: Th. Hell d.i. K. G. Th. Winkler: Die Widmungsgedichte 1827-1830 bezeichnet: Th. Hell; fortgesetzt durch: Rosen und Vergissmeinnicht 1838-1845, Leipzig (Leo)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S, G, S I-Verz, S W, G, SS 1-521 darin B 6 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1827",
+    "norm": "~",
+    "biblio": 100473,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2470,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1827",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / EIN / Taschenbuch / für 1827. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "xsqdxw830q5p9nz"
+  ],
+  "contents": [
+    "9bpvwxa8aaytyua",
+    "9sn9saof3sxrs1p",
+    "kkwravtg2xx1kao",
+    "piby7jtod3sa7zg",
+    "9xv737pry0ln651",
+    "oo3n3p0hyjidtby",
+    "saixh5s1qzsvd42",
+    "chvkcour3nj8qbt",
+    "y87xf8tgormex59",
+    "k9xnqz6k9zc6adh",
+    "ndxx2k56rgz32ka",
+    "q27v7ji7phkfa0y",
+    "qwe7gkxrceg3iuj",
+    "o5trg3plvxjdj8a",
+    "k8gs5j79eweiur2",
+    "zgyeikrear9g980",
+    "496f8pbtrgnid1w",
+    "06khe5q7hdukzsk",
+    "btw418gl3pdr714",
+    "fr0dozypmuumpfj",
+    "a5sh5ffndufx8vi",
+    "sjaqxedusks2ynu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "80mfh4dif82qx1u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.099Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.099Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ndsl7qp2o9qc5aj"
+    }
+  ]
+}

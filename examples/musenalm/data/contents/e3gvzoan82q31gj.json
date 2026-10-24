@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124026, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / neue Delila / Ein Anfangs lustiges, aber gegen das Ende / höchst trauriges Schäfer- und Ritter- / spiel in einem Act, / von Geyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / neue Delila / Ein Anfangs lustiges, aber gegen das Ende / höchst trauriges Schäfer- und Ritter- / spiel in einem Act, / von Geyer",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.858Z",
+      "agent": "k9ac0a5lkd5h6nx",
+      "source_id": "fai2excixno85l5"
+    }
+  ]
+}

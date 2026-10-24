@@ -1,0 +1,56 @@
+{
+  "annotation": "zus. Bezeichnung: gedr. v. Susemihl. /) s. Textbezug INr 30447, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30446,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Sonderland del. D. St. v. Leop. Beyer W.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. D. St. v. Leop. Beyer W.",
+  "scans": [
+    "alm_400_30446_bswp3cm08y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.517Z",
+      "agent": "qy6yej73pl7anzc",
+      "source_id": "beiha2fd968zvzr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.518Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "p5fgpt0l95nbvcf"
+    }
+  ]
+}

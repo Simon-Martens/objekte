@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "In dem Pallast des Friedländers zu Prag schmetterten im hohen Saale die Trompeten und die Paucken wirbelten",
+  "language": [],
+  "musenalm_id": 27870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Page / des / Herzogs von Friedland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Page / des / Herzogs von Friedland",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.269Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "lu1aibmz74t8s09"
+    }
+  ]
+}

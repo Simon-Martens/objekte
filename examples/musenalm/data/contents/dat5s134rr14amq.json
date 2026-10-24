@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Unter Blüthen des Mays spielt ich mit ihrer / Hand, / Koste liebelnd mit ihr,",
+  "language": [],
+  "musenalm_id": 16796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kuß",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.833Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "ajwjqx716478liv"
+    }
+  ]
+}

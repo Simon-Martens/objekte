@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Wir kommen gezogen / Auf spielenden Wogen / Balsamische Lüfte / Wie Blumengedüfte,",
+  "language": [],
+  "musenalm_id": 37539,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Der Frühling. / Eine Phantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Der Frühling. / Eine Phantasie",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.787Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "covg7lpm4j0oow2"
+    }
+  ]
+}

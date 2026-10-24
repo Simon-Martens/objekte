@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, T, I-Verz, SS1–543",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Schauspieler und Schauspielfreunde 1817",
+    "norm": "~",
+    "biblio": 106814,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2859,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Metzler)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenbuch für Schauspieler und Schauspielfreunde 1817",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 146; L/R 129; Goed VIII. 129, 15",
+  "responsibility_statement": "Lembert",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / SCHAUSPIELER und / SCHAUSPIELFREUNDE / auf / das Jahr 1817 / herausgegeben von / Lembert. / Zweiter Jahrgang. / STUTTGART / in der Metzler' schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.061Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "8tvskoqo50hmvhg"
+  ],
+  "contents": [
+    "yoqiaj5xvxt81z8",
+    "nu1r6n5b1bio6aw",
+    "47ldw9tqi9h76kl",
+    "9i3i1xh1tj9vb1v",
+    "8gpxdds86ukwe82",
+    "3sxflqwkipkaomj",
+    "okn3hj8p5zyndji",
+    "94w2tfiv8g45xoh",
+    "5s0kk2kvxh1elai",
+    "wvuk3wibelolbww",
+    "xp3hnl2vw8hkn90",
+    "iq8nz16rbvhl0ac",
+    "exqdpsqmvyv50ob",
+    "5tz8j6qbrb0704n",
+    "supueu7pxyz63i4",
+    "srdhxzr4mqq9ol9",
+    "0yh3vcvrz9udwlg",
+    "ag5py2iar5ew286",
+    "q53exssw7g9yvj1",
+    "06roi1py1r4pnhd",
+    "h4sf74rwkzqoat5",
+    "1iuq1rur4nlvw2w",
+    "3z60yztvctjpf7y",
+    "rlxyh9obs8ijtj8",
+    "dbikq7glljlzhos",
+    "5mrt3ndciupe76n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.106Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.106Z",
+      "agent": "g1uplwymvs9r0f8",
+      "source_id": "4l5kf3vnadrx6s4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.154Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.154Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "rkv8kbqqyqrqyo0"
+    }
+  ]
+}

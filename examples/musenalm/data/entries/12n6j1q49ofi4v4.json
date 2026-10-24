@@ -1,0 +1,128 @@
+{
+  "annotation": "Titelauflage des Jg. 1807 !! /) Photo des Titels, an der Titelvignette: Erster Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S I gT, SS III-VI Vrwrt d Hrsg, G, SS VII-XXIV G-Verz darin 5 GG, SS 1-467, 2 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Theater und Theaterfreunde 1807",
+    "norm": "~+++100837 (Titel)",
+    "biblio": 100837,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1340,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach fürs Theater (Iffland) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 117; Goed VIII. 128, 2",
+  "responsibility_statement": "August Wilhelm Iffland",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Theater und Theaterfreunde / auf das Jahr 1807 / von / August Wilhelm Iffland. / Mit 12 Kupfern / von / Bolt, Bollinger, Catel, Meno Haas, Henne und / Meier; und mit Musik vom Herrn Kapell- / meister Weber und Posch. / Berlin, 1807. / Bei Wilhelm Oehmigke dem Jüngern",
+  "updated": "2026-06-11 10:18:54.931Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "1kesoos6ybz73lz",
+    "nb4lecq84fq2wi0"
+  ],
+  "contents": [
+    "ctrtag0lrd9vweh",
+    "kow20xnulgebwer",
+    "5rfhx4f79mzi87k",
+    "nwosbpllfnzjujq",
+    "zqf2758xeecrbhw",
+    "8d4gtyso7eotmhp",
+    "myc132a2slbllql",
+    "zdv90ydnj0clee2",
+    "q4g6int9271vh6z",
+    "qrr946ve23vai98",
+    "p0sjfozn5lx3k4q",
+    "ag8sd9j65qvgqgu",
+    "zkmkc4htt7p8lo6",
+    "0yr4dg0zfd3130m",
+    "nm84b0wuuqj6m6w",
+    "ad6opb6r8qsmbun",
+    "e99v5zbedeh7qo8",
+    "dqwv08h6uw73wf5",
+    "epb5ff3e503p6so",
+    "1u916pkmguca4xy",
+    "70vzg877dq57gmj",
+    "ofqss155inyxv0e",
+    "8jlbu09405stfac",
+    "u1qjtxdqbns38ba",
+    "26py10267upqmcs",
+    "l5tsxipvg5vq7vg",
+    "3ecs9ee58zd1wda",
+    "0e4uffqa6adei4s",
+    "9nqq4e2slqmq37f",
+    "oagi0pah13cvzne",
+    "4z2htrzwp2fbn52",
+    "r2pehccthru3ndt",
+    "5jo0peqphqg674c",
+    "11vzau2i0asjjim",
+    "5r0wpigvm1f3qdx",
+    "vyqlf3f3gg2lmtj",
+    "u15ykw0c3nrs7kf",
+    "7b8iq59m194nx61",
+    "hx75gyvo2d5e80g",
+    "7z7rs2zxhahn7km",
+    "2xcx4229mmaj597",
+    "ani8mhhlytsaivy",
+    "s97huru7i9438hy",
+    "hko8wh57xef4x6r",
+    "olaut7izaglo0bh",
+    "zd6bxh4vqkd9b69",
+    "z42n3e34um4mthe",
+    "it5zpkqub3z2399"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "hvlkty7uuh36lk1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.880Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.880Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "l8mcyekm68bspkw"
+    }
+  ]
+}

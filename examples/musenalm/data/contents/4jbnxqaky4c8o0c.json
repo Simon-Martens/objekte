@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37067, Obj 192)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Nur Wasser! o, das kühlt! die Fratze / Fällt nachgerade mir zur Last!",
+  "language": [],
+  "musenalm_id": 37070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Fieber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Fieber",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.659Z",
+      "agent": "vmnuom11udo0f3y",
+      "source_id": "tmqc4ev85l9vry6"
+    }
+  ]
+}

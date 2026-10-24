@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124115, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Sie meinen also, daß es glücken / werde? / So wahr ich Walter heiße! / Aber bedenken Sie – / Hier ist nichts zu bedenken!",
+  "language": [],
+  "musenalm_id": 124114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwärmer, Sansfaçon / und Gleichgültiger. / Original-Lustspiel in einem Act / von / Ludwig Halirsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwärmer, Sansfaçon / und Gleichgültiger. / Original-Lustspiel in einem Act / von / Ludwig Halirsch",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.733Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "3cca44sqhh4udh0"
+    }
+  ]
+}

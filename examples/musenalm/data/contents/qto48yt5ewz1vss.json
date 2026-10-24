@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Von allen Blumen, die eines Engels Hand / In Edens Gärten bricht, und den Sterblichen / Auf ihre Pfade streuet,",
+  "language": [],
+  "musenalm_id": 112154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwartung und Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leberecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwartung und Erinnerung",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.308Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "0ihwmw9w7e4t3kz"
+    }
+  ]
+}

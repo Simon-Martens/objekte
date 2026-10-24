@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Lang, o lange noch beschatte, Kind der treusten Zärtlichkeit",
+  "language": [],
+  "musenalm_id": 3238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Wisens Hut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Wisens Hut",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.072Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "s2rvfj4rcabbtl8"
+    }
+  ]
+}

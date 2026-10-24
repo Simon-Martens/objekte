@@ -1,0 +1,93 @@
+{
+  "annotation": "Widmungsgedicht bezeichnet: Th. Hell",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B, B W, G, S I-Verz, SS 1- 558 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1829",
+    "norm": "~",
+    "biblio": 100474,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2472,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1829",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1829. / Leipzig, bei Fridrich August Leo",
+  "updated": "2026-06-11 10:18:55.473Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "v33letinrsh58u9"
+  ],
+  "contents": [
+    "q8lk88o1rblhsve",
+    "iejlzyythm41l2g",
+    "eiqzfxieskk2fbk",
+    "owjkgg7v0t8zh3j",
+    "10hqvt8j7nfdgyd",
+    "8ygzawizcbelbly",
+    "0unq7k4nqwvrwps",
+    "lp06r37i9xm489d",
+    "ddhe2r6m12b2ggc",
+    "clx1eqq6q36c3ik",
+    "ulln9gcbmryf5hl",
+    "hicyf9abf7vzbpm",
+    "2bssutdazqyupgl",
+    "kh0obdgahp8e7q7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "24fenyvkq8rd7ra"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.101Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.101Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "zbxs7m9lhcakfbn"
+    }
+  ]
+}

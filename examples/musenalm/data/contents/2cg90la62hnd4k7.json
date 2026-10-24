@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Dezember; nummeriert 12.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107103,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schnell und ungleich ist die Fahrt, / Die uns durch das Leben träget.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv & sc.",
+  "scans": [
+    "alm_2157_107103_4o7lttk7ku.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schnell und ungleich ist die Fahrt, / Die uns durch das Leben träget.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.244Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "g9a60mes6b2a0go"
+    }
+  ]
+}

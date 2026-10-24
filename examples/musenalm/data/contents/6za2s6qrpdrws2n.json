@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. d. Hrsg.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Titania gebeut. Seht, alles heitert / Sich Sternen gleich, / Und jeder Wink des Zauberstabs erweitert / Ihr Feenreich!",
+  "language": [],
+  "musenalm_id": 53643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfenau. / Hail! Fairy-Queen! / SPENSER. / 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elfenau. / Hail! Fairy-Queen! / SPENSER. / 1820",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.684Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "235bn2r2xp497lq"
+    }
+  ]
+}

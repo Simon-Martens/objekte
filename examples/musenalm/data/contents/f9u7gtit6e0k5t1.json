@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27369, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Mein Flemming! dich, auf Reisen wohlerfahren, / Auch heute send' ich dich auf eine Reise",
+  "language": [],
+  "musenalm_id": 27375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Mit Übersendung von Flemmings Ge- / dichten an ein Paar im Dörflein / Winzerhausen. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Mit Übersendung von Flemmings Ge- / dichten an ein Paar im Dörflein / Winzerhausen. / Sonett",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.237Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "1pma9d19fyw3qb2"
+    }
+  ]
+}

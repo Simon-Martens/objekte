@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Sie lebt, der Donner brüll, von stolzen Bastionen / Die Freudennachricht den Provinzen zu!",
+  "language": [],
+  "musenalm_id": 8017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Genesung der Kaiserinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonnenfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Genesung der Kaiserinn",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.147Z",
+      "agent": "sqmquucf1ebxapv",
+      "source_id": "9xyv4r9r8117ekf"
+    }
+  ]
+}

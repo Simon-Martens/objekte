@@ -1,0 +1,58 @@
+{
+  "annotation": "5c /) paginiert V. Illustration zu »Die Rückkehr zur Spindel. Sittengemälde des XV. Jahrhunderts« von J. E. F. W. Müller INr 50131, Obj 20; # Bez. vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. M. Usteri H. Lips)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri H. Lips",
+  "scans": [
+    "alm_2_61087_2ldkjb2ls3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.265Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "39kbcvebnl9t1vz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.265Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "3uj0kmwsln947ax"
+    }
+  ]
+}

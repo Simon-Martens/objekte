@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung im I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "He Schlingel, träumest du? o nein, / ich simuliere / Und was?",
+  "language": [],
+  "musenalm_id": 12814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister Scheere und sein / Lehrjunge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meister Scheere und sein / Lehrjunge",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.603Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "4rxlpwg7ihn0l2j"
+    }
+  ]
+}

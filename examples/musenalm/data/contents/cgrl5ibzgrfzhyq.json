@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Sehnsuchtsthräne« von A. Blumauer INr 35044, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sehnsuchtsthräne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenk",
+  "scans": [
+    "alm_411_35045_16onh72oga.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sehnsuchtsthräne",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.683Z",
+      "agent": "emgqr8c55x5afv4",
+      "source_id": "i1ai71hmb2ui3k4"
+    }
+  ]
+}

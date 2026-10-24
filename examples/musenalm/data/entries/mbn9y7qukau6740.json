@@ -1,0 +1,129 @@
+{
+  "annotation": "§1§ G fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "Ug, VB, verso G, T, SS I-IV G-Verz, S I-Verz, 5 GG §1§, SS 1-314",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1838",
+    "norm": "~",
+    "biblio": 100778,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-04-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1046,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / für Deutsche Frauen / auf das Jahr 1838. / HERAUSGEGEBEN / von / Aloys Schreiber. / Drei und Zwanzigster Jahrgang. / Neue Folge. Fünfzehnter Jahrgang. / Mit Stahlstichen. / HEIDELBERG / im Verlag von J. Engelmann",
+  "updated": "2026-06-11 10:18:55.587Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "v0w0wlyq2bjtg99"
+  ],
+  "contents": [
+    "mdhsgj0l1qzbq5i",
+    "5yizxdsv4toda0v",
+    "4557x1lkh4ojusa",
+    "1q5rmuhywr6ajfi",
+    "wf5rqpakklkcdb4",
+    "u8m5jfnp2ilijd4",
+    "u2v6eqiv9xp2lne",
+    "gl9azn3nqr00r97",
+    "z2rt4xb60f726g5",
+    "mg7phzv4i0x7njy",
+    "y14x4xj2dkgi3ed",
+    "sl0rbllzsoeqjbk",
+    "xi42zv132jm60td",
+    "iiz0wm8at621h5e",
+    "pnr21eu0sa0jk5f",
+    "jemw2afpoeu7jvc",
+    "pvgpyugm6y9k9mh",
+    "4070y626xwg85nj",
+    "s8r7gbfllrfufeh",
+    "7if6se9txrw7x4x",
+    "65uc8zy2fttohfp",
+    "r1x26qkgfzhrwrq",
+    "hrsp9c5rg4a952w",
+    "9s4j4o3pxtpas9k",
+    "sxcczo3ukawkwc1",
+    "jff8x1ubkakfw2x",
+    "7j2n9ec5o0o9s9i",
+    "r5meernutryfzd3",
+    "uz10rz020ut77u8",
+    "2ywk9uwvycq67td",
+    "xc3gwczkz7d3xw4",
+    "nenj8u06suza1dc",
+    "6sfwy5shpstpo8p",
+    "yjc8os5nbyb7der",
+    "1ljybm86fwkwkkt",
+    "m00hl1lmz46xia9",
+    "yjh33twa956yqkt",
+    "srqd1zbcsjen2sm",
+    "iwguuxq9b4lk5bk",
+    "rsxn3xw7g6quu6w",
+    "lejhba3t1s927ea",
+    "vngbs647choljzo",
+    "n0n5xxz31u4wq2s",
+    "onk3vzi0ocrmxqf",
+    "6p7t39f1pdjp09t",
+    "keqa9muzwdb7euv",
+    "cnxbbu7x7l2womf",
+    "xn0mx9vclmih3su",
+    "i5rhi0y78sxa0vh",
+    "3q2ayx86sdgz1lf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.778Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.778Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "fpzrg7hnmhxnd69"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.806Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.806Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "ulotuqb97sc8a6s"
+    }
+  ]
+}

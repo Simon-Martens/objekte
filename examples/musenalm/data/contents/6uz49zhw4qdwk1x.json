@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischler Bilder (Sammlung INr 57781, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "402",
+  "incipit_statement": "Wenn die grünen klaren Wellen / Leise wirbelnd abwärts fliehn,",
+  "language": [],
+  "musenalm_id": 57784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An der Traun",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sephine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An der Traun",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.969Z",
+      "agent": "sztz4gyoqux83kc",
+      "source_id": "upzyyz5osacwvxz"
+    }
+  ]
+}

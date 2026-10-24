@@ -1,0 +1,113 @@
+{
+  "label": "Items",
+  "display": "identifier",
+  "singularLabel": "Item",
+  "icon": "ri-archive-line",
+  "position": 2,
+  "sidebarGroup": "Catalogue",
+  "fields": {
+    "/properties/identifier": {
+      "title": "Identifier"
+    },
+    "/properties/location": {
+      "title": "Location"
+    },
+    "/properties/owner": {
+      "title": "Owner"
+    },
+    "/properties/media": {
+      "title": "Media"
+    },
+    "/properties/condition": {
+      "title": "Condition"
+    },
+    "/properties/scans": {
+      "title": "Scans"
+    },
+    "/properties/uri": {
+      "title": "Uri"
+    },
+    "/properties/created": {
+      "title": "Created"
+    },
+    "/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_state": {
+      "title": "Edit state"
+    },
+    "/properties/public": {
+      "title": "Public"
+    },
+    "/properties/basis": {
+      "title": "Basis"
+    },
+    "/properties/editor": {
+      "title": "Editor"
+    }
+  },
+  "fieldOrder": [
+    "identifier",
+    "location",
+    "owner",
+    "media",
+    "condition",
+    "scans",
+    "uri",
+    "created",
+    "updated",
+    "annotation",
+    "edit_comment",
+    "edit_state",
+    "public",
+    "basis",
+    "editor"
+  ],
+  "labels": {
+    "list": [
+      "identifier"
+    ],
+    "search": [
+      "identifier"
+    ],
+    "record": [
+      "identifier"
+    ],
+    "reference": [
+      "identifier"
+    ]
+  },
+  "search": [
+    "identifier",
+    "location",
+    "owner",
+    "condition",
+    "uri",
+    "annotation",
+    "edit_comment",
+    "edit_state"
+  ],
+  "list": {
+    "columns": [
+      "identifier",
+      "owner"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "autoFilters": false,
+    "filters": [
+      "edit_state"
+    ]
+  },
+  "sidebarTree": false
+}

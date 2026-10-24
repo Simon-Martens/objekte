@@ -1,0 +1,225 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.288Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Franz. Malerin"
+      ],
+      "dateOfBirth": [
+        "1767-01-23"
+      ],
+      "dateOfDeath": [
+        "1832-04-18"
+      ],
+      "describedBy": {
+        "dateModified": "2009-10-15T14:15:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/13945943X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Jeanne-Elisabeth"
+          ],
+          "surname": [
+            "Gabiou"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "13945943X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/13945943X",
+      "oldAuthorityNumber": [
+        "(DE-588c)7677377-2",
+        "(DE-588a)13945943X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Chaudet, Jeanne-Elisabeth",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jeanne-Elisabeth"
+        ],
+        "surname": [
+          "Chaudet"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033430-2",
+          "label": "Künstlerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037223-6",
+          "label": "Malerin"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2024013589"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/14146824581807630226"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19590318"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/13945943X/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jeanne-Elisabeth_Chaudet"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000071500425"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Gabiou, Jeanne-Elisabeth",
+        "Chaudet, Elisabeth",
+        "Chaudet, Jeanne-Élisabeth",
+        "Husson, Jeanne-Elisabeth"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jeanne-Elisabeth"
+          ],
+          "surname": [
+            "Gabiou"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabeth"
+          ],
+          "surname": [
+            "Chaudet"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne-Élisabeth"
+          ],
+          "surname": [
+            "Chaudet"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne-Elisabeth"
+          ],
+          "surname": [
+            "Husson"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:06:51Z",
+    "gnd_query_biographical_data": "1767-1832",
+    "gnd_query_name": "chaudet, jeanne-elisabeth"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 405,
+  "name": "Chaudet, Jeanne-Elisabeth",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VI, 435",
+  "updated": "2026-06-11 13:29:21.879Z",
+  "uri": "https://d-nb.info/gnd/13945943X",
+  "editor": ""
+}

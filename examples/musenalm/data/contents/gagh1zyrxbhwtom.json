@@ -1,0 +1,45 @@
+{
+  "annotation": "Parodie auf »Ritter Toggenburg« von Schiller (INr 130371, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ja, daß er zu Hause bliebe / Abends bei der Frau; / Trunken spricht er von der Liebe, / Nüchtern ist er lau",
+  "language": [],
+  "musenalm_id": 130372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Die Gewalt des Schnapses über die Liebe. / Ballade, / von / Röller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Röller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Die Gewalt des Schnapses über die Liebe. / Ballade, / von / Röller",
+  "updated": "2009-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.067Z",
+      "agent": "ruqpk5pzwdjeoju",
+      "source_id": "yrdeiw61i9snpxm"
+    }
+  ]
+}

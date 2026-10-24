@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Mit zween Päbsten, Hirten zweier Heer- / den, / Bin ich in Streit gerathen",
+  "language": [],
+  "musenalm_id": 2961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach einem Gespräch mit ei- / nem Katholiken und einem Protestan- / ten über die Ewigkeit der Höllen- / strafen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach einem Gespräch mit ei- / nem Katholiken und einem Protestan- / ten über die Ewigkeit der Höllen- / strafen",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.050Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "b3u9ixjqua1ngnk"
+    }
+  ]
+}

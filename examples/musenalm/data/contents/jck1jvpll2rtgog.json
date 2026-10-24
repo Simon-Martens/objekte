@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49149,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg del. C. Schule sc. 1801)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. Schule sc. 1801",
+  "scans": [
+    "alm_673_49149_k1zrngqn52.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.540Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7qmo1kzjas4tvuk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.540Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "r4xbtmwf6x8avet"
+    }
+  ]
+}

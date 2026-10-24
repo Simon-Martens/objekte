@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIDERICUS / REX BORUSSIAE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sahler, Efft. Berger sc.",
+  "scans": [
+    "alm_783_58247_plzlorpaqb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIDERICUS / REX BORUSSIAE",
+  "updated": "2008-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.001Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "bunmu1ym71go4e1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.001Z",
+      "agent": "4tu7v8uwuxqy2sw",
+      "source_id": "dj8dtg9hqi022qt"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 BB W, 2 BB Vrwrt d Hrsg, B I-Verz, ar SS 1-120 darin G, ar1: SS 1-128 darin G, ar2: SS 1-87 darin G, ar3: SS 1-64, B C, 5 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Weimarisches dramatisches für größere und kleinere Bühnen 1823",
+    "norm": "~",
+    "biblio": 106004,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3098,
+  "parallel_title": "",
+  "place_statement": "Weimar (Hoffmann)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch, Weimarisches dramatisches für größere und kleinere Bühnen 1823",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 152; L/R 126; Goed VIII. 131, 25",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Weimarisches / dramatisches / Taschenbuch / für / größere und kleinere Bühnen / unter der Theilnahme von / Castelli, H. Clauren, Contessa, Gehe, Geyer, / Holbein, v. Houwald, Kind, Lebrün, v. d. Velde / Weissenthurn, Ziegler u. a. / Herausgegeben / von / Theodor Hell. / Erster Jahrgang / 1823. / Mit Claurens Portrait und 3 kolorirten Kupfern. / Weimar, / in der Hofbuchhandlung der Gebrüder Hoffmann",
+  "updated": "2026-06-11 10:18:55.278Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "r30kmnhv1w2i4xu"
+  ],
+  "contents": [
+    "l2mctixwp1h73zn",
+    "bcr0270tjs6bhf7",
+    "5hihvttado06kka",
+    "tpzw3k74wap5ycd",
+    "cyna3tlphjswotw",
+    "34eqxdj7t0lvs96",
+    "ew6pz0kxjhrtbd9",
+    "x6qea6148npzej2",
+    "vfh8pfeg7xx3tmv",
+    "mi5jq4jnd93deu0",
+    "wn8v8aljrnp5c9e",
+    "52jmy46nob531aq",
+    "xci49jcx0r6jsgu",
+    "w93164a6ggrejty",
+    "znxfpw3z4880il1",
+    "s1n3m9749k8iqv4",
+    "jod36rvli8wf13v",
+    "een48qoh4njlcpv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.183Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.183Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "8b08crt6jv4vhmf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.041Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.041Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "q4ctpn0vk82ylzp"
+    }
+  ]
+}

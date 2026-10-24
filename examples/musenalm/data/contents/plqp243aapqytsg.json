@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen nach dem Spanischen (Sammlung INr 20495, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Frische Rose, frische Rose, / So gar lieblich und so lieb!",
+  "language": [],
+  "musenalm_id": 20502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mißverständniß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mißverständniß",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.887Z",
+      "agent": "9mav4omm7dqt3ib",
+      "source_id": "2peh7loyjfwqg2y"
+    }
+  ]
+}

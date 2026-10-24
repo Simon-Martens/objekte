@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 115175, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Eine Tochter des Ritters Audibert de Noves, einem Flecken, zwey Meilen von Avignon, und vermählt mit Hugo de Sade, einem Edelmanne in Avignon, leuchtet durch fünf Jahrhunderte als das schönste Bild der reinsten geistigen Liebe,",
+  "language": [],
+  "musenalm_id": 115176,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Laura",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Laura",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.289Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "ajb2uqlhp0d3h7e"
+    }
+  ]
+}

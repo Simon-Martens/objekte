@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Lasst uns ruhig weiter bauen, / Nur auf Gottes Himmel schauen, / Wie er alle Sterne trägt,",
+  "language": [],
+  "musenalm_id": 59674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus tiefer Noth schrei' ich zu Dir, / Herr Gott, vernimm mein Rufen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus dem Nachlasse Achim's von Arnim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus tiefer Noth schrei' ich zu Dir, / Herr Gott, vernimm mein Rufen.",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.807Z",
+      "agent": "nj1bnjvv1lsid0i",
+      "source_id": "79iws5cuyhi4hm7"
+    }
+  ]
+}

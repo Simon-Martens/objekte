@@ -1,0 +1,553 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.250Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1089465-2",
+          "label": "Theater in der Leopoldstadt"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1806 Gründer der Wiener Theaterzeitung."
+      ],
+      "dateOfBirth": [
+        "1786-04-09"
+      ],
+      "dateOfDeath": [
+        "1859-09-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie&nbsp;; Foto: Peter Geymayer"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Baeuerle.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Baeuerle.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adolf%20Baeuerle.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T15:46:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119560038/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1314776967",
+          "label": "Bäuerle, Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135854008",
+          "label": "Bäuerle, Friederike"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1326951408",
+          "label": "Bäuerle, Katharine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "119560038",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/135854008",
+          "label": "Bäuerle, Friederike"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119560038",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4490415-0",
+        "(DE-588a)119560038"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4004617-5",
+          "label": "Basel"
+        }
+      ],
+      "preferredName": "Bäuerle, Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adolf"
+        ],
+        "surname": [
+          "Bäuerle"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Horn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "surname": [
+            "Fels"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Zur Linde"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "zur"
+          ],
+          "surname": [
+            "Linde"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Bäuerle, Adolf: Gott erhalte Franz, den Kaiser",
+        "Bäuerle, Adolf: Das Haus der Laune",
+        "Müller, Wenzel: Aline oder Wien in einem andern Welttheile",
+        "Schuster, Ignaz: Die falsche Prima Donna",
+        "Bäuerle, Adolf: Die Enkelin des Freimanns",
+        "Bäuerle, Adolf: Die Gespensterfamilie",
+        "Müller, Wenzel: Der Fiaker als Marquis",
+        "Bäuerle, Adolf: Aus den Geheimnissen eines Wiener Advokaten",
+        "Bäuerle, Adolf: Was verdankt Oesterreich der beglückenden Regierung Sr. Majestät Kaiser F*",
+        "Bäuerle, Adolf: Komisches Theater. - 1820 - 1826"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Andreas"
+          ],
+          "surname": [
+            "Bäuerle"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4049688-0",
+          "label": "Revolution <1848>"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12724284f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no94006633"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66590602"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q361119"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119560038/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/119560038"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adolf_B%C3%A4uerle"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adolf_B%C3%A4uerle"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adolf_B%C3%A4uerle"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083901410"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119560038"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119560038"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_B/Baeuerle_Adolf_1786_1850.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119560038.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119560038.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119560038"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Horn, Otto",
+        "Baeurle, Andreas Adolf",
+        "Bäuerle, A.",
+        "Baeuerle, Adolf Johann",
+        "Bäuerle, Johann Andreas",
+        "Linde, Friedrich zur",
+        "Bäuerle, Andreas Adolf",
+        "Bäuerle, Andreas A.",
+        "Bäuerle, Adolf Johann Andreas",
+        "Fels, J. H.",
+        "Bäuerle, Adolph",
+        "Zur Linde, Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Andreas Adolf"
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Zur Linde"
+          ]
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "surname": [
+            "Fels"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Johann"
+          ],
+          "surname": [
+            "Baeuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "zur"
+          ],
+          "surname": [
+            "Linde"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Johann Andreas"
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas A."
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Adolf"
+          ],
+          "surname": [
+            "Baeurle"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Andreas"
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bäuerle"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Horn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adolf_B%C3%A4uerle",
+          "label": "https://de.wikipedia.org/wiki/Adolf_B%C3%A4uerle"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:52:51Z",
+    "gnd_query_biographical_data": "1786-1859",
+    "gnd_query_name": "bäuerle, adolf johann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 124,
+  "name": "Bäuerle, Adolf Johann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IX,80",
+  "updated": "2026-06-11 13:29:21.495Z",
+  "uri": "https://d-nb.info/gnd/119560038",
+  "editor": ""
+}

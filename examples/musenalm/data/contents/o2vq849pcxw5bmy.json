@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Einst tönten deutsche Lieder / kühn, edel, wahr, und frey, für Thaten, groß und bieder,",
+  "language": [],
+  "musenalm_id": 3132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ......",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. v. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ......",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.971Z",
+      "agent": "8qf8v6035kmy0ob",
+      "source_id": "ilx0t37lx9yyot9"
+    }
+  ]
+}

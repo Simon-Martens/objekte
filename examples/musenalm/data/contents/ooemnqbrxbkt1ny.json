@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Hymne an Steyermark« von Kautzner INr 126920, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Thorstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_4751_126921_5rh3uf6a2j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Thorstein",
+  "updated": "2020-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.939Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "wlhen2fyj5e7rlg"
+    }
+  ]
+}

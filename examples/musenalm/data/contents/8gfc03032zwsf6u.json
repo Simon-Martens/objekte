@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Willst Du in meinem Himmel mit mir leben, / So oft Du kömmst, sollst Du willkommen seyn. / Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Der Hofrath Hagemann, ein gründlicher Gelehrter und geachteter Schriftsteller, der in B** ohne weiteres Geschäft, als seine ausgebreitete litterarische Thätigkeit, lebte, stand an einem Winternachmittage in seinem großen Saale auf der Leiter,",
+  "language": [],
+  "musenalm_id": 63341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter. / Erzählung",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.182Z",
+      "agent": "o98cykqmxxu1sx9",
+      "source_id": "t9v5u66lsf3pisu"
+    }
+  ]
+}

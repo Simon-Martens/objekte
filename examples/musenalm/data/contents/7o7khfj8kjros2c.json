@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 86709, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86705,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Melanie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer pinx. Jos. Axmann sc.",
+  "scans": [
+    "alm_1605_86705_glfregl3jt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Melanie",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.096Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "k5ncp8tii1ha93n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.096Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "tybrbflaqjwo9rw"
+    }
+  ]
+}

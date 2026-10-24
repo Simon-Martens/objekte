@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 10. /) # Titel aus dem G-Verz; s. Textbezug »Der Zug des Bacchus. Ein antikes Basrelief in dem Pallast des Duca Braschi in Rom« Alm-1188, INr 68842",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68884,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Derselbe von hinten #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mori del. et sculp. Roma",
+  "scans": [
+    "alm_1858_68884_yak6fh7u5o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Derselbe von hinten #",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.595Z",
+      "agent": "j0o2uett3ewfxj5",
+      "source_id": "m8n5ped4xzcoyrs"
+    }
+  ]
+}

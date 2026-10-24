@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Marie« INr 87280, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Frosch sc. Lipsi. C. Hampe del. Berlin 99)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc. Lipsi. C. Hampe del. Berlin 99",
+  "scans": [
+    "alm_3804_87282_wqsncjspq5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.161Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "k946c6juqf9x2cb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.161Z",
+      "agent": "y511o9lstnz12un",
+      "source_id": "pyp8lx60jkdg47z"
+    }
+  ]
+}

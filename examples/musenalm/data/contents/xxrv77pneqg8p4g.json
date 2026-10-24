@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Innere eines Zenana (Serail)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_556_42327_0ahwi3slcl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Innere eines Zenana (Serail)",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.308Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "c2u8751l61uowm7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.308Z",
+      "agent": "xqoghpkng47rofa",
+      "source_id": "kjps42je0rvy3bo"
+    }
+  ]
+}

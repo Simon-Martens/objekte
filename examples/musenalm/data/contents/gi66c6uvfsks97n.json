@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert. 9. /) Graphik im Kalendarium September /) Illustration zu »Agnes Bernauerin« von Joseph August von Törring-Cronsfeld /) s. Textbezug INr 85950, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85946,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprich du mein Urtheil, Allmäch- / tiger. / Act IV. Sc. XI.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc.",
+  "scans": [
+    "alm_3916_85946_hgbzohmtr0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sprich du mein Urtheil, Allmäch- / tiger. / Act IV. Sc. XI.",
+  "updated": "2013-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.304Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "mzadrt3agnjwiko"
+    }
+  ]
+}

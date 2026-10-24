@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Ich denke dein, wenn sich im Blütenregen / Der Frühling mahlt,",
+  "language": [],
+  "musenalm_id": 12722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich denke dein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Brun geb. Münter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ich denke dein",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.490Z",
+      "agent": "38esu046kftupf5",
+      "source_id": "701xv8p43ihrzmg"
+    }
+  ]
+}

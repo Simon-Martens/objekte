@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Bruchstück aus einem Epos »Der ewige Jude«. Mit einer Fortsetzung in: Musenalmanach, Deutscher (Chamisso, Schwab, Gaudy) 1836, INr 36925",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Das vierzehnte Jahrhundert war gekommen / Seit Jesu Tod und meiner Wanderschaft;",
+  "language": [],
+  "musenalm_id": 25229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 251,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albertus Magnus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Albertus Magnus #",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.257Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "ruy9kzghg5cjfrv"
+    }
+  ]
+}

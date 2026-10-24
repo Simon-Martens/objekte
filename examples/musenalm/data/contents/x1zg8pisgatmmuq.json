@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 118 /) Graphik im Kalendarium September /) Illustration zu »Der ungekannte Maler« von H. von Schulheim INr 89478, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der ungekannte Mahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cle. Russ del. S. Langer sc.",
+  "scans": [
+    "alm_3349_89467_6zfv27fj2s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der ungekannte Mahler",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.095Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "0farlwt04x0ym90"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.095Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "a96a0t2pban3wa8"
+    }
+  ]
+}

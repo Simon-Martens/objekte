@@ -1,0 +1,58 @@
+{
+  "annotation": "Sechs Charakter-Bilder nach Zeichnungen von G. Opiz (Sammlung INr 9373, Obj 7) s. Textbezug INr 19032, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9370,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Exaltation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. G. Zumpe sc.",
+  "scans": [
+    "alm_52_9370_fi4xuuw4xb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Exaltation",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.481Z",
+      "agent": "dkcgg2l4f1px9e7",
+      "source_id": "1w2i4wyy0sz49i9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.481Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "k1cmk02qgt8piap"
+    }
+  ]
+}

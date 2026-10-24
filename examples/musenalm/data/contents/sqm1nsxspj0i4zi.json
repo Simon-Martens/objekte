@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Neide in der Liebe deine jüngeren Gespielin- / nen um den Vorzug nicht, holde Theone! denn / in jugendlichen Herzen ist die Eifersucht ein zeh- / rendes Gift.",
+  "language": [],
+  "musenalm_id": 31097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clytia und Leucothoe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Clytia und Leucothoe",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.992Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "1ajma0i4at7z20e"
+    }
+  ]
+}

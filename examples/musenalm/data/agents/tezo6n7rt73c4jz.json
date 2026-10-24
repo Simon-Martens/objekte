@@ -1,0 +1,614 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1858",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.354Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "vorw. Romanschriftsteller; dt. Jurist, Sohn des Staatsrechtslehrers Karl Friedrich Häberlin; schrieb unter den Pseud. Mandien, Melindor, Niemand bzw. Christian Niedmann mehrere (historische, ethnographische und biographische) Romane für den Buchhändler Christian Niedmann, die dieser auch unter seinem eigenen Namen erscheinen ließ (ADB,X,280; DBA unter Niedmann, Carl Christian Friedrich)"
+      ],
+      "dateOfBirth": [
+        "1784-07-25"
+      ],
+      "dateOfDeath": [
+        "1858"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T12:03:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/110141458/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100153860",
+          "label": "Häberlin, Karl Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "110141458",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/100153860",
+          "label": "Häberlin, Karl Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/110141458",
+      "oldAuthorityNumber": [
+        "(DE-588a)110141458",
+        "(DE-588c)4615389-5"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4015299-6",
+          "label": "Erlangen"
+        }
+      ],
+      "preferredName": "Belani, H. E. R.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "H. E. R."
+        ],
+        "surname": [
+          "Belani"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Niemand"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Mandien"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Häfeli"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mandien"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Avanella"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Niedmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Melindor"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Treu und brav",
+        "Reactionäre und Democraten",
+        "Die Belagerung von Ancona",
+        "Zilia, die Peruanerin",
+        "So war es",
+        "Wittenberg und Rom",
+        "Der Aufstand in Tyrol",
+        "Tyrolers Liebchen",
+        "Galanterien und Liebes-Geschichten August des Starken",
+        "Russische Hofgeschichten",
+        "Goethe und sein Liebesleben"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Karl Ludwig"
+          ],
+          "surname": [
+            "Häberlin"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb121683567"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32037155"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1732209"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/110141458/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_H%C3%A4berlin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008110985X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/110141458"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd110141458.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/110141458"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Häberlin",
+        "Niedmann",
+        "Niemand",
+        "Avenella",
+        "Haeberlein, Carl Ludwig",
+        "Belani, H.E.A.",
+        "Belani, H. C. R.",
+        "Melindor, H.",
+        "Häfeli, Louis von",
+        "Häberlein, K.L.",
+        "Belani",
+        "Hafely, Louis von",
+        "Belani, H.E.K.",
+        "Avanella",
+        "Belani, H. E. K.",
+        "Mandien, C.F.",
+        "Häfely, Louis von",
+        "Häberlin, Carl L.",
+        "Belani, L.",
+        "Louis von Hafely",
+        "Mandien, C. F.",
+        "Niedmann, Christian",
+        "Häberlin, Karl Ludwig",
+        "Haeberlin, Karl L.",
+        "Häberlin-Belani, C. L.",
+        "Belani, H. E. A.",
+        "Mandien",
+        "Häberlin, Carl Ludwig",
+        "Belani, H.C.R.",
+        "Melindor",
+        "Belani, H. E.",
+        "Belani, H.E.",
+        "Niedmann, C.",
+        "Häberlin, Carolus Ludovicus",
+        "Häberlein, K. L.",
+        "Häberlin-Belani, C.L.",
+        "Belani, H.E.R."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Melindor"
+          ]
+        },
+        {
+          "forename": [
+            "H.C.R."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Häfely"
+          ]
+        },
+        {
+          "personalName": [
+            "Häberlin"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Häfeli"
+          ]
+        },
+        {
+          "forename": [
+            "Karl L."
+          ],
+          "surname": [
+            "Haeberlin"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "surname": [
+            "Haeberlein"
+          ]
+        },
+        {
+          "personalName": [
+            "Mandien"
+          ]
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "H. C. R."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Ludovicus"
+          ],
+          "surname": [
+            "Häberlin"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hafely"
+          ]
+        },
+        {
+          "forename": [
+            "K. L."
+          ],
+          "surname": [
+            "Häberlein"
+          ]
+        },
+        {
+          "forename": [
+            "C.L."
+          ],
+          "surname": [
+            "Häberlin-Belani"
+          ]
+        },
+        {
+          "personalName": [
+            "Niemand"
+          ]
+        },
+        {
+          "forename": [
+            "K.L."
+          ],
+          "surname": [
+            "Häberlein"
+          ]
+        },
+        {
+          "forename": [
+            "H.E."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Mandien"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Melindor"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Niedmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig"
+          ],
+          "surname": [
+            "Häberlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Avanella"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "surname": [
+            "Häberlin"
+          ]
+        },
+        {
+          "forename": [
+            "H.E.K."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "H. E. K."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "C. L."
+          ],
+          "surname": [
+            "Häberlin-Belani"
+          ]
+        },
+        {
+          "forename": [
+            "H.E.R."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "forename": [
+            "Carl L."
+          ],
+          "surname": [
+            "Häberlin"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Niedmann"
+          ]
+        },
+        {
+          "forename": [
+            "C.F."
+          ],
+          "surname": [
+            "Mandien"
+          ]
+        },
+        {
+          "forename": [
+            "H.E.A."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "personalName": [
+            "Niedmann"
+          ]
+        },
+        {
+          "forename": [
+            "H. E. A."
+          ],
+          "surname": [
+            "Belani"
+          ]
+        },
+        {
+          "personalName": [
+            "Louis von Hafely"
+          ]
+        },
+        {
+          "personalName": [
+            "Avenella"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_H%C3%A4berlin",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ludwig_H%C3%A4berlin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:37:06Z",
+    "gnd_query_biographical_data": "1784-1858",
+    "gnd_query_name": "häberlin, karl ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1019,
+  "name": "Häberlin, Karl Ludwig",
+  "profession": "Text",
+  "pseudonyms": "Louis von Häfely; Avanella; u. a. m.",
+  "refs": "E 122",
+  "updated": "2026-06-11 13:29:22.738Z",
+  "uri": "https://d-nb.info/gnd/110141458",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Er war zuerst ein Schalk, und wurde dann Poet,",
+  "language": [],
+  "musenalm_id": 19526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Universal-Genie. / Nach Pope",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Universal-Genie. / Nach Pope",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.968Z",
+      "agent": "9mav4omm7dqt3ib",
+      "source_id": "6yqq0576ov2urik"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "TABELLEN  zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 50408, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50420,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DECEMBER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. d. M. sc.",
+  "scans": [
+    "alm_9_50420_zehdsw9q7p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DECEMBER",
+  "updated": "2007-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.940Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "deb4qz5rbo3qndf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.940Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "i42g3lm95h02z17"
+    }
+  ]
+}

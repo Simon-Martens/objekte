@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Verfolgter Wittwen Ach, beraubter Waisen Kla- / gen, / Und unterdrückter Unschuld Harm:",
+  "language": [],
+  "musenalm_id": 8051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn -s, / Leipzig den 10. Oktober",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn -s, / Leipzig den 10. Oktober",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.117Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "cz6zb1ps1r5isbb"
+    }
+  ]
+}

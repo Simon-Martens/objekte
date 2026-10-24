@@ -1,0 +1,954 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.377Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1767-06-22"
+      ],
+      "dateOfDeath": [
+        "1835-04-08"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lithographie von Friedrich Oldermann nach einem Gemälde von Franz Krüger (http://www.sammlungen.hu-berlin.de/dokumente/6012/)"
+          ],
+          "creditText": [
+            "http://www.sammlungen.hu-berlin.de/dokumente/171/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/W.v.Humboldt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/W.v.Humboldt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:W.v.Humboldt.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1024276759",
+        "https://d-nb.info/gnd/187981965",
+        "https://d-nb.info/gnd/160387183"
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-02T16:38:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118554727/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10046944",
+          "label": "http://lod.gesis.org/thesoz/concept_10046944"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/138856966",
+          "label": "Humboldt, Konrad"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117539740",
+          "label": "Humboldt, Hans Paul von"
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Marie-Elisabeth"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holwede (geb. Colomb)"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11866462X",
+          "label": "Bülow, Gabriele von"
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dacheröden"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117062006",
+          "label": "Humboldt, Theodor von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119247267",
+          "label": "Humboldt, Marie-Elisabeth von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116563265",
+          "label": "Hedemann, Adelheid von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116036141",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136213960",
+          "label": "Humboldt, Alexander Georg von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554719",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1164393936",
+          "label": "Durham, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554700",
+          "label": "Humboldt, Alexander von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118554727",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.1p",
+          "label": "Personen (Politologen, Staatstheoretiker)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117062006",
+          "label": "Humboldt, Theodor von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116563265",
+          "label": "Hedemann, Adelheid von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116036141",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11866462X",
+          "label": "Bülow, Gabriele von"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/117539740",
+          "label": "Humboldt, Hans Paul von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/119247267",
+          "label": "Humboldt, Marie-Elisabeth von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136213960",
+          "label": "Humboldt, Alexander Georg von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118554700",
+          "label": "Humboldt, Alexander von"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118554719",
+          "label": "Humboldt, Caroline von"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://www.pacelli-edition.de/Biographie/8259",
+          "label": "http://www.pacelli-edition.de/Biographie/8259"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118554727",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/121166171",
+          "label": "Humboldt, Familie : 18.-19. Jh."
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)187981965",
+        "(DE-588a)127880518",
+        "(DE-588a)160387183",
+        "(DE-588a)118554727",
+        "(DE-588)160387183",
+        "(DE-588a)187981965",
+        "(DE-588)1024276759",
+        "(DE-588c)4026156-6"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "zh-hant",
+          "@value": "威廉馮洪堡"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4046948-7",
+          "label": "Potsdam"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/5007835-5",
+          "label": "Tegel"
+        }
+      ],
+      "preferredName": "Humboldt, Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Humboldt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4066567-7",
+          "label": "Wissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4224183-2",
+          "label": "Linguist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Forscher",
+        "Publizist",
+        "Philologe",
+        "Staatsmann <Preussen>"
+      ],
+      "publication": [
+        "Humboldt, Wilhelm von: Ueber den Zusammenhang der Schrift mit der Sprache",
+        "Humboldt, Wilhelm von: Ueber den Dualis",
+        "Humboldt, Wilhelm von: Lettre à Abel-Rémusat, sur la nature des formes grammaticales *",
+        "Humboldt, Wilhelm von: Ueber die Kawi-Sprache auf der Insel Java. - 1836 - 1839",
+        "Humboldt, Wilhelm von: Rom",
+        "Humboldt, Wilhelm von: Über die Verschiedenheit des menschlichen Sprachbaues und ihren *",
+        "Humboldt, Wilhelm von: Aesthetische Versuche",
+        "Humboldt, Wilhelm von: Prüfung der Untersuchungen über die Urbewohner Hispaniens vermit*",
+        "Humboldt, Wilhelm von: An Essay on the best Means of ascertaining the Affinities of o*",
+        "Geheimnisse des Lebens",
+        "Humboldt, Wilhelm von: Extraits d'une lettre de M. le baron Humboldt à M. E. Jacquet, *"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich Wilhelm Christian Carl Ferdinand"
+          ],
+          "surname": [
+            "Humboldt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79093041"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100183995"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77888"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1024276759"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118554727/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160387183"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187981965"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Wilhelm_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Wilhelm_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118554727"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121451108"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118554727"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118554727"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118554727.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118554727.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118554727"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118554727"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118554727"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118554727"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gumbolʹdt, Vilʹgelʹm fon",
+        "Humboldt, Guillermo de",
+        "Humboldt, W. von",
+        "Humboldt, Carl W. von",
+        "Humboldt, Karl Wilhelm von",
+        "Humboldt, W. v.",
+        "Humboldt, Vilhelm fon",
+        "フォン・フンボルト, ヴィルヘルム",
+        "Humboldt, G. von",
+        "Humboldt, Wilhelm",
+        "Humboldt, Friedrich Wilhelm Christian Karl Ferdinand von",
+        "Humboldt, Guillermo von",
+        "Humboldt, Wilhelm v.",
+        "Humboldt, Karl W. von",
+        "Humboldt, Wilhelm F. von",
+        "Humboldt, Vilelmus de",
+        "Humboldt, Wilhelm von",
+        "フンボルト, ヴィルヘルム・フォン",
+        "Humboldt, Friedrich Wilhelm Christian Carl Ferdinand",
+        "Humboldt, Guglielmo d'",
+        "Humbol'dt, Vil'gel'm fon",
+        "Humboldt, Carl Wilhelm von",
+        "Humbolt, Vilhelm von",
+        "Von Humboldt, Wilhelm",
+        "Humbolt, Vilhelm fon",
+        "Humboldt, G. de",
+        "ヴィルヘルム・フォン・フンボルト",
+        "Humboldt, Friedrich Wilhelm Christian Karl Ferdinand",
+        "Humboldt, Guillaume de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "ヴィルヘルム・フォン・フンボルト"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Christian Karl Ferdinand"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Christian Karl Ferdinand"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Christian Carl Ferdinand"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Vilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humbolt"
+          ]
+        },
+        {
+          "forename": [
+            "Vilelmus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Christian Karl Ferdinand"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "ヴィルヘルム・フォン"
+          ],
+          "surname": [
+            "フンボルト"
+          ]
+        },
+        {
+          "forename": [
+            "Guillermo"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Vilhelm"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Guglielmo"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "ヴィルヘルム"
+          ],
+          "surname": [
+            "フォン・フンボルト"
+          ]
+        },
+        {
+          "forename": [
+            "Vil'gel'm"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Humbol'dt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Vilʹgelʹm"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Gumbolʹdt"
+          ]
+        },
+        {
+          "forename": [
+            "Vilhelm"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Humbolt"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Von Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Guillermo"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Humboldt",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_von_Humboldt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:49:18Z",
+    "gnd_query_biographical_data": "1767-1835",
+    "gnd_query_name": "humboldt, wilhelm von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1265,
+  "name": "Humboldt, Wilhelm von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIV, 502, 1015",
+  "updated": "2026-06-11 13:29:23.016Z",
+  "uri": "https://d-nb.info/gnd/118554727",
+  "editor": ""
+}

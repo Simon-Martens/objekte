@@ -1,0 +1,45 @@
+{
+  "annotation": "Satyrisken (Sammlung INr 65552, Obj 120) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Brust und Gehirn ist dir so voll? / Das magst du mit deinem Gott abmachen.",
+  "language": [],
+  "musenalm_id": 65560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brust und Gehirn ist dir so voll? / Das magst du mit deinem Gott abmachen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.022Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "gvdcakg1z4gs7wl"
+    }
+  ]
+}

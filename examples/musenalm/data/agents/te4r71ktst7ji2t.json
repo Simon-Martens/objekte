@@ -1,0 +1,386 @@
+{
+  "annotation": "",
+  "biographical_data": "1807-1883",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.238Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Übersetzer aus dem Portugiesischen und aus dem Schwedischen, königlich-hannoverscher Offizier"
+      ],
+      "dateOfBirth": [
+        "1807-07-29"
+      ],
+      "dateOfDeath": [
+        "1883-04-05"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1033719943",
+        "https://d-nb.info/gnd/1073620220"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-09T16:08:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1036099105/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1036099105",
+      "id": "https://d-nb.info/gnd/1036099105",
+      "oldAuthorityNumber": [
+        "(DE-588)1073620220",
+        "(DE-588)1033719943"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4062683-0",
+          "label": "Verden (Aller)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4043974-4",
+          "label": "Osnabrück"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4205696-2",
+          "label": "Neuenheim"
+        }
+      ],
+      "preferredName": "Arentschildt, Louis von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louis"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Arentschildt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4570115-5",
+          "label": "Oberst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Munch, Andreas: Der Königstochter Brautfahrt",
+        "Arentsschildt, Louis von: Völkerstimmen",
+        "Camões, Luiz de: Sonette",
+        "Arentsschildt, Louis von: Gedichte",
+        "Arentsschildt, Louis von: Dichtungen",
+        "Geijer, Erik G.: Gedichte. - [um 1873]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/299952962"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1413923"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1033719943"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036099105/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073620220"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Louis_von_Arentsschildt"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1036099105"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1036099105"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Arentsschild, Louis Friedrich Daniel",
+        "Arentschild, Louis Friedrich Daniel",
+        "Arentsschildt, Ludwig",
+        "Arentsschildt, Louis Friedrich Daniel",
+        "Arentsschild, Ludwig",
+        "Arentsschildt, Ludwig Friedrich Daniel",
+        "Arentschildt, Ludwig",
+        "Arentschilt, Ludwig von",
+        "Arentschildt, Ludwig Friedrich Daniel",
+        "Arentsschild, Ludwig Friedrich Daniel",
+        "Arentschild, Louis von",
+        "Arentschildt, Louis Friedrich Daniel",
+        "Arentsschild, Louis von",
+        "Arentschild, Ludwig",
+        "Arentsschildt, Louis von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentsschild"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Arentschild"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Arentschilt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentsschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentsschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentschild"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Arentsschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Arentsschild"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Arentsschild"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Arentschild"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Arentsschildt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Friedrich Daniel"
+          ],
+          "surname": [
+            "Arentsschild"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Arentschildt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Louis_von_Arentsschildt",
+          "label": "https://de.wikipedia.org/wiki/Louis_von_Arentsschildt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:49:27Z",
+    "gnd_query_biographical_data": "1807-1883",
+    "gnd_query_name": "arentsschildt, louis von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 55,
+  "name": "Arentsschildt, Louis von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 58",
+  "updated": "2026-06-11 13:29:21.365Z",
+  "uri": "https://d-nb.info/gnd/1036099105",
+  "editor": ""
+}

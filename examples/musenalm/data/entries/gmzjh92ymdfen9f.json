@@ -1,0 +1,88 @@
+{
+  "annotation": "ar2: S. 66: Gedruckt in der Joh. Fr. Ungerschen Buchdruckerei",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, 12 BB Kal darin 12 GG, ar: SS 1-233, SS 234-242 G-Verz, ar1: SS 1-104, ar2: SS 1-66",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1821",
+    "norm": "~",
+    "biblio": 404019,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 856,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1821 / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.879Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "2m1ft58z2dc24lf"
+  ],
+  "contents": [
+    "83s4pocuvph9ekn",
+    "n9ewk0g56dwwie0",
+    "hyb4sn1rmimz25m",
+    "aq3aksxkazi1doe",
+    "dnfk3q51b66kjxo",
+    "fjgasb4t162a73x",
+    "64nihfy0zsx2q4w",
+    "mgx4wy4q1m5nvhu",
+    "xs3llajbfio4av5",
+    "266znmcgkemwo8h",
+    "rtkldn2xxriok2i",
+    "f8grmx8yjqreola",
+    "tdwu0y3lunytk64",
+    "a0i27fzq7utqh5u",
+    "qmvvoo7gvj50pys",
+    "zqv9rc8oc6ocmz4",
+    "utxv0knne5mjabx",
+    "dos2kcffu7xmgii",
+    "syc1mxdrjdxlr95",
+    "0lf6dgdn8qu7fbs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "p67bjexyoz940t3"
+    }
+  ]
+}

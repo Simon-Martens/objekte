@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHLOSS WUSTRAU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marohn del. nach Masch. Nürnberg Carl Mayers Kunst-Anstalt",
+  "scans": [
+    "alm_876_59094_vpz3n3gjlh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHLOSS WUSTRAU",
+  "updated": "2008-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.640Z",
+      "agent": "blk0bwibfqnyvz6",
+      "source_id": "8t8ns63c54fjanp"
+    }
+  ]
+}

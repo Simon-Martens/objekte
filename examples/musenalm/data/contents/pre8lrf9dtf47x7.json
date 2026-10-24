@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wilhelm Tell« von Fr. Schiller s. Textbezug INr 39528, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39527,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell 3r. Aufz. 3te. Szene. / Tell. Erlasset mir den Schuss. Hier ist mein Herz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_519_39527_v4kuchhv1d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell 3r. Aufz. 3te. Szene. / Tell. Erlasset mir den Schuss. Hier ist mein Herz",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.798Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "enj1ti25l8wcrxz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.797Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ihdfakc80ldkibp"
+    }
+  ]
+}

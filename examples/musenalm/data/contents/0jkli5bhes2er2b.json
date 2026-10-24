@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60537, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS NEUE MUSEUM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Loeillot Gest. v. Sagert",
+  "scans": [
+    "alm_880_60536_8racw0tts6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS NEUE MUSEUM",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.807Z",
+      "agent": "m78210s0uju9hn5",
+      "source_id": "17mz9r0h6okqid3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.807Z",
+      "agent": "kvb3cdehg6i8s0c",
+      "source_id": "cdoi33p6zsgebbr"
+    }
+  ]
+}

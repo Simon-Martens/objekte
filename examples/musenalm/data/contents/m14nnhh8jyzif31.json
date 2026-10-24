@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine weitere Fassung des Gedichts in: Musenalmanach (Hamburger) 1783 , INr 5711 /) s. a. G. A. Bürgers Gedicht »Die Weiber von Weinsberg« in: Musenalmanach (Hamburger) 1777, INr 5107",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Von Weinspergs schlauen Weiberchen / Hast Bürger, du gesungen",
+  "language": [],
+  "musenalm_id": 21400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weiber von Schorndorf. / Melodie: Wer sagt mir an, wo Weinsperg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Weiber von Schorndorf. / Melodie: Wer sagt mir an, wo Weinsperg",
+  "updated": "2002-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.038Z",
+      "agent": "wdbc0arxqqntge1",
+      "source_id": "utnrs8p2xlg34lt"
+    }
+  ]
+}

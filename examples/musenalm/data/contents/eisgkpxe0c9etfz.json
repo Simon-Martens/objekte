@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Mit dem, der hier im Bilde dir erschient, / hat innig mich der Freundschaft Band ver- / bunden.",
+  "language": [],
+  "musenalm_id": 87764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter dem Bildnisse eines Freundes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter dem Bildnisse eines Freundes",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.042Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "s8bbj119bsruifp"
+    }
+  ]
+}

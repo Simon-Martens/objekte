@@ -1,0 +1,232 @@
+{
+  "annotation": "",
+  "biographical_data": "1758-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.278Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5013894-7",
+          "label": "Königliches Joachimsthalsches Gymnasium"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Außerordentl. Professor am Joachimsthalschen Gymnasium in Berlin"
+      ],
+      "dateOfBirth": [
+        "1758-09-26"
+      ],
+      "dateOfDeath": [
+        "1831-05-13"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-02T16:06:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100059511/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100059511",
+      "id": "https://d-nb.info/gnd/100059511",
+      "oldAuthorityNumber": [
+        "(DE-588a)100059511",
+        "(DE-588a)112150314"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4067663-8",
+          "label": "Zerbst/Anhalt"
+        }
+      ],
+      "preferredName": "Brunn, Friedrich Leopold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Leopold"
+        ],
+        "surname": [
+          "Brunn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4262309-1",
+          "label": "Entomologe"
+        }
+      ],
+      "publication": [
+        "Magazin zur nähern Kenntniß des physischen und politischen Zustandes von Europa ...",
+        "Versuch einer Lebensbeschreibung J. H. L. Meierottos",
+        "Briefe über Karlsruhe",
+        "Deutschlands in geographischer, statistischer und politischer Hinsicht ..",
+        "Versuch einer Lebensbeschreibung J. H. L. Meicrottos",
+        "System der bürgerlichen Gesellschaft oder natürliche Grundsätze der Sittenlehre ..",
+        "Grundriß der Staatskunde des deutschen Reichs in ihrem ganzen Umfang. - 1796 - 1804",
+        "Annalen der Staatskräfte von Europa. - 1792 - 1805"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n92013785"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27405316"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94789302"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100059511/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000006666242X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100059511"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Brunn, Frédéric L.",
+        "Brunn, Friedrich L.",
+        "Brunn, F. L.",
+        "Brunn, Frédéric Léopold"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Brunn"
+          ]
+        },
+        {
+          "forename": [
+            "F. L."
+          ],
+          "surname": [
+            "Brunn"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric Léopold"
+          ],
+          "surname": [
+            "Brunn"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric L."
+          ],
+          "surname": [
+            "Brunn"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:45Z",
+    "gnd_query_biographical_data": "1758-1831",
+    "gnd_query_name": "brunn, friedrich leopold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 323,
+  "name": "Brunn, Friedrich Leopold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 273",
+  "updated": "2026-06-11 13:29:21.774Z",
+  "uri": "https://d-nb.info/gnd/100059511",
+  "editor": ""
+}

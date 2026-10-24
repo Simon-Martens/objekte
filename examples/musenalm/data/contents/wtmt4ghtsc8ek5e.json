@@ -1,0 +1,45 @@
+{
+  "annotation": "Stammbuch-Blätter (Sammlung INr 34444, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Es war vor alter, grauer Zeit, / Ich glaub, es sind nun schon zwey Monde,",
+  "language": [],
+  "musenalm_id": 34447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herr-Gott und der Musikant. / Legende. / In das Stammbuch eines Tonkünstlers, nach seiner Vermählung / Im Jahre 1825 in Paris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Beer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Herr-Gott und der Musikant. / Legende. / In das Stammbuch eines Tonkünstlers, nach seiner Vermählung / Im Jahre 1825 in Paris",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.776Z",
+      "agent": "xkku82ly65l51m3",
+      "source_id": "2143978blsdox26"
+    }
+  ]
+}

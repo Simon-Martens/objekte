@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 3",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7904,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (R.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [
+    "alm_142_7904_a6x6ro0lra.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.069Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "8fkmzfxyw9rq0u0"
+    }
+  ]
+}

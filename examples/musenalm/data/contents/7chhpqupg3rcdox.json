@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Graphik im Kalendarium September /) Textbezug unklar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89065,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Endlich sprang der Sarg auf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Langer sc.",
+  "scans": [
+    "alm_988_89065_zmzsbh7jfe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Endlich sprang der Sarg auf",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.417Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "cojzw7nggyuqkhw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.417Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "iumd7ob1gws381a"
+    }
+  ]
+}

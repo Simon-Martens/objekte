@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Die drei Bauern von Senzenberg, der kluge Jodel, der lustige Steffen und der schwermüthige Mündel sind durch ihre Lage auf einer angenehmen, äußerst fruchtbaren Anhöhe vor all ihrer anliegenden Nachbarschaft ausgezeichnet.",
+  "language": [],
+  "musenalm_id": 87020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haschuk. / Eine Geschichte aus dem obderrensischen Volksleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Stelzhamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haschuk. / Eine Geschichte aus dem obderrensischen Volksleben",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.207Z",
+      "agent": "a014bqncl68cjih",
+      "source_id": "qxm1iqg067ex3wh"
+    }
+  ]
+}

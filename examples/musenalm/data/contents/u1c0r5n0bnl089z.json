@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "An einem schönen Abend im Mai, wo Abendpurpur und Mondenglanz um den Sieg kämpften, stieg ich aus dem Reisewagen,",
+  "language": [],
+  "musenalm_id": 34764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das stille Julchen. / Ein Bild aus dem Leben. / Motto: Ein Tropfen Seligkeit fließt in der Lebensschale. / Er heißet Liebe.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das stille Julchen. / Ein Bild aus dem Leben. / Motto: Ein Tropfen Seligkeit fließt in der Lebensschale. / Er heißet Liebe.",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.782Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "8nyzduul1nt8ewi"
+    }
+  ]
+}

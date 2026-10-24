@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Freund Mavius erhänge Dich! / Satyren schriebst Du gegen mich;",
+  "language": [],
+  "musenalm_id": 31894,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verfehlter Zweck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verfehlter Zweck",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.243Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "40h07iruqo5z3nn"
+    }
+  ]
+}

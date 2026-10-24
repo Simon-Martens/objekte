@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) §1§ bez. Titelgraphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Tapferkeit und Stärke erringet und sichert für die Völker den Frieden. Dann schmücken Künste und Wissenschaften das Leben,",
+  "language": [],
+  "musenalm_id": 75671,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelkupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titelkupfer",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "9s5o2q5y54fmgyc"
+    }
+  ]
+}

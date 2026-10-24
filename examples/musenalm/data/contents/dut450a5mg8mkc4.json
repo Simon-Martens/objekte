@@ -1,0 +1,45 @@
+{
+  "annotation": "Epoden (Sammlung INr 41842, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "O! rufet nicht mit nie gestilltem Sehnen / Der Kinderjahre fromme Zeit zurück!",
+  "language": [],
+  "musenalm_id": 41844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.893Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "qut4qmeppg4xa5v"
+    }
+  ]
+}

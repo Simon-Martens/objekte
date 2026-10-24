@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Verhängnißglaube (Sammlung INr 24038, Obj 21) Buntes aus Ost und West (Sammlung INr 24035, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Gott mißt die Nahrung jedem zu / Deßwegen doch nicht feyre du",
+  "language": [],
+  "musenalm_id": 24041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.121Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "vb1sa5z2m7vkekw"
+    }
+  ]
+}

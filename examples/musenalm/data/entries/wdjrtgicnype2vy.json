@@ -1,0 +1,106 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 3 GG, 9 BB Kal darin 6 GG, SS 1-106 darin G, B VrlgM, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Herzogl. Sachsen-Coburg-Saalfeldischer 1790",
+    "norm": "~",
+    "biblio": 410475,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4684,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Schwarz)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Hofkalender, Herzogl. Sachsen-Coburg-Saalfeldischer 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Herzogl. / Sachsen-Coburg- / Saalfeldischer / Hof-Calender / für / 1790. / Nürnberg, bey P. W. Schwarz. Herzogl. / Sachsen-Coburg-Saalfeldl. Hof Graveur / und Kunsthaendler",
+  "updated": "2026-06-11 10:18:55.659Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "p3hgu6ba0vlylpv"
+  ],
+  "contents": [
+    "z8ixm9p5udkcn0d",
+    "6wfngdtme5kiofg",
+    "74j1axr3tc5of1l",
+    "263sr0uioniiz9t",
+    "bwrwu1m8rb1bli3",
+    "qr5o76z4h28ve4d",
+    "dncgql5fgst4v4s",
+    "ldy3h8z6jf93bjz",
+    "wkm3r2u80m13lr7",
+    "ug13utvn1lcmj2l",
+    "0mozzgzax0maou4",
+    "vhajdr6eupnh92m",
+    "hkfou5zwscx9989",
+    "o3xide8iqhocca3",
+    "axr60ml538hx2p9",
+    "jhbr1u4q1pevut4",
+    "ztdk4c0rw1ppwu6",
+    "07luf4xrczvk0p6",
+    "tbo76d90nmclvwi",
+    "1lda8npdbixlgq7",
+    "zax616mcl1qtpj3",
+    "ks0dz16t79sf6uz",
+    "mlvlemjxtqy3mi6",
+    "kevyui3ka39ows8",
+    "gs9b3wuti2xnexn",
+    "ueqa704h62kik0g",
+    "0s514g0du3hojk5",
+    "r9ys2j3wyf2e1f0",
+    "uhe3zyo5s70fqwi",
+    "9ddryot71qs352q",
+    "ttabn0n6fulzb08",
+    "m7liio4r66fm06s",
+    "yu3i18ki76rv1ii",
+    "pwh75g022xa5u3q",
+    "z05poh9rt3bl54a",
+    "dv7j6pdvlqfqdy1",
+    "q651cgg2qrhwwtj",
+    "glpvgctxx014ppv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.120Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.120Z",
+      "agent": "zjs6kt9qpu4vga1",
+      "source_id": "midue6yffwsqfir"
+    }
+  ]
+}

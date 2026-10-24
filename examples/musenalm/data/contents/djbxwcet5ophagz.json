@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Aus meinem Herzen flieht / Der milde Schein der Liebe / Und dunkle Nacht umzieht / Es kummerschwer und trübe;",
+  "language": [],
+  "musenalm_id": 79041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die entflohene Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die entflohene Liebe",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.911Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "kb3ga9redinwle9"
+    }
+  ]
+}

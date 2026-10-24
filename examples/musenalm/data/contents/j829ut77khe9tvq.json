@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung, INr 24025, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Reichen Hausraths goldner Prunk erzähle / Jenes Manns glorreichsten Moment der Nachwelt,",
+  "language": [],
+  "musenalm_id": 24027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Wiege des Königs von Rom. / (In Parma)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gr. von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Wiege des Königs von Rom. / (In Parma)",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.087Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "m7nj8vf9qik5u7g"
+    }
+  ]
+}

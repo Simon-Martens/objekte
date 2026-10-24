@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64265, Obj 6) s. Graphik INr 64280, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Nymphen schönste, Eucharis, / Sie wie Kalypso selber fühlte,",
+  "language": [],
+  "musenalm_id": 64272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Telemach und Eucharis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Telemach und Eucharis",
+  "updated": "2009-05-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.088Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "iu04ddvgmdzjc21"
+    }
+  ]
+}

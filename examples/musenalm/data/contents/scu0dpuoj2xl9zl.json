@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März; nummeriert 3 /) s. Textbezug INr 108509, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108497,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach der Schlacht von Torgau faellt eine / Kugel aus den Kleidern des Königs. / Anecd. I. Samml. 44 S.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fec.",
+  "scans": [
+    "alm_2172_108497_fiv2q5rcgc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nach der Schlacht von Torgau faellt eine / Kugel aus den Kleidern des Königs. / Anecd. I. Samml. 44 S.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.115Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "4hzlj35n0z72ney"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Wie ist der kommende Lenz im Wehn / Der sanfteren Lüfte so lieblich, so schön!",
+  "language": [],
+  "musenalm_id": 6043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ach!",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.917Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "qdpwkf5qdxhxq3o"
+    }
+  ]
+}

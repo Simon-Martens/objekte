@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 27295, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Süß muß seyn, sich lieben lassen, / Süßer muß es seyn, als selber lieben,",
+  "language": [],
+  "musenalm_id": 27303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.281Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "03ckrn90wynv29n"
+    }
+  ]
+}

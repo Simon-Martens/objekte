@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Weg mit dem Sclavenvolk der Affen, / Die Göttern und Menschen nacherschaffen!",
+  "language": [],
+  "musenalm_id": 17988,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Dorinde'n. / Bei Übersendung eines ABC-Karten- / spiels von fünf und zwanzig Blät- / tern, worauf die in diesem Gedichte / cursiv gedruckten Blumen und / Thiere abgebildet waren. / 1794",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Dorinde'n. / Bei Übersendung eines ABC-Karten- / spiels von fünf und zwanzig Blät- / tern, worauf die in diesem Gedichte / cursiv gedruckten Blumen und / Thiere abgebildet waren. / 1794",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.837Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "538n6dmlcvl1057"
+    }
+  ]
+}

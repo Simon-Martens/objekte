@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Sieh, da tritt, von Mondesglanz um- / flossen, / Abermahls der Engel, Hoffnung, hin,",
+  "language": [],
+  "musenalm_id": 4509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neue Erscheinung. / An Cäcilia. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neue Erscheinung. / An Cäcilia. / Sonett",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.044Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "qi61qtwfxxe8n4p"
+    }
+  ]
+}

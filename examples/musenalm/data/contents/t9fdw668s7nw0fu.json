@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am letzten Blatt der Suite. paginiert 5. s. Textbezug INr 28984, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28985,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury del & sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & sc.",
+  "scans": [
+    "alm_375_28985_t0thi96pu9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.306Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "pprr1mkyl2y4s2h"
+    }
+  ]
+}

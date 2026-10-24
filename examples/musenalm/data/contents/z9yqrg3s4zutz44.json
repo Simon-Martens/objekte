@@ -1,0 +1,46 @@
+{
+  "annotation": "Dichter-Reliquien (Sammlung INr 20871, Obj 73) Anm. am Objekt: Das erste und zweite Bruchstück s. in der Muse. Jahrgang 1821 1. Band. 1. Heft. S. 48 ff. das dritte aber ebendas. 3. Heft. S. 79 ff.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Ich hatte eben die letzte Note geschrieben und ergetzte mich an den Schnörkeln des Schlußzeichens,",
+  "language": [],
+  "musenalm_id": 20885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "szen. Darstellung"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Viertes Bruchstück aus: / »Tonkünstlers Leben.« / Eine Arabeske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Maria von Weber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Viertes Bruchstück aus: / »Tonkünstlers Leben.« / Eine Arabeske",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.924Z",
+      "agent": "l82vh8em5pfss9x",
+      "source_id": "flvsnhf88dms95y"
+    }
+  ]
+}

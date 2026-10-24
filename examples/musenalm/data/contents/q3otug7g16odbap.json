@@ -1,0 +1,45 @@
+{
+  "annotation": "Novellen und Sardellen (Sammlung INr 57377, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Als du fort warst, geliebter August, konnte ich kein Auge mehr schließen; das schmerzliche Bewußtsein der Trennung von Dir hielt mich wach.",
+  "language": [],
+  "musenalm_id": 57383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Briefen einer gemüthvollen Dame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Briefen einer gemüthvollen Dame",
+  "updated": "2008-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.695Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "l30mnruoraaku3f"
+    }
+  ]
+}

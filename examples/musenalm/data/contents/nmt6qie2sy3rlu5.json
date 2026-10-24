@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 70542, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "In einer eingefriedeten Garten-Voliere des markgräflich Badischen Jagdschlosses Zwingenberg am Neckar befindet sich seit mehr als einem Jahr ein Birkhahn,",
+  "language": [],
+  "musenalm_id": 70564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. / Zähmung des Birkwildes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. / Zähmung des Birkwildes",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.392Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "p227sg856sqalec"
+    }
+  ]
+}

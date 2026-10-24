@@ -1,0 +1,47 @@
+{
+  "annotation": "Seite 13 der Beilage mit Vertonung zu »Ein Achtel vom großen Los« von Karl v. Holtei INr 109329, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109349,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3551_109349_sdrwgiw1kk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.322Z",
+      "agent": "9enp1bdvcfoj1ba",
+      "source_id": "bmho5gtd2md22xj"
+    }
+  ]
+}

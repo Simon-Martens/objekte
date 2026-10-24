@@ -1,0 +1,45 @@
+{
+  "annotation": "Ueber einige Gegenden der Cantone Glarus, Uri, Unterwalden und Schweiz. Als Erklärung der 6 radirten Blätter des Almanachs (Sammlung INr 51183, Obj 15) s. Graphik INr 51173, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Ehe wir das große Thal durchwandern wollten, beschlossen wir von Glarus aus in's Clönthal zu steigen.",
+  "language": [],
+  "musenalm_id": 51186,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clönthal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Clönthal",
+  "updated": "2007-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.729Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "q32d9lty434ng0l"
+    }
+  ]
+}

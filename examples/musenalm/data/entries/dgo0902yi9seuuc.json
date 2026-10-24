@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rebus-Almanach 1845",
+    "norm": "",
+    "biblio": 406549,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4491,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weber)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rebus-Almanach 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 97; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "REBUS-ALMANACH. / ERSTER JAHRGANG. / LEIPZIG / VERLAG VON J. J. WEBER. / 1845",
+  "updated": "2026-06-11 10:18:55.947Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "dgs74e9i08r7obk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "9woopkqfyim172w",
+      "source_id": "tof3meo3an2iafs"
+    }
+  ]
+}

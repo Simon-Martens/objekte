@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Wenn die Rosen wieder blühen, / Denk' ich der vergangnen Zeit,",
+  "language": [],
+  "musenalm_id": 53828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freude Jahresfest",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freude Jahresfest",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.612Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "45zrpm7ucyb2c1a"
+    }
+  ]
+}

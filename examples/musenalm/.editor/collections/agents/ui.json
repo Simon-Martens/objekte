@@ -1,0 +1,120 @@
+{
+  "label": "Agents",
+  "display": "name",
+  "singularLabel": "Agent",
+  "icon": "ri-user-line",
+  "position": 4,
+  "sidebarGroup": "Catalogue",
+  "fields": {
+    "/properties/name": {
+      "title": "Name"
+    },
+    "/properties/corporate_body": {
+      "title": "Corporate body"
+    },
+    "/properties/fictional": {
+      "title": "Fictional"
+    },
+    "/properties/uri": {
+      "title": "Uri"
+    },
+    "/properties/biographical_data": {
+      "title": "Biographical data"
+    },
+    "/properties/profession": {
+      "title": "Profession"
+    },
+    "/properties/pseudonyms": {
+      "title": "Pseudonyms"
+    },
+    "/properties/refs": {
+      "title": "Refs"
+    },
+    "/properties/data": {
+      "title": "Data",
+      "x-editor": "json"
+    },
+    "/properties/created": {
+      "title": "Created"
+    },
+    "/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/musenalm_id": {
+      "title": "Musenalm id"
+    },
+    "/properties/edit_state": {
+      "title": "Edit state"
+    },
+    "/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    },
+    "/properties/editor": {
+      "title": "Editor"
+    }
+  },
+  "fieldOrder": [
+    "name",
+    "corporate_body",
+    "fictional",
+    "uri",
+    "biographical_data",
+    "profession",
+    "pseudonyms",
+    "refs",
+    "data",
+    "created",
+    "updated",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment",
+    "editor"
+  ],
+  "labels": {
+    "list": [
+      "name"
+    ],
+    "search": [
+      "name"
+    ],
+    "record": [
+      "name"
+    ],
+    "reference": [
+      "name"
+    ]
+  },
+  "search": [
+    "name",
+    "uri",
+    "biographical_data",
+    "profession",
+    "pseudonyms",
+    "refs",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment"
+  ],
+  "list": {
+    "columns": [
+      "name",
+      "musenalm_id"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "autoFilters": false,
+    "filters": [
+      "edit_state"
+    ]
+  },
+  "sidebarTree": false
+}

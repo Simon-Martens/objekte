@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Warum geben Sie uns nur Linearumrisse von der Adersbacher Felsenstadt? So anziehend die Beschreibung ist, und so schwer es auch sein mag, mit wenigen Contouren, ein getreues Bild von einem solchen Steinlabyrinth zu geben;",
+  "language": [],
+  "musenalm_id": 115854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Räuberhöhle / in der Brunnkreßschlucht zu Adersbach",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Räuberhöhle / in der Brunnkreßschlucht zu Adersbach",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.592Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "38xte6spoagcitm"
+    }
+  ]
+}

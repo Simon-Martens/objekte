@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Aurora's Abend« von Th. Hell d.i. K. G. Th. Winkler INr 102729, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102730,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora's Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_3366_102730_7y37gaz6bi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurora's Abend",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.137Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "hf6mjmo951mqbjc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.137Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "jk5mhwwb3ceh6bi"
+    }
+  ]
+}

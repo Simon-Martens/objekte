@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Von Penelope kommt dieß Briefchen, zaudern- / der Gatte! / Schreibe mir nicht zurück; kehre du selber doch / heim.",
+  "language": [],
+  "musenalm_id": 90341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Penelope an Ulisses. / (Aus dem lateinischen des Ovidius übersetzt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ovid [übers.] S-th-r.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Penelope an Ulisses. / (Aus dem lateinischen des Ovidius übersetzt.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.146Z",
+      "agent": "1v47d45gg201l59",
+      "source_id": "dv48mlaof7ia5q2"
+    }
+  ]
+}

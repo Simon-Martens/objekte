@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Dein Lied ist Morgenthau, der über Ro- / sen fließt!",
+  "language": [],
+  "musenalm_id": 2166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Liebesdichter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Liebesdichter",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.872Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "79kqvjn1ejrkpmc"
+    }
+  ]
+}

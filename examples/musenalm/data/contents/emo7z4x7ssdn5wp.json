@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Froh schweb ich in dem süßen Wahn, / Ein Genius zu seyn,",
+  "language": [],
+  "musenalm_id": 47757,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Genius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Eck der Sohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Genius",
+  "updated": "2007-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.540Z",
+      "agent": "t4962qj1xtqcfm9",
+      "source_id": "s5ijfla54c7qvac"
+    }
+  ]
+}

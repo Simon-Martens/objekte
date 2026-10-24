@@ -1,0 +1,45 @@
+{
+  "annotation": "Andenken an drei große verstorbene Deutsche (Sammlung INr 78331, Obj 21) mit einer Illustration s. Graphik INr 78341, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Johann Gottfiried Herder wurde den 25. August 1741 zu Morungen in Preußen gebohren.",
+  "language": [],
+  "musenalm_id": 78340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Gottfiried Herder wurde den 25. August 1741 zu Morungen in Preußen gebohren.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.758Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "52cbnd8euhh7rtm"
+    }
+  ]
+}

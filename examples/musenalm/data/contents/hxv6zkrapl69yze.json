@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24277, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Weiland klingt's und immer Weiland, / Um die goldene alte Zeit,",
+  "language": [],
+  "musenalm_id": 24283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / An die von Weiland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / An die von Weiland",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.031Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "h5s5bg21ztlegvr"
+    }
+  ]
+}

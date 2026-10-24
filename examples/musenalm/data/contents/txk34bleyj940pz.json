@@ -1,0 +1,47 @@
+{
+  "annotation": "paginert A. /) s. Textbezüge INr 54317, Obj 25 und INr 54326, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. H.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. H.",
+  "scans": [
+    "alm_701_54314_5e5kc9r6fc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.684Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "yr37xwj4citeiii"
+    }
+  ]
+}

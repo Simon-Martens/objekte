@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Neid gegen Dichter kannst du hägen, / Nur Dichtern keinen Neid erregen.",
+  "language": [],
+  "musenalm_id": 17464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Tattler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lep.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Tattler",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.824Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "tbm1nyf4seof8nv"
+    }
+  ]
+}

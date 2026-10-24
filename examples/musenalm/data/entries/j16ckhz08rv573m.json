@@ -1,0 +1,99 @@
+{
+  "annotation": "§ Blätter des Kalendariums: März/April und September/Oktober fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, recto G, T, 8 BB Kal § darin 12 GG, SS, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1773 /) (franz. Ausgabe: Almanac de Poche pour l’Année 1773)",
+    "norm": "~",
+    "biblio": 404174,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 784,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1773 (franz. Ausgabe: Almanac de Poche pour l’Année 1773)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALAMANAC / Généalogique. / pour l'an 1773; / avec l'approbation / de L'Académie Royale / des Sciences / et belles Lettres / À. Berlin",
+  "updated": "2026-06-11 10:18:55.760Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "items": [
+    "fkqssr07nypfn0v"
+  ],
+  "contents": [
+    "3y2tw2wl0pcnkyv",
+    "vt1k8bjx1cg4zjv",
+    "kho70fjf19lhvth",
+    "9b4tptk9gu00hj7",
+    "atxr4z8g7lvstnn",
+    "qtvm7cavggaxl19",
+    "mr2lrmhyy9g15mg",
+    "selfyba4io3gage",
+    "tewewxgsxzsaz3g",
+    "wlgyjhuv0wn6rlo",
+    "1a4kfthcgfw5oby",
+    "20ugoj2hwv9fh7f",
+    "kmxjfk7t17jr66b",
+    "jlskhq9rhqc12o2",
+    "jbkeli99vtv5tay",
+    "46uff2imssqt49a",
+    "wwilq4s72svjwcb",
+    "3qwfgtlcsp41mj6",
+    "taeoxnmdo0bqqt8",
+    "57y9mh4scb0msy7",
+    "awvi8eeorc1esea",
+    "b2e7dnz1o9w9q5d",
+    "g8y3y34nxgf76ui",
+    "b1pq6api6xfw24g",
+    "p8rs7a44zz9wgau",
+    "p4y58z7p8nsd0cc",
+    "00rc6pa4h48mm0z",
+    "fcm22lzkr5jpp81",
+    "wxswwfmggkhbz7i",
+    "r0zu4hyfs845rn1",
+    "ek6m4dcfjye8r1r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "6xzsj746vlebt9c"
+    }
+  ]
+}

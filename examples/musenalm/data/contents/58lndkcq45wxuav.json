@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "An einer Bricke schwamm ein Lachs vorbei: / Wie winzig klein, sprach er, ist eine Bricke!",
+  "language": [],
+  "musenalm_id": 6771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRICKE, DER LACHS UND / DER HAI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRICKE, DER LACHS UND / DER HAI",
+  "updated": "2000-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.144Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "xwnztq7nfp6u8bs"
+    }
+  ]
+}

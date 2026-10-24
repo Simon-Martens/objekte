@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Horch auf! es flüstert der Abendwind, / Die Nachtigall lockt im Thal,",
+  "language": [],
+  "musenalm_id": 12569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.384Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "zzg6wyzey8bf7gq"
+    }
+  ]
+}

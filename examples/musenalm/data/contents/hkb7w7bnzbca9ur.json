@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 95513, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95514,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Decker del. J. Axmann sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Decker del. J. Axmann sc.",
+  "scans": [
+    "alm_1885_95514_2rkcirdx2x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.771Z",
+      "agent": "vfryk9lf23r0kke",
+      "source_id": "bysh4kvjxw0txrd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.771Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "nhrvyhd9azi9wsz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung an Graphiken im Kalendarium Mai und Juni /) Graphik im Kalendarium Oktober /) Illustration zu »Scherz und Ernst« von Martinovich INr 125640, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125574,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scherz und Ernst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. R. d. J. L. sc.",
+  "scans": [
+    "alm_1003_125574_4zbide9b4i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scherz und Ernst",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.901Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "d4xn3i3e4185qw9"
+    }
+  ]
+}

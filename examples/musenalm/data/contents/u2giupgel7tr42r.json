@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Monathe (Sammlung INr 77455, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Scheuren füllen sich und Haus; / Die Natur, vom Schaffen matt,",
+  "language": [],
+  "musenalm_id": 77463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "August",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "August",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.662Z",
+      "agent": "jqanokpcqaenxu5",
+      "source_id": "5wvf6h4yks5686i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36880, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Schöner als je ich dich sah, erblick' ich dich, / ewige Roma! / Himmel und Erde vereint bilden das herrlichste / Fest.",
+  "language": [],
+  "musenalm_id": 36882,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König Ludwig von Bayern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Elegie",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.928Z",
+      "agent": "0lj8fztokin6ffi",
+      "source_id": "747vk4uky8zfx9z"
+    }
+  ]
+}

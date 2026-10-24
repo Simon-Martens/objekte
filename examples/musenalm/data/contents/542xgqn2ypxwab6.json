@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus Solvyns; d.i.: Solvyns, Balthazar: A Collection of Two Hundred and Fifty Coloured Etchings of the Manners, Customs, and Dress of the Hindous, Calcutta 1799; oder: Les Hindous, ou description de leurs moeurs, côtumes, cérémonies etc, dessinés d'après nature dans le Bengale et représentés en 292 planches, 4 Bde, Paris 1808-1812",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schwingen des Kistnah, ein Fest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Böhme sc.",
+  "scans": [
+    "alm_556_42324_wob9mtmm0q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schwingen des Kistnah, ein Fest",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.321Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "w87dxa1v68m78a7"
+    }
+  ]
+}

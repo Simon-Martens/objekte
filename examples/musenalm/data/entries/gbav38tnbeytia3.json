@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eislauf, Der oder das Schrittschuhfahren 1825",
+    "norm": "",
+    "biblio": 407884,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3953,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Campe)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Eislauf, Der oder das Schrittschuhfahren 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; nicht bei L/R",
+  "responsibility_statement": "Christ. Siegm. Zindel",
+  "subtitle_statement": "",
+  "title_statement": "Der Eislauf / oder / das Schrittschuhfahren / ein Taschenbuch für Jung und Alt. / Mit Gedichten / von / Klopstock, Göthe, Herder, Cramer, / Krummacher etc / und / Kupfern von J. A. Klein. / Herausgegeben / von / Christ. Siegm. Zindel. / Nürnberg, 1825. / bei Friedrich Campe",
+  "updated": "2026-06-11 10:18:55.615Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "k51vlyulmn8c6nn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.649Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.649Z",
+      "agent": "so2stw3lsgpp43x",
+      "source_id": "mldok8n9qx8q4uc"
+    }
+  ]
+}

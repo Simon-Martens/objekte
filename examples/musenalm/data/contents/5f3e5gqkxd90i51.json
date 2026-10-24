@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das verschnei'te Dörfchen. Zweiter Gesang« INr 36797, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schlitten bringt, arbeitend durch den Schnee, / Die Frauen itzt in dicken Aermelpelzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling d. F. W. Bollinger sc.",
+  "scans": [
+    "alm_499_36798_h35hqn3wq5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schlitten bringt, arbeitend durch den Schnee, / Die Frauen itzt in dicken Aermelpelzen",
+  "updated": "2004-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.778Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "11sh1xocd48gdvu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.778Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "1ltp1e9brl7t9zs"
+    }
+  ]
+}

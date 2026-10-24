@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 63569, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63578,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abelard und Heloise #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goyet pinx. W. Baumann sc.",
+  "scans": [
+    "alm_1044_63578_j0ugcat15n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abelard und Heloise #",
+  "updated": "2009-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.288Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "814waxvfq5deiw9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.287Z",
+      "agent": "j3zdblz6vl8zc58",
+      "source_id": "mykmgk0yy3tdeq4"
+    }
+  ]
+}

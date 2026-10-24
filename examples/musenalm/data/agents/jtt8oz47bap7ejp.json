@@ -1,0 +1,368 @@
+{
+  "annotation": "",
+  "biographical_data": "1662-1744",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.518Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Kupferstecher, 1704 nach Berlin als Hofkupferstecher berufen"
+      ],
+      "dateOfBirth": [
+        "1662"
+      ],
+      "dateOfDeath": [
+        "1744-12-21"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T16:28:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/122781961/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/129455695",
+          "label": "Wolfgang, Georg Andreas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/129408328",
+          "label": "Wolfgang, Georg Andreas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122581830",
+          "label": "Wolfgang, Andreas Matthäus"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "122781961",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/129455695",
+          "label": "Wolfgang, Georg Andreas"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/129408328",
+          "label": "Wolfgang, Georg Andreas"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/122581830",
+          "label": "Wolfgang, Andreas Matthäus"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/122781961",
+      "oldAuthorityNumber": [
+        "(DE-588c)7534200-5",
+        "(DE-588a)122781961"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Wolfgang, Johann Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Georg"
+        ],
+        "surname": [
+          "Wolfgang"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Wolffgang, Andreas M.: Reisen und wunderbare Schicksale zweyen in die Algierische Leibeig*. - 1767",
+        "Imagines scenicae Terentium illustrantes. - s. a."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2007006345"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27962284"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18913402"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/122781961/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Georg_Wolfgang"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011886020X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/122781961"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/122781961"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd122781961.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/122781961"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/122781961"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/122781961"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Wolfgang, Johann G.",
+        "Wolffgang, Iohannes Georgius",
+        "Wolffgang, Johannes Georgius",
+        "Wolffgang, Johann G.",
+        "Wolffgang, Ioh. Georg",
+        "Wolffgang, J. G.",
+        "Wolffgang",
+        "Wolffgang, Johann Georg",
+        "Wolffgang, Johannes Georg"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg"
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes Georgius"
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Ioh. Georg"
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "personalName": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Wolfgang"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Georgius"
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Georg"
+          ],
+          "surname": [
+            "Wolffgang"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Georg_Wolfgang",
+          "label": "https://de.wikipedia.org/wiki/Johann_Georg_Wolfgang"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:24:42Z",
+    "gnd_query_biographical_data": "1662-1744",
+    "gnd_query_name": "wolfgang, johann georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3189,
+  "name": "Wolfgang, Johann Georg",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXVI, 222",
+  "updated": "2026-06-11 13:29:25.850Z",
+  "uri": "https://d-nb.info/gnd/122781961",
+  "editor": ""
+}

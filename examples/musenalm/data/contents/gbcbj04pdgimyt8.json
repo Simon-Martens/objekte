@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 31948-31951, Obj 19-22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / 1. Phantasien / 2. Die Reise nach den Alpen. Romanze / 3. An die künftige Geliebte / 4. An Floret",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / 1. Phantasien / 2. Die Reise nach den Alpen. Romanze / 3. An die künftige Geliebte / 4. An Floret",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.565Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "b1k8n5in9xw0xh7"
+    }
+  ]
+}

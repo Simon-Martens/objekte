@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. L. D. Sauerländer. Druck v. W. Maas] s. Textbezug INr 44171, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SPIELENDE KINDER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Johann Kirner Gest. v. S. Lichtenstein",
+  "scans": [
+    "alm_600_44172_1lob7q4drh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SPIELENDE KINDER",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.395Z",
+      "agent": "qssdvqvzlg5yben",
+      "source_id": "2h5g4b78qq1qn07"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18; Sammlung von drei Fabeln INr 3115-3117, Obj 82-84",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Prosaische Fabeln. / Wer Anwendungen macht, mag sie / auch verantworten. / S. Fabeln des Don Tomas de Yriarte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drey Prosaische Fabeln. / Wer Anwendungen macht, mag sie / auch verantworten. / S. Fabeln des Don Tomas de Yriarte",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "yncedgwcn6qd8ci"
+    }
+  ]
+}

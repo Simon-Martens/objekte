@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Tändeleien (Sammlung INr 29202, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Könnt' ich deine Gunst gewinnen, / Dürft' ich Dir doch etwas seyn!",
+  "language": [],
+  "musenalm_id": 29208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rose und Veilchen. / An ....",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rose und Veilchen. / An ....",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.642Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "wirq2gxj4rf4vdy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Wiedersehen, Wiedersehen! / Welche Wollust, welch Entzücken,",
+  "language": [],
+  "musenalm_id": 86582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Wiedersehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cajetan Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Wiedersehen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.283Z",
+      "agent": "ett5544anganpff",
+      "source_id": "yyntechzg6n4abz"
+    }
+  ]
+}

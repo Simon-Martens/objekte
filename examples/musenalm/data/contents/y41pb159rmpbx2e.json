@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 82116,01-82116,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82116,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3070_82116_01_gfsiyiy7bv.jpg",
+    "alm_3070_82116_02_x95a278w4a.jpg",
+    "alm_3070_82116_03_svr1o113m0.jpg",
+    "alm_3070_82116_04_ufgmjge95v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": []
+}

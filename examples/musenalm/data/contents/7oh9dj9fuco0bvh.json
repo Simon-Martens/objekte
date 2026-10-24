@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 15062, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15016,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAVID",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dominichino p. Fr. John sc.",
+  "scans": [
+    "alm_234_15016_w7gjq27c0j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAVID",
+  "updated": "2001-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.732Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "4jhcffg7mokn9d7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.732Z",
+      "agent": "ke8b3zzq6e79hhk",
+      "source_id": "x502ifrii1k8xkl"
+    }
+  ]
+}

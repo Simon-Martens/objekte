@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Kirchhof-Rose« von Wilhelmine Müller, geb. Maisch INr 35202, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kirchhof-Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [
+    "alm_485_35201_wkrpfhqaoe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kirchhof-Rose",
+  "updated": "2003-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.935Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "0ixtfv4ivzch9ck"
+    }
+  ]
+}

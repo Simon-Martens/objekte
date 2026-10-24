@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 72868, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gemalt v. Francesco Francia Gest. v. Ant. Karcher)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Francesco Francia Gest. v. Ant. Karcher",
+  "scans": [
+    "alm_2692_72863_6hoomqh5ue.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.744Z",
+      "agent": "b334ivfypj3aic9",
+      "source_id": "9n62amg2b2dtabg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.744Z",
+      "agent": "f00ijq81y03ss7i",
+      "source_id": "s8695r383vzrubj"
+    }
+  ]
+}

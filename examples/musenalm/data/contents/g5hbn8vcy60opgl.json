@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24987, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Die Kinder, die sich jüngst gefreut / Aufs Land als wie die Kinder,",
+  "language": [],
+  "musenalm_id": 25004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Kindersinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Kindersinn",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.066Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "ji46h19ty5b5yhs"
+    }
+  ]
+}

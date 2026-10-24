@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Februar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135561,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JOHANN / Erzherzog von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Lieder del. Stahlstich von Carl Mayer Nbg",
+  "scans": [
+    "alm_2088_135561_z4s7j5285d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JOHANN / Erzherzog von Oesterreich",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.152Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "2739a8kz94ui4bz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.152Z",
+      "agent": "wbp6io5or3q3o0o",
+      "source_id": "cfyo87njf5bv02r"
+    }
+  ]
+}

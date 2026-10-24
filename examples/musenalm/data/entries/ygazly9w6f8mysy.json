@@ -1,0 +1,67 @@
+{
+  "annotation": "# K 30 nennt nur Jg 1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch für Winterabende, Das 1846",
+    "norm": "",
+    "biblio": 405528,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1653,
+  "parallel_title": "",
+  "place_statement": "Hannover (Kius)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Buch für Winterabende, Das 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30 #; nicht bei L/R",
+  "responsibility_statement": "M. Honek",
+  "subtitle_statement": "",
+  "title_statement": "Das / Buch für Winterabende. / Volkskalender / für / 1846 / Fünfter Jahrgang. / Von M. Honek. / Mit Beiträgen von K. l. Andree, A. Bock, K. Buchner, K. Karmasch, / Günter Nicol, H. B. Oppenheim, A. Oppermann und L. Wihl. / Mit den Bildnissen von Schlözer, Sander, und Braun und einer / Übersicht der deutschen Eisenbahnen nach den besten Quellen. / Hannover. / Verlag von C. F. Kius",
+  "updated": "2026-06-11 10:18:55.552Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "xd54yevc23kzhuh"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "pv5ihd9yunnycqy",
+      "source_id": "qg7yuzz9mmmkxc8"
+    }
+  ]
+}

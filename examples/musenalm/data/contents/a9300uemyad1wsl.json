@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 80445, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Sobald der Tag am Horizont erglommen, / Und aufgeweckt des Haines Morgenlieder,",
+  "language": [],
+  "musenalm_id": 80447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Fleckles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Abend",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.916Z",
+      "agent": "xy1xe258ffgo9ok",
+      "source_id": "y1vr3dejdm4cfql"
+    }
+  ]
+}

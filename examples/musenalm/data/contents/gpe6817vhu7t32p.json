@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Muiskbeigabe s. INr 35619, Obj 138",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Die Liebe ist ein falsches Kind, / Spricht meine Mutter immer,",
+  "language": [],
+  "musenalm_id": 35618,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied nach dem Französischen. / Mit Musik. L'amour est un enfant trompeur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied nach dem Französischen. / Mit Musik. L'amour est un enfant trompeur",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.596Z",
+      "agent": "x9exqq2c4bm6xsq",
+      "source_id": "0gtl3epr6isn5zq"
+    }
+  ]
+}

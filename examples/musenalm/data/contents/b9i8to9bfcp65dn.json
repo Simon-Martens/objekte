@@ -1,0 +1,45 @@
+{
+  "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Dritter Jahrgang 1793 (Sammlung INr 18652, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Nach dem zweiten Feldzug des verhängnißvollen Krieges, der nicht, wie die andern, Städte und Länder",
+  "language": [],
+  "musenalm_id": 18652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Abschnitt. / Von dem Anfange des Jahrs bis zur / Eröffnung des Feldzugs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ernst Ludwig Posselt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Abschnitt. / Von dem Anfange des Jahrs bis zur / Eröffnung des Feldzugs",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.477Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "kaxay9a0myrvjd8"
+    }
+  ]
+}

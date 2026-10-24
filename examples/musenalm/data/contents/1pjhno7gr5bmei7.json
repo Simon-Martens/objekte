@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Das verhängnisvolle Bild« von J. G. Seidl; INr 80612, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80570,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adele. / Zur Novelle von J. G. Seidl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dubufe del. C. Kotterba sc.",
+  "scans": [
+    "alm_1796_80570_8zn45u1r4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Adele. / Zur Novelle von J. G. Seidl",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.908Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "m0wayfi1oclq13q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.908Z",
+      "agent": "wj47pwtq98busru",
+      "source_id": "pntciols3yqan5p"
+    }
+  ]
+}

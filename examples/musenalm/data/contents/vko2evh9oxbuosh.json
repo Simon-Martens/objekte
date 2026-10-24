@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Blume« von Karl Müchler /) Photos 76139,01; 75139,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Freundlich war der Lenz gekommen; unter Sonnenschein und Thau war ein Blümchen aufgegangen,",
+  "language": [],
+  "musenalm_id": 76139,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Seidel",
+  "scans": [
+    "alm_3281_76139_01_umz4jkaf56.jpg",
+    "alm_3281_76139_02_lj1cy81q6e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Blume",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.856Z",
+      "agent": "omjs8nz0glooz8h",
+      "source_id": "rf6jded297a0qcs"
+    }
+  ]
+}

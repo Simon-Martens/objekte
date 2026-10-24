@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Der Gatte Cythereens / Nahm Stal, in Lemnos Esse, / Und schmiedet' Amors Pfeile.",
+  "language": [],
+  "musenalm_id": 2334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amors Pfeile. / Anakreons fünf und vierzigste Ode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amors Pfeile. / Anakreons fünf und vierzigste Ode",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.093Z",
+      "agent": "gtq8zou6jpsfpy4",
+      "source_id": "sexpk33sa02a38k"
+    }
+  ]
+}

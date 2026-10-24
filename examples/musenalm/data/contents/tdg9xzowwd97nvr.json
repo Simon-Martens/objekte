@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Illustrationen s. INr 16629-16632, Obj 13-16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Keine gewöhnlichere Erscheinung im gemeinen Leben wie in der Geschichte als der Wechsel des Glückes;",
+  "language": [],
+  "musenalm_id": 16628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Athenais",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Rotteck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Athenais",
+  "updated": "2001-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.716Z",
+      "agent": "x7zrd53b03vqn3u",
+      "source_id": "icno6yw91pys3x4"
+    }
+  ]
+}

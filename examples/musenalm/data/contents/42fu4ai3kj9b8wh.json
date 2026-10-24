@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung fehlt an 4 Grafiken der Suite /) Graphik im Kalendarium paginiert 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7389,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach ständ ich da wo nur dein Schäfer lauschte / Der dumkopf, den der Anblick wie berauschte, / Dann würd ich dir dein Schäfgen bald befrein / Und würdest du zum Lohn wohl grausam seyn?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_148_7389_d2ote7ion2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach ständ ich da wo nur dein Schäfer lauschte / Der dumkopf, den der Anblick wie berauschte, / Dann würd ich dir dein Schäfgen bald befrein / Und würdest du zum Lohn wohl grausam seyn?",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.407Z",
+      "agent": "83bgj21cr6rcy33",
+      "source_id": "1ex7huoebvjqx5o"
+    }
+  ]
+}

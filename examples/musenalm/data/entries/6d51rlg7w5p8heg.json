@@ -1,0 +1,81 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, 5 GG, S I-Verz, SS 1-370",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1845",
+    "norm": "~",
+    "biblio": 106740,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2487,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1845. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.470Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "sbhl51m2854bm6r"
+  ],
+  "contents": [
+    "4y26zt5qrielekn",
+    "25wbxnsv70ix2o9",
+    "btv2n358v70iil8",
+    "aa87qjm7s0vahny",
+    "8uttmikhiuyuefd",
+    "ygwoi1a5lqksvon",
+    "4y4ds4843527pn2",
+    "uea3szue7j2kfy8",
+    "01q0f6q5qnuz608",
+    "hpbo2l9frwbgrrv",
+    "9ry4me8wyw1hjaw",
+    "4lsafc8dzk0hdnv",
+    "fsj6eeq2kwyasun"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.093Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.093Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "u0mvpdemai1bm45"
+    }
+  ]
+}

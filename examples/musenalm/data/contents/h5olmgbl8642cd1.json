@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium September; nummeriert IX. /) s. Textbezug INr 108702, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108689,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orleans wird von der berühmten Jeanne / d'Arc entsetzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Schweyer sc. Ffurt.",
+  "scans": [
+    "alm_2177_108689_izoq826wq6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Orleans wird von der berühmten Jeanne / d'Arc entsetzt",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.336Z",
+      "agent": "34mbwja0g419wmu",
+      "source_id": "69ig9t5vduscrgz"
+    }
+  ]
+}

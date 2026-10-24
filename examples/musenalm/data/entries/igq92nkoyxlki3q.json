@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 21 SS Kal darin 12 GG, S VrlgM, SS 1-126, 3 BB G-Verz, S C, S VrlgM, 72 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1801",
+    "norm": "~",
+    "biblio": 105902,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2184,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1801. / Mit 13 Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.895Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "fhj15v7ifrbfxxy"
+  ],
+  "contents": [
+    "5z2c3wht0df0g7a",
+    "o00j2fkdtmcucja",
+    "ra0aqdj0v94og08",
+    "1yjjfr25l8e1mec",
+    "4ed62uemz734y02",
+    "9bwzxvp74p855gc",
+    "i41t3zi5v7maqxe",
+    "xitwxfioj7uvzg5",
+    "xjfw6nu1opkffzc",
+    "3e508bfx4cs88ne",
+    "85ib2afznz89gfo",
+    "o2zo1adbi00es8k",
+    "i84zyfp9qe071i8",
+    "by8he2zf1o2yu31",
+    "8iso0iixfdoloy6",
+    "dz7y0tbqrwc7jvn",
+    "7p9jhknnnomf6qn",
+    "xuxvyngsz896qfr",
+    "yiaown4tleaixc7",
+    "lw3dt0c8yy7mzih",
+    "tf70ejun7esjnd6",
+    "894l6k80w8lv4nn",
+    "qklk3stg318lk3a",
+    "nza0xszg243xg5a",
+    "xnkrevldamr9vj9",
+    "a2ktsze6am8wa6e",
+    "tmofd1h55cez6n4",
+    "6kode3ovl10o1fn",
+    "jb39eacdpurvrux",
+    "zmn65ie6beyws7f",
+    "zj38jca4xvoeq8l",
+    "76vrj9hbfo2n09n",
+    "phs101a6474rg54",
+    "643qzbq4aqqpbgt",
+    "64rbzqpe1nxg4h3",
+    "dd0gfv0wtzner7g",
+    "1ry4yxpg9h1qixi",
+    "9nohbjihzstdzyz",
+    "axok23d2r2oom0p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "x43917vpmiu3ait"
+    }
+  ]
+}

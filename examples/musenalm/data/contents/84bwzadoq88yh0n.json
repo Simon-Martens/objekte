@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. u. Titel aus dem G-Verz s. Textbezug 33601, Obj 16; /) Illustration zu »Wilhelm Meisters Wanderjahre. Erstes Buch« von Goethe. Taschenbuch für Damen 1810 INr 33527",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Joseph #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gubitz",
+  "scans": [
+    "alm_466_33629_99h2ekuhp7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sanct Joseph #",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.724Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "tgpc6q55vv3ahqx"
+    }
+  ]
+}

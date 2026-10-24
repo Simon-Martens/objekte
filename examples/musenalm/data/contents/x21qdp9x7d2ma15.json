@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder. Liebesfrühling (Sammlung INr 1718, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Liebster, deine Worte stehlen / Aus dem Busen mir das Herz.",
+  "language": [],
+  "musenalm_id": 37238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXXI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXXI.",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.484Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "pm9ddv915ekx618"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# /) Sammlung von 5 Gedichten INr 81353-81357, Obj 25-29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lyrisches und Episches",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser der »Parallelen«",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lyrisches und Episches",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.933Z",
+      "agent": "wm9mmfgzc6wy00i",
+      "source_id": "3v5deqf3ox0y152"
+    }
+  ]
+}

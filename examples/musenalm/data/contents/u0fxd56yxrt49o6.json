@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122832 Obj 175",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Was ist der Traum? Wer mir dies klar beschriebe! / Vielleicht der Seele feuriger Bastard, / Dem mehr als Kindern legitimer Liebe / An kecker Fantasie zu eigen ward. –",
+  "language": [],
+  "musenalm_id": 122833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Ritter von Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.775Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "bhsv2rsrcu0qg8h"
+    }
+  ]
+}

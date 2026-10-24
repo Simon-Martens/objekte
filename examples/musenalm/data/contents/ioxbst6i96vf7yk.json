@@ -1,0 +1,45 @@
+{
+  "annotation": "Walgerß und Hildegunde (Sammlung INr 26347, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Mein Fährmann Du vom Rheine, / Auf, löse Deinen Kahn;",
+  "language": [],
+  "musenalm_id": 26355,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Paß am Rhein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Paß am Rhein",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.357Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "f18imcocfmgukvr"
+    }
+  ]
+}

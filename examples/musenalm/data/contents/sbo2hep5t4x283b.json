@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 85791, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Die ungeheure Löwinn fällte / Der Pfeil nicht, sondern der ihn schnellte.",
+  "language": [],
+  "musenalm_id": 85801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die getödtete Löwinn. / (Nach Ausonius.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die getödtete Löwinn. / (Nach Ausonius.)",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.159Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "q8qc560myyfqgy5"
+    }
+  ]
+}

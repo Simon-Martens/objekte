@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, ar: SS 3-24, ar1: SS 3-111, ar2: SS 3-48, ar3: SS 3-80, ar4: SS 3-85",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach (Berlin) 1800",
+    "norm": "~",
+    "biblio": 200641,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2633,
+  "parallel_title": "",
+  "place_statement": "Berlin (beim Verfasser)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Spiel-Almanach (Berlin) 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K 103; nicht bei L/R 196",
+  "responsibility_statement": "Julius Cäsar",
+  "subtitle_statement": "",
+  "title_statement": "Neuester / Spielalmanach / für / das Jahr 1800. / Oder / gründliche Anweisung / zur / leichten Erlernung / aller bekannten / Karten- Brett- Kegel- und Ballspiele, / herausgegeben / von / Julius Cäsar. / Berlin, beim Verfasser. / (Preis gebunden 1 Thaler 8 Groschen.)",
+  "updated": "2026-06-11 10:18:55.419Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "d6suw22mhdtwwyo"
+  ],
+  "contents": [
+    "ob7kb73d8boi831",
+    "q0nbso4handvjia",
+    "yylhjdr645ksiny",
+    "gthtop52a8k89ch",
+    "sm45kzj12incpcq",
+    "776ry9f2ttgehri",
+    "b89t6fkmt0z2q0p",
+    "zsz0rh6dfvcbr1d",
+    "k5575pcxh2vkpap",
+    "wxncym3787h6cpy",
+    "evvmv1bi8svvs9t",
+    "ha57520vgzr2y04",
+    "9okhct953amdq7f",
+    "1zkg5qkfxpkx3ho",
+    "r8ip3s2epwqnklw",
+    "s0adxmao1jqfliy",
+    "6cs5jp0ckvfkrm1",
+    "w77g1yi61zqkjce",
+    "v3coxtphnsfiv2w",
+    "14h7c99z2k9lk4o",
+    "8mzl64k18ojdwa2",
+    "i49mboee80nhzp5",
+    "kxi1n3xomjxli43",
+    "on77te8dhvenu15",
+    "vk1ex8p5w01bpji",
+    "wn2j7iusgyixise",
+    "87mtyus7detagva",
+    "7v6nv65at7bhyna",
+    "a5t0wrj1lmk3jt4",
+    "26xavfqbjo5skci",
+    "nhkk4923cbzrpa0",
+    "1i7004yguc0tmfr"
+  ],
+  "agents": []
+}

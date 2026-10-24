@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Fliehet die finstern, erkalteten Weisen! / Wie sie sich brüsten in blendendem Dunst,",
+  "language": [],
+  "musenalm_id": 93138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Flucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Flucht",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.268Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "f7sc8yef78tra10"
+    }
+  ]
+}

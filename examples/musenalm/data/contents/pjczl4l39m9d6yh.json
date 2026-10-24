@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Der wilde Jäger« von Andr. Schumacher INr 113100, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113042,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHOEN KLAERCHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schweminger del.",
+  "scans": [
+    "alm_1780_113042_k447vof90t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHOEN KLAERCHEN",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.457Z",
+      "agent": "wmfzv5hfo7csflp",
+      "source_id": "anfki1xa71935s8"
+    }
+  ]
+}

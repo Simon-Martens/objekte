@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22491,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tempelherrenhof zu Bacharach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Quaglio del. E. Aubert sc.",
+  "scans": [
+    "alm_301_22491_m4x2edq2dg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tempelherrenhof zu Bacharach",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.942Z",
+      "agent": "84udokklcf53ize",
+      "source_id": "5pg5p720lmc8z0u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.942Z",
+      "agent": "ya6nbtop6m03yer",
+      "source_id": "u3t72iekbfxtqoi"
+    }
+  ]
+}

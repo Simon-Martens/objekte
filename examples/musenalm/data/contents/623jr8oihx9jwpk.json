@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Wie der Satan da bellt! Hör, Wächter, ich / sag' es noch Einmal:",
+  "language": [],
+  "musenalm_id": 5336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Riesenhügel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Riesenhügel",
+  "updated": "2000-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.951Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "g8h4l36cl78yq8c"
+    }
+  ]
+}

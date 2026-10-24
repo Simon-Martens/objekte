@@ -1,0 +1,67 @@
+{
+  "annotation": "Erscheinungsverlauf unklar /) 1836 Koblenz (Hölscher) Hrsgg.: I. Hub, F. Freiligrath, A. Schnezler; 1840: Düsseldorf (Wolf) (Schreiner); Hrsgg.: J. Hub, A. Schnezle /) KVK StaBI Berlin: 1.1836 - 3.1840; 1841 - 1843[?]",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Odeon, Rheinisches 1836",
+    "norm": "",
+    "biblio": 200160,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2362,
+  "parallel_title": "",
+  "place_statement": "Koblenz (Hölscher)",
+  "places": [
+    "hr0oz7y4cumch5b"
+  ],
+  "preferred_title": "Odeon, Rheinisches 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "I. Hub, F. Freiligrath und A. Schnezler",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Odeon. / Herausgegeben / von / I. Hub, F. Freiligrath und A. Schnezler. / Erster Jahrgang./ Coblenz, 1836. / In Commission bei J. Hölscher",
+  "updated": "2026-06-11 10:18:55.333Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "awji2c1w4mlokuw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.044Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.044Z",
+      "agent": "ryftsh0ap8kse89",
+      "source_id": "ohwdouoydc7tmh1"
+    }
+  ]
+}

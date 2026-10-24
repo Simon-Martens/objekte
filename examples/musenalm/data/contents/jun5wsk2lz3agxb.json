@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Prosaische Fabeln. Erste Lieferung (Sammlung INr 72846, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Wie innig und zärtlich sich der Epheu an mir hinanschmiegt! - wie fest und treu seine Umarmungen sind!",
+  "language": [],
+  "musenalm_id": 72851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.435Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "4ed5at3dcxwlb70"
+    }
+  ]
+}

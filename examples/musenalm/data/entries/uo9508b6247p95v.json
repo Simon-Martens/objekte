@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Dichtergarten für Frauen 1835",
+    "norm": "",
+    "biblio": 411237,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-03-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4808,
+  "parallel_title": "",
+  "place_statement": "Frankurt 1835",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Dichtergarten für Frauen 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 42; nicht bei L/R",
+  "responsibility_statement": "Ch. Döring",
+  "subtitle_statement": "",
+  "title_statement": "Dichtergarten / für / Frauen. / Frankfurt a/M. / Siegmmund Schmerber",
+  "updated": "2026-06-11 10:18:55.608Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "z0bmzs14ye60vpv"
+  ],
+  "contents": [],
+  "agents": []
+}

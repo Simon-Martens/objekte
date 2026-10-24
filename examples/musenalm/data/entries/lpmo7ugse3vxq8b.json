@@ -1,0 +1,116 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 7 BB Kal, SS 1-198",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Bienenliebhaber 1807",
+    "norm": "~",
+    "biblio": 106807,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2736,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für Bienenliebhaber 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Bienenliebhaber / auf das Gemein-Jahr 1807. / Berlin / Bei Johann Friedrich Unger. / 1807",
+  "updated": "2026-06-11 10:18:55.822Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "wfypj9ldfl9kdek"
+  ],
+  "contents": [
+    "zcf9mpek89yu9n9",
+    "y5jpu2zqotyd9e5",
+    "ethexbdixixfsb9",
+    "xahdhjgbs7g9lrh",
+    "ygq2zthcnxn62tl",
+    "xuxs3jggw4elngr",
+    "zk7sv0xzjfd5xpe",
+    "xdot7ux61k8uxlh",
+    "r9u9eoc0zun52uc",
+    "d8a4d2ac2iwv9a6",
+    "ewxjrbiv5avzyj8",
+    "b88lnfujdi0oqgu",
+    "bvlc4ft5taculob",
+    "a8j3buyghcx1cqq",
+    "evbav6c0p84gsgc",
+    "k7bxjigu3976o2k",
+    "6evto9eflo91vog",
+    "9o8s22zatiy8jka",
+    "1unq9e49h5kxoeh",
+    "fcthqixqaova0ca",
+    "setub45w6r4fbve",
+    "94lxi3hhq8omvfh",
+    "5l30nukqk4fq7io",
+    "kywoi8qwan5ptyp",
+    "88cfhvet0wmi4mg",
+    "nyb9lqsjo0ia3ux",
+    "gnvit1pbrvcmym3",
+    "zipmsejbfp3jqqw",
+    "vf2pzzdjpa1yt6h",
+    "clrobuwt153jzyk",
+    "htxbett8dbf0d9b",
+    "miisx9ooixdmroq",
+    "n30fa9pp2e1hwb9",
+    "jmu4zdwcqcse8te",
+    "aybx9jbu7zedawm",
+    "9zrhdbqb18cbm05",
+    "g6f824d4kmbm2h9",
+    "4kqy3c6xwmzeun6",
+    "z91lfaczyg53ick",
+    "w0rj55fi2v9ai3f",
+    "m7vaft4ym3qe4u2",
+    "z3lutsys8ezkp0z",
+    "pfqs3yty653f69m",
+    "13ovcysc2apwddo",
+    "zprjsuoigvik5mk",
+    "n2rap5hnf7yqjl3",
+    "6g3r5n8zattwyk9",
+    "xttoouf62o9igxz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.170Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.170Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "n7teuf0inn91bb1"
+    }
+  ]
+}

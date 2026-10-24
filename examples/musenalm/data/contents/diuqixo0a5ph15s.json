@@ -1,0 +1,45 @@
+{
+  "annotation": "Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Ich saß bei jener Linde / Mit meinem trauten Kinde, / Wir saßen Hand in Hand.",
+  "language": [],
+  "musenalm_id": 49051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zufriedenen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Volker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zufriedenen",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.482Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "vkd4z1fhrxtz5o1"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Abend am Vierwaldstädter See« von L. Brachmann INr 29952, 29953; Obj 29, 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29954,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Der Abend am Vierwaldstädter See, / von L. Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_387_29954_8hfrg0rbii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Der Abend am Vierwaldstädter See, / von L. Brachmann",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.318Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "oqnnthqhmqwntdz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.318Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "quecn03o7s21p8a"
+    }
+  ]
+}

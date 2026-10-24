@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration (INr 125860, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Wohl kann man ernster nicht ein Trauerfest beginnen, / Als wir, die wir betrübt in tiefstem Schweigen sinnen, / Die wir Musik und Tanz [...] versäumen, / Um von vergang’ner Zeit geheimnisvoll zu träumen!",
+  "language": [],
+  "musenalm_id": 125859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bräutigam von Haiti. / Lustspiel in fünf Akten und in Alexandrinern / von / Dr. Frank",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bräutigam von Haiti. / Lustspiel in fünf Akten und in Alexandrinern / von / Dr. Frank",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.767Z",
+      "agent": "q3vezx66ehdwkf0",
+      "source_id": "lpuawud9zxcuzbb"
+    }
+  ]
+}

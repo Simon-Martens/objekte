@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, SS III-IV, SS V-VI I-Verz, SS 1-330 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Komus (Th. Hell) 1817",
+    "norm": "~",
+    "biblio": 100848,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2203,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hartknoch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Komus (Th. Hell) 1817",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 73; L/R 214; Goed VIII. 89, 172",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Komus. / Zweite Gabe. / Ein Taschenbuch / mit Beiträgen / von / L. Germar, Fr. Kind, Friedrich Kuhn, / A. F. E. Langbein, Fr. Laun, Gustav Schilling, / St. Schütze, K. Streckfuß und andern. / Herausgegeben / von / Theodor Hell. / Mit Kupfern nach Rambergischen Zeichnungen / von W. Böhm und Jury. / Leipzig 1817. / bei Johann Friedrich Hartknoch",
+  "updated": "2026-06-11 10:18:55.907Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "sn2iri9jkqpmhis"
+  ],
+  "contents": [
+    "4aq4uhag5qyj35e",
+    "fdu48dofglljame",
+    "0dyqsyazkk039ae",
+    "nf5w6x9hauibxh9",
+    "xs6tzwmghp9wzpr",
+    "fxronyj73cnzvll",
+    "0ahf0a3gpcpex0w",
+    "7nvk8hv2nfndmz7",
+    "g1oh49egpq9dff3",
+    "oxpstrguvq6171j",
+    "je3mxf93s2skyv3",
+    "qqj7rskaiwgfev6",
+    "3biguk3tgnz8t09",
+    "kmx6w2qis7jqu03",
+    "rf1xg4ayx1wbv68",
+    "y0hrulv9kcu18wh",
+    "sbqk30rox456tcm",
+    "oweozlcyky2l67i",
+    "gojq8ngubsdq61c",
+    "c6d94iwfcfpuex8",
+    "fp1kovbs5l79xgu",
+    "qvvbpq4xs2vn8fm",
+    "zrcy7g04zez36d2",
+    "rwwo5k2bzt2mub3",
+    "hh2v1xhhe07mlwf",
+    "rykbnfhppciuj0h",
+    "28an1qbeqvdusvm",
+    "aye54mhd8dvpgsa",
+    "pkmedg0xwyrhylp",
+    "b88o2fmjhnjxre0",
+    "ck0q3o0585gqbk6",
+    "5w6oyzae3uv6abn",
+    "fg7uq6ynaxp664t",
+    "ie7b9d19hlchjf8",
+    "4v8g4msgthn35et",
+    "7e0vjl8zev50be3",
+    "o5zg4c7qtj7hqcv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.962Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.962Z",
+      "agent": "nsgg4x5hr6bjp4c",
+      "source_id": "2vg6ah2v4l7okoj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.009Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.009Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "xswy7769b168ddi"
+    }
+  ]
+}

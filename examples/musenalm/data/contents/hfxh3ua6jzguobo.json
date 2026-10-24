@@ -1,0 +1,45 @@
+{
+  "annotation": "Lückenbüßer (Sammlung INr 62689, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Was eine künstliche Zuckertorte / Für unseren Gaumen ist als Gericht,",
+  "language": [],
+  "musenalm_id": 61694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.857Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "1sc5rb8uzxpby7v"
+    }
+  ]
+}

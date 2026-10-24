@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Kann es wohl ein lästigeres Geschäft geben, als das eines Advocaten? Gewiß nicht! Undank über Undank! Aerger über Aerger!",
+  "language": [],
+  "musenalm_id": 90874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Process um einen Kuss. / Dramatische Kleinigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Xav. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Process um einen Kuss. / Dramatische Kleinigkeit",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.291Z",
+      "agent": "tglq0d4pyb420do",
+      "source_id": "ox45x1x601bjjgu"
+    }
+  ]
+}

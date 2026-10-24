@@ -1,0 +1,382 @@
+{
+  "annotation": "",
+  "biographical_data": "1715-1771",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.364Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Philosoph",
+        "Philosoph, Frankreich",
+        "Franz. Philosoph"
+      ],
+      "dateOfBirth": [
+        "1715"
+      ],
+      "dateOfDeath": [
+        "1771"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Alix, Pierre Michel (Paris, en 1762 - Paris, 27–12–1817), graveur"
+          ],
+          "creditText": [
+            "https://www.parismuseescollections.paris.fr/fr/musee-carnavalet/oeuvres/portrait-de-claude-adrien-helvetius-collection-des-grands-hommes#infos-principales"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Claude%20Adrien%20Helvetius%2C%20Collection%20des%20Grands%20Hommes%2C%20G.4189%283%29.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Claude%20Adrien%20Helvetius%2C%20Collection%20des%20Grands%20Hommes%2C%20G.4189%283%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20de%20Claude%20Adrien%20Helvetius%2C%20Collection%20des%20Grands%20Hommes%2C%20G.4189%283%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T13:37:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118710257/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118710257",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118710257",
+      "oldAuthorityNumber": [
+        "(DE-588c)4096202-7",
+        "(DE-588a)118710257"
+      ],
+      "preferredName": "Helvétius, Claude Adrien",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Claude Adrien"
+        ],
+        "surname": [
+          "Helvétius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        }
+      ],
+      "publication": [
+        "Oeuvres complètes",
+        "De l'homme, de ses facultés intellectuelles et de son education .*",
+        "De l'Esprit",
+        "De l'homme",
+        "Werk von Menschen",
+        "Oeuvres",
+        "Oeuvres complètes. - 1777 - 1778",
+        "Le Bonnheur"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50081968"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100185545"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q190302"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118710257/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Claude_Adrien_Helv%C3%A9tius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Claude_Adrien_Helv%C3%A9tius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Claude_Adrien_Helv%C3%A9tius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109285688"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118710257"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118710257"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118710257"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118710257"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Helvétius, C. A.",
+        "Helvétius, Claude A.",
+        "Helvetius, Adrianus",
+        "Schweitzer, Claude A.",
+        "Helvétius, Jean Claude",
+        "Helvetius, Johann Claudius Hadrian",
+        "Helvétius",
+        "Helvetius, Adriaan Engelhart",
+        "Helvetius, Adrian",
+        "Helvetius, Johann C.",
+        "Helvétius, Claude-Adrien",
+        "Helvétius, Jean C.",
+        "Gel'vecij, Klod A.",
+        "Helvétius, Claude"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Claude-Adrien"
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "Claude A."
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "Adriaan Engelhart"
+          ],
+          "surname": [
+            "Helvetius"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian"
+          ],
+          "surname": [
+            "Helvetius"
+          ]
+        },
+        {
+          "forename": [
+            "Claude"
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Helvetius"
+          ]
+        },
+        {
+          "forename": [
+            "Claude A."
+          ],
+          "surname": [
+            "Schweitzer"
+          ]
+        },
+        {
+          "forename": [
+            "Klod A."
+          ],
+          "surname": [
+            "Gel'vecij"
+          ]
+        },
+        {
+          "forename": [
+            "Adrianus"
+          ],
+          "surname": [
+            "Helvetius"
+          ]
+        },
+        {
+          "forename": [
+            "Jean C."
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Claude"
+          ],
+          "surname": [
+            "Helvétius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Claudius Hadrian"
+          ],
+          "surname": [
+            "Helvetius"
+          ]
+        },
+        {
+          "personalName": [
+            "Helvétius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Claude_Adrien_Helv%C3%A9tius",
+          "label": "https://de.wikipedia.org/wiki/Claude_Adrien_Helv%C3%A9tius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:42:51Z",
+    "gnd_query_biographical_data": "1715-1771",
+    "gnd_query_name": "helvetius, claude adrien"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1135,
+  "name": "Helvetius, Claude Adrien",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 208",
+  "updated": "2026-06-11 13:29:22.875Z",
+  "uri": "https://d-nb.info/gnd/118710257",
+  "editor": ""
+}

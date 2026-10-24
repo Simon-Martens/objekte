@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No. 1. /) # vollst. Bezeichnung und Titel s. Textbezug INr 65243, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rolandssäule #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menken gez. Jöntzen gedr.",
+  "scans": [
+    "alm_1091_65230_4v829wkz1e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rolandssäule #",
+  "updated": "2009-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.258Z",
+      "agent": "h46qu65kp4gpmhg",
+      "source_id": "acbq321l4u9b7xw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.258Z",
+      "agent": "w5tebnwey2al0s8",
+      "source_id": "zwyrhs46pxl6lfi"
+    }
+  ]
+}

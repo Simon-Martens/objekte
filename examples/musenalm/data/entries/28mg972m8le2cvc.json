@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Allmanach von dreyhundert sechs und sechzig Tagen (Entner) 1796",
+    "norm": "",
+    "biblio": 409097,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-08-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4211,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Allmanach von dreyhundert sechs und sechzig Tagen (Entner) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Friedrich Franz Entner Edler von Entnersfeld",
+  "subtitle_statement": "",
+  "title_statement": "Allmanach / von / dreyhundert sechs und sechzig / Tagen / und eben so viele / Nächten. / Zu einer Auswahl / von lehrreichen, wahrhaften, vorzüglichen / Geschichten, Sprüchen und Reden. / Ein Stück für jeden Tag / und / ein Stück für jede Nacht. / Zusammen getragen / vom / Friedrich Franz Entner / Edlen von Entnersfeld, / [...] / Wien 1796. / Zu finden in der k.k. Taubstummen-Instituts / Buchdruckerey",
+  "updated": "2026-06-11 10:18:55.503Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "kt8dagc7l2mxf5z"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.447Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.447Z",
+      "agent": "r0fm6k89htjtxu3",
+      "source_id": "mj9xlunt00clk9c"
+    }
+  ]
+}

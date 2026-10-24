@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Rudolph von Erlach und der Graf von Nidau« von J.R. Wysz d.J. INr 52907, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. Volmar inv. F. Hegi sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Volmar inv. F. Hegi sc.",
+  "scans": [
+    "alm_726_52856_0es0wdtnhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "ct2g8xf0ghveq0x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "5rfe1xu4i476kzq",
+      "source_id": "pnbzmp2jxhhdt9p"
+    }
+  ]
+}

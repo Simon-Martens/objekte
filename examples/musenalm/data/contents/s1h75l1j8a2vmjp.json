@@ -1,0 +1,45 @@
+{
+  "annotation": "Grabschriften (Sammlung INr 90492, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Im Morgenland' war einst ein ries'ger Stein zu schauen, / Wo seine mächt'ge Fluth der heil'ge Ganges rollt;",
+  "language": [],
+  "musenalm_id": 90495,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Sesostris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal. (Laibach)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Sesostris",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.180Z",
+      "agent": "rxn9x0k5ac10jd7",
+      "source_id": "91jq8vddpjlsv8o"
+    }
+  ]
+}

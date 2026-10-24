@@ -1,0 +1,92 @@
+{
+  "annotation": "Thematische Schwerpunkte des Almanachs: Kanton Schaffhausen, Kanton Thurgau",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, SS 1-177 darin 10 GG, S 178 I-Verz, SS 178-180 G-Verz, SS 181-182 VrlgM, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1811",
+    "norm": "~",
+    "biblio": 200421,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-10-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 711,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1811. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.162Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "aw96gpespzkm8v0"
+  ],
+  "contents": [
+    "ii8t6w0a6sit06u",
+    "p8yt8o22huzcj9w",
+    "9xnn361r687mkuo",
+    "4fqvyjrl5t4zhxg",
+    "n7g56grdgdua8fk",
+    "50212o8861y97ju",
+    "509uyt1xalwafdt",
+    "q2g8qnkx0q73um6",
+    "flwk161aekptvw3",
+    "rtynqq37k9aukw9",
+    "wpjo2xgkipy2zog",
+    "uppd3wsaxwq8kjt",
+    "wyisq4f5fpkg8kp",
+    "2hi17fndvothmif",
+    "xe5483ubt5vikex",
+    "36nti30o1x5z6fu",
+    "tqjfa2nfgxd6su0",
+    "rhwjnnu6hmxtegb",
+    "pup30ac7sn13op2",
+    "7ehjh1xer191ypn",
+    "vymok1waechbnps",
+    "o5qrzv0d9c7m06c",
+    "c9lntbtd85veo5m",
+    "5rd6zlhq93jb4x6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "ire2etqob31r7m0"
+    }
+  ]
+}

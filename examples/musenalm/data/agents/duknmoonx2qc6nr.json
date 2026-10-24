@@ -1,0 +1,460 @@
+{
+  "annotation": "",
+  "biographical_data": "1739-1799",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. jur. utr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Jurist, Historiker, Staatsmann, politischer und philosophischer Schriftsteller der Aufklärung und Übersetzer; 1762-1766 Advokat in Frankfurt am Main, 1766-1769 Herzoglich-Württembergischer Geheimsekretär und Erzieher bei Herzog Friedrich Eugen von Württemberg, 1773 Markgräflich-Badischer Oberamtmann zunächst in Karlsruhe, 1774-1787 in Emmendingen, 1787 Geheimer Hofrat, 1790-1794 Hofgerichts-Direktor in Karlsruhe, 1798 Syndikus und Konsulent in Frankfurt am Main; Schwager Johann Wolfgang von Goethes"
+      ],
+      "dateOfBirth": [
+        "1739-12-09"
+      ],
+      "dateOfDeath": [
+        "1799-10-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Prestel nach Ph.J.Becker."
+          ],
+          "creditText": [
+            "Hans Wahl und Anton Kippenberg(Hrsg.): Goethe und seine Welt, S.38, Insel-Verlag, Leipzig, 1932"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/JohannGeorgSchlosser.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/JohannGeorgSchlosser.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:JohannGeorgSchlosser.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160480612",
+        "https://d-nb.info/gnd/170187535"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-25T18:16:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118795163/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/143474014",
+          "label": "Schlosser, Erasmus Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118695940",
+          "label": "Goethe, Johann Caspar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11871791X",
+          "label": "Goethe, Cornelia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118786113",
+          "label": "Nicolovius, Georg Heinrich Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117330086",
+          "label": "Schlosser, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116381256",
+          "label": "Fahlmer, Johanna Katharina Sibylla"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118608371",
+          "label": "Schlosser, Lulu"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118795163",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/143474014",
+          "label": "Schlosser, Erasmus Carl"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118795163",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/1237430089",
+          "label": "Schlosser, Familie"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)170187535",
+        "(DE-588)160480612",
+        "(DE-588a)118795163",
+        "(DE-588c)4112303-7",
+        "(DE-588a)160480612",
+        "(DE-588a)170187535"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4014586-4",
+          "label": "Emmendingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "preferredName": "Schlosser, Johann Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Georg"
+        ],
+        "surname": [
+          "Schlosser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "publication": [
+        "Kleine Schriften",
+        "Rede auf Isaac Iselin",
+        "Über Shaftsbury von der Tugend",
+        "Über die Duldung der Deisten",
+        "Vorschlag und Versuch einer Verbesserung des deutschen bürgerlichen Rechts ohne Abschaffung des römischen Gesetzbuchs",
+        "Katechismus der Sittenlehre für das Landvolk",
+        "Plan und Fragmente einer Weltgeschichte fürs Frauenzimmer",
+        "Briefe über die Gesetzgebung überhaupt, und den Entwurf des preussischen Gesezbuchs insbesondere",
+        "Xenocrates, oder über Abgaben",
+        "Anti-Pope oder Versuch über den natürlichen Menschen",
+        "Das Gastmahl"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb129278260"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85301331"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73982628"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1387102"
+        },
+        {
+          "collection": {
+            "abbr": "AAA",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://aaa.gf-franken.de",
+            "name": "Album Academicum Altorphinum (AAA)",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://aaa.gf-franken.de/de/recherche.html?permaLink=13300"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118795163/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160480612"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/170187535"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Georg_Schlosser"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Georg_Schlosser"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118795163"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121395978"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118795163"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118795163"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118795163.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118795163.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118795163"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118795163"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118795163"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schlosser, J. G.",
+        "Schlosser",
+        "Schlosser, Johann G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Schlosser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schlosser"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Schlosser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schlosser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Georg_Schlosser",
+          "label": "https://de.wikipedia.org/wiki/Johann_Georg_Schlosser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:49:24Z",
+    "gnd_query_biographical_data": "1739-1799",
+    "gnd_query_name": "schlosser, johann georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2475,
+  "name": "Schlosser, Johann Georg",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 513",
+  "updated": "2026-06-11 13:29:24.683Z",
+  "uri": "https://d-nb.info/gnd/118795163",
+  "editor": ""
+}

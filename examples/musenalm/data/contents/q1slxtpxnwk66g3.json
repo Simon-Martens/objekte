@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Octavian« von L. Tieck # Titel s. Textbezug INr 65378, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65374,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Felicitas vor Octavian knieend #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Petzl. del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_1099_65374_j2p2gsp6tg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Felicitas vor Octavian knieend #",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "6if7epu8ycln8ll"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "zkrhktpab2zd8ar",
+      "source_id": "77pvrara9z0yu6j"
+    }
+  ]
+}

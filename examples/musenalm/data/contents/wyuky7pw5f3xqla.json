@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Meister Heimel, der alte, steinreiche Sonderling, fühlte, daß sein Stündlein komme, und verschrieb deshalb einen blutarmen, bisher gänzlich verläugneten Vetter,",
+  "language": [],
+  "musenalm_id": 40301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Der Oheim in der Schachtel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Der Oheim in der Schachtel",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.247Z",
+      "agent": "tiijnij1nbeebby",
+      "source_id": "kmxqu2dqoz6n0w6"
+    }
+  ]
+}

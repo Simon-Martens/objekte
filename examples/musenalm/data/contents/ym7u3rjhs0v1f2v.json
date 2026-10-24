@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphiken INr 80717, 80718; Obj 10, 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Menschenbildner Prometheus! Menschenfreund! / Sinnender Gott! / Deine Bildungen stehen um dich her, noch unbelebt,",
+  "language": [],
+  "musenalm_id": 80716,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daphnis und Chloe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Daphnis und Chloe",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.785Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "rhp0mosmn09hxwm"
+    }
+  ]
+}

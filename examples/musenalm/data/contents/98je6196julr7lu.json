@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Oden und Hymnen (Sammlung INr 125193, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Wem tönt ihr goldenen Klänge des Saitenspiels? / Wem braus't ihr, Schattenwälder, des Helikons?",
+  "language": [],
+  "musenalm_id": 125197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Nelsons Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Passy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Nelsons Tod",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.874Z",
+      "agent": "zfsxv04o6tuknu7",
+      "source_id": "kltn8jd6gjl9oih"
+    }
+  ]
+}

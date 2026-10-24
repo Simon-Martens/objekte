@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Botanisches Neues 1809",
+    "norm": "",
+    "biblio": 409146,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-12-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4244,
+  "parallel_title": "",
+  "place_statement": "Nürnberg und Altdorf (Monath u. Kußler)",
+  "places": [
+    "uuqufknja4lsrw0",
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch, Botanisches Neues 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 134",
+  "responsibility_statement": "David Heinrich Hoppe",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Botanisches / Taschenbuch / für / die Anfänger dieser Wissenschaft / und / der Apothekerkunst / auf das Jahr 1809. / Herausgegeben / von / Dr. David Heinrich Hoppe, / Fürstlich-Primatischem Sanitätsrathe, Professor der Bo- / tanik am  Lyceum zu St. Paul und  Director des botanischen / Gartens zu Regensburg;  der Hallischen und Zürichischen / naturforschenden, der  Regensburgischen botanischen, der / Göttingischen  physikalischen, der Moskauischen medicinisch- / physikalischen, und der Jenaischen / mineralogischen / Gesellschaft Mitgliede. / Nürnberg und Altdorf / bei J. C. Monath und J. F. Kußler, / 1809",
+  "updated": "2026-06-11 10:18:54.563Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "e4x56c384685vru"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.107Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.107Z",
+      "agent": "pcntyo670wjn6v1",
+      "source_id": "jbj9fv0yof71qhs"
+    }
+  ]
+}

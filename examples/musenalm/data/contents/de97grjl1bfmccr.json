@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Wenn freundlich schön, als du begannst zu leben, / Dein holder Stern aus Rosenwölkchen drang,",
+  "language": [],
+  "musenalm_id": 112150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tugend und Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernestine v.Krosigk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tugend und Gesang",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.354Z",
+      "agent": "7l6lnr4uxnh3d2o",
+      "source_id": "s8gc6zwbzr693th"
+    }
+  ]
+}

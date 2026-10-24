@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "O Lieber! Sieh wie dein Geburtstag mich fand, / Mit Wunsch auf den Lippen - doch lediger Hand!",
+  "language": [],
+  "musenalm_id": 93263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am 30ten Geburtstage meines lieben Mannes / den 21 Jan. 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am 30ten Geburtstage meines lieben Mannes / den 21 Jan. 1783",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.255Z",
+      "agent": "e50fn3dat2tsaev",
+      "source_id": "qmniyudj1igwkop"
+    }
+  ]
+}

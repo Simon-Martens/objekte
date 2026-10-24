@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Seitdem Hogarth die Londoner Stadtmiliz durch seine Carrikaturen zum Gegenstande des Gespöttes machte, brauchte man nur den Namen von Bürgermiliz zu nennen, um Lachen zu erregen.",
+  "language": [],
+  "musenalm_id": 130473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bürgergarden, Miethtruppen, / stehende Heere, / univerversalhistorisch gesehen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heeren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bürgergarden, Miethtruppen, / stehende Heere, / univerversalhistorisch gesehen.",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.071Z",
+      "agent": "3xjka4czdksw7yb",
+      "source_id": "jme8r7bgi095qj8"
+    }
+  ]
+}

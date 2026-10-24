@@ -1,0 +1,200 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.402Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1781"
+      ],
+      "dateOfDeath": [
+        "1862"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-08T17:15:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-996",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-996"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/132145901/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "132145901",
+      "id": "https://d-nb.info/gnd/132145901",
+      "oldAuthorityNumber": [
+        "(DE-588a)132145901"
+      ],
+      "preferredName": "Kumpf, Johann Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "surname": [
+          "Kumpf"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Ermin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schubert, Franz: Mein Gruss an den Mai : D 305",
+        "Ueber die asiatische Cholera und über die Schutzmittel dagegen",
+        "Fellinger, Johann Georg: Poetische Schriften",
+        "Schubert, Franz: Der Mondabend : D 141"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/38070731"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1694122"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132145901/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Kumpf"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000022923157"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/132145901"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Kumpf_Johann-Gottfried_1781_1862.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Ermin",
+        "Kumpf, J. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Kumpf"
+          ]
+        },
+        {
+          "personalName": [
+            "Ermin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Kumpf",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Kumpf"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:01:39Z",
+    "gnd_query_biographical_data": "1781-1862",
+    "gnd_query_name": "kumpf, johann gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1513,
+  "name": "Kumpf, Johann Gottfried",
+  "profession": "Text",
+  "pseudonyms": "Ermin",
+  "refs": "E 194",
+  "updated": "2026-06-11 13:29:23.410Z",
+  "uri": "https://d-nb.info/gnd/132145901",
+  "editor": ""
+}

@@ -1,0 +1,375 @@
+{
+  "annotation": "",
+  "biographical_data": "1613-1675",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.307Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Niederländ. Genre- und Bildnismaler"
+      ],
+      "dateOfBirth": [
+        "1613-04-07"
+      ],
+      "dateOfDeath": [
+        "1675-02-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Pascal3012"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/G%C3%A9rard%20Dou.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0",
+              "name": "Creative Commons Attribution-Share Alike 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/G%C3%A9rard%20Dou.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:G%C3%A9rard%20Dou.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:43.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119183471/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "119183471",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119183471",
+      "oldAuthorityNumber": [
+        "(DE-588c)4353707-8",
+        "(DE-588a)119183471"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4074118-7",
+          "label": "Leiden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074118-7",
+          "label": "Leiden"
+        }
+      ],
+      "preferredName": "Dou, Gerard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gerard"
+        ],
+        "surname": [
+          "Dou"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Dou, Gerard: Die Meisterbilder. - 1910"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86817929"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96538660"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q335927"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119183471/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gerrit_Dou"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gerard_Dou"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gerrit_Dou"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108594649"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119183471"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119183471"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119183471.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119183471"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119183471"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Dov, Gerhard",
+        "Dow, Gerrit",
+        "Dou, Gerrit",
+        "Dow, Gerard",
+        "Dauw, George",
+        "Dov, Gerrit",
+        "Dou, Gerhard",
+        "Daw, G.",
+        "Douw, Gerard",
+        "Douw, Gerrit",
+        "Dow, Gerhard"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gerard"
+          ],
+          "surname": [
+            "Douw"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Dauw"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Dow"
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "Douw"
+          ]
+        },
+        {
+          "forename": [
+            "Gerard"
+          ],
+          "surname": [
+            "Dow"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Dou"
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "Dow"
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "Dov"
+          ]
+        },
+        {
+          "forename": [
+            "Gerrit"
+          ],
+          "surname": [
+            "Dou"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "surname": [
+            "Dov"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Daw"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gerard_Dou",
+          "label": "https://de.wikipedia.org/wiki/Gerard_Dou"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:15:06Z",
+    "gnd_query_biographical_data": "1613-1675",
+    "gnd_query_name": "dou, gerrit"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 573,
+  "name": "Dou, Gerrit",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B IX, 503",
+  "updated": "2026-06-11 13:29:22.096Z",
+  "uri": "https://d-nb.info/gnd/119183471",
+  "editor": ""
+}

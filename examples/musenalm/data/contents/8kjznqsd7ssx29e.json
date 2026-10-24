@@ -1,0 +1,45 @@
+{
+  "annotation": "Verwehte Stimmen (Sammlung INr 45616, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Jetzt komm' in den Frühlingsstral / Vom eisigen Gebirg gestiegen,",
+  "language": [],
+  "musenalm_id": 45630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.530Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "73j6lo15bcj4kwg"
+    }
+  ]
+}

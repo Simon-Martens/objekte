@@ -1,0 +1,45 @@
+{
+  "annotation": "aus: Taschenbuch für edle Weiber und Mädchen 1802, INr 23667",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Hoher, schöner Preis für Kampf und Leiden, / Theurer, schwer errung'ner Erstlings-Sohn!",
+  "language": [],
+  "musenalm_id": 47636,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie / am Grabe meines Erstgebornen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Müller geb. Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie / am Grabe meines Erstgebornen",
+  "updated": "2007-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.588Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "51yezp1ydrezk8l"
+    }
+  ]
+}

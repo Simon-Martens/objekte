@@ -1,0 +1,342 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.332Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftstellerin"
+      ],
+      "dateOfBirth": [
+        "1783-10-04"
+      ],
+      "dateOfDeath": [
+        "1850-08-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Rebecca%20Friedl%C3%A4nder.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Rebecca%20Friedl%C3%A4nder.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Rebecca%20Friedl%C3%A4nder.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-30T12:28:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118833707/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Salomo"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Cheile"
+          ],
+          "surname": [
+            "Eger"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Salomon"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/136985181",
+          "label": "Friedlaender, Moses"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118833707",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118833707",
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Rebecca"
+          ],
+          "surname": [
+            "Friedländer"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118833707",
+        "(DE-588c)4197941-2",
+        "(DE-588a)111838509"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4027718-5",
+          "label": "Bad Ischl"
+        }
+      ],
+      "preferredName": "Frohberg, Regina",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Regina"
+        ],
+        "surname": [
+          "Frohberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4051246-0",
+          "label": "Sängerin"
+        }
+      ],
+      "publication": [
+        "Stolz und Liebe",
+        "Verrath und Treue",
+        "Die Brautleute oder Schuld und Edelmuth",
+        "Louise oder Kindlicher Gehorsam u. Liebe im Streit",
+        "Marie oder die unglücklichen Folgen des ersten Fehltritts",
+        "Herbst-Blumen",
+        "Kleine Romane",
+        "Das Opfer",
+        "Gustav Sterning. Das Ungewitter",
+        "Darstellungen aus dem menschlichen Leben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr97039794"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71235973"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1297391"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118833707/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000009111808X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118833707"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118833707.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118833707"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Salomon, Regina",
+        "Saling, Regina",
+        "Saaling, Regina",
+        "Salomo, Regina",
+        "Friedländer, Regina",
+        "Friedländer, Rebecca"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Salomo"
+          ]
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Saaling"
+          ]
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Salomon"
+          ]
+        },
+        {
+          "forename": [
+            "Rebecca"
+          ],
+          "surname": [
+            "Friedländer"
+          ]
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Saling"
+          ]
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Friedländer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:26:15Z",
+    "gnd_query_biographical_data": "1783-?",
+    "gnd_query_name": "frohberg, regina"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 801,
+  "name": "Frohberg, Regina",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VIII,130",
+  "updated": "2026-06-11 13:29:22.400Z",
+  "uri": "https://d-nb.info/gnd/118833707",
+  "editor": ""
+}

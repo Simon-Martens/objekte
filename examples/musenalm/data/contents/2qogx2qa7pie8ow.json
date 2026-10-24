@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "So gehe dann und birg in deinem Silberzwinger / Den lilienweißen, kleinen, runden Finger,",
+  "language": [],
+  "musenalm_id": 27689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen silbernen Fingerhut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm v. Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen silbernen Fingerhut",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.209Z",
+      "agent": "li9wd1vvzigu4ia",
+      "source_id": "9nvcmcbb7t4hsbu"
+    }
+  ]
+}

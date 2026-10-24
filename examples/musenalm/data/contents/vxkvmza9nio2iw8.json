@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122167, Obj 242)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Brennende Liebe! / Du blühst so flammend in des Liebsten Garten, / Ach, daß dir ewig fern der Winter bliebe.",
+  "language": [],
+  "musenalm_id": 122169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 244,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Ritornelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Ritornelle",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.760Z",
+      "agent": "thvjtwgntimiqn7",
+      "source_id": "q67ar67p2tyxeby"
+    }
+  ]
+}

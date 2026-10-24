@@ -1,0 +1,45 @@
+{
+  "annotation": "ausfaltbare Titelgraphik /) Illustration zu: »Meine Villa. Phantasie« von Catel INr 74720, Obj 29 /) # Bez. und Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74693,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Wohnhaus #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Catel",
+  "scans": [
+    "alm_3117_74693_frglqj95fc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Wohnhaus #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.556Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "j1n42x28etwpv0d"
+    }
+  ]
+}

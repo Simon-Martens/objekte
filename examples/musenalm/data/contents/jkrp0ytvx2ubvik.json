@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 56533-56535, Obj 51-53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.776Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "2p4g0upq8fbpgyp"
+    }
+  ]
+}

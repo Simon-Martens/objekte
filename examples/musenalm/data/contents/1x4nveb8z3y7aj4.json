@@ -1,0 +1,56 @@
+{
+  "annotation": "Vorwort der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Aufgefordert durch den Herrn Verleger haben wir die Fortsetzung des Zimmermannschen Taschenbuchs der Reisen übernommen, das sich einen so ausgebreiteten Beifall in der deutschen Lesewelt erworben hat.",
+  "language": [],
+  "musenalm_id": 42274,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rühs. Lichtenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.099Z",
+      "agent": "wa9sa5vspt41k6t",
+      "source_id": "br10mr02kqnrcao"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.099Z",
+      "agent": "q5rzjlx40lnqx6r",
+      "source_id": "hn70o3xay3ily17"
+    }
+  ]
+}

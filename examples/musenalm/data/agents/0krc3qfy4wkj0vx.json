@@ -1,0 +1,306 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.491Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "letzte Erwähnung 1847",
+        "Bruder von Susemihl, Johann (Theodor), der ebenfalls Tierdarstellungen gezeichnet und gestochen hat"
+      ],
+      "dateOfBirth": [
+        "1767"
+      ],
+      "dateOfDeath": [
+        "1846-10-28"
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-23T17:23:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117678945/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johann Theodor"
+          ],
+          "surname": [
+            "Susemihl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1053507895",
+          "label": "Susemihl, Eduard"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117678945",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1053507895",
+          "label": "Susemihl, Eduard"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117678945",
+      "oldAuthorityNumber": [
+        "(DE-588a)117678945",
+        "(DE-588a)100563821"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/16330602-3",
+          "label": "Rainrod (Alsfeld)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "preferredName": "Susemihl, Johann Conrad",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Conrad"
+        ],
+        "surname": [
+          "Susemihl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Charte den Oesterreichischen Kreis nach seinen Haupt- und Unter-Abtheilungen vorstellend",
+        "Plan Von Weissenstein. - s.a. [ca. 1800]",
+        "Strom-Karte und Profile von dem Rhein in der Gegend des Siebengebirgs. - s.a. [zwischen 1796 u. 1816]",
+        "Abbildungen der Vögel Europa's. - 1839 - 1852",
+        "Teutsche Ornithologie. - 1800 - 1811"
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/1148118063",
+          "label": "C. Susemihl & Sohn"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/13090712"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6215743"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117678945/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Conrad_Susemihl"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Conrad_Susemihl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000013344516"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117678945"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117678945"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117678945"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/117678945"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Susemilh, Johann Conrad",
+        "Susemihl, C.",
+        "Susemihl, Conrad",
+        "Susemihl, J. C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Susemihl"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Conrad"
+          ],
+          "surname": [
+            "Susemilh"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad"
+          ],
+          "surname": [
+            "Susemihl"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Susemihl"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Conrad_Susemihl",
+          "label": "https://de.wikipedia.org/wiki/Johann_Conrad_Susemihl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:07:18Z",
+    "gnd_query_biographical_data": "1767-?",
+    "gnd_query_name": "susemihl, johann conrad"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2837,
+  "name": "Susemihl, Johann Conrad",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXII, 303",
+  "updated": "2026-06-11 13:29:25.328Z",
+  "uri": "https://d-nb.info/gnd/117678945",
+  "editor": ""
+}

@@ -1,0 +1,118 @@
+{
+  "annotation": "<div>Die Spielanleitungen sind in die Fortsetzung der Rahmenerzählung des Jg 1802 eingebettet. /) mit einer Fortsetzung bzw. erweiterten Neuherausgabe:&nbsp; Unterhaltungen und Spiele der Tannenberg. Ein Taschenbuch für die Jugend (Guts-Muths) 1809 Alm-675</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S 1 nT, SS 3-31 Kal darin 6 GG 12 SS, S 32 Vrwrt d Hrsg, SS 33-156, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach für die Jugend (Guts-Muths) 1803",
+    "norm": "~",
+    "biblio": 100622,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-04-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 674,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Spiel-Almanach für die Jugend (Guts-Muths) 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 161; ADB X, 224",
+  "responsibility_statement": "Guts-Muths",
+  "subtitle_statement": "",
+  "title_statement": "Spiel-Almanach / für / die Jugend / auf das Jahr / 1803. / Herausgegeben / von / Guts Muths. / FRANKFURTH  a. M. / bei Friedr. Wilmanns",
+  "updated": "2026-10-07 08:34:01.897Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "i7dyyipst05qklp",
+    "su91ux79ygsog44"
+  ],
+  "contents": [
+    "dbodwtut8gba2pr",
+    "mjg6pfepxu7gwm6",
+    "cff87cc8nr68dx3",
+    "a7nmzwb4046otcf",
+    "w2cnmz2mfycb5in",
+    "54tqy8mrw1hmtoy",
+    "ra1va8an8gqdjzt",
+    "arut0rn6209nppu",
+    "olkue54dgws9rwh",
+    "vqmb9ipbyz0lz20",
+    "4lpeilijlormz8q",
+    "7cdlfbhkyaiq9z2",
+    "p1tm02m864ahg7d",
+    "nudjurb4bds166k",
+    "5tdsqbgot3zdrqm",
+    "27cerorpijrz0dp",
+    "i7lqz8eja0rsop2",
+    "m65qc9ssao7h7zv",
+    "wzvflqxuj586yxs",
+    "dp7g8cwnpa23fa0",
+    "kuv3pga7bwjslcv",
+    "cl9yimswnc3v8g6",
+    "gieofmzqsxoo32l",
+    "8z8jn65gpmj4z0l",
+    "nv765pkinpbqu23",
+    "u0pm18xvon7nxdm",
+    "73juukfkq83d8fr",
+    "ntm0i2hw4f9mx7s",
+    "p75oophnmdu0w2l",
+    "q9xrxgwio5ge1h3",
+    "ovm69m9isqcnmyr",
+    "82h1r7fkzbx9ehw",
+    "laz5awogokoppck",
+    "ws3yerj6bd7k8zk",
+    "n4da8e1abw93iuh",
+    "7o99wqvai37g87g",
+    "2vs24i9m0n4fsmw",
+    "5a6o8nao10n4oj9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.738Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-10-07 08:34:01.904Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "94p6xoj9jbef93u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.187Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-10-07 08:34:01.905Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "m15w937hi3t8vnm"
+    }
+  ]
+}

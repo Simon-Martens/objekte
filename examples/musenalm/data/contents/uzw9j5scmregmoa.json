@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. /) Vertonung des Gedichts »Tinklied III.« von A. E. Fröhlich INr 54640, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54684,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Fröhlich",
+  "scans": [
+    "alm_743_54684_aedu91d7yx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.659Z",
+      "agent": "2zdwvvsdgu1m59h",
+      "source_id": "dj61gmvq47skl81"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "biographical_data": "?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.501Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "describedBy": {
+        "dateModified": "2019-11-24T18:00:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-17",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-17"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1126204463/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-17",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-17"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1126204463",
+      "id": "https://d-nb.info/gnd/1126204463",
+      "periodOfActivity": [
+        "ca. Ende 18. Jh."
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "preferredName": "Vernet, C.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "C."
+        ],
+        "surname": [
+          "Vernet"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4299716-1",
+          "label": "Miniaturist"
+        }
+      ],
+      "publication": [
+        "Immanuel Kant. - 1794"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/122145601931201320297"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1126204463/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Vernet"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Vernet"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:14:36Z",
+    "gnd_query_biographical_data": "?",
+    "gnd_query_name": "vernet, c."
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2985,
+  "name": "Vernet, C.",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXIV, 282",
+  "updated": "2026-06-11 13:29:25.540Z",
+  "uri": "https://d-nb.info/gnd/1126204463",
+  "editor": ""
+}

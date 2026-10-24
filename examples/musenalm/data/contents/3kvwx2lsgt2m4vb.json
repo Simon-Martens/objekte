@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Aus dem Leben des Heinrich Susto (Amandus). Vergl. dessen Biographie von Diepenbrock, S. 54 /) Erzählende Gedichte (Sammlung INr 55049, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Vertieft in göttlicher Gedanken Regung / Zog über Feld Amandus seine Straßen,",
+  "language": [],
+  "musenalm_id": 55050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Ehret die Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rudolf Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Ehret die Frauen",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.879Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "58d1sbtbd98cyg0"
+    }
+  ]
+}

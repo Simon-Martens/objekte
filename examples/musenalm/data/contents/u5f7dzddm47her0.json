@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Genf« INr 52410, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue de Genève prise de Saconex en Savoie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Hackert del. F. Hegi sc.",
+  "scans": [
+    "alm_717_52416_vo32zfa5zv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue de Genève prise de Saconex en Savoie",
+  "updated": "2007-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.876Z",
+      "agent": "avozpk6km5v99u7",
+      "source_id": "jsyqeo29uu5l191"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.876Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "nxwa8689wsuvz5y"
+    }
+  ]
+}

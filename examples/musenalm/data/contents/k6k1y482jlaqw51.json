@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Distichen INr 119347-119352, Obj 52-57 /) Distichen (Sammlung INr 119332, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Wiederhergestellter Haushalt. / Lustspiel in sechs Acten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Wiederhergestellter Haushalt. / Lustspiel in sechs Acten",
+  "updated": "2017-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.698Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "o9t7hlog725r4lj"
+    }
+  ]
+}

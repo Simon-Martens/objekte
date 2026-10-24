@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Hüttchenlied« von Trekur INr 11501, Obj 182",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hüttchenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_207_11560_ncyoaywlh2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hüttchenlied",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.502Z",
+      "agent": "u644r69fyeumay0",
+      "source_id": "r5b28wjidww3trp"
+    }
+  ]
+}

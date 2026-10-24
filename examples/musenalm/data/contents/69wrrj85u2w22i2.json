@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem beigegebenen Gedicht INr 57976, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Indem ich die vorliegenden Zeilen schreibe, erfülle ich eine dreifache Pflicht: als Redacteur der Iris für einen Mitarbeiter derselben:",
+  "language": [],
+  "musenalm_id": 57975,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nekrolog. / Mathias Leopold Schleifer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nekrolog. / Mathias Leopold Schleifer",
+  "updated": "2008-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.864Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "a2puseg4rwf0r4l"
+    }
+  ]
+}

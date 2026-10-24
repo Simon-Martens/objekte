@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Schluß der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14324, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Kein Wesir sey stolz auf seine Würde und Ansehen. Die Gunst der Fürsten ist unstät wie Wasser, und verzehrend wie Feuer.",
+  "language": [],
+  "musenalm_id": 14332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "38. / Bescheidenheit im Glücke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "38. / Bescheidenheit im Glücke",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.734Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "jksa2sfkc53r2sb"
+    }
+  ]
+}

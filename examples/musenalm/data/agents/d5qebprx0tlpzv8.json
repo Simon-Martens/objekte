@@ -1,0 +1,447 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.448Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/110902-9",
+          "label": "Kärntnertor-Theater"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Österr. Komponist und Violinist; Musiker; Dirigent; Librettist. - 1834 bis 1867 Mitglied der Wiener Hofkapelle u. 1837 bis 1840 Kapellmeister des Theaters in der Josefstadt, danach dreißig Jahre lang Erster Kapellmeister des Theaters am Kärntnertor"
+      ],
+      "dateOfBirth": [
+        "1809-07-22"
+      ],
+      "dateOfDeath": [
+        "1878-12-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Proch.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Proch.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heinrich%20Proch.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/180209965",
+        "https://d-nb.info/gnd/1157566405"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116291710/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Marie Luise [Maria Aloisia]"
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Benesch"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike [Friderica Ernestina Theresia]"
+          ],
+          "surname": [
+            "Benesch"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Katzmayr"
+          ]
+        },
+        {
+          "personalName": [
+            "Maschek"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116291710",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116291710",
+      "oldAuthorityNumber": [
+        "(DE-588c)7852695-4",
+        "(DE-588a)180209965",
+        "(DE-588a)134489055",
+        "(DE-588a)116291710",
+        "(DE-588)180209965",
+        "(DE-101c)31017905X",
+        "(DE-588)1157566405"
+      ],
+      "periodOfActivity": [
+        "1840-1874"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Proch, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Proch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628966-7",
+          "label": "Gesangslehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Proch, Heinrich: [Das Alpenhorn]",
+        "Proch, Heinrich: Das Alpenhorn",
+        "Proch, Heinrich: Das Erkennen",
+        "Proch, Heinrich: An die Sterne. - circa 1838",
+        "Proch, Heinrich: Ave Maria",
+        "Proch, Heinrich: Am Strande",
+        "Proch, Heinrich: An die Sterne",
+        "Der Troubadour",
+        "Proch, Heinrich: Das treue Lied"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13898695x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n94090837"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51876408"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q321701"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157566405"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116291710/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/180209965"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Heinrich_Proch"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Proch"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Proch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116420614"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116291710"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116291710"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_P/Proch_Heinrich_1809_1878.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116291710.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116291710"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Proch, Heinrich Ernest Friedrich",
+        "Proch, Enrico",
+        "Proch, Henri",
+        "Proch, Heinr.",
+        "Proch, H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinr."
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Ernest Friedrich"
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "Enrico"
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Proch"
+          ]
+        },
+        {
+          "forename": [
+            "Henri"
+          ],
+          "surname": [
+            "Proch"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Proch",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Proch"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:32:18Z",
+    "gnd_query_biographical_data": "1809-1878",
+    "gnd_query_name": "proch, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2131,
+  "name": "Proch, Heinrich",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB, XXVI, 620",
+  "updated": "2026-06-11 13:29:24.123Z",
+  "uri": "https://d-nb.info/gnd/116291710",
+  "editor": ""
+}

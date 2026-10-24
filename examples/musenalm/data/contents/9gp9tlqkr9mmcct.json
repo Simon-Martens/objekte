@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium September /) s. Textbezug INr 96125, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96102,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ernst Friedrich Wilhelm Philip / von Rüchel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bollinger sculp. Berlin 1795",
+  "scans": [
+    "alm_2180_96102_g2bzbi5o7g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ernst Friedrich Wilhelm Philip / von Rüchel",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.767Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "cncupmh7nnxwfhh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 22811-22814, Obj 56-59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Balladen und Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Balladen und Romanzen",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.123Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "yv24k5il7rm7xqc"
+    }
+  ]
+}

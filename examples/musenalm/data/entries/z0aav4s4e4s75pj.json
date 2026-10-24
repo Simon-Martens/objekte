@@ -1,0 +1,102 @@
+{
+  "annotation": "J. V. Adrian als Autor der Graphikerläuterungen und der irischen Märchen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III I-Verz, SS V-XXIV darin 6 GG, SS 1-362, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1838",
+    "norm": "~ K gibt 8 GG an",
+    "biblio": 100581,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-06-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 593,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1838. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.356Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "as6z41gz9yzif3u"
+  ],
+  "contents": [
+    "dgeh0e3ikln8yc6",
+    "eabecx7dnae35wf",
+    "s621hobawvehy2w",
+    "itck614wzvdl7eu",
+    "0r8f3abmq9d24vv",
+    "cau3lti8lo6n05l",
+    "v0aaxbmkmetxpx8",
+    "0qcv2o8idjrjtfl",
+    "58dlt7oy87kkqsc",
+    "vqduzyvqmwoikxr",
+    "64k48gebmxrkpw4",
+    "v43e7lxhvnqt2s4",
+    "pazfraly8lthcq5",
+    "huheudgaarpzkjf",
+    "dfd6s68rdxw9i7p",
+    "w6m4qyv27cyz606",
+    "8k59umhsbwif7la",
+    "rtwwyrah4qhbzsk",
+    "1qiddtwjwwm1c5c",
+    "33lxkiuq2fnzo9x",
+    "4yqt93k1gw7viis",
+    "p1fn5oo0vhw0659",
+    "nzuvk0n8xh1d6z9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.712Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.712Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "k6wqe18r0zppjas"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "y5mziz9h82mu18p"
+    }
+  ]
+}

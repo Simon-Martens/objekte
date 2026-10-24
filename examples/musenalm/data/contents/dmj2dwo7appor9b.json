@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Die Blume steht an stiller Bucht / Und sieht ihr Bild auf Wellen schweben,",
+  "language": [],
+  "musenalm_id": 94884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensbild",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.670Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "wrbn5ruj53uwxig"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Es hängt in fest verschloßner Kammer, / So finster wie die schwarze Nacht,",
+  "language": [],
+  "musenalm_id": 13962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hammer. / Ein Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hammer. / Ein Räthsel",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.434Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "vrvqr7bfb4afc4f"
+    }
+  ]
+}

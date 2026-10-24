@@ -1,0 +1,315 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1864",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.462Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116647469",
+          "label": "Girndt, Otto"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1073012654",
+          "label": "Otto Ruppius (Berlin)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1073012662",
+          "label": "Norddeutsche Volksbuchhandlung (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Geburtsort anfangs fälschlich mit Glauchau angegegeben",
+        "lebte 1849-1861 in den USA"
+      ],
+      "dateOfBirth": [
+        "1819-02-01"
+      ],
+      "dateOfDeath": [
+        "1864-06-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Weger (1823-1892)"
+          ],
+          "creditText": [
+            "http://fotothek.slub-dresden.de/fotos/df/hauptkatalog/0252000/df_hauptkatalog_0252995.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20Ruppius%20%281819-1864%29.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20Ruppius%20%281819-1864%29.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Otto%20Ruppius%20%281819-1864%29.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T21:02:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116708859/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1073375250",
+          "label": "Ruppius, Reinhardt"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        }
+      ],
+      "gndIdentifier": "116708859",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/116647469",
+          "label": "Girndt, Otto"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1073375250",
+          "label": "Ruppius, Reinhardt"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116708859",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116708859",
+        "(DE-588c)4553976-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/5125740-3",
+          "label": "Glaucha (Halle (Saale))"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Ruppius, Otto",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Otto"
+        ],
+        "surname": [
+          "Ruppius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Ruppius, Otto: Schlamm und fester Boden",
+        "Ruppius, Otto: Das Vermächtnis des Pedlars",
+        "Ruppius, Otto: Prärie-Abenteuer",
+        "Bilderbuch der Frau Kinderzeitung",
+        "Ruppius, Otto: Die Waldspinne",
+        "Ruppius, Otto: Südwest",
+        "Ruppius, Otto: Ein Deutscher",
+        "Ruppius, Otto: Genre-Bilder aus dem deutsch-amerikanischen Leben",
+        "Ruppius, Otto: Gesammelte Werke",
+        "Ruppius, Otto: Lebenskämpfe"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no91017643"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/3229135"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2040358"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116708859/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Otto_Ruppius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Otto_Ruppius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000037163701"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116708859"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116708859.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116708859"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Ruppins, Otto"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Ruppins"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Otto_Ruppius",
+          "label": "https://de.wikipedia.org/wiki/Otto_Ruppius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:43:06Z",
+    "gnd_query_biographical_data": "1819-1864",
+    "gnd_query_name": "ruppius, otto"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2349,
+  "name": "Ruppius, Otto",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXIX, 715",
+  "updated": "2026-06-11 13:29:24.450Z",
+  "uri": "https://d-nb.info/gnd/116708859",
+  "editor": ""
+}

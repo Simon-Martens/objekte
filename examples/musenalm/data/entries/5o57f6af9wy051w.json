@@ -1,0 +1,74 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Schwäbischer 1785",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2002-01-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 286,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Musenalmanach, Schwäbischer 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30, 81; L/R 31; Goed IV/1. 955, 22",
+  "responsibility_statement": "Gotthold Friedrich Stäudlin",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.974Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.579Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.579Z",
+      "agent": "2f965te58psi6tx",
+      "source_id": "5yr6f9z64aisdrg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.661Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.661Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "6xjah2tavfatgek"
+    }
+  ]
+}

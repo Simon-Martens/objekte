@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Was hör' ich! welcher Gott hat mich ge- / rufen? / Hält nicht der Tod mehr meine Pulse inne, / Der mich erfaßte an des Tempels Stufen.",
+  "language": [],
+  "musenalm_id": 92414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teutonia's Wort und Gruß. / Prolog, / gesprochen / auf dem Hoftheater / bey der Ankunft Ihrer Königl. Hoheiten / des / Kronprinzen und der Kronprinzessinn / von Bayern, / in Salzburg / im Monath October 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Aloys Weißenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Teutonia's Wort und Gruß. / Prolog, / gesprochen / auf dem Hoftheater / bey der Ankunft Ihrer Königl. Hoheiten / des / Kronprinzen und der Kronprinzessinn / von Bayern, / in Salzburg / im Monath October 1813",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.541Z",
+      "agent": "dh3tm3lh6b5ehoz",
+      "source_id": "lrx63ff7lhwtsb2"
+    }
+  ]
+}

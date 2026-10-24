@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "In jener Stadt, die dort am Tiberstrand / Auf sieben Hügeln prangend sich erhebet,",
+  "language": [],
+  "musenalm_id": 119560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rom",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.585Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "rtgzl3r4vphjpr7"
+    }
+  ]
+}

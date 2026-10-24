@@ -1,0 +1,81 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I W, SS III-VI Vrwrt d Hrsg, ar: SS1-222 Tab, ar1: SS 1-60 Tab, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kronos 1821",
+    "norm": "~",
+    "biblio": 406068,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3562,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kronos 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 74, nicht bei L/R",
+  "responsibility_statement": "Franz Gustav Theodor Stenzel",
+  "subtitle_statement": "",
+  "title_statement": "Kronos / Genealogisch-historisches / Jahrbuch / für 1821. / Inhalt: [...] Mit dem Portrait des Fürsten Metternich. / Leipzig / bei Johann Friedr. Gleditsch",
+  "updated": "2026-06-11 10:18:55.911Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "6cokaspunubrxbb"
+  ],
+  "contents": [
+    "uqx64nwqz1tvfgy",
+    "6gg5i1g5ud3qyjl",
+    "vklp1weqwwtxxut",
+    "xaxh1j3elfta83x",
+    "cgdg3ap658fthfm",
+    "1lgfmsuxkoj6evj",
+    "xgoytzdx0uw7wr0",
+    "8koanciznvucusu",
+    "0j4ed7b8xgi14ro",
+    "jdn1xxoq9jjuac2",
+    "fgq6ixcoo3v3b94",
+    "9lxmk9jgaon1zsh",
+    "zav3ixcycia97qs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.904Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.904Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "zsjrurowo3n0yfd"
+    }
+  ]
+}

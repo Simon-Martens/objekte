@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 110942, 110943; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In der Sierra Morena, ohnfern des alten Schlosses Montiel, schleicht die Quadermena geräuschlos durch ein ödes Thal, welches auf der westlichen Seite hohe Felsen begrenzen.",
+  "language": [],
+  "musenalm_id": 110941,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / alte Guerillo von Granada",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / alte Guerillo von Granada",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.438Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "lzcoxncnkc67str"
+    }
+  ]
+}

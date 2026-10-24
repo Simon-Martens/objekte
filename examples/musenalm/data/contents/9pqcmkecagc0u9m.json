@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Vrwrt d. Hrsg 1798 INr 41655, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Mädchen halt - wohin mit mir du Lose? / Bin ich noch der stolze Mann? Der Große?",
+  "language": [],
+  "musenalm_id": 41693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwurf / an Laura",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwurf / an Laura",
+  "updated": "2005-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.025Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "rwu2rhzqx9ja229"
+    }
+  ]
+}

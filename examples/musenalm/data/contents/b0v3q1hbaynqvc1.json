@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtigallen-Einsamkeit (Sammlung INr 22510, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Wie tragen Sterne reinern Glanz, / Und süßers Licht der Mond",
+  "language": [],
+  "musenalm_id": 22516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Liedeswonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Liedeswonne",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.959Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "84lk5ml7nil4weh"
+    }
+  ]
+}

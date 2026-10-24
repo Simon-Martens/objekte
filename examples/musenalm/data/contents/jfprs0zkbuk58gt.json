@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Sie saßen Alle um den runden Tisch in dem großen Familienzimmer. Die alte Frau Lichtfeld in der breiten, hochstehenden Kantenhaube, die schwarze Brille auf der Nase, strickte an einem langen Strumpf.",
+  "language": [],
+  "musenalm_id": 111379,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer trägt die Schuld?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wer trägt die Schuld?",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.278Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "7p6hs9m7fxvl0gv"
+    }
+  ]
+}

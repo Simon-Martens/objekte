@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heitre Abschieds Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & fec. 1795",
+  "scans": [
+    "alm_486_35257_91a7cig06e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heitre Abschieds Stunde",
+  "updated": "2003-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.784Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "gs161d7cc776eld"
+    }
+  ]
+}

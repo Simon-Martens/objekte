@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Wieder angefangen Mittwoch den 20. ob zum Zerreissen oder wie!",
+  "language": [],
+  "musenalm_id": 18814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neunter Brief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neunter Brief",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.956Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "yip7wre5a3pq5ta"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122015, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Uferweide, bist die erste / Diee rstand vom Tod / Fern aus Sand und Staude schimmert / Schon dein lieblich Roth.",
+  "language": [],
+  "musenalm_id": 122016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 170,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Uferweide",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuk Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Uferweide",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.620Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "cij6nnml9tkggnd"
+    }
+  ]
+}

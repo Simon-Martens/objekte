@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 80392-80397, Obj 19-24 /) Der Sammlung vorangestellt: Die Lieb' ist eine Münze, / Zwei Seiten gibt es dran: […]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.896Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "w8d4j6az4dsuv6c"
+    }
+  ]
+}

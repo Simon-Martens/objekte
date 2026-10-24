@@ -1,0 +1,338 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1834",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.316Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller, Mitglied d. Königl. Sächs. Oberlausitzischen Ges. d. Wiss."
+      ],
+      "dateOfBirth": [
+        "1768-02-04"
+      ],
+      "dateOfDeath": [
+        "1834-01-28"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:40:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116489227/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116489227",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.8p",
+          "label": "Personen zu Archiv, Museum"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116489227",
+      "oldAuthorityNumber": [
+        "(DE-588a)116489227"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Engelhardt, Karl August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl August"
+        ],
+        "surname": [
+          "Engelhardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Roos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der grosse Unbekannte",
+        "Merkel, Dankegott I.: Erdbeschreibung von Kursachsen. - 1804 - 1807",
+        "J. F. Böttger, Erfinder des Sächsischen Porzellans",
+        "Gedichte",
+        "Musivische Bilder",
+        "Dietrich von Harras",
+        "Der Fluch des Ehebettes",
+        "Geschichte der Kur- und Herzoglich-Sächsischen Lande",
+        "Karl Bruckmann oder William Sterne",
+        "Ausgew. neuere Gedichte",
+        "Erzählungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85002141"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17975188"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1262931"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116489227/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Engelhardt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110419241"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116489227"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116489227.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116489227"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116489227"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Engelhardt, Carl A.",
+        "Roos, Richard",
+        "E.",
+        "Engelhardt, C. A.",
+        "Engelhardt, Karl A.",
+        "Engelhardt, Carl August",
+        "E., K. A.",
+        "Baron von Engelhard",
+        "Engelhardt, K. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Engelhardt"
+          ]
+        },
+        {
+          "personalName": [
+            "E."
+          ]
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Roos"
+          ]
+        },
+        {
+          "personalName": [
+            "Baron von Engelhard"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Engelhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Engelhardt"
+          ]
+        },
+        {
+          "forename": [
+            "K. A."
+          ],
+          "surname": [
+            "Engelhardt"
+          ]
+        },
+        {
+          "forename": [
+            "K. A."
+          ],
+          "surname": [
+            "E."
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Engelhardt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Engelhardt",
+          "label": "https://de.wikipedia.org/wiki/Karl_August_Engelhardt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:19:15Z",
+    "gnd_query_biographical_data": "1768-1834",
+    "gnd_query_name": "engelhardt, karl august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 657,
+  "name": "Engelhardt, Karl August",
+  "profession": "Text",
+  "pseudonyms": "Richard Roos",
+  "refs": "ADB VI, 140; H/B 239; E 80",
+  "updated": "2026-06-11 13:29:22.170Z",
+  "uri": "https://d-nb.info/gnd/116489227",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 63942, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63948,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christus und die Kindlein #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Overbeck gest. I. W. Baumann",
+  "scans": [
+    "alm_1053_63948_b9dlgi28o1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christus und die Kindlein #",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.924Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "m88grcuvggg9qzh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.924Z",
+      "agent": "udaftmlzn899hya",
+      "source_id": "xqlsqe9mlm2euve"
+    }
+  ]
+}

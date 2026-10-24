@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Catharina von Bora« von G. G. Bredow INr 39417, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39418,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CATHARINA v. BORA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lucas Cranach. Fr. Bolt sc. 1812",
+  "scans": [
+    "alm_517_39418_7apqoi6d59.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CATHARINA v. BORA",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.177Z",
+      "agent": "rej9gy7ybrg6fzx",
+      "source_id": "615g2cacdxa60q8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.177Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "tzhretks5f74o22"
+    }
+  ]
+}

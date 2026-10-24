@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60778, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHLOSS BABELSBERG, / SPEISESAAL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Graeb. Gest. v. Witthöft",
+  "scans": [
+    "alm_885_60777_1n69z6jv16.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHLOSS BABELSBERG, / SPEISESAAL",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.001Z",
+      "agent": "7m6015m4p6c81a1",
+      "source_id": "qs7miyqcgdjhqho"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.001Z",
+      "agent": "eo3qluho8zm4z6j",
+      "source_id": "zij8ea0c4c91dbi"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehende Seite INr 80895, Obj 7 /) Illustration zu »Der Quälgeist« von A. von Schaden INr 80919, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80896,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender del. C. Kotterba sc.",
+  "scans": [
+    "alm_1802_80896_v05v6oa6c7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agnes",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.508Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "dn5k2p7qmlqoijv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.508Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "uop0sshk0lwdhlp"
+    }
+  ]
+}

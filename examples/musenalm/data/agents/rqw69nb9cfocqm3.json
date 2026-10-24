@@ -1,0 +1,563 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1802",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.391Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1754-06-21"
+      ],
+      "dateOfDeath": [
+        "1802-09-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Christoph Frisch"
+          ],
+          "creditText": [
+            "museum-digital.de Bildindex der Kunst und Architektur: object 06050059&nbsp;– image file gla059a.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Frisch%20-%20Portr%C3%A4t%20Caroline%20Luise%20von%20Klencke.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Frisch%20-%20Portr%C3%A4t%20Caroline%20Luise%20von%20Klencke.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Christoph%20Frisch%20-%20Portr%C3%A4t%20Caroline%20Luise%20von%20Klencke.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1158911343"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T12:30:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116222425/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "E. E."
+          ],
+          "surname": [
+            "Karschin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Caroline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karschin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "E. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karschin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "surname": [
+            "Karsch"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Karsch"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karoline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karsch"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "personalName": [
+            "Hempel"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119360659",
+          "label": "Chézy, Helmina von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118560328",
+          "label": "Karsch, Anna Luise"
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1228102457",
+          "label": "Hempel, Heinrich Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116222425",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1228102457",
+          "label": "Hempel, Heinrich Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119360659",
+          "label": "Chézy, Helmina von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118560328",
+          "label": "Karsch, Anna Luise"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116222425",
+      "oldAuthorityNumber": [
+        "(DE-588a)116222425",
+        "(DE-588)1158911343",
+        "(DE-588c)4530957-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4093218-7",
+          "label": "Fraustadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Klencke, Caroline Luise von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Caroline Luise"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Klencke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Karsch, Anna L.: Gedichte. - 1797",
+        "Karsch, Anna L.: Gedichte. - 1792"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no96059657"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66715704"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1044525"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1158911343"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116222425/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000047314278"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116222425"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116222425"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Klenke, Caroline L. von",
+        "Klencke, Karoline von",
+        "Klencke, Luise Karoline von",
+        "Karsch, Karoline Louise",
+        "Karsh, Caroline L.",
+        "Karsch, Caroline Luise",
+        "Klenke, Karoline L. von",
+        "Karsch, Karoline L. von",
+        "Von Klencke, Caroline Luise",
+        "Klencke, Karoline Louise",
+        "Karschin, Caroline L. von",
+        "Klenke, Caroline Louise von",
+        "Klenke, Karoline Louise von",
+        "Klencke, Karoline Luise von",
+        "Klenke, C. L. von",
+        "Hempel, Karoline Louise",
+        "Karschin, E. E.",
+        "Klenke, E. E. von",
+        "Karschin, E. E. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karoline Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "E. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "E. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Von Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Luise Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline L."
+          ],
+          "surname": [
+            "Karsh"
+          ]
+        },
+        {
+          "forename": [
+            "E. E."
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "C. L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "surname": [
+            "Karsch"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "surname": [
+            "Hempel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:56:18Z",
+    "gnd_query_biographical_data": "1754-1802",
+    "gnd_query_name": "klencke, caroline luise von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1406,
+  "name": "Klencke, Caroline Luise von",
+  "profession": "Text",
+  "pseudonyms": "Tochter der Karschin",
+  "refs": "Goed (H) 264",
+  "updated": "2026-06-11 13:29:23.225Z",
+  "uri": "https://d-nb.info/gnd/116222425",
+  "editor": ""
+}

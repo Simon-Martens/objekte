@@ -1,0 +1,56 @@
+{
+  "annotation": "Einleitung zum folgenden Gedicht INr 54283, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Diese durchaus im oberländischen Ton gehaltene Dichtung eines jungen Zöglings der Poesie istz ausserordentlich",
+  "language": [],
+  "musenalm_id": 54282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Milchschnauz. / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Milchschnauz. / Vorwort",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.503Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "b0nfj1homhhhcgc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.503Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "m35nltwslagutcd"
+    }
+  ]
+}

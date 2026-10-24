@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Im sanften Strahl der Abendröthe / Saß Daphnis an dem Wasserfall,",
+  "language": [],
+  "musenalm_id": 4140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daphnis, die Nachtigall, und die Flöte / An eine junge Schauspielerinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Daphnis, die Nachtigall, und die Flöte / An eine junge Schauspielerinn",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.041Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "gm6o3jvraq4azwi"
+    }
+  ]
+}

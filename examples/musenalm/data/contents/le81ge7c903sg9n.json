@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Fort, mein Rennthier, fort! Eile durch die / Wüste! / Den du führst, er liebt.",
+  "language": [],
+  "musenalm_id": 16930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Lappländers. / Nach dem Scheffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Lappländers. / Nach dem Scheffer",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.676Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "i6zfpctqms67uso"
+    }
+  ]
+}

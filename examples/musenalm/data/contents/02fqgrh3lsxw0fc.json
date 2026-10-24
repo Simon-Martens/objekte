@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesang (Sammlung INr 49062, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Einsiedlertaube, girr' ich / Aus sel'gem Busen, / Und schüttle dir mein Glöcklein / Zu trautem Gruße.",
+  "language": [],
+  "musenalm_id": 49069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Botschaft an Florens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich, Graf von Löben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Botschaft an Florens",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.473Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "9k4xuo0tq0igrd5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug  INr 127842, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127812,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JUNIUS 30 Tage. Vitriolwerk bei Schreibershau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_3652_127812_db4ayavbll.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JUNIUS 30 Tage. Vitriolwerk bei Schreibershau",
+  "updated": "2011-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.959Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "2q7rt2m1yhyroxd"
+    }
+  ]
+}

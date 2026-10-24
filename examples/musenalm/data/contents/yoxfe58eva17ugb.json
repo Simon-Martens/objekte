@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezüge INr 57837, 57838; Obj 35, 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "416",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GILLI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barabás gez. Stahlst. v. C. Mahlknecht",
+  "scans": [
+    "alm_769_57839_hnylov1wpl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GILLI",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "ax5wqv3515ko23k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "ilzebnepml6uv0j"
+    }
+  ]
+}

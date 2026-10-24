@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Sei uns Vater! o Du, der seine Krone den / Glanz giebt! / Ja, Du bist es, und bleibt's; immer und ewig / bleibst Du's!",
+  "language": [],
+  "musenalm_id": 75829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Huldigung / Friedrich Wilhelms. / 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Burmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Huldigung / Friedrich Wilhelms. / 1786",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.465Z",
+      "agent": "bzzrah5fx2452jq",
+      "source_id": "2kwi8zyqy1twenn"
+    }
+  ]
+}

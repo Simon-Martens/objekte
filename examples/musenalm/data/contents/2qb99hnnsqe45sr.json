@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Vierter Streifzug nach Pötzelssdorf, dem Himmel, Cobenzelberg, Kahlenberg, Klosterneubeurg, Nußdorf, der Brigittenau und dem Prater INr 92725, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Leopoldsberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_4024_92729_uuixo1v75h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Leopoldsberg",
+  "updated": "2013-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.476Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "fch8h50umnslohr"
+    }
+  ]
+}

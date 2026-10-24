@@ -1,0 +1,45 @@
+{
+  "annotation": "paginert 1. /) Graphik vor dem Kalendarium /) Illustration zu »Albert und Albertine« von Friedrike Unger /) s. Textbezug INr 85852, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85812,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Albertine ihm ihren Begleiter / vorstellte, lüftete er ein wenig das / seidene Barett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury sc.",
+  "scans": [
+    "alm_445_85812_fgxioi16ww.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Als Albertine ihm ihren Begleiter / vorstellte, lüftete er ein wenig das / seidene Barett",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.168Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "meucvlfzsomh8tt"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 95906, Obj 27) mit einer Illustration s. Graphik im Kalendarium INr 95893, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Ein Soldat zog durch die Mark. Unterwegs erkrankte er, und wurde mit genauer Noth noch lebend nach Spandau gebracht.",
+  "language": [],
+  "musenalm_id": 95908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Grauhut mit der Hahnenfeder. / (Der Zungenschleifer. München, 1670. / 2 Thle. S. 344.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Grauhut mit der Hahnenfeder. / (Der Zungenschleifer. München, 1670. / 2 Thle. S. 344.)",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.534Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "vuzylnmsz863p0k"
+    }
+  ]
+}

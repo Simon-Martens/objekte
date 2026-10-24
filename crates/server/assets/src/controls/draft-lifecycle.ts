@@ -1,5 +1,7 @@
 /** URLs identify records; tab storage holds private draft identifiers. */
-const prefix = 'objekte:draft:';
+import { projectDraftKey } from './project-chooser';
+const project = document.querySelector<HTMLElement>('[data-project-id]')?.dataset.projectId ?? 'default';
+const prefix = 'objekte:draft:' + projectDraftKey(project, '');
 const inputPrefix = 'objekte:draft-input:';
 const claims = new Map<string, {request:string; busy:()=>void}>();
 const channel = typeof BroadcastChannel === 'undefined' ? null : new BroadcastChannel('objekte-drafts');

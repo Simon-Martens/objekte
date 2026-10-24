@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "In brauner Kapp' und Kutte tret' ich an, / Wo Prunk im Licht erhellt den weiten Plan",
+  "language": [],
+  "musenalm_id": 24022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dialog zwischen dem Gnomen, der Geognosie und der Technik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dialog zwischen dem Gnomen, der Geognosie und der Technik",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.260Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "170t2f6zdtur4gj"
+    }
+  ]
+}

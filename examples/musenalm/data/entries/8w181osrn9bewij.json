@@ -1,0 +1,83 @@
+{
+  "annotation": "<div>franz. Ausgabe mit ausgefallenem Umschlagschmuck<br>Umschlag, Exlibris, Titelgraphik, Titel als Vollbild</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 31 SS Kal darin 12 GG, S Tab, B Tabb, ar: SS 1-74, 3 BB Tab, ar1: SS 1-156",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1769 /) franz. Ausgabe: Almanach de Gotha",
+    "norm": "",
+    "biblio": 410824,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-09-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4752,
+  "parallel_title": "",
+  "place_statement": "Gotha (Mevius, Dieterich)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1769 [franz. Ausgabe: Almanach de Gotha]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DE GOTHA / contenant / diverses connoissances curieuses et utiles, / pour l'Année / MDCCLIX / à Gotha / Chez la Veuve de J. P. Mevius / et J. C. Dieterich",
+  "updated": "2026-07-28 08:30:26.673Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "vb4zddz486nadbw"
+  ],
+  "contents": [
+    "v3l2pl3ldjbqa8g",
+    "0jpjyf3v4af58ar",
+    "yt7grt5hgcoqam3",
+    "uf124jor39mzvmh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.087Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-28 08:30:26.675Z",
+      "agent": "5vt7ponsyw3ewsy",
+      "source_id": "su36jbacln44j7f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-28 08:30:26.675Z",
+      "agent": "p5gs489iad3mzyb",
+      "source_id": "zfy6f6cf2qoo625"
+    }
+  ]
+}

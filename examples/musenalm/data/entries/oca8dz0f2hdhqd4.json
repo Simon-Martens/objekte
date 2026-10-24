@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Armin.Taschenbuch für Teutsche 1821",
+    "norm": "",
+    "biblio": 200256,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1531,
+  "parallel_title": "",
+  "place_statement": "München (Fleischmann)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Armin. Taschenbuch für Teutsche 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 24; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ARMIN. / Taschenbuch für Teutsche / auf das Jahr / 1821 / Mit Beyträgen / von / Aman, Hoheneicher, Kayser, Kohlrausch, Mannert, Pahl, v. Schlichtegroll, Siebenkees, v. Wiebeking / und Andern. / Mit Kupfern. / München / bey E. A. Fleischmann",
+  "updated": "2026-06-11 10:18:54.611Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "epvqeu9ym2e47r7"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.858Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.858Z",
+      "agent": "ejggi76t7h6qc42",
+      "source_id": "2qaiw9kiz9cepye"
+    }
+  ]
+}

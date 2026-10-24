@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Willst du dich in dir vergraben? / Nein! den guten Augenblick,",
+  "language": [],
+  "musenalm_id": 14764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wahres Leben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wahres Leben",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.739Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "nnwiyoxqoewaxgw"
+    }
+  ]
+}

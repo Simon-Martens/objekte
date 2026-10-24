@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Ost- und Westpreußischer 1859",
+    "norm": "",
+    "biblio": 404618,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2335,
+  "parallel_title": "",
+  "place_statement": "Marienwerder (Jacoby)",
+  "places": [
+    "cscrz6a1zrcp0fw"
+  ],
+  "preferred_title": "Musenalmanach, Ost- und Westpreußischer 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 87; nicht bei L/R",
+  "responsibility_statement": "Dr. August Lehmann",
+  "subtitle_statement": "",
+  "title_statement": "Ost- und Westpreußischer / Musen-Almanach / für / 1859. / Im Namen des Altpreußischen Dichtervereins / und / zum Besten der Allgemeinen Landesstiftung / als Nationaldank / herausgegeben von / Dr. August Lehmann. / Vierter Jahrgang. / Marienwerder, 1859. / In Kommission bei H. Jacoby",
+  "updated": "2026-06-11 10:18:55.979Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "items": [
+    "b4ph5wabd3bud4p"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "bnnof9elqf4urk0",
+      "source_id": "6vskwf9fec3x2k7"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 8 BB Kal, darin 6 GG, B G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender auf das Jahr (Zürich) 1804",
+    "norm": "",
+    "biblio": 106529,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2025-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4879,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli und Compagnie)",
+  "places": [],
+  "preferred_title": "Kalender auf das Jahr (Zürich) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "CALENDER / auf das Jahr / 1804. / Mit 6 gemahlten Modekupfern. / Zürich, / bey Orell, Füssli und Compagnie",
+  "updated": "2026-06-11 10:18:56.035Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "t809kvy2m8d2muh"
+  ],
+  "contents": [
+    "288zmln5zg248e7",
+    "ywmlaq775f3iutm",
+    "z7mpj59l2w8y7at",
+    "u5n7vtlkgdh71fm",
+    "wehripfvroyft3s",
+    "laigynrfxr70u1q",
+    "ffssg0x3jzbuhjo",
+    "hoaan6lgrnouecu",
+    "3kcyp0jkgveu81i",
+    "r9och1lsoobj6i6",
+    "yjej302chp9e6sr",
+    "391y9jyscxafa3d",
+    "y59vkugpduvtw3q",
+    "9g14jo9x01g9jdd",
+    "kwj3endo579xabo",
+    "mqeos342gu2pz0s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "ks55i2cvx115goq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "l37yqxr6a4lfi16"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.208Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.208Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "mjtjgm1wewokgfp"
+    }
+  ]
+}

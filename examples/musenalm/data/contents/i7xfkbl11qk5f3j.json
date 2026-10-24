@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 88187, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Im Pfälzerhof zu Mannheim war großes Spiel, und viele Offiziere des deutschen Reichsheers, das der lange Feldzug des Jahres 1795 in engen Cantonirungen versammelt hielt, versuchten ihr Glück im Pharo",
+  "language": [],
+  "musenalm_id": 88192,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Horoskop / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Horoskop / Novelle",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "xkop8qelbo3qdnk"
+    }
+  ]
+}

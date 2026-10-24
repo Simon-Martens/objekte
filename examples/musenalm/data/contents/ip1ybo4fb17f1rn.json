@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Ungarn /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn ich verachte heimliches Verschwören, / Und wenn ich hasse Meuchelmörderhand,",
+  "language": [],
+  "musenalm_id": 99425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn ich verachte heimliches Verschwören, / Und wenn ich hasse Meuchelmörderhand,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.863Z",
+      "agent": "96po1brlxwvvsud",
+      "source_id": "6s5td1ho0k39o3g"
+    }
+  ]
+}

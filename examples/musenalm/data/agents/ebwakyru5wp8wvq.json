@@ -1,0 +1,154 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1818",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.352Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist und Musiker"
+      ],
+      "dateOfBirth": [
+        "1755-09-04"
+      ],
+      "dateOfDeath": [
+        "1818"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T13:00:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-14",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-14"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1243090588/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/131812688",
+          "label": "Gründling, Christian Gotthelf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1243090588",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/131812688",
+          "label": "Gründling, Christian Gotthelf"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1243090588",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Gründling, Christian Gottlob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gottlob"
+        ],
+        "surname": [
+          "Gründling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nb2021002276"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17152742990927732326"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243090588/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gründling"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Gründling"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:35:36Z",
+    "gnd_query_biographical_data": "1755-1818",
+    "gnd_query_name": "gründling, christian gottlob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 989,
+  "name": "Gründling, Christian Gottlob",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 726",
+  "updated": "2026-06-11 13:29:22.685Z",
+  "uri": "https://d-nb.info/gnd/1243090588",
+  "editor": ""
+}

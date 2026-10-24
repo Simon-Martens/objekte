@@ -1,0 +1,47 @@
+{
+  "annotation": "unter der Graphik: zu pag. 193 /) Illustration zu »Der furchtbare Ausforderer« von F. Laun d. i. F. A. Schulze INr 98450, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3533_98457_oi18tz16xj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.702Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "dpjn213qxole73r"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Der erste Schmaus - ach! welch Gedränge / Von Menschen ohne Zahl!",
+  "language": [],
+  "musenalm_id": 5713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sechs Schmäuse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sechs Schmäuse",
+  "updated": "2000-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.029Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "icxek7sv6v9ox7m"
+    }
+  ]
+}

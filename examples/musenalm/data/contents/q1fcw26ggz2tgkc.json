@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Amor steht ob deinem Schloßportale: / Fama bläht sich im Visitensaale.",
+  "language": [],
+  "musenalm_id": 39493,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Grafen Asot",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Grafen Asot",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.229Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "ib7bhxmu7wv8lo7"
+    }
+  ]
+}

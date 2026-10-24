@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Die Galerie« von G. H. Rapp INr 74376, Obj 24 /) # Zuschreibung: Fischer S. 308",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Galerie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3112_74375_56zeb8v5hc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Galerie",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.704Z",
+      "agent": "4b4lhy0iqevooje",
+      "source_id": "00yf33sfttpaa2r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.704Z",
+      "agent": "z5nktfhns99sqss",
+      "source_id": "ruvvnmx19bdj0mj"
+    }
+  ]
+}

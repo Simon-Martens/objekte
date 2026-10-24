@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Die Seetaucher (INr 70525, Obj 17) II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 70524, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Dieser Schwimmvogel, welcher an Größe und Schwere die Saatgans übertrift, erschient in zwei verschiedenen Kleidern.",
+  "language": [],
+  "musenalm_id": 70526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eistaucher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eistaucher",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.501Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "ea1xgtczqavhdq1"
+    }
+  ]
+}

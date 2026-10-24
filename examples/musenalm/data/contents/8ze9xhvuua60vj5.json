@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Brüder, haltet ihn in Ehren / Diesen edlen deutschen Wein,",
+  "language": [],
+  "musenalm_id": 62477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutscher Rundgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutscher Rundgesang",
+  "updated": "2009-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.142Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "r7vx8zv5jnmc5hg"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 68591, Obj 2,02 /) Das Original befindet sich im Cabinette des Herrn d'Allard",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Einfältig, still, der Weltlust abgekehrt, / Im Mutterarm ihr Kleinod, ihre Wonnen;",
+  "language": [],
+  "musenalm_id": 68591,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Maria, Jesus und Johannes. / Gemählde von Andrea del Sarto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Maria, Jesus und Johannes. / Gemählde von Andrea del Sarto",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.442Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "1pvw3slg3ew3zbl"
+    }
+  ]
+}

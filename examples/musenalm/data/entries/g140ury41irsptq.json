@@ -1,0 +1,119 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, SS I-XVIII darin 4 GG, T, SS 1-270, B G-Verz I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1856",
+    "norm": "~",
+    "biblio": 200690,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1813,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch u. Voß)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1856",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN! / Taschenbuch / für / 1856. / Fünfundzwanzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / Verlag von Pfautsch & Voß",
+  "updated": "2026-06-11 10:18:55.640Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "items": [
+    "l0fytibvoetaj61"
+  ],
+  "contents": [
+    "1l8heig3pd3mdqc",
+    "jfrt35rknrlxku7",
+    "pt5je51al6aii3q",
+    "xtu745b8be68mub",
+    "ha3y31cmhlf946b",
+    "io3bt9rxcevr338",
+    "bxrwkttol7fn4kd",
+    "oxvlflai7y0n63f",
+    "x3eujg8i66cxgzn",
+    "m8rax6yykv5kgdx",
+    "owidzj39hm79pe8",
+    "ajuxdaksjxnqz6n",
+    "hurppy3slgnqc3t",
+    "1fx83dl6j73llez",
+    "27ckxtgrpb20jq4",
+    "rzvf01gqweep2je",
+    "5xzdgr5w05os37d",
+    "ri1m6bu1g53hcbf",
+    "bdzbt1ptyw8velw",
+    "22skthgzlw8b55z",
+    "xo3djrlua5v55ed",
+    "90c8t3rxqk2vons",
+    "dbpyf2r4a8vvfz8",
+    "c2mmr2wy9t82rxy",
+    "u5e79ol078pm3y5",
+    "2nzv903jhf1ve2o",
+    "cnn68yr45n21np1",
+    "kj3mbjbgggpa3sn",
+    "6rao5rll3xwju5q",
+    "dswya72hiwh5tym",
+    "x6c257q39qpnj49",
+    "r64ifyuq6aiiddu",
+    "g1cq08mtmglws55",
+    "6ml3anbuml00k4f",
+    "4uqlm336ql89n95",
+    "si24z6jcm9nbxkr",
+    "ou2np4jy4chm3iv",
+    "6jurn4202e2msal",
+    "kxbai8zflu2c5mq",
+    "8gslp41tz80jf7n",
+    "hypbmnfaoz9jz6i",
+    "r1mqfvbzen8ejo2",
+    "b7v0vg3exzs9bwh",
+    "j3fqvnc9vtnobmh",
+    "62ntuua7o73udbr",
+    "xnvbmwra3q9shqn",
+    "ho27d8cnl71wrhs",
+    "dne5xwb8ryq6x1j",
+    "9i0a3ibhjknkvcv",
+    "iyn8ejd0be5e2qm",
+    "jnzrcu5vstzq8ed"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.131Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.131Z",
+      "agent": "so5kmpsswm45dl2",
+      "source_id": "sp8sh8ht77hktpx"
+    }
+  ]
+}

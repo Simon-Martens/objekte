@@ -1,0 +1,395 @@
+{
+  "annotation": "",
+  "biographical_data": "um 1480-1532",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.417Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Ital. Maler"
+      ],
+      "dateOfBirth": [
+        "1481"
+      ],
+      "dateOfDeath": [
+        "1532"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Cesare Cantù"
+          ],
+          "creditText": [
+            "Grande Illustrazione del Lombardo-Veneto, Tranquillo Ronchi, vol. I, Milano 1851, \"Bernardino Luini\", books.google.it"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bernardino%20Luini.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bernardino%20Luini.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bernardino%20Luini.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089292406",
+        "https://d-nb.info/gnd/174313934"
+      ],
+      "describedBy": {
+        "dateModified": "2020-09-03T11:45:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118780808/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118780808",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://www.pacelli-edition.de/Biographie/8308",
+          "label": "http://www.pacelli-edition.de/Biographie/8308"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118780808",
+      "oldAuthorityNumber": [
+        "(DE-588a)174313934",
+        "(DE-588c)4110220-4",
+        "(DE-588)1089292406",
+        "(DE-588a)118780808",
+        "(DE-588)174313934"
+      ],
+      "preferredName": "Luini, Bernardino",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Bernardino"
+        ],
+        "surname": [
+          "Luini"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Scapi"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149528856"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr88009491"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64275349"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D18300.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q8537"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089292406"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118780808/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174313934"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Bernardino_Luini"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Bernardino_Luini"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008144018X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118780808"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118780808"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118780808"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118780808"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118780808"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Bernardino, del Lupino",
+        "Lovini, Bernardino",
+        "Scapi, Bernardino",
+        "Lupino, Bernardino",
+        "Luini, Bernardo",
+        "Luino, Bernardino",
+        "Lovinus, Bernardino",
+        "Luvino, Bernardino",
+        "Luyno, Bernardino"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "del Lupino"
+          ],
+          "personalName": [
+            "Bernardino"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Luyno"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardo"
+          ],
+          "surname": [
+            "Luini"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Lovini"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Luvino"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Luino"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Lovinus"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Scapi"
+          ]
+        },
+        {
+          "forename": [
+            "Bernardino"
+          ],
+          "surname": [
+            "Lupino"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Bernardino_Luini",
+          "label": "https://de.wikipedia.org/wiki/Bernardino_Luini"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:10:15Z",
+    "gnd_query_biographical_data": "um 1480-1532",
+    "gnd_query_name": "luini, bernardino"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1685,
+  "name": "Luini, Bernardino",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIII, 458",
+  "updated": "2026-06-11 13:29:23.677Z",
+  "uri": "https://d-nb.info/gnd/118780808",
+  "editor": ""
+}

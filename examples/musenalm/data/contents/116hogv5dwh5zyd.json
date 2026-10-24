@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 86165, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86161,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Maske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ed. Svoboda pinx. J. Axmann sc.",
+  "scans": [
+    "alm_1597_86161_oapx4088py.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Maske",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.199Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "5zsqbycg4p56uzf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.199Z",
+      "agent": "2d9b50yavhthlo1",
+      "source_id": "yjp5giglezufpxc"
+    }
+  ]
+}

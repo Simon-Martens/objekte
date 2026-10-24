@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Mitbruder im Perückenthum! / Du linderst meine Schmerzen",
+  "language": [],
+  "musenalm_id": 24429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Trostschreiben / von Calvus an Canus bei Anlegung einer / Perücke / To wear a wig or not, that is the question. / Wether 't is nobler in the mind, to suffer [...] / SHAKSPEARE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Trostschreiben / von Calvus an Canus bei Anlegung einer / Perücke / To wear a wig or not, that is the question. / Wether 't is nobler in the mind, to suffer [...] / SHAKSPEARE",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.137Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "p3k1t45yrsyl70j"
+    }
+  ]
+}

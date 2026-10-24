@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Hab' ein Mäuschen gefangen, / Gar ein niedliches Thier!",
+  "language": [],
+  "musenalm_id": 36320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schöne Begnadigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schöne Begnadigung",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.736Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "bnk7slrbwuhy79c"
+    }
+  ]
+}

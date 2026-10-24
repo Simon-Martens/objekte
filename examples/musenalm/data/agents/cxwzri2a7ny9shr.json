@@ -1,0 +1,340 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.480Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1777-05-29"
+      ],
+      "dateOfDeath": [
+        "1844-12-26"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174135521",
+        "https://d-nb.info/gnd/186716397"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-14T10:48:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/115615962/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115615962",
+      "id": "https://d-nb.info/gnd/115615962",
+      "oldAuthorityNumber": [
+        "(DE-588)186716397",
+        "(DE-588a)174135521",
+        "(DE-588a)115615962",
+        "(DE-588)174135521",
+        "(DE-588a)186716397"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4073479-1",
+          "label": "Klausenburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4073842-5",
+          "label": "Kronstadt (Siebenbürgen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4010401-1",
+          "label": "Colmar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4113911-2",
+          "label": "Hietzing"
+        }
+      ],
+      "preferredName": "Silbert, Johann Peter",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Peter"
+        ],
+        "surname": [
+          "Silbert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4504156-8",
+          "label": "Polyhistor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030020-1",
+          "label": "Katholischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        }
+      ],
+      "publication": [
+        "Ferdinand II., römischer Kaiser, und seine Zeit",
+        "Gelobt sei Jesus Christus!. - [ca. 1830]",
+        "Conversations-Lexicon des geistlichen Lebens",
+        "Eleonore römische Kaiserin, Gemahlin Leopold des Ersten",
+        "Gersen, Gerson und Kempis, oder: Ist einer dieser Dreyen, und welcher*",
+        "Dom heiliger Sänger, oder fromme Gesänge der Vorzeit",
+        "Das Leben Jesu für katholische Christen",
+        "Andachtsübungen zum heiligsten Herzen Jesu",
+        "Geistlicher Seelentempel, erleuchtet durch Andacht und Liebe",
+        "Das Leben des heiligen Laurentius Justiniani"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb148060952"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/120745797"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55134159"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115615962/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174135521"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186716397"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110863764"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115615962"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115615962"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Silbert_Johann-Peter_1778_1844.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115615962.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115615962"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/115615962"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Silbert, J. P.",
+        "Silbert, Johann P.",
+        "Silbert, Johannes Petrus",
+        "Silbert, Johann Petrus",
+        "Silbert, Jean Pierre"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jean Pierre"
+          ],
+          "surname": [
+            "Silbert"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Petrus"
+          ],
+          "surname": [
+            "Silbert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Petrus"
+          ],
+          "surname": [
+            "Silbert"
+          ]
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Silbert"
+          ]
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Silbert"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:58:39Z",
+    "gnd_query_biographical_data": "1777-1844",
+    "gnd_query_name": "silbert, johann peter"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2661,
+  "name": "Silbert, Johann Peter",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXIV, 316",
+  "updated": "2026-06-11 13:29:25.020Z",
+  "uri": "https://d-nb.info/gnd/115615962",
+  "editor": ""
+}

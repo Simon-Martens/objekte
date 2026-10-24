@@ -1,0 +1,871 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1834",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/15514-7",
+          "label": "Königliche Akademie der Wissenschaften (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Bücher aus Schleiermachers Bibliothek wurden am 12. April 1836 und den folgenden Tagen einzeln versteigert. Auktionskatalog u.d.T.:  Tabulae Librorum E Bibliotheca Defuncti Schleiermacher, Praecepta Theologica Muniis Legitimis In Litterarum Universitate Berolinensi Olim Professi, Derelictorum : Qui A. D. XII. Calend. April. A. MDCCCXXXVI Et Diebus Subsequentibus ... Per D. Rauch ... Vendendi Prostant. Berolini, 1735",
+        "1804 Professor in Halle; 1809 Prediger in Berlin; 1810 Professor der Theologie und Philosophie an der Universität Berlin"
+      ],
+      "dateOfBirth": [
+        "1768-11-21"
+      ],
+      "dateOfDeath": [
+        "1834-02-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Daniel%20Ernst%20Schleiermacher.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Daniel%20Ernst%20Schleiermacher.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Daniel%20Ernst%20Schleiermacher.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1015113753",
+        "https://d-nb.info/gnd/16048040X",
+        "https://d-nb.info/gnd/1090298048"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-29T09:54:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118608045/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10057251",
+          "label": "http://lod.gesis.org/thesoz/concept_10057251"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Timotheus Christian"
+          ],
+          "surname": [
+            "Stubenrauch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/122752546",
+          "label": "Willich, Ehrenfried von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139551379",
+          "label": "Stubenrauch, Samuel Ernst"
+        },
+        {
+          "forename": [
+            "Catharina Maria"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Hildegard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schwerin-Putzar"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1367004306",
+          "label": "Lommatzsch, Hanna Gertrud"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120390299",
+          "label": "Schleiermacher, Johann Gottlieb Adolph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117682691",
+          "label": "Lommatzsch, Siegfried"
+        },
+        {
+          "forename": [
+            "geb. von Mühlenfels, Henriette"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Willich"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118608045",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/139551379",
+          "label": "Stubenrauch, Samuel Ernst"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1367004306",
+          "label": "Lommatzsch, Hanna Gertrud"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/120390299",
+          "label": "Schleiermacher, Johann Gottlieb Adolph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118608045",
+      "oldAuthorityNumber": [
+        "(DE-588)1015113753",
+        "(DE-588a)16048040X",
+        "(DE-588)1090298048",
+        "(DE-588)16048040X",
+        "(DE-588a)1015113753",
+        "(DE-588c)4052657-4",
+        "(DE-588a)118608045"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Шлейермахер, Фридрих Даниэль Эрнст"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Schleiermacher, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Schleiermacher"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130322-2",
+          "label": "Prediger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Grundlinien einer Kritik der bisherigen Sittenlehre",
+        "Monologen",
+        "Räthsel und Charaden",
+        "Grundriß der philosophischen Ethik",
+        "Vertraute Briefe über Friedrich Schlegels Lucinde"
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/1380353920",
+          "label": "Gesangbuch-Commission (Berlin)"
+        }
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1182374123",
+          "label": "Stempel (Schleiermacher, Friedrich), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80032769"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/schleiermacher-friedrich-daniel-ernst/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95158417"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76576"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015113753"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090298048"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118608045/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/16048040X"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118608045"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Schleiermacher"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schleiermacher"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Schleiermacher"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Schleiermacher"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122831479"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118608045"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118608045"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118608045.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118608045.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118608045"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118608045"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118608045"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schleiermacher, F.D.E.",
+        "Schleiermacher, F.E.D.",
+        "Schleiermacher, F.",
+        "Schleyermacher, Friedrich Daniel Ernst",
+        "Schleiermacher, D. E. D.",
+        "Schleiermacher, Daniel Friedrich",
+        "Syullaiŏmahŏ, P'ŭridŭrihi",
+        "Schleiermacher, Friedrich Ernst Daniel",
+        "Schleiermacher, Friedrich Daniel Ernst",
+        "Schleiermacher, D.E.D.",
+        "Syullaieomaheo",
+        "Schleiermacher, Friedr.",
+        "Šlajermacher",
+        "Schleiermacher, F. E. D.",
+        "Шлейермахер, Фридрих Даниэль Эрнст",
+        "Schleiermacher, Friedrich E.",
+        "Schleiermacher, F. D. E.",
+        "Schleyermacher, Friedrich",
+        "Schleiermacher, Fr. E.D.",
+        "Schleiermacher, F. D.",
+        "Schleiermacher, Fr. E. D.",
+        "슐라이어마허",
+        "Schleiermacher, Fr. D.E.",
+        "Schleiermacher, Friedrich D. E.",
+        "Schleiermacher, Fr. D. E.",
+        "Schleiermacher, Friedrich E.D.",
+        "Schleiermacher, Friedrich D.E.",
+        "Shuraiamahā, F.",
+        "Schleiermacher, Friedrich E. D.",
+        "Schleiermacher, Friedr. Daniel Ernst",
+        "Schleyermacher, Friedrich Ernst Daniel",
+        "Syullaiŏmahŏ",
+        "Schleiermacher, Fredericus",
+        "Schleiermacher, Friedrich Daniel",
+        "Schleiermacher, F.D.",
+        "Schleiermacher, Friedrich D.",
+        "Šlejermacher, Fridrich Daniėlʹ Ėrnst",
+        "Šlajermaher, Fridrih",
+        "シュライアマハー, フリードリヒ　ダニエル　エルンスト"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F. D. E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F. E. D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich D. E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F.E.D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich E.D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "personalName": [
+            "슐라이어마허"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ernst Daniel"
+          ],
+          "surname": [
+            "Schleyermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Daniel Ernst"
+          ],
+          "surname": [
+            "Schleyermacher"
+          ]
+        },
+        {
+          "forename": [
+            "フリードリヒ　ダニエル　エルンスト"
+          ],
+          "surname": [
+            "シュライアマハー"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. D.E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Daniel Ernst"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F.D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Shuraiamahā"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich E. D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Daniel Ernst"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. D. E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fredericus"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "P'ŭridŭrihi"
+          ],
+          "surname": [
+            "Syullaiŏmahŏ"
+          ]
+        },
+        {
+          "forename": [
+            "F.D.E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Daniel Ernst"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Daniel"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ernst Daniel"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Daniėlʹ Ėrnst"
+          ],
+          "surname": [
+            "Šlejermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel Friedrich"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "D.E.D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "F. D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. E.D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. E. D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "personalName": [
+            "Syullaiŏmahŏ"
+          ]
+        },
+        {
+          "personalName": [
+            "Syullaieomaheo"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich D.E."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Schleyermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Фридрих Даниэль Эрнст"
+          ],
+          "surname": [
+            "Шлейермахер"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "D. E. D."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Šlajermaher"
+          ]
+        },
+        {
+          "personalName": [
+            "Šlajermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr."
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schleiermacher",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Schleiermacher"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:48:42Z",
+    "gnd_query_biographical_data": "1768-1834",
+    "gnd_query_name": "schleiermacher, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2461,
+  "name": "Schleiermacher, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 214",
+  "updated": "2026-06-11 13:29:24.660Z",
+  "uri": "https://d-nb.info/gnd/118608045",
+  "editor": ""
+}

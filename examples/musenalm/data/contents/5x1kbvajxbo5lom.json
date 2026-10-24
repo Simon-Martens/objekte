@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar. Illustration zu »Das Karneval« von A. v. Tromlitz d.i. K. A. Fr. v. Witzleben INr 59437, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59417,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie zahlen ihre Wette. Sie sind versöhnt, / ich glücklich. / zu der Erzählung: Das Carneval",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. Fr. Wi. Meyer senior sc.",
+  "scans": [
+    "alm_896_59417_ykzg8imtmq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie zahlen ihre Wette. Sie sind versöhnt, / ich glücklich. / zu der Erzählung: Das Carneval",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.891Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "n2oq43zdak23hkl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.891Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "qjbslhel8y1jsuc"
+    }
+  ]
+}

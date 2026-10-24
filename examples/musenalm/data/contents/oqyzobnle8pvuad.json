@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Die Zeder von den Bäumen des Waldes sey / Mein Lied, die Zeder, die zu den Wolken steigt,",
+  "language": [],
+  "musenalm_id": 92436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Prinzessin Amalia, Schwester des / Königs von Preussen, Frierich des / Zweyten: / Als sie die Cantate »der Tod Jesu« in Mus- / sik zu setzen anfing",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Prinzessin Amalia, Schwester des / Königs von Preussen, Frierich des / Zweyten: / Als sie die Cantate »der Tod Jesu« in Mus- / sik zu setzen anfing",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.372Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "7jhc5hqlxu931sp"
+    }
+  ]
+}

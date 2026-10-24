@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Glücklich, glücklich war die Zeit, / Als der Busen, der uns säugte,",
+  "language": [],
+  "musenalm_id": 4483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelheid. / Bei Übersendung einer Kinder- / klapper. / Weihnacht, 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelheid. / Bei Übersendung einer Kinder- / klapper. / Weihnacht, 1792",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.179Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "gqqyna3k57nhj5c"
+    }
+  ]
+}

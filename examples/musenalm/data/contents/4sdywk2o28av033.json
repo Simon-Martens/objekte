@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Einst hatten sich um Mitternacht, / Begeistert vom erhab'nen Zwecke,",
+  "language": [],
+  "musenalm_id": 100166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Philosophen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfarrius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Philosophen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.037Z",
+      "agent": "gnvpzonh9gm3x0g",
+      "source_id": "0k40y69oziqdcig"
+    }
+  ]
+}

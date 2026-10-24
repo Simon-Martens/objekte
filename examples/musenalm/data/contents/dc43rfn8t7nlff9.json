@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Welch eine Stimme, die ich habe! / O wunderseltne Kanzelgabe!",
+  "language": [],
+  "musenalm_id": 3307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gewaltige Stimme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die gewaltige Stimme",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "h8teagsnwe3omy2",
+      "source_id": "cwjvhcfy20bgwtv"
+    }
+  ]
+}

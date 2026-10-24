@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 53255, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auerbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Merk. gest. v. L. Schnell",
+  "scans": [
+    "alm_576_53265_6gbzjgb0de.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auerbach",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "0ub52c1r9o49z3w",
+      "source_id": "km1aoad5rtmxyx6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "vbyfdjf3wft42hq",
+      "source_id": "r606enwsl9yigbp"
+    }
+  ]
+}

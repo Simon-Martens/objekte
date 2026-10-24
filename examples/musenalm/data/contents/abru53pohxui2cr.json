@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert III. /) Illustration zu »Elysium« von J. G. Jacobi # Titelzusatz aus dem G-Verz: Themire und Elise erkennen und umarmen sich im Elysium.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du willst, Elise mir verzeihen? / Jacobi Schr. Th. I. S. 226 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_255_16213_mbvo8756nb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du willst, Elise mir verzeihen? / Jacobi Schr. Th. I. S. 226 #",
+  "updated": "2001-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.709Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "xzmeyxx8bcja4ci"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.709Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "zmy4qz026vxywmk"
+    }
+  ]
+}

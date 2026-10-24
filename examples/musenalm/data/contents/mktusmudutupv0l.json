@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30039, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Metzu pinx. F. Geissler sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Metzu pinx. F. Geissler sc.",
+  "scans": [
+    "alm_389_30038_xah9e9zt0w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.360Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "5vgj5yqe0q29ie2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.360Z",
+      "agent": "jpaseozh34q5ize",
+      "source_id": "7w1jsj3vbxgkkgt"
+    }
+  ]
+}

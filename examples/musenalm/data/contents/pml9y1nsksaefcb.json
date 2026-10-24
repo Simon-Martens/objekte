@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Es hat der Mammon Millionen Knechte, / So treu ihm dienen bis zum letzten Hauche,",
+  "language": [],
+  "musenalm_id": 64816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nothschrei",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nothschrei",
+  "updated": "2009-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.159Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "e9n6qw8d1sps18h"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "O Mund, der schönsten Knospe gleich, / Die, in Cytherens Blüthenreich / Von Amorn aufgehaucht,",
+  "language": [],
+  "musenalm_id": 96401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lorchens Mund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lorchens Mund",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.714Z",
+      "agent": "x9u4n2qst16e030",
+      "source_id": "kwu4otqf4a9s8j3"
+    }
+  ]
+}

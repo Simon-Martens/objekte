@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.710Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Wir müssen scheiden, / Ich muß Dich meiden, / Du deutsches Lieb! / Ade! Ade!",
+  "language": [],
+  "musenalm_id": 98509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gisela, / das Zigeunerweib. / Ein Roman in Versen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. O. Sternau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gisela, / das Zigeunerweib. / Ein Roman in Versen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.805Z",
+      "agent": "phkzsbojlf7jna1",
+      "source_id": "yo0352cga8ek9y1"
+    }
+  ]
+}

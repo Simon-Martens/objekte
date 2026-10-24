@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Du sollst ihn sehn! Sollst von ihm Kund- / schaft hören / Aus seinem Munde diese Nacht!",
+  "language": [],
+  "musenalm_id": 3282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Geistererscheinung / (Scene aus einem Schauspiel)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Geistererscheinung / (Scene aus einem Schauspiel)",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.951Z",
+      "agent": "jw839qn8xbse64z",
+      "source_id": "i4hxkv800sq79c0"
+    }
+  ]
+}

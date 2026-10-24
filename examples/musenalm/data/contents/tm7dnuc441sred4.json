@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Freyn oder nicht? Das ist die Frage! / Ob's klüger ist, daß man im wilden Drang",
+  "language": [],
+  "musenalm_id": 30971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parodie von Hamlets Monolog: / Seyn oder nicht seyn? / Nach dem Englischen. / Im Herbstmond 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parodie von Hamlets Monolog: / Seyn oder nicht seyn? / Nach dem Englischen. / Im Herbstmond 1781",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.376Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "z2y45ais7fyzj4u"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte aus F. G. Wetzels Nachlasse (Sammlung INr 24117, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Es schwärmen weit und breit in Lust / Bacchanten und Mänaden!",
+  "language": [],
+  "musenalm_id": 24118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Im Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Im Herbst",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.962Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "seyps4ozimj0t1l"
+    }
+  ]
+}

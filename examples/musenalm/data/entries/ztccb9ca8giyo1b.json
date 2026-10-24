@@ -1,0 +1,112 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Freyburg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, SS 1-160 darin 10 GG, SS 161-170 G-Verz, Tab, MusB, S 171 I-Verz, S C, SS I-IX VrlgM, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1810",
+    "norm": "~",
+    "biblio": 200420,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-10-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 710,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1810. / Zürich / bey Orell Füßli & Comp.",
+  "updated": "2026-06-11 10:18:55.162Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "pbnuyifpebqgw6x"
+  ],
+  "contents": [
+    "dtmze4i9sshzspd",
+    "fou2m2seg452wm2",
+    "5g8lcrw34za7tdk",
+    "85g5stgv4i84ez6",
+    "f6063vcc9acln21",
+    "nsfr00soc9icfc9",
+    "ti7ai243at08k77",
+    "569zj3p3z74n2pc",
+    "jza7ih1kv2epepb",
+    "91ypzdmqfwo5is7",
+    "e00kaaiyvylvyhg",
+    "1rc0ebb3frj5x7p",
+    "2qypavdplcrjz9m",
+    "56xbh8kpb8uhdrk",
+    "ou7gwlt9o41d17o",
+    "xj8ys572irgp1x7",
+    "qekerqwd44f9gd7",
+    "jwvyuefz9p4046p",
+    "tbwziau6u9ry8tb",
+    "cd24cqnq4b43opd",
+    "5mrg437wdn50j24",
+    "hnc2ujlb3kiy7v5",
+    "vlkez58ub4uwx6w",
+    "pdele81bmvnqclj",
+    "ay8dyc3t4tvylti",
+    "u15i0uzsr1g5kiw",
+    "99bqecy8itvvtnv",
+    "08yjcahntzbcm9e",
+    "oye5lrq4xb7g2j1",
+    "9s255t8d17hvlyc",
+    "gb6l0u2mdjer963",
+    "8z4ihzcggg2q1aa",
+    "mnlx814khlt4t3q",
+    "vbvv1b1bevk7l3z",
+    "nh85u8wvoj9vy9m",
+    "zckwt6cz27fzj3z",
+    "j28p235xlyea5n7",
+    "yuru36tv0radrkd",
+    "5hp6y5y65pkfoap",
+    "xhf84e965kdz7q4",
+    "6jczzaa64m2cwsl",
+    "y0w6i0c1tmzcrb2",
+    "we6jlo3xjtbqoh8",
+    "hgrsksgf73vklrb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "l4zker22j9h309o"
+    }
+  ]
+}

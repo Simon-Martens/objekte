@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Als ich, ein Knabe noch, dein Angesicht / Zum ersten Male sah,",
+  "language": [],
+  "musenalm_id": 46310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Muse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Muse",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.624Z",
+      "agent": "43zf9fb3jx70ouy",
+      "source_id": "b8dgps43al0iqk1"
+    }
+  ]
+}

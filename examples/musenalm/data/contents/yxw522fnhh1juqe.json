@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Thoren zu lieb schreibt Flaus, und für die Verstän- / digen Lichthold,",
+  "language": [],
+  "musenalm_id": 53116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beyfall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beyfall",
+  "updated": "2007-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.618Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "tozrenbqs2csa0q"
+    }
+  ]
+}

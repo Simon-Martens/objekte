@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 18113, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Das Leben schalt ein blöder Mann / Als Schaum im Bach, als Wasserblase.",
+  "language": [],
+  "musenalm_id": 18114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensfreude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensfreude",
+  "updated": "2001-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.888Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "ahlmcqkvt74b4zb"
+    }
+  ]
+}

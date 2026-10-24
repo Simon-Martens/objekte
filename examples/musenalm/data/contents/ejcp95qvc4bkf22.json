@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 3002, Obj 108",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Lange, lange schon pocht mir im Herzen, / Traute Schwester, eine Forderung an dich;",
+  "language": [],
+  "musenalm_id": 3001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel. / An meine Schwester Friederike. / Im Winter 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlez",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel. / An meine Schwester Friederike. / Im Winter 1781",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.866Z",
+      "agent": "emp0e7sw474z41u",
+      "source_id": "ygqym1cy2ffr048"
+    }
+  ]
+}

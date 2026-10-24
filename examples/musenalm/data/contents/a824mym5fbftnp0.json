@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1832 (Sammlung INr 77355, Obj 7) Illustration zu »Die feindlichen Brüder« von Raupach s. Textbezug INr 77360, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77359,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die feindlichen Brüder. / Possenspiel von Raupach. / Act II. Scene 7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retsch del. Bl. Höfel sculp. Wr. Neustadt",
+  "scans": [
+    "alm_2403_77359_2lsulpex0a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die feindlichen Brüder. / Possenspiel von Raupach. / Act II. Scene 7.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.838Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "6app676qf17b15f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.838Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "j6472wgu9ipj9fr"
+    }
+  ]
+}

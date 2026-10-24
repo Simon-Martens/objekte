@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollständige Bez. aus dem I-Verz. /) mit einer Illustration s. Titelgraphik INr 53372, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Gott zum Gruß, lieber Bruder Johannes, ich schreib Dir, daß der Stock Buxbaum wohl angekommen syge",
+  "language": [],
+  "musenalm_id": 53422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomann Zur Linden's / Abentheuer / auf dem großen Schießen zu Straßburg / 1576",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thomann Zur Linden's / Abentheuer / auf dem großen Schießen zu Straßburg / 1576",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.714Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "svmapkrimjsjp6c"
+    }
+  ]
+}

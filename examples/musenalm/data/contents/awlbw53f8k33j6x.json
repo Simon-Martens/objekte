@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 77306, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Leise glitt eine reich-geschmückte Gondel über den Plöner See hin, auf der sich, wie es schien, eine vornehme Gesellschaft zusammengefunden hatte.",
+  "language": [],
+  "musenalm_id": 77305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisabeth, Gräfinn zu Holstein- / Schauenburg. / Ein historisch-romantisches Gemälde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Agathe S---",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elisabeth, Gräfinn zu Holstein- / Schauenburg. / Ein historisch-romantisches Gemälde",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.873Z",
+      "agent": "6iyf3jwkg1t6mae",
+      "source_id": "uul5y23kx27vffi"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "Ausgabe mit Kalendarium und variantem koloriertem Umschlag. /) Umschlaggraphiken und der Titel werden als als Vollbild gegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 4 BB, 4 GG, 13 BB Kal darin 12 GG, SS 1-160, SS 161-163 G-Verz, S 164 I-Verz, 6 MusBB dazu 6 gTzAA",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pandora (Bertuch, Kraus) 1788 [var.]",
+    "norm": "~",
+    "biblio": 409586,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-04-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4616,
+  "parallel_title": "",
+  "place_statement": "Weimar und Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j",
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Pandora (Bertuch, Kraus) 1788 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 93; L/R 59",
+  "responsibility_statement": "F. J. Bertuch u. G. M. Kraus",
+  "subtitle_statement": "",
+  "title_statement": "PANDORA / oder / Taschenbuch / des / Luxus und der Moden / für das Jahr / 1788. / Weimar und Leipzig / bey G. J. Göschen",
+  "updated": "2026-06-11 10:18:55.321Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "fooosu5t2mafsd6"
+  ],
+  "contents": [
+    "dchuzkpjk68y4tw",
+    "l569ni273dx0at9",
+    "nlxmfz82lu12okr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.395Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.395Z",
+      "agent": "1j2glyr4uzfohrn",
+      "source_id": "2cc6pl0r4sjkadl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.395Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.395Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "si7bfz6x7ctlxv1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.920Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.920Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "zbutby35mzrxm1r"
+    }
+  ]
+}

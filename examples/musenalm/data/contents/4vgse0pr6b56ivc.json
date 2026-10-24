@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 114151-114154, Obj 75-78",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleinigkeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Reiberstorffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kleinigkeiten",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.485Z",
+      "agent": "y79tyayxteqeav8",
+      "source_id": "gm7s6tmh6nj3511"
+    }
+  ]
+}

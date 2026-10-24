@@ -1,0 +1,36 @@
+{
+  "annotation": "Photos 114375,01; 114375,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_4344_114375_01_0cq26r0omh.jpg",
+    "alm_4344_114375_02_dpznjbk3cx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": []
+}

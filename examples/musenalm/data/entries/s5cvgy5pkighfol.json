@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "G, T, I-Verz, SS1–492",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Schauspieler und Schauspielfreunde 1822",
+    "norm": "~",
+    "biblio": 100725,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2861,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler und von Manstein)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Schauspieler und Schauspielfreunde 1822",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 146; L/R 129; Goed VIII. 129, 15",
+  "responsibility_statement": "Lembert",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Schauspieler und Schauspielfreunde / auf das Jahr 1822, / mit Beyträgen von: Berling, Castelli, Grill- / parzer, Fr. Haug, von Holtey, Kuffner, / von Lannoy, Sommer, Weidmann u. A. / Herausgegeben / von / Lembert. / Wien, / bei Tendler und von Manstein",
+  "updated": "2026-06-11 10:18:55.061Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "dzew1qul52r1t51"
+  ],
+  "contents": [
+    "wdiidb3ged3uvyv",
+    "asgab8dwr80fck9",
+    "887atnol5bzn0gw",
+    "t5eok6rstmbnoo6",
+    "q230d0jlcklrl1x",
+    "lzgyb1xg4w9n4gp",
+    "jn7rgfk0kvb1kda",
+    "vsv4s1po0f0zyqu",
+    "mw0tkj0vkiqoa8f",
+    "eyhgzmonj6n66er",
+    "hjexlqbiu9zbbr6",
+    "2lhfahcoquae952",
+    "fhly3kcfxh6izjf",
+    "25pwjn9cgnbxgoh",
+    "we7mgfgx1qwav3r",
+    "zszoioxninvovkw",
+    "h2jotyf8wjrfb79",
+    "3hb38mhlljcfevn",
+    "nu16i5s7xjiz2zn",
+    "akygpcocuy9rc47",
+    "napbvcje81fjlai",
+    "s7ecqqjrdpx6iid",
+    "m8fu716xq0c9848",
+    "5d7a7ub6qltz63h",
+    "qgfmxk4f19va2oy",
+    "h21wcr1n1xu8stx",
+    "5r3lerk1s31dchi",
+    "m2qec2yevf4bk4g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.155Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.155Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "7cp8tzm08mvf7y3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "lxngazxhjdim5r0",
+      "source_id": "yzfuez4hvauxm2f"
+    }
+  ]
+}

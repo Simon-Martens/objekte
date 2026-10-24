@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Ja, liebster Freund, während die ganze Stadt mich beneidet, und ruft, ich habe durch den Besitz des liebenswürdigsten Weibes das Glück an mich gefesselt",
+  "language": [],
+  "musenalm_id": 32353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Beneidete. / Summa: bitte Gott, der dich erschaffen / hat, daß er dir ein fromm Kind zufüge: / es wird doch Mühe genug haben! / D. Martin Luther",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Beneidete. / Summa: bitte Gott, der dich erschaffen / hat, daß er dir ein fromm Kind zufüge: / es wird doch Mühe genug haben! / D. Martin Luther",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.640Z",
+      "agent": "2wsoz27ytrsps8l",
+      "source_id": "8qc9czqobhx3gsa"
+    }
+  ]
+}

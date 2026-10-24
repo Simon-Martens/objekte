@@ -1,0 +1,182 @@
+{
+  "annotation": "",
+  "biographical_data": "e. 1808, 1824, 1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.423Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler"
+      ],
+      "dateOfBirth": [
+        "1808"
+      ],
+      "dateOfDeath": [
+        "1880"
+      ],
+      "describedBy": {
+        "dateModified": "2016-09-02T16:36:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104140720/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104140720",
+      "id": "https://d-nb.info/gnd/104140720",
+      "oldAuthorityNumber": [
+        "(DE-588a)104140720"
+      ],
+      "preferredName": "Matthäi, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Matthäi"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34884155"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18511670"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104140720/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066666965"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104140720"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104140720"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Matthaey, Johann Heinrich Gottlob",
+        "Matthaey, Heinrich",
+        "Matthaei, Heinrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Matthaei"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Gottlob"
+          ],
+          "surname": [
+            "Matthaey"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Matthaey"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T12:12:57Z",
+    "gnd_query_biographical_data": "e. 1808, 1824, 1828",
+    "gnd_query_name": "matthäi"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 1741,
+  "name": "Matthäi",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIV, 259",
+  "updated": "2026-06-11 13:29:23.739Z",
+  "uri": "https://d-nb.info/gnd/104140720",
+  "editor": ""
+}

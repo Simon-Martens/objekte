@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59989, Obj 54 s.a. Beitrag »Miszellen größtentheils aus der gegenwärtigen Zeit« INr 59965, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "Bezieht sich auf die Anekdote S. 320. der / Miszellen",
+  "language": [],
+  "musenalm_id": 59990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Die Jacobiner Schwindelköpfe zu Worms, müssen / ihren Freyheitsbaum selbst ausgraben.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Die Jacobiner Schwindelköpfe zu Worms, müssen / ihren Freyheitsbaum selbst ausgraben.",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.682Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "nc8hwiod3fa9b29"
+    }
+  ]
+}

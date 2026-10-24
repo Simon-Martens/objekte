@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Als der edle Phädaretos / Bei der Auswahl der dreihundert / Ehrenkrieger übersehen ward,",
+  "language": [],
+  "musenalm_id": 19662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Spartaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Spartaner",
+  "updated": "2001-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.954Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "pcnx1z8yj5a33m8"
+    }
+  ]
+}

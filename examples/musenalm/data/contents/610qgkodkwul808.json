@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Der Hut bewahret, wie bekannt, / Den Kopf, nicht aber den Verstand:",
+  "language": [],
+  "musenalm_id": 12852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Schwank über die großen / Hüte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Schwank über die großen / Hüte",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.319Z",
+      "agent": "h8teagsnwe3omy2",
+      "source_id": "tnou63sfl2jf2es"
+    }
+  ]
+}

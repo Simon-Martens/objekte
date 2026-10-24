@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Lasset uns zu Berge fahren; die Steige sind offen; zerfallen und todt liegt die Lauine im Abgrund;",
+  "language": [],
+  "musenalm_id": 55271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bergfahrt, / ein - / Lieder-Spiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abaham Emanuel Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bergfahrt, / ein - / Lieder-Spiel",
+  "updated": "2008-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.917Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "5s19xai5ugcev4d"
+    }
+  ]
+}

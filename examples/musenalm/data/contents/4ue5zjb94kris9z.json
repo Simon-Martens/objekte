@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Wohl läßt von Art auch Art. Du mein, / Brudervolk! / Frei, keusch, biderb, großmüthig und tapfer einst;",
+  "language": [],
+  "musenalm_id": 6013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Art läßt von Art. / Den 23ten Osterm. 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lor. Leop. Haschka",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Art läßt von Art. / Den 23ten Osterm. 1784",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.954Z",
+      "agent": "j63e4oki0d4f74a",
+      "source_id": "r4vobuga2uv7yga"
+    }
+  ]
+}

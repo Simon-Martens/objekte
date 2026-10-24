@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Wir Menschen haben die eigene Gewohnheit, daß wir von Jugend auf mehr außer uns bekannt, vertraut, einheimisch zu werden suchen, als in uns und mit uns selbst.",
+  "language": [],
+  "musenalm_id": 48563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Der Traum. / Für sinnige Leserinnen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Der Traum. / Für sinnige Leserinnen",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.499Z",
+      "agent": "0lth2adu21imy6k",
+      "source_id": "vmj4z5m65aytuph"
+    }
+  ]
+}

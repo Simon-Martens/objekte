@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60885, Obj 17) s. Graphik im Kalendarium INr 60882, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Lager vor Mailand, dessen Mauern und Palläste zerbrochen werden. Kaiser Friedrich I. unter offenem Gezelte",
+  "language": [],
+  "musenalm_id": 60948,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X.",
+  "updated": "2008-11-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.928Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "fedxz1p28fgd569"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Acht neue Wanderlieder (Sammlung INr 70949, Obj 23) Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Noch ahnt man kaum der Sonne Licht, / Noch sind die Morgenglocken nicht / Im finstern Thal erklungen.",
+  "language": [],
+  "musenalm_id": 70952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Morgenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Morgenlied",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.501Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "ghthfrkn91p8c8a"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1802 (Registerband)",
+    "norm": "",
+    "biblio": 408877,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4168,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1802 (Registerband)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "G. C. B. Busch",
+  "subtitle_statement": "",
+  "title_statement": "Register-Band / über den / Almanach / der / Fortschritte, neuesten Erfindungen / und Entdeckungen / in / Wissenschaften, Künsten, / Manufakturen / und / Handwerken, / enthaltend / die neuesten Erfindungen und Entdeckungen / von Ostern 1810 bis Ostern 1811. / Herausgegeben / von / G. C. B. Busch. / Mit einer Kupfertafel. / Sechzehnter Jahrgang. / Arnstadt, 1812 / in der Klüger'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.519Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "yoeoyo99g24pm4f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "h15q92ogdf7t3qj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.338Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.338Z",
+      "agent": "y7cxehho661g55i",
+      "source_id": "vcfiho7vu2iqg3u"
+    }
+  ]
+}

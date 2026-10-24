@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107758,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chapeaux à la Mode. / 1. à la Digne. 2. à la bergère / 3. à la Philantropine 4. à la tête",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del. et sculp.",
+  "scans": [
+    "alm_2161_107758_2necsxavih.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chapeaux à la Mode. / 1. à la Digne. 2. à la bergère / 3. à la Philantropine 4. à la tête",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.212Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "0bb74h9thhydffb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 16. /) s. Textbezug INr",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76405,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue de la première cascade de Kirnitzschthale. / Der vordere Wasserfall im Kirnitzschthale . S. 74",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther del. et sculp. 1799",
+  "scans": [
+    "alm_3699_76405_ev2976fcc9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue de la première cascade de Kirnitzschthale. / Der vordere Wasserfall im Kirnitzschthale . S. 74",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.751Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "68tq5e2lknnx2p1"
+    }
+  ]
+}

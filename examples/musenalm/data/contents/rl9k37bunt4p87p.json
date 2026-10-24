@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23673,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dr. ERNST LUDWIG POSSELT / geb. d. 22. Jenner 1764 / gest. d. 11 Junÿ 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Arland in Pforzheim gest. v. A. W. Küffner",
+  "scans": [
+    "alm_319_23673_kjcyvag60c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dr. ERNST LUDWIG POSSELT / geb. d. 22. Jenner 1764 / gest. d. 11 Junÿ 1804",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.111Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "swg1ia8gz88fp5o"
+    }
+  ]
+}

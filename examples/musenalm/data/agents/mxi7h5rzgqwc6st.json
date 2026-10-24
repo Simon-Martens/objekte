@@ -1,0 +1,291 @@
+{
+  "annotation": "",
+  "biographical_data": "1735-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1735-04-02"
+      ],
+      "dateOfDeath": [
+        "1811-07-19"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T16:59:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117197068/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1019088419",
+          "label": "Tag, Christian Traugott"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117197068",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1019088419",
+          "label": "Tag, Christian Traugott"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117197068",
+      "oldAuthorityNumber": [
+        "(DE-588a)142536261",
+        "(DE-588a)177692014",
+        "(DE-588c)4664225-0",
+        "(DE-588a)134535731",
+        "(DE-588a)117197068",
+        "(DE-101c)310225736"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4255970-4",
+          "label": "Hohenstein (Sachsen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4283940-3",
+          "label": "Beierfeld (Erzgebirge)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4403371-0",
+          "label": "Niederzwönitz"
+        }
+      ],
+      "preferredName": "Tag, Christian Gotthilf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gotthilf"
+        ],
+        "surname": [
+          "Tag"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163926-1",
+          "label": "Kirchenmusiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163221-7",
+          "label": "Kantor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "publication": [
+        "Tag, Christian G.: Musicalisches Magazin, in Sonaten, Sinfonien, Trios und andern Stuecke ...",
+        "Tag, Christian G.: [Lieder der Beruhigung]",
+        "Lehrndorfer, Franz: Bearbeitungen für Orgel nach Werken von Christian Gotthilf Tag. - c 1992",
+        "Tag, Christian G.: [Melodie zum Vaterunser und zu den Einsetzungsworten des Abendmahls]",
+        "Tag, Christian G.: [Choralvorspiele / Ausw.]. - 1976",
+        "Tag, Christian G.: [Der Glaube]"
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/2074419-5",
+          "label": "Dresdner Kreuzchor"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14066362s"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n89635962"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12510997"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1079923"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117197068/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Tag"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000032589199"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117197068"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117197068.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117197068"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Tag, Christian G.",
+        "Tag, C. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Tag"
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Tag"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Tag",
+          "label": "https://de.wikipedia.org/wiki/Christian_Gotthilf_Tag"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:03Z",
+    "gnd_query_biographical_data": "1735-1811",
+    "gnd_query_name": "tag, christian gotthilf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2852,
+  "name": "Tag, Christian Gotthilf",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXVII, 351",
+  "updated": "2026-06-11 13:29:25.348Z",
+  "uri": "https://d-nb.info/gnd/117197068",
+  "editor": ""
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Ländlicher Briefwechsel.« INr 47079, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Malvieux inv. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Malvieux inv. et sc.",
+  "scans": [
+    "alm_637_47080_8yl9q6mz94.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.625Z",
+      "agent": "rpm3jfs7o8do52j",
+      "source_id": "h88u4oqs501u71k"
+    }
+  ]
+}

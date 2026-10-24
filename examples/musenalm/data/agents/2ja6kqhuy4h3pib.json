@@ -1,0 +1,585 @@
+{
+  "annotation": "",
+  "biographical_data": "1834-1912",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller, Geschichtsforscher u. Rechtsgelehrter; seit 1888: Prof. für Rechtsgeschichte in Würzburg, Königsberg und Breslau; Verfasser historischer Romane aus der germanischen und frühen deutschen Geschichte"
+      ],
+      "dateOfBirth": [
+        "1834-02-09"
+      ],
+      "dateOfDeath": [
+        "1912-01-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://www.badw.de/bilder/Mitglieder_v/Dahn_GG.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix%20Dahn.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix%20Dahn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Felix%20Dahn.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089475845"
+      ],
+      "describedBy": {
+        "dateModified": "2024-09-25T20:06:55.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118523392/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118523406",
+          "label": "Dahn, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130955094",
+          "label": "Dahn, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116015039",
+          "label": "Dahn, Therese"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118523384",
+          "label": "Dahn, Konstanze"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136189938",
+          "label": "Dahn-Fries, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116249382",
+          "label": "Bomhard, Constance"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116015004",
+          "label": "Dahn, Ludwig"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118523392",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/130955094",
+          "label": "Dahn, Felix"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118523384",
+          "label": "Dahn, Konstanze"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118523406",
+          "label": "Dahn, Friedrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116249382",
+          "label": "Bomhard, Constance"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116015004",
+          "label": "Dahn, Ludwig"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118523392",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118523392",
+        "(DE-588c)4010906-9",
+        "(DE-588)1089475845",
+        "(DE-588a)131220373"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4067037-5",
+          "label": "Würzburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Dahn, Felix",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Felix"
+        ],
+        "surname": [
+          "Dahn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4152967-4",
+          "label": "Erzähler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Sophus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Sind Götter?",
+        "Bis zum Tode getreu",
+        "Odhin's Trost",
+        "Kämpfende Herzen",
+        "Über die Wirkung der Klageverjährung bei Obligationen"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig Julius Felix"
+          ],
+          "surname": [
+            "Dahn"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedPerson": [
+        {
+          "id": "https://d-nb.info/gnd/117467642",
+          "label": "Vogt, Friedrich"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb124630301"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86142565"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/dahn-felix/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/108192"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61456"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089475845"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118523392/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118523392"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Felix_Dahn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Felix_Dahn"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Felix_Dahn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Felix_Dahn"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108545337"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118523392"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118523392"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118523392.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118523392"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/92698FC28009429D99CA7B8912389ED7"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118523392"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Dahn, Julius Sophus Felix",
+        "Dahn, Felix L.",
+        "Dahn, Felix Ludwig Julius",
+        "Dahn, Ludwig J.",
+        "Dahn, Ludwig Julius Felix",
+        "Sophus, Ludwig",
+        "Dan, Feliks",
+        "Dahn, Ludwig Julius Sophus Felix",
+        "Dahn, Felix Ludwig Sophus",
+        "Dahn, F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Julius Felix"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Sophus"
+          ]
+        },
+        {
+          "forename": [
+            "Feliks"
+          ],
+          "surname": [
+            "Dan"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Ludwig Julius"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig J."
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Ludwig Sophus"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Julius Sophus Felix"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Julius Felix"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix L."
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Sophus Felix"
+          ],
+          "surname": [
+            "Dahn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Felix_Dahn",
+          "label": "https://de.wikipedia.org/wiki/Felix_Dahn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:10:42Z",
+    "gnd_query_biographical_data": "1834-1912",
+    "gnd_query_name": "dahn, felix"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 484,
+  "name": "Dahn, Felix",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 95",
+  "updated": "2026-06-11 13:29:21.984Z",
+  "uri": "https://d-nb.info/gnd/118523392",
+  "editor": ""
+}

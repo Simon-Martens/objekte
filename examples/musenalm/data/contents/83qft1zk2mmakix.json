@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 34136-34139, Obj 24-27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Distichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Distichen",
+  "updated": "2003-05-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.620Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "46u9tf5kpans4nb"
+    }
+  ]
+}

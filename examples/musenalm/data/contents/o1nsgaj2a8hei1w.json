@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 35808, Obj 14) mit einer Illustration s. INr 35810, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zu ** in Schlesien lebten zwey arme Männer, die sich und ihre Familie davon ernährten, daß sie in dem nahen Walde Holz fällten,",
+  "language": [],
+  "musenalm_id": 35809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Greis in der Waldhöhle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Greis in der Waldhöhle",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.907Z",
+      "agent": "x9exqq2c4bm6xsq",
+      "source_id": "n5xdiap5sa1wxso"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Immer erzieht am Spallier wie den Frucht- / baum, so den Geschäftsmann.",
+  "language": [],
+  "musenalm_id": 1260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erziehung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erziehung",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.687Z",
+      "agent": "9l93ioes6kzj7pb",
+      "source_id": "tmudelcjg0pknzq"
+    }
+  ]
+}

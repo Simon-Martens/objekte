@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Weinbüchlein (Sammlung INr 55090, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Wasserfluß und Windesodem / Halten rein der Erde Haus:",
+  "language": [],
+  "musenalm_id": 55092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Das Feuer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Das Feuer",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.785Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "dmz3h8ewj6gsqzm"
+    }
+  ]
+}

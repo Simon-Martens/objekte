@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Jüngling vom Lande. Ein Gesellschaftslied« von Langbein s. INr 13392, Obj 29 (Photos 13555,01-13555,04)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13555,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 194,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling vom Lande. / Ein Gesellschaftslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_217_13555_01_bgdyz0l793.jpg",
+    "alm_217_13555_02_foqppcxsdd.jpg",
+    "alm_217_13555_03_2p6467role.jpg",
+    "alm_217_13555_04_e3cnzrfyvu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling vom Lande. / Ein Gesellschaftslied",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.324Z",
+      "agent": "cx1t1g6vij8mhnm",
+      "source_id": "kzlb3gv9lf90g78"
+    }
+  ]
+}

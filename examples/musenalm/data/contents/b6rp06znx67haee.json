@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Don Giovanni« von W. A. Mozart s. Textbezug INr 75070, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75071,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DON JUAN. / II. Act. / Juan. So willst du kommen? Wirklich kommen? / Geist d. Gouverneurs. Ja -!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_2368_75071_n5hdpi9zvh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DON JUAN. / II. Act. / Juan. So willst du kommen? Wirklich kommen? / Geist d. Gouverneurs. Ja -!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.548Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "2d7c3hhiet7i5z2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.548Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "vxhnbhtr3imt250"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Motto der Sammlung:  Kleinigkeiten aus J. Carl Ungers ungedruckten Schriften (Sammlung INr 61575, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Was sanft und mild und mit bescheidener / Sitte / Zum Ernst des Lebens reiht das heitere / Spiel",
+  "language": [],
+  "musenalm_id": 61577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was sanft und mild und mit bescheidener / Sitte / Zum Ernst des Lebens reiht das heitere / Spiel…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "6j4vpf8v5jpzs11"
+    }
+  ]
+}

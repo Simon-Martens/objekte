@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Don Quichote« von Cervantes s. Textbezug INr 7807, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7808,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sancho als Statthalter der Insel Barataria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hogarth inv. Riep f.",
+  "scans": [
+    "alm_166_7808_wgaoscrem0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sancho als Statthalter der Insel Barataria",
+  "updated": "2000-12-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.241Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "5dg7swrt9f85elo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.241Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "nov40ylj4v6xqsh"
+    }
+  ]
+}

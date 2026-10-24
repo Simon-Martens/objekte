@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII, 124 /) Sammlung von 9 Gedichten INr 24794-24802, Obj 75-83",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "1. / Frühlingsvorsätze",
+  "language": [],
+  "musenalm_id": 24793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P. A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.194Z",
+      "agent": "7vx6qiqaoli0gyj",
+      "source_id": "n7e5qxga14yo6yo"
+    }
+  ]
+}

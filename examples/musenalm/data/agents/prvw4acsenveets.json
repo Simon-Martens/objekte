@@ -1,0 +1,345 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.403Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1780-12-16"
+      ],
+      "dateOfDeath": [
+        "1853-06-16"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/137108591"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T14:17:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116617004/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116617004",
+      "id": "https://d-nb.info/gnd/116617004",
+      "oldAuthorityNumber": [
+        "(DE-588a)137017979",
+        "(DE-588a)100797431",
+        "(DE-588a)116617004",
+        "(DE-588a)137108591",
+        "(DE-588)137108591"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Schloß Eichen/Königsberg"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Magdeburgerforth/Ziesar"
+      ],
+      "preferredName": "Kurowsky-Eichen, Friedrich Carl Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Carl Anton"
+        ],
+        "surname": [
+          "Kurowsky-Eichen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Gewehrfabrikskommissar"
+      ],
+      "publication": [
+        "Die Zerstörung von Tantalis. - 1816",
+        "Die vier wandernden Helden. - 1827"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/167099345"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15428855"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116617004/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/137108591"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Kurowski-Eichen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000114198618"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116617004"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116617004"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116617004"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Eichen, Friedrich von",
+        "Kurowsky-Eichen, Friedrich Karl Anton Bernhard von",
+        "Kurowsky, Friedrich von",
+        "Kurowski-Eichen, Friedrich Carl Anton Bernhard von",
+        "Kurowsky Eichen, Friedrich Carl Anton",
+        "Eichen, Friedrich von Kurowski-",
+        "Kurowsky-Eichen, Friedrich Karl von",
+        "Eichen, Friedrich von K.-",
+        "Eichen, Friedrich",
+        "Kurowsky-Eichen, Friedrich von",
+        "Eichen, Friedrich Carl Anton Kurowsky-",
+        "Kurowski-Eichen, Friedrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowsky"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowski-Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl Anton Bernhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowski-Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl Anton Bernhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowsky-Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowsky-Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich von Kurowski-"
+          ],
+          "surname": [
+            "Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich von K.-"
+          ],
+          "surname": [
+            "Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl Anton Kurowsky-"
+          ],
+          "surname": [
+            "Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurowsky-Eichen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Carl Anton"
+          ],
+          "surname": [
+            "Kurowsky Eichen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Kurowski-Eichen",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_Kurowski-Eichen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:02:03Z",
+    "gnd_query_biographical_data": "1780-?",
+    "gnd_query_name": "kurowski-eichen, friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1521,
+  "name": "Kurowski-Eichen, Friedrich von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 1193",
+  "updated": "2026-06-11 13:29:23.421Z",
+  "uri": "https://d-nb.info/gnd/116617004",
+  "editor": ""
+}

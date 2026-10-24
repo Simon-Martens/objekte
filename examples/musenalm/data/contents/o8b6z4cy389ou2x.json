@@ -1,0 +1,45 @@
+{
+  "annotation": "s. die GraphikenINr 41758-41760, Obj 15-17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Kaum 15 Meilen über das Meer hin und schon zeigt sich ein Inselreich, das, wenn gleich von Menschen bewohnt, welche denen des so eben verlassenen Continents ähnlich sind,",
+  "language": [],
+  "musenalm_id": 41753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kaiserreich Japan (Niphon) / und die dazu gehörenden Inseln / Das Land im Allgemeinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kaiserreich Japan (Niphon) / und die dazu gehörenden Inseln / Das Land im Allgemeinen",
+  "updated": "2005-12-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "vqnkpqzgnsx97bh"
+    }
+  ]
+}

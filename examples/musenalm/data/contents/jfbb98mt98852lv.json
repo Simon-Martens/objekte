@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Im Feld der Politik ergehn sich Millionen; / Doch einen Glücklichen sah dort man niemals wohnen.",
+  "language": [],
+  "musenalm_id": 65692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 261,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Politik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Politik",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.404Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "yzwliig5ykpvn26"
+    }
+  ]
+}

@@ -1,0 +1,603 @@
+{
+  "annotation": "",
+  "biographical_data": "1787-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.499Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/117542474",
+          "label": "Mayer, August"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1830-33 ao Professor der deutschen Sprache und Literatur in Tübingen; Abgeordneter im Frankfurter Parlament"
+      ],
+      "dateOfBirth": [
+        "1787-04-26"
+      ],
+      "dateOfDeath": [
+        "1862-11-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Gottlob Wilhelm Morff"
+          ],
+          "creditText": [
+            "oil painting by G. W. Morff, 1818"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Uhland.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Uhland.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Uhland.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T18:21:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118625063/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100919855",
+          "label": "Hoser, Conrad Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117268267",
+          "label": "Uhland, Johann Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117268194",
+          "label": "Uhland, Emilie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117012270",
+          "label": "Hoser, Jakob Samuel"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118625063",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/100919855",
+          "label": "Hoser, Conrad Friedrich"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/117542474",
+          "label": "Mayer, August"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/117012270",
+          "label": "Hoser, Jakob Samuel"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117268267",
+          "label": "Uhland, Johann Friedrich"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117268194",
+          "label": "Uhland, Emilie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118625063",
+      "oldAuthorityNumber": [
+        "(DE-588c)4061466-9",
+        "(DE-101c)310345561",
+        "(DE-588a)118625063",
+        "(DE-588a)134655567"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061147-4",
+          "label": "Tübingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4061147-4",
+          "label": "Tübingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4061147-4",
+          "label": "Tübingen"
+        }
+      ],
+      "preferredName": "Uhland, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Uhland"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156858-8",
+          "label": "Germanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "nameAddition": [
+            "der Rezensent"
+          ],
+          "personalName": [
+            "Spindelmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ernst, Herzog von Schwaben",
+        "Sagenforschungen",
+        "De constuenda Republica Carmina",
+        "Sechs vaterländische Gedichte",
+        "Walther von der Vogelweide, ein altdeutscher Dichter",
+        "Fischart, Johann: Glückhaftes Schiff von Zürich",
+        "Ludwig der Baier",
+        "Vaterländische Gedichte"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Ludwig"
+          ],
+          "surname": [
+            "Uhland"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12427238g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81121451"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73943536"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61058"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118625063/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118625063"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Uhland"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Uhland"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Uhland"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Uhland"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118625063"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121395345"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118625063"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1841_schorn;21"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1848_schorn;86"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;39"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118625063"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118625063.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118625063.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118625063"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118625063"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Uhland, Jo. Ludovicus",
+        "Uhland, Johann L.",
+        "Uland, L.",
+        "Uhland, Louis",
+        "Uland, Li︠u︡dvig",
+        "Uhland, Joannes Ludovicus",
+        "Uhland, L.",
+        "Uhland, Johann Ludwig",
+        "Spindelmann, der Rezensent",
+        "Uhland, Giovanni Luigi",
+        "Uhland, Luigi",
+        "Uhland",
+        "Uland, Ljudvig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Giovanni Luigi"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Ludovicus"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Ljudvig"
+          ],
+          "surname": [
+            "Uland"
+          ]
+        },
+        {
+          "forename": [
+            "Johann L."
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Li︠u︡dvig"
+          ],
+          "surname": [
+            "Uland"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Ludovicus"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "personalName": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ludwig"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Rezensent"
+          ],
+          "personalName": [
+            "Spindelmann"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "Luigi"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Uland"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ludwig"
+          ],
+          "surname": [
+            "Uhland"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Uhland",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Uhland"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:12:51Z",
+    "gnd_query_biographical_data": "1787-1862",
+    "gnd_query_name": "uhland, johann ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2949,
+  "name": "Uhland, Johann Ludwig",
+  "profession": "Text",
+  "pseudonyms": "Volker; Spindelmann, der Recensent",
+  "refs": "Goed VIII, 213; Goed XI/1, 235; Goed XIII, 6; E 364",
+  "updated": "2026-06-11 13:29:25.489Z",
+  "uri": "https://d-nb.info/gnd/118625063",
+  "editor": ""
+}

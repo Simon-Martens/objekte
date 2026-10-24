@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Niemand ist mir hold; doch kann niemand / einer Schuld mich zeihn.",
+  "language": [],
+  "musenalm_id": 6006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selblieb und Wahrmund. / (Nach Logau)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selblieb und Wahrmund. / (Nach Logau)",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.071Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "h5lfdccpeo8uskn"
+    }
+  ]
+}

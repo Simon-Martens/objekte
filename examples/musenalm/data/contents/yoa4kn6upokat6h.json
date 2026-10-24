@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Blume der Blumen« von Philipp Otto Runge INr 78401, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BLUME DER BLUMEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Reichardt",
+  "scans": [
+    "alm_3732_78480_7hu7ikt2o2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BLUME DER BLUMEN",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.951Z",
+      "agent": "cxpbawn52m0hmbl",
+      "source_id": "489yizwz6blggyb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. vom Titel der Sammlung /) Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Des Mädchens Klage« von Fr. Schiller IINr 77138, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77139,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Mädchens Klage von Schiller",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg Büscher",
+  "scans": [
+    "alm_2398_77139_ibrpt7t6dz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Mädchens Klage von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.585Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "b97iufblnl1biv8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.585Z",
+      "agent": "rookj8hzrynkcws",
+      "source_id": "k0c0rtz5n0gs5as"
+    }
+  ]
+}

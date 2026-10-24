@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei- und vierstimmige Lieder (Sammlung INr 36372, Obj 36) IV. Lieder (Sammlung INr 36371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Was füllet die Brust mit Lust und Schmerz? / Was pochet so sehnsuchtsvoll das Herz?",
+  "language": [],
+  "musenalm_id": 36374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Rhapsodie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Rhapsodie",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.823Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "7dgb4dig5oob5pi"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 68583, Obj 3,10 /) Das Original befindet sich in der Sammlung des Herrn M. Grittner",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Weß ist das Bild? Weß ist die Überschrift? / Entgegnete der gottgesandte Lehrer;",
+  "language": [],
+  "musenalm_id": 68584,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3.11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Weß ist das Bild? / Gemählde von Domenichino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Weß ist das Bild? / Gemählde von Domenichino",
+  "updated": "2001-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.461Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "92p0higav7zigtb"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelauflage von: Romantisch-Ländliche Gedichte von F. W. A. Schmidt, Prediger zu Werneuchen Mit Kupfern und Musik. Berlin 1798, bei Wilhelm Oemigke d. J.; s.a. Titelauflage 1798: alm-510",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1799",
+    "norm": "~§ SS 145 ff und Umschlag v. fehlen",
+    "biblio": 409532,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-04-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4509,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach romantisch-ländlicher Gemälde (F. W. A. Schmidt) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IV/1. 1100, 7",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / ROMANTISCH-LÄNDLCIHER / GEMÄHLDE / FÜR / 1799 / VON / F. W. A. SCHMIDT, / PREDIGER ZU WERNEUCHEN. / MIT / KUPFERN UND MUSIK. / Berlin 1799, / bei Wilhelm Oehmigke d. J.",
+  "updated": "2026-06-11 10:18:54.801Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "gboj2rddls13ifl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.387Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.387Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "7qb1n6b9wdxfeno"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "gfcboegw1x6gt97"
+    }
+  ]
+}

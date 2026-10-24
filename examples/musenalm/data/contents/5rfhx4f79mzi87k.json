@@ -1,0 +1,47 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115516,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALMANACH fürs THEATER. / 1807. / FRIEDERIKE BETHMANN / Erster Jahrgang / von / August Wilhelm Iffland. / Berlin 1807. / bey Oehmigke jun. / rthl. 1, 16 gG.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Bolt sc. 1806",
+  "scans": [
+    "alm_1340_115516_7ckqbel2tn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH fürs THEATER. / 1807. / FRIEDERIKE BETHMANN / Erster Jahrgang / von / August Wilhelm Iffland. / Berlin 1807. / bey Oehmigke jun. / rthl. 1, 16 gG.",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.586Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "decdy8wrberxuxl"
+    }
+  ]
+}

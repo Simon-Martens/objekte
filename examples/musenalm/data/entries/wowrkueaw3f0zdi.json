@@ -1,0 +1,104 @@
+{
+  "annotation": "Aus: D. Ernst Ludwig Posselt's kleine Schriften. Nürnberg, in der Bauer- und Mannischen Buchhandlung 1793, SS 237-261 /) Jedem Monat sind ein Gedicht und auf der gegenüberliegenden Seite eine Tabelle der Monatstage mit, von Posselt ausgewählten, Namen berühmter Deutscher gewidmet. /) Die Doppelseite des Monats Januar ist als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S 237 T, SS 238- 261",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Versuch eines National-Almanachs für Teutsche 1793",
+    "norm": "~",
+    "biblio": 408939,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4186,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Bauer- und Mannischen Buchhandlun)g",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Versuch eines National-Almanachs für Teutsche 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "D. Ernst Ludwig Posselt",
+  "subtitle_statement": "",
+  "title_statement": "Versuch eines National-Almanachs für Teutsche 1793 aus: D. Ernst Ludwig Posselt's kleine Schriften. Nürnberg, in der Bauer- und Mannischen Buchhandlung 1793",
+  "updated": "2026-06-11 10:18:54.544Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "pry8qij9qnnj1kj"
+  ],
+  "contents": [
+    "oghhazq7gloem4a",
+    "tjj5j89qdp3fzce",
+    "vwoq7w6loci7sak",
+    "a3vdz2hanfhydgz",
+    "h2qwznh86ftb90q",
+    "rrqps0hzmpnafug",
+    "g903mueffmr4wvl",
+    "m46o8rukaqtrybf",
+    "me0cy3gtv0nzgj8",
+    "m5x89m5sagcgoup",
+    "iu94qcvj4qto5td",
+    "gw0o5c0ag7pl916",
+    "xyo9ae2t5df643z",
+    "n4x32rn82j8vvpj",
+    "bkxni6vasnvs7zx",
+    "xbf15lu8z6ceavb",
+    "9gyhwo3a02eqxn1",
+    "12rwndmu2rrpzp6",
+    "n9avy267uvpjb1m",
+    "av0ktfhqfxcl7hp",
+    "zy33ycjwiola6s7",
+    "bv3xw4xl12h25kr",
+    "ow3ozjrmb8actw7",
+    "5vhhqa3n9rni3hu",
+    "5uoppm5wxjzw3i3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.498Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.498Z",
+      "agent": "vlu1loei07juwaw",
+      "source_id": "mv3myiwidxhrblc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.342Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.342Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "sqlnia2k7od8hq1"
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "annotation": "",
+  "biographical_data": "1803-1884",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.477Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "österr. Maler"
+      ],
+      "dateOfBirth": [
+        "1803-01-07"
+      ],
+      "dateOfDeath": [
+        "1884-03-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph Hasslwander"
+          ],
+          "creditText": [
+            "https://digital.belvedere.at/objects/1877/der-maler-heinrich-schwemminger"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Hasslwander%20-%20Der%20Maler%20Heinrich%20Schwemminger%20-%203080%20-%20Kunsthistorisches%20Museum.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Hasslwander%20-%20Der%20Maler%20Heinrich%20Schwemminger%20-%203080%20-%20Kunsthistorisches%20Museum.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Hasslwander%20-%20Der%20Maler%20Heinrich%20Schwemminger%20-%203080%20-%20Kunsthistorisches%20Museum.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2012-08-30T08:12:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1025544765/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "1025544765",
+      "id": "https://d-nb.info/gnd/1025544765",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Schwemminger, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Schwemminger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nb2014024034"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96139504"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q36010130"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1025544765/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Schwemminger"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Schwemminger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000070452257"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schwemminger_Heinrich_1803_1884.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1025544765"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Schwemminger, Heinz",
+        "Schwemminger, H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinz"
+          ],
+          "surname": [
+            "Schwemminger"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Schwemminger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Schwemminger",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Schwemminger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:55:48Z",
+    "gnd_query_biographical_data": "1803-1884",
+    "gnd_query_name": "schwemminger, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2604,
+  "name": "Schwemminger, Heinrich",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 379",
+  "updated": "2026-06-11 13:29:24.927Z",
+  "uri": "https://d-nb.info/gnd/1025544765",
+  "editor": ""
+}

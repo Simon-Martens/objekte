@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "In Folge steigender Unsittlichkeit hatte das Verhältniß der Ehen zu den Geburten seit 1670 fortwährend abgenommen,",
+  "language": [],
+  "musenalm_id": 44991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Frankreich.] Einzelnes. / Paris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Frankreich.] Einzelnes. / Paris",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.429Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "fz5uwy318f38pip"
+    }
+  ]
+}

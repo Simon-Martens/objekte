@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, B G-Verz, S 1 nT, SS 3-314, S 315 I-Verz, S 316 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vesta 1836",
+    "norm": "~ +++ 405019",
+    "biblio": 100956,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-07-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 345,
+  "parallel_title": "",
+  "place_statement": "Wien (F. Ludwig)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Vesta 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; L/R 99; Goed VIII. 127, 343",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "VESTA / Taschenbuch für das Jahr 1836. / Auf Kosten des Herausgebers. / VI. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+  "updated": "2026-06-11 10:18:54.498Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "35434wqabcc3yqh",
+    "h4vwwa53kxbuffe"
+  ],
+  "contents": [
+    "31a0e7ga1uqx0zb",
+    "5suwn9rj82b750j",
+    "ppym2a0pcdk0fxi",
+    "vrrteo2bfrc1jg3",
+    "v0dp0c983k5rwtf",
+    "drdzy0r7zvo5mld",
+    "8ns946jlrrjtq42",
+    "gz5owwv6i1zpa9c",
+    "anadjn2xfqowyf7",
+    "qh3d745tzzlxa1t",
+    "ufvqbpklnkfxh5m",
+    "algrvhrr255njys",
+    "ji28k9jari1rmp1",
+    "xocpxsgwxi602zo",
+    "ccue8yhbb9phch3",
+    "56wruv3u5x6jtw6",
+    "ea7ry4v6bv773yg",
+    "8b29u3hiqr12edj",
+    "xzlxqm2bs9vyeea",
+    "ekka6s87ngv3cu4",
+    "gdmkq7t1vkiw9n1",
+    "zccx5k4gfn4swxh",
+    "99bljx6xyjus62s",
+    "msgiqbjs73tsfxf",
+    "b7g4sxpf29o31jh",
+    "x54470h5at2reqm",
+    "77naenf8h7gh58o",
+    "4z3cag4a4j5jn51",
+    "rvu6xlc64lh1llh",
+    "l2627c2b7ev2ode",
+    "s2rbghpdmwuhwfl",
+    "9zuulfye0q4z0v9",
+    "32lacvg9y5o2se2",
+    "pwz76i96u6mrurq",
+    "mnjxcs6lg3gwubi",
+    "fy4s2eakjemqr1c",
+    "mcyf21q0ykr8x78",
+    "92iksyzg61ys3my"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.616Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.616Z",
+      "agent": "3n3zxa07vk2vm3e",
+      "source_id": "s7qo0mjvvkyhp5q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.825Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.825Z",
+      "agent": "iv736zv501v5sxx",
+      "source_id": "xub2zqiyeie2bxf"
+    }
+  ]
+}

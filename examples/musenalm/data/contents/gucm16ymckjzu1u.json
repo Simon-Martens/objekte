@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10 mit einer Musikbeigabe s. INr 41204, Obj 46,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Tochter von Aurorens Thränen, / Du, die Flora sich erkohr,",
+  "language": [],
+  "musenalm_id": 4995,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Rose",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Rose",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.292Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "y2f63q0326u883w"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (Sammlung INr 81320, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Der Fürst an Nordland's Küsten, / Der Sven trat in's Gemach,",
+  "language": [],
+  "musenalm_id": 81321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Sven's Fahne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Sven's Fahne",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.833Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "y6yespyt4qcki6t"
+    }
+  ]
+}

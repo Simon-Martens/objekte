@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25553, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Wer wegen des Lohnes das Gute thut, / Bei dem ist das Beste nicht mehr gut;",
+  "language": [],
+  "musenalm_id": 25557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Bester Lohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Bester Lohn",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.385Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "7vvfcbcp1idu4ms"
+    }
+  ]
+}

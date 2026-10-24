@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Wohl sind die falschen Wasserwogen / Getreuer noch als, Jungfrau, du!",
+  "language": [],
+  "musenalm_id": 3869,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Ungetreue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Sartorius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Ungetreue",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.136Z",
+      "agent": "601y79rzgdevnp4",
+      "source_id": "o7o710kyk7ghadv"
+    }
+  ]
+}

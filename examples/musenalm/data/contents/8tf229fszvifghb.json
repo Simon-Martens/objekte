@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Sie spotten mein - jedoch Sie lehr' ich schweigen: / Denn ich besuchte - hier sind meine Zeugen - / Zwei Universitäten.",
+  "language": [],
+  "musenalm_id": 91829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegeneinwurf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegeneinwurf",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.248Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "41qsyvwm7xkp1ky"
+    }
+  ]
+}

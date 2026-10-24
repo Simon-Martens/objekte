@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "435",
+  "incipit_statement": "Ein Sommerabend war's, es schien die See / Sich ihrer süßen Ruhe sanft zu freuen,",
+  "language": [],
+  "musenalm_id": 28047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind der See. / Gesang des zweiten provencalischen Barden. / (Bruchstück aus The golden Violet.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind der See. / Gesang des zweiten provencalischen Barden. / (Bruchstück aus The golden Violet.)",
+  "updated": "2002-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.364Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "it5ojx0ehl3y8np"
+    }
+  ]
+}

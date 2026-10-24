@@ -1,0 +1,93 @@
+{
+  "annotation": "$ vermutl. fehlt Karte /) der Jahrgang 1774 auch als franz. Ausgabe; Alm-3811: dort mit anderm Titel und Karte",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 10 BB Kal darin 12 GG, 14 BB, 54 BB $",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1774",
+    "norm": "~",
+    "biblio": 404175,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 785,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1774; / mit Kupfern gezieret; / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.760Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "items": [
+    "dt5rstuol6y5vho"
+  ],
+  "contents": [
+    "ep4tnlu6cd4t0ps",
+    "dbdlymc5ecz2zd5",
+    "igltvuoq3gfemiq",
+    "vdyft9gbsoivphd",
+    "v2t5ns4r6lgbn62",
+    "nkvk3ql00h9l68t",
+    "xefamsoma6p38q4",
+    "qpqd5tcupp9b022",
+    "qncgf1513o2svi6",
+    "pykggxgq1gtd1tm",
+    "7pw7jqyxv1c87q4",
+    "vjhr4u6drl332l5",
+    "sn7v7icqconupaq",
+    "a4d1kg7tcyke4v5",
+    "cjlxvhk9t4k0gbt",
+    "rydbxojt55pb34a",
+    "pc6qzl9k6un9wh2",
+    "svpet3vfnh7crpm",
+    "exae2z2dyjltotp",
+    "kh8jmnotrrdr1ei",
+    "nl58plc85e3myn1",
+    "9yt8yc2r1oyl26u",
+    "pz1oba2inixihzo",
+    "gjmwfr2a3qqk82j",
+    "f723yjgrlzr3hr7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "35wc88153fap3xb"
+    }
+  ]
+}

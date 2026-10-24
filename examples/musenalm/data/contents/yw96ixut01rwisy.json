@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13074,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vormaligen Ruinen v. Wehlen an d. Elbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_215_13074_aaer1htzaa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die vormaligen Ruinen v. Wehlen an d. Elbe",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.652Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "2r28p9j8f8xc5uo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.652Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "3yrish2uwbl6fm7"
+    }
+  ]
+}

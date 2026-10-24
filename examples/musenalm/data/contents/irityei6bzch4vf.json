@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75880,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Almanach / der / teutschen Vorzeit / 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Küfner del. G. Vogel sc. Nürnberg",
+  "scans": [
+    "alm_2694_75880_1gjgnesomq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / teutschen Vorzeit / 1794",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.864Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "7ldj9jmoqt8wra7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.864Z",
+      "agent": "k5mzhsnsldwkcu7",
+      "source_id": "xp7cf0o3ysmkqzc"
+    }
+  ]
+}

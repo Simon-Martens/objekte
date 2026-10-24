@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Kennt ihr den holden Knaben / von lieblich stillem Sinn? Von wannen mag er kommen?",
+  "language": [],
+  "musenalm_id": 1356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechselgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hanns Karl Dippoldt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wechselgesang",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.708Z",
+      "agent": "mat1v49kka3w3jc",
+      "source_id": "9kmtl4p5m090x0o"
+    }
+  ]
+}

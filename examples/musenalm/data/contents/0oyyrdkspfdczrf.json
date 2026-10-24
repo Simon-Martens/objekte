@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Ich dürres Holz, vom scharfen Beil geschlichtet, / Das du willst eben legen in die Glut, / Ich war, in stolzer Schönheit aufgerichtet.",
+  "language": [],
+  "musenalm_id": 62485,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winterträume. / Der Baum der Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winterträume. / Der Baum der Liebe",
+  "updated": "2009-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.118Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "tl33xgjx1llo592"
+    }
+  ]
+}

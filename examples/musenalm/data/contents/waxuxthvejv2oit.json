@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Zu Lindau an dem Bodensee / Stand ich bewegt am Strande",
+  "language": [],
+  "musenalm_id": 54350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lindau am Bodensee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakob Schnerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lindau am Bodensee",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.885Z",
+      "agent": "cec33a809o0wki1",
+      "source_id": "o1p4jwdrotqp0cn"
+    }
+  ]
+}

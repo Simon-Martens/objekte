@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Herz behält seine Rechte. Ein Gemählde aus dem häuslichen Leben« von *F*- INr 133407, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O! wenn Ihr Herz noch frey ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berka sc.",
+  "scans": [
+    "alm_4867_133408_a8ehlqlmv6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O! wenn Ihr Herz noch frey ist",
+  "updated": "2024-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.107Z",
+      "agent": "jlkwrxo4vggz8uy",
+      "source_id": "3k069wx2qhbhsgy"
+    }
+  ]
+}

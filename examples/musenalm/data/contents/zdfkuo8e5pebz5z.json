@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Aus dem Nachlaß der Dichterin mitgetheilt von Julie von Großmann",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Sie hat mich freundlich angeblickt! / Nun sinke, Tag! Mein war dein schönster Segen!",
+  "language": [],
+  "musenalm_id": 80957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Glückliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Glückliche",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.941Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "3poakf9akmrsd3d"
+    }
+  ]
+}

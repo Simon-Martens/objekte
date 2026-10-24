@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Neue Jägerlieder (Sammlung INr 69719, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Laß uns die Flinten doch in Ruh / An unsern Nagel hangen!",
+  "language": [],
+  "musenalm_id": 69722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Impromptu / als Fräulein Louise von D.. zu E.b.g. der / leer nach Hause kommenden Jäger spottete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reg. Rath Bunsen zu Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Impromptu / als Fräulein Louise von D.. zu E.b.g. der / leer nach Hause kommenden Jäger spottete",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.194Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "ubyq6fo6ml0uqw9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Daß ich Dich verloren habe, / Daß du nicht mehr bist,",
+  "language": [],
+  "musenalm_id": 2190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey / dem Grabe Anselmo's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey / dem Grabe Anselmo's",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.877Z",
+      "agent": "bm6n1x459jfghwe",
+      "source_id": "bo3scf72g6mwtfy"
+    }
+  ]
+}

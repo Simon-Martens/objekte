@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Du willst ein großer Mann und auch ein / Stutzer seyn? /",
+  "language": [],
+  "musenalm_id": 83409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An X. / Nach Martial",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An X. / Nach Martial",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.960Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "ft278o5cp7kltex"
+    }
+  ]
+}

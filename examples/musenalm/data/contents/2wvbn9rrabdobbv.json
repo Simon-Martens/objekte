@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35127, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Es war dem jungen Helden nicht beschieden, / Der Götter Gunst dem Schwerte zu gewinnen,",
+  "language": [],
+  "musenalm_id": 35131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Schills Todtenfeier in Braunschweig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. v. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Schills Todtenfeier in Braunschweig",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.725Z",
+      "agent": "3otd6uv72ls66y4",
+      "source_id": "2lhcy3jvd8gx84w"
+    }
+  ]
+}

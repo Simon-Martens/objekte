@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "O wie schön ist Hain und Flur! / Wie sich Erde und Natur, / Wonniglich verneuet!",
+  "language": [],
+  "musenalm_id": 8873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Chloen / im frühen Lenze. / Nach dem 49ten von Herrn Hillers / Liedern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Chloen / im frühen Lenze. / Nach dem 49ten von Herrn Hillers / Liedern",
+  "updated": "2001-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.193Z",
+      "agent": "x1mwystx1l16y0s",
+      "source_id": "4fwlzh1v0d5i6vm"
+    }
+  ]
+}

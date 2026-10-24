@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. IV. /) kol. Illustration zu »Der Strandreuter« von Fischer INr 68648, Obj 21,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himantopius melanopterus Meyeri. / Der schwarzflügelichte Strandreuter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del.",
+  "scans": [
+    "alm_1148_68647_vajo6u869u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Himantopius melanopterus Meyeri. / Der schwarzflügelichte Strandreuter",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.379Z",
+      "agent": "93i1cvgb16cjfey",
+      "source_id": "u3ahmrtd2ae9tdp"
+    }
+  ]
+}

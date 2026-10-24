@@ -1,0 +1,285 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.431Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1800-02-07"
+      ],
+      "dateOfDeath": [
+        "1878-11-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-01-23T08:27:15.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/115602542/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "115602542",
+      "id": "https://d-nb.info/gnd/115602542",
+      "oldAuthorityNumber": [
+        "(DE-588a)115602542"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Forchtenau"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Moshamer, Joseph Alois",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Alois"
+        ],
+        "surname": [
+          "Moshamer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Moshamer, Joseph A.: Presse und Erziehung",
+        "Moshamer, Joseph A.: Kunst und Leben",
+        "Moshamer, Joseph A.: Erzählungen",
+        "Moshamer, Joseph A.: Die Auswanderer"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/301806562"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55194277"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115602542/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_Alois_Moshamer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000020126533"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_M/Moshamer_Franz-Josef_1800_1878.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115602542.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115602542"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Moshamer, Joseph Anton",
+        "Moshamer, J. A.",
+        "Moshamer, Jos. Ant.",
+        "Moshamer, Franz Josef",
+        "Moshammer, Joseph A.",
+        "Moshammer, Joseph Alois",
+        "Moshamer, Joseph A.",
+        "Moshamer, Josef",
+        "Moshamer, Josef Alois",
+        "Moshamer, Jos. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph Alois"
+          ],
+          "surname": [
+            "Moshammer"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Alois"
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Anton"
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "surname": [
+            "Moshammer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Josef"
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. Ant."
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. A."
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "surname": [
+            "Moshamer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_Alois_Moshamer",
+          "label": "https://de.wikipedia.org/wiki/Joseph_Alois_Moshamer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:19:12Z",
+    "gnd_query_biographical_data": "1800-1878",
+    "gnd_query_name": "moshammer, joseph alois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1867,
+  "name": "Moshammer, Joseph Alois",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXII, 394",
+  "updated": "2026-06-11 13:29:23.860Z",
+  "uri": "https://d-nb.info/gnd/115602542",
+  "editor": ""
+}

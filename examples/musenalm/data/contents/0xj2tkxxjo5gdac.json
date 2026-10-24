@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Hinauf in jene Himmelsnahen Höhen, / Hinauf in Aetherluft und Sonnenglanz;",
+  "language": [],
+  "musenalm_id": 71,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VERLANGEN BEY VEVAY",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "FR. BRUN, GEB. MÜNTER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VERLANGEN BEY VEVAY",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.911Z",
+      "agent": "38esu046kftupf5",
+      "source_id": "aqrozz2g2z83oqg"
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "annotation": "",
+  "biographical_data": "1790-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.384Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Graf; Sohn d. Feldmarschalls"
+      ],
+      "dateOfBirth": [
+        "1790-03-15"
+      ],
+      "dateOfDeath": [
+        "1873-12-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Wilhelm Hensel?"
+          ],
+          "creditText": [
+            "Carl Maria von Weber Gesamtausgabe"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Kalkreuth.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Kalkreuth.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20von%20Kalkreuth.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090238673"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:11:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116030534/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Friedrich Adolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/100504426",
+          "label": "Kalckreuth, Friedrich Adolf von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116030534",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/100504426",
+          "label": "Kalckreuth, Friedrich Adolf von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116030534",
+      "oldAuthorityNumber": [
+        "(DE-588a)115341536",
+        "(DE-588a)120654385",
+        "(DE-588)1090238673",
+        "(DE-588a)116030534"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044814-9",
+          "label": "Pasewalk"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Kalckreuth, Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Kalckreuth"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Felix Marius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Marius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ephemeren",
+        "Dramatische Dichtungen",
+        "Unterstützung der Griechen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5672028"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94839564"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090238673"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116030534/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Kalckreuth"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116030534"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116030534.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116030534"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kalkreuth, Friedrich von, Graf",
+        "Marius, Felix",
+        "Felix Marius",
+        "Kalckreuth, Friedrich",
+        "Kalkreuth, Friedrich Ernst Adolf Karl von, Graf",
+        "Kalckreuth, Friedrich Ernst Adolf Karl von, Graf",
+        "Kalckreuth, Friedrich von, Graf",
+        "Kalckreuth, Friedrich Ernst Adolf Karl von",
+        "Kalkreuth, Friedrich, Graf",
+        "Kalkreuth, Friedrich Ernst Adolf Karl von",
+        "Kalckreuth, Friedrich, Graf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Ernst Adolf Karl"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Marius"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ernst Adolf Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        },
+        {
+          "personalName": [
+            "Felix Marius"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalkreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ernst Adolf Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalkreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Kalkreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ernst Adolf Karl"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalkreuth"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Kalckreuth"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Kalckreuth",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_Kalckreuth"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:53:00Z",
+    "gnd_query_biographical_data": "1790-1847",
+    "gnd_query_name": "kalkreuth, friedrich ernst adolf karl von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1339,
+  "name": "Kalkreuth, Friedrich Ernst Adolf Karl von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 279; Goed XI/1, 504",
+  "updated": "2026-06-11 13:29:23.116Z",
+  "uri": "https://d-nb.info/gnd/116030534",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Wesen, die ihr Göttlichkeit im Bilde, / Gottheit im Gedanken faßt!",
+  "language": [],
+  "musenalm_id": 75845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vernunftgesang / in jedem Tempel zu siugen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vernunftgesang / in jedem Tempel zu siugen",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.466Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "5pffo75hd2qeo1n"
+    }
+  ]
+}

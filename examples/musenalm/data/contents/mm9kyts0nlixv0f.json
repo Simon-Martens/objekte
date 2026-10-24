@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Eine eben so schöne als gegründete Hoffnung hat mich bewogen, dieser Schrift Ihre Nahmen vorzusetzen.",
+  "language": [],
+  "musenalm_id": 84671,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gnädigste Prinzessinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ihr ergebenster Diener Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gnädigste Prinzessinnen",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.063Z",
+      "agent": "qxcj6iktsu2xp76",
+      "source_id": "9pbq6g31fj72izb"
+    }
+  ]
+}

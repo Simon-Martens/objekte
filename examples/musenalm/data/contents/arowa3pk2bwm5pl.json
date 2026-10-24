@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Deutsche Sprichwörter (Sammlung INr 25569, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Glück und Glas, wie leicht bricht das! - / Drum, so l ang das Glück euch nah,",
+  "language": [],
+  "musenalm_id": 25574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glück und Glas, wie leicht bricht das! - / Drum, so l ang das Glück euch nah,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.285Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "o5u88gvkdqhq7k3"
+    }
+  ]
+}

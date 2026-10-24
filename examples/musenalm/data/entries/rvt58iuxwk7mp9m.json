@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-IV Vrwrt d Hrsg, 46 SS Kal darin 8 GG, ar: SS 1-266, ar1: SS 1-106, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1828",
+    "norm": "",
+    "biblio": 200492,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2080,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Hof-Kalender / auf das Jahr / 1828. / Fünf und Sechszigster Jahrgang. / Gotha, / bei Justus Perthes",
+  "updated": "2026-06-17 08:54:02.247Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "feld4k0huhetusp"
+  ],
+  "contents": [
+    "bynlf9bnc7r5a1l",
+    "cd7rzoywimlmz7s",
+    "vfkl68ytjgbswgv",
+    "dlcsfmu2vwwqzxo",
+    "3kdztk187nam8tl",
+    "zkqeq0x34xruxx1",
+    "oix33znuojubjqw",
+    "lsfb0xmwf8rypp2",
+    "b38pdg4dwfxcsxx",
+    "cz5vpiu5skogfij",
+    "k416wkcb3ddcx44",
+    "5ey7kh9a1ogl16e",
+    "tz5b9raszbcixq7",
+    "rlqjecthgzqttm8",
+    "dctckilif713qp3",
+    "wkakon090b52uwf",
+    "gzkyojwaes3elfg",
+    "pex85fcjpnklpmi",
+    "m7axwv8so0e40qc",
+    "vytq6yr88irdc0x",
+    "kbxjji7z8h5atrb",
+    "05gnfgokecnys8a",
+    "9vso71hmwyw56hh",
+    "rmm03wsn93o450z",
+    "cj04d10usveuq0w",
+    "xgl6n7l6matq940",
+    "711go8vlts3h0x5",
+    "5vpxo0qdn6j33gy",
+    "jzb1pun1jvx2buw",
+    "la4pt65u34nil3k",
+    "8z3wzzx7umyj3i4",
+    "du06yh87xagkk7b",
+    "o1vxjaw7xcsohvz",
+    "i9fao4z66khy2kk",
+    "3qsa6irpo47zphi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.123Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-17 08:54:02.251Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "2b8h5763ad3vp1h"
+    }
+  ]
+}

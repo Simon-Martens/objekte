@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "In goldpapierner Kappe / Den Besenstiel zum Speer, / Mit einem Schild von Pappe / Zog Karl, der Held, einher.",
+  "language": [],
+  "musenalm_id": 55546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parabel",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.737Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "i032vssbh3957bp"
+    }
+  ]
+}

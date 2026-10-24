@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit Anmerkungen des Autors",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Eine Syrerin, jung, und in griechischer Haube / gefallend, / Nach der Klapper geübt hurtig die Glieder zu drehn,",
+  "language": [],
+  "musenalm_id": 6314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tänzerin. / Nach Vergils Copa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tänzerin. / Nach Vergils Copa",
+  "updated": "2000-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.132Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "1wh2rte811p2i0c"
+    }
+  ]
+}

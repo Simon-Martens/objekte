@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte (Sammlung INr 39259, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Durch des Haines Schattengänge / Wandelt' ich mit meinem Mädchen",
+  "language": [],
+  "musenalm_id": 39267,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Wünsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Wünsche",
+  "updated": "2005-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.760Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "un8la5yk8f230ru"
+    }
+  ]
+}

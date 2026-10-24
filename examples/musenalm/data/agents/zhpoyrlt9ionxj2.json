@@ -1,0 +1,346 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1854",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.368Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1790 Respondent in Leipzig"
+      ],
+      "dateOfBirth": [
+        "1771"
+      ],
+      "dateOfDeath": [
+        "1851"
+      ],
+      "describedBy": {
+        "dateModified": "2019-01-24T09:09:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1050700996/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1050700996",
+      "id": "https://d-nb.info/gnd/1050700996",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4231033-7",
+          "label": "Doberlug"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Heun, Carl Theophil Samuel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Theophil Samuel"
+        ],
+        "surname": [
+          "Heun"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/118521101",
+          "label": "Clauren, Heinrich"
+        }
+      ],
+      "publication": [
+        "Rössig, Carl Gottlob: De Commercio Interno Et Externo ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/308213521"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q137306921"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050700996/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1050700996"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1050700996"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hayn, Karl G.",
+        "Heun, Johann Gottlieb Samuel Carl",
+        "Heun, C.",
+        "Hayn, Carl G.",
+        "Heun, Carl Gottlieb Samuel",
+        "Heun, Karl Gottlieb",
+        "Heun, Carolus Theophilus Samuel",
+        "Heun, Karl",
+        "Heun, Karl Gottlieb Samuel",
+        "Heun, Karl Theophil Samuel",
+        "Heun, Carolus Samuel",
+        "Heun, Karl Gottlob",
+        "Heun, Carolus Theophilus Samuelis",
+        "Heun, Carl",
+        "Heun, Carl Gottlieb",
+        "Heun, Carl Gottlob Samuel",
+        "Heun, Gottlieb Samuel Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Gottlob"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Theophilus Samuelis"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gottlob Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl G."
+          ],
+          "surname": [
+            "Hayn"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gottlieb Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gottlieb"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Theophilus Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Theophil Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlieb Samuel Carl"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gottlieb"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gottlieb Samuel"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl G."
+          ],
+          "surname": [
+            "Hayn"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Samuel Carl"
+          ],
+          "surname": [
+            "Heun"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:44:54Z",
+    "gnd_query_biographical_data": "1771-1854",
+    "gnd_query_name": "heun, carl gottlieb samuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1176,
+  "name": "Heun, Carl Gottlieb Samuel",
+  "profession": "Text",
+  "pseudonyms": "Heinrich Clauren; Karl",
+  "refs": "Goed X, 46; Goed XIV, 162; E 142",
+  "updated": "2026-06-11 13:29:22.920Z",
+  "uri": "https://d-nb.info/gnd/1050700996",
+  "editor": ""
+}

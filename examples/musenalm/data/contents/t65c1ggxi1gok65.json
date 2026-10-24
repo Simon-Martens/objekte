@@ -1,0 +1,56 @@
+{
+  "annotation": "Zur Verständlichkeit der Kupfer (Sammlung INr 101824, Obj 104) s. Graphik im Kalendarium INr 101731, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Jetzo traf sie (Latona) den Teich von besserer / Flut in des Thales / Niedrungen; wo Landleute sich staudende Reiser / zum Flechten / Sammelten,",
+  "language": [],
+  "musenalm_id": 101827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jetzo traf sie (Latona) den Teich von besserer / Flut in des Thales / Niedrungen; wo Landleute sich staudende Reiser / zum Flechten / Sammelten,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ovid [übers.] Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.069Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "2oord7ulmn5vak1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.069Z",
+      "agent": "1v47d45gg201l59",
+      "source_id": "w518z91iey2mffa"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 13736, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Es giebt Weiber,die nur mit Leidenschaft geliebt sein wollen. Zeige ihnen die treuste Anhänglichkeit,",
+  "language": [],
+  "musenalm_id": 13763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Cur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Cur",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.593Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "ek0swb2wq1b8ffs"
+    }
+  ]
+}

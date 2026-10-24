@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40246, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Als ich still und ruhig spann, / Ohne nur zu stocken,",
+  "language": [],
+  "musenalm_id": 40247,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Spinnerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Spinnerin",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.815Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "jqrcmryic61onmp"
+    }
+  ]
+}

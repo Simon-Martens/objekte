@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) Illustration zu »Die Geschlechter« von Fr. Schiller INr 77275, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geschlechter von Schiller",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Brückner",
+  "scans": [
+    "alm_2401_77276_fz0n9giqss.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Geschlechter von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.718Z",
+      "agent": "55cqr78phstoqzu",
+      "source_id": "a4tonhv0w2bf78e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.718Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "qvplrabchz14pji"
+    }
+  ]
+}

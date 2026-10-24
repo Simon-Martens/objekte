@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem Titel (INr 128377, Obj 2); Illustration zu »Die Schwester« (INr 128381, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. B. Sonderland)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Sonderland",
+  "scans": [
+    "alm_3715_128421_m0wv686fge.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.923Z",
+      "agent": "qy6yej73pl7anzc",
+      "source_id": "qxk9d8uv20pn4oo"
+    }
+  ]
+}

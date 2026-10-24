@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "O wie magst du klagen, / Daß ich dich betrübt? / In den langen Tagen",
+  "language": [],
+  "musenalm_id": 12526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Absage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Absage",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.486Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "g40csdbblrtrfsz"
+    }
+  ]
+}

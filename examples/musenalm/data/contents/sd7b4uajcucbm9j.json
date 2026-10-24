@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43502, Obj 32) mit 2 Illustrationen s. Graphiken INr 43488, 43489, Obj 16, 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Seit mehrern Jahren war Herr Laroux ansäßig im betriebsamen Danzig.",
+  "language": [],
+  "musenalm_id": 43506,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ausgewanderten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ausgewanderten",
+  "updated": "2006-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.257Z",
+      "agent": "j6u4xe56jqv8urn",
+      "source_id": "jc90qxfeq6s7alz"
+    }
+  ]
+}

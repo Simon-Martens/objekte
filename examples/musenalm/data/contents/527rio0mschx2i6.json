@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Aufsätze (Sammlung INr 130087, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Lachen müßen die Menschen - in ihrem Innersten lachen, so oft sie einem andern schmeicheln oder trotzen.",
+  "language": [],
+  "musenalm_id": 130090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegenwärtigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegenwärtigkeit",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.003Z",
+      "agent": "o2pvd0n9c0ulrf4",
+      "source_id": "lmjzztx9v15mf0z"
+    }
+  ]
+}

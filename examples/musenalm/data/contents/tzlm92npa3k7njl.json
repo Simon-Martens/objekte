@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Im Choliambus, wo das letzte Glied nachschleppt, / Und unerträglich arg das Kennerohr foltert,",
+  "language": [],
+  "musenalm_id": 96596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtafel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aristarchos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtafel",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.763Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "9g3oq0japcgpfh1"
+    }
+  ]
+}

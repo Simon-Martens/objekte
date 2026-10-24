@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Das einzige Regelmässige, welches di gewönliche Ortografi in Betracht der Schreibung fon nicht wenigen Worten hat, beruhet auf dem Grundsaze der neuen, disem nämlich:",
+  "language": [],
+  "musenalm_id": 5640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grundseze und Zwek / unsrer jezigen Rechtschreibung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grundseze und Zwek / unsrer jezigen Rechtschreibung",
+  "updated": "2000-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.151Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "o1wrj0p7bzzqtzp"
+    }
+  ]
+}

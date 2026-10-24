@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14183,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Van Dÿck p. F. John sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Van Dÿck p. F. John sc.",
+  "scans": [
+    "alm_222_14183_8kkcpaswrg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.426Z",
+      "agent": "yfpqp089ikjb1ej",
+      "source_id": "017kr8ijwzuo5dt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.426Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "lfschlmb6lx1fyk"
+    }
+  ]
+}

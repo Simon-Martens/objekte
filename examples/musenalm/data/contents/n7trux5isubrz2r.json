@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Nichts ist schwerer für den gleichzeitigen Geschichtsschreiber, als das Wahre von dem Falschen zu scheiden, ohne das Parteygeist und Leidenschaft die Hand führt;",
+  "language": [],
+  "musenalm_id": 60124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Straßburg, / unter der Revolutions-Regierung: / aus öffentlichen Acten und gerichtlichen Urkun- / den gezogen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Straßburg, / unter der Revolutions-Regierung: / aus öffentlichen Acten und gerichtlichen Urkun- / den gezogen",
+  "updated": "2008-09-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.554Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "3tnv4n8gwkcg9ty"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "annotation": "Jgg 1818-1851 [Jg 1851 vorh., nicht bei K 164, Goed VIII. 98, 201]; Wien; 1831, 1837: Wien (Buchholz), 1845, 1846, 1849, 1851: Wien (Riedl); Goed VIII. 98, 201 und K 164 geben als Hrsgg J. C. Unger, Fr. Gräffer und J. G. Seidl an /) vielleicht Vorläuferjahrgang: »Blüthen der Musen« 1816 (Riedl); alm 3724, vielleicht Folgepublikation: Taschenkalender, Wiener 1852 (Milde); alm 3723",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 15 SS Kal darin 6 GG, 3 SS Tab, S 1 T, SS 2-120, 2 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1818",
+    "norm": "~",
+    "biblio": 405856,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3329,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "Johann Carl Unger",
+  "subtitle_statement": "",
+  "title_statement": "Das Veilchen / Ein Taschenbuch / guten Menschen / geweiht / von / Joh. Carl Unger. / Erster Jahrgang / 1818. / WIEN / bey Jos Riedl bürgl. Buchbinder im Schottenhof",
+  "updated": "2026-06-11 10:18:54.881Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "7ksk32xjlnia9k2"
+  ],
+  "contents": [
+    "7d7w5v0yz5yybxi",
+    "molqz490f6bebvh",
+    "v0u3l5dvjb9bv03",
+    "0msxtu35f2bm22z",
+    "0etr8z5f8pfrkj2",
+    "cpclj826a8em04w",
+    "5und3po89adts9y",
+    "4dr5cvbbdap0rvu",
+    "cligorq0viq5qq8",
+    "cey3rm4jl4b7u0a",
+    "59p81q6txysjbv4",
+    "d4j1qlv0vnm28y0",
+    "10wr3jgmquhlmdy",
+    "ot4kskg91njewgl",
+    "hnlf1lvxe4ex3wu",
+    "mylshe1b16gg0jt",
+    "xb5p1krap3jbr0p",
+    "tzdroadubdbxazj",
+    "6wxl0b4q40mvqf7",
+    "fq5ht2d2d0f5gw2",
+    "4z226hfwoxffxcr",
+    "krid32r5zh9nmie",
+    "mz1p71rqsxw95o7",
+    "9c28kw4a8vjcp7n",
+    "90y0ddsabuorv7h",
+    "c22c55r0w13ek2m",
+    "uth72913yivuxp7",
+    "2qy71iu4l9cxqwd",
+    "ipnwz3r0e0frtka",
+    "41zjdwqoolp1rvx",
+    "cvolgisob5jthei",
+    "9syac8n50rpn7lk",
+    "l86i5twku3f2pti",
+    "urkis9ov7jqv2ri",
+    "c4pc3sh5wcqngy2",
+    "k2neebakuhuau72",
+    "w34fupp66t2amxc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.202Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.202Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "7zxg993kqrz4jfk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.140Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.140Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "kyd8sdzjk7slp7e"
+    }
+  ]
+}

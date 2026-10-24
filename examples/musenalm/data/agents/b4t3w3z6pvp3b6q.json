@@ -1,0 +1,492 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1882",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.376Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/809522-X",
+          "label": "Königliche Gemäldegalerie zu Dresden"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Historien- und Porträtmaler, Vertreter der Düsseldorfer Malerschule; 1821 Aufnahme in der Berliner Kunstakademie; ab 1839 Lehrer an der Kunstakademie Dresden, 1842 dort Professor, 1871-1882 Direktor der Dresdner Gemäldegalerie"
+      ],
+      "dateOfBirth": [
+        "1806-01-27"
+      ],
+      "dateOfDeath": [
+        "1882-11-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "JH-Foundation"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Huebner%20Selbstportrait%201859.JPG",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0",
+              "name": "Creative Commons Attribution-Share Alike 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Huebner%20Selbstportrait%201859.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Julius%20Huebner%20Selbstportrait%201859.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-06T15:49:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119144573/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117037559",
+          "label": "Hübner, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208604554",
+          "label": "Hübner, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1309004137",
+          "label": "Hübner, Ernst August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11703746X",
+          "label": "Hübner, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117045519",
+          "label": "Hübner, Pauline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208605410",
+          "label": "Hübner, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208543342",
+          "label": "Hübner, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208543334",
+          "label": "Hübner, Fanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117037486",
+          "label": "Hübner, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120854327X",
+          "label": "Hübner, Emma"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119144573",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1208543342",
+          "label": "Hübner, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120854327X",
+          "label": "Hübner, Emma"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117037486",
+          "label": "Hübner, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208604554",
+          "label": "Hübner, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117037559",
+          "label": "Hübner, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208605410",
+          "label": "Hübner, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11703746X",
+          "label": "Hübner, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208543334",
+          "label": "Hübner, Fanny"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1309004137",
+          "label": "Hübner, Ernst August"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117045519",
+          "label": "Hübner, Pauline"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119144573",
+      "oldAuthorityNumber": [
+        "(DE-588c)4337169-3",
+        "(DE-588a)119144573",
+        "(DE-588a)117045624"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/123180-7",
+          "label": "Oels"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/7590057-9",
+          "label": "Loschwitz"
+        }
+      ],
+      "preferredName": "Hübner, Julius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius"
+        ],
+        "surname": [
+          "Hübner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Schadow und seine Schule",
+        "Helldunkel",
+        "Das Nibelungenlied",
+        "Die Nibelungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb16592031g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr94023407"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/hubner-julius/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15573309"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q668099"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119144573/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/119144573"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Julius_H%C3%BCbner"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julius_H%C3%BCbner_%28Maler%2C_1806%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Julius_H%C3%BCbner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Julius_H%C3%BCbner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109565129"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119144573"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119144573"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119144573.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119144573"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119144573"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hübner, Rudolph Julius Benno",
+        "Hübner, Rudolf Julius Benno",
+        "Hübner, Rudolph Julius",
+        "Hübner, Rudolf Julius",
+        "Hübner, Julius Rudolf Bruno",
+        "Huebner, Julius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julius Rudolf Bruno"
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf Julius"
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Huebner"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph Julius Benno"
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph Julius"
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf Julius Benno"
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julius_H%C3%BCbner_%28Maler%2C_1806%29",
+          "label": "https://de.wikipedia.org/wiki/Julius_H%C3%BCbner_%28Maler%2C_1806%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:48:54Z",
+    "gnd_query_biographical_data": "1806-1882",
+    "gnd_query_name": "hübner, julius"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1257,
+  "name": "Hübner, Julius",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVIII, 47",
+  "updated": "2026-06-11 13:29:23.008Z",
+  "uri": "https://d-nb.info/gnd/119144573",
+  "editor": ""
+}

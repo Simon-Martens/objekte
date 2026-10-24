@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Dieß Meisterstück verdient die Ehre, / Daß man es allenfalls zween Göt- / tern widmen kann;",
+  "language": [],
+  "musenalm_id": 4998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf eine / gewisse Uebersetzung / des Horazes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf eine / gewisse Uebersetzung / des Horazes",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.292Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "sgn9avbkyaxz132"
+    }
+  ]
+}

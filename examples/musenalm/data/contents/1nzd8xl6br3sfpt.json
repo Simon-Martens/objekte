@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Wie ist die Luft so heiter, wie glänzen rein die Sterne, / Wie zieht es mir die Seele empor zu jener Ferne!",
+  "language": [],
+  "musenalm_id": 100875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 215,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erdenband",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erdenband",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.768Z",
+      "agent": "qd6qdq3lwhpkxnz",
+      "source_id": "dinjj3jx1i1smbp"
+    }
+  ]
+}

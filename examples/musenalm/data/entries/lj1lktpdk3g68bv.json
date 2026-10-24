@@ -1,0 +1,82 @@
+{
+  "annotation": "franz. Ausgabe des Taschenkalenders. Keine detaillierte Aufnahme. Die von der deutschen Ausgabe abweichenden Umschlaggraphiken und die Titel sind als Photos gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, 12 GG, 29 BB Kal darin 6 GG, S 1 T, SS 3-211 darin 11 GG, SS 212-213 I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1793 (franz. Ausg.: Almanac de Goettingue 1793)",
+    "norm": "~",
+    "biblio": 200750,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3976,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1793 (franz. Ausg.: Almanac de Goettingue 1793)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de / GOETTINGUE / pour l'année / 1793. / chez Joh. Christ. Dieterich",
+  "updated": "2026-06-11 10:18:55.226Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "89kywx9m9anhaen"
+  ],
+  "contents": [
+    "786na5tg2s3j1hr",
+    "xk2o5k9yxg1fo9g",
+    "y8d3fepcml693fh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.051Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.051Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "cdyabv8ainl4t79"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.316Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.316Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "wu0wcuey02jjjx9"
+    }
+  ]
+}

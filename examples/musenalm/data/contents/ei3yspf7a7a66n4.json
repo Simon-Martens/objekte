@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Du suchst Frieden, / Friede wohnt hier. / O gebt dem Müden / Wirthbaren Schatten!",
+  "language": [],
+  "musenalm_id": 3691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alla Pietra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alla Pietra",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.052Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "43tfgr9lv519ldj"
+    }
+  ]
+}

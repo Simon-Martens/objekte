@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühling (Sammlung INr 23246, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Holder, lachender May! / Tragen auf den zarten Schwingen / Deines Zephirs dich herbei,",
+  "language": [],
+  "musenalm_id": 23251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am ersten May, / dem / Geburtstage der Freyfrau von Zink / in Emmendingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am ersten May, / dem / Geburtstage der Freyfrau von Zink / in Emmendingen",
+  "updated": "2002-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.244Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "qn0i93mqtie86ai"
+    }
+  ]
+}

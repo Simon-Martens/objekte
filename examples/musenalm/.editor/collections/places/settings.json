@@ -1,0 +1,16 @@
+{
+  "type": "data",
+  "path": "data/places",
+  "format": "json",
+  "id": "filename",
+  "idPattern": "^[a-z0-9][a-z0-9-]*$",
+  "schema": ".editor/collections/places/schema.json",
+  "ui": ".editor/collections/places/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18966, Obj 8 (durch Kunst-Verlag, Creuzbauer in Carlsruhe.)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1995,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS VERHOER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liverseege pinx. Hessloehl sculp.",
+  "scans": [
+    "alm_59_1995_5pu5owncmx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS VERHOER",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "gr3ej5rgsyjwe06",
+      "source_id": "7vshelzgx6xs6nq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "krqaym8kasykil7"
+    }
+  ]
+}

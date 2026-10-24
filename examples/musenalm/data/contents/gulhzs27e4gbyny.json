@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am Monatskupfer September /) Graphik im Kalendarium Januar /) s. Textbezug INr 92495, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92479,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgenbesuch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_3288_92479_3kon950cyr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgenbesuch",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.561Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "yj48t9lfrn805u7"
+    }
+  ]
+}

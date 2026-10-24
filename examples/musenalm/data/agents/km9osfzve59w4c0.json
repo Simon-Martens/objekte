@@ -1,0 +1,526 @@
+{
+  "annotation": "",
+  "biographical_data": "1807-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.329Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. jur."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Diss. jur. Padua 1828."
+      ],
+      "dateOfBirth": [
+        "1807-03-22"
+      ],
+      "dateOfDeath": [
+        "1860-08-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Sophievonfranck"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20und%20Sophie%20von%20Franck%2C%20London.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20und%20Sophie%20von%20Franck%2C%20London.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gustav%20und%20Sophie%20von%20Franck%2C%20London.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T20:40:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116701528/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1061005275",
+          "label": "Franck, Johann Jakob von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116699906",
+          "label": "Franck, Alfred, Ritter von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116701528",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.4p",
+          "label": "Personen zu politischer Theorie, Militär"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1061005275",
+          "label": "Franck, Johann Jakob von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116699906",
+          "label": "Franck, Alfred, Ritter von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116701528",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116701528"
+      ],
+      "periodOfActivity": [
+        "1842-1843"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Frank, Gustav von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Frank"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Doktor"
+          ],
+          "surname": [
+            "Frank"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Dr."
+          ],
+          "personalName": [
+            "Frank"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Rank"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Dr."
+          ],
+          "personalName": [
+            "Franck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Mittheilungen aus den Papieren eines Wiener Arztes",
+        "Hrsg. von: Wiener Bürgerblatt",
+        "Bearb. von: Delavigne, Casimir J.: König Eduard's Söhne",
+        "Gedichte",
+        "Taschenbuch dramatischer Originalien",
+        "Aus den Geheimnissen von Paris. - 185?",
+        "Dramatische Zeitbücher",
+        "Frank, Gustav von: Die Patrizier"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002032066"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/31792504"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q86898"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116701528/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gustav_von_Franck"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gustav_von_Franck"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gustav_von_Franck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108302968"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116701528"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116701528"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_F/Frank_Gustav_1807_1860.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116701528.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116701528"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Franck, Gustav",
+        "Franck, Gustav von",
+        "Frank, Doktor",
+        "Frank, Gustav von, Ritter",
+        "Rank, G. F.",
+        "Franck, Dr.",
+        "Frank, Dr.",
+        "Frank, Gustav",
+        "Frank, G. von",
+        "Franck, Gustav von, Ritter",
+        "Frank, Gustav, Ritter von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Frank"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Frank"
+          ]
+        },
+        {
+          "forename": [
+            "Doktor"
+          ],
+          "surname": [
+            "Frank"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Dr."
+          ],
+          "personalName": [
+            "Frank"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Franck"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Franck"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Dr."
+          ],
+          "personalName": [
+            "Franck"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Rank"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Franck"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Frank"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Frank"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gustav_von_Franck",
+          "label": "https://de.wikipedia.org/wiki/Gustav_von_Franck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:24:54Z",
+    "gnd_query_biographical_data": "1807-1860",
+    "gnd_query_name": "frank, gustav von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 772,
+  "name": "Frank, Gustav von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "Dr. Franck; Dr. Frank",
+  "refs": "Goed XII, 371",
+  "updated": "2026-06-11 13:29:22.355Z",
+  "uri": "https://d-nb.info/gnd/116701528",
+  "editor": ""
+}

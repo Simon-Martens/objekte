@@ -1,0 +1,127 @@
+{
+  "annotation": "§1§ Graphik fehlt, K 93 gibt 2 Stickmuster an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, B, verso G, S I T, 6 GG, SS III-IV I-Verz, SS V- X, SS XI-XIV darin G, SS 1-387, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1820",
+    "norm": "~",
+    "biblio": 106029,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2391,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1820",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1820 / der / Häuslichkeit und Eintracht / gewidmet. / Herausgegeben / von / Theodor Hell. / Mit Kupfern. / Leipzig. / J. C. Hinrichssche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.316Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "he0o8ivx0znv5vz"
+  ],
+  "contents": [
+    "n32mw9fwp8p1muu",
+    "60qqttow3xf8a43",
+    "uru2vcnbj4vqt3w",
+    "3e2vbb34ngai67i",
+    "l2wwsc4nlcpnpcw",
+    "nltyiygc8w6tjdn",
+    "za6h25p6v7l1l47",
+    "tm1cnjvtdy5lj6v",
+    "64a5aag5p5ankjj",
+    "8e5zkuoevr2bxqr",
+    "am6rdffsjvomzai",
+    "vvutl65vlxeqgdn",
+    "02jqqyz3llfopid",
+    "78eb2s36bsnlvy6",
+    "vx734l5kpw0qy2b",
+    "i9g4od84o3as3h9",
+    "vrzetaoapf28sog",
+    "mtdeks1tjvykf4u",
+    "n2xipv89ib2z6lr",
+    "z3pcsp1na8315sq",
+    "n3hqgvlnxxvnjlt",
+    "n4bq82uf4q5bmpr",
+    "ykg0d12k0m41ho4",
+    "uvxpl1auv3meyoo",
+    "5iywtb8qkvuojsm",
+    "c6a4eeti7caa3xu",
+    "ov8l1cel7qtpi9n",
+    "fjbnd70xkrvpzq3",
+    "jyxgobg90wrg7hl",
+    "z6r9c1pe2ts9w84",
+    "20upabwvi59f7uw",
+    "oiudt84v08dxon7",
+    "ma31rr7k9e2oort",
+    "341dmgc7gavdag9",
+    "gj32b507ftie6fj",
+    "ff4ew6ibvzmai63",
+    "z57btzxkamymgdv",
+    "7s0yvra5mog05ow",
+    "ed38ivqha2sgogi",
+    "0hmqulechuzojgi",
+    "ogbkcgpy7ezzkpl",
+    "3921syhfo8u7ykg",
+    "ycjxwincb64xuok",
+    "ocmjk1vwidvuex4",
+    "fhzlxsmg7diz2cn",
+    "jtz51lmqlg78v3l",
+    "0tlltiemdde0xy1",
+    "koyyybi4k7k5a1w"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.065Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.065Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "66a7ljd1kmed10w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.017Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.017Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "n5pi2kg0mbdesgs"
+    }
+  ]
+}

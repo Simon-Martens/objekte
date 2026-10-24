@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Es sieht so einsam heut, so traurig bei dir aus, / Als wüßte man vom Fest gar nichts in unserm Haus,",
+  "language": [],
+  "musenalm_id": 55719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sylvester-Abend. / Lustspiel ineinem Aufzuge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sylvester-Abend. / Lustspiel ineinem Aufzuge",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.793Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "vlaenjb4dsjaxmn"
+    }
+  ]
+}

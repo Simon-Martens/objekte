@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Selig alle, die des Lebens Reise / Immer auf des Rechthuns Pfaden gehn,",
+  "language": [],
+  "musenalm_id": 35438,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem Gottesacker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem Gottesacker",
+  "updated": "2003-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.630Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "7kemovuuyfbzr9s"
+    }
+  ]
+}

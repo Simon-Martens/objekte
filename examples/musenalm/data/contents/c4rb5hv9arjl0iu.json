@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30002, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Der Krokus prangt in goldnem Glanz, / Die Maienglöckchen keimen,",
+  "language": [],
+  "musenalm_id": 30007,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsklage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsklage",
+  "updated": "2002-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.086Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "h7dth2eixskvz7g"
+    }
+  ]
+}

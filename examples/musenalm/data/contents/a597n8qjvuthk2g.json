@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 5 Illustrationen s. Titelgraphik INr 107510, Obj 1; Graphiken INr 107514-107517, Obj 5-8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ihr Leute, gebt mirs doch geschrieben, / Daß recht eun Erz-Phantast ich bin! / Will mirs zu gleauben nicht belieben, / So bringt mich mit Gewalt dahin.",
+  "language": [],
+  "musenalm_id": 107513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schnecken. / Ein Hochzeitsspiel. / (Mit lebendigen Puppen zu agiren.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. L. Stoll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schnecken. / Ein Hochzeitsspiel. / (Mit lebendigen Puppen zu agiren.)",
+  "updated": "2015-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.922Z",
+      "agent": "3csio4i9ab77igj",
+      "source_id": "zznry5mu4eqjern"
+    }
+  ]
+}

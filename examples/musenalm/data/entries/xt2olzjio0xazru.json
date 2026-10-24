@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I nT, SS III-IV Vrwrt d Hrsg, SS V-VI I-Verz, SS 1-354",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1819",
+    "norm": "~",
+    "biblio": 106780,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2688,
+  "parallel_title": "",
+  "place_statement": "München (Herausgeber), (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "Med. Rath Will u. Rath Schwab",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Pferdekunde / für / Stallmeister, Offiziere, Oeconomen, / Thierärzte und Freunde des Pferdes / überhaupt. / Herausgegeben / von den Professoren / MED. RATH WILL u. RATH SCHWAB. / Auf das Jahr / 1819. / MÜNCHEN / Auf Kosten der Herausgegeber. / und bey Lindauer in Commission",
+  "updated": "2026-06-11 10:18:55.836Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "hc77kh4fuuw33y0"
+  ],
+  "contents": [
+    "84g4bedd7tx9zo8",
+    "r3om1wuwibsgejs",
+    "qo11dzjgqx4fln5",
+    "l63vndvsybjm9ee",
+    "xp2uqgnw6xxxjdu",
+    "s02mgwiq6trvxv5",
+    "nlh3maxpx7se5ud",
+    "6kc3fw1easxfnys",
+    "zpelcsanmtf9i6d",
+    "4ed5p4546lbysq3",
+    "k5ne5l9sruat7hm",
+    "2w6fx5a6fcugwqt",
+    "yvgk9j9y2ibp1ro",
+    "hhzxfjqzz1p4w5o",
+    "cstcu7c16dvr9rs",
+    "g8663k8hbcskcpl",
+    "jd185yd55vhrc29",
+    "poucg07xsy3srik",
+    "flf83cqwrzfmg9j",
+    "02watrrjv73itoa",
+    "zeojcduaylpuht9",
+    "j33nis366y91tpf",
+    "qteufd4bsrud9dk",
+    "xkdl93z33z3sx15"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.100Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.100Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "sf4sblrt5kmg7xo"
+    }
+  ]
+}

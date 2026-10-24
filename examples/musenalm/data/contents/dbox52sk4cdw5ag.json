@@ -1,0 +1,45 @@
+{
+  "annotation": "Zum Lazarus (Sammlung INr 100297, Obj 237) Anm. des Herausgebers: Aus des Dichters Nachlasse mitgetheilt durch Henri Julia",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Wer ein Herz hat und im Herzen / Liebe trägt, ist überwunden / Schon zur Hälfte;",
+  "language": [],
+  "musenalm_id": 100298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 238,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.851Z",
+      "agent": "1z1aqho0pmi2dwm",
+      "source_id": "gnhztjxhemoo176"
+    }
+  ]
+}

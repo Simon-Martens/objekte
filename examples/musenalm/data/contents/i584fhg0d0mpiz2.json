@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Friedlich nach durchlaufner Bahn / Den erstarrten Leib zu pflegen,",
+  "language": [],
+  "musenalm_id": 14092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edle Rache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Edle Rache",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.646Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "dyt6w3pc93u4ura"
+    }
+  ]
+}

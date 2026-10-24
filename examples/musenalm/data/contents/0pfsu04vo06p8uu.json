@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September; paginiert IX /) Illustration zu »Deutschland, ein historisches Gemälde« von F. C. Schlenkert INr 73851, Obj 31 /) s. Textbezug INr 73846, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73833,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. Geyser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Geyser sc.",
+  "scans": [
+    "alm_3648_73833_edbw2ezb99.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "3co30fjinacjgrk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "imqh107chsn8g4t"
+    }
+  ]
+}

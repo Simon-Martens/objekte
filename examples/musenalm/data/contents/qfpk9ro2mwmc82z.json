@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Sie saßen im Schiff bei Meth und Wein, / Und hatten viel Plaudern und Singen,",
+  "language": [],
+  "musenalm_id": 71094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Königslohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Königslohn",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.601Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "wgy923sul5s75se"
+    }
+  ]
+}

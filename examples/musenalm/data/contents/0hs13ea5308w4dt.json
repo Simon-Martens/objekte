@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Brautstande (Sammlung INr 55472, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Der von dir ich dichtend spreche, / Der ich dichtend von dir sprach,",
+  "language": [],
+  "musenalm_id": 55496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIV.",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.475Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "h3ht5b3jlshgx0l"
+    }
+  ]
+}

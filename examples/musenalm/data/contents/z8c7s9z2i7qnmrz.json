@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 131399, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Hier war es, guter Alter, hier - / Hier stritten und hier siegten wir.",
+  "language": [],
+  "musenalm_id": 132410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der heimkehrende Krieger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der heimkehrende Krieger",
+  "updated": "2022-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.090Z",
+      "agent": "snnpz92vgxnioxl",
+      "source_id": "olz4lq3jfom9rbr"
+    }
+  ]
+}

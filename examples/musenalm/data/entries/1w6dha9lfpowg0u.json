@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, ar: S 4 T, S 6 T, SS 8–144 ar1: SS 1–32, VrlgM, 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Kinder und Kinderfreunde (Nürnberg) 1784",
+    "norm": "~",
+    "biblio": 405178,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1161,
+  "parallel_title": "",
+  "place_statement": "Frankfurt und Leipzig ( Weigel und Schneider)",
+  "places": [
+    "inpa0koig1pzpcp",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Kinder und Kinderfreunde (Nürnberg) 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 128; L/R 155",
+  "responsibility_statement": "Friedrich Ekkard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Kinder / und / Kinderfreunde / von / Friedrich Ekkard / in Göttingen / 1784. / Mit sechs Kupfern. / Frankfurt und Leipzig / bey Weigel und Schneider",
+  "updated": "2026-06-11 10:18:54.732Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "o1rjcnpts03bkx9"
+  ],
+  "contents": [
+    "0ffa3tnx5kw233x",
+    "g8kcczor4b81873",
+    "qqx304eonan11gq",
+    "dh2fja2hr8dv2uk",
+    "2u7nc1feypukhzy",
+    "cpi2eboocq3t5kb",
+    "ziihoe2yo3zpy7d",
+    "b7baert8oqngwm3",
+    "yjwgj57tx12k4l7",
+    "q0yurlw6s4hea6d",
+    "mmjv9l8c96yel5m",
+    "2i6xh37g1cxnk8m",
+    "ygawixzc8mbnsp7",
+    "qcjjv9tyraaw4rf",
+    "u0h92400odfqsqv",
+    "610k83yb9yw1rp0",
+    "it5re7amsumor0c",
+    "s2vxo9a271qlgrb",
+    "pvls6ie8zopqibu",
+    "f5vsobvyix6fwc1",
+    "10qtrj7c9aodkwa",
+    "hm7cqvq8l1dfxrr",
+    "nlb84wpdq64rhf0",
+    "qpb2751cx12yy9v",
+    "suzcbr4b75eje1e",
+    "54zm3ip3j8wio9u",
+    "qq2n6bib9p9b3ra",
+    "mi69xchyettbqch",
+    "hwc353e6bis7q5e",
+    "omuvobv324vgohr",
+    "ni7131pihha49r9",
+    "zvq3d6qkdgqelb3",
+    "8f6i1pv0g5pk7qq",
+    "quta82kain72z1e",
+    "i6048j8y1xxtlzr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.184Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.184Z",
+      "agent": "bin1jbruwvf88gx",
+      "source_id": "luaj5i4sv4zr9r2"
+    }
+  ]
+}

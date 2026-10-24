@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Briefe von Jean Paul Friederich Richter an einen Schweizer, nebst einem Stammbuchblatt und dem Bruchstück eines Briefes an J. P. Fr. R. (Sammlung INr 54246, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Bayreuth, 18ten May 1814. / Beichte: ich habe Ihre beyden Briefe erhalten, und doch geschwiegen bis heute. Besserung: eben schreib' ich.",
+  "language": [],
+  "musenalm_id": 54251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ihr J. P. F. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.852Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "slwov7nk4woru13"
+    }
+  ]
+}

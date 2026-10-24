@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. L/R 106",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Weile, wo immer du stehst; du kennst / nicht die Wege der Zukunft.",
+  "language": [],
+  "musenalm_id": 61781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genuß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Genuß",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.943Z",
+      "agent": "a22nkw5sbrlw9i8",
+      "source_id": "ilq2vt30qzzd8kd"
+    }
+  ]
+}

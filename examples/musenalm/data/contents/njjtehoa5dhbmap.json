@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait: Marschall Blücher. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58466,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Wolf del. Bollinger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Bollinger sc.",
+  "scans": [
+    "alm_852_58466_1p2lhicdvl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.739Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "hdf21uk702ijfqa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.739Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "tvcj7ekw9tbvqkd"
+    }
+  ]
+}

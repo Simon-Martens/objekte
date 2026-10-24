@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. V, INr 81042, Obj 6 /) Illustration zu »Hinter den Coulissen« von A. Langer INr 81053, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81038,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hermine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. C. Kotterba sc.",
+  "scans": [
+    "alm_1805_81038_020a00uuip.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hermine",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.002Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "gjlat5sxxxs82dy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.002Z",
+      "agent": "fm74jw4j6yp7gfm",
+      "source_id": "pssoz7ix6wy601j"
+    }
+  ]
+}

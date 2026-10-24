@@ -1,0 +1,45 @@
+{
+  "annotation": "Mittesommernachtsklänge (Sammlung INr 45965, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Komm ich auch noch so früh zu dir, / Du hast doch schon nach mir gespäht,",
+  "language": [],
+  "musenalm_id": 45967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Komm ich auch noch so früh zu dir, / Du hast doch schon nach mir gespäht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller von Königswinter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.486Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "9oz0gvd9iagm85l"
+    }
+  ]
+}

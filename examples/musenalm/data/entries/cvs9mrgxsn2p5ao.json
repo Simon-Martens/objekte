@@ -1,0 +1,105 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt /) Als Autor der unbezeichneten Beiträge ist der Herausgeber F. E. K. Mereau anzunehmen.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso gT, T, 2 BB Vrwrt d Hrsg, 2 BB G-Verz, B I-Verz, 8 BB Kal dazu 6 GG, SS 1-276, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der teutschen Vorzeit 1794",
+    "norm": "~",
+    "biblio": 404217,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2694,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Kaiserl. privil. Kunst- u. Buchhandlung. Ad. Gottl. Schneider u. Weigels)",
+  "places": [],
+  "preferred_title": "Taschenbuch der teutschen Vorzeit 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Fr. Ernst Carl Mereau",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / teutschen Vorzeit / von / Dr. Ernst Carl Mereau, / beider Rechte und der Phil. Dr., Univ. Bibl. / u. Adv. des Herzog. Saechs. Gesammt- / Hofgerichts zu Jena. / Nürnberg / in der Kaiserl. privil. Kunst- u. Buchhandlung. Ad. Gottl. Schneider u. Weigels 1794",
+  "updated": "2026-06-11 10:18:55.829Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "t8xqjatb6iiwvhq"
+  ],
+  "contents": [
+    "irityei6bzch4vf",
+    "s7pjokemz3qhfmq",
+    "uv23q4y433os9e8",
+    "nos2ohmfrjkfnhu",
+    "i5p35w5zeld5ltj",
+    "hw9usmmc3fqomyy",
+    "1xhvhpxjdh48sk7",
+    "wk4n2oyeug1gbfi",
+    "rczt0xbrvemr161",
+    "apk18j6zgctvpbw",
+    "mmjtv2i0o5tqrhn",
+    "19k5wycbzb8tclt",
+    "sbn0qmbgbnii6mx",
+    "js38aedkdtr8ean",
+    "ux25xg3493rl8oe",
+    "dtxtviv3kgch5l4",
+    "4oav0newk43aw1u",
+    "quvxitmz9eglkd1",
+    "a8df6mlf0sbsyw0",
+    "gtgv09rp0yp63pp",
+    "agtvolq7sb4jbba",
+    "854dwv30sume62t",
+    "3ddz4zd1yamxdjn",
+    "nvg3upq4xkyy1v9",
+    "yu982dujf53tfmd",
+    "42odud6m5s2erj3",
+    "v8qr77weehxjoow",
+    "7x4x5fo14fwqwse",
+    "bfsh2b07yw9zn7p",
+    "w5h2iw6172unpbj",
+    "f32d9m94m5h44l5",
+    "db9ny65xtsbukbd",
+    "6kvpsnydbx4hzfm",
+    "8inh1ciep07emyg",
+    "6h34facnqbspbv7",
+    "0q32dql5rre35la",
+    "zp8x0rbl2b9gxym",
+    "y80s1bhrjsnm1af",
+    "njd2g3ch7n683fp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.123Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.123Z",
+      "agent": "i1y44hlx8jbhczd",
+      "source_id": "3rj4rbbbwqs1b8t"
+    }
+  ]
+}

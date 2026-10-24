@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Textbezügen zu 7 Graphiken INr 43627-43640, Obj 5-18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43626,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gallerie / aus / Walter Scott's Werken. / Zweite Lieferung. / Kenilworth",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gallerie / aus / Walter Scott's Werken. / Zweite Lieferung. / Kenilworth",
+  "updated": "2006-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.241Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "ftrmg6116zxs5un"
+    }
+  ]
+}

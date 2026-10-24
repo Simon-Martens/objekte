@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Brieftaube« von J. G. Seidl INr 57864, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRIEFTAUBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás. Stahlst. v. C. Mahlknecht in Wien",
+  "scans": [
+    "alm_770_57863_95jsyz7agr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRIEFTAUBE",
+  "updated": "2008-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.736Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "c5hdv97ipmp0ikq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.736Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "ll4fdezla8hap1o"
+    }
+  ]
+}

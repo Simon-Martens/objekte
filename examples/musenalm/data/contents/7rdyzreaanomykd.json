@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Ein reges Bibervölkchen baute / Das dritte Stockwerk auf sein Haus;",
+  "language": [],
+  "musenalm_id": 23451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der junge Biber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der junge Biber",
+  "updated": "2002-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.970Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "i6v9z0w7wsjtk3q"
+    }
+  ]
+}

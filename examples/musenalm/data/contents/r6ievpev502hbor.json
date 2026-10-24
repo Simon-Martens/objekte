@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PETER VISCHER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. Christian Geisler sculp.",
+  "scans": [
+    "alm_3069_82095_vgsp4rc85l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PETER VISCHER",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.839Z",
+      "agent": "iojwntogak3m4db",
+      "source_id": "4t7agmem8ehmi43"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.839Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "vdrpu9lvwhk9g8c"
+    }
+  ]
+}

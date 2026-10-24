@@ -1,0 +1,55 @@
+{
+  "annotation": "Erscheinungsweise unklar; # K 77 gibt lediglich 1795 an /) # autopsiert ist lediglich der Vortitel /) Anm. im Almanach: Der Verlag dieses Almanaches ist in der Militärischen Buchhandlung - dermahlen auf der Freyung, in dem Hause: Bey dem Römischen Kaiser genannt, Nro 145. Wien, den 10. Juny 1803. August Gräffer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Militäralmanach, Oesterreichischer 1796",
+    "norm": "",
+    "biblio": 409573,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4530,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Militäralmanach, Oesterreichischer 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 77; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "OESTERREICHISCHER / MILITAER-ALMANACH / für das Jahr / 1796. / WIEN / Auf Kosten der Herausgeber / von Ovids Verwandlungen",
+  "updated": "2026-06-11 10:18:55.932Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "ryh5ooihf1t7pb3"
+  ],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Er, kaum auf Stroh zu liegen werth, / Im Herzen arg, - mit welchem Fug / Darf er die Holde küssen?",
+  "language": [],
+  "musenalm_id": 118154,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Streben. / Nach Graf Werner von Honberg. I. 23",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Streben. / Nach Graf Werner von Honberg. I. 23",
+  "updated": "2010-02-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.619Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "5s6g3a72ld7sjym"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert 16. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicol Jos. v. Jacquin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48109_57chfwi1xr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nicol Jos. v. Jacquin",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.649Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "x88eptgd9llb2rr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Seltsam lebt' ich, / seltsam starb ich; / Der Wald gebar mich,",
+  "language": [],
+  "musenalm_id": 3303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein Reh, / das vom Boden herab todt fiel und / in einem Garten begraben ward / 1783",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B-ff.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein Reh, / das vom Boden herab todt fiel und / in einem Garten begraben ward / 1783",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "o1iybts5cxnjdg0",
+      "source_id": "osen65qg94so22r"
+    }
+  ]
+}

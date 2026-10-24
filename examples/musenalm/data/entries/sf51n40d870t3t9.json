@@ -1,0 +1,67 @@
+{
+  "annotation": "neu",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1835",
+    "norm": "",
+    "biblio": 409457,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2017-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4456,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler u. Melle)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "J. C. Köster",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Jahr 1835. / Von / J. C. Köster, / Conducteur bei den Ingenieur- / arbeiten zu Hamburg. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler u. Melle",
+  "updated": "2026-06-11 10:18:55.211Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "1p2d3nytis6wxs0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "aa9vw07f3okuhxb",
+      "source_id": "rip4czm72eq7m5z"
+    }
+  ]
+}

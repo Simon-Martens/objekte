@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Titelgraphik INr 81038, Obj 2 und Graphik INr 81043, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es ist sieben Uhr. Um diese Zeit, wo die Vesperglocke vielen Menschen Feierabend und Rast verkündet von des Tages Arbeit und Plage, beginnt für einen andern Theil der Menschheit erst das Tagewerk oder vielmehr das Nachtwerk,",
+  "language": [],
+  "musenalm_id": 81053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HInter den Coulissen. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "HInter den Coulissen. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.977Z",
+      "agent": "5vrpezk8s9sgvqz",
+      "source_id": "r3zirtlgnf95hu8"
+    }
+  ]
+}

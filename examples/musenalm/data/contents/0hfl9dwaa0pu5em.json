@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wie lieblich donnert vom gehörnten Wallen / Der ehernen Friedensherolde / Feuriger Mund? / O trinke Schall ganz in dich Luft! / Und verbraus' ihn rund um den Erdball!",
+  "language": [],
+  "musenalm_id": 135592,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen bey der Friedensfeyer 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mastatalier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen bey der Friedensfeyer 1779",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.153Z",
+      "agent": "f2jay1ec3g5rdgn",
+      "source_id": "9lf31bl4ce67gnq"
+    }
+  ]
+}

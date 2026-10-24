@@ -1,0 +1,617 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1869",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.505Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/36146-X",
+          "label": "Universität Basel"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller u. Philologe (Germanistik); Studium in Berlin; 1835: Berufung nach Basel, Prof. für Germanistik, 1838-1845: Mitglied der Basler Loge zur Freundschaft und Beständigkeit"
+      ],
+      "dateOfBirth": [
+        "1806-04-23"
+      ],
+      "dateOfDeath": [
+        "1869-12-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Fritz Behrend: Geschichte der deutschen Philologie in Bildern: Eine Ergänzung zu dem Deutschen Literatur-Atlas von Könnecke-Behrend, Marburg 1927, Seite 35"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20Wackernagel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20Wackernagel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Wilhelm%20Wackernagel.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:05:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118805851/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/113182346X",
+          "label": "Wackernagel-Bluntschli, Caroline Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/125842627",
+          "label": "Wackernagel, Hans Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1168751268",
+          "label": "Wackernagel, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/12862809X",
+          "label": "Wackernagel, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117086495",
+          "label": "Wackernagel, Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104057440",
+          "label": "Wackernagel, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118805835",
+          "label": "Wackernagel, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1120440726",
+          "label": "Wackernagel, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118805843",
+          "label": "Wackernagel, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1015738079",
+          "label": "Wackernagel-Sarasin, Marie Salome"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118805851",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118805835",
+          "label": "Wackernagel, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1120440726",
+          "label": "Wackernagel, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117086495",
+          "label": "Wackernagel, Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1168751268",
+          "label": "Wackernagel, Gustav"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/12862809X",
+          "label": "Wackernagel, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118805843",
+          "label": "Wackernagel, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/125842627",
+          "label": "Wackernagel, Hans Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/104057440",
+          "label": "Wackernagel, Philipp"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118805851",
+      "oldAuthorityNumber": [
+        "(DE-588c)4117456-2",
+        "(DE-588a)126759138",
+        "(DE-588a)118805851"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4004617-5",
+          "label": "Basel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4004617-5",
+          "label": "Basel"
+        }
+      ],
+      "preferredName": "Wackernagel, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Wackernagel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156858-8",
+          "label": "Germanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Arrodian"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Collogne"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Paris"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "de Cologne"
+          ],
+          "personalName": [
+            "Arrodian"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Zwölf mittelhochdeütsche lyrische Gedichte",
+        "Gedichte eines fahrenden Schülers",
+        "Ueber die dramatische Poesie",
+        "Ahtzehen wahtel in den sac! Ein zweckloses d. h. sehr artiges altes Lügenmärchen, an den *",
+        "Altdeutsche Curiositäten",
+        "Poetik, Rhetorik und Stilistik",
+        "Das Wessobrunner Gebet und die Wessobrunner Glossen",
+        "Geschichte des deutschen Hexameters und Pentameters bis ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87902968"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7513817"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11697.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215353"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118805851/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Wackernagel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Wilhelm_Wackernagel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Wilhelm_Wackernagel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083390876"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118805851"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118805851"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118805851.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118805851"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Arrodian, de Cologne",
+        "Wackernagel, Heinrich Wilhelm",
+        "Paris",
+        "Collogne, Arrodian de",
+        "Wackernagel-Bluntschli, Wilhelm Karl Heinrich",
+        "Wackernagel, Karl Heinrich Wilhelm",
+        "Wackernagel, Wilh.",
+        "Wackernagel, W. H.",
+        "Wackernagel, Carl Heinrich Wilhelm",
+        "Wackernagel, W.",
+        "Wackernagel, Carl H.",
+        "Wackernagel, Guilelmus",
+        "Wackernagel, W.H.",
+        "Wackernagel, K. H. W.",
+        "Wackernagel, K.H.W.",
+        "Wakkernagel, Wilhelm",
+        "Wackernagel, Wilhelm Karl Heinrich",
+        "Wakkernagel, Guilelmus",
+        "Wackernagel, Karl H.",
+        "Wackernagel-Sarasin, Wilhelm",
+        "Wackernagel, Heinrich W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Guilelmus"
+          ],
+          "surname": [
+            "Wakkernagel"
+          ]
+        },
+        {
+          "forename": [
+            "W.H."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "K. H. W."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Guilelmus"
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "K.H.W."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilh."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Wakkernagel"
+          ]
+        },
+        {
+          "nameAddition": [
+            "de Cologne"
+          ],
+          "personalName": [
+            "Arrodian"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich W."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "personalName": [
+            "Paris"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Wackernagel-Sarasin"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich Wilhelm"
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Karl Heinrich"
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "W. H."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Wilhelm"
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Karl Heinrich"
+          ],
+          "surname": [
+            "Wackernagel-Bluntschli"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        },
+        {
+          "forename": [
+            "Arrodian"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Collogne"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Heinrich Wilhelm"
+          ],
+          "surname": [
+            "Wackernagel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_Wackernagel",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_Wackernagel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:16:45Z",
+    "gnd_query_biographical_data": "1806-1869",
+    "gnd_query_name": "wackernagel, wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3028,
+  "name": "Wackernagel, Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIV, 815",
+  "updated": "2026-06-11 13:29:25.595Z",
+  "uri": "https://d-nb.info/gnd/118805851",
+  "editor": ""
+}

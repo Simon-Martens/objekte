@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 39853, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "408",
+  "incipit_statement": "Nie kann Bullo zu vermessen / Der Satyre sich befleißen:",
+  "language": [],
+  "musenalm_id": 39865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bullo's Apologie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bullo's Apologie",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.873Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "2d3vkoc5h930u5s"
+    }
+  ]
+}

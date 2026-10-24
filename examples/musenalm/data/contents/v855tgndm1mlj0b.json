@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 45562-45565, Obj 271-274",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 270,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanderlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanderlieder",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.138Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "688epcmgo15svv8"
+    }
+  ]
+}

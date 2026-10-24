@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ich gieng ein Weilchen, / Schön war der Tag - / Und suchte Veilchen / Am grünen Hag.",
+  "language": [],
+  "musenalm_id": 33606,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Veilchenleserinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Veilchenleserinn",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.622Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "03iz4wl9ue2pqo9"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "im Sammelband",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Schenkl) 1816",
+    "norm": "",
+    "biblio": 109858,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2646,
+  "parallel_title": "",
+  "place_statement": "Amberg",
+  "places": [
+    "vderfrfqqb1dxnf"
+  ],
+  "preferred_title": "Taschenbuch (Schenkl) 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed. VII, 174, 5",
+  "responsibility_statement": "J. B. Schenkl",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf / das Jahr 1816 / mit / dem Verzeichnisse / der / in dem königl. baierischen Staaten / lebenden / Schriftsteller / von / J. B. Schenkl, / k. b. Stadtrath in Amberg, Mitglied des Civilver- / dienstordens der baierischen Krone, und mehrerer / gelehrten kammeralistisch-ökonomischen / Gesellschaften. / Amberg, / gedruckt mit kochischen Schriften, 1816",
+  "updated": "2026-06-11 10:18:55.441Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "odln5gyja1ei9ax"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.113Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.113Z",
+      "agent": "xcav675ae6tttd8",
+      "source_id": "cz48u74h34ptqzd"
+    }
+  ]
+}

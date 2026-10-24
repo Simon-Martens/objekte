@@ -1,0 +1,251 @@
+{
+  "annotation": "",
+  "biographical_data": "1821-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.486Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "österr. Schriftsteller, Redakteur, Beamter"
+      ],
+      "dateOfBirth": [
+        "1821"
+      ],
+      "dateOfDeath": [
+        "1898"
+      ],
+      "describedBy": {
+        "dateModified": "2012-09-05T09:53:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1025719670/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1025719670",
+      "id": "https://d-nb.info/gnd/1025719670",
+      "periodOfActivity": [
+        "27.10.1821-26.10.1898"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Steinebach, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Steinebach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Freimuth"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/264478284"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61200145"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1025719670/about"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Steinebach_Friedrich_1821_1898.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1025719670"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Freimut, ...",
+        "Steinbach, Friedrich",
+        "Freimuth, ...",
+        "Steinebach, F.",
+        "Steinebach, Fried.",
+        "Freimut",
+        "Steinebach, Freimut",
+        "Steinebach, Freimuth",
+        "Freimuth"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Steinebach"
+          ]
+        },
+        {
+          "forename": [
+            "Fried."
+          ],
+          "surname": [
+            "Steinebach"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Freimuth"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Freimut"
+          ]
+        },
+        {
+          "personalName": [
+            "Freimuth"
+          ]
+        },
+        {
+          "forename": [
+            "Freimuth"
+          ],
+          "surname": [
+            "Steinebach"
+          ]
+        },
+        {
+          "forename": [
+            "Freimut"
+          ],
+          "surname": [
+            "Steinebach"
+          ]
+        },
+        {
+          "personalName": [
+            "Freimut"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Steinbach"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:03:18Z",
+    "gnd_query_biographical_data": "1821-?",
+    "gnd_query_name": "steinebach, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2756,
+  "name": "Steinebach, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1966",
+  "updated": "2026-06-11 13:29:25.180Z",
+  "uri": "https://d-nb.info/gnd/1025719670",
+  "editor": ""
+}

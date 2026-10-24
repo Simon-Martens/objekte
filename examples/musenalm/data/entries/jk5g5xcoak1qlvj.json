@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Taschenbuch (M. Reck) 1855",
+    "norm": "",
+    "biblio": 406069,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-07-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3582,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Stein)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Veilchen, Taschenbuch (M. Reck) 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Maximilian Reck",
+  "subtitle_statement": "",
+  "title_statement": "VEILCHEN. / Taschenbuch für das Jahr / 1855. / Mit Beiträgen von G. Fr. Daumer, Dr. C. Ebersberger, / C. Weiß und C. von Westerhagen. / Herausgegeben / von / Maximilian Reck. / Nürnberg. / Verlag von J. A. Stein",
+  "updated": "2026-06-11 10:18:54.869Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "89efwol3hx18oue"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "ncr6wl350ab8huo",
+      "source_id": "eityi9m7tz2eu4y"
+    }
+  ]
+}

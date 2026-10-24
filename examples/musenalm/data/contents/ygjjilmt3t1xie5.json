@@ -1,0 +1,56 @@
+{
+  "annotation": "zus. Bez.: Pub. by Ackermann London 1828 /) s. Textbezug INr 34440, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34441,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE KENT, EAST INDIAMAN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Owen delt. Wallis sculpt.",
+  "scans": [
+    "alm_478_34441_yc7zbzt6bm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE KENT, EAST INDIAMAN",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.777Z",
+      "agent": "rmcisunwhwvl6y1",
+      "source_id": "7hzuo0arzm3t9ik"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.777Z",
+      "agent": "dwv1nswrrfy81p1",
+      "source_id": "osi9kyf17y6tdrx"
+    }
+  ]
+}

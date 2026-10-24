@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied eines Friedlichen« von G. W. C. Starke INr 11401, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Friedlichen. / Die Compos. ist von H. Capellmstr. Seydelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_207_11402_9rhndtmxry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Friedlichen. / Die Compos. ist von H. Capellmstr. Seydelmann",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.474Z",
+      "agent": "u644r69fyeumay0",
+      "source_id": "2bdkj8jku1otoyl"
+    }
+  ]
+}

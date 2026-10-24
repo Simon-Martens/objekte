@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "411",
+  "incipit_statement": "Es war! es war! ich hab es nur verloren, / Verloren in des Lebens wildem Drang!",
+  "language": [],
+  "musenalm_id": 77857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das verlorne Paradies",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das verlorne Paradies",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.772Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "61mb5dzsvet2b1l"
+    }
+  ]
+}

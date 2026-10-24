@@ -1,0 +1,45 @@
+{
+  "annotation": "Die heiligen Wohnplätze der Venus (Sammlung INr 91547, Obj 71) Venus (Sammlung INr 91544, Obj 68) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Hier trugen die Wellen die Göttin der Liebe, als sie aus dem Schaume des Meeres emporstieg, sanft ans Ufer.",
+  "language": [],
+  "musenalm_id": 91548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cypern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cypern",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.348Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.348Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "uu9k7pv1ywsr8oe"
+    }
+  ]
+}

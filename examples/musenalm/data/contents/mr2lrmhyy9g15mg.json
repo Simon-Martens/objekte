@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 2. /) Illustration zu S. Gessners Idyllen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110698,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tiens Alexis prends / à leur place deux de mes chevres. / Id. IV.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et. del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_784_110698_ua1syjdumo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tiens Alexis prends / à leur place deux de mes chevres. / Id. IV.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.175Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "cg2bqlynym9i9wb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.175Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "m15zgm7fbn9c6l4"
+    }
+  ]
+}

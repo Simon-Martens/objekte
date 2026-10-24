@@ -1,0 +1,45 @@
+{
+  "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Noch lebet Mark und Wurzel an dem Baume, / der aus dem unscheinbaren Kern erstanden;",
+  "language": [],
+  "musenalm_id": 54725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII.",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.498Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "e507ej0gbdz7dk2"
+    }
+  ]
+}

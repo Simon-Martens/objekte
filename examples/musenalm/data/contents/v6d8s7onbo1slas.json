@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 78089, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war am zwölften Februar des Jahres 1834 als Schleiermacher, dieser Lessing der christlichen Theologie, ein Sechsundsechziger, starb.",
+  "language": [],
+  "musenalm_id": 78099,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Schleiermacher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Kühne",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Schleiermacher",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.800Z",
+      "agent": "68etq1digne0tlg",
+      "source_id": "ch59mwqs8a6jsus"
+    }
+  ]
+}

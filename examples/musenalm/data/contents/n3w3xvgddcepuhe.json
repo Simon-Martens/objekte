@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 25450-25456; Obj 225-231 /) Gedichte (Sammlung INr 25438, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.061Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "xh7bf33ygkxf0wi"
+    }
+  ]
+}

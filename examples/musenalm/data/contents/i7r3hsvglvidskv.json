@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "In jedem Zirkel zieht mit eifriger Gewalt / Matz das Gespräch auf sich, und prahlt mit seiner / Ehre;",
+  "language": [],
+  "musenalm_id": 11840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "59. / Der Prahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. Köpken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "59. / Der Prahler",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.282Z",
+      "agent": "5z7qom88v60ghpp",
+      "source_id": "9b6mz7ugt50r7bc"
+    }
+  ]
+}

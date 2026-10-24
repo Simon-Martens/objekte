@@ -1,0 +1,89 @@
+{
+  "annotation": "§ Umschlag fehlt /) Einziger Jahrgang /) Der Almanach erschien auch unter dem Titel: »Unterhaltendes Taschenbuch« Leipzig (Sommer) 1802 vielleicht auch 1804 und 1807 /) Der einzige lit. Beitrag des Almanachs »Die Thäler von Hohenbergen oder die Menschen wie sie sind, nach dem Leben gezeichnet« von F. C. Schlenkert erschien unter diesem Titel mit den 4 Illustrationen Leipzig (Sommer) 1801. /) 1801 erschien bei Sommer ebenfalls: »Neustes Taschenbuch für Frauenzimmer edlerer Bildung von Eulalia Gutwill« mit den vier Illustrationen zu Schlenkerts: »Die Thäler zu Hohenbergen; oder: die Menschen wie sie sind.« s. Alm-1103",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 6 GG, B G-Verz, ar: SS 1-344, ar1: SS 1-16 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Panorama (Schlenkert) 1801",
+    "norm": "~",
+    "biblio": 100430,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 953,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Panorama (Schlenkert) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 93; nicht bei L/R; Goed VII. 269, 16",
+  "responsibility_statement": "Friedrich Schlenkert",
+  "subtitle_statement": "",
+  "title_statement": "Panorama. / Ein / Taschenbuch / auf / das erste Jahr / des neunzehnten Jahrhunderts. / Von / Friedrich Schlenkert. / Mit Kupfern. / Leipzig, / in der Sommerschen Buchhandlung. / 1801",
+  "updated": "2026-06-11 10:18:55.319Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "ffr760u07ufns4y"
+  ],
+  "contents": [
+    "8ollf44kv3zag14",
+    "c3i5mv1oqqtmczl",
+    "fjn5vuq8jf0v4zq",
+    "w3fbnhj2ltx48rs",
+    "kqbbvq8l1znv89j",
+    "j5nx8gxfp71ax5s",
+    "u5ho4gavtckwzmo",
+    "kms54uno2e6n057",
+    "bvww8ponypy0vl2",
+    "d0ziewd8lpppplu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "65mffwppjutnmu4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.785Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.785Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "zd299socex0l2z1"
+    }
+  ]
+}

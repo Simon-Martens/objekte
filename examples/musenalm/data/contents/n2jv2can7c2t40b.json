@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Lo duca io per quel cammino ascoso / Entrammo a ritornar nel chiaro mondo; [...] Dante; Inferno. C. XXXIV.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bei der Asche meines Vaters! - wenn Eure Treue nicht über jeden Verdacht erhaben wäre, - nimmermehr sollte mir dieser Knabe als ein Sohn gelten.",
+  "language": [],
+  "musenalm_id": 103253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emmanuel d'Astorga",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Emmanuel d'Astorga",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.084Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "xlvdyabuzx6yqb5"
+    }
+  ]
+}

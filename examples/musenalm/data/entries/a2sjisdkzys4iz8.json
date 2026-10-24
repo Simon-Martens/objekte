@@ -1,0 +1,80 @@
+{
+  "annotation": "Der Herausgeber G. K. Claudius starb 20.11.1815. /) Der vorliegende Jg 1816 ist identisch mit dem Jg 1814/1815;  s.a.  Anm. dort /) Titelgraphik mit Titel als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, T, S I T, SS III-IV I-Verz, S IV G-Verz, 8 GG, SS 1-284 Kal 1815",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1816",
+    "norm": "~",
+    "biblio": 106796,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 660,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "LEIPZIGER / Taschenbuch / zum / NUTZEN UND VERGNÜGEN / für das Jahr / 1816, / zugleich als Folge für die Jahre 1814 u. 1815. / Bei Adam Friedrich Böhme",
+  "updated": "2026-06-11 10:18:54.657Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "g0u6rdpvrh7ogh9"
+  ],
+  "contents": [
+    "isxsotjxwh43twi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.557Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.557Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "k08efysnculm16c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.731Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.731Z",
+      "agent": "2wsoz27ytrsps8l",
+      "source_id": "k0lay5edxwokcqu"
+    }
+  ]
+}

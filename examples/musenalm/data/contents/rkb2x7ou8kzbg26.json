@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Hab' lang genug die Welt durchreist, / Gott segne mir den Hafen!",
+  "language": [],
+  "musenalm_id": 2806,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einsiedlers Lebenslauf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegm. Frhr. v. Seckendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einsiedlers Lebenslauf",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.001Z",
+      "agent": "73xknlldquars2a",
+      "source_id": "pi0rjwjlit3p72e"
+    }
+  ]
+}

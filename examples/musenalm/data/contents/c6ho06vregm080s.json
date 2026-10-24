@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Wenn dich die Welt im Drange der Verblendung / Mit Haß und Leid gekränkt - o zürn' ihr nicht:",
+  "language": [],
+  "musenalm_id": 133517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost in der Natur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost in der Natur",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.109Z",
+      "agent": "ett5544anganpff",
+      "source_id": "wha2hqkdxiehg7h"
+    }
+  ]
+}

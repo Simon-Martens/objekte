@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111306, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Gen' Golgatha, hin zu der Schädelstätte, / Ermattet, blutig und sein Haupt voll Wunden, / Terägt er das Kreuz, daß es die Welt errette,",
+  "language": [],
+  "musenalm_id": 111307,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erlöse uns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erlöse uns",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.295Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "6vd0c8l0ppdpabb"
+    }
+  ]
+}

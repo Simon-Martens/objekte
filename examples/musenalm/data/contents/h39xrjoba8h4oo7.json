@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "O große, heldenmüth'ge Zeit / In diesen Friedenstagen, / Wo man in ganzer Christenheit / Nichts thut, als Ritter schlagen!",
+  "language": [],
+  "musenalm_id": 111625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moderne Ritterschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Karl Benedict Freiherr von Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moderne Ritterschaft",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.294Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "9xtt30ryfvc5u43"
+    }
+  ]
+}

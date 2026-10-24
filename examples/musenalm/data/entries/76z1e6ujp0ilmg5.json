@@ -1,0 +1,107 @@
+{
+  "annotation": "7 Jgg 1824-1831; Leipzig (Fleischer); Hrsg: Ernst Fleischer /) der Jg 1829 auch als Jg 1828 bei Heymann, Berlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 3 SS Vrwrt d Hrsg, S I-Verz, SS I-XVIII dazu 7 GG, SS 1-367, S C, 7 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1824",
+    "norm": "~",
+    "biblio": 407914,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2367,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Orphea 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 96; Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / Taschenbuch / für / 1824. / Erster Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / zu Fr. Kind's und Maria v. Weber's Freischützen. / LEIPZIG. / Ernst Fleischer",
+  "updated": "2026-06-11 10:18:55.330Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "9l57fvf3o5iuddl"
+  ],
+  "contents": [
+    "pxcidpx9pghy3ig",
+    "oznzeejcls2na39",
+    "duhoavi0qfrb5z5",
+    "6cn6oppwili5uwg",
+    "v6oa5qnql6lk1ma",
+    "wce7hpa9tcog42i",
+    "qr1qfw91xez9t4w",
+    "5q7700tj1cmepj3",
+    "7pg1m4q8qjd5hv0",
+    "2rx5ayyyv5kgb14",
+    "4rf9x4ifgzcjunb",
+    "e9k32cr1hv13p04",
+    "bsy3wddd3ztnj75",
+    "unyy3rm12d04iu3",
+    "j3601y3jovbwqic",
+    "f4vnu9idztggl8o",
+    "z5tga2w6kb4tpt8",
+    "74qqepx03evtjnc",
+    "r045kfwhjsfaske",
+    "mmj7wt4zcay9lh3",
+    "vbmygrgke34aurh",
+    "n7pqmgek34thjz5",
+    "hkm9yb1w71128gx",
+    "vhf2khby6gmffv1",
+    "jy7ohuj624c21h8",
+    "6y0iyzdhqhevpvp",
+    "io1ihqoapjz4ajb",
+    "57n8vrgjl4vjpzq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.850Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.850Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "9271ggjq73gwo2e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.053Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.053Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "pcvfhggqqn8hca5"
+    }
+  ]
+}

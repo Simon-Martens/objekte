@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenleben. Sonetten-Cyklus von Johann N. Vogl als Erklärung der Kupferstiche (Sammlung INr 94994, Obj 5) s. Graphik INr 98904, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Rosen sind verwelkt und neue sprossen, / Die Kinder derer, die du selbst geboren,",
+  "language": [],
+  "musenalm_id": 94905,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.637Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "f3uxbbuv0b6njgk"
+    }
+  ]
+}

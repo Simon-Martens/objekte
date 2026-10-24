@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Der arme Heinrich« nach Hartmann von Aue INr 16369, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fr. Hegi del. et sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hegi del. et sculp.",
+  "scans": [
+    "alm_258_16371_bfkqoi7054.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.785Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "kainurs1ea4mpox"
+    }
+  ]
+}

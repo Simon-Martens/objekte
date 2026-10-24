@@ -1,0 +1,661 @@
+{
+  "annotation": "",
+  "biographical_data": "1726-1801",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.289Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Kupferstecher, Maler, Zeichner und Graphiker; 1797 Direktor der Königlich Preußischen Akademie der Künste und Mechanischen Wissenschaften"
+      ],
+      "dateOfBirth": [
+        "1726-10-16"
+      ],
+      "dateOfDeath": [
+        "1801-02-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Adolph von Menzel"
+          ],
+          "creditText": [
+            "The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Friedrich%20Erdmann%20von%20Menzel%20018.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Friedrich%20Erdmann%20von%20Menzel%20018.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adolf%20Friedrich%20Erdmann%20von%20Menzel%20018.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/128321105"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:37:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118520512/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Marie Henriette"
+          ],
+          "surname": [
+            "Ayrer"
+          ]
+        },
+        {
+          "forename": [
+            "Maria"
+          ],
+          "surname": [
+            "Chodowicka"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1052524303",
+          "label": "Chodowiecki, Henri Isaac"
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Chodowicki"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Marie"
+          ],
+          "surname": [
+            "Barez"
+          ]
+        },
+        {
+          "forename": [
+            "Susanne"
+          ],
+          "surname": [
+            "Henry"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/135719747",
+          "label": "Chodowiecki, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122957571",
+          "label": "Henry, Suzette"
+        },
+        {
+          "forename": [
+            "Wilhelm Heinrich"
+          ],
+          "surname": [
+            "Papin"
+          ]
+        },
+        {
+          "forename": [
+            "Jeanne"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Guilleaume"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/120638169",
+          "label": "Chodowiecki, Guillaume"
+        },
+        {
+          "forename": [
+            "G"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118520512",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1052524303",
+          "label": "Chodowiecki, Henri Isaac"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122957571",
+          "label": "Henry, Suzette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120638169",
+          "label": "Chodowiecki, Guillaume"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/135719747",
+          "label": "Chodowiecki, Gottfried"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118520512",
+      "oldAuthorityNumber": [
+        "(DE-588a)128321105",
+        "(DE-588)128321105",
+        "(DE-588a)118520512",
+        "(DE-588c)4010028-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Chodowiecki, Daniel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Daniel"
+        ],
+        "surname": [
+          "Chodowiecki"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "publication": [
+        "Kupferst. zu: Basedow, Johann B.: Des Elementarwerks ... Band",
+        "Kupferst. zu: Wezel, Johann C.: Wilhelmine Arend, oder die Gefahren der Empfindsamkeit",
+        "Kupferst. zu: Amory, Thomas: Leben, Bemerkungen und Meinungen Johann Bunkels, nebst den Leben verschied*",
+        "Bilder-Akademie [für die Jugend]",
+        "Ill. zu: Voltaire: Candide",
+        "Chodowiecki, Daniel: Verzeichniss einer Sammlung von Kupferstichen aus allen Schulen und *",
+        "Aretin, Johann A. von: Catalogue des estampes gravées par Daniel Chodowiecki",
+        "Kupferst. zu: Bürger, Gottfried A.: Gedichte",
+        "Kupferst. zu: Hippel, Theodor G. von: Lebensläufe nach Aufsteigender Linie. - 1778 - 1781",
+        "Kupferst. zu: Taschenbuch für weisen und frohen Lebens-Genuß 1800"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb129804342"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50038187"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/chodowiecki-daniel-nikolaus/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59092320"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q696720"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118520512/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128321105"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Daniel_Chodowiecki"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Daniel_Chodowiecki"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Daniel_Chodowiecki"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Daniel_Chodowiecki"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121348231"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118520512"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118520512"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118520512.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118520512.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118520512"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118520512"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118520512"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Chodowiecky, D.",
+        "Chodoviecki, D.",
+        "Chodowiecki, Dan.",
+        "Chodowieki, D.",
+        "Chodowiecki, D.",
+        "Chodowiecky, Daniel",
+        "Chodowiecki",
+        "Chodowiezki, Daniel",
+        "Chodowiezki",
+        "Chodowiecky, Daniel Nicol",
+        "Chodowiecki, Nikolaus David",
+        "Chod., D.",
+        "Chodowiecki, Daniel Nicolaus",
+        "Chodowicki, D.",
+        "Chodovieccus, Danielus",
+        "Chodowiecki, Daniel N.",
+        "Chodoviecki",
+        "Chodowiecki, Daniel Nikolaus",
+        "Chodowiecki-Lesing",
+        "Chovowiecki, Daniel"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chodoviecki"
+          ]
+        },
+        {
+          "personalName": [
+            "Chodowiecki-Lesing"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel N."
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chodowicki"
+          ]
+        },
+        {
+          "personalName": [
+            "Chodoviecki"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel Nicol"
+          ],
+          "surname": [
+            "Chodowiecky"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel Nikolaus"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Chovowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "Dan."
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel Nicolaus"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chodowieki"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chod."
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Chodowiecky"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Chodowiecky"
+          ]
+        },
+        {
+          "forename": [
+            "Danielus"
+          ],
+          "surname": [
+            "Chodovieccus"
+          ]
+        },
+        {
+          "personalName": [
+            "Chodowiezki"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Chodowiezki"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolaus David"
+          ],
+          "surname": [
+            "Chodowiecki"
+          ]
+        },
+        {
+          "personalName": [
+            "Chodowiecki"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Daniel_Chodowiecki",
+          "label": "https://de.wikipedia.org/wiki/Daniel_Chodowiecki"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:07:09Z",
+    "gnd_query_biographical_data": "1726-1801",
+    "gnd_query_name": "chodowiecki, daniel nikolaus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 411,
+  "name": "Chodowiecki, Daniel Nikolaus",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VI, 519",
+  "updated": "2026-06-11 13:29:21.886Z",
+  "uri": "https://d-nb.info/gnd/118520512",
+  "editor": ""
+}

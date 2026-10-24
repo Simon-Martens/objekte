@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 72573, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Ohne sie, die uns von Gott Geschenkte, / Ei was wär' dann dieser Weg zum Grab?",
+  "language": [],
+  "musenalm_id": 72572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hofnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. I. S. C - a.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hofnung",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.671Z",
+      "agent": "kpi9u93u4rl2rz9",
+      "source_id": "wixnowbhnf0diix"
+    }
+  ]
+}

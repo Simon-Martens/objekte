@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu » Elisabeth, Landgräfin zu Thüringen« INr 48321, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48288,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ELISABETH / Landgräfin zu Thüringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. i. Fr. Bolt sc. 1812",
+  "scans": [
+    "alm_658_48288_ep05av2fgt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ELISABETH / Landgräfin zu Thüringen",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.645Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "jhx2bcr4kq2pclz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.645Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "ko96erld00jy4rr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebenspläne. Schauplatz: Die Welt (Sammlung INr 14931, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Mich locken die Höhen, / Der Äther so rein / Wohin sich die Augen der andern kaum wagen,",
+  "language": [],
+  "musenalm_id": 14936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allbekannter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz v. Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allbekannter",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.716Z",
+      "agent": "rxn9x0k5ac10jd7",
+      "source_id": "cr85nrqfr0uozua"
+    }
+  ]
+}

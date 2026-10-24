@@ -1,0 +1,510 @@
+{
+  "annotation": "",
+  "biographical_data": "1715-1759",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.390Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Schriftsteller; Offizier"
+      ],
+      "dateOfBirth": [
+        "1715-03-03"
+      ],
+      "dateOfDeath": [
+        "1759-08-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Gottfried Hempel"
+          ],
+          "creditText": [
+            "Das Jahrhundert der Freundschaft. Johann Wilhelm Ludwig Gleim und seine Zeitgenossen, ed. Ute Pott (Göttingen: Wallstein, 2004), p. 95. Author=file: James Steakley; artwork: Gottfried Hempel"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ewald%20Christian%20von%20Kleist%20%28Hempel%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ewald%20Christian%20von%20Kleist%20%28Hempel%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ewald%20Christian%20von%20Kleist%20%28Hempel%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118723499/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118723499",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118723499",
+      "oldAuthorityNumber": [
+        "(DE-588c)4098505-2",
+        "(DE-588a)118723499"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1143547446",
+          "label": "Zeblin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4018122-4",
+          "label": "Frankfurt (Oder)"
+        }
+      ],
+      "preferredName": "Kleist, Ewald Christian von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ewald Christian"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Kleist"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398982-2",
+          "label": "Major"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Kleist, Ewald C. von: Neue Gedichte von dem Verfasser des Frühlings",
+        "Kleist, Ewald C. von: Der Frühling ein Gedicht",
+        "Kleist, Ewald C. von: Cissides und Paches in drey Gesängen ..",
+        "Kleist, Ewald C. von: Sämtliche Werke",
+        "Kleist, Ewald C. von: Gedichte von dem Verfasser des Frühlings"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb134775641"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86860461"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/kleist-ewald-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74001456"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213747"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118723499/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ewald_Christian_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ewald_Christian_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ewald_Christian_von_Kleist"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ewald_Christian_von_Kleist"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010915985X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118723499"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1728_nn4;21"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118723499.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118723499.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118723499"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118723499"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kleist, Christianus Edwaldus de",
+        "Kleist, Ewald Chr. von",
+        "Kleyst, E. C.",
+        "Kleist, E. Chr. von",
+        "Kleist, Christ. Ewald von",
+        "Kleist, Ewald von",
+        "Kleist, Christian Fr.",
+        "Клейст, Эвальд Христиан фон",
+        "Kleist, Ewald C. v.",
+        "Kleist, Ewald Christian",
+        "Kleistius, ...",
+        "Kleist, Christian, Freiherr von",
+        "Kleist, Christian E. von",
+        "Kleist, Ewald C. von",
+        "Kleist, Christian Ewald von",
+        "Kleist, Christian Friedrich von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Kleistius"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "E. Chr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ewald"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Ewald"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Ewald Christian"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Fr."
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Ewald Chr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Ewald C."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Ewald"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Edwaldus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "Эвальд Христиан"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Клейст"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        },
+        {
+          "forename": [
+            "E. C."
+          ],
+          "surname": [
+            "Kleyst"
+          ]
+        },
+        {
+          "forename": [
+            "Ewald C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kleist"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ewald_Christian_von_Kleist",
+          "label": "https://de.wikipedia.org/wiki/Ewald_Christian_von_Kleist"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:56:09Z",
+    "gnd_query_biographical_data": "1715-1759",
+    "gnd_query_name": "kleist, ewald christian von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1403,
+  "name": "Kleist, Ewald Christian von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 79",
+  "updated": "2026-06-11 13:29:23.219Z",
+  "uri": "https://d-nb.info/gnd/118723499",
+  "editor": ""
+}

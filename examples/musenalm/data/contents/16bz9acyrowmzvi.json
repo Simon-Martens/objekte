@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Ach nein! ach nein! kein Weib ihr guten Götter! / So lebt denn noch ein Weib auf Erden!",
+  "language": [],
+  "musenalm_id": 114614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deukalion und Pyrrha. / Duodrama",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deukalion und Pyrrha. / Duodrama",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.516Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "1d7cyuy1p0kx5q0"
+    }
+  ]
+}

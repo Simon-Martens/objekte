@@ -1,0 +1,379 @@
+{
+  "annotation": "",
+  "biographical_data": "1703-1770",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.617Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Entwarf Stiche, Tapisserien, Porzellan, Bühnenbilder und Skulpturen"
+      ],
+      "dateOfBirth": [
+        "1703-09-20"
+      ],
+      "dateOfDeath": [
+        "1770-05-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Gustaf Lundberg"
+          ],
+          "creditText": [
+            "http://www.femme-classic-art.com/Fran%C3%A7ois-Boucher/Fran%C3%A7ois-Boucher-self-Portrait.html#sthash.Rv4PWo7e.dpbs; https://www.1000museums.com/art_works/gustaf-lundberg-portrait-of-francois-boucher-1703-70"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Boucher%20par%20Gustav%20Lundberg%201741.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boucher%20par%20Gustav%20Lundberg%201741.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Boucher%20par%20Gustav%20Lundberg%201741.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174187920"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118662244/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118662244",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.6p",
+          "label": "Personen zu Kunsthandwerk"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118662244",
+      "oldAuthorityNumber": [
+        "(DE-588c)4088141-6",
+        "(DE-588a)174187920",
+        "(DE-588)174187920",
+        "(DE-588a)118662244"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Boucher, François",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "François"
+        ],
+        "surname": [
+          "Boucher"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166042-0",
+          "label": "Kunstsammler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4122089-4",
+          "label": "Bühnenbildner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4122089-4",
+          "label": "Bühnenbildner"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunstmaler"
+      ],
+      "publication": [
+        "Catalogue raisonné des Tableaux. - 1771",
+        "Molière: Oeuvres. - 1734"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12218907t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50042112"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66517093"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q180932"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118662244/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174187920"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fran%C3%A7ois_Boucher"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_Boucher"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_Boucher"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121373066"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118662244"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118662244"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118662244"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118662244"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Boucher, Fr.",
+        "Boucher",
+        "Boucher, F.",
+        "Bushe, Fransua",
+        "Bouché",
+        "Boucher, Francois, Der Ältere",
+        "Buse, Fransua"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fransua"
+          ],
+          "surname": [
+            "Buse"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Boucher"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Boucher"
+          ]
+        },
+        {
+          "forename": [
+            "Francois"
+          ],
+          "nameAddition": [
+            "Der Ältere"
+          ],
+          "surname": [
+            "Boucher"
+          ]
+        },
+        {
+          "forename": [
+            "Fransua"
+          ],
+          "surname": [
+            "Bushe"
+          ]
+        },
+        {
+          "personalName": [
+            "Bouché"
+          ]
+        },
+        {
+          "personalName": [
+            "Boucher"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_Boucher",
+          "label": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_Boucher"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:29:00Z",
+    "gnd_query_biographical_data": "1703-1770",
+    "gnd_query_name": "boucher, françois"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4032,
+  "name": "Boucher, François",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B IV, 428",
+  "updated": "2026-06-11 13:29:25.966Z",
+  "uri": "https://d-nb.info/gnd/118662244",
+  "editor": ""
+}

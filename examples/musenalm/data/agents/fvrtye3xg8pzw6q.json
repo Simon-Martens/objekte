@@ -1,0 +1,454 @@
+{
+  "annotation": "",
+  "biographical_data": "3. Jahrh. n. Chr.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.435Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "forename": [
+            "Caius Titus Julius"
+          ],
+          "surname": [
+            "Calpurnius Siculus"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119808544",
+          "label": "Ropalianus, Johannes"
+        },
+        {
+          "forename": [
+            "Johannes Alexander"
+          ],
+          "surname": [
+            "Brassicanus"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Böhm"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119657201",
+          "label": "Drechsel, Hieronymus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11978789X",
+          "label": "Pictorius, Joachim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119780607",
+          "label": "Pangeus, Kaspar"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Didaktischer und bukolischer Dichter aus Karthago"
+      ],
+      "dateOfBirthAndDeath": [
+        "[3. Jh.]"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089306873",
+        "https://d-nb.info/gnd/1089898452",
+        "https://d-nb.info/gnd/174172567",
+        "https://d-nb.info/gnd/119772353",
+        "https://d-nb.info/gnd/1089758367"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:17:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118738437/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XT",
+          "label": "Römisches Reich"
+        }
+      ],
+      "gndIdentifier": "118738437",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118738437",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4102441-2",
+        "(DE-588a)118738437",
+        "(DE-588)1089758367",
+        "(DE-588a)174172567",
+        "(DE-588)174172567",
+        "(DE-588a)100220118",
+        "(DE-588)119772353",
+        "(DE-588a)119772353",
+        "(DE-588)1089898452",
+        "(DE-588)1089306873"
+      ],
+      "preferredName": "Nemesianus, Marcus Aurelius Olympius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Marcus Aurelius Olympius"
+        ],
+        "surname": [
+          "Nemesianus"
+        ]
+      },
+      "publication": [
+        "Calpurnius Siculus, Caius Titus Julius: LVDI LITERARII MAGISTRIS VVLTIS Auditoribus uestris, bene loquendi amussim egregiam ... 1519. (VD16 C 280)",
+        "Poesies de ... Némésien",
+        "Grattius: Venatici et bucolici poetae latini",
+        "Cynegeticōn liber",
+        "Calpurnius <Siculus>: Eclogae",
+        "Les Pastorales",
+        "Calpurnius Siculus, Titus I.: Calpurnii et Aur. Nemesiani Aeglogae",
+        "Eclogae",
+        "M. Aurelii Olympii Nemesiani eclogae quattuor et T. Calpurnii Siculi eclogae VII ad Nemes ..",
+        "Cynegeticon Liber I"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50001377"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/299517335"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q949309"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089306873"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089758367"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089898452"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118738437/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119772353"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174172567"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Nemesianus"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Nemesian"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Nemesianus"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118738437"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Nemesian, von Karthago",
+        "Olimpius Nemesianus, Marcus Aurelius",
+        "Nemesianus, M. Aurelius Olympius",
+        "Nemesianus, Aurelius",
+        "Nemesianus, Marcus Aurelius Olimpius",
+        "Nemesiano, Marco Olimpio",
+        "Nemesianus, Poeta",
+        "Nemesianus, Marcus Aurelius Opimius",
+        "Olympius Nemesianus, Marcus Aurelius",
+        "Aurelius Olympius Nemesianus, Marcus",
+        "Nemesiano, Marco Aurelio Olimpio",
+        "Némésien",
+        "Nemesianus, von Karthago",
+        "Némésien, de Carthage",
+        "Opimius Nemesianus, Marcus Aurelius",
+        "Aurelius, Nemesianus",
+        "Nemesianus, Carthaginiensis"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Marcus Aurelius Opimius"
+          ],
+          "surname": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Aurelius"
+          ],
+          "surname": [
+            "Olympius Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Aurelius"
+          ],
+          "surname": [
+            "Opimius Nemesianus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Carthaginiensis"
+          ],
+          "personalName": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Aurelius Olimpius"
+          ],
+          "surname": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Poeta"
+          ],
+          "personalName": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "de Carthage"
+          ],
+          "personalName": [
+            "Némésien"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus"
+          ],
+          "surname": [
+            "Aurelius Olympius Nemesianus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Nemesianus"
+          ],
+          "personalName": [
+            "Aurelius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Karthago"
+          ],
+          "personalName": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "Marco Aurelio Olimpio"
+          ],
+          "surname": [
+            "Nemesiano"
+          ]
+        },
+        {
+          "personalName": [
+            "Némésien"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Aurelius"
+          ],
+          "surname": [
+            "Olimpius Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "Aurelius"
+          ],
+          "surname": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "forename": [
+            "M. Aurelius Olympius"
+          ],
+          "surname": [
+            "Nemesianus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Karthago"
+          ],
+          "personalName": [
+            "Nemesian"
+          ]
+        },
+        {
+          "forename": [
+            "Marco Olimpio"
+          ],
+          "surname": [
+            "Nemesiano"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Nemesian",
+          "label": "https://de.wikipedia.org/wiki/Nemesian"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:22:27Z",
+    "gnd_query_biographical_data": "3. Jahrh. n. Chr.",
+    "gnd_query_name": "nemesianus, marcus aurelius olympius"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1932,
+  "name": "Nemesianus, Marcus Aurelius Olympius",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) XII, 129",
+  "updated": "2026-06-11 13:29:23.932Z",
+  "uri": "https://d-nb.info/gnd/118738437",
+  "editor": ""
+}

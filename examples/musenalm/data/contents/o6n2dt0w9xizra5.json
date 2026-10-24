@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Der Erde Feuer scheint verlodert, / Was blühte, hat sie heimgefordert:",
+  "language": [],
+  "musenalm_id": 77121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Süße Täuschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gebriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Süße Täuschung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.720Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "k5ju6lk2m3h3916"
+    }
+  ]
+}

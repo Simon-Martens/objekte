@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63918,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / AUF DAS / JAHR / 1844 / BEGRÜNDET / von / ALOYS SCHREIBER / fortgesetzt / von Amalia Schoppe / 29r Jahrgang ZWEITE FOLGE 3r Jahrgang / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eugen Neureuther",
+  "scans": [
+    "alm_1052_63918_xhv9np6547.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / AUF DAS / JAHR / 1844 / BEGRÜNDET / von / ALOYS SCHREIBER / fortgesetzt / von Amalia Schoppe / 29r Jahrgang ZWEITE FOLGE 3r Jahrgang / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.157Z",
+      "agent": "u9no5ybbst5hax6",
+      "source_id": "zegzndfmf92sgf8"
+    }
+  ]
+}

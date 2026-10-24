@@ -1,0 +1,56 @@
+{
+  "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Nicht Marmor, noch der Kön'ge Ehrensäule, / Wird diese mächt'ge Dichtung überdauern;",
+  "language": [],
+  "musenalm_id": 77113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "55.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakspear [übers.] L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "55.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.451Z",
+      "agent": "confomdodiakpla",
+      "source_id": "8zo2qb3r4yy9p6l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.451Z",
+      "agent": "ajsovud6xavcdfb",
+      "source_id": "vnlptez9wpk1qmx"
+    }
+  ]
+}

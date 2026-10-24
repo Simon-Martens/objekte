@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Unter dem Felsenhang einst saß dort neben mir, Phyllis! / Nach den Kapräen schweifte der Blick und nach der Sirenen",
+  "language": [],
+  "musenalm_id": 15956,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fischer-Idylle. / (Nach Sannazaro.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Niemeyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fischer-Idylle. / (Nach Sannazaro.)",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.670Z",
+      "agent": "5a8704hajrf01e5",
+      "source_id": "uzwzsqv8x1q844e"
+    }
+  ]
+}

@@ -1,0 +1,441 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1816",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.237Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter, Musik- und Metrikforscher, Bibliothekar"
+      ],
+      "dateOfBirth": [
+        "1771-09-17"
+      ],
+      "dateOfDeath": [
+        "1816-08-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "aus dem Archiv des evangelischen Predigerseminars Wittenberg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann-August-Apel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann-August-Apel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann-August-Apel.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116315865/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116315865",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116315865",
+      "oldAuthorityNumber": [
+        "(DE-588c)4697963-3",
+        "(DE-588a)116315865"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Apel, Johann August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann August"
+        ],
+        "surname": [
+          "Apel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Apel, Johann A.: Kalliroe",
+        "Apel, August: Metrik. - 1814 - 1816",
+        "Apel, August: Kunz von Kauffung",
+        "Apel, Johann A.: Metrik. - 1814 - 1816",
+        "Apel, Johann A.: Kunz von Kauffung",
+        "Apel, August: Die Aitolier",
+        "Apel, Johann A.: Polyidos",
+        "Apel, August: Polyidos",
+        "Apel, August: Kalliroe",
+        "Apel, Johann A.: Die Aitolier"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81080907"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39564904"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q71211"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116315865/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_August_Apel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Apel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Apel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_August_Apel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081187727"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116315865"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116315865.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116315865.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116315865"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Apel, Joannes Augustus",
+        "Apel, Johannes A.",
+        "Apelius, Ioannes Augustus",
+        "Apelius, Johannes Augustus",
+        "Apel, Ioannes Augustus",
+        "Apel, Johann A.",
+        "Apel, Auguste",
+        "Apel, Augustus",
+        "Apel, Joannes A.",
+        "Apel, Johannes Augustus",
+        "Apel, A.",
+        "Apelius, Joannes Augustus",
+        "Apel, Iohannes A.",
+        "Apel, August"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes Augustus"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Augustus"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes A."
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes A."
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes A."
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Augustus"
+          ],
+          "surname": [
+            "Apelius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Augustus"
+          ],
+          "surname": [
+            "Apelius"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Augustus"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Apel"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Augustus"
+          ],
+          "surname": [
+            "Apelius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Apel",
+          "label": "https://de.wikipedia.org/wiki/August_Apel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:49:12Z",
+    "gnd_query_biographical_data": "1771-1816",
+    "gnd_query_name": "apel, johann august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 50,
+  "name": "Apel, Johann August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 459",
+  "updated": "2026-06-11 13:29:21.355Z",
+  "uri": "https://d-nb.info/gnd/116315865",
+  "editor": ""
+}

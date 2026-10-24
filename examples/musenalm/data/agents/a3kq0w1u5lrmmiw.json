@@ -1,0 +1,557 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1825",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.335Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1741-02-06"
+      ],
+      "dateOfDeath": [
+        "1825-04-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "James Northcote"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry%20fuseli%20por%20James%20Northcote%201778.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry%20fuseli%20por%20James%20Northcote%201778.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Henry%20fuseli%20por%20James%20Northcote%201778.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160358965"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118536745/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/115527796",
+          "label": "Füssli, Johann Caspar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117752266",
+          "label": "Füssli, Johann Caspar"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118536745",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117752266",
+          "label": "Füssli, Johann Caspar"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/115527796",
+          "label": "Füssli, Johann Caspar"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118536745",
+      "oldAuthorityNumber": [
+        "(DE-588a)160358965",
+        "(DE-588c)4018833-4",
+        "(DE-588)160358965",
+        "(DE-588a)126357161",
+        "(DE-588a)118536745",
+        "(DE-588a)131306804"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Putney Hill (heute London)"
+      ],
+      "preferredName": "Füssli, Johann Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Heinrich"
+        ],
+        "surname": [
+          "Füssli"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Historienmaler"
+      ],
+      "publication": [
+        "Füssli, Johann H.: Vorlesungen über die Malerei",
+        "Vorlesungen über die Malerei",
+        "Pilkington, Matthew: A Dictionary of Painters",
+        "Lectures on painting",
+        "Füssli, Johann H.: Lectures on painting",
+        "Remarks on the writing and conduct of J. J. Rousseau"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12176361j"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79021856"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/53061"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11809.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q122382"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118536745/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160358965"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Henry_Fuseli"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_F%C3%BCssli"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Henry_Fuseli"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122755592"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118536745"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1774_fuessli2"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118536745.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118536745.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118536745"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118536745"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Fusely, Henry",
+        "Fuseli, Heinrich",
+        "Füesslin, Heinrich",
+        "Fuseli, Errico",
+        "Füeßli, Heinrich",
+        "Füssli, Hans Heinrich",
+        "Füßli, ...",
+        "Fuseli, H.",
+        "Füssli, Hans Heinrich (Künstler))",
+        "Füssli, Heinrich",
+        "Fusseli, Henry",
+        "Füssli, Johann H.",
+        "Füeßlin, Heinrich",
+        "Füssli, Heinrich (Künstler))",
+        "Füssli, Hans H.",
+        "Füssli, Johann Heinrich (Künstler)",
+        "Füßly, Johann Heinrich",
+        "Fuseli, Henry",
+        "Füssli, Johann-Heinrich",
+        "Füßli, Johann Heinrich",
+        "Füßli, Heinrich",
+        "Füessli, Heinrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füeßli"
+          ]
+        },
+        {
+          "forename": [
+            "Errico"
+          ],
+          "surname": [
+            "Fuseli"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Füßli"
+          ]
+        },
+        {
+          "forename": [
+            "Hans H."
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich (Künstler))"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Heinrich (Künstler))"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Henry"
+          ],
+          "surname": [
+            "Fuseli"
+          ]
+        },
+        {
+          "forename": [
+            "Henry"
+          ],
+          "surname": [
+            "Fusely"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füessli"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Fuseli"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Füßly"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füesslin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füeßlin"
+          ]
+        },
+        {
+          "forename": [
+            "Henry"
+          ],
+          "surname": [
+            "Fusseli"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füßli"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Heinrich"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "Johann-Heinrich"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Füßli"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Fuseli"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich (Künstler)"
+          ],
+          "surname": [
+            "Füssli"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_F%C3%BCssli",
+          "label": "https://de.wikipedia.org/wiki/Johann_Heinrich_F%C3%BCssli"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:27:06Z",
+    "gnd_query_biographical_data": "1741-1825",
+    "gnd_query_name": "füßli, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 818,
+  "name": "Füßli, Heinrich",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XII, 566",
+  "updated": "2026-06-11 13:29:22.416Z",
+  "uri": "https://d-nb.info/gnd/118536745",
+  "editor": ""
+}

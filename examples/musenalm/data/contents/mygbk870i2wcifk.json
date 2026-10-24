@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Humoristische Gedichte (INr 93576, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Schön war der Abend, ich schwelgte mit Thau und Küssen / des Westes. / Trieb des Gescherzes gar viel mit den Gespielen am Stamm.",
+  "language": [],
+  "musenalm_id": 93578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heroide der Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heroide der Rose",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.210Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "nme8bn5koxfayiu"
+    }
+  ]
+}

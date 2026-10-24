@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 25 Beiträgen INr 40179-40203, Obj 112-136",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "483",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Denksprüche und andere Einfälle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Denksprüche und andere Einfälle",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.635Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "74hsvd9vasa2x00"
+    }
+  ]
+}

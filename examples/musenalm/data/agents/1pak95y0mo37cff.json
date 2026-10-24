@@ -1,0 +1,688 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1794",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.327Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2038516-X",
+          "label": "Mainzer Jakobinerklub"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1765 Russlandreise mit Vater; 1766 Übersiedlung nach England; 1772-1775 Begleiter von James Cook bei zweiter Weltumseglung; 1778 Professor der Naturwissenschaften in Kassel, 1784 im polnischen Wilna; 1785 Heirat; 1788 Bibliothekar in Mainz; 1790 Reise durch nordwestliches Europa mit Alexander von Humboldt; Mitglied des Jakobinerclubs und 1793 Abgeordneter der \"Rheinischen Republik\" in Paris"
+      ],
+      "dateOfBirth": [
+        "1754-11-27"
+      ],
+      "dateOfDeath": [
+        "1794-01-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Heinrich Wilhelm Tischbein"
+          ],
+          "creditText": [
+            "http://www.payer.de/religionskritik/forster0101.gif"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Forster.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Forster.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Georg%20Forster.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174309716",
+        "https://d-nb.info/gnd/189471441",
+        "https://d-nb.info/gnd/174133502"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-17T13:11:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118534416/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118697609",
+          "label": "Greyerz, Otto von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1020533439",
+          "label": "Forster, Antonia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118883712",
+          "label": "Huber, Therese"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118534432",
+          "label": "Forster, Johann Reinhold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117732753",
+          "label": "Greyerz, Gottlieb von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-LT",
+          "label": "Litauen"
+        }
+      ],
+      "gndIdentifier": "118534416",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118534432",
+          "label": "Forster, Johann Reinhold"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1020533439",
+          "label": "Forster, Antonia"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118883712",
+          "label": "Huber, Therese"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118534416",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)189471441",
+        "(DE-588)174133502",
+        "(DE-588a)174133502",
+        "(DE-588)174309716",
+        "(DE-588c)7804167-3",
+        "(DE-588a)189471441",
+        "(DE-588c)4017932-1",
+        "(DE-588a)118534416",
+        "(DE-588a)174309716"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7748619-5",
+          "label": "Mokry Dwór"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Forster, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Forster"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4153098-6",
+          "label": "Ethnologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4017917-5",
+          "label": "Forschungsreisender"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4798807-1",
+          "label": "Reiseschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177943-5",
+          "label": "Revolutionär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "publication": [
+        "Voyage philosophique et pittoresque sur les rives du Rhin fait en 1790",
+        "Schriften politischen Inhalts",
+        "Johann Reinhold Forster's ... und Georg Forster's Beschreibungen der Gattungen von Pflanzen",
+        "Anrede an die Gesellschaft der Freunde der Freiheit und Gleichheit",
+        "Ueber das Verhältniss der Mainzer gegen die Franken",
+        "Hrsg. von: Sparrman, Anders: Reise nach dem Vorgebirge der guten Hoffnung, den südlichen Polarländer*",
+        "Mitverf. von: Forster, Johann Reinhold: Characteres generum plantarum",
+        "Hrsg. von: Hessische Beiträge zur Gelehrsamkeit und Kunst",
+        "Ansichten von Niederrhein, von Brabant, Flandern, Holland, England un*. - 1794 - 1804",
+        "Vom Brodbaum",
+        "Dissertatio inaugralis botano-medica de plantis esculentis insularum oceani Australis. - Halae, 1786",
+        "A voyage round the world",
+        "De plantis esculentis insularum Oceani australis commentatio botanica",
+        "Ansichten vom Niederrhein, von Brabant, Flandern, Holland, England un*",
+        "Übers. von: Rochon, Alexis M. de: Abbé Rochon's Reise nach Madagaskar und Ost-Indien",
+        "Beyträge zur Kenntniß Großbritanniens vom Jahre 1779",
+        "Übers. von: Rochon, Alexis M. de: Reise nach Madagaskar und Ostindien"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119931790"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50026037"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/forster-george-adam/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59389169"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q58062"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118534416"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118534416/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174133502"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174309716"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189471441"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Georg_Forster"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Forster"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Georg_Forster"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Forster"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012096223X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118534416"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118534416"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118534416.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118534416.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118534416"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118534416"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118534416"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Forster, Johann Georg Adam",
+        "Vorster, Georg",
+        "Forster, G.",
+        "ゲオルク・フォルスター",
+        "Forster, Johann Georg",
+        "Forsteris, Georgas",
+        "Forster, Jerzy",
+        "Форстер, Иога́нн Гео́рг А́дам",
+        "Forster, J. G.",
+        "Forster, John George",
+        "Forster, Georg Adam",
+        "Forster",
+        "Forster, Johann G.",
+        "Forster, Johann George Adam",
+        "Форстер, Георг",
+        "Forster, George",
+        "Forsterus, Georgius",
+        "Forster, Georgius",
+        "Forster, Jan Jerzy Adam",
+        "Forster, John George Adam"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georgas"
+          ],
+          "surname": [
+            "Forsteris"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "personalName": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "John George Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Георг"
+          ],
+          "surname": [
+            "Форстер"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Jan Jerzy Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "personalName": [
+            "ゲオルク・フォルスター"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Forsterus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "John George"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Jerzy"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Vorster"
+          ]
+        },
+        {
+          "forename": [
+            "Иога́нн Гео́рг А́дам"
+          ],
+          "surname": [
+            "Форстер"
+          ]
+        },
+        {
+          "forename": [
+            "Johann George Adam"
+          ],
+          "surname": [
+            "Forster"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Forster",
+          "label": "https://de.wikipedia.org/wiki/Georg_Forster"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:24:15Z",
+    "gnd_query_biographical_data": "1754-1794",
+    "gnd_query_name": "forster, johann georg adam"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 758,
+  "name": "Forster, Johann Georg Adam",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) VII, 18",
+  "updated": "2026-06-11 13:29:22.332Z",
+  "uri": "https://d-nb.info/gnd/118534416",
+  "editor": ""
+}

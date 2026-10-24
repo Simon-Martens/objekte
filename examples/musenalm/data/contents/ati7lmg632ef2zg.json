@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Ist dir das Ende gekommen, das unerbittliche Schicksal? / Wieder sag' ich mir öft, wieder das trauernde / Wort.",
+  "language": [],
+  "musenalm_id": 65829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie / auf den Tod der Herzogin Amalia / von Sachsen-Weimar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. von Blomberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie / auf den Tod der Herzogin Amalia / von Sachsen-Weimar",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.186Z",
+      "agent": "fdfc4bqyqsoaxaf",
+      "source_id": "w6zhu731vrbjtvt"
+    }
+  ]
+}

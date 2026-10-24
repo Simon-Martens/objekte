@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 2 BB W, 5 BB darin 4 GG, SS 1-406, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Huldigung den Frauen 1844",
+    "norm": "~",
+    "biblio": 106590,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1881,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler u. Schaefer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Huldigung den Frauen 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 64; L/R 95; Goed VIII. 107, 253",
+  "responsibility_statement": "I. F. Castelli",
+  "subtitle_statement": "",
+  "title_statement": "HULDIGUNG / den / FRAUEN. / Taschenbuch für das Jahr 1844. / Herausgegeben / von / I. F. CASTELLI. / Zweiundzwanzigster Jahrgang. Mit Stahlstichen. / WIEN. / Bei Tendler & Schaefer",
+  "updated": "2026-06-11 10:18:54.742Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "2mummgjvpv8tffp"
+  ],
+  "contents": [
+    "jjfr0ak0tscohsa",
+    "4hbuhwl8zkj7480",
+    "zruamxek8pd79wc",
+    "sitbuulpreraojf",
+    "nb548plfbxfpa7m",
+    "lr22wlgsz00p7b6",
+    "n2oc8lr15xcdlgf",
+    "eyd1wbx9219gvow",
+    "2g2y5aw7xpzxa6h",
+    "v1gcdcozx3ki290",
+    "x3paw17ev3n0wvy",
+    "uneqctjh5swztnn",
+    "47sesgb0x7dfnzz",
+    "ewb2eh5n1phm10r",
+    "aijhv71fhw5rxgb",
+    "9c2s0t06ncdp8e2",
+    "s16rn1sld3jaz3l",
+    "lnovjfmx9zt25he",
+    "wgr2kzgby30u95y",
+    "whmlb7veujzqviw",
+    "iauy1i84vinfq4i",
+    "2c4q9tld1pullsy",
+    "55hxnejubczmos6",
+    "djlphnf6dqylcyc",
+    "vut1qn6008qw61j",
+    "jwnx3diusrq9pcw",
+    "n0v6uht9droo9we",
+    "t9l51ywt075yre5",
+    "l1vy4nteczwsq4s",
+    "32npd97xhv0zmrl",
+    "ypbh7e62rrhyhnj",
+    "uc08nnsvbe10qqv",
+    "c5g8ycsbenmj6up",
+    "ti1antrdpwowyu2",
+    "1u2im7aq8fhh1mq",
+    "aw5aebrn53e1hjs",
+    "y81chdxphg7bxhb",
+    "wlrs1vv8zw37qu8",
+    "6l98qef4h4fj270",
+    "ii7p5tldmwastnv",
+    "80ba4ddufcnyy9e",
+    "k8zz9j9c10rilc6",
+    "cxp1aanjitco52b",
+    "zu5z5t69wedmmy9",
+    "rh8oo06ygmr8m0u",
+    "acxlsh6sd4q9yub",
+    "t3pmp0tu9sgabj7",
+    "xyu033nf63dcvh3",
+    "bss121bf7iu6v4m",
+    "2ases1bdhoptwn8",
+    "v706xxgn6o4d97f",
+    "2om1ziilcpsn2sz",
+    "zy763enamcoicen"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.985Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.985Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "6zhavb9e1hpwqpl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.162Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.162Z",
+      "agent": "nhzknpeqw53fcc1",
+      "source_id": "8mzhgv7sqx4thsv"
+    }
+  ]
+}

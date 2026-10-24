@@ -1,0 +1,112 @@
+{
+  "annotation": "12 Jgg 1795-1806; Tübingen (Cotta); die Jgg 1800, 1802, 1804-1806 als: Taschbuch für Natur- und Gartenfreunde ... /) Bei den häufig unbezeichneten Graphiken s. die Zuschreibungen nach: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« in den Anmerkungen und ggf. im Feld »Realname« /) SS 189-190, B I-Verz u Corrigenda nach dem Reprint. &nbsp;Die Umschlaggraphiken variant: Reprint nach dem Exemplar der Württembergischen Landesbibliothek, Stuttgart, Cotta 1992 sind als Vollbild beigegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 9 BB Kal, nT, B Vrwrt d Hrsg, SS 1-190 darin 11 GG, S I-Verz, S C, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender für Natur- und Gartenfreunde (Cotta) 1795",
+    "norm": "~+++ (SS 18-19, B: Reprint, var UG)",
+    "biblio": 106755,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3108,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenkalender für Natur- und Gartenfreunde (Cotta) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 137, 157; L/R 132; ADB XXVII, 290",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenkalender / auf / das Jahr 1795, / für / Natur- und Gartenfreunde. / Mit / Abbildungen von Hohenheim / und andern Kupfern. / Tübingen / in der J. G. Cottaischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.260Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "lk413zd03q6o6t2"
+  ],
+  "contents": [
+    "1actlhsv2uzik82",
+    "hasjeqmldjqc1zu",
+    "fplvnnejmhrhi54",
+    "amdmm40wz4vc4h7",
+    "wtsap3rsopb4738",
+    "pkomfocytzmzj10",
+    "pkasstcmv5ne66l",
+    "ka19qmio133uaxn",
+    "ic7bc6rcomhqtm3",
+    "n0sieo94uw2vycn",
+    "b0sc4ove35sgswm",
+    "s0zwdrc5sdipz42",
+    "tzad1jhjbxf1ho3",
+    "t5pvih6a3dr93i5",
+    "pf39cqw3deyq9f4",
+    "f9ffnyolvfbyg55",
+    "ejt91da8ctj4s8a",
+    "g3ijv7iwj3hr5me",
+    "jy8hlu8kfnfvtgy",
+    "ojl6hby206j5evl",
+    "mcgua7pf9rtmv05",
+    "0a5aip4xvkyf43s",
+    "hf8s6jvq94hsfn4",
+    "bjuljz9ymz0hemi",
+    "e6qdymz28xzsbdg",
+    "39ihfas00ziitvx",
+    "lqf0jwvsdrxgals",
+    "jvmnmormiwhl9n0",
+    "1hd7how70muvlnp",
+    "9jd4ziukgmku31z",
+    "sagh1vz71vayb7w",
+    "51job6f1lz1ew4s",
+    "qqrqcnzle91f4ft",
+    "8tgl3mrimzggxa3",
+    "bhvokgh2ja4g3oy",
+    "gkaehkiphnasooc",
+    "sqtbc0e4tcg2pg7",
+    "zm008dt43kwmtmm",
+    "m5skrsya1z0k6os",
+    "ufz1lbj938aft6z",
+    "zk88l4vx57jvoli",
+    "5mpaf2x1aorvutp",
+    "kzad9fi4o20jic6",
+    "28wb29jjb7usu0h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.694Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.694Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "fnxb6avhj2tonzb"
+    }
+  ]
+}

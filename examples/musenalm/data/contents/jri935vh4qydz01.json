@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Laß uns leben, mein Mädchen! Laß uns / lieben! / All der Lärm der gestrengen Herrn mit Runzeln",
+  "language": [],
+  "musenalm_id": 4716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An mein Mädchen. / Nach Catull",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An mein Mädchen. / Nach Catull",
+  "updated": "2000-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.104Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "axgah65xt1t1woi"
+    }
+  ]
+}

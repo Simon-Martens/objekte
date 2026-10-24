@@ -1,0 +1,45 @@
+{
+  "annotation": "Reichsttagssonette (Sammlung INr 45305, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Kleindeutschland ist das Stichwort, uns zur Schmach, / Der schwarzen und der rothen Jesuiten, / Die sonst für Rom und nur für Frankreich stritten,",
+  "language": [],
+  "musenalm_id": 45307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Kleindeutschland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Kleindeutschland",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.249Z",
+      "agent": "sv92qni765t0f64",
+      "source_id": "m9l6i3vazlqdxva"
+    }
+  ]
+}

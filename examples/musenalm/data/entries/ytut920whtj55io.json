@@ -1,0 +1,81 @@
+{
+  "annotation": "Miniatur-Almanach im Briefmarkenformat 12 x 18 mm /) Aus dem bibliographischen Institut von C. F. Müller in Carlsruhe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.421Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4859,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (C. F. Müller)",
+  "places": [],
+  "preferred_title": "Almanach (Karlsruhe 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 195",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / auf das / JAHR / 1835 / CARLSRUHE . / C. F. MÜLLER",
+  "updated": "2024-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "cajn4th23giqni8",
+    "wih648gtrpavxbc"
+  ],
+  "contents": [
+    "yxggnop0o2lc6ql",
+    "n2376kdspk246d7",
+    "t70t57l5mignwv3",
+    "v2bz6ioc1kkfals",
+    "hgyqalbv2rlkie7",
+    "x4ek3zpp5diicuj",
+    "635bkmdc9ywaqyg",
+    "wjuovdwv8k1s4h0",
+    "ul4wr7cnie2266q",
+    "jg0euim9629qd0q",
+    "iemyesj93cl2965",
+    "dvfbelyw3zhtx8r",
+    "a3zfb9rgeeyi1un",
+    "rm1jejsz1hlbput",
+    "wukx00hf3elodti",
+    "x70dljy9mtesv6v",
+    "3kk8bkrl2ulur6w",
+    "zt0hc8dwhddtz4g",
+    "btguexpso65mmmp",
+    "lyuka2mpjffewne",
+    "gk5vgd078a0531n",
+    "x4agm3nr1ziv2eu",
+    "rh1haqjothej7rv",
+    "rjv5801smvemc9m",
+    "antw61avh87f6iy",
+    "ct1syrw8bcdrx06",
+    "i79wggwuvgaq7yf",
+    "3v6iihx95lxrcmv"
+  ],
+  "agents": []
+}

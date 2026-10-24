@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80581, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80582,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter im Grabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Parris del. C. Kotterba sc.",
+  "scans": [
+    "alm_1796_80582_uorq6y3hvz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter im Grabe",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.683Z",
+      "agent": "9gep2y6vxxwiktu",
+      "source_id": "cujcx1srtksletp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.683Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "l87nen73hqxgidt"
+    }
+  ]
+}

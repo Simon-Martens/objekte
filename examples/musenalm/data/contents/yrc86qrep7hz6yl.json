@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63395,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau Ober-Amtmanninn / Caroline Bennecke / in / Acken an der Elbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilmans",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau Ober-Amtmanninn / Caroline Bennecke / in / Acken an der Elbe",
+  "updated": "2002-10-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.966Z",
+      "agent": "q9v9seq8bme8931",
+      "source_id": "qcnrkxf7e8l3boh"
+    }
+  ]
+}

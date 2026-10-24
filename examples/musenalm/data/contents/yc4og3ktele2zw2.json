@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Die Blumen draußen blühn nicht mehr, / Auch meiner Seele Blüten nicht,",
+  "language": [],
+  "musenalm_id": 62842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An *. / Zum Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Frhrr. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An *. / Zum Geburtstage",
+  "updated": "2009-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.806Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "4j4hfzbkuaftp0b"
+    }
+  ]
+}

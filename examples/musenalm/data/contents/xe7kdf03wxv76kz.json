@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Es würgt die Pest, ein grimmer Gast, / Zu Wien, von heißer Gier erfaßt,",
+  "language": [],
+  "musenalm_id": 86506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die letzte Nonne. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Nep. Vogl.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die letzte Nonne. / Ballade",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.275Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "i12cxrgyi34602n"
+    }
+  ]
+}

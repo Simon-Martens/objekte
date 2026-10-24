@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63963, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63969,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ANDÄCHTIGEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vallou del. Chr. Hoffmeister sc.",
+  "scans": [
+    "alm_1054_63969_ph6vmwu1qi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ANDÄCHTIGEN",
+  "updated": "2009-05-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.269Z",
+      "agent": "gzbr47bktmp3eah",
+      "source_id": "0o5j5mve2zwbnen"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.269Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "r3oc4sqjldzzsvx"
+    }
+  ]
+}

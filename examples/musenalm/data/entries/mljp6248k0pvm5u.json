@@ -1,0 +1,81 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Miniatur-Almanach, Payne’s 1866",
+    "norm": "",
+    "biblio": 405043,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2275,
+  "parallel_title": "",
+  "place_statement": "Leipzig, Dresden, Wien, Berlin (Vrlg. d. engl. Kunstanstalt)",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Miniatur-Almanach, Payne’s 1866",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. H. Payne",
+  "subtitle_statement": "",
+  "title_statement": "Payne's / Miniatur-Almanach / für / 1866. / Zweiundzwanzigster Jahrgang. / Mit 12 Illustrationen. / A. H. PAYNE. / Leipzig, Dresden, Wien und Berlin",
+  "updated": "2026-06-11 10:18:56.024Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "items": [
+    "jigil7vrypxdcpp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.030Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.030Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "xt53ng021cn4s8o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.179Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.179Z",
+      "agent": "hbe8zlyztkc7y0i",
+      "source_id": "z7caref6hh9qjtf"
+    }
+  ]
+}

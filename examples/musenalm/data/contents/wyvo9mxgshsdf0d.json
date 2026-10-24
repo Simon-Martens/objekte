@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Jäger ruh'! aus ist die Jagd, / Ruh in unsers Schlummers Decken.",
+  "language": [],
+  "musenalm_id": 78421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Ruhelied des Jägers / aus der / Lady of the lake",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Ruhelied des Jägers / aus der / Lady of the lake",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.767Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "c6xn9l430wdkxs0"
+    }
+  ]
+}

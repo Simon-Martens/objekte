@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. /) mit Anmerkungen (Worterklärungen) /) mit einer Illustration s. Graphik INr 53522 Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "O Herre Gott, wie heftig schluog / Mich deines Zornes Ruthen!",
+  "language": [],
+  "musenalm_id": 53523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / armen Frow Zwinglin Klag. / Ao. 1531",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / armen Frow Zwinglin Klag. / Ao. 1531",
+  "updated": "2007-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.340Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "u7up3twyrzofx75"
+    }
+  ]
+}

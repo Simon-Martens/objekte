@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Durch ganz Paris tobte ein Jubelsturm, als die Botschaft von der welthistorischen Schlacht von Marengo in Italien, von diesem ewig denkwürdigen Siege des großen Feldherrn Buonaparte,",
+  "language": [],
+  "musenalm_id": 57360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Trampolinsprung. / Ein Nachtstück aus dem Kunstreiterleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Trampolinsprung. / Ein Nachtstück aus dem Kunstreiterleben",
+  "updated": "2008-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.874Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "wr5votqouxo53qt"
+    }
+  ]
+}

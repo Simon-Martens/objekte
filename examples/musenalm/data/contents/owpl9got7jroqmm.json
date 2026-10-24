@@ -1,0 +1,45 @@
+{
+  "annotation": "Liederstrauß (Sammlung INr 90664, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Dem sel'gen Zauber hatt' ich mich ergeben, / Ich glaubte süß an ungetrübte Lust;",
+  "language": [],
+  "musenalm_id": 90670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / An die scheidende Geliebte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl. Ad. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / An die scheidende Geliebte",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.401Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "n84sjfl7hvmmk6e"
+    }
+  ]
+}

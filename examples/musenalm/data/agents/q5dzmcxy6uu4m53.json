@@ -1,0 +1,532 @@
+{
+  "annotation": "",
+  "biographical_data": "1795-1861",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.422Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1824-1830 Kapellmeister in Dresden"
+      ],
+      "dateOfBirth": [
+        "1795-08-16"
+      ],
+      "dateOfDeath": [
+        "1861-12-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lazarus Gottlieb Sichling"
+          ],
+          "creditText": [
+            "http://www.museen-sh.de/ml/digi_einzBild.php?pi=10010001611_G808&amp;inst=10010001611&amp;mab_id=10010001611&amp;nameInst=Theatergeschichtliche%20Sammlung%20und%20Hebbelsammlung&amp;page=10&amp;action=vonsuche&amp;r=112"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Marschner-Sichling.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Marschner-Sichling.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Marschner-Sichling.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1150542357",
+        "https://d-nb.info/gnd/1325003077"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11878210X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Josef Friedrich"
+          ],
+          "surname": [
+            "Kotzky"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137363893",
+          "label": "Marschner, Alfred Guido"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137363915",
+          "label": "Marschner, Eugenie Franziska"
+        },
+        {
+          "forename": [
+            "Emilie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Cerva"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Anton"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117456934",
+          "label": "Wohlbrück, Marianne"
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11878210X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137363893",
+          "label": "Marschner, Alfred Guido"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11878210X",
+      "oldAuthorityNumber": [
+        "(DE-101c)310146046",
+        "(DE-588)1325003077",
+        "(DE-588a)134456041",
+        "(DE-588c)4110567-9",
+        "(DE-588a)11878210X",
+        "(DE-588)1150542357"
+      ],
+      "periodOfActivity": [
+        "1834-1860"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4067897-0",
+          "label": "Zittau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "preferredName": "Marschner, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Marschner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        }
+      ],
+      "publication": [
+        "Marschner, Heinrich: Der Vampyr. - [ca. 1830]",
+        "Marschner, Heinrich: Hans Helling",
+        "Marschner, Heinrich: Ouverture zur Oper \"Hans Heiling\". - s.a.",
+        "Marschner, Heinrich A.: Ouverture zur Oper \"Hans Heiling\". - s.a.",
+        "Marschner, Heinrich: Hans Heiling",
+        "Wohlbrück, Wilhelm A.: Gesänge",
+        "Marschner, Heinrich: Der Vampyr",
+        "Marschner, Heinrich: Der Templer und die Jüdin"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82225838"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54183923"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q160063"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=11878210X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1150542357"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11878210X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325003077"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Heinrich_Marschner"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Marschner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Marschner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121334972"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11878210X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1812_tomaschek;1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11878210X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11878210X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11878210X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11878210X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11878210X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Marschner, E.",
+        "Marschner, Heinr.",
+        "Marschner, Henry",
+        "Marschner, Heinrich August",
+        "Marschner, Hch.",
+        "Marschner, H.",
+        "Marschner, Heinrich A.",
+        "Marschner, Hans",
+        "Marschner, Henri",
+        "Marschner, Enrico",
+        "Marschner, H. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Enrico"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "H. A."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Henry"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Hch."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Henri"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Heinr."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich A."
+          ],
+          "surname": [
+            "Marschner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Marschner",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Marschner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:12:30Z",
+    "gnd_query_biographical_data": "1795-1861",
+    "gnd_query_name": "marschner, heinrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1732,
+  "name": "Marschner, Heinrich August",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XX, 435",
+  "updated": "2026-06-11 13:29:23.733Z",
+  "uri": "https://d-nb.info/gnd/11878210X",
+  "editor": ""
+}

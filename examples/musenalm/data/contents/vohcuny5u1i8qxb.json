@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Willkommen, traute waldumhüllte Stelle, Wllkommen! / Willkommen, friedlich abgeschied'ne Zelle, willkommen!",
+  "language": [],
+  "musenalm_id": 85545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ghasele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Freiherr von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ghasele",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.341Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "fg2tyinvx296zji"
+    }
+  ]
+}

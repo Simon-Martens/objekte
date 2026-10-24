@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "441",
+  "incipit_statement": "Freund Richter! Ist es möglich? Seid Ihr es oder ist es Euer Geist? Rief bei meinem Eintritt in eines der elegantesten Kaffeehäuser von Edinburg eine mir nicht unbekannte Stimme,",
+  "language": [],
+  "musenalm_id": 73798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Des Adlers Horst. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Des Adlers Horst. / Erzählung",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.643Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "y9okthfbby1q024"
+    }
+  ]
+}

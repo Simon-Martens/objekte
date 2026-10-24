@@ -1,0 +1,78 @@
+{
+  "annotation": "im Sammelband",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Schenkl) 1817",
+    "norm": "",
+    "biblio": 109857,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2647,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Daisenberger)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Taschenbuch (Schenkl) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed. VII, 174, 5",
+  "responsibility_statement": "J. B. Schenkl",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf / das Jahr 1817 / mit / dem Verzeichniß / der / in dem königl. baier. Staaten / lebenden / Schriftsteller, / von / J. B. Schenkl, / k. b. Stadtrath und Grenadier Hauptmann bei / dem Landwehr-Bataillon in Amberg, Mitglied / des Civilverdienstordens der baier'schen Krone, / und mehreren gelehrten kammeralistisch- / ökonomischen Gesellschaften. / Regensburg, 1817. / In der Daisenberger'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.442Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "ju9q2le6mcje2ou"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.708Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.708Z",
+      "agent": "83w6j5i7yr2k06w",
+      "source_id": "5m5x5bfq2rdsomh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.113Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.113Z",
+      "agent": "xcav675ae6tttd8",
+      "source_id": "i45v1h0s9zycp2g"
+    }
+  ]
+}

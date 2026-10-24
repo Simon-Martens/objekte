@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Als ich im Mai des vorigen Jahres Dir einen Theil meiner gesammelten Schriften widmete, hatte ich noch keine Ahnung davon, daß Du in dem heißen Kampfe der rohen und humanen Welt, den wir erleben, die patriotische Partei ergeriffen.",
+  "language": [],
+  "musenalm_id": 93155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auch ein Politiker / Vortrefflicher Prutz!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auch ein Politiker / Vortrefflicher Prutz!",
+  "updated": "2014-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.411Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "sk7xu88flndl1py"
+    }
+  ]
+}

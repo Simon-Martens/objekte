@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Schläferig dehnt im Sofa sich Eins, an der Lehne des / Stuhles / Schnarchet ein Andres,",
+  "language": [],
+  "musenalm_id": 62688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die müden Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. H. G. von Meusebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die müden Kinder",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.224Z",
+      "agent": "kv04w8skk4ws4zw",
+      "source_id": "x674husl771ba3n"
+    }
+  ]
+}

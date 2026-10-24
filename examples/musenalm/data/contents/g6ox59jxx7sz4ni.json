@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. L. D. Sauerländer.] s. Textbezug INr 44250, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44249,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEMSJÄGER IN DEN RHÄTISCHEN ALPEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Taverna p.",
+  "scans": [
+    "alm_601_44249_jgsdfax18c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEMSJÄGER IN DEN RHÄTISCHEN ALPEN",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.933Z",
+      "agent": "4id19ye1941bpp8",
+      "source_id": "jt0kzf91fpds3ma"
+    }
+  ]
+}

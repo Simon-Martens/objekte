@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Zwar hab' ich wenig zu verschenken; / Allein man muß, nach altem Brauch,",
+  "language": [],
+  "musenalm_id": 2555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Testament / eines alten Dichters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Testament / eines alten Dichters",
+  "updated": "2000-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.748Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "vwdg184ykjg43ws"
+    }
+  ]
+}

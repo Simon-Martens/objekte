@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 55728, Obj 123)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Was läuten uns die Glocken? / Sie läuten ernsten Klang, / Den Flor um Brust und Locken!",
+  "language": [],
+  "musenalm_id": 55731,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Todtenfeier",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwiga",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Todtenfeier",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.638Z",
+      "agent": "m5h823rnh3hnfzr",
+      "source_id": "7ib7u4fwjerfjxm"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz /) Illustration zu »Der Kaufmann von Venedig« von W. Shakespeare; s. Textbezug INr 19224, 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9297,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kaufmann von Venedig. / 4. Aufzug 1. Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz",
+  "scans": [
+    "alm_44_9297_t2r4daz3os.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kaufmann von Venedig. / 4. Aufzug 1. Scene",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.198Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "fcipfprkvmnrlyc"
+    }
+  ]
+}

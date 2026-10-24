@@ -1,0 +1,45 @@
+{
+  "annotation": "Motto",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Der Maler zeigt das Koexistirende, der Dichter das successive Schöne der Natur.",
+  "language": [],
+  "musenalm_id": 72643,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maler zeigt das Koexistirende, der Dichter das successive Schöne der Natur.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.485Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "bcyx211dcrsmtc8"
+    }
+  ]
+}

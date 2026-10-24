@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sträußchen, Dramatisches (Castelli) 1827",
+    "norm": "",
+    "biblio": 405597,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2591,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Sträußchen, Dramatisches (Castelli) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 105 ; L/R 126; Goed VIII. 129, 14",
+  "responsibility_statement": "I. F. Castelli",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Sträußchen / für / das Jahr / 1827. / Zwölfter Jahrgang / Von / I. F. Castelli. / Wien. / Gedruckt und im Verlage bey J. B. Wallishausse",
+  "updated": "2026-06-11 10:18:55.428Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "ps72e42jbsr4ynt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.106Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.106Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "w2wc4oeb0gj8mvf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.181Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.181Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "yqhb7ogvhyt1wyj"
+    }
+  ]
+}

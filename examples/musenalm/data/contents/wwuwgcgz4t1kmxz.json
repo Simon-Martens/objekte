@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "490",
+  "incipit_statement": "Sucht der Mensch auf der einen Seite die Kräfte der Natur zu bändigen und seinem Herrscherwillen gehorsam zu machen,",
+  "language": [],
+  "musenalm_id": 45067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Fortschritte des menschlichen Geistes. Entdeckungen, Erfindungen, Unternehmungen]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Fortschritte des menschlichen Geistes. Entdeckungen, Erfindungen, Unternehmungen]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.381Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "96hrnbn8odbtume"
+    }
+  ]
+}

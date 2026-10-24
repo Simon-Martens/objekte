@@ -1,0 +1,477 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.420Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1786-02-23"
+      ],
+      "dateOfDeath": [
+        "1824-09-20"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/100518559",
+        "https://d-nb.info/gnd/172247306"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T14:44:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116715081/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/127459456",
+          "label": "Malsburg, Karl von der"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116715081",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/127459456",
+          "label": "Malsburg, Karl von der"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116715081",
+      "oldAuthorityNumber": [
+        "(DE-588)100518559",
+        "(DE-588)172247306",
+        "(DE-588a)172247306",
+        "(DE-588a)100518559",
+        "(DE-588a)116715081"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023201-3",
+          "label": "Hanau"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Eschenberg"
+      ],
+      "preferredName": "Malsburg, Ernst von der",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst"
+        ],
+        "prefix": [
+          "von der"
+        ],
+        "surname": [
+          "Malsburg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter",
+        "Justizrat"
+      ],
+      "publication": [
+        "Malsburg, Ernst F. von der: Ernst Friedrich Georg Otto's von der Malsburg Poetischer *",
+        "Vega Carpio, Lope F. de: Schauspiele",
+        "Calderón de la Barca, Pedro: Schauspiele",
+        "Malsburg, Ernst F. von der: Gedichte",
+        "Malsburg, Ernst F. von der: Ernst Friedrich Georg Otto's von der Malsburg poetischer Na*",
+        "Calderon de la Barca, Pedro: Schauspiele. - 1819 - 1825"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058962"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10604464"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1358145"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100518559"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116715081/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172247306"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ernst_von_der_Malsburg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_von_der_Malsburg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ernst_Friedrich_Georg_Otto_von_der_Malsburg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_von_der_Malsburg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109540300"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116715081"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116715081"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116715081.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116715081"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116715081"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116715081"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Malsburg, E. F. G. O. von der",
+        "Malsburg, Friedrich Ernst Georg Otto von der",
+        "Malsburg, Friedrich Georg Otto von der",
+        "Malsburg, Ernst Friedrich Georg Otto von der",
+        "Malsburg, Otto Friedrich von der",
+        "Malsburg, Ernst Friedrich Georg Otto von, Freiherr",
+        "Malsburg, Ernst von",
+        "Malsburg, Ernst",
+        "Malsburg, Ernst Otto von der",
+        "Malsburg, Ernst F. von",
+        "Malsburg, Ernst Friedrich",
+        "Malsburg, Ernst Otto von der, Freiherr"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Ernst Georg Otto"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Friedrich Georg Otto"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Friedrich"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Otto"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Friedrich"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Otto"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Friedrich Georg Otto"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Georg Otto von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        },
+        {
+          "forename": [
+            "E. F. G. O."
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Malsburg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_von_der_Malsburg",
+          "label": "https://de.wikipedia.org/wiki/Ernst_von_der_Malsburg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:11:09Z",
+    "gnd_query_biographical_data": "1786-1824",
+    "gnd_query_name": "malsburg, ernst friedrich georg otto von der"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1703,
+  "name": "Malsburg, Ernst Friedrich Georg Otto von der",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IX, 217; Goed XI/1, 276",
+  "updated": "2026-06-11 13:29:23.707Z",
+  "uri": "https://d-nb.info/gnd/116715081",
+  "editor": ""
+}

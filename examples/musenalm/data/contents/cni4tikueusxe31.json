@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Diese zaubrischen Gestalten / wechseln immer ihren Stand",
+  "language": [],
+  "musenalm_id": 71127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Witz und Laune",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Witz und Laune",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.605Z",
+      "agent": "ift6i2oy1gozbs3",
+      "source_id": "rvoytmytl2apod6"
+    }
+  ]
+}

@@ -1,0 +1,764 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.388Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. med."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichter der schwäbischen Romantik"
+      ],
+      "dateOfBirth": [
+        "1786-09-18"
+      ],
+      "dateOfDeath": [
+        "1862-02-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Brandseph"
+          ],
+          "creditText": [
+            "Familienarchiv"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Justinus%20Kerner%20Altersbild%20-%20signiert%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Justinus%20Kerner%20Altersbild%20-%20signiert%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Justinus%20Kerner%20Altersbild%20-%20signiert%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-28T10:12:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118561545/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116141697",
+          "label": "Kerner, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117018082",
+          "label": "Niethammer, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118561537",
+          "label": "Kerner, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116413832",
+          "label": "Kerner, Friederike Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119074672",
+          "label": "Kerner, Theobald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116141530",
+          "label": "Kerner, Friederike Louise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116141441",
+          "label": "Kerner, Christoph Ludwig"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118561545",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119074672",
+          "label": "Kerner, Theobald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117018082",
+          "label": "Niethammer, Marie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116141441",
+          "label": "Kerner, Christoph Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116141530",
+          "label": "Kerner, Friederike Louise"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116141697",
+          "label": "Kerner, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118561537",
+          "label": "Kerner, Georg"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116413832",
+          "label": "Kerner, Friederike Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118561545",
+      "oldAuthorityNumber": [
+        "(DE-101c)310666147",
+        "(DE-588a)118561545",
+        "(DE-588c)4030321-4",
+        "(DE-588a)134976142"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066095-3",
+          "label": "Bad Wildbad"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065180-0",
+          "label": "Weinsberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065482-5",
+          "label": "Welzheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4019089-4",
+          "label": "Gaildorf"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036469-0",
+          "label": "Ludwigsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065180-0",
+          "label": "Weinsberg"
+        }
+      ],
+      "preferredName": "Kerner, Justinus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Justinus"
+        ],
+        "surname": [
+          "Kerner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118546872",
+          "label": "Hauffe, Friederike"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Lux"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Waldthal"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Justinius Andreas Christian"
+          ],
+          "surname": [
+            "Lux"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Justinius Andreas Christian"
+          ],
+          "surname": [
+            "Luchs"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Geschichten Besessener neuerer Zeit",
+        "Geschichte zweyer Somnambülen",
+        "Die Dichtungen des Justinus Kerner",
+        "Das Fettgift oder die Fettsäure und ihre Wirkungen ...",
+        "Die Gesichte des Thomas Ignaz Martin, Landmanns zu Gallardon, ...",
+        "Die Schreie von Prevorst",
+        "Das Wildbad im Königreich Würtemberg",
+        "Eine Erscheinung aus dem Nachtgebinde der Natur",
+        "Die Seherin von Prevorst",
+        "Nachricht von dem Vorkommen des besessenseyns, eines dämonisch-magnetis*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12463133b"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50063935"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/46858675"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77280"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118561545/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118561545"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Justinus_Kerner"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Justinus_Kerner"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Justinus_Kerner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Justinus_Kerner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108960952"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118561545"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;74"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;75"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118561545"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118561545.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118561545.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118561545"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118561545"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "SWD"
+      ],
+      "variantName": [
+        "Kerner, Christian A.",
+        "Kerner, Christian Andreas Justinus",
+        "Kerner, I.",
+        "Kerner, Justinus A.",
+        "Luchs, Justinius Andreas Christian",
+        "Kerner, Andreas Justinus Christian",
+        "Kerner, Justinus Christian Andreas",
+        "Kerner, Justinius",
+        "Kerner, Andreas Christian Justinus",
+        "Kerner, Julius",
+        "Waldthal, Gustav",
+        "Lux, Justinius Andreas Christian",
+        "Kerner, Andreas J.",
+        "Kerner, Justinus Andreas Christian",
+        "Luchs",
+        "Kerner, Justinus Andreas Christian von",
+        "Kerner, Justinins",
+        "Kerner, Andreas Justinus",
+        "Kerner, Justinus C.",
+        "Kerner, O.J.",
+        "Kerner, Justinius A.",
+        "Kerner, Just.",
+        "Kerner, Justyn",
+        "Kerner, Justinius Andreas Christian",
+        "Kerner, Justin",
+        "Kerner, J.",
+        "Lux",
+        "Kerner, O. J., NL Julius",
+        "Kerner, Andreas Justin",
+        "Luchs, Schattenspieler"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Andreas Justinus"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Just."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "O. J."
+          ],
+          "nameAddition": [
+            "NL Julius"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Schattenspieler"
+          ],
+          "personalName": [
+            "Luchs"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus C."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Waldthal"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius Andreas Christian"
+          ],
+          "surname": [
+            "Luchs"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus Andreas Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "O.J."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Justinus Christian"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Christian A."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius Andreas Christian"
+          ],
+          "surname": [
+            "Lux"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Justin"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius A."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Christian Justinus"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus A."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "personalName": [
+            "Luchs"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "personalName": [
+            "Lux"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus Andreas Christian"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus Christian Andreas"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas J."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justin"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Justinus"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justyn"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius Andreas Christian"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        },
+        {
+          "forename": [
+            "Justinins"
+          ],
+          "surname": [
+            "Kerner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Justinus_Kerner",
+          "label": "https://de.wikipedia.org/wiki/Justinus_Kerner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:54:45Z",
+    "gnd_query_biographical_data": "1786-1862",
+    "gnd_query_name": "kerner, justinus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1374,
+  "name": "Kerner, Justinus",
+  "profession": "Text",
+  "pseudonyms": "Spindelmann, der Recensent",
+  "refs": "Goed VIII, 197; Goed XIII, 3",
+  "updated": "2026-06-11 13:29:23.181Z",
+  "uri": "https://d-nb.info/gnd/118561545",
+  "editor": ""
+}

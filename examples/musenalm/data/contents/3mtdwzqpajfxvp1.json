@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. /) # Zuschreibung nach L/R 169",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91357,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. Ramberg)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Ramberg",
+  "scans": [
+    "alm_1970_91357_u6wfh5uan8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.439Z",
+      "agent": "yn5dqo3oyes0o9i",
+      "source_id": "bff8iyteh3rrqa9"
+    }
+  ]
+}

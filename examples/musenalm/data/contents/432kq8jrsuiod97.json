@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Alter schützt vor Thorheit nicht« von G. J. Kuhn INr 53585, Obj 22 /) unter der Graphik: Alpenrosen. 1821",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alter schützt vor Thorheit nicht.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König del. J. C. Erhard inc.",
+  "scans": [
+    "alm_733_53672_s95y34z9ls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alter schützt vor Thorheit nicht.",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.658Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "d7xkwim8p4c92f8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.658Z",
+      "agent": "n0vd7qqudumk641",
+      "source_id": "j65df7x1tv3hik4"
+    }
+  ]
+}

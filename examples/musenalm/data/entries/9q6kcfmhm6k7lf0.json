@@ -1,0 +1,123 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 15 BB Kal darin 12 GG, B, ar: SS 1-91, 3 SS, G, ar1: SS 1-191, 4 SS I-Verz,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1775",
+    "norm": "~",
+    "biblio": 405007,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2153,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1775",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Großbr. / u. Churf. Braunschw. Luneb. / Genealogischer / KALENDER / auf / das 1775 Jahr / LAUENBURG / bey / Joh. Georg Beren- / berg",
+  "updated": "2026-06-11 10:18:55.887Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "items": [
+    "z8ytyh2hp3zjp7c"
+  ],
+  "contents": [
+    "tou6f40ut7dqhzx",
+    "wzkshr41it6db3r",
+    "ja5aojktfdbdk5r",
+    "oa1wud2tmfr73vq",
+    "ansl87sswg236h6",
+    "c6da3sm1gx84wwc",
+    "dszd13wtsrzzijn",
+    "dx7r9c3rfhr7e3v",
+    "5nvxleexm7t86us",
+    "mipje5xpnimmarn",
+    "ggh6f3nhs1hbtr2",
+    "q2vj9z1qkfk8f90",
+    "dlgh7jxxwmj6ava",
+    "5tryc8yf5k94n1b",
+    "3yugpsagv65p5fp",
+    "pyfxso160dfzl2k",
+    "y23omr9oets0swj",
+    "mojzpmc8c0nk9le",
+    "fdgmulrlkgvgwff",
+    "2isrdjn8ja40qk3",
+    "2x8cruuifwydp8m",
+    "6ib2v0biegoxzxz",
+    "5csle9baed7fx29",
+    "9m9pywckfls4g26",
+    "d7y0dsiql6otjqj",
+    "ad0ccq9pvi2bk56",
+    "lwfaft8ws62eq7l",
+    "f8gudoylwjhd5nh",
+    "eb8g2ghlaskpcnp",
+    "m5o89wdlkawcxaf",
+    "xv38mj2hk1y4h3e",
+    "4lbbc9hcap4eoco",
+    "xvn4g6yh0krfyj4",
+    "icgdrr6hafmtt6h",
+    "t8ltxibz9nz79ze",
+    "8vkztli9zk3i0dt",
+    "39mknbwl3ytjew4",
+    "hioh8jj4g0wcvsr",
+    "01dgsralt5oosm2",
+    "5xsuh5o26uusm3m",
+    "qmcfc4qui9asfc3",
+    "axs1fs4xhbor3rj",
+    "yshrs26iw81c9nb",
+    "hyvsa3afhbggbyv",
+    "vvf0jwlkss2rxq8",
+    "qc57try5tptqh40",
+    "z3c46q3a0jgiza2",
+    "u88xftnrno4xd7v",
+    "v7lym6h4lkvco5y",
+    "ows5ao3ra1r1yg4",
+    "su8olxmmyant3ko",
+    "gsos7chrzgo89vs",
+    "dy978s4cstn1sz8",
+    "jjxuvpq9jwylrac",
+    "e43wu095enam3te"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.536Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.536Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "tzdxnn8f1g5yb75"
+    }
+  ]
+}

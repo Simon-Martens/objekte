@@ -1,0 +1,129 @@
+{
+  "annotation": "einziger Jahrgang /) K gibt 15 GG an /) $ vielleicht fehlen 2 Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG,VB, B, verso G, T, B Kal, B I-Verz, S I nT, SS III-VI Vrwrt d Hrsg, SS 1-239 darin 13 GG, B C, 7 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Chroniken (Kotzebue) 1804",
+    "norm": "~",
+    "biblio": 100149,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1227,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Chroniken (Kotzebue) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 10; nicht bei L/R",
+  "responsibility_statement": "August von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Chroniken / für / das Jahr 1804. / Von / August von Kotzebue. / Leipzig, / bei Paul Gotthelf Kummer.",
+  "updated": "2026-06-11 10:18:55.513Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "mmzmpnyxkaz03jt"
+  ],
+  "contents": [
+    "q8dq679qtrmy6a2",
+    "sjlnmpkqnjtfev9",
+    "bngmrwsm25zgnw2",
+    "xf335u7cd6p2nrz",
+    "r80pp10ajt2gqan",
+    "0gewcatgz8r2o93",
+    "8scyjkg4fa6ae5o",
+    "el90wwfhvmpefiz",
+    "skhougdqmtv3gvk",
+    "f7l355pfxn5rz5h",
+    "ghyzx1c3ewskxln",
+    "c5umjtw9czb0l9o",
+    "0tyelgufuhbpofn",
+    "95x47k745n5glwo",
+    "fh4blcuwki8gufb",
+    "82ydm3o7f2fky6x",
+    "jr3axq8ccll0rld",
+    "5shybj4tae8pf4b",
+    "53rri4bxpefjsah",
+    "78l9ms02i4z037y",
+    "fpfpu4ax7dbuflp",
+    "l4thk7q2z8vlvzu",
+    "503tqdfori1haaz",
+    "4i3zbo3hru4kkgh",
+    "hmj9iv0786de511",
+    "pumbplaohq86zqb",
+    "huvi69n9b59a8m6",
+    "hvc8kon0ewgzap3",
+    "wts0irkpz8pdd7k",
+    "daita0aj5xsd5bp",
+    "n1b71nc051bfcub",
+    "3qvwqk2s1howfff",
+    "08v4ca8p3krnnhh",
+    "rs4166knqykg4m2",
+    "f0iqac6c0m1g1mn",
+    "d4wym9btcanpj8v",
+    "c2mjj24dab58fg7",
+    "wii6jo1l4t0kn7l",
+    "mkk1pfd1cfvqfbz",
+    "je8ii1vl7sef8j9",
+    "i6qlcynq2hp9x1w",
+    "sn39w1h4z15gmsp",
+    "f9qj7c29ua8zkc7",
+    "rw75ovhoyptk4q6",
+    "ac9btn7odrs7xx0",
+    "utlz3dvs0eap73s",
+    "v604lfrwqqkcsii",
+    "ha00okeuys4ifu9",
+    "u5vxmoup53dfbvv",
+    "c722vk7u2wn67y0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.858Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.858Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "mcs56awx7c57r7o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "wj5hjxq32o1va0w"
+    }
+  ]
+}

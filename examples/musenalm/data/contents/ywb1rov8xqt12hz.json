@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81250, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Sag', ist es stille Freude oder Klage, / Die zauberähnlich deine Brust beschleichen,",
+  "language": [],
+  "musenalm_id": 81252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Rückerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Rückerinnerung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.999Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "g9ovy7he091ga3c"
+    }
+  ]
+}

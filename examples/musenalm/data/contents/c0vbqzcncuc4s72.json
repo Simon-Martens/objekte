@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. Graphiken INr 103605-103607, Obj 22-24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Es ging wohl schon Mancher in die Fremde, und da er zurückkahm, hat er seine Heimath nicht mehr erkannt mit Haus und Hof,",
+  "language": [],
+  "musenalm_id": 103604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Strafgericht der Eidgenossen. / (1587.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Strafgericht der Eidgenossen. / (1587.)",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.200Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "nvt4urtezttq8mx"
+    }
+  ]
+}

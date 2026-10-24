@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 7. /) s. Textbezug INr 60199, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wiener Freywilligen vor Mantua",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_939_60200_memqj5w1ld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wiener Freywilligen vor Mantua",
+  "updated": "2008-10-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.742Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "vzzgrk7g47rpwpj"
+    }
+  ]
+}

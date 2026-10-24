@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Wohl hast Du den Kalender geschmückt mit / Zeichen und Bildern,",
+  "language": [],
+  "musenalm_id": 42790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Verfasser des Kalenders, die / Jungfrau von Orleans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Verfasser des Kalenders, die / Jungfrau von Orleans",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.694Z",
+      "agent": "ymo6fj9vzc9ufg1",
+      "source_id": "rl6u2cfcb5wpojd"
+    }
+  ]
+}

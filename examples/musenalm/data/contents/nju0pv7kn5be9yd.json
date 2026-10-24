@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Ein Felskoloß sah kühn und frei / Ins Thal hinab, wie's unten sei?",
+  "language": [],
+  "musenalm_id": 95458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fels und Thal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fels und Thal",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.515Z",
+      "agent": "tiijnij1nbeebby",
+      "source_id": "jlgyihtmxfcrpef"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Meine gnädige Frau macht heute frühzeitig Schicht und Nacht; sprach Judith, indem sie die Gebieterin der schweren Gewänder entledigte.",
+  "language": [],
+  "musenalm_id": 104351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Nächltiche Wanderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Nächltiche Wanderung",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.229Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "s4yljb7sd6lq79v"
+    }
+  ]
+}

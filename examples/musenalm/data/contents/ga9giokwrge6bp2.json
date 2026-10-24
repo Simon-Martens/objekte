@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Kind des Himmels, Freundschaft, komm, / Lehre du uns wandeln,",
+  "language": [],
+  "musenalm_id": 67608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maurerfreundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "† Bock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maurerfreundschaft",
+  "updated": "2009-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.082Z",
+      "agent": "3n34kpwiymxg01w",
+      "source_id": "hv354n8kseilb4g"
+    }
+  ]
+}

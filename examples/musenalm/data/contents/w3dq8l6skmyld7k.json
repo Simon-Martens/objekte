@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ein Finkgen, das auf niedern Bäumen / Sonst sein natürlich Liedchen sang, / Begann von hohem Flug zu träumen",
+  "language": [],
+  "musenalm_id": 53319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fink",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Fink",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.632Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "pl9cr6gmfcpkris"
+    }
+  ]
+}

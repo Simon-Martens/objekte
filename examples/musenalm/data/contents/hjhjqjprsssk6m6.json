@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Rohrflöte« von H---h. INr 28798, Obj 96",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "a) Sc. Aus der Erzählung die Rohrflöthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Barthel del. C. W. Schenck sculp. Braunschweig",
+  "scans": [
+    "alm_372_28799_u25bqnsgja.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "a) Sc. Aus der Erzählung die Rohrflöthe",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.573Z",
+      "agent": "qfeh99dap41ww11",
+      "source_id": "gs0ida11cggne6c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.573Z",
+      "agent": "voq5dlml9870uhq",
+      "source_id": "sl23wr2sg8aaj49"
+    }
+  ]
+}

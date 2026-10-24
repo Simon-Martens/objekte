@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Tönet nicht immer, Bardensaiten, / zu Ehre des Heldenlorbeers,",
+  "language": [],
+  "musenalm_id": 75222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Dank, / an den Hn. Sailer, Prof. zu Dillingen, für / seine vortreflichen Erbauungsschriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Dank, / an den Hn. Sailer, Prof. zu Dillingen, für / seine vortreflichen Erbauungsschriften",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.670Z",
+      "agent": "5jdwcyiwfdtu44o",
+      "source_id": "szqi6s72r9yjjzh"
+    }
+  ]
+}

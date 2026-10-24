@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Im Blüthenstrahl der Morgenröthe, / Am weichbemoosten Bachkrystall, / Entzückte mich die Silberflöte / Der holden Nachtigall.",
+  "language": [],
+  "musenalm_id": 130086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose und die Nachtigall. / Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose und die Nachtigall. / Lied",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.003Z",
+      "agent": "68mny3pz0slux0m",
+      "source_id": "1ndz2g1x8g96ttw"
+    }
+  ]
+}

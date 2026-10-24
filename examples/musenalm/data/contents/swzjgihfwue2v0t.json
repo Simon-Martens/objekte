@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an übrigen Graphiken der Suite /) kol. Modekupfer im Kalendarium Februar; nummeriert II. /) s. Textbezug INr 109562, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109548,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Berndt. sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Berndt. sc.",
+  "scans": [
+    "alm_4127_109548_v33c4u6t2y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.343Z",
+      "agent": "bx8i783pcmvy7uu",
+      "source_id": "ra4zy7myqc3pnbe"
+    }
+  ]
+}

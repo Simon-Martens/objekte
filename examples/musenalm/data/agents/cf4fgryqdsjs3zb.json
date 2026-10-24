@@ -1,0 +1,314 @@
+{
+  "annotation": "",
+  "biographical_data": "1810–1873",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.402Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/3005708-5",
+          "label": "Freimaurerloge Johannes der Evangelist zur Eintracht"
+        }
+      ],
+      "dateOfBirth": [
+        "1810-12-28"
+      ],
+      "dateOfDeath": [
+        "1873-11-11"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T14:10:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116592044/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116592044",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116592044",
+      "oldAuthorityNumber": [
+        "(DE-588c)4510079-2",
+        "(DE-588a)116592044"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "preferredName": "Künzel, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Künzel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015479-8",
+          "label": "Erzieher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "publication": [
+        "Künzel, Heinrich: Chronik der Feierlichkeiten, welche auf Veranlassung der  Vermählung ... - 1834",
+        "Künzel, Heinrich: Das Leben und der Briefwechsel des Landgrafen Georg von Hessen-Darmstadt. - 1859",
+        "Künzel, Heinrich: Leben und Reden Sir Robert Peel's",
+        "Wellsted, James R.: Reisen nach der Stadt der Khalifen ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2022007488"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52445596"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60845410"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116592044/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010215612"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116592044"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116592044"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116592044"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kuenzel, Johann Heinrich",
+        "Künzel, Johannes Henricus",
+        "Künzel, Johann Heinrich",
+        "Künzel, Johann Friedrich Heinrich",
+        "Küntzel, Heinrich",
+        "Künzel, H.",
+        "Kuenzel, Heinrich",
+        "Künzel, Heinr."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinr."
+          ],
+          "surname": [
+            "Künzel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Kuenzel"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Kuenzel"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Küntzel"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Künzel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Künzel"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Henricus"
+          ],
+          "surname": [
+            "Künzel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Heinrich"
+          ],
+          "surname": [
+            "Künzel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:01:51Z",
+    "gnd_query_biographical_data": "1810–1873",
+    "gnd_query_name": "künzel, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1517,
+  "name": "Künzel, Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1183",
+  "updated": "2026-06-11 13:29:23.415Z",
+  "uri": "https://d-nb.info/gnd/116592044",
+  "editor": ""
+}

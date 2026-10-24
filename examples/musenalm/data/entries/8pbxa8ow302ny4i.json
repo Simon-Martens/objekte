@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Album des literarischen Vereins in Nürnberg 1853",
+    "norm": "",
+    "biblio": 409012,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-05-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4200,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Bauer und Raspe)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Album des literarischen Vereins in Nürnberg 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Album / des / literarischen Vereins / in / Nürnberg / für / 1853. / Nürnberg. / Verlag von Bauer & Raspe. / 1853",
+  "updated": "2026-06-11 10:18:55.502Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "9d9b7a248lnwcfq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.498Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.498Z",
+      "agent": "4287ool2axummqp",
+      "source_id": "5ztgndb203jo3g6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.445Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.445Z",
+      "agent": "0c1qwmkn2tnkdy6",
+      "source_id": "yr0hxsvivi60fhp"
+    }
+  ]
+}

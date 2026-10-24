@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach. Zur angenehmen Unterhaltung für gebildete Leser",
+    "norm": "",
+    "biblio": 407159,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3768,
+  "parallel_title": "",
+  "place_statement": "Berlin (Schnitzer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Novellen-Almanach. Zur angenehmen Unterhaltung für gebildete Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. Sch.",
+  "subtitle_statement": "",
+  "title_statement": "Novellen-Almanach. / Zur angenehmen Unterhaltung für / gebildete Leser. / Herausgegeben von / A. Sch**. / Berlin. / Verlag und Druck von S. D. Schnitzer, / Monbijou-Platz No. 10",
+  "updated": "2026-06-11 10:18:55.338Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "bpg495f2j5lmb9m"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "1svxao4y3eqhz27",
+      "source_id": "h0xvfb5ercncpad"
+    }
+  ]
+}

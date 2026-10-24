@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel s. Textbezug INr 34650, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34646,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1825, / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Röckel del. Fr. Geißler sc.",
+  "scans": [
+    "alm_355_34646_71lo2nlt5b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1825, / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.822Z",
+      "agent": "nxqu4g7ub4dhvvs",
+      "source_id": "8ck2c1d1lo8fpru"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.822Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "d5k6i0b11xq7nxz"
+    }
+  ]
+}

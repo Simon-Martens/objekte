@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 58079, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Einst prahlte sich die Rose, daß sie der Brautbusch sei, / Den auf die keuschen Lippen der Erde drückt der Mai;",
+  "language": [],
+  "musenalm_id": 58078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schiedsspruch. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schiedsspruch. / Gedicht",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.930Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "ng76dc8llenjxqp"
+    }
+  ]
+}

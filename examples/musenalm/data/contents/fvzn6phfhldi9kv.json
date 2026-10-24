@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Einen Fehl hab' ich zu büßen, / Einen Fehl, und büß' ihn o! wie sehr!",
+  "language": [],
+  "musenalm_id": 3268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ae. Klöntrup",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.702Z",
+      "agent": "1dwn08ijjsd5m1n",
+      "source_id": "4p37botxjgribtl"
+    }
+  ]
+}

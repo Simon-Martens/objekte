@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Dörfchen auf der Haide« von  Fouqué INr 62916, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62897,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Dörfchen auf der Haide. / Von L. M. Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. J. Lips sculp.",
+  "scans": [
+    "alm_1031_62897_ve4ys7yndb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Dörfchen auf der Haide. / Von L. M. Fouqué",
+  "updated": "2009-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.123Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "3hryobltyxc92h7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.123Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "9kcamz5q1kav6wo"
+    }
+  ]
+}

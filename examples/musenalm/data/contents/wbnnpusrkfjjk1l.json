@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Der Hauptinhalt dieser Erzählung ist wahr, und aus Las Casas genommen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Dem Tod' entflohn, der ehern, blutig, flammend, / Mit tausendstimmig donnernden Geschrey, / Vor schwarzen Mörderschaaren schritt einher, / Die Weißen zu vertilgen aus Hayti,",
+  "language": [],
+  "musenalm_id": 39320,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Domingo #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser des Herrmann von Loebeneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Domingo #",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.209Z",
+      "agent": "rplcedkwg5rqz7n",
+      "source_id": "yd9c45vq6ojci7u"
+    }
+  ]
+}

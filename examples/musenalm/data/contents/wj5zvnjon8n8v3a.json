@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 27377, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Am Berg, geküßt im rauhen März / Vom warmen Sonnenschein,",
+  "language": [],
+  "musenalm_id": 27378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Pulsatille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Trinius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Pulsatille",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.304Z",
+      "agent": "r4o522ozdhhdj78",
+      "source_id": "6glgad1oqo67ys0"
+    }
+  ]
+}

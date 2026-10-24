@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Fest umstrickt vom Netz der Träume, / Stand ich auf dem Berge trübe,",
+  "language": [],
+  "musenalm_id": 93967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wenzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.373Z",
+      "agent": "vus37dvhecsoaq7",
+      "source_id": "2eg4ygvfwz6j66y"
+    }
+  ]
+}

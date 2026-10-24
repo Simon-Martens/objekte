@@ -1,0 +1,45 @@
+{
+  "annotation": "Poesien [geordnet von Friedrich Rückert] (Sammlung INr 25037, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Gleich einem Hause mit weit offnen Hallen / Einladend hingewandt nach allen Zonen,",
+  "language": [],
+  "musenalm_id": 25039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Fragmente. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Barth; Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Fragmente. / 1.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.071Z",
+      "agent": "fudlqmk45pdt6si",
+      "source_id": "xzkiqxbsyka1tjw"
+    }
+  ]
+}

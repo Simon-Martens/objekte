@@ -1,0 +1,103 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Tessin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, SS 1-235 darin 10 GG, SS 236-243 G-Verz, Tab, S I-Verz, Tab, B VrlgM, Kr, S C,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1812",
+    "norm": "~",
+    "biblio": 200422,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-10-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 712,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1812. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.163Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "kcuf9v14dlwqrdw"
+  ],
+  "contents": [
+    "kvf4svmndqvelhk",
+    "zyls15ffk056quz",
+    "yxg4vjy6bn2s5o8",
+    "gk1ocnxc3eknbiy",
+    "3vtnfw28kpttu44",
+    "hyy8hoe2e97gyy6",
+    "linqiyshqtcv0s4",
+    "1t9gfmpctg018ou",
+    "8xq2rhqwkf60txo",
+    "sv673zn656bkem0",
+    "59qtdkmeq96a0lz",
+    "ewfdt0lfqblenlp",
+    "sbqt4z6rfhe6jj3",
+    "co3cgjyj5u9tboc",
+    "wk2o6nrq4eeqksa",
+    "v7iqr2swamosnca",
+    "w55me19m0ghsvhs",
+    "gi1mz380u3qkhju",
+    "5bnvg4culcfid30",
+    "it53397qt7eqhul",
+    "7wefv3svmthfmjk",
+    "luyb8k2xzqj82rn",
+    "ggxaxv486ndpqk6",
+    "zspl83p3ftmkdmf",
+    "y41q21kfz91hu09",
+    "rhpjgz6gq1pqh7j",
+    "c89uhur63v66bu3",
+    "0uawr9fw83tqipr",
+    "1hewmez8iwk84jv",
+    "ba847w7yw2bc9d1",
+    "69xjx7kqrhp4gnj",
+    "pdfedl4ekb1eoco",
+    "5s732buttkz3y34",
+    "yyegmao18jqmeh5",
+    "zpsje29jct4f2oj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "zfdmiydgyh6j5ja"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "O, wie habe ich mich gefreut, meine gute Wilhelmine, da Du mir meldetest: Dein Loos sey geworfen! Deine Wahl entschieden!",
+  "language": [],
+  "musenalm_id": 132100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schreiben einer Großmutter / an / Wilhelminen / über den / sittlichen Charakter einer Gattin / und Mutter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. V.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schreiben einer Großmutter / an / Wilhelminen / über den / sittlichen Charakter einer Gattin / und Mutter",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.087Z",
+      "agent": "ist0hhj6cs5q2wv",
+      "source_id": "ukn1j0gtanmo11m"
+    }
+  ]
+}

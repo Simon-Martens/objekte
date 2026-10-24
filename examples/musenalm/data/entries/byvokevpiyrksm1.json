@@ -1,0 +1,75 @@
+{
+  "annotation": "Format: 3,8 x 4,8 /) weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, 28 SS Kal, 2 SS mit 4 Graphiken",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Leipzig) 1815",
+    "norm": "~",
+    "biblio": 409120,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-10-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4230,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Schreibers Erben)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenkalender (Leipzig) 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHEN / KALENDER / für das Jahr / 1815. / LEIPZIG / bei / Schreibers Erben",
+  "updated": "2026-06-11 10:18:55.266Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "ihs8j3zbnnzoium"
+  ],
+  "contents": [
+    "zqzmwa7o9qhiwq7",
+    "sp91lbctrctp9cw",
+    "tcfvjixzi4djxxh",
+    "sjzn8j4t9ewb5mg",
+    "70ek99vx5y61z7b",
+    "zftd2j2t0kc0hrx",
+    "u54g1jjpzrmy2or"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "vrop3ldbzekwwxn",
+      "source_id": "9ke3fb4r6yjqsa0"
+    }
+  ]
+}

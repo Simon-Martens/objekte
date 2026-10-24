@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35113, Obj 82)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Steh auf, steh auf! Es pocht ans Haus! / Tip tipp. Wer mag das sein?",
+  "language": [],
+  "musenalm_id": 35114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Des kleinen Volkes Ueberfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Des kleinen Volkes Ueberfahrt",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.746Z",
+      "agent": "aq3u8k3couckqq1",
+      "source_id": "emh5vrhpz64m98n"
+    }
+  ]
+}

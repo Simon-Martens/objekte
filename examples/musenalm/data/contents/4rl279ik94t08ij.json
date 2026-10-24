@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Wie der Sänger des Hains in dem Keficht, unter / dem Maibusch, / Welchen die Tochter des Herrn sorgsam im Topfe / gepflegt,",
+  "language": [],
+  "musenalm_id": 5825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Grafen Holmer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Grafen Holmer",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.330Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "31clhwry9d2nl95"
+    }
+  ]
+}

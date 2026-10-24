@@ -1,0 +1,94 @@
+{
+  "annotation": "Zwischen den SS 77 und 78 sind 8 SS als 77a–77h paginiert",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SSI–VI darin T u Vrwrt, SS1–454",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1839",
+    "norm": "~",
+    "biblio": 106542,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1313,
+  "parallel_title": "",
+  "place_statement": "Berlin (Sittenfeld)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst / auf / das Jahr 1839. / Herausgegeben / von / L. Wolff, / Soufleur des Königl. Theaters. / Berlin, den 1. Januar 1840. / Gedruckt bei Julius Sittenfeld, / Burg-Straße Nr. 25",
+  "updated": "2026-06-11 10:18:54.920Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "m6xk3efu3yxmco6"
+  ],
+  "contents": [
+    "vm0wycu9f3eejfv",
+    "s15di5bm3whgcwa",
+    "d1yj8wdsq9y0jrf",
+    "0vw201p47aml5rt",
+    "3j8zaa5xp6y7jd6",
+    "u03cg6n9xwu2jfc",
+    "34q5ak1y1yhdt9j",
+    "vvab628m20dehth",
+    "kkcg0qhieue34af",
+    "1t894duv7ksuwoe",
+    "7jbc4fgpvwn4g3u",
+    "9ga6gpp2isntgoy",
+    "yj29ofgwy1ifqcb",
+    "hokoddhfv2rztog",
+    "u4ay5nkprjos443",
+    "2b9qpf0l3dqo76w",
+    "o9w1k845lflai3g",
+    "3oqpepbo4soszji",
+    "p3c0d0pjxa40rly",
+    "vvk5bmqhdbxppx7",
+    "124oylvdmcq6iq5",
+    "6flk5gzt56iar1h",
+    "2val95k5ritszj9",
+    "wkwmjrso4dbln6a",
+    "my48838lys72p6f",
+    "dk6cg494nq6oba4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "bnt3c72j2gl4qv4",
+      "source_id": "pe8jf6mxrix3f0b"
+    }
+  ]
+}

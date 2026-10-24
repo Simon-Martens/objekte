@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1849 (franz. Ausgabe: Almanach pour l’anné 1849)",
+    "norm": "",
+    "biblio": 409293,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4318,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1849 (franz. Ausgabe: Almanach pour l’anné 1849)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DE / GOTHA / ANNUAIRE / DIPLOMATIQUE / ET STATISTIQUE / POUR L'ANÉE / 1849. / QUATRE-VINGT-SIXIÈME ANNÉE. / GOTHA, / CHEZ JUSTUS PERTHES",
+  "updated": "2026-06-11 10:18:55.475Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "ae336e55g2c2g2q"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.122Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.122Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "1t1feah9e46t76e"
+    }
+  ]
+}

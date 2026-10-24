@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug (Gedicht) INr 95506, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95499,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Olga. Kronprinzessin von Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Decker del. J. Axmann sculp. / Druck von Kaufmann",
+  "scans": [
+    "alm_1885_95499_9sgl7k5ddo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Olga. Kronprinzessin von Würtemberg",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.707Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "kfir5xmqqtkmg5e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.707Z",
+      "agent": "vfryk9lf23r0kke",
+      "source_id": "rh28r9bjqh8aniu"
+    }
+  ]
+}

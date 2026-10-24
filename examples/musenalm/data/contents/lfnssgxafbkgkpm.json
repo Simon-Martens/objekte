@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung an 6 Graphiken der Suite. Graphik im Kalendarium paginiert No 8. s. Textbezug INr 32588, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32452,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (K. del.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K. del.",
+  "scans": [
+    "alm_450_32452_r6aqdkxjml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.078Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "oj07qis21trfzb1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.078Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "rt4ixblvg96t4er"
+    }
+  ]
+}

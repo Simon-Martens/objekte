@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 89216-89218, Obj 20-22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Küssen des Johannes / Secundus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Küssen des Johannes / Secundus",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.261Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "3ypmqcha235msws"
+    }
+  ]
+}

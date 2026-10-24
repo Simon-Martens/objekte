@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Der Kirchhof (Sammlung INr 27406, Obj 133) Gedichte (Sammlung INr 27401, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Im stillen Bund vereinen an dem Orte, / Wo Staub uns redet von der Zeit Zermalmen,",
+  "language": [],
+  "musenalm_id": 27407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Marmor und Gras",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Marmor und Gras",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.445Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "u0l9ad3h74obmen"
+    }
+  ]
+}

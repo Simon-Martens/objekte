@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1774",
+    "norm": "",
+    "biblio": 405126,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2024,
+  "parallel_title": "",
+  "place_statement": "Gotha (J. C. Dieterich)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "GOTHAISCHER / HOF / KALENDER / zum / Nutzen und Vergnügen / eingerichtet / auf das Jahr / 1774. / Gotha / Bey / Joh. Christ. Dieterich",
+  "updated": "2026-06-11 10:18:55.780Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "items": [
+    "ut72b7dkd0dw53j"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.057Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.057Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "ih3vg1trvx43gzr"
+    }
+  ]
+}

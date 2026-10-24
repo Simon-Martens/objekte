@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 62351, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich IV. und seine Kinder #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ingres pinx. Eduard Schuler sculpt",
+  "scans": [
+    "alm_1045_63658_uk6cddsldr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich IV. und seine Kinder #",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.217Z",
+      "agent": "xtpyju0lub97hel",
+      "source_id": "adwz0uj8n6oy3kp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.217Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "pdwwleliwq4a08x"
+    }
+  ]
+}

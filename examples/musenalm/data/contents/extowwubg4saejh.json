@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitendes Gedicht mit röm. pagina zum Beitrag INr 98804, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es irrt durch schwanke Wasserhügel, / Im weiten, windbewegten Meer, / Ein Schmetterling, mit mattem Flügel",
+  "language": [],
+  "musenalm_id": 98803,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmetterling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmetterling",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.753Z",
+      "agent": "96po1brlxwvvsud",
+      "source_id": "oalbis0lo59ht6p"
+    }
+  ]
+}

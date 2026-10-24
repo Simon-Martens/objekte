@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei koll. Illustrationen (Titelkupfer, INr 125308, Obj 1; INr 125314, Obj 7); # Bezeichnung aus dem Titel (INr 125309, Obj 2); ## von Nicolas Brazier (vgl. NBG VII, Sp. 283)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Der Knecht hat euch schon gesagt, daß unser kleiner Gasthof ganz besetzt ist – Es thut mir leid – der Herr ist auch nicht zu Hause ....",
+  "language": [],
+  "musenalm_id": 125313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das goldene Kreuz. / Schauspiel in zwei Aufzügen. / Nach: »La croix d’or« frei bearbeitet ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet [bearb.] F. A. Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das goldene Kreuz. / Schauspiel in zwei Aufzügen. / Nach: »La croix d’or« frei bearbeitet ##",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.740Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "53tmttjnixyy8z0"
+    }
+  ]
+}

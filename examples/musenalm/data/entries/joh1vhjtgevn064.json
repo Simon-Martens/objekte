@@ -1,0 +1,98 @@
+{
+  "annotation": "Titelauflage von 1795; erweitert um die Tabelle »Einige der vorzüglichsten Postrouten durch Deutschland wozu die vornehmsten Städte Deutschlands als Mittelpunct angenommen sind«; mit beigegebener Karte",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 3 BB Vrwrt d Hrsg, Kr, ar: SS 1-88, ar1: SS 1-208, SS 209-264 Tabb, SS 265-266 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1797",
+    "norm": "~",
+    "biblio": 407210,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3782,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Walther)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143 #; L/R 145 #",
+  "responsibility_statement": "Joh. Chr. Fick",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Reisende jeder Gattung / durch Deutschland / auf das Jahr / 1797. / herausgegeben / von / Joh. Chr. Fick / Lehrer am illust. Gymn. zu Erlangen. / Erlangen / in der Waltherschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.063Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "hjyez69lxmhnu93"
+  ],
+  "contents": [
+    "9qnn1xm3ycieshk",
+    "0iq67ytavygeao7",
+    "zpdaj7tshfgjbtf",
+    "xdt6u0h6f44u5cg",
+    "44l0ug7ao1zfi5m",
+    "lubz6entnwyf3rl",
+    "chjm8ticl2d63x3",
+    "uz85qdy7b52z3j9",
+    "l67mbar65fc6qzg",
+    "9hj43liu4sc151u",
+    "ni5gml6h3fg4tnp",
+    "44vyev1vw9wzczv",
+    "891w1awmuhjs6er",
+    "hs2verh50eiyqj2",
+    "bb9jby9ecv5m0qi",
+    "q5iy07tjliro76p",
+    "f5qowx582n96m7n",
+    "ms5owsuibmezupl",
+    "w0wdw7mth1qlc84"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.296Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.296Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "biuin7m8v5tdixh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "hgipdt1djucx1dr",
+      "source_id": "gjbd4vv4syausit"
+    }
+  ]
+}

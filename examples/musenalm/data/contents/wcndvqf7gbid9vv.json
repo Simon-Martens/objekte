@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Dir, unerschrokk'ner Held, dir, der vom Sieg zu'm / Siege, / Des Vaterlandes Schuzgeist! flog,",
+  "language": [],
+  "musenalm_id": 70629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / den Feldmarschall von Blücher. / (Im Oktober 1813.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / den Feldmarschall von Blücher. / (Im Oktober 1813.)",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.430Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "24mkafyc5ogr8mx"
+    }
+  ]
+}

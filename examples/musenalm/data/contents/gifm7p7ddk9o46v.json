@@ -1,0 +1,45 @@
+{
+  "annotation": "Trutznachtigall. Eine Auswahl geistlicher Lieder (Sammlung INr 91289, Obj 5) mit einer Musikbeigabe s. INr 91314, Obj 31 /) # Bez. aus dem Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Ignatius bei stiller Nacht, / Wann er zum Himmel schauet, / Die schöne Stadt bei sich betracht,",
+  "language": [],
+  "musenalm_id": 91315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / Seufzer nach dem himmlischen / Vaterlande",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Spee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / Seufzer nach dem himmlischen / Vaterlande",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.112Z",
+      "agent": "x4foo3ypaa4r4o4",
+      "source_id": "6lzv0wr0s35x68e"
+    }
+  ]
+}

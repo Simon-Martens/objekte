@@ -1,0 +1,121 @@
+{
+  "annotation": "Gedruckt von Anton Strauß",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG,VB, verso G, T, B I-Verz, 6 GG, S 1 nT, SS 3-268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Gräffer, Seidl) 1825",
+    "norm": "~",
+    "biblio": 106414,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1580,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aurora (Gräffer, Seidl) 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; L/R 96; Goed VIII. 111, 264",
+  "responsibility_statement": "Franz Gräffer",
+  "subtitle_statement": "",
+  "title_statement": "AURORA / Taschenbuch / für das Jahr / 1825. / Herausgegeben / von / FRANZ GRÄFFER. / Zweyter Jahrgang. / Wien / bey Joseph Riedl. / bürgerl. Buchbinder im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:55.522Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "vwnmtkxmgvhbyt9"
+  ],
+  "contents": [
+    "5f451un8pr5z88t",
+    "47iaqv4v4w6sm11",
+    "8etktkek5koiv1e",
+    "ios1j608ioz1mu7",
+    "han4tix18yrzlhb",
+    "9lpojnhgyybr9kp",
+    "jm94jfyglkvv6mi",
+    "gx56uolw1cgqzm3",
+    "ocph7557jzg7yji",
+    "wc9odhi7unmnh33",
+    "g9o8y2aw8e674g5",
+    "yi2eihxy5jafos7",
+    "0au2985sszxs4c6",
+    "1b73aqmx12ycl3e",
+    "k60mza8enlph9ov",
+    "ho06j7n63vysiqg",
+    "0prn1cy10r6ekc9",
+    "uuewzzlpvo0jsga",
+    "rsqe3m9vw46qagx",
+    "f1l4x7lsovsioog",
+    "2uyzlg84m828hih",
+    "ggv6qpxv6a5udot",
+    "lsb0mwt7g21utog",
+    "u06pvznoaz14qg7",
+    "hapxwpx08dy7du2",
+    "3259jnq94rszt4j",
+    "uwp2pz4u9k64ly9",
+    "uflwgzgmg84667o",
+    "s6qgmucg4wqnhs5",
+    "uhs9wze5qvpaooh",
+    "hgat113cj9v4rnf",
+    "4hgc9eh4p4hv85o",
+    "zcvlc387udhyy8h",
+    "o4s7r5s6xaz58c1",
+    "m4z2huoe976dm0d",
+    "z1efjmz5zppes4m",
+    "6n6t63ig8u7ogtr",
+    "cxavchwfjuztspj",
+    "mnmcrpclayu67qz",
+    "9mjxjjn7rfzy3np",
+    "80dqxf7e5lij1b3",
+    "tovw2769qbj980f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.931Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.931Z",
+      "agent": "cjjmyv8q19tuj7i",
+      "source_id": "36pprh21r6e4hwg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "xjuu9mpvu3btvo5"
+    }
+  ]
+}

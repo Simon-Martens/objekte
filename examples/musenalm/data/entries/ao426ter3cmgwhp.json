@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, SS I–VIII, datin T, Vrwrt, SS1–396",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1828",
+    "norm": "~",
+    "biblio": 409190,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4270,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vereinsbuchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 65, nicht bei L/R; Goed VIII. 130, 20",
+  "responsibility_statement": "Carl v. Holtei",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / deutscher Bühnenspiele / Herausgegeben von / Carl v. Holtei. / Siebenter Jahrgang, für 1828. / In der Vereinsbuchhandlung. / Berlin, 1828",
+  "updated": "2026-06-11 10:18:55.721Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "029gkzc23occtl8"
+  ],
+  "contents": [
+    "m9qn0ag1mzgfics",
+    "u2mklhn3mp8qwyt",
+    "o9evh5l77rvt5hd",
+    "yhwqtwn8g61sz0i",
+    "xmznrwmgk4z3ube",
+    "rle0l4jc60g4ofv",
+    "rvetzitbkmmymvb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "u8n7psm3j7f1du6",
+      "source_id": "nowak2dyw8fjach"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.357Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.357Z",
+      "agent": "zg6jbd5dfgl0cyy",
+      "source_id": "o57t2jpa1ytbxdr"
+    }
+  ]
+}

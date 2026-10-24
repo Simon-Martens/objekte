@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Zu den Auserwählten zu gehören, ist zuweilen doch recht langweilig und unbequem, ich fühle ihr Mißbehagen und ihre Unzufriedenheit schon jetzt,",
+  "language": [],
+  "musenalm_id": 111261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gefahren des Glücks. / (Aus den Aufzeichnungen einer Frau von Stande.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gefahren des Glücks. / (Aus den Aufzeichnungen einer Frau von Stande.)",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.408Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "mmf292c75nm1nao"
+    }
+  ]
+}

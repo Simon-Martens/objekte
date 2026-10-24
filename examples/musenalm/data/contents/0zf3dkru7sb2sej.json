@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Was doch schmückt sich so die Erde, / Lockt grünprangend Heerd' an Heerde / Aus den Dörfern in die Au?",
+  "language": [],
+  "musenalm_id": 123518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsgefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsgefühl",
+  "updated": "2009-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.841Z",
+      "agent": "v8do49ob5395gqd",
+      "source_id": "qatvgdiaqebdg35"
+    }
+  ]
+}

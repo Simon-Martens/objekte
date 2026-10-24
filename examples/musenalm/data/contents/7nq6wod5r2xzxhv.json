@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55333, Obj 108)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Im tiefen Walde trifft, / Dich nicht der Blicke Gift,",
+  "language": [],
+  "musenalm_id": 55343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. Waldfrieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abraham Emanuel Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. Waldfrieden",
+  "updated": "2008-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.727Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "c0uk2vm5v48anrg"
+    }
+  ]
+}

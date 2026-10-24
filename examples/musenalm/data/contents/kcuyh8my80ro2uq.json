@@ -1,0 +1,45 @@
+{
+  "annotation": "Ritornelle (Sammlung INr 45465, Obj 174)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Waldgamander! / Von allen Schlinggewächsen, die ich kenne,",
+  "language": [],
+  "musenalm_id": 45477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldgamander! / Von allen Schlinggewächsen, die ich kenne,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Schimper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.192Z",
+      "agent": "u5s6hi2kvh4f7vh",
+      "source_id": "ot3ldgyyedpz9po"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel mit bezeichneter Vignette s. INr 82069, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82068,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neues / Taschenbuch / von / Nürnberg. / Nürnberg, 1819. / bei Riegel / und Wiessner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dreykorn sc.",
+  "scans": [
+    "alm_3069_82068_z1mlz5pa3t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / von / Nürnberg. / Nürnberg, 1819. / bei Riegel / und Wiessner",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.056Z",
+      "agent": "5mt26fmhmhl7kzc",
+      "source_id": "hetlrirkr9724mn"
+    }
+  ]
+}

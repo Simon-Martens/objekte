@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Phantasiegemälde (Döring) 1827",
+    "norm": "",
+    "biblio": 405502,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2434,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Hermann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Phantasiegemälde (Döring) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 94; nicht bei L/R; Goed VIII. 105, 240",
+  "responsibility_statement": "Dr. Georg Doering",
+  "subtitle_statement": "",
+  "title_statement": "Phantasiegemälde / von / Dr. Georg Döring. / Für 1827. / Frankfurt am Main / Verlag der Hermannschen Buchandlung / 1826",
+  "updated": "2026-06-11 10:18:55.959Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "rixju9mtdsqdcot"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.094Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.094Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "1oye96pn2c5d20o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.994Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.994Z",
+      "agent": "w3vdcm9ewwhgul8",
+      "source_id": "1yk7m4nwjpdm5ux"
+    }
+  ]
+}

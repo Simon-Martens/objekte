@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67324, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "In dem 1780er Jahrzehend - das Jahr konnte mir nicht mehr bestimmt angegeben werden - flog am hellen Tage",
+  "language": [],
+  "musenalm_id": 67331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Die Schnepfenjagd im Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Die Schnepfenjagd im Garten",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.334Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "x3es7wr586jsuzp"
+    }
+  ]
+}

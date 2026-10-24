@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Lang war Freude mein Gut; aber sie konnte nicht / Immer währen, denn bald hüllte mein Horizont",
+  "language": [],
+  "musenalm_id": 21908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Unvergängliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lohbauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Unvergängliche",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.682Z",
+      "agent": "69k49eskiwmqj57",
+      "source_id": "klyxf2iwfuy8gfk"
+    }
+  ]
+}

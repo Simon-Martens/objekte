@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iconodora 1806",
+    "norm": "",
+    "biblio": 200103,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1886,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Iconodora 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 81; Goed VIII. 88, 167",
+  "responsibility_statement": "K. L. M. Müller",
+  "subtitle_statement": "",
+  "title_statement": "Iconodora / eine Bildergallerie / nebst / Deutungen / als / Taschenbuch / für / 1806 / allen Freunden des Edlen und Schönen / geweiht / herausgegeben / von / K. L. M. Müller. / Leipzig, / bey Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.700Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "8y3na2e45pij1x9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "3mw941puwi01ra6"
+    }
+  ]
+}

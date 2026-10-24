@@ -1,0 +1,45 @@
+{
+  "annotation": "Träume (Sammlung INr 34564, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "In dem wildesten Gebirge hatt' ich mich verirrt im / Traume, / Und den Ausweg suchend fand ich unter einem schwar- / zen Felsen",
+  "language": [],
+  "musenalm_id": 34572,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die versunkene Kirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die versunkene Kirche",
+  "updated": "2003-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "k1znmt6235vgaz4"
+    }
+  ]
+}

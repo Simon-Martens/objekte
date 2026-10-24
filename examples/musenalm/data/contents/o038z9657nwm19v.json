@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) s. Textbezug INr 30311, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30310,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff del. C. Deucker sc. Ffurt. a/m.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. C. Deucker sc. Ffurt. a/m.",
+  "scans": [
+    "alm_396_30310_nwj44pz8th.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.644Z",
+      "agent": "o82hjun2z18aur7",
+      "source_id": "bup82ja9xxmow02"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.644Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "y0xeoj6uebg3yze"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Die Nixe saß am kühlen Born / Im grünen Moos, und sang, / Da kam zu Roß durch Strauch und Dorn / Ein Ritter waldentlang.",
+  "language": [],
+  "musenalm_id": 95461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nixe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nixe",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.557Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "3ltei8d68lbhm76"
+    }
+  ]
+}

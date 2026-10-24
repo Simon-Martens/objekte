@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 45852-45855, Obj 259-262 /) Dem Text vorangestellt: Du, Mutter, sahst mein Auge trinken / Des ird'schen Tages erstes Licht; / Auf dein erblassend Angesicht / Sah ich den Stral des Himmels sinken. / Uhland",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 258,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Garten",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.481Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "r9vge3778p5crdo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik paginiert S. 135; s. Textbezug INr 73190, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73160,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die lustige Hahnreyschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Tenniers",
+  "scans": [
+    "alm_1826_73160_mclwlzktvc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die lustige Hahnreyschaft",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.392Z",
+      "agent": "cbhn52mhk8pern1",
+      "source_id": "kzvk5kadv784sqe"
+    }
+  ]
+}

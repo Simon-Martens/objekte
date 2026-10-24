@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Klavierspielerin« von H. v. Levitschnigg INr 116052, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE CLAVIERSPIELERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Hasslwander Stahlstich v. Zechmayer in Wien",
+  "scans": [
+    "alm_3210_115996_4fy46zxhoi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE CLAVIERSPIELERIN",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.290Z",
+      "agent": "4h4xt9otdk62fhn",
+      "source_id": "24kaztxcbgdknaz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.290Z",
+      "agent": "rb0is2za5c4lggc",
+      "source_id": "m49drwbhdg2rl98"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Ritter auf der blauen Erde, / Laßt uns fröhlich seyn!",
+  "language": [],
+  "musenalm_id": 93562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Friedensfeyer auf Wildenstein 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Kalchberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Friedensfeyer auf Wildenstein 1815",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.225Z",
+      "agent": "h496zc5w34vctbd",
+      "source_id": "s74e7h7oe9z3m5j"
+    }
+  ]
+}

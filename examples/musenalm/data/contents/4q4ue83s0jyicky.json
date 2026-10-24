@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) s. Textbezug INr 79251, Obj 33 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "De Silles edle That bey Nancy 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Gerstner sc.",
+  "scans": [
+    "alm_2490_79247_1209buxrrx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "De Silles edle That bey Nancy 1790",
+  "updated": "2012-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.415Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "2l0iy3wwls78o0l"
+    }
+  ]
+}

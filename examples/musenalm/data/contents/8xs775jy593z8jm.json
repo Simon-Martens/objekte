@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IV. Illustration zu »Gräfin Julie von Bürde. Oder: Der Wettstreit zwischen Kindespflicht und Liebe« INr 48278, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48243,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feyerlich langsam folgte ihr der Zug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et sculp.",
+  "scans": [
+    "alm_657_48243_39sx7scklu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Feyerlich langsam folgte ihr der Zug",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.593Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "ago4hks9rg4isiu"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 10 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XCLX Anecdote / Peter des Großen Favoriten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7225_mi2bupn92f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "XCLX Anecdote / Peter des Großen Favoriten",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.218Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "2tpezqowo6e1jf9"
+    }
+  ]
+}

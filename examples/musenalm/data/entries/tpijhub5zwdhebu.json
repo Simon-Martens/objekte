@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, SS I–IXI, darin T, Vrwrt, I-Verz, VrlgM, SS1–343",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch deutscher Nachspiele (Holtei) 1824",
+    "norm": "~",
+    "biblio": 405446,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1944,
+  "parallel_title": "",
+  "place_statement": "Breslau (Graß, Barth u. Comp.); Leipzig (Barth)",
+  "places": [
+    "knek0hbqukjht1p",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jahrbuch deutscher Nachspiele (Holtei) 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 65; nicht bei L/R; Goed VIII. 130, 20a",
+  "responsibility_statement": "Carl von Holtei",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / deutscher Nachspiele. / Herausgegeben / von / Carl von Holtei. / Erster Jahrgang, für 1822. / Breslau, / bei Graß, Warth und Compagnie, / und Leipzig bei J. A. Barth",
+  "updated": "2026-06-11 10:18:55.723Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "3ig27uebw4bmif5"
+  ],
+  "contents": [
+    "gzhcn9ci8y21k79",
+    "upvu1m0jimrob5b",
+    "7cp32rqrnoh6c8p",
+    "tn7yhw7rm8h2zyy",
+    "smph9rsxzasq27b",
+    "6d2actwvunwonua",
+    "4hw9gxzp1wfk2xz",
+    "1batq25irvt8797",
+    "1avtpndhyl7vf9j",
+    "mv92hq5q4ixy378",
+    "jg7xd1l3uw0hj9k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.932Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.932Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "8e3xqn0gd22cbmr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.931Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.931Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "98adadguko99d89"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.494Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.494Z",
+      "agent": "b7u65dktnpzqbpf",
+      "source_id": "byx0kx5mr7d72iu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.989Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.989Z",
+      "agent": "zg6jbd5dfgl0cyy",
+      "source_id": "zi88d08b21f5nv1"
+    }
+  ]
+}

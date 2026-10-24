@@ -1,0 +1,87 @@
+{
+  "annotation": "<div>Beiträge und Illustrationen übernommen aus: Taschenbuch zum geselligen Vergnügen 1813, 1810, 1807, 1808</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS Kal darin 6 GG, 5 BB Tab, SS 1-98 darin MusB, 11 SS Tabb, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach und Taschenbuch zum geselligen Vergnügen (Wien) 1799",
+    "norm": "",
+    "biblio": 411411,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2024-05-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1934,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [],
+  "preferred_title": "Almanach und Taschenbuch zum geselligen Vergnügen (Wien) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / und TASCHENBUCH / zum / geselligen Vergnügen / für 1799. / Wien bey Eberhardt Krause bürg. / Buchbinder in der / Oberbreuner Strasse No. 1209",
+  "updated": "2026-09-24 09:05:17.819Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "0n19w2ccvvetk56"
+  ],
+  "contents": [
+    "3ffn5ghuvth6oir",
+    "dntx8nmrl06af6c",
+    "o4guhtp7w1psinm",
+    "h6ep36ni2aletg6",
+    "y2ybxf67xumc683",
+    "lmcub1glu3pxnj1",
+    "352rribqtqv6x64",
+    "qknuzrjgp4inlfy",
+    "l1pghxkg9xtx9gk",
+    "buicdqkpm180d3x",
+    "5s5nwwq7s4xhfd6",
+    "npoo29xn9lpnvta",
+    "tvv7ng9380t614m",
+    "r36g4hc5ndfl2z4",
+    "ijlpwtr0ku6xi9x",
+    "ue61u3h53o6fvk0",
+    "mmbp7pizz8jyg4a",
+    "r96icjgz7ahk20h",
+    "m1hranc8lnkggwd",
+    "1my8hxu8kyxyzjs",
+    "4ulph1xolhv3ut9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.215Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-09-24 09:05:17.820Z",
+      "agent": "lngx6eyfw5qrzas",
+      "source_id": "aptknk7q4urdr2t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Beigaben s. INr 64833, 64834; INr 9, 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "An die Verlagsleitung P.P. / Mein guter Oheim, Ihnen von A. 1822 her, als Frater Eberhardus bei der humoristischen Brüderschaft allhier durch sein Sendschreiben an alle Aerzte Euroa's bekannt- ist vor kurzem hingegangen.",
+  "language": [],
+  "musenalm_id": 64832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Nachlaß des Dr. Eberhardus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anselmus Eberhardus Chemiae, Chirurgiae et Medicinae Doctor, Fraterculus conventus humoristici",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Nachlaß des Dr. Eberhardus",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.141Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "cg4o2lnpqtw4syg"
+    }
+  ]
+}

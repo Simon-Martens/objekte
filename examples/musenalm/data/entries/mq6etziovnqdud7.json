@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I nT, SS III-VI Vrwrt d Hrsg, S VII-XI-Verz, S G-Verz, SS 1-420 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorzeit, Die 1838",
+    "norm": "~",
+    "biblio": 108684,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3503,
+  "parallel_title": "",
+  "place_statement": "Marburg (Elwert)",
+  "places": [
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Vorzeit, Die 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Dr. Karl Wilhelm Justi",
+  "subtitle_statement": "",
+  "title_statement": "Die Vorzeit. / Herausgegeben von / Dr. Karl Wilhelm Justi. / Mit fünf lithographirten Bildern / MARBURG / Druck u. Verlag von N. G. Elwert. / 1838",
+  "updated": "2026-06-11 10:18:54.524Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "cxc9fd6ddazjaox"
+  ],
+  "contents": [
+    "y248vawx37kfa1z",
+    "l5shsyyoi1i3ll7",
+    "3ybypx84jm73rxt",
+    "y7kx1irhxnomv1w",
+    "7pv9rgf3pvfixgx",
+    "l8zd1wi9evckh9g",
+    "qw5akbyzp2zw10q",
+    "qe8ke707n9nahva",
+    "4opsibbor2lbmxr",
+    "wk63tdpuundxvgz",
+    "tketnsmfg2g6io3",
+    "vmr82fnfy0lilq8",
+    "cf44a2a20pvvou1",
+    "dnjb72ytb3bkuan",
+    "srhubwa2vc0l9il",
+    "vjonijsznsonuy4",
+    "v8shclp0djj6n6s",
+    "u5t3q577itz1gxn",
+    "99j4ya0w6kycmov",
+    "6cwa3j3qa2cbmjr",
+    "8o8irvl6k88t5dp",
+    "zhnqtxxptjicjf9",
+    "gpawpwmiim1a8x2",
+    "n28klqlwmszs7c1",
+    "7oy1kaz5abxwt78",
+    "82w6qszwtilf2su",
+    "cfv8aujw5p9rjlf",
+    "aw7wc2l81sbp52i",
+    "3h0ez0dw5267j5n",
+    "xicuydc3jaxtluf",
+    "5394nt1uvkn53j0",
+    "jyszcedahpcgi3t",
+    "90iz55p9exosbta",
+    "kiz6535ksmk5aub",
+    "rs6t2omzhliuozj",
+    "vae2l7253m9jsm1",
+    "30pz2rmdt6e2sln",
+    "iw4fahllm0c2r86",
+    "0bfk9b00ps3ya7f",
+    "igf5067t38f0hyw",
+    "n0xlrftubqi2jiz",
+    "dftp33rsu1huevx",
+    "tp2tezxlbumy4xk",
+    "gkf2dxss4amcnnm",
+    "5bdgehm55nspmxm",
+    "fh718pd8wfcfc47",
+    "69muxrp1he1ff37",
+    "691xy1jzsg2pn89",
+    "nwntymmquzcmjjd",
+    "4agepdtboxzmto1",
+    "xans1ihnnu2r28o",
+    "2hhcqtprkico4ks",
+    "aub85vci4hrlbuu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.246Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.246Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "dkrkaeami7vi688"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.767Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.767Z",
+      "agent": "0gqkoylolk3pofk",
+      "source_id": "tbjrl5y405aahcd"
+    }
+  ]
+}

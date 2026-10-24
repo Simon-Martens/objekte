@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Wahnsinnige« INr 133409, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traurig ist mein Sinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berka sc.",
+  "scans": [
+    "alm_4867_133410_1a39cq5iej.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Traurig ist mein Sinn",
+  "updated": "2024-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.107Z",
+      "agent": "jlkwrxo4vggz8uy",
+      "source_id": "ver0lfgxibsbqop"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 32126, Obj 3,09",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32125,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.08,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OSSIAN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krafft pt. F. John sc.",
+  "scans": [
+    "alm_231_32125_2wfqxr6vkw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OSSIAN",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.424Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "clkwejw5jsh08o7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.424Z",
+      "agent": "sikxu288p2hif22",
+      "source_id": "z11uijzu3ej97gb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 61738",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Su Su! / Ich wiege mein Kind! / Es wieget die Blüte / Der regliche Wind.",
+  "language": [],
+  "musenalm_id": 19423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied. / Mit Musik von A. Methfessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied. / Mit Musik von A. Methfessel",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.932Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "fyqtq368neuzgpr"
+    }
+  ]
+}

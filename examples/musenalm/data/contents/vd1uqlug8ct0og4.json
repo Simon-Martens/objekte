@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. An Neuere (Sammlung INr 55134, Obj 144) Musikalische Sonette (Sammlung INr 55116, Obj 126)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Und wenn sie endlich ausgeras't die Tollen, / Nein abgespielt mit ihren Herrllichkeiten",
+  "language": [],
+  "musenalm_id": 55137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Theodor Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.776Z",
+      "agent": "2zdwvvsdgu1m59h",
+      "source_id": "zdx78eq8fo1mp4v"
+    }
+  ]
+}

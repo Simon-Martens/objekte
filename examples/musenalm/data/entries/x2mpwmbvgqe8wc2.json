@@ -1,0 +1,95 @@
+{
+  "annotation": "I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, SS 1-278, G, 4 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Tiroler 1804",
+    "norm": "~",
+    "biblio": 108631,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1479,
+  "parallel_title": "",
+  "place_statement": "Wien (Gassler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Tiroler 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Tiroler Almanach / auf / das Jahr / 1804. / Wien, / bey Andreas Gassler",
+  "updated": "2026-06-11 10:18:55.183Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "nkt8jblq1of199d"
+  ],
+  "contents": [
+    "a5ea0kbsbgk2zhe",
+    "a82tqj5d224x5iy",
+    "rlal75kn1qu3o34",
+    "meoqjsyqo0qw74b",
+    "dtenupfq8pezcu5",
+    "d5vsb4p5ckf930r",
+    "lg84hp6jevqwlvz",
+    "u6mvk86an5z0kne",
+    "wvguiaytlfrakde",
+    "1hsviyocvnhd2nt",
+    "vsc70t7hl8wy4xu",
+    "wd1nnisjcfkpp1n",
+    "yrm8l59z9cdtlsi",
+    "htq7rotkp4iv0k9",
+    "qockv5t87jivqgr",
+    "7uspr9fo7tiu5xs",
+    "aq408k49aolc44v",
+    "b4qu1wcto7hy561",
+    "txud99pxx08aimy",
+    "j51zb14tr0orsw4",
+    "vp1ht743hitjnfn",
+    "4t2zbq8f670b3m1",
+    "zn67260pvzp9e0h",
+    "c3s2vthiltqzfbp",
+    "q2x6m1i6ljubjbv",
+    "s7bxdoip1f7wjoi",
+    "3z6wf4tbkxot6fn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.886Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.886Z",
+      "agent": "i2o7zznd26kyn2y",
+      "source_id": "wwcukw0ipp4atwt"
+    }
+  ]
+}

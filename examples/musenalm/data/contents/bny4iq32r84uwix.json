@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48287,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabmal der verewigten Königin von Preußen zu Charlottenburg #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iden del. Wagner sc.",
+  "scans": [
+    "alm_657_48287_08y8cjx63m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grabmal der verewigten Königin von Preußen zu Charlottenburg #",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.645Z",
+      "agent": "jn4zwv0zocwueaf",
+      "source_id": "77lej1wmxbjkqic"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.645Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "pd48snu3vod51wg"
+    }
+  ]
+}

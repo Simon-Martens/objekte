@@ -1,0 +1,730 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1892",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.267Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1701155-3",
+          "label": "Herzogliches Hoftheater zu Meiningen"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichter",
+        "Veröffentlichte teilweise unter dem Namen seines tartarischen Sprachlehrers, dem Pseudonym Mirza Schaffy."
+      ],
+      "dateOfBirth": [
+        "1819-04-22"
+      ],
+      "dateOfDeath": [
+        "1892-04-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich_von_Bodenstedt.jpg: Franz Hanfstaengl&nbsp;(1804–1877)&nbsp;&nbsp; &nbsp; Alternative names Franz Hanfstaengl Description German photographer and lithographer Date of birth/death 1 March 1804&nbsp; 18 April 1877&nbsp; Location of birth/death Baiernrain near Bad Tölz, Bavaria Munich&nbsp; Work period 1833 - 1868 Work location Dresden; Munich&nbsp; Authority file : Q647812 VIAF: 98871537 ISNI: 0000000107866147 ULAN: 500017348 LCCN: n84059888 NLA: 60597590 WorldCat creator QS:P170,Q647812 derivative work: Rabanus Flavus (talk)"
+          ],
+          "creditText": [
+            "Friedrich_von_Bodenstedt.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Bodenstedt-2.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20von%20Bodenstedt-2.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20von%20Bodenstedt-2.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-11T19:35:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118512293/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118512293",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118512293",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/rus",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/rus"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)126214085",
+        "(DE-588a)131002910",
+        "(DE-588a)131174517",
+        "(DE-588a)126214077",
+        "(DE-588a)118512293",
+        "(DE-588c)4007411-0",
+        "(DE-588a)12631103X"
+      ],
+      "periodOfActivity": [
+        "1868-1870"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4045022-3",
+          "label": "Peine"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "preferredName": "Bodenstedt, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Bodenstedt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4322831-8",
+          "label": "Slawist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Intendant"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Mirza Schaffi"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mirza-Schaffy Wasehi"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mirza Šafii"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Mirza Šafii"
+          ],
+          "surname": [
+            "Vazech"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mirza Schaffy"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mirza Šafi Vazechi"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Reckenlob"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Mirza"
+          ],
+          "surname": [
+            "Schaffi"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Mirza-Schaffy"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Mirza"
+          ],
+          "surname": [
+            "Schaffy"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Die Lieder des Mirza-Schaffy",
+        "Shakespeares Zeitgenossen und ihre Werke",
+        "Enthüllungen aus England. Hannover : C. Rümpler 1860. anonym erschienen",
+        "Verschollenes und Neues",
+        "Gedichte",
+        "Aus deutschen Gauen",
+        "Das Mädchen von Liebenstein",
+        "Kleine Geschichten aus fernem Land",
+        "Altes und Neues",
+        "Erzählungen",
+        "Erzählungen und Romane von Friedrich Bodenstedt",
+        "Gräfin Helene"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14785782w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86872159"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17488433"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77645"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118512293/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_von_Bodenstedt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Bodenstedt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_von_Bodenstedt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_von_Bodenstedt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012277059X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118512293"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;61"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;62"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;63"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118512293"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118512293.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118512293.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118512293"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118512293"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Mirza Schaffy",
+        "Mirza Šafi Vazechi",
+        "Von Bodenstedt, Friedrich",
+        "Mirza Schaffi",
+        "Bodenştedt, Fridrix",
+        "Von Bodenstedt, Friedrich Martin",
+        "Bodenstedt, Friedrich M. von",
+        "Bodenstedt, Friedrich von",
+        "Reckenlob, Martin",
+        "Bodenstaedt, F.",
+        "Mirza-Schaffy",
+        "Mirza Šafii",
+        "Bodenstedt, F.",
+        "F. B.",
+        "Bodenstedt, H.",
+        "Bodenstedt",
+        "Vazech, Mirza Šafii",
+        "Mirza-Schaffy Wasehi",
+        "Bodenstedt, Friedrich Martin von",
+        "Bodenstedt, J.",
+        "Schaffy, Mirza",
+        "Bodenstädt",
+        "Bodenstedt, Fr.",
+        "Schaffi, Mirza"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Mirza Schaffy"
+          ]
+        },
+        {
+          "personalName": [
+            "Mirza Schaffi"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "personalName": [
+            "Mirza Šafii"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrix"
+          ],
+          "surname": [
+            "Bodenştedt"
+          ]
+        },
+        {
+          "forename": [
+            "Mirza"
+          ],
+          "surname": [
+            "Schaffi"
+          ]
+        },
+        {
+          "personalName": [
+            "Mirza Šafi Vazechi"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Von Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Martin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Martin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "personalName": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "personalName": [
+            "Mirza-Schaffy Wasehi"
+          ]
+        },
+        {
+          "personalName": [
+            "Mirza-Schaffy"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Reckenlob"
+          ]
+        },
+        {
+          "forename": [
+            "Mirza"
+          ],
+          "surname": [
+            "Schaffy"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Mirza Šafii"
+          ],
+          "surname": [
+            "Vazech"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Martin"
+          ],
+          "surname": [
+            "Von Bodenstedt"
+          ]
+        },
+        {
+          "personalName": [
+            "Bodenstädt"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Bodenstedt"
+          ]
+        },
+        {
+          "personalName": [
+            "F. B."
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Bodenstaedt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Bodenstedt",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_Bodenstedt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:58:30Z",
+    "gnd_query_biographical_data": "1819-1892",
+    "gnd_query_name": "bodenstedt, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 238,
+  "name": "Bodenstedt, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 54; ADB XLVII, 44",
+  "updated": "2026-06-11 13:29:21.646Z",
+  "uri": "https://d-nb.info/gnd/118512293",
+  "editor": ""
+}

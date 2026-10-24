@@ -1,0 +1,894 @@
+{
+  "annotation": "",
+  "biographical_data": "1599-1641",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.310Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Flämischer Künstler; Maler, Grafiker, Radierer"
+      ],
+      "dateOfBirth": [
+        "1599-03-22"
+      ],
+      "dateOfDeath": [
+        "1641-12-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anthony van Dyck"
+          ],
+          "creditText": [
+            "The History Blog info The History Blog image"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Anthony%20van%20Dyck%20-%20Self-portrait.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Anthony%20van%20Dyck%20-%20Self-portrait.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sir%20Anthony%20van%20Dyck%20-%20Self-portrait.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118528386/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "118528386",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118528386",
+      "oldAuthorityNumber": [
+        "(DE-588a)127672052",
+        "(DE-588a)127672060",
+        "(DE-588c)4013378-3",
+        "(DE-588a)128023082",
+        "(DE-588a)118528386"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Dyck, Anton van",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton"
+        ],
+        "prefix": [
+          "van"
+        ],
+        "surname": [
+          "Dyck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        }
+      ],
+      "publication": [
+        "Icones principum, virorum doctorum, pictorum, chalcographorum ... - [ca. 1646]",
+        "Dyck, Anthonis van: Iconographie des hommes illustres",
+        "Le Cabinet des plus beaux portraits",
+        "Dyck, Anthonis van: Le Cabinet des plus beaux portraits de plusieurs princes et princ*. - s.a",
+        "Le Cabinet des plus beaux portraits de plusieurs princes ... - s.a.",
+        "Iconographie des hommes illustres",
+        "Dyck, Anthonis van: Icones principum, virorum doctorum, pictorum, chalcographorum, stat*. - [ca. 1646]",
+        "Dyck, Anthonis van: Le Cabinet des plus beaux portraits"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50070302"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17231738"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q150679"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118528386/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Anthony_van_Dyck"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anthonis_van_Dyck"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Anthony_van_Dyck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121222452"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118528386"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118528386"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118528386.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118528386"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118528386"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118528386"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Van Dyck, Anthonie",
+        "Van Dyck, Antoon, Sir",
+        "VanDyck, Antoine",
+        "Vandyck, Antony",
+        "Van Dyck, Anton",
+        "Dijck, Anton van",
+        "Vandyke, Ant.",
+        "Dyck, Antonius van",
+        "Dyck, Anthony van, Sir",
+        "Dyck, Anthonis",
+        "Dyck, Antoine van",
+        "Dyck, Ant. van",
+        "Vandeik, Antoine",
+        "Dyck, Antonio van",
+        "Deik, Antonis van",
+        "Van Dyck, Antoine, Sir",
+        "Dyck, Anthony",
+        "Dyck, Anthony van",
+        "Vandeik, Antoine, Sir",
+        "Dyck, Anthonis van",
+        "Dejk, Antonis van",
+        "Van Dyck, Anthonie, Sir",
+        "Dijck, Antoine van",
+        "Dÿck, Ant. van",
+        "Dyck, Antonie van",
+        "Dyck, Anthonie van",
+        "Van Dyck, Anthony",
+        "Dyck, Anthonis van, Sir",
+        "VanDyck, Anthonie",
+        "Dyck, A. van",
+        "Vandik",
+        "Dyck, Anthonie van, Sir",
+        "Van Dyck, Antoon",
+        "Dijk, Anton van",
+        "Dyck, Antonis van",
+        "Dyk, Anton van",
+        "Van Dyck, Anthonis, Sir",
+        "Van Dyck, Anthonis",
+        "Dyck, Antoon van, Sir",
+        "Dyck, Antoon van",
+        "Dijk, Antoon van",
+        "Van Dyck, Anthony, Sir",
+        "VanDyck, Antoon",
+        "Dyck, Antony van",
+        "Dyck, Antoine van, Sir",
+        "Van Dyck, Antoine",
+        "Dyk, Anthonis van",
+        "Vandyke, Anthony",
+        "VanDyck, Anton",
+        "Vandyke, Anthony, Sir"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Vandyke"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Ant."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "surname": [
+            "VanDyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "VanDyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dejk"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antony"
+          ],
+          "surname": [
+            "Vandyck"
+          ]
+        },
+        {
+          "forename": [
+            "Ant."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dÿck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyk"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "surname": [
+            "Vandyke"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dijk"
+          ]
+        },
+        {
+          "forename": [
+            "Antonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Ant."
+          ],
+          "surname": [
+            "Vandyke"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antonius"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Vandeik"
+          ]
+        },
+        {
+          "forename": [
+            "Antony"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoon"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dijk"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dijck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "surname": [
+            "VanDyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anthony"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "personalName": [
+            "Vandik"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyk"
+          ]
+        },
+        {
+          "forename": [
+            "Antonie"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dijck"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "VanDyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Vandeik"
+          ]
+        },
+        {
+          "forename": [
+            "Anthonie"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Van Dyck"
+          ]
+        },
+        {
+          "forename": [
+            "Antonis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Deik"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anthonis_van_Dyck",
+          "label": "https://de.wikipedia.org/wiki/Anthonis_van_Dyck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:16:30Z",
+    "gnd_query_biographical_data": "1599-1641",
+    "gnd_query_name": "dyck, anton van"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 602,
+  "name": "Dyck, Anton van",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B X, 263",
+  "updated": "2026-06-11 13:29:22.121Z",
+  "uri": "https://d-nb.info/gnd/118528386",
+  "editor": ""
+}

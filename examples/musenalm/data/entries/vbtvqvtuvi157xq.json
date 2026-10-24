@@ -1,0 +1,67 @@
+{
+  "annotation": "Publikation in 2 Abteilungen; weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der privilegirten Schützen-Gesellschaft in Karlsbad 1846",
+    "norm": "",
+    "biblio": 409412,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-05-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4425,
+  "parallel_title": "",
+  "place_statement": "Karlsbad (Franieck)",
+  "places": [
+    "3z5hkbu00aezglu"
+  ],
+  "preferred_title": "Almanach der privilegirten Schützen-Gesellschaft in Karlsbad 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / der privilegirten / Schützen-Gesellschaft / in / Karlsbad, / vom Jahre 1630-1845; / enthaltend: / die höchsten und hohen Namen ihrer Gönner; ihre Organisation und Denkwürdigkeiten, [...] Erste Abtheilung. / Vom Jahre 1630-1834 / Gedruckt bei Gebrüder Franieck",
+  "updated": "2026-06-11 10:18:55.104Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "fxhbgt3mhd90ryc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.871Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.871Z",
+      "agent": "6hj3yzzw6bbos0z",
+      "source_id": "bia1cudp14e49fw"
+    }
+  ]
+}

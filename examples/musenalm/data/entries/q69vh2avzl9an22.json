@@ -1,0 +1,105 @@
+{
+  "annotation": "Erscheinungsverlauf unklar /) s. a.: Almanach, Kleiner für Damen (Graz) 1818, 1819",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-VIII Tabb, 9 BB Kal darin 6 BB Tab, 12 GG, S 1 nT, SS 3-61 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Damen (Graz) 1820",
+    "norm": "~",
+    "biblio": 408595,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4148,
+  "parallel_title": "",
+  "place_statement": "Graz (Kaiser)",
+  "places": [
+    "qww1pxzqibaxvpt"
+  ],
+  "preferred_title": "Almanach für Damen (Graz) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. A. Suppantschitsch",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / DAMEN / auf das Jahr 1820. / von F. A. Suppantschitsch / Professor in Cilli / Gratz / bey S. Franz Kaiser",
+  "updated": "2026-06-11 10:18:54.912Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "6nlrcn1s5h0ys0x"
+  ],
+  "contents": [
+    "j1ksxb7niwkx75a",
+    "wwlcv7t2j0rixyn",
+    "n4yc96e24z6p82c",
+    "uiroq2hnoczopad",
+    "qy4l55wlzqrfwj8",
+    "48ir6ar2gjetoxo",
+    "icro8ba8nldgjnx",
+    "n8n2kjzua9gzfst",
+    "k1ahcw0hv14jgpl",
+    "3hrau5zfpsbv9xa",
+    "z9xzv0rvn64l1v4",
+    "hugg8rh0typ2h3s",
+    "269s2pys79z6yz6",
+    "55zlz4zdurpd4or",
+    "tx04gsnhu8ch40r",
+    "7w8e81391ns4eaz",
+    "w6zxz9lgcfttdui",
+    "e83ql0nxifrcgib",
+    "x9l9ce4nf63ipbd",
+    "4bv28d3o02t4rgo",
+    "0ugillg4vqjgz05",
+    "1dtliebl0irgpwc",
+    "8jhvhyg944g35wb",
+    "piirrcd51xvaye5",
+    "qif3b81pm4pkunx",
+    "1wiuxybvajyu0x5",
+    "594mox3mtjl6uwu",
+    "9q9kk3ucpp1agla",
+    "r8w5u1dapbqug05",
+    "mskvlquadltdl62",
+    "7ft770husvwzxqg",
+    "saapz0nolwyjtrc",
+    "b15enep3nhw3zg1",
+    "tx4r4simfj1d3lo",
+    "qv3an2ymtd5kt2b",
+    "zffb583fhhnjpxv",
+    "vy67usw5ug45t1g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "x39b8yary5ectmp",
+      "source_id": "yrtksll0wqg0y1g"
+    }
+  ]
+}

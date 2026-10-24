@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Gesellschaftliches Lied für junge Frauenzimmer« von Christian Friedrich Traugott Voigt INr 131950, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Auf fesselt zum Genusse des Lebens flücht' gen Traum!",
+  "language": [],
+  "musenalm_id": 131952,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf fesselt zum Genusse des Lebens flücht' gen Traum!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Schmiedt",
+  "scans": [
+    "alm_1946_131952_nsof2yvvxq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.084Z",
+      "agent": "m8h0i8atzha2rbr",
+      "source_id": "xurucww5d65x7k3"
+    }
+  ]
+}

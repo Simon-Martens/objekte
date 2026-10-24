@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen. Dritter Abschnitt.« von F. W. Schubert INr 59028, Obj 19 s.a. Textbezug INr 59039, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59021,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Friedrichstein bei Königsberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. von Finden in London",
+  "scans": [
+    "alm_871_59021_jfpngq4r4i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Friedrichstein bei Königsberg",
+  "updated": "2008-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.983Z",
+      "agent": "n0s2frkyl2br3jb",
+      "source_id": "dubeswe1z5piy4j"
+    }
+  ]
+}

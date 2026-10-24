@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Blüthen 1826",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2728,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch dramatischer Blüthen 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 114; nicht bei L/R; Goed VIII. 131, 31",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.825Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

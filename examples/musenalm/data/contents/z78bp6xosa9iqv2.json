@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 86203, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "O schmäht mich nicht, / Daß ich die alten Dinge / Mit neuer Lust und wiederum besinge,",
+  "language": [],
+  "musenalm_id": 86209,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Schmäht mich nicht!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Schmäht mich nicht!",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.184Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "ru33mt93zmbiyiq"
+    }
+  ]
+}

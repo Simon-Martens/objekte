@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Ein eigensinnig Kind, mit Gold nicht zu erkaufen,",
+  "language": [],
+  "musenalm_id": 128828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ist die Liebe?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. v. Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was ist die Liebe?",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.995Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "ycuzqd8iytfpd4h"
+    }
+  ]
+}

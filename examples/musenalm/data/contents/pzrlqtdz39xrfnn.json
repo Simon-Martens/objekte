@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Hinausgelockt vom heitern Morgenstrahl, / Umhüllt vom Flausrock, der, zerfetzt und kahl,",
+  "language": [],
+  "musenalm_id": 30176,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Junker Udo. / Poetische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Junker Udo. / Poetische Erzählung",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.632Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "5lf91nrvd73wtrh"
+    }
+  ]
+}

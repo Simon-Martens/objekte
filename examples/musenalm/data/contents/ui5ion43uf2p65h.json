@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 82193, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82171,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Wollstonecraft Bodwin / Vertheidigerin der Rechte des Weibes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. W. Schwarz. Nbg. 1799",
+  "scans": [
+    "alm_3855_82171_mtmii09tf7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Wollstonecraft Bodwin / Vertheidigerin der Rechte des Weibes",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.804Z",
+      "agent": "cbu5qgqlakgyc6u",
+      "source_id": "wtahi620fr66wvj"
+    }
+  ]
+}

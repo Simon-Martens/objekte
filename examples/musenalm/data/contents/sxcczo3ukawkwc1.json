@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63733, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Ein trüber Geist endloser Zerstörung geht / Durch alle Welten, Staub von Aeonen häuft / Auf Staub sich auf,",
+  "language": [],
+  "musenalm_id": 63735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vergänglichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vergänglichkeit",
+  "updated": "2009-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.214Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "jkpjs4jjzspiwwa"
+    }
+  ]
+}

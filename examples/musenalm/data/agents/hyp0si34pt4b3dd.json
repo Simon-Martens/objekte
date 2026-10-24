@@ -1,0 +1,286 @@
+{
+  "annotation": "",
+  "biographical_data": "1756-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.386Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Bibliothekar am Hof von Thurn und Taxis in Regensburg; Schriftsteller, Historiker"
+      ],
+      "dateOfBirth": [
+        "1756-08-01"
+      ],
+      "dateOfDeath": [
+        "1811-03-24"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172181666"
+      ],
+      "describedBy": {
+        "dateModified": "2022-06-04T18:12:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/121673383/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "121673383",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/121673383",
+      "oldAuthorityNumber": [
+        "(DE-588a)172181666",
+        "(DE-588a)121673383",
+        "(DE-588)172181666",
+        "(DE-588c)4574710-6"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        }
+      ],
+      "preferredName": "Kayser, Albrecht Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Albrecht Christoph"
+        ],
+        "surname": [
+          "Kayser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Rochon, Alexis M. de: Reise nach Madagascar",
+        "Leben des Herrn Joh. Jak. Wolff von und zu Todtenwart",
+        "Bray, François G. de: Hollands Staatsverfassung bis zu ihrer Umänderung ..",
+        "Die Abstellung des Büchernachdrucks",
+        "Am Geburtsfeste ... des Hrn. Churerzkanzlers ... den 8. Febr. 1804 ..",
+        "Kleine Geschichten P und P Aufsätze vermischten Inhalts",
+        "Neuestes Gemälde von Malta",
+        "Beschreibung der Feierlichkeiten ..",
+        "Über die Manipulation bey der Einrichtung einer Bibliothek ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr96044652"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15631714"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18410083"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/121673383/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172181666"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Albrecht_Christoph_Kayser"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080955595"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/121673383"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/121673383"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/121673383"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/121673383"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "K.",
+        "Kayser, Albert Christoph",
+        "Kayser, Albrecht Christoph von",
+        "Kayser, Albrecht C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Albert Christoph"
+          ],
+          "surname": [
+            "Kayser"
+          ]
+        },
+        {
+          "forename": [
+            "Albrecht Christoph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kayser"
+          ]
+        },
+        {
+          "personalName": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Albrecht C."
+          ],
+          "surname": [
+            "Kayser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Albrecht_Christoph_Kayser",
+          "label": "https://de.wikipedia.org/wiki/Albrecht_Christoph_Kayser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:54:09Z",
+    "gnd_query_biographical_data": "1756-1811",
+    "gnd_query_name": "kayser, albrecht christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1362,
+  "name": "Kayser, Albrecht Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 602",
+  "updated": "2026-06-11 13:29:23.160Z",
+  "uri": "https://d-nb.info/gnd/121673383",
+  "editor": ""
+}

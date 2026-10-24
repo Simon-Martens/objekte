@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Musikbeigaben s. INr 17110, INr 17111; Obj 62, 63",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Das Mägdlein, braun von Aug' und Haar, / Kam über Feld gegangen;",
+  "language": [],
+  "musenalm_id": 17109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freier",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.718Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "qdlrampwl101mnz"
+    }
+  ]
+}

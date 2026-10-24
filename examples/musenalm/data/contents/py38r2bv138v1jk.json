@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 32716, Obj 28 /) # zur. Bez. s.: B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (d'Argent sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_453_32717_7cnzm28p57.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.537Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "f9au0pr8wk0a0rv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.537Z",
+      "agent": "5vg48yr315pum30",
+      "source_id": "zm92aglo5o9maas"
+    }
+  ]
+}

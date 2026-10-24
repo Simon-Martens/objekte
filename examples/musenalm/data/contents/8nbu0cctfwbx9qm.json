@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 11 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7226,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CVI. Anecdote / Peter des Großen mittleidige Gesinnung / über leichte fleischliche Sünden / p. 207",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7226_mtwfg7bga5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CVI. Anecdote / Peter des Großen mittleidige Gesinnung / über leichte fleischliche Sünden / p. 207",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.299Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "wbzex3aj45dfsgn"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer  im Kalendarium [Juni] s. Textbezug INr 51579, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51551,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Oberhasler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_700_51551_1sg7pvvosc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Oberhasler",
+  "updated": "2007-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.613Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "df26p5xeo3hdfhp"
+    }
+  ]
+}

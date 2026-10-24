@@ -1,0 +1,45 @@
+{
+  "annotation": "Sprüchlein (Sammlung INr 103359, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Wer in trübes Wasser fiel, / Muß mit trübem ringen,",
+  "language": [],
+  "musenalm_id": 103361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer in trübes Wasser fiel, / Muß mit trübem ringen,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.099Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "giltkqjv37l68hj"
+    }
+  ]
+}

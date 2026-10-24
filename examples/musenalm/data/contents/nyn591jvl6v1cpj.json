@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Ich war ein Knabe von fünf Jahren, furchtlos, lustig, aber freundlich, und zarten Sinnes",
+  "language": [],
+  "musenalm_id": 14135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön-Lieschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kähler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schön-Lieschen",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.458Z",
+      "agent": "rplcedkwg5rqz7n",
+      "source_id": "s9qi4sm2zh2i3cy"
+    }
+  ]
+}

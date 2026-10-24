@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 93079, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28388,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am fenster hebt er ihn gen himmel / Werd mann und held ...",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Zix del. & sculp.",
+  "scans": [
+    "alm_323_28388_yk7sglav3l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am fenster hebt er ihn gen himmel / Werd mann und held ...",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.470Z",
+      "agent": "yhhon0fp0lmn8cf",
+      "source_id": "5yfnnyhzuevoeoh"
+    }
+  ]
+}

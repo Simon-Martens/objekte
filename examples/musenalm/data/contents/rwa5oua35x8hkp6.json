@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des 5. »Geistlichen Lieds« von Novalis /) Unter der Musikbeigabe: Stovalis [sic] /) Lieder zum musikalischen Taschenbuche 1803 der Brüder Werden componirt von Wilhelm Schneider (Sammlung INr 56317, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Wenn ich ihn nur habe, wenn er nur mein ist",
+  "language": [],
+  "musenalm_id": 56327,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistliches Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_23_56327_9xyylnsgwb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geistliches Lied",
+  "updated": "2008-03-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.734Z",
+      "agent": "5j4ifce1qy52izk",
+      "source_id": "fn52d5a1dih38ol"
+    }
+  ]
+}

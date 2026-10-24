@@ -1,0 +1,104 @@
+{
+  "annotation": "Erscheinungsverlauf unklar /) unter dem I-Verz: Gedruckt bei Anton Strauß",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, 17 SS Kal darin 6 GG, S, 7 SS Tab, SS 1-83, S I-Verz, 6 BB Tab, UG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Wien, Pfautsch) 1829",
+    "norm": "~",
+    "biblio": 404589,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3107,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenkalender (Wien, Pfautsch) 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHEN / KALENDER / für das Jahr / 1829. / WIEN, / im Verlage bei Friedrich Pfautsch / Kurrentgasse, dem Hause No. 407 gegenüber",
+  "updated": "2026-06-11 10:18:55.263Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "bowmf4e12hhsd4n"
+  ],
+  "contents": [
+    "f9jncdo7j0ag71k",
+    "2nipgprt3vtfi6t",
+    "crqeomonhdgwwp4",
+    "e4hglvbm2mttsx4",
+    "i1qdxtfmtieri0a",
+    "g33q1hctu01sw5q",
+    "mg2fv2e7lxzlfw3",
+    "kklq9jyunacr660",
+    "4n534exmidmghdu",
+    "t05k4crrwd5sdmw",
+    "xnvnmaacz6xfosg",
+    "ehz9uyudxms9i4w",
+    "z14bmbkcc7sltnc",
+    "btre3bt6ed8nmam",
+    "c7gc5t16m16yag7",
+    "gimzexxqebpqavg",
+    "lruys02df548jh9",
+    "awxnvi3loi28ook",
+    "tyl9ztre5jio4qb",
+    "mmbp0afevwddrld",
+    "7aj3cnyrftg3oq1",
+    "lv7s1e819a2eazo",
+    "m8gpz9li37scif0",
+    "4x1zybmzljk7yyr",
+    "w3qoxeroxka5imu",
+    "fpd8v7ao6zcni86",
+    "8egexvbxivaqg4u",
+    "r2oxa6btz8lwcko",
+    "xydfxawrvc9mu5n",
+    "9pvvtg8me9uthew",
+    "3a7opvn7if4qhch",
+    "dne6lzih7jh740i",
+    "e57svdiru7bd9b4",
+    "4rit8gqqmfh4at9",
+    "bu9x2v1jkvurl7f",
+    "fmhtus5zzqk91eg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.130Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.130Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "xxivn2czi5qa2gy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. am 8. Blatt der Suite /) kol. Graphik im Kalendarium - November; s. Gedicht INr 56669, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56668,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nacht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_32_56668_1o3v31crmo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Nacht",
+  "updated": "2008-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.777Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "zz0sqcrwsa1ucr8"
+    }
+  ]
+}

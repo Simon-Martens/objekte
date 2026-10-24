@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Kuss« von J. G. Jacobi",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Chloe kennst du noch die Stunde, / Die zu schnell vorüberging,",
+  "language": [],
+  "musenalm_id": 114300,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kuss / Gedicht von Jacobi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schmidt",
+  "scans": [
+    "alm_2721_114300_9255qdgrao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kuss / Gedicht von Jacobi",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.287Z",
+      "agent": "17xjqe49v1xcoot",
+      "source_id": "nz9eb60fa8kcli7"
+    }
+  ]
+}

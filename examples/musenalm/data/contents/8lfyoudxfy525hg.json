@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Dezember nummeriert 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123983,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Späthe Reue",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. F. Berger sc.",
+  "scans": [
+    "alm_791_123983_n0592axhj8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Späthe Reue",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.736Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "8y1khkiqg3ysfzs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.736Z",
+      "agent": "yjmx2kz08loj4nt",
+      "source_id": "anrgtd4l4mzd0p4"
+    }
+  ]
+}

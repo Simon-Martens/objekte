@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 95792, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Kniend fleh' ich - Schicksal, höre; / Sey dem Sänger hold!",
+  "language": [],
+  "musenalm_id": 95783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natur-Genuß. / Mit Musik",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Natur-Genuß. / Mit Musik",
+  "updated": "2012-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.675Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "eb7uzy259mh0ypn"
+    }
+  ]
+}

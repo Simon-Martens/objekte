@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai paginiert 5.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98357,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_4154_98357_f3fg7gpddt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.746Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "ju5d688o0uzv19c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.746Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "o1ey929qm5aj2gx"
+    }
+  ]
+}

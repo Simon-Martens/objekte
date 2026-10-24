@@ -1,0 +1,45 @@
+{
+  "annotation": "V. 1. Phantasien 2. Die Reise nach den Alpen. Romanze 3. An die künftige Geliebte 4. An Floret (Sammlung INr 31947, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Traulich saßen am traulichen Heerd' die Freund' - im / Gespräche / Und in der Sehnsucht zurückkehrte die fliehende Zeit",
+  "language": [],
+  "musenalm_id": 31951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Floret",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Floret",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.566Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "g080tpkojnekiwl"
+    }
+  ]
+}

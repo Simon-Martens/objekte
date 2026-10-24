@@ -1,0 +1,209 @@
+{
+  "label": "Entries",
+  "display": "preferred_title",
+  "singularLabel": "Entry",
+  "icon": "ri-book-line",
+  "position": 1,
+  "sidebarGroup": "Catalogue",
+  "fields": {
+    "/properties/preferred_title": {
+      "title": "Preferred title"
+    },
+    "/properties/variant_title": {
+      "title": "Variant title"
+    },
+    "/properties/parallel_title": {
+      "title": "Parallel title"
+    },
+    "/properties/title_statement": {
+      "title": "Title statement"
+    },
+    "/properties/subtitle_statement": {
+      "title": "Subtitle statement"
+    },
+    "/properties/incipit_statement": {
+      "title": "Incipit statement"
+    },
+    "/properties/responsibility_statement": {
+      "title": "Responsibility statement"
+    },
+    "/properties/place_statement": {
+      "title": "Place statement"
+    },
+    "/properties/publication_statement": {
+      "title": "Publication statement"
+    },
+    "/properties/year": {
+      "title": "Year"
+    },
+    "/properties/edition": {
+      "title": "Edition"
+    },
+    "/properties/pseudonym": {
+      "title": "Pseudonym"
+    },
+    "/properties/language": {
+      "title": "Language"
+    },
+    "/properties/content_type": {
+      "title": "Content type"
+    },
+    "/properties/extent": {
+      "title": "Extent"
+    },
+    "/properties/dimensions": {
+      "title": "Dimensions"
+    },
+    "/properties/carrier_type": {
+      "title": "Carrier type"
+    },
+    "/properties/refs": {
+      "title": "Refs"
+    },
+    "/properties/places": {
+      "title": "Places"
+    },
+    "/properties/edit_fielddata": {
+      "title": "Edit fielddata",
+      "x-editor": "json"
+    },
+    "/properties/musenalm_deprecated": {
+      "title": "Musenalm deprecated",
+      "x-editor": "json"
+    },
+    "/properties/created": {
+      "title": "Created"
+    },
+    "/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/musenalm_id": {
+      "title": "Musenalm id"
+    },
+    "/properties/edit_state": {
+      "title": "Edit state"
+    },
+    "/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    },
+    "/properties/editor": {
+      "title": "Editor"
+    },
+    "/properties/agents/items/properties/source_id": {
+      "title": "Source id"
+    },
+    "/properties/agents/items/properties/agent": {
+      "title": "Agent"
+    },
+    "/properties/agents/items/properties/type": {
+      "title": "Type"
+    },
+    "/properties/agents/items/properties/conjecture": {
+      "title": "Conjecture"
+    },
+    "/properties/agents/items/properties/uncertain": {
+      "title": "Uncertain"
+    },
+    "/properties/agents/items/properties/created": {
+      "title": "Created"
+    },
+    "/properties/agents/items/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/agents/items/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/agents/items/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    }
+  },
+  "fieldOrder": [
+    "preferred_title",
+    "variant_title",
+    "parallel_title",
+    "title_statement",
+    "subtitle_statement",
+    "incipit_statement",
+    "responsibility_statement",
+    "place_statement",
+    "publication_statement",
+    "year",
+    "edition",
+    "pseudonym",
+    "language",
+    "content_type",
+    "extent",
+    "dimensions",
+    "carrier_type",
+    "refs",
+    "places",
+    "edit_fielddata",
+    "musenalm_deprecated",
+    "created",
+    "updated",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment",
+    "editor",
+    "items",
+    "contents",
+    "agents"
+  ],
+  "labels": {
+    "list": [
+      "preferred_title"
+    ],
+    "search": [
+      "preferred_title"
+    ],
+    "record": [
+      "preferred_title"
+    ],
+    "reference": [
+      "preferred_title"
+    ]
+  },
+  "search": [
+    "preferred_title",
+    "variant_title",
+    "parallel_title",
+    "title_statement",
+    "subtitle_statement",
+    "incipit_statement",
+    "responsibility_statement",
+    "place_statement",
+    "publication_statement",
+    "year",
+    "edition",
+    "extent",
+    "dimensions",
+    "refs",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment"
+  ],
+  "list": {
+    "columns": [
+      "preferred_title",
+      "year"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "autoFilters": false,
+    "filters": [
+      "edit_state"
+    ]
+  },
+  "sidebarTree": false
+}

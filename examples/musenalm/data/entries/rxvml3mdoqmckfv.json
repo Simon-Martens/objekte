@@ -1,0 +1,98 @@
+{
+  "annotation": "$ vermutl. fehlen 3 (weitere) Trachtenkupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 20 SS Kal darin 12 GG, S VrlgM, SS 1-143, S C, 71 BB, B VrlgM, 14 BB, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1799",
+    "norm": "~ +++ 406367",
+    "biblio": 404129,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 834,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Gemein-Jahr 1799. / Die Geschichte / der Bartholomäusnacht / oder / die Bluthochzeit zu Paris. / Mit 4 illuminirten Vorstellungen der damaligen / Trachten, 4 Bildnissen und 8 historischen / Gegenständen, von D. Chodowiecki. / Berlin, bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.873Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "3klv5kttodas6xe",
+    "sx948xtum8ircso"
+  ],
+  "contents": [
+    "btlg0p0wd31hwzo",
+    "1rfl60tgmclox9y",
+    "wzac1agga91qdu7",
+    "etabyl6jj3h1481",
+    "y9ngps8e3u3lrwv",
+    "exti2n115oxsgss",
+    "xnt28sg5l132jcu",
+    "j4o3oucu0xlmpbj",
+    "wxsma48zkaxjtow",
+    "h87lwpgdar1yv74",
+    "x5lckpk0me84kin",
+    "9vl40h6xlz1rg84",
+    "d3cxkcd889z2zg2",
+    "0qu17pmbe9xvznk",
+    "w3r4l0rv9rjc7qc",
+    "fok8bn3rupxzqlo",
+    "uk1d2l033p1wjyg",
+    "87zdic1a4vzeo6r",
+    "4mv259ch9rr16ou",
+    "cx0d47wsr0bw7qt",
+    "bhqfoamddzsm1kr",
+    "778ijrxivmgvp95",
+    "hfj0w7kuimkguwq",
+    "8an4r70q9d1wcca",
+    "zq3m627cwco2957",
+    "c9ky48kw5t4l070",
+    "crxu5mksafpv6jf",
+    "7prlok4vkmbxyca",
+    "o4ecwssowsh01zi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "bwc6r4uzrtv8u13"
+    }
+  ]
+}

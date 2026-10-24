@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz; Graphik im Kalendarium September; Illustration zu »Landeskunde von Indien.« von K. Ritter INr 58870, Obj 19 ; s.a. Textbezug INr 58879, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58861,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Hauptthor zum Tadsch Mahel führend zu Agra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mauch del. Barber sc.",
+  "scans": [
+    "alm_865_58861_nm4fyjssi7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Hauptthor zum Tadsch Mahel führend zu Agra",
+  "updated": "2008-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.907Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "swg53kawo90kc7w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.907Z",
+      "agent": "qvi69ismyu8brau",
+      "source_id": "uz5txs60os3exto"
+    }
+  ]
+}

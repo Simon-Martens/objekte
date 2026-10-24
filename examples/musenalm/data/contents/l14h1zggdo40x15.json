@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Angelika Lindholm« INr 102884, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Ender del. Jos. Stöber sc.Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Stöber sc.Viennae",
+  "scans": [
+    "alm_3376_102885_utdzies6tb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.936Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "dual28v937x9l1g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.936Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "l83kkui6tq45l1q"
+    }
+  ]
+}

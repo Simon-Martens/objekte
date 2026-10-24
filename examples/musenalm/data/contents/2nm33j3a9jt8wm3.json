@@ -1,0 +1,45 @@
+{
+  "annotation": "Niederländische Nüsse (Sammlung INr 65067, Obj 127) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Sie müssen eine König haben! / So schreit der Diplomaten Heer:",
+  "language": [],
+  "musenalm_id": 65078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ratio sufficiens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ratio sufficiens",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.000Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "vlmsm115oszjqn2"
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "annotation": "s. B. Fischer: »Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 Bd. 1« SS 278 f",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, verso G, T, 7 BB Kal, S I T, SS III-XVI G-Verz darin 6 GG, SS 1-185 darin 3 GG, 2 SS I-Verz, 5 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1798 2. Aufl",
+    "norm": "~",
+    "biblio": 407916,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-06-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3979,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1798 2. Aufl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49,11",
+  "responsibility_statement": "Huber, Lafontaine, Pfeffel, Sulzer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr 1798 / für / Damen. / Herausgegeben / von / Huber, Lafontaine, Pfeffel, Sulzer. / Mit Kupfern, / Tübingen / in der J.G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.821Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "hhutd8x4257ygtl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.317Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.317Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "9bi0xa0rm0hhzv8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.318Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.318Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "brrm4s9pip7wh6i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.679Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.679Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "is1fv2fnxf45nrh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.318Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.318Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "sgq173y5csat6ne"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.319Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.319Z",
+      "agent": "pdvq66h78x8eh0x",
+      "source_id": "zipp881m5q6wrtz"
+    }
+  ]
+}

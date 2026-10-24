@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Maienblümchen im März! - O nimm, als gute / Vorbedeutung sie hin, mein liebes Mädchen!",
+  "language": [],
+  "musenalm_id": 83762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Wilhelminen. / Im März 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Wilhelminen. / Im März 1793",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.940Z",
+      "agent": "maje80twv7ynq1d",
+      "source_id": "phgygj87q10t0l1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Ich habe zwey Tage in einer reizenden Wildniß gelebt, mein G**, und in der Ruhe, die ich heiter auf kurze Zeit geniesse, denke ich deiner.",
+  "language": [],
+  "musenalm_id": 52741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Gang / durch / Kandersteg und Gastern, / im Berner Oberland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kasthofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Gang / durch / Kandersteg und Gastern, / im Berner Oberland",
+  "updated": "2007-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.710Z",
+      "agent": "iogm9udcmpu8ysv",
+      "source_id": "afrvaetpuvuzxga"
+    }
+  ]
+}

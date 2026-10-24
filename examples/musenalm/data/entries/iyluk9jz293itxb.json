@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1871",
+    "norm": "",
+    "biblio": 405101,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2123,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1871",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaisches / Genealogisches Taschenbuch / nebst / Diplomatisch-statistischem Jahrbuch. / 1871. / Hundert und achter Jahrgang. / Gotha / Justus Perthes",
+  "updated": "2026-06-11 10:18:55.481Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "items": [
+    "f7euteyzaphahlg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.127Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.127Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "tiypvh48nw1cu0q"
+    }
+  ]
+}

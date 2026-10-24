@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Bei meinem letzten Aufenthalt in Deutschland lernte ich einen sonderbaren jungen Mann, Nahmens Danwaller, kennen, den ich anfangs für einen romantischen Burschen, nachher eine Zeit lang für einen classischen Philister hielt,",
+  "language": [],
+  "musenalm_id": 57192,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht des Herausgebers",
+  "updated": "2008-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.864Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "dp07kukkzq669p1"
+    }
+  ]
+}

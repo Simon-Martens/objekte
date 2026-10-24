@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-11 09:53:16.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Webers ritterliche Feenoper, die, kraft des mächtigen Elfenzaubers, den fernen Orient zu Frankens Abendlande kettet, hat auch in dem Reich der Töne die Gränzen ihrer Heimath übersprungen,",
+  "language": [],
+  "musenalm_id": 140331,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Fleischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2026-08-11 09:54:36.115Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-11 09:54:01.197Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-08-11 09:54:36.116Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "xypcou8laimj20d"
+    }
+  ]
+}

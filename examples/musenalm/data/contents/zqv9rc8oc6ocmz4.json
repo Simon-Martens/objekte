@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 13 Illustrationen s. Titelportrait INr 58505, Obj 1; Graphiken INr 58508-58519, Obj 4-15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Churfürst Johann Sigismund hatte kaum die Regierung der Churländer angetreten, als die Nachricht von dem am 23. März erfogten Tode des Herzogs Johann Wilhelm von Jülich, Cleve und Berg die Bewohner der Mark mit bangen Ahnungen erfüllte.",
+  "language": [],
+  "musenalm_id": 58520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Geschichte / von / Berlin und seinen Bewohnern / bis / zum Ende der Regierung des großen Churfürsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Wilken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Geschichte / von / Berlin und seinen Bewohnern / bis / zum Ende der Regierung des großen Churfürsten",
+  "updated": "2008-07-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.689Z",
+      "agent": "du7c0gijdnu6wop",
+      "source_id": "cwpehi9xdmek2hl"
+    }
+  ]
+}

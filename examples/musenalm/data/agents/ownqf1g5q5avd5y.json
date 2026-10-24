@@ -1,0 +1,229 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1816",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.348Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Inhaber der Militärischen Buchhandlung in Wien"
+      ],
+      "dateOfBirth": [
+        "1740"
+      ],
+      "dateOfDeath": [
+        "1816"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-04T10:00:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100492584/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/100492592",
+          "label": "Graeffer, Rudolph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120474123",
+          "label": "Gräffer, Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116809795",
+          "label": "Gräffer, Franz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "100492584",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/120474123",
+          "label": "Gräffer, Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116809795",
+          "label": "Gräffer, Franz"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/100492592",
+          "label": "Graeffer, Rudolph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100492584",
+      "oldAuthorityNumber": [
+        "(DE-588a)100492584"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Gräffer, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Gräffer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4169967-1",
+          "label": "Militärschriftsteller"
+        }
+      ],
+      "publication": [
+        "Geschichte der kaiserl. königl. Regimenter, Corps, Bataillons und andere M*",
+        "Geschichte des k. k. militärischen Marie Theresie Ordens seit desselben *",
+        "Skizze des zweiten französisch republicanischen Krieges mit dem Hause Oe*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/84762022"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122381"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100492584/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Gr%C3%A4ffer"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100492584.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100492584"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Gräffer, der jüngere"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "der jüngere"
+          ],
+          "personalName": [
+            "Gräffer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Gr%C3%A4ffer",
+          "label": "https://de.wikipedia.org/wiki/August_Gr%C3%A4ffer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:33:39Z",
+    "gnd_query_biographical_data": "1762-1816",
+    "gnd_query_name": "gräffer, august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 950,
+  "name": "Gräffer, August",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB IX, 574",
+  "updated": "2026-06-11 13:29:22.623Z",
+  "uri": "https://d-nb.info/gnd/100492584",
+  "editor": ""
+}

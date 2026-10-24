@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "So herzlich ich den Verfasser des benannten Aufsatzes verehre und so viel ich auch seiner persönlichen Bekanntschaft und seine Schriften verdanke, so wenig kann ich ihm doch verzeihen,",
+  "language": [],
+  "musenalm_id": 109141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Alte Liebe rostet nicht. / Ein Nachtrag / zu dem Aufsatze: Ueber Jagdwesen und Unwesen / im dritten Bändchen der Weidmanns-Feierabende. S. 13 f.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Alte Liebe rostet nicht. / Ein Nachtrag / zu dem Aufsatze: Ueber Jagdwesen und Unwesen / im dritten Bändchen der Weidmanns-Feierabende. S. 13 f.",
+  "updated": "2015-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.248Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "zpqofu3tcb3ypn5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des vorstehenden Gedichts INr 66805, Obj 23 /) Beigabe zu »Auszug aus einer seltenen alten Chronik, zwei merkwürdige Jagdbegebenheiten betreffend« INr 66804, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Sechzig Enden und Sechs trug er, / Den mit heroischer Hand Friedrich der Dritte / hier schoß,",
+  "language": [],
+  "musenalm_id": 66806,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechzig Enden und Sechs trug er, / Den mit heroischer Hand Friedrich der Dritte / hier schoß,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Galeni; [übers.] v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.171Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "g3h8tfd02swsevi"
+    }
+  ]
+}

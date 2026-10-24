@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Robert und Aline. Eine poetische Erzählung« INr 81980, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81981,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dank dir mein Retter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber del. J. Nussbiegel sc.",
+  "scans": [
+    "alm_3830_81981_28g92scgj8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dank dir mein Retter",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.082Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "prnl9gcdrjmfcg9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.082Z",
+      "agent": "1cxxm0968owp2z9",
+      "source_id": "r4fpif34rkg5byc"
+    }
+  ]
+}

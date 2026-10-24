@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Quentin Durward« von W. Scott s. Textbezug INr 43727, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43728,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quentin Durwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jb. Lips sclp.",
+  "scans": [
+    "alm_583_43728_8kc8jztalj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quentin Durwald",
+  "updated": "2006-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.981Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "xqr83j8eaqe34yr"
+    }
+  ]
+}

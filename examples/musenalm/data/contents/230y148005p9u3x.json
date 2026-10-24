@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ohngefähr vor zehn Monaten bat einer meiner Neveux, der von Isle de France abbreisen wollte, den B. Michaux, er möchte ihm doch die im Garten der Regierung vorhandenen Pflanzen zeigen,",
+  "language": [],
+  "musenalm_id": 74686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apa-Pana, die Lieblingspflanze der / Madame Bonaparte. / (Auszug aus einer dem Nationalinstitute vorge- / lesenen Abhandlung des B. Ventenat.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Römer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Apa-Pana, die Lieblingspflanze der / Madame Bonaparte. / (Auszug aus einer dem Nationalinstitute vorge- / lesenen Abhandlung des B. Ventenat.)",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.486Z",
+      "agent": "isv9wrpng7dwls4",
+      "source_id": "1iujhskgdbvr7t6"
+    }
+  ]
+}

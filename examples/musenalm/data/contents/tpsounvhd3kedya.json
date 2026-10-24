@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "498",
+  "incipit_statement": "Wollt Ihr meine erste Sylbe finden, / Ziehet hin, wo stolz die Alpen ragen,",
+  "language": [],
+  "musenalm_id": 40546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.941Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "f3ypqngc9ui4tgw"
+    }
+  ]
+}

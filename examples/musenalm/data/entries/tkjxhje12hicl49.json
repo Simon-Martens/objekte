@@ -1,0 +1,55 @@
+{
+  "annotation": "s. a. Jg 1795 Basel (Flick)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender der fränkischen Republik 1794",
+    "norm": "",
+    "biblio": 100201,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1961,
+  "parallel_title": "",
+  "place_statement": "Straßburg",
+  "places": [
+    "1q8z8aa12br1w4q"
+  ],
+  "preferred_title": "Kalender der fränkischen Republik 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Calender / für / das zweite Jahr / der / fränkischen Republik. / Mit / Benennung der Monate, der Decadentage / und der eigenthümlichen Namen jeden / Tages. / Die gewöhnliche Zeitrechnung zur Seite. / Straßburg / 1794",
+  "updated": "2026-06-11 10:18:55.742Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "78pqvw30b3bt7bo"
+  ],
+  "contents": [],
+  "agents": []
+}

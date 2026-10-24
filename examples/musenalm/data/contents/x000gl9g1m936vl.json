@@ -1,0 +1,56 @@
+{
+  "annotation": "s. G-Verz INr 58338, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58327,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PLAN de la Ville de WARSCHAU. / GRUNDRISS / von / WARSCHAU / 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Sotzmann del. C. C. Jättnig sculps.",
+  "scans": [
+    "alm_831_58327_5jpwnkpiym.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PLAN de la Ville de WARSCHAU. / GRUNDRISS / von / WARSCHAU / 1790",
+  "updated": "2008-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.753Z",
+      "agent": "4tklyccarri11wd",
+      "source_id": "7g1hkveula1s7m0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.752Z",
+      "agent": "llfbsdoltk6o89d",
+      "source_id": "wyr34gcxjpdh1di"
+    }
+  ]
+}

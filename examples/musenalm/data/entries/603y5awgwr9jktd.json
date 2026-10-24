@@ -1,0 +1,78 @@
+{
+  "annotation": "§ Titel fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sträußchen, Dramatisches (Castelli) 1828",
+    "norm": "",
+    "biblio": 405598,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2592,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Sträußchen, Dramatisches (Castelli) 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 105 ; L/R 126; Goed VIII. 129, 14",
+  "responsibility_statement": "I. F. Castelli",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Sträußchen / für / das Jahr / 1828. / Deyzehnter Jahrgang / Von / I. F. Castelli",
+  "updated": "2026-06-11 10:18:55.428Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "sou95c9es3dlihm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.181Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.181Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "5fplx1nk33fspcs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.106Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.106Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "j85maaq0xmtig1f"
+    }
+  ]
+}

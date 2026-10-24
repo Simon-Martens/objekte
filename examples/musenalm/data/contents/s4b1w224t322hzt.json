@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphiken INr 135022, 135023; Obj 18, 19 /) mit zahlreichen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Alle Reisende, die Neapel besuchten, und in dem königlichen Museum zu Portici die aus dem verschütteten Pompeji und Herculanum wieder ausgegrabenen Altherthümer besahen, stimmen darin überein,",
+  "language": [],
+  "musenalm_id": 135049,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Römische Damentoilette, / Erster Blick. / Haarputz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Oberconsistorialrath Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Römische Damentoilette, / Erster Blick. / Haarputz",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.134Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "488p1itx4jcale3"
+    }
+  ]
+}

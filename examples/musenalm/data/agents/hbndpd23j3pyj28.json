@@ -1,0 +1,506 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.486Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller u. Diplomat; Kammergerichtsassessor in Wetzlar; Kurmainz. Direktoralgesandter am Reichstag in Regensburg; wurde 1788 in den Reichsadelsstand erhoben.",
+        "Freiherr, Baron; lt. \"Tschirch, Otto: Die Flugschrift \"Deutschland in seiner tiefen Erniedrigung\" und ihr Verfasser. - In: Historische Zeitschrift ; 165 (S. 47 ff)\" mutmaßl. Verf. der 1806 anonym erschienenen Flugschrift, vgl. auch Christoph Preu (IDN 128532343), Johann Christian Heinrich Adler (IDN 128532505), Johann Jakob Willemer (IDN 118633244), Julius Conrad von Yelin (IDN 116944528), Julius von Soden (IDN 118852027) sowie Philipp Christian Gottlieb Yelin (IDN 128532734)"
+      ],
+      "dateOfBirth": [
+        "1774-01-12"
+      ],
+      "dateOfDeath": [
+        "1826-12-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich John"
+          ],
+          "creditText": [
+            "„Gedichte“ (Frankfurt a. M. 1808, Fr. Wilmans)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/AugustFreiherrSteigentesch1774%E2%80%931826.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/AugustFreiherrSteigentesch1774%E2%80%931826.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:AugustFreiherrSteigentesch1774%E2%80%931826.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/118913840"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T17:10:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117237361/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/123901766",
+          "label": "Steigentesch, Conrad"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117237361",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/123901766",
+          "label": "Steigentesch, Conrad"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117237361",
+      "oldAuthorityNumber": [
+        "(DE-588a)118913840",
+        "(DE-588)118913840",
+        "(DE-588a)117237361",
+        "(DE-588c)4234280-6"
+      ],
+      "periodOfActivity": [
+        "1796-1798"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065878-8",
+          "label": "Wetzlar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4024881-1",
+          "label": "Hildesheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Steigentesch, August von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Steigentesch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132742-1",
+          "label": "General"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Steigentesch, Andreas von: Umständliche Nachricht von dem Mordbrande, welchen die Franz*",
+        "Mittheilungen aus dem Tagebuch eines Reisenden ..",
+        "Dramatische Versuche",
+        "Lustspiele",
+        "Baron Hohenberg, oder Betrug aus Liebe",
+        "Der Schiffbruch oder die Erben",
+        "Keratophoros",
+        "Die Zeichen der Ehe",
+        "Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb107132167"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059345"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/62347308"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q761203"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117237361/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118913840"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Ernst_von_Steigentesch"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Ernst_von_Steigentesch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081422475"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117237361"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117237361"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117237361"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Steigentesch, August Freiherr von",
+        "Steigentesch, Ernst August von",
+        "Steigentesch, Aug. v.",
+        "Steigentesch, A. F. von",
+        "Steigentesch, A.",
+        "Steigentesch, Aug. von",
+        "Steigentesch, Andreas",
+        "Steigentesch, August F. von",
+        "Steigentesch, Andreas von",
+        "Steigentesch, August Ernst von, Freiherr",
+        "Steigentesch, August Ernst Freiherr von",
+        "Steigentesch, August E.",
+        "Steigentesch, August Ernst von",
+        "Steigentesch, August E. von",
+        "Steigentesch, A. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Aug."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August E."
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "A. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "Aug."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August Ernst"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August Ernst"
+          ],
+          "prefix": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        },
+        {
+          "forename": [
+            "August Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steigentesch"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Ernst_von_Steigentesch",
+          "label": "https://de.wikipedia.org/wiki/August_Ernst_von_Steigentesch"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:00Z",
+    "gnd_query_biographical_data": "1774-1826",
+    "gnd_query_name": "steigentesch, august von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2750,
+  "name": "Steigentesch, August von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 296; Goed XI/2, 408",
+  "updated": "2026-06-11 13:29:25.168Z",
+  "uri": "https://d-nb.info/gnd/117237361",
+  "editor": ""
+}

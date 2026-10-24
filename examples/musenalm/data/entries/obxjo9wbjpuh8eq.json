@@ -1,0 +1,118 @@
+{
+  "annotation": "einziger Jahrgang /) §1§ B mit SS 185/186 fehlt; $§2§ vermutl. fehlen eine Vertonung sowie weitere Musikbeigaben (Tänze)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I-Verz, S C, 7 GG, 2 BB G-Verz, S 1 nT, SS 3- 206 §1§, 2 MusBB $§2§",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für weisen und frohen Lebensgenuß 1800",
+    "norm": "~",
+    "biblio": 407269,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3795,
+  "parallel_title": "",
+  "place_statement": "Altona (Hammerich)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Taschenbuch für weisen und frohen Lebensgenuß 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; nicht bei L/R",
+  "responsibility_statement": "A. Lindemann",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / weisen und frohen Lebens-Genuss / 1800. / von / A. LINDEMANN. / Mit Kupfern von / D. Chodowiecki, Bolt, Küffner, u. a. / Mit Liedern und Tänzen. ALTONA. / bey I. F. Hammerich",
+  "updated": "2026-06-11 10:18:55.043Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "07ij62xbsrzn5u2"
+  ],
+  "contents": [
+    "g4h2wtrcj0zqevx",
+    "npn6yj12f9c9egm",
+    "h0dh4qlvr1isb6u",
+    "j0cdzkoo3cy06v1",
+    "s30jp6z9ehlqlqr",
+    "zniiknpji6s1ske",
+    "dl2gr1l0gpl7v7e",
+    "p4nablu959eqck4",
+    "6mqahdg172biwhh",
+    "7678mie0usv40bd",
+    "799qybefkhanyd2",
+    "f3ejuz7ce1o3i5h",
+    "uckgyo641evzibk",
+    "frhzuwbtb0deyxq",
+    "tjfnfdmuxdh64jj",
+    "petvyfmvywson01",
+    "jkt3lb8rg176a9i",
+    "q8wob8z23obuns2",
+    "433t262mxuy5asi",
+    "b33t4szac79s863",
+    "twn72uznomhxlh1",
+    "sxfdo5z12mlz9qn",
+    "li6jklvwzbgmlq7",
+    "26sd59idagcvmd7",
+    "3mn1m3yoqbv3n8g",
+    "o34h67wndddlhse",
+    "usrhalysy7jqs2q",
+    "v0dmt5jxwiy8rcz",
+    "tb3n7kh88cfzohh",
+    "j8divkbyebwm0st",
+    "mls9hshh3vf0ebt",
+    "0ir82fzjoft7crv",
+    "ffkjr3ufeguioda",
+    "a6et3sll3i3ja2b",
+    "cc0a62gjf6ntvqr",
+    "0w33qie7863xiib",
+    "jlla1rqa8scfoqu",
+    "0tjioijkxt9pnsw",
+    "drltejydlkrqgh3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.960Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.960Z",
+      "agent": "51oritw9akg1ukj",
+      "source_id": "0y7pw8975sn1u1r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.297Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.297Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "9rya47sfhmd5vqh"
+    }
+  ]
+}

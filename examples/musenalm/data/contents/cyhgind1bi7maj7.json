@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Häuf', o Glück, den Mahagonitisch / Dem mit Austern voll und Kokosnüssen;",
+  "language": [],
+  "musenalm_id": 34832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das Glück",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.926Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "mizjjkhbtb1nvej"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsblätter (Sammlung INr 26147, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Wenn die Weiden / Grün sich kleiden, / Durch die Haiden / Munter fort,",
+  "language": [],
+  "musenalm_id": 26161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenzfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lenzfahrt",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.177Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "v99ev36wpp4t8ez"
+    }
+  ]
+}

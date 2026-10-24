@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Ich bin gesund, ich bin genesen; / Nichts weiter brauch' ich mehr vom Glück;",
+  "language": [],
+  "musenalm_id": 20283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Belindens Gelübde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Belindens Gelübde",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.036Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "g3iuto9vbqwlrho"
+    }
+  ]
+}

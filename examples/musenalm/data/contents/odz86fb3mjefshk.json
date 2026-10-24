@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Es ist die Welt von Ewigkeit / Nach festem Maß und Sinn gegründet;",
+  "language": [],
+  "musenalm_id": 46342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reflexion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Rodenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reflexion",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.050Z",
+      "agent": "mx1vnd1yqx32ae7",
+      "source_id": "egslgt2t0glensf"
+    }
+  ]
+}

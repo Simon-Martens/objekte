@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97168,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idunna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Haas. v. Schwan del.",
+  "scans": [
+    "alm_1925_97168_2risnoxp0b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Idunna",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.821Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "7svhq5foytv58hw"
+    }
+  ]
+}

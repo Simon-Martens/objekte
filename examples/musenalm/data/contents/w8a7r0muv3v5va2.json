@@ -1,0 +1,45 @@
+{
+  "annotation": "Verwehte Stimmen (Sammlung INr 45616, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Kommt die dunkle Nacht geflossen / Legt die Erde sich zum Schlafen,",
+  "language": [],
+  "musenalm_id": 45628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.530Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "rhrmky6wb1z58hb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83681,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[unleserlich] J. D. Heidenreich sc. 1793",
+  "scans": [
+    "alm_3675_83681_mjw9h9664s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.017Z",
+      "agent": "t7h2dhrrhx1xes3",
+      "source_id": "b7ja2luugc5qdai"
+    }
+  ]
+}

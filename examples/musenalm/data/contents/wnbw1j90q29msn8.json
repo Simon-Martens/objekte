@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Vier Stunden von Baden, über dem anmuthigen Thale, in welchem die Heilquellen der Hub hervorsprudeln, erheben sich, auf einem ziemlich steilen Bergrand, die Thürme der Burg Altwindeck.",
+  "language": [],
+  "musenalm_id": 45219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Burg Windeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alois Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Burg Windeck",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.491Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "7gl0f3scwlx8sn0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "die Gattin des Vorigen, wurde am 11. Dezember 17833 zu Leipzig geboren.",
+  "language": [],
+  "musenalm_id": 115690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna Amalia Wolff,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anna Amalia Wolff,",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.532Z",
+      "agent": "31iymrx6tazubtp",
+      "source_id": "hl4yflpbjpxabve"
+    }
+  ]
+}

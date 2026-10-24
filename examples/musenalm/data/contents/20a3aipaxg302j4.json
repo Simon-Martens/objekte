@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) # Bezeichnung und Angabe zum Titel aus dem G-Verz; s. Textbezug INr 25825, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25829,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus: Amor und Psyche #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael inv. pinx. Rieph. sc.",
+  "scans": [
+    "alm_174_25829_uea9aqx46b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus: Amor und Psyche #",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.338Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "xywywvel5p1raky"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.338Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "zrb1cmcrvl4xuny"
+    }
+  ]
+}

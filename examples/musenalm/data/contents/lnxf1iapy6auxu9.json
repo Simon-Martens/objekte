@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Topographie (Sammlung INr 68649, Obj 23) mit einer Illustration s. Graphik INr 68651, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Unter den vielen von den Fürsten der Sachsen erbauten Jagdschlössern zeichnet sich Moritzburg durch Alter, durch weiten Umfang und durch fortwährenden Gebrauch nach seiner frühesten Bestimmung , vorzüglich aus.",
+  "language": [],
+  "musenalm_id": 68650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moritzburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Cotta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moritzburg",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.261Z",
+      "agent": "q0o5713yclz1tm0",
+      "source_id": "wpn6n8f2fbwvvp9"
+    }
+  ]
+}

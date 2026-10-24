@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken INr 14055, 14057; Obj 2, 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Mit vorsichtig gespitzten Fingern brach Ehrn Trautmann, der erst seit ein paar Jährchen wohlbestallte Schulmeister zu Wilmsdorf, die schönsten Spalierpfirschen,",
+  "language": [],
+  "musenalm_id": 14073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vaterschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vaterschaft",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.594Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "fgtdc0ka3r8aa5j"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte auf Schauspieler (Sammlung INr 104656, Obj 22) Gedichte (Sammlung INr 104645, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Andre mögen dich mit Melpomenen gleichen - / Und verschwenden allen Götterstaat!",
+  "language": [],
+  "musenalm_id": 104667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Demoiselle Döbbelin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Demoiselle Döbbelin",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.801Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "r19byoc4591zymv"
+    }
+  ]
+}

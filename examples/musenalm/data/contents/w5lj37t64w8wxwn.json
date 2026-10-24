@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81658, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Von einem fernen tiefen See / In Lithau'n geht die Sage",
+  "language": [],
+  "musenalm_id": 81659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Eine Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Eine Sage",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.003Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "ystfbltcy6snj6a"
+    }
+  ]
+}

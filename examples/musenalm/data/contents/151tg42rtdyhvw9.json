@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22246,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 2. / Neapolitanische Gegend bei Vietri #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hackert pinx. F. Geissler sc.",
+  "scans": [
+    "alm_298_22246_mkmkda9fc3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 2. / Neapolitanische Gegend bei Vietri #",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.054Z",
+      "agent": "accgn0mek98ecwe",
+      "source_id": "1dlvv8iejtn1hnv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.054Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "dz913hq5n0gjscp"
+    }
+  ]
+}

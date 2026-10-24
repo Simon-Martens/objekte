@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Rundgesang« INr 129676, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang s. 24",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hausius",
+  "scans": [
+    "alm_3026_129677_gbx6ujc93l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang s. 24",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.046Z",
+      "agent": "uf91zrt87qnsu6f",
+      "source_id": "6k59jhce4pukg2i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Es ist umsonst, o nimmer kann ich künden / Wie ich es will, was fest mich hält umschlungen,",
+  "language": [],
+  "musenalm_id": 114837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Löwe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Klage",
+  "updated": "2012-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.295Z",
+      "agent": "6opc5xq453lnr5a",
+      "source_id": "5yp5d33uo6jsk60"
+    }
+  ]
+}

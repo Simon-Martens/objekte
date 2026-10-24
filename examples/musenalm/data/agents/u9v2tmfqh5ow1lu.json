@@ -1,0 +1,256 @@
+{
+  "annotation": "",
+  "biographical_data": "1763-1795",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.465Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Privatgelehrter, Lyriker, Erzähler, Historiker und Übersetzer"
+      ],
+      "dateOfBirth": [
+        "1763-11-01"
+      ],
+      "dateOfDeath": [
+        "1795-03-04"
+      ],
+      "describedBy": {
+        "dateModified": "2022-11-30T05:37:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/100328547/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100328547",
+      "id": "https://d-nb.info/gnd/100328547",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)100328547",
+        "(DE-588a)107395835",
+        "(DE-588a)111550394"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "preferredName": "Schaz, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Schaz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4451607-1",
+          "label": "Privatgelehrter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167874-6",
+          "label": "Literaturkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Nachträge zu Sulzers allgemeiner Theorie der schönen Künste",
+        "Schilderung der französischen Generale, die während des siebenjährigen Krieges in Deutschland gedient haben",
+        "Bluhmen auf den Altar der Grazien",
+        "Laura oder die Briefe einiger  Frauenzimmer in der französischen Schweiz. - 1788 - 1789",
+        "Übers. von: Franklin, Benjamin: Kleine Schriften",
+        "Übers. von: Goldoni, Carlo: Goldoni über sich selbst"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb16995208x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059209"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37259462"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94884022"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100328547/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081164920"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100328547"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100328547"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schatz, Georg",
+        "Schatz, G.",
+        "Schaz, G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Schatz"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schaz"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schatz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:45:48Z",
+    "gnd_query_biographical_data": "1763-1795",
+    "gnd_query_name": "schatz, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2403,
+  "name": "Schatz, Georg",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 413",
+  "updated": "2026-06-11 13:29:24.544Z",
+  "uri": "https://d-nb.info/gnd/100328547",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 35339, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Wer aller Welt gefallen will, / Der hat wohl Noth zu wachen.",
+  "language": [],
+  "musenalm_id": 35338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verlegenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eb. Fr. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verlegenheit",
+  "updated": "2003-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.333Z",
+      "agent": "0ootbto1f9k75z9",
+      "source_id": "9trdyjb78c62ez2"
+    }
+  ]
+}

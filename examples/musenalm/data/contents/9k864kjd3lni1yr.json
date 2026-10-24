@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Nicht weit von Breslau, in der Mitte bunter und reicher Berge, zwischen denen durch die üppigen Thäler laufen und ein Fluß sich Bahn gebrochen hat.",
+  "language": [],
+  "musenalm_id": 77865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Stillleben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Therese, Verfasserin der Briefe aus dem Süden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Stillleben",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.803Z",
+      "agent": "un665fta9qpg6db",
+      "source_id": "8ergu72ks4vpwxz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43205, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Die Schicksale des Vaters der berühmten Cleopatra sind in mehr als einer Hinsicht auch in unsern Tagen merkwürdig.",
+  "language": [],
+  "musenalm_id": 43235,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ptolemeus Auletes / (nach Saint Real bearbeitet)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ptolemeus Auletes / (nach Saint Real bearbeitet)",
+  "updated": "2006-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.286Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "3ztx6scefrie3vs"
+    }
+  ]
+}

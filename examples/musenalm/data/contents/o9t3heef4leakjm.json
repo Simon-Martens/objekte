@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Es blickt ein holdes Angesicht / Zur Kammer mir herein,",
+  "language": [],
+  "musenalm_id": 22601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Abendbesuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Abendbesuch",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.085Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "1b4xp4xx00olkds"
+    }
+  ]
+}

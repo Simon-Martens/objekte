@@ -1,0 +1,97 @@
+{
+  "annotation": "7 Jgg 1797-1803; 1797-1800: Leipzig (Sommer), 1801-1803: Weimar (Industrie-Comptoir); Hrsg.: J. D. Falk; 1804 erschien eine von Janus Eremita # d. J. Chr. Gretschel herausgegebener letzter Jahrgang /) fortgesetzt durch: Grotesken, Satyren und Naivitäten (Falk) 1806, 1807;  Taschenbuch, Neues für Freunde der Laune, des Scherzes und der Satire nach Falk 1814 /) Jgg. 1798-1800 auch als TA: Taschenbuch  für Freunde des Scherzes und der Satire. Herausgegeben von J. D. Falk. Neue wohlfeile Ausgabe […]; 2. Titel: Johannes Falk's satyrische Werke 1826, Bd 2 - Bd 4. Leipzig (Sommer). Als Band 5 und 6 dieser Reihe erschienen: Johannes Falk's satirische Werke. Fünfter [und sechster] Band. Satiren, erstes [und zweites] Bändchen. Neue wohlfeile Ausgabe. Leipzig, in der Sommerschen Buchhandlung. 1826 (diese Bände nicht bei K 119; nicht bei L/R 205, nicht bei Goed VIII, 48, 7; Goed VIII. 97, 195) 1804 erschien eine von Janus Eremita # d. J. Chr. Gretschel herausgegebener letzter Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 8 BB Kal, SS 1-336 darin 2 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1797",
+    "norm": "~",
+    "biblio": 100596,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2823,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 53; K 119; K 138; L/R 205; Goed VIII. 48, 7; Goed VIII. 97, 195; ADB VI, 549",
+  "responsibility_statement": "J. D. Falk",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Scherzes / und / der Satire. / Herausgegeben / von / J. D. Falk. / Nebst einem sauberen Conterfey / auf die Kantische Philosophie. / Mit Churfürstl. Sächs. Privilegio / Leipzig / in der Sommerschen Buchhandlung / 1797",
+  "updated": "2026-06-11 10:18:54.718Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "dtuwsuadbqvdp86"
+  ],
+  "contents": [
+    "k4ygo3sou4d4p1j",
+    "jra52eqyymhw49k",
+    "xct7b9fg20hx2pj",
+    "ek5s68p4yarw4nn",
+    "962fm4tthxkxmvr",
+    "rf9d34s7flxfv5f",
+    "h7q0wllk2tv7n7i",
+    "spodaha5kym1qjb",
+    "s5z6osvcrz4r7wz",
+    "s1ngj28j66tidk8",
+    "qmr5bnnildyxhkb",
+    "iawt1ulj7b0hz70",
+    "06pcp5mscf0n1ej",
+    "31395kgpz0u0pde",
+    "8ricz51kaa6vgn1",
+    "nl5tft3md0ukzx5",
+    "24wyi7w9my1j6ig",
+    "1lhz87iha6nxxts"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.149Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.149Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "hmwm6vtonu6nuf5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "rusbujuzjgfn9kq"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Hölderlin: Emilie vor ihrem Brauttag in: Taschenbuch für Frauenzimmer von Bildung 1800 INr 21863",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21753,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leybold del. D'Argent sc.",
+  "scans": [
+    "alm_295_21753_tpxehb981j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilie",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.999Z",
+      "agent": "6w8qpfg1b4btdfg",
+      "source_id": "5um1nd6caifgdw6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.999Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "clvn2tysd2v70a7"
+    }
+  ]
+}

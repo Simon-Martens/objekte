@@ -1,0 +1,87 @@
+{
+  "annotation": "§§ die beiden Portraits fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Feierstunden 1821",
+    "norm": "",
+    "biblio": 409550,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-04-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4511,
+  "parallel_title": "",
+  "place_statement": "Brünn (Traßler)",
+  "places": [],
+  "preferred_title": "Feierstunden 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; nicht bei L/R",
+  "responsibility_statement": "Ferdinand Freiherrn v. Biedenfeld; Christoph Kuffner",
+  "subtitle_statement": "",
+  "title_statement": "Feierstunden. &nbsp;Eine / Schrift / für edle / Unterhaltung / in zwanglosen Bänden. / Herausgegeben / von / Ferdinand Freiherrn v. Biedenfeld / und / Christoph Kuffner. / Erster Band. / Mit den Bildnissen von J. v. Hammer und Fr. Kind. / Brünn 1821. / Joseph Georg Traßler",
+  "updated": "2026-06-11 10:18:55.626Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "uueop92q540rjhv"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "w5h9y9l3v23rdps",
+      "source_id": "b8na6up01fqtzus"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.387Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.387Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "esdvas7fpcpwlj1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.387Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.387Z",
+      "agent": "pfo0elfwwaodex8",
+      "source_id": "phe9kbp8y55i8b5"
+    }
+  ]
+}

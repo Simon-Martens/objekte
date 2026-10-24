@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verlag J. D. Sauerländer] s. Textbezug INr 44108, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44107,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCENE AUF EINER BURGZINNE . / Das Original ist im Besitz der Prinzessin Albrecht von Preussen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. C. Teichs Gest. v. C. Gerhardt",
+  "scans": [
+    "alm_598_44107_l7ydup1v58.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCENE AUF EINER BURGZINNE . / Das Original ist im Besitz der Prinzessin Albrecht von Preussen.",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "s8m5gaoj6bj4b82",
+      "source_id": "3cd3uklmbl37xj6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "gouwqbfrx1w3pdd",
+      "source_id": "q6i308b3kggi8n0"
+    }
+  ]
+}

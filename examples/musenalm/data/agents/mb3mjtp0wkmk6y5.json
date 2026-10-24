@@ -1,0 +1,358 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1874",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.370Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580779",
+          "label": "Mendelssohn Bartholdy, Felix"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2003761-2",
+          "label": "Akademie der Bildenden Künste Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2016740-4",
+          "label": "Künstler-Verein Malkasten"
+        },
+        {
+          "id": "https://d-nb.info/gnd/125742-0",
+          "label": "Akademie der Künste und Mechanischen Wissenschaften zu Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5127590-9",
+          "label": "Königliche Kunstakademie zu Düsseldorf"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1830/31 in Rom; Vertreter der Düsseldorfer Malerschule ; Gründungsmitglied des Künstler-Vereins Malkasten Düsseldorf; 1832 Hilfslehrer und 1836 Professor an der Königlich Preußischen Kunstakademie in Düsseldorf"
+      ],
+      "dateOfBirth": [
+        "1804-07-02"
+      ],
+      "dateOfDeath": [
+        "1874-09-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "The original uploader was DALIBRI at German Wikipedia."
+          ],
+          "creditText": [
+            "Transferred from de.wikipedia to Commons."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Theodor%20Hildebrandt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Theodor%20Hildebrandt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Theodor%20Hildebrandt.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-21T06:52:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11680470X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11680470X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118580779",
+          "label": "Mendelssohn Bartholdy, Felix"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11680470X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4642933-5",
+        "(DE-588a)11680470X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057392-8",
+          "label": "Stettin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "preferredName": "Hildebrandt, Theodor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Theodor"
+        ],
+        "surname": [
+          "Hildebrandt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Historienmaler, Humorzeichner, Porträtmaler, Genremaler"
+      ],
+      "publication": [
+        "Reinick, Robert: Lieder eines Malers mit Randzeichnungen seiner Freunde. - 1838"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb160153216"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/hildebrandt-theodor/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74613077"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q540045"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11680470X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Theodor_Hildebrandt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Theodor_Hildebrandt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Theodor_Hildebrandt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000006668803X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11680470X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11680470X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11680470X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11680470X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11680470X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hildebrandt, Ferdinand Theodor"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ferdinand Theodor"
+          ],
+          "surname": [
+            "Hildebrandt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Theodor_Hildebrandt",
+          "label": "https://de.wikipedia.org/wiki/Theodor_Hildebrandt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:45:27Z",
+    "gnd_query_biographical_data": "1804-1874",
+    "gnd_query_name": "hildebrandt, theodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1188,
+  "name": "Hildebrandt, Theodor",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVII, 80",
+  "updated": "2026-06-11 13:29:22.931Z",
+  "uri": "https://d-nb.info/gnd/11680470X",
+  "editor": ""
+}

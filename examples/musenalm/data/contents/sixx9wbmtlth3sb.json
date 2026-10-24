@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober /) Illustration zu »Geschichte von Pommern und Rügen« von F. W. Barthold INr 81146, Obj 18 und zum Gedicht »Hertha-See« von H. Stieglitz INr 8169, Obj 41 /) s.a. Textbezug  in: Kalender, Berliner 1838; INr 88750",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81142,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER HERTHA-SEE AUF RÜGEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. W. Brüggemann gest. v. H. Fincke in Berlin",
+  "scans": [
+    "alm_872_81142_93ivhnefvg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER HERTHA-SEE AUF RÜGEN",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.901Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "eeqvpzajl3ma50n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.901Z",
+      "agent": "6y1rbulpf63gd61",
+      "source_id": "jtrh66nc9zm68jr"
+    }
+  ]
+}

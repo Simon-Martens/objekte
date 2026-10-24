@@ -1,0 +1,45 @@
+{
+  "annotation": "# Mit einer Vertonung des Gedichts in: Taschenbuch für häusliche und gesellschaftliche Freuden 1797 INr 35364. Das im I-Verz dort angebene Gedicht wird erst hier gedruckt.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Schlafe, mein Herzchen, 's ist gnung nun geschwärmt, / Gnug wieder getändelt, gehüpft und gelärmt",
+  "language": [],
+  "musenalm_id": 35621,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sauter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied #",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.596Z",
+      "agent": "g0tj5b3gu209p0h",
+      "source_id": "g2zquwexerjjiim"
+    }
+  ]
+}

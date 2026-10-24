@@ -1,0 +1,353 @@
+{
+  "annotation": "",
+  "biographical_data": "1794-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.380Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Pfarrer und Historiker; Vikar in Kornwestheim 1817-1820, Stadtpfarrverweser in Oberndorf am Neckar, Pfarrer in Bürg am Kocher 1820-1841, in Münchingen 1841-1842"
+      ],
+      "dateOfBirth": [
+        "1794-08-22"
+      ],
+      "dateOfDeath": [
+        "1842-11-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "n.n., edit by p.schmelzle"
+          ],
+          "creditText": [
+            "foto vor 1842, für wikipedia zur verfügung gestellt von der Ur-Ur-Ur-Enkelin, Selma Grönbeck, Illingen"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/C-f-jaeger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/C-f-jaeger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:C-f-jaeger.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172166012"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:17:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104288507/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117079901",
+          "label": "Jäger, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118825615",
+          "label": "Jaeger, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117058017",
+          "label": "Jaeger, Otto Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130169609",
+          "label": "Jäger, Philipp Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104288507",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117058017",
+          "label": "Jaeger, Otto Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117079901",
+          "label": "Jäger, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118825615",
+          "label": "Jaeger, Gustav"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/130169609",
+          "label": "Jäger, Philipp Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104288507",
+      "oldAuthorityNumber": [
+        "(DE-588)172166012",
+        "(DE-588a)104288507",
+        "(DE-588a)172166012"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4069840-3",
+          "label": "Cannstatt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4101717-1",
+          "label": "Münchingen (Landkreis Ludwigsburg)"
+        }
+      ],
+      "preferredName": "Jäger, Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl"
+        ],
+        "surname": [
+          "Jäger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        }
+      ],
+      "publication": [
+        "Handbuch für Reisende in den Neckargegenden von Cannstadt bis Heidelberg ..",
+        "Die Burg Weinsberg, genannt Weibertreue",
+        "Mittheilungen zur schwäbischen und fränkischen Reformationsgeschichte",
+        "Geschichte der Stadt Heilbronn und ihres ehemaligen Gebietes",
+        "Ulms Verfassungs-, bürgerliches und commercielles Leben im Mittelalter",
+        "Schwäbisches Städtewesen des Mittelalters",
+        "Hartmann, Julius: Johann Brenz. - 1840 - 1842",
+        "Pfister, Johann C. von: Geschichte der Verfassung des Wirtembergischen Hauses und Landes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84140553"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/285816043"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1731080"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104288507/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172166012"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Jaeger"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Friedrich_J%C3%A4ger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000023144200"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104288507"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104288507"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104288507.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104288507"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Jäger, Karl Friedrich",
+        "Jäger, Karl",
+        "Jaeger, Carl",
+        "Jäger, Carl Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Jaeger"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Jäger"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Jäger"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Jäger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Jaeger",
+          "label": "https://de.wikipedia.org/wiki/Karl_Friedrich_Jaeger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:50:33Z",
+    "gnd_query_biographical_data": "1794-1842",
+    "gnd_query_name": "jäger, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1290,
+  "name": "Jäger, Karl Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XIII, 653",
+  "updated": "2026-06-11 13:29:23.050Z",
+  "uri": "https://d-nb.info/gnd/104288507",
+  "editor": ""
+}

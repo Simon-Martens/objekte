@@ -1,0 +1,239 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.439Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. ev. Theologe, Pfarrer, Superintendent in Sobernheim u. Schriftsteller; Volksdichter"
+      ],
+      "dateOfBirth": [
+        "1798-08-15"
+      ],
+      "dateOfDeath": [
+        "1867-10-14"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-28T11:58:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-30",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-30"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1335489134/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-30",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-30"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1335489134",
+      "id": "https://d-nb.info/gnd/1335489134",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4486526-0",
+          "label": "Horn (Rhein-Hunsrück-Kreis)"
+        }
+      ],
+      "preferredName": "Oertel, Friedrich Wilhelm Philipp",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Wilhelm Philipp"
+        ],
+        "surname": [
+          "Oertel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/133160348X",
+          "label": "Lips, F. W."
+        },
+        {
+          "id": "https://d-nb.info/gnd/10427882X",
+          "label": "Horn, W. O. von"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1335489134/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1335489134"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter den Pseudonymen"
+      ],
+      "variantName": [
+        "Oertel, W.",
+        "Oertel, Wilhelm von",
+        "Oertel, F. W.",
+        "Oertel, Philipp Friedrich Wilhelm",
+        "Oertel, Philipp Wilhelm Friedrich",
+        "Oertel, F.W.",
+        "Oertel, Friedrich Wilhelm",
+        "Oertel, Wilhelm",
+        "Örtel, Friedrich Wilhelm",
+        "Oertel, Wilhelm Otto von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "F.W."
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "F. W."
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Örtel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Wilhelm Friedrich"
+          ],
+          "surname": [
+            "Oertel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:25:06Z",
+    "gnd_query_biographical_data": "1798-1867",
+    "gnd_query_name": "oertel, friedrich wilhelm philipp"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1987,
+  "name": "Oertel, Friedrich Wilhelm Philipp",
+  "profession": "Text",
+  "pseudonyms": "W. O. von Horn; Friedrich Wilhelm Lips",
+  "refs": "Goed (H) 365",
+  "updated": "2026-06-11 13:29:23.984Z",
+  "uri": "https://d-nb.info/gnd/1335489134",
+  "editor": ""
+}

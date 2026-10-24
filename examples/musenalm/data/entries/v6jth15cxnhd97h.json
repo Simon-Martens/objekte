@@ -1,0 +1,113 @@
+{
+  "annotation": "s. Nachträge in: Allgemeines historisches Taschenbuch oder Abriß der merkwürdigsten neuen Welt-Begebenheiten, für 1787; alm-927",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, gT, 18 BB Kal darin 12 GG, ar: SS 1-64, zT, 4 SS Vrwrt d Hrsg, 3 SS, ar1: SS 1-200, SS 201-272 G-Verz, S 272 C, 6 GG, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1786",
+    "norm": "~ +++ 406574 (Karte)",
+    "biblio": 101321,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 926,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 16",
+  "responsibility_statement": "M. C. Sprengel",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1786. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2026-06-11 10:18:55.883Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "ito9w5un2x2wola",
+    "o5ogd1d24y3ghvl"
+  ],
+  "contents": [
+    "73qaykybukbkieh",
+    "t5bljxog45m1tl2",
+    "ftl8q19sciy95v5",
+    "5lzo1p9jid3x44s",
+    "3haunjk7cu36g7f",
+    "i00wxs01qegcj9u",
+    "rkagzxmaoxpfcl3",
+    "nx4870619ghdocy",
+    "1xhix6sp1looeqh",
+    "vo8qdcn14wkzbfi",
+    "77u4bhd6tc2jot0",
+    "51z5w5n51o11ecz",
+    "d6orqzxl5le3dr0",
+    "t8bn7cyjrcdc740",
+    "8avjw58qaixmsuh",
+    "8epmzu12bpc84cr",
+    "8muogbti511hafd",
+    "sw5h4kfnxeqit2o",
+    "mirhi0rqyfzf1ak",
+    "12tw69g9k70ti0j",
+    "1e1h3z3469d1b5j",
+    "qmcxjg6v4ulcpmb",
+    "es23rtp3rkwqe6d",
+    "e5drwzd400zdxv7",
+    "5qje3h70v1kir75",
+    "oo3mp8awefaa38z",
+    "1cjm2jd6a3ez8yl",
+    "z8gsl63ptoqoh0l",
+    "8vw2trcmqj62pav",
+    "lusysmv84gamuyf",
+    "tx2vrfsjss3t3z6",
+    "3atwphk6bs44flx",
+    "jm8ezdd5a0wplal"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.974Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.974Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "4y4g0jkbizdjjir"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.779Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.779Z",
+      "agent": "1eqjoxnybezb6wq",
+      "source_id": "e65iu9l55yf46j2"
+    }
+  ]
+}

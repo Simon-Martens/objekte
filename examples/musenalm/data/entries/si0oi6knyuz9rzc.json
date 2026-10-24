@@ -1,0 +1,78 @@
+{
+  "annotation": "Kurzaufnahme. Graphiken, Titel, Inhaltsverzeichnis und Vorwort sind als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, SS III-VI G-Verz I-Verz, 2 SS Vrwrt d Hrsg, 2 SS 4 GG, SS1-406, 2 SS C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Von der Isar 1851",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 18,
+  "parallel_title": "",
+  "place_statement": "München (Chr. Kaiser)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Von der Isar 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K, nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Von der Isar. / Jahrbuch / des / Vereins für deutsche Dichtkunst in München / für das Jahr / 1851. / Mit / fünf Stahlstichen nach Originalzeichnungen / von / Bonaventura Genelli, Carl Piloty, August Bräutigam / und Friedrich Mayer. / München, 1851. / Christian Kaiser",
+  "updated": "2026-06-11 10:18:54.513Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "g5mll8ur66tgwmg",
+    "3lf3gy2i4tsfdbb",
+    "iv70v1t3sr3zbkz",
+    "wm0kwyhmvvic1l0",
+    "j5aepeekjuqd1cd",
+    "6axgl2zny4xpd2f",
+    "r91tgusgbl6nk0n",
+    "y0jgm6vnbo1c6eh",
+    "ppchjbyxw5c6elz",
+    "gi302je4y83j8in",
+    "rem4lunm4uz48b6",
+    "5hyzp1axa0avwda"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.651Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.651Z",
+      "agent": "humt8qco29flkds",
+      "source_id": "d1pp78xhb7weica"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 74973-74977, Obj 29-33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Gedichte",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.576Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "cbpjdm0vhyhk2pv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43238, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Ueber die Schönheit der Töchter der Könige wundert sich längst kein Mensch mehr, weil sie bei ihnen eine so natürliche Sache ist, als bei der Sonne das Licht,",
+  "language": [],
+  "musenalm_id": 43240,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schönheitswasser. / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schönheitswasser. / Ein Mährchen",
+  "updated": "2006-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.666Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "r0tvc4aaaj04juv"
+    }
+  ]
+}

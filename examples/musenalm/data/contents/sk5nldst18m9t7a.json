@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen /) mit 14 Illustrationen s. Titelportrait INr 68470, Obj 2; Graphiken INr 68473-68484, Obj 5-16; INr 68486, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es giebt Geister, die nur an sich glauben, und jede Einwirkung von andern auf ihre Eigenthümlichkeit mit Stolz von sich weisen. In frühster Jugend zeigte sich als einen solchen Albrecht von Wallenstein.",
+  "language": [],
+  "musenalm_id": 68485,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albrecht von Wallenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Albrecht von Wallenstein",
+  "updated": "2008-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.444Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "t1wm9f6348j57so"
+    }
+  ]
+}

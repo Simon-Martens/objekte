@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "In stiller abgeschlossner Zelle, / Der Weisheit nur sich weihend, denkt / Oft bis zur zweyten Morgenhelle / Der weise Sophron tiefversenkt.",
+  "language": [],
+  "musenalm_id": 14522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schranken der Endlichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese von Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schranken der Endlichkeit",
+  "updated": "2001-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.568Z",
+      "agent": "easxd2ciuxkfl7o",
+      "source_id": "x7frcxw1a6t71ky"
+    }
+  ]
+}

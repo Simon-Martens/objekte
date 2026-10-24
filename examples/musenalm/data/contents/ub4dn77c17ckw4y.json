@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Jüngling bringt seiner Braut am Morgen der Hochzeit die purpurglühende Wange, den jugendlich feurigen Liebesblick, die hüpfende Welle des Bluts im zärtlichen Druck der Hand,",
+  "language": [],
+  "musenalm_id": 43906,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose von Salerno",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose von Salerno",
+  "updated": "2006-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.116Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "q7ssnkhjbuvt0y2"
+    }
+  ]
+}

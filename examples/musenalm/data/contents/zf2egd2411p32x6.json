@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Es sind schon mehrere Jahre her, daß der Wunsch, welcher in unbestimmter Sehnsucht fast Jeden erfüllt, dem es erlaubt und der es fähig ist, eine Spanne breit über den Alltagskreislauf des Lebens hinauszublicken,",
+  "language": [],
+  "musenalm_id": 64444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der letzte Scudo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amelie Götzenberger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der letzte Scudo",
+  "updated": "2009-06-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.346Z",
+      "agent": "p55xdav9owdwh3u",
+      "source_id": "6pm2tk1mbt4fon9"
+    }
+  ]
+}

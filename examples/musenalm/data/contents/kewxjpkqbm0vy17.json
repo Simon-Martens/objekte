@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88724,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIA NICOLAJEWNA, / Grossfürstin von Russland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von F. Krüger. Gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_873_88724_c1b6ec2uyr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIA NICOLAJEWNA, / Grossfürstin von Russland",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.038Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "op82hoj22zut82n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.038Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "zpfz04b4acly6lb"
+    }
+  ]
+}

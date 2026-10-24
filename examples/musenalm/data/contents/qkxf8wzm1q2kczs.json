@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Nein, mich täuschest du nicht! Stein, sagst du, sind diese / Gebilde? / Starren Zügen entströmt solch ein unendlicher Schmerz?",
+  "language": [],
+  "musenalm_id": 14293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Canova. / Beym Grabmahle in der Augustinerkirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justine Freyinn v. Krufft",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Canova. / Beym Grabmahle in der Augustinerkirche",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.297Z",
+      "agent": "igdgpg4w9acg6tm",
+      "source_id": "2rg2ot9nz3m3618"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Die Frau von Z. schrieb jüngst vom Lande / Nach unsrer Residenz an eine Frau von Stande:",
+  "language": [],
+  "musenalm_id": 12071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schreiben einer adelichen Dame auf dem / Lande an eine Dame in der Residenz, mit / Bitte um einen Hofmeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schreiben einer adelichen Dame auf dem / Lande an eine Dame in der Residenz, mit / Bitte um einen Hofmeister",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.284Z",
+      "agent": "b4ycj3ue3as52r2",
+      "source_id": "8x4nlsdv2con7sc"
+    }
+  ]
+}

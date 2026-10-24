@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) # Titel s. Textbezug INr 61005, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61017,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leonidas #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meisen. Meno Haas sc. Berlin 1795",
+  "scans": [
+    "alm_951_61017_d1tzjn8qfv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leonidas #",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.008Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "97gm3xjvy3h5je9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.008Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "s2n97lzqnshr5r4"
+    }
+  ]
+}

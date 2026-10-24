@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Phönix. Zweites Kapitel (INr 70707, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Auf einer glücklichen Insel lebten zwei Jünglinge, schön von Körper und Seele, noch unberührt von der Sünde.",
+  "language": [],
+  "musenalm_id": 70739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die erste Fessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die erste Fessel",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.481Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "73kbglcul0v5xod"
+    }
+  ]
+}

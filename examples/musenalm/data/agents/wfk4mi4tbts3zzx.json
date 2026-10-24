@@ -1,0 +1,415 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.433Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter, Oberstleutnant; Kurhessischer Fähnrich, schriftstellernder Freund J. G. Seumes"
+      ],
+      "dateOfBirth": [
+        "1759"
+      ],
+      "dateOfDeath": [
+        "1836"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1057566179"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:39:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118894358/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118894358",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.4p",
+          "label": "Personen zu politischer Theorie, Militär"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118894358",
+      "oldAuthorityNumber": [
+        "(DE-588)1057566179",
+        "(DE-588a)118894358",
+        "(DE-588c)4227117-4"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Klein-Oldendorf"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Lauenau"
+      ],
+      "preferredName": "Münchhausen, Karl Ludwig August von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Ludwig August"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Münchhausen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "publication": [
+        "Seume, Johann G.: Rückerinnerungen. - o. J.",
+        "Seume, Johann G.: Ruckerinnerungen von Seume u. Münchhausen",
+        "Münchhausen, Karl L. von: Eichenblätter",
+        "Barden-Almanach der Deutschen für 1802",
+        "Münchhausen, Karl L. von: Die Stimme Europa's, im letzten Jahre des achtzehnten Jahrh*",
+        "Seume, Johann G.: Rückerinnerungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr96011831"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64805728"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1732200"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1057566179"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118894358/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_August_Heino_von_M%C3%BCnchhausen"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Ludwig_August_Heino_Freiherr_von_M%C3%BCnchhausen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000049817004"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118894358"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118894358.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118894358"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Münchhausen, K. von",
+        "Münchhausen, L. A.",
+        "Hoym, Karl Kledwig August",
+        "Münchhausen, Carl L. von",
+        "Muenchhausen, Karl Ludwig August von",
+        "Münchhausen, Karl",
+        "Münchhausen, Karl L. von",
+        "Münchhausen, Karl Ludwig August",
+        "Münchhausen, Karl Ludwig August Heino von",
+        "Münchhausen",
+        "Münchhausen, Karl Kledwig August Hoym von",
+        "Münchhausen, Karl K. von",
+        "Münchhausen, Karl C. von",
+        "Münchhausen, Carl Ludwig August Heino von",
+        "Münchhausen, C. H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Carl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig August Heino"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "K."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "C. H."
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig August"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "L. A."
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Muenchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl K."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Kledwig August Hoym"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig August Heino"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Kledwig August"
+          ],
+          "surname": [
+            "Hoym"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_August_Heino_von_M%C3%BCnchhausen",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ludwig_August_Heino_von_M%C3%BCnchhausen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:21:00Z",
+    "gnd_query_biographical_data": "1759-1836",
+    "gnd_query_name": "münchhausen, karl ludwig august von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1903,
+  "name": "Münchhausen, Karl Ludwig August von",
+  "profession": "Text u. Graphik",
+  "pseudonyms": "",
+  "refs": "Goed V, 415; Goed X, 615",
+  "updated": "2026-06-11 13:29:23.895Z",
+  "uri": "https://d-nb.info/gnd/118894358",
+  "editor": ""
+}

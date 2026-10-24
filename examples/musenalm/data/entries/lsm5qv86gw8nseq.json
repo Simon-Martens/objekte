@@ -1,0 +1,106 @@
+{
+  "annotation": "zur Ausstattung des Taschenbuchs s.: Historisches Museum der Stadt Wien Erste Sonderausstellung April - Oktober 1959 Hieronymus Löschenkohl 1753-1807. Im Eigenverlag des Museums. Katalog Nr 292. Dort: Mit gestochenem Titel, Titelkupfer, 12 Monatskupfer, 20 kol. Modekupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG r. VB, gT, SS 1-16 Kal, SS 17-41 Tab, S 42 I-Verz, SS 43-69, SS 69-72 G-Verz, 4 BB Tabb, §§ GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender der Küsse für Freundschaft und Liebe (Wien, Loeschenkohl) 1793",
+    "norm": "~§§ Graphik verso, 12 Monatskupfer, 20 kol Modekupfer, Unschlaggraphik v. fehlen",
+    "biblio": 411312,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-11-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4822,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Kalender der Küsse für Freundschaft und Liebe (Wien, Loeschenkohl) 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "H. Löschenkohl",
+  "subtitle_statement": "",
+  "title_statement": "KALENDER / der / Küsse / für / Freundschaft / und / Liebe / auf das Jahr / 1793 / von H. Löschenkohl / in Wien",
+  "updated": "2026-06-11 10:18:55.743Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "hwq42xoeis8bhkn"
+  ],
+  "contents": [
+    "to0l13eashupkyw",
+    "tdgm6afu3k1u2wq",
+    "plk2ofcq7qx2b4c",
+    "5cobmhdfb9uclvw",
+    "z6da9ehr5w4ke9c",
+    "uiinwmbl8c1w1na",
+    "r1imhzo6apflszw",
+    "q8tpzoec2460b2j",
+    "wgqe1je8ofabbj8",
+    "et0afghvbkdch51",
+    "lelwntxvkijg7nt",
+    "o423rbl0fzzx6n4",
+    "9kd5e934gdmlidm",
+    "wga4baelqo65lef",
+    "x7c9nmc4qtv9e9r",
+    "701t80it1tpwscc",
+    "ydhn4jqhzef2od2",
+    "9qa9nscyzhkh9cm",
+    "y7xs0u7pf6l19an",
+    "h8c751ehfrnovr4",
+    "k7zxrfqvh2mfpjy",
+    "3kry1962bssf4ij",
+    "21lrfv8koa7956l",
+    "qtbcfhwzrwjqk9j",
+    "6i7md2038mycft7",
+    "xfa3sd89nrbcr2h",
+    "t96mvsvmkdf66xk",
+    "y1u3ha4kagueh93",
+    "87tn353a6x4qwhp",
+    "5tzj81j0bkzv5ev",
+    "iqbvr0pye8tqj07",
+    "hweck5vle15o95i",
+    "w8bvjld3l7f5gt8",
+    "c292i00hjyn4ecw",
+    "xanqsak5a759r30",
+    "qbwe7z3n125q7it",
+    "o0pnnylwndzmnqo",
+    "5e6zvcy1lbc8cr1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.431Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.431Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "3ei61lrnhcvmd20"
+    }
+  ]
+}

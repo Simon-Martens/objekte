@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89373,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zeichen meiner Hochachtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. I. Krepp sc.",
+  "scans": [
+    "alm_3342_89373_x16hb0xmt1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Zeichen meiner Hochachtung",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "hex223fjke446i6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "y1lvkvxqi2977bj"
+    }
+  ]
+}

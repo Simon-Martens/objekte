@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Gern guckt die Neugier über'n Zaun / In ihres Nachbars Garten,",
+  "language": [],
+  "musenalm_id": 128864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Garten zu Mühlbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ul Petrak",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Garten zu Mühlbach",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.988Z",
+      "agent": "vdepyw8qrxrqtk6",
+      "source_id": "qszlvxjvczw3qi8"
+    }
+  ]
+}

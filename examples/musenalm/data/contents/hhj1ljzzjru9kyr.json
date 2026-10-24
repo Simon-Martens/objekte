@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "In der Nähe von Paris, zu Mont Souris besaß der alte treue Didier ein kleines Häuschen.",
+  "language": [],
+  "musenalm_id": 113951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Remi und Maurile",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Remi und Maurile",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.377Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "jbsum9uh6znixcg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "P. P. Ich habe die mir von meinem sel. Oheim codicillarisch anbefohlene Reise bereits im vorigen Jahre angetreten und habe Polen, Ungarn, Türkei und Italien durchstreift,",
+  "language": [],
+  "musenalm_id": 64948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / An die Verlagshandlung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anselmus Eberhardus junior",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / An die Verlagshandlung",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.988Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "amj6zv6g4d9f7ec"
+    }
+  ]
+}

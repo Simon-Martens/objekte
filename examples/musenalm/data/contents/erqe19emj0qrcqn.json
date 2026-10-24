@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtigallen-Einsamkeit (Sammlung INr 119321, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Gut' Nacht, fahr wohl, süßsanftes Herz, / Zu tausend gute Nacht!",
+  "language": [],
+  "musenalm_id": 119322,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gut' Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gut' Nacht",
+  "updated": "2017-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.693Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "kpi0he0c7rvt609"
+    }
+  ]
+}

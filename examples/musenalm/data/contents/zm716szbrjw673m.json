@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Der Unterthanen Thränen fliessen, / O Fürst! um dein Asche nicht;",
+  "language": [],
+  "musenalm_id": 75272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Sarg eines Nero",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Rahmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Sarg eines Nero",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.400Z",
+      "agent": "apv8utbqro872oi",
+      "source_id": "ewqmzwhmk6s3d3w"
+    }
+  ]
+}

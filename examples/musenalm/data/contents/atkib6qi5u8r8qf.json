@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Ich denke nur an dich; / Und, o, wie gern! / Ich träume nur von dir; / Und, o wie süß!",
+  "language": [],
+  "musenalm_id": 84013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sie",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.139Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "r1yy6c4rs6kdhh6"
+    }
+  ]
+}

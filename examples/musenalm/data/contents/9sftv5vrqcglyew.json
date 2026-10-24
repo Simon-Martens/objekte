@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September; nummeriert 3. /) s. Textbezug 108613, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108601,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thankmar wird am Altar / getödtet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc. 1795",
+  "scans": [
+    "alm_2174_108601_rzav7xjdon.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thankmar wird am Altar / getödtet",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.254Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "zzzs6u7pmst9i8k"
+    }
+  ]
+}

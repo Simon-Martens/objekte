@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Bemerkungen aus der Kinderstube (Sammlung INr 48565, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "369",
+  "incipit_statement": "Die Behandlung der Kinder ist bey den meisten Aeltern, selbst gebildete nicht ausgenommen, sehr oft darum ein Mißhandeln, weil sie nicht nach dem Inbegriff ihrer Anlagen und Eigenschaften,",
+  "language": [],
+  "musenalm_id": 48575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Behandlung der Kinder ist bey den meisten Aeltern, selbst gebildete nicht ausgenommen, sehr oft darum ein Mißhandeln, weil sie nicht nach dem Inbegriff ihrer Anlagen und Eigenschaften,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.308Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "ux9f04tgtxfg6pp"
+    }
+  ]
+}

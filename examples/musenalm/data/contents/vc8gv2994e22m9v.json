@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 28833, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Also hätte ich doch einmal Deine Vorstellung von meiner Festigkeit übertroffen?",
+  "language": [],
+  "musenalm_id": 28832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Briefe einer jungen Malerinn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Minna S***",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Briefe einer jungen Malerinn",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.489Z",
+      "agent": "6bba95qi5qffiw1",
+      "source_id": "rt73zwdv1czh7im"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Heil dir, o Klopstock! / Heil und Bewunderung! / Flammenden, stammeln Dank / Bebt dir die Lippe,",
+  "language": [],
+  "musenalm_id": 72546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ryno an Klopstock. / But thou thyself movest alone: who can / be a campanion of the course? / Ossian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. I. Salis Contessa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ryno an Klopstock. / But thou thyself movest alone: who can / be a campanion of the course? / Ossian",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.638Z",
+      "agent": "kpi9u93u4rl2rz9",
+      "source_id": "l3p9j3attlvn4eg"
+    }
+  ]
+}

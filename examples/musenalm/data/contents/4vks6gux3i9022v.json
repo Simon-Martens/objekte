@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der unheimliche Gast« von F. de la Motte Fouqué INr 29188, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus der Erzählung: Der unheimliche Gast / von Friedr. de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_377_29189_7oz07ga6kj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus der Erzählung: Der unheimliche Gast / von Friedr. de la Motte Fouqué",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "fttrfhdcj7y5ez0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "p0he3afmr2vyyoc"
+    }
+  ]
+}

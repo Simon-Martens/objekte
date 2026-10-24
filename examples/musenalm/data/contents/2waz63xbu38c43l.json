@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Für dieses mal nur wünschte ich mir Ruhm und das Ansehen eines Voltaire,",
+  "language": [],
+  "musenalm_id": 8021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine unbekannten Freunde in Hamburg. / Halberstadt d. 26. Jul.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine unbekannten Freunde in Hamburg. / Halberstadt d. 26. Jul.",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.429Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "exqnyi46i9e0me0"
+    }
+  ]
+}

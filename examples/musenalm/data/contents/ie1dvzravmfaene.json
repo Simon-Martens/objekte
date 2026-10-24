@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Wenn auf der Verzweiflung Wogen ich / bin, / Treibt rund mich umher mein wilder Sinn;",
+  "language": [],
+  "musenalm_id": 16819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freygeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freygeist",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.639Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "jp3r9bibbtx2yxx"
+    }
+  ]
+}

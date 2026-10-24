@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug (Gedicht) INr 101478, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101472,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das betende Kind. / Gedicht von J. P. Vogl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Holmes invt. C. Kotterba sculp.",
+  "scans": [
+    "alm_4004_101472_ss56y0m2vx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das betende Kind. / Gedicht von J. P. Vogl",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.710Z",
+      "agent": "o35klaui3dd8sla",
+      "source_id": "vtbb2fyc900v8or"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.710Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "w8ed1wke4fhtwgf"
+    }
+  ]
+}

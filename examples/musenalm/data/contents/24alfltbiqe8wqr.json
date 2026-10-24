@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 90009, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90008,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEILIGE FAMILIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andrea del Sarto F. John sc.",
+  "scans": [
+    "alm_229_90008_xishyjkrg2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEILIGE FAMILIE",
+  "updated": "2001-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.279Z",
+      "agent": "qisfg152dqlm7s2",
+      "source_id": "kczwm6ess0v2rws"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.279Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "kfqbddqkzs6fhyr"
+    }
+  ]
+}

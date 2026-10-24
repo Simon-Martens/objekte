@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 94802, 94803; Obj 42, 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blumenballaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blumenballaden",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.368Z",
+      "agent": "demesi9ujep1ia6",
+      "source_id": "zh1qd2kphprkz7z"
+    }
+  ]
+}

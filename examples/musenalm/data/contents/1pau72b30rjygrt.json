@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Schön ist Mutter Natur, deiner Erfin- / dung Pracht / Auf die Fluren verstreut, schöner ein froh Ge- / sicht,",
+  "language": [],
+  "musenalm_id": 92431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zürcher-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zürcher-See",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.371Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "nd7l8ayxj47614r"
+    }
+  ]
+}

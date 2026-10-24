@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Es waren Zeiten einst; ich hieß der Kleine, / Mein ganzer Leib war einer Ellen hoch.",
+  "language": [],
+  "musenalm_id": 6074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ich klein war. / Nach Baggesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ich klein war. / Nach Baggesen",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.259Z",
+      "agent": "anq3gu79zmuyrfg",
+      "source_id": "w3ga8d6wwz5ylzn"
+    }
+  ]
+}

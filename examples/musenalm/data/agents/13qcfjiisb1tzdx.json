@@ -1,0 +1,330 @@
+{
+  "annotation": "",
+  "biographical_data": "1810-1885",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.274Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Journalist, Dichter und Übersetzer, Mitglied der Loge Sokrates zur Standhaftigkeit"
+      ],
+      "dateOfBirth": [
+        "1810-04-22"
+      ],
+      "dateOfDeath": [
+        "1885-09-26"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:25:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116424907/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Walter"
+          ],
+          "surname": [
+            "Braunfels"
+          ]
+        },
+        {
+          "forename": [
+            "Helene"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116424907",
+      "id": "https://d-nb.info/gnd/116424907",
+      "oldAuthorityNumber": [
+        "(DE-588a)116424907"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "preferredName": "Braunfels, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Braunfels"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048755-6",
+          "label": "Rechtsanwalt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4219681-4",
+          "label": "Romanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Braunfels, Ludwig: Agnes",
+        "Ponsard, François: Geld und Ehre",
+        "Der Nibelunge Noth",
+        "Braunfels, Ludwig: Gedichte",
+        "Cervantes Saavedra, Miguel de: Der sinnreiche Junker Don Quijote von der Mancha",
+        "Dramen aus und nach dem Spanischen",
+        "Braunfels, Ludwig: Entwickelung der staatlichen Verhältnisse Frankfurt's bis zum Jahre 16*",
+        "Braunfels, Ludwig: Entwickelungen der staatlichen Verhältnisse Frankfurts ...",
+        "Braunfels, Ludwig: Kritischer Versuch über den Roman Amadis von Gallien"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1191310442",
+          "label": "Exlibris (Wappen, Motto, Braunfels, Ludwig), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83238234"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/72144833"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q97516"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116424907/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Braunfels"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?116424907"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081526629"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116424907"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116424907"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116424907.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116424907.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116424907"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116424907"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Braunfels, Lazarus",
+        "Braunfels, Lewis",
+        "Braunfels, L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lazarus"
+          ],
+          "surname": [
+            "Braunfels"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Braunfels"
+          ]
+        },
+        {
+          "forename": [
+            "Lewis"
+          ],
+          "surname": [
+            "Braunfels"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Braunfels",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Braunfels"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:01:21Z",
+    "gnd_query_biographical_data": "1810-1885",
+    "gnd_query_name": "braunfels, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 295,
+  "name": "Braunfels, Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLVII, 209",
+  "updated": "2026-06-11 13:29:21.721Z",
+  "uri": "https://d-nb.info/gnd/116424907",
+  "editor": ""
+}

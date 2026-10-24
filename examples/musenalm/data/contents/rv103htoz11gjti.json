@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Grünmantel von Venedig« von H. Clauren d.i. C. G. S. Heun INr 102690, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gensdarmen kommen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Fr. Bolt sc. 1817",
+  "scans": [
+    "alm_3363_102691_hi00y25ai1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gensdarmen kommen!",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.167Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "a58kq7kjiwg50c6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.167Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "arzp73rw4jzw1qg"
+    }
+  ]
+}

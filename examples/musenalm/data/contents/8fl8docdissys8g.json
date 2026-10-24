@@ -1,0 +1,45 @@
+{
+  "annotation": "Erinnerungen aus England (Sammlung INr 43675, Obj 20) Dem Text vorangestellt: Ach, an der Erde Brust, / Sind wir zum Leide da. / Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Ich hatte, während eines kurzen Aufenthaltes zu Dulwich, einen Freund zu Clapham besucht und trat, nach einem einfachen Mittagsmahl,",
+  "language": [],
+  "musenalm_id": 43679,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Greis in Dulwich College",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Greis in Dulwich College",
+  "updated": "2006-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.378Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "tux0vbpivxpyyrw"
+    }
+  ]
+}

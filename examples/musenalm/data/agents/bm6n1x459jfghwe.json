@@ -1,0 +1,570 @@
+{
+  "annotation": "",
+  "biographical_data": "1740-1815",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.289Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/36164-1",
+          "label": "Friedrich-Schiller-Universität Jena"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Dichter, Übersetzer, Redakteur der Zeitung \"Wandsbecker Bothe\"; ab 1759 Theol.-Student in Jena, wechselte vermutlich schon im 1. Studienjahr zu den Kameralwissenschaften"
+      ],
+      "dateOfBirth": [
+        "1740-08-15"
+      ],
+      "dateOfDeath": [
+        "1815-01-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "after a painting by Friederike Leisching"
+          ],
+          "creditText": [
+            "User DarkScipio on de.wikipedia"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20claudius.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20claudius.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20claudius.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/140321888",
+        "https://d-nb.info/gnd/174169698"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-07T11:18:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118521098/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1053060327",
+          "label": "Claudius, Christiane"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1243905840",
+          "label": "Claudius, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116539151",
+          "label": "Claudius, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116531681",
+          "label": "Claudius, Friedrich Matthias Jacobus"
+        },
+        {
+          "forename": [
+            "Erich"
+          ],
+          "surname": [
+            "Claudius"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118676334",
+          "label": "Claudius, Hermann"
+        },
+        {
+          "forename": [
+            "Matthias"
+          ],
+          "surname": [
+            "Claudius"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118790471",
+          "label": "Perthes, Friedrich Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1315721147",
+          "label": "Claudius, Louise Rebecca Antoinette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118676342",
+          "label": "Claudius, Rebecca"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119384183",
+          "label": "Lorck, Josias"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116531568",
+          "label": "Claudius, Christian Detlev"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1026497752",
+          "label": "Claudius, Christian Detlev"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117032409",
+          "label": "Jacobi, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1023115212",
+          "label": "Claudius, Matthias"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118521098",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/119384183",
+          "label": "Lorck, Josias"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1026497752",
+          "label": "Claudius, Christian Detlev"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116531681",
+          "label": "Claudius, Friedrich Matthias Jacobus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117032409",
+          "label": "Jacobi, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1053060327",
+          "label": "Claudius, Christiane"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1243905840",
+          "label": "Claudius, Johannes"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1315721147",
+          "label": "Claudius, Louise Rebecca Antoinette"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1023115212",
+          "label": "Claudius, Matthias"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116531568",
+          "label": "Claudius, Christian Detlev"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118676342",
+          "label": "Claudius, Rebecca"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118521098",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)140321888",
+        "(DE-588c)4010260-9",
+        "(DE-588a)174169698",
+        "(DE-588a)118521098",
+        "(DE-588)174169698",
+        "(DE-588a)134620690",
+        "(DE-588)140321888",
+        "(DE-101c)310310695",
+        "(DE-588a)128327855"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4079036-8",
+          "label": "Wandsbek"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4049233-3",
+          "label": "Reinfeld (Holstein)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Claudius, Matthias",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Matthias"
+        ],
+        "surname": [
+          "Claudius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1069792772",
+          "label": "Asmus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1069794791",
+          "label": "Invalide Görgel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1069794651",
+          "label": "Wandsbecker Bote"
+        }
+      ],
+      "publication": [
+        "Werke",
+        "Matthias Claudius spricht zu uns",
+        "Übers. von: Christian Brückner liest Platons Apologie. 1 CD",
+        "Predigt eines Laienbruders zu Neu-Jahr 1814",
+        "Auch ein Beytrag über die Neue Politick",
+        "Von und Mit dem ungenannten Verfasser der \"Bemerkungen\" ..",
+        "Asmus omnia sua secum portans",
+        "Übers. von: Fénelon, François: Gedanken zur reinen Gottesliebe"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50066832"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73933830"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77338"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118521098/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/140321888"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174169698"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Matthias_Claudius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Matthias_Claudius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Matthias_Claudius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Matthias_Claudius"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118521098"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118521098"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118521098.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118521098.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118521098"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118521098"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118521098"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Claudius, M.",
+        "Claudius, Mathias",
+        "Claudius",
+        "Ḳlaudius, M.",
+        "Клаудиус, Маттиас"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Маттиас"
+          ],
+          "surname": [
+            "Клаудиус"
+          ]
+        },
+        {
+          "personalName": [
+            "Claudius"
+          ]
+        },
+        {
+          "personalName": [
+            "Claudius"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Claudius"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Ḳlaudius"
+          ]
+        },
+        {
+          "forename": [
+            "Mathias"
+          ],
+          "surname": [
+            "Claudius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Matthias_Claudius",
+          "label": "https://de.wikipedia.org/wiki/Matthias_Claudius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:07:27Z",
+    "gnd_query_biographical_data": "1740-1815",
+    "gnd_query_name": "claudius, matthias"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 417,
+  "name": "Claudius, Matthias",
+  "profession": "Text",
+  "pseudonyms": "Asmus",
+  "refs": "Goed IV/1, 973, H/B 20",
+  "updated": "2026-06-11 13:29:21.891Z",
+  "uri": "https://d-nb.info/gnd/118521098",
+  "editor": ""
+}

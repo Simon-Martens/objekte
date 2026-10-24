@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Phantasiegemälde (Döring) 1829",
+    "norm": "",
+    "biblio": 408398,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2436,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Phantasiegemälde (Döring) 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 94; nicht bei L/R; Goed VIII. 105, 240",
+  "responsibility_statement": "Dr. Georg Döring",
+  "subtitle_statement": "",
+  "title_statement": "Phantasiegemälde / von / Dr. Georg Döring. / Für 1829. / Frankfurt am Main, / bei Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.960Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "a21bc7zxqdv7rhl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.145Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.145Z",
+      "agent": "vdibl0sr5wticbe",
+      "source_id": "834od6jssxyfugo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.094Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.094Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "8sm8imz94t7tgbv"
+    }
+  ]
+}

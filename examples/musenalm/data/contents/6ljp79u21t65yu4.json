@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 45937-45948, Obj 41-52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder aus Tirol",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder aus Tirol",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.461Z",
+      "agent": "xgh72r9y3fxa6u5",
+      "source_id": "mzx1322wk7frzee"
+    }
+  ]
+}

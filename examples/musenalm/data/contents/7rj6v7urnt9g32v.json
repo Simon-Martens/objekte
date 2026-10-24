@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Der Wald öffnete sich und die matte Lichtung des von Wolken umzogenen Himmels ließ erkennen, daß man auf dem Plateau eines Berges angelangt war.",
+  "language": [],
+  "musenalm_id": 117097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbstverklagung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selbstverklagung",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.639Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "8zux42w1unrt54c"
+    }
+  ]
+}

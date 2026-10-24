@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 41570,01-41570,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41570,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige des Inhalts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_546_41570_01_pxby7pvp30.jpg",
+    "alm_546_41570_02_5h0q0fab1r.jpg",
+    "alm_546_41570_03_t1dawa97vu.jpg",
+    "alm_546_41570_04_4iv9hbnjlt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige des Inhalts",
+  "updated": "2005-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": []
+}

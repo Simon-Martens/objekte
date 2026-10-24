@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Wenn gleich in einem Almanache, der eigens den Freunden des Carnevals gewidmet ist, eine warnende Stimme nicht vermißt werden dürfte, so dünkt sie uns auch hier nicht am unrechten Orte zu seyn.",
+  "language": [],
+  "musenalm_id": 106338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Memento",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Polt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Memento",
+  "updated": "2015-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.979Z",
+      "agent": "124n4uha887tew6",
+      "source_id": "uxuj9xqj7iwr9es"
+    }
+  ]
+}

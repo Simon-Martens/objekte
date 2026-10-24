@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1867",
+    "norm": "",
+    "biblio": 110576,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2357,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Verlag der literarisch-artistischen Anstalt von C. Dittmarsch)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1867",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter Kalender / und / Novellen-Almanach / für 1867. / Mit Beiträgen von F. Kürnberger, A. Schirmer und Menk-Dittmarsch . / Herausgegeben / von / F. Menk-Dittmarsch. / Wien und Leipzig. / Verlag der literarisch-artistischen Anstalt von C. Dittmarsch. / Druck von L. M. Zamarski",
+  "updated": "2026-06-11 10:18:55.345Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "items": [
+    "iv0tag5nzuudjj4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.052Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.052Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "6brdob2co20fyog"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "rzdsv5jkhhdkhl1",
+      "source_id": "el8d85u1fnznter"
+    }
+  ]
+}

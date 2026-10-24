@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25610, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Die großen Fische fressen stets die kleinen. / So war's von je, so bleibt's in Ewigkeit",
+  "language": [],
+  "musenalm_id": 25611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die gute alte Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die gute alte Zeit",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.096Z",
+      "agent": "snnpz92vgxnioxl",
+      "source_id": "daal12fcw5rbao3"
+    }
+  ]
+}

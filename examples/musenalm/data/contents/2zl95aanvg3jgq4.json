@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. s. Textbezug INr 34648, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28369,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Roeckel del. F. Weisbeck sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Roeckel del. F. Weisbeck sc.",
+  "scans": [
+    "alm_355_28369_v1keobdlac.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.422Z",
+      "agent": "1yq819tqy4kbasy",
+      "source_id": "64ul6bxp9epefhb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.422Z",
+      "agent": "nxqu4g7ub4dhvvs",
+      "source_id": "r6qmqd8t2rpqsc1"
+    }
+  ]
+}

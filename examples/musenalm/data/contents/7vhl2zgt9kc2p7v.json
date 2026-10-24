@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Trinklied« von Kretschmann INr 10290, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_134_10292_tqxq4m6k9u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.409Z",
+      "agent": "93qj54q4os5w6av",
+      "source_id": "m29o477ohptc7yp"
+    }
+  ]
+}

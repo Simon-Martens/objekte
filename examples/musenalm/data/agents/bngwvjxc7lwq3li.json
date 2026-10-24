@@ -1,0 +1,369 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.341Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Baron; geboren und aufgewachsen in Rom; Französischer Maler"
+      ],
+      "dateOfBirth": [
+        "1770-05-04"
+      ],
+      "dateOfDeath": [
+        "1837-01-11"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Antoine-Jean Gros"
+          ],
+          "creditText": [
+            "This file was donated to Wikimedia Commons as part of a project by the Metropolitan Museum of Art. See the Image and Data Resources Open Access Policy"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois%20G%C3%A9rard%20%281770%E2%80%931837%29%2C%20later%20Baron%20G%C3%A9rard%20MET%20DP327712.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois%20G%C3%A9rard%20%281770%E2%80%931837%29%2C%20later%20Baron%20G%C3%A9rard%20MET%20DP327712.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois%20G%C3%A9rard%20%281770%E2%80%931837%29%2C%20later%20Baron%20G%C3%A9rard%20MET%20DP327712.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-10T10:31:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119284936/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "119284936",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119284936",
+      "oldAuthorityNumber": [
+        "(DE-588a)119284936",
+        "(DE-588c)4388818-5"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Gérard, François",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "François"
+        ],
+        "surname": [
+          "Gérard"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Welschinger, Henri: Le maréchal Ney",
+        "Macdonald, Jacques É.: Souvenirs du maréchal Macdonald duc de Tarente",
+        "Gérard, François P.: Notice historique sur le tableau représentant l'entrée de Henry *"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85158403"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/46776048"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q163543"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119284936/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fran%C3%A7ois_G%C3%A9rard"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_G%C3%A9rard"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fran%C3%A7ois_G%C3%A9rard"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000107807200"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119284936"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119284936"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119284936"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/119284936"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119284936"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Gérard",
+        "Gérard, François-Pascal-Simon, baron",
+        "Gérard, François-Pascal-Simon",
+        "Gérard, François P.",
+        "Gérard, baron",
+        "Gérard, F.",
+        "Gérard, François Pascal Simon",
+        "Gérard, Fr.",
+        "Gérard, M. le baron"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "forename": [
+            "François-Pascal-Simon"
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "nameAddition": [
+            "M. le baron"
+          ],
+          "personalName": [
+            "Gérard"
+          ]
+        },
+        {
+          "nameAddition": [
+            "baron"
+          ],
+          "personalName": [
+            "Gérard"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "forename": [
+            "François-Pascal-Simon"
+          ],
+          "nameAddition": [
+            "baron"
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "forename": [
+            "François P."
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "forename": [
+            "François Pascal Simon"
+          ],
+          "surname": [
+            "Gérard"
+          ]
+        },
+        {
+          "personalName": [
+            "Gérard"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_G%C3%A9rard",
+          "label": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_G%C3%A9rard"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:29:27Z",
+    "gnd_query_biographical_data": "1770-1837",
+    "gnd_query_name": "gérard, francois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 865,
+  "name": "Gérard, Francois",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIII, 434",
+  "updated": "2026-06-11 13:29:22.490Z",
+  "uri": "https://d-nb.info/gnd/119284936",
+  "editor": ""
+}

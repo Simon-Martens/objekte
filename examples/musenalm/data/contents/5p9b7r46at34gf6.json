@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 89489, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Schnee und Nebel glänzten blutroth im Strahle der untergehenden Sonne, ödes Schweigen lag über dem Leichentuche des Winters",
+  "language": [],
+  "musenalm_id": 89488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Grenzer. / Novellete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. R. G. Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Grenzer. / Novellete",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.924Z",
+      "agent": "z276kpo6m8d5nvd",
+      "source_id": "umybalpg8ibe66f"
+    }
+  ]
+}

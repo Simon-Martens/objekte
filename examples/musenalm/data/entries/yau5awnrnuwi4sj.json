@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S 1 T, SS 3-4 I-Verz, SS 5-308",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Satyrischer 1800",
+    "norm": "~",
+    "biblio": 106741,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1475,
+  "parallel_title": "",
+  "place_statement": "Hohnstadt [Hamburg]",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "k44l5azdnh7yk82"
+  ],
+  "preferred_title": "Almanach, Satyrischer 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 17; L/R 207",
+  "responsibility_statement": "Janus Eremita",
+  "subtitle_statement": "",
+  "title_statement": "Satirischer / Almanach / Aufs Jahr 1800. / Herausgegeben / von / Janus Eremita. / Mit einer Charte. / Hohnstadt, / auf Kosten der Leer- und Querköpfe. / 1800",
+  "updated": "2026-06-11 10:18:55.182Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "thb2yr46y3e4m9a"
+  ],
+  "contents": [
+    "02r6ofbpbq2lfsb",
+    "e978jmwu4nrq9zq",
+    "v0e2ozv73lfo7ed",
+    "hudotnaktmoub0g",
+    "7hb2wrod1f9nke4",
+    "fv57dbbhpqz9kxs",
+    "k3nvhtjwtexg7p4",
+    "oqkbn4z16rc5e6e",
+    "0fiqk6n8utaber2",
+    "i703c3wl1j53lvc",
+    "77cqmm76qpq3t1l",
+    "jgr5ohmxfufils3",
+    "87qpwwko9phj7vj",
+    "u23cm5a8f4zl3o3",
+    "8g1elsvw25tfgu7",
+    "3atig8uas23sky4",
+    "jpuop7urw7nsr0v",
+    "dr4ijqr432zguqp",
+    "mv9iweiac4jqgc8",
+    "a44zbkmk9zkx615",
+    "tqcf6iw7sib2v7m",
+    "ddsfc3ehd0nlfll",
+    "za9qz26ejw1t091",
+    "x6pwp4yr48yjh0u",
+    "g8x6rqmp2zm1bui",
+    "4rr1qr6konob7to",
+    "mad0flmuao8np26"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.913Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.913Z",
+      "agent": "769r8tmydq2o7xf",
+      "source_id": "9rvudagx0zqumto"
+    }
+  ]
+}

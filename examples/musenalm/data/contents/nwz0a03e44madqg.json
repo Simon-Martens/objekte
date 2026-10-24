@@ -1,0 +1,56 @@
+{
+  "annotation": "Sechs Charakter-Bilder nach Zeichnungen von G. Opiz (Sammlung INr 9365, Obj 8) s. Textbezug INr 19040, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9360,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bildung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz del. H. Zumpe sc.",
+  "scans": [
+    "alm_51_9360_bb7ym2sqow.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bildung",
+  "updated": "2000-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.480Z",
+      "agent": "dkcgg2l4f1px9e7",
+      "source_id": "4y3704df02ao746"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.480Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "50t6ug696d89xvn"
+    }
+  ]
+}

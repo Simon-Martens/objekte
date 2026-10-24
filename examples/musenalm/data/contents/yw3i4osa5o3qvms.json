@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Hast du das Möpschen gemahlt, so bring' / es mir, Bester der Mahler,",
+  "language": [],
+  "musenalm_id": 62096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mahler, / der mein Möpschen im Tode mahlte; / in Aegle's Namen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mahler, / der mein Möpschen im Tode mahlte; / in Aegle's Namen",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.955Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "6su2g0ex8pe8507"
+    }
+  ]
+}

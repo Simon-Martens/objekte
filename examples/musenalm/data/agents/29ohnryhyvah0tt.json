@@ -1,0 +1,402 @@
+{
+  "annotation": "",
+  "biographical_data": "1775-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.350Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1775-02-07"
+      ],
+      "dateOfDeath": [
+        "1842-02-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Friedrich Duttenhofer"
+          ],
+          "creditText": [
+            "Klaus Günzel: Die deutschen Romantiker. Artemis, Zürich 1995, ISBN&nbsp;3-7608-1119-1"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Friedrich%20Duttenhofer%20-%20Johann%20Diederich%20Gries.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Friedrich%20Duttenhofer%20-%20Johann%20Diederich%20Gries.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Friedrich%20Duttenhofer%20-%20Johann%20Diederich%20Gries.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-02T13:26:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116834633/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116834633",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116834633",
+      "oldAuthorityNumber": [
+        "(DE-588a)116834633",
+        "(DE-588c)4592216-0"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Gries, Johann Diederich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Diederich"
+        ],
+        "surname": [
+          "Gries"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Tasso, Torquato: Torquato Tasso's befreites Jerusalem",
+        "Tasso, Torquato: Torquato Tasso's Befreites Jerusalem",
+        "Boiardo, Matteo M.: Verliebter Roland",
+        "Ariosto, Ludovico: Rasender Roland",
+        "Tasso, Torquato: [Befreite Jerusalem]",
+        "Tasso, Torquato: [befreite Jerusalem]",
+        "Gries, Johann D.: Gedichte und poetische Übersetzungen",
+        "Calderon de la Barca, Pedro: Schauspiele"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb148050934"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93011638"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56875764"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q119797"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116834633/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Diederich_Gries"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Diederich_Gries"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Diederich_Gries"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110641504"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116834633"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116834633"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116834633.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116834633.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116834633"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Gries, Johann Dietrich",
+        "Gries, Johann Dieterich",
+        "Gries, Iohannes Diedericus",
+        "Gries, J. G.",
+        "Gries, Johannes Diedericus",
+        "Gries, Johann Diederich",
+        "Gries, J. D.",
+        "Gries, Diederich",
+        "Gries, Johann D.",
+        "Gries, Joannes Diedericus",
+        "Griesius, Ioannes Diedericus",
+        "Gries, Johann Diedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Diederich"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Dietrich"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Diedericus"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Johann D."
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Diedericus"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Diedrich"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Dieterich"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Diedericus"
+          ],
+          "surname": [
+            "Griesius"
+          ]
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Diederich"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes Diedericus"
+          ],
+          "surname": [
+            "Gries"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Diederich_Gries",
+          "label": "https://de.wikipedia.org/wiki/Johann_Diederich_Gries"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:34:33Z",
+    "gnd_query_biographical_data": "1775-1842",
+    "gnd_query_name": "gries, johann diederich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 968,
+  "name": "Gries, Johann Diederich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 773",
+  "updated": "2026-06-11 13:29:22.659Z",
+  "uri": "https://d-nb.info/gnd/116834633",
+  "editor": ""
+}

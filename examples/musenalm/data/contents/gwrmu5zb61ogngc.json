@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Ein grauer Nebel hüllet noch den Wald; / Wie Trauerschleyer wogt's auf Teich und Moor;",
+  "language": [],
+  "musenalm_id": 84167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenhymnus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Winfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenhymnus",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.776Z",
+      "agent": "gj3r3a4y3md15rv",
+      "source_id": "y9bfrekmm74nyhe"
+    }
+  ]
+}

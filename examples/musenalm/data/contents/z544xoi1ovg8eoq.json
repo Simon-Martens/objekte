@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Monathe (Sammlung INr 77455, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Still ists in der Luft, / Leiser Duft, / Der die Biene ruft,",
+  "language": [],
+  "musenalm_id": 77459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "April",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "April",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.558Z",
+      "agent": "jqanokpcqaenxu5",
+      "source_id": "0b2m6x19i4qojc9"
+    }
+  ]
+}

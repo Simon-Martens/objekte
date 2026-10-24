@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Richte dich auf zu den Sternen, du kleine Seele / voll Unmuth, / Sieh, wie ziehn sie so still",
+  "language": [],
+  "musenalm_id": 11993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "77. / Erhebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "77. / Erhebung",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.434Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "q51z1h82d2evy2b"
+    }
+  ]
+}

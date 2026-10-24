@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Kenst du ihn noch, den Knaben, o Nadine! / Der ehmals dich / Verfolgt und dir in dunkler Laubengrüne / Zur Seite schlich?",
+  "language": [],
+  "musenalm_id": 93277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nadine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nadine",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.341Z",
+      "agent": "vurjmtt5tprr0cw",
+      "source_id": "0j9536cd9ubp6t9"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Beitrag INr 83219, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heilige Familie #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael Sanzio von Urbino",
+  "scans": [
+    "alm_3075_83218_jtlaih9avw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heilige Familie #",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.125Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "h5igphzlxfqnpjr"
+    }
+  ]
+}

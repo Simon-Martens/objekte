@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-1807",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.376Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Theologe, Pädagoge"
+      ],
+      "dateOfBirth": [
+        "1753"
+      ],
+      "dateOfDeath": [
+        "1807"
+      ],
+      "describedBy": {
+        "dateModified": "2011-09-26T13:25:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#6",
+          "label": "Katalogisierungslevel 6"
+        },
+        "id": "https://d-nb.info/gnd/172145694/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "gndIdentifier": "172145694",
+      "id": "https://d-nb.info/gnd/172145694",
+      "oldAuthorityNumber": [
+        "(DE-588a)172145694"
+      ],
+      "preferredName": "Hübner, Lorenz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Lorenz"
+        ],
+        "surname": [
+          "Hübner"
+        ]
+      },
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/189852523"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172145694/about"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hübner, L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Hübner"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:48:57Z",
+    "gnd_query_biographical_data": "1753-1807",
+    "gnd_query_name": "hübner, lorenz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1258,
+  "name": "Hübner, Lorenz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 954",
+  "updated": "2026-06-11 13:29:23.009Z",
+  "uri": "https://d-nb.info/gnd/172145694",
+  "editor": ""
+}

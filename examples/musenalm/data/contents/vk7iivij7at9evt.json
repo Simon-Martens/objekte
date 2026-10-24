@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64323, Obj 6) Gedicht nach dem Motiv von Götzenbergers Fresko in der Trinkhalle Baden Baden s. Graphik INr 64336, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Der Schwarzwald braust, der Sturmwind saust, / Wohl Dem, der jetzt in Frieden haust,",
+  "language": [],
+  "musenalm_id": 64329,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Fremersberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Fremersberg",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.075Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "tkqan1npq1l7v62"
+    }
+  ]
+}

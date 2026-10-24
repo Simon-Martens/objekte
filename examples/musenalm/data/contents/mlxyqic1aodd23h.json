@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezüge INr 52608, 52666; Obj 6, 66",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32615,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pandora als fastnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meil inv. G. G. Endner sc.",
+  "scans": [
+    "alm_452_32615_d4vyu9x7c5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pandora als fastnacht",
+  "updated": "2003-03-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.487Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "uzvdgt2yrv8w0us"
+    }
+  ]
+}

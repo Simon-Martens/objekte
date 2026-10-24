@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61902, Obj 134",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zurück da! Gift ist es. / pag. 194",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61903_24ue4r08pi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zurück da! Gift ist es. / pag. 194",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.758Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "g83fgfmbyw9gn38"
+    }
+  ]
+}

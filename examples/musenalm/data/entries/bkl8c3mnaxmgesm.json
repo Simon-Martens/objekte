@@ -1,0 +1,67 @@
+{
+  "annotation": "1839-1841, 1845",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schneeglöckchen 1839",
+    "norm": "",
+    "biblio": 409487,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-11-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4476,
+  "parallel_title": "",
+  "place_statement": "Breslau (Richter)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Schneeglöckchen 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 101; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Schneeglöckchen. / Ein Taschenbuch für das Jahr / 1839. / Mit Beiträgen / von / Julius Krebs, Robert Bürkner, Ladislaus / Tarnowski und K. B. Küner. / Nebst 12 Genrebildern. / Breslau, / Verlag von Heinrich Richter",
+  "updated": "2026-06-11 10:18:55.460Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "u0vc82jzv2rwllj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "b4ztpbye7xb6uqv",
+      "source_id": "do7zt579gy78b4p"
+    }
+  ]
+}

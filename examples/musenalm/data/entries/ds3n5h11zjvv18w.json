@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1799",
+    "norm": "",
+    "biblio": 200123,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1191,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "G. C. B. Busch",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Fortschritte, neuesten Erfindungen / und Entdeckungen / in / Wissenschaften, Künsten, / Manufakturen / und / Handwerken, / von Ostern 1797 bis Ostern 1798 / Herausgegeben / von / G. C. B. Busch. / Mit 3 Kupfertafeln / Dritter Jahrgang. / Erfurt, 1799 / bey Georg Adam Keyser",
+  "updated": "2026-06-11 10:18:55.518Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "u8p7j41j70ai1fw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.850Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.850Z",
+      "agent": "y7cxehho661g55i",
+      "source_id": "1ppe4stxi224uij"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "kzc6zo8o84d0rn6"
+    }
+  ]
+}

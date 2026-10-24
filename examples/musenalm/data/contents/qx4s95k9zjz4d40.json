@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 76763, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76740,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wachau vor der Völker-Schlacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. G. Boettger senior sc. 1812",
+  "scans": [
+    "alm_2386_76740_pncxu2q60v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wachau vor der Völker-Schlacht",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "chc8s0b0ub5xt5z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "fxfsn4uoiq6r9bz"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85775,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloss Fischbach in Schlesien, / in der Ferne der Falkenberge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "n. d. Natur gez. von Rösel. J. B. Hössel sc.",
+  "scans": [
+    "alm_895_85775_ds97zaiagw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloss Fischbach in Schlesien, / in der Ferne der Falkenberge",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.242Z",
+      "agent": "fvvo7u8gqk8l3ze",
+      "source_id": "dldr28vkkhkoaro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.242Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "vtjbeogsiey0m09"
+    }
+  ]
+}

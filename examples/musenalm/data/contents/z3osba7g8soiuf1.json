@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 69526-69529, Obj 64-67",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosenlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosenlieder",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.494Z",
+      "agent": "m6v439nrgynzyi9",
+      "source_id": "34xt00ig4l40wis"
+    }
+  ]
+}

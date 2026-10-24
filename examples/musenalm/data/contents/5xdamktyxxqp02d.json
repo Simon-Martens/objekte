@@ -1,0 +1,45 @@
+{
+  "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Der junge Gott, von Nymphen eingesungen, / Wacht wieder auf, ein ruheloses Kind.",
+  "language": [],
+  "musenalm_id": 21044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.133Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "gargwtrib70e4af"
+    }
+  ]
+}

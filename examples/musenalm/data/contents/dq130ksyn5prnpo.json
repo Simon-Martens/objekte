@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Muß man mich denn beständig unter- / brechen? / Wer will mich jezt schon wieder sprechen?",
+  "language": [],
+  "musenalm_id": 17666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herr und Diener",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Herr und Diener",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.874Z",
+      "agent": "jn3l1dg6imwx04v",
+      "source_id": "mi78cacsq3ibyig"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "annotation": "mit Kalendarium auch erschienen als: Historisch-Genealogischer Calender oder Jahrbuch der merkwürdigsten neuen Welt-Begebenheiten für 1798. Leipzig zur Messe bey Haude und Spener von Berlin; s. alm-929 /) $ vermutl. fehlt Graphik: (Titel-) Portrait: W. Alexander del. E. Henne sc.: »Tschien-Lung, Kaiser von China, 83 Jahr alt am Tage der Audienz« /) Das Werk: »Des Grafen Macartney Gesandtschaftsreise nach China […]« von G. Staunton erschien  bei Haude und Spener in drei Bänden 1798-1800. Zu vermuten ist, daß auch Teil 2 und 3 als »Historisches Taschenbuch für das Jahr […]« 1799 und 1800 und als »Historisch-Genealogischer Calender oder Jahrbuch der merkwürdigsten neuen Welt-Begebenheiten für […]« 1799 und 1800 herausgegeben wurden.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, ar: SS 1-96 Tab, G, S I nT, SS III-VIII Vrwrt d Hrsg, $G, ar1: SS 1-376 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Berlin, Haude und Spener) 1798",
+    "norm": "~",
+    "biblio": 407047,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2489,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Berlin, Haude und Spener) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed VI. 280, 6",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch / für / das Jahr 1798 / enthaltend / des Grafen Macartney / Gesandtschaftsreise / nach China / in den Jahren 1792 bis 1794. / Aus den / Tagebüchern des Ambassadeurs / und der vornehmsten Personen seines Gefolges / herausgegeben / von / Sir George Staunton / Ambassade-Secretair. / Aus dem Englischen frey übersetzt. / Erster Theil mit Kupfern. / Berlin / bei Haude und Spener",
+  "updated": "2026-06-11 10:18:54.780Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "iwwweljok5b624d"
+  ],
+  "contents": [
+    "ircdwetoa08xdaw",
+    "j1rrm66223y77fg",
+    "aih6h4g3i1wu27s",
+    "9iw71f9dfaoxwbe",
+    "f71n0g5ydmpnkbm",
+    "6apy6ldlbk5cre7",
+    "fdg58eh47zucn7t",
+    "1i730zw6welf9q8",
+    "cjj733ok6mbtzzi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.973Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.973Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "rodfadkuk9pbxv8"
+    }
+  ]
+}

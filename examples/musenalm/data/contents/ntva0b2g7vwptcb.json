@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ihre Liebe zu einer Kunst, welcher dieses Taschenbuch gewidmet ist, und Ihr guter Geschamck, der wahre schöne und verschönerte Natur von spielenden Nachahmungen zu unterscheiden weiß, fordern mich auf, diesen dritten Jahrgang Ihnen zuzueignen.",
+  "language": [],
+  "musenalm_id": 98081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hochgeborner Herr Graf, / Hochzuverehrender Herr Graf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ihr gehorsamster Diener Wilhelm Gottlieb Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hochgeborner Herr Graf, / Hochzuverehrender Herr Graf",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.946Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "xw4zbvvf8a9ra6u"
+    }
+  ]
+}

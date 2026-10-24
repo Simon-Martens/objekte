@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Ist möglich, Lalage? glüht dies Rosengesicht / Ohn' alle Liebe? beseelt kein feurigr Wunsch / Dein heitres Auge?",
+  "language": [],
+  "musenalm_id": 92328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lalagen./ Im Mai 1745",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lalagen./ Im Mai 1745",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.614Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "t0vyog61n1uovle"
+    }
+  ]
+}

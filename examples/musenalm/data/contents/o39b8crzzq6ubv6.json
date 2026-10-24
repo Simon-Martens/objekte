@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel paginiert 2. s. Textbezug INr 26584, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26578,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1818 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. et del. M. Esslinger",
+  "scans": [
+    "alm_348_26578_3q2s4bqxef.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1818 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.339Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "bwnrqpnerh7xiex"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.339Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "d6rym5kacga5r1i"
+    }
+  ]
+}

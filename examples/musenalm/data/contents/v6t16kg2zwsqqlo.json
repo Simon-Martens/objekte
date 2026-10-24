@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 79931, Obj 10) mit Anmerkungen; s. Graphik INr 128636, Obj 12,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Schon der Jagdhund, man sehe den Sylvan des Jahrs 1815, gehört halb der hohen, halb der niedern Jagd an, eben so der Schweißhund, Pürsch- oder Riemen-Hund.",
+  "language": [],
+  "musenalm_id": 79933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Schweißhund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Schweißhund",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.829Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "tx0k139f13oo2kp"
+    }
+  ]
+}

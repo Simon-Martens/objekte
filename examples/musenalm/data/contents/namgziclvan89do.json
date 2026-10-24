@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Nie hat es wohl ein im Aeußern sich ungleicheres Paar gegeben, als den Grafen von Strahlenfels und seine Gemahlinn Cölestine.",
+  "language": [],
+  "musenalm_id": 42422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Der Schnee. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Der Schnee. / Eine Erzählung",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.189Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "nbofxikkic1crsl"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S 1 T, SS 3-211, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Neujahrgeschenk (Wien) 1838",
+    "norm": "~",
+    "biblio": 409548,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4803,
+  "parallel_title": "",
+  "place_statement": "Wien (Mechitaristen-Congregations-Buchhandlung)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Neujahrgeschenk (Wien) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 90; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neujahrgeschenk , / 1838. / Wien. / Druck und Verlag der Mechitaristen-Congregations-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.960Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "30u77wplxsbhacf"
+  ],
+  "contents": [
+    "waom35u94jqrw41",
+    "fdt5ndt5wfpx8ek",
+    "m88g51oem3rjz1k",
+    "ywb6hnghdhj7388",
+    "nxd36u0a9qt4ll8",
+    "rnxo484mr97j2us",
+    "ave1e0p1i0c2qyo",
+    "rn2dczc7euyejbq",
+    "ds5q2cn3muffwbk",
+    "57ouqo70jbftw34",
+    "sordbb803ik0uzf",
+    "ac1b90zbpkoey5z",
+    "k9rdroqvkwd1uq3",
+    "tis2zf4w8yirt9f",
+    "eip4ztl1qcb2alh",
+    "pvbq2t0wqpwv6xa",
+    "u7uuksjmpxpuf1v",
+    "nj2tscnqo6lj5zj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "wcrwj6cw4dcmhgb",
+      "source_id": "nml9kbncd1k0c2q"
+    }
+  ]
+}

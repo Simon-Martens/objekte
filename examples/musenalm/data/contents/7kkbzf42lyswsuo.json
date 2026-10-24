@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das gesetzwidrige Geheimniss« von L. Kruse INr 30390, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gesetzwidrige Geheimniss / v. L. Kruse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. u. gest. v. Schwertgeburt",
+  "scans": [
+    "alm_398_30407_xuxkt9n0b0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das gesetzwidrige Geheimniss / v. L. Kruse",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.554Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "zxr0n0l3enshx9f"
+    }
+  ]
+}

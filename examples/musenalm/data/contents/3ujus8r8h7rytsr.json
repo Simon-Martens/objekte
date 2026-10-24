@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Widmung INr 60748, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60744,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHARLOTTE / FRIEDERIKE LUISE WILHELMINE MARIANE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Eduard Magnus. in Stahl gest. v. Robert Trossin",
+  "scans": [
+    "alm_884_60744_3matqnm0pn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHARLOTTE / FRIEDERIKE LUISE WILHELMINE MARIANE",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.019Z",
+      "agent": "1kr30nskqil2z5w",
+      "source_id": "ew3mlow2iuo46g3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.019Z",
+      "agent": "83qxof9xtgcpreb",
+      "source_id": "o18nij9ax3jc47x"
+    }
+  ]
+}

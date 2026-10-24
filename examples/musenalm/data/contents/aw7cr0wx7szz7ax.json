@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) zus. Bezeichnung Darmstadt, G. G. Lange /) Die Titelgraphik von Cornelia 1871 und Cornelia var1: ersetzt durch Neustich der Graphik  »Auf Wiedersehen« INr 64464 aus: Cornelia 1865",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 84003,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Simmons pinxt. E. Wagner sculpt.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Simmons pinxt. E. Wagner sculpt.",
+  "scans": [
+    "alm_765_84003_ump49iynic.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1874,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.982Z",
+      "agent": "txpvetofgs2w3ga",
+      "source_id": "th43foj7awegos6"
+    }
+  ]
+}

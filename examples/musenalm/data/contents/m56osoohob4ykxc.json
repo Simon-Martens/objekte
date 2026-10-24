@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Retterin« von Manfred d.i. K. Fr. Dräxler INr 120890, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120879,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes von Westerberg. / Zur Novelle von Manfred",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stone del. C. Kotterba sc.",
+  "scans": [
+    "alm_1903_120879_a04u3i39zv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agnes von Westerberg. / Zur Novelle von Manfred",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.730Z",
+      "agent": "jij8m2y7q2rp7we",
+      "source_id": "ggxrjs09fhzjtjx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.730Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "jqfm2tkmeax4lcu"
+    }
+  ]
+}

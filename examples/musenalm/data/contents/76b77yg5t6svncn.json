@@ -1,0 +1,45 @@
+{
+  "annotation": "Bunte Steine (Sammlung INr 22931, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Zotos geht die Bühn' entlang, / mißt die Höh' mit ernsten Blicken",
+  "language": [],
+  "musenalm_id": 22946,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Possendichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Possendichter",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.991Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "tmuufm8eqfxu1ow"
+    }
+  ]
+}

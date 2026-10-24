@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel /) Unter der Titelvignette: Der Altonaer pausbäckigter Pauckenschläger /) s. Textbezug INr 85006, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85001,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Obscuranten- / Almanach / auf / das Jahr / 1798. / Paris / von Gerard Fuchs / Nationalbuchhändler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3893_85001_urie9xdwu6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Obscuranten- / Almanach / auf / das Jahr / 1798. / Paris / von Gerard Fuchs / Nationalbuchhändler",
+  "updated": "2012-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.227Z",
+      "agent": "i1m0o75lvyphony",
+      "source_id": "ny9tdgvt7gm2emx"
+    }
+  ]
+}

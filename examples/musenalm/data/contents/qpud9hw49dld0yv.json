@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "So sind die Trauben all' zur Kelter schon gegangen? / Ja, wie du siehst; ich bin mit Laub nur noch behangen.",
+  "language": [],
+  "musenalm_id": 66023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Greis und der Weinstock",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Greis und der Weinstock",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.298Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "7972pf8nchpb6o2"
+    }
+  ]
+}

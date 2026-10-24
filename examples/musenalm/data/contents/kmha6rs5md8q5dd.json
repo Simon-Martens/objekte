@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Einleitung INr 54659, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Wer das Glück hatte, der Vermählung Herzogs Büne von Egermont mit Drüwanen, der Schwester des mächtigen Grafen von Mümpelgart, welche die schönst' und frommste Dame damaliger Christenheit war, beizuwohnen:",
+  "language": [],
+  "musenalm_id": 54660,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Malegys und Wiwian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Adolf Ludewig Follen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Malegys und Wiwian",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.712Z",
+      "agent": "erwaw1pl4i80e4t",
+      "source_id": "2bc4g0yq5ckadza"
+    }
+  ]
+}

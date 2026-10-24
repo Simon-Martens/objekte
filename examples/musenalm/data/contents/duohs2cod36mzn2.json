@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIE CAROLINE AUGUSTE / Herzogin von Aumale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meuret d. Carl Mayer sc.",
+  "scans": [
+    "alm_2098_135760_s1w5ybsdq5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIE CAROLINE AUGUSTE / Herzogin von Aumale",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.154Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "6oalu4hh2rp3ken"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.154Z",
+      "agent": "810vztqk8jsa0u1",
+      "source_id": "jtnb43014blbtno"
+    }
+  ]
+}

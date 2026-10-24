@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Todtenfrau« von F. Laun, d. i. F. A. Schulze INr 22205, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todtenfrau v. Laun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; H. C. Müller",
+  "scans": [
+    "alm_298_22248_ia45eb00zb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Todtenfrau v. Laun",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.054Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "0jofzdu4pn29n16"
+    }
+  ]
+}

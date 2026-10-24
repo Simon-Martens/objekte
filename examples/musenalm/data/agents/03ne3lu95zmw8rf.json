@@ -1,0 +1,316 @@
+{
+  "annotation": "",
+  "biographical_data": "1795-1852",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.444Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Lehrer, Buchhändler, Verleger, Sächsischer Hofrath"
+      ],
+      "dateOfBirth": [
+        "1795-03-12"
+      ],
+      "dateOfDeath": [
+        "1852-09-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Haendelfan"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Ferdinand%20Philippi%20%28Portrait%29.jpg",
+          "license": [
+            {
+              "abbr": "CC BY 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/4.0",
+              "name": "Creative Commons Attribution 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Ferdinand%20Philippi%20%28Portrait%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Ferdinand%20Philippi%20%28Portrait%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2016-09-23T16:05:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104130792/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104130792",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104130792",
+      "oldAuthorityNumber": [
+        "(DE-588a)104130792",
+        "(DE-588c)7600017-5"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Philippi, Karl Ferdinand",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Ferdinand"
+        ],
+        "surname": [
+          "Philippi"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dunkel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jobst"
+          ],
+          "surname": [
+            "Weingans"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Geschichte der vereinigten Freistaaten von Nordamerika",
+        "Geschichte des Papstthums",
+        "Geschichte des Freistaats von St. Domingo",
+        "Das Real-Institut für Söhne u. Töchter des gebildeten Mittelstandes *. - 1817"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2002006594"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64436606"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q16007564"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104130792/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Philippi"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080776001"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104130792"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104130792"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Dunkel, Friedrich",
+        "Waehner, ...",
+        "Philippi, Carl Ferdinand",
+        "Philippi, Ferd.",
+        "Philippi, Ferdinand",
+        "Philippi, Karl F.",
+        "Weingans, Jobst"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Ferdinand"
+          ],
+          "surname": [
+            "Philippi"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Philippi"
+          ]
+        },
+        {
+          "forename": [
+            "Ferd."
+          ],
+          "surname": [
+            "Philippi"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Philippi"
+          ]
+        },
+        {
+          "forename": [
+            "Jobst"
+          ],
+          "surname": [
+            "Weingans"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dunkel"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Waehner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Philippi",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Philippi"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:29:24Z",
+    "gnd_query_biographical_data": "1795-1852",
+    "gnd_query_name": "philippi, karl ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2073,
+  "name": "Philippi, Karl Ferdinand",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IX, 315",
+  "updated": "2026-06-11 13:29:24.072Z",
+  "uri": "https://d-nb.info/gnd/104130792",
+  "editor": ""
+}

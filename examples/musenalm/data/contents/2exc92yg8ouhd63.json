@@ -1,0 +1,45 @@
+{
+  "annotation": "Italiänische Volkslieder (Sammlung INr 87000, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Lustwandelnd gieng ich an dem Strand umher, / Da fiel mein junges Herz mir in das Meer.",
+  "language": [],
+  "musenalm_id": 87001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das verlorene Herz. / (Aus Neapel.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das verlorene Herz. / (Aus Neapel.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.413Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "rwvxpwo9g0ewfld"
+    }
+  ]
+}

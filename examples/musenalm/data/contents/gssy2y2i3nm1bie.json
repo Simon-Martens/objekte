@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Die löbliche Akademie / Zu Jekuz giebt sich rühmlich Müh,",
+  "language": [],
+  "musenalm_id": 2863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Preisfrage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Preisfrage",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.841Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "70wpfs5i2wkgrbr"
+    }
+  ]
+}

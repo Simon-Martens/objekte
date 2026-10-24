@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Im Staate Pensylvanien, dicht am nordwestlichen Fuß der Alleghanies, liegt oder lag vielmehr das kleine Städtchen Seneka, das damals, als man es gründete, von Ansiedlern fast überschwemmt ward;",
+  "language": [],
+  "musenalm_id": 92737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wunderbare Traum. / Aus dem amerikanischen Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Gerstäcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wunderbare Traum. / Aus dem amerikanischen Leben",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.425Z",
+      "agent": "dwrg9ycvjrih35y",
+      "source_id": "up46e5rewdkmmqh"
+    }
+  ]
+}

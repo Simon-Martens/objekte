@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisische Vierzeilen (Sammlung INr 14835, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Bewund're nicht mein goldgestickt Gewand! / Das Kleid von Licht verbirgt des Herzens Brand.",
+  "language": [],
+  "musenalm_id": 14861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "26.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "26.",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.631Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "bi6ysgdz5mvjkiz"
+    }
+  ]
+}

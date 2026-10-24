@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Immer für Weiber und Kinder! Ich dächte / man schriebe für Männer",
+  "language": [],
+  "musenalm_id": 38536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 399,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dieselbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dieselbe",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.957Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "6z9o7acgzt0ucz0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.957Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "xbn1m561ym7vc47"
+    }
+  ]
+}

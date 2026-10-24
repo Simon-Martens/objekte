@@ -1,0 +1,58 @@
+{
+  "annotation": "unter der Graphik: zu pag. 53 /) Illustration zu »Welcher? « von Friedrich Laun d.i. F. A. Schulze INr 98474, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. von Ramberg. gest. von Schwerdtgeburth)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. von Ramberg. gest. von Schwerdtgeburth",
+  "scans": [
+    "alm_3535_98475_r9gz2frxke.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.730Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "i3sztsuf57zszp9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.730Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "w4jgkj0ujb90047"
+    }
+  ]
+}

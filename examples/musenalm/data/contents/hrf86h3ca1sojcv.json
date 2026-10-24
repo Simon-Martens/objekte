@@ -1,0 +1,58 @@
+{
+  "annotation": "scan fremde Herkunft",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118316,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LOUISE, / regierende Herzogin / von / Sachsen-Coburg-Saalfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rupprecht pinx. Fleischmann sc.",
+  "scans": [
+    "alm_4371_118316_f18hheulkb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LOUISE, / regierende Herzogin / von / Sachsen-Coburg-Saalfeld",
+  "updated": "2017-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.671Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "812elgq6pwwasdg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.670Z",
+      "agent": "wcg43lvrcubt5jz",
+      "source_id": "ai44nwp2ntzny5a"
+    }
+  ]
+}

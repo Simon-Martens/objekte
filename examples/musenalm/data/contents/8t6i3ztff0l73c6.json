@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 28418, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Wo bist du, Nachdenkliches! das immer muß / Zur Seite gehn, zu Zeiten, wo bist du, Licht?",
+  "language": [],
+  "musenalm_id": 28419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Chiron",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Chiron",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.268Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "up7ak31ee5lg0vg"
+    }
+  ]
+}

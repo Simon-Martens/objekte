@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 36998-37000, Obj 123-125 /) Erste Lieder (Sammlung INr 36992, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Liebeslieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Liebeslieder",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.852Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "x0a68fievjgjqhr"
+    }
+  ]
+}

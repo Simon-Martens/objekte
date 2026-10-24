@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September; nummeriert 9. /) Illustration zu »Virgils Aeneis, travestirt« von J. A. Blumauer /) s. Textbezug INr 108455, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108468,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aeneas findet das Sinnbild seiner künftigen / Staten. / VIII B. 87 S.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_2171_108468_dgeo5hvmt9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aeneas findet das Sinnbild seiner künftigen / Staten. / VIII B. 87 S.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.276Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "spe0v0569219j0z"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.400Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Christliches (Döring) 1831, 1832",
+    "norm": "",
+    "biblio": 410786,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4749,
+  "parallel_title": "",
+  "place_statement": "Barmen und M. Gladbach (Schmachtenberg und Steinberg)",
+  "places": [
+    "89gtkonjjcz1oai",
+    "9ooch3h9ym5anla"
+  ],
+  "preferred_title": "Taschenbuch, Christliches (Döring) 1831, 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 111; nicht bei L/R",
+  "responsibility_statement": "Karl August Döring",
+  "subtitle_statement": "",
+  "title_statement": "Christliches / Taschenbuch / auf die Jahre / 1831 und 1832. / Herausgegeben / von / Karl August Döring. / Pastor in Elberfeld. / Barmen und M. Gladbach, / bei Gebr. Schmachtenberg u. Steinberg",
+  "updated": "2026-06-11 10:18:54.562Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "a6s9omlduyn1smd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.417Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.417Z",
+      "agent": "350iidik1x26l6n",
+      "source_id": "706p5e1084ao6ez"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "8kqe46j0pv8gkur",
+      "source_id": "99rp6d15ozq6wmk"
+    }
+  ]
+}

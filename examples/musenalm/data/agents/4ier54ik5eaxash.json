@@ -1,0 +1,511 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.402Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist, lebte überwiegend in Dänemark"
+      ],
+      "dateOfBirth": [
+        "1761-09-24"
+      ],
+      "dateOfDeath": [
+        "1817-01-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Heinrich Lips"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/documents/obj/oai:baa.onb.at:3593841"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kunzen.gif",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Kunzen.gif?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Kunzen.gif?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-10T10:31:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119301199/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Zuccarini"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Adolf"
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/104137444",
+          "label": "Kunzen, Adolph Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136215955",
+          "label": "Kunzen, Johanna Margaretha Antoinetta"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "119301199",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/104137444",
+          "label": "Kunzen, Adolph Carl"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/136215955",
+          "label": "Kunzen, Johanna Margaretha Antoinetta"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119301199",
+      "oldAuthorityNumber": [
+        "(DE-588a)135429722",
+        "(DE-588c)4397043-6",
+        "(DE-101c)311119727",
+        "(DE-588a)119301199"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Kunzen, Friedrich Ludwig Aemilius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ludwig Aemilius"
+        ],
+        "surname": [
+          "Kunzen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Kunzen, Friedrich L.: [Dragedukken]",
+        "Kunzen, Friedrich L.. - ca. 1800",
+        "Studien für Tonkünstler und Musikfreunde",
+        "Kunzen, Friedrich L.: [Gesänge am Klavier zur Bildung des Gesanges]",
+        "Kunzen, Friedrich L.: [Gyrithe eller Danmarks frelse]",
+        "Kunzen, Friedrich L.: Compositionen der in dem ersten Theile der Gedichte meines Vaters e*",
+        "Kunzen, Friedrich L.: [Compositionen der in dem ersten Theile der Gedichte meines Vaters *",
+        "Kunzen, Friedrich L.: [Das Halleluja der Schöpfung]",
+        "Kunzen, Friedrich L.: [Erik Eiegod]",
+        "Kunzen, Friedrich L.: [Ouvertüren C-Dur]. - ca. 1800"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb148079546"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83023655"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24866393"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q643734"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=119301199"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119301199/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/F.L.%C3%86._Kunzen"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_%C3%86milius_Kunzen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Ludwig_%C3%86milius_Kunzen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083655969"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119301199"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119301199"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119301199.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119301199.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119301199"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119301199"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kunzen, Friedrich A.",
+        "Kunzen, F. L. A.",
+        "Kuntzen, Friedrich Ludwig Ämilius",
+        "Kuntzen, Friedrich Ludwig Aemilius",
+        "Kunze, ...",
+        "Kunze, H.",
+        "Kunzen, Fr. Ludw. Äem.",
+        "Kunzer, F. L. Ae.",
+        "Kunze, Friedrich Ludwig Ämilius",
+        "Kunzen, F. Ae.",
+        "Kunzen, Friedrich Ludwig Ämilius",
+        "Kunzen, Friedrich Ludewig Aemilius",
+        "Kunzen, Fr. L. Ae.",
+        "Kunzen, F. L. Ae",
+        "Kunzen, Friedrich L.",
+        "Kunzen, Frederik L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Ludwig Aemilius"
+          ],
+          "surname": [
+            "Kuntzen"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Ludw. Äem."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. L. Ae."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig Ämilius"
+          ],
+          "surname": [
+            "Kuntzen"
+          ]
+        },
+        {
+          "forename": [
+            "F. L. Ae"
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "F. Ae."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "F. L. Ae."
+          ],
+          "surname": [
+            "Kunzer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludewig Aemilius"
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "F. L. A."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "Frederik L."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Kunze"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Kunze"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig Ämilius"
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig Ämilius"
+          ],
+          "surname": [
+            "Kunze"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "surname": [
+            "Kunzen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_%C3%86milius_Kunzen",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_%C3%86milius_Kunzen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:01:54Z",
+    "gnd_query_biographical_data": "1761-1817",
+    "gnd_query_name": "kunzen, friedrich ludwig aemilius"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1518,
+  "name": "Kunzen, Friedrich Ludwig Aemilius",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XVII, 403",
+  "updated": "2026-06-11 13:29:23.417Z",
+  "uri": "https://d-nb.info/gnd/119301199",
+  "editor": ""
+}

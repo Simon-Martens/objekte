@@ -1,0 +1,77 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1833",
+    "norm": "",
+    "biblio": 0,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4407,
+  "parallel_title": "",
+  "place_statement": "Paris (Treuttel u. Würtz), Tübingen (Cotta)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 7; nicht bei L/R; G-C 360,1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / des Dames, / pour l'An 1833 / A PARIS, Chez Treuttel & Würtz, Libraires, / Rue de Lille, No 17. / A TUBINGUE, Chez J. G. Cotta, Libraire",
+  "updated": "2026-06-11 10:18:55.125Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.166Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.166Z",
+      "agent": "16leuy5yi4jkh5m",
+      "source_id": "nu7e8pirys1dz7h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.669Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.669Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "xr2ladxh6os8lll"
+    }
+  ]
+}

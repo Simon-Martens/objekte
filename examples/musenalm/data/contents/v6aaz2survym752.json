@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Ich bin ein deutscher Biedermann, / Mit Mannheit stattlich angethan:",
+  "language": [],
+  "musenalm_id": 30881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vaterlandslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vaterlandslied",
+  "updated": "2003-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.573Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "c4bqwfsvsklb3u9"
+    }
+  ]
+}

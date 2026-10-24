@@ -1,0 +1,58 @@
+{
+  "annotation": "<div>Illustration zu »Oberon« von K. M. v. Weber / J. R. Planché, Th. Hell&nbsp;</div><div>&nbsp;s. Textbezug INr&nbsp; 140340</div>",
+  "content_type": [],
+  "created": "2026-08-12 08:41:04.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140339,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / Abdallah: Stirb! / Rezia: Gnade! Gnade!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_2373_140339_nsyptnnqnr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / Abdallah: Stirb! / Rezia: Gnade! Gnade!",
+  "updated": "2026-08-13 08:39:25.671Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12 08:42:58.956Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-08-13 08:39:25.670Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "onscwr0tkdz7mc5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12 08:43:12.309Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-08-13 08:39:25.670Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "z4gdko1jyp6mxw7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Die Trennungsstunde schlägt, und ich muß scheiden; / So leb' denn wohl, mein freundliches Gastein!",
+  "language": [],
+  "musenalm_id": 14507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von Gastein. / 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von Gastein. / 1818",
+  "updated": "2001-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.744Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "6rap5h9ofu77v2z"
+    }
+  ]
+}

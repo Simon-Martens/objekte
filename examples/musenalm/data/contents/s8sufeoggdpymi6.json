@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 13 Illustrationen s. Titelgraphik INr 58545, Obj 1 und Graphiken im Kalendarium INr 58548-58559, Obj 4-15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Größe und die Bevölkerung der Hauptstädte haben mit dem Umfange und der Stärke der Reiche zu allen Zeiten in einem so innigen Zusammenhange gestanden, daß man berechtigt ist, jene als den Ausdruck von diesen zu betrachten.",
+  "language": [],
+  "musenalm_id": 58560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Geschichte / von / Berlin und Potsdam / unter / der Regierung / des Königs Friedrich des Zweiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Buchholz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Geschichte / von / Berlin und Potsdam / unter / der Regierung / des Königs Friedrich des Zweiten",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.997Z",
+      "agent": "7zon2137dp4tnal",
+      "source_id": "zkt1rzqq5738up6"
+    }
+  ]
+}

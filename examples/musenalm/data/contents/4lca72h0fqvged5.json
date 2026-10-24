@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 20462, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Am Fuße einer schönen Schweizer-Alpe saßen unweit von der väterlichen Hütte zwei frische Kinder mitsammen,",
+  "language": [],
+  "musenalm_id": 20503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieg und Seegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sieg und Seegen",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.924Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "yi5fpzyvkr00mpp"
+    }
+  ]
+}

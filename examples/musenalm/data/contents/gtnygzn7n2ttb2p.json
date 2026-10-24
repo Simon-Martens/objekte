@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Der AbendHimmel warf sich in die Fluten, / Es schwamm der Liebe Stern auf stil- / len Wogen,",
+  "language": [],
+  "musenalm_id": 37542,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Meine Sterne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Meine Sterne",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.435Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "azsswp5owgxspqq"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ueber das Herz« INr 130144, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herz hatte den Verstand / überlistet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tresca pinx. Tromlitz sc.",
+  "scans": [
+    "alm_4813_130145_9wvjz86eox.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Herz hatte den Verstand / überlistet",
+  "updated": "2022-03-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.059Z",
+      "agent": "fj3qshh0bzltiy7",
+      "source_id": "4ne9la4xan2c8bu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.059Z",
+      "agent": "ajmfzw9e08ldl0m",
+      "source_id": "6q6581guxbmoc0c"
+    }
+  ]
+}

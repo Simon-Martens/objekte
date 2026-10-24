@@ -1,0 +1,102 @@
+{
+  "annotation": "Buchdruckerei von J. G. Schmitt in Darmstadt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I T, S III G-Verz I-Verz, SS V-VI W, SS IX-XVI G-Verz, 6 GG, SS 1-311",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1870",
+    "norm": "~ +++ 404549",
+    "biblio": 106831,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-06-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1079,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1870",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Frater Hilarius",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1870 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 55r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2026-06-11 10:18:55.596Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "items": [
+    "7dzdzifag1zduzf",
+    "js1fwjy28ixmd6t"
+  ],
+  "contents": [
+    "jc68ifvxvosktyr",
+    "n84g5y0mq2gi8m1",
+    "bhifbjqob4aw9pc",
+    "48r4wp5065dirbe",
+    "bgq7c72yb4ndf1r",
+    "7atypxpx72ona63",
+    "dn7mk6f0h908qkp",
+    "ixbui1qelj1wwqs",
+    "bvq0q78025sfaa4",
+    "ktpo9gjk38zjqji",
+    "1ma70bg3r3tfabk",
+    "qa90jdvnncr22t4",
+    "djq8l10nb01o9bv",
+    "lvetd6edviru505",
+    "j2mjxqyr7j9y79c",
+    "9csybqp0ethvy6j",
+    "k3zb2vfiis40o9v",
+    "34gwha7gokxlto0",
+    "07liosrgm31q0eb",
+    "9jb2cnyc63k3hgx",
+    "a9vj33r8r8fdpdo",
+    "bf3qxku2tbwjtvi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.817Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.817Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "hssqx5qqqv45zx0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "pjmrqsofuz9o6pn"
+    }
+  ]
+}

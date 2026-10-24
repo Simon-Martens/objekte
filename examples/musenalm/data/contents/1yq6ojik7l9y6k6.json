@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text  vorangestellt: Wie vom Blitz zum Metall, vom Magnet zum Eisen / Geht ein Zug, ein geheimnißvoller Zug, / Vom Menschen zum Menschen, von Brust zu Brust [...] Grillparzer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Als Albertine v. Horneck in ihrem zwanzigsten Jahre zum zweiten Male die Residenz betrat, waren die Augen der ganzen eleganten Welt auf sie gerichtet.",
+  "language": [],
+  "musenalm_id": 61142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rache",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Talvi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rache",
+  "updated": "2008-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.938Z",
+      "agent": "7h2sz4yxt1ki0lh",
+      "source_id": "k7i7xe54opg5e4z"
+    }
+  ]
+}

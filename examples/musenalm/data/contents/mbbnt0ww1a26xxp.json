@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 79310, Obj 5) s. Graphik INr 79316, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Der grandiose Ernst der spanischen Mahlerschule offenbart sich selbst in den lieblichen Darstellungen jener Meister.",
+  "language": [],
+  "musenalm_id": 79317,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Magdalena, / als fromme Büßerin. / Von Bartolomé Estéban Murillo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Chr. Braun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria Magdalena, / als fromme Büßerin. / Von Bartolomé Estéban Murillo",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.830Z",
+      "agent": "z8ye4fkoz7ogybi",
+      "source_id": "2ujq4yksc4xptfe"
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "annotation": "",
+  "biographical_data": "1604-1655",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.415Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2011193-9",
+          "label": "Fruchtbringende Gesellschaft"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter des Barock; Regierungsrat; Liederdichter; Mitglied der Fruchtbringenden Gesellschaft, Meister des Epigramms"
+      ],
+      "dateOfBirth": [
+        "1605-01"
+      ],
+      "dateOfDeath": [
+        "1655-07-24"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:03:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11872889X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/128862580",
+          "label": "Reydeburg, Christoph von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120449412",
+          "label": "Logau, Balthasar Friedrich von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11872889X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/128862580",
+          "label": "Reydeburg, Christoph von"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/120449412",
+          "label": "Logau, Balthasar Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11872889X",
+      "oldAuthorityNumber": [
+        "(DE-588a)141661445",
+        "(DE-588a)160199077",
+        "(DE-588a)141661569",
+        "(DE-588a)11872889X",
+        "(DE-588a)141661313",
+        "(DE-588c)4099764-9"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Brockut"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035683-8",
+          "label": "Liegnitz"
+        }
+      ],
+      "preferredName": "Logau, Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Logau"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398825-8",
+          "label": "Regierungsrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Golaw"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Verkleinernde"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Golau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "von Golaw"
+          ],
+          "personalName": [
+            "Salomon"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "G."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Der Verkleinernde"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Nicolaus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Glogau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Sinngedichte",
+        "Erstes Hundert teutscher Reimen-Sprüche",
+        "Deutsche Sprüche",
+        "Friedrich von Logau und sein Zeitalter",
+        "Auferweckte Gedichte, denen hinzugefüget unterschiedene bißher ...",
+        "Auserlesene Gedichte",
+        "Deutsche Sinn-Gedichte drey Tausend"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1252024797",
+          "label": "Logauische Bibliothek"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1213850177",
+          "label": "Autogramm (Logau, Friedrich von), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83164877"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/logau-friedrich/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34534947"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q314190"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11872889X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_von_Logau"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Logau"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_von_Logau"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_von_Logau"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121274009"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11872889X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11872889X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11872889X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11872889X"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/11872889X"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Logau redivivus",
+        "G., S. v.",
+        "Gehorsamer Unterthan, Ein",
+        "Golau, Salomon von",
+        "Logaw, Fridericus a",
+        "Golaw, Salomon von",
+        "Logaw, Frider. a",
+        "Logau, Friedr.",
+        "Salomon, von Golaw",
+        "S. v. G.",
+        "Verkleinernde, Der",
+        "F. V. L.",
+        "Ein Gehorsamer Unterthan",
+        "Glogau, Nicolaus von",
+        "Der Verkleinernde"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "S."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "G."
+          ]
+        },
+        {
+          "personalName": [
+            "F. V. L."
+          ]
+        },
+        {
+          "forename": [
+            "Frider."
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Logaw"
+          ]
+        },
+        {
+          "personalName": [
+            "Ein Gehorsamer Unterthan"
+          ]
+        },
+        {
+          "forename": [
+            "Ein"
+          ],
+          "surname": [
+            "Gehorsamer Unterthan"
+          ]
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Verkleinernde"
+          ]
+        },
+        {
+          "personalName": [
+            "Der Verkleinernde"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Golaw"
+          ],
+          "personalName": [
+            "Salomon"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Logaw"
+          ]
+        },
+        {
+          "forename": [
+            "Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Golaw"
+          ]
+        },
+        {
+          "forename": [
+            "Nicolaus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Glogau"
+          ]
+        },
+        {
+          "personalName": [
+            "Logau redivivus"
+          ]
+        },
+        {
+          "personalName": [
+            "S. v. G."
+          ]
+        },
+        {
+          "forename": [
+            "Salomon"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Golau"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr."
+          ],
+          "surname": [
+            "Logau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_Logau",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_Logau"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:09:06Z",
+    "gnd_query_biographical_data": "1604-1655",
+    "gnd_query_name": "logau, friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1662,
+  "name": "Logau, Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "NDB 15, 116f",
+  "updated": "2026-06-11 13:29:23.633Z",
+  "uri": "https://d-nb.info/gnd/11872889X",
+  "editor": ""
+}

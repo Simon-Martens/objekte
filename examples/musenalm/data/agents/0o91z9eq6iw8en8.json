@@ -1,0 +1,571 @@
+{
+  "annotation": "",
+  "biographical_data": "1798-1871",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.359Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116350660",
+          "label": "Putlitz, Gustav Heinrich Gans zu"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1072961253",
+          "label": "Berliner Lesecabinet. Buchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10202214-8",
+          "label": "W. Adolf & Co. (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Seit 1848 Redakteur der \"Vossischen Zeitung\""
+      ],
+      "dateOfBirth": [
+        "1798-06-29"
+      ],
+      "dateOfDeath": [
+        "1871-12-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "A. Korn"
+          ],
+          "creditText": [
+            "Deutsche Fotothek"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Willibald%20Alexis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Willibald%20Alexis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Willibald%20Alexis.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/127417958"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:53:59.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118648071/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118648071",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/116350660",
+          "label": "Putlitz, Gustav Heinrich Gans zu"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118648071",
+      "oldAuthorityNumber": [
+        "(DE-588a)118648071",
+        "(DE-588a)127417958",
+        "(DE-588c)4084932-6",
+        "(DE-588a)126304602",
+        "(DE-588)127417958"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003011-8",
+          "label": "Arnstadt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4003011-8",
+          "label": "Arnstadt"
+        }
+      ],
+      "preferredName": "Alexis, Willibald",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Willibald"
+        ],
+        "surname": [
+          "Alexis"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124076-5",
+          "label": "Romancier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Willibald"
+          ],
+          "surname": [
+            "Alexis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Wiener Bilder",
+        "Das Haus Düsterweg",
+        "Neue Novellen",
+        "Der Roland von Berlin",
+        "Herbstreise durch Scandinavien",
+        "Schloß Avalon",
+        "Cabanis",
+        "Zwölf Nächte",
+        "Die Geächteten",
+        "Gesammelte Novellen"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Häring"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Georg Wilhelm Heinrich"
+          ],
+          "surname": [
+            "Häring"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Heinrich Georg Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12044543w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82243941"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/alexis-willibald-haring-georg-wilhelm-heinrich/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/40171930"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77312"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118648071/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127417958"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118648071"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Willibald_Alexis"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Willibald_Alexis"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Willibald_Alexis"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Willibald_Alexis"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000123205437"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118648071"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118648071"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118648071.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118648071.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118648071"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118648071"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Häring, W.",
+        "Alexis, Willib.",
+        "Alexis, Willibald",
+        "Häring, Wilhelm",
+        "Hering, Georg Wilhelm Heinrich",
+        "Häring, Georg Wilhelm Heinrich",
+        "Haering, Georg Wilhelm Heinrich",
+        "Alexis, W.",
+        "Haering, Wilhelm",
+        "Häring, Heinrich Georg Wilhelm",
+        "Alexis, Wilibald",
+        "Häring, Georg W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Haering"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Wilhelm Heinrich"
+          ],
+          "surname": [
+            "Haering"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Wilhelm Heinrich"
+          ],
+          "surname": [
+            "Hering"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "Wilibald"
+          ],
+          "surname": [
+            "Alexis"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Georg Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "Willibald"
+          ],
+          "surname": [
+            "Alexis"
+          ]
+        },
+        {
+          "forename": [
+            "Georg W."
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Alexis"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Wilhelm Heinrich"
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Häring"
+          ]
+        },
+        {
+          "forename": [
+            "Willib."
+          ],
+          "surname": [
+            "Alexis"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Willibald_Alexis",
+          "label": "https://de.wikipedia.org/wiki/Willibald_Alexis"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:39:36Z",
+    "gnd_query_biographical_data": "1798-1871",
+    "gnd_query_name": "häring, georg wilhelm heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1070,
+  "name": "Häring, Georg Wilhelm Heinrich",
+  "profession": "Text",
+  "pseudonyms": "Willibald Alexis",
+  "refs": "Goed IX, 448; Goed XI/1, 447; Goed XIV, 107, 984; H/B 9",
+  "updated": "2026-06-11 13:29:22.800Z",
+  "uri": "https://d-nb.info/gnd/118648071",
+  "editor": ""
+}

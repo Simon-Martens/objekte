@@ -1,0 +1,91 @@
+{
+  "annotation": "§$ vermutl. fehlt Graphik nach S 84",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, SS 1-279",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Tiroler 1803",
+    "norm": "~",
+    "biblio": 108630,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1478,
+  "parallel_title": "",
+  "place_statement": "Wien (Gassler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Tiroler 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Tiroler Almanach / auf / das Jahr / 1803. / Wien, / bey Andreas Gassler",
+  "updated": "2026-06-11 10:18:55.183Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "o3m5nmf1jycj084"
+  ],
+  "contents": [
+    "fqoaexbt6ck23ud",
+    "m1eldea1prbatpi",
+    "yvz3hblsz9t3uu0",
+    "tga9wtpars1uh62",
+    "3320cx7yr11rg5b",
+    "kcx3zcso3jkv7pm",
+    "c6fts2zzjdmvorx",
+    "0du02gp2lolhyvd",
+    "11lqwugvt44x3lo",
+    "zfornebwyxmbylj",
+    "jgr0dqqxpico35o",
+    "l7cu11abs7daf1z",
+    "y6qty1k8f9wsvj3",
+    "h6w115i1it780ub",
+    "8gc5za45t73t1nr",
+    "vruob3f58unfaqs",
+    "boekknqzks15x9n",
+    "ktxgnwpo3ubx862",
+    "92b34ckvihp26d3",
+    "jgscgk44hsut2sg",
+    "fgajjcyim3kugam",
+    "ja4f5o5b3aipogi",
+    "vqcwnmudydvob1h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.885Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.885Z",
+      "agent": "i2o7zznd26kyn2y",
+      "source_id": "2l4872yrzv0tcpb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liedertexte zu Melodieen (Sammlung INr 45344, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Und liegt viel Schnee im Garten, / Da magst du heimlich warten:",
+  "language": [],
+  "musenalm_id": 45349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Doch meine Liebe nicht. / Römische Melodie des Pescator dell'onda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Doch meine Liebe nicht. / Römische Melodie des Pescator dell'onda",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.620Z",
+      "agent": "dlauvagqjefeu2b",
+      "source_id": "c3dly7zrq4shfl1"
+    }
+  ]
+}

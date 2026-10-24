@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 17198, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Sehr willkommen, lieber Hase, / Sehr willkommen bist du heut;",
+  "language": [],
+  "musenalm_id": 17199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor dem Braten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor dem Braten",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.306Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "9vkx8wlmt5vhcdc"
+    }
+  ]
+}

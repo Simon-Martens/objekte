@@ -1,0 +1,120 @@
+{
+  "annotation": "mit kleinen Graphiken (Holzschnitten) über und unter den Beiträgen; s. als Beispiel Photo 87642 /) Die (unbezeichneten) Beiträge wohl von Müchler",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S 1 W, SS 3-6 Vrwrt d Hrsg, SS 7-188",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch fürs Frauenzimmer 1784",
+    "norm": "~",
+    "biblio": 200113,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2872,
+  "parallel_title": "",
+  "place_statement": "Berlin (Lange)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch fürs Frauenzimmer 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 116; L/R 61",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / fürs / Frauenzimmer / Mit einem Kupfer von J. H. Meil. / Berlin, 1784. / bey Gottlieb August Lange, / dem Königl. Schlosse gegen über",
+  "updated": "2026-06-11 10:18:55.046Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "zjewl2rzasf7049"
+  ],
+  "contents": [
+    "szenkbgqrsumfvx",
+    "6dvuwayxogpixix",
+    "6zpb75joyy97uws",
+    "ujnqkxc7dutsk5b",
+    "cwft4e18fhc4h9c",
+    "gf0v4lzf91ek3ma",
+    "xyvnu8x9cnf00go",
+    "y1ogc3k5by2d1fe",
+    "dn5bgpddftlkpmh",
+    "9z4w7frlmk2uvw1",
+    "9bgr2anhowyeb5h",
+    "be168im81zoei28",
+    "m0eoncutky3p5pc",
+    "ywod3w4jgmtlmuf",
+    "9vp4z47jjxkuvmd",
+    "2cp85ga95298asf",
+    "pvqhdr0rlngpzr9",
+    "6r6gkqappsloa4l",
+    "xgly0w0ij5r7xz3",
+    "oiku4z5zl56mtyl",
+    "kjscf4p1jszhsyy",
+    "gfotldvahildoin",
+    "2exwxehik1pqexi",
+    "rwlk9m1yben9pfh",
+    "eeyw8ycuma6bsw8",
+    "ea0pik5hj4vefb5",
+    "2pa1zne36mut953",
+    "dxjeo3bo7jb1td0",
+    "89ngnndxznggnqq",
+    "ol6bn35xgc87cx3",
+    "gbvh8i4tsb73u3z",
+    "tcpl4ceykg3gh6y",
+    "ialaz6ib1ougr2y",
+    "f1zdtqqscyez53v",
+    "exwtnq5qn29nl2m",
+    "l68pc2jw4azo6s1",
+    "g4wlo5cfi73b4xf",
+    "crhxeua38qck29g",
+    "xrpi2bdys3xy0x9",
+    "g8z3atqe96r9fm6",
+    "qmqva9tejhcgznk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "ecb29llyy8za7n0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.156Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.156Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "k8uaq2jbyvuf9kb"
+    }
+  ]
+}

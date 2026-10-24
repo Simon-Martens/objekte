@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Wir hatten sechzehn Fähnlein aufgebracht, zwar nicht lothringisch Volk, welches Frankreich aus den Klauen der Engländer rettete",
+  "language": [],
+  "musenalm_id": 117283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die nächtliche Sängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die nächtliche Sängerin",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.445Z",
+      "agent": "onb8bft2jljf6eb",
+      "source_id": "quy7ordjfgymtc7"
+    }
+  ]
+}

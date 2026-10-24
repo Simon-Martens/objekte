@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 54154, Obj 67 /) mit einem Gedicht s. INr 54155, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Wenn es, lieber D...! dich wundern sollte, die kleine Wanderung, die du mit mir gemacht hast, hier gedruckt zu lesen,",
+  "language": [],
+  "musenalm_id": 54153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ausflug / durch das untere Emmenthal nach dem Jura",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ausflug / durch das untere Emmenthal nach dem Jura",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.783Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "ilxaitapks44e7k"
+    }
+  ]
+}

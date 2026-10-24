@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde höherer Bildung 1827",
+    "norm": "",
+    "biblio": 407706,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3931,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Freunde höherer Bildung 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 117; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch für / Freunde höherer Bildung. / enthaltend / eine Auswahl  gelungener / Denksprüche und poetischer / Gedanken aus den Werken / der vorzüglichsten / Schriftsteller [...] WIEN / Pfautsch's Verlag, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:54.721Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "quenluwvsuubiop"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.130Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.130Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "vf9psv1as7kkdd4"
+    }
+  ]
+}

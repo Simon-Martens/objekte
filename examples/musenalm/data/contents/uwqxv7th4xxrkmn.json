@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Draußen in der letzten Gassen, / draußen in dem letzten Haus, / Schon mit Wangen, die erblassen, / Wohnt der junge, arme Klaus.",
+  "language": [],
+  "musenalm_id": 99098,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kauft Blumen! / (Als Vorwort)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kauft Blumen! / (Als Vorwort)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.996Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "w5guv2f5narbj7u"
+    }
+  ]
+}

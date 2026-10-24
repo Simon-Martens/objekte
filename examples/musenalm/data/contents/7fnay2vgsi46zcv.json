@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Kostbar ist, sagt man, die Zeit, ich könnt' es nicht / immer behaupten;",
+  "language": [],
+  "musenalm_id": 91917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeit",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.555Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "3uwlm5jylqa4jnc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Wir Franzosen, sagt der zweyte Patrü / zu Voltäre, / Haben keinen epischen Kopf.",
+  "language": [],
+  "musenalm_id": 16863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Malezieux Meinung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Malezieux Meinung",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.783Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "4q6kmsnekccm3lf"
+    }
+  ]
+}

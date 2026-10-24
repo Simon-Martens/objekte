@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Sey Jerusalem-Rom mir gegrüßt, du thronst in der / Wüste,",
+  "language": [],
+  "musenalm_id": 59243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roma",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roma",
+  "updated": "2008-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.041Z",
+      "agent": "v63rmmxw84k8ut2",
+      "source_id": "uv97yumacvydsj7"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Herbstgefühl« von G. Goldmann INr 96493, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstgefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Vagedes",
+  "scans": [
+    "alm_4094_96494_zen40qqpcu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herbstgefühl",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.737Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "snppa81l5vg3gih"
+    }
+  ]
+}

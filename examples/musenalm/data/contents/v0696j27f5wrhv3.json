@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 11. Blatt der Suite /) Graphik im Kalendarium November, nummeriert 11; s. Textbezug INr 128494, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128495,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da hast du der besten, die ich dir  / geben kann.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard del. J. Blaschke",
+  "scans": [
+    "alm_1721_128495_k24xq7lecq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da hast du der besten, die ich dir  / geben kann.",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.990Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "98g2dopavaxd4wf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.990Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "ol8onl1k13jco2s"
+    }
+  ]
+}

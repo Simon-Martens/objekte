@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5207, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Vier trübe Monden sind entflohn, / Seit ich getrauert habe;",
+  "language": [],
+  "musenalm_id": 5206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Mädchens auf den Tod / ihrer Gespielin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Mädchens auf den Tod / ihrer Gespielin",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.083Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "tjownh8efbsyajo"
+    }
+  ]
+}

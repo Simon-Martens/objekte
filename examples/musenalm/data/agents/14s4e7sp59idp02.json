@@ -1,0 +1,336 @@
+{
+  "annotation": "",
+  "biographical_data": "1771->1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.499Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1771-04-13"
+      ],
+      "dateOfDeath": [
+        "1836"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1227403003"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-12T12:28:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104136448/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11729392X",
+          "label": "Unger, Caroline"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "104136448",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11729392X",
+          "label": "Unger, Caroline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104136448",
+      "oldAuthorityNumber": [
+        "(DE-101c)310365694",
+        "(DE-588)1227403003",
+        "(DE-588a)13467569X",
+        "(DE-588a)104136448"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Rissdorf"
+      ],
+      "preferredName": "Unger, Johann Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Karl"
+        ],
+        "surname": [
+          "Unger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4451607-1",
+          "label": "Privatgelehrter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "publication": [
+        "Unger, Johann C.: Reise durch österr. Gebirgsgegenden",
+        "Unger, Johann C.: Reise durch oesterreichische und Steyerische Gebirgsgegenden ...",
+        "Unger, Johann C.: Geschichte der ältesten Stammvölker",
+        "Unger, Johann C.: Sitten und Gebräuche der Römer. - 1805 - 1807"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb104888490"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059421"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64436739"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94694172"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104136448/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1227403003"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Carl_Unger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121368718"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104136448"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_U/Unger_Johann-Karl_1771_1836.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104136448"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Unger, Ioannes C.",
+        "Unger, J. Carl",
+        "Unger, Johann K.",
+        "Unger, Johannes C.",
+        "Unger, Ján Karol",
+        "Unger, János Károly",
+        "Unger, Karl",
+        "Unger, J. Karl",
+        "Unger, Joannes C.",
+        "Unger, Johann Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "János Károly"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "J. Carl"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes C."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes C."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Ján Karol"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "J. Karl"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes C."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Carl_Unger",
+          "label": "https://de.wikipedia.org/wiki/Johann_Carl_Unger"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:13:09Z",
+    "gnd_query_biographical_data": "1771->1836",
+    "gnd_query_name": "unger, johann karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2955,
+  "name": "Unger, Johann Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 99",
+  "updated": "2026-06-11 13:29:25.503Z",
+  "uri": "https://d-nb.info/gnd/104136448",
+  "editor": ""
+}

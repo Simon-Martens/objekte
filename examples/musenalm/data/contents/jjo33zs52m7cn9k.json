@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Rosenpflücker« von C. E. Bindemann INr 78054, Obj 180",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 179,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (W. F. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Schulz",
+  "scans": [
+    "alm_3603_78053_7xwgqg26yh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-09-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.483Z",
+      "agent": "ewzv7sz6bn769mr",
+      "source_id": "69d4rwg2kt2d87x"
+    }
+  ]
+}

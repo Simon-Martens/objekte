@@ -1,0 +1,45 @@
+{
+  "annotation": "Acht neue Wanderlieder (Sammlung INr 70949, Obj 23) Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Bei diesem kalten Wehen / Sind alle Straßen leer,",
+  "language": [],
+  "musenalm_id": 70954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Winterreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Winterreise",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.502Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "8zi2wp3yoj19bq6"
+    }
+  ]
+}

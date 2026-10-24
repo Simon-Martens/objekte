@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Zieht die Lerch' im Herbste fort / Singt sie leis' Ade!",
+  "language": [],
+  "musenalm_id": 26933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstabschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstabschied",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.771Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "j80847z2u0a7u7c"
+    }
+  ]
+}

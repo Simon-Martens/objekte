@@ -1,0 +1,45 @@
+{
+  "annotation": "Jupiter (Sammlung INr 91482, Obj 6) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgende 5 Gedichte INr 91498-91502, Obj 22-26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Er hat auf dem Olymp den höchsten Sitz; er winket mit den Augenbrauen, und der Olymp erbebt;",
+  "language": [],
+  "musenalm_id": 91497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Majestät des Donnergottes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Majestät des Donnergottes",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.508Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "osde24yiuconluj"
+    }
+  ]
+}

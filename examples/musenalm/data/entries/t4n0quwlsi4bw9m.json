@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 BB Kal, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, SS 1- 348 darin 5 GG, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1796",
+    "norm": "~",
+    "biblio": 101282,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1947,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Rabenhorst)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; nicht bei L/R; Goed VIII. 48, 4",
+  "responsibility_statement": "J. J. Ebert",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / zur / belehrenden Unterhaltung / für junge / DAMEN / von / J. J. Ebert / Profeßor zu Wittenberg. / Zweites Jahr mit Kupfern / 1796. / Leipzig / in Commision bei C. G. Rabenhorst",
+  "updated": "2026-06-11 10:18:55.727Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "c6zvpzi9j6iewcl"
+  ],
+  "contents": [
+    "ebq6hus5527v25j",
+    "ita5uqtozqbmxhg",
+    "7zu59yd587r0w0s",
+    "xlrfedieodm37k5",
+    "zhw19iypuxu1et7",
+    "pqq2hcbw6g1lgm2",
+    "nswydp2ia5vrri8",
+    "i9myryko714gctx",
+    "spsopzxcyspt4ll",
+    "u2u7lh15msiktpr",
+    "eo6irg150ndvyq6",
+    "nz5hs5fwtzx8nvr",
+    "iwa36jl2rek65sr",
+    "dhu7nlq9pedyagn",
+    "qzdjcs76ld83kjc",
+    "4imcc0trhgau0fn",
+    "s7xjd2rs1wgkc3r",
+    "0pxdi3wlxmoxb3k",
+    "gjn2fj6prahe0lt",
+    "yjki0vl7u1bs0qm",
+    "gg0urrwjid1f269",
+    "f04mvvueol7jfb6",
+    "qqk178p6n5nqrvo",
+    "yde57al22mcw6ov",
+    "u6wetlnsb53332v",
+    "f0me3yjls7p1n4j",
+    "jal639v4lqdpxs5",
+    "fumcjo953v9xdrq",
+    "tuehk1jov95bb4c",
+    "7q6dwybu33ynij2",
+    "jknjrrk6mh5ky55",
+    "76p3c860b2mipjl",
+    "gldpwl7qx1d5mna",
+    "4vbwbwozwndfgu8",
+    "gv8kf4mvi8rtmdn",
+    "jmtdxvnzts9ujg1",
+    "mykeppvtqowqdkj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.133Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.133Z",
+      "agent": "iq4htu5baftyb69",
+      "source_id": "7gem2p35z2wcjpy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.989Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.989Z",
+      "agent": "pt1hiqrxpeom0l4",
+      "source_id": "8kvq3eqruh9tisp"
+    }
+  ]
+}

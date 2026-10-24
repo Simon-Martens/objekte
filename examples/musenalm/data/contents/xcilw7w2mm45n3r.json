@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Den du zu sehn verlangst, John Bull, / War zweimal Kaiser, jetzt zum drittenmale Null",
+  "language": [],
+  "musenalm_id": 56875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bellerophon, an John Bull",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-r-.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bellerophon, an John Bull",
+  "updated": "2008-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.940Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "ohclm9i5lrrsroz"
+    }
+  ]
+}

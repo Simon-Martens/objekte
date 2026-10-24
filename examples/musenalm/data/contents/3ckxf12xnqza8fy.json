@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 13970, Obj 81) mit einer Musikbeigabe s. INr 61722, Obj 174",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Es stürmt auf der Flur, es brauset im Hain, / Es wogt in der Mächtigen Busen;",
+  "language": [],
+  "musenalm_id": 13974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Mit Musik von Hrn. Harder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Mit Musik von Hrn. Harder",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.519Z",
+      "agent": "2wsoz27ytrsps8l",
+      "source_id": "y7h4duc3moanadz"
+    }
+  ]
+}

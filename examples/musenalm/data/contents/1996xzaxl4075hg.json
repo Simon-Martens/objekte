@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April; nummeriert 3. /) Illustration zu »Otto von Wittelsbach«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105086,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haltet euer Wort, und handelt nicht / so mit mir; / IIr. Aufz. 15r. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen del. & sc.",
+  "scans": [
+    "alm_3257_105086_tqdzcof30z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Haltet euer Wort, und handelt nicht / so mit mir; / IIr. Aufz. 15r. Auft.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.992Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "azbsjrwkllra9el"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort s. INr 73789, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Weisheit, dacht' ich, soll den Frieden, / Den das Herz bedarf, verleihn, / Soll auch dann noch mit uns sein;",
+  "language": [],
+  "musenalm_id": 73790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanderung durch den Markt des Ruhmes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanderung durch den Markt des Ruhmes",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.538Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "xaox1gh3sce56pz"
+    }
+  ]
+}

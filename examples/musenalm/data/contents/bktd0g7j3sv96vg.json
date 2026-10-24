@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. s. Textbezug INr 62659, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62643,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Heideloff inv. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. et sc.",
+  "scans": [
+    "alm_1027_62643_wptvd3i8rg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.108Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "046qr0fnt52wgrc"
+    }
+  ]
+}

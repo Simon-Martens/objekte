@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Man kann die Menschen eintheilen in solche, welche Schamgefühl besitzen, und solche welche es abgestreift haben.",
+  "language": [],
+  "musenalm_id": 71394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortschritt, gemäßigter Fortschritt und / Rückschritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fortschritt, gemäßigter Fortschritt und / Rückschritt",
+  "updated": "2010-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.395Z",
+      "agent": "qwibej56fq45fjs",
+      "source_id": "0nuz3q625b5xemi"
+    }
+  ]
+}

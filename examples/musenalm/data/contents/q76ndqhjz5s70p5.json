@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 94441, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Ich kam aus dem Theater, welches heute die Dresdner Welt zahlreicher als dieß sonst gewöhnlich der Fall ist, angelockt hatte, denn Herold's Zampa war zum erstenmale über die Bretter gegangen.",
+  "language": [],
+  "musenalm_id": 94474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todtenwürfel. / (Nach einer deutschen Volkssage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Meynert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Todtenwürfel. / (Nach einer deutschen Volkssage.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.627Z",
+      "agent": "gbc3kxsgqi48l2d",
+      "source_id": "sd239sdl0wrs0lh"
+    }
+  ]
+}

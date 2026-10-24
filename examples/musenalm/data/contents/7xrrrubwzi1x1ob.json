@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammung von 3 Gedichten INr 115844-15846, Obj 90-92",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Balladen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Balladen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.592Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "3bfoom9apz65jom"
+    }
+  ]
+}

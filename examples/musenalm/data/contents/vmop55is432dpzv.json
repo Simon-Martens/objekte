@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Dort sinkt hinab der Frühlingsabend, / Verklärt im goldnen Purpurschein, / Und still kehrt, Luft und Leid begrabend, / Sein Frieden mir im Herzen ein.",
+  "language": [],
+  "musenalm_id": 122303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 327,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scherer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtreise",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.688Z",
+      "agent": "ksktvxfvp5rsora",
+      "source_id": "aci6hh832ipb2js"
+    }
+  ]
+}

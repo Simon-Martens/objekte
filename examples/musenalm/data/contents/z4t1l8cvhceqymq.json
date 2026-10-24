@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Drei Landschaften: Aussicht von dem Körnerschen Weinberg in Loschwitz an der Elbe bei Dresden",
+  "language": [],
+  "musenalm_id": 20349,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Landschaftliche Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Landschaftliche Kupfer",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.687Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "qk3xtetno9szgb1"
+    }
+  ]
+}

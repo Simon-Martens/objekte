@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 118754, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Kein Sternlein glänzt am Himmel mehr. / Den blauen Himmelsbogen / Hat schwarz ein Gewitter umzogen.",
+  "language": [],
+  "musenalm_id": 118753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gericht des Himmels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gericht des Himmels",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.509Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "cl1b1168m6z7x01"
+    }
+  ]
+}

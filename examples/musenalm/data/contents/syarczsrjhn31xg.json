@@ -1,0 +1,45 @@
+{
+  "annotation": "Stechpalmen (Sammlung INr 92739, Obj 5) /) Dem Gedicht vorangestellt: So melde nun, wenn's deine Zunge kann, / Wer dir die Zung' herausschnitt, und dich entehrt. / Shakespeare's Ti. Andron. A. II., Sc. 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Von stummgebornen Nachtigallen / Ein traurig Mährchen sangst du mir:",
+  "language": [],
+  "musenalm_id": 92784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "A. E. v. N.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "A. E. v. N.",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.679Z",
+      "agent": "nwzg4t9e6f4r4qh",
+      "source_id": "sjvm5i37gflg2le"
+    }
+  ]
+}

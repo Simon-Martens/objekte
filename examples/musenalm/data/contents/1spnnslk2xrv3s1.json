@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Frühlingskranz aus dem Plauenschen Grunde. 1824 (Sammlung INr 720, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Biene, dich könnt' ich beneiden, / Könnte Neid im Frühling wachsen,",
+  "language": [],
+  "musenalm_id": 1844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Die Biene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Die Biene",
+  "updated": "2000-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.854Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "v4tg220nmkf2l6f"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 18985, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1971,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SAVOYARDEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bonnefond pinx. Ed. Schuler sculp.",
+  "scans": [
+    "alm_55_1971_oakt2zw9v8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SAVOYARDEN",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.999Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "ivbmyuw6fiywhw7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.999Z",
+      "agent": "vr2sj99n5zu1n6i",
+      "source_id": "ybg3ehq37dqfa92"
+    }
+  ]
+}

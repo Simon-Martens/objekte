@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 33 /) # Bezeichnung vom Titel s. Textbezug INr 18672, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Redoute von Montenotte. / (11. April.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_195_9133_6z2qmcjd27.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Redoute von Montenotte. / (11. April.)",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.393Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "uk7jyzh6u27i4i3"
+    }
+  ]
+}

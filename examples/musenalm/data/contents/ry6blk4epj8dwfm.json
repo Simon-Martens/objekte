@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Es lacht die grüne Wiese, / Es lockt der Sonnenstrahl.",
+  "language": [],
+  "musenalm_id": 62687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Durlacher Thurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Durlacher Thurm",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.224Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "arrohhes7q2cate"
+    }
+  ]
+}

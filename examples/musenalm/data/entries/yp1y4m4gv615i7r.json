@@ -1,0 +1,99 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, S I-Verz, S-G-Verz, SS 1-452 darin 5 GG, G 3 BB VrlgM C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1829",
+    "norm": "~",
+    "biblio": 108664,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3465,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1829",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. v. Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1829. / Von / A. v. Tromlitz. / Mit Kupfern. / Leipzig, im Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:54.499Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "bqiivxoyu947df6"
+  ],
+  "contents": [
+    "198rcp87xc80nkc",
+    "bcom6sk2brfoaij",
+    "28rs6iljca0fgzw",
+    "lgx0tuynpfdcdya",
+    "dpf27772yln0xri",
+    "vfgptujzc0t7d5j",
+    "x2url2y1c24hz3v",
+    "24689zf6fqc3q5e",
+    "hodwfhgptbl67ru",
+    "nbqqajff7n8rht2",
+    "b41eey2mq8otmon",
+    "xr97fhflftateh9",
+    "wwtida6rpa3daay",
+    "hqsswx464bt9brf",
+    "m9ccv7xjou32t8i",
+    "rjwgc6jfgn4iwvj",
+    "bnpfe1tpk53tipb",
+    "3swl3tu8gnuokia",
+    "eve8gd6m5snuqy5",
+    "baq73ioatrlbsx1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.048Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.048Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "6ts6ilv42ulfirq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.227Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.227Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "infubx0aj6wjm38"
+    }
+  ]
+}

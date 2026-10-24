@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gegenstände (Sammlung INr 67078, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Das Zettergeschrei der Schafbesitzer erschallt dermahl mit dem Jagdruf der Jäger in dem oberen Theil des Großherzogthums Baden, der Schweiz gegenüber,",
+  "language": [],
+  "musenalm_id": 67090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Unerhörte Wolfsjagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Unerhörte Wolfsjagd",
+  "updated": "2009-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.366Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "gyn7jvgoznwomjz"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "1. Illustration zu »Theodora Kantakuzenos« von Adolf vom Berge INr 41292, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41282,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theodora Kantakuzenos. / Seite 345",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naeke del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_482_41282_tqc5acbexb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theodora Kantakuzenos. / Seite 345",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.339Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "c8kd4jtrzqmj9aa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.339Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "u76gw8hu3zogk4y"
+    }
+  ]
+}

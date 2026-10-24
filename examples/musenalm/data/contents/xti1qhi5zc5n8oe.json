@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert III. s. Textbezug INr 43412, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43422,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ehrenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. Haldenwang sc.",
+  "scans": [
+    "alm_571_43422_zjvp573avc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Ehrenberg",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.283Z",
+      "agent": "mwin9klvyol78mm",
+      "source_id": "asa3s36azmpe7wk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.283Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "j4z7vpdrtrinp06"
+    }
+  ]
+}

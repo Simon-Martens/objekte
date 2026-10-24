@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63131, Obj 7) mit einer Illustration s. Graphik INr 63142, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "König Adolph,stark und kühn, / Eilt, nach Alsa's Flur zu zieh'n;",
+  "language": [],
+  "musenalm_id": 63136,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. Adolphseck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. Adolphseck",
+  "updated": "2009-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.114Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "fsoe64fgbg4f09d"
+    }
+  ]
+}

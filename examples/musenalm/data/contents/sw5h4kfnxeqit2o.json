@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mein vorjähriger Versuch, die neuesten Weltbegebenheiten in einem Taschenbuche vorzutragen, hat das Glück gehabt, den Beyfall des deutschen Publicums zu erhalten.",
+  "language": [],
+  "musenalm_id": 59782,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. C. Sprengel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2008-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.904Z",
+      "agent": "1eqjoxnybezb6wq",
+      "source_id": "59gb4im8iam7cil"
+    }
+  ]
+}

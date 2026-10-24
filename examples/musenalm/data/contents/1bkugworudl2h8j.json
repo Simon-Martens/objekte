@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien auf einen großen Todten (Sammlung INr 84130, Obj 125)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Und ach, Menschen, die Ihr bewohnt noch / freundlichen Erdrund,",
+  "language": [],
+  "musenalm_id": 84152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und ach, Menschen, die Ihr bewohnt noch / freundlichen Erdrund,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.041Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "xyzwcpax1j9186z"
+    }
+  ]
+}

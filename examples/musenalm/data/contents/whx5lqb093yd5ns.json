@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 134143,01-134143,06",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134143,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verzeichniß der Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2741_134143_01_x9sig7sl0k.jpg",
+    "alm_2741_134143_02_tyvynpu4xc.jpg",
+    "alm_2741_134143_03_omruxprwq0.jpg",
+    "alm_2741_134143_04_8g8u3xjb2h.jpg",
+    "alm_2741_134143_05_o5dj3eikr3.jpg",
+    "alm_2741_134143_06_7kb8lke1tv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verzeichniß der Gedichte",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": []
+}

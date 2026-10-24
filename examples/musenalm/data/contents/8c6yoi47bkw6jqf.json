@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Obe uf de Hornesgründe isch e See, de mer de Mummelsee heißt,",
+  "language": [],
+  "musenalm_id": 62537,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mümmelchen. / Ein Allemannisches Mährlein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mümmelchen. / Ein Allemannisches Mährlein",
+  "updated": "2009-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.721Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "hvfh1kop8f7wb2p"
+    }
+  ]
+}

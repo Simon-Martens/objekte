@@ -1,0 +1,45 @@
+{
+  "annotation": "Maria. Ein Sonettenkranz (Sammlung INr 43070, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Ich will nicht von den zarten Reizen sprechen, / Die üppig ihren schlanken Bau umschlossen:",
+  "language": [],
+  "musenalm_id": 43079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9.",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.261Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "evutk0ypkp13mw7"
+    }
+  ]
+}

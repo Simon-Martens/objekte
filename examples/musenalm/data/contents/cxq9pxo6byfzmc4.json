@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20894,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKERS-TASCHENBUCH / 1828 / Leipzig bei Georg Joachim Göschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. Fleischmann sc.",
+  "scans": [
+    "alm_276_20894_vqnegx80dx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKERS-TASCHENBUCH / 1828 / Leipzig bei Georg Joachim Göschen",
+  "updated": "2002-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.829Z",
+      "agent": "ail6kpkgq3rdfot",
+      "source_id": "hz97nan1mkpy1nt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.829Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "p3z89q0wbsxvbk0"
+    }
+  ]
+}

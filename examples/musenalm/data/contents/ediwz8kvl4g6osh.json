@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Du, die ferne von mir bist, / Wohl manche Meile fern,",
+  "language": [],
+  "musenalm_id": 72152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Entfernte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Fink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Entfernte",
+  "updated": "2010-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.663Z",
+      "agent": "kv8ey7ottu85n6z",
+      "source_id": "s9o9dxn9gxz4f97"
+    }
+  ]
+}

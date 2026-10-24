@@ -1,0 +1,45 @@
+{
+  "annotation": "Beylagen (zum Beitrag »Der Nahmenstag« von J. G. Jacobi INr 16481, Obj 29) (Sammlung INr 16482, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Als Rath, mit einem Amtsgesicht, / Collegialiter am langen Tische sitzen,",
+  "language": [],
+  "musenalm_id": 16488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.635Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "y9y0ygflojg8k5f"
+    }
+  ]
+}

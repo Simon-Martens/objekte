@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Rings walten Todesstille, / Und Schlaf und Mitternacht.",
+  "language": [],
+  "musenalm_id": 35897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen. / An Feodoren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen. / An Feodoren",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.793Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "s7r42wgavnrsr33"
+    }
+  ]
+}

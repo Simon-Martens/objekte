@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Milibu« INr 102875, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "492",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MILIBU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_3375_102876_4iqb9dvico.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MILIBU",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.889Z",
+      "agent": "yf7uqcfkp0nwlnb",
+      "source_id": "o4tfdift1twql21"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.889Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "w8qttqndwfz9pvo"
+    }
+  ]
+}

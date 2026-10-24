@@ -1,0 +1,289 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1788",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.488Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichterin, Almanachautorin; Tochter des Leutnants Adam Levin von Witzleben (d.J.) auf Hude; ab 1782 erste Ehefrau des Grafen Friedrich Leopold zu Stolberg-Stolberg"
+      ],
+      "dateOfBirth": [
+        "1761-10-09"
+      ],
+      "dateOfDeath": [
+        "1788-11-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-18T18:44:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119101270/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Agnes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Witzleben"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118755552",
+          "label": "Stolberg-Stolberg, Friedrich Leopold zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/108030584X",
+          "label": "Witzleben, Adam Levin von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119101270",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#00p",
+          "label": "Sachlich nicht klassifizierbare Personen"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/108030584X",
+          "label": "Witzleben, Adam Levin von"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118755552",
+          "label": "Stolberg-Stolberg, Friedrich Leopold zu"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119101270",
+      "oldAuthorityNumber": [
+        "(DE-588a)119101270",
+        "(DE-588c)4316255-1"
+      ],
+      "preferredName": "Stolberg-Stolberg, Agnes zu",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Agnes"
+        ],
+        "prefix": [
+          "zu"
+        ],
+        "surname": [
+          "Stolberg-Stolberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2010130847"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52491967"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55905788"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119101270/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000082322767"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119101270"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119101270"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4770088-9",
+          "label": "Gräfin"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Stolberg, Henriette E. zu",
+        "Stolberg, Agnes zu",
+        "Stolberg-Stolberg, Henriette Eleonore Agnes zu",
+        "Stolberg, Henriette Eleonore Agnes zu",
+        "Witzleben, Henriette Eleonore Agnes von",
+        "Witzleben, Agnes von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Henriette Eleonore Agnes"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette Eleonore Agnes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Witzleben"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette E."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette Eleonore Agnes"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg-Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Agnes"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Stolberg"
+          ]
+        },
+        {
+          "forename": [
+            "Agnes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Witzleben"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:04:57Z",
+    "gnd_query_biographical_data": "1761-1788",
+    "gnd_query_name": "stolberg, agnes zu"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2790,
+  "name": "Stolberg, Agnes zu",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 1038",
+  "updated": "2026-06-11 13:29:25.241Z",
+  "uri": "https://d-nb.info/gnd/119101270",
+  "editor": ""
+}

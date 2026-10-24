@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Grabschriften (Sammlung INr 22566, Obj 79) Distichen (Sammlung INr 22522, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Auf dem Grabe des Guten, der lebend Trost und / Erquickung / Allen Leidenden war, pflanzet ein Schattengebüsch,",
+  "language": [],
+  "musenalm_id": 22568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-03-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.022Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "1ukyvltipg5nb6w"
+    }
+  ]
+}

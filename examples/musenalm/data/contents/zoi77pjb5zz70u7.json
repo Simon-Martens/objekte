@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Prüfung« von L. Erhardt INr 62917, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62898,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Prüfung. / Von Elise Ehrhard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opitz del. Esslinger sc.",
+  "scans": [
+    "alm_1031_62898_9ex0p3k1p2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Prüfung. / Von Elise Ehrhard",
+  "updated": "2009-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.123Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "7s1ut0qcazj26n5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.123Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "s6xr50oidu0oe8j"
+    }
+  ]
+}

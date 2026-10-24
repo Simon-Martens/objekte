@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Als noch das rohe Faustrecht in Deutschland galt, und freche Räuber allenthalben in den waldigten Gegenden unsers Schwabenlandes hausten, da ward auch das alte Salzgau, dessen dichte Wälder noch jetzt die Spuren der alten Wildniß an sich tragen,",
+  "language": [],
+  "musenalm_id": 45222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kloster Maulbronn. / (Eine Sage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Jäger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kloster Maulbronn. / (Eine Sage.)",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.455Z",
+      "agent": "w689armlrokfmhz",
+      "source_id": "jmlgu3it7k5f05z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Einmal noch an Eurer Seite, / Meinen Hammer im Geleite,",
+  "language": [],
+  "musenalm_id": 23006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Der Petrefactensammler. / An Lotte und Clärchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Der Petrefactensammler. / An Lotte und Clärchen",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.880Z",
+      "agent": "sazh274fui35fcn",
+      "source_id": "9h2l4by2we6cr1v"
+    }
+  ]
+}

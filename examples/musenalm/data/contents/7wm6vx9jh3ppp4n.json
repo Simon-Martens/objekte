@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Braus't des Unglücks Sturm empor, / Halt' ich meine Harfe vor;",
+  "language": [],
+  "musenalm_id": 94392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost im Liede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost im Liede",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.325Z",
+      "agent": "demesi9ujep1ia6",
+      "source_id": "v251b0vn1en478n"
+    }
+  ]
+}

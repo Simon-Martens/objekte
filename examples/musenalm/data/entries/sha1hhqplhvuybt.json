@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, 25 SS Kal darin 12 GG, S, Tab, B G-Verz, T, S I-Verz, ar: SS 1-48, ar1: SS 1-16 Tab, 7 BB Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freundinnen romantischer Lectüre 1814",
+    "norm": "~",
+    "biblio": 405909,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3392,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach für Freundinnen romantischer Lectüre 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freundinnen / romantischer / LECTURE / auf das Jahr / 1814 / WIEN, bey Jos. Grämmer Buchbinder / in der Grünangergasse No. 885",
+  "updated": "2026-06-11 10:18:54.899Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "m0qvwb72fpvlyi2"
+  ],
+  "contents": [
+    "q6pd2flx4e3jk2n",
+    "xu3pitoyp4xly6k",
+    "gxh7cwa6bmw7cea",
+    "88yjh0kcbi6o8o2",
+    "ljbx8x07izxcfmy",
+    "pood904w6dcqj72",
+    "4czxuy9nb356ctd",
+    "8jtb1zwqf7yntm7",
+    "jda5b59p7jvex8d",
+    "ktn8ujd8zxf4c4a",
+    "zxrcg4c4dgwmql3",
+    "znu3hv9os0ig7np",
+    "k5n1y702dhsuapi",
+    "kq1vplzfr5w995v",
+    "s8epekp7zblg7go",
+    "34v3kj1zwxlcndb",
+    "qzn9e3hvxist54w",
+    "zv21xozgai6z4ta",
+    "550wbwolcwcpo1t",
+    "rerr1v3dd1cri89",
+    "j5ti9qrs8he3j2s",
+    "04h8j9dhllm46au",
+    "3xb2y8201594rwg",
+    "6618ircf1ush7vu",
+    "nlai9xkm6zsucni",
+    "cicx8etk06hp0fs",
+    "6fznd2b0592t7re",
+    "rx9f03tx5r6jovf",
+    "8ety3prmseo5j7v",
+    "jq45sehlsc8ci8o",
+    "w8mpmqh444dg0lg",
+    "fjk5ezwaiob3a5g",
+    "qwp45g60hh592ju",
+    "w6o5utxie26fa30",
+    "ox9oiggqwxk3zfz",
+    "pgyei4fxys0eudv",
+    "c2id7yb4tjed2yf",
+    "ld7hhahqk7l6gba",
+    "f62mk26gh44bmmk",
+    "9ot9sdw9ndabg4u",
+    "6b78ds0rqs47gez",
+    "ybxy01f2xkfiual",
+    "3grjwkvlzmbqhxz",
+    "tk5lkcp5ia2pj3h",
+    "tbyhe085jihwc2j"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.927Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.927Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "6wh667hyfa04kwd"
+    }
+  ]
+}

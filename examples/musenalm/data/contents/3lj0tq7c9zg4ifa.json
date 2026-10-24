@@ -1,0 +1,45 @@
+{
+  "annotation": "Träume (Sammlung INr 34564, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Ohne Halt im leeren Raume glaubt' ich träumend / einst zu fallen / Immer schneller fortgerissen in die bodenlose Tiefe,",
+  "language": [],
+  "musenalm_id": 34579,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sturz in die Tiefe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sturz in die Tiefe",
+  "updated": "2003-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "e7ht2k6ozhvb2hs"
+    }
+  ]
+}

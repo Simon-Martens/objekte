@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "So bin ich endlich angelangt ans Ende / Der ausgemessnen, ewig gleichen Bahn, / Komm, mein letzter Hauch, den ich verwende / dir zur Belehrung, Bruder, zu empfahn!",
+  "language": [],
+  "musenalm_id": 129587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel / des Jahres 1812 an seinen Nachfolger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel / des Jahres 1812 an seinen Nachfolger",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.017Z",
+      "agent": "o1de384mohw3dnl",
+      "source_id": "o3s5he7zgs8pouj"
+    }
+  ]
+}

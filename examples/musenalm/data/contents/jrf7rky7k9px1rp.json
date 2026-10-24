@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Sie, die noch jetzt in ihrer sanften Pracht / Dem nimmermüden Auge lacht,",
+  "language": [],
+  "musenalm_id": 8118,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog, / bey Eröfnung der Leipziger Bühne, / den 17. Septbr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Engel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog, / bey Eröfnung der Leipziger Bühne, / den 17. Septbr.",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.488Z",
+      "agent": "uqq3zzvz1phg9u6",
+      "source_id": "l9sg96azk62et0d"
+    }
+  ]
+}

@@ -1,0 +1,337 @@
+{
+  "annotation": "",
+  "biographical_data": "1832-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.485Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Gedichte, Novellen, Verse, ethnographische Forschung"
+      ],
+      "dateOfBirth": [
+        "1832-05-28"
+      ],
+      "dateOfDeath": [
+        "1897-05-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Peter Rychlo, Oleg Liubkivskyj: Literaturstadt Czernowitz, 2., verbesserte Auflage. Czernowitz 2009, S. 29"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/L.%20A.%20Staufe-Simiginowicz.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/L.%20A.%20Staufe-Simiginowicz.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:L.%20A.%20Staufe-Simiginowicz.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-03-23T13:50:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/101559798/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RO",
+          "label": "Rumänien"
+        }
+      ],
+      "gndIdentifier": "101559798",
+      "id": "https://d-nb.info/gnd/101559798",
+      "oldAuthorityNumber": [
+        "(DE-588a)101559798"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4058350-8",
+          "label": "Suceava"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Czernowitz/Bukowina"
+      ],
+      "preferredName": "Staufe-Simiginowicz, Ludwig Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Adolf"
+        ],
+        "surname": [
+          "Staufe-Simiginowicz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Sand"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Ataufe"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Kleinrussische Volkslieder. - 1888",
+        "Klug, Alfred: Ein verloren geglaubtes Büchlein von L. A. Staufe. - 1929"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39746280"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1874144"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101559798/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Adolf_Staufe-Simiginowicz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Adolf_Staufe-Simiginowicz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000005320290"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101559798"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Simiginowicz-Staufe_Ludwig-Adolf_1832_1897.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Simiginowitz, Adolf Lajos",
+        "Staufe, Ludwig A.",
+        "Staufe, Ludwig Adolf",
+        "Simiginowicz, Ludwig Adolf Staufe-",
+        "Simiginowicz, Ludwig A.",
+        "Ataufe",
+        "Staufe-Simiginowicz, Ludwig A.",
+        "Simiginowicz, Ludwig Adolf",
+        "Simiginowicz-Staufe, Ludwig A.",
+        "Simiginowicz-Staufe, Ludwig Adolf",
+        "Sand, Adolf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adolf Lajos"
+          ],
+          "surname": [
+            "Simiginowitz"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Sand"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Adolf"
+          ],
+          "surname": [
+            "Simiginowicz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Simiginowicz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Simiginowicz-Staufe"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Adolf"
+          ],
+          "surname": [
+            "Simiginowicz-Staufe"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Staufe"
+          ]
+        },
+        {
+          "personalName": [
+            "Ataufe"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Adolf Staufe-"
+          ],
+          "surname": [
+            "Simiginowicz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Adolf"
+          ],
+          "surname": [
+            "Staufe"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Staufe-Simiginowicz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Adolf_Staufe-Simiginowicz",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Adolf_Staufe-Simiginowicz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:02:36Z",
+    "gnd_query_biographical_data": "1832-?",
+    "gnd_query_name": "staufe-simiginowicz, ludwig adolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2741,
+  "name": "Staufe-Simiginowicz, Ludwig Adolf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1958",
+  "updated": "2026-06-11 13:29:25.158Z",
+  "uri": "https://d-nb.info/gnd/101559798",
+  "editor": ""
+}

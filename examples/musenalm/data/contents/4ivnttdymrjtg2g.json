@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 7849, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7850,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entdeckung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth. inv. Rip. f.",
+  "scans": [
+    "alm_170_7850_yubu30ecfo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Entdeckung",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.214Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "h0d9ipokxa97j3p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.214Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "uwxe4jeg0q4ibhr"
+    }
+  ]
+}

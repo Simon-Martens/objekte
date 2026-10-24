@@ -1,0 +1,80 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, SS 1-446",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1847",
+    "norm": "~",
+    "biblio": 101017,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 73,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1847. / Neue Folge. / Neunter Jahrgang. / Mit dem Bildnisse Bertold Auerbach's / Leipzig: / F. A. Brockhaus. / 1847",
+  "updated": "2026-06-11 10:18:54.883Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "uaz4me4a0gv88ww"
+  ],
+  "contents": [
+    "aos9mbfnlisbvwf",
+    "t8gkb6q3p7fysc9",
+    "cceq38exu2mpwh5",
+    "98bjf8flwby8g54",
+    "vfimbhnixbkd02h",
+    "ikvvqsj9gcy1ebl",
+    "tymijleixkbikrr",
+    "cricmpcmu1wd4jt",
+    "o5mfqnqswue9fli",
+    "ivy86u7z0f2b2xp",
+    "v0u45g8zj8z2kfi",
+    "8oralcwmsgvgrj4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.607Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.607Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "a4abkwxb4hcnma5"
+    }
+  ]
+}

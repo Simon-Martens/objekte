@@ -1,0 +1,47 @@
+{
+  "annotation": "s. »Ein paar Worte über die nachstehende Tanzmusik« INr 117594, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117605,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecosaise. 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Riem",
+  "scans": [
+    "alm_3282_117605_1ngp5ckudl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecosaise. 3.",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.573Z",
+      "agent": "uoz96fdvbrhaw9f",
+      "source_id": "5r5iv4w7igjjjso"
+    }
+  ]
+}

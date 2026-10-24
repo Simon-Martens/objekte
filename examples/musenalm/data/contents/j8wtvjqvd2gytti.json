@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Dem Kinde bot die Hand zu meiner Zeit / der Mann, / da streckte sich das Kind, und wuchs zu ihm / hinan:",
+  "language": [],
+  "musenalm_id": 3550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pädagogie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pädagogie",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.300Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "98kr0qam0zyjhk3"
+    }
+  ]
+}

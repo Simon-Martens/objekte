@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Sie eilt, sie fliegt herauf die schwarze Donnerwolke; / Ein Wirbel schleudert sie herbey.",
+  "language": [],
+  "musenalm_id": 8559,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedanken über ein Ungewitter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Altorfer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedanken über ein Ungewitter",
+  "updated": "2000-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.722Z",
+      "agent": "q3ycj6c278fvea0",
+      "source_id": "ribr48s7ba29mu2"
+    }
+  ]
+}

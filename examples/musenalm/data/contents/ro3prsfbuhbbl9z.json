@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »San-Pietro von Bastelica« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1802 INr 11764",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11895,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Willkommen in der Heimat edler Ritter! / Aus San-Pietro von Bastelica v. W. G. Becker. / Taschenbuch für 1802. S. 11",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. J. A. Darnstedt",
+  "scans": [
+    "alm_209_11895_dcgr7yqg8x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Willkommen in der Heimat edler Ritter! / Aus San-Pietro von Bastelica v. W. G. Becker. / Taschenbuch für 1802. S. 11",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "90fr5mifsbitc3o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.531Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "onh58ef8w1ehmsh"
+    }
+  ]
+}

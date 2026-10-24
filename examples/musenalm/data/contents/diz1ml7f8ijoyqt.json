@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61037, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "ein Magier, ist von seinen Ordensbrüdern auf den persischen Thron erhoben worden, und regiert grausam.",
+  "language": [],
+  "musenalm_id": 61044,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Sphendadates,",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Sphendadates,",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.032Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "snassd8b2mzivrn"
+    }
+  ]
+}

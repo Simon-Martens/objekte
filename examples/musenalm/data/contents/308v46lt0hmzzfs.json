@@ -1,0 +1,45 @@
+{
+  "annotation": "Pseud. Sammlung von 4 Gedichten INr 36385, 36390-36392; Obj 53-56 IV. Lieder (Sammlung INr 36371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanderlieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanderlieder",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.824Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "z00nctfh9zfzyxg"
+    }
+  ]
+}

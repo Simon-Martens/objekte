@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Weit durch schöne Gefild' und weiter / Stürmt die rollende Wagenfahrt!",
+  "language": [],
+  "musenalm_id": 34917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.990Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "1o3gevt7ovwwc3d"
+    }
+  ]
+}

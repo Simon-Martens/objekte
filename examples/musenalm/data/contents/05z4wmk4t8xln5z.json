@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Virginia, oder Liebe und Opfer« von C. M. Ed. INr 63915, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63908,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schuler sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuler sculp.",
+  "scans": [
+    "alm_1051_63908_j37o2mp9ud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.244Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "yr2qjlsqayjqbwo"
+    }
+  ]
+}

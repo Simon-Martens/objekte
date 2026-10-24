@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 79318, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79319,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vestalinnen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Sconians Gest. v. Ant. Karcher",
+  "scans": [
+    "alm_1575_79319_paxprldfcw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vestalinnen #",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.830Z",
+      "agent": "6awc4ehxj177riw",
+      "source_id": "90pnqw5yxixw6xc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.830Z",
+      "agent": "b334ivfypj3aic9",
+      "source_id": "q7ye4zu4owm588j"
+    }
+  ]
+}

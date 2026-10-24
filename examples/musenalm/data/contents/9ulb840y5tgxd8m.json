@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Wenn unsrer Wiederkehr euch freuet, / Mit der sich die Natur verjüngt,",
+  "language": [],
+  "musenalm_id": 84319,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlings-Safran",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Trattinnick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlings-Safran",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.963Z",
+      "agent": "n2xpiyodv6d59wk",
+      "source_id": "w78bvhxnqgl2mbs"
+    }
+  ]
+}

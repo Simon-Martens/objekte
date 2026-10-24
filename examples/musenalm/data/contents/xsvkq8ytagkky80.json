@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 51200-51207, Obj 32-39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51199,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragmente / aus / meiner Schreibtafel. / (Auf einer Sommerreise 1796 / gesammelt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragmente / aus / meiner Schreibtafel. / (Auf einer Sommerreise 1796 / gesammelt.)",
+  "updated": "2007-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.591Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "uymfras1nqr91bc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Heute leb' ich, heute trink' ich. / Ob es wohl den Göttern dünke,",
+  "language": [],
+  "musenalm_id": 12168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skolie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skolie",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.495Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "v0okdb1c68j5nng"
+    }
+  ]
+}

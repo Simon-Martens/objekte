@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Thörichter! schimpfest mich hart, und nennst, o / Lieber, Dich Mann doch?",
+  "language": [],
+  "musenalm_id": 97302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ebendenselben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ebendenselben",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.772Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "alxi7igpi6j05kh"
+    }
+  ]
+}

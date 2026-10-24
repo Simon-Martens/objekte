@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89565, Obj 35) mit einer Illustration s. Graphik im Kalendarium INr 89544, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Als Ludovicus XI., König von Frankreich, einst eine große Summe Geldes empfangen hatte und sich leidlich die Rechnung machen konnte",
+  "language": [],
+  "musenalm_id": 89567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Echte Freigebigkeit. / (Exilium Melancholiae. Straßburg 1655.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Echte Freigebigkeit. / (Exilium Melancholiae. Straßburg 1655.)",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.338Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "pjms0xijcm8en4l"
+    }
+  ]
+}

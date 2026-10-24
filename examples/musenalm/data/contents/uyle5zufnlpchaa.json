@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 99029, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Wenn eines Wandrers Guten Morgen! / Vorübergehend mein Herz erfeut,",
+  "language": [],
+  "musenalm_id": 99055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wandrergrüße",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wandrergrüße",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.822Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "gu6ud0dme634mnx"
+    }
+  ]
+}

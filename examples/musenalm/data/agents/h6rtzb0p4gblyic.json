@@ -1,0 +1,611 @@
+{
+  "annotation": "",
+  "biographical_data": "1807-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.446Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Märchendichter, Verfasser von Kasperlkomödien, Lyriker, Zeichner, Illustrator von Kinderbüchern und Komponist; auch Übersetzer; Zeremonienmeister Ludwigs I., Hofmusikintendant, 1864: königlich bayerischen Oberstkämmerer am Hof Ludwigs II.; 1826; Mitglied des Corps Isaria; aufgrund seiner Werke für das Kasperl- und Marionettentheater wurde er auch als „Kasperlgraf“ bekannt"
+      ],
+      "dateOfBirth": [
+        "1807-03-07"
+      ],
+      "dateOfDeath": [
+        "1876-05-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Hanfstaengl"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20von%20Pocci.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20von%20Pocci.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20von%20Pocci.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/141199164",
+        "https://d-nb.info/gnd/1056401486"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:23:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118595245/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116247207",
+          "label": "Pocci, Ernst von"
+        },
+        {
+          "forename": [
+            "Fabrizius Evaristus"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/102260664",
+          "label": "Pocci, Franz von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118595245",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/102260664",
+          "label": "Pocci, Franz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116247207",
+          "label": "Pocci, Ernst von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118595245",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)135100399",
+        "(DE-588)1056401486",
+        "(DE-588a)131098209",
+        "(DE-588a)141199164",
+        "(DE-588a)126499071",
+        "(DE-588a)131027107",
+        "(DE-101c)310790395",
+        "(DE-588a)131098195",
+        "(DE-588a)131098217",
+        "(DE-588a)118595245",
+        "(DE-588)141199164"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Pocci, Franz, Graf von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "nameAddition": [
+          "Graf von"
+        ],
+        "surname": [
+          "Pocci"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Kaspergraf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Nepos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Barth"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Bauern ABC",
+        "Was du willst",
+        "Hrsg. von: Blumenlieder für Knaben und Mädchen. - [ca. 1835]",
+        "Übers. von: Coppée, François: Silvia",
+        "Das Leben der heiligen Cäcilia",
+        "Märlein von Einem der auszog das Fürchten zu lernen",
+        "Morelli, Giovanni: Balvi magnus. [Satirische Scherzschrift auf zeitgenössische Münchener Künstler und Gelehrte, u.a. über Pocci]",
+        "Hrsg. von: Festkalender in Bildern und Liedern, geistlich und weltlich. - [1835-1839]",
+        "Alte und neue Studenten-Lieder",
+        "Drey Duetten für Sopran und Alt mit Begleitung des Pianoforte",
+        "Der Karfunkel",
+        "Hrsg. von: Münchner Album",
+        "Hänsel und Grethel",
+        "Trifolien",
+        "Odoardo",
+        "Flug der Liebe",
+        "6 altdeutsche Minnelieder als Frühlingsgruß 1835",
+        "Lied auf dem Wasser zu singen",
+        "Das lustige Mährlein vom kleinen Frieder mit seinem Vogelrohr und seiner Geige",
+        "Legende vom Sanct Hubertus Und: Das Märlein von Schneeweißchen und Rosenroth",
+        "Hrsg. von: Spruchbüchlein mit Bildern für Kinder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12366940c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82262563"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44376534"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q454099"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118595245"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1056401486"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118595245/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/141199164"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Count_Franz_Pocci"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_von_Pocci"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Franz_von_Pocci"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Count_Franz_Graf_von_Pocci"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108930884"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118595245"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118595245"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118595245.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118595245.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118595245"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Pocci, Franz",
+        "Pocci, Franz von",
+        "Barth, F.",
+        "Pocci, Franz Ludwig Evarist Alexander von",
+        "Nepos, Franz",
+        "Pocci, Franz G.",
+        "Pocci, Franz Ludwig Evarist Alexander von, Graf",
+        "Pocci",
+        "Pocci, Frz.",
+        "Kaspergraf",
+        "Pocci, Franz G. von",
+        "Pocci, F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "personalName": [
+            "Kaspergraf"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Nepos"
+          ]
+        },
+        {
+          "forename": [
+            "Franz G."
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "personalName": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Barth"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ludwig Evarist Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "Frz."
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ludwig Evarist Alexander"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pocci"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_von_Pocci",
+          "label": "https://de.wikipedia.org/wiki/Franz_von_Pocci"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:30:33Z",
+    "gnd_query_biographical_data": "1807-1876",
+    "gnd_query_name": "pocci, franz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2096,
+  "name": "Pocci, Franz von",
+  "profession": "Graphik u. Hrsg",
+  "pseudonyms": "",
+  "refs": "T/B XXVII, 166",
+  "updated": "2026-06-11 13:29:24.090Z",
+  "uri": "https://d-nb.info/gnd/118595245",
+  "editor": ""
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Forstwirthe und Forsttaxatoren (Sintzel) 1828",
+    "norm": "",
+    "biblio": 410882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-12-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4766,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Riegel und Wießner)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch für Forstwirthe und Forsttaxatoren (Sintzel) 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Joseph Sintzel",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Forstwirthe und Forsttaxatoren / von / Joseph Stintzel, / k. bayerischem Forstamts-Aktuar, der kameralistisch-ökonomischen Sozietät in Erlangen / korrespondirendem und der Gartenbau-Gesellschaft in Fraundorf / ordentlichem Mitgliede. / Nürnberg, 1828 / Bei Riegel und Wießner",
+  "updated": "2026-06-11 10:18:54.705Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "7l69e57778ce2e0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "5sa9n01hkze72w4",
+      "source_id": "flas3s4dsamond1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.420Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.420Z",
+      "agent": "yh40l2p9rbocxff",
+      "source_id": "nd4xtezd8xgl0gy"
+    }
+  ]
+}

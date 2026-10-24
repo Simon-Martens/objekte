@@ -1,0 +1,45 @@
+{
+  "annotation": "Teinach 1824 (Sammlung INr 54183, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Stets noch erfreut mich dasThal von Tannen- / hügeln umschlossen,",
+  "language": [],
+  "musenalm_id": 54200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. Abschied",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.778Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "1r30csdl6yqa8yj"
+    }
+  ]
+}

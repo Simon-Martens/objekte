@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "So lohnt die Welt! Im ersten Blüthen- / kranze, / Den Frühlings-Sonnenschein um unsre / Schläfe webt,",
+  "language": [],
+  "musenalm_id": 18144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So lohnt die Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "So lohnt die Welt",
+  "updated": "2001-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.890Z",
+      "agent": "o98cykqmxxu1sx9",
+      "source_id": "klyat1tnjd3spcv"
+    }
+  ]
+}

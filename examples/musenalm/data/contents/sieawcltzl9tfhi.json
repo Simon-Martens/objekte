@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Neunte Lieferung. Faust. Zweite Hälfte ( Sammlung INr 40867, Obj 5) s. Graphik INr 40872, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Versprich mir, Heinrich! Was ich kann. / Nun sag', wie hast Du's mit der Religion?",
+  "language": [],
+  "musenalm_id": 40873,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Marthens Garten.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Marthens Garten.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.175Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "u138tg1uh1acri7"
+    }
+  ]
+}

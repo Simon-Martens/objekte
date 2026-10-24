@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wo bleibt der Junge, Juliette? Es ist dunkel und brüllt ein fürchterlicher Föhn! Ach, ich liebe den Föhn, Evariste, er ist Poesie des Sturmes!",
+  "language": [],
+  "musenalm_id": 92738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abenteuer in Uri, / ein Bild aus der Schweiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abenteuer in Uri, / ein Bild aus der Schweiz",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.327Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "w2c5t1h66i8jo4o"
+    }
+  ]
+}

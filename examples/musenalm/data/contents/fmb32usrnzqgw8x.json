@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Gedichte INr 24132, 24133; Obj 115, 116 /) Buntes aus Ost und West (Sammlung INr 24130, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wahrheit und Wein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wahrheit und Wein",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.205Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "5rtmumnzyfp3s6t"
+    }
+  ]
+}

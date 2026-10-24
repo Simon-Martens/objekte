@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Es ist kein andrer Gott als Gott, / Muhammed aber sein Prophet,",
+  "language": [],
+  "musenalm_id": 45583,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 292,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muhammeds Flucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muhammeds Flucht",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.344Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "w16wpmb5qbnen4u"
+    }
+  ]
+}

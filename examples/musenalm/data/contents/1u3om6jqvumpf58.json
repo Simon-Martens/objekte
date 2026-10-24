@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76955, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Und er kommt, es umringt ihn die jubelnde Schaar; / Zu des Königs Füßen er sinkt,",
+  "language": [],
+  "musenalm_id": 76956,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Taucher] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Taucher] 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.557Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "88dq92ooxlqivvs"
+    }
+  ]
+}

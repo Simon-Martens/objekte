@@ -1,0 +1,132 @@
+{
+  "annotation": "Bei L/R  64: Jg 1798 und ein »weiterer Jahrgang«; lt. Titel mindestens 2 Vorläuferjahrgänge (1793, 1794) KVK: Im Katalog der österreichischen Landesbibliotheken: Jgg 1778, 1785-1790, 1796, 1798, 1802, 1804, 1805, 1808, 1811 /) lt. Titel sind die Gedichte des Almanachs sowie die von zwei Vorläuferjahrgängen vom »Verfasser der bekannten Eipeldauerbriefe« d. i. Joseph Schmidt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 6 SS, 26 SS Kal darin 24 SS u. 12 GG, 23 SS, 12 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Der neuesten Moden (Wien) 1795",
+    "norm": "~",
+    "biblio": 200552,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-04-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 508,
+  "parallel_title": "",
+  "place_statement": "Wien (Hartl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Der neuesten Moden (Wien) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 64",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / neuesten Moden / Almanach / auf das Jahr / 1795. / Wird alle Jahre neu fortgesetzt. / Die Gedichte von diesem Jahrgange, / so wie von den zwey vorher gehenden, / sind von dem Verfasser der bekannten / Eipeldauerbriefe. / Wien, / bey Seb. Hartl, Buchhändler und Buchb. in der Singerstraße",
+  "updated": "2026-06-11 10:18:54.822Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "py882udx2ir122g"
+  ],
+  "contents": [
+    "eeppcg84pweoiag",
+    "4eas7a65xskus32",
+    "mm8r2g3omzet9hq",
+    "anq58lyysu7s4mn",
+    "pz9kxg7x4e6m6oy",
+    "12t1ceh0tablhfg",
+    "7wnbkq61mg3fnp3",
+    "rhipxcumimtta8s",
+    "037ah7ep5rz51bp",
+    "u0uavtvdwfc1n80",
+    "nriohzvftdzyae0",
+    "iohvdi8antc3dix",
+    "yt6dgwdgq664h68",
+    "3pqzcn23ftoi2sw",
+    "4t4517ts6g5i5pf",
+    "mvfq4vjohnrikm4",
+    "q0fho4u5okple8t",
+    "aw0dmd0g2lu3cco",
+    "9wvlepsv8kkku20",
+    "xrqnk4rtihx1dpk",
+    "ot3h993fhpjbm4x",
+    "768quc34f4gd3ih",
+    "y5w6b2f7jcizi91",
+    "yniqvh3b83se97w",
+    "7ck77mpwn7w0vfq",
+    "qowxc32dbnzkwbg",
+    "p24twtlmi43z4kj",
+    "e6vefw72f70u199",
+    "sh7ytxj107sr54p",
+    "4140dvxkqot853h",
+    "ct0iqmvhoz1qqtz",
+    "9vtd465uqpvxflr",
+    "8qjkj41k662ztor",
+    "a5lxzwqghz3zr8a",
+    "a0ryjmb482bzsl1",
+    "84vfag7cacb5zj1",
+    "frqysgyg4sao88j",
+    "bvlir262tcvlo36",
+    "mhuke3vazukc4ag",
+    "8h8w3w09ky366n4",
+    "m2cw3lbab2dviaz",
+    "0mb5u11k91zwz2y",
+    "rtq68w00l0l06ef",
+    "oynr4p7u0arqpgr",
+    "y9cdx0bwkchij13",
+    "fba73l0nrh2mi45",
+    "nqi9sm6fx2fwadx",
+    "rv1fbkr3jpcc0m2",
+    "fdfa8ehntirod2b",
+    "xrdsy2d02gyu8qa",
+    "70trx2vsbevaom1",
+    "utznxk85z4t8yx6",
+    "wqlbiwbqxtdr8hv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.963Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.963Z",
+      "agent": "m9g9ugfv2fhvdyf",
+      "source_id": "jcpsvc54b3enc4v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.690Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.690Z",
+      "agent": "vnh3lwvt81shntt",
+      "source_id": "oi9v0tihcjh0vb3"
+    }
+  ]
+}

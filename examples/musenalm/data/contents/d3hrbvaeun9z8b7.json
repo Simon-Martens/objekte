@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "An des neuen Jahrs Gestade / Weil' ich einen Augenblick",
+  "language": [],
+  "musenalm_id": 2689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geburtstags-Betrachtungen, / am 3ten März 1777",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geburtstags-Betrachtungen, / am 3ten März 1777",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.046Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "aznik68sjo3mhaf"
+    }
+  ]
+}

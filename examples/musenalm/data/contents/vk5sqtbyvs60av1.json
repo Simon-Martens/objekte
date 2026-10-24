@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar, nummeriert 2 /) Illustration zu »Centifolium stultorum« von Abraham a Santa Clara d. i. Ulrich Megerle; s. Textbezug INr 129068, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129044,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abergläubischer Narr. / Fou superstitieux",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Rosmaesler sc.",
+  "scans": [
+    "alm_157_129044_zvrqa2ubst.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abergläubischer Narr. / Fou superstitieux",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.000Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "nrtvox8s7rnae5f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.000Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "tkso971gtqd1e76"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Marie. Ein Fragment aus früher Zeit. Zweiter Theil (Sammlung INr 99639, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "In Sommersgluth hat die Natur zur klaren / Erscheinung, was sie Schönes hat, gediegen;",
+  "language": [],
+  "musenalm_id": 99650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Herbstoffenbarung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Rodenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Herbstoffenbarung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.726Z",
+      "agent": "mx1vnd1yqx32ae7",
+      "source_id": "hxenln555tog3re"
+    }
+  ]
+}

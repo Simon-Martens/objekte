@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgrapik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29064,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg del. W. Jury sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sculp.",
+  "scans": [
+    "alm_376_29064_dzhvbfws2h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.458Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "h53f25gcty56moo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.458Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "kxvt4vv9u2la39u"
+    }
+  ]
+}

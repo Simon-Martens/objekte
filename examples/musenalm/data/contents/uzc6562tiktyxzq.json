@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 7. s. Textbezug INr 49183, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die botanische Blindekuh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. Schule sc. 1801",
+  "scans": [
+    "alm_673_49162_hne6i768cb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die botanische Blindekuh",
+  "updated": "2007-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.415Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "pcvhparnmco4ljq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.415Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "xfi59qa2le9rebz"
+    }
+  ]
+}

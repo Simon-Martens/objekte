@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Was ich aus ungeübtem Rohr / Der grünen Weidenrinde sang, / Und was im Wiederhall empor / Aus ihm ins Alpenhorn erklang;",
+  "language": [],
+  "musenalm_id": 114636,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort / an / meinen Freund Weidmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Reil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort / an / meinen Freund Weidmann",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.478Z",
+      "agent": "iy0f9gplf8lpfrd",
+      "source_id": "76y4ti0ewdjzqew"
+    }
+  ]
+}

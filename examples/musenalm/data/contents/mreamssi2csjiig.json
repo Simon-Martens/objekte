@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Es war der siebenunzwanzigste Redscheb / Des Mond's, in dem die Wunder gäng und gäb,",
+  "language": [],
+  "musenalm_id": 100492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Archiv der Liebe. / (Einleitung des 6. Buches: Die sechste heilige Nacht: Von der / irdischen Liebe.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Archiv der Liebe. / (Einleitung des 6. Buches: Die sechste heilige Nacht: Von der / irdischen Liebe.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.963Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "ug8stlq6tj42sd3"
+    }
+  ]
+}

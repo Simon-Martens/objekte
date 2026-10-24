@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Spiele nur immer, gaukelnder Betrüger, / Spiele nur immer deine leichten Tänze,",
+  "language": [],
+  "musenalm_id": 2150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Irrwisch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Irrwisch",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.876Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "6axm3ztxr0vfxny"
+    }
+  ]
+}

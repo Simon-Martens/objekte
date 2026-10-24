@@ -1,0 +1,56 @@
+{
+  "annotation": "Allemannische Gedichte (Sammlung INr 14454, Obj 53) /) Übertragung von Hebels allem. Gedicht »Hans und Verene«",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Fürwahr, ich weiß nur Eine, / Der ich mich gern verhieß! / O wenn ich doch das Dirnlein hätt';",
+  "language": [],
+  "musenalm_id": 14457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans und Veronica. / (S. J. P. Hebels Allem. Gedichte. S. 130.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel [übers.] Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans und Veronica. / (S. J. P. Hebels Allem. Gedichte. S. 130.)",
+  "updated": "2001-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.744Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "5p104e5r2z2rv7m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.743Z",
+      "agent": "u04oy46tu9dlk6x",
+      "source_id": "qf8wpo7sj4dds09"
+    }
+  ]
+}

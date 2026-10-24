@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Belagerung von Antwerpen« von A. von Tromlitz d. i. K. A. F. v. Witzleben INr 29950, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29951,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus der Belagerung von Antwerpen, Erzählung / von A. von Tromlitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_387_29951_2pv23dtyk1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus der Belagerung von Antwerpen, Erzählung / von A. von Tromlitz",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.441Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "7mba9fd5v8erad4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.441Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "plfg5ani2f02gi8"
+    }
+  ]
+}

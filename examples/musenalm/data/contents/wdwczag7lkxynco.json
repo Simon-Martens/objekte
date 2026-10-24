@@ -1,0 +1,45 @@
+{
+  "annotation": "onym",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Sie saß am Strom – wie sie lacht, wie sie singt! / Wie die Töne vom Herzen ihr dringen! / Wie sie munter die Füßchen drehet und schwingt / Die die kühlenden Fluthen umschlingen",
+  "language": [],
+  "musenalm_id": 122946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen am Strom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Guntram",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen am Strom",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.824Z",
+      "agent": "xkwifoj1zncmcnu",
+      "source_id": "my04b4z7xfgu1dm"
+    }
+  ]
+}

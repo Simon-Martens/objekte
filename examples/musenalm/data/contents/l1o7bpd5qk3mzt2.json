@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "453",
+  "incipit_statement": "Liebe, wer sich selber haßt, / Aber wer sein gutes Leben / Will der freyen Ruh ergeben, / Reißt sich von der weichen Last,",
+  "language": [],
+  "musenalm_id": 131289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die freye Ruh",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Opitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die freye Ruh",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.011Z",
+      "agent": "tbjfsz6p9q8bcrh",
+      "source_id": "inq0vyfqlfev9ug"
+    }
+  ]
+}

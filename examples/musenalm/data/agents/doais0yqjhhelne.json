@@ -1,0 +1,256 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1786"
+      ],
+      "dateOfDeath": [
+        "1847"
+      ],
+      "describedBy": {
+        "dateModified": "2023-10-13T13:47:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115695044/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115695044",
+      "id": "https://d-nb.info/gnd/115695044",
+      "oldAuthorityNumber": [
+        "(DE-588a)115695044"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4106491-4",
+          "label": "Tilsit"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021441-2",
+          "label": "Görlitz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1165694506",
+          "label": "Gnadau"
+        }
+      ],
+      "preferredName": "Cunow, Martin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Martin"
+        ],
+        "surname": [
+          "Cunow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Privatgelehrter",
+        "Lehrer"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Frey"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Eleutheros"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Die Herrenhuter in ihrem Leben und Wirken",
+        "Die Emancipation der Wissenschaften vom Staat und von den Gelehrten-Zünften",
+        "Geschichte der dritten Jubelfeier des Reformationsfestes wie solche zu Königsberg ..",
+        "Federstiche. - 1822 - 1824",
+        "Die Augsburgische Confession und die Geschichte ihrer Übergabe",
+        "Europas Auswanderungen zur Colonisirung Afrikas und Asiens .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb145554289"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64246729"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55912972"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115695044/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/115695044"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000001041649X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115695044"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115695044"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Cunow, ...",
+        "Kunow, Martin",
+        "Frey, Theodor",
+        "Eleutheros, Johannes"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Frey"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Kunow"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Eleutheros"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Cunow"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:10:12Z",
+    "gnd_query_biographical_data": "1786-?",
+    "gnd_query_name": "cunow, martin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 474,
+  "name": "Cunow, Martin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 373",
+  "updated": "2026-06-11 13:29:21.955Z",
+  "uri": "https://d-nb.info/gnd/115695044",
+  "editor": ""
+}

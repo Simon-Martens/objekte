@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 28302, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Dein Liebling kostete den Kelch des Lebens, / Da schmeckt' er seine Bitterkeit,",
+  "language": [],
+  "musenalm_id": 28316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / An Leonoren, / bei dem Tode ihres neugebornen Kindes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / An Leonoren, / bei dem Tode ihres neugebornen Kindes",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.179Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "b2wduktdcwqkfga"
+    }
+  ]
+}

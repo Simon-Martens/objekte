@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Thekla und Helene spielten am Boden mit der Mutter alten Musikalien, welche sie in kleine Stücke zerrissen",
+  "language": [],
+  "musenalm_id": 132425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josphine von Remekhazy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern. / Novelle",
+  "updated": "2022-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.091Z",
+      "agent": "jc0gro9nxm9tpb1",
+      "source_id": "x9v3h1tuhjhus3b"
+    }
+  ]
+}

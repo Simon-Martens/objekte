@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ein närr'scher Kerl ist doch der Clerici! / Wenn auch der König selbst, der ihn doch könnte / zwingen,",
+  "language": [],
+  "musenalm_id": 8939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachahmung der 3ten Satire im ersten / Buche des Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schmitt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachahmung der 3ten Satire im ersten / Buche des Horaz",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.430Z",
+      "agent": "57y4of9yk0759mz",
+      "source_id": "gton3b0zzmdswu9"
+    }
+  ]
+}

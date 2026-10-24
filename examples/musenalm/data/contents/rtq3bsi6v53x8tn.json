@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette an Line (Sammlung INr 133680, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "In sanfter Ruhe liegt noch Thal und Hügel, / Es tönt noch nicht der Vögel Morgenlied,",
+  "language": [],
+  "musenalm_id": 133686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.117Z",
+      "agent": "t0ac1fy2s8750zm",
+      "source_id": "htefd8oce1i34ck"
+    }
+  ]
+}

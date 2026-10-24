@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die gefangenen Schweizer-Knaben« von J. Rud. Wyß d. ä. INr 53025, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 52.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. Volmar del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Volmar del. H. Lips sculp.",
+  "scans": [
+    "alm_727_127977_90l1tnsmqv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.975Z",
+      "agent": "5rfe1xu4i476kzq",
+      "source_id": "bkpjmjstu3ew5x3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.975Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "vz5w70dlo3rf07z"
+    }
+  ]
+}

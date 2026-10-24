@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Einstens hatt' ich eine Hütte, / Damals schien sie mir ein Haus;",
+  "language": [],
+  "musenalm_id": 94260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Thema, / Einen Abschied nennt das Scheiden, / Wer nicht kennt ein fühlend Herz; / Doch ich nenn' es einen Schmerz, / Der nur endet im Verscheiden.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Ritter von Frank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Thema, / Einen Abschied nennt das Scheiden, / Wer nicht kennt ein fühlend Herz; / Doch ich nenn' es einen Schmerz, / Der nur endet im Verscheiden.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.267Z",
+      "agent": "km9osfzve59w4c0",
+      "source_id": "kehevpace3im66b"
+    }
+  ]
+}

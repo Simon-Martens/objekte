@@ -1,0 +1,121 @@
+{
+  "annotation": "einziger Jahrgang (mit Graphiken von J. P. Lyser) Als Autor der Prosabeiträge und Gedichte ist der Herausgeber Herloßsohn anzunehmen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS 1-289 darin 7 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Mephistopheles 1833",
+    "norm": "~",
+    "biblio": 404389,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2248,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brüggemann)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Mephistopheles 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 212; Goed X. 450, 218",
+  "responsibility_statement": "C. Herloßsohn",
+  "subtitle_statement": "",
+  "title_statement": "Mephistopheles. / Ein politisch-satyrisches / Taschenbuch / auf das Jahr / 1833. / Herausgegeben von C. Herloßsohn. / Mit Kupfern von J. P. Lyser. / Leipzig, / Brüggemann's Verlags-Expedition",
+  "updated": "2026-06-11 10:18:55.929Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "zj5yoeuvc07smoh"
+  ],
+  "contents": [
+    "p7b2ar4eg45oyqu",
+    "1vqp8jbs61f1yb2",
+    "6n1wrmd25dnozmr",
+    "sp7sxu0z5kdq1qj",
+    "6kgohvdi7r2xbvt",
+    "67q7ocwzdpgz9n5",
+    "wsho6byyu29ob0r",
+    "dfjo6gi5n42nujk",
+    "r9fn51v199dtkl8",
+    "5zju8ptp1ljitw9",
+    "ickyw8lvr82o4js",
+    "0h9xm6wjkqp8ejy",
+    "x265cypva71v2pr",
+    "qieo6n5jmsxzgug",
+    "elcr33h0xijw1ld",
+    "wwrnzn2pds5e8y6",
+    "bsd9d7bi83xad5o",
+    "n3qyitiez7psdpp",
+    "0ytf8bmft41oo60",
+    "bhe4bqo6epjwewx",
+    "v1pnfn02dfrrnbd",
+    "ushnzhochcinnsf",
+    "ecg6ll9c759o6w2",
+    "g4c2gyam04wvyvu",
+    "rw59gij0touhlz7",
+    "mws4irrsmnrouib",
+    "y9gxpamscg3o18s",
+    "8cks59ieqem1oz9",
+    "lpcrwxkr5tt8dki",
+    "nj5tka5euulhqhp",
+    "hyocf12r2nly1um",
+    "p357ewaj1wqrgaq",
+    "wcz5llbmss0mzlk",
+    "0tlus0yqhb1l18k",
+    "mw1fxeycnnscykq",
+    "jny3t0npd1yaeux",
+    "bruktvcgghfi0jp",
+    "ay3nrcvp8znu973",
+    "dvp2n5ipgwr25v0",
+    "ttifd58eobzsbzf",
+    "4jzvmagp5uy4qah",
+    "w2h8jj360i5v0y6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.018Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.018Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "3931q16vhrz102q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.612Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.612Z",
+      "agent": "5915933g44sa0it",
+      "source_id": "qbae8nq3qi5va27"
+    }
+  ]
+}

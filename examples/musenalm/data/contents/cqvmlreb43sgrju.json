@@ -1,0 +1,43 @@
+{
+  "annotation": "Franz und Mathilde oder Liebe, Leiden und Freuden (INr 29469, Obj 4) s. Graphik INr 29473, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Bewahre Gott! ich denke nicht an ihn,sagte Mathilde, wenn vom Förstersohne die Rede war,",
+  "language": [],
+  "musenalm_id": 29472,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.584Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "fs22eycvq03zovh"
+    }
+  ]
+}

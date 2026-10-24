@@ -1,0 +1,638 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1852",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.380Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116426322",
+          "label": "Eiselen, Ernst Wilhelm Bernhard"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10025487-1",
+          "label": "Friedrich-Ludwig-Jahn-Museum"
+        }
+      ],
+      "dateOfBirth": [
+        "1778-08-11"
+      ],
+      "dateOfDeath": [
+        "1852-10-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lithograph Georg Ludwig Engelbach (* 28. Februar 1817, † 4. Dezember 1894)"
+          ],
+          "creditText": [
+            "zeitgenössische Lithographie, gescannt von APPER/2004, de.Wikipedia"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Ludwig%20Jahn.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Ludwig%20Jahn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Ludwig%20Jahn.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:01:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118556622/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1129692639",
+          "label": "Jahn, Alexander Friedrich"
+        },
+        {
+          "forename": [
+            "Helene"
+          ],
+          "surname": [
+            "Kollhof"
+          ]
+        },
+        {
+          "forename": [
+            "Maria Elisabeth Anna"
+          ],
+          "surname": [
+            "Tittmann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116317760",
+          "label": "Quehl, Friedrich"
+        },
+        {
+          "forename": [
+            "Johann Gottfried Gottlob"
+          ],
+          "surname": [
+            "Tittmann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1332637558",
+          "label": "Quehl, Emma"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1332486479",
+          "label": "Jahn, Arnold Siegfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/142045950",
+          "label": "Jahn, Emilie"
+        },
+        {
+          "forename": [
+            "Dorothea Sophie"
+          ],
+          "surname": [
+            "Schulze"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118556622",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#34.3p",
+          "label": "Personen zu Sport"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1332637558",
+          "label": "Quehl, Emma"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1332486479",
+          "label": "Jahn, Arnold Siegfried"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1129692639",
+          "label": "Jahn, Alexander Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118556622",
+      "oldAuthorityNumber": [
+        "(DE-588c)4027986-8",
+        "(DE-588a)118556622"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7562774-7",
+          "label": "Lanz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4249838-7",
+          "label": "Freyburg (Unstrut)"
+        }
+      ],
+      "preferredName": "Jahn, Friedrich Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ludwig"
+        ],
+        "surname": [
+          "Jahn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015479-8",
+          "label": "Erzieher"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "O. C. C."
+          ],
+          "surname": [
+            "Höpffner"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Merke zum deutschen Volksthum",
+        "Deutsches Volksthum",
+        "Die deutsche Turnkunst",
+        "Neue Runen-Blätter",
+        "Runenblätter",
+        "Bereicherung des Hochdeutschen Sprachschatzes",
+        "Denknisse eines Deutschen oder Fahrten des Alten im Bart"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13014309p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81002823"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/61680798"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77098"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118556622/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Ludwig_Jahn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Jahn"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Ludwig_Jahn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Ludwig_Jahn"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118556622"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012135843X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118556622"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1826_thiele;64"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1841_schorn;34"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1848_schorn;70"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_gluemer;30"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1798_jahn"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118556622"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118556622.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118556622.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118556622"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118556622"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118556622"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Jahn, F. L.",
+        "Jahn, Friedrich L.",
+        "Schöppach, Karl",
+        "Jahn, J.F.L. Ch.",
+        "Jahn, Turnvater",
+        "Höpffner, O.C.C.",
+        "Schöppach, Carl",
+        "Jahn, F.L.",
+        "Jahn, Fr. L.",
+        "Jahn, Johann Friedrich Ludwig Ch.",
+        "Höpffner, O. C. C.",
+        "Jahn, Ludwig",
+        "Jahn, J. F. L. Ch.",
+        "Turnvater Jahn",
+        "Jahn, Johann F.",
+        "Jahn, Johann Friedrich Ludwig Christoph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Turnvater"
+          ],
+          "personalName": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "J. F. L. Ch."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "O. C. C."
+          ],
+          "surname": [
+            "Höpffner"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Ludwig Christoph"
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Ludwig Ch."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schöppach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "F. L."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "J.F.L. Ch."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "personalName": [
+            "Turnvater Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. L."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Schöppach"
+          ]
+        },
+        {
+          "forename": [
+            "O.C.C."
+          ],
+          "surname": [
+            "Höpffner"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        },
+        {
+          "forename": [
+            "F.L."
+          ],
+          "surname": [
+            "Jahn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Jahn",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Ludwig_Jahn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:50:36Z",
+    "gnd_query_biographical_data": "1778-1852",
+    "gnd_query_name": "jahn, friedrich ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1291,
+  "name": "Jahn, Friedrich Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIV, 579, 1017",
+  "updated": "2026-06-11 13:29:23.051Z",
+  "uri": "https://d-nb.info/gnd/118556622",
+  "editor": ""
+}

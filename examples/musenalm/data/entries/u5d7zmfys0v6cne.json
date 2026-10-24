@@ -1,0 +1,71 @@
+{
+  "annotation": "Das Taschenbuch ist mit seinen Beiträgen unter dem varianten Titel: Berliner Taschenbuch 1849 aufgenommen (dort ohne Kalendarium, ohne Genealogie) s. alm-884. /) Hier nur Umschlag und Titel als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, 9 BB Kal, ar: S 1 W, SS 2-8 G-Verz darin 6 GG, SS 9-239, ar1: SS 1-73 Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1849",
+    "norm": "~",
+    "biblio": 408399,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2014-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4087,
+  "parallel_title": "",
+  "place_statement": "Berlin (Decker)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Kalender / für / 1849. / Dreiundzwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag der Deckerschen Geheimen Ober-Hofbuchdruckerei",
+  "updated": "2026-06-11 10:18:55.756Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "9qwzd77i6wqztsa"
+  ],
+  "contents": [
+    "6xg7fc7kaz7wtgf",
+    "j28nygv2lncu9ll",
+    "dfc0rrb7ogln3y0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.712Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.712Z",
+      "agent": "xgaoof3gxezsx6j",
+      "source_id": "lai2ikgmca6f7qw"
+    }
+  ]
+}

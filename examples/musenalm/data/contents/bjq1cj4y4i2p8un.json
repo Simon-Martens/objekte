@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Auf einem großen, schöngelegenen Dorfe lebte ein Pfarrer, wohlhabend und behaglich, denn ihn drückte nicht die Last schwerer Gelehrsamkeit, noch litt er an Podagra, oder einer andern Krankheit.",
+  "language": [],
+  "musenalm_id": 66262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jahrmarkt. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jahrmarkt. / Novelle",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.890Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "fai57vifghasufx"
+    }
+  ]
+}

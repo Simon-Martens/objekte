@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Ich bin gesund, ich habe Frieden, / Ich habe Brod; was will ich mehr?",
+  "language": [],
+  "musenalm_id": 33541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Health - Peace - Compatence. / Pope",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Health - Peace - Compatence. / Pope",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "bouw9g9o8tkr7qv"
+    }
+  ]
+}

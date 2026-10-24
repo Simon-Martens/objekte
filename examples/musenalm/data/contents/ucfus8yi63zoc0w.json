@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 3 Teilen INr 25055-25057, Obj 77-79 /) Gedichte (Sammlung INr 25046, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Klapperstorch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Klapperstorch",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.100Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "iwwxu0whtwumv03"
+    }
+  ]
+}

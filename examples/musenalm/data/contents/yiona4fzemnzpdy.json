@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) XIV. Jagdgedichte (Sammlung INr 82165, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Wie von Thürmen allem / Ringsum die Glocken hallen; - / Ein feierlicher Ruf!",
+  "language": [],
+  "musenalm_id": 82167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Morgenlied / eines Jägers am Sonntage auf dem Weg / in den Wald",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber und Hr. Cramer in Naumburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Morgenlied / eines Jägers am Sonntage auf dem Weg / in den Wald",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.817Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "kdb3q31qp0676u7"
+    }
+  ]
+}

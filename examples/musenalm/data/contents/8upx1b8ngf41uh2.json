@@ -1,0 +1,45 @@
+{
+  "annotation": "Einige Anekdoten (Sammlung INr 37283, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Der vor 2 Jahren zu Cassel verstorbene französische Schauspieler Armand war ein guter Schauspieler und ein rechtschaffener Mann.",
+  "language": [],
+  "musenalm_id": 37286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der vor 2 Jahren zu Cassel verstorbene französische Schauspieler Armand war ein guter Schauspieler und ein rechtschaffener Mann.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.018Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "uwzjm3848w3ck18"
+    }
+  ]
+}

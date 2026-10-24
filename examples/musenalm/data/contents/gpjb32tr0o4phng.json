@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 111966, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Lächle fröhlich, liebes Bübchen, / In dem kleinen Weidenstübchen, / Das Dich jetzt umschließt,",
+  "language": [],
+  "musenalm_id": 111969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied für Komus den Dritten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied für Komus den Dritten",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.505Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "dmua1mtbwqnv57g"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 26993, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26992,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Thadarus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Fischer, gez. und gest. von Albt. Reindel",
+  "scans": [
+    "alm_350_26992_t8t982fvli.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Thadarus",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.840Z",
+      "agent": "2j4fmhpjuaqhaao",
+      "source_id": "53jdbc2j7wo43iz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.840Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "kq4b843i4kdw94q"
+    }
+  ]
+}

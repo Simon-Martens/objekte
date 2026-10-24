@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37772, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Auf! tummle dich, Hengst, / Im wildesten Braus, / Ich will in die Welt, / In das Leben hinaus!",
+  "language": [],
+  "musenalm_id": 37773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Abenteurer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Abenteurer",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.171Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "fehmuj64pd4wmw4"
+    }
+  ]
+}

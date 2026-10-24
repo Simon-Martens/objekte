@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) Illustration zu »Die erste Besteigung des Groß Glockners, des höchsten bis itzt gemessenen Berges in Deutschland« von H. G. Flörke INr 72475, Obj 18; s.a. Textbezug INr 72590, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72471,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gross-Glockner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas del. et sc. Berlin 1810",
+  "scans": [
+    "alm_846_72471_47m6sbh5a1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gross-Glockner",
+  "updated": "2008-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.381Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "opk27a2v7xlavrd"
+    }
+  ]
+}

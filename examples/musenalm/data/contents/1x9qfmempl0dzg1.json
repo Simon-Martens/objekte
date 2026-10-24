@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Vierzeilen (Sammlung INr 1628, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Liebe wohnt in einem Irregarten, / Wo sich kreuzen wirrer Pfade viele.",
+  "language": [],
+  "musenalm_id": 19113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe wohnt in einem Irregarten, / Wo sich kreuzen wirrer Pfade viele.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.638Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "5afwnw5s6uwjoff"
+    }
+  ]
+}

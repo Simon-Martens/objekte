@@ -1,0 +1,127 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1820",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.442Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1786-09-04"
+      ],
+      "dateOfDeath": [
+        "1820-08-31"
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-01T22:00:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#4",
+          "label": "Katalogisierungslevel 4"
+        },
+        "id": "https://d-nb.info/gnd/1329208765/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Passy"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Passy"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1329208765",
+      "id": "https://d-nb.info/gnd/1329208765",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Passy, Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "surname": [
+          "Passy"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1329208765/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:27:12Z",
+    "gnd_query_biographical_data": "1786-1820",
+    "gnd_query_name": "passy, joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2029,
+  "name": "Passy, Joseph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1519",
+  "updated": "2026-06-11 13:29:24.033Z",
+  "uri": "https://d-nb.info/gnd/1329208765",
+  "editor": ""
+}

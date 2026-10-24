@@ -1,0 +1,50 @@
+{
+  "annotation": "Photos 13059,001-13059,004",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der erste Theil dieser Sammlung ist von vielen unpartheischen Lesern mit Beifall aufgenommen worden. Hoffentlich wird es dem zweiten auch nicht daran fehlen.",
+  "language": [],
+  "musenalm_id": 131059,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_4651_131059_01_eq6jmrj3lc.jpg",
+    "alm_4651_131059_02_xrwi92it73.jpg",
+    "alm_4651_131059_03_0b8m6pkq48.jpg",
+    "alm_4651_131059_04_fzubbgztj5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2019-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.019Z",
+      "agent": "365fawpuuslnmhf",
+      "source_id": "vdj3t5qbbqrxgi8"
+    }
+  ]
+}

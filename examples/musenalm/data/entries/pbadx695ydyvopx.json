@@ -1,0 +1,115 @@
+{
+  "annotation": "S. W. Schiessler auch Herausgeber von: Carnevals-Almanach (Prag) 1830 und Aurora. Ein Taschenbuch zur gesellschaftlichen Erheiterung 1812",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, NT, I-Verz, SS1–303",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Schiessler) 1826",
+    "norm": "~",
+    "biblio": 409130,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-11-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4238,
+  "parallel_title": "",
+  "place_statement": "Prag (Buchler, Stephani u. Schlosser) Wien (Mayer) Freiburg (Herder)",
+  "places": [
+    "nmnwnqcyxaqev1h",
+    "io20468di3l63af",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Schiessler) 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R; Goed VIII. 132, 33",
+  "responsibility_statement": "S. W. Schiessler",
+  "subtitle_statement": "",
+  "title_statement": "THALIA / Almanach dramatischer / Spiele / für das Jahr / 1826 / von S. W. SCHIESSLER. / PRAG bei Buchler Stephani u. Schlosser. / WIEN bei Jacob Mayer u. Freiburg im Breisg. / in der Herderschen Kunst u. Buchhandl. in Commisssion",
+  "updated": "2026-06-11 10:18:55.160Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "gwiaf01e4lql47q"
+  ],
+  "contents": [
+    "dpiehp11e6qn9jm",
+    "v3dbo8739rownza",
+    "1b6nsrulubmyllc",
+    "7f8if0w1v6k6btw",
+    "yyzqp8j241eenpa",
+    "5fdo2r45i0603nv",
+    "pgwg0unkbvnzx8v",
+    "4hd1xdfn93ubfaz",
+    "4nalc2cb7ahjkql",
+    "nvcyyxx5g95wa1z",
+    "d2fd0gly5go28px",
+    "23xdd1csnbnf3g8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.347Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.347Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "eelk4h1t54noqch"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.621Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.621Z",
+      "agent": "iuf0ojd8jzuzupw",
+      "source_id": "ng1w9rra5updaqx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "w7fv2ee9xso2h80",
+      "source_id": "t738k47ismcx80x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.991Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.991Z",
+      "agent": "f6b9zpq9wxwtlg7",
+      "source_id": "wp1pt4777soaa1r"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Welche von Beiden« von Kurländer (INr 124601, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124602,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welche von Beiden, Sc. 6. / Amalia (für sich) / Wenn es mein Cousin auch übel nimmt, ich kann nicht / fort, ohne von der Schwester Abschied zu nehmen. Ich muß / sie umarmen ehe ich die Entführungs-Reise antrete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Dietze j. del",
+  "scans": [
+    "alm_1247_124602_ll87y2bcou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Welche von Beiden, Sc. 6. / Amalia (für sich) / Wenn es mein Cousin auch übel nimmt, ich kann nicht / fort, ohne von der Schwester Abschied zu nehmen. Ich muß / sie umarmen ehe ich die Entführungs-Reise antrete",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.838Z",
+      "agent": "nnvt2g0fkvque5j",
+      "source_id": "0z3go6d0qz06owf"
+    }
+  ]
+}

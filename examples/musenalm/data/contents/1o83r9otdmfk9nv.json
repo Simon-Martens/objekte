@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67720, Obj 3,11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67719,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHERUB / STUDIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pt. F. John sc.",
+  "scans": [
+    "alm_236_67719_5xg28p1c6t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHERUB / STUDIE",
+  "updated": "2001-05-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.798Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "gbnfn34g9lssrnb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.798Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "lvp6yjxj5sex7f4"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, S 2 I-Verz, SS 3- 36 dazu 12 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichterfreunde (Wien) 1815",
+    "norm": "~",
+    "biblio": 409309,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4327,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Dichterfreunde (Wien) 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Wien (Grämmer)",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichterfreunde. / Mit 12 von Herrn Blaschke gestochenen / Kupfern. / Wien, 1815. / Bey Joseph Grämmer, bürgl. Buchbinder / in der Grünangergasse Nro. 885",
+  "updated": "2026-06-11 10:18:55.809Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "0zqt8ogpd6g1ijt"
+  ],
+  "contents": [
+    "no8s066aicmz5p9",
+    "bdwnw2hgsq1b5rf",
+    "rom3sf6xztlfgxb",
+    "5qms7kok6noyxbt",
+    "5d5ncb2ztxifxq4",
+    "aus93fmcdiqmw12",
+    "k2ihnmm20iig6pl",
+    "tydzn84pvucpwua",
+    "lnepszk70kst0da",
+    "3c3daxj6122zfsy",
+    "5f1fhr8lk193bre",
+    "3p596jexbvnxw72",
+    "4623u1e2kwwjncd",
+    "s0qup3bquybucej",
+    "kk9pndd6l5106fa",
+    "rxfn8zfps5vfp07",
+    "yutd5acepekwpvn",
+    "22r4mw3hugovpu0",
+    "k2unpmpl845nlu8",
+    "rsmqwtmz3twq22q",
+    "ns1rcm0u9hwy0r5",
+    "l11iq1z92y3vqsu",
+    "jrrzxq5ho2ior0p",
+    "maxfhp7ijqbxsvh",
+    "gtqipnuye4q2xxd",
+    "y6xe0ijfpgfjbuo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.927Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.927Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "8bu6j1kfuf1oqia"
+    }
+  ]
+}

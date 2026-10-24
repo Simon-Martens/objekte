@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 74972, Obj 28) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Dem Sänger an der Alsa Strand / Sey ein Normannengruß gesandt!",
+  "language": [],
+  "musenalm_id": 74973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Julius August Hertzog. / (Am ersten Frühlingstage 1829.) / Bei Uebersendung einiger Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Julius August Hertzog. / (Am ersten Frühlingstage 1829.) / Bei Uebersendung einiger Gedichte",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.655Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "u1bozdujv70h987"
+    }
+  ]
+}

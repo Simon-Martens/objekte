@@ -1,0 +1,67 @@
+{
+  "annotation": "Über dem I-Verz: Inhalt zum Veilchen /) $§ vermutl. fehlen Modekupfer /) Titelauflage von: Veilchen, Das 1841",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 8 BB Kal darin 6 GG, 8 BB Tab, SS 3-151, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wien, Riedl) 1842 /) Titelauflage von: Das Veilchen 1841",
+    "norm": "~",
+    "biblio": 405877,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3353,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch (Wien, Riedl) 1842 [Titelauflage von: Das Veilchen 1841]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für das Jahr / 1842 / Wien, / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No. 196",
+  "updated": "2026-06-11 10:18:55.448Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "fixkj37zh8l4als"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "v4ka0mpczk3ijbh"
+    }
+  ]
+}

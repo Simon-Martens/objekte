@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorbemerkungen zu Bemerkungen (Sammlung INr 55975, Obj 28) Fliegende Blätter. Bemerkungen (Sammlung INr 55974, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Sie sind ein notwendiger Schutzbrief für den Bemerker gegen das Andringen mancher Leser;",
+  "language": [],
+  "musenalm_id": 55976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie sind ein notwendiger Schutzbrief für den Bemerker gegen das Andringen mancher Leser;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.800Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "v4tb047nmcazhnu"
+    }
+  ]
+}

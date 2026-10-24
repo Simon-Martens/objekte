@@ -1,0 +1,326 @@
+{
+  "annotation": "",
+  "biographical_data": "1737-1805",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.282Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "zeitweise Redakteur bei der Spenerschen Zeitung"
+      ],
+      "dateOfBirth": [
+        "1736-05-19"
+      ],
+      "dateOfDeath": [
+        "1805-01-05"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T16:52:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117174521/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117174521",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117174521",
+      "oldAuthorityNumber": [
+        "(DE-588a)100064647",
+        "(DE-588a)117174521",
+        "(DE-588c)4831885-1"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4099081-3",
+          "label": "Lauban"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Burmann, Gottlob Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottlob Wilhelm"
+        ],
+        "surname": [
+          "Burmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter",
+        "Journalist"
+      ],
+      "publication": [
+        "Burmann, Gottlob W.: Gedichte ohne den Buchstaben R",
+        "Burmann, Gottlob W.: Poetischer Misswachs für den ersten Januar 1774",
+        "Burmann, Gottlob W.: Fabeln und Erzählungen",
+        "Burmann, Gottlob W.: Lieder",
+        "Burmann, Gottlob W.: Spielmarken"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Gottlob Wilhelm"
+          ],
+          "surname": [
+            "Bormann"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031798"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/47533137"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q110144"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117174521/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottlob_Burmann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottlob_Wilhelm_Burmann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottlob_Burmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000071476381"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117174521"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117174521.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117174521"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bormann, Gottlob Wilhelm",
+        "Burrmann, Gottlob Wilhelm",
+        "Burmann, G. W.",
+        "Burmann, Gottlob W.",
+        "Burmann, Gottlieb Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G. W."
+          ],
+          "surname": [
+            "Burmann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlob Wilhelm"
+          ],
+          "surname": [
+            "Bormann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlob W."
+          ],
+          "surname": [
+            "Burmann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Wilhelm"
+          ],
+          "surname": [
+            "Burmann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlob Wilhelm"
+          ],
+          "surname": [
+            "Burrmann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlob Wilhelm"
+          ],
+          "surname": [
+            "Bormann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottlob_Wilhelm_Burmann",
+          "label": "https://de.wikipedia.org/wiki/Gottlob_Wilhelm_Burmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:04:15Z",
+    "gnd_query_biographical_data": "1737-1805",
+    "gnd_query_name": "burmann, gottlob wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 353,
+  "name": "Burmann, Gottlob Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 95",
+  "updated": "2026-06-11 13:29:21.808Z",
+  "uri": "https://d-nb.info/gnd/117174521",
+  "editor": ""
+}

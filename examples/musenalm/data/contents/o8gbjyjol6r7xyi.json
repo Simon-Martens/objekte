@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz /) Die Veste Rauhenstein bei Baden und das Schloß Greifenstein an der Donau als Erklärung der beiden Stahlstiche (Sammlung INr 26121, Obj 7) s. Graphiken INr 47990, 47991; Obj 4,03; 4,04",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Veste Rauhenstein liegt hinter Baden im Helenenthale, der Veste Rauheneck schräg gegenüber,",
+  "language": [],
+  "musenalm_id": 26122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Veste Rauhenstein bei Baden. / Was willst du hier? scheint mich dein Blick zu fragen [...] / Joh. N. Vogl",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Veste Rauhenstein bei Baden. / Was willst du hier? scheint mich dein Blick zu fragen [...] / Joh. N. Vogl",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.235Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "3f745lirqkycg1h"
+    }
+  ]
+}

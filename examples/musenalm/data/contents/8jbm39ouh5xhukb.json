@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Beiträgen INr 89634-89640, Obj 47-53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.441Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "0c72msmuhb9i90t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus Obersteiermark (Sammlung INr 89737, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Auf einem links von Unzmarkt in Obersteier liegenden Hügel, der Rosenhügel geannt, stand ehemals ein stattliches Schloß, die Rosenburg, deren ältlicher Bewohner, ein wackerer Ritter, ein junges, blühendes Bräutchen sich heimführte.",
+  "language": [],
+  "musenalm_id": 89740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Rosenburg bei Unzmarkt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Rosenburg bei Unzmarkt",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.974Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "9ah6e0rqcw13fo2"
+    }
+  ]
+}

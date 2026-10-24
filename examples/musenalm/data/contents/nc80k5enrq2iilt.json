@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Weit aus dem fernen Westen, da wo die eisgekrönten Berge ihre zackigen Kuppen in einander drängen und zwei Meeren, dem Atlantischen wie dem stiklen Ocean die schäumenden Quellen zusendebn,",
+  "language": [],
+  "musenalm_id": 44375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwarz und Weiß. / Erzählung aus dem Farmerleben Missouris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Gerstäcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwarz und Weiß. / Erzählung aus dem Farmerleben Missouris",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.179Z",
+      "agent": "dwrg9ycvjrih35y",
+      "source_id": "2w3bck0biepu5jc"
+    }
+  ]
+}

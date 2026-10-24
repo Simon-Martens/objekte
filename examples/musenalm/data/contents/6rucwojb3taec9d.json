@@ -1,0 +1,45 @@
+{
+  "annotation": "$ s. Anm. oben; s. Titelgraphik INr 48859, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Wahl dieses Gegenstandes zum Titelkupfer unseres Taschenbuches, ließ sich schon durch das lieblich und leicht auffaßliche der Idee für das Vermögen der Kunst hinlänglich rechtfertigen.",
+  "language": [],
+  "musenalm_id": 48861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 1. / Dädalus. / Nach einem Gemälde des Erasmus / Quellinus aus der Münchener Gallerie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W..... in Köln $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 1. / Dädalus. / Nach einem Gemälde des Erasmus / Quellinus aus der Münchener Gallerie",
+  "updated": "2007-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.238Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "69v1f9kj6ly0q49"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64382, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64370,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Perlenkette #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Laure pinxt. J. W. Baumann sculpt.",
+  "scans": [
+    "alm_1070_64370_i3mya0e8p5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Perlenkette #",
+  "updated": "2009-05-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.055Z",
+      "agent": "c48u8m6setzjwah",
+      "source_id": "37tenwkipb9ls7c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.055Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "pggi8qtpjiwycge"
+    }
+  ]
+}

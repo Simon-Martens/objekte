@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Othello« von W. Shakespeare; s. Textbezug INr 19109, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.747Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9325,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Othello. / 4. Aufz. 1. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz #; Leclerc",
+  "scans": [
+    "alm_45_9325_mam4n3amoc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Othello. / 4. Aufz. 1. Scene",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.369Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "314ta7de9spmph8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 94731, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Ich hatt' ein schönes Vaterland, / Das ist verweht wie dürrer Sand;",
+  "language": [],
+  "musenalm_id": 94735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.291Z",
+      "agent": "xy1xe258ffgo9ok",
+      "source_id": "4jk4tc909cupxcv"
+    }
+  ]
+}

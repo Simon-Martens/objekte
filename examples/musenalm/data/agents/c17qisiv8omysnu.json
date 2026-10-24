@@ -1,0 +1,697 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.477Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "schottischer Schriftsteller; 1820 geadelt, 1. Baronet of Abbotsford"
+      ],
+      "dateOfBirth": [
+        "1771-08-15"
+      ],
+      "dateOfDeath": [
+        "1832-09-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Henry Raeburn"
+          ],
+          "creditText": [
+            "Bridgeman Art Library: Object 68272"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Henry%20Raeburn%20-%20Portrait%20of%20Sir%20Walter%20Scott.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Henry%20Raeburn%20-%20Portrait%20of%20Sir%20Walter%20Scott.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sir%20Henry%20Raeburn%20-%20Portrait%20of%20Sir%20Walter%20Scott.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1083412639"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T12:05:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118612409/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118780255",
+          "label": "Lockhart, J. G."
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118612409",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118612409",
+      "oldAuthorityNumber": [
+        "(DE-588c)4054043-1",
+        "(DE-588a)126707944",
+        "(DE-588a)118612409",
+        "(DE-588)1083412639",
+        "(DE-588a)142033022",
+        "(DE-588a)126801959"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "uk",
+          "@value": "Скотт, Вальтер"
+        },
+        {
+          "@language": "he",
+          "@value": "סקוט, ולטר"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4013557-3",
+          "label": "Edinburgh"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4603067-0",
+          "label": "Melrose"
+        }
+      ],
+      "preferredName": "Scott, Walter",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Walter"
+        ],
+        "surname": [
+          "Scott"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Jedediah"
+          ],
+          "surname": [
+            "Cleisbotham"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jedediah"
+          ],
+          "surname": [
+            "Cleishbotham"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Somnambulus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Knight"
+          ],
+          "personalName": [
+            "Abbotsford"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jedediath"
+          ],
+          "surname": [
+            "Cleishbotham"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Malachi"
+          ],
+          "surname": [
+            "Malagrowther"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Lives of the Novellists",
+        "Tales of my Landlord",
+        "The life of Napoleon Buonaparte, emperor of the French",
+        "The Lady of the lake",
+        "Letters on Demonology and Witchcraft",
+        "The Lay of the last minstrel",
+        "Religious Discourses",
+        "History of Scotland"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11924221r"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78095541"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95207079"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q79025"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1083412639"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118612409/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Walter_Scott"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Walter_Scott"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Walter_Scott"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Walter_Scott"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441874"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118612409"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118612409"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118612409"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/67565391DFB44324BE0955928583D5B8"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118612409"
+        }
+      ],
+      "titleOfNobilityAsLiteral": [
+        "Sir"
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Ssu-ko-t'e",
+        "S., W.",
+        "סקאט, ולטר",
+        "Scott, W.",
+        "Scott",
+        "司各德",
+        "Cleishbotham, Jedediah",
+        "Abbotsford, Knight",
+        "Skot, Walter",
+        "Worutaru Sukotto",
+        "Ssu-ko-t'e, Wa-erh-t'e",
+        "Sḳoṭ, Ṿalṭer",
+        "Skott, Valʹter",
+        "Скотт, Вальтер",
+        "Scott, Walther",
+        "סקוט, ולטר",
+        "Scott, Gualtiero",
+        "Skott, Walter",
+        "Malagrowther, Malachi",
+        "Skott, V.",
+        "Ssu-ko-te",
+        "Layman",
+        "Somnambulus",
+        "Skoti, Uolter",
+        "Sigede",
+        "Sukotsu",
+        "Skot, Valter",
+        "סקוט, וולטר",
+        "Cleishbotham, Jedediath",
+        "Scott, Walter, Sir",
+        "ヲルタル・スコット",
+        "Scott, Walter S.",
+        "Paul",
+        "Wa-erh-t'e Ssu-ko-t'e",
+        "Cleisbotham, Jedediah",
+        "Scott, Gualterus",
+        "Sukotto"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Sukotsu"
+          ]
+        },
+        {
+          "forename": [
+            "Valter"
+          ],
+          "surname": [
+            "Skot"
+          ]
+        },
+        {
+          "forename": [
+            "Walter"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Skott"
+          ]
+        },
+        {
+          "personalName": [
+            "Sukotto"
+          ]
+        },
+        {
+          "personalName": [
+            "Worutaru Sukotto"
+          ]
+        },
+        {
+          "forename": [
+            "ולטר"
+          ],
+          "surname": [
+            "סקאט"
+          ]
+        },
+        {
+          "forename": [
+            "Jedediah"
+          ],
+          "surname": [
+            "Cleishbotham"
+          ]
+        },
+        {
+          "forename": [
+            "Walter"
+          ],
+          "surname": [
+            "Skot"
+          ]
+        },
+        {
+          "personalName": [
+            "Ssu-ko-te"
+          ]
+        },
+        {
+          "forename": [
+            "וולטר"
+          ],
+          "surname": [
+            "סקוט"
+          ]
+        },
+        {
+          "forename": [
+            "Uolter"
+          ],
+          "surname": [
+            "Skoti"
+          ]
+        },
+        {
+          "forename": [
+            "Walther"
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "Gualterus"
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "Valʹter"
+          ],
+          "surname": [
+            "Skott"
+          ]
+        },
+        {
+          "personalName": [
+            "司各德"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "Gualtiero"
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "Walter"
+          ],
+          "surname": [
+            "Skott"
+          ]
+        },
+        {
+          "personalName": [
+            "Layman"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "personalName": [
+            "Somnambulus"
+          ]
+        },
+        {
+          "personalName": [
+            "Scott"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Knight"
+          ],
+          "personalName": [
+            "Abbotsford"
+          ]
+        },
+        {
+          "personalName": [
+            "Paul"
+          ]
+        },
+        {
+          "forename": [
+            "Jedediah"
+          ],
+          "surname": [
+            "Cleisbotham"
+          ]
+        },
+        {
+          "forename": [
+            "Walter S."
+          ],
+          "surname": [
+            "Scott"
+          ]
+        },
+        {
+          "forename": [
+            "ולטר"
+          ],
+          "surname": [
+            "סקוט"
+          ]
+        },
+        {
+          "personalName": [
+            "Sigede"
+          ]
+        },
+        {
+          "forename": [
+            "Wa-erh-t'e"
+          ],
+          "surname": [
+            "Ssu-ko-t'e"
+          ]
+        },
+        {
+          "forename": [
+            "Malachi"
+          ],
+          "surname": [
+            "Malagrowther"
+          ]
+        },
+        {
+          "personalName": [
+            "Wa-erh-t'e Ssu-ko-t'e"
+          ]
+        },
+        {
+          "forename": [
+            "וולטר"
+          ],
+          "surname": [
+            "סקוט"
+          ]
+        },
+        {
+          "forename": [
+            "Ṿalṭer"
+          ],
+          "surname": [
+            "Sḳoṭ"
+          ]
+        },
+        {
+          "forename": [
+            "Вальтер"
+          ],
+          "surname": [
+            "Скотт"
+          ]
+        },
+        {
+          "personalName": [
+            "ヲルタル・スコット"
+          ]
+        },
+        {
+          "personalName": [
+            "Ssu-ko-t'e"
+          ]
+        },
+        {
+          "forename": [
+            "Jedediath"
+          ],
+          "surname": [
+            "Cleishbotham"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Walter_Scott",
+          "label": "https://de.wikipedia.org/wiki/Walter_Scott"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:56:09Z",
+    "gnd_query_biographical_data": "1771-1832",
+    "gnd_query_name": "scott, walter"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2611,
+  "name": "Scott, Walter",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 471",
+  "updated": "2026-06-11 13:29:24.941Z",
+  "uri": "https://d-nb.info/gnd/118612409",
+  "editor": ""
+}

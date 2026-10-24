@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Robler« von W. Blumenhagen INr 30433, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Robler, / von Wilhelm Blumenhagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Leop. Beyer sc.",
+  "scans": [
+    "alm_399_30434_df7i62kit5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Robler, / von Wilhelm Blumenhagen",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.517Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "ep198d59pymh2e4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.517Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "qh203r7srwxoiox"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "annotation": "Jgg 1832-1859; 1832-1834: Wien (Pfautsch) 1835-1847: Wien u. Leipzig (Pfautsch u. Compagnie); 1848-1859 Wien (Pfautsch u. Voß); Hrsg.: unbezeichnet /) $§ UG fehlt vermutlich",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vG, gT, W, 5 GG, T, SS 1–268, I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1832",
+    "norm": "~",
+    "biblio": 106652,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1789,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke mein! / TASCHENBUCH / für das Jahr / 1832. / Mit Beiträgen / von / Castelli, Huber, Kuffner, Seidl, Schuhmacher, / Vogl, Weigl, etc / WIEN. / Verlag von Friedrich Pfautsch. / Currentgasse, Nr. 414 / Zu beziehen von allen soliden Buch-und Kunsthandlungen des In- und Auslandes",
+  "updated": "2026-06-11 10:18:55.633Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "74yc0wtg2niggjk"
+  ],
+  "contents": [
+    "hctyonyo39ujez1",
+    "dr4onh11dl4z7v5",
+    "3gxzjhvf0rqbfj3",
+    "oxo3qna3cv7rpbh",
+    "v7v6i6hth8d62kl",
+    "mjkpwico06n6njx",
+    "5l9h21gt3o5j435",
+    "g1qfzu2zr7h926s",
+    "597sflqgqvpb58y",
+    "oe8chmja06sxo07",
+    "a34wzpurofo55n3",
+    "6f1p1d22axiwc9j",
+    "7inuvot8i2sfaeq",
+    "6sywfms86yolz0q",
+    "z78hyg4vp5vrb99",
+    "lmk9li3fepk5e77",
+    "8j1de0tr1x1f7rc",
+    "quxmuglflihgzgi",
+    "u70h2yalsjcriqk",
+    "vkrver3dq0cgj1o",
+    "dj27uim72y5w8gw",
+    "nmkstetrxz3b4hx",
+    "m2jiyxa6dhzcrka",
+    "p70kuwbl5ek7m05",
+    "cvvxo9fa3ua5b4a",
+    "lp3ro2t65al6eqd",
+    "clitdhzlntpiu8t",
+    "7jrjd34cxh33n9b",
+    "cerd0xt2pdtzru7",
+    "xentsz11hlknpj4",
+    "ny70zzm1vlqs6ru",
+    "kl33pb754opjl5o",
+    "npppuxxw697pt3u",
+    "ws15sgb44k382s4",
+    "ugfilpu7d0a6wo9",
+    "xdizlissu12xwrz",
+    "1z4o8kkhqg52qk3",
+    "4i4agflaopsvnsk",
+    "chslk8srn21ekuc",
+    "asldxrapic9qsi3",
+    "x8p7e9v07qjyhdz",
+    "dh3yuy374n0j3a1",
+    "qs0wch1w50nmxcp",
+    "zamqg6arnes5zn2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "jdhvj0xfsqvo8uv"
+    }
+  ]
+}

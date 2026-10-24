@@ -1,0 +1,45 @@
+{
+  "annotation": "Burlesken (Sammlung INr 100578, Obj 242)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "Von einer alten Frau so geht die Sage: / Sie ging zu Markt mit einer Kötze Eier,",
+  "language": [],
+  "musenalm_id": 100581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 245,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Von der alten Frau, die sich selbst verliert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Von der alten Frau, die sich selbst verliert",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.989Z",
+      "agent": "szz6mzfzlpcduar",
+      "source_id": "pk8uz3rilbe8w70"
+    }
+  ]
+}

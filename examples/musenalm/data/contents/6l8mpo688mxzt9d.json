@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium; nummeriert 12. /) s. Textbezug INr 109786, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Vater! O Gott",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard del. Jos. Stöber sc.",
+  "scans": [
+    "alm_1720_109787_la870o5sk8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Vater! O Gott",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.272Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "8y5siz7vanbsynu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.272Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "pb35vlqf30vuqau"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Armer Mann! es starb dir der Sohn, und der / blühende Vater / Mir!",
+  "language": [],
+  "musenalm_id": 51335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling und der Greis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. VARNHAGEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling und der Greis",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.644Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "krgxbg2ih8f84at"
+    }
+  ]
+}

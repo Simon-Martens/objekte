@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Unser Pfarrer Rüdiger / Ist ein großer Kirchenlehrer:",
+  "language": [],
+  "musenalm_id": 3870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pfarrer Rüdiger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pfarrer Rüdiger",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.136Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "uhe2nb0pnpde2et"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "annotation": "Über dem I-Verz: Inhalt zum Freund des schönen Geschlechtes /) unter dem I-Verz: Gedruckt bei A. Strauß' sel. Witwe /) Wir danken Frau Professor Nicola Kaminski (Ruhr-Universität Bochum) für die Überlassung des Taschenbuchs zur Bearbeitung",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, 10 BB Kal, 3 BB Tab, 3 BB Tab, SS 1-6 G-Verz, SS 7-143, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wien, Riedl) 1838 /) Titelauflage von: Freund des schönen Geschlechts 1837",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-07-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4571,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch (Wien, Riedl) 1838 [Titelauflage von: Freund des schönen Geschlechts 1837]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für das Jahr / 1838. / WIEN. / bei Franz Riedl's, k.k. Hof- / und bürgl. Buchb. seel. Wittwe & Sohn / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:55.447Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "3tsbjxmryuyy0wg",
+    "d55h7yxipe1183w",
+    "n696pdjnak74sny",
+    "382sbb6m85yva5l",
+    "dh8528vmn43t33w",
+    "1cf3hka0puigbiy",
+    "v9w9wchl9wyc273",
+    "xflxnzuvze9zj25",
+    "t9goneygq7g5550",
+    "mzl48nlznes0ss4",
+    "uj8wi9xx0flzm6c",
+    "7mz8idou812z30m",
+    "t2mttma381wov3o",
+    "3vs3gul2kv8xvw3",
+    "k21qs0uzthv4zw2",
+    "p6byf2i3owykoee",
+    "gbd6nxbm4pfepbh",
+    "9q43sbvlpx8e8n3",
+    "3b921gzyyjxavtw",
+    "ohy3iaybp60w0wz",
+    "kptfam61mthqqbg",
+    "9myrg8o1uxnz4k5",
+    "xumfyrdgxd1wqoa",
+    "mxhsmft1qxfpdfd",
+    "avd4d6dh98eikvs",
+    "6nvrs1sgpuwdkxc",
+    "2r3uq2jugbab1n6",
+    "tsywmfa5mogubkx",
+    "8qebd81eghw6cra",
+    "f2tkjdmtzleqxo0",
+    "puqoeieyjhmna17",
+    "zt0pya51dhqn6go",
+    "bmqk3l0hal4yaw2",
+    "bspauhjjd786ev9",
+    "fqx5msvm1kpgmhf",
+    "nm5uv8f9ge8s8xv",
+    "hrv1v5bjcu6jen2",
+    "8nwz61ho0kv5cl4",
+    "bpsnklshafvf7n0",
+    "bjobibbo007ra6k",
+    "z1tgnt0ujz8o15h",
+    "4oicfghu9f7mqi7",
+    "i0g74oupft1e27l",
+    "enuvd6omvcim0v5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "ojug2yd79okcrc3"
+    }
+  ]
+}

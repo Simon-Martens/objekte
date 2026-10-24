@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Heim nach Europa! heim! Hofft! Alle Hoff- / nung fern! / Drey Tage, sprach Colomb, und eine Welt ist euer!",
+  "language": [],
+  "musenalm_id": 34443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Tage Colombs. / An die Amerikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Delavigne; [übers.] Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drey Tage Colombs. / An die Amerikaner",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.776Z",
+      "agent": "p6oqb4ep5mq9p8m",
+      "source_id": "3r1t2116q63eae6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.776Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "qs1ki98debg25w4"
+    }
+  ]
+}

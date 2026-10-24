@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vrwrt (INr 124402, Obj 2); $ vermutlich Belin, François (vgl. Nouvelle biographie générale V, Sp. 195)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ueberlisteten. / Eine dramatische Kleinigkeit, / aus dem / Französischen des Belin übersetzt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Belin $ [übers.] F. v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ueberlisteten. / Eine dramatische Kleinigkeit, / aus dem / Französischen des Belin übersetzt",
+  "updated": "2020-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.747Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "hgllu2b9tzc2q97"
+    }
+  ]
+}

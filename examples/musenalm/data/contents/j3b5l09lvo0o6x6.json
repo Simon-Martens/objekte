@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67009, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Am 14ten November 1812 kam ein Stück Wild im hiesigen Thiergarten am die Aeckerumzäunung bei dem Jagdschloß,",
+  "language": [],
+  "musenalm_id": 67013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Jagdmerkwürdigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Jagdmerkwürdigkeit",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.342Z",
+      "agent": "kq4g56g38zxvy1z",
+      "source_id": "fc4p2ssmhhv8zov"
+    }
+  ]
+}

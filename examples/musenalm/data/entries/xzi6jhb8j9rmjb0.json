@@ -1,0 +1,79 @@
+{
+  "annotation": "<div># K gibt Jg 1802 an; /) KVK-Hebis: Berlin (Oehmigke) 1797, 1802, 1830 nachgewiesen /) Autor des Beitrags: C. G. Flittner /) Nachtitel lautet: Anmuth und Schönheit aus den Misterien der Natur und Kunst. Ein Almanach aufs Jahr 1797 für ledige und verheirathete Frauenzimmer /) mit einer Titelauflage (mit kol. Kupfern) 1798 s. alm-1525</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, B VrlgM, verso G, T, S I nT, SS III- X Vrwrt, SS IX-XII I-Verz, SS 1-227 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Anmuth und Schönheit aus den Misterien der Natur und Kunst 1797",
+    "norm": "~",
+    "biblio": 200004,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-10-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3890,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Anmuth und Schönheit aus den Misterien der Natur und Kunst 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 23 #; nicht bei L/R; Rü 35; H.-G. I. 87; Goed (H) 128",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Anmuth und Schönheit / aus / den Misterien der Natur und Kunst / für ledige und verheirathete Frauenzimmer. / mit Kupfern. / Berlin, 1797. / bey Oehmigke dem Jüngern",
+  "updated": "2026-10-15 09:16:29.141Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "aoowg0arj0gbpgp"
+  ],
+  "contents": [
+    "zltelgzwpj6xw0n",
+    "ez64gtg2dwsypi0",
+    "c9wc2hog9b63dg7",
+    "mmkg2mk3w6vm2mr",
+    "5bz5o7iemjddh4x",
+    "mje47v8s1iary6j",
+    "izztma4cglinivn",
+    "600wz6m32nkp78q",
+    "qtolzrypxn67hvc",
+    "9gvte7x6midcy5q",
+    "98u8r6ktda8qy47"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-10-15 09:16:29.142Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "cda608dqncjszdw"
+    }
+  ]
+}

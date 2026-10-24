@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 25038-25045, Obj 60-67 mit einem Gedicht von Fr. Rückert als Vorwort INr 25037, Obj 59; s. a. Titelportrait INr 24979, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42043,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 58.001,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poesien von Karl Barth, dem Zeichner und Kupferstecher, / geordnet von / Friedrich Rückert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Barth; Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poesien von Karl Barth, dem Zeichner und Kupferstecher, / geordnet von / Friedrich Rückert",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.981Z",
+      "agent": "fudlqmk45pdt6si",
+      "source_id": "223zaj1h7jukqr8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Aus den Moeurs francoises. L'hermite en province. T. I. Paris, chez Pillet. 1818. Sammlung von 7 Gedichten INr 40171-40177, Obj 104-110",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "465",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Das Bogenschießen 1566 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Pierre Graf Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Das Bogenschießen 1566 #",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.104Z",
+      "agent": "nf6hcprj7w45n4m",
+      "source_id": "irqcfcf3r50s3lr"
+    }
+  ]
+}

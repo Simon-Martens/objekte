@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Verachtet ohne Geld? / So denkt die große Welt.",
+  "language": [],
+  "musenalm_id": 6714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GESPRÄCH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HAUG",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GESPRÄCH",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.370Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "ww1ekbp38s7y43m"
+    }
+  ]
+}

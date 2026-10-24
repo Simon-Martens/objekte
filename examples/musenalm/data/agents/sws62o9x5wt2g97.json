@@ -1,0 +1,379 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1862",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.331Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Pfarrer und Schriftsteller; 1808: Pfarrvicar zu St. Peter in Frankfurt a. M.; 1812: Pfarrer in Bornheim, 1816: in Frankfurt a.M.; 1956: Dr. der Theologie, evang.-luth. Consistorialrath und Sonntagsprediger zu St.-Katharinen in der freien Stadt Frankfurt"
+      ],
+      "dateOfBirth": [
+        "1779-01-02"
+      ],
+      "dateOfDeath": [
+        "1862-10-30"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/181068281"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T15:05:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116795646/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116795646",
+      "id": "https://d-nb.info/gnd/116795646",
+      "oldAuthorityNumber": [
+        "(DE-588a)181068281",
+        "(DE-588)181068281",
+        "(DE-588a)124775489",
+        "(DE-588a)116795646"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4422170-8",
+          "label": "Bornheim (Frankfurt am Main)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        }
+      ],
+      "preferredName": "Friederich, Gerhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gerhard"
+        ],
+        "surname": [
+          "Friederich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398099-5",
+          "label": "Konsistorialrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/115488855X",
+          "label": "Waller, Friedrich"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Tyrtaeus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Waller"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hrsg. von: Chronik der dritten Jubelfeier der Reformation in Frankfurt am Main",
+        "Hrsg. von: Christliches Andachtsbuch für alle Morgen und Abende des ganzen Jahrs",
+        "Gustav Adolf's Heldentod für Teutschlands Freiheit",
+        "Hrsg. von: Ueber Wunderglauben und Wundersucht",
+        "Die wichtigsten Erscheinungen im Seelenleben",
+        "Heliodor",
+        "Die Juden und ihre Gegner",
+        "Selitha : Jahrbuch christlicher Andacht für religiös gebildete Frauen und Töchter",
+        "Libellen",
+        "Geistesblicke auf die Bedeutung des heutigen Jubelfestes der christlichen Kirchenverbesserung und das Verdienst ihres Stifters",
+        "Der Geist des Elektizismus in Beziehung auf Menschheitsbildung und Religiosität",
+        "Das Christenleben",
+        "Meine Wanderungen in die Bergstrasse, den Odenwald und die Rheingegenden, während des Sommers 1819",
+        "Aus meinem Leben",
+        "Programm der Beerdigungs- und Trauerfeier des Hochwürdigen Großmeisters des eklektischen ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031888"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8148815"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q49499554"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116795646/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/181068281"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116795646"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gerhard_Friederich"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?116795646"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079824985"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116795646"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116795646.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116795646"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116795646"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116795646"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym"
+      ],
+      "variantName": [
+        "Waller, Gustav",
+        "Friedrich, G.",
+        "Tyrtaeus",
+        "Friederich, Gerhardus",
+        "Friederich, Gerhard von",
+        "Friederich, G.",
+        "Friederich, Gerh."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gerhardus"
+          ],
+          "surname": [
+            "Friederich"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Friedrich"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Waller"
+          ]
+        },
+        {
+          "forename": [
+            "Gerh."
+          ],
+          "surname": [
+            "Friederich"
+          ]
+        },
+        {
+          "forename": [
+            "Gerhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Friederich"
+          ]
+        },
+        {
+          "personalName": [
+            "Tyrtaeus"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Friederich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gerhard_Friederich",
+          "label": "https://de.wikipedia.org/wiki/Gerhard_Friederich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:25:51Z",
+    "gnd_query_biographical_data": "1779-1862",
+    "gnd_query_name": "friederich, gerhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 792,
+  "name": "Friederich, Gerhard",
+  "profession": "Text",
+  "pseudonyms": "Friedr. Waller; Tyrtäus",
+  "refs": "Goed VII, 253",
+  "updated": "2026-06-11 13:29:22.390Z",
+  "uri": "https://d-nb.info/gnd/116795646",
+  "editor": ""
+}

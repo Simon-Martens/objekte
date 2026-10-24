@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Ludwigs-Maximilians-Universität 1828",
+    "norm": "",
+    "biblio": 406596,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3659,
+  "parallel_title": "",
+  "place_statement": "München (Weber)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Almanach der Ludwigs-Maximilians-Universität 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 14; nicht bei L/R",
+  "responsibility_statement": "Simon Spengel",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / der / Ludwig-Maximilians- / Universitaet. / Erster Jahrgang. / MÜNCHEN, 1828. / Bey Anton Weber",
+  "updated": "2026-06-11 10:18:55.093Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "mrc7sf0b4co64s0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "9woopkqfyim172w",
+      "source_id": "meh74o07gkhnzrc"
+    }
+  ]
+}

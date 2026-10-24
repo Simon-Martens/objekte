@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 104582, Obj 25) Gedichte (Sammlung INr 104573, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Wie schnell durch ihren Silbergesang, / Nein, wie ein Cremoneser Saitenklang,",
+  "language": [],
+  "musenalm_id": 104600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Madam Hellmuth: / als der Dichter Sie das erstenmal in Al- / ceste hörte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Madam Hellmuth: / als der Dichter Sie das erstenmal in Al- / ceste hörte",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.177Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "rkddtrqgqbntgps"
+    }
+  ]
+}

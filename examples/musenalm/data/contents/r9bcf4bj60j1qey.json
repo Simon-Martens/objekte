@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 22677, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Auf trinkt munter, tapfre Zecher, / Bei der Freude Mahl!",
+  "language": [],
+  "musenalm_id": 22681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Gesellschaftslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Gesellschaftslied",
+  "updated": "2002-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.150Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "q7y2dnvcoit74gk"
+    }
+  ]
+}

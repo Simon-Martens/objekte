@@ -1,0 +1,90 @@
+{
+  "annotation": "3 Jgg 1826-1828; 1826: Stuttgart (Metzler); 1827 u. 1828: Stuttgart (Gebr. Frankh); Hrsg: W. Hauff",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-201, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Märchenalmanach (Hauff) 1826",
+    "norm": "~",
+    "biblio": 101220,
+    "status": [
+      "Fremde Herkunft",
+      "Reprint vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-12-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 549,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Metzler)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Märchenalmanach (Hauff) 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 76; L/R 166; Goed IX. 196, 4",
+  "responsibility_statement": "Wilhelm Hauff",
+  "subtitle_statement": "",
+  "title_statement": "Mährchen-Almanach / auf / das Jahr 1826, / für / Söhne und Töchter / gebildeter Stände . / Herausgegeben / von / Wilhelm Hauff. / Erster Jahrgang. / Stuttgart. / Druck u. Verlag der J. W. Metzler'schen Buchhandlung. / Papier von der Patentfabrik der Gebrüder Rauch in Heilbronn. / 1826",
+  "updated": "2026-06-11 10:18:55.927Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "362evobt0325f8a"
+  ],
+  "contents": [
+    "18dztmguouihzva",
+    "we8vyi7zgb0swkm",
+    "r26tsx6rrvtckrj",
+    "lnojt7mtj9dhsep",
+    "wt5kpuae1iovvlw",
+    "zila5cfgkddc0cu",
+    "bjk98vtz77ebf2b",
+    "tpmp6p4cmhe1qhw",
+    "0uyts89ttp1vfmu",
+    "eps9a2x1rbgb0zd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.699Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.699Z",
+      "agent": "ntl4yryhhmz1v3s",
+      "source_id": "4qbl90yf8b26g47"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.106Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.106Z",
+      "agent": "g1uplwymvs9r0f8",
+      "source_id": "g9mxmvzo2lehr27"
+    }
+  ]
+}

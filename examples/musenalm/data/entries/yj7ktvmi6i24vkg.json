@@ -1,0 +1,99 @@
+{
+  "annotation": "§ Umschlagprägung v. fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 15 SS Kal darin 6 GG, 7 SS Tabb, SS 1-106, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1832",
+    "norm": "~",
+    "biblio": 405421,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1898,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA . / Almanach für das Jahr 1832. / Frohen Erheiterungen gewidmet. / WIEN, / Pfautsch's Verlag, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:55.703Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "4xm34wriggzikff"
+  ],
+  "contents": [
+    "sjw2xdt8ieervf3",
+    "qu1v6q23kvl3bpx",
+    "125wzy4xd44y139",
+    "qoxa8dxn7i5twe5",
+    "s0ykdi3gha0d5ib",
+    "edu28rk7n313ttx",
+    "7w8y69ts6fvzopo",
+    "eo8xorkw8m9c7cq",
+    "d1n4b377eotx3ul",
+    "22jpzglsp80ei9u",
+    "0pmvj7piefmdu8u",
+    "593f296kt7p06ig",
+    "ymw2jcznr7d04ls",
+    "jenfj53ci1hux9a",
+    "og2o92kwtan7m16",
+    "rbiy42ml5wkerwn",
+    "esgki5gbhrec6xm",
+    "5rde05fvm61nj89",
+    "75mlihht4hlaap9",
+    "650n3p665ql6wvj",
+    "qvzr6nfemdjw14s",
+    "2qc1rg0zbvv7szz",
+    "4mftr0cx3r3jm00",
+    "aluxw1545ryq5ca",
+    "fwhhm4q1vbvfgxe",
+    "mlm07hitati2frv",
+    "l8izegmrk7pthi3",
+    "xy2czcm4k95wde2",
+    "9pi8bqnk8r6td7w",
+    "uysy5zshtt7jvx4",
+    "nnlnmugu57r3nn7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "ugg7sewzwd770wm"
+    }
+  ]
+}

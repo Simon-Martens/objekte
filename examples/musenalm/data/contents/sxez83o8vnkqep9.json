@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) kol. Modekupfer s. Textbezug INr 82741, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Berka fe.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Berka fe.",
+  "scans": [
+    "alm_3817_82756_3q6jfjrwe5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.152Z",
+      "agent": "jlkwrxo4vggz8uy",
+      "source_id": "mswc6bza8i04edn"
+    }
+  ]
+}

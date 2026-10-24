@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Einst fliegen wir mit Engelfittichen / Von Welt zu Welt zum frohen Wiedersehn.",
+  "language": [],
+  "musenalm_id": 56940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eingangs-Formular eines / Flosculn-Briefs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eingangs-Formular eines / Flosculn-Briefs",
+  "updated": "2008-04-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.941Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "5hu3fs4el88180w"
+    }
+  ]
+}

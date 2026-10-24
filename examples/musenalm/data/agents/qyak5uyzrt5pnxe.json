@@ -1,0 +1,692 @@
+{
+  "annotation": "",
+  "biographical_data": "1752-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.264Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. med."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024315-7",
+          "label": "Georg-August-Universität Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        }
+      ],
+      "dateOfBirth": [
+        "1752-05-11"
+      ],
+      "dateOfDeath": [
+        "1840-01-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Attributed to Hugo Bürkner"
+          ],
+          "creditText": [
+            "Zweihundert Bildnisse und Lebensabrisse berühmter deutscher Männer, 3rd&nbsp;ed., Leipzig&nbsp;1870, editor Ludwig Bechstein (Google Books );already present in first edition (1854): Google Books"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Friedrich%20Blumenbach.jpeg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Friedrich%20Blumenbach.jpeg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Friedrich%20Blumenbach.jpeg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-19T14:47:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116208503/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116208465",
+          "label": "Blumenbach, Adele"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117085286",
+          "label": "Jasmund, Emma Marie Hedwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11620852X",
+          "label": "Blumenbach, Louise Amalie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102850380",
+          "label": "Blumenbach, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1080315322",
+          "label": "Blumenbach, Charlotte Eleonore Hedwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11620849X",
+          "label": "Blumenbach, Georg Heinrich Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116208503",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#25.3p",
+          "label": "Personen zu Zoologie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116208465",
+          "label": "Blumenbach, Adele"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11620849X",
+          "label": "Blumenbach, Georg Heinrich Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117085286",
+          "label": "Jasmund, Emma Marie Hedwig"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1080315322",
+          "label": "Blumenbach, Charlotte Eleonore Hedwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102850380",
+          "label": "Blumenbach, Heinrich"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/11620852X",
+          "label": "Blumenbach, Louise Amalie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116208503",
+      "oldAuthorityNumber": [
+        "(DE-588a)116208503",
+        "(DE-588c)4600123-2"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Blumenbach, Johann Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich"
+        ],
+        "surname": [
+          "Blumenbach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398977-9",
+          "label": "Zoologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4277277-1",
+          "label": "Paläontologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142642-3",
+          "label": "Anthropologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Ueber den Bildungstrieb und das Zeugungs-Geschäft",
+        "Verzeichniß der vom weil. Obermedicinalrath Blumenbach nachgelassenen Bücher welche Montags den 27. Juli 1840 und an den folgenden Tagen Abends von 6 bis 8 Uhr in der Wohnung des Univ.-Gerichts-Procurators Fr. Just. Schepeler an der Jüdenstraße meistbietend verkauft werden sollen",
+        "Medicinische Bibliothek",
+        "Beytraege zur Naturgeschichte",
+        "Abbildungen naturhistorischer Gegenstände",
+        "Handbuch der Naturgeschichte",
+        "Handbuch der vergleichenden Anatomie",
+        "Geschichte und Beschreibung der Knochen des menschlichen Körpers"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1330329988",
+          "label": "Exlibris (Blumenbach, Johann Friedrich), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84027133"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71570755"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q58588"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116208503/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Friedrich_Blumenbach"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Blumenbach"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Friedrich_Blumenbach"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Friedrich_Blumenbach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121389586"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116208503"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1775_nn.eutin;10"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116208503"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116208503.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116208503.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116208503"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116208503"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Blumenbach, Joannes Fridericus",
+        "Blumenbach, Jog. G.",
+        "Blvmenbachivs, Jo. Frid.",
+        "Blumenbach, Joh. Fr.",
+        "Blumenbach, Johann",
+        "Blumenbach, J. F.",
+        "Blumenbach, Johannes Fridericus",
+        "Blumenbach, Joannes Frid.",
+        "Blumenbach, Johannes Frederik",
+        "Blumenbach, Johannes F.",
+        "Blumenbachius, Jo. Frid.",
+        "Blumenbachius, Ioannes Fridericus",
+        "Blumenbach, Io. Frid.",
+        "Blumenbachius, Johannes Friedrich",
+        "Blumenbach, J. Fr.",
+        "Blumenbach, Johann Friederich",
+        "Blumenbach, John Frederick",
+        "Blumenbach, Joh. Frid.",
+        "Blumenbachius, Johannes Fridercus",
+        "Blumenbachius, Joannes Fridericus",
+        "Blumenbach, Johann F.",
+        "Blumenbach, Jo. Fred.",
+        "Blumenbach, Joh. Fridr.",
+        "Blumenbach, Johannes Friedrich",
+        "Blumenbach",
+        "Blumenbach, Īog. Fridr.",
+        "Blumenbach, Joannes Friedericus",
+        "Blumenbach, Johannes Fredericus",
+        "Blumenbach, Ioannes Fridericus",
+        "Blumenbachius, Johannes Fridericus",
+        "Blumenbachius, Johann Friedrich",
+        "Blumenbachius, Io. Fr."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joh. Frid."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Friedrich"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes F."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Fridr."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Frid."
+          ],
+          "surname": [
+            "Blvmenbachivs"
+          ]
+        },
+        {
+          "forename": [
+            "Īog. Fridr."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Friedrich"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Frederik"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "personalName": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Fr."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Jog. G."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "John Frederick"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridercus"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Io. Frid."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Frid."
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Frid."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Fred."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friederich"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "J. Fr."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fredericus"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Friedericus"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Io. Fr."
+          ],
+          "surname": [
+            "Blumenbachius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Fridericus"
+          ],
+          "surname": [
+            "Blumenbach"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Blumenbach",
+          "label": "https://de.wikipedia.org/wiki/Johann_Friedrich_Blumenbach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:57:45Z",
+    "gnd_query_biographical_data": "1752-1840",
+    "gnd_query_name": "blumenbach, johann friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 223,
+  "name": "Blumenbach, Johann Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 236",
+  "updated": "2026-06-11 13:29:21.623Z",
+  "uri": "https://d-nb.info/gnd/116208503",
+  "editor": ""
+}

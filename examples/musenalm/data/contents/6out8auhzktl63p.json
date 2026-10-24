@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Was Schönes in der Kunst und in dem Leben, / Es offenbaret sich den reinen Frauen;",
+  "language": [],
+  "musenalm_id": 31922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zueignung des Schauspiels: / Die Weihe der Kraft. / 1806. / An mein Ideal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zueignung des Schauspiels: / Die Weihe der Kraft. / 1806. / An mein Ideal",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.564Z",
+      "agent": "g7f1xv6d8kkyhx1",
+      "source_id": "51j1q3iwuszd6km"
+    }
+  ]
+}

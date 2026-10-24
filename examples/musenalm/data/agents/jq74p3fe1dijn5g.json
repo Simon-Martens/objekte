@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.244Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. phil."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5023697-0",
+          "label": "Christian-Albrechts-Universität zu Kiel. Philosophische Fakultät"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dänischer Dichter, Schriftsteller, Übersetzer, Anhänger der Aufklärung sowie der Französischen Revolution, Justizrat [?]; 1796 Propst, 1798-1799 Schulpräpositus und Theaterdirektor, 1801-1811 freier Schriftsteller in Paris, 1811-1814 Professor für dänische Sprache und Literatur an der Universität Kiel, 1814.1820 Literaturkritiker in Kopenhagen; nahm 1791 aus Verehrung für I. Kant Vornamen Immanuel an, einen Teil seiner Werke publizierte er urschriftlich auf Deutsch, schon zu Lebzeiten als dänischer Wieland verehrt"
+      ],
+      "dateOfBirth": [
+        "1764-02-15"
+      ],
+      "dateOfDeath": [
+        "1826-10-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Horneman"
+          ],
+          "creditText": [
+            "University Library, Kiel"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jens%20Baggesen%20pastel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jens%20Baggesen%20pastel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jens%20Baggesen%20pastel.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/156509741",
+        "https://d-nb.info/gnd/158435117"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-13T13:18:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118505904/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1212115732",
+          "label": "Baggesen, Adam Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116039256",
+          "label": "Baggesen, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11603923X",
+          "label": "Baggesen, Carl Albrecht Reinhold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116039248",
+          "label": "Baggesen, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116039213",
+          "label": "Baggesen, August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1161945377",
+          "label": "Baggesen, Fanny"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "118505904",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116039256",
+          "label": "Baggesen, Theodor"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118505904",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/dan",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/dan"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)156509741",
+        "(DE-588a)158435117",
+        "(DE-588a)118505904",
+        "(DE-588)158435117",
+        "(DE-588a)156509741",
+        "(DE-588c)4004240-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005762-8",
+          "label": "Bern"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4641692-4",
+          "label": "Korsør"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Baggesen, Jens",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jens"
+        ],
+        "surname": [
+          "Baggesen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4182521-4",
+          "label": "Sprachlehrer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Danwaller"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Heideblumen",
+        "Poetische Werke",
+        "La Pathénéide",
+        "Samtlige Värker",
+        "Parthenäis oder die Alpenreise",
+        "Übers. von: Holberg, Ludvig af: Niels Klims underjordiske reise",
+        "Gedichte",
+        "Comiske Fortællinger"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12462181z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50019410"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51787453"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11544.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215945"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118505904/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/156509741"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158435117"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jens_Immanuel_Baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jens_Immanuel_Baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Jens_Immanuel_Baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jens_Baggesen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080772991"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118505904"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1787_baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1790_baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1791_baggesen"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118505904.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118505904"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118505904"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Danwaller",
+        "Baggesen, Jens Immanuel",
+        "Baggesen",
+        "Baggesen, Jens I.",
+        "Baggesen, Jens Emanuel"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jens Immanuel"
+          ],
+          "surname": [
+            "Baggesen"
+          ]
+        },
+        {
+          "forename": [
+            "Jens I."
+          ],
+          "surname": [
+            "Baggesen"
+          ]
+        },
+        {
+          "forename": [
+            "Jens Emanuel"
+          ],
+          "surname": [
+            "Baggesen"
+          ]
+        },
+        {
+          "personalName": [
+            "Baggesen"
+          ]
+        },
+        {
+          "personalName": [
+            "Danwaller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jens_Immanuel_Baggesen",
+          "label": "https://de.wikipedia.org/wiki/Jens_Immanuel_Baggesen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:51:30Z",
+    "gnd_query_biographical_data": "1764-1826",
+    "gnd_query_name": "baggesen, jens immanuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 96,
+  "name": "Baggesen, Jens Immanuel",
+  "profession": "Text",
+  "pseudonyms": "Dannwaller; Faust Dornwaller",
+  "refs": "Goed VI, 161; Goed VII, 694, Goed XV, 432; E14",
+  "updated": "2026-06-11 13:29:21.448Z",
+  "uri": "https://d-nb.info/gnd/118505904",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "unter der Graphik: Gedr. bei Susemihl in Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ueberraschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender del. J. Passini Viennae",
+  "scans": [
+    "alm_3379_102933_3p4r7dv11f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Ueberraschung",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.160Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "42ewidnp6dwas81"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.160Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "vvwhua0aabz6l8o"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Graphik im Kalendarium Januar /) Illustration zu »Schweizerisch-Burgundischer Krieg« INr 72510, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72499,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. 95. / Der Herzog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. inv. Meno Haas sc.",
+  "scans": [
+    "alm_849_72499_nbz07vgo7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. 95. / Der Herzog",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.622Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "79xrkspjd0vdnry"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.622Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "f8p3qxbll7kouep"
+    }
+  ]
+}

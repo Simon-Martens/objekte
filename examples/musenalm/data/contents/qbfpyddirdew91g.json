@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Ueber die sterblichen Menschen, von einem / Pole zum andern, / Waltet die Mode, und weit dehnt sich / ihr mächtiges Reich",
+  "language": [],
+  "musenalm_id": 1230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mode",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.654Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "id3e8r373q3uda7"
+    }
+  ]
+}

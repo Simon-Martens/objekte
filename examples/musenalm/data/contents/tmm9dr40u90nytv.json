@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Jede Gesellschaft hat ihr Idol, d. i. eins ihrer Glieder hält sie ihrer Achtung ganz vorzüglich für werth;",
+  "language": [],
+  "musenalm_id": 73442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Sucht die Hauptpersonen der Ge- / sellschaft zu gewinnen: so wírst du / dich, in dieser, gut stehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Sucht die Hauptpersonen der Ge- / sellschaft zu gewinnen: so wírst du / dich, in dieser, gut stehen",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.606Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "8d2cdlvfz27cp12"
+    }
+  ]
+}

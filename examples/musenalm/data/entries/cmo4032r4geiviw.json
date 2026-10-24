@@ -1,0 +1,133 @@
+{
+  "annotation": "12 Jgg: 1793-1804 (Jg 1803: Friedens-Almanach von 1803; Jg 1804: Kriegs- und Friedens-Almanach von 1804); Göttingen (Dieterich); Hrsg: H. A. O. Reichard /) Sammlungen mit mehreren Beiträgen werden lediglich mit Incipit des ersten Beitrags dargestellt /) §1§ B mit SS 253, 254 fehlt. /) s.a. »Geschichte der Nachtheiligen Folgen der Staatsrevolutionen« (Raubdruck von: Revolutions-Almanach 1793), alm-2490",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS I-II Vrwrt d Hrsg, SS III-IV I-Verz, SS 1-252 darin 3 GG, 253-281 G-Verz darin 12 GG, S 282, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Revolutions-Almanach 1793",
+    "norm": "~+++409258 (UG verso)",
+    "biblio": 100454,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 934,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Revolutions-Almanach 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 18",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Revolutions- / Almanach / von / 1793. / Göttingen / bei Johann Christian Dieterich",
+  "updated": "2026-06-11 10:18:55.949Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "9k7ymefsxd1j3lk",
+    "xn1g4rjdh5kj9uc"
+  ],
+  "contents": [
+    "5zxq61xt734om6w",
+    "cy50xgj7qjgxwes",
+    "dlz43th6qchk9if",
+    "e5lxmi4tj4ronlp",
+    "uf8o4gf58kspumj",
+    "0yk7lyn8e46t06m",
+    "eqkfl71ur0tz3cl",
+    "77ejmzn0guvnrqw",
+    "lqrprw029ooqvzq",
+    "k76s7t636ngsh2t",
+    "j4favtcx00x7vhi",
+    "4134ctry23njwr4",
+    "hpig63kc3f58enx",
+    "mc24lbwzov9znf2",
+    "d9pcf2aweua06hk",
+    "uopxvhfv7dalmsk",
+    "od5a0nfx13vn1cb",
+    "zl1vfd7rxko7cll",
+    "tppzr606hvy0u82",
+    "6bjti9rvljjtl0b",
+    "gfc2x7qq7vmejqy",
+    "d2dvm068ow7gdkf",
+    "5rtffibplmbko21",
+    "8r8i8qbylo4cttp",
+    "yv3p48bnm1930s4",
+    "awkkhla09qq1a62",
+    "no8rkqzc694x056",
+    "qra7syt7cj9lzvp",
+    "3c2xvo62svkx0wl",
+    "4gp8sz6q70de3o1",
+    "swk1atieysxzmx1",
+    "zebc0c1bjcfmk9l",
+    "0dxsh6gn5nse6nt",
+    "4o3mtanhixu0wm5",
+    "oykpe4anko5jo51",
+    "1gls33budxscxu7",
+    "v59ucpm8nbf4ayx",
+    "t3w1zso59a8p1lf",
+    "wdikrqxoa3ifnwe",
+    "gtkia09fmri9duc",
+    "n4hpbqid60r8ogk",
+    "qf16pt5iu1ai3tg",
+    "n7morali7l5ovwm",
+    "0j27c9q4y4iopfe",
+    "dh0k3bhsze5kwbk",
+    "u3c8h9xp0utun2a",
+    "gicc7j9eqkr7jkf",
+    "ocu1dx9r56pvxje",
+    "8ed000kgmmm0rr5",
+    "ntcld2iljq7o873",
+    "1osnxppml7frqlv",
+    "9em5ifklidgblcr",
+    "gsp8fs2nry6uwgw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.780Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.780Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "iwanhirfe5y3e5d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.064Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.064Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "ybec5apvs0zd580"
+    }
+  ]
+}

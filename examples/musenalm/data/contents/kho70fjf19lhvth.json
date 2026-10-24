@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait v.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110694,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FREDERIC / GUILLAUME / Prince de Prusse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gravé par D. Berger à Berlin",
+  "scans": [
+    "alm_784_110694_xqvwz76xhx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FREDERIC / GUILLAUME / Prince de Prusse",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.175Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "8vj3kpxngfdk98t"
+    }
+  ]
+}

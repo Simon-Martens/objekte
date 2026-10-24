@@ -1,0 +1,364 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1804",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.439Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "wurde zus. mit seinem Bruder Friedrich Wilhelm Oesfeld 1786 geadelt"
+      ],
+      "dateOfBirth": [
+        "1741"
+      ],
+      "dateOfDeath": [
+        "1804"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Friedrich Bolt"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/dokumente/pnd/124891578"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Oesfeld%2C%20Carl%20Ludwig%20von%20%281741-1804%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Oesfeld%2C%20Carl%20Ludwig%20von%20%281741-1804%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Oesfeld%2C%20Carl%20Ludwig%20von%20%281741-1804%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T19:20:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124891578/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "124891578",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.16p",
+          "label": "Personen zu Technik (ohne Architektur, Bautechnik)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.2p",
+          "label": "Personen zu Geodäsie, Kartografie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/124891578",
+      "oldAuthorityNumber": [
+        "(DE-588c)4875189-3",
+        "(DE-588a)124891578"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4046948-7",
+          "label": "Potsdam"
+        }
+      ],
+      "preferredName": "Oesfeld, Karl Ludwig von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Ludwig"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Oesfeld"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4156312-8",
+          "label": "Geheimer Rat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029820-6",
+          "label": "Kartograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4026955-3",
+          "label": "Ingenieur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4468490-3",
+          "label": "Topograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4179037-6",
+          "label": "Sammler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        }
+      ],
+      "publication": [
+        "Oesfeld, Carl L.: Topographische Beschreibung der Herzogthums Magdeburg und der Grafschaf*. - 1780",
+        "Oesfeld, Carl L.: Topographische Beschreibung des Herzogthums Magdeburg. - 1780"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2023019009"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/50172976"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1039580"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124891578/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Ludwig_von_Oesfeld"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Ludwig_von_Oesfeld"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000007102975X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/124891578"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124891578"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/124891578"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Oesfeld, Carl Ludwig",
+        "Oesfeld, Carl L.",
+        "Oesfeld, Karl Ludwig",
+        "Oesfeld, ... von",
+        "Oesfeld, Charles Louis de",
+        "Oesfeld, Karl L. von",
+        "Oesfeld, Carl Ludwig von",
+        "Oesfeld, C. L.",
+        "Oesfeld, Carl L. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. L."
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Karl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Carl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Carl L."
+          ],
+          "surname": [
+            "Oesfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Ludwig_von_Oesfeld",
+          "label": "https://de.wikipedia.org/wiki/Carl_Ludwig_von_Oesfeld"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:25:12Z",
+    "gnd_query_biographical_data": "1741-1804",
+    "gnd_query_name": "oesfeld, karl ludwig von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1989,
+  "name": "Oesfeld, Karl Ludwig von",
+  "profession": "Graphik u. Sonst",
+  "pseudonyms": "",
+  "refs": "ADB XXIV, 471",
+  "updated": "2026-06-11 13:29:23.987Z",
+  "uri": "https://d-nb.info/gnd/124891578",
+  "editor": ""
+}

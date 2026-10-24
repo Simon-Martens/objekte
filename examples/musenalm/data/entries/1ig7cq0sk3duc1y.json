@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Flore d'Allemagne 1795 (franz. Ausg. von: Flora, Deutschlands 1795)",
+    "norm": "",
+    "biblio": 100215,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-09-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4461,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Palm)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Flore d'Allemagne 1795 (franz. Ausg. von: Flora, Deutschlands 1795)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 133",
+  "responsibility_statement": "Georg Franz Hoffmann",
+  "subtitle_statement": "",
+  "title_statement": "LA FLORE DE L'ALLEMAGNE / OU / ETRENNES / BOTANIQUES / POUR L'AN 1795. / TOME SECOND / CRYPTOGAMIE / PAR / GEORGE FRANCOIS HOFFMAN / PROF. EN MED. ET BOTANIQUE / A GOTTINGUE. / A ERLANG, / CHEZ JEAN JACQUES PALM, Libraire. / Se trouve / à STRASBOURG chez Mr. Amand Koenig, à LAUSANNE chez Mr. Pott et Comp. / à LEYDE en Hollande chez Mr. Luchtmann. / in MILANO appresso Sign. Giuseppe Galleazzi",
+  "updated": "2026-06-11 10:18:55.628Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [
+    "t1z88sszjpypj2w"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.384Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.384Z",
+      "agent": "unfjb2prdot2pyl",
+      "source_id": "ub919ug2ay4pgyr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "n6riamlzwhhzdiv",
+      "source_id": "vr3sfzwx3fdz2k6"
+    }
+  ]
+}

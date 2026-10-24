@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 28733, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Noch vor kurzem rief irgend wer, im Unmuth über die Zeit: flüchtet euch in die Idee!",
+  "language": [],
+  "musenalm_id": 28754,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch vor kurzem rief irgend wer, im Unmuth über die Zeit: flüchtet euch in die Idee!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Wagener",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.569Z",
+      "agent": "x7c2pl3bvx7jtlf",
+      "source_id": "62q85c62jqo8hcr"
+    }
+  ]
+}

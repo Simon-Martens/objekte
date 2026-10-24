@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter und Blüthen (Sammlung INr 79374, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "O wohl, o wohl dem Himmel, / Er blickt mit klarem Licht / Vom Morgen bis zum Abend / Der Erd' in's Angesicht.",
+  "language": [],
+  "musenalm_id": 79377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.999Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "n0bbiz00u7b9gug"
+    }
+  ]
+}

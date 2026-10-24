@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86334, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86335,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Taubenpost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Theer pinx. J. Axmann sc.",
+  "scans": [
+    "alm_1599_86335_abagk4thf7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Taubenpost",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.290Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "8fhci3ejpmynv2y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.290Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "hv5ukgw1deye0a4"
+    }
+  ]
+}

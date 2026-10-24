@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; nummeriert 6. /) Illustration zu »Otto von Wittelsbach«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105089,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "aber iezt - - / V. Aufz. 9r. Af.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen del. & sc.",
+  "scans": [
+    "alm_3257_105089_mzl4hfssta.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "aber iezt - - / V. Aufz. 9r. Af.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.993Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "leblv8t4pduiay4"
+    }
+  ]
+}

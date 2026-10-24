@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Wer, als Melpomen' ihn weihte, / Heilig ihr Veredlung schwur,",
+  "language": [],
+  "musenalm_id": 38005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die höchste Weihe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die höchste Weihe",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.028Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "l0ueh5414uok6sg"
+    }
+  ]
+}

@@ -1,0 +1,311 @@
+{
+  "annotation": "",
+  "biographical_data": "1738-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.517Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1738-05-09"
+      ],
+      "dateOfDeath": [
+        "1819-01-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "John Opie"
+          ],
+          "creditText": [
+            "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof. This may be due to recognition of the \"sweat of the brow\" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement. Please see Commons:When to use the PD-Art tag for more information."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/John%20Wolcot%20by%20John%20Opie%20detail.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/John%20Wolcot%20by%20John%20Opie%20detail.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:John%20Wolcot%20by%20John%20Opie%20detail.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T12:07:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118634623/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118634623",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118634623",
+      "oldAuthorityNumber": [
+        "(DE-588a)100843646",
+        "(DE-588a)118634623",
+        "(DE-588c)4066812-5"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Dodbrooke, Devonshire"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Somerstown"
+      ],
+      "preferredName": "Wolcot, John",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "John"
+        ],
+        "surname": [
+          "Wolcot"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4333843-4",
+          "label": "Satiriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Pindar"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Wolcot, John: The royal tour, and Weymouth amusements",
+        "Wolcot, John: The works",
+        "Wolcot, John: The Lousiad",
+        "Wolcot, John: Leben u. Werke Peter Pindars (Dr. John Wolcott)",
+        "Wolcot, John: Odes of importance etc.",
+        "Wolcot, John: Tales of the Hoy. - s. a.",
+        "Wolcot, John: Pindariana",
+        "Wolcot, John: Leben und Werke Peter Pindars (Dr. John Wolcot)",
+        "Wolcot, John: The Louisiad",
+        "Wolcot, John: Sir Joseph Banks [and] the emperor of Morocco"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50064284"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24590473"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q707652"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118634623/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/John_Wolcot"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/John_Wolcot"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/John_Wolcot"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108559448"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118634623"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118634623"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Wolcott, John",
+        "Ploughshare, Jan",
+        "Pindar, Peter",
+        "Ploughshare, John",
+        "Walcot, John"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jan"
+          ],
+          "surname": [
+            "Ploughshare"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Ploughshare"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Wolcott"
+          ]
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Walcot"
+          ]
+        },
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Pindar"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/John_Wolcot",
+          "label": "https://de.wikipedia.org/wiki/John_Wolcot"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:24:12Z",
+    "gnd_query_biographical_data": "1738-1819",
+    "gnd_query_name": "wolcott, john"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3179,
+  "name": "Wolcott, John",
+  "profession": "Text",
+  "pseudonyms": "Peter Pindar",
+  "refs": "Brockh (13.) XVI, 723",
+  "updated": "2026-06-11 13:29:25.828Z",
+  "uri": "https://d-nb.info/gnd/118634623",
+  "editor": ""
+}

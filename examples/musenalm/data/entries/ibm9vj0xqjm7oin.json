@@ -1,0 +1,98 @@
+{
+  "annotation": "Jgg 1817-1818; Leizig (Göschen); Hrsg: A. G. A. Müllner /) mit Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, SS I–XV: T, Vrwrt, Vrwrt, I-Verz, SS 1–346, darin 2 GG, C, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Privatbühnen",
+    "norm": "~",
+    "biblio": 106357,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1337,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für Privatbühnen (Müllner) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; L/R 125; Goed VIII. 130, 17",
+  "responsibility_statement": "Amandus Gottfried Adolph Müllner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Privatbühnen. / Erstes Bändchen / auf / das Jahr 1817. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+  "updated": "2026-06-11 10:18:54.900Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "lgrczivrie22m2r"
+  ],
+  "contents": [
+    "1uxz5we7gwt4b23",
+    "t99exb30ol866cz",
+    "3by4k7l481obuq0",
+    "z18gt6vf64dkwb6",
+    "teqne4kn75zobvn",
+    "lss8nye7g8btgxf",
+    "6ea98ghcz3x1kkh",
+    "88h3qf13mzb8nrl",
+    "stonmg7hhxa2d6k",
+    "n7hqbl5i4x4s9op",
+    "misblgbv47tpyzi",
+    "y5f1eschl2t93gv",
+    "qw7gsnd83ipcxob",
+    "ygnvg9h7tdsfp73",
+    "76pn5qsdgbzwjhu",
+    "kl7ueb1nvzmt5g6",
+    "jtp6d6x67u58ngp",
+    "aiuqo4l8orcqhv3",
+    "x2v8ctsf3xjz2hh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.915Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.915Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "mzz1dzjzofrrhbc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.878Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.878Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "zf07zlvngrsucum"
+    }
+  ]
+}

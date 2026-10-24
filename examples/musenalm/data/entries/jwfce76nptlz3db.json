@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I-VIII Vrwrt d Hrsg, SS IX-XVII I-Verz, S XVIII G-Verz, SS 1-306 darin 8 GG, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Reisen (Zimmermann) 1813-2",
+    "norm": "~",
+    "biblio": 200626,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-12-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 557,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch der Reisen (Zimmermann) 1813-2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143; L/R 141",
+  "responsibility_statement": "E. A. W.  Zimmerman",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / der / REISEN, / oder / unterhaltende Darstellung / der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder- Menschen- / und Productenkunde. / Für jede Klasse von Lesern / von / E. A. W. von ZIMMERMANN. / Zwölfter Jahrgang / Zweite Abtheilung / für das Jahr / 1813. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+  "updated": "2026-06-11 10:18:55.831Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "w901lpvo3mdrl7p"
+  ],
+  "contents": [
+    "3ow1pwaq8a2uao8",
+    "w7z78de4ldnbso7",
+    "8kna4vocoqykzwg",
+    "xr8rodjzib5m1wl",
+    "d202k3vxma10ykz",
+    "buetu1a3easx5ay",
+    "741u9urfx5hhlov",
+    "bosw5uvg3zqwasf",
+    "98wn12hfxvbkgsh",
+    "nenv4rinhyx5njr",
+    "xg2f2w18tgfupoo",
+    "92pzgqky6gapiy6",
+    "k7bpn9eiv0eg3c2",
+    "i0q10j77r7bvfi8",
+    "6r3hugn2peyalla",
+    "fadxiuitegb61m1",
+    "p2owm0abv0482sz",
+    "m9l1mjf4iyxqy6s",
+    "b29bxxmkvwxnlhm",
+    "apyer9n7qkbn4z2",
+    "akt0ynx88s6htmw",
+    "4fiq08r9jisa31z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.854Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.854Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "13ooewsu2mg10rc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.702Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.702Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "z1w7dxf5m8a8l5v"
+    }
+  ]
+}

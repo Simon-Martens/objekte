@@ -1,0 +1,89 @@
+{
+  "annotation": "Format 8°; in der Ausgabe des Berliner Kalenders als »Berliner Taschenbuch« kein Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, ar: S 1 T, S 3 nT, S 5 I-Verz, S 7 W, SS 8-16 G-Verz darin 6 GG, ar1: SS 1-240",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1850",
+    "norm": "~",
+    "biblio": 404168,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 885,
+  "parallel_title": "",
+  "place_statement": "Berlin (Decker)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Taschenbuch / für / 1850 / Mit sieben Stahlstichen. / Berlin. / Verlag der Deckerschen Geheimen Ober-Hofbuchdruckerei",
+  "updated": "2026-06-11 10:18:55.757Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "fdwrpdekmarev2a"
+  ],
+  "contents": [
+    "3zbpm3ezdq6byt7",
+    "q8kpjvh0mhw5gcw",
+    "kiff8r4fwhtu7k7",
+    "hy1dzhsnbl7h0ro",
+    "pafj06g2lwaqjd5",
+    "5yucq96tcp95e5f",
+    "uqrar783r7qk0ko",
+    "88lv7csfkeprdey",
+    "gucztbsos0gbty7",
+    "8tpmk3msqx9bb60",
+    "65ppuvqshttf8o6",
+    "1xvqof5quewxf0b",
+    "pprqe6117nb7b2g",
+    "8dwbya34o3nvhvf",
+    "gmk3asdlx5vt6o5",
+    "qz2wdybets60rd5",
+    "4af1f5t7x0bql10",
+    "koi4h1uwjj2w0mu",
+    "wqvva655dlsvz0h",
+    "0q1z27n9j490gzq",
+    "4enwcam0shthyzy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.713Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.713Z",
+      "agent": "xgaoof3gxezsx6j",
+      "source_id": "96q8kjo7sxb41qj"
+    }
+  ]
+}

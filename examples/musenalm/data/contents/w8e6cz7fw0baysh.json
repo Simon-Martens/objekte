@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei kol. Illustrationen (INr 125121, 125122, Obj 11, 12); # Bezeichnung aus dem Titel (INr 125113, Obj 3); ## von Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Nein! – Nein! Sie soll den Brief nicht lesen, nicht einmal seinen Inhalt erfahren.",
+  "language": [],
+  "musenalm_id": 125120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siegmund. / Schauspiel in zwei Aufzügen. / Nach »Le gardien« frei bearbeitet ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siegmund. / Schauspiel in zwei Aufzügen. / Nach »Le gardien« frei bearbeitet ##",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.867Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "j9aukioimd5fr9f"
+    }
+  ]
+}

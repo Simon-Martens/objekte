@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Schön ist des blauen Himmels Kleid / Gestickt mit Sternen weit und breit,",
+  "language": [],
+  "musenalm_id": 52776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die blaue Farbe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die blaue Farbe",
+  "updated": "2007-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.701Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "77wvx63ok3i6cuj"
+    }
+  ]
+}

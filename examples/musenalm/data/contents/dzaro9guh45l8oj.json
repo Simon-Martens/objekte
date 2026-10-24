@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Freund, Egeria's Geriesel / Wallt nicht über Goldsand hin;",
+  "language": [],
+  "musenalm_id": 13149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An G. A. Eberhard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An G. A. Eberhard",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.564Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "yeidp6a6ff9kdtu"
+    }
+  ]
+}

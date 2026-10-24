@@ -1,0 +1,85 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, SSI–VI, darin T, I-Verz, 3 G, SS1–188, darin nT",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach fürs Theater (Schmidt) 1812",
+    "norm": "~",
+    "biblio": 411310,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-10-26T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4821,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach fürs Theater (Schmidt) 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 118",
+  "responsibility_statement": "Schmidt, Friedrich Ludwig",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / fürs / THEATER / 1812. / von / Friedrich Ludwig Schmidt / Leipzig / Bey Wilhelm Rein",
+  "updated": "2026-06-11 10:18:54.934Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "4svtbddgfuotrpz"
+  ],
+  "contents": [
+    "nf7oi6c7c6xa6ng",
+    "m8c59xy1y1ixv06",
+    "xyawiemfbbittfa",
+    "fdfnr0looccma7f",
+    "bjsfokjddfqizp0",
+    "edc0szp7s3lauub",
+    "yx37mdpgg50b8gv",
+    "mh45g6zr1y4clp2",
+    "r166rwicnicn3qt",
+    "a1jo3bnsj4qzcy7",
+    "ps92q5qkqq1vscb",
+    "3m7zugh1o5rng5j",
+    "41v0op2f6dpsztq",
+    "mkqdz8mt90l1hsn",
+    "ztkw6lperf2y8md",
+    "bpzgzc0lfm7lq0b",
+    "n1fntqjylxs78v7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.431Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.431Z",
+      "agent": "opneo5a7yx10peq",
+      "source_id": "cx9lio9x8pwhctz"
+    }
+  ]
+}

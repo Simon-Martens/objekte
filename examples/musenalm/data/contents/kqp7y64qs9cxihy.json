@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag zur Sammlung »Biographische Skizzen« von Lembert (INr 129992, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz von Holbein, / gegenwärtig Direktor des Ständischen Theaters / in Prag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lembert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz von Holbein, / gegenwärtig Direktor des Ständischen Theaters / in Prag",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.054Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "417z8zej7ko2cbj"
+    }
+  ]
+}

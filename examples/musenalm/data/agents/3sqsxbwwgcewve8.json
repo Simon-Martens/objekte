@@ -1,0 +1,306 @@
+{
+  "annotation": "",
+  "biographical_data": "1732-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.266Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118718355",
+          "label": "Gräter, Friedrich David"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1756 Hauslehrer in Wertheim/Main; 1760 Heirat mit Juliane Friederike Schubart Berufung als Rektor an das Kollegialstift in Esslingen; dort wahrscheinlich bis 1772; danach Diakon in Nördlingen; Herausgeber päd. u. lit. Zeitschriften"
+      ],
+      "dateOfBirth": [
+        "1732-04-08"
+      ],
+      "dateOfDeath": [
+        "1792-01-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christoph Wilhelm Bock (1755-1836)"
+          ],
+          "creditText": [
+            "http://www.tripota.uni-trier.de/single_picture.php?signatur=121_port_0322"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Gottfried%20Boeckh.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Gottfried%20Boeckh.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Gottfried%20Boeckh.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1012389812"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T18:21:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116216832/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118610953",
+          "label": "Schubart, Christian Friedrich Daniel"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116216832",
+      "id": "https://d-nb.info/gnd/116216832",
+      "oldAuthorityNumber": [
+        "(DE-588a)116216832",
+        "(DE-588a)1012389812",
+        "(DE-588)1012389812"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065663-9",
+          "label": "Wertheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015575-4",
+          "label": "Esslingen am Neckar"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7561360-8",
+          "label": "Nähermemmingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042434-0",
+          "label": "Nördlingen"
+        }
+      ],
+      "preferredName": "Böckh, Christian Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gottfried"
+        ],
+        "surname": [
+          "Böckh"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4149467-2",
+          "label": "Diakon"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77061480"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1079878"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1012389812"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116216832/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottfried_Boeckh"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066789682"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116216832"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116216832.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116216832"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116216832"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Beckh, Christian Gottfried",
+        "Boeckh, Christian G.",
+        "Boeckh, Christian Gottfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Gottfried"
+          ],
+          "surname": [
+            "Beckh"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gottfried"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottfried_Boeckh",
+          "label": "https://de.wikipedia.org/wiki/Christian_Gottfried_Boeckh"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:58:15Z",
+    "gnd_query_biographical_data": "1732-1792",
+    "gnd_query_name": "böckh, christian gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 233,
+  "name": "Böckh, Christian Gottfried",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB II, 783",
+  "updated": "2026-06-11 13:29:21.638Z",
+  "uri": "https://d-nb.info/gnd/116216832",
+  "editor": ""
+}

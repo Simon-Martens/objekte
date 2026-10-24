@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach von und für Ungarn 1809",
+    "norm": "",
+    "biblio": 405475,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2294,
+  "parallel_title": "",
+  "place_statement": "Pesth (Leyrer)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Musenalmanach von und für Ungarn 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 88; nicht bei L/R; Goed IV/1. 958, 50; Goed VII. 53",
+  "responsibility_statement": "Joh. Paul Köffinger",
+  "subtitle_statement": "",
+  "title_statement": "Musen-Almanach / von und für / UNGERN / herausgegeben / von / Joh. Paul Köffinger. / PEST. / verlegt bei Joseph Leyrer",
+  "updated": "2026-06-11 10:18:55.995Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "vrg3ahmsnmvrmqd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.036Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.036Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "6dzquwm1vigxgag"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "ahe9kwbxx40y2sg",
+      "source_id": "delnlbxie54j0z6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 31944-31945, Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Legenden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Otmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Legenden",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.358Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "6rciz3b0qf7b6w3"
+    }
+  ]
+}

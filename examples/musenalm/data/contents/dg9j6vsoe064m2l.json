@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27672, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Nun bist du ja allein gewesen, / Allein mit deinem stillen Glück,",
+  "language": [],
+  "musenalm_id": 27675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.206Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "6nd7viy3nbycyna"
+    }
+  ]
+}

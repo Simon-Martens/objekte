@@ -1,0 +1,48 @@
+{
+  "annotation": "6 Angloisen 2 Quadrillen 2 Menuetten und 4 Walzer von Vinzenz Mascheck Kapellmeister in Prag (Sammlung INr 11869, Obj 124) (Photos 11877,01; 11877,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11877,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadr. 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_208_11877_01_4bernh10hl.jpg",
+    "alm_208_11877_02_6zxk2ba1vx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadr. 2",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.327Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "fw47j15gps5c1id"
+    }
+  ]
+}

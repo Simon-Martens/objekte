@@ -1,0 +1,572 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "kgl. dän. Konferenzrat"
+      ],
+      "dateOfBirth": [
+        "1770-07-03"
+      ],
+      "dateOfDeath": [
+        "1832-11-16"
+      ],
+      "describedBy": {
+        "dateModified": "2024-06-25T09:15:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/100266193/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100266193",
+      "id": "https://d-nb.info/gnd/100266193",
+      "oldAuthorityNumber": [
+        "(DE-588a)100266193"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Schmidt-Phiseldek, Konrad Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Konrad Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schmidt-Phiseldek"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Philologischer Publizist",
+        "Rat",
+        "Sozialwissenschaftlicher Schriftsteller",
+        "Staatsbeamter"
+      ],
+      "publication": [
+        "Schmidt-Phiseldek, Conrad F. von: Der Europäische Bund",
+        "Schmidt-Phiseldek, Conrad F. von: Über das jetzige Verhältniß der Jüdischen Nation zu d*",
+        "Schmidt-Phiseldek, Conrad F. von: Die Welt als Automat und das Reich Gottes",
+        "Schmidt-Phiseldek, Conrad F. von: Die Politik nach den Grundsätzen der heiligen Allia*",
+        "Auswahl Neugriechischer Volkspoesien",
+        "Schmidt-Phiseldek, Conrad F. von: Proben politischer Redekunst in sieben Reden",
+        "Schmidt-Phiseldek, Conrad F. von: Das Menschengeschlecht auf seinem gegenwärtigen Sta*",
+        "Schmidt-Phiseldek, Conrad F. von: Europa und Amerika oder die künftigen Verhältnisse de*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87869109"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20022379"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1782466"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100266193/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/100266193"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Konrad_von_Schmidt-Phiseldeck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008362613X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100266193"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1786_otto;31"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1786_schuetze;138"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100266193.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100266193"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schmidt-Phiseldek, Conradus F. a",
+        "Schmidt-Phiseldek, Conradus Fridericus a",
+        "Schmidt-Phiseldek, Conrad George Friedrich Elias von",
+        "Phiseldeck, Konrad Friedrich von Schmidt-",
+        "Schmidt Phiseldeck, Konrad Friedrich von",
+        "Phiseldeck, Konrad G. von",
+        "Schmidt-Phiseldeck, Konrad G. von",
+        "Schmidt-Phiseldeck, Conrad G. von",
+        "Schmidt-Phiseldeck, Konrad Friedrich von",
+        "Schmidt Phiseldek, Konrad Friedrich von",
+        "Schmidt Phiseldek, Konrad F. von",
+        "Schmidt-Phiseldeck, Konrad Georg Friedrich Elias von",
+        "Schmidt-Phiseldeck, Conrad F. von",
+        "Phiseldeck, Konrad F. von",
+        "Phiseldek, Konrad Friedrich von Schmidt-",
+        "Schmidt-Phiseldek, C. F.",
+        "Schmidt-Phiseldek, Conrad F. von",
+        "Phiseldek, Konrad F. von",
+        "Phiseldeck, Conrad F. von",
+        "Schmidt-Phiseldek, C. F. von",
+        "Schmidt-Phiseldek, Konrad G. von",
+        "Schmidt, Conrad F. von",
+        "Schmidt-Phiseldek, Conrad G. von",
+        "Schmidt-Phiseldek, Konrad F. von",
+        "Phiseldek, Conrad F. von",
+        "Schmidt-Phiseldeck, Konrad F. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Conrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Georg Friedrich Elias"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Friedrich von Schmidt-"
+          ],
+          "surname": [
+            "Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Conradus F."
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad George Friedrich Elias"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conradus Fridericus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt-Phiseldek"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Friedrich von Schmidt-"
+          ],
+          "surname": [
+            "Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad G. von"
+          ],
+          "surname": [
+            "Phiseldeck"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Konrad_von_Schmidt-Phiseldeck",
+          "label": "https://de.wikipedia.org/wiki/Konrad_von_Schmidt-Phiseldeck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:49:48Z",
+    "gnd_query_biographical_data": "1770-1832",
+    "gnd_query_name": "schmidt-phiseldeck, konrad friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2483,
+  "name": "Schmidt-Phiseldeck, Konrad Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1819; ADB XXXII, 23",
+  "updated": "2026-06-11 13:29:24.698Z",
+  "uri": "https://d-nb.info/gnd/100266193",
+  "editor": ""
+}

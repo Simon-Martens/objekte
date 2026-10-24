@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Komm' in mein Schloß von rosigen Korallen, / Drin wohnt sich's schön, von dunkler Fluth umzogen!",
+  "language": [],
+  "musenalm_id": 75018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Meerfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Meerfrau",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.776Z",
+      "agent": "knoskc7ee942ezb",
+      "source_id": "55bd7g382tcyitr"
+    }
+  ]
+}

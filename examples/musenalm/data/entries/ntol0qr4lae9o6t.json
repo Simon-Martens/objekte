@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1811-1819; Wien (Doll); 1820-1829 ; Wien, 1820-1821: Wien (Strauß), 1822-1828: Wien (Härter), 1829: Wien (Ludwig); Hrsgg.: J. von Hormayer, von Menyansky; 1830-1849 Neue Folge; 1830: Stuttgart (Franckh), 1831: München (Frankch); 1832-1834: München (Franz), 1835: Braunschweig (Viehweg), 1836- mindest 1842: Leipzig (Reimer), mind. 1846-1849 Berlin (Reimer); Hrsg.: J. von Hormayer; fortgesetzt durch: Taschenbuch für die vaterländische Geschichte Neueste Folge 1850 ff; Hrsg.: G. Th. Ruthardt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1811",
+    "norm": "",
+    "biblio": 200697,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2754,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / vaterländische Geschichte. / Mit sechs Kupfern. / Wien, 1811. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:55.072Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "11qd7ztm652ft6x"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.738Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.738Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "2wtjmfh6cj4tyea"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.134Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.134Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "wsfg4inovfynen4"
+    }
+  ]
+}

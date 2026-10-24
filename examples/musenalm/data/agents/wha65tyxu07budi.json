@@ -1,0 +1,361 @@
+{
+  "annotation": "",
+  "biographical_data": "~1606-1652",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.404Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1606"
+      ],
+      "dateOfDeath": [
+        "1652"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Peeter Clouwet según Anton van Dyck- Biblioteca Nacional de España"
+          ],
+          "creditText": [
+            "http://bdh-rd.bne.es/viewer.vm?id=0000027815"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Peeter%20clouwet-Retrato%20de%20Christoffel%20van%20der%20Lamen.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Peeter%20clouwet-Retrato%20de%20Christoffel%20van%20der%20Lamen.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Peeter%20clouwet-Retrato%20de%20Christoffel%20van%20der%20Lamen.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2013-03-18T11:25:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb112",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb112"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#4",
+          "label": "Katalogisierungslevel 4"
+        },
+        "id": "https://d-nb.info/gnd/1032515686/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb112",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb112"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        }
+      ],
+      "gndIdentifier": "1032515686",
+      "id": "https://d-nb.info/gnd/1032515686",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        }
+      ],
+      "preferredName": "Lamen, Christoph Jacobsz. van der",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christoph Jacobsz."
+        ],
+        "prefix": [
+          "van der"
+        ],
+        "surname": [
+          "Lamen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14965958h"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95787961"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2752775"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1032515686/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christoffel_Jacobsz_van_der_Laemen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christoffel_Jacobsz_van_der_Laemen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081682891"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1032515686"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/1032515686"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Laemen, Christoffel Jacobsz. van der",
+        "Vander Lanen, Kristoffel Jacobsz.",
+        "Lamen, Christophe-Jacques van der",
+        "Lamen, Christophe Jacobsz. van der",
+        "Laan, Christoffel Jacobsz. van der",
+        "Laanen, Christoph Jacobsz. van der",
+        "Laenen, Christoph Jacobsz. van der",
+        "Laemen, Christoph Jacobsz. van der",
+        "Lamen, Christoffel Jacobsz. van der",
+        "Lamen, Kristoffel Jacobsz. van der",
+        "Laanen, Christoffel Jacobsz. van der",
+        "Van der Lamen, Christoffel Jacobszoon "
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christoffel Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laanen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoffel Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laan"
+          ]
+        },
+        {
+          "forename": [
+            "Christoffel Jacobszoon "
+          ],
+          "surname": [
+            "Van der Lamen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoffel Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laemen"
+          ]
+        },
+        {
+          "forename": [
+            "Kristoffel Jacobsz."
+          ],
+          "surname": [
+            "Vander Lanen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoffel Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Lamen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laenen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laanen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Laemen"
+          ]
+        },
+        {
+          "forename": [
+            "Christophe Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Lamen"
+          ]
+        },
+        {
+          "forename": [
+            "Christophe-Jacques"
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Lamen"
+          ]
+        },
+        {
+          "forename": [
+            "Kristoffel Jacobsz."
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Lamen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christoffel_Jacobsz_van_der_Laemen",
+          "label": "https://de.wikipedia.org/wiki/Christoffel_Jacobsz_van_der_Laemen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:02:54Z",
+    "gnd_query_biographical_data": "~1606-1652",
+    "gnd_query_name": "lamen, christoph jacobsz. van der"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1538,
+  "name": "Lamen, Christoph Jacobsz. van der",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXII, 260",
+  "updated": "2026-06-11 13:29:23.457Z",
+  "uri": "https://d-nb.info/gnd/1032515686",
+  "editor": ""
+}

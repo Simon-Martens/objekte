@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Das Schicksal, Freund! das seine bösen / Grillen / So oft an uns bedrängten Menschen übt,",
+  "language": [],
+  "musenalm_id": 31520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen lieben Vollrath. / Bey unserer Trennung im May 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen lieben Vollrath. / Bey unserer Trennung im May 1795",
+  "updated": "2003-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.556Z",
+      "agent": "47jltbo11xjvoib",
+      "source_id": "mxevcwl9r5etzw8"
+    }
+  ]
+}

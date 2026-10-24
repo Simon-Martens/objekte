@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 39041, Obj 229)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Zeus, der Olympier saß und schaut' herab auf den / Erd- / kreis, / Aber es wiegte sich ihm Artemis hold auf dem Schooß.",
+  "language": [],
+  "musenalm_id": 39044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 232,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Artemis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Artemis",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.062Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "xahohsjd889p2zq"
+    }
+  ]
+}

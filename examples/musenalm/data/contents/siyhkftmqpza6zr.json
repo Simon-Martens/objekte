@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Phillis« von Hmm. INr 2493, Obj 122",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phillis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dresler",
+  "scans": [
+    "alm_77_2524_kvs7dlnbar.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Phillis",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.915Z",
+      "agent": "1anhey70qa9n5qm",
+      "source_id": "2feahpt0tdqa9nt"
+    }
+  ]
+}

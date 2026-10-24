@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Eine Viertelstunde vor der Einfahrt in Carlsbad geht ein Seitenweg, rechts von der großen Pragerschaussée ab, durch unbequeme Gebirgswindungen in die Stadt hinein.",
+  "language": [],
+  "musenalm_id": 75109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die Entführung. / Eine Begebenheit aus dem Carlsbade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Baronin de la Motte Fouqué geb. von Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die Entführung. / Eine Begebenheit aus dem Carlsbade",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.748Z",
+      "agent": "t59v9lajt8yljq5",
+      "source_id": "2wr2p3awi4f8wzg"
+    }
+  ]
+}

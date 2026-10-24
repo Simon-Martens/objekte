@@ -1,0 +1,75 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T u I-Verz, SS 1-232 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Abendstunden 1820-2",
+    "norm": "~",
+    "biblio": 406322,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-10-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3621,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Abendstunden 1820-2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5; nicht bei L/R; Goed VIII. 101, 225",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Abendstunden. / Zweite Sammlung. / Inhalt: […] / Mit drei Kupfern nach Zeichnungen von / J. H. Ramberg. / Leipzig, / bei Joh. Fr. Gleditsch, 1820",
+  "updated": "2026-06-11 10:18:55.488Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "ejkkitqrm9cltk9"
+  ],
+  "contents": [
+    "yrmkjet136dlz9e",
+    "ylzopzt6mmyevgf",
+    "9p0eg8eyl9saig2",
+    "f4fsemca2db69bm",
+    "ni27fedn9arlrq1",
+    "oz32tzo5rmvm8da",
+    "mmvjx9ydfnph3um"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.434Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.434Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "jenlrdq5duc2uyy"
+    }
+  ]
+}

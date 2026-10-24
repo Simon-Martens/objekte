@@ -1,0 +1,45 @@
+{
+  "annotation": "Havamal, oder Odins Sittensprüche aus Sämunds Edda (Sammlung INr 27049, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Nimmer lache des Greisen, noch weniger, wär' es dein Vater!",
+  "language": [],
+  "musenalm_id": 27066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nimmer lache des Greisen, noch weniger, wär' es dein Vater!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.212Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "j5wnawd8b0bm7na"
+    }
+  ]
+}

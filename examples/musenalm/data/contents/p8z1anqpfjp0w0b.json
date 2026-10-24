@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik 60582, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "In Purpur pranget der Abend, / Der Landwind hebet schon an;",
+  "language": [],
+  "musenalm_id": 60581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nächtliche Fahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert v. Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nächtliche Fahrt",
+  "updated": "2002-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.034Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "4w6nob1hrrt7jle"
+    }
+  ]
+}

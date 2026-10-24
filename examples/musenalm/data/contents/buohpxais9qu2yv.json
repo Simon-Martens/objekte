@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Himmel! Himmel welchen Graus / Seh' ich durch die Fensterscheiben!",
+  "language": [],
+  "musenalm_id": 35148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verdruß und Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verdruß und Trost",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.691Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "7e3p7awaenzxndh"
+    }
+  ]
+}

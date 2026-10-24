@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Stille herrscht im großen Bauernhaus, / Alle zogen sie ins Feld hinaus,",
+  "language": [],
+  "musenalm_id": 46248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das alte Mütterlein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günter Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das alte Mütterlein",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.199Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "vh01trwxzbhp050"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. V, INr 8106, Obj 5 /) Illustration zu »Der Sieg der Seele« von  Martha von der Höhe d.i. Clara von Massow INr 81023, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81003,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gräfin Brandenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1804_81003_cf9cmhvp9v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gräfin Brandenstein",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.976Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "8i38ptcyfaau6w2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.976Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "snw4lxdnnmna9bi"
+    }
+  ]
+}

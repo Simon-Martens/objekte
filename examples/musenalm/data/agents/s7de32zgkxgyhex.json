@@ -1,0 +1,275 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.489Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5011361-6",
+          "label": "Handelsschule (Bremen)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Philologe, Historiker, Schriftsteller u. Lehrer",
+        "Professor; Schriftsteller, Lehrer, Historiker"
+      ],
+      "dateOfBirth": [
+        "1778-10-19"
+      ],
+      "dateOfDeath": [
+        "1822-04-19"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T17:26:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117289434/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117289434",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117289434",
+      "oldAuthorityNumber": [
+        "(DE-588a)117289434"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4398385-6",
+          "label": "Traben-Trarbach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "preferredName": "Storck, Adam",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adam"
+        ],
+        "surname": [
+          "Storck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "publication": [
+        "Storck, Adam: Episoden aus einer Reise nach Paris im Sommer 1809",
+        "Übersetzungen aus fremden Literaturen, bes. Romanzen v. Walter Scott, Gedichte und zahlreiche Zeitschriftenaufsätze.",
+        "Darstellungen aus dem Preuß Rhein- und Mosellande, 2 Bde, ebd. 1818",
+        "Episoden aus einer Reise nach Paris im Sommer 1809, Essen und Duisburg 1810",
+        "Storck, Adam: Darstellungen aus dem Preußischen Rhein- und Mosellande",
+        "Scott, Walter: Burg Rokeby",
+        "Neu hrsg. v. Wilhelm Bracht der Band 2 (gekürzt) mit dem Titel: Die Mosel v. ihrer Quelle bis zum Rhein, Trier 1964",
+        "Storck, Adam: Darstellungen aus dem Preussischen Rhein- und Mosellande",
+        "Mithg der Zeitschrift v. und für Westphalen, Essen und Duisburg 1814-1817",
+        "Scott, Walter: Der letzte Minstrel"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no98120676"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8161675"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q90345"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117289434/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adam_Storck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110374047"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117289434"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117289434"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Storck, A.",
+        "Storck, Ad.",
+        "Storck, Philipp Adam",
+        "Stork, Adam",
+        "Storck, Philipp A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Philipp Adam"
+          ],
+          "surname": [
+            "Storck"
+          ]
+        },
+        {
+          "forename": [
+            "Adam"
+          ],
+          "surname": [
+            "Stork"
+          ]
+        },
+        {
+          "forename": [
+            "Ad."
+          ],
+          "surname": [
+            "Storck"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp A."
+          ],
+          "surname": [
+            "Storck"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Storck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adam_Storck",
+          "label": "https://de.wikipedia.org/wiki/Adam_Storck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:05:21Z",
+    "gnd_query_biographical_data": "1780-1822",
+    "gnd_query_name": "storck, adam"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2798,
+  "name": "Storck, Adam",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1991",
+  "updated": "2026-06-11 13:29:25.264Z",
+  "uri": "https://d-nb.info/gnd/117289434",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Der Hochbegabte Kirchenlehrer / Und mächtige Katholikus, / Und Heidenfeind, und Sektenstörer,",
+  "language": [],
+  "musenalm_id": 21309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Augustin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bührer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "St. Augustin",
+  "updated": "2002-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.910Z",
+      "agent": "utsrdm6m0s2in9m",
+      "source_id": "4gza9cli3trehy8"
+    }
+  ]
+}

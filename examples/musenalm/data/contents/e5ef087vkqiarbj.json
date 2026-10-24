@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Als noch der Herr auf Erden litt, / zu wecken, die da schliefen,",
+  "language": [],
+  "musenalm_id": 20649,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Herrn Besuch. / Legendenartig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Herrn Besuch. / Legendenartig",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.091Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "jvfwz5alewhnz75"
+    }
+  ]
+}

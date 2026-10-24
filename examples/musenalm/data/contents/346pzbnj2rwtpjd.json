@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 21082, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Was fehlet Dir? Komm an mein Herz! / Ich theile gern mit Dir den Schmerz;",
+  "language": [],
+  "musenalm_id": 21083,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unglückliche Familie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ortlepp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die unglückliche Familie",
+  "updated": "2002-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.829Z",
+      "agent": "8jy8jxpsgv6f24z",
+      "source_id": "xiz39qu3kbr6g31"
+    }
+  ]
+}

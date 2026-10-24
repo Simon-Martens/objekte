@@ -1,0 +1,406 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1883",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.244Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Freiherr"
+      ],
+      "dateOfBirth": [
+        "1800-08-14"
+      ],
+      "dateOfDeath": [
+        "1861-12-06"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T20:07:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11603047X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "11603047X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.8p",
+          "label": "Personen zu Bau, Boden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/116506083",
+          "label": "Ens, Faustin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11603047X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)11603047X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4061019-6",
+          "label": "Troppau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1181022274",
+          "label": "Slezské Rudoltice (Bruntál)"
+        }
+      ],
+      "preferredName": "Silesius, Eduard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eduard"
+        ],
+        "surname": [
+          "Silesius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116506083",
+          "label": "Ens, Faustin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Silesius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Badenfeld, Eduard von: Bühnenspiele. - 1847",
+        "Badenfeld, Eduard von: Der moderne Materialismus in seiner Nichtigkeit u. Erbärmlichk*. - 1849"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Eduard Karl Franz Heinrich Eusebius Johann Sarkander"
+          ],
+          "prefix": [
+            "Freiherr Czeike von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4434147-7",
+          "label": "Privatier"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no99011265"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/79385348"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55847382"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11603047X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eduard_von_Badenfeld"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081596002"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11603047X"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11603047X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11603047X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Badenfeld, Eudard von",
+        "Badenfeld, Eduard von, Freiherr",
+        "Czeike von Badenfeld, Eduard",
+        "Silesius, Eduard",
+        "Badenfeld, Eduard Karl Franz Heinrich Eusebius Johann Sarkander Freiherr Czeike von",
+        "Badenfeld, Eduard Freiherr von",
+        "Badenfeldt, ... von",
+        "Badenfeld, Eduard",
+        "Badenfeld, Czeike von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Badenfeldt"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "prefix": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eudard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard Karl Franz Heinrich Eusebius Johann Sarkander"
+          ],
+          "prefix": [
+            "Freiherr Czeike von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Czeike von Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Silesius"
+          ]
+        },
+        {
+          "forename": [
+            "Czeike"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Badenfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eduard_von_Badenfeld",
+          "label": "https://de.wikipedia.org/wiki/Eduard_von_Badenfeld"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T10:51:24Z",
+    "gnd_query_biographical_data": "1800-1883",
+    "gnd_query_name": "badenfeld, eduard von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 94,
+  "name": "Badenfeld, Eduard von",
+  "profession": "Text",
+  "pseudonyms": "Eduard Silesius",
+  "refs": "Goed (H) 33; Goed X, 587; Goed XIII, 398",
+  "updated": "2026-06-11 13:29:21.446Z",
+  "uri": "https://d-nb.info/gnd/11603047X",
+  "editor": ""
+}

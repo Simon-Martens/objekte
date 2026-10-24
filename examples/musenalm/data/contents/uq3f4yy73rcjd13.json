@@ -1,0 +1,45 @@
+{
+  "annotation": "Unterhaltungen (Sammlung INr 49234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Der Legationsrath Walden kam mit seinem zwölfjährigen Sohne, Heinrich, von Paris. Er sehnte sich, auf der Durchreise seinen alten Freund, den Forstmeister von Waldmann, einmal wieder zu sehen, und trat bei ihm ab.",
+  "language": [],
+  "musenalm_id": 49235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die räthselhafte Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die räthselhafte Reise",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.572Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "q9i4g78jgowj7i9"
+    }
+  ]
+}

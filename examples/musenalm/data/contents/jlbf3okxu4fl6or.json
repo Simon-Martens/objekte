@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 72161, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72162,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fischerhof, am Wege von Bamberg nach Gaustadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwarz del. J. F. Volkart sc. Nürnberg",
+  "scans": [
+    "alm_1181_72162_f8fxt5e7vu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fischerhof, am Wege von Bamberg nach Gaustadt",
+  "updated": "2009-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.664Z",
+      "agent": "oon5azsn87z52g0",
+      "source_id": "6y4673ik8iu9jb7"
+    }
+  ]
+}

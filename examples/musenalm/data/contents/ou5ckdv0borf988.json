@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der 1. Graphik im Kalendarium. paginiert 5. Illustration zu »Der dicke Mann« von Albrecht s. Textbezug INr 32218, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32189,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der dicke Mann in der Beichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_438_32189_l1un1xk7ny.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der dicke Mann in der Beichte",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.404Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "73kyh6wno0rpdgx"
+    }
+  ]
+}

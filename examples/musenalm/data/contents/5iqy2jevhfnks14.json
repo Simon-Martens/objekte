@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert XX. /) »National Schauspiel« (Sammlung INr 48135, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48155,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna Schüz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48155_jywesdcdyy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anna Schüz",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.697Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "iplx4njacwc30gd"
+    }
+  ]
+}

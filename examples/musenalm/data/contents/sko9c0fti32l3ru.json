@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Der du, wie jeder sieht und liest, / Die Krone treuer Diener bist,",
+  "language": [],
+  "musenalm_id": 8169,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Tellheims Just",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Löwen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Tellheims Just",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.342Z",
+      "agent": "d9adsrmbhk70tpd",
+      "source_id": "77u7nnwcsnv2mr2"
+    }
+  ]
+}

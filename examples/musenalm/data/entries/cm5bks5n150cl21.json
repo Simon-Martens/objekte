@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Volks-Kalender, Deutscher und Jahrbuch. Insbesondere zum Gebrauch für Israeliten 1858",
+    "norm": "",
+    "biblio": 409474,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-09-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4465,
+  "parallel_title": "",
+  "place_statement": "Brieg (Liebermann)",
+  "places": [
+    "s3annaospphg74s"
+  ],
+  "preferred_title": "Volks-Kalender, Deutscher und Jahrbuch. Insbesondere zum Gebrauch für Israeliten 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "H. Liebermann",
+  "subtitle_statement": "",
+  "title_statement": "Deutscher / Volkskalender / und / Jahrbuch. / Insbesondere zum Gebrauch für Israeliten / auf das Jahr / 1858. / Mit literarischen Beiträgen. / Enthaltend [...] / Herausgegeben / von / H. Liebermann. / Der astronom. und kirchl. Kalender ist für die Provinzen Schlesien / und Posen und den Meridian von Breslau aufgestellt. / Fünfter Jahrgang. / Brieg. / Verlag von H. Liebermann. / Sulzbach's Buchdruckerei in Breslau",
+  "updated": "2026-06-11 10:18:54.509Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "r9rd4iost5ib8ti"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "83ii68jr2csrp2s",
+      "source_id": "fdpzat4y505xrsi"
+    }
+  ]
+}

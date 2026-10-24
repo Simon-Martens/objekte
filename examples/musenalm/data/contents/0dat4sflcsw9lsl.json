@@ -1,0 +1,45 @@
+{
+  "annotation": "Reineckes neuere Gaunerstreiche (Sammlung INr 67553, Obj 33) VI. Anekdoten (Sammlung INr 67552, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Im Monat December des vorigen Jahres (1826) besorgte der Forstmeister des Forstamts Carlrsuhe mit einem seiner untergebenen Förster in dem untern Hardwald ein Forstgeschäft,",
+  "language": [],
+  "musenalm_id": 67554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.263Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "4179ihqw47s6z8z"
+    }
+  ]
+}

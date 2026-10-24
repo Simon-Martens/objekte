@@ -1,0 +1,99 @@
+{
+  "annotation": "im Schuber mit Rückenschild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I T, S II VrlgM, verso G, S III T, SS V-V I-Verz, S VII G-Verz, SS IX-XX G-Verz darin 6 GG, SS 1-492",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1829",
+    "norm": "~",
+    "biblio": 108650,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-11-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 136,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch / auf / das Jahr 1829. / Mit sieben Kupfern. / Leipzig: / F. A. Brockhaus. / 1829",
+  "updated": "2026-06-11 10:18:54.893Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "kkt5za9qmtkne65"
+  ],
+  "contents": [
+    "v4v8bbhifbphhqc",
+    "4ianuk3yeguk8md",
+    "vqm2jd1bhbf37r2",
+    "nb09esv8i7snfdq",
+    "npnhvobqy7qvuz5",
+    "y7fojld0pe0k7l1",
+    "3q6ntuqdgrribc1",
+    "fqngys79ji0bqdt",
+    "rmzoqdmgnhfp8ce",
+    "vhp4cxcudwrnk76",
+    "jlv6inkyjg0g5x4",
+    "nm7sec0hn3hudsh",
+    "nhlkous57hz035e",
+    "6x3ne5huwfdp4p5",
+    "3sptcc498g0i6pp",
+    "mz2ayduxonb6gd2",
+    "v8cakolupxlf8ky",
+    "ms2xl98cjqn2mj7",
+    "ul9p4bess5ccmuq",
+    "v7xocwg4ohjsl5f",
+    "ud0i49um05hidl7",
+    "5nia8mrblv2dmyc",
+    "7lma37v1bgcllop",
+    "0uaisa93o7jqy9t",
+    "obwgc7m7aq10ppx",
+    "pm6c6mawgp53bvl",
+    "xckt3me3ddipc9j",
+    "ok1ln8bnz8awd79",
+    "668igri8do19gnz",
+    "hxi05ak8z41pg7t",
+    "s7cjji9zdrxd99y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.597Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.597Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "o00wg7yy5d3xrwg"
+    }
+  ]
+}

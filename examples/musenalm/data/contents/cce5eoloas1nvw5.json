@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Klingenwald (Sammlung INr 111820, Obj 206)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Frau Nachtigall, sie sollte sich / Bis in die Seele schämen,",
+  "language": [],
+  "musenalm_id": 111831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 219,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Conrad Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.414Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "nxu7j2w5aijicox"
+    }
+  ]
+}

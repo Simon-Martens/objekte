@@ -1,0 +1,128 @@
+{
+  "annotation": "mit Gedichten aus: Musenalmanach (Hamburger) 1797 und aus: Musenalmanach von und für Ungarn 1804. s. Anm. an den Objekten",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 8 BB Kal, T, B I-Verz G-Verz, SS 1-288 darin 7 GG 2 gAA",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1805",
+    "norm": "~",
+    "biblio": 100227,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 650,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1805",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1805. / Leipzig / bey A. F. Böhme",
+  "updated": "2026-06-11 10:18:54.654Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "bj6olciwxukftq7"
+  ],
+  "contents": [
+    "ysmy1vsl7od0bun",
+    "1b6dhu7dykcqjvl",
+    "3nosc675opsm298",
+    "nidt5n2izyjs73z",
+    "6y2cnecui9lxz8g",
+    "h2ifmyio28m3rj7",
+    "9hiauai7e1filfr",
+    "sy1yko7tjj8ki01",
+    "thuuwmutjwe8b6f",
+    "52sk0d1kokq33ru",
+    "00qfhcv1s5bsut0",
+    "h0hwwjx8iy6hsi2",
+    "s3zg80xqk74q3v6",
+    "ekwpavmxq1ftp08",
+    "kzt58dl0deqmkrc",
+    "sww68qyof0yu3wh",
+    "r760687zp1itjlj",
+    "7n5l3zmdfoz6ogm",
+    "7pxwpojea0dusao",
+    "ei8ya52tcel9sgt",
+    "ha2vimswsct9sia",
+    "7ss4fruns1i9seq",
+    "ffduxh6n0xrdzjh",
+    "2p485wmfcgkq9lw",
+    "sywmvis720797pz",
+    "s28k66mjz6bno35",
+    "0ydll5s7ll9ocrg",
+    "ks2ln62nkicmxz9",
+    "2kkl57tefxs25he",
+    "bmzkbig6rao0s8x",
+    "ghz1o02jz84waq2",
+    "rtohvxtd85cdyba",
+    "jnbwj1iy65l4moc",
+    "13rlg9kifz7utxy",
+    "9kc740fgrezzkp8",
+    "hfy9amovlute1t3",
+    "blit28mpoyvzd8o",
+    "nww9i5auz9ali7k",
+    "ch6pivjlnrad2e9",
+    "sobl7eq6knrufin",
+    "u87jrjwrcsvx3uq",
+    "70c3axf4pxl8oe5",
+    "3uhbfp3dvuslc4z",
+    "fc8hbzfa732exgt",
+    "t3fkdlqdqban73g",
+    "qoff55wxwasutae",
+    "neiiu7d1afyohj3",
+    "wo84r3xcxg0en57",
+    "9op2ffn0b74fw9j"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.729Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.729Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "lseeqpmire3zb4x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.552Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.552Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "ntm2xxx8zvjho55"
+    }
+  ]
+}

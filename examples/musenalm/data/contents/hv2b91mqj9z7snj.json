@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 14 Teilen /) mit Anm. /) I. Balladen Legenden und Romanzen (INr 93502, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Du Granada, du Granada! / Mit den tausend dreyßig Thürmen, / Mit den hundert goldnen Kuppeln, / Wo der Halbmond freudig blinket;",
+  "language": [],
+  "musenalm_id": 93512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Romanzen von dem Mohrenritter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Romanzen von dem Mohrenritter",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.589Z",
+      "agent": "xk1o4h9hiuycys6",
+      "source_id": "nq3rxe6e9yfl3b6"
+    }
+  ]
+}

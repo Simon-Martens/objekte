@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 3. s. Textbezug INr 6968, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6930,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Theilnahme. / La compassion",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del.",
+  "scans": [
+    "alm_140_6930_b10llqa4k7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Theilnahme. / La compassion",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.114Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "o9xh7j4uy9xncbb"
+    }
+  ]
+}

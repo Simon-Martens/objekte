@@ -1,0 +1,45 @@
+{
+  "annotation": "Italiänische Volkslieder (Sammlung INr 87000, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Ich will ein glänzend Haus mir bauen / Im Meer, aus Federn eines Pfauen;",
+  "language": [],
+  "musenalm_id": 87003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das prächtige Haus. / (Aus Neapel.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das prächtige Haus. / (Aus Neapel.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.413Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "0ogj07iwxv5n4bi"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Verlagsmitteilung",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20915,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "A. W. Ifflands / theatralische Werke. / Auswahl in 11 Bänden. / Wohlfeile Ausgabe in Taschenformat, wie Klop- / stocks, Wieland und Shakespeare's Werke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "A. W. Ifflands / theatralische Werke. / Auswahl in 11 Bänden. / Wohlfeile Ausgabe in Taschenformat, wie Klop- / stocks, Wieland und Shakespeare's Werke",
+  "updated": "2002-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.788Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "w7lulj34pp4rs2z"
+    }
+  ]
+}

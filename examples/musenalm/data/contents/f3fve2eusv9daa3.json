@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Die du, Göttliche! mit dem goldnen / Mohnkranz / Deines Bruders, des Schlafs,",
+  "language": [],
+  "musenalm_id": 12710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vergessenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Köpken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vergessenheit",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.436Z",
+      "agent": "5z7qom88v60ghpp",
+      "source_id": "satvkvtuzuftvis"
+    }
+  ]
+}

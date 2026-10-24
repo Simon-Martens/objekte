@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 13844, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Die ersten leuchten durch des Himmels Nächte; / Die letzten sind aus altem Kraftgeschlechte;",
+  "language": [],
+  "musenalm_id": 13877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "33. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "33. / Charade",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.360Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "w86ozb0vhz9lhbw"
+    }
+  ]
+}

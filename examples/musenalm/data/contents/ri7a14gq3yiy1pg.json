@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Einst in den goldnen Zeiten führten / Den Amor eine Charitin,",
+  "language": [],
+  "musenalm_id": 36844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amors Führer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amors Führer",
+  "updated": "2002-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.942Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "gte13u0rmqaoimz"
+    }
+  ]
+}

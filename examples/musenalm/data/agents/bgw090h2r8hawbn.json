@@ -1,0 +1,294 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1845",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Intendant; Theaterdichter"
+      ],
+      "dateOfBirth": [
+        "1773-08-24"
+      ],
+      "dateOfDeath": [
+        "1845-03-25"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-25T21:02:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132181525/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/132181614",
+          "label": "Schikaneder, Urban"
+        },
+        {
+          "id": "https://d-nb.info/gnd/12111256X",
+          "label": "Schikaneder, Anna"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "132181525",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/132181614",
+          "label": "Schikaneder, Urban"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/12111256X",
+          "label": "Schikaneder, Anna"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/132181525",
+      "oldAuthorityNumber": [
+        "(DE-588a)132181525"
+      ],
+      "periodOfActivity": [
+        "1838-1845"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4018361-0",
+          "label": "Freising"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "preferredName": "Schikaneder, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Schikaneder"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005674-0",
+          "label": "Bergmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/33152543"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55127607"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=132181525"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132181525/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000022812692"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schikaneder_Karl_1773_1845.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd132181525.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/132181525"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schikaneder, Joseph Carl",
+        "Schickaneder, Karl",
+        "Schikaneder, Carl Joseph",
+        "Schikaneder, Carl",
+        "Schickaneder, Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Schickaneder"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Carl"
+          ],
+          "surname": [
+            "Schikaneder"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schikaneder"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schickaneder"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Joseph"
+          ],
+          "surname": [
+            "Schikaneder"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:47:33Z",
+    "gnd_query_biographical_data": "1770-1845",
+    "gnd_query_name": "schikaneder, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2438,
+  "name": "Schikaneder, Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB LIV 12",
+  "updated": "2026-06-11 13:29:24.624Z",
+  "uri": "https://d-nb.info/gnd/132181525",
+  "editor": ""
+}

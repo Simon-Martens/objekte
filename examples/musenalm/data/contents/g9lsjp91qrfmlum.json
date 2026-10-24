@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 94187-94189, Obj 28-30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94186,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanzen. / (Nach dem Spanischen)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanzen. / (Nach dem Spanischen)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.643Z",
+      "agent": "xy1xe258ffgo9ok",
+      "source_id": "j3vtsj1q06zeb3e"
+    }
+  ]
+}

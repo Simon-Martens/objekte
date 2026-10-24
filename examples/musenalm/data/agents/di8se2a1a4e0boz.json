@@ -1,0 +1,274 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.358Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Bibliograph und Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1785"
+      ],
+      "dateOfDeath": [
+        "1859"
+      ],
+      "describedBy": {
+        "dateModified": "2023-10-12T19:57:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124798527/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "124798527",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/124798527",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)7852728-4",
+        "(DE-588a)124798527"
+      ],
+      "preferredName": "Hanslick, Joseph Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Adolf"
+        ],
+        "surname": [
+          "Hanslick"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Hanslik, Joseph A.: Geschichte und Beschreibung der Prager Universitätsbibliothek. - 1851",
+        "Dambeck, Johann H.: Vorlesungen über Ästhetik. - 1822 - 1823"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb15538047x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n92070362"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32307558"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55124573"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124798527/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081118254"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/124798527"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd124798527.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124798527"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hanslik, Joseph Adolph",
+        "Hanslik, Joseph Adolf",
+        "Hanslik, Johann Adolf",
+        "Hanslick, Joseph Adolph",
+        "Hanslick, Josef Adolf",
+        "Hanslik, Jos. A.",
+        "Hanslik, Joseph A.",
+        "Hanslik, Josef Adolf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph Adolph"
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. A."
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Adolf"
+          ],
+          "surname": [
+            "Hanslick"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Adolf"
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Adolph"
+          ],
+          "surname": [
+            "Hanslick"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Adolf"
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Adolf"
+          ],
+          "surname": [
+            "Hanslik"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:39:18Z",
+    "gnd_query_biographical_data": "1785-1859",
+    "gnd_query_name": "hanslick, joseph adolph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1064,
+  "name": "Hanslick, Joseph Adolph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB X, 542",
+  "updated": "2026-06-11 13:29:22.796Z",
+  "uri": "https://d-nb.info/gnd/124798527",
+  "editor": ""
+}

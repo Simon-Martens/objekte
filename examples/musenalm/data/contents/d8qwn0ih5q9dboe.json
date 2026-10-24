@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. G 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Da flattert um die Quelle / Die wechselnde Libelle, / Der Wasser Papillon,",
+  "language": [],
+  "musenalm_id": 8728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freuden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freuden",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.296Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "335koggnp6ad6zy"
+    }
+  ]
+}

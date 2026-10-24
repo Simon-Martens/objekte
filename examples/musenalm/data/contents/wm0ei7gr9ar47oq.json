@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Es war im Zwilichten, über den dunkeln Schwarzwald zog die Nacht herein, und durch das weite Thal sah man schon hier und da ein Lichtchen aufflackern!",
+  "language": [],
+  "musenalm_id": 98452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bergmännchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Willmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bergmännchen",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.693Z",
+      "agent": "wksvze1uaeqvtr8",
+      "source_id": "me24mozpqudh1oy"
+    }
+  ]
+}

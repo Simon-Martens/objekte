@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Was sollen mir die Reisen, / In Norden und in Süden? / Was Pilgerstab und Tasche?",
+  "language": [],
+  "musenalm_id": 15890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unmuth",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.706Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "cp5t7727w7hjh99"
+    }
+  ]
+}

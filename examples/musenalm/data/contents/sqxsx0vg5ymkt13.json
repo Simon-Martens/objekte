@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Lebt wohl, ihr Lieben! Zeugen meiner Leiden. / Und meiner Freuden auf dem Erdenrund.",
+  "language": [],
+  "musenalm_id": 117764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Clara. / Eine Stimme von oben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Scheyrer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Clara. / Eine Stimme von oben",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.662Z",
+      "agent": "ffr90h140nkavcs",
+      "source_id": "2qic3pzlmqeud5g"
+    }
+  ]
+}

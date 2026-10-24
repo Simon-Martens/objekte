@@ -1,0 +1,96 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, S 1 T, SS 3-18 Kal, SS 19-108 darin 5 GG MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Militärisches (Berlin) 1801",
+    "norm": "",
+    "biblio": 4747,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-05-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1249,
+  "parallel_title": "",
+  "place_statement": "Berlin (Himburg)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender, Mannheimer 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136, nicht bei L/R",
+  "responsibility_statement": "K.",
+  "subtitle_statement": "",
+  "title_statement": "Militärisches / Taschenbuch / für / das Jahr 1801. / Mit einer Abbildung der Statüe des Fürsten Leopold / von Anhalt-Dessau im Lustgarten zu Berlin. / Berlin, / bei Christian Friedrich Himburg",
+  "updated": "2026-06-11 10:18:55.392Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "cg780uj3kzrt6f0"
+  ],
+  "contents": [
+    "7w9xjiqgfxezgo0",
+    "m8m8uhu4lbmyw07",
+    "xsi9qfzruusagwe",
+    "296lixrkbudgw6g",
+    "1qz2xywtnqpo1pi",
+    "rfd8r0phtxjp2ef",
+    "mva7s319h13zmy3",
+    "780iqlxmppqdwwf",
+    "r65r1s8gp5f9pql",
+    "0xipy19v9bgl7ul",
+    "ny4qt03empgtm6o",
+    "sdg3fwu6u3lmtwo",
+    "23xztxi6303d1tf",
+    "fmutyo58fmuisyl",
+    "tvt9mvjfwez0n13",
+    "h73dp06tbgojh7o",
+    "f7lkes3exvnn8jk",
+    "j3sxfd3vnq9z5t7",
+    "zgdu1tz2094g91i",
+    "xtizlk8uiwxik29",
+    "pyg9iqlaa4sgzi3",
+    "qcod0066xlepdao",
+    "0xmtpsh7qujumh3",
+    "fasdf1f4a6hzq3k",
+    "cdskz5tx6xcto8q",
+    "au7vlcelzcj9kvj",
+    "mqtm5omh68f6mqj",
+    "inz309lz0w9o4hx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.013Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.013Z",
+      "agent": "3ghkcujiq6qtod7",
+      "source_id": "c5hti4wtjjs0gol"
+    }
+  ]
+}

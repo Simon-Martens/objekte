@@ -1,0 +1,79 @@
+{
+  "annotation": "einziger Jahrgang /)  KVK: BVB, GBV, SWB lediglich Jg 1817 /) ADB XVI, 761 ff führt die Publikation nicht auf. /) Im Vorwort des Herausgebers: Die günstigen Leser, welche im vergangenen Jahr theilnehmend ein Blatt aus dem Geschichtsbuche des achtzehnten Jahrhunderts aufnahmen, werden das vorliegende nicht unfreundlich aufnehmen.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Köthe) 1817",
+    "norm": "",
+    "biblio": 406597,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3660,
+  "parallel_title": "",
+  "place_statement": "Leipzig und Altenburg (Brockhaus)",
+  "places": [
+    "93tq11w9rpbjgwx",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Köthe) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; nicht bei ADB XVI, 761",
+  "responsibility_statement": "D. F. A. Köthe",
+  "subtitle_statement": "",
+  "title_statement": "Historisches Taschenbuch / auf das Jahr 1817 / von / D. F. A. Köthe. / Enthaltend: / Das Jahr 1616 / oder / die Lage Europa's / vor / dem Beginn des dreißigjährigen Krieges. / Leipzig und Altenburg. / F. A. Brockhaus. / 1817",
+  "updated": "2026-06-11 10:18:54.774Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "prznr8juo6o6786"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.274Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.274Z",
+      "agent": "54ov270tayjwp9d",
+      "source_id": "oqg7in1nhdrwfz9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.593Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.593Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "pzb6e2ewv6bd5iv"
+    }
+  ]
+}

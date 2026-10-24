@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Chemische Kunststücke (Sammlung INr 84711, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Man fülle ein kleines cylindrisches Arzneyglas mit Wasser, umwickle es mit Leinwand, tauche dieses umwickelte Glas in Vitrioläther, und halte es in einen Luftzug.",
+  "language": [],
+  "musenalm_id": 84721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Eis im Sommer zu machen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blasche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Eis im Sommer zu machen",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.153Z",
+      "agent": "7h5ljocv7u3xkmf",
+      "source_id": "ebdn7djy8vbfrlf"
+    }
+  ]
+}

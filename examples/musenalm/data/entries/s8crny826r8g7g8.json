@@ -1,0 +1,76 @@
+{
+  "annotation": "§§ 2 BB: SS 7-10 und auszufaltende Graphik: »William Crotch 3 Jahr 7 Monath alt« fehlen. s. franz. Ausgabe des Taschenkalenders alm-Nr. 154",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1780",
+    "norm": "",
+    "biblio": 411529,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-12-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4878,
+  "parallel_title": "",
+  "place_statement": "Göttingen",
+  "places": [],
+  "preferred_title": "Taschenkalender, Göttinger 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1779 / bey Joh. Chr. Dieterich",
+  "updated": "2026-06-11 10:18:56.030Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [
+    "d4w13j9em4cj1tc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "2cbzyo74o5a8hju"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "dd9qrxxiyip8uam"
+    }
+  ]
+}

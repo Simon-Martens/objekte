@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des römischen Karneval (Sammlung INr 69033, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Nicht ermüden und ermatten, / Auch wenn kaum ein Stündchen Schlummer / Gegen Morgen dich erquicket!",
+  "language": [],
+  "musenalm_id": 69040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siebentes Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siebentes Lied",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.553Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "y5i5htyf3l6duax"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik, # Titel aus dem G-Verz /) Illustration zu »Kabale und Liebe« von Fr. Schiller s. Textbezug INr 39979, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kabale und Liebe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_523_39975_1q4zclw0qz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kabale und Liebe #",
+  "updated": "2005-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.151Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9qi6t07kdmer78z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.151Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "xnzaufd08ujjqtg"
+    }
+  ]
+}

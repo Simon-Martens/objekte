@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oktavia« von Kotzebue /) s. Textbezug INr 114476, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114477,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Agricola del. Fr. John sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agricola del. Fr. John sc.",
+  "scans": [
+    "alm_1845_114477_hs2l6tjw5j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.504Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "1natrbxj0u9phy5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.504Z",
+      "agent": "97s72f57lh9d1qo",
+      "source_id": "kqfkchjnqlkv9vf"
+    }
+  ]
+}

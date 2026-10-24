@@ -1,0 +1,45 @@
+{
+  "annotation": "Dreizehn Lieder (Sammlung INr 98241, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Ich kann, ich kann es noch nicht fassen, / Es blitzt ein scharfer Dolch mir zu:",
+  "language": [],
+  "musenalm_id": 98246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2014-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.809Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "s6j77nuar3n1zng"
+    }
+  ]
+}

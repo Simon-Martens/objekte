@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 27 Gedichten in  3 Sammlungen INr 92787-92816, Obj 54-83",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strophen, Distichen und Elegieen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Strophen, Distichen und Elegieen",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.679Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "kerwyspr4zkhcgr"
+    }
+  ]
+}

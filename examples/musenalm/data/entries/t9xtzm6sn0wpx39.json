@@ -1,0 +1,88 @@
+{
+  "annotation": "Die Albaneserin. Trauerspiel in fünf Akten von Müllner. Stuttgart und Tübingen, in der J. G. Cottaischen Buchhandlung. 1820 /) s. Bernhard Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbiographie 1787-1832. Aus den Quellen bearbeitet. Marbach a. N., München 2003: Nr. 1248",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG T, T, 5 SS W, SS 1-255, 2 SS C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Müllner) 1821 (Die Albaneserin)",
+    "norm": "~",
+    "biblio": 406930,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-11-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3733,
+  "parallel_title": "",
+  "place_statement": "Stuttgart u. Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch (Müllner) 1821 (Die Albaneserin)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; nicht bei L/R; Goed VIII. 305, 34",
+  "responsibility_statement": "Müllner",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr 1821 / von Müllner",
+  "updated": "2026-06-11 10:18:55.438Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "lzv3l6lvs0g9zbo"
+  ],
+  "contents": [
+    "je4nz5sbtkqfqbl",
+    "c7jp6agwqngtkjy",
+    "tzjm7yryf0dxxzv",
+    "wxgfsqgafs28sqg",
+    "r6g5khpu0o8q5vj",
+    "l2qkkic5pqck76a",
+    "5uzw3hmq0f3uji6",
+    "c3ldrs8zulofie5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.681Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.681Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "td1k2u08dy4d5iq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.287Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.287Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "tluwgbk1jksjeiq"
+    }
+  ]
+}

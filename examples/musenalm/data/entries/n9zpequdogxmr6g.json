@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Zürcher 1858",
+    "norm": "",
+    "biblio": 409660,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-09-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4596,
+  "parallel_title": "",
+  "place_statement": "Zürich ( Orell, Füßli und Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Taschenbuch, Zürcher 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Gerold Meyer von Knonau und Salomon Vögelin",
+  "subtitle_statement": "",
+  "title_statement": "Zürcher Taschenbuch / auf das Jahr / 1858. / Herausgegeben / von / Gerold Meyer von Knonau / und / Salomon Vögelin. / Erster Jahrgang. / Mit vier Abbildungen. / Zürich, / Druck von Orell, Füßli und Comp. / 1858",
+  "updated": "2026-06-11 10:18:55.274Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "gbql8l6e3lrlxqw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.119Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.119Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "7u1hq8ao9ywpa7q"
+    }
+  ]
+}

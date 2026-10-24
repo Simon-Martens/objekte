@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Freundin, sieh die schöne Ulme, / Wie den Epheu sie umschwebt,",
+  "language": [],
+  "musenalm_id": 13117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Epheu und die Weinranke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Epheu und die Weinranke",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.335Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "332hldfzyrwikf9"
+    }
+  ]
+}

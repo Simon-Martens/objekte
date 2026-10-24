@@ -1,0 +1,45 @@
+{
+  "annotation": "ausfaltbare Titelgraphik (Plan) /) Illustration zu »Der Erbprinzen-Garten in Carlsruhe« INr 74873, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Plan von dem Erbprinzen Garten in Carlsruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. J. C. A.",
+  "scans": [
+    "alm_3119_74863_8emilafcw0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Plan von dem Erbprinzen Garten in Carlsruhe",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.719Z",
+      "agent": "eozidzwycwakle8",
+      "source_id": "zjzir2bky4ulhk3"
+    }
+  ]
+}

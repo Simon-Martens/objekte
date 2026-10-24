@@ -1,0 +1,623 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.260Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/501775-0",
+          "label": "Landes-Industrie-Comptoir zu Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/3023248-X",
+          "label": "Freimaurer-Loge Amalia (Weimar)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "dt. Verleger und Schriftsteller, Handelsunternehmer, Mitbegründer einer Zeitung"
+      ],
+      "dateOfBirth": [
+        "1747-09-30"
+      ],
+      "dateOfDeath": [
+        "1822-04-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Friedrich August Tischbein"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tischbein%20-%20Friedrich%20Justin%20Bertuch.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tischbein%20-%20Friedrich%20Justin%20Bertuch.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Tischbein%20-%20Friedrich%20Justin%20Bertuch.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187498156",
+        "https://d-nb.info/gnd/152336974",
+        "https://d-nb.info/gnd/160574250",
+        "https://d-nb.info/gnd/160102057"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-16T15:02:15.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118510169/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116150254",
+          "label": "Bertuch, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/142575283",
+          "label": "Bertuch, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116840323",
+          "label": "Froriep, Charlotte"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104345144",
+          "label": "Bertuch, Justin"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118510169",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.1p",
+          "label": "Personen zu Wirtschaftsgeschichte (bis ca. 1900)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116840323",
+          "label": "Froriep, Charlotte"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116150254",
+          "label": "Bertuch, Carl"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/104345144",
+          "label": "Bertuch, Justin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118510169",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)187498156",
+        "(DE-588a)187498156",
+        "(DE-588)152336974",
+        "(DE-588)160574250",
+        "(DE-588a)152336974",
+        "(DE-588a)160102057",
+        "(DE-588a)118510169",
+        "(DE-588)160102057",
+        "(DE-588c)4005849-9",
+        "(DE-588a)160574250"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Bertuch, Friedrich Justin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Justin"
+        ],
+        "surname": [
+          "Bertuch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061949-7",
+          "label": "Unternehmer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12118289w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81022821"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39409589"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213775"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118510169"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118510169/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/152336974"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160102057"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160574250"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187498156"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Justin_Bertuch"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Justin_Bertuch"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Justin_Bertuch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108895521"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118510169"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_zellmann;52"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1767_bertuch"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118510169"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118510169.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118510169.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118510169"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118510169"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bertuch, A. V.",
+        "Bertuch, Friedrich Johann Justin",
+        "Bertuch, F. I.",
+        "Bertuch, J. F.",
+        "Bertuch, Friedrich I.",
+        "Bertuch, Friedrich Justus",
+        "Bertuch, Just.",
+        "Bertuch, Friedr. Just.",
+        "Bertuch",
+        "B.",
+        "B., F. J.",
+        "Bertuch, Friedrich Julius",
+        "Bertuch, Justin Friedrich",
+        "Bertuch, Friedrich",
+        "Bertuch, Friedrich J.",
+        "Bertvch, F. I.",
+        "Bertuch, Justus",
+        "Philopatris",
+        "Bertuch, F. J.",
+        "F. J. B."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich J."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich I."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Just."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Justus"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "personalName": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "F. J."
+          ],
+          "surname": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "A. V."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "F. I."
+          ],
+          "surname": [
+            "Bertvch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Johann Justin"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "personalName": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Julius"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "personalName": [
+            "F. J. B."
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Just."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Justin Friedrich"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "personalName": [
+            "Philopatris"
+          ]
+        },
+        {
+          "forename": [
+            "F. I."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "F. J."
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        },
+        {
+          "forename": [
+            "Justus"
+          ],
+          "surname": [
+            "Bertuch"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Justin_Bertuch",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Justin_Bertuch"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:55:51Z",
+    "gnd_query_biographical_data": "1747-1822",
+    "gnd_query_name": "bertuch, friedrich justin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 185,
+  "name": "Bertuch, Friedrich Justin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 678",
+  "updated": "2026-06-11 13:29:21.556Z",
+  "uri": "https://d-nb.info/gnd/118510169",
+  "editor": ""
+}

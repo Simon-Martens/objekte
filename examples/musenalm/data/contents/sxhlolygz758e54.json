@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Wann Lilla durch die Flur spazirt, / Dann schweben rings um sie der Bienen / goldne Heere,",
+  "language": [],
+  "musenalm_id": 2893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lilla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lilla",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.719Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "l3wnft5brb78rse"
+    }
+  ]
+}

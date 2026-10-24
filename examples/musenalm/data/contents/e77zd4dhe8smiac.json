@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung an Blatt A und B der Suite. Détail aus »Der aufgebrachte Musiker« paginiert D. s. Textbezug INr 6964, Obj 67",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6965,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hogarth inv. Riepenhausen del. & sculps)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hogarth inv. Riepenhausen del. & sculps",
+  "scans": [
+    "alm_140_6965_zg9jtp6c0o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.265Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "hvfr9jcbwp7k0y7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.265Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "zkutlwfer1gfo05"
+    }
+  ]
+}

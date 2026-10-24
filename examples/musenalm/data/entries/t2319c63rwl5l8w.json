@@ -1,0 +1,67 @@
+{
+  "annotation": "$ vermutl. mit Fortsetzung: Taschenbuch, Königsberger politisches 1847; alm-3633",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Königsberger 1846",
+    "norm": "",
+    "biblio": 406422,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3632,
+  "parallel_title": "",
+  "place_statement": "Königsberg (Voigt)",
+  "places": [
+    "estq96n359vg7mv"
+  ],
+  "preferred_title": "Taschenbuch, Königsberger 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 129; nicht bei L/R",
+  "responsibility_statement": "Ludwig Walesrode",
+  "subtitle_statement": "",
+  "title_statement": "Königsberger / Taschenbuch. / Herausgegeben / von / Ludwig Walesrode. / Mit Beiträgen / von / Crelinger, Freundt, Alexander Jung, Jachmann, / Johann Jacoby, Cäsar von Lengerke, Wechsler, / Wolff, und dem Herausgeber. / Königsberg. / H. L. Voigt. / 1846",
+  "updated": "2026-06-11 10:18:54.751Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "cmhre2tnyknr1lw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "mh9ncnfo4gde7ej"
+    }
+  ]
+}

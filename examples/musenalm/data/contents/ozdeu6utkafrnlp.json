@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Unter Blumen, unter Bäumen / Hat Natur mich groß gezogen,",
+  "language": [],
+  "musenalm_id": 62248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistesleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geistesleben",
+  "updated": "2009-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.242Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "9jxtv2kqcifb331"
+    }
+  ]
+}

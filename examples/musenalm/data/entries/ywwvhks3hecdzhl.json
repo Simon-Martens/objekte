@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S 1 nT, SS 3-179 darin 3 GG, S 179 C, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Mahlerisches für Freunde interessanter Gegenden 1813",
+    "norm": "~",
+    "biblio": 100705,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3057,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Mahlerisches für Freunde interessanter Gegenden 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 148",
+  "responsibility_statement": "Dr. Fr. Sartori",
+  "subtitle_statement": "",
+  "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden, / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Zweyter Jahrgang. / Wien, 1813. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:55.396Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "xtl60y0st14yh1l"
+  ],
+  "contents": [
+    "eat3mmmk3cycjy3",
+    "6q8tsgxd67nsuzq",
+    "9z8bo264xngetg8",
+    "w27jvk190mxu78e",
+    "kchfza8ulhf07o3",
+    "4p8cdvul1apibap",
+    "58rwzir7h4yugkq",
+    "z8jgjq1mlz9r38h",
+    "95kv25mi66xh001",
+    "von5xxf07s70pqk",
+    "xoo3ffzlbv6dhff",
+    "1aujsfa2spqeyc1",
+    "nxl42s5t6crmv3l",
+    "qremvqdsoam2nfv",
+    "u441eho8l112gw3",
+    "xycbbjavxnbftpf",
+    "mm2jw5sygtyu0zp",
+    "269uf6zje2lejwa",
+    "x72ndo1d0ql62qk",
+    "f9winyje5jh5q2d",
+    "qzwwrdo2hbha27o",
+    "l69k3up4w646dtw",
+    "opy5ssq1ome6ggk",
+    "0dqrp0ncr3ggnpg",
+    "rcfqlj051kuiz98"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.178Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.178Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "h3lpi8kucgkvrml"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.735Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.735Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "hd9i25ifqxgevwg"
+    }
+  ]
+}

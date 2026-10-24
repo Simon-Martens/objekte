@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5. s. Textbezug INr 32105, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seht den Wettstreit der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rmbg. del. H. Grape sc.",
+  "scans": [
+    "alm_433_32091_sbv5l011zw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seht den Wettstreit der Liebe",
+  "updated": "2003-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.506Z",
+      "agent": "t2z8lq4qwm3oov7",
+      "source_id": "f448rr4wyfavouk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.506Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "twqn2yduf0hx0v4"
+    }
+  ]
+}

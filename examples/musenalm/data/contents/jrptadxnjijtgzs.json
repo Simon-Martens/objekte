@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80132, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80133,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fatime",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Kern nach Remdt. Stahlst. v. Jg. Krepp",
+  "scans": [
+    "alm_1696_80133_qdyqfiqvms.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fatime",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.775Z",
+      "agent": "zs3j9etzn201wi5",
+      "source_id": "1gu83dnxl4vxkzf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.775Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "nf45rzwpa5ahrhu"
+    }
+  ]
+}

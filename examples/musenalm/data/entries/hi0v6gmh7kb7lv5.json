@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Literarhistorisches (Prutz) 1848",
+    "norm": "",
+    "biblio": 200592,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3942,
+  "parallel_title": "",
+  "place_statement": "Hannover (Kius)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Taschenbuch, Literarhistorisches (Prutz) 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 135; nicht bei L/R; ADB XXVI, 680",
+  "responsibility_statement": "R. E. Prutz",
+  "subtitle_statement": "",
+  "title_statement": "Literarhistorisches Taschenbuch. / Herausgegeben / von / R. E. Prutz. / Sechster Jahrgang. / 1848. / Mit Beiträgen von A. Bock, Th. W. Danzel, R. Haym, / Th. Jacobi, K. A. Köstlin, A. Laun, K. A. Mayer, D. H. Sanders, / R. Treitschke, und dem Herausgeber. / Hannover von C. F. Kius",
+  "updated": "2026-06-11 10:18:55.396Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "odbifniv8xbm5ov"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.314Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.314Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "220tad89w7aevxu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "pv5ihd9yunnycqy",
+      "source_id": "lhcwinhk8bfx0sz"
+    }
+  ]
+}

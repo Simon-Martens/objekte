@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Vermischte Gedichte (Sammlung INr 37239, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "482",
+  "incipit_statement": "Ich bin allein, dem Weltgewühl entwunden, / Und wie ein Geist der meine Stille weiht",
+  "language": [],
+  "musenalm_id": 1917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christoph August Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.106Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "ysep6rtgcwml9ao"
+    }
+  ]
+}

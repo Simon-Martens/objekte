@@ -1,0 +1,116 @@
+{
+  "annotation": "<div>vielleicht eine Veröffentlichung von Jos. Riedl /) Das Gedicht und die zugehörige Illustration »Die Blumen zum Feste« entnommen aus: Taschenbuch der Liebe und Freundschaft gewidmet 1818 /) Die Gedichte und zugehörigen Illustrationen zu »Die Blutrache« und »Maria und das Milchmädchen« entnommen aus Cornelia 1818 /) s. Anmerkungen an den Objekten</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 8 BB Kal, zT, 6 GG, zT, SS 1-3 G-Verz SS 4-79 darin 4 GG MusB, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Wien, Riedler) 1819",
+    "norm": "~",
+    "biblio": 411344,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2023-03-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4835,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Vergißmeinnicht (Wien, Riedler) 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Vergiß mein nicht / EIN ALMANACH / zum Vergnügen / des schönen Geschlechts, / für das Jahr 1819. / WIEN, / Bey Jos. Riedler, Buchbinder in der Krammergasse / No. 679",
+  "updated": "2026-06-18 09:16:25.652Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "xksioui551l7m75"
+  ],
+  "contents": [
+    "qcbo50htas5v4xq",
+    "tdlq1d4n3rhnjrp",
+    "2fmx4mfcy0hkmsp",
+    "6zedej49j0790u0",
+    "3afd2pxw1zemwza",
+    "a3ji2fvluz6amvk",
+    "vwu4nl4m0axu03v",
+    "1a7wwt5klsqd2u8",
+    "jg7v5q4p4xtkdor",
+    "xw0i3e0yyzo30r5",
+    "x3b0xvkuhhh4xgt",
+    "ae24ygma28m9x23",
+    "pu412ihp8yttjfc",
+    "8jcz9bi4ylggajr",
+    "jalwgf7xzrtuiy2",
+    "c064z8mjex17vey",
+    "1efzy6gb9gcs4pj",
+    "c5hwmyy1hib7izq",
+    "zgcys164oaoen06",
+    "jp2wxqah1rywv4j",
+    "6eu87zjhjvv92e0",
+    "qo3l4x5t7n87hyx",
+    "j57zptwpy9x6q6z",
+    "bnkek6mdet14qwu",
+    "00lid6lc2f2su4x",
+    "s0l19ppcmxow5oi",
+    "7z2ad2mcdipyjus",
+    "kv0wutuiq53i4ka",
+    "5ip3uvp6j0xvkq5",
+    "f4slvn2bgzisbtk",
+    "s3rnei4d1i2qihj",
+    "7ozm1o91vqyepwg",
+    "u4bb40jkckmo7i8",
+    "4dwsgq8tzo90bo4",
+    "3151evm0ahy05s2",
+    "x6qwmdsqmtwihpu",
+    "27tzb35dj065m3m",
+    "npof6z5bxh7uoac",
+    "2rk800ay9vdcjr3",
+    "ak36bd6bc15x5jf",
+    "kgx1ue4hc269464",
+    "5y2fhg8kpmigp0h",
+    "kdr4y2n9vz4sz9g",
+    "rpg5uueaj5l3c5b",
+    "wlkjinutr6jiwkv",
+    "o4b93mzkrwwjjc1",
+    "dk4nmtmrtx03syz",
+    "rb5ft0stv5mb0ec"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-18 09:16:25.655Z",
+      "agent": "vahgb1mrxxo0sin",
+      "source_id": "02ld429ci6u0o3x"
+    }
+  ]
+}

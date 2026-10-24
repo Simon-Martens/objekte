@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 19 /) Illustration zu »Das Gottesurtheil« von A. Schreiber INr 62739, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gottesurtheil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hdlff. gez. Rist gest.",
+  "scans": [
+    "alm_1028_62740_7www8w19gn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Gottesurtheil",
+  "updated": "2009-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.033Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "qtvvucdphv2c640"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.033Z",
+      "agent": "0m3r585b0p98uxw",
+      "source_id": "xxjtc2ducmyc0e4"
+    }
+  ]
+}

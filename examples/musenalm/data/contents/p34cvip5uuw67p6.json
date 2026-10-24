@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Aus den einleitenden Partien des Werkes (Sammlung INr 27719, 69) /) Aus Nisami's Iskandername / (Alexanders-Buch) (Sammlung INr 27718, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "422",
+  "incipit_statement": "Beim Schatze liegt deswegen wol die Schlange, / Damit die Hand ihn nicht umsonst erlange.",
+  "language": [],
+  "musenalm_id": 27724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Doppelz. 318 f.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(Doppelz. 318 f.)",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.327Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "gn5up73vt6uwz4i"
+    }
+  ]
+}

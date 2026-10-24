@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50274,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mignon und Felix #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel del. W. Jury fec.",
+  "scans": [
+    "alm_7_50274_30a2lmh0vn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mignon und Felix #",
+  "updated": "2007-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.714Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "bv2c935ae5hs2nw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.714Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "wq5ftzb4wvs7orm"
+    }
+  ]
+}

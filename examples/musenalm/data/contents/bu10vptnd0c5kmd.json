@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v. # Bezeichnung aus dem G-Verz INr 43580, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43593,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+  "scans": [
+    "alm_578_43593_d1a9sukuhi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.221Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "i4f7d1hirx9np02"
+    }
+  ]
+}

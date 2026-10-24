@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1876",
+    "norm": "",
+    "biblio": 407192,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3781,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Verlag der literarisch-artistischen Anstalt von C. Dittmarsch)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1876",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter Kalender / und / Novellen-Almanach / für 1876. / Mit Beiträgen von / Adolf Schirmer, Emma Franz, Leopold Kordesch, / E. M. Vacono, Victor Coßmann. / Herausgegeben / von / F. Menk-Dittmarsch. / Wien und Leipzig. / Verlag der literarisch-artistischen Anstalt von C. Dittmarsch. / Druck von Wilh. Zöller, Barnabitengasse 7",
+  "updated": "2026-06-11 10:18:55.343Z",
+  "variant_title": "",
+  "year": 1876,
+  "editor": "",
+  "items": [
+    "1gogzi31tq5827n"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.173Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.173Z",
+      "agent": "rzdsv5jkhhdkhl1",
+      "source_id": "br14zy7mzlmxkbd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.296Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.296Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "bxn9gt6r9b7vvfz"
+    }
+  ]
+}

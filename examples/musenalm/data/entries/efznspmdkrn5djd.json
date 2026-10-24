@@ -1,0 +1,78 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Geographie, Geschichte und gesellige Erheiterung 1837",
+    "norm": "",
+    "biblio": 408234,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4072,
+  "parallel_title": "",
+  "place_statement": "Wein (Beck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Geographie, Geschichte und gesellige Erheiterung 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Geographie, Geschichte / und / gesellige Erheiterung. / I. / Wien, / In Commission in Fr. Beck's Universitäts-Buchhandlung. / 1837",
+  "updated": "2026-06-11 10:18:54.730Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "9maumzfxsk46vnu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.327Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.327Z",
+      "agent": "x9x0513ns8ga6wn",
+      "source_id": "5h1y6y6n3uq3gmw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.522Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.522Z",
+      "agent": "mzfja8qhu45vuw0",
+      "source_id": "egby6aj95ty1vbk"
+    }
+  ]
+}

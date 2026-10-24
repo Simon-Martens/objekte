@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden, Räthsel und Logogryphen (Sammlung INr 71901, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Vorwärts herrsch' ich in des Waldes Hallen / Jüngling! reitze nicht des Starken Wuth.",
+  "language": [],
+  "musenalm_id": 71906,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.228Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "n3xlih7z72hccro"
+    }
+  ]
+}

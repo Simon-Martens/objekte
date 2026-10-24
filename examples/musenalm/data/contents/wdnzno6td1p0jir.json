@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25914,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seiner Majestät / Ferdninand V. / Jüngeren König von Ungarn, / des Kaiserthums Österreich, kaiserl. von Böhmen, der Lombardie und Venedig, Galizien, Lodomerien und / Illyrien, königl. Kronprinzen und Thronfolger etc / In tiefster Unterthänigkeit /gewidmet / Vom Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seiner Majestät / Ferdninand V. / Jüngeren König von Ungarn, / des Kaiserthums Österreich, kaiserl. von Böhmen, der Lombardie und Venedig, Galizien, Lodomerien und / Illyrien, königl. Kronprinzen und Thronfolger etc / In tiefster Unterthänigkeit /gewidmet / Vom Herausgeber",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.301Z",
+      "agent": "3n3zxa07vk2vm3e",
+      "source_id": "ffwau3me5d0prc1"
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "annotation": "",
+  "biographical_data": "1816-1896",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.491Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Dichter, Pfarrer, Pädagoge"
+      ],
+      "dateOfBirth": [
+        "1816-07-21"
+      ],
+      "dateOfDeath": [
+        "1896-05-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "UnknownUnknown A. Eulenstein"
+          ],
+          "creditText": [
+            "https://artgen.billerantik.de/articles/E/16318_P.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Sturm%201886.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Sturm%201886.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Julius%20Sturm%201886.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:41:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118757601/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118757601",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118757601",
+      "oldAuthorityNumber": [
+        "(DE-588a)118757601",
+        "(DE-588c)4106349-1",
+        "(DE-588a)101233736"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4320217-2",
+          "label": "Bad Köstritz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Sturm, Julius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius"
+        ],
+        "surname": [
+          "Sturm"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Lehrer",
+        "Dichter"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "C. R. Julius"
+          ],
+          "surname": [
+            "Stern"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Stern"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Sturm, Julius: Fromme Lieder",
+        "Winter, Georg M.: Mailiedchen",
+        "Sturm, Julius: Stille Andachts-Stunden in frommen Liedern unserer Tage. Fremdes und Eigen*",
+        "Sturm, Julius: Zwei Rosen oder das hohe Lied der Liebe",
+        "Sturm, Julius: Gedichte",
+        "Gansser, Hans: Wohlauf ihr Jungen",
+        "Sturm, Julius: Lieder und Bilder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n91092290"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/808044"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q78269"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118757601/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118757601"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Julius_Sturm"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julius_Sturm"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Julius_Sturm"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Julius_Sturm"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109474091"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118757601"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118757601"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118757601"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Sturm, J.",
+        "Sturm, Julius C.",
+        "Stern, Julius",
+        "Stern, C. R. Julius",
+        "Sturm, Julius Karl Reinhold",
+        "Sturm, Julius Carl Reinhold"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Carl Reinhold"
+          ],
+          "surname": [
+            "Sturm"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Sturm"
+          ]
+        },
+        {
+          "forename": [
+            "Julius C."
+          ],
+          "surname": [
+            "Sturm"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Karl Reinhold"
+          ],
+          "surname": [
+            "Sturm"
+          ]
+        },
+        {
+          "forename": [
+            "C. R. Julius"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julius_Sturm",
+          "label": "https://de.wikipedia.org/wiki/Julius_Sturm"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:06:48Z",
+    "gnd_query_biographical_data": "1816-1896",
+    "gnd_query_name": "sturm, julius karl reinhold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2827,
+  "name": "Sturm, Julius Karl Reinhold",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 501",
+  "updated": "2026-06-11 13:29:25.315Z",
+  "uri": "https://d-nb.info/gnd/118757601",
+  "editor": ""
+}

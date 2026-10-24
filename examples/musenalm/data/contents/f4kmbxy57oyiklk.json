@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 6 Illustrationen s. Graphiken INr 32751, 32753-32757; Obj 9, 11-15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Setze dich, mein liebes Kind, sagte der Herr von Dresch mit einem kleinen Kopfneigen und einem höflichen Lächeln zu seiner Tochter.",
+  "language": [],
+  "musenalm_id": 32752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Intrigue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Intrigue",
+  "updated": "2003-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.692Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "pxfd4b5yc67bnzn"
+    }
+  ]
+}

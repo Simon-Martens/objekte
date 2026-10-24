@@ -1,0 +1,43 @@
+{
+  "annotation": "Verlagsmitteilung",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Drei Blätter von den im November des vorigen Jahres von mir angekündigten Rheinlandschaften",
+  "language": [],
+  "musenalm_id": 28834,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Kunstfreunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilmans",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Kunstfreunde",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.489Z",
+      "agent": "q9v9seq8bme8931",
+      "source_id": "ackzwk2xou42l35"
+    }
+  ]
+}

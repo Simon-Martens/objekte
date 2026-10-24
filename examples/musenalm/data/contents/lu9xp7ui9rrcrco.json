@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus: Verzeichniss der Verfasser des N. W. Musenalmanachs vom J. 1798 in: Neuer Wiener Musenalmanach 1800",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Sonnengerötheter Abendnebel quillt / In das weiche Flurenthal, und des Mondes / Leiser Blick wankt hernieder",
+  "language": [],
+  "musenalm_id": 122574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER WEG DER LIEBE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER WEG DER LIEBE",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.823Z",
+      "agent": "9fm6ody20z4gtke",
+      "source_id": "sun23yqxca6w670"
+    }
+  ]
+}

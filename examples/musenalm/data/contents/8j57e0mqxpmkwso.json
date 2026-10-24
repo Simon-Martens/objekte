@@ -1,0 +1,45 @@
+{
+  "annotation": "Polnische Nüsse (Sammlung INr 65106, Obj 166) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Wohl neu erstehet - Polen! euer Reich: / Ihr haut euch durch, - die Muse wird's ver- / künden.",
+  "language": [],
+  "musenalm_id": 65113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eines nach dem Andern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eines nach dem Andern",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.281Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "9kpi6e3ecy1j60o"
+    }
+  ]
+}

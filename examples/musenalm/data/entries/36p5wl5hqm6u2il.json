@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III I-Verz, SS I-XXVI darin 2 GG, G, SS 1-293, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1852",
+    "norm": "~",
+    "biblio": 108646,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3387,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Thomas)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1852",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 165; nicht bei L/R",
+  "responsibility_statement": "Jeanne Marie",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch für 1852. / Sechster Jahrgang. / Herausgegeben / von / Jeanne Marie. / Mit Beiträgen von Bernd v. Guseck, Gustav zu Putlitz, Theodor / Erhard, C. Herloßsohn, der Herausgeberin etc / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+  "updated": "2026-06-11 10:18:54.861Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "rjn1xtvm6q72tat"
+  ],
+  "contents": [
+    "aqjp3a96wqos71z",
+    "sbfxgrgpu8cjurl",
+    "z92agogvxkp47zv",
+    "mns2ebaiqmgenvw",
+    "2nwdf0miz7a2c7e",
+    "mld67c0agsyrqta",
+    "8vrwnxrmryo3oja",
+    "okrulwhjivayk5y",
+    "fd4ngbq2qbbp7p1",
+    "1nm76expicjpw5c",
+    "6l12tv4oyqbkjbn",
+    "ft3l70svj2xsl9c",
+    "bw2xulnve5hf4if",
+    "vaca9cj7n4mu1vr",
+    "omq8jpyen06r1eh",
+    "5txbo9l7vfz1coa",
+    "tf6ax1tin9wqf04",
+    "ed2scv815x7vbhs",
+    "nlfi6ob83n8lypl",
+    "hjk7wn1zrfvy37i",
+    "asvqwe48rg6mw9a",
+    "43zahoehy8crrh7",
+    "73snv1ca0hxh7a5",
+    "q2zw55nwymkro63",
+    "b94bpj4l9wpypse",
+    "dupzgzygglfpzkw",
+    "3d1c1xy71wfdzfu",
+    "t570kd7djr5a00t",
+    "17gp6dj8lk060n8",
+    "u8rntbv9rk38sk1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "wm3zyw8rnaueef5",
+      "source_id": "3a016z9f9a08uhk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.212Z",
+      "agent": "3wuzr6tb9xdgoey",
+      "source_id": "ascyl40fno5zfwk"
+    }
+  ]
+}

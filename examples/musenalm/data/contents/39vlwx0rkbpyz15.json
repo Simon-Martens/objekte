@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 62173, Obj 86,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Mama, nie geh' ich wieder / Auf einen Ball. / Mir zittern noch die Glieder / Von all dem Schwall.",
+  "language": [],
+  "musenalm_id": 10449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28. / Das Mädchen nach dem Balle. / Die Compos. ist vom Hrn. Capellmstr. Naumann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28. / Das Mädchen nach dem Balle. / Die Compos. ist vom Hrn. Capellmstr. Naumann",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.444Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "ydbtsiehdo5otsa"
+    }
+  ]
+}

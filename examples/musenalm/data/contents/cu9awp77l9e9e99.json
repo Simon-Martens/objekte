@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29539,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / Für das Jahr 1819 / der Liebe und Freundschaft / gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Westermayr fecit",
+  "scans": [
+    "alm_382_29539_cnt1klqad4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / Für das Jahr 1819 / der Liebe und Freundschaft / gewidmet",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.505Z",
+      "agent": "2d34emvmf13qf3h",
+      "source_id": "f0qccfda7c93ix7"
+    }
+  ]
+}

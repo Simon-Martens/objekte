@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) an der Graphik: Diese Bildsäule steht auf dem Wilhelmsplatz zu Berlin",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120087,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Curt Cristoph / Graf von Schwerin Königl. / Pr. General Feld Marschall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sc.",
+  "scans": [
+    "alm_3957_120087_v1lzf5yrxy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Curt Cristoph / Graf von Schwerin Königl. / Pr. General Feld Marschall",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.706Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "v3bxb7lhmvy1w7v"
+    }
+  ]
+}

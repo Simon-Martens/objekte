@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Musikbeigaben s. INr 16935, 16936; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Wenn kühl der Morgen athmet, gehn /Wir schon auf grüner Au,",
+  "language": [],
+  "musenalm_id": 16934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heureigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heureigen",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.676Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "6uv3wbkuvdw5ah9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Auf einer Meierey, die zwischen Tannenhainen / Und Mühlenhäusern liegt, kam ich im Wintermond / Zur Welt,",
+  "language": [],
+  "musenalm_id": 63220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heloisens Lebenslauf. / Reliquie, aus dem Nachlaß der Karschin, mitgetheilt / von ihrer Enkelin Helmna von Chezy, geb. v. Klenck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anne Luise Karschin, geborne Dürbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heloisens Lebenslauf. / Reliquie, aus dem Nachlaß der Karschin, mitgetheilt / von ihrer Enkelin Helmna von Chezy, geb. v. Klenck",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.093Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "56s4ije5ftr38pl"
+    }
+  ]
+}

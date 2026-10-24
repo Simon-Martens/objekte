@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März, nummeriert 3 /) Illustration zu »Centifolium stultorum« von Abraham a Santa Clara d. i. Ulrich Megerle; s. Textbezug INr 129069, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129045,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "April Narr. / Poisson d'Avril",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Rosmaesler sc.",
+  "scans": [
+    "alm_157_129045_l5w41h4pzf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "April Narr. / Poisson d'Avril",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.000Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "0rvox1ef6u36lcl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.000Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "9qejcg0oh84j3o8"
+    }
+  ]
+}

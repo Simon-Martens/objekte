@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz. s. Textbezug INr 27918, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trude Hiorba #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Führich del. M. Esslinger sc.",
+  "scans": [
+    "alm_358_27919_o93hrbaqzf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Trude Hiorba #",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.331Z",
+      "agent": "m8y5g9ap5pw6fd8",
+      "source_id": "767sn697h7jxq2o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.332Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "lyxvo2btmp0ixx3"
+    }
+  ]
+}

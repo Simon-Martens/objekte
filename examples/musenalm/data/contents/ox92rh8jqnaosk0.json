@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus: Tristan und Isolde. Gedicht in Romanzen (Sammlung INr 112947, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Die Welt, die draußen sich vermißt, / Gehört nicht eigen mir, das wißt. / Ich lasse die da draußen schalten, / Läßt sie die meine mich behalten.",
+  "language": [],
+  "musenalm_id": 112948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Riwalin und Blancheflur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Riwalin und Blancheflur",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.412Z",
+      "agent": "47huvmykx9z6337",
+      "source_id": "3fmygksift1dijc"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "UNter der Musikbeigabe: Aus dem Jakobischen Tagebuche 1801 /) Photos 56383,01-56383,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Minna! kennst du noch die Stunde, die zu schnell vorüber gieng,",
+  "language": [],
+  "musenalm_id": 56383,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_24_56383_01_ie5ev55lpz.jpg",
+    "alm_24_56383_02_dtzbyjv3sk.jpg",
+    "alm_24_56383_03_lz5brhmgtx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kuß",
+  "updated": "2008-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.004Z",
+      "agent": "5j4ifce1qy52izk",
+      "source_id": "j9g9n5lz0j48wb1"
+    }
+  ]
+}

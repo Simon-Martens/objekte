@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "421",
+  "incipit_statement": "Zieh deine Selbheit aus, und an die Göttlichkeit! / Die Selbheit ist so eng, die Göttlichkeit so weit.",
+  "language": [],
+  "musenalm_id": 37163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 288,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zieh deine Selbheit aus, und an die Göttlichkeit! / Die Selbheit ist so eng, die Göttlichkeit so weit.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.868Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "7319by7zesea7ip"
+    }
+  ]
+}

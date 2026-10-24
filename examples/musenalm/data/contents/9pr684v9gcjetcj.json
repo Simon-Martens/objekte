@@ -1,0 +1,45 @@
+{
+  "annotation": "Begleitbrief für das zur Beurteilung eingesandte Gedicht »Sänger und Hörer« INr 84, Obj 73 mit einer Antwort Jacobis INr 83, Obj 72",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Wenn Sie es noch nicht von mir wissen, wie viel Dank ich Ihnen wegen Ihrer Beurtheilung",
+  "language": [],
+  "musenalm_id": 82,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN DEN HERAUSGEBER. / Offenbach den 3. April 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "BURI",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN DEN HERAUSGEBER. / Offenbach den 3. April 1802",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.972Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "brhv73kh5f4aj2c"
+    }
+  ]
+}

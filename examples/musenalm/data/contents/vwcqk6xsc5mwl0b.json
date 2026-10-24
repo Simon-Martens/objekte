@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung und Titel aus dem G-Verz; Illustration zu »Die Wahlverwandschaften« von J. W. v. Goethe, Tübingen 1809; s. a. Textbezug INr 9212, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9207,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Häuslicher Verein im traulichen Zimmer beym Lesen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling # H. Schmidt f.",
+  "scans": [
+    "alm_38_9207_7jemmnqcm5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "II. Häuslicher Verein im traulichen Zimmer beym Lesen #",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.396Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "9712p8op4qvj170"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.396Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "ohzap0efki4edm5"
+    }
+  ]
+}

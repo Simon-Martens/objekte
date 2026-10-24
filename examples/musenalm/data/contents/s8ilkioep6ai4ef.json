@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Manche glauben, die Gesellschaft zu belustigen, wenn sie Andere nachäffen und natürliche Mängel und Gebrechen lächerlich machen.",
+  "language": [],
+  "musenalm_id": 73458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "34. / Erniedrige dich nie zur verächt- / lichen Rolle des Spaß- oder Lustig- / machers; vielmehr bemühe dich, eine / gewisse persönliche Würde beyzube- / halten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "34. / Erniedrige dich nie zur verächt- / lichen Rolle des Spaß- oder Lustig- / machers; vielmehr bemühe dich, eine / gewisse persönliche Würde beyzube- / halten",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.530Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "3vdnnjedvhjis81"
+    }
+  ]
+}

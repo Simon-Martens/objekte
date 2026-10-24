@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 31386, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Ein Vogel sang im grünen Wald / Sein Liedchen frey und schön;",
+  "language": [],
+  "musenalm_id": 31385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vogelsang. / An Minna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Schleifer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vogelsang. / An Minna",
+  "updated": "2003-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.479Z",
+      "agent": "90zse4ajt2jiztn",
+      "source_id": "bwuwpve6033kv83"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderung. Jagd. Krieg. (Sammlung INr 49029, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Ich hatt' einen Kameraden, / Einen bessern find'st du nit.",
+  "language": [],
+  "musenalm_id": 49041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gute Kamerad",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Volker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gute Kamerad",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.620Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "33msac5bmnq9357"
+    }
+  ]
+}

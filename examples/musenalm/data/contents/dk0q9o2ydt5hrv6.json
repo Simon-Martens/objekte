@@ -1,0 +1,45 @@
+{
+  "annotation": "Zur Verständlichkeit der Kupfer (Sammlung INr 101824, Obj 104) s. Graphik im Kalendarium INr 101733, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Die Komposition dieses Blattes ist musterhaft; die Geschichte aber allgemein bekannt.",
+  "language": [],
+  "musenalm_id": 101830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Tod der Lukretia; gestochen von Ebendemselben.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Tod der Lukretia; gestochen von Ebendemselben.",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.069Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "2k0gvu6mqrw7qzi"
+    }
+  ]
+}

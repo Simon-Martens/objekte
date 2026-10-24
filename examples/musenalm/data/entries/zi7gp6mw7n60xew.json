@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-XVIII, B I-Verz, SS 1-398, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1801",
+    "norm": "~ +++ 405673",
+    "biblio": 101066,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2827,
+  "parallel_title": "",
+  "place_statement": "Weimar (Industrie-Comptoir)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 119; L/R 205, Goed VIII, 48, 7a; ADB VI, 549",
+  "responsibility_statement": "J. D. Falk",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Scherzes und der Satire / Herausgegeben / von / J. D. Falk. / Fünfter Jahrgang. / Mit einer Carricatur. / Weimar, / im Verlage des Industrie-Comptoirs",
+  "updated": "2026-06-11 10:18:54.720Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "42ej8gse43m64y2",
+    "9is7vkgm97feen6"
+  ],
+  "contents": [
+    "ktfn1ne1ag1qjd8",
+    "997131iotewbdhj",
+    "cb2leopipsbli0e",
+    "p56aqtqkgbsn6d3",
+    "8prkhnp3308u8s5",
+    "tx1msus397cvr03",
+    "fleq0un40ppsdgw",
+    "gnji0aeydo2d4ui",
+    "be2tu1amj82ymx9",
+    "9v6n4ll0e4r4bmc",
+    "sl2fykvprjqs4ax",
+    "ovmjhacd0znritz",
+    "v5ajhw6b2lfqpsg",
+    "c05l8hzjuvnus5m",
+    "kguqf5788bvfrym",
+    "jnzs3hdcki2q9mg",
+    "5fe2s0wy0479rsk",
+    "0olov2dy6ele3tx",
+    "75lgad3ma3toht6",
+    "vn3wkpkwvd4va2t",
+    "itkkg5kr58vj9np",
+    "sp3b38aukalnp9k",
+    "wkt9gl1wb5v86bq",
+    "xv0fvlookjtj75x",
+    "7guyth8sf4voy0n",
+    "8uyk9jw9f51lysj",
+    "n17d4dg5p3rjlvh",
+    "nzsl4kz4702ffav"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.151Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.151Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "18aq9u6ua8fxzij"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.047Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.047Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "m8r17lvazoprihc"
+    }
+  ]
+}

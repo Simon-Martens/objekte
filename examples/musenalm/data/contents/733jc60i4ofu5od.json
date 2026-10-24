@@ -1,0 +1,45 @@
+{
+  "annotation": "Liedertexte zu Melodieen (Sammlung INr 45344, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Warme, verschwiegene Nacht! / Kosend im Duft der Linde / Flüstern die weichen Winde / So sacht,",
+  "language": [],
+  "musenalm_id": 45345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Warme, verschwiegene Nacht! / Altfranzösische Melodie: Ne m'entendez vous pas?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Warme, verschwiegene Nacht! / Altfranzösische Melodie: Ne m'entendez vous pas?",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.620Z",
+      "agent": "dlauvagqjefeu2b",
+      "source_id": "2tnwc46tm2a1swe"
+    }
+  ]
+}

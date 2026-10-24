@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, SS 1-308 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Märchenalmanach (Hauff) 1827",
+    "norm": "~",
+    "biblio": 105991,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-12-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 550,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Gebr. Franck)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Märchenalmanach (Hauff) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 76; L/R 166; Goed IX. 196, 4",
+  "responsibility_statement": "Wilhelm Hauff",
+  "subtitle_statement": "",
+  "title_statement": "MAEHRCHENALMANACH / für / Söhne und Töchter / gebildeter Stände / auf das Jahr / 1827 / herausgegeben / von / WILHELM HAUFF / mit Kupfern / STUTTGART / bei Gebrüder Franckh. / 1827",
+  "updated": "2026-06-11 10:18:55.927Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "6txtch9w4egxl5q"
+  ],
+  "contents": [
+    "5nza0obj8dczc8c",
+    "80t81nvr44rxqiz",
+    "ozsm1qtk3xd7k7h",
+    "07m6cl467jrrpvs",
+    "bmmre4365qts828",
+    "de7gytykneo8tal",
+    "rp7emrw1m1k2g60",
+    "yjzjexkojga89i5",
+    "ao0qe8lq0nowv4b",
+    "5ttjtacscosj848",
+    "8hl55vwq6vkvp59",
+    "6nf6p15r7x0qroq",
+    "zdi9mz0rpa087zg",
+    "lgxe1cpna3jht2e",
+    "apqv413fdsi2nv7",
+    "1yf022cgoehnic0",
+    "3u9hhrrnogtfah4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.886Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.886Z",
+      "agent": "x3c2jreffd6rcqa",
+      "source_id": "kfglb9pwksktx6v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.699Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.699Z",
+      "agent": "ntl4yryhhmz1v3s",
+      "source_id": "x2sunjxud0wfs7o"
+    }
+  ]
+}

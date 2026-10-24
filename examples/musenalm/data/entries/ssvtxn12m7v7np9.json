@@ -1,0 +1,90 @@
+{
+  "annotation": "ohne Kalendarium /) $ die Graphik nummeriert 1 fehlt vermutl.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, T, B I-Verz, 14 BB Kal darin 12 GG, SS 1-258, SS 259-260 G-Verz, SS 261-264 Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Gartenfreunde (Hirschfeld) 1782 /) Titelauflage von: Gartenkalender (Hirschfeld) 1782",
+    "norm": "",
+    "biblio": 408523,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-05-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4096,
+  "parallel_title": "",
+  "place_statement": "Kiel (Selbstverlag); Leipzig (Buchhandlung der Gelehrten)",
+  "places": [
+    "akgw9z81z4ik0xy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Gartenfreunde (Hirschfeld) 1782 [Titelauflage von: Gartenkalender (Hirschfeld) 1782]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49, L/R 130",
+  "responsibility_statement": "C. C. L. Hirschfeld",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Gartenfreunde / auf das Jahr / 1782, / herausgegeben / von / C. C. L. Hirschfeld. / Erster Jahrgang. / Neue Auflage. / Kiel, bey dem Herausgeber; und Leipzig / in der Buchhandlung der Gelehrten. / Hamburg, / gedruckt bey Gottl. Fried. Schniebes",
+  "updated": "2026-06-11 10:18:54.728Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "zj7k1fprkd1qnjb"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.154Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.154Z",
+      "agent": "aeds1phnefxrmnb",
+      "source_id": "7teplbq52rh55e9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.613Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.613Z",
+      "agent": "tdghytbjppjo44b",
+      "source_id": "8gfp1qamnzx27sh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.333Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.333Z",
+      "agent": "aeds1phnefxrmnb",
+      "source_id": "nnc74902npwarm6"
+    }
+  ]
+}

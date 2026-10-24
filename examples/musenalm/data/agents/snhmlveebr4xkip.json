@@ -1,0 +1,214 @@
+{
+  "annotation": "",
+  "biographical_data": "1822-1883",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.315Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1822"
+      ],
+      "dateOfDeath": [
+        "1883"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Eduard Ender"
+          ],
+          "creditText": [
+            "https://www.museum-joanneum.at/neue-galerie-graz/ausstellungen/ausstellungen/rundgang-wer-bist-du/raum-04/selbstbildnis-eduard-ender"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20Ender%20-%20Selbstbildnis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20Ender%20-%20Selbstbildnis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Eduard%20Ender%20-%20Selbstbildnis.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2017-06-27T09:54:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeAW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeAW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/143683683/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116476931",
+          "label": "Ender, Johann"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "143683683",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116476931",
+          "label": "Ender, Johann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/143683683",
+      "oldAuthorityNumber": [
+        "(DE-588a)143683683"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Ender, Eduard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eduard"
+        ],
+        "surname": [
+          "Ender"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2008181897"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56884701"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q143416"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143683683/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Eduard_Ender"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116491682"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_E/Ender_Eduard_1822_1883.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:18:48Z",
+    "gnd_query_biographical_data": "1822-1883",
+    "gnd_query_name": "ender, eduard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 648,
+  "name": "Ender, Eduard",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B X, 515",
+  "updated": "2026-06-11 13:29:22.155Z",
+  "uri": "https://d-nb.info/gnd/143683683",
+  "editor": ""
+}

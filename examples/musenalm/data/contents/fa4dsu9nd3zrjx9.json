@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Beigaben INr 69707-69710; Obj 35-38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Einen Freund, wie Voigt, von einem verirrten Bley durchbohrt, an seiner Seite dahinstürzen - bluten - sterben zu sehen - dies, meine Brüder gehört zu den schauderhaftesten aller Jagdkatastrophen,",
+  "language": [],
+  "musenalm_id": 69706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Voigts Ehrenmahl, / errichtet vom Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Voigts Ehrenmahl, / errichtet vom Herausgeber",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.408Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "8tz1m5vdnx5fpe1"
+    }
+  ]
+}

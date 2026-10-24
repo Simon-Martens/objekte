@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dem Bacchus und Jocus geweiht 1811",
+    "norm": "",
+    "biblio": 404010,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2656,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Steinkopf)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenbuch dem Bacchus und Jocus geweiht 1811",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 109; L/R 109; Goed VIII. 79, 146",
+  "responsibility_statement": "Friederich Hophthalmos",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / dem / Bacchus und Jocus / geweiht / von / Friederich Hophthalmos, / der sieben freien Künste Magister. / Anhang / von hundert / der besten ältern und neuern / Gesellschafts- und Trink-Lieder. / Mit einem Titelkupfer. / Stuttgart, / bei Joh. Friedr. Steinkopf",
+  "updated": "2026-06-11 10:18:55.450Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "5kw7bnd8b447c2z"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.159Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.159Z",
+      "agent": "sdmlbck2bik4ni0",
+      "source_id": "60xzmzlyz6tfsy3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.117Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.117Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "n5rsio9mpt2gz0c"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Bonapartisches (Sammlung INr 35132, Obj 101) Gedichte (Sammlung INr 35127, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Rothkäppchen lauf! Rothkäppchen lauf! / Er kommt der Wolf, er frißt dich auf.",
+  "language": [],
+  "musenalm_id": 35134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Sein lebenslängliches Konsulat. / An die jacobinische Republik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. v. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Sein lebenslängliches Konsulat. / An die jacobinische Republik",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.726Z",
+      "agent": "3otd6uv72ls66y4",
+      "source_id": "9txssafk7ndira3"
+    }
+  ]
+}

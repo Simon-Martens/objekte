@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 43227, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43212,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arnsberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Amelung del. Haldenwang sculps.",
+  "scans": [
+    "alm_566_43212_i5mejzfihh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arnsberg",
+  "updated": "2006-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.343Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "pfq8qnixcvntnxy"
+    }
+  ]
+}

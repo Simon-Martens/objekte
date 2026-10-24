@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers mit Corrigenda",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der zweite Jahrgang dieses Taschenbuchs enthielt die Länder, welche die heiße Zone der alten Welt an die der neuen anknüpfte; dieser dritte Jahrgang zeigt dagegen den Uebergang von den nordwestlichen Theilen unserer Halbkugel, von Europa, nach Amerika.",
+  "language": [],
+  "musenalm_id": 41267,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2005-11-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.945Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "8bkyzy6f0evwl4j"
+    }
+  ]
+}

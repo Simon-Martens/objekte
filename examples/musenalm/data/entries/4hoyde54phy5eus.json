@@ -1,0 +1,107 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, W, B I-Verz, SS 1-137 darin Tab 5 GG, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues Wiener für Freunde der Pferde 1810",
+    "norm": "~",
+    "biblio": 408791,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2808,
+  "parallel_title": "",
+  "place_statement": "Wien (Gerold)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Neues Wiener für Freunde der Pferde 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "C. Klatte",
+  "subtitle_statement": "",
+  "title_statement": "Neues Wiener / TASCHENBUCH / für / Freunde der Pferde / und / der Reitkunst. / von C. KLATTE, / vormahls Stallmeister in Königl. Preussischen / Diensten. / mit 6 Kupfern / WIEN, 1810. / Im Verlage der Gerold'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.382Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "93smv95fshcp52r"
+  ],
+  "contents": [
+    "clzfjz5f3df9lwf",
+    "mplnbi65gsds5eo",
+    "pyt01zaoiqcm9sw",
+    "09mk0t1vcff6oat",
+    "spimvm5t35ewb2i",
+    "an8c05bvy9fmcee",
+    "4uvghaokccpl2kz",
+    "g5hqjl4r4b8m6ru",
+    "k0eepdt8idlwvp9",
+    "fvpea4v7h016283",
+    "80kxyk03tq6kgym",
+    "9nqv0khv1l3acq1",
+    "13le9lr5s6axmyf",
+    "gxw8o64s8qjq6od",
+    "qemp9310vfezwva",
+    "g81ozwhaiqaxynk",
+    "yrwirjjjplo2znb",
+    "f3awqmufh2hffbu",
+    "ttiaqgqlvia2rjb",
+    "jqbuzt16db5supj",
+    "xu3ha5hk5570swn",
+    "yfhhe42051dirh4",
+    "py0hsu6s3kukug5",
+    "asz67gsypbw31fo",
+    "r0mqkd5wwqy8z8a",
+    "dyb13e6j16muald",
+    "7f00xr73363ls9c",
+    "nnwdx0cnbaqcvnm",
+    "cwajxmwplypz7hp",
+    "hhe0ugd4gzx3amn",
+    "0u7bj4bdnjfa1gu",
+    "6dwg4gv2jd3aaks",
+    "3kifqh0knhb2n43",
+    "k18lz7k4ji5m949",
+    "zbi173cb2beq7na",
+    "h9hi4pwa9qnxtlf",
+    "a4595k1x3gjbqf8",
+    "xwc8h0zxzq8rqbk",
+    "l7o7jgry4uycdkt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.893Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.893Z",
+      "agent": "nurakxtx6easbnq",
+      "source_id": "fft4lj28upjv3aj"
+    }
+  ]
+}

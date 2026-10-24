@@ -1,0 +1,97 @@
+{
+  "annotation": "KVK-GBV gibt Jgg 1786-1859 an /) Format 5,5 x 8,5 /) im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 51 SS Kal darin 6 GG, 11 SS, S 1 zT, 2-14 G-Verz, SS 14-16",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1828",
+    "norm": "~",
+    "biblio": 407234,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-05-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4100,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "J. C. Köster",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Schalt-Jahr 1828. / Von / J. C. Köster, / Geometer. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.212Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "quqegsqafe4rk13"
+  ],
+  "contents": [
+    "g7eix2vkohdt8ht",
+    "sli9hcr03elnp4p",
+    "7a9civ2shabwgoi",
+    "ymwanaulm4rhpko",
+    "qj4gac4em07qdx4",
+    "3pnsxurijlkfj7b",
+    "q7nbjx14wu6khsy",
+    "z0vkvtl0sswyvk2",
+    "g77jctn9vwoon25",
+    "0q143c0dxyjr34z",
+    "6ydu3bkhadbt062",
+    "tzx6lytc3yiypj5",
+    "svthzw1hd2ikcom",
+    "dctmsl8wksm3e30",
+    "s2iocm5sekuvoq9",
+    "n33o01zu52ogjnp",
+    "wtv50prs708xvui",
+    "ip8homydnpvxb8z",
+    "w3dzt1fux7l8wtp",
+    "d5iij3orccqj5v9",
+    "z91d3udx6dgruk0",
+    "1ghwl9dn69eb5r5",
+    "peens853scwiql4",
+    "2bcbvoluyqf44yi",
+    "bod7nfmuxu3rded",
+    "v9j7we4jtd4xf10",
+    "u63cgisv1vuawra",
+    "i9a0x2o7mp3zd2l",
+    "zs7cvygchuwqrus"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "ut41yii8h82f4dg"
+    }
+  ]
+}

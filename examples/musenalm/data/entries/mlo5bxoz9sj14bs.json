@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch, Rheinisches (Schücking) 1846",
+    "norm": "",
+    "biblio": 409963,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-09-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4668,
+  "parallel_title": "",
+  "place_statement": "Köln (Kohnen)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Jahrbuch, Rheinisches (Schücking) 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; nicht bei L/R",
+  "responsibility_statement": "Levin Schücking",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches Jahrbuch / mit Beiträgen / von / A. W. v. Schlegel, G. Pfarrius, E. Bauernfeld, / K. Gutzkow, Varnhagen v. Ense, K. Simrock, / Anastasius Grün u. A. m. / Herausgegeben / von / Levin Schücking. / Erster Jahrgang. / Mit zwölf Bildern, gezeichnet von Keyser, / und A. W. v. Schlegel's Bildniß, gestochen von Gonzenbach. / Köln, / Verlag von Ludwig Kohnen. / 1846",
+  "updated": "2026-06-11 10:18:55.731Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "iwwiyy2wq4wal74"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.404Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.404Z",
+      "agent": "g37v62wgwv6p784",
+      "source_id": "jmzvxj9y22wxavd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.078Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.078Z",
+      "agent": "twzt0tykzfjkp0j",
+      "source_id": "tyn5hoj5phe8g4j"
+    }
+  ]
+}

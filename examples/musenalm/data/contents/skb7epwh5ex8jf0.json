@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Ich schwärm' um Blüthen süsser Lebesstun- / den /  Um Eurer Schönheit, Eurer Unschuld Rosen;",
+  "language": [],
+  "musenalm_id": 118501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die / Demioiselles... in H...g. / Nach einer Vorstellung der Elisa von Valberg / auf einem Gesellschaftstheater. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die / Demioiselles... in H...g. / Nach einer Vorstellung der Elisa von Valberg / auf einem Gesellschaftstheater. / Sonett",
+  "updated": "2017-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.545Z",
+      "agent": "jmyhk43hfbh7agh",
+      "source_id": "s8rd03rb0m0dj4p"
+    }
+  ]
+}

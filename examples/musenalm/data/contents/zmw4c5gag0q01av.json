@@ -1,0 +1,50 @@
+{
+  "annotation": "Vorwort des Herausgebers mit einer Auflistung der Themen der je 12 Graphiken aus den 13 Jgg 1811-1823 (Photos 29927,01-29927,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wie sehr man bei den kleinen Kupfern, die den Eingang dieses Taschenbuchs ausmachen, immer auf Abwechslung bedacht gewesen, lehrt schon ein Überblick von 1811 an.",
+  "language": [],
+  "musenalm_id": 29927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [
+    "alm_387_29927_01_ib8g3f8iuu.jpg",
+    "alm_387_29927_02_gh768w09v7.jpg",
+    "alm_387_29927_03_gvw9dqj52z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.615Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "isodrika0eqpvy1"
+    }
+  ]
+}

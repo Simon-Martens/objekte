@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 11. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21667,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sickingen wird von dem Chur-Fürst von trier, Pfalz- / graf Ludwig, und Philip von Hessen besucht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_291_21667_jb4at20p0p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sickingen wird von dem Chur-Fürst von trier, Pfalz- / graf Ludwig, und Philip von Hessen besucht",
+  "updated": "2002-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.722Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "rv0f55joa6y769c"
+    }
+  ]
+}

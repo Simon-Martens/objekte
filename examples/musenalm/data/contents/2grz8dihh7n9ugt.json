@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Weniger findet man nirgend des Mondscheins, / als in dem Monde.",
+  "language": [],
+  "musenalm_id": 6704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ÜBER DER KAMMERTHÜR / MANCHES BERÜHMTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "BAGGESEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "ÜBER DER KAMMERTHÜR / MANCHES BERÜHMTEN",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.359Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "0l3m07jx1ynt75t"
+    }
+  ]
+}

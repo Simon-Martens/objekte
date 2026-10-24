@@ -1,0 +1,87 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, SS 3-29 Kal, SS 30-67",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach (Düsseldorf) pour l’année 1785",
+    "norm": "~",
+    "biblio": 408053,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-08-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4009,
+  "parallel_title": "",
+  "place_statement": "Düsseldorf (Zehnpfennig)",
+  "places": [
+    "b2xy9eljcrkiwuh"
+  ],
+  "preferred_title": "Almanach (Düsseldorf) pour l’année 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; nicht bei G-C",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Pour / L'Année / MDCCLXXXV. / a Dusseldorf, / Chez J. A. Zehnpfenning",
+  "updated": "2026-06-11 10:18:55.506Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "h6e3adffuloj331"
+  ],
+  "contents": [
+    "ucixcxjyyzfwfsh",
+    "tz7me9vi6rs6taw",
+    "jkffmgh3owuzkl6",
+    "gwgjp4dycy3gpdx",
+    "w3yco4mx95pwuuw",
+    "7m793ojuuh10ihz",
+    "gzjk31g2zkwuntr",
+    "okdk0yub3regbff",
+    "ur7bwu743mtdy38",
+    "mdk9ifejjkr783r",
+    "y01dopqogpqy14m",
+    "lot0s7n208nc1pl",
+    "d7soon3pye2y3m1",
+    "alz66caxt38fzfh",
+    "1ayo1ln0z2qtox1",
+    "bog0zhw2je6vdl1",
+    "a1tzfkeu4b4jb9m",
+    "dki2f0wy9cyaibw",
+    "4gduqmt5i8zmp9b"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.191Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.191Z",
+      "agent": "ligzicqtwymv3w3",
+      "source_id": "r961zan7b5qfply"
+    }
+  ]
+}

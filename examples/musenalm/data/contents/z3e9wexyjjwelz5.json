@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Der Beitrag wird eingeleitet: In der Urania 1823 steht eine Romanze von Gustav Schwab, die Blutrache genannt, ein schönes Gedicht,<br>s. » Blutrache. Nordische Sage in vier Romanzen « von Gustav Schwab in: Urania 1823; INr 1712</div>",
+  "content_type": [],
+  "created": "2026-09-03 09:44:22.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Der Morgen war über den Gewässern des Niagara erwacht. Der Wind sauste rauh von den kaum aufgethauten Fluthen herüber,",
+  "language": [],
+  "musenalm_id": 140489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bluträcher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler geb. v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bluträcher",
+  "updated": "2026-09-03 09:56:57.777Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03 09:46:04.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-03 09:56:57.778Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "2u149iwvwu8yckg"
+    }
+  ]
+}

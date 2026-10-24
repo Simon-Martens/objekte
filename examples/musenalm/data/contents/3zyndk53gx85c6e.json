@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24790, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Auf, Freunde, frisch zu Lust und Wein, / Den blinkenden, den brausenden!",
+  "language": [],
+  "musenalm_id": 24791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Dem General / Freiherrn Wilhelm von Dörnberg / zu seiner Schwerdtjubelfeier den 2ten Febr. 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Dem General / Freiherrn Wilhelm von Dörnberg / zu seiner Schwerdtjubelfeier den 2ten Febr. 1832",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.194Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "mynt4zkw2bg4m1u"
+    }
+  ]
+}

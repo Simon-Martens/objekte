@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 38844-38846, Obj 32- 34 /) Gedichte (Sammlung INr 38842, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. An mein Roß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Graf von Württemberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. An mein Roß",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.804Z",
+      "agent": "c5uqr1fmm5o5hnx",
+      "source_id": "89c1tdpyh36rrge"
+    }
+  ]
+}

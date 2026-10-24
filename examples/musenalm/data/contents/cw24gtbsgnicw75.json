@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Kuenringer« von C. W. Huber INr 26102, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIRNSTEIN VON DER RÜCKSEITE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemahlt v. Th. Ender Stahlstich v. J. Axmann",
+  "scans": [
+    "alm_341_26095_lxg9croj3c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIRNSTEIN VON DER RÜCKSEITE",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.169Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "mi0onx6xmqz9hq8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.169Z",
+      "agent": "x22uzijnhb4lbpp",
+      "source_id": "r7un9ib51i22qco"
+    }
+  ]
+}

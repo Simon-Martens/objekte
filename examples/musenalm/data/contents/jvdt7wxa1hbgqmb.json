@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Das Haus Nr. 1. im großen Dorfe Groß-Piesenham war damals, d.i. zur Zeit dieser Geschichte, das des Tobias Wiesmaier, was aber die Dörfler in Tobiesmannhaus zusammenzogen.",
+  "language": [],
+  "musenalm_id": 87085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Gipfel und seine Familie. / (Aus dem obderenns'schen Volksleben.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Stelzhamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz Gipfel und seine Familie. / (Aus dem obderenns'schen Volksleben.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.024Z",
+      "agent": "a014bqncl68cjih",
+      "source_id": "o2fra1ep2haweaz"
+    }
+  ]
+}

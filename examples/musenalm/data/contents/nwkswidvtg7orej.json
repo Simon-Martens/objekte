@@ -1,0 +1,45 @@
+{
+  "annotation": "Glossen (Sammlung INr 14869, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Wird ein Starker auf's Lager gestreckt, befangen vom Siech- / thum, Rüttelt das Fieber oft derb an dem rüstigen Schaft.",
+  "language": [],
+  "musenalm_id": 14871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wird ein Starker auf's Lager gestreckt, befangen vom Siech- / thum, Rüttelt das Fieber oft derb an dem rüstigen Schaft.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.495Z",
+      "agent": "gvrm573djft0g9v",
+      "source_id": "q0tzqh3w6hizojm"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1807, 1808, 1816, 1817, 1820, 1828, 1832; 1807, 1808: Amberg (Uhlmann), 1816: Amberg, 1817: Regensburg (Daisenberger), 1820: Sulzbach   , 1828, 1830: Amberg (Im Verlage des Verfassers;) Hrsg.: J. B. Schenkl /) im Sammelband",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Schenkl) 1807",
+    "norm": "",
+    "biblio": 109860,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2644,
+  "parallel_title": "",
+  "place_statement": "Amberg (Uhlmann)",
+  "places": [
+    "vderfrfqqb1dxnf"
+  ],
+  "preferred_title": "Taschenbuch (Schenkl) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed. VII, 174, 5",
+  "responsibility_statement": "J. B. Schenkl",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1807. / Mit dem Verzeichnisse / der in dem baier'schen Staate / lebenden Schriftsteller. / Von. J. B. Schenkl. / Amberg. / In der Uhlmannischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.441Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "rhsca1irolchdzc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.167Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.167Z",
+      "agent": "jovurjivpjeeyiv",
+      "source_id": "947mheupqqyw31d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.111Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.111Z",
+      "agent": "xcav675ae6tttd8",
+      "source_id": "hrog0ptiudm36on"
+    }
+  ]
+}

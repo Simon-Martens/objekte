@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Hans Jakob pflanzte Baum an Baum, / Es war sein Steckenpferd, und wenn die Stämme / kaum / Verwurzelt, kaum bezweiget waren,",
+  "language": [],
+  "musenalm_id": 53001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Jakob",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Jakob",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.651Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "j6m7ljsvhr70cew"
+    }
+  ]
+}

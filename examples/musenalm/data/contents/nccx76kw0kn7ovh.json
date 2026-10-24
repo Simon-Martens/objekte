@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Aus dem Thal, das Lebensbäume kühlen; / Wo Gesang in goldne Harfen rauscht;",
+  "language": [],
+  "musenalm_id": 17603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theron an Minna",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theron an Minna",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.749Z",
+      "agent": "jw839qn8xbse64z",
+      "source_id": "on2kx3bzlc2zl20"
+    }
+  ]
+}

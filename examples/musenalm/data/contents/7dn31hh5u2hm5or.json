@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Sammlung von 6 Textbezügen INr 61040-61045, Obj 11-16 zu den Graphiken des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61039,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.032Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "brheuy2ebw7u1r5"
+    }
+  ]
+}

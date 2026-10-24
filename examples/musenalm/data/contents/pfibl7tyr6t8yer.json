@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Erläuterungen INr 28605, Obj 95",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Graumäntelein ging, so grau von Gestalt, / Wohl durch den finstern Bohemischen Wald;",
+  "language": [],
+  "musenalm_id": 28604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Der Becker / und die / Neun Strohwische / (Eine böhmische Volkssage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Der Becker / und die / Neun Strohwische / (Eine böhmische Volkssage.)",
+  "updated": "2002-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.207Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "59u0sehaogenoa1"
+    }
+  ]
+}

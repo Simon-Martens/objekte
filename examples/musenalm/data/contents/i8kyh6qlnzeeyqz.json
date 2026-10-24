@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Der immer fühlbarer werdende Holzmangel und die Bemerkung, daß nur der geringste Theil der brennbaren Materialien Licht und Wärme gewährte,",
+  "language": [],
+  "musenalm_id": 91068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inländische Erfindungen und Entdeckungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Inländische Erfindungen und Entdeckungen",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.331Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "kyzt13j55ephtvx"
+    }
+  ]
+}

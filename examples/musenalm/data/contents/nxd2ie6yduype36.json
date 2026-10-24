@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite /) Graphik in den Monatstabellen November, nummeriert 11. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Dritte Abtheilung oder Geschichte des siebenjährigen Krieges. Zweite Hälfte. 1759-1763« INr 125466, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125462,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der General v. Rhodich das letztemahl / zur Parole bey Friedrich dem / Einzigen S. 318",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. sc.",
+  "scans": [
+    "alm_1914_125462_pwo52qj0fy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der General v. Rhodich das letztemahl / zur Parole bey Friedrich dem / Einzigen S. 318",
+  "updated": "2020-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.892Z",
+      "agent": "vchcd29ycfa3hgi",
+      "source_id": "b7zwm223vz5udxz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.892Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "pgq581gu4fdfj7z"
+    }
+  ]
+}

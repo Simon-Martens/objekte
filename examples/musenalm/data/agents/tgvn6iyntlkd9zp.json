@@ -1,0 +1,557 @@
+{
+  "annotation": "",
+  "biographical_data": "1811-1889",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.254Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2022309-2",
+          "label": "Staatliche Kunstakademie Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/509123-8",
+          "label": "Königlich Sächsische Akademie der Bildenden Künste zu Dresden"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1839-1855 Lehrer an der Dresdner Kunstakademie",
+        "1859-1867 Direktor der Königlich Preußischen Kunstakademie in Düsseldorf",
+        "1829-1831 in Rom",
+        "1828",
+        "Maler, Schüler Friedrich Wilhelm Schadows in Düsseldorf"
+      ],
+      "dateOfBirth": [
+        "1811-12-03"
+      ],
+      "dateOfDeath": [
+        "1889-12-27"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Christian Vogel von Vogelstein"
+          ],
+          "creditText": [
+            "Familienarchiv"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20Bendemann.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Eduard%20Bendemann.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Eduard%20Bendemann.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189435623",
+        "https://d-nb.info/gnd/174825390"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:46:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10223244X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116117885",
+          "label": "Bendemann, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118606115",
+          "label": "Schadow, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117584991",
+          "label": "Bendemann, Rudolf Christian Eugen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/140169342",
+          "label": "Euler, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137538472",
+          "label": "Bendemann, Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1080969101",
+          "label": "Bendemann, Felix von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135704634",
+          "label": "Bendemann, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207185019",
+          "label": "Bendemann, Fanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207188050",
+          "label": "Bendemann, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207130443",
+          "label": "Bendemann, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207249734",
+          "label": "Bendemann, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117045519",
+          "label": "Hübner, Pauline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117893",
+          "label": "Bendemann, Lida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1066887918",
+          "label": "Bendemann, Eduard von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207131717",
+          "label": "Bendemann, Ernst"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10223244X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1207131717",
+          "label": "Bendemann, Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117885",
+          "label": "Bendemann, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117584991",
+          "label": "Bendemann, Rudolf Christian Eugen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207188050",
+          "label": "Bendemann, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207249734",
+          "label": "Bendemann, Marie"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1080969101",
+          "label": "Bendemann, Felix von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207130443",
+          "label": "Bendemann, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1066887918",
+          "label": "Bendemann, Eduard von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/140169342",
+          "label": "Euler, Eduard"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1207185019",
+          "label": "Bendemann, Fanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137538472",
+          "label": "Bendemann, Anton"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117045519",
+          "label": "Hübner, Pauline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135704634",
+          "label": "Bendemann, Emil"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116117893",
+          "label": "Bendemann, Lida"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10223244X",
+      "oldAuthorityNumber": [
+        "(DE-588a)174825390",
+        "(DE-588)174825390",
+        "(DE-588)189435623",
+        "(DE-588a)189435623",
+        "(DE-588c)4536114-9",
+        "(DE-588c)7800136-5",
+        "(DE-588a)10223244X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "preferredName": "Bendemann, Eduard Julius Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eduard Julius Friedrich"
+        ],
+        "surname": [
+          "Bendemann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4306105-9",
+          "label": "Medailleur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Die Nibelungen",
+        "Bendemann, Eduard Julius Friedrich: Der Fries im Thronsaale des Königlichen Schlosses zu Dresden",
+        "Reinick, Robert: Lieder eines Malers mit Randzeichnungen seiner Freunde",
+        "Das Nibelungenlied"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13509045k"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2001091537"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7659136"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q69651"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10223244X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174825390"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189435623"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Eduard_Bendemann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eduard_Bendemann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Eduard_Bendemann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012119683X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10223244X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10223244X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10223244X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10223244X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10223244X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/10223244X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Bendemann, E.",
+        "Bendemann, ...",
+        "Bendemann, Eduard",
+        "Bendemann, Eduard J. F.",
+        "Bendemann, Ed.",
+        "Bendemann, Eduard F.",
+        "Bendemann, Eduard J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Eduard F."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "Ed."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard J."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard J. F."
+          ],
+          "surname": [
+            "Bendemann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eduard_Bendemann",
+          "label": "https://de.wikipedia.org/wiki/Eduard_Bendemann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:30Z",
+    "gnd_query_biographical_data": "1811-1889",
+    "gnd_query_name": "bendemann, eduard julius friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 157,
+  "name": "Bendemann, Eduard Julius Friedrich",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 300",
+  "updated": "2026-06-11 13:29:21.525Z",
+  "uri": "https://d-nb.info/gnd/10223244X",
+  "editor": ""
+}

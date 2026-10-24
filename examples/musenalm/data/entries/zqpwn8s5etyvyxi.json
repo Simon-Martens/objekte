@@ -1,0 +1,89 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt /) $§ vermutl. fehlt Karte",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S, VB, vT, T, B 1. Vrwrt d Hrsg, B 2. Vrwrt d Hrsg, ar: SS 1-274, ar1:1-151, $§, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Reisende durch Deutschland und die angränzenden Länder 1821",
+    "norm": "~",
+    "biblio": 100791,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2855,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch für Reisende durch Deutschland und die angränzenden Länder 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. J. B. Engelmann",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Reisende / durch / Deutschland und die angränzenden / Länder. / Inhalt: [...] Von / Dr. J. B. Engelmann. / Zweite, durchaus verbesserte und vermehrte / Auflage / mit Beiträgen vom Geh. Kriegsr. Reichard. / Frankfurt am Main / bei Friedrich Wilmans. / 1821",
+  "updated": "2026-06-11 10:18:55.064Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "ehmuwox1cw2h12w"
+  ],
+  "contents": [
+    "7l73sllf489tmgp",
+    "lndr04kh7moatko",
+    "83fplz4g3b6nx8f",
+    "3ptb3t5pta3730l",
+    "dbaqjkzj9y6uctk",
+    "azce2tojtuv8u3j",
+    "gnvnmjvpu9k9wl7",
+    "y2h2a2w7w09m3ar",
+    "slcot9undez0605",
+    "qwvblyn4cec2hl2",
+    "4bx2zcdibyl66rp",
+    "3wlu2vh7gbt9t11",
+    "r3jh5ybtiqsd7qe",
+    "olozji4zmmz7za6",
+    "731luyy61onsz5t",
+    "brjugnbfrt2qgm7",
+    "s5tazzsjvchf1e9",
+    "4gvorqo86lw8b3p",
+    "9p9usi4iu3rsgpo",
+    "z9jqy94d1e019hw",
+    "x6r95pii3qigbnm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.187Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.187Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "awn0zu0c8g8e2tv"
+    }
+  ]
+}

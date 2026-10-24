@@ -1,0 +1,47 @@
+{
+  "annotation": "$ vermutl.: Pforr del.: Für sämtlichen Graphiken gilt: G. Boettger sc. /) paginiert II. /) kol. Illustration zu »Der Fischotter« von v. Wildungen INr 69632, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fischotter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $",
+  "scans": [
+    "alm_1133_69631_d1o33ywd1v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fischotter",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.241Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "4l1qyv9an4hhn6k"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Jüngling am Bache« von Fr. Schiller /) Gesang-Musik (Sammlung INr 76226, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "An der Quelle saß ein Knabe, Blumen wand er sich zum Kranz und er sah sie fortgerissen, treiben in der Wellen Tanz;",
+  "language": [],
+  "musenalm_id": 76230,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling am Bache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [
+    "alm_3283_76230_m73vgdufii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling am Bache",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.771Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "304i064gny2mw6n"
+    }
+  ]
+}

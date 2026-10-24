@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an Blatt A der Suite. Détail aus »Die Parlamentswahl. Zweyte Scene.« paginiert I. s. Textbezug INr 7288, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. Riepenhausen sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riepenhausen sc.",
+  "scans": [
+    "alm_147_7289_pv677us5jy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.435Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "1dvljpw5vs4g3e2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.435Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "hx5jeqz4r99aznh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 98056, Obj 34) s. Übersetzung des 126. Psalm INr 98058, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Diese Psalmen-Uebersetzung führt den Titel: Der Psalter deß Königlichen Propheten Davids: in teutsche Reimen der Opitianischen Art gemäß verfaßet.",
+  "language": [],
+  "musenalm_id": 98057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Eine seltene metrische Psalmen-Uebersetzung aus dem / 17ten Jahrhunderte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Eine seltene metrische Psalmen-Uebersetzung aus dem / 17ten Jahrhunderte",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.944Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "no5oqs1pqs76ze2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Aus den Proselyten, einer handschriftlichen Novelle",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "O gar nicht selten gleicht die sogenannte Bekehrung dem Gedicht über die göttliche Liebe,",
+  "language": [],
+  "musenalm_id": 26275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekehrungs-Epistel #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. d. Verf. d. goldnen Kalbs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekehrungs-Epistel #",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.186Z",
+      "agent": "foc5m0xat6gv96d",
+      "source_id": "8qv7q9445g3tl2b"
+    }
+  ]
+}

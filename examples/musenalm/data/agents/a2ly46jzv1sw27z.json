@@ -1,0 +1,321 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.310Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Vollständiger Vorname: Carl Friedrich",
+        "Arrangeur auch der Werke Ludwig van Beethovens"
+      ],
+      "dateOfBirth": [
+        "1770-03-25"
+      ],
+      "dateOfDeath": [
+        "1836-09-09"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116329475/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Ebers"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116329475",
+      "id": "https://d-nb.info/gnd/116329475",
+      "oldAuthorityNumber": [
+        "(DE-588a)100405312",
+        "(DE-588a)134872061",
+        "(DE-588a)117496596",
+        "(DE-588a)116329475",
+        "(DE-101c)310562066"
+      ],
+      "periodOfActivity": [
+        "1821-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Ebers, Carl Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Friedrich"
+        ],
+        "surname": [
+          "Ebers"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4604119-9",
+          "label": "Arrangeur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        }
+      ],
+      "publication": [
+        "Sarsena oder der vollkommene Baumeister .... - [1817]",
+        "Es lebe hoch der deutsche Mann",
+        "[Sinfonien c-Moll]"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93029146"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41412323"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q16191518"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116329475"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116329475/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Ebers"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083756866"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116329475"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116329475.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116329475"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Ebers, Carl F.",
+        "Ebers, Karl Friedrich",
+        "Ebers, Charles Fréderic",
+        "Freimaurer (Bruder)",
+        "Ewers, Carl Friedrich",
+        "Bruder Freimaurer",
+        "Ebers, C. F.",
+        "Ebers, Karl F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Freimaurer (Bruder)"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Ebers"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Ebers"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Ebers"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Ewers"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Ebers"
+          ]
+        },
+        {
+          "personalName": [
+            "Bruder Freimaurer"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Fréderic"
+          ],
+          "surname": [
+            "Ebers"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Ebers",
+          "label": "https://de.wikipedia.org/wiki/Carl_Friedrich_Ebers"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:16:42Z",
+    "gnd_query_biographical_data": "1770-1836",
+    "gnd_query_name": "ebers, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 606,
+  "name": "Ebers, Karl Friedrich",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB V, 578",
+  "updated": "2026-06-11 13:29:22.125Z",
+  "uri": "https://d-nb.info/gnd/116329475",
+  "editor": ""
+}

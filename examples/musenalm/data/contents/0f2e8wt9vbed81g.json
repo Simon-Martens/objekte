@@ -1,0 +1,45 @@
+{
+  "annotation": "Ansichten (Sammlung INr 91846, Obj 114)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Ich habe zwei poetische Pferde im Stalle, einen Postgaul und ein Flügelroß. Beide muß ich jetzt besteigen.",
+  "language": [],
+  "musenalm_id": 91851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich habe zwei poetische Pferde im Stalle, einen Postgaul und ein Flügelroß. Beide muß ich jetzt besteigen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.447Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "cjfyfvxurh8p3oa"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "annotation": "franz. Ausgabe: § Blatt  nach dem Kalendarium beschädigt. /) Umschlag, franz. Titel und Karte als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, Kr, 10 BB Kal darin 12 GG, 14 BB §, 59 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1774 /) (franz. Ausgabe: Almanac généalogique pour l’Année 1774)",
+    "norm": "~",
+    "biblio": 407287,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3811,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1774 (franz. Ausgabe: Almanac généalogique pour l’Année 1774)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALAMANAC / Généalogique. / pour l'an 1774; / avec l'appropabation / de L'Académie Royale / des Sciences / et belles Lettres / À. Berlin",
+  "updated": "2026-06-11 10:18:55.760Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "items": [
+    "ro61yi6kwomr4y7"
+  ],
+  "contents": [
+    "01t583t7nwgc6ds",
+    "cpcn94m0cxk7jz3",
+    "aek6bs9av3zeb8n",
+    "90s8fv7tvulosqr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "kutvlr8cmlm2sv9"
+    }
+  ]
+}

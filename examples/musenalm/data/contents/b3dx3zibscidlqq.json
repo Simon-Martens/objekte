@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122040, Obj 194)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Bei vielen Kuren hilft der Glauben nur, / Der feste Glauben, und sie wirken Wunder; / Vor allen aber macht die Traubenkur / Gewiß an Leib und Seele dich gesunder",
+  "language": [],
+  "musenalm_id": 122041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Traubenkur. / 1846",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnezler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Traubenkur. / 1846",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.754Z",
+      "agent": "dz5hqr7uvnamp20",
+      "source_id": "6n3mb1ln1k6yhxf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Sei immer stolz, beglücktes Bette! / Du hast das Herz der schönen Henriette;",
+  "language": [],
+  "musenalm_id": 5871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Henriettens Brautbette",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Q.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Henriettens Brautbette",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.145Z",
+      "agent": "5zi0b6u2dct0970",
+      "source_id": "wi5i92vn8wvmd2b"
+    }
+  ]
+}

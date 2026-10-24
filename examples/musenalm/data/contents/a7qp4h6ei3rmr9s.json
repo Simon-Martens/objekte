@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); Illustration zu »Bäbbel« von Kotzebue (INr 123768, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin der berühmte Baebbel – ein tüchtiger Zollvisitator. / Baebbel. Scene 11",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+  "scans": [
+    "alm_1283_123769_r24ew4rxto.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin der berühmte Baebbel – ein tüchtiger Zollvisitator. / Baebbel. Scene 11",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.675Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "e3nfhw8n0apu1rt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.675Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "tx97j8tejacyfwx"
+    }
+  ]
+}

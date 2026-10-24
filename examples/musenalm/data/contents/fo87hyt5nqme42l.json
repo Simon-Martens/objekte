@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 51186, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51173,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Capelle S. Felix und Regula, auf d. Burg zu Glarus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinrich Meyer fec. ad nat.",
+  "scans": [
+    "alm_697_51173_mqpxm7goy7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Capelle S. Felix und Regula, auf d. Burg zu Glarus",
+  "updated": "2007-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "11h64qqq1bozgwx"
+    }
+  ]
+}

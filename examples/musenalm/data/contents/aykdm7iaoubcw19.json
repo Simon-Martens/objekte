@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36738, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "O mußt du denn scheiden, und mußt du denn reiten? / Und mußt du denn fort, und mußt mich verlassen?",
+  "language": [],
+  "musenalm_id": 36742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Reiters Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Reiters Abschied",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.674Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "rnajrelzg9shmod"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 10 BB Kal darin 12 GG, 147 SS, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1772",
+    "norm": "~",
+    "biblio": 106643,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 783,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1772",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "Königl. Academie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Calender / Auf das SchaltJahr / 1772; / Mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.760Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "items": [
+    "d8zxcx6cogyp8th"
+  ],
+  "contents": [
+    "giimcfqe0hhgi7i",
+    "wbe28lyjqfnpig6",
+    "q8nkynq2d7gpznw",
+    "vxaf0dioj3gct84",
+    "fm8z2etc7beptgy",
+    "vjkdqbpy2pxap3s",
+    "s5n0tn4muq0w6vh",
+    "2fw31qjur0b76bc",
+    "rk1s57p9a9a5dcr",
+    "wqrb1auwh8x40in",
+    "n6z3yksgsgwnkur",
+    "0p1o8fe5gvrdvvz",
+    "pooy9285q5gbw4d",
+    "tuqja3ds3ty3tdu",
+    "lglxnwxk94z2s2s",
+    "7h3z4fopq5fyi83",
+    "rcn1tjnxszz4aen",
+    "mzjkzo0mck2mzfb",
+    "0ze6m9wu1xf0s32",
+    "ukxjfedyxyxppyu",
+    "upmbbjtvmsq5by8",
+    "t7tewkd4r272y7m",
+    "0acm9yj2a4iss17",
+    "7e7hfxhrwo2hs4z",
+    "nrok0yau8tsa02i",
+    "ox2jp1p8rznz2t1",
+    "2tgt6qi46gg5y40",
+    "tj53nh10wodkz5y",
+    "d35l7a1gyylvsah",
+    "9z89vpdrjqjep3h",
+    "7p16japemjftj21",
+    "5ox3igjpvmfy40i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "rbfg70q1pwvavdh"
+    }
+  ]
+}

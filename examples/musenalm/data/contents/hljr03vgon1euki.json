@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juni; paginiert 6. /) Illustration zu »Der Sturm« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70434,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14.06,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach! ich bitte dich arbeite nicht so eifrig. / III. Aufz. 1. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_147_70434_bp92enomzh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach! ich bitte dich arbeite nicht so eifrig. / III. Aufz. 1. Auftr.",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.411Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "d16tkz47slgtb35"
+    }
+  ]
+}

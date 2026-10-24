@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43366, Obj 28) mit 2  Illustrationen s. Graphiken INr 43352, 43353; Obj 14, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Huldine war eine reiche Erbin; das schönste Erbtheil hatte sie aber von der Natur empfangen: einen reinen, stets heitern Sinn und ein zartes, gefühlvolles Herz bei einem blühenden Aeußern.",
+  "language": [],
+  "musenalm_id": 43369,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe Ueberraschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebe Ueberraschung",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.208Z",
+      "agent": "j6u4xe56jqv8urn",
+      "source_id": "9otp9wnjxcx7521"
+    }
+  ]
+}

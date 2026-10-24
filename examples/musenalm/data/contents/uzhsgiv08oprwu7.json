@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Hin ist die Nacht, und der Morgen ergraut. Die Palilien / heischt man. / Und nicht heischt man umsonst, gönnet nur Pales mir / Huld.",
+  "language": [],
+  "musenalm_id": 15892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Palilien. / (Ovid Fast. IV, 121.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Palilien. / (Ovid Fast. IV, 121.)",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.706Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "tpat793tpqjdxn1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November; paginiert pag. p. 364 /) s. Textbezüge INr 87534, Obj 30 und INr 87549, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87519,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schenk Rudolfs von Vargel / Treue und Unerschrockenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elsasser del. Geyser sc.",
+  "scans": [
+    "alm_3929_87519_n6ibmn3q6v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schenk Rudolfs von Vargel / Treue und Unerschrockenheit",
+  "updated": "2013-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.380Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "j6h7kdjtt7neq42"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Dich verehr' ich, o Held! Du warst kein Völkerver- / schlinger; / Herrschsucht lockte dein Schwerdt nicht in die / mordende Schlacht.",
+  "language": [],
+  "musenalm_id": 53023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolf von Erlach / Bernerscher Feldherr bey Laupen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rudolf von Erlach / Bernerscher Feldherr bey Laupen",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.643Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "l95l53th2o17pyv"
+    }
+  ]
+}

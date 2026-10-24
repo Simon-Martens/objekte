@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Was er mir auch hat gestohlen, / War doch gar zu hold der Raub,",
+  "language": [],
+  "musenalm_id": 26334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Soldatenliebchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Soldatenliebchen",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.043Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "fig91lkuy91a083"
+    }
+  ]
+}

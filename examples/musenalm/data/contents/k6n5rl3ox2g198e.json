@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Als Kaiser Heinrich im Spessartwald / Flüchtig einst irrte in fremder Gestalt,",
+  "language": [],
+  "musenalm_id": 25200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Heinrich im Spessartwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Freiherr v. Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Heinrich im Spessartwald",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.058Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "3n73mri9l331azf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "O lebet all', und wie ihr wollt, / So mögt ihr immer leben! / Ich schmachte nicht nach Gut und Gold, / Nach höherm Amt und größerm Sold;",
+  "language": [],
+  "musenalm_id": 61779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Zufriedenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Zufriedenen",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.943Z",
+      "agent": "lw3uqo50dp1mpif",
+      "source_id": "tnru1bt6hc7bxar"
+    }
+  ]
+}

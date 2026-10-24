@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Die Liebhaber dieser mit Recht so geachteten Blume werden manchmal wahrgenommen haben, daß ihnen eine Pflanze davon unvermutet welckte und dahin starb.",
+  "language": [],
+  "musenalm_id": 74388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Etwas von der LevkojeBlume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfr. Steeb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Etwas von der LevkojeBlume",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.331Z",
+      "agent": "zu59eup06ilx8r1",
+      "source_id": "435lppgewhlc6o7"
+    }
+  ]
+}

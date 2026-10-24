@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: hbz: Jgg 1796-1799",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Augsburgischen Bürgermilitärs 1798",
+    "norm": "",
+    "biblio": 407339,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-06-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3826,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Brinhaußer)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Almanach des Augsburgischen Bürgermilitärs 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / des / Augsburgischen / Bürgermilitärs. / Auf das Gemeinjahr 1798. / im Brinhaußerischen Kalender- und Bücherverlag",
+  "updated": "2026-06-11 10:18:55.110Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "j05huq6gd5g18tl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.575Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.575Z",
+      "agent": "lgg4renlk8psxao",
+      "source_id": "h3dk7rhvx6c5g3e"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "<div>satirscher Beitrag I. Jeitteles' mit Anregung zur Veröffentlichung eines Taschenbuchs »Huldigung den Männern« s. Photos</div>",
+  "content_type": [],
+  "created": "2026-09-09 09:10:27.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Ihre freundliche Aufforderung um einen Beitrag zu dem Taschenbuche, Huldigung den Frauen, erkenne ich mit gerührtem Herzen, bekenne aber, daß ich mich außerstande fühle, Ihrem Wunsch Genü[ge] zu leisten.",
+  "language": [],
+  "musenalm_id": 140534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schreiben an den Herausgeber. / Statt eines Beitrages. Allervortrefflichster Freund und Heraus- / geber!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ign. Jeitteles",
+  "scans": [
+    "alm_1861_140534_001_j663twhlzy.jpg",
+    "alm_1861_140534_002_l6aryxcnzw.jpg",
+    "alm_1861_140534_003_d8224zezls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schreiben an den Herausgeber. / Statt eines Beitrages. Allervortrefflichster Freund und Heraus- / geber!",
+  "updated": "2026-09-15 08:45:23.022Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-09 09:19:55.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-15 08:45:23.022Z",
+      "agent": "ink6oi00gx0e0hw",
+      "source_id": "na1onxhmijanjqm"
+    }
+  ]
+}

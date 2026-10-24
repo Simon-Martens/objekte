@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Den Rechtsstreit, den dein Geiz so li- / stig angesponnen,",
+  "language": [],
+  "musenalm_id": 3007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gewonnene Proceß, der / doch noch nicht aus ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gewonnene Proceß, der / doch noch nicht aus ist",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.882Z",
+      "agent": "tvrder99cpa3fos",
+      "source_id": "sei7zb9znmwb9sv"
+    }
+  ]
+}

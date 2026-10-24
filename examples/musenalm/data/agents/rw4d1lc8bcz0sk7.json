@@ -1,0 +1,440 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1845",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.457Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/506475-2",
+          "label": "Großherzogliche Bibliothek (Weimar)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Literaturhistoriker, Bibliothekar und Schriftsteller; Sekretär Goethes"
+      ],
+      "dateOfBirth": [
+        "1774-04-19"
+      ],
+      "dateOfDeath": [
+        "1845-12-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Kreidezeichnung von J.Schmeller, Goethe-Nationalmuseum Weimar (1932)"
+          ],
+          "creditText": [
+            "Hans Wahl, Anton Kippenberg: Goethe und seine Welt, Insel-Verlag, Leipzig 1932 S.169"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichWilhelmRiemer.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichWilhelmRiemer.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:FriedrichWilhelmRiemer.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-23T17:36:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116543671/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116543701",
+          "label": "Riemer, Caroline"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116543671",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116543701",
+          "label": "Riemer, Caroline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116543671",
+      "oldAuthorityNumber": [
+        "(DE-588c)4557775-4",
+        "(DE-588a)116543671"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4093577-2",
+          "label": "Glatz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Riemer, Friedrich Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Wilhelm"
+        ],
+        "surname": [
+          "Riemer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Silvio"
+          ],
+          "surname": [
+            "Romano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sylvio"
+          ],
+          "surname": [
+            "Romano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Silvio Romano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Sylvio Romano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Riemer, Friedrich W.: Zu Goethe's Geburtstage",
+        "Riemer, Friedrich W.: Blumen und Blätter",
+        "Riemer, Friedrich W.: Griechisch-Deutsches Wörterbuch für Anfänger und Freunde der griech*. - 1823 - 1825",
+        "Goethe, Johann W. von: Briefwechsel zwischen Göthe und Zelter. - 1833 - 1834",
+        "Riemer, Friedrich W.: Vorbericht zum Briefwechsel zwischen Goethe und Zelter in den Jahre*",
+        "Riemer, Friedrich W.: Gedichte",
+        "Mittheilungen über Goethe",
+        "Riemer, Friedrich W.: Gedichte und Reden zu Goethes Ehren",
+        "Riemer, Friedrich W.: Griechisch-deutsches Wörterbuch. - 1819 - 1820"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb144726469"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no97071214"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/riemer-friedrich-wilhelm/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44525634"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q85393"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116543671/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Wilhelm_Riemer"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Riemer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Wilhelm_Riemer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109681154"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116543671"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116543671"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116543671.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116543671.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116543671"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Romano, Silvio",
+        "Silvio Romano",
+        "Sylvio Romano",
+        "Riemer, Friedrich",
+        "Romano, Sylvio",
+        "Riemer, Friedrich W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Riemer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Riemer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Riemer"
+          ]
+        },
+        {
+          "forename": [
+            "Sylvio"
+          ],
+          "surname": [
+            "Romano"
+          ]
+        },
+        {
+          "personalName": [
+            "Sylvio Romano"
+          ]
+        },
+        {
+          "forename": [
+            "Silvio"
+          ],
+          "surname": [
+            "Romano"
+          ]
+        },
+        {
+          "personalName": [
+            "Silvio Romano"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Riemer",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Riemer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:39:03Z",
+    "gnd_query_biographical_data": "1774-1845",
+    "gnd_query_name": "riemer, friedrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2267,
+  "name": "Riemer, Friedrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "Silvio Romano",
+  "refs": "Goed XIII, 220; H/B 239",
+  "updated": "2026-06-11 13:29:24.317Z",
+  "uri": "https://d-nb.info/gnd/116543671",
+  "editor": ""
+}

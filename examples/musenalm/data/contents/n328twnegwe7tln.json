@@ -1,0 +1,46 @@
+{
+  "annotation": "Nachträge und Korrekturen zum ersten Jahrgang der »Vorzeit«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Der Hoch- und Deutschmeisterische Hof- und Regierungsrath, Hr. Konr. Joseph Bachem, zu Neuwied",
+  "language": [],
+  "musenalm_id": 97704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Bemerkungen und Zusätze zum ersten Jahrgange der Vorzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Bemerkungen und Zusätze zum ersten Jahrgange der Vorzeit",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.818Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "rvt91ui2jt8qlcz"
+    }
+  ]
+}

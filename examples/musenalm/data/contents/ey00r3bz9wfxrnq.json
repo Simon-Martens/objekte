@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Hab' rührig nun den Tag vollbracht, / Gewebt, geklöppelt, Garn geweift,",
+  "language": [],
+  "musenalm_id": 76721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Mädchens Winternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Mädchens Winternacht",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.716Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "w8hekuq6qeu5k6u"
+    }
+  ]
+}

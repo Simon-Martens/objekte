@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29337, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. v. Ostade pinx. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Ostade pinx. W. Jury fec.",
+  "scans": [
+    "alm_387_29938_vi5ntv3vui.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.440Z",
+      "agent": "jc38k4lunh79qyy",
+      "source_id": "32exa1vhwdrqlyy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.440Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "dra052ursm4vg2b"
+    }
+  ]
+}

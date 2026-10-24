@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60779, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS KÖNIGLICHE SCHLOSS ZU BRESLAU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Koska. Gest. v. Schulin",
+  "scans": [
+    "alm_885_60780_bszdbumkxr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS KÖNIGLICHE SCHLOSS ZU BRESLAU",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.966Z",
+      "agent": "upsrb82zs34rpbh",
+      "source_id": "sief3auzi68j217"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.966Z",
+      "agent": "v07vvy4xo0edp0a",
+      "source_id": "wqqvd9k8ujsk8rc"
+    }
+  ]
+}

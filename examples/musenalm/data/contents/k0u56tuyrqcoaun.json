@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Don Carlos« von Fr. Schiller s. Textbezug INr 39180, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Karlos 3r. Act, 10r. Auftritt. / Koenig - Sonderbarer Schwärmer!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. Hannover 1809 C. Frosch sc. Lipisiae",
+  "scans": [
+    "alm_514_39179_kbjyurcigc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Don Karlos 3r. Act, 10r. Auftritt. / Koenig - Sonderbarer Schwärmer!",
+  "updated": "2005-07-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.903Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "fjcp3lijcgh74ny"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.903Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "wfez142bkma6o7k"
+    }
+  ]
+}

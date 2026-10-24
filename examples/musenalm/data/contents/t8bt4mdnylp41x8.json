@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Latoius und Paulus, zwey Brüder, durch / Eintracht verbunden / gingen das Leben entlang traulich auf einer- / ley Pfad.",
+  "language": [],
+  "musenalm_id": 3701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Griechischen des Aga- / thias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Griechischen des Aga- / thias",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.760Z",
+      "agent": "fu6aysv76d2t1pi",
+      "source_id": "x3u2eq6xwjbu1nc"
+    }
+  ]
+}

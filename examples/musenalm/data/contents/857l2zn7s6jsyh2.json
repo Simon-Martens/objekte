@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Eine Aehrenlese nenne ich diesen Aufsatz. Die Zeit der vollen Erndten ist für den Reisenden vorüber. Tunis und Island, Aegypten und Jerusalem, Granada und Constantinopel liegen schon im großen Course,",
+  "language": [],
+  "musenalm_id": 78121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Aehrenlese / vom / deutschen Hügellande",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Aehrenlese / vom / deutschen Hügellande",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.725Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "1opp7qkmd1i42q4"
+    }
+  ]
+}

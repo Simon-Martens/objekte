@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Eine Götterblüthe, / Eine große Mythe / Ist die Liebesglut;",
+  "language": [],
+  "musenalm_id": 27977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.164Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "9mcka8f0487h0b9"
+    }
+  ]
+}

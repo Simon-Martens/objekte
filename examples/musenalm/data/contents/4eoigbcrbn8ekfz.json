@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Schönes Leben! Du liegst krank und das Herz ist mir / Müd vom Weinen, und schon dämmert die Furcht in / mir;",
+  "language": [],
+  "musenalm_id": 21804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gute Glaube",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hillmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gute Glaube",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.898Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "y7514w6wwdo5q58"
+    }
+  ]
+}

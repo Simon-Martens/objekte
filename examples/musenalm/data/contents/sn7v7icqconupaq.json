@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10 /) Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69920,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Folgen der praktischen / Kenntnisse der Welt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_785_69920_pdwotd0gp3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Folgen der praktischen / Kenntnisse der Welt",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.528Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "apoz9uwdfgqhs36"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.528Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "s77xfmpexemtwha"
+    }
+  ]
+}

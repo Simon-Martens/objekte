@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Zweiter mahlerischer Streifzug nach Baden, Heiligen-Kreuz, Brühl und Medling« »Brühl« INr 92692, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klause bey Mödling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gezeichnet v. Maillard. Gest. von J. Blaschke",
+  "scans": [
+    "alm_4022_92696_0y0arzy3kl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Klause bey Mödling",
+  "updated": "2013-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.344Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "hlrxhgsurin8yaf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.344Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "idufwybwr3zvcyw"
+    }
+  ]
+}

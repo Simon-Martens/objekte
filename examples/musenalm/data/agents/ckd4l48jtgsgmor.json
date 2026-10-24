@@ -1,0 +1,609 @@
+{
+  "annotation": "",
+  "biographical_data": "1724-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.392Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35017-5",
+          "label": "Académie des inscriptions et belles-lettres (Paris)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ehrenbürger von Frankreich."
+      ],
+      "dateOfBirth": [
+        "1724-07-02"
+      ],
+      "dateOfDeath": [
+        "1803-03-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jens Juel"
+          ],
+          "creditText": [
+            "http://museum-digital.de/nat/index.php?t=objekt&amp;oges=850"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Klopstock%20%28Juel%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Klopstock%20%28Juel%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Klopstock%20%28Juel%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1014914868"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-08T12:17:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118563386/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11623427X",
+          "label": "Klopstock, Anna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118563394",
+          "label": "Klopstock, Margareta"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136071805",
+          "label": "Klopstock, Gottlieb Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118563386",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136071805",
+          "label": "Klopstock, Gottlieb Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11623427X",
+          "label": "Klopstock, Anna Maria"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118563394",
+          "label": "Klopstock, Margareta"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118563386",
+      "oldAuthorityNumber": [
+        "(DE-588c)4031218-5",
+        "(DE-101c)310270189",
+        "(DE-588a)134580184",
+        "(DE-588a)1014914868",
+        "(DE-588a)118563386",
+        "(DE-588)1014914868"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4048035-5",
+          "label": "Quedlinburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Klopstock, Friedrich Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Gottlieb"
+        ],
+        "surname": [
+          "Klopstock"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4175743-9",
+          "label": "Privatlehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Klopstock, Friedrich G.: Drei Gebete eines Freigeistes",
+        "Klopstock, Friedrich G.: Werke",
+        "Klopstock, Friedrich G.: Auswahl aus Klopstocks nachgelassenen Briefwechsel und übrigen P*",
+        "Klopstock, Friedrich G.: Fragmente über Sprache und Dichtkunst",
+        "Klopstock, Friedrich G.: Die deutsche Gelehrtenrepublik",
+        "Klopstock, Friedrich G.: Oden",
+        "Klopstock, Friedrich G.: Grammatische Gespräche",
+        "Klopstock, Friedrich G.: Hermans Schlacht",
+        "Klopstock, Friedrich G.: David",
+        "Klopstock, Friedrich G.: Herrmann und die Fürsten"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12024847p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50043426"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44312220"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D12030.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q154367"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014914868"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118563386/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Gottlieb_Klopstock"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gottlieb_Klopstock"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Gottlieb_Klopstock"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Gottlieb_Klopstock"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108927087"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118563386"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_zellmann;179"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118563386"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563386.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563386.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118563386"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118563386"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Klopstok, Friedrich G.",
+        "Klopstock, F.G.",
+        "Klopstock, Friedrich G.",
+        "Klopstock, Fr. Gottl.",
+        "Klopstok",
+        "Klopstok, Friedrich Gottlieb",
+        "Kolpstock, Friedrich Gottlieb",
+        "Клопшток, Фридрих Готлиб",
+        "Klopstock, F. G.",
+        "Klopstock",
+        "Klopštok, Fridrich Gotlib",
+        "Klopshtok, Fridrikh Gotlib",
+        "Kloppstokk, Friedrich G.",
+        "Klopstock, Gottlieb Friedrich",
+        "Klopstock, Federico A.",
+        "Klopstock, Frederick",
+        "Klopstock, Friedr. Gottl.",
+        "Klopstock, Friedrich",
+        "Klopstock, Friedrich Gottlob",
+        "Klopstock, Frédéric-Théophile",
+        "Klopstock, G. F.",
+        "Klopstock, Gottlieb Friederich",
+        "Клопшток, Ф. Г."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Frederick"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "personalName": [
+            "Klopstok"
+          ]
+        },
+        {
+          "forename": [
+            "F.G."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Kloppstokk"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlieb"
+          ],
+          "surname": [
+            "Kolpstock"
+          ]
+        },
+        {
+          "forename": [
+            "F. G."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Klopstok"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Gotlib"
+          ],
+          "surname": [
+            "Klopštok"
+          ]
+        },
+        {
+          "forename": [
+            "Фридрих Готлиб"
+          ],
+          "surname": [
+            "Клопшток"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh Gotlib"
+          ],
+          "surname": [
+            "Klopshtok"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Friedrich"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Federico A."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Gottl."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "personalName": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Gottl."
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Friederich"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlieb"
+          ],
+          "surname": [
+            "Klopstok"
+          ]
+        },
+        {
+          "forename": [
+            "Ф. Г."
+          ],
+          "surname": [
+            "Клопшток"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric-Théophile"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlob"
+          ],
+          "surname": [
+            "Klopstock"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gottlieb_Klopstock",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Gottlieb_Klopstock"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:57:03Z",
+    "gnd_query_biographical_data": "1724-1803",
+    "gnd_query_name": "klopstock, friedrich gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1421,
+  "name": "Klopstock, Friedrich Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 154, 1110",
+  "updated": "2026-06-11 13:29:23.255Z",
+  "uri": "https://d-nb.info/gnd/118563386",
+  "editor": ""
+}

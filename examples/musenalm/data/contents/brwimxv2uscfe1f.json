@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Horch! welch Getümmel in den Gassen! / Wie sind die Schenken alle voll!",
+  "language": [],
+  "musenalm_id": 44276,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sylvester-Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Rustige",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sylvester-Nacht",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.246Z",
+      "agent": "uqsdu0nifidzvmw",
+      "source_id": "s0uf5kz3vlunnvn"
+    }
+  ]
+}

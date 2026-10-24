@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Vergnügter, Freund, bin ich mit keinem / Lose, / Daß mir auf Gottes Erde fiel,",
+  "language": [],
+  "musenalm_id": 96372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel / an B. A*si*n",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel / an B. A*si*n",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.481Z",
+      "agent": "bhyvkh2a1vif6bg",
+      "source_id": "4obbnm7xhocjpzw"
+    }
+  ]
+}

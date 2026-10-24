@@ -288,7 +288,7 @@ async fn delete(
         let html = views::collection(&state.editor, &name, "", 0, &actor)?;
         if fragment(&headers) {
             Ok(stream(vec![
-                views::navigation(&state.editor, &html)?,
+                views::project_navigation(&state, &actor, &html)?,
                 html,
                 views::notice("Record deleted."),
             ]))

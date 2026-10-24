@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Rundgesang« von Ck. INr 4282, Obj 72 (Photos 4283,01; 4283,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilie",
+  "scans": [
+    "alm_94_4283_01_0cxw81w6ll.jpg",
+    "alm_94_4283_02_1lfpxgo3o4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.199Z",
+      "agent": "e2rrjjwetvb2bmn",
+      "source_id": "xtmq43ejjr83am8"
+    }
+  ]
+}

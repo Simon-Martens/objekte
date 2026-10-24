@@ -1,0 +1,1512 @@
+{
+  "annotation": "",
+  "biographical_data": "1689-1755",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.430Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/15514-7",
+          "label": "Königliche Akademie der Wissenschaften (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Staatstheoretiker; April 1728 bis Oktober 1729 Reise ins Deutsche Reich, dabei auch Aufenthalte in Osnabrück, Hannover, Herrenhausen, Braunschweig, Wolfenbüttel und im Harz (Reisebericht,dt. Ausg.: \"Meine Reisen in Deutschland 1728-1729\", Stuttgart 2014)"
+      ],
+      "dateOfBirth": [
+        "1689-01-18"
+      ],
+      "dateOfDeath": [
+        "1755-02-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Jacques-Antoine Dassier"
+          ],
+          "creditText": [
+            "Collection Chateau Versailles"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Montesquieu%201.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Montesquieu%201.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Montesquieu%201.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/183553950",
+        "https://d-nb.info/gnd/186101287",
+        "https://d-nb.info/gnd/183459997",
+        "https://d-nb.info/gnd/185981879",
+        "https://d-nb.info/gnd/183610946",
+        "https://d-nb.info/gnd/181658593",
+        "https://d-nb.info/gnd/189565543",
+        "https://d-nb.info/gnd/183462912",
+        "https://d-nb.info/gnd/183610938",
+        "https://d-nb.info/gnd/183610881",
+        "https://d-nb.info/gnd/183637682",
+        "https://d-nb.info/gnd/183472721",
+        "https://d-nb.info/gnd/183610873",
+        "https://d-nb.info/gnd/183610857",
+        "https://d-nb.info/gnd/183610970",
+        "https://d-nb.info/gnd/187121575",
+        "https://d-nb.info/gnd/183610830",
+        "https://d-nb.info/gnd/183610865",
+        "https://d-nb.info/gnd/183610962",
+        "https://d-nb.info/gnd/18361092X",
+        "https://d-nb.info/gnd/183610954"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-02T12:49:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118583670/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10052659",
+          "label": "http://lod.gesis.org/thesoz/concept_10052659"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118583670",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.1p",
+          "label": "Personen (Politologen, Staatstheoretiker)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118583670",
+      "oldAuthorityNumber": [
+        "(DE-588a)183610970",
+        "(DE-588a)183610873",
+        "(DE-588)183637682",
+        "(DE-588a)183610962",
+        "(DE-588)183472721",
+        "(DE-588a)186101287",
+        "(DE-588a)185981879",
+        "(DE-588)183610857",
+        "(DE-588)187121575",
+        "(DE-588)18361092X",
+        "(DE-588)183610830",
+        "(DE-588)186101287",
+        "(DE-588)183553950",
+        "(DE-588)183610881",
+        "(DE-588a)189565543",
+        "(DE-588)189565543",
+        "(DE-588a)183610865",
+        "(DE-588a)181658593",
+        "(DE-588)183462912",
+        "(DE-588)183610873",
+        "(DE-588)183459997",
+        "(DE-588a)183610954",
+        "(DE-588a)183459997",
+        "(DE-588)183610938",
+        "(DE-588a)183553950",
+        "(DE-588)181658593",
+        "(DE-588)183610970",
+        "(DE-588)183610962",
+        "(DE-588a)187121575",
+        "(DE-588)183610946",
+        "(DE-588a)183610857",
+        "(DE-588)183610865",
+        "(DE-588a)183637682",
+        "(DE-588)183610954",
+        "(DE-588a)183610946",
+        "(DE-588a)183610938",
+        "(DE-588a)183472721",
+        "(DE-588a)183462912",
+        "(DE-588a)18361092X",
+        "(DE-588a)118583670",
+        "(DE-588a)183610830",
+        "(DE-588a)183610881",
+        "(DE-588)185981879"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4290994-6",
+          "label": "La Brède"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4290994-6",
+          "label": "La Brède"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Montesquieu, Charles Louis de Secondat de",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Charles Louis de Secondat"
+        ],
+        "prefix": [
+          "de"
+        ],
+        "surname": [
+          "Montesquieu"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4196107-9",
+          "label": "Gutsherr"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "publication": [
+        "Le genie",
+        "Considerations sur les causes de la grandeur des romains et de*",
+        "De l'Esprit des Loix",
+        "Vom glücklichen und weisen Leben",
+        "Le temple de Gnide"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79063793"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27069096"
+        },
+        {
+          "collection": {
+            "abbr": "HISTORICUMNET",
+            "icon": "https://www.historicum.net/favicon.ico",
+            "id": "http://www.historicum.net",
+            "name": "Klassiker der Geschichtswissenschaft",
+            "publisher": "historicum.net"
+          },
+          "id": "http://www.historicum.net/themen/klassiker-der-geschichtswissenschaft/a-z/art/Montesquieu_Ch/html/artikel/1970/ca/46efe832e4/"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15975"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118583670/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/181658593"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183459997"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183462912"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183472721"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183553950"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610830"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610857"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610865"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610873"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610881"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18361092X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610938"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610946"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610954"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610962"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183610970"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183637682"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185981879"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186101287"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187121575"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189565543"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Montesquieu"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Charles_de_Secondat%2C_Baron_de_Montesquieu"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Charles_de_Secondat_Baron_de_Montesquieu"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Montesquieu"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120957940"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118583670"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118583670"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118583670"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118583670"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Montesquieu, Charles de Secondat",
+        "Brède et de Montesquieu, Charles de Secondat de la",
+        "Montesquieu, Charles de La Brède de",
+        "Montesquieu, Charles Secondat de La Bréde et de",
+        "Montesquieu, Charles de Secondat de La Brède de",
+        "Secondat de La Brède et de Montesquieu, Charles-Louis de",
+        "Secondat Montesquieu, Charles de",
+        "Montesquieu, Charles-Louis de S. de",
+        "Шарль-Луи де Секонда, барон Ля Брэд и де Монтескьё",
+        "Montesquieu, Charles de, bn.",
+        "La Brède de Montesquieu, Charles de Secondat de",
+        "Secondat La Brède de Montesquieu, Charles de",
+        "La Brède, Charles de",
+        "Montesquieu, Charles di",
+        "Montesquieu",
+        "Монтескье, Шарль Луи де",
+        "Шарль Луї де Монтеск'є",
+        "La Brède et de Montesquieu, Charles de Secondat de",
+        "Montesquieu, Charles Louis de Secondat de La Brède et de",
+        "Secondat de Montesquieu, Carolus de",
+        "Secondat, Charles Louis de",
+        "Montesquieu, Charles Louis Joseph de Secondat",
+        "Monteské",
+        "Montesquieu, Charles-Louis de Secondat de La Brède et",
+        "Monteskiju",
+        "Шарл Луи де Секонда, барон дьо Ла Бред и дьо Монтескьо",
+        "La Brède et de Montesquieu, Charles-Louis de S. de",
+        "Montesquieu, Charles",
+        "Montjeskjje, Baron dje",
+        "Charles-Louis de Secondat, baron de La Brède et de Montesquieu",
+        "Montesquieu, Charles-Louis de, Secondat, Baron de La Brède et de",
+        "Montesquieu, Charles-Louis de Secondat de La Brède et de",
+        "Montesquieu, Charles de Secondat, bn. de La Brède et de",
+        "La Brède et de Montesquieu, Charles de S.",
+        "Montesquieu, Charles Louis de Secondat, baron de La Brède et de",
+        "Secondat, Charles Louis Joseph de",
+        "Montesquieu, Charles de S.",
+        "Secondat, Charles de La Bréde et de Montesquieu",
+        "La Brede, Charles de Montesquieu, bn. de",
+        "Montesquiou, Charles de",
+        "Secondat, Charles",
+        "Secondat, Charles de, baron de Montesquieu",
+        "Montesquieu, Charles de Sewcondat de La Brède et de",
+        "La Brède, Charles-Louis de Secondat, baron de",
+        "La Brède et de Montesquieu, Charles-Louis de Secondat de",
+        "Montesquieu, Charles-Louis de",
+        "Montesquieu, Charles-Louis de Secondat de",
+        "Montesquieu, Charles-Louis de Secondat",
+        "Secondat de Montesquieu, Charles de",
+        "Secondat, Charles de",
+        "Σαρλ Λουί ντε Σεκοντά, βαρόνος της Μπρεντ και του Μοντεσκιέ",
+        "Brede, Charles de",
+        "Montesquiou",
+        "Montesquieu, Charles de Sercondat",
+        "Monteskiusz",
+        "Secondat de Montesquieu, Charles Louis de",
+        "Montesquieu, Charles de L. et",
+        "Montesquieu, président de",
+        "De Montesquieu, Charles de Secondat",
+        "M. de",
+        "Monteskʹe, Šarl Lui",
+        "Secondat, Charles-Louis de",
+        "Montesquieu de",
+        "Шарл-Луј де Секонда, барон од Бреда и Монтескјеа",
+        "Montesquieu, Charles de Secondat, baron de Labrède et de",
+        "Secondat Bn de La Brède et de Montesquieu, Charles de",
+        "Secondat de La Brède et de Montesquieu, Charles de",
+        "Montesquieu, Charles de Secondat de La Brède et de",
+        "Montesquieu, Carolus de Secondat de",
+        "Montesquieu, Charles Louis de",
+        "La Brède et de Montesquieu, Charles-Louis de Secondat, baron de",
+        "Montesquieu, Charles de Secondat de",
+        "Montesquieu, baron de",
+        "Montesquieu, Charles de La Brède et de",
+        "De Montesquieu, Charles-Louis de Secondat",
+        "Montesquieu, Charles Louis",
+        "La Brède et de Montesquieu, Charles de Secondat, baron de",
+        "Montesquieu, Charles de Secondat, baron de",
+        "Brède et de Montesquieu, Charles-Louis de Secondat de la",
+        "Montesquieu, Charles L. de",
+        "Montesquieu, Charles Secondat, baron de",
+        "La Brède et de Montesquieu, Charles de",
+        "La Brède et Montesquieu, Charles de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Charles de S."
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "personalName": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Brède et de Montesquieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "baron de La Brède et de Montesquieu"
+          ],
+          "personalName": [
+            "Charles-Louis de Secondat"
+          ]
+        },
+        {
+          "personalName": [
+            "Monteské"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat de La Brède"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Secondat de La Bréde"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de L."
+          ],
+          "prefix": [
+            "et"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquiou"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède et Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de La Brède"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat de La Brède"
+          ],
+          "prefix": [
+            "et"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "nameAddition": [
+            "bn."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "барон од Бреда и Монтескјеа"
+          ],
+          "personalName": [
+            "Шарл-Луј де Секонда"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "nameAddition": [
+            "baron de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "nameAddition": [
+            "baron de Montesquieu"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Sewcondat de La Brède"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat de La Brède"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de S."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "président de"
+          ],
+          "personalName": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "baron de"
+          ],
+          "personalName": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de S."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis de Secondat de La Brède"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat de La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "personalName": [
+            "Шарль Луї де Монтеск'є"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat de Montesquieu"
+          ]
+        },
+        {
+          "personalName": [
+            "Montesquiou"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat de La Brède"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "nameAddition": [
+            "baron de"
+          ],
+          "surname": [
+            "La Brède"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "nameAddition": [
+            "baron de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de La Bréde et de Montesquieu"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat de La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède"
+          ]
+        },
+        {
+          "nameAddition": [
+            "барон дьо Ла Бред и дьо Монтескьо"
+          ],
+          "personalName": [
+            "Шарл Луи де Секонда"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de"
+          ],
+          "nameAddition": [
+            "Secondat, Baron de La Brède et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles L."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "personalName": [
+            "Monteskiusz"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Brede"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de La Brède"
+          ],
+          "prefix": [
+            "et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis Joseph"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "personalName": [
+            "M."
+          ],
+          "prefix": [
+            "de"
+          ]
+        },
+        {
+          "personalName": [
+            "Montesquieu"
+          ],
+          "prefix": [
+            "de"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de S."
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "nameAddition": [
+            "bn. de La Brède et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "personalName": [
+            "Monteskiju"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "nameAddition": [
+            "baron de Labrède et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Šarl Lui"
+          ],
+          "surname": [
+            "Monteskʹe"
+          ]
+        },
+        {
+          "nameAddition": [
+            "βαρόνος της Μπρεντ και του Μοντεσκιέ"
+          ],
+          "personalName": [
+            "Σαρλ Λουί ντε Σεκοντά"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat de Montesquieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "барон Ля Брэд и де Монтескьё"
+          ],
+          "personalName": [
+            "Шарль-Луи де Секонда"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Sercondat"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis de Secondat"
+          ],
+          "nameAddition": [
+            "baron de La Brède et de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "surname": [
+            "De Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat La Brède de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Шарль Луи"
+          ],
+          "prefix": [
+            "де"
+          ],
+          "surname": [
+            "Монтескье"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Baron dje"
+          ],
+          "personalName": [
+            "Montjeskjje"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Brède de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Secondat"
+          ],
+          "nameAddition": [
+            "baron de"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis Joseph de Secondat"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Secondat Bn de La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis de Secondat"
+          ],
+          "surname": [
+            "De Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "surname": [
+            "Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Secondat"
+          ],
+          "nameAddition": [
+            "baron de"
+          ],
+          "surname": [
+            "La Brède et de Montesquieu"
+          ]
+        },
+        {
+          "forename": [
+            "Charles de Montesquieu"
+          ],
+          "nameAddition": [
+            "bn. de"
+          ],
+          "surname": [
+            "La Brede"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Charles_de_Secondat%2C_Baron_de_Montesquieu",
+          "label": "https://de.wikipedia.org/wiki/Charles_de_Secondat%2C_Baron_de_Montesquieu"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:18:21Z",
+    "gnd_query_biographical_data": "1689-1755",
+    "gnd_query_name": "montesquieu, charles de"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1850,
+  "name": "Montesquieu, Charles de",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 340",
+  "updated": "2026-06-11 13:29:23.840Z",
+  "uri": "https://d-nb.info/gnd/118583670",
+  "editor": ""
+}

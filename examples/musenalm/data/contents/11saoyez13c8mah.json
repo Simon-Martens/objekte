@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ein Maler ist der Dichter, / Ein Bild ist jedes Lied,",
+  "language": [],
+  "musenalm_id": 93038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Malerzeichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Malerzeichen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.620Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "jwfhiy3akairvvc"
+    }
+  ]
+}

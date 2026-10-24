@@ -1,0 +1,78 @@
+{
+  "annotation": "11 Jgg 1834-1847; Jgg 37, 39, 41 nicht erschienen; 1834-1838: Regensburg (Pustet), 1840 Landshut (Krüll), 1842-1847 Regensburg (Manz); Hrsgg: 1834-1842: Ed. v. Schenk; 1843-1847: Carl Fernau d.i. Sebastian Franz Daxenberger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Charitas 1834",
+    "norm": "",
+    "biblio": 200994,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1658,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Pustet)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Charitas 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 38; L/R 100; Goed VIII. 580, 34",
+  "responsibility_statement": "Eduard von Schenk",
+  "subtitle_statement": "",
+  "title_statement": "Charitas. / Festgabe / von / Eduard von Schenk. / Mit Beiträgen von König Ludwig von Bayern, / L. Aurbacher, M. Diepenbrock, P. v. Martius, / C. v. Neumayr, Fr. Rückert, H. v. Schubert / und dem Herausgeber. / Kupfer nach Cornelius und H. Heß, gestochen von / E. Schäffer und A. Schleich. / Regensburg. / Friedrich Pustet. / 1834",
+  "updated": "2026-06-11 10:18:55.568Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "u0pvhpgz0m9uea1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.132Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.132Z",
+      "agent": "xqame88yb4eapqn",
+      "source_id": "8u35qowker8vnfd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.946Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.946Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "goxkadhmiz3pwz6"
+    }
+  ]
+}

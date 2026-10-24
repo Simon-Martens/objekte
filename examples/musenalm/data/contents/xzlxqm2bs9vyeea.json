@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Das Schiff durchfurcht die Wogen / Die Brandung schäumt wie Schnee,",
+  "language": [],
+  "musenalm_id": 26184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Auf der See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johnn N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Auf der See",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.170Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "1z6j96ulsvr8n9g"
+    }
+  ]
+}

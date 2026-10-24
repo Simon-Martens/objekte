@@ -1,0 +1,45 @@
+{
+  "annotation": "# Eugène Scribe (vgl. Nouvelle biographie générale XLIII, S. 647)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "ich mag rechnen wie ich will, ich finde stets die Woche 30 Franks Einnahme und 35 Franks Ausgabe ...",
+  "language": [],
+  "musenalm_id": 128077,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jeanne und Jeanneton. / Lustspiel in zwei Aufzügen / von / Scribe und Varner. / In’s Deutsche übersetzt / von / Theodor Hell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Scribe # und Varner [übers.] Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jeanne und Jeanneton. / Lustspiel in zwei Aufzügen / von / Scribe und Varner. / In’s Deutsche übersetzt / von / Theodor Hell",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.960Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "af7mmtm1yvirlc5"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Titel aus dem G-Verz. s. Textbezug INr 43010, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43006,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die mütterliche Liebe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio Pinxt. Forssell Sculps.",
+  "scans": [
+    "alm_469_43006_23igw8tnm1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die mütterliche Liebe #",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.235Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "jd344carfk9ei29"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.235Z",
+      "agent": "vn5l930p5j41o40",
+      "source_id": "xdqu0yrm1hr5leb"
+    }
+  ]
+}

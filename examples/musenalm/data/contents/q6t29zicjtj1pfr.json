@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Anekdoten (Sammlung INr 66712, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Am 24sten Oct. 1804 ging der Herr Amtsverweser K. in R. mit seinem Schwager dem dortigen Caplan nach Friedberg auf's Jahrmarkt",
+  "language": [],
+  "musenalm_id": 66718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.272Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "8ji04aelvkj2ogs"
+    }
+  ]
+}

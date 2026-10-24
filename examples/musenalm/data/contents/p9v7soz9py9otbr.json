@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Amor, stimme meine Saiten! / Was ich sonst nur dir vertraut,",
+  "language": [],
+  "musenalm_id": 47831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geständniß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theone",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geständniß",
+  "updated": "2007-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.557Z",
+      "agent": "easxd2ciuxkfl7o",
+      "source_id": "oykn9i8p9uvk320"
+    }
+  ]
+}

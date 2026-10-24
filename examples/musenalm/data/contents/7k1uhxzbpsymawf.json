@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Du stiller Friedensgarten, / Wohlan, so will ich nun / Dich pflegen und dich warten, / Und schaffen und nicht ruhn.",
+  "language": [],
+  "musenalm_id": 42674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 207,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amt im Kloster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amt im Kloster",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.114Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "66hssmwyx9ef8jy"
+    }
+  ]
+}

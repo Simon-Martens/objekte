@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Wiener k.k. Universität 1843",
+    "norm": "",
+    "biblio": 405058,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2695,
+  "parallel_title": "",
+  "place_statement": "Wien (Beck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch der Wiener k.k. Universität 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "k.k. Universitäts-Pedellen-Amt",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Wiener k.k.Universität / für das Jahr / 1843. / Herausgegeben / von dem k.k. Universitäts-Pedellen-Amte. / Wien. / In Commission der Fr. Beck'schen Universität- / Buchhandlung, Bischofsgasse Nr. 638",
+  "updated": "2026-06-11 10:18:55.829Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "x4v5878jwxokyyl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.521Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.521Z",
+      "agent": "mzfja8qhu45vuw0",
+      "source_id": "4ndo4vzd79e6de2"
+    }
+  ]
+}

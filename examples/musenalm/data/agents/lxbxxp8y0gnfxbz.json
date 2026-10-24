@@ -1,0 +1,384 @@
+{
+  "annotation": "",
+  "biographical_data": "?-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.371Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1771"
+      ],
+      "dateOfDeath": [
+        "1840-12"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:09:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100499635/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "August Heimbert"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Doris"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/141883111",
+          "label": "Hinze, August Heimbert"
+        },
+        {
+          "forename": [
+            "Wilhelmine Henriette"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Henriette"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "Charlotte"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/10080599X",
+          "label": "Hinze, Heimbert Johann"
+        },
+        {
+          "forename": [
+            "Heimbert Johann"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Heimbertsohn"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100499635",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/10080599X",
+          "label": "Hinze, Heimbert Johann"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/141883111",
+          "label": "Hinze, August Heimbert"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100499635",
+      "oldAuthorityNumber": [
+        "(DE-588a)100499635",
+        "(DE-588a)139972056"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        }
+      ],
+      "preferredName": "Hinze, Heimbert P.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heimbert P."
+        ],
+        "surname": [
+          "Hinze"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "publication": [
+        "Hinze, Heimbert P.: Dramatischer Almanach für Freunde",
+        "Hinze, Heimbert P.: Meine Wanderung durch Leben und Dichtung",
+        "Hinze, Heimbert P.: Ein Streich zum Todtlachen. - [ca. 1818]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39725011"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19210496"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100499635/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heimbert_Paul_Friedrich_Hinze"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Heimbert_Paul_Friedrich_Hinze"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100499635"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100499635"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hinze, H.P.F.",
+        "Hinze, Heimbert Paul Friedrich",
+        "Hinze, ...",
+        "Hinze, Heimberth Paul Friedrich",
+        "Hintze, H.P.F.",
+        "Hintze, ...",
+        "Hintze, Heimbert Paul Friedrich",
+        "Hinze, Paul Friedrich Heimberg"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heimbert Paul Friedrich"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "H.P.F."
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "Heimberth Paul Friedrich"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "Paul Friedrich Heimberg"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        },
+        {
+          "forename": [
+            "Heimbert Paul Friedrich"
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "H.P.F."
+          ],
+          "surname": [
+            "Hintze"
+          ]
+        },
+        {
+          "forename": [
+            "Heimbert Paul Friedrich"
+          ],
+          "surname": [
+            "Hinze"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heimbert_Paul_Friedrich_Hinze",
+          "label": "https://de.wikipedia.org/wiki/Heimbert_Paul_Friedrich_Hinze"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:46:03Z",
+    "gnd_query_biographical_data": "?-1840",
+    "gnd_query_name": "hinze, heimbert paul friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1200,
+  "name": "Hinze, Heimbert Paul Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 896",
+  "updated": "2026-06-11 13:29:22.943Z",
+  "uri": "https://d-nb.info/gnd/100499635",
+  "editor": ""
+}

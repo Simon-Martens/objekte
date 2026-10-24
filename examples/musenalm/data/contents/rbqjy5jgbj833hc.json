@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: Hans Sachs I. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Dritte Lieferung (Sammlung INr 85571, Obj 5) Illustration zu »Hans Sachs« von Deinhardstein /) s. Textbezug INr 85573, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85572,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sachs - - sonst , so wahr / Die Hand ob Eurem Haupte schwebt, / Denkt ihr an mich, so lang Ihr lebt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Langer sc.",
+  "scans": [
+    "alm_1585_85572_p14dtj0uch.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sachs - - sonst , so wahr / Die Hand ob Eurem Haupte schwebt, / Denkt ihr an mich, so lang Ihr lebt",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.356Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "6vmtl9vxmlm0fsq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.356Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "ghzfcfnyrq12vh5"
+    }
+  ]
+}

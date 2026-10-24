@@ -1,0 +1,603 @@
+{
+  "annotation": "",
+  "biographical_data": "1746-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2044109-5",
+          "label": "Universität Erfurt (1392-1816)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Jurist, Literaturkritiker, Übersetzer; 1769 ao. Prof. jur. an der Univ. Erfurt; ab 1771 Prof. für Beredsamkeit und Poesie an der Univ. Gießen, auch Univ.-Bibliothekar"
+      ],
+      "dateOfBirth": [
+        "1746-11-24"
+      ],
+      "dateOfDeath": [
+        "1800-07-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Zeitgenössischer Stecher um 1780"
+          ],
+          "creditText": [
+            "Angebot Buchhandlung https://www.thalia.de/shop/home/artikeldetails/ueber_den_gegenwaertigen_zustand_des_deutschen_parnasses/christian_heinrich_s/ISBN&nbsp;3-86110-141-6/ID10977611.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Schmid%201a.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Schmid%201a.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Schmid%201a.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/117496065"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-14T09:08:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116697105/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Theodore Henriette Johanna Sophie"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christiane Friderike"
+          ],
+          "surname": [
+            "Wappendeusch"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/104047801",
+          "label": "Schmid, Karl Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1013913116",
+          "label": "Schmid, Ernst Rudolph Wilhelm"
+        },
+        {
+          "forename": [
+            "Sophie Christiane Susanne"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116697105",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/104047801",
+          "label": "Schmid, Karl Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1013913116",
+          "label": "Schmid, Ernst Rudolph Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116697105",
+      "oldAuthorityNumber": [
+        "(DE-588a)116697105",
+        "(DE-588a)117496065",
+        "(DE-588c)7681188-8",
+        "(DE-588)117496065"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4020989-1",
+          "label": "Gießen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4092450-6",
+          "label": "Eisleben"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4020989-1",
+          "label": "Gießen"
+        }
+      ],
+      "preferredName": "Schmid, Christian Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Heinrich"
+        ],
+        "surname": [
+          "Schmid"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048755-6",
+          "label": "Rechtsanwalt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167874-6",
+          "label": "Literaturkritiker"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1075023068",
+          "label": "Schweigerhausen, Siegmund von"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schweighausen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Chronologie des deutschen Theaters",
+        "Theaterchronik",
+        "Biographie der Dichter",
+        "Abriß der Gelehrsamkeit für encyklopädische Vorlesungen",
+        "Anweisung der vornehmsten Bücher in allen Theilen der Dichtkunst",
+        "Simonides sev [seu] de theologia poetarvm [poetarum]",
+        "De lege Ateria Tarpeia",
+        "Theorie der Poesie"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n90714287"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39507440"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q108665"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116697105/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117496065"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Heinrich_Schmid"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_Heinrich_Schmid"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121290455"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116697105"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116697105.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116697105"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116697105"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116697105"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schmid, Chr. Heinrich",
+        "Schmid, Christian H.",
+        "Schmidius, Christianus H.",
+        "S.",
+        "Schmidius, Christianus Henricus",
+        "Schmidt, Chr. Heinr.",
+        "Schmidt, Christian Heinrich",
+        "Schmid, Christianus H.",
+        "Schweighausen, Siegmund von",
+        "Schmidt, Christ. Heinr.",
+        "Schmid, Heinrich",
+        "Schmidius, Christian Heinrich",
+        "Schmid, Christianus Henricus",
+        "Smith, Chr. H.",
+        "Smith, Christian Heinrich",
+        "Schmid, Christoph Heinrich",
+        "Schmidt, Christian H.",
+        "Schmid, Heinrich Christian",
+        "Schmidt, Chstn. Heinr.",
+        "Schmidius, Christian H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Chr. Heinr."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Henricus"
+          ],
+          "surname": [
+            "Schmidius"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Heinrich"
+          ],
+          "surname": [
+            "Smith"
+          ]
+        },
+        {
+          "forename": [
+            "Chstn. Heinr."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Heinrich"
+          ],
+          "surname": [
+            "Schmidius"
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schweighausen"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Heinrich"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. H."
+          ],
+          "surname": [
+            "Smith"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Henricus"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christian H."
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Heinr."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus H."
+          ],
+          "surname": [
+            "Schmidius"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus H."
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christian H."
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Heinrich"
+          ],
+          "surname": [
+            "Schmidt"
+          ]
+        },
+        {
+          "personalName": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Heinrich"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        },
+        {
+          "forename": [
+            "Christian H."
+          ],
+          "surname": [
+            "Schmidius"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Christian"
+          ],
+          "surname": [
+            "Schmid"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Heinrich_Schmid",
+          "label": "https://de.wikipedia.org/wiki/Christian_Heinrich_Schmid"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:49:42Z",
+    "gnd_query_biographical_data": "1746-1800",
+    "gnd_query_name": "schmid, christian heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2481,
+  "name": "Schmid, Christian Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 737",
+  "updated": "2026-06-11 13:29:24.693Z",
+  "uri": "https://d-nb.info/gnd/116697105",
+  "editor": ""
+}

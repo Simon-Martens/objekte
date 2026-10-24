@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite /) paginiert II. kol. Illustration zu »Der Saufinder« von von der Borch INr 67243, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canis aprinus (Lin.) Der Saubeller",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1149_67242_mphw8r6dyx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canis aprinus (Lin.) Der Saubeller",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.973Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "0yd9bz30r6tr1tc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.973Z",
+      "agent": "93i1cvgb16cjfey",
+      "source_id": "spe7gar4gptpkpg"
+    }
+  ]
+}

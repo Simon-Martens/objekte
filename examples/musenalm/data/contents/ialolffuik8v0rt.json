@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 60960, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60961,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Kinninger del. Cl. Kohl sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Kinninger del. Cl. Kohl sc. Viennae",
+  "scans": [
+    "alm_950_60961_pyb3eanito.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.024Z",
+      "agent": "60p50kezhrh7h42",
+      "source_id": "dck06t5nwb4ukid"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.024Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "qw2np22qcuck1cy"
+    }
+  ]
+}

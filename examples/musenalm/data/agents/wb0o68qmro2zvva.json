@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1857",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.400Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1797"
+      ],
+      "dateOfDeath": [
+        "1857"
+      ],
+      "describedBy": {
+        "dateModified": "2024-06-23T08:46:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#6",
+          "label": "Katalogisierungslevel 6"
+        },
+        "id": "https://d-nb.info/gnd/1050549589/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "1050549589",
+      "id": "https://d-nb.info/gnd/1050549589",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4001783-7",
+          "label": "Amsterdam"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Lisse"
+      ],
+      "preferredName": "Krusemann, Cornelis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Cornelis"
+        ],
+        "surname": [
+          "Krusemann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/308208556"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050549589/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:00:57Z",
+    "gnd_query_biographical_data": "1797-1857",
+    "gnd_query_name": "krusemann, cornelis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1499,
+  "name": "Krusemann, Cornelis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXII, 20",
+  "updated": "2026-06-11 13:29:23.390Z",
+  "uri": "https://d-nb.info/gnd/1050549589",
+  "editor": ""
+}

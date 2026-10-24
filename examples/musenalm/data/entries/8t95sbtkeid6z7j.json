@@ -1,0 +1,90 @@
+{
+  "annotation": "einziger Jahrgang /) so nicht bei Goed IV/3. 384, 165 und bei »Die Drucke von Goethes Werken«, Berlin 1983 /) Umschlagtitel: Erheiterungs-Bíbliothek für alle Stände Wien, bei Rudolph Sammer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S 1 T, SS 3-64, 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pandora (Goethe) 1810",
+    "norm": "~ 2. Exemplar: im Titel: Geisterger'schen Buchhandlung",
+    "biblio": 407576,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-12-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3906,
+  "parallel_title": "",
+  "place_statement": "Wien u. Triest (Geistinger); Wien (Sammer)",
+  "places": [
+    "31n865keags4n1n",
+    "dp43n1va7to3kqu"
+  ],
+  "preferred_title": "Pandora (Goethe) 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 93; nicht bei L/R; Goed IV/3. 384, 165; G 8, G 149, G 271",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Pandora / von / Goethe. / Ein Taschenbuch / für das Jahr / 1810. / Wien und Triest, / in der Geistingerischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.320Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "omeh1ckr6k8e4x7"
+  ],
+  "contents": [
+    "3vh8k5kzy4y52lu",
+    "z3bxpsgi2qpmnzr",
+    "wv1o9sek55qab8l",
+    "cgidypi5zfgxnuq",
+    "hsns42a6a587q8q",
+    "a5eswi7hc6q4xqr",
+    "dv38098b50f3vph",
+    "13dw9zldzs5kbhh",
+    "as33936dpo2oxjx",
+    "a4emo8eibi1wa2u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.890Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.890Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "qiuourtai8sy7jz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.145Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.145Z",
+      "agent": "mkl6tya99rhi986",
+      "source_id": "ygfhh34vilbefg2"
+    }
+  ]
+}

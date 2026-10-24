@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Du, den nicht Gott, nicht Hölle / zittern machen, Thersit, du fürchtest mein Gedicht?",
+  "language": [],
+  "musenalm_id": 4957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Thersites",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Thersites",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.947Z",
+      "agent": "57y4of9yk0759mz",
+      "source_id": "jm8p94rirvcoa4p"
+    }
+  ]
+}

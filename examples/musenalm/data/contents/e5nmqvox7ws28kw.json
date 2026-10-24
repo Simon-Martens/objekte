@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Ist der Abend doch gekommen / Nach des Tages träger Zeit,",
+  "language": [],
+  "musenalm_id": 53221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Abend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Abend",
+  "updated": "2007-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.689Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "zqfdzpe540n9bny"
+    }
+  ]
+}

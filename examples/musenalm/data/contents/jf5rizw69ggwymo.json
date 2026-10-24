@@ -1,0 +1,47 @@
+{
+  "annotation": "kleine Graphik über dem ersten Gedicht des Almanachs »Gesang auf die Reise Joseph des Zweyten, Im May 1769« von Denis INr 38310, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. Meil)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil",
+  "scans": [
+    "alm_177_38309_a12kdd7u62.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.712Z",
+      "agent": "tofq8m4srkv5wfy",
+      "source_id": "xwrz0qxgzhxsq68"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 52592, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Juhe! Am Morge / So ohni Sorge / Stahn i-n-ech uuf,",
+  "language": [],
+  "musenalm_id": 52593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Früh Jauchzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Früh Jauchzen",
+  "updated": "2007-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.591Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "8oy51y6m6egu28k"
+    }
+  ]
+}

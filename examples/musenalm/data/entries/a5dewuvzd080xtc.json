@@ -1,0 +1,111 @@
+{
+  "annotation": "als Verfasser der Kommentare zu den Graphiken, Bezeichnung W..... in Köln,  ist F. F. Wallraf anzunehmen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, ar: SS 1-88 darin 6 GG; ar1: SS 1-46, 15 BB, ar2: SS 1-42, 7 BB darin 2 MusBB, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Kunst und Laune 1802",
+    "norm": "~",
+    "biblio": 100662,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-04-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 668,
+  "parallel_title": "",
+  "place_statement": "Köln (Haas und Sohn)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Taschenbuch für Kunst und Laune 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 130; L/R 191; Goed VIII. 56, 26",
+  "responsibility_statement": "C. G. Cramer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1802 / Köln / bei / Haas und Sohn",
+  "updated": "2026-06-11 10:18:55.071Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "c3uondqx4h7py6v"
+  ],
+  "contents": [
+    "vscc7pdnm8zwm8s",
+    "on4q5kw8t58zlmv",
+    "zxc720fbg448ev3",
+    "6rucwojb3taec9d",
+    "liqkf62hxaml7xv",
+    "p8229i09i526cb5",
+    "3w6102ht1hireyd",
+    "tneh9kpzfr18de0",
+    "qzwhz038bsdczjz",
+    "8zna9kk8k8mmwkv",
+    "3t1o1gdegkdtwy1",
+    "f5oh9x46gdx6h7z",
+    "mq4ywt5sxx6b0tz",
+    "h45ob9wrkhoy8t2",
+    "tkgxxdh5zhw4ouq",
+    "e95g9blsuqd8bki",
+    "h1n9xnp977ou5ej",
+    "dv8so3qvorvli6o",
+    "vg3s87tm4lz199t",
+    "iwgz0h099mvho99",
+    "iqx0lqkj768fvgq",
+    "clj82mox615luqw",
+    "q25ah1l8mmv45zl",
+    "gh50x7wkkyrx72a",
+    "5tc8r9ilxd9v7ck",
+    "xq75ejuiithwt24",
+    "0gi9g7ptrghha3k",
+    "wmgo02rs8dsejdb",
+    "syh71dr914z35uk",
+    "v10juis8swnfmsr",
+    "r8o13talzk79baw",
+    "ooecyi4emsrcadh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.949Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.949Z",
+      "agent": "9l06jnsi2qrqws4",
+      "source_id": "3engd8roea0uaqh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.736Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.736Z",
+      "agent": "amqten9820medl4",
+      "source_id": "7wc8qr6v5wire7b"
+    }
+  ]
+}

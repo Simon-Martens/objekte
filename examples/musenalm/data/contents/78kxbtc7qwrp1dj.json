@@ -1,0 +1,46 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43467, Obj 31) mit einer Illustration s. Graphik INr 43451, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Die schöne Zaroina, die Lieblingstochter des mächtigen Kalifen Harun al Raschid, saß einstmalen auf einer blühenden Terasse der Gärten von Bagdad,",
+  "language": [],
+  "musenalm_id": 43470,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Löwenjagd. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Löwenjagd. / Eine Erzählung",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.317Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "hc7fekhggas1lzi"
+    }
+  ]
+}

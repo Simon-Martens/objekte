@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Topographie (Sammlung INr 67151, Obj 25) mit zahlreichen Anmerkungen /) mit einer Illustration s..Graphik INr 67153, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Eine der größten und schon in der ältesten Vorzeit berühmtesten Hessischen Wälder ist der ehrwürdige Reinhardswald.",
+  "language": [],
+  "musenalm_id": 67152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Jagdschloß Sababurg in Kurhessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Jagdschloß Sababurg in Kurhessen",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.407Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "ngwyi77bwuswonm"
+    }
+  ]
+}

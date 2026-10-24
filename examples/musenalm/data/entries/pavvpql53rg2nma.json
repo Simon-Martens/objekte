@@ -1,0 +1,67 @@
+{
+  "annotation": "K gibt als Erscheinungsjahr 1804 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, S I T, SS III-V, SS VI-XIV, SS 15-204",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Ökonomisches für Frauenzimmer [oJ]",
+    "norm": "",
+    "biblio": 200016,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-05-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4421,
+  "parallel_title": "",
+  "place_statement": "Halberstadt (Groß)",
+  "places": [
+    "mdhj603ygs24e0m"
+  ],
+  "preferred_title": "Taschenbuch, Ökonomisches für Frauenzimmer [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 140; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Oekonomisches / Taschenbuch / für / Frauenzimmer / oder / Anweisung / zur / Selbstbereitung aller Arten von Con- / fekt und Backwerk, und zum Ein- / machen der Baum- und Gar- / tenfrüchte. / Halberstadt, / bei Johann Heinrich Groß",
+  "updated": "2026-06-11 10:18:55.377Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "lypb03yo1a9sion"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.935Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.935Z",
+      "agent": "mox4m4t861rnnce",
+      "source_id": "hvq1bgoqhy4l7wn"
+    }
+  ]
+}

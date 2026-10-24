@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 92194, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Ich habe Österreich ob und unter der Enns, gesehen, ich kenne Salzburg und Berchtesgaden, ich war in Kärnthen und in einem Theile von Ungarn,",
+  "language": [],
+  "musenalm_id": 92193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Weichselboden in Steyermark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Weichselboden in Steyermark",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.545Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "h1c45krfqfuogh8"
+    }
+  ]
+}

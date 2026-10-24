@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2. /) s. INr 18622, Obj 9 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18623,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noyaden in der Vendée",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_192_18623_jiqrilafa9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Noyaden in der Vendée",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.984Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "vk389nwi22f0qeb"
+    }
+  ]
+}

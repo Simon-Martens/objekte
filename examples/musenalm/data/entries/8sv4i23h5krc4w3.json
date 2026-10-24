@@ -1,0 +1,96 @@
+{
+  "annotation": "s.a. franz. Ausgabe: Almamac Historique et Généalogique 1800. alm-835",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, G, 21 SS Kal darin 11 GG, S VrlgM; ar: SS 143-308, 71 BB, B VrlgM, 14 BB, B VrlgM, ar1: SS 1-12 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1800",
+    "norm": "~",
+    "biblio": 408134,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-09-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4019,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Gemein-Jahr 1800. / Die Geschichte / der Bartholomäusnacht / oder / die Bluthochzeit zu Paris. / (Beschluß.) / Mit fünf Bildnissen und acht historischen / Gegenständen, von D. Chodowiecki. / Berlin, bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.873Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "drc1qs9byjtvkqw"
+  ],
+  "contents": [
+    "dkrjadb4u7zzgq7",
+    "4d5xkg9xsbqc7ey",
+    "jefyb8m1bcbtqtb",
+    "uduo1olgrhn50i4",
+    "di04yiu48diwv5p",
+    "osqvo1qnxhqxtqo",
+    "4tvlgeeqpfygiz5",
+    "e3r5x3kkfjn5sy6",
+    "f4rphqniejuzcin",
+    "mvxuihg46l3hf16",
+    "hhfzkt9rjhnar4u",
+    "8hwff4c7ishiobq",
+    "a72sfnswm3avqtr",
+    "87qntjup0rk27kj",
+    "w5qjropf17uuj4s",
+    "8vefgdm286plnsk",
+    "h4bmu10d5src09i",
+    "h4pqm2zep1cp816",
+    "y14w616fto4k5rd",
+    "vhd1phhoenujfus",
+    "zi76fwcz6gw6b1u",
+    "6hs4re0czg09iyp",
+    "q8tngpdfu3jmflq",
+    "w0q7jz0scoz2zsk",
+    "cxwawdl7avkeaiv",
+    "5m9vm9qog1b5v3r",
+    "1ukwfs0tgi6mw61",
+    "8a5ymssnn8xgfuv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "2n3koc4pcif0h3h"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1 /) s. Textbezug INr 29321, Obj 6 # s. L/R 73",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29322,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_379_29322_h8bgaqubvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.501Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "o3q1vxlwnhbczb5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.501Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "o9azdwz6gq71dac"
+    }
+  ]
+}

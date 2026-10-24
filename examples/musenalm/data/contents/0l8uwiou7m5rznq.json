@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Die Welle sinkt, die Welle steigt / In goldner Abendgluth",
+  "language": [],
+  "musenalm_id": 93556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Entfernung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In der Entfernung",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.037Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "b3g7anbslnvcu22"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zahme Xenien. Im Jahre 1848-1849. (Sammlung INr 116817, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "Wenn die Welt des Taumels müde ist, / Und überall rings Friede ist,",
+  "language": [],
+  "musenalm_id": 116822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn die Welt des Taumels müde ist, / Und überall rings Friede ist,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.428Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "mx8kvm7bi73lpxp"
+    }
+  ]
+}

@@ -1,0 +1,809 @@
+{
+  "annotation": "",
+  "biographical_data": "1769-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.377Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        }
+      ],
+      "dateOfBirth": [
+        "1769-09-14"
+      ],
+      "dateOfDeath": [
+        "1859-05-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph Karl Stieler"
+          ],
+          "creditText": [
+            "[1]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Stieler%2C%20Joseph%20Karl%20-%20Alexander%20von%20Humboldt%20-%201843.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Stieler%2C%20Joseph%20Karl%20-%20Alexander%20von%20Humboldt%20-%201843.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Stieler%2C%20Joseph%20Karl%20-%20Alexander%20von%20Humboldt%20-%201843.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188315659",
+        "https://d-nb.info/gnd/1015113982"
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-28T14:10:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118554700/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10046941",
+          "label": "http://lod.gesis.org/thesoz/concept_10046941"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1164393936",
+          "label": "Durham, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119247267",
+          "label": "Humboldt, Marie-Elisabeth von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117062006",
+          "label": "Humboldt, Theodor von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136213960",
+          "label": "Humboldt, Alexander Georg von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116563265",
+          "label": "Hedemann, Adelheid von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116036141",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554727",
+          "label": "Humboldt, Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118554719",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11866462X",
+          "label": "Bülow, Gabriele von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118554700",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/116563265",
+          "label": "Hedemann, Adelheid von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11866462X",
+          "label": "Bülow, Gabriele von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116036141",
+          "label": "Humboldt, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117062006",
+          "label": "Humboldt, Theodor von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/119247267",
+          "label": "Humboldt, Marie-Elisabeth von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136213960",
+          "label": "Humboldt, Alexander Georg von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118554727",
+          "label": "Humboldt, Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118554700",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/121166171",
+          "label": "Humboldt, Familie : 18.-19. Jh."
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)160006724",
+        "(DE-588a)188315659",
+        "(DE-588a)127243283",
+        "(DE-588c)4026154-2",
+        "(DE-588a)118554700",
+        "(DE-588a)160387175",
+        "(DE-588a)127243275",
+        "(DE-588)188315659",
+        "(DE-588a)127243267",
+        "(DE-588)1015113982",
+        "(DE-588a)127243259",
+        "(DE-588a)1015113982"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Humboldt, Alexander von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alexander"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Humboldt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4017917-5",
+          "label": "Forschungsreisender"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156443-1",
+          "label": "Gelehrter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156312-8",
+          "label": "Geheimer Rat"
+        }
+      ],
+      "publication": [
+        "Humboldt, Alexander von: Ansichten der Natur",
+        "Humboldt, Alexander von: Fragmens de Geologie et de Climatologie Asiatiques",
+        "Humboldt, Alexander von: Analyse raisonnée de la carte de l'île de Cuba",
+        "Humboldt, Alexander von: Examen critique de l'hist. de la geogr. du nouveau continent. - 1836 - 1839",
+        "Humboldt, Alexander von: Essai Géognostique sur le Gisement des Roches dans les deux H*",
+        "Humboldt, Alexander von: Aphorismen aus der chemischen Physiologie der Pflanzen",
+        "Humboldt, Alexander von: Pittoreske Ansichten der Cordilleren und Monumente americanisc*",
+        "Humboldt, Alexander von: Amtlicher Bericht über die Versammlung deutscher Naturforscher*",
+        "Humboldt, Alexander von: Discours prononcé à la Séance extraordinaire de l'Académie*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80051862"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95193235"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6694"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015113982"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118554700/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188315659"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118554700"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Alexander_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Alexander_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Alexander_von_Humboldt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alexander_von_Humboldt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441671"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118554700"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118554700"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118554700.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118554700.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118554700"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/35685BE687754A65A1A05A0EAC7A5C19"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118554700"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Humboldt, Friedrich Heinrich Alexander von",
+        "Humboldt, Alejandro von",
+        "Humboldt, Alexander v.",
+        "Humboldt, Alessandro di",
+        "Humboldt, Alexander de",
+        "Humboldt, Aleksander von",
+        "Humboldt, Alexandre de",
+        "Funboruto, Arekusandā fon",
+        "Гумбольдт, Александр фон",
+        "Humboldt, Alexander von",
+        "Humboldt, Alexandre von",
+        "Humboldt, Alejandro de",
+        "Humboldt, Friedrich Wilhelm Heinrich Alexander von",
+        "Humboldt, Friedrich W. von",
+        "Humboldt, Friedrich A. von",
+        "Humboldt, F. A. von",
+        "Humboldtas, Aleksandras",
+        "Humboldt, Fridericus Alexandrus ab",
+        "Humboldt, Alexandrus de",
+        "Humboldt, A. v.",
+        "Humboldt, Alejandro",
+        "Humboldt, Friedrich Alexander von",
+        "Humboldt, Friedrich Heinrich von",
+        "Humboldt, Alexander",
+        "Gumbolʹdt, Aleksandr",
+        "Humboldt, Fréderic-Alexandre de",
+        "Humboldt, Friedrich H. von",
+        "Gumbolʹdt, Aleksandr fon"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Gumbolʹdt"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "Gumbolʹdt"
+          ]
+        },
+        {
+          "forename": [
+            "Alessandro"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Heinrich Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Fréderic-Alexandre"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Arekusandā"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Funboruto"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandras"
+          ],
+          "surname": [
+            "Humboldtas"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Heinrich Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandrus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Александр"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Гумбольдт"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus Alexandrus"
+          ],
+          "prefix": [
+            "ab"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander von"
+          ],
+          "surname": [
+            "Humboldt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Alexander_von_Humboldt",
+          "label": "https://de.wikipedia.org/wiki/Alexander_von_Humboldt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:49:15Z",
+    "gnd_query_biographical_data": "1769-1859",
+    "gnd_query_name": "humboldt, alexander von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1264,
+  "name": "Humboldt, Alexander von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 258",
+  "updated": "2026-06-11 13:29:23.015Z",
+  "uri": "https://d-nb.info/gnd/118554700",
+  "editor": ""
+}

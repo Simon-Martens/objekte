@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Das lange lag vergessen / In meiner Harfe Bauch, / Verglühe, Wachs, indessen / Verglüht mein Leben auch.",
+  "language": [],
+  "musenalm_id": 45508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 217,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nornengast",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nornengast",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.867Z",
+      "agent": "dgebk50hujqbvc5",
+      "source_id": "aamwufq0pwhajaq"
+    }
+  ]
+}

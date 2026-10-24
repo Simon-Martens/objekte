@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Umschlaggraphiken INr 67770, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Musenalmanach aus Rheinland und Westphalen, so nennt sich das freundliche Büchlein und wil gleich jedem, der es zu Gesichte bekommt, eine große und würdige Darstellung geben,",
+  "language": [],
+  "musenalm_id": 67774,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung des Umschlags",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung des Umschlags",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.111Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "n8abwjqn56p366b"
+    }
+  ]
+}

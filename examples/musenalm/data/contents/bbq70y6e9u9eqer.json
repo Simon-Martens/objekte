@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24715, Obj 293)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "383",
+  "incipit_statement": "Habt ihr vom Geist der neuen Zeit den Flügel- / schlag vernommen? / Schon ist die Wolkenveste weit von seinem Hauch ent- / glommen!",
+  "language": [],
+  "musenalm_id": 24716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 292,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geist der Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. A. Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geist der Zeit",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.050Z",
+      "agent": "7vx6qiqaoli0gyj",
+      "source_id": "2taemaybz8w1gic"
+    }
+  ]
+}

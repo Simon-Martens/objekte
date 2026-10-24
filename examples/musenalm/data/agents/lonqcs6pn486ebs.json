@@ -1,0 +1,247 @@
+{
+  "annotation": "",
+  "biographical_data": "1788-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.424Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftstellerin, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1788-11-04"
+      ],
+      "dateOfDeath": [
+        "1827-06-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-21T13:17:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117548022/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117548022",
+      "id": "https://d-nb.info/gnd/117548022",
+      "oldAuthorityNumber": [
+        "(DE-588a)117548022"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "May, Sophie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Sophie"
+        ],
+        "surname": [
+          "May"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4372438-3",
+          "label": "Übersetzerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037223-6",
+          "label": "Malerin"
+        }
+      ],
+      "publication": [
+        "Hogg, James: Die Wanderer im Hochlande",
+        "Mayer, Sophie F.: Gesammelte Erzählungen. - 1829 - 1831"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Sophie Friederike Elise"
+          ],
+          "surname": [
+            "Mayer"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77096390"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q95004197"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117548022/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109904178"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117548022"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117548022"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Mayer, Sophie Friederike",
+        "Mayer, Sophie Friederike Elise",
+        "Mayer, Sophie F.",
+        "Mayer, Sophie Friederike Elisabeth",
+        "Meyer, Sophie F.",
+        "Mayer, Sophie",
+        "May, Sophia"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Sophie"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Friederike Elise"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Sophia"
+          ],
+          "surname": [
+            "May"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Friederike Elisabeth"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie F."
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie F."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Friederike"
+          ],
+          "surname": [
+            "Mayer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:13:48Z",
+    "gnd_query_biographical_data": "1788-1827",
+    "gnd_query_name": "mayer, sophie friederike elisabeth"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1758,
+  "name": "Mayer, Sophie Friederike Elisabeth",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "E 224",
+  "updated": "2026-06-11 13:29:23.750Z",
+  "uri": "https://d-nb.info/gnd/117548022",
+  "editor": ""
+}

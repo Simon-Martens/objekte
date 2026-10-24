@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Wisst ihr, wie auch der Kleine was ist? Er / macht das Kleine / Recht,",
+  "language": [],
+  "musenalm_id": 37944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würde des Kleinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Würde des Kleinen",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.041Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "6bx93seoumne5b3"
+    }
+  ]
+}

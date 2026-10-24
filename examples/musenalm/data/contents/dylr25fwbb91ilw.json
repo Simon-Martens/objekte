@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Lies, wenn du kannst, des Buche Ende, / Dann bete mit zum Herrn,",
+  "language": [],
+  "musenalm_id": 6281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Durchlesung des Salzman- / nischen Erlösungsbuches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Durchlesung des Salzman- / nischen Erlösungsbuches",
+  "updated": "2000-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.257Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "t8bda633vy0co7e"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das zerbrochene Fenster« von Mathias Vehovar INr 89493, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das zerbrochen Fenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. W. del. L. B. sc.",
+  "scans": [
+    "alm_3352_89494_ipn377uyh6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das zerbrochen Fenster",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.262Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "4q24h3lqzstm10h"
+    }
+  ]
+}

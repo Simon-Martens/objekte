@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63447, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63455,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kirchebau in Aachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Opitz Gest. v. Fleischmann",
+  "scans": [
+    "alm_1041_63455_o5f4igios7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kirchebau in Aachen",
+  "updated": "2009-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "ewvzrgutpcwmipi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "y6je4swru9dlthe"
+    }
+  ]
+}

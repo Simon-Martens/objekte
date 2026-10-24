@@ -1,0 +1,558 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1863",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.516Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Abenteurer"
+      ],
+      "dateOfBirth": [
+        "1800"
+      ],
+      "dateOfDeath": [
+        "1863-10-22"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T15:19:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118769553/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118769553",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118769553",
+      "oldAuthorityNumber": [
+        "(DE-588a)118769553",
+        "(DE-588c)4108450-0"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4085080-8",
+          "label": "Altona"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Meran"
+      ],
+      "preferredName": "Wit von Dörring, Ferdinand Johannes",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ferdinand Johannes"
+        ],
+        "surname": [
+          "Wit von Dörring"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller"
+      ],
+      "publication": [
+        "Wit von Dörring, Ferdinand J.: Les sociétés secrètes de France et d'Italie ..",
+        "Wit von Dörring, Ferdinand J.: Versuch, die Mißverständnisse zu heben ..",
+        "Wit von Dörring, Ferdinand J.: Mein Jugendleben und meine Reisen",
+        "Wit von Dörring, Ferdinand J.: Fragmente aus meinem Leben und meiner Zeit. - 1827 - 1833",
+        "Wit von Dörring, Ferdinand J.: Über das Wesen und Unwesen des deutschen Theaters",
+        "Wit von Dörring, Ferdinand J.:  Mittheilungen aus den Memoiren des Satan",
+        "Wit von Dörring, Ferdinand J.: Lucubrationen eines Staatsgefangenen",
+        "Wit von Dörring, Ferdinand J.: Der Teufel in München und der gefallene Engel"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059534"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/72189948"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q46727398"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118769553/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ferdinand_Johannes_Wit_von_D%C3%B6rring"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ferdinand_Johannes_Wit_von_D%C3%B6rring"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083446040"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118769553"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118769553"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118769553.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118769553"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Witt von Dörring, Ferdinand J.",
+        "Witt von Dörring, Ferdinand Johann",
+        "Wit, Ferdinand Johannes",
+        "Döring, Johannes Wit von",
+        "Witt von Dörring, Johannes",
+        "Wit von Dörring, Johann Ferdinand",
+        "Witt von Döring, Johannes",
+        "Witt, Jean",
+        "Wit von Döring, Johannes",
+        "Döring, Johann Ferdinand von",
+        "Döring, Johannes von",
+        "Witt von Doerring, Ferdinand Johann",
+        "Doering, Johann Ferdinand Wit von",
+        "Dörring, Ferdinand Johannes von",
+        "Dörring, Johannes Witt von",
+        "Doerring, Johannes Wit von",
+        "Doerring, Johann Ferdinand Wit von",
+        "Dörring, Johann Ferdinand Wit von",
+        "Wit von Dörring, Ferdinand Joh.",
+        "Döring, Johannes Witt von",
+        "Dörring, Johannes von",
+        "Wit, Ferd. Joh.",
+        "Wit von Doerring, Johann Ferdinand",
+        "Witt von Doerring, Johannes",
+        "Dörring, Ferdinand Johannes Wit von",
+        "Wit von Doering, Johann Ferdinand",
+        "Wit, Johannes",
+        "Wit, Johann Ferdinand",
+        "Dörring, Ferdinand J. von",
+        "Wit von Doerring, Johannes"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes Witt"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Joh."
+          ],
+          "surname": [
+            "Wit von Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Johannes"
+          ],
+          "surname": [
+            "Wit"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "surname": [
+            "Wit"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "surname": [
+            "Wit von Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Johann"
+          ],
+          "surname": [
+            "Witt von Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Witt"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Witt von Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand J."
+          ],
+          "surname": [
+            "Witt von Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Wit von Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Doering"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Witt von Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Döring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Johannes Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "surname": [
+            "Wit von Doering"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Johannes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferd. Joh."
+          ],
+          "surname": [
+            "Wit"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Wit"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand Johann"
+          ],
+          "surname": [
+            "Witt von Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Wit"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "surname": [
+            "Wit von Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Wit von Doerring"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Witt von Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand J. von"
+          ],
+          "surname": [
+            "Dörring"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Witt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ferdinand_Johannes_Wit_von_D%C3%B6rring",
+          "label": "https://de.wikipedia.org/wiki/Ferdinand_Johannes_Wit_von_D%C3%B6rring"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:23:33Z",
+    "gnd_query_biographical_data": "1800-1863",
+    "gnd_query_name": "wit, ferdinand johannes"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3164,
+  "name": "Wit, Ferdinand Johannes",
+  "profession": "Text",
+  "pseudonyms": "von Dörring; Ferdinand Johannes [Wit] von Dörring",
+  "refs": "Goed VIII, 139; E 387",
+  "updated": "2026-06-11 13:29:25.800Z",
+  "uri": "https://d-nb.info/gnd/118769553",
+  "editor": ""
+}

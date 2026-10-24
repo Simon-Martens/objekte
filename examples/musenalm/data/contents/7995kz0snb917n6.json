@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VIII. (Sammlung INr 77068, Obj 4) Illustration zu »Deutsche Treue« von Fr. Schiller INr 77222, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77223,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsche Treue von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Ramberg Gestochen von Martin Esslinger",
+  "scans": [
+    "alm_2400_77223_3vrdnk0ldd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deutsche Treue von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.690Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9l57cp9tui9fwgo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.690Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "j6xonhgxtdkunwc"
+    }
+  ]
+}

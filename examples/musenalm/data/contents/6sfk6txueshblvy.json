@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Die ganze Nacht hab' ich kein Auge zu- / gethan,",
+  "language": [],
+  "musenalm_id": 18012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mittel wider die Agrypnie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mittel wider die Agrypnie",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.933Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "wnxg5seqt9ak381"
+    }
+  ]
+}

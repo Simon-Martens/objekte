@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Daß meinem Saitenspiel der Wehmuth / Ton gelang, Daß ich in Eure schönen Herzen",
+  "language": [],
+  "musenalm_id": 3492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ebendieselben / nach Uebersendung des obigen Gedichtes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ebendieselben / nach Uebersendung des obigen Gedichtes",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.065Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "cpfaec2nq2rjrdp"
+    }
+  ]
+}

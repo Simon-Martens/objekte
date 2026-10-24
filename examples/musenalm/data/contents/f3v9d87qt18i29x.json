@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Gestalten, Bilder, Blätter, Blumen, Kränze, / Gedanken, Zeichen, Lieder, viel verschlungen",
+  "language": [],
+  "musenalm_id": 27625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sestine / ins Stammbuch einer jungen Dame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Graf Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sestine / ins Stammbuch einer jungen Dame",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.378Z",
+      "agent": "7s14awjauhcdi1w",
+      "source_id": "9nxsv4ph8cmnxir"
+    }
+  ]
+}

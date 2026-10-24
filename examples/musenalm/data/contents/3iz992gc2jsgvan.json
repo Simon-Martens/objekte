@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. # Bezeichnung aus: Taschenbuch, Rheinisches 1823 G-Verz INr 43580",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43656,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff gez. Bock u. Vogel gest.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff gez. Bock u. Vogel gest.",
+  "scans": [
+    "alm_581_43656_txf7wd3ip3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.960Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "g8y8zw2y6cymdb3"
+    }
+  ]
+}

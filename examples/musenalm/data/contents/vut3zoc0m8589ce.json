@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Getrost heran, Madam, an ihres Kranken Bette! / Nur ohne Furcht vor seinem Wutgesicht",
+  "language": [],
+  "musenalm_id": 13106,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Arzt bei Elwins Krankenbette an / dessen Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Arzt bei Elwins Krankenbette an / dessen Frau",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.276Z",
+      "agent": "3euwjw9rlb5537y",
+      "source_id": "v3w3kuenddmpyxt"
+    }
+  ]
+}

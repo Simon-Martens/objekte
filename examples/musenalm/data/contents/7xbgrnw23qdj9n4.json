@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 76708, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Sie verzärteln das Mädchen. Die Kleine wird hübsch, und sie könnte in der That auch recht liebenswürdig werden,",
+  "language": [],
+  "musenalm_id": 76718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / beste Wahl. / Eine Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser der Heliodora",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / beste Wahl. / Eine Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.716Z",
+      "agent": "082sspsj3rz0i1b",
+      "source_id": "8eaa1y0f1fndoxo"
+    }
+  ]
+}

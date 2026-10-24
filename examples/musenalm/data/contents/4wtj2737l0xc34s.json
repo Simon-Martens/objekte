@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Es lebten zwei Ritter bey Wiebel und Wann, / Im heiligen Römischen Reich",
+  "language": [],
+  "musenalm_id": 88672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Dann, und Ritter Gleich. / Eien ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Dann, und Ritter Gleich. / Eien ballade",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.007Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "ker3r9c65c9absv"
+    }
+  ]
+}

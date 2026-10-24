@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ihr liebt, Sir Anthony – das find’ ich gut: / Ein Mann, der liebt, ist wie ein Märtyrer –",
+  "language": [],
+  "musenalm_id": 128204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mulier taceat in ecclesia, oder: / Die kluge Königin. / Eine Tragikomödie in drei Aufzügen, / von / E. Raupach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mulier taceat in ecclesia, oder: / Die kluge Königin. / Eine Tragikomödie in drei Aufzügen, / von / E. Raupach",
+  "updated": "2016-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.980Z",
+      "agent": "uxyu52yd3v030gq",
+      "source_id": "plofptn1dxbtqsg"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die weiße Rose« von C. W. Contessa INr 20355, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20340,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die weise Rose v. Contessa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. F. Fleischmann sc.",
+  "scans": [
+    "alm_272_20340_cw0j6i6hpt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die weise Rose v. Contessa",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.677Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "2jokfdla3q1ymgt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.677Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "n8m0wwvtvkd4qyl"
+    }
+  ]
+}

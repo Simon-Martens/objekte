@@ -1,0 +1,45 @@
+{
+  "annotation": "Jahres- und Tageszeiten (Sammlung INr 49008, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Zeig, Chind! Wie het sel Spätzli gseit? / wisch's nümme recht? Was luegsch mi a?",
+  "language": [],
+  "musenalm_id": 49016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sperling am Fenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sperling am Fenster",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.729Z",
+      "agent": "u04oy46tu9dlk6x",
+      "source_id": "rz3atatlkldj023"
+    }
+  ]
+}

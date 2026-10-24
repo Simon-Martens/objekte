@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Griselda oder Frauentreue« von Petrarcha in der Übersetzung von A. Wendt INr 76793, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76783,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griselda oder Frauentreue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. W. Jury sculp.",
+  "scans": [
+    "alm_2387_76783_fftulgu1ei.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Griselda oder Frauentreue",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.829Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "6eoqzwpua9lx8av"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.829Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "g5s52igks9m4nnj"
+    }
+  ]
+}

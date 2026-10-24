@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegieen (Sammlung INr 92813, Obj 80) Strophen, Distichen und Elegieen (Sammlung INr 92786, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Sind Jahrhunderte hier spurlos an den Felsen gescheitert? / Waren die Schlachten für uns, waren die Opfer umsonst?",
+  "language": [],
+  "musenalm_id": 92816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. In den Alpen 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. In den Alpen 1846",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.520Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "fvk8elvbvgk7uvt"
+    }
+  ]
+}

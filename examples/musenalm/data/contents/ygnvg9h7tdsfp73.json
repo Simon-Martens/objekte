@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die großen Kinder« von Müllner (INr 125507, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg de. Meyer sc. Berlin 1810)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg de. Meyer sc. Berlin 1810",
+  "scans": [
+    "alm_1337_125508_elsk6my3x1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.831Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "gn3r2osj03wbfoj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.831Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "u8e4h5y8h282yg4"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 4 GG, 15 BB Kal darin 12 GG, SS I-XVI G-Verz, S 1 T, SS 3-222, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1794",
+    "norm": "~",
+    "biblio": 106620,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2172,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg); Frankfurt (Jaeger)",
+  "places": [
+    "inpa0koig1pzpcp",
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl / Grosbritanischer / Historischer / Genealogischer / CALENDER / für / 1794. / mit Kupfern v. Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg in Lauenburg / und der / Jaegerischen Buchhandl. / in Frankfurt / a/m",
+  "updated": "2026-06-11 10:18:55.892Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "9jiy1jds08i1fey"
+  ],
+  "contents": [
+    "glklhs8vwy4x8g2",
+    "lpg8vvxlczixlbi",
+    "z9gg0crdc7d3moo",
+    "2ygmghujsma93y0",
+    "h81wamyohiw83ap",
+    "6wbkiln3ehia6if",
+    "209edikc4tk8hso",
+    "fz69ceh1d83ta7l",
+    "bbmnlavngqx945h",
+    "scu0dpuoj2xl9zl",
+    "kit95z5oa1i5so8",
+    "ou3faa681dnw3b9",
+    "okmex8jbfsczhkf",
+    "3r2k86iab2wlxin",
+    "rguwc9oobo9lubx",
+    "c4qjn4rl0rxqbur",
+    "udmzz7vl45v4azo",
+    "gxmfch17l683fne",
+    "825uyf15lf17zq3",
+    "htewwaufubfjwe5",
+    "nhasapad3lk2vkl",
+    "p4d2aqz5hk41tf3",
+    "f07yjrob49h6r1x",
+    "jt3hf9y889ela0t",
+    "4ur4kg9jolkn31x",
+    "kfyepajcsumqz5u",
+    "i35mnjgchsxpjdr",
+    "5zrmjc4utor74bm",
+    "zln0j59lv8jh5wg",
+    "vnq8c6uuysu5a43",
+    "8hpbmbll4zbkpca",
+    "gzk4rvitt07w0wc",
+    "psu9c96504k64j7",
+    "v5f10ofuhoyurp3",
+    "m7h1u15rx6laspy",
+    "dxwd32fvg3gmchg",
+    "xkyc4imgn09e79d",
+    "e4vsozhipltmxr9",
+    "yse9lhx6d2ckn0s",
+    "4zw0cuu6sjtxdxp",
+    "0zbj66cir716irx",
+    "k4hvc9u68rcsa13",
+    "dckiocl5j9ade8n",
+    "mtwe2v5k8lnk6i9",
+    "zocrjzfz1d4v46o",
+    "k0j1cqmsxi7wp95",
+    "vuewd7msf1su5o1",
+    "s9g6hlg814bdcjo",
+    "cb8i91tc05mr44q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "0quh0nf2cmv45tp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.533Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.533Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "grk2twxyt1wa0ik"
+    }
+  ]
+}

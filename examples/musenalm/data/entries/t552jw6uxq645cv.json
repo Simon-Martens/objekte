@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso S, VB, verso G, T, 6 GG, S, 16 SS Kal darin 6 GG, 7 SS Tab, 1 nT, SS 3-119, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1825",
+    "norm": "~",
+    "biblio": 404509,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 989,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "Dr. Franz Rittler",
+  "subtitle_statement": "",
+  "title_statement": "DER / FREUND / DES / schönen Geschlechtes / Taschenbuch / für das Jahr / 1825. / Verfasst / von / DR. FRANZ RITTLER. / WIEN. / bey Jos. Riedl's bürgerl. Buchbinder im Schottenhof, / sel. Wittwe",
+  "updated": "2026-06-11 10:18:54.674Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "eg1pei5nvf1rdsw"
+  ],
+  "contents": [
+    "nxd1u7t7a7mxt1d",
+    "51olw7nzr8rlfdr",
+    "tzeegzk1a6shuo6",
+    "rq60cde1a79ja9l",
+    "7yk2vvqs6a8dykr",
+    "q6a08c4ghjes4bm",
+    "5pp9lzqtj766ou6",
+    "x29hvil9598v76w",
+    "8g8wayuq2zdvs55",
+    "llbkhac4a806u8e",
+    "qhqjf0y9v9j4q23",
+    "1sgh0ogrls1riia",
+    "555yb1b07n6u16j",
+    "o74t32322xyroco",
+    "o9il0zp69yj6dq7",
+    "ruyzrkpppzsityu",
+    "0l31hz0erw0e90g",
+    "a4bkh52rxz2gppp",
+    "f4o8wfgqbh63qoq",
+    "aqtvaecv6vof2l3",
+    "r9w06ysn439yi6m",
+    "f6jcstnbm35a3f7",
+    "nxzdkhmwm7hqskf",
+    "z1nmdr8vc2v0z83",
+    "gioyhe3rdo9ewcg",
+    "2nrlr3x97cpm104",
+    "g3oj6gfai7onfh6",
+    "oh1m73zmwaz2okx",
+    "2cu63ekys2csn4f",
+    "fjot9fyyirw4x28",
+    "yg9damdpgoipjrh",
+    "56pih4kozqceqq0",
+    "02m7dx5evj4dn8o",
+    "dit1gj5l9xtetfj",
+    "eungig1njamx8g3",
+    "4uh7tmy8nmqtmq3",
+    "1zldomyy0i54gxz",
+    "00v8zv6y53ky2f4",
+    "dikqtt9pd7wagx6",
+    "u9ciprfoy5jvlll",
+    "354pk4pv1t4815z",
+    "gr36fv3uqc2v0sx",
+    "8cag9anu8cymblu",
+    "v79ccxawhrfwai8",
+    "s5zu4qlafz6q0pp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.786Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.786Z",
+      "agent": "9ln1r7p8kwjoxp7",
+      "source_id": "3cbd3rm2x5zji8c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "ddlvrqei5ebt006"
+    }
+  ]
+}

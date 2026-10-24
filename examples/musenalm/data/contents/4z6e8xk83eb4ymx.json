@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zum Gedicht »Wilhelm von Dorenburg und Adelgunde von Blankenstein« von K. W. Justi INr 4474, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm von Dorenburg und / Adelgunde von Blankenstein.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buchhorn",
+  "scans": [
+    "alm_95_4475_m7ochfsbck.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm von Dorenburg und / Adelgunde von Blankenstein.",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.860Z",
+      "agent": "z3xj5kkwhch6rva",
+      "source_id": "43ftn1zjkvl5tnz"
+    }
+  ]
+}

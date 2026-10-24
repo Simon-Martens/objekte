@@ -1,0 +1,47 @@
+{
+  "annotation": "Medaille recto-verso",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEXANDER I. RUSS. IMP. FRID.-WILH. III BOR. REX. // HOSPITIBUS AUGUSTIS. / MEMEL. / MDCCCII",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ABRAMSON",
+  "scans": [
+    "alm_944_60483_2nah2ej0ob.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEXANDER I. RUSS. IMP. FRID.-WILH. III BOR. REX. // HOSPITIBUS AUGUSTIS. / MEMEL. / MDCCCII",
+  "updated": "2008-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.706Z",
+      "agent": "hra19poa8ht1me0",
+      "source_id": "0g83uebsas4pq43"
+    }
+  ]
+}

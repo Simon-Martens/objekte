@@ -1,0 +1,119 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S W, B W, B Vrwrt d Hrsg, B I-Verz, SS 1-318 darin 9 GG 2 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1790",
+    "norm": "~ +++ 407562 (6 Graphiken)",
+    "biblio": 100235,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-12-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 635,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1790",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer / zum / Nutzen und Vergnügen, / aufs Jahr 1790. / Mit Kupfern. / Leipzig, / bey Adam Friedrich Böhme",
+  "updated": "2026-06-11 10:18:54.649Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "srap4ann7d1hpk0",
+    "zqg4ztalbuanvc0"
+  ],
+  "contents": [
+    "6f1nlp6j2dok928",
+    "38pybschk486m5t",
+    "9z721hj26spzrwq",
+    "bsielbbkscoa8xg",
+    "z7f2w6vky79k00u",
+    "l3vwmrajncug21j",
+    "b19hdr7plrgcub3",
+    "svm0jwcfhmeyohr",
+    "p6ebd0g17l15j57",
+    "161pjqzllsiqaak",
+    "mwvhvf2hsxbfddo",
+    "lmpzqayb8boqdmn",
+    "0dfz98jyowlmv3l",
+    "k84bv5udp4l7qe6",
+    "k83rq3vzgn55y17",
+    "5j244uyh98efxj2",
+    "j0pcmw703r7t6be",
+    "50y2cqiw4gpsr79",
+    "84xhq0z0vu9vh0p",
+    "mckrm5gmnlyhbk7",
+    "l0ix72uxsshj6w3",
+    "joxvptknxqei3km",
+    "0dv66um14u6rnu1",
+    "9zw47y3de0s8zj0",
+    "rdmsr26ee12vqej",
+    "lvf9cr73313d6zj",
+    "eymwqetaov5xhnz",
+    "gtunqyjld6uvco2",
+    "mkae6ok4u096yu2",
+    "nbizvk2z6k70t8u",
+    "xooun7b465i8cfw",
+    "dxkm9n13yeb1mye",
+    "0e03zalkpwxaxun",
+    "fsgbubcstrfq1m5",
+    "zc3fzmqpj3ti70c",
+    "ih10ej4s1bgqhh7",
+    "2u4iku3fe6ihavk",
+    "yvd9b3i67jl1gto",
+    "5n9b6plcrqygu76"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.724Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.724Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "i8rkj7njyc3mxwp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.557Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.557Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "x991kddp88x4z9e"
+    }
+  ]
+}

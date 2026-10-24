@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 24185, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Setz' zu dem Ersten le, dann stell's in deine Küche; / Doch zu dem Zweiten ne, so ists ein seltnes Glück.",
+  "language": [],
+  "musenalm_id": 24197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 180,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / An eine Schülerin Zelters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / An eine Schülerin Zelters",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.197Z",
+      "agent": "272r3k0zcaqt41m",
+      "source_id": "r8xtxr6tsfx8x1l"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "484",
+  "incipit_statement": "Wenn ich unter meinen Brüdern töne, / Bin ich gern geseh'n in Reih' und Glied,",
+  "language": [],
+  "musenalm_id": 40528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.093Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "190d0e10t8nsvgv"
+    }
+  ]
+}

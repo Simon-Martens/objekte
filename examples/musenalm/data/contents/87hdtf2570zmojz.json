@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7440,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1793. / bey Joh. Christian Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Riepenhausen sc.",
+  "scans": [
+    "alm_151_7440_60abk2axzs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GOETTINGER / Taschen / CALENDER / für das Jahr / 1793. / bey Joh. Christian Dieterich",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.411Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "fpkcs0zg3me255v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.411Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "zsx5klgqp8tvkky"
+    }
+  ]
+}

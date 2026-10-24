@@ -1,0 +1,46 @@
+{
+  "annotation": "Mit einer Illustration s. Graphik INr 46812, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Viele Eltern werden mich als einen glücklichen Vater gepriesen haben, und ich war es auch;",
+  "language": [],
+  "musenalm_id": 46811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "szen. Darstellung"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amalie Trunemann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amalie Trunemann",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.514Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "9ahrie8e8qkn8w5"
+    }
+  ]
+}

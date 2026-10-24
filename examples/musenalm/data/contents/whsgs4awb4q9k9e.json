@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129041,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trachten Göttinger Studenten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen del  & sculps",
+  "scans": [
+    "alm_157_129041_wneh0p2oav.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trachten Göttinger Studenten",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.000Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "uvk6pqeiqmyfkwp"
+    }
+  ]
+}

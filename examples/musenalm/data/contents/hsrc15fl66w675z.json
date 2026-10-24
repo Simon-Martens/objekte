@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Süßes Fränzchen oder Jettchen, / Weß Geschlechts du immer bist,",
+  "language": [],
+  "musenalm_id": 10287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Wiegenlied. / Für einen Freund bei seiner Verbindung / im December. / Mel. Selbst die glücklichste der Ehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Wiegenlied. / Für einen Freund bei seiner Verbindung / im December. / Mel. Selbst die glücklichste der Ehen",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.404Z",
+      "agent": "b4ycj3ue3as52r2",
+      "source_id": "wmknyq9pk73vapa"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Schlaf, Kindlein, schlaf / Der Ritter und der Graf, / Der liegt im schönen Wiegelein,",
+  "language": [],
+  "musenalm_id": 2768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied / Für den neugebornen Gleim. / Ermsleben, den 2. Apr. 1719",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied / Für den neugebornen Gleim. / Ermsleben, den 2. Apr. 1719",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.920Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "vxzbhab8do1phpu"
+    }
+  ]
+}

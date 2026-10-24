@@ -1,0 +1,89 @@
+{
+  "annotation": "Titel: Historischer (!) Kalender. Die in der Reihe üblicherweise beigegebene »Genealogie der regierenden hohen Häupter und anderer fürstlichen Personen in Europa« fehlt hier",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, G, 11 BB Kal darin 10 GG, SS 1-264, 63 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1814",
+    "norm": "~",
+    "biblio": 404140,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 849,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Kalender / auf / das Jahr 1814. / Mit Kupfern. / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.877Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "bm2ya7vlm98oau0"
+  ],
+  "contents": [
+    "79rqt01fcipcgxg",
+    "8z1br9fbldcg1l0",
+    "6kpy7bzd1d7cu0h",
+    "d8oecrtla4ine47",
+    "p6dtueqy6zn053m",
+    "l3p2t1ag8ojhihl",
+    "405d0blo0ofvzg3",
+    "t52xkna2z3r6ftv",
+    "8vldxlh4jh8hiwl",
+    "8sxq8o1v9mgufeu",
+    "lmc67a1sfzh9k6p",
+    "y09j8bnh7x2tf3e",
+    "ly4ehi2q2ebz854",
+    "6moagzgyod4jjnd",
+    "ocr0i4i5595jkd9",
+    "vs2uqlbb97dwqax",
+    "4sdhky4dowu4rk6",
+    "e2tflbn0vyykqj1",
+    "gjr8d5v4ewc5027",
+    "tcborovej16ngbq",
+    "flol6r9pv5zeivz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "b078m4egfxam69i"
+    }
+  ]
+}

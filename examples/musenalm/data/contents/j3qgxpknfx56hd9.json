@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder und Parabeln (Sammlung INr 55145, Obj 155)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Ich nehm' mir alle Tage vor, / Ein kleines Stück zu wandern,",
+  "language": [],
+  "musenalm_id": 55149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 159,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Ein Gang um's Thor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rudolf Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Ein Gang um's Thor",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.827Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "qd1g1hapnv04s5s"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Die beiden Brüder, Glück und Unglück, lebten / immer / Unbrüderlich ;",
+  "language": [],
+  "musenalm_id": 6005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glück und Unglück. / (Nach dem Französischen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glück und Unglück. / (Nach dem Französischen)",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.219Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "5zmns52m86ka2mk"
+    }
+  ]
+}

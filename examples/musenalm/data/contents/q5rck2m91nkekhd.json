@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Die Jahr fliehen dahin, / Wie Pfeile, vom Bogen geschnellt,",
+  "language": [],
+  "musenalm_id": 63148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mahnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mahnung",
+  "updated": "2009-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.158Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "eachfmm9gcjw4sp"
+    }
+  ]
+}

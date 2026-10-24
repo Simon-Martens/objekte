@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) s. Textbezug INr 82216, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82211,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARINE BARRAKS at Stone House, Devonshire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Girlin del. Duttenhofer sc.",
+  "scans": [
+    "alm_1705_82211_l8gi2srnoc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARINE BARRAKS at Stone House, Devonshire",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.970Z",
+      "agent": "n6gy5dn9ed5g96z",
+      "source_id": "91gaxgedt80tb9l"
+    }
+  ]
+}

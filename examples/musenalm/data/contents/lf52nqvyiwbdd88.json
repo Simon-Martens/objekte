@@ -1,0 +1,43 @@
+{
+  "annotation": "s. graph. Titel INr 28050, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein Bild aus alten Tagen / Ist vor euch aufgethan: Im Schleier und im Kragen / Blickt Euch Roswitha an.",
+  "language": [],
+  "musenalm_id": 28051,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelblatt. / Roswitha und Frauenlob",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titelblatt. / Roswitha und Frauenlob",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.364Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "yrzqoiamzwk444a"
+    }
+  ]
+}

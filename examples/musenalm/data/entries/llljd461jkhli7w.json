@@ -1,0 +1,79 @@
+{
+  "annotation": "<div>ohne Graphiken</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, nT, SS 1-187, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1849",
+    "norm": "",
+    "biblio": 411155,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-10-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4797,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [],
+  "preferred_title": "Iduna 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / Taschenbuch für 1849. / Neun und zwanzigster Jahrgang. / Edlen Frauen und Mädchen gewidmet. / WIEN, / bei Franz Riedl's sel Wittwe &amp; Sohn",
+  "updated": "2026-08-11 08:57:23.898Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "k9wbed4p563ku6x"
+  ],
+  "contents": [
+    "sq0nmk94tshrqz2",
+    "pyzh9r0ydcigmpa",
+    "rrtds2nkgn0qmzp",
+    "36ilv917yj1hdus",
+    "w2g90496rvybv1v",
+    "mfyxxhftuj2goc4",
+    "kbjkuzz8nla3eft",
+    "rtnxonu479fake4",
+    "t42v54v8t5xrnwz",
+    "2c0dqs3zj7xblbu",
+    "1ad6we3oyz4r9tk",
+    "bx6leihamlbbum8",
+    "tpab83wxhp6jhdz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-08-11 08:57:23.899Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "widygg2ho0z33zy"
+    }
+  ]
+}

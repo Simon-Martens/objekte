@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, B I-Verz, 3 BB 3 GG, SS 1-186",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater-Taschenbuch, Wiener 1815",
+    "norm": "~",
+    "biblio": 407734,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1855,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater-Taschenbuch, Wiener 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 119",
+  "responsibility_statement": "I. F. Castelli",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Hof-Theater / TASCHENBUCH / auf das Jahr / 1815 / herausgegeben von / I. F. CASTELLI Zwölfter Jahrgang / Wien / bey J. B. Wallishauser",
+  "updated": "2026-06-11 10:18:55.670Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "czuvoj872z7phgn"
+  ],
+  "contents": [
+    "uv7g3sxoy7l3weg",
+    "57n7lu93rk11dje",
+    "fzdwtq5yw8e7afa",
+    "en52wcfht86xvhe",
+    "hmekm9t5i0pzy4w",
+    "vbsj9fv9su14ai7",
+    "yzgdnt2jeicbrag",
+    "txgcxkam0q42k3n",
+    "r9hfa7sx4fqhkgh",
+    "i5fpfl2k87zg81q",
+    "6njry6cy6avcf7q",
+    "p7d4qawmib4nrv2",
+    "qypxgb6k321pfq8",
+    "ekykkxqa0kg0ykg",
+    "8aixl8e7yh6bugi",
+    "w589xrmfkjit87v",
+    "9oru39wkaay304j",
+    "nrptvgakbiauo2a",
+    "w5o8v7horljwzan",
+    "bcq56hy0yz5gyd9",
+    "ho5szzk2nxkn6m9",
+    "3btrtw8y4shc74x",
+    "lfk9kc8ncgdjgfv",
+    "n4lb8nhlg336fry",
+    "09rlsxjoixgw2wj",
+    "o24y5f68s1uyr7y",
+    "1yy9rb5kdg4qbtx",
+    "709oy9o15yj2z8p",
+    "4ye9yw3b8s0bri9",
+    "boh82l6eiyldlzr",
+    "sao99t4w8vxnjkp",
+    "3cjyz9w2pv3zt71",
+    "qtiny6ox4m25kgr",
+    "tg0jvvji798dvy0",
+    "kitrouya9gqtweo",
+    "dw29r6vbqay9jrz",
+    "ekgox1nbycvoyic",
+    "l4kgmba86aw3y07",
+    "c05p1b3kfmrzv23"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.978Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.978Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "a4i9efvf2vftmj6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "nh09yj3iwto150p"
+    }
+  ]
+}

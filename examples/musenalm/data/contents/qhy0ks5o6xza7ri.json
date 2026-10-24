@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen (Worterklärungen)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Aenni, warum nimmst e Ma? / Warum wottisch Hochzyt ha?",
+  "language": [],
+  "musenalm_id": 53044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegen die Gespenster. / (Berner-Dialekt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegen die Gespenster. / (Berner-Dialekt.)",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.611Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "fijv6a4ozu9kytc"
+    }
+  ]
+}

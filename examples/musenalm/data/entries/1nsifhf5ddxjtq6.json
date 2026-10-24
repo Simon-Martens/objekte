@@ -1,0 +1,78 @@
+{
+  "annotation": "Neu /) KVK-GBV gibt Jgg 1786-1859 an /) Format 5,5 x 8,5",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1813",
+    "norm": "",
+    "biblio": 409451,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4453,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Wichers)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "F. P. Nuppnau,",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Jahr 1813. / Von / F. P. Nuppnau, / Lehrer an der Michaelis Schule / in Hamburg. / Nebst einem Anhang von lusti- / gen Erzählungen, Anek-do- / ten und Räthseln. / Hamburg, / gedruckt bei Andr. Pet. Wichers",
+  "updated": "2026-06-11 10:18:55.214Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "memshweu4uz5n9r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "uxnvvf4731zyvjw",
+      "source_id": "p2jmrtw17vtkhlg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.383Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.383Z",
+      "agent": "jmk7s1t2orsqisu",
+      "source_id": "sv7hthdmwpo531c"
+    }
+  ]
+}

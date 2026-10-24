@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Wenn sie einst nicht mehr wandeln wird hieneiden, / Was weit entfernen mag der Gott der Güte,",
+  "language": [],
+  "musenalm_id": 94378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Egon Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.389Z",
+      "agent": "8gvoxfhtianvore",
+      "source_id": "55k4nmcj3htb4op"
+    }
+  ]
+}

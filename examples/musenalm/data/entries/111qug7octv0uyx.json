@@ -1,0 +1,86 @@
+{
+  "annotation": "mit der französischen Übersetzung eines Prosastücks von August Lafontaine: Salier et Julie, ou le Triomphe de l'Amour et de la Reconnoissance. /) mit Graphiken von Mettenleiter",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Kal darin 6 GG, SS 1-192 Tab, ar1: SS 1-104, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanac de Saxe 1802",
+    "norm": "~",
+    "biblio": 106453,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-08-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3856,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Almanac de Saxe 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei L/R; K 8",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de / SAXE / Pour l'anée / 1802. / Avec figures en taille douce. / Gotha / en Commission chez / J. Perthes",
+  "updated": "2026-06-11 10:18:55.504Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "9svzlnd7bv5aimm"
+  ],
+  "contents": [
+    "jjb8ken6annexps",
+    "2otnv3trajth6e2",
+    "wwcge6mdbeqgnc6",
+    "svlbzqcujnmjx09",
+    "t12q7dpmwp9yoe1",
+    "ksgtetbz5bsife7",
+    "uhxn97nhgqv49x7",
+    "5d9uj9hhhldh97g",
+    "xaq9tkncehc8z58",
+    "n0gncr794joybhe",
+    "fu6roolhvyzivik",
+    "6lh6deux1vggsd8",
+    "t8kla5yo21fu8qm",
+    "mbv0ifm81q4t78g",
+    "bxw6qq0mly9e28z",
+    "ptv0omr1h17lx34",
+    "4ykqzq0escnu0zr",
+    "9kl6j8uouk1vu65"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.122Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.122Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "r889fjdyp92jqs3"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik mit Silhouette. Beigabe zum Gedicht INr 2996, Obj 103",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friederike Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen",
+  "scans": [
+    "alm_81_2997_1df0leli32.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friederike Dieterich",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.958Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "im98pxthpjna9ht"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 66895, Obj 49) Anm. d. Hrsgg am Objekt: Wir liefern hier jenes vortrefliche Gedicht, dessen Erscheinen der Herr Ritter von Wildungen in dem Jahrgang 1808 seoiines beliebten Taschenbuchs S. 147 ankündigte",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Wenn von des Himmels seegenreichen Strahlen / Der Auen Halme ringsum sind gereift,",
+  "language": [],
+  "musenalm_id": 66896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Feldhühner-Jagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von der Borch, Forstmeister zu Gunzenhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Feldhühner-Jagd",
+  "updated": "2009-09-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.265Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "1b7os7pbqdcqoim"
+    }
+  ]
+}

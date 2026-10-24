@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75687, Obj 34 /) s.Textbezug INr 75695, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oxenstiern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mierefeld pinx. Geyser sc.",
+  "scans": [
+    "alm_2143_75696_egp0jqy0nr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oxenstiern",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.384Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "k90acxovzeyi9jb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.384Z",
+      "agent": "emkodtr8jw6ou54",
+      "source_id": "rwzdwg1qssvs280"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Leitende Artikel (Sammlung INr 71387, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Es gibt etwas Schlimmeres als die Willkür der weltlichen Behörden, das ist die Willkür der geistlichen Behörden;",
+  "language": [],
+  "musenalm_id": 71395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Polizeistaat, Priesterstaat und Rechtsstaat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Polizeistaat, Priesterstaat und Rechtsstaat",
+  "updated": "2010-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.395Z",
+      "agent": "qwibej56fq45fjs",
+      "source_id": "ls8onxrvcrd34t1"
+    }
+  ]
+}

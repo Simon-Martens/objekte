@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 18977, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1986,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FREGATTE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Letanneur pinx. J. Poppel scu.",
+  "scans": [
+    "alm_58_1986_i5hb9km9fk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FREGATTE",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.066Z",
+      "agent": "09vqyzz1zzz8g9y",
+      "source_id": "qph3eziftxn7pdw"
+    }
+  ]
+}

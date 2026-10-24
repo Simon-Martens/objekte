@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Wer bin ich, daß ich wollt vermessen wagen, / Das Heiligste der Kunst und Frömmigkeit / Zu fassen in der Rede Aermlichkeit,",
+  "language": [],
+  "musenalm_id": 91113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Der Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Der Dichter",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.110Z",
+      "agent": "9zdfy29sj074b5x",
+      "source_id": "3aiw1fv7ibg92vg"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 4 BB W, ar: SS 1-17 Vrwrt d Hrsg u G-Verz darin G, 13 BB Kal darin 12 GG, ar1: SS 1-167",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für den deutschen Adel 1793",
+    "norm": "~",
+    "biblio": 100035,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-02-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 292,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Fleischerische Buchhandlung)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach, Historischer für den deutschen Adel 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; L/R 21; Goed V. 449, 11; Goed VII. 200, 11",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1793. / Ritter / Göz von Berlichingen, / mit der eisernen Hand. / von / Carl Lang. / mit Kupfern von Küffner, d'Argens, u. a. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.167Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "pmkb0wphlmwhxwh"
+  ],
+  "contents": [
+    "o5t04s1rbjan843",
+    "k26f7fvi7bppcta",
+    "n5j6jzsse3q9cyh",
+    "qs0sm4p9cfw4clo",
+    "geupi2mk2zg34ua",
+    "vqy2dht0vu5yjar",
+    "y71mc6bwmhav091",
+    "qkzj7hygr6yphsl",
+    "9zbaae9w3okpjaw",
+    "cz7prs3ef56s3n5",
+    "6rtpyrind9mzynk",
+    "2nsr94gxxgccwj2",
+    "xoc1fxekg0hhuy4",
+    "azxx2bpw51hdrwg",
+    "dh4vdhziks7yewa",
+    "l22eoe07nn4g1xx",
+    "js7wp7o4r0etgmu",
+    "v398s2je8pjk53t",
+    "o5i6u8m6cmrv7q4",
+    "t4oxu0ouzgbvow4",
+    "dj13ho8q09lm3z8",
+    "ssjxl285i3131x1",
+    "tq7lkxddmi2h1f6",
+    "xhn5qsvdn9014wq",
+    "2pclpn8fd3edp0v",
+    "29o8x3ekw6lc8u3",
+    "knss5kxww6toy80",
+    "v8cbr2955vm4v87",
+    "261udgz456tyc3m",
+    "fno2oojedlthkyw",
+    "7oxd07z1mvrwwi0",
+    "knzmfknphtyxm3h",
+    "7qfnjl0wve1pz4u",
+    "ng03vl5dusg673t",
+    "6imp4kzjxpe1tvs",
+    "z1wyqfpgrfpyrq1",
+    "hllymdrjbhqwq00",
+    "05a0afwrgzi09v0",
+    "fxjnqcmuyuh9hkt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.857Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.857Z",
+      "agent": "ltf47ubwk2x3cog",
+      "source_id": "cst6t8e0j8nmjl2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.582Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.582Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "jrfbv995htxgmqj"
+    }
+  ]
+}

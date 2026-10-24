@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Normannenherzog Wilhelm sprach einmal: / Wer singet in meinem Hof und in meinem Saal?",
+  "language": [],
+  "musenalm_id": 71093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 166,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taillefer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Taillefer",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.601Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "ck1mgl0v4lxvs8q"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Klagen eines Witwers« von Schink INr 17431, Obj 9 (Photos 17551,01; 17551,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17551,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klagen eines Witwers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Methfessel",
+  "scans": [
+    "alm_106_17551_01_lrj00rho9e.jpg",
+    "alm_106_17551_02_i8p4bs0sik.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klagen eines Witwers",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.818Z",
+      "agent": "t6tmc9piui1sdr1",
+      "source_id": "qrrsxz000g31mhj"
+    }
+  ]
+}

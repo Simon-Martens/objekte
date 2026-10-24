@@ -1,0 +1,77 @@
+{
+  "annotation": "Kurzaufnahme: Der Almanach ist nicht mit seinen Beiträgen aufgenommen. Die INr verweisen auf photographierte Objekte. Das Inhaltsverzeichnis ist mit 5 Photos dargestellt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS I-VIII I-Verz, SS 1-373 darin 3 GG MusB, S C, B G-Verz, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freimaurer (Cöthen) 1800",
+    "norm": "~",
+    "biblio": 200467,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2004-11-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 502,
+  "parallel_title": "",
+  "place_statement": "Köthen (A. Aue)",
+  "places": [
+    "9w8aplsnnsmnw3f"
+  ],
+  "preferred_title": "Taschenbuch für Freimaurer (Cöthen) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 116; L/R 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freimaurer / auf / das Jahr / 1800. / Cöthen / bei Joh. August Aue",
+  "updated": "2026-06-11 10:18:54.708Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "syof7rclxm96t4o"
+  ],
+  "contents": [
+    "ogf8od3nud8c7j2",
+    "yllejy9mckcb8a0",
+    "ayxnmshis4lp4xd",
+    "xph1tmyxoghz20p",
+    "h2drml3z6afzr7c",
+    "platlezvzls10uf",
+    "jbdm8b9q0qkis41",
+    "hek10d1mkbkwfy0",
+    "ok6jpwai8vivznq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.464Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.464Z",
+      "agent": "ebgknmefj6hbc0l",
+      "source_id": "h13nr3fytmg4h9z"
+    }
+  ]
+}

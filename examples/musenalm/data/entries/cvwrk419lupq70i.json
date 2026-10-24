@@ -1,0 +1,73 @@
+{
+  "annotation": "Titelauflage. Inhalt- und seitenidentisch mit dem Jg 1848. s. alm- 2928. Beigefügt sind ar1: SS 3-40: Charakterbilder der französischen Revolution. Diese Beiträge sind hier lediglich aufgenommen /) unter dem I-Verz: Druck von Oskar Leiner in Leipzig",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S III T, SS V-VIII Vrwrt d Hrsg, ar: SS 1-335, S I-Verz, ar1: SS 3-40",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Demokratisches 1849",
+    "norm": "~",
+    "biblio": 406431,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-11-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3637,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weller)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Demokratisches 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Demokratisches / Taschenbuch / für / das deutsche Volk / Anhang: / Charakterbilder der französischen / Revolution. / Leipzig, / Verlag von E. O. Weller. / 1849",
+  "updated": "2026-06-11 10:18:54.556Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "qxjx3ull4fmkmol"
+  ],
+  "contents": [
+    "oc0y0khmaor4uhi",
+    "snt13acswj7f93o",
+    "tkgjlv9aal5tamd",
+    "zm9s3zwxcain0ez",
+    "4akfkcyvpgny5c1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "xl4mr3qteh5u6cq",
+      "source_id": "8smko76u4hxhckt"
+    }
+  ]
+}

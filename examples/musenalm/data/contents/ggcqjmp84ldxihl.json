@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze (Sammlung INr 10857, Obj 212)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10861,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 217,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angl. 4",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pannenberg",
+  "scans": [
+    "alm_203_10861_0e8k0nyd4s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angl. 4",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.240Z",
+      "agent": "xcvglhwosgzvu0f",
+      "source_id": "1t4yq8y98g2u34o"
+    }
+  ]
+}

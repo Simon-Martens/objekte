@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1834",
+    "norm": "",
+    "biblio": 200502,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2989,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "Friedrich von Raumer",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Mit Beiträgen / von / Förster, Gans, Loebell, Stieglitz, / Wachsmuth, / herausgegeben / von / Friedrich von Raumer. / Fünfter Jahrgang. / Mit den Faust'schen Bildern aus Auerbach's Keller / zu Leipzig. / Leipzig. / F. A. Brockhaus / 1834",
+  "updated": "2026-06-11 10:18:54.772Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "5qsy4vyrrm9sedn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.168Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.168Z",
+      "agent": "gjmd3adkws0h0dh",
+      "source_id": "6dqnru4x225miaz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.592Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.592Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "qswrqdb42kjimew"
+    }
+  ]
+}

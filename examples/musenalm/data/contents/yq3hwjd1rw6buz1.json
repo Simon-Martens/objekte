@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "In tiefen Schmerz versenkt saß die Wittwe Möller an der Seite ihrer beyden Kinder, Lorchen und Anton.",
+  "language": [],
+  "musenalm_id": 58147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unglückliche Täuschung. / Ein Familengemälde nach einer wahren / Begebenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser des Leipziger Frauenzimmer-Almanachs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die unglückliche Täuschung. / Ein Familengemälde nach einer wahren / Begebenheit",
+  "updated": "2008-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.927Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "a50hqps82rlqcnh"
+    }
+  ]
+}

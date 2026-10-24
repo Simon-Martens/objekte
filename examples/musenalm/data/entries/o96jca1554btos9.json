@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Ärzte und Nichtärzte 1791",
+    "norm": "",
+    "biblio": 100089,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1213,
+  "parallel_title": "",
+  "place_statement": "Jena (Cunos Erben)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Almanach für Ärzte und Nichtärzte 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 8; L/R 167",
+  "responsibility_statement": "D. Christian Gottfried Gruner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Aerzte und Nichtärzte / auf das Jahr 1791. / herausgegeben / von / D. Christian Gottfried Gruner / Jena / bei Christ. Heinr. Cuno's Erben. / 1791",
+  "updated": "2026-06-11 10:18:54.894Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "24h4ph2eyf93p9p"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.854Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.854Z",
+      "agent": "w85itisd8ak8pv4",
+      "source_id": "2ckryop7nmvxd5p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.706Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.706Z",
+      "agent": "cgi3t07gfxqilhe",
+      "source_id": "tbp834je4vtl4ar"
+    }
+  ]
+}

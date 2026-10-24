@@ -1,0 +1,467 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.371Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1073047946",
+          "label": "Julius Eduard Hitzig (Firma)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Buchhändler, Verleger, Jurist, Kriminalist und Schriftsteller; hieß bis 1799 Isaak Elias Hitzig und nahm dann den luther. Glauben an. - Studium der Rechtswissenschaften in Halle und Erlangen; 1799 Auskultator in Warschau; 1801 Referendar beim Kammergericht in Berlin; 1804 Regierungsassessor in Warschau; 1807 Entlassung aus dem preußischen Justizdienst, Rückkehr nach Berlin u. Buchhändlerausbildung bei Andreas Georg Reimer; 1808 Gründung der eigenen Firma (Buchhandlung, Sortiment, Verlag), die er zum 1.1.1815 an Ferdinand Dümmler verkaufte; Rückkehr in den preußischen Staatsdienst, 1815 Kriminalrat, 1827 Direktor des Inquisitionsrats; 1835 Verleihung des Roten Adlerordens 3. Klasse"
+      ],
+      "dateOfBirth": [
+        "1780-03-26"
+      ],
+      "dateOfDeath": [
+        "1849-11-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Adolph Menzel (1815–1905)"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Eduard%20Hitzig.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Julius%20Eduard%20Hitzig.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Julius%20Eduard%20Hitzig.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172139317"
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-19T15:29:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119209349/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Isaak Elias"
+          ],
+          "surname": [
+            "Itzig"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118646346",
+          "label": "Baeyer, Adolf von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136202829",
+          "label": "Hitzig, Elias Daniel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11934792X",
+          "label": "Hitzig, Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119209349",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11934792X",
+          "label": "Hitzig, Friedrich"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136202829",
+          "label": "Hitzig, Elias Daniel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119209349",
+      "oldAuthorityNumber": [
+        "(DE-588)172139317",
+        "(DE-588a)119209349",
+        "(DE-588c)4362779-1",
+        "(DE-588a)172139317"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4079048-4",
+          "label": "Warschau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Hitzig, Julius Eduard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius Eduard"
+        ],
+        "surname": [
+          "Hitzig"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kriminalist"
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116235632",
+          "label": "Dümmler, Ferdinand"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Eduard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hitzig, Julius E.: Leben und Briefe von Adalbert von Chamisso",
+        "Hitzig, Julius E.: Gelehrtes Berlin im Jahre 1825",
+        "Hitzig, Julius E.: Ueber belletristische Schriftstellerei als Lebensberuf",
+        "Hoffmann, Ernst T.: Aus Hoffmann's Leben und Nachlass",
+        "Hitzig, Julius E.: Das Königlich Preusische Gesetz vom 11. Juni 1837 zum Schutze des Ei*",
+        "Hitzig, Julius E.: Ueber belletristische Schriftstellerei",
+        "Hitzig, Julius E.: Ueber Caspar Hauser",
+        "Hitzig, Julius E.: Lebens-Abriß Friedrich Ludwig Zacharias Werners",
+        "Desgouttes, Fr.: Lebens- und Bekehrungs-Geschichte des Doctors der Rechte F. D. ...",
+        "Chamisso, Adelbert von: Peter Schlemihl's wundersame Geschichte"
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/1116505231",
+          "label": "Neue Mittwochs-Gesellschaft"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88255674"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/hitzig-julius-eduard/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27876348"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q70849"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119209349/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172139317"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Julius_Eduard_Hitzig"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julius_Eduard_Hitzig"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Julius_Eduard_Hitzig"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Julius_Eduard_Hitzig"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066760652"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119209349"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119209349"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119209349.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119209349.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119209349"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119209349"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Eduard",
+        "Hitzig, Julius E.",
+        "Itzig, Julius E.",
+        "Itzig, Isaak Elias",
+        "Hitzig, J. E."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Isaak Elias"
+          ],
+          "surname": [
+            "Itzig"
+          ]
+        },
+        {
+          "forename": [
+            "Julius E."
+          ],
+          "surname": [
+            "Hitzig"
+          ]
+        },
+        {
+          "forename": [
+            "Julius E."
+          ],
+          "surname": [
+            "Itzig"
+          ]
+        },
+        {
+          "forename": [
+            "J. E."
+          ],
+          "surname": [
+            "Hitzig"
+          ]
+        },
+        {
+          "personalName": [
+            "Eduard"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julius_Eduard_Hitzig",
+          "label": "https://de.wikipedia.org/wiki/Julius_Eduard_Hitzig"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:46:21Z",
+    "gnd_query_biographical_data": "1780-1849",
+    "gnd_query_name": "hitzig, julius eduard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1206,
+  "name": "Hitzig, Julius Eduard",
+  "profession": "Text",
+  "pseudonyms": "Eduard",
+  "refs": "ADB XII, 509",
+  "updated": "2026-06-11 13:29:22.950Z",
+  "uri": "https://d-nb.info/gnd/119209349",
+  "editor": ""
+}

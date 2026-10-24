@@ -1,0 +1,546 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1870",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.490Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1072897539",
+          "label": "Expedition von Gustav Struve's Welt-Geschichte (New York, NY)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Leitfigur der Märzrevolution; lebte 1806-1817 in Stuttgart, besuchte dortige Gymnasium, 1817-1822 Schüler des Lyzeums in Karlsruhe, anschließend Jura-Studium in Göttingen und Heidelberg, 1828 Landgerichts-Assessor in Jever, 1833 Rechtsanwalt in Mannheim, ab 1836 Obergerichts-Advocat, 1831-1843 Publikation mehrerer juristischer Werke, 1843-1845 Veröffentlichung von Büchern zur Phrenologie sowie Herausgeber und Redakteur der Zeitschrift für Phrenologie, Unterstützung der liberalen Abgeordneten in der badischen Kammer durch journalistisches Engagement, wobei er zunehmend radikaldemokratische und frühsozialistische Positionen vertrat; Mitte 1845 - Ende 1846 Redakteur des Mannheimer Journals, das in dieser Zeit starken Eingriffen durch staatliche Zensur ausgesetzt war; 16.11.1845 Eheschließung mit Elise Ferdinandine Amalie Düsar, Tochter eines Sprachlehrers aus Mannheim, galt als unstandesgemäße Verbindung und führte zum Zerwürfnis mit seiner Familie; 1847 Ablegung des Adelstitels; gemeinsam mit Friedrich Hecker einer der führenden Köpfe der badischen Revolution und dem radikaldemokratischen und antimonarchistischen Flügel der Revolutionäre zugehörig, nach Ausrufen der Republik in Konstanz 12.4.1848 durch Hecker in Anwesenheit Struves Flucht von Hecker und Struve in die Schweiz, nachdem reguläre Truppen die schlecht bewaffneten Freischärler besiegt hatten, 21.9.1848 mit 50 Mann aus Basel kommend in Lörrach und hielt Rede an das Deutsche Volk: \"Wohlstand, Bildung, Freiheit für alle!\", Proklamation der Deutschen Republik (Struve-Putsch), Struve-Zug mit etwa 4000 Freischärlern Richtung Karlsruhe in Staufen durch 800 großherzogliche Soldaten entscheidend geschlagen, Gefangennahme des Ehepaars Struve, Verurteilung Struves wegen versuchten Hochverrats, Befreiung durch Revolutionäre aus Bruchsaler Zuchthaus, nach Flucht des Großherzogs Leopold ins Elsass Bildung einer provisorischen republikanischen Regierung 1.6.1849 durch gemäßigten liberalen Politiker Lorenz Brentano, an der Struve als bekennender Linksradikaler nicht beteiligt war; Gründung einer Opposition gegen Regierung Brentano; endgültiges Scheitern der badischen Revolution mit Übergabe der Festung Rastatt an Preußische Truppen 23.7.1849; wegen fortgesetzter Agitation aus der Schweiz ausgewiesen, geht nach Frankreich und über England 1851 in die USA; dort Herausgeber der deutschsprachigen Zeitung \"Deutscher Zuschauer\", in der er weiterhin radikaldemokratische Themen publizierte; Veröffentlichung \"Weltgeschichte\" aus sozialistischer Perspektive; 1860-1862 Unterstützung des republikanischen Präsidentschaftskandidaten Abraham Lincoln; Teilnahme auf Seiten der Union am Sezessionskrieg; 1862 Tod seiner Frau Amalie, zeitgleich Amnestie des Großherzogtums für die Teilnehmer an 1848/49er Revolution, 1863 Rückkehr nach Europa, zunächst in Stuttgart, dann in Coburg wohnhaft, wo er schriftstellerische Tätigkeit wieder aufnahm, um gegen Despotismus zu kämpfen; Verurteilung zu weiteren Gefängnisstrafen; in 1860ger Jahren einer der Begründer der vegetarischen Bewegung in Deutschland, 1868 Gründung eines vegetarischen Vereins mit Gesinnungsgenossen aus Stuttgart und Umgebung; 1867 Heirat mit Katharina Zentner, geb. Kölig"
+      ],
+      "dateOfBirth": [
+        "1805-10-11"
+      ],
+      "dateOfDeath": [
+        "1870-08-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "LOC"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20struve.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20struve.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gustav%20struve.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1073500470",
+        "https://d-nb.info/gnd/172410150"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-19T17:56:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118799207/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Struve"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117352276",
+          "label": "Struve, Johann Gustav von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136875939",
+          "label": "Struve, Gustav von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1084026163",
+          "label": "Struve, Damajanti"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117349062",
+          "label": "Struve, Amalie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118729624",
+          "label": "Lützow, Therese von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        }
+      ],
+      "gndIdentifier": "118799207",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1084026163",
+          "label": "Struve, Damajanti"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117352276",
+          "label": "Struve, Johann Gustav von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118799207",
+      "oldAuthorityNumber": [
+        "(DE-588a)118799207",
+        "(DE-588)172410150",
+        "(DE-588a)108993191",
+        "(DE-588)1073500470",
+        "(DE-588c)4113145-9",
+        "(DE-588a)172410150"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfExile": [
+        {
+          "id": "https://d-nb.info/gnd/4042011-5",
+          "label": "New York, NY"
+        }
+      ],
+      "preferredName": "Struve, Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav"
+        ],
+        "surname": [
+          "Struve"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177943-5",
+          "label": "Revolutionär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4055409-0",
+          "label": "Soldat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Chr."
+          ],
+          "surname": [
+            "Abt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Carl"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Erster Versuch auf dem Felde des deutschen Bundesrechts, betreffend die verfassungsmäßige Erledigung der Streitigkeiten zwischen deutschen Bundesgliedern",
+        "Pflanzenkost - die Grundlage einer neuen Weltanschauung. - 1869",
+        "Positiv-rechtliche Untersuchung der auf die Presse sich beziehenden bundesgesetzlichen Bestimmungen",
+        "Briefwechsel zwischen einem ehemaligen und einem jetzigen Diplomaten",
+        "Briefe über Kirche und Staat",
+        "Commentar zu dem Entwurfe eines Staatsgrundgesetzes für das Königreich Hannover",
+        "Diesseits und Jenseits des Oceans",
+        "Politische Briefe",
+        "Geschichte der drei Volkserhebungen in Baden"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85380191"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27867764"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213794"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073500470"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118799207/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172410150"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118799207"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gustav_Struve"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gustav_Struve"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gustav_Struve"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gustav_Struve"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110480552"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118799207"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118799207"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118799207.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118799207.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118799207"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118799207"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Struve, Gustav Carl Johann Christian von",
+        "Carl, Gustav",
+        "Abt, Chr.",
+        "Struve, G. von",
+        "Struve, Gustav v.",
+        "Struve, Gustav von",
+        "Struve, Gustav Karl Johann Christian von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Struve"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Struve"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Carl"
+          ]
+        },
+        {
+          "forename": [
+            "Chr."
+          ],
+          "surname": [
+            "Abt"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Struve"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Carl Johann Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Struve"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Karl Johann Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Struve"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav von"
+          ],
+          "surname": [
+            "Struve"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gustav_Struve",
+          "label": "https://de.wikipedia.org/wiki/Gustav_Struve"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:06:30Z",
+    "gnd_query_biographical_data": "1805-1870",
+    "gnd_query_name": "struve, gustav von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2821,
+  "name": "Struve, Gustav von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXVI, 681",
+  "updated": "2026-06-11 13:29:25.305Z",
+  "uri": "https://d-nb.info/gnd/118799207",
+  "editor": ""
+}

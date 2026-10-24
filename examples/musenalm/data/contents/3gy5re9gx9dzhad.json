@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127793, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Trinkend saßen sie zusammen in dem traulichen Ge- / mach; / In dem muntern Kreise wurde Freude, Scherz und La- / chen wach.",
+  "language": [],
+  "musenalm_id": 127803,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die kleine Näherin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die kleine Näherin",
+  "updated": "2021-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.958Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "e4w1jnn5m6fqumh"
+    }
+  ]
+}

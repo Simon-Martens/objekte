@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April s. Textbezug INr 71607, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71582,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ha! Du sollst mir kein Unheil / weiter anrichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. Ant. Karcher Mannh. 1799",
+  "scans": [
+    "alm_2668_71582_9s1qixd02a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ha! Du sollst mir kein Unheil / weiter anrichten",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.620Z",
+      "agent": "b334ivfypj3aic9",
+      "source_id": "8nae7pzixoratc0"
+    }
+  ]
+}

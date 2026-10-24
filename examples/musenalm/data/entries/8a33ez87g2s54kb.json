@@ -1,0 +1,96 @@
+{
+  "annotation": "$ 5 Modekupfer vorhanden, vielleicht fehlen ein weiteres Modekupfer; lediglich 3 Graphiken im Kalendarium /) unter dem I-Verz: Gedruckt bey Anton Strauß's sel. Witwe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 5 GG, 17 SS Kal darin 3 GG, 7 SS Tabb, S 1zT, SS 3-96, 9 SS Tabb, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1829",
+    "norm": "~",
+    "biblio": 405418,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1895,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / Almanach für das Jahr / 1829. / Frohen Erheiterungen gewidmet. / WIEN / Verlag des F. Pfautsch, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:55.702Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "yijzhn0f1b4nvof"
+  ],
+  "contents": [
+    "q2ylt6xxx1c7urs",
+    "s9ftzft4cogr2dq",
+    "zpigyi3zwl6yvph",
+    "eeqyt0a4w22m1xb",
+    "hr43k17vkiakd64",
+    "ri5heg5qszpvz3f",
+    "hqaaxmhw1ps7z4t",
+    "4umz352h8x4fuqq",
+    "71hk90k0go4my2y",
+    "fi8et6pwhnl6eav",
+    "zwqeo7km9j0txf3",
+    "6hpmj6h66bbpj2z",
+    "m8cc2sxgl2ctvjw",
+    "8aayeexbgfeiax8",
+    "lnqptz94w8bn9ws",
+    "1vz6vzfchaf92h9",
+    "wio8aokws7a6bij",
+    "ytfzve4upbi04vv",
+    "lgdzd2rpim233vn",
+    "81c4oxzvyjdcnka",
+    "yn65ljdo8ar85ai",
+    "i6x8zu9ax789ku5",
+    "u6ms7hom9syf9ja",
+    "aop6ob8yixkex6m",
+    "spga6vg9eggwmbc",
+    "8urqcxtkfqqcjtn",
+    "2kz27ntr0jfk80k",
+    "4u150kuag7t86pa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "pvco0uxvmo8744u"
+    }
+  ]
+}

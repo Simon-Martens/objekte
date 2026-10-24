@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Der Wildschütz sitzt und rastet / Im Wald, gestützt auf's Rohr.",
+  "language": [],
+  "musenalm_id": 44268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wildschütz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Duller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wildschütz",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.397Z",
+      "agent": "7bekt7k216mxue5",
+      "source_id": "mmwnqtoshh2stvs"
+    }
+  ]
+}

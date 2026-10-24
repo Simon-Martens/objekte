@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Beatrix, Kaiser Otto's des IV. Gemahlin« INr 48067, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79911,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BEATRIX",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. Fr. Bolt sc.1810",
+  "scans": [
+    "alm_656_79911_gjkih1xp0x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BEATRIX",
+  "updated": "2007-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.953Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "72tdvucy4zhkuyo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.953Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "77j11igqnz5jyiz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Verong bot wie dem Geschichts- und Altertumsforscher, so auch dem Dichter schon manche dankenswerthe Ausbeute.",
+  "language": [],
+  "musenalm_id": 117719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alboin, Stifter des lombardischen Reiches. / Historische Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. v. Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alboin, Stifter des lombardischen Reiches. / Historische Skizze",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.535Z",
+      "agent": "em3dkpa48ys3kzf",
+      "source_id": "3w703i86n972fe2"
+    }
+  ]
+}

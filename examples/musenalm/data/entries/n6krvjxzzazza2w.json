@@ -1,0 +1,112 @@
+{
+  "annotation": "# Hrsg 1826-1830 lt. Goed IX, 33: Wenzel Tremler; Pseud.: Lembert",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, VB, T, W, 5 GG dazu 6 BB G-Verz, S 1 nT, SS 3-327, S 328 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaja (Wien) 1830",
+    "norm": "~ +++ 404927",
+    "biblio": 100131,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-05-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 237,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aglaja (Wien) 1830",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 6; L/R 91; Goed IX. 33, 23; Goed VIII. 84,163",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1830. / Sechzehnter Jahrgang. / WIEN / gedruckt und im Verlage / bey Joh. B. Wallishausser",
+  "updated": "2026-06-11 10:18:54.843Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "4fyv08le02ieiz4",
+    "eo6e59izu13xnvj"
+  ],
+  "contents": [
+    "ylad90sqy1bch5t",
+    "3pysba0m3zwgyc4",
+    "6wx3djl0h78xtam",
+    "5lmu20jao0lqzl9",
+    "q9t4e2d5ff2a4ao",
+    "8jvuotuop2xkjqk",
+    "psmne40btin74yq",
+    "94pmrhkvkwzhibd",
+    "nivp9rnnsbb6d1a",
+    "8i1m33h077mfzxn",
+    "8o523j2leufxnqk",
+    "loh7htfaienwznl",
+    "p1zv0p9px8ye5dz",
+    "vo92pvuddilgge2",
+    "e1kqjy4m6b2d0xn",
+    "rgpcxc8c6vi7n5k",
+    "du5anrjqdqh4j5m",
+    "9n98zezrfs7c1i7",
+    "15nffm0cana54zw",
+    "9c0qimz67p2dzra",
+    "tnaubuvyu7j51cf",
+    "eh31ljt77tqvisw",
+    "lyvgaa3wmn1dadl",
+    "c0ckhw43ptosb30",
+    "of3v2v6sqxd1fmf",
+    "wkrcy43t0ij7e30",
+    "ge9aye9g0tc2ohj",
+    "eq9w8tpor7c2h1w",
+    "62k6r0uypg42w17",
+    "qjyo08a4qs6zsk3",
+    "hrfzdbwylf199sa",
+    "6wdsn1micg9zrye"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.443Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.443Z",
+      "agent": "1ernx4twed64bul",
+      "source_id": "36ux7u3v69pa09f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.541Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.541Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "ng9rzrmn200ameh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Theures Mädchen! sanfte Liebe / Gab uns allen die Natur;",
+  "language": [],
+  "musenalm_id": 31586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BEIM ABENDSPAZIERGANG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "BEIM ABENDSPAZIERGANG",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.116Z",
+      "agent": "h2r7vychlnktmwb",
+      "source_id": "3fg0nnm6x6e7903"
+    }
+  ]
+}

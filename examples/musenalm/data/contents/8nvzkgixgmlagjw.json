@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Um keinen Gran verringert sich des Unglücks Wucht, / Wenn eines Trösters mildem Wort Dein Ohr Du leihst;",
+  "language": [],
+  "musenalm_id": 57873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um keinen Gran verringert sich des Unglücks Wucht, / Wenn eines Trösters mildem Wort Dein Ohr Du leihst;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.736Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "2pxfksvh41dhrwq"
+    }
+  ]
+}

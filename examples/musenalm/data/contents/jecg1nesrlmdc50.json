@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Kommt ein Kind hereingegangen, / Und das Kindlein nackt und bloß",
+  "language": [],
+  "musenalm_id": 14098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe und seine Mutter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe und seine Mutter",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.650Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "vwjk5cusk3t9ryi"
+    }
+  ]
+}

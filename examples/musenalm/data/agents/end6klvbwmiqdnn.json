@@ -1,0 +1,327 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/36190-2",
+          "label": "Universität Zürich"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Zürcher aufgeklärter Theologe, Geograf, Historiker; geb. in Neftenbach (ZH)"
+      ],
+      "dateOfBirth": [
+        "1741-12-02"
+      ],
+      "dateOfDeath": [
+        "1811-10-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.COLLECT.230211"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Leonhard%20Meister%2C%20RP-P-1914-3362.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Leonhard%20Meister%2C%20RP-P-1914-3362.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Leonhard%20Meister%2C%20RP-P-1914-3362.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-05T16:26:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100227627/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "100227627",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100227627",
+      "oldAuthorityNumber": [
+        "(DE-588a)100227627"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4340308-6",
+          "label": "Neftenbach"
+        }
+      ],
+      "preferredName": "Meister, Leonhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Leonhard"
+        ],
+        "surname": [
+          "Meister"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        }
+      ],
+      "publication": [
+        "Meister, Leonhard: Fliegende Blätter historischen und politischen Inhalts",
+        "Meister, Leonhard: Charakteristik deutscher Dichter. - 1785 - 1787",
+        "Meister, Leonhard: Ueber die Einbildungskraft",
+        "Meister, Leonhard: Helvetische Geschichte",
+        "Meister, Leonhard: Ueber den Gang der politischen Bewegungen in der Schweitz",
+        "Meister, Leonhard: Ueber Bodmern",
+        "Meister, Leonhard: Grundlinien der Holändischen Geschichte ...",
+        "Meister, Leonhard: Beyträge zur Geschichte der teutschen Sprache",
+        "Meister, Leonhard: Friedrich des Großen ... Rücksicht ... auf Verbesserung der teutschen *",
+        "Meister, Leonhard: Caracteres des poe͏̈tes les plus distingués de l'Allemagne avec leurs *"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no92007999"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32338127"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D12105.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122289"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100227627/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Leonard_Meister"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080155790"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100227627"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100227627.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100227627"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100227627"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Steimer, Nolehard",
+        "Meister, Leonard",
+        "Steiner, Magnus N.",
+        "Meister, Leonh."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Leonh."
+          ],
+          "surname": [
+            "Meister"
+          ]
+        },
+        {
+          "forename": [
+            "Leonard"
+          ],
+          "surname": [
+            "Meister"
+          ]
+        },
+        {
+          "forename": [
+            "Nolehard"
+          ],
+          "surname": [
+            "Steimer"
+          ]
+        },
+        {
+          "forename": [
+            "Magnus N."
+          ],
+          "surname": [
+            "Steiner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Leonard_Meister",
+          "label": "https://de.wikipedia.org/wiki/Leonard_Meister"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:14:39Z",
+    "gnd_query_biographical_data": "1741-1811",
+    "gnd_query_name": "meister, leonhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1775,
+  "name": "Meister, Leonhard",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXI, 261",
+  "updated": "2026-06-11 13:29:23.764Z",
+  "uri": "https://d-nb.info/gnd/100227627",
+  "editor": ""
+}

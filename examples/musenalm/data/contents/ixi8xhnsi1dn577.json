@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Frankreichs Gelüste zu geniessen, / eilt, wie Adonis schön und süss, / izt Florian nach Paris.",
+  "language": [],
+  "musenalm_id": 75232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Florian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-sch-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Florian",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.639Z",
+      "agent": "ii78f2x1yo6pd2c",
+      "source_id": "lvjxv4w9iulgst9"
+    }
+  ]
+}

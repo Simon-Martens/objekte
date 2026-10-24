@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Herzog Heinrich war's von Baiern, / Der sich in der Mitternacht, / Wo die frömmsten Brüder feiern,",
+  "language": [],
+  "musenalm_id": 26500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Heinrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Heinrich",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.272Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "7c170d977j3dwqj"
+    }
+  ]
+}

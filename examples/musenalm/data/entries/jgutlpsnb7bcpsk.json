@@ -1,0 +1,116 @@
+{
+  "annotation": "3 Jgg 1798-1800, Hamburg (Fuchs), 1801 TA von 1800; Hrsg: A. G. F. von Rebmann /) $§ vermutl. fehlt Kalendarium /) $§ INr 85007 Eselsschattenkopie aus Wieland: »Abderiten« fehlt vermutlich; s. Beitrag »Geheime Erklärung des 5ten Kupfers der 4ten Lieferung zu Wielands Werken, genannt: der Eselsschatten. He da! Wer ein braver Abderit ist, über den Esel her!« die Graphik ist dem Jg 1801 (Titelauflage von 1800) als Titelkupfer beigegeben und wird hier als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 4 SS I-Verz G-Verz, 2 GG, SS 1-352 G, 2 BB C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Obscuranten-Almanach 1798",
+    "norm": "~",
+    "biblio": 407550,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-11-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3893,
+  "parallel_title": "",
+  "place_statement": "Paris [Hamburg] (Fuchs)",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Obscuranten-Almanach 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 200; Goed V, 547",
+  "responsibility_statement": "A. G. F. Rebmann",
+  "subtitle_statement": "",
+  "title_statement": "Obscuranten- / Almanach / auf / das Jahr / 1798. / Paris / von Gerard Fuchs / Nationalbuchhändler",
+  "updated": "2026-06-11 10:18:55.335Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "ltym5oqx750pd7q"
+  ],
+  "contents": [
+    "vfhxrdbnz6chbqf",
+    "2bq2m4um04ry30r",
+    "k0zejqwn9oodeqk",
+    "z4l3o7t04nct4kc",
+    "jhapbmrp2g05t84",
+    "x8n5oorb1ryrn8n",
+    "rw7yqjom16vpu8v",
+    "h0lxistgddjjzcs",
+    "mwr7r4cctig6la5",
+    "71ja2ch98ya2m04",
+    "ycb8rllot0g0upn",
+    "tdsq43sx52f8gdt",
+    "y6bkucir9479yqt",
+    "5es4ruv6efua3rb",
+    "2dl32pke7f8tcze",
+    "0ymzgorhoivla4z",
+    "wnhytequt5kx5ki",
+    "soqt0yg3wvmsdfg",
+    "ki03r39lwupa9wb",
+    "67z5t6uszxnic2x",
+    "istsqws9qwhxk9g",
+    "xnfirjn4gyrdhsz",
+    "2kzko4htydpunh5",
+    "ls6s5ef1nh4xo3n",
+    "4a7zzur3emylyft",
+    "smtrfocraeaqeok",
+    "xzndtn3llf2pyqy",
+    "updpwdyysqu40ug",
+    "qwnim9qzm7aifno",
+    "8eyziraf0efgxy5",
+    "0qpgd43uf2cnp8s",
+    "ibxoovkhwl57ejo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.879Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.879Z",
+      "agent": "pgaobek0g9nyuf0",
+      "source_id": "0h6cpx4yopppdv2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.305Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.305Z",
+      "agent": "i1m0o75lvyphony",
+      "source_id": "nsfqxuoofqizukr"
+    }
+  ]
+}

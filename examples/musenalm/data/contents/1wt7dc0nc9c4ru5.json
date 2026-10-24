@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Möge das Vorwort, mit welchem wir das Bändchen begaben, ein Fürwort seyn, welches die Lesenden zur Nachsicht mit seinen Mängeln gewinne! Sollte bei unsrer anspruchlosen Iduna des Maasstab angelegt weren, mit welchem die Kritik Zeitschriften und Almanache",
+  "language": [],
+  "musenalm_id": 61151,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina v. Chezy, geb. v. Klencke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2008-12-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.038Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "uojjspenkgp2fco"
+    }
+  ]
+}

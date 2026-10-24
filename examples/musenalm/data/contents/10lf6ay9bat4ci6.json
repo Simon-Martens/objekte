@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Schöne himmlische Schwestern, leichte Ho- / ren, / Die ihr auf Aetherflügeln Schmerz und Freude",
+  "language": [],
+  "musenalm_id": 1321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Horen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "LOUISE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Horen",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.972Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "wsxnrvs2ampya5b"
+    }
+  ]
+}

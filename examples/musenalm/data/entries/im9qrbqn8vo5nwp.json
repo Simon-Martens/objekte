@@ -1,0 +1,67 @@
+{
+  "annotation": "s. a. Jg 1794 Straßburg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender der fränkischen Republik, Neuer 1795",
+    "norm": "",
+    "biblio": 100202,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1962,
+  "parallel_title": "",
+  "place_statement": "Basel (Flick)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Kalender der fränkischen Republik, Neuer 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neuer / Calender / von / dritten Jahr / der fränkischen Republik, / welches anfängt / den 22 Herbstmonat 1794. / und endet / den 21 Herbstmonat 1795. / Basel, bey Johann Jakob Flick",
+  "updated": "2026-06-11 10:18:55.743Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "97rlylylpekmvsa"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.859Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.859Z",
+      "agent": "yipsbe3vu0radw1",
+      "source_id": "79p70anyq96wcae"
+    }
+  ]
+}

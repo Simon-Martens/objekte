@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Mein Blick ist so klar, so stille mein Herz, / Ich habe nicht Freude, ich habe nicht Schmerz,",
+  "language": [],
+  "musenalm_id": 68013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna v. Achen geb. v. Amboten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ergebung",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.252Z",
+      "agent": "r9etn72lderbu00",
+      "source_id": "uw5gg86gzr3w6vh"
+    }
+  ]
+}

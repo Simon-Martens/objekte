@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Die Thüringer, ein kräftiger und streitbarer Volksstamm, der sich im Anfange des fünften Jahrhunderts der christliche Zeitrechnung von Niedersachsen an, durch das heutige Thüringen, Franken, und Baiern bis an die Donau verbreitet hatte,",
+  "language": [],
+  "musenalm_id": 77232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Fall des Thüringischen Königreichs. Schilderung nach der Geschichte.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Fall des Thüringischen Königreichs. Schilderung nach der Geschichte.]",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.872Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "2unzxhpxvuzxbob"
+    }
+  ]
+}

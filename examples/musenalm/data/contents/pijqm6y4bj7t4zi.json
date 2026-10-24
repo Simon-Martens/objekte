@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Es ist leichter, grobe Laster zu vermeiden, als - die ihnen entgegengesetzten Tugenden gehörig auszuüben.",
+  "language": [],
+  "musenalm_id": 73473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "50. / Selbst bey Ausübung der Tugen- / den lasse dir Bescheidenheit empfohlen / seyn und Urtheilskraft sie begleiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "50. / Selbst bey Ausübung der Tugen- / den lasse dir Bescheidenheit empfohlen / seyn und Urtheilskraft sie begleiten",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.566Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "h87z82mxumlg3p8"
+    }
+  ]
+}

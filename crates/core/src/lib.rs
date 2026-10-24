@@ -7,6 +7,7 @@ mod json_documents;
 mod media;
 mod policy;
 mod project_config;
+pub mod projects;
 pub mod ui;
 pub use collation::alphabetic_cmp;
 pub use structured_editor_search::{MatchRange, SearchMatcher, SearchOptions};

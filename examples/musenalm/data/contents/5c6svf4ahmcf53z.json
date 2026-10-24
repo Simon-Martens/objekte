@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 1736, Obj 131)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "553",
+  "incipit_statement": "Wie ein Verlorner an verlaßner Küste, / Seh' ich verzweifelnd um mich her und weine:",
+  "language": [],
+  "musenalm_id": 1768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.012Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "doa048qiquvx0yh"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang /) Inhalt: La Numancia. Tragedia de Miguel de Cervantes Saavedra; und: (Übersetzung): Numancia. Trauerspiel von Miguel de Cervantes Saavedra. Zum Erstenmale übersetzt aus dem Spanischen in den Versmaaßen des Originals. Berlin, bei Julius Eduard Hitzig (übers. lt. Goed. VII 646, 7 von Fouqué); mit einem einleitenden Gedicht: Das Trauerspiel Numancia von A. W. Schlegel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde der Poesie des Südens 1809",
+    "norm": "",
+    "biblio": 100864,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2809,
+  "parallel_title": "",
+  "place_statement": "Berlin (Hitzig)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für Freunde der Poesie des Südens 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 119; nicht bei L/R; Goed VII. 646, 7; Goed VIII. 69, 122",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde der Poesie des Südens. / Erstes. / Berlin. / bei Julius Eduard Hitzig",
+  "updated": "2026-06-11 10:18:54.714Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "0q4sx6n8dvxei8l"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.026Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.026Z",
+      "agent": "qag8qnh0qzvk1t7",
+      "source_id": "2d25peeeay2trhy"
+    }
+  ]
+}

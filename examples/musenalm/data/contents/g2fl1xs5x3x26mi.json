@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40098, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Des Hobbes Irrthum besteht darin, daß er es für einen und denselben Satz hält, daß Jeder ein Recht auf alles habe, und das Alle ein Recht auf alles haben.",
+  "language": [],
+  "musenalm_id": 40141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Hobbes Irrthum besteht darin, daß er es für einen und denselben Satz hält, daß Jeder ein Recht auf alles habe, und das Alle ein Recht auf alles haben.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.888Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "ee5wzxcdsej0vuo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42956,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures Berlinoises. / 1. A l'Egiptienne. 2. Palestine. / 3. Modeste. 4. Outrageant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_156_42956_7c3893w5di.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures Berlinoises. / 1. A l'Egiptienne. 2. Palestine. / 3. Modeste. 4. Outrageant",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.314Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "srd0426wf88rol4"
+    }
+  ]
+}

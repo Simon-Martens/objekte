@@ -1,0 +1,962 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.288Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/139866280",
+          "label": "Noailles, Natalie de"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Französ. Schriftsteller und Politiker; enger Freund von Natalie de Noailles"
+      ],
+      "dateOfBirth": [
+        "1768-09-14"
+      ],
+      "dateOfDeath": [
+        "1848-07-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anne-Louis Girodet de Roussy-Trioson"
+          ],
+          "creditText": [
+            "The Yorck Project (2002) 10.000 Meisterwerke der Malerei (DVD-ROM), distributed by DIRECTMEDIA Publishing GmbH. ISBN: 3936122202."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Anne-Louis%20Girodet-Trioson%20006.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Anne-Louis%20Girodet-Trioson%20006.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Anne-Louis%20Girodet-Trioson%20006.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160325587",
+        "https://d-nb.info/gnd/159161681",
+        "https://d-nb.info/gnd/158720644",
+        "https://d-nb.info/gnd/158386175",
+        "https://d-nb.info/gnd/158439082",
+        "https://d-nb.info/gnd/1028476604",
+        "https://d-nb.info/gnd/160325579",
+        "https://d-nb.info/gnd/1014122988",
+        "https://d-nb.info/gnd/186101570",
+        "https://d-nb.info/gnd/160325595"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118520237/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1013704118",
+          "label": "Chateaubriand, René-Auguste de"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118520237",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/139866280",
+          "label": "Noailles, Natalie de"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1013704118",
+          "label": "Chateaubriand, René-Auguste de"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118520237",
+      "oldAuthorityNumber": [
+        "(DE-588)158439082",
+        "(DE-588)1014122988",
+        "(DE-588a)159161681",
+        "(DE-588a)158386175",
+        "(DE-588)160325579",
+        "(DE-588a)158439082",
+        "(DE-588a)1014122988",
+        "(DE-588a)118520237",
+        "(DE-588a)160325579",
+        "(DE-588)160325587",
+        "(DE-588)158720644",
+        "(DE-588a)160325587",
+        "(DE-588)158386175",
+        "(DE-588)159161681",
+        "(DE-588)186101570",
+        "(DE-588a)186101570",
+        "(DE-588a)158720644",
+        "(DE-588)160325595",
+        "(DE-588)1028476604",
+        "(DE-588a)160325595"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4118224-8",
+          "label": "Saint-Malo"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Chateaubriand, François-René de",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "François-René"
+        ],
+        "prefix": [
+          "de"
+        ],
+        "surname": [
+          "Chateaubriand"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4302941-3",
+          "label": "Vicomté"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller"
+      ],
+      "publication": [
+        "De la censure que l'on vient d'etablir en vertu ...",
+        "Itinéraire de Paris à Jerusalem",
+        "Mémoire sur la Captivité de Madame la Duchesse de Berry",
+        "Éssai historique politique et moral sur les Révolutio* ...",
+        "Maison de France",
+        "Les Martyrs",
+        "Génie du Christianisme",
+        "Atala"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80038427"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7388218"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41446.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q49767"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014122988"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1028476604"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118520237/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158386175"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158439082"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158720644"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159161681"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160325579"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160325587"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160325595"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186101570"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118520237"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fran%C3%A7ois-Ren%C3%A9_de_Chateaubriand"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois-Ren%C3%A9_de_Chateaubriand"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fran%C3%A7ois-Ren%C3%A9_de_Chateaubriand"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121192089"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118520237"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118520237"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118520237"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118520237"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4302941-3",
+          "label": "Vicomté"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Chateaubriand, François-René A.",
+        "Chateaubriand, François Auguste René",
+        "Chateaubriant, F. A.",
+        "Chateaubriand, Franz August",
+        "Chateaubriand, François René Auguste de",
+        "Chateaubriant, F.A.",
+        "Šatobrijan",
+        "Chateaubriand, François R. de",
+        "Chateaubriand, F.-A.",
+        "Chateaubriant, François R. de",
+        "Satōmprian",
+        "Chateaubriand, François A. de",
+        "Chateaubriand, François A.",
+        "Chateaubriand, François Auguste René de",
+        "Satobrian, Phrantzeskos Augustos",
+        "Chateaubriand, François Auguste de",
+        "Chateaubriand, F. A. von",
+        "Chateaubriand, F. A.",
+        "Chateaubriand, François René",
+        "Chateaubriant, François René de",
+        "Chateaubriand, François-René",
+        "Chateaubriand, F. A. de",
+        "Chateaubriand, F. R. de",
+        "Chateaubriand, Franz August von",
+        "Chateaubriand, François-Auguste",
+        "Chateaubriand, F.A.",
+        "Satobriandos, Hypokomes",
+        "Chateaubriand, René de",
+        "Chateaubriand, François Auguste",
+        "Chateaubriand-Schenk",
+        "Chateaubriand, Vicomte de",
+        "Chateaubriand",
+        "Chateaubriand, Vizconde de",
+        "Chateaubriand, François René de",
+        "Chateaubriand, François de",
+        "Chateaubriand, François-René Auguste de",
+        "Chateaubriand, Vicomte",
+        "Chateaubriand, Francesco A.",
+        "Chateaubriand, F.A. de",
+        "Chateaubriand de",
+        "Chateaubriand, Auguste F. de",
+        "Chateaubriand, F.R. de",
+        "Šatobrian",
+        "Chateaubriand, François-Auguste de",
+        "Chateaubriand, François-Auguste-René de",
+        "Chateaubriant, Franz August",
+        "Chateaubriant de",
+        "Chateaubriand, F.A. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Vizconde de"
+          ],
+          "personalName": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François-Auguste"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Chateaubriant"
+          ]
+        },
+        {
+          "forename": [
+            "François-René Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "Franz August"
+          ],
+          "surname": [
+            "Chateaubriant"
+          ]
+        },
+        {
+          "forename": [
+            "François A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F. R."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François-René A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Vicomte de"
+          ],
+          "personalName": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François Auguste"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "Hypokomes"
+          ],
+          "surname": [
+            "Satobriandos"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François R."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Šatobrian"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste F."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Chateaubriand-Schenk"
+          ]
+        },
+        {
+          "personalName": [
+            "Chateaubriant"
+          ],
+          "prefix": [
+            "de"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François-René"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F.R."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François-Auguste-René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Vicomte"
+          ],
+          "personalName": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François Auguste René"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "surname": [
+            "Chateaubriant"
+          ]
+        },
+        {
+          "forename": [
+            "François R."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriant"
+          ]
+        },
+        {
+          "forename": [
+            "Franz August"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Šatobrijan"
+          ]
+        },
+        {
+          "forename": [
+            "François Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François René Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "Franz August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Satōmprian"
+          ]
+        },
+        {
+          "forename": [
+            "François René"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriant"
+          ]
+        },
+        {
+          "forename": [
+            "François A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François-Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "personalName": [
+            "Chateaubriand"
+          ],
+          "prefix": [
+            "de"
+          ]
+        },
+        {
+          "forename": [
+            "F.-A."
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "François Auguste René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        },
+        {
+          "forename": [
+            "Phrantzeskos Augustos"
+          ],
+          "surname": [
+            "Satobrian"
+          ]
+        },
+        {
+          "forename": [
+            "François René"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chateaubriand"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois-Ren%C3%A9_de_Chateaubriand",
+          "label": "https://de.wikipedia.org/wiki/Fran%C3%A7ois-Ren%C3%A9_de_Chateaubriand"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:06:45Z",
+    "gnd_query_biographical_data": "1768-1848",
+    "gnd_query_name": "chateaubriand, francois rené de"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 403,
+  "name": "Chateaubriand, Francois René de",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 83",
+  "updated": "2026-06-11 13:29:21.876Z",
+  "uri": "https://d-nb.info/gnd/118520237",
+  "editor": ""
+}

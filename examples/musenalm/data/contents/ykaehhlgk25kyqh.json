@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. graph. Titel INr 11085, Obj 3; Graphiken INr 110995, 110996; Obj 13, 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "In dem Gebirge, welches die Ebene von Cordova umschließt, hebt sich ein steiler Fels empor, dessen höchste, wie ein Kegel geformte Spitze nur durch in den Felsen gehauene Stufen mühsam zu ersteigen ist.",
+  "language": [],
+  "musenalm_id": 110994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruder Estevan",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruder Estevan",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.453Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "p4dpkzd1a94rour"
+    }
+  ]
+}

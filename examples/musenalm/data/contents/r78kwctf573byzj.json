@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129130,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonaparte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Neubauer",
+  "scans": [
+    "alm_4798_129130_xsiunvn1dk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bonaparte",
+  "updated": "2021-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.970Z",
+      "agent": "rznkc2ozl1kw6jh",
+      "source_id": "80rajjl6fhjlgdu"
+    }
+  ]
+}

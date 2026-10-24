@@ -1,0 +1,56 @@
+{
+  "annotation": "Nummeriert IV. /) Graphik  im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104566,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Me. Koch, Schüler, Mlle. Preissing, H. Böck, / H. Dauer, als Sophie, Dorchen, Hannchen, / Dolmon V. und Walder, im Singsp. Walder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. G. A. Liebe sc.",
+  "scans": [
+    "alm_3249_104566_1xl9p9mn8b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Me. Koch, Schüler, Mlle. Preissing, H. Böck, / H. Dauer, als Sophie, Dorchen, Hannchen, / Dolmon V. und Walder, im Singsp. Walder",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.798Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "2fx7xhu80xw51o6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.798Z",
+      "agent": "v0k80momy67j3zt",
+      "source_id": "uzia994cjwnl5ej"
+    }
+  ]
+}

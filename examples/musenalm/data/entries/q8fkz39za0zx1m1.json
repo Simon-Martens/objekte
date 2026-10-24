@@ -1,0 +1,110 @@
+{
+  "annotation": "§$ vermutl. fehlt Graphik im Kalendarium; ohne Modekupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, T, S I-Verz, 50 SS Kal davon 24 SS zu 12 GG, 23 SS darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Der neuesten Moden (Wien) 1808",
+    "norm": "~",
+    "biblio": 411046,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-05-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4787,
+  "parallel_title": "",
+  "place_statement": "Wien (Müllner)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Der neuesten Moden (Wien) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 64",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / neuesten Moden / Almanach / auf das Jahr / 1808. / Wien. / Bey Joh. Georg Müllner, / Buchbinder und Futteralarbeiter / in der Singerstraße Nr. 954",
+  "updated": "2026-06-11 10:18:54.823Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "0f0zyqkieowvqmj"
+  ],
+  "contents": [
+    "nww49uyhkukorwl",
+    "j03ozvi4xevig4z",
+    "285sorclrkc7pn2",
+    "2fhfw3w2sp8eqbp",
+    "4tnvaztvb45866n",
+    "8jr3bsc4o39tq1m",
+    "f08m309a1doskzi",
+    "hizf9h1qzt882zs",
+    "j8eg4d6barvpfhe",
+    "xufatmnqq6anydl",
+    "pqp830hyymmn7lt",
+    "syg6pvxcc1c9nyy",
+    "zhjs2nvchny7zdr",
+    "yh9q3ez6uzpzql5",
+    "zs86rhj804j0dqb",
+    "u0rsfrpcl02l1kl",
+    "cmsihtu96k59xhi",
+    "o7fd6cdbg9qzxau",
+    "1mo6609k83dou2w",
+    "ijqyng3492x399c",
+    "wkskm8nkwxk53bd",
+    "de5wd2295c3hl0l",
+    "rg8gasmfbdrudcv",
+    "7boragi38jrc0xm",
+    "xxhgl5rjpo7sm9u",
+    "kvsg0hc5nirpg0j",
+    "tu8p8m9numu61ac",
+    "og29yr1u4lk9qmd",
+    "x8a7qhi1xutxe59",
+    "3qc36nre5fb7ib7",
+    "wj5up45exo6meo4",
+    "r7buds7y83a9hzf",
+    "v39wi6uw8vtav4v",
+    "qmuw9bv30qpc8lg",
+    "i8cgn6m6u5hjoce",
+    "4qz0rtmtlm3xf8s",
+    "fj6c0niryg151sr",
+    "3164onjhc11fck4",
+    "6u5leta5dq626w7",
+    "d4iermhkrgv7rkh",
+    "7515t42qg6t0ol8",
+    "fk1i0mbcg4elfzb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.109Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.109Z",
+      "agent": "z3th13h6qnjn069",
+      "source_id": "x8zxlabkz8tqfyk"
+    }
+  ]
+}

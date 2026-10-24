@@ -1,0 +1,99 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 21 SS Kal darin 11 GG, 21 SS Tab, S I-Verz, S G-Verz, SS 1-100 darin MusB, 156 BB, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender zur sittlichen und angenehmen Unterhaltung 1796",
+    "norm": "~",
+    "biblio": 404317,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 947,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender zur sittlichen und angenehmen Unterhaltung 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / zur sittlichen / und angenehmen Unterhaltung, / auf / das Schalt-Jahr / 1796. / Mit 12 Kupfern von D. Chodowiecki. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.749Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "xkcyhzgnvz1wdyt"
+  ],
+  "contents": [
+    "xxwz0wl73p2vr3i",
+    "a3dqaf1l25k6csi",
+    "wiw2cvauoz7qe7f",
+    "g5yxu9f4yi0jg44",
+    "9qduvtd8tmqefzy",
+    "upvv7wv8eyn80hi",
+    "67xlw4xyss4l11c",
+    "0xnx8r3xwvd6uur",
+    "93ub2plmssrtexq",
+    "lpfs0egjbye8ni8",
+    "oiyab0x3blu6c4l",
+    "35yq0da86kid6lw",
+    "nt1hbdokoaua867",
+    "kdnb5jofbrht17s",
+    "kdyv3kihaynq7ug",
+    "lyn00yi02a7wjva",
+    "hptsp32i5endjg2",
+    "q52ybc7k2k0ahqo",
+    "oohbhy66oirfea4",
+    "dyob9nykrsg7ic6",
+    "obviuo85mnao082",
+    "374vajag9u6csqu",
+    "50eavgb3ipt9nxl",
+    "runnl06lr4amq9h",
+    "9kgfpqwkk0ujuk7",
+    "kzbg9xc5wzoccre",
+    "n7zyzxtv8h4obwn",
+    "czqrbsblusmn4c2",
+    "4kzw27fl2z63o5o",
+    "04f82hezrvlh3rz",
+    "f6s959tiiqu6p5z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "eufn0iz9j40rvjl"
+    }
+  ]
+}

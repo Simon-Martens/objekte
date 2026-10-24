@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik im Kalendarium April; paginiert 6. s. Textbezug INr 73668, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bemühe dich nicht, Mutter; ich will / ein schöner Geist werden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Wolf inv. del. Riephs. sc.",
+  "scans": [
+    "alm_915_73655_q36xwye7eh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bemühe dich nicht, Mutter; ich will / ein schöner Geist werden",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.711Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "7r0ndmgjkhm98r4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.711Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "nvv0jc7lvv3iwt9"
+    }
+  ]
+}

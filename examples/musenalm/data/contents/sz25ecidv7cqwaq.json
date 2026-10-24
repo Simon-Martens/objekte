@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 68, 117",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Flugs bezaubert Helene, / Aber Elisa nie:",
+  "language": [],
+  "musenalm_id": 51498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterschied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unterschied",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.528Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "zlobjpyfaceow4k"
+    }
+  ]
+}

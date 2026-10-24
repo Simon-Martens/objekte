@@ -1,0 +1,45 @@
+{
+  "annotation": "Küchen- und Tafel-Kalender (Sammlung INr 50474, Obj 8) mit zahlreichen Rezepten",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Wir beginnen diesen Monat mit einer Fischspeise, deren wir, da sie um die Fastenzeit wenigstens doch einmal gegessen wird, schon im Merz hätten gedenken sollen,",
+  "language": [],
+  "musenalm_id": 50486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Monat Dezember",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Monat Dezember",
+  "updated": "2007-07-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.686Z",
+      "agent": "ndyaxges5n0jd1z",
+      "source_id": "6e7fdks50ccwzm9"
+    }
+  ]
+}

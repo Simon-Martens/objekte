@@ -1,0 +1,752 @@
+{
+  "annotation": "",
+  "biographical_data": "1667-1745",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.491Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1083295896",
+          "label": "Hunter, Robert"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Mitglied des Scriblerus Club, einer Dichtervereinigung in London; weitere Mitglieder: Alexander Pope, John Gay, John Arbuthnot, Henry S. Bolingbroke."
+      ],
+      "dateOfBirth": [
+        "1667-11-30"
+      ],
+      "dateOfDeath": [
+        "1745-10-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Charles Jervas"
+          ],
+          "creditText": [
+            "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof. This may be due to recognition of the \"sweat of the brow\" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement. Please see Commons:When to use the PD-Art tag for more information."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jonathan%20Swift%20by%20Charles%20Jervas%20detail.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jonathan%20Swift%20by%20Charles%20Jervas%20detail.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jonathan%20Swift%20by%20Charles%20Jervas%20detail.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/131196863"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T20:32:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118620193/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IE",
+          "label": "Irland"
+        }
+      ],
+      "gndIdentifier": "118620193",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118620193",
+      "oldAuthorityNumber": [
+        "(DE-588)131196863",
+        "(DE-588a)131196863",
+        "(DE-588c)4058697-2",
+        "(DE-588a)118620193"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4013170-1",
+          "label": "Dublin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4013170-1",
+          "label": "Dublin"
+        }
+      ],
+      "preferredName": "Swift, Jonathan",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jonathan"
+        ],
+        "surname": [
+          "Swift"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1126512060",
+          "label": "Bickerstaff, Isaac"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Tom"
+          ],
+          "surname": [
+            "Pun-Sibi."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Corolini da Marco"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Lemuel"
+          ],
+          "surname": [
+            "Gulliver"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "J. S. D. D. D. S. P. D."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "M. B."
+          ],
+          "surname": [
+            "Draper"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Tom Pun-Sibi."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Simon"
+          ],
+          "surname": [
+            "Wagstaff"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Hermelini"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Scherzerus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Memoirs of the Court of Lilliput",
+        "The poetical works of Jonathan Swift",
+        "Gulliver's travels into several remote nations of the world",
+        "Weissagung auf das Jahr 1708",
+        "Miscellanies",
+        "Travels into several remote nations of the world",
+        "The history of the four last years of the Queen",
+        "The Works of Jonathan Swift",
+        "Lilliput"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78096912"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/14777110"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q41166"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118620193/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131196863"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jonathan_Swift"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jonathan_Swift"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Jonathan_Swift"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jonathan_Swift"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121214321"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118620193"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1734_schmidt;251"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118620193"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118620193"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/B8A174E766034E7F872188BB7701E99D"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118620193"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Swifft",
+        "Drapier, M. B.",
+        "J.S.D.D.D.S.P.D.",
+        "Philomath, T. N.",
+        "J. S. D. D. D. S. P. D.",
+        "Hope, Thomas",
+        "Du Baudrier, sieur",
+        "Fribble, Timothy",
+        "Svift, Džonatan",
+        "Swif, Jonathan",
+        "スウィフト",
+        "Misosarum, Gregory",
+        "Philomath, T.N.",
+        "Schwift",
+        "Swifft, Jonathan",
+        "Draper, M.B.",
+        "Hermelini",
+        "Gulliver, Lemuel",
+        "Drapier",
+        "Schwift, Jonathan",
+        "Drapier, M.B.",
+        "Wagstaff, Simon",
+        "Draper, M. B.",
+        "Corolini da Marco",
+        "Gulliver, Lilliputius",
+        "Pun-Sibi., Tom",
+        "D. S.",
+        "Swifft, D.",
+        "D.S.",
+        "Scherzerus",
+        "Sṿifṭ, Yonatan",
+        "Tom Pun-Sibi.",
+        "Свифт, Дж.",
+        "Swift, Dean",
+        "Svift, D.",
+        "Swift, Jonatan",
+        "Suift, Džonatan",
+        "Svifts, Džonetens",
+        "Swift",
+        "Gulliver, Lemuel, Jun.",
+        "Svift, Dž.",
+        "Schwift, D.",
+        "Swift, Džonat",
+        "Corolini di Marco"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Timothy"
+          ],
+          "surname": [
+            "Fribble"
+          ]
+        },
+        {
+          "forename": [
+            "Dean"
+          ],
+          "surname": [
+            "Swift"
+          ]
+        },
+        {
+          "forename": [
+            "Džonatan"
+          ],
+          "surname": [
+            "Suift"
+          ]
+        },
+        {
+          "forename": [
+            "M. B."
+          ],
+          "surname": [
+            "Drapier"
+          ]
+        },
+        {
+          "forename": [
+            "Džonatan"
+          ],
+          "surname": [
+            "Svift"
+          ]
+        },
+        {
+          "personalName": [
+            "Swifft"
+          ]
+        },
+        {
+          "personalName": [
+            "J.S.D.D.D.S.P.D."
+          ]
+        },
+        {
+          "forename": [
+            "Дж."
+          ],
+          "surname": [
+            "Свифт"
+          ]
+        },
+        {
+          "personalName": [
+            "J. S. D. D. D. S. P. D."
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Svift"
+          ]
+        },
+        {
+          "personalName": [
+            "D. S."
+          ]
+        },
+        {
+          "personalName": [
+            "Schwift"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Swifft"
+          ]
+        },
+        {
+          "personalName": [
+            "Hermelini"
+          ]
+        },
+        {
+          "personalName": [
+            "D.S."
+          ]
+        },
+        {
+          "nameAddition": [
+            "sieur"
+          ],
+          "personalName": [
+            "Du Baudrier"
+          ]
+        },
+        {
+          "forename": [
+            "Džonat"
+          ],
+          "surname": [
+            "Swift"
+          ]
+        },
+        {
+          "forename": [
+            "Tom"
+          ],
+          "surname": [
+            "Pun-Sibi."
+          ]
+        },
+        {
+          "personalName": [
+            "Corolini da Marco"
+          ]
+        },
+        {
+          "forename": [
+            "Jonatan"
+          ],
+          "surname": [
+            "Swift"
+          ]
+        },
+        {
+          "forename": [
+            "Gregory"
+          ],
+          "surname": [
+            "Misosarum"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan"
+          ],
+          "surname": [
+            "Swifft"
+          ]
+        },
+        {
+          "forename": [
+            "T.N."
+          ],
+          "surname": [
+            "Philomath"
+          ]
+        },
+        {
+          "personalName": [
+            "Drapier"
+          ]
+        },
+        {
+          "forename": [
+            "Lemuel"
+          ],
+          "nameAddition": [
+            "Jun."
+          ],
+          "surname": [
+            "Gulliver"
+          ]
+        },
+        {
+          "forename": [
+            "M.B."
+          ],
+          "surname": [
+            "Draper"
+          ]
+        },
+        {
+          "personalName": [
+            "Tom Pun-Sibi."
+          ]
+        },
+        {
+          "forename": [
+            "T. N."
+          ],
+          "surname": [
+            "Philomath"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan"
+          ],
+          "surname": [
+            "Swif"
+          ]
+        },
+        {
+          "forename": [
+            "Thomas"
+          ],
+          "surname": [
+            "Hope"
+          ]
+        },
+        {
+          "forename": [
+            "D."
+          ],
+          "surname": [
+            "Schwift"
+          ]
+        },
+        {
+          "forename": [
+            "M.B."
+          ],
+          "surname": [
+            "Drapier"
+          ]
+        },
+        {
+          "personalName": [
+            "Scherzerus"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan"
+          ],
+          "surname": [
+            "Schwift"
+          ]
+        },
+        {
+          "forename": [
+            "M. B."
+          ],
+          "surname": [
+            "Draper"
+          ]
+        },
+        {
+          "forename": [
+            "Lilliputius"
+          ],
+          "surname": [
+            "Gulliver"
+          ]
+        },
+        {
+          "forename": [
+            "Dž."
+          ],
+          "surname": [
+            "Svift"
+          ]
+        },
+        {
+          "personalName": [
+            "Corolini di Marco"
+          ]
+        },
+        {
+          "personalName": [
+            "Swift"
+          ]
+        },
+        {
+          "forename": [
+            "Simon"
+          ],
+          "surname": [
+            "Wagstaff"
+          ]
+        },
+        {
+          "forename": [
+            "Yonatan"
+          ],
+          "surname": [
+            "Sṿifṭ"
+          ]
+        },
+        {
+          "personalName": [
+            "スウィフト"
+          ]
+        },
+        {
+          "forename": [
+            "Lemuel"
+          ],
+          "surname": [
+            "Gulliver"
+          ]
+        },
+        {
+          "forename": [
+            "Džonetens"
+          ],
+          "surname": [
+            "Svifts"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jonathan_Swift",
+          "label": "https://de.wikipedia.org/wiki/Jonathan_Swift"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:07:39Z",
+    "gnd_query_biographical_data": "1667-1745",
+    "gnd_query_name": "swift, jonathan"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2844,
+  "name": "Swift, Jonathan",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 503",
+  "updated": "2026-06-11 13:29:25.336Z",
+  "uri": "https://d-nb.info/gnd/118620193",
+  "editor": ""
+}

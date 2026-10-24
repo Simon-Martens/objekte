@@ -1,0 +1,101 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, B G-Verz I-Verz, SS III-XXVI darin 5 GG, SS 1-287, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1848",
+    "norm": "~",
+    "biblio": 200682,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1805,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch u. Voß)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke Mein! / TASCHENBUCH / für / 1848. / Siebenzehnter Jahrgang. / Mit sechs Stahlstichen. / WIEN. / Verlag von Pfautsch & Voß, / (Seitzergasse Nr. 423.)",
+  "updated": "2026-06-11 10:18:55.638Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "qawd24epab9yolx"
+  ],
+  "contents": [
+    "wzv01z0p794wsr0",
+    "3ta1tssgx04g0l6",
+    "bc65fk95v3g4m3s",
+    "g7d2r1jwwtkx6tb",
+    "zfo0g59s5cvlm3l",
+    "cw1ooxoww16ftsy",
+    "w9xgpdlhqan86cf",
+    "1l7uo8myd0vhewl",
+    "94fggope9wiuwwq",
+    "2ash6h2057hbu46",
+    "cet6bz0jxulkeb4",
+    "js46ksctvqigxde",
+    "8zifbiryemj9vap",
+    "s6qwf7iggkfmroy",
+    "2d75l7d0osns8do",
+    "vulifl4pl48vvq0",
+    "meg8m0sxc9utrtm",
+    "eicqe7mtuol793p",
+    "v2nk0ul7lajrqcm",
+    "8qa6wfyfmluwi0l",
+    "v1oplgrulb3k8gq",
+    "8l0puiq03zse1jc",
+    "x3b7qhkl42vu65y",
+    "rfd6zi6pjs2v20n",
+    "k3ag39modry0rps",
+    "bgs1b0eh6ltf8bq",
+    "3t5xst1vu59j6f4",
+    "t2xrpt4jit7r3vz",
+    "t00vyo5070ii4hh",
+    "kz147b6ae4vndhh",
+    "k1qke31pefc9ugk",
+    "ys1vigrl1y20cyd",
+    "nhj9q4gztr2ywln"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.131Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.131Z",
+      "agent": "so5kmpsswm45dl2",
+      "source_id": "zccqv3lma9cntc3"
+    }
+  ]
+}

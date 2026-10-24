@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34120, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34121,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor und Venus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correge p.",
+  "scans": [
+    "alm_473_34121_6euuq4obsf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor und Venus #",
+  "updated": "2003-05-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.270Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "uz86dvfixs0zt7w"
+    }
+  ]
+}

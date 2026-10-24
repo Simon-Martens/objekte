@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sarons-Rosen. Eine Maurer-Gabe 1825",
+    "norm": "",
+    "biblio": 409210,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4288,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Sarons-Rosen. Eine Maurer-Gabe 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 100; nicht bei L/R; Goed VII. 253, 42; Goed VIII. 116, 281",
+  "responsibility_statement": "Br. G. Friederich",
+  "subtitle_statement": "",
+  "title_statement": "Sarons-Rosen. / Eine Maurer-Gabe / den / Treuen des Bundes geweiht. / vom / Br.: G. Friederich, / [...] / Als Manuscript für Brüder gedruckt. / Frankfurt am Main, 5825. / Gedruckt und verlegt bei Br. J. D. Sauerländer",
+  "updated": "2026-06-11 10:18:55.463Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "fgghlncr7zv9385"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.146Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.146Z",
+      "agent": "vdibl0sr5wticbe",
+      "source_id": "bze9vhyjc2tn9b2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.360Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.360Z",
+      "agent": "sws62o9x5wt2g97",
+      "source_id": "hsxyw8c5vdey7ns"
+    }
+  ]
+}

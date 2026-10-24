@@ -1,0 +1,99 @@
+{
+  "annotation": "SS 33–48 irrtümlich nach S. 48 noch einmal eingebunden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, SS1–442",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1837",
+    "norm": "~",
+    "biblio": 405185,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-07-09T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4789,
+  "parallel_title": "",
+  "place_statement": "Berlin (Sittenfeld)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach, / für / Freunde der Schauspielkunst / auf das Jahr 1837. / Herausgegeben / von L. Wolff, / Soufleur des Königl. Theaters / Berlin, den 1. Januar 1838. / Gedruckt bei Julius Sittenfeld. / Burg-Straße Nr. 25",
+  "updated": "2026-06-11 10:18:54.919Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "ndzct0qjzpxmgn3"
+  ],
+  "contents": [
+    "kp7vtasyz1s071x",
+    "q45c47wkki7dmrq",
+    "ppc0hdxfd26ry2z",
+    "z0l3rxsomgjh11x",
+    "fjmwjsrixlgsmgf",
+    "kibizaifl6j7d4k",
+    "0pmwle86bc7wpqp",
+    "7holpiuvydybwvl",
+    "93k0gu5ywvdhi05",
+    "czukkd6lgrcabku",
+    "z7ejvk4incazrh4",
+    "hjwwkxenbjsk8tr",
+    "bkalt2z3yn1vk6a",
+    "ag2op4hu85wnjpx",
+    "yt23ipf04a7camf",
+    "uavthibyookgdmi",
+    "ygtb8rvg8ml13dm",
+    "p0ors0wsvg4xk4q",
+    "dbfcob9yjnh8o0o",
+    "fy0g3kh89cbhcp4",
+    "0jx8vz6s20kz35i",
+    "u3hpovs6ncprg7d",
+    "0jjxhqs77v2zzh5",
+    "r56i22mqh5rxqru",
+    "468ewpcu8h09nld",
+    "p3qtlnhaomlugzr",
+    "a083schjeyeksq1",
+    "wmxhqt231yn42y8",
+    "56i0j3dy56zsugc",
+    "7hxn9sj6nx6bv99",
+    "0zvvxenuiz7e311"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "bnt3c72j2gl4qv4",
+      "source_id": "9d6alkzf40p1j45"
+    }
+  ]
+}

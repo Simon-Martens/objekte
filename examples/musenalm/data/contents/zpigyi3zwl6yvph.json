@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Elisabeth Sirani, Mahlerinn in Bologna« von Th. Hell d.i. Karl Gottfried Theodor Winkler INr 121033, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121017,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisabeth Sirani",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schnorr inv. Kotterba sc.",
+  "scans": [
+    "alm_1895_121017_dzzkz5kuim.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elisabeth Sirani",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.558Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "bcpdm2q6x87513f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.558Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "wjsq9s01boygbm9"
+    }
+  ]
+}

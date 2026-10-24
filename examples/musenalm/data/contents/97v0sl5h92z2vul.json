@@ -1,0 +1,45 @@
+{
+  "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Wer ist der Mönch, der Kühne, / Der - Eisenachs Prophet, / Auf hoher Rednerbühne, / Und unerschrocken steht?",
+  "language": [],
+  "musenalm_id": 30397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Johannes Hilten. / (1502.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Johannes Hilten. / (1502.)",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.532Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "jjjfjg3fy8abcit"
+    }
+  ]
+}

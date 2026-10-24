@@ -1,0 +1,68 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Punsch-Kalender 1854",
+    "norm": "",
+    "biblio": 407612,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-12-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1589,
+  "parallel_title": "",
+  "place_statement": "Hamburg u. Altona (Vogler)",
+  "places": [
+    "snvlmxpira867wf",
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Punsch-Kalender 1854",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Punsch-Kalender / 1854. / Ein humoristisch-satyrischer / Almanach. / Mit vielen Illustrationen / von Carl Reinhardt und Anderern. / HAMBURG & ALTONA. / C. G. Vogler. / 1854",
+  "updated": "2026-06-11 10:18:55.945Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "items": [
+    "rwg07t2lb5nedvl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "f3gpqfpxow2tc82",
+      "source_id": "j47u53txccnzfpm"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 5 Textbezügen zu 6 Graphiken; Obj 7-18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Was der große Maler und noch größere Satiriker Salvator Rosa seinem Busenfreund Settano in der 3ten Satire la Pittura mit so vieler Galle erzählt,",
+  "language": [],
+  "musenalm_id": 9204,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scholien zu den Bildern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scholien zu den Bildern",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.267Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "xteyo0c2fa9798l"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "annotation": "Verlagsmitteilung: Verzeichniß von Landcharten und Kupferstichen, sämmtlich erste Abdrücke auf gutem Schweizerpapier, so bey Herrn Siwicke in Berlin zu haben sind.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, Kr, 21 GG, zT, SS 1-162 darin 4 GG, S 162-163 G-Verz, S 163-64 VrlgM, 3 GG, 2 Tabb, 71 BB Tabb, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1791",
+    "norm": "~ K gibt 19 Portraits an /) weiteres Exemplar ohne Kalendarium und 3 Tabellen mit 2 zusätzlichen Portraitmedaillions, »Philippine Charlotte. verwitw. Herzoginn von Braunschweig« und »Anna Amalia, Prinzessin von Preussen«, die in den Folgejahrgängen als Titelportrait gegeben sind",
+    "biblio": 407386,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 826,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / auf das Jahr / 1791. / Mit Genehmhaltung der Königl. / Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.870Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "gtng078xsq0en3z"
+  ],
+  "contents": [
+    "gp87627b6c2ub0x",
+    "cn26pid941mqe5u",
+    "e648rcag2w1mrps",
+    "y7hm33zhtoqpgw9",
+    "vxwiau0hzufb3rl",
+    "qmvcrbjschb0mjg",
+    "st7951btodjtwdx",
+    "zz06pnbslsgitg3",
+    "06ua6qekq93j4sq",
+    "y2ozza3srncu6og",
+    "ln0ynlhipa8149f",
+    "s6lxgdsa3woaer2",
+    "tjarev2n39raxy9",
+    "nkbs551dm9zjjp5",
+    "8xwkwxqogey75n5",
+    "d31xdiv614ywwqu",
+    "zlus6x39vsmv23e",
+    "2fqcykv39n2f15i",
+    "wq0hivrm6xpd2qq",
+    "s7cymta2ressyhr",
+    "nm7svj9en1za0br",
+    "846aj78wwracyd1",
+    "ypvmnsl4h5nv948",
+    "dnr439iiavcsyiq",
+    "3yhgp0zna1fjfmd",
+    "6uaasbntxqyfzcm",
+    "hztsej07mp01yth",
+    "i4458g8ummjvot8",
+    "0wgp64schib3puz",
+    "7twkycphwoqt8iv",
+    "uh3iqhdgs3l6jtv",
+    "r1xwum7xvjah8tz",
+    "al2pu762ceranif",
+    "i5g9geb7qay9dq2",
+    "iccvqcqn6g2mstu",
+    "9gyrymomjiin0o1",
+    "w3apgtn0p9gw0k1",
+    "1ib81bsro0bknrl",
+    "gvawl8vk8mkajtb",
+    "ftxmtxmxasgx532",
+    "c2vi7tol8qps0je",
+    "zhbnouf80g3q9k6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "zdjs6l2i6jfixgn"
+    }
+  ]
+}

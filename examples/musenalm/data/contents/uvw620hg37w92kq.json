@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 9. s. Textbezug INr 32546, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romantische Kleidung / Madme. Vestris als Gabrielle Vergy",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel fec.",
+  "scans": [
+    "alm_451_32545_ffrqo8ovkh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Romantische Kleidung / Madme. Vestris als Gabrielle Vergy",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.700Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "bzm01rfuo44wzyj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.700Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "gsvd27r258w166c"
+    }
+  ]
+}

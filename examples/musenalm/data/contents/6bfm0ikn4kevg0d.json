@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebens-Sprüche. Nach dem Türkischen (Sammlung INr 42814, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Nimmer schreckest Du mich. In Deiner / Hölle, Du Pred'ger, / Ist kein Feuer, doch bringt jeder sein ei- / genes mit.",
+  "language": [],
+  "musenalm_id": 42816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nimmer schreckest Du mich. In Deiner / Hölle, Du Pred'ger, / Ist kein Feuer, doch bringt jeder sein ei- / genes mit.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.718Z",
+      "agent": "nvdnek6niibgjex",
+      "source_id": "qhhckotb1xsylxb"
+    }
+  ]
+}

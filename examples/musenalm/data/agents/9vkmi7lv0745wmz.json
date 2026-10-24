@@ -1,0 +1,413 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.374Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1781-07-30"
+      ],
+      "dateOfDeath": [
+        "1837-07-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Remy (1800-1872)"
+          ],
+          "creditText": [
+            "Screenshot from: Caroline Bernstein: Franz Horn. Ein biographisches Denkmal. Brockhaus, Leipzig 1839, p. II."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Horn%20von%20August%20Remy.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Horn%20von%20August%20Remy.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20Horn%20von%20August%20Remy.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-13T12:37:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116991739/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1386579653",
+          "label": "Horn, Rosa"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116991739",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1386579653",
+          "label": "Horn, Rosa"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116991739",
+      "oldAuthorityNumber": [
+        "(DE-588a)116991739",
+        "(DE-588c)4629589-6"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Horn, Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "surname": [
+          "Horn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Frei"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Marquard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Dorner"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Horn, Franz: Friedrich der Dritte, Kurfürst von Brandenburg",
+        "Geschichte und Kritik der deutschen Poesie",
+        "Horn, Franz: Ueber Carlo Gozzi's dramatische Poesie ..",
+        "Horn, Franz: Der Geist des Friedens",
+        "Horn, Franz: Der Einsame",
+        "Die Dichter",
+        "Dichtercharaktere und biographische Skizzen vermischte Gattung",
+        "Ueber Carlo Gozzi's dramatische Poesie ..",
+        "Horn, Franz: Geschichte und Kritik der deutschen Poesie",
+        "Der Einsame",
+        "Horn, Franz: Erhebung und Beruhigung",
+        "Der Geist des Friedens",
+        "Horn, Franz: Dichtercharaktere und biographische Skizzen vermischte Gattung",
+        "Horn, Franz: Die Dichter",
+        "Erhebung und Beruhigung",
+        "Friedrich der Dritte, Kurfürst von Brandenburg",
+        "Das Leben Friedrich Wilhelms, Kurfürsten von Brandenburg",
+        "Horn, Franz: Das Leben Friedrich Wilhelms, Kurfürsten von Brandenburg"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85127402"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44474153"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1446471"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116991739/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Horn_%28Schriftsteller%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011060018X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116991739"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116991739"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116991739.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116991739.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116991739"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116991739"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Horn, Franz Christoph",
+        "Horn, Fr.",
+        "Horn, Franz C.",
+        "Horn, Christoph Franz",
+        "Dorner, Karl",
+        "Frei, Friedrich",
+        "H., F.",
+        "Marquard, J. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Frei"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Christoph"
+          ],
+          "surname": [
+            "Horn"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Franz"
+          ],
+          "surname": [
+            "Horn"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Dorner"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Marquard"
+          ]
+        },
+        {
+          "forename": [
+            "Franz C."
+          ],
+          "surname": [
+            "Horn"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Horn"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Christoph"
+          ],
+          "surname": [
+            "Horn"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "H."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Horn_%28Schriftsteller%29",
+          "label": "https://de.wikipedia.org/wiki/Franz_Horn_%28Schriftsteller%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:47:51Z",
+    "gnd_query_biographical_data": "1781-1837",
+    "gnd_query_name": "horn, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1236,
+  "name": "Horn, Franz",
+  "profession": "Text",
+  "pseudonyms": "I. G. Marquard",
+  "refs": "Goed VI, 388; Goed XIV, 493",
+  "updated": "2026-06-11 13:29:22.982Z",
+  "uri": "https://d-nb.info/gnd/116991739",
+  "editor": ""
+}

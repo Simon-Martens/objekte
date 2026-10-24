@@ -1,0 +1,116 @@
+{
+  "annotation": "einziger Jahrgang /) enthält detaillierte »Anleitung zur Darstellung lebender Bilder«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, I-Verz, SS1–298, darin 3 zT, 9 GG, 3 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Sophie May) 1823",
+    "norm": "~",
+    "biblio": 200024,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3207,
+  "parallel_title": "",
+  "place_statement": "Berlin (Trautwein)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Thalia (Sophie May) 1823",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 160; L/R 128; Goed VIII. 131, 26",
+  "responsibility_statement": "Sophie May",
+  "subtitle_statement": "",
+  "title_statement": "Thalia. / Taschenbuch / plastischer, dramatischer / und / lyrischer Darstellungen, / für das Jahr 1823. / Dem / geselligen Vergnügen im häuslichen Kreise / gewidmet und herausgegeben / von / Sophie May. / Berlin, / Verlag von T. Trautwein",
+  "updated": "2026-06-11 10:18:55.159Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "1mrvws34zg1o4a7"
+  ],
+  "contents": [
+    "s0m97o9v0pkzhi8",
+    "fj1dwi9knovq0t0",
+    "wt0gzkvrt5xipq9",
+    "or4t9lvdt2hco6x",
+    "9suiettlphs6uzn",
+    "efqd3l7sj60nnto",
+    "dpilwd2p3lvltje",
+    "mfd4hinqrgusho8",
+    "sa63y8qqug89900",
+    "a06orbn9jordoau",
+    "fdnapvqthlsj0f4",
+    "s1yww4outay0oy8",
+    "ti2wp6kbfyg64au",
+    "7z7u7ice4brvs87",
+    "9kt8kofsc1p07d0",
+    "t5awu2ore5ckqa0",
+    "rtauglrtlx5mgl2",
+    "8szw4o043iwvfgw",
+    "w4y3p9z4y0obw0s",
+    "6c246gannq2lcyh",
+    "6m0e18di354xq4e",
+    "65nbplzqffycde6",
+    "5jfiz8c0wmlqpl2",
+    "e7xgdntdw93n5zu",
+    "wwnnuh6m7inyqul",
+    "80fbdklpip0cybc",
+    "oaskgh1i9eufyp6",
+    "3tz7kgfp4oo6kly",
+    "zj56xrdpz57i1zh",
+    "kyutszq9iavsuxt",
+    "qkk08htg3spctyl",
+    "rd3f5i9vdnax481",
+    "rt7g49gkgg78x1x",
+    "3l7a2y8otebujmo",
+    "kqyw03ky19wntlp",
+    "eo5dszszh4enq95",
+    "0ih4p4flwnfzq5p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.165Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.165Z",
+      "agent": "uez7ibtedo43snp",
+      "source_id": "osiy1xqyk478bns"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.184Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.184Z",
+      "agent": "lonqcs6pn486ebs",
+      "source_id": "wmrayj8uuwsumdr"
+    }
+  ]
+}

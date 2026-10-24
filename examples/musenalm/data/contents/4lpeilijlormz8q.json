@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 49220, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlag' ein!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_674_49202_0wmam236t1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schlag' ein!",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.602Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "jxctvkliuwzwrux"
+    }
+  ]
+}

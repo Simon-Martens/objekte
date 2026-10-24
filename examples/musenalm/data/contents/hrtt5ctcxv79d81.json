@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Jeder Lebenstag ist Geschenk der freundli- / chen Gottheit;",
+  "language": [],
+  "musenalm_id": 62095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heute! / (Nach Francois de Maucroix, / der diese Verse im 80sten Jahre / machte.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heute! / (Nach Francois de Maucroix, / der diese Verse im 80sten Jahre / machte.)",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.955Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "hymo4g86jp2fk3a"
+    }
+  ]
+}

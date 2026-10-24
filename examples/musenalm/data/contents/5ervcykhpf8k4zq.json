@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Titelgraphik /) kol. Illustration zu »Die Schwestern auf Corcyra« von A. v. Helvig INr 90928, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O wie bewegt erkenn' ich hier mich wieder! / 1e. Abth. 2. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Am. v. Imhof del. Hössel sc.",
+  "scans": [
+    "alm_4012_90924_s0yq2wvkez.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O wie bewegt erkenn' ich hier mich wieder! / 1e. Abth. 2. Auftr.",
+  "updated": "2013-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.542Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "7n0qj3erjsigd5j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.542Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "gxbv483ops6xc3w"
+    }
+  ]
+}

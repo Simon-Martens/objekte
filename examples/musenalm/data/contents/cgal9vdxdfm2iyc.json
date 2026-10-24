@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Willkommen in den königlichen Schranken, / Du Neugekrönter! rufen Millionen dir,",
+  "language": [],
+  "musenalm_id": 6186,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den König. / Im September 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den König. / Im September 1786",
+  "updated": "2000-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.027Z",
+      "agent": "quu68xfhyzxlogj",
+      "source_id": "66kvb1lsgf7p9fz"
+    }
+  ]
+}

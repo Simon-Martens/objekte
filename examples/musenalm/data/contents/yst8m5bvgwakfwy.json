@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41445,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Indianische Krieger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt sc.",
+  "scans": [
+    "alm_540_41445_5gtwnd6mul.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Indianische Krieger",
+  "updated": "2005-11-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.936Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "k3aqbvnmobcsa1z"
+    }
+  ]
+}

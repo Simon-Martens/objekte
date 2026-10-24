@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Die schönen Tage, mit welchen der Oktober des letztverflossenen Jahres so lieblich eintrat, luden, wie so manchen andern, auch mich noch zu einem Ausfluge ein.",
+  "language": [],
+  "musenalm_id": 53310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstück / einer / Wanderung / durch Unter-Wallis / im Herbst 1816",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meisner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstück / einer / Wanderung / durch Unter-Wallis / im Herbst 1816",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.791Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "1s1bsx624xw8nk9"
+    }
+  ]
+}

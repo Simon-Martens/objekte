@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an den übrigen Blättern der Suite; s. Textbezug INr 7847, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7848,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Paulus vor Felix",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hog. inv. Riep f.",
+  "scans": [
+    "alm_170_7848_nn2fqjfbd4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Paulus vor Felix",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.213Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "8oakydt6694glkt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.214Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "dmwjj405ipnfrkz"
+    }
+  ]
+}

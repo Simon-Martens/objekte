@@ -1,0 +1,675 @@
+{
+  "annotation": "",
+  "biographical_data": "1597-1639",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.439Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2011193-9",
+          "label": "Fruchtbringende Gesellschaft"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichter, herzogl. schlesischer Rat, Sekretär und Historiograph des polnischen Königs Wladyslaw IV.",
+        "Gymnasien in Bunzlau, Breslau und Beuthen a.d.O.; Studium in Frankfurt/O. und Heidelberg; geadelt und von Kaiser Ferdinand II. zum Dichter gekrönt; lebte seit 1635 in Danzig als Hofhistoriograph des Königs Wladislaw IV. von Polen; Gründer der \"Ersten schlesischen Dichterschule\""
+      ],
+      "dateOfBirth": [
+        "1597-09-25"
+      ],
+      "dateOfDeath": [
+        "1639-08-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Bartlomiej Strobel"
+          ],
+          "creditText": [
+            "wroclawskaeuropa.pl"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Painting%20of%20Martin%20Opitz%20by%20Bartholom%C3%A4us%20Strobel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Painting%20of%20Martin%20Opitz%20by%20Bartholom%C3%A4us%20Strobel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Painting%20of%20Martin%20Opitz%20by%20Bartholom%C3%A4us%20Strobel.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:20:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118590111/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Martha"
+          ],
+          "surname": [
+            "Rothmann"
+          ]
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Opitz"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118590111",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118590111",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-101c)31068076X",
+        "(DE-588a)134990765",
+        "(DE-588c)4043629-9",
+        "(DE-588a)118590111"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4088643-8",
+          "label": "Bunzlau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        }
+      ],
+      "preferredName": "Opitz, Martin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Martin"
+        ],
+        "surname": [
+          "Opitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156443-1",
+          "label": "Gelehrter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Erneuerer der deutschen Literatur",
+        "Agent",
+        "Sprachgelehrter",
+        "Dichter"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Valentin"
+          ],
+          "surname": [
+            "Theocritus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Der Gekrönte"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Gekrönte"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Opitz, Martin: Lobgedicht an die koenigliche Majestät zu Polen und Schweden",
+        "Opitz, Martin: Opera poetica",
+        "Opitz, Martin: Salomons hohes Lied",
+        "Opitz, Martin: Buch von der Deutschen Poeterey",
+        "Opitz, Martin: Teutsche Poemata",
+        "Opitz, Martin: Deutscher poematum erster Theil",
+        "Opitz, Martin: Jonas",
+        "Opitz, Martin: Prosodia germanica oder Buch von der deutschen Poeterey",
+        "Opitz, Martin: Opera",
+        "Opitz, Martin: Von der Welt-Eitelkeit"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb120866664"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50006413"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/opitz-martin/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22167909"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60946"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118590111/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Martin_Opitz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Martin_Opitz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Martin_Opitz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Martin_Opitz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108778886"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118590111"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1598_opitz"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118590111"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118590111.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118590111.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118590111"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118590111"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118590111"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Opitzius, Martinus",
+        "Boberfeld, Martin Opitz von",
+        "Opizen von Boberfeld",
+        "B. M. V. O.",
+        "Oberfeld, Martin Opitz von",
+        "Opitzen, Martin",
+        "Opitz",
+        "Theocritus, Valentin",
+        "M. O. Y. B.",
+        "Opitz von Boberfeld, Martin",
+        "Opitius, Martinus",
+        "Opitzen, Martinus",
+        "Opotius, Martinus",
+        "Gekrönte, Der",
+        "Opitz, Martinus",
+        "Opitius",
+        "Boberfeld, Martinus Opitius von",
+        "Opicius, Martinus",
+        "Opitius, Mart.",
+        "M. O. V. B.",
+        "Opiz von Boberfeld, Martin",
+        "Opic, Martin",
+        "Opitz, Márton",
+        "Opiz",
+        "Opitius, Martin",
+        "O. V. B., M.",
+        "Der Gekrönte",
+        "Opizen von Boberfeld, Martin",
+        "Opiz, Martin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opizen von Boberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opitius"
+          ]
+        },
+        {
+          "personalName": [
+            "Opiz"
+          ]
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Gekrönte"
+          ]
+        },
+        {
+          "forename": [
+            "Valentin"
+          ],
+          "surname": [
+            "Theocritus"
+          ]
+        },
+        {
+          "forename": [
+            "Martin Opitz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opiz von Boberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opicius"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opitius"
+          ]
+        },
+        {
+          "personalName": [
+            "Der Gekrönte"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opic"
+          ]
+        },
+        {
+          "personalName": [
+            "B. M. V. O."
+          ]
+        },
+        {
+          "forename": [
+            "Martin Opitz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Boberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus Opitius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Boberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opitz von Boberfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opitzen"
+          ]
+        },
+        {
+          "personalName": [
+            "M. O. V. B."
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opitz"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opitzen"
+          ]
+        },
+        {
+          "forename": [
+            "Márton"
+          ],
+          "surname": [
+            "Opitz"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opitzius"
+          ]
+        },
+        {
+          "personalName": [
+            "Opitius"
+          ]
+        },
+        {
+          "personalName": [
+            "Opitz"
+          ]
+        },
+        {
+          "personalName": [
+            "M. O. Y. B."
+          ]
+        },
+        {
+          "forename": [
+            "Mart."
+          ],
+          "surname": [
+            "Opitius"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "O. V. B."
+          ]
+        },
+        {
+          "forename": [
+            "Martin"
+          ],
+          "surname": [
+            "Opiz"
+          ]
+        },
+        {
+          "forename": [
+            "Martinus"
+          ],
+          "surname": [
+            "Opotius"
+          ]
+        },
+        {
+          "personalName": [
+            "Opizen von Boberfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Martin_Opitz",
+          "label": "https://de.wikipedia.org/wiki/Martin_Opitz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:25:27Z",
+    "gnd_query_biographical_data": "1597-1639",
+    "gnd_query_name": "opitz, martin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1994,
+  "name": "Opitz, Martin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 37",
+  "updated": "2026-06-11 13:29:23.992Z",
+  "uri": "https://d-nb.info/gnd/118590111",
+  "editor": ""
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bellona und Komus, Solbrig's 1826",
+    "norm": "",
+    "biblio": 410801,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-06-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4649,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Taubert)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Bellona und Komus, Solbrig's 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; ADB XXXIV, 553",
+  "responsibility_statement": "Solbrig",
+  "subtitle_statement": "",
+  "title_statement": "Solbrig's / Bellona und Komus. / Ein Taschenbuch / zur Unterhaltung / für Deutschlands Krieger / insbesondere, / so wie / für Freunde der Poesie und Declamation / überhaupt. / Leipzig 1826. / Taubert'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.535Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "kuaftl6ccnqclsj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.400Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.400Z",
+      "agent": "etqeiq0g3gswd8j",
+      "source_id": "nvqmh2cnhcjhryz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "ktx34ni1t0sk6h0",
+      "source_id": "w0yld2sjcpxcf4x"
+    }
+  ]
+}

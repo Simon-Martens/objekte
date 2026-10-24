@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, S I-Verz, 5 GG, SS 1-364",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) 1832",
+    "norm": "~",
+    "biblio": 100969,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3405,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hallberger)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; L/R 99; Goed VIII. 126, 332 a",
+  "responsibility_statement": "C. Spindler",
+  "subtitle_statement": "",
+  "title_statement": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1832. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / vormals J. G. Franckh'sche Verlagshandlung",
+  "updated": "2026-06-11 10:18:54.859Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "lavz77h8mim76pk"
+  ],
+  "contents": [
+    "dzw30unxnskoowz",
+    "sm1qc27jwqukten",
+    "s2dr6vk2rljsapm",
+    "4u5r4iww4d4ryql",
+    "vmbh0d8nhp0np3y",
+    "v6b4w3ihobrwekr",
+    "ntwku4a23snmcii",
+    "tm701fs7iuu30dr",
+    "r4wksttnilpg7cq",
+    "6ctxuchv1fxjw3k",
+    "c1yrrd3tvmmcw0g",
+    "9ua31doyn1uriqa",
+    "9s6cr0zyd2hd1nm",
+    "o3c1qgn5zz6yx0f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.214Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "1h2wy3hpky88yl8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.953Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.953Z",
+      "agent": "d5fnfuwmwqfsxjp",
+      "source_id": "5jtj487rmxzjmvt"
+    }
+  ]
+}

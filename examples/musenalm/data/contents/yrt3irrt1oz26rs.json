@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Charaden über ein Wort (Sammlung INr 19883, Obj 67) Räthsel, Charaden und Logogryphe (Sammlung INr 19881, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Betrübt sah Columbus in's Meer dahin, / Da befreite das Erste vom Tode ihn;",
+  "language": [],
+  "musenalm_id": 19886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Betrübt sah Columbus in's Meer dahin, / Da befreite das Erste vom Tode ihn;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.780Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "4s7d5bzuqoh3r5s"
+    }
+  ]
+}

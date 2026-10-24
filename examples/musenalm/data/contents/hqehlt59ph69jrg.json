@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36113,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Heideloff del. C. V. Schellhorn sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. C. V. Schellhorn sc.",
+  "scans": [
+    "alm_352_36113_b2xqdr7pd2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "iloztbvppyig5n1",
+      "source_id": "cbmwbuiebf6uedf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "rmt31t7c3tjs49b"
+    }
+  ]
+}

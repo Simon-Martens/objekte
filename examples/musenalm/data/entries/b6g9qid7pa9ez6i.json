@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1834",
+    "norm": "",
+    "biblio": 200720,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2778,
+  "parallel_title": "",
+  "place_statement": "München (Franz)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "Joseph von Hormayr",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die vaterländische Geschichte. / Herausgegeben / von / Joseph Freyherrn von Hormayr. / Neue Folge. / Fünfter Jahrgang. / 1834. / München, / Bei Georg Franz",
+  "updated": "2026-06-11 10:18:55.083Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "7tej4g6cpydsw6b"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.141Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.141Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "0zmauw03nv8i6s8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.872Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.872Z",
+      "agent": "oi7nzik00egzcl5",
+      "source_id": "i6u0fjs4bj6rhyh"
+    }
+  ]
+}

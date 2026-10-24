@@ -1,0 +1,661 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1048536912",
+          "label": "Sonnleithnerische Buchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1005067-X",
+          "label": "Gesellschaft der Musikfreunde in Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10016955-7",
+          "label": "Johann David Hörling, Buchhändler"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Er hinterließ eine große Sammlung von Materialien zur Geschichte der Musik und des Theaters in Wien, die im Archiv der Gesellschaft der Musikfreunde aufbewahrt wird. Außerdem übergab er seine Instrumentensammlung der Gesellschaft d. Musikfreunde.",
+        "1815 Hofagent bei den vereinigten Hofkanzleien, ab 1816 Regierungsrat; nachfolgend bei der Hofkammer für Münz- und Bergwesen, dann beim Hofkriegsrat tätig.",
+        "1781-1785 Buchdrucker, 1787 Hof-Konzipist im Kabinett von Kaiser Joseph II., 1794-96 Herausgabe eines \"Wiener Theateralmanach\", 1799-1800 Reisen, 1802 Partner des neuen Musikverlags, 1804-1814 Hoftheatersekretär, 1812 Beteiligung an der Gründung der Gesellschaft der Musikfreunde in Wien, bis zu seinem Tod Teil ihres leitenden Ausschusses, 1815 Hofagent, 1816 Regierungsrat, 1819 Sammelaktion von Volksliedern"
+      ],
+      "dateOfBirth": [
+        "1766-03-03"
+      ],
+      "dateOfDeath": [
+        "1835-12-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://aeiou.iicm.tugraz.at/aeiou.encyclop.s/s654652.htm"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Sonnleithner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Sonnleithner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Sonnleithner.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1037499832",
+        "https://d-nb.info/gnd/1158973799"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:47:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104332042/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118615637",
+          "label": "Sonnleithner, Ignaz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100274153",
+          "label": "Sonnleithner, Franz Xaver"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13719336X",
+          "label": "Sonnleithner von Edelheim, Christoph Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/103949828",
+          "label": "Sonnleithner, Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1023069105",
+          "label": "Grillparzer, Anna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118542192",
+          "label": "Grillparzer, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137193319",
+          "label": "Sonnleithner, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1157101410",
+          "label": "Rizy, Franziska"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "104332042",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/118542192",
+          "label": "Grillparzer, Franz"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/103949828",
+          "label": "Sonnleithner, Christoph"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/137193319",
+          "label": "Sonnleithner, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1023069105",
+          "label": "Grillparzer, Anna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13719336X",
+          "label": "Sonnleithner von Edelheim, Christoph Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100274153",
+          "label": "Sonnleithner, Franz Xaver"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118615637",
+          "label": "Sonnleithner, Ignaz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1157101410",
+          "label": "Rizy, Franziska"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104332042",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)159209773",
+        "(DE-588)1037499832",
+        "(DE-588a)126106665",
+        "(DE-588a)134525779",
+        "(DE-101c)310215773",
+        "(DE-588a)102958432",
+        "(DE-588)1158973799",
+        "(DE-588a)104332042",
+        "(DE-588a)103711090",
+        "(DE-588c)4622884-6",
+        "(DE-588a)131327283"
+      ],
+      "periodOfActivity": [
+        "1794-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Sonnleithner, Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "surname": [
+          "Sonnleithner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4460674-6",
+          "label": "Hofbeamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1042030138",
+          "label": "Schulz, Therese"
+        }
+      ],
+      "publication": [
+        "Beethoven, Ludwig van: Fidelio",
+        "Die kurze Ehe",
+        "Fidelio",
+        "Die Gartenmauer",
+        "Gyrowetz, Adalbert: Agnes Sorel",
+        "Eybler, Joseph: Die vier letzten Dinge",
+        "Dieulafoy, Michel: Die Pagen des Herzogs von Vendome"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119251462"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81140133"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100229717"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q86117"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=104332042"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037499832"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104332042/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1158973799"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_Sonnleithner"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_Sonnleithner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_Sonnleithner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109286728"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104332042"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104332042"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Sonnleithner_Joseph-Ferdinand_1766_1835.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104332042"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/EF13DF26E412430AB9B18DC3EBFB873A"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Sonnleithner, J.",
+        "Sonnleithner, Ferdinand",
+        "Sonleithner, Josef",
+        "Sonnenleithner, Joseph Ferdinand",
+        "Sonnleithner, Ignaz F.",
+        "Sonnleithner, Jos.",
+        "Sonnleithner, Josef Ferdinand",
+        "Sonnleithner, Joseph von",
+        "Sonnleithner",
+        "Sonnleithner, Joseph Ferdinand",
+        "Sonnleithner, J. Ferdinand",
+        "Sonnleitner, Josef von",
+        "Sonnleithner, Josef",
+        "Sonnleithner, Josef von",
+        "Sonnleither",
+        "Sonnleithner, Giuseppe",
+        "Sonnenleithner, Ignaz F.",
+        "Sonnleithner, Joseph F.",
+        "Sonnleitner, Joseph",
+        "Sonnleitner, Josef",
+        "Sonnenleithner, Joseph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef Ferdinand"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "personalName": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Sonnenleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz F."
+          ],
+          "surname": [
+            "Sonnenleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Sonnleitner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Ferdinand"
+          ],
+          "surname": [
+            "Sonnenleithner"
+          ]
+        },
+        {
+          "personalName": [
+            "Sonnleither"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnleitner"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "J. Ferdinand"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Sonnleitner"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz F."
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Ferdinand"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Sonleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph F."
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Jos."
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_Sonnleithner",
+          "label": "https://de.wikipedia.org/wiki/Joseph_Sonnleithner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:00:24Z",
+    "gnd_query_biographical_data": "1766-1835",
+    "gnd_query_name": "sonnleithner, joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2696,
+  "name": "Sonnleithner, Joseph",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XXXIV, 640",
+  "updated": "2026-06-11 13:29:25.075Z",
+  "uri": "https://d-nb.info/gnd/104332042",
+  "editor": ""
+}

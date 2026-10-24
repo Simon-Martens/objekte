@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, 3 SS VrlgM, S I T, SS III-IV Vrwrt d Hrsg, SS V-XIV C, 17 BB Kal darin 5 GG, SS 1-986, S I-Verz, 4 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1864",
+    "norm": "",
+    "biblio": 405094,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2116,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1864",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Hofkalender / nebst / diplomatisch-statistischem Jahrbuche / auf das Jahr / 1864. / Hundert und erster Jahrgang. / Gotha, bei Justus Perthes",
+  "updated": "2026-06-11 10:18:55.479Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "items": [
+    "82i844uz32dc0ly"
+  ],
+  "contents": [
+    "4mmydmnxnmrurlb",
+    "nz309t58dv4pdkl",
+    "t9qh1joax61sw9i",
+    "0cur7h2kgnamv5z",
+    "arlvkfewjmax41w",
+    "sczj73n8os8zdwx",
+    "mn1kvyp6nzepc9w",
+    "hnil5juwjkjp4w4",
+    "z79ebg2izjowy8y",
+    "9o72jiulm6ks7cz",
+    "hy7jaitjzo9b43x",
+    "8lpyxz3t475lrfq",
+    "nd5lj3i09fl2t2u",
+    "zpgsh4ei7ohyayh",
+    "v6bp6rij78kamrz",
+    "7b0e6o51xzz354y",
+    "oi6l4ouls3k6sw9",
+    "7jooma70h9zvl09",
+    "eeqxi759f0wyzv7",
+    "1t5vhbgjh5936l9",
+    "97jwunk5um7ut3z",
+    "qf27wvdnrtw4c61",
+    "xauic2knqt1wp62",
+    "d18vfweu8fqk0mg",
+    "25i5s4llho3h1w8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.124Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.124Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "7ucczuquxt2b2dg"
+    }
+  ]
+}

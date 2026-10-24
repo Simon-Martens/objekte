@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Scenen aus dem Leben König Christians II. von Dänemark« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110944, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christian II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. C. Kotterba sc.",
+  "scans": [
+    "alm_3473_110947_mxjsq2gbcc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christian II.",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.320Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "pfcea954cpy0uoi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.320Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "t16ryl03c6webn4"
+    }
+  ]
+}

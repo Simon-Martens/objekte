@@ -1,0 +1,51 @@
+{
+  "annotation": "<div>180 Rätsel mit Auflösungen</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, T, SS 1-154",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-04-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4886,
+  "parallel_title": "",
+  "place_statement": "Warendorf (J. Schnell)",
+  "places": [],
+  "preferred_title": "Räthsel-Kranz 1840",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Sincerus Sphingius",
+  "subtitle_statement": "",
+  "title_statement": "Räthsel-Kranz / gewunden / für das Jahr 1840 / Ein Taschenbüchlein / zur / Erheiterung geselliger Vereine. / Von Sincerus Sphingius. / Warendorf. / Druck und Verlag von J. Schnell",
+  "updated": "2026-08-27 10:05:15.371Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "yk0g31pj5t61wft"
+  ],
+  "contents": [],
+  "agents": []
+}

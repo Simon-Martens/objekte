@@ -1,0 +1,177 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.431Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Landschafts- und Vedutenmaler"
+      ],
+      "dateOfBirth": [
+        "1783"
+      ],
+      "dateOfDeath": [
+        "1855"
+      ],
+      "describedBy": {
+        "dateModified": "2023-07-15T15:52:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1089392087/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1089392087",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1089392087",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4024455-6",
+          "label": "Herborn (Lahn-Dill-Kreis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4075303-7",
+          "label": "Neuenburg (Schweiz)"
+        }
+      ],
+      "preferredName": "Moritz, Friedrich-Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich-Wilhelm"
+        ],
+        "surname": [
+          "Moritz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4517372-2",
+          "label": "Aquarellmaler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95869308"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q30303018"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089392087/about"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Moritz, F.W.",
+        "Moritz, Wilhelm",
+        "Moritz, Friedrich Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Moritz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Moritz"
+          ]
+        },
+        {
+          "forename": [
+            "F.W."
+          ],
+          "surname": [
+            "Moritz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:18:51Z",
+    "gnd_query_biographical_data": "1783-1855",
+    "gnd_query_name": "moritz, wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1860,
+  "name": "Moritz, Wilhelm",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 158",
+  "updated": "2026-06-11 13:29:23.852Z",
+  "uri": "https://d-nb.info/gnd/1089392087",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-10-08 10:22:21.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Abdalak. / Zobeis, sey gegrüßt!  / Zobeis. / Abdalas selbst! Willkommen , Du mein Freund, mein zweyter Vater.",
+  "language": [],
+  "musenalm_id": 140700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scenen / aus / Zobeis, / romantisches Schauspiel in fünf Aufzügen. / (Nach dem Mährchen des Gozzi)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scenen / aus / Zobeis, / romantisches Schauspiel in fünf Aufzügen. / (Nach dem Mährchen des Gozzi)",
+  "updated": "2026-10-13 09:25:55.240Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-08 10:24:55.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-08 10:24:55.489Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "hpitykyu0q8hpnz"
+    }
+  ]
+}

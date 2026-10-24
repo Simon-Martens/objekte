@@ -1,0 +1,45 @@
+{
+  "annotation": "Tibetanischer Mythus (Sammlung INr 24137, Obj 121) Buntes aus Ost und West (Sammlung INr 24130, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Höre, was der tibetan'sche Mythus spricht! / Sonne, Mond und Stern' in Lüften waren nicht.",
+  "language": [],
+  "musenalm_id": 24138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.952Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "inxjqy55a4ww7eh"
+    }
+  ]
+}

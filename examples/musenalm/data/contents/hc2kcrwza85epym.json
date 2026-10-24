@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte. Aus dem Französischen des Clemens Marot (Sammlung INr 14389, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Ein süßes Nein mit einem Lächeln süß, / Ist allzu schön! Von mir sollst du's vernehmen;",
+  "language": [],
+  "musenalm_id": 14391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / De Ouy et Nenni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / De Ouy et Nenni",
+  "updated": "2001-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.528Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "e4i5ayh3evjo66t"
+    }
+  ]
+}

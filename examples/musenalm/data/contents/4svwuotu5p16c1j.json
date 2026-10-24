@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38852, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Wie ist es so wunderschön! / Die Felder, die Wälder, die Thäler, die Höh'n,",
+  "language": [],
+  "musenalm_id": 38854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Rheinlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Christian Tenner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Rheinlied",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.181Z",
+      "agent": "h2od5uetg73g87x",
+      "source_id": "yjs5kfgxreu8fkz"
+    }
+  ]
+}

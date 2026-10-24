@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Wenn aus der Freiheit stärkendem Wogenbad / Verjüngt emporsteigt Mutter Teutonia,",
+  "language": [],
+  "musenalm_id": 99512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / An Metternich. / 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Minckwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / An Metternich. / 1848",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.869Z",
+      "agent": "dpkh7u6gok5xlc0",
+      "source_id": "78hhvme2sr0g1fe"
+    }
+  ]
+}

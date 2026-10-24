@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Den Sieger Pytheas, den aus Nemäa's / Bahn / Die Griechen jüngst gekrönt mit Eppich sahn,",
+  "language": [],
+  "musenalm_id": 6384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Freund Pfeffel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Freund Pfeffel",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.745Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "j4tjapvyiuqc0tf"
+    }
+  ]
+}

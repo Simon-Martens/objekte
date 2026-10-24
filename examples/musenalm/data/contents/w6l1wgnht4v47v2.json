@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86293, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Die Sonne wann sie Abends sinkt hinab, / Von ihrem Tag'werk müd, in's Flutengrab,",
+  "language": [],
+  "musenalm_id": 86294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die nächtliche Klage der Sonne. / (Moslimische Mythe.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die nächtliche Klage der Sonne. / (Moslimische Mythe.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.192Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "slzgvch1tllwnz7"
+    }
+  ]
+}

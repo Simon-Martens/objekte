@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Oktober; nummeriert 4. /) s. Textbezug INr 108516, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108504,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trotz der Franzosen in dem Hafen vor Ne- / apel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc. 93",
+  "scans": [
+    "alm_2172_108504_gjluhvf73a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trotz der Franzosen in dem Hafen vor Ne- / apel",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.098Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "39blphby6xywpaf"
+    }
+  ]
+}

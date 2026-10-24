@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–144, SS1–119",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1834",
+    "norm": "~",
+    "biblio": 404979,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3435,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1834",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / für das Jahr 1834 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Eilftes Bändchen. / Enthält: / Immer. / Lustspiel in 2 Aufzügen. / und / Der Staatsgefangene. / Posse in zwei Aufzügen. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1834",
+  "updated": "2026-06-11 10:18:54.849Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "rw73k3h6olkdszk"
+  ],
+  "contents": [
+    "zsvk8vs5qvcnr4f",
+    "1x23tkyxj9207ul",
+    "7jtofcpabzhs3qd",
+    "bckjyj6mqm27683"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.482Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.482Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "pgfocbpmotoa8f2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.219Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.219Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "x7g6bq4ud7ir3a8"
+    }
+  ]
+}

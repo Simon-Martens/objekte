@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 7161, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7129,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgen / Le Matin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv.",
+  "scans": [
+    "alm_144_7129_pmebsmdih2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Morgen / Le Matin",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.302Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "vlunsb7e1doj9fd"
+    }
+  ]
+}

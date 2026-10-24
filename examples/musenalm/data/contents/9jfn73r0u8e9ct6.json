@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bruder Estevan« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110994, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juanita",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Joh. Ender Stahlstich v. Dav. Weiss i. Wien",
+  "scans": [
+    "alm_3476_110996_1qibm06d48.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Juanita",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.453Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "4s3iwkxxsxnkyjh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.453Z",
+      "agent": "yf7uqcfkp0nwlnb",
+      "source_id": "egqpe3j7d9p08h1"
+    }
+  ]
+}

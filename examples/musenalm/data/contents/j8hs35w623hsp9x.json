@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Freund Pilgram« von C. Spindler; s. Textbezug INr 103110, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zeich. v. F. Fellner. St. von L. Burckart",
+  "language": [],
+  "musenalm_id": 103108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FREUND PILGRAM. / Seite 306",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeich. von F. Fellner. St. St.von S. Langer in W.",
+  "scans": [
+    "alm_3409_103108_dr5gj8vb81.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FREUND PILGRAM. / Seite 306",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.150Z",
+      "agent": "9z4h7ka6ovxy0ac",
+      "source_id": "72651l7zxcc8o3s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.150Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "9j30ond31bvjmxw"
+    }
+  ]
+}

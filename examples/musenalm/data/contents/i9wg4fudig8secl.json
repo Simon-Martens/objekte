@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Meine Augen stehen doch offen - ich sehe Alles ganz deutlich. - Mein Kopf ist ruhig - Ich erkenne mich vollkommen",
+  "language": [],
+  "musenalm_id": 115718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wundertrank. / Dramatische Aufgabe in einem Aufzuge, / nach dem Französischen »la Fiole de Cagliostro«",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Cosmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wundertrank. / Dramatische Aufgabe in einem Aufzuge, / nach dem Französischen »la Fiole de Cagliostro«",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.465Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "rscebed3lnwzxo3"
+    }
+  ]
+}

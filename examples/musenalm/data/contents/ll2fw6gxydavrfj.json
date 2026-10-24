@@ -1,0 +1,45 @@
+{
+  "annotation": "An die Wolken (Sammlung INr 42017, Obj 218)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "O Wolken, daß euch der Henker hol' / Mit euern erbärmlichen Witzen!",
+  "language": [],
+  "musenalm_id": 42026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 227,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Der Cholerische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Zeising",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Der Cholerische",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.326Z",
+      "agent": "s5kqm22xcf4do3c",
+      "source_id": "25g5ve59ti3difr"
+    }
+  ]
+}

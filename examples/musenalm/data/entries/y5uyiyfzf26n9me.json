@@ -1,0 +1,61 @@
+{
+  "annotation": "2 Jgg 1802, 1805; Berlin, 1805: Berlin (Unger); Hrsg: Karl Müchler",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Egeria (Müchler) 1802",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1713,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Egeria (Müchler) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; nicht bei L/R; Goed VIII. 58, 45",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.610Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.958Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.958Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "vxheuks00pbzc4r"
+    }
+  ]
+}

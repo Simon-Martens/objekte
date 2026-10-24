@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 59069, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59050,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Louise Prinzessin von Preussen / vermählte Fürstin Radziwil / geb. d. 24t. Mai 1770, gest. d. 7t. December 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Fr. Krüger. Stahltst. v. Auguste Hüssener",
+  "scans": [
+    "alm_874_59050_idckocgf8t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Louise Prinzessin von Preussen / vermählte Fürstin Radziwil / geb. d. 24t. Mai 1770, gest. d. 7t. December 1836",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.943Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "6azfarzzcyzdgro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.943Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "nwu9ylfbvrgleuj"
+    }
+  ]
+}

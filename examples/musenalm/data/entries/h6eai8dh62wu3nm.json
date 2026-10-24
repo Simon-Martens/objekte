@@ -1,0 +1,92 @@
+{
+  "annotation": "7 Jgg 1836-1842; Berlin, 1832: Berlin (Bade); Hrsg.: A. Cosmar; s.a.: Dramatischer Salon",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, S VrlgM, T, S W, S I-Verz, SS 1-383, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Berliner (Cosmar) 1836",
+    "norm": "~",
+    "biblio": 404869,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3239,
+  "parallel_title": "",
+  "place_statement": "Berlin (Bade)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Theater-Almanach, Berliner (Cosmar) 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 160; nicht bei L/R",
+  "responsibility_statement": "Alexander Cosmar",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / Theater-Almanach / auf / das Jahr 1836. / Herausgegeben / von / Alexander Cosmar. / Erster Jahrgang. / Berlin. / Verlag von Th. Bade. / Jägerstraße No. 32",
+  "updated": "2026-06-11 10:18:54.831Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "0ph7dzzwm31n7vl"
+  ],
+  "contents": [
+    "x7rhiegykzgmo5l",
+    "t8szupkfiqzzfpq",
+    "idc45wrj47u2dog",
+    "gv0zlwgmzlk99vt",
+    "3xk04eckeayh0zx",
+    "ucgbsiks9y8peb5",
+    "zhb9gtztot063k7",
+    "kwprj6i1un2fewv",
+    "ygd5y975gmplrjd",
+    "u0skuvv6wqf4uck",
+    "gaqlggog0iou65i",
+    "z47stvwte957st7",
+    "xfnjiktarl1m2rm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.192Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "ouj5ik3dkahxbbg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.491Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.491Z",
+      "agent": "n66bvh8gcjdzgo4",
+      "source_id": "rscm7d9s55domty"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. 1. Gesellschafts- Lied Von J. C. H. Gittermann. 2. Bitte beim Abschied und Antwort. Von N. Meyer. 3. Der Betrug. Von Victor (Sammlung INr 32031, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Also gehst du? Willst nicht länger weilen, / Wo die Liebe freundlich dir gelacht?",
+  "language": [],
+  "musenalm_id": 32033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Bitte beim Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Bitte beim Abschied",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.441Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "a6d5wptrtlcnjcx"
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "annotation": "",
+  "biographical_data": "1796-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.274Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/36150-1",
+          "label": "Rheinische Friedrich-Wilhelms-Universität Bonn"
+        }
+      ],
+      "dateOfBirth": [
+        "1796-02-28"
+      ],
+      "dateOfDeath": [
+        "1876-07-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Jotquadrat"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/K%C3%BCppers%20Breidenstein%20Bonn.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0",
+              "name": "Creative Commons Attribution-Share Alike 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/K%C3%BCppers%20Breidenstein%20Bonn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:K%C3%BCppers%20Breidenstein%20Bonn.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119059231/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119059231",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119059231",
+      "oldAuthorityNumber": [
+        "(DE-588c)4296110-5",
+        "(DE-588a)119059231"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057131-2",
+          "label": "Steinau an der Straße"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "preferredName": "Breidenstein, Heinrich Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Carl"
+        ],
+        "surname": [
+          "Breidenstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4170836-2",
+          "label": "Musikwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        }
+      ],
+      "publication": [
+        "Festgabe zu der am 12. August 1845 statt findenden Inauguration des Beethoven-Monuments in Bonn",
+        "Grosse Variationen und Fuge über den Choral: \"Ein' feste Burg ist unser Gott\" . - o.J.",
+        "Händel, Georg F.: Israel in Egypten. - s.a."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85111691"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77117400"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1596920"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119059231/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Carl_Breidenstein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Carl_Breidenstein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000078610555"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119059231"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119059231.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119059231.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119059231"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Breidenstein, H. K.",
+        "Breidenstein, Heinrich Karl",
+        "Breidenstein, Heinrich K.",
+        "Breidenstein, Heinrich C.",
+        "Brejdenštejn, K. G.",
+        "Breidenstein, Karl",
+        "Breidenstein, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "H. K."
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Karl"
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich K."
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich C."
+          ],
+          "surname": [
+            "Breidenstein"
+          ]
+        },
+        {
+          "forename": [
+            "K. G."
+          ],
+          "surname": [
+            "Brejdenštejn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Carl_Breidenstein",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Carl_Breidenstein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:01:33Z",
+    "gnd_query_biographical_data": "1796-1876",
+    "gnd_query_name": "breidenstein, heinrich karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 299,
+  "name": "Breidenstein, Heinrich Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 252",
+  "updated": "2026-06-11 13:29:21.747Z",
+  "uri": "https://d-nb.info/gnd/119059231",
+  "editor": ""
+}

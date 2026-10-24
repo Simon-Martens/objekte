@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober, nummeriert 10.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134266,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Puisse l'Europe a jamais / Trouver en Mars en Dieu de Paix [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil",
+  "scans": [
+    "alm_2019_134266_bibrbznoex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Puisse l'Europe a jamais / Trouver en Mars en Dieu de Paix [...]",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.123Z",
+      "agent": "tofq8m4srkv5wfy",
+      "source_id": "up2erw0s07edgwx"
+    }
+  ]
+}

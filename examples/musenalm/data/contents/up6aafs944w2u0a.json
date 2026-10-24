@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Spräch' Aconithes, wie er dächte, / Was er auch spräche, trüg' ich dann.",
+  "language": [],
+  "musenalm_id": 18090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aconithes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aconithes",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.628Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "y7gl6lgnp86t2kx"
+    }
+  ]
+}

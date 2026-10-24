@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "O Geld! o Geld! / Du Göze dieser tollen Welt, / Vor dem sich Hoh' und Niedre büken.",
+  "language": [],
+  "musenalm_id": 35043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte an das Geld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bitte an das Geld",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.695Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "biz0jdu5fz0mldc"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "annotation": "gest. Titel mit vom Haupttitel abweichender zus. Verlagsangabe: Leipzig, Liebeskind",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S W, 5 GG, T, SS 1-300, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1834",
+    "norm": "~",
+    "biblio": 100744,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1791,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN ! / TASCHENBUCH / Für das Jahr / MDCCCXXXIV. / MIT BEITRÄGEN / von / Adami, Bauernfeld, Braun Ritter von Braunthal, Castelli, Fitzinger, / Reg. Frohberg, Jos. Ritter von Hammer, Kanne, von Körber, Manfred, / Renn, Baron Schlechta, Seidl, Silesius, Adolph Ritter von / Tschabuschnigg, Vogl, Weigl, etc. / Dritter Jahrgang. / WIEN / VERLAG VON FRIEDRICH PFAUTSCH, / CURRENTGASSE No 414. / Zu beziehen von allen Buch - und Kunsthandlungen des In- u. Auslandes",
+  "updated": "2026-06-11 10:18:55.634Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "iz4cjmgzmerh4ob"
+  ],
+  "contents": [
+    "zhdkdlgduxosv1a",
+    "wh980wh24izh7aw",
+    "3risvx9qzymr6z8",
+    "1qro0dw11dm07pw",
+    "t13q3cx0puuh3ye",
+    "qt54chbkyzhh11r",
+    "34pbnv6khz1277h",
+    "zc2m3t4freqptzf",
+    "7pk0hvxsflfsxi5",
+    "em4s4ez2i0umtp4",
+    "qot7boj3gob78nf",
+    "q0bzrquznfjuzyz",
+    "ckbh81whdo8vi2y",
+    "hesarf3vym5guor",
+    "6jdhmvo2tbyy4d4",
+    "4qzqhnqypa2f2ie",
+    "bf09idbohd1aghh",
+    "9mjln7t1zwsrff1",
+    "e2llvlz1k67air6",
+    "aew72lpjway3kql",
+    "8m70wfyxf1rc2ih",
+    "p55c51bshj76gd8",
+    "u0yi0s3i7mwn64b",
+    "qfszrkpy2j96g5g",
+    "ubqj1umf3fqzpsp",
+    "jz6qt8te0h9qv7n",
+    "pknqvlhi6lfbpg6",
+    "vdrg67ofu6l0pl0",
+    "dk3af7mj0fic6wm",
+    "w5a51yip8q6g9ez",
+    "3ukzoc1irqyev3i",
+    "jjp92rssazh25rr",
+    "cda2ou36w33gk1v",
+    "1ebga20q2likik7",
+    "u0p2yyylcp9prlv",
+    "x1bp59u7awvrt3l",
+    "bf37zjcz6n7h3fi",
+    "d3vmsqgn20q28a7",
+    "37bo2z2thf249lo",
+    "hb2pju96esxt0ol",
+    "p21dz15zyak3bu3",
+    "xhbf0ggfpg6kmjl",
+    "m1wi4fveetvpy40",
+    "es1h26ebga0sp8p",
+    "9hsemidbneizscx",
+    "hi409cnxmt3cnor",
+    "6jeq4vdwg2onuxy",
+    "56li2nprz15dthi",
+    "gc90o77uus52rc0",
+    "bytuzps4ggpmmyl",
+    "b132f479wuddeya",
+    "gg1stndxzkvlza4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.128Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.128Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "6rl64aho28ccl82"
+    }
+  ]
+}

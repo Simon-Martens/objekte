@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197) s. Graphik (Portrait) INr 99292, Obj 198",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Schlaf ein, mein liebes Kindlein! / Schlaf ein, mein süßes Herz!",
+  "language": [],
+  "musenalm_id": 99297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.871Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "tr0fkb46mq8ioj0"
+    }
+  ]
+}

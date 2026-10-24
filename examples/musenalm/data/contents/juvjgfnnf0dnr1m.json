@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Sonnetten (Sammlung INr 64162, Obj 2) s. Graphik INr 64172, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wo sich Jasmine um's Gemäuer ranken / Und Schwalben traulich an's Gesimse bauen,",
+  "language": [],
+  "musenalm_id": 64163,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Die Schauende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Die Schauende",
+  "updated": "2009-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.319Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "5ohb4i9a78k8huh"
+    }
+  ]
+}

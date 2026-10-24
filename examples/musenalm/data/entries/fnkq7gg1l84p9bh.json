@@ -1,0 +1,91 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, 8 BB Kal darin 11 GG, 5 SS Tabb, S VrlgM, SS 1-126, 48 BB Tab, 23 BB Tab, B VrgM, 14 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1799",
+    "norm": "",
+    "biblio": 105900,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2182,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [],
+  "preferred_title": "Kalender, Militärischer 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1799. / Beschluß / der / Geschichte des Feldzuges am Rhein / vom Jahr 1792. / nebst / den Bildnissen Sr. Majestät des Königs / und eilf berühmter Generale. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.895Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "qqwd9jyysrv1q74"
+  ],
+  "contents": [
+    "gc8sglq2yzv3s2d",
+    "r7ykhdsd4mmd9yk",
+    "gbzfw5qj5e4712z",
+    "e9rts5rd9iqlp8v",
+    "r9pow72xou289ll",
+    "csx21576oh3vwq9",
+    "a99dk5u8asu39hd",
+    "gfofey5ekvrf9m0",
+    "1gt89hi3f42u1yp",
+    "9iggcuorznyb1zl",
+    "kchynftkvadw6y6",
+    "yxo534ji9ebzyje",
+    "elvis1zukj840hv",
+    "g3gs01hiwfy280q",
+    "dwxcqi5l57178md",
+    "z511eisn7u5qq5e",
+    "8ph4efhray3kczs",
+    "zw37fwa6l8xyl6k",
+    "04f7wol8x2wvutb",
+    "1u6r1fngavukyw9",
+    "pbj6p1cq1ku1inc",
+    "f0695rb3agf5bpd",
+    "t36omqlwmaovg9z",
+    "c3wumtget9q5avt",
+    "b0aubqquhq91pr8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "1dt4njh3koocuvf"
+    }
+  ]
+}

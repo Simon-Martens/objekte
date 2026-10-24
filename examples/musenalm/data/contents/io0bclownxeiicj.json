@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragmente aus einer Genoveva (Sammlung INr 46143, Obj 247)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Abendlüfte buhlend wehn / Und sie geht durch's Blütenfeld.",
+  "language": [],
+  "musenalm_id": 46145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 250,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geisterstimmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geisterstimmen",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.377Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "341z649ypwoq21u"
+    }
+  ]
+}

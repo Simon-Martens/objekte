@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Innig schmerzt es mich, meine Freunde, daß dieser reizendste Monat im Jahre mit einer so traurigen Feierlichkeit beschließen soll.",
+  "language": [],
+  "musenalm_id": 66707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVII. / Grabrede dem ehrwürdigen Andenken des / braven Försters Kaspar Keßler zu / Treis an der Lumda geweiht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVII. / Grabrede dem ehrwürdigen Andenken des / braven Försters Kaspar Keßler zu / Treis an der Lumda geweiht",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.176Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "9igih09xnb7421p"
+    }
+  ]
+}

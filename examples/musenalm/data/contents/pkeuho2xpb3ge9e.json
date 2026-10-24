@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24731, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Mit vierzig Jahren ist der Berg erstiegen, / Wir stehen still und schaun zurück,",
+  "language": [],
+  "musenalm_id": 24750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.032Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "02i2qdw8snu8cjq"
+    }
+  ]
+}

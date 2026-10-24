@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) s. Textbezug 97372, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97346,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JANUAR 31 Tage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_3653_97346_mr35x6a8p0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JANUAR 31 Tage",
+  "updated": "2011-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.735Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "uccniibyroayi5p"
+    }
+  ]
+}

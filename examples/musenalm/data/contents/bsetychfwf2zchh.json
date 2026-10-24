@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert 20. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48113,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joseph Ernst Mayer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48113_moj7lv6xlf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joseph Ernst Mayer",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.649Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "d59t5evqdz5ewpj"
+    }
+  ]
+}

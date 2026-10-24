@@ -1,0 +1,131 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, SS III-IV G-Verz u I-Verz, SS V- XLIV darin 7 GG, SS 1-416",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1847",
+    "norm": "~",
+    "biblio": 100515,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-07-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 602,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "C. Dräxler-Manfred",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1847. / Herausgegeben / von / C. Dräxler-Manfred. / Mit 8 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+  "updated": "2026-06-11 10:18:55.353Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "9g9kit13t042lsf"
+  ],
+  "contents": [
+    "da3z15y0eifeuql",
+    "uopxgjdnbx2t3d5",
+    "pi0f2gmfptxxoj4",
+    "t52rnw0xmu1b3wj",
+    "5l0mgn2pd1pm0lz",
+    "pu3l21tavph8xzv",
+    "2aot74xps2gslmo",
+    "xfaykfkqzo7cf87",
+    "umqpkapr1myx5tt",
+    "rpbcvrudtokljwq",
+    "akg9smadbbqt8je",
+    "36d4e69ucrmiu94",
+    "151wclyxijealms",
+    "9e28jif6ymrjx9f",
+    "8rfqatxer6397wg",
+    "6sop2dnj9p2ugvg",
+    "dfxhlik0osnpj54",
+    "t9s3y55id2ml6iq",
+    "lz8c7evan0n9hkq",
+    "z9j1aqwo0k7o9yl",
+    "4hk73mx29e385qr",
+    "ewfs5c4v75o6oo9",
+    "2mlls1q5by0bs4d",
+    "801i0d07gce8f64",
+    "bs0wglr7rkaj43j",
+    "3yfdysx0o8jxfed",
+    "uuzaa8n9awdgida",
+    "uc0v53tlp779rx0",
+    "fvo0sm7z21qwcqs",
+    "96xcoylsvhc2gl4",
+    "dqqhc3cgpsmdbl1",
+    "itxxha60n833ua3",
+    "ftk4rr1qa2fo2sh",
+    "pi49vn4cnfs5h7e",
+    "iob1ck3ducndlpe",
+    "4n5buryk9a1uv6i",
+    "n340rwstw7oz8f2",
+    "s8asywobay27m7u",
+    "owrzsqx0i1n6zyk",
+    "hnsqnjuh1ht93sp",
+    "clqsuf8wnvhqsdu",
+    "der257e7ya9rjwe",
+    "5pf00qi7bwsk1sb",
+    "icyzo6yrb249fis",
+    "9pyzm7s2z7idu7s",
+    "of0o4x1j2geefa9",
+    "okukq5882lfdsiv",
+    "4euh9xvmksw4drj",
+    "pc13uy4v06m4411",
+    "gry7jyl8t7964l1",
+    "6qb0fz76ctq0ig6",
+    "u68eechuz3b20ld"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.068Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.068Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "1gllbtvtt4paovt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.715Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.715Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "o2aucc3ylsqu20b"
+    }
+  ]
+}

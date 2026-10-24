@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel /) # vollst. Bez. an den Titelblättern der Vorläuferjahrgänge",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66267,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historisch genealogischer / KALENDER / auf / das Jahr 1798. / Deutschland / ein historisches Gemälde / Braunschweig / in der Schulbuchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pet. scp.",
+  "scans": [
+    "alm_1123_66267_n3htunbbyc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Historisch genealogischer / KALENDER / auf / das Jahr 1798. / Deutschland / ein historisches Gemälde / Braunschweig / in der Schulbuchhandlung",
+  "updated": "2009-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.989Z",
+      "agent": "nmh87mne4tvopif",
+      "source_id": "4ncpp0msbhdg9ij"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Anm. INr 26796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Mensch, werde wesentlich, denn, wann die Welt vergeht,",
+  "language": [],
+  "musenalm_id": 26859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "63) Zufall und Wesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Angelus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "63) Zufall und Wesen",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.118Z",
+      "agent": "u6qx1yh697eqyvy",
+      "source_id": "yg9quof8fhhyutp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Eine Blume blüht im Thal, / Geh' früh am Morgen, sieh / Die reine Blum' einmal.",
+  "language": [],
+  "musenalm_id": 23032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Die Blume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Peters",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Die Blume",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.882Z",
+      "agent": "2a0ac584t4bjbwu",
+      "source_id": "9hcxesr4ryz7cjn"
+    }
+  ]
+}

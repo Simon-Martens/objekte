@@ -1,0 +1,45 @@
+{
+  "annotation": "Spanische Lieder (Sammlung INr 45410, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Bitt' ihn, o Mutter, / Bitte den Knaben, / Nicht mehr zu zielen, / Weil er mich tödtet.",
+  "language": [],
+  "musenalm_id": 45414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rogáselo, madre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rogáselo, madre",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.522Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "s42l452h4bz8icn"
+    }
+  ]
+}

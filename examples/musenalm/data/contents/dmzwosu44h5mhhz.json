@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: - nihil est ab omni / parte beatum. / HORAT /) XXII. Gedichte (Sammlung INr 66831, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Laß, Muse des Waldes, ein Lied mir gelingen, / Die Freuden und Leiden des Grünrocks zu singen!",
+  "language": [],
+  "musenalm_id": 66832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Freuden und Leiden des Forstmannes und Jägers. / Dem Herrn Staatsrath und General-Di- / rektor der Forste und Gewässer Freiherrn / von Witzleben zu Cassel gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Freuden und Leiden des Forstmannes und Jägers. / Dem Herrn Staatsrath und General-Di- / rektor der Forste und Gewässer Freiherrn / von Witzleben zu Cassel gewidmet",
+  "updated": "2009-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.339Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "l6uvufsctuq1f3x"
+    }
+  ]
+}

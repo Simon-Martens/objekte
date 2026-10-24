@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "Der Mensch erwacht im Unschuldglanz; / Sein Reich begrenzt ein Blumenkranz / Am Ufer seines Lebens,",
+  "language": [],
+  "musenalm_id": 33943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fried' und Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Gubitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fried' und Unschuld",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.433Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "rkosxc4i8f5d70l"
+    }
+  ]
+}

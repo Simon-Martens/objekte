@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80203, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Dir zürnen, daß du mich verlassen? / Beim Himmel, nein! wie sollt' ich das?",
+  "language": [],
+  "musenalm_id": 80204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Beruhigung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betti Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Beruhigung",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.987Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "g174zu4jptljrjd"
+    }
+  ]
+}

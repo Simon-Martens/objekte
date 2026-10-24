@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Zweite Lieferung. Gedichte (Sammlung INr 40356, Obj 6) mit einer Illustration s. Graphik INr 40357, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Mahadöh, der Herr der Erde, / Kommt herab zum sechsten Mal,",
+  "language": [],
+  "musenalm_id": 40358,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Gott und die Bajadere. / Indische Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Gott und die Bajadere. / Indische Legende",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.796Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "jripczcx692p65k"
+    }
+  ]
+}

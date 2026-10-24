@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 100468, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ich hörte oder las in einem Buche, / Daß, wer einmal das Wandern auserkoren,",
+  "language": [],
+  "musenalm_id": 100471,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erdenwallen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erdenwallen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.890Z",
+      "agent": "k07t75rmsi2tkuk",
+      "source_id": "c9qwl877sn8nwuq"
+    }
+  ]
+}

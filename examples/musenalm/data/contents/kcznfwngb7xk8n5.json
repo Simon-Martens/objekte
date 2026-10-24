@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 99497, Obj 76) X. Rheinland (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Du sprichst vom Scheiden? O, sage nicht, / Wie Abenstern zergeh die Luft der Stunden -",
+  "language": [],
+  "musenalm_id": 99499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesnacht",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.894Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "c5swjs5w84f5mdk"
+    }
+  ]
+}

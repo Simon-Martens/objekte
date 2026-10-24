@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Ich sah, auf einem Strauche / Saß, traurig und verlassen,",
+  "language": [],
+  "musenalm_id": 17361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / kleine Vogel. / Nach dem Estevan Manuel de Villegas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / kleine Vogel. / Nach dem Estevan Manuel de Villegas",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.905Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "lt5zu930ptp2jh9"
+    }
+  ]
+}

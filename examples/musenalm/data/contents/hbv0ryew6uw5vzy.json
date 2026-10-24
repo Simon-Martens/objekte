@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Der Britte ehrt, es liebt der Franke, / Es preist Wälschland seinen Genius; / Der Deutsche überspringt selbst gern die Schranke; / Und bringt den Fremden den Willkommensgruß.",
+  "language": [],
+  "musenalm_id": 116879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Die deutsche dramatische Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Die deutsche dramatische Kunst",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.664Z",
+      "agent": "cvs1lz6mp4pj8h4",
+      "source_id": "0lyled0h5ossc86"
+    }
+  ]
+}

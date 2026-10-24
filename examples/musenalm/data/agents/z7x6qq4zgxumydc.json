@@ -1,0 +1,1858 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1805",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. med."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/10105128X",
+          "label": "Grub, Ludwig Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1110061242",
+          "label": "Wolzogen, Charlotte von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012273571",
+          "label": "Hölzel, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012276740",
+          "label": "Kapf, Franz Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1079186107",
+          "label": "Weckerlin, Johann Christian"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2060690-4",
+          "label": "Grossherzogliches Hof- und Nationaltheater Mannheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/6018412-7",
+          "label": "Schillers Geburtshaus"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1789 Professor für Geschichte in Jena; 1802 nobilitiert"
+      ],
+      "dateOfBirth": [
+        "1759-11-10"
+      ],
+      "dateOfDeath": [
+        "1805-05-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ludovike Simanowiz"
+          ],
+          "creditText": [
+            "Neue Deutsche Biographie, hrsg. von der Historischen Kommission bei der Bayerischen Akademie der Wissenschaften durch Hans Günter Hockerts, redigiert von Franz Menges, Bernhard Ebneth, Stefan Jordan, Claus Priesner, Maria Schimke und Regine Sonntag, 22. Band: Rohmer-Schinkel, mit ADB &amp; NDB-Gesamtregister auf CD-ROM, zweite Ausgabe; Verlag Duncker &amp; Humblot, Berlin 2005, XVI und 816 S., ISBN&nbsp;3 428 11203-2 bzw. 3 428 11291-1http://idw-online.de/pages/en/image18163"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Schiller%20by%20Ludovike%20Simanowiz.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Schiller%20by%20Ludovike%20Simanowiz.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Schiller%20by%20Ludovike%20Simanowiz.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189458372",
+        "https://d-nb.info/gnd/17404092X",
+        "https://d-nb.info/gnd/174166745",
+        "https://d-nb.info/gnd/1025671430",
+        "https://d-nb.info/gnd/159164559"
+      ],
+      "describedBy": {
+        "dateModified": "2025-10-10T15:18:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118607626/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10057243",
+          "label": "http://lod.gesis.org/thesoz/concept_10057243"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11879499X",
+          "label": "Schiller, Elisabetha Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119371456",
+          "label": "Gleichen-Rußwurm, Alexander, Freiherr von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119072769",
+          "label": "Schiller, Johann Caspar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118771272",
+          "label": "Wolzogen, Karoline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135995310",
+          "label": "Uschalk, Familie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116657979",
+          "label": "Gleichen-Russwurm, Emilie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267090",
+          "label": "Schiller, Ernst von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267953",
+          "label": "Schiller, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117240281",
+          "label": "Junot, Caroline Friederike Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118754971",
+          "label": "Schiller, Charlotte von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116658002",
+          "label": "Gleichen-Russwurm, Heinrich Adalbert von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118607626",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117267953",
+          "label": "Schiller, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116657979",
+          "label": "Gleichen-Russwurm, Emilie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117240281",
+          "label": "Junot, Caroline Friederike Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117267090",
+          "label": "Schiller, Ernst von"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/1079186107",
+          "label": "Weckerlin, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012276740",
+          "label": "Kapf, Franz Joseph"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/11879499X",
+          "label": "Schiller, Elisabetha Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119072769",
+          "label": "Schiller, Johann Caspar"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118754971",
+          "label": "Schiller, Charlotte von"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/1012412709",
+          "label": "Jahn, Johann Friedrich"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "https://www.pacelli-edition.de/kurzbiografie.html?idno=9527",
+          "label": "https://www.pacelli-edition.de/kurzbiografie.html?idno=9527"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118607626",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)189458372",
+        "(DE-588)1025671430",
+        "(DE-588a)17404092X",
+        "(DE-588)159164559",
+        "(DE-588)17404092X",
+        "(DE-588)174166745",
+        "(DE-588c)7802698-2",
+        "(DE-588a)118607626",
+        "(DE-588a)159164559",
+        "(DE-588a)189458372",
+        "(DE-588a)131144820",
+        "(DE-588a)131144839",
+        "(DE-588a)174166745"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Шиллер, Фридрих"
+        },
+        {
+          "@language": "mk",
+          "@value": "Шилер, Фридрих"
+        },
+        {
+          "@language": "be",
+          "@value": "Шылер, Фрыдрых"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4037372-1",
+          "label": "Mannheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4037443-9",
+          "label": "Marbach am Neckar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Schiller, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Schiller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4152967-4",
+          "label": "Erzähler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11852240X",
+          "label": "Cotta, Johann Friedrich von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012412709",
+          "label": "Jahn, Johann Friedrich"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Hogarth"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Briefwechsel zwischen Schiller und Wilhelm von Humboldt",
+        "Briefe an den Freyherrn Heribert von Dalberg",
+        "Die Braut von Messina, oder die feindlichen Brüder",
+        "Don Carlos",
+        "Briefwechsel zwischen Schiller und Göthe",
+        "Gedichte"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Christoph Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1255052090",
+          "label": "Nachlass Friedrich Schiller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79111538"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96994450"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D12255.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q22670"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1025671430"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118607626/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159164559"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/17404092X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174166745"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189458372"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118607626"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Schiller"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schiller"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Schiller"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Schiller"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118607626"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121032691"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118607626"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1778_wekherlin;1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118607626"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607626.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607626.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118607626"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/76DC042C1C20404EB780B3BA8A3B1BA7"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118607626"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118607626"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118607626"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118607626"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Schillerus, Fridericus",
+        "Шиллер, Ф.",
+        "Sileri, Piririx",
+        "Sillr, F.",
+        "Šiller, Bedřich",
+        "Sinle, F.",
+        "Šiller, Fr.",
+        "Schiller",
+        "Šiller, Fridrichẏ",
+        "Shirureru",
+        "Schiller, Fr. von",
+        "Schiller, Johann C. von",
+        "Schiller, Frideriko",
+        "Fu li de li xi Xi le",
+        "Šiler, Miroslav",
+        "Šīlir, Fridrīk",
+        "Schiller, Johann F. von",
+        "Šīlir, Yūhān Krīstuf Fridīk fun",
+        "Sillŏ, P'ŭridŭrihi",
+        "Shirâ",
+        "Siller, Phrēntrich",
+        "Шилер, Фридрих",
+        "Schyller",
+        "Šyler, Frydrych",
+        "Schiller, C. F.",
+        "P'ŭridŭrihi Sillŏ",
+        "Schiller, F. von",
+        "Schiller, Frederick",
+        "Šileri, Pʹridrix",
+        "Sil leo, Peu li deu li hi",
+        "Schiller, Johann Christoph Friderich",
+        "Šiler",
+        "Shih-lo",
+        "Schiller, F.",
+        "席勒",
+        "Schiller, J. C. F.",
+        "Schiller, Federico",
+        "Schiller, Fr. v.",
+        "Hogarth",
+        "Schiller, J. C. Friedrich von",
+        "Schiller, Friedr. von",
+        "Šiller, Fridrix",
+        "Schiller, Friedrich v.",
+        "Schiller, Johann Friedrich Christoph von",
+        "Schiller, Frederik",
+        "Şiller, Frederik fon",
+        "Schiller, Frédéric von",
+        "프리드리히 실러",
+        "Schiller, Fryderyk",
+        "Schiller, Frédéric",
+        "Schiller, Joh. Christoph Frid.",
+        "Šīllir",
+        "Schiller, Friedrich Johann Christoph von",
+        "Schiller, Frigyes",
+        "Šiller, Fridrih",
+        "Schiller, Friederich",
+        "Schiller, Federicus",
+        "Y.",
+        "Šīlir, Frīdrīš fūn",
+        "Šīlir, Frīdrīš",
+        "Šiller, F.",
+        "Schiller, Federico de",
+        "Hsi-lo",
+        "Šileri, Phridrih",
+        "Schiller, Johann Christoph Friedrich",
+        "Schiller, Frederic",
+        "Shiller, Fridrikh",
+        "Schiller, Johann Frederich",
+        "Xile",
+        "Schiller, Giovanni Cristoforo Federico",
+        "Schiller, Friderico",
+        "Schiller, Fr.",
+        "Schiller, Friederich von",
+        "Šileris, Fridrichas",
+        "Šiler, Fridrik",
+        "Schiller, Bedřich",
+        "Hsi-le",
+        "Szyller, Fryderyk",
+        "Şiller",
+        "Schiller, C. Friedrich von",
+        "Swillaeo, Piaeuridaeurihi",
+        "Šillers, Fr.",
+        "Schiller, Fridrick",
+        "Schiller, Bjedrich",
+        "Schiller, Johann C.",
+        "Shiler, Fridrikh",
+        "Hsilô",
+        "실러 프리드리히",
+        "Peu li deu li hi Sil leo",
+        "Schiller, Fridrik",
+        "Šiller",
+        "Šīlar, Farīdrīk",
+        "Šiller, Fridriẖ",
+        "Šiller, Iogann Christof Fridrich",
+        "Schiller, Fridericus de",
+        "Schiller, Frédéric de",
+        "Schiller, Frederico",
+        "Šileris, Frydrichas",
+        "Schillerus, Fridericus de",
+        "Fulidelixi-Xile",
+        "Šileris, Frydrychas",
+        "Шиллер, Фридрих",
+        "شىللېر, ڧىرېدىرى",
+        "Schiller, Johann Christoph Friedrich von",
+        "Šiller, Firedirix",
+        "Siller, Fridricku",
+        "Schiller, Friderich",
+        "Schiller, Fridericus",
+        "Schüller",
+        "Shirā, Furīdorihi fon",
+        "Šiler, Johan Hristof Fridrih fon",
+        "Шылер, Фрыдрых",
+        "Schiller, Friedrich von",
+        "Šiler, Fridrih",
+        "Šiler, Fridrich",
+        "Shiler, Fridrih",
+        "Xile, Fulidelixi",
+        "Schiller, Fridrich von",
+        "Siller, Phriderikos",
+        "弗里德里希·席勒",
+        "Schiller, Fridrich",
+        "Šiller, Fridrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Frideriko"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Friederich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrix"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Friderico"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph Friedrich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Shiler"
+          ]
+        },
+        {
+          "forename": [
+            "Фридрих"
+          ],
+          "surname": [
+            "Шиллер"
+          ]
+        },
+        {
+          "personalName": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Sinle"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frīdrīš"
+          ],
+          "prefix": [
+            "fūn"
+          ],
+          "surname": [
+            "Šīlir"
+          ]
+        },
+        {
+          "forename": [
+            "Pʹridrix"
+          ],
+          "surname": [
+            "Šileri"
+          ]
+        },
+        {
+          "forename": [
+            "Peu li deu li hi"
+          ],
+          "surname": [
+            "Sil leo"
+          ]
+        },
+        {
+          "forename": [
+            "Federicus"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frederick"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Peu li deu li hi Sil leo"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh"
+          ],
+          "surname": [
+            "Shiler"
+          ]
+        },
+        {
+          "forename": [
+            "P'ŭridŭrihi"
+          ],
+          "surname": [
+            "Sillŏ"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schillerus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "弗里德里希·席勒"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Cristoforo Federico"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Ф."
+          ],
+          "surname": [
+            "Шиллер"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Christof Fridrich"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Furīdorihi"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Shirā"
+          ]
+        },
+        {
+          "forename": [
+            "Frigyes"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Miroslav"
+          ],
+          "surname": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "Fridriẖ"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frederik"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrych"
+          ],
+          "surname": [
+            "Šyler"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh"
+          ],
+          "surname": [
+            "Shiller"
+          ]
+        },
+        {
+          "forename": [
+            "Federico"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Piririx"
+          ],
+          "surname": [
+            "Sileri"
+          ]
+        },
+        {
+          "personalName": [
+            "Fulidelixi-Xile"
+          ]
+        },
+        {
+          "forename": [
+            "Bedřich"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Shirâ"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "Phridrih"
+          ],
+          "surname": [
+            "Šileri"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Y."
+          ]
+        },
+        {
+          "forename": [
+            "Friderich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrichas"
+          ],
+          "surname": [
+            "Šileris"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Šillers"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrichẏ"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Phriderikos"
+          ],
+          "surname": [
+            "Siller"
+          ]
+        },
+        {
+          "forename": [
+            "P'ŭridŭrihi"
+          ],
+          "surname": [
+            "Sillŏ"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrīk"
+          ],
+          "surname": [
+            "Šīlir"
+          ]
+        },
+        {
+          "personalName": [
+            "弗里德里希·席勒"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "弗里德里希·席勒"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Šīllir"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrik"
+          ],
+          "surname": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Christoph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "프리드리히 실러"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Shirureru"
+          ]
+        },
+        {
+          "forename": [
+            "ڧىرېدىرى"
+          ],
+          "surname": [
+            "شىللېر"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. F."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Federico"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "席勒"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Schillerus"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrichas"
+          ],
+          "surname": [
+            "Šileris"
+          ]
+        },
+        {
+          "forename": [
+            "Fulidelixi"
+          ],
+          "surname": [
+            "Xile"
+          ]
+        },
+        {
+          "personalName": [
+            "Shih-lo"
+          ]
+        },
+        {
+          "forename": [
+            "Фридрих"
+          ],
+          "surname": [
+            "Шилер"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Xile"
+          ]
+        },
+        {
+          "forename": [
+            "C. Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "P'ŭridŭrihi Sillŏ"
+          ]
+        },
+        {
+          "forename": [
+            "Phrēntrich"
+          ],
+          "surname": [
+            "Siller"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph Friderich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Yūhān Krīstuf Fridīk"
+          ],
+          "prefix": [
+            "fun"
+          ],
+          "surname": [
+            "Šīlir"
+          ]
+        },
+        {
+          "personalName": [
+            "Hogarth"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Hsi-lo"
+          ]
+        },
+        {
+          "forename": [
+            "Firedirix"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Frederich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Şiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Hsilô"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Hristof Fridrih"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Šiler"
+          ]
+        },
+        {
+          "forename": [
+            "Piaeuridaeurihi"
+          ],
+          "surname": [
+            "Swillaeo"
+          ]
+        },
+        {
+          "forename": [
+            "Fridricku"
+          ],
+          "surname": [
+            "Siller"
+          ]
+        },
+        {
+          "personalName": [
+            "Hsi-le"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frederico"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Farīdrīk"
+          ],
+          "surname": [
+            "Šīlar"
+          ]
+        },
+        {
+          "personalName": [
+            "Schyller"
+          ]
+        },
+        {
+          "forename": [
+            "Frederik"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Şiller"
+          ]
+        },
+        {
+          "forename": [
+            "Bjedrich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Friederich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        },
+        {
+          "forename": [
+            "Bedřich"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Šiller"
+          ]
+        },
+        {
+          "personalName": [
+            "席勒"
+          ]
+        },
+        {
+          "forename": [
+            "Fryderyk"
+          ],
+          "surname": [
+            "Szyller"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrik"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Sillr"
+          ]
+        },
+        {
+          "forename": [
+            "Fryderyk"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Johann Christoph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "Fu li de li xi Xi le"
+          ]
+        },
+        {
+          "forename": [
+            "Frederic"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "personalName": [
+            "실러 프리드리히"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrychas"
+          ],
+          "surname": [
+            "Šileris"
+          ]
+        },
+        {
+          "forename": [
+            "Фрыдрых"
+          ],
+          "surname": [
+            "Шылер"
+          ]
+        },
+        {
+          "personalName": [
+            "Schüller"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrick"
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frīdrīš"
+          ],
+          "surname": [
+            "Šīlir"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Christoph Frid."
+          ],
+          "surname": [
+            "Schiller"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrych"
+          ],
+          "surname": [
+            "Šyler"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Šiller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Schiller",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Schiller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:47:39Z",
+    "gnd_query_biographical_data": "1759-1805",
+    "gnd_query_name": "schiller, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2440,
+  "name": "Schiller, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 15",
+  "updated": "2026-06-11 13:29:24.629Z",
+  "uri": "https://d-nb.info/gnd/118607626",
+  "editor": ""
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Dioramen 1830 s. u. Gedenke Mein (Archibald; d.i. Röder) 1830",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4266,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Dioramen 1830 s. u. Gedenke Mein (Archibald; d.i. Röder) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.609Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

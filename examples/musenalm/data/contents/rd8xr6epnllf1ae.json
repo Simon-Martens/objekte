@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht von Macao nebst Camoens Wohnsitz als er die Lusiade schrieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "an Ort und Stelle gezeichnet von Webber; P. Veith sc.a.Dr.",
+  "scans": [
+    "alm_538_41238_o8pz81v7oc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht von Macao nebst Camoens Wohnsitz als er die Lusiade schrieb",
+  "updated": "2005-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.904Z",
+      "agent": "c9lbuy81jn5wuz9",
+      "source_id": "c79f4n94cnndqpp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.905Z",
+      "agent": "agad4ahnieynhoj",
+      "source_id": "wzijluoz5spoom3"
+    }
+  ]
+}

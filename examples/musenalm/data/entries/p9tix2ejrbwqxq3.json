@@ -1,0 +1,79 @@
+{
+  "annotation": "Der Almanach-Titel verso. Titel recto gegenüber lautet: Sieben / Sylvester-Abende. / Lebensgeschichte eines alten Mannes, / in sieben Abschnitten, / von Alexander Bronikowski",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Novellen und Sagen 1831 - 2",
+    "norm": "",
+    "biblio": 405055,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1233,
+  "parallel_title": "",
+  "place_statement": "Halberstadt (Brüggemann;) Leipzig (Wigand)",
+  "places": [
+    "mdhj603ygs24e0m",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Novellen und Sagen 1831 - 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Alexander Bronikowski",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der Novellen und Sagen, / herausgegeben / von / Alexander Bronikowski. / Erster Jahrgang. Zweites Bändchen. / Halberstadt, / bey Carl Brüggemann. / Leipzig, / in Otto Wigands Verlags-Expedition. 1831",
+  "updated": "2026-06-11 10:18:55.102Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "xjun06xjpd37xjd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.612Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.612Z",
+      "agent": "5915933g44sa0it",
+      "source_id": "auytaoz7gqask8e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "k8e1epqeqxplo0k",
+      "source_id": "dasf6xronvzsr3z"
+    }
+  ]
+}

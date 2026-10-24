@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I gT, SS III-VI Vrwrt d Hrsg, S VII-VIII I-Verz, SS IX-XII G-Verz, G, SS 1-324 darin 3 GG, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorzeit, Die 1823",
+    "norm": "~",
+    "biblio": 108678,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3497,
+  "parallel_title": "",
+  "place_statement": "Marburg und Kassel (Krieger)",
+  "places": [
+    "apkqc58a7boazsc",
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Vorzeit, Die 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Dr. Justi",
+  "subtitle_statement": "",
+  "title_statement": "DIE / VORZEIT. / Ein Taschenbuch / für das Jahr / 1823. / Marburg u. Cassel / bei Krieger",
+  "updated": "2026-06-11 10:18:54.521Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "u812k9ewaxfps75"
+  ],
+  "contents": [
+    "64ij20jcdw6uinb",
+    "5qc3ju10x306fzf",
+    "vlsjp36rw5rpflp",
+    "oozpidpfnvri9at",
+    "ke5q307zzbqhrd4",
+    "ci5eaqgg20aoh0z",
+    "55h64ofr4fvhkxo",
+    "tf4sibdq3ufvipe",
+    "u0ahygjbunie8ta",
+    "ld3lrrufwfbp1gd",
+    "pa3go9geni5uv0o",
+    "ulwkwix2j1qfju4",
+    "qp3neosz1pk34xv",
+    "8a4cn0xy1tn3vlc",
+    "a0r539cieec92gi",
+    "jyjqrr6jpd55fy3",
+    "4di027r3qgsjhsk",
+    "w7qxedv3044ensp",
+    "grycow7yuxtsho7",
+    "80ye3cn9shh8hgo",
+    "2ah1llmi21opp3b",
+    "6n7f4zcnp3t0yk9",
+    "nf54i36ac34v1x4",
+    "6uh582sw4lutnil",
+    "xro67msf1cy39gr",
+    "wc72dhx71p0z6bb",
+    "oss9kmzrw6yqqq2",
+    "vcdz0lb1u3gk63q",
+    "s6jllfp9bh43puq",
+    "2cqygzwre7shzdt",
+    "etgw9oy0xl73noy",
+    "xn7n8stvpw62vnu",
+    "45ikj8jf94a2cjv",
+    "x3u8j5y18bn2h2n",
+    "105jjr3314bhx9u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.243Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.243Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "68y6f4g34cov1t8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.081Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.081Z",
+      "agent": "9v69tnrkt52hdxy",
+      "source_id": "y9hg93q6npgz3tt"
+    }
+  ]
+}

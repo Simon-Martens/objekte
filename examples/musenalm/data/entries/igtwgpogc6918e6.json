@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, 7 BB G-Verz, 8 BB Kal darin 9 GG, 2 BB Tab, ar: SS 1-64, ar1 : SS 1-244",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Großherzoglich Hessischer 1821; s. a. Taschenbuch, Rheinisches 1821",
+    "norm": "~",
+    "biblio": 106714,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 576,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Hofkalender, Großherzoglich Hessischer 1821; s. a. Taschenbuch, Rheinisches 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Großherzoglich Hessischer / Hofkalender / für das Jahr 1821. / Darmstadt / bey Heyer und Leske",
+  "updated": "2026-06-11 10:18:55.658Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "zzyl6nwffd7589o"
+  ],
+  "contents": [
+    "zhfsprcxhj344wh",
+    "fi6crl7s4ltb21y",
+    "2ku48lskviloigc",
+    "qqllat6xrfnu2n6",
+    "ccz9ttaj4dyd5rp",
+    "99wjl1eor7r770q",
+    "dxzj9ohf75a25dh",
+    "lz5duse1dswt6ul",
+    "iujvmby3cjv0wnr",
+    "c3lm1wiomtrc6ws",
+    "khgk7vwgjg6bglo",
+    "bvdohmcxq1ad73v",
+    "f7dfpgqts4xrxmj",
+    "yzozfse8vnj4jgb",
+    "a0f12qzimgbjb7v",
+    "zx0wh7ujb6md355",
+    "cf9js1dr11nxkz4",
+    "jlg0khfnbwduytb",
+    "mycjuhgpdabn90t",
+    "gbg3c8qde3mh976",
+    "y4drm1ewlmx3ia3",
+    "vp3y4c6deqcvbxw",
+    "75e0qkq77s3vbbu",
+    "1p7575qztkaa7tj",
+    "y9yaa09enf6t540",
+    "b9n1h3f0tboj4c1",
+    "qsq2i4ccnwo9vbb",
+    "mauknfio3r8h4fp",
+    "kt5v8erne7k5l0k",
+    "psp7p1gnhktidfd",
+    "7k5vf3515hnjx2c",
+    "lztap5fogexnbji",
+    "gi832qptogw4pgi",
+    "9h7p6lwvy3yl7xk",
+    "liiryey1ddx7gl4",
+    "6yo52uijffseiba",
+    "9384uk940gh9d5l",
+    "huiyikh3bc38pjp",
+    "0d4xfclt0rkfwti",
+    "94kryk04c1b49pi",
+    "q3b1vmkm4rirp8r",
+    "mg9skwzzv6009k7",
+    "vqceswywtrr38ve",
+    "wylocdi8vez22vg",
+    "etsnblxjfff5dd0",
+    "s370fp08msbebt7",
+    "eyudeei9nwc279s",
+    "zz1gok5qbakxlyd",
+    "ledfp8fva60tffy",
+    "lbjuf0fyp82r7w1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.008Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.008Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "oh5bfr0qwl5saso"
+    }
+  ]
+}

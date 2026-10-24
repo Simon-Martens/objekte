@@ -1,0 +1,216 @@
+{
+  "annotation": "",
+  "biographical_data": "1821-1902",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.405Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1821-08-09"
+      ],
+      "dateOfDeath": [
+        "1902-12-02"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1328477061"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-06T05:31:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/131813904X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "131813904X",
+      "id": "https://d-nb.info/gnd/131813904X",
+      "oldAuthorityNumber": [
+        "(DE-588)1328477061"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4075404-2",
+          "label": "Nikolsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "preferredName": "Landesmann, Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich"
+        ],
+        "surname": [
+          "Landesmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/11872911X",
+          "label": "Lorm, Hieronymus"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Hieronymus"
+          ],
+          "surname": [
+            "Lorm"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n95117759"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/78035575"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131813904X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1328477061"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080042606"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Lorm, Hieronymus",
+        "Landesmann, Heinz",
+        "Landesmann, H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hieronymus"
+          ],
+          "surname": [
+            "Lorm"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Landesmann"
+          ]
+        },
+        {
+          "forename": [
+            "Heinz"
+          ],
+          "surname": [
+            "Landesmann"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:03:06Z",
+    "gnd_query_biographical_data": "1821-1902",
+    "gnd_query_name": "landesmann, heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1542,
+  "name": "Landesmann, Heinrich",
+  "profession": "Text",
+  "pseudonyms": "Hieronymus Lorm; Asmody junior",
+  "refs": "DBI 1205; E 198",
+  "updated": "2026-06-11 13:29:23.463Z",
+  "uri": "https://d-nb.info/gnd/131813904X",
+  "editor": ""
+}

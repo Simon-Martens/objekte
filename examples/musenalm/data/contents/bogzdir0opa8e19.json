@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Wanderlieder. Die Winterreise. In 12 Liedern (Sammlung INr 1701, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Am Brunnen vor dem Thore / Da steht ein Lindenbaum:",
+  "language": [],
+  "musenalm_id": 1700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Der Lindenbaum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Der Lindenbaum",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.931Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "t6l8fn6ymfeq81a"
+    }
+  ]
+}

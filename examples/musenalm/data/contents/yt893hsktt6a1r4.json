@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Spanier (Sammlung INr 127320, Obj 60) Stimmen der Völker (Sammlung INr 127316, Obj 56) im I-Verz.: Biblioth. Castellana, Altenb. 1805 II. 296",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Leid ist's mir um euch, o Conde, / Dass ihr sterben müsst sobald,",
+  "language": [],
+  "musenalm_id": 127323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Vom Grafen Claros",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Vom Grafen Claros",
+  "updated": "2020-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.922Z",
+      "agent": "snjzg3ez48mced1",
+      "source_id": "umvliqm2pzvnqss"
+    }
+  ]
+}

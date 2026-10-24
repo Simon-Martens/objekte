@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetische Kleinigkeiten (Sammlung INr 33556, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Du kanst ruhig wieder einschlafen, sagte der junge Held zu mir, denn wir ziehen dem Feind entgegen;",
+  "language": [],
+  "musenalm_id": 33557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bund des Traums mit dem Wachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bund des Traums mit dem Wachen",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.597Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "b0gykcwtfey767o"
+    }
+  ]
+}

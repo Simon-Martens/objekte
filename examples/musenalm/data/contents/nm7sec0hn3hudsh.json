@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73780, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Ein Pilgermädel, jung und schön, / Wallt, auf ein Kloster zu.",
+  "language": [],
+  "musenalm_id": 73779,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Der Bruder Graurock und die Pilgerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Der Bruder Graurock und die Pilgerin",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.809Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "sv1vhk60ktuy6cy"
+    }
+  ]
+}

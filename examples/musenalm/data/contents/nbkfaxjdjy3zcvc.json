@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Seht doch den Blumisten an, / Der bey seinen Nelkentöpfen, / Uebertriebner Kunst Geschöpfen, / Ganze Tage weilen kann.",
+  "language": [],
+  "musenalm_id": 18875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Blumist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Blumist",
+  "updated": "2001-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.452Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "n4t4ew95xba3qay"
+    }
+  ]
+}

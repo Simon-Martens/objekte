@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 10 Beiträgen INr 33930-33940, Obj 71-80",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Ich versichere und beklage meine guten Leserinnen, daß ich ihnen nichts erzählen werde;",
+  "language": [],
+  "musenalm_id": 33929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeitbetrachtungen im Wonnemonat / Europas, im Mai 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zeitbetrachtungen im Wonnemonat / Europas, im Mai 1814",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.755Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "ql4ikrnt4yeu311"
+    }
+  ]
+}

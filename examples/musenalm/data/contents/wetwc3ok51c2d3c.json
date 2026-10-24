@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Des stolzen Gipfels breite Last / Ein Eichbaum in die Lüfte hob,",
+  "language": [],
+  "musenalm_id": 44288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Waldliedern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfarrius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Waldliedern",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.246Z",
+      "agent": "gnvpzonh9gm3x0g",
+      "source_id": "mrs50bhpn3cs62z"
+    }
+  ]
+}

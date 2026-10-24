@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Aeschylos ruft Titanen herauf und Götter herun- / ter; / Sophokles führt anmuthig der Heldinnen Reihn und / Heroen;",
+  "language": [],
+  "musenalm_id": 15220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tragiker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tragiker",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.626Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "r06djo23ix0pewo"
+    }
+  ]
+}

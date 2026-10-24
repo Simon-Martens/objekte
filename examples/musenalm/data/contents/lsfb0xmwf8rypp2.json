@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135526,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH FRANZ / Grossherzog von Mecklenburg-Schwerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krüger del. Bolt sc.",
+  "scans": [
+    "alm_2080_135526_mwgvk94cyq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH FRANZ / Grossherzog von Mecklenburg-Schwerin",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.151Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "2wmge1rr4u03zux"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.151Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "44t79v7q6p8r840"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Auf der Roma Welten Trümmern / Wandelt eine Fraungestalt,",
+  "language": [],
+  "musenalm_id": 41982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 183,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lätitia Buonaparte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Söltl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lätitia Buonaparte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.219Z",
+      "agent": "a9ggdzrt0er4dvq",
+      "source_id": "ve78wbo7rwzcr9p"
+    }
+  ]
+}

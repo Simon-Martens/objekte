@@ -1,0 +1,56 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Da ließ der Herr Schwefel und Feuer vom Himmel herab auf Sodom und Gomorrha. [...] Genesis",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.691Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Seht dort die schwarze Wolk' ihr wohl vorübergehn, / Bald blaß, bald wieder roth und glänzend anzusehn / Und trüb, gleich dürren Sommertagen?",
+  "language": [],
+  "musenalm_id": 113230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Feuer des Himmels",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Victor Hugo [übers.] Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Feuer des Himmels",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.460Z",
+      "agent": "xaj6m1llkx5hiyx",
+      "source_id": "gz44ucuz2zh1716"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.460Z",
+      "agent": "qpv7d20ox0ad1sj",
+      "source_id": "w620bwmgcpdkd40"
+    }
+  ]
+}

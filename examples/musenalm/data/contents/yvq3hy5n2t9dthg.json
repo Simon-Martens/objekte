@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Liebestrauer« von H. Stieglitz INr 42668, Obj 201",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 202,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebestrauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Berger",
+  "scans": [
+    "alm_560_42669_d02uo4hpds.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebestrauer",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.218Z",
+      "agent": "wj2nwupmjb7lp5e",
+      "source_id": "c11ow7rir9zufok"
+    }
+  ]
+}

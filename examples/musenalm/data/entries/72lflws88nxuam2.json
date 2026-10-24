@@ -1,0 +1,81 @@
+{
+  "annotation": "6 Jgg 1837-1842; Leipzig (Brockhaus); Hrsg. Dr. Franck; mit Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, G, T, I-Verz, SS1–301",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Originalien 1837",
+    "norm": "~",
+    "biblio": 106784,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2730,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch dramatischer Originalien 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 140; nicht bei L/R",
+  "responsibility_statement": "Dr. Franck",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Erster Jahrgang. / Mit fünf Kupfern. / Leipzig: / F. A. Brockhaus. / 1837",
+  "updated": "2026-06-11 10:18:55.825Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "ttsgia1pnmuef6m"
+  ],
+  "contents": [
+    "mokubxasdm86ywc",
+    "x02j6msvad6cjvg",
+    "2oi05my46k5cy39",
+    "ofor58dvj5rmeaa",
+    "vwlxe3acbyzx1y8",
+    "o7px9c4445ufsly",
+    "bfm8c4elqo6lrel",
+    "j2np0kyxhdobc8t",
+    "ynbtci5magym2x2",
+    "hvgn17ffldiqd9x",
+    "snke6zy3y8aqnth",
+    "r2rcy7fbrhr3uwf",
+    "j0k3m9ib0gzfifs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.594Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.594Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "xrw5g1rrpmwvjg4"
+    }
+  ]
+}

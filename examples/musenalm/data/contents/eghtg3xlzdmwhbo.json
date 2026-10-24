@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80613, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Ich denke dein auf allen Bahnen, / Mit treuer Liebe denk' ich dein.",
+  "language": [],
+  "musenalm_id": 80614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gedenke mein!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gedenke mein!",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.054Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "fl3im8j1e93c7fj"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I-Verz, 7 SS G-Verz, 9 GG, S zT, SS 3- 104, S 105 zT, SS 107-347, S, 3 SS Tab, S Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1815 s. u. Hofkalender, Großherzoglich Hessischer 1815",
+    "norm": "~",
+    "biblio": 411042,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-10-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4068,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1815 s. u. Hofkalender, Großherzoglich Hessischer 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1815 / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.363Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "xkx9vvvpeq57ra8"
+  ],
+  "contents": [
+    "io649nodk2c04sl",
+    "0xa4rhze9ccfgiu",
+    "bv0fjgxwsubq4o4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.451Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.451Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "c9zp01hy128vh56"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.009Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.009Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "wcriz62ik78lczu"
+    }
+  ]
+}

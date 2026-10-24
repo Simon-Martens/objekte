@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Nicht Venus, Sol, Merkur, nicht Jupi- / ter, nicht Mars",
+  "language": [],
+  "musenalm_id": 848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nativitätsstellung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nativitätsstellung",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.790Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "dkce00kxdny8gib"
+    }
+  ]
+}

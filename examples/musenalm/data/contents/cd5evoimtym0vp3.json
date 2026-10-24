@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Ob ich deiner noch gedenke? / Ob ich ehre meine Pflicht? / Die Gefang'ne darf nur schweigen, / Nur auf ihre Kette zeigen;",
+  "language": [],
+  "musenalm_id": 69477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort. / An P.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schleifer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort. / An P.",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.266Z",
+      "agent": "90zse4ajt2jiztn",
+      "source_id": "khg93e0ycxrslbf"
+    }
+  ]
+}

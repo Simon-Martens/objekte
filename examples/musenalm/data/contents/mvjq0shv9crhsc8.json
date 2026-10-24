@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez.aus dem I-Verz /) Romanzen (Sammlung INr 98542, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Der Kaiser und seine Mannen / Kehrten in Gallizien. / Der König von den Heiden, / Der that ihnen viel zu Leide.",
+  "language": [],
+  "musenalm_id": 98545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die blühenden Lanzen. / Legende aus dem Leben Karls des Großen, nach der unge- / druckten Kaiserchronik vom 11ten Jahrhundert übersetzt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die blühenden Lanzen. / Legende aus dem Leben Karls des Großen, nach der unge- / druckten Kaiserchronik vom 11ten Jahrhundert übersetzt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.778Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "synbc6f3oveuof3"
+    }
+  ]
+}

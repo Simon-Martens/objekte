@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Die Hoffnung ist ein Himmelstraum / Im schönsten Morgenlichte:",
+  "language": [],
+  "musenalm_id": 83889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.081Z",
+      "agent": "mwq7kafmbvbiqjp",
+      "source_id": "coyw6p8gohk3z43"
+    }
+  ]
+}

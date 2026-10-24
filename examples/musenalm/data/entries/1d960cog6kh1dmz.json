@@ -1,0 +1,53 @@
+{
+  "annotation": "<div>Weitere Jgg nicht ermittelt</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Immortellen oder Immerschönen-Taschenbuch 1817",
+    "norm": "",
+    "biblio": 411057,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-06-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4314,
+  "parallel_title": "",
+  "place_statement": "o. O.",
+  "places": [],
+  "preferred_title": "Immortellen oder Immerschönen-Taschenbuch 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Berger, J. G.",
+  "subtitle_statement": "",
+  "title_statement": "Immortellen- / oder Immerschönen- / Taschenbuch / für die Entdeckungs-Jahre / 1805 bis 1816 / herausgegeben / von / J. G. Berger. / Mit 1 Titelkupfer und Musikblatt / durch Steindruck",
+  "updated": "2026-06-18 10:24:34.678Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "dsr8535h217vh1a"
+  ],
+  "contents": [],
+  "agents": []
+}

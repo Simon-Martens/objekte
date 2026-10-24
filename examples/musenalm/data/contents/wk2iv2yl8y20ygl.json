@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz /) Illustration zu »Der weissagende Staar. Volkssage« von F. Kind INr 20485, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20470,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der weissagende Staar. von Fr. Kind. No. I",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg",
+  "scans": [
+    "alm_271_20470_f46defzw2e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der weissagende Staar. von Fr. Kind. No. I",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.811Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "kf33vr4u204uib2"
+    }
+  ]
+}

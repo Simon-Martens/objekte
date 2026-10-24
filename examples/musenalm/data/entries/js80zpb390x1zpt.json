@@ -1,0 +1,109 @@
+{
+  "annotation": "§ Kalendarium fehlt; s. INr 102566 /) #+++ die Umschlaggraphiken aus dem Jgg 1800; s. Textbezüge INr 102563,102564;  Obj 9, 10",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG #, VB, verso G, gT, 3 SS, 12 SS G-Verz, § Kal, 2 SS I-Verz, SS 1-360 G, 2 BB C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Obscuranten-Almanach 1799",
+    "norm": "~+++ 407552 (Umschlaggraphiken)",
+    "biblio": 407551,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-11-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3894,
+  "parallel_title": "",
+  "place_statement": "Paris [Hamburg] (Fuchs)",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Obscuranten-Almanach 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 200; Goed V, 547",
+  "responsibility_statement": "A. G. F. Rebmann",
+  "subtitle_statement": "",
+  "title_statement": "Obscuranten-Almanach / auf / das Jahr / 1799. / Paris / bei Gerard Fuchs / Nationalbuchhändler",
+  "updated": "2026-06-11 10:18:55.335Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "gorb22ork8q83h6",
+    "sppyuyed92p2uhp"
+  ],
+  "contents": [
+    "hhnqwnxu6hio7xz",
+    "vr8xyk8unj4upw7",
+    "a1ik61c0qs8909v",
+    "t7fuisu9jifpocz",
+    "eqfwnbd2y0ly46e",
+    "f6rjf5hsb88sv2t",
+    "vojm13s5ehnkugy",
+    "fcmgly7zh0lz72m",
+    "dalcv09go379t89",
+    "brd32q53fw11mhn",
+    "chu7s6ygy3vfq0q",
+    "pt8n1em38n360cz",
+    "lgcmpy9a9cbld4k",
+    "omxphhaw35x2ey2",
+    "j0upxchcr8xvw9v",
+    "31c7l0h9kkx6mb3",
+    "wgrcvj4tiq9kn9g",
+    "5ae2urp9v2r94sw",
+    "v2glh9f3i5nrjtq",
+    "041cye3rj0j1bw5",
+    "sksx7muanrfdhjg",
+    "27lft25b2vfxser",
+    "c3ch8swptfruddb",
+    "4mhc1joco5almfg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.305Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.305Z",
+      "agent": "i1m0o75lvyphony",
+      "source_id": "5oieotw8z24iuwq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.879Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.879Z",
+      "agent": "pgaobek0g9nyuf0",
+      "source_id": "t6rw85zehb0uoy6"
+    }
+  ]
+}

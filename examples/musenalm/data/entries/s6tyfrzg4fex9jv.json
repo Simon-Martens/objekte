@@ -1,0 +1,99 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III I-Verz G-Verz, SS V-XIV darin 2 GG, SS 1-431, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1844",
+    "norm": "~",
+    "biblio": 100449,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2415,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1844",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1844. / Herausgegeben / von / Theodor Hell. / Neue Folge, / Vierter Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.955Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "wu5nqkvxh8z15be"
+  ],
+  "contents": [
+    "1sfacmv2c4oom2y",
+    "88jllq72fuadmir",
+    "cafd6emle4301gi",
+    "63fy5udzn45a2ek",
+    "7pssau1iboeilfh",
+    "3xq9yg94z3n0swh",
+    "m0rto12t3ccygfo",
+    "16ctimofbgnpbu0",
+    "lhlcmghbby7647a",
+    "7vevtkesr1w5dj2",
+    "b480jg5u8szykia",
+    "7rbl79zx3svq2q9",
+    "20reoxsg0u6ebdf",
+    "p87u9f8sr8qxrqn",
+    "hsp7c2u7w3aoode",
+    "c9sm2na955xivbp",
+    "pimtix5unmjb86n",
+    "70hrjrb7uqdrpvg",
+    "8kjkre3yn6593m0",
+    "wh6wrrknxup65gq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.023Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.023Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "io3iy7ho1fs8tu1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.083Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.083Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "j46lvh2ukdvqdlj"
+    }
+  ]
+}

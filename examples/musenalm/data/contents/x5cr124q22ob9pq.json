@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Epigrammatische und vermischte Gedichte (Sammlung INr 39559, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "422",
+  "incipit_statement": "Du pflegst Dein Mahl bis in die Nacht zu dehnen, / Und gräbst Dein Grab mit Deinen eignen Zähnen.",
+  "language": [],
+  "musenalm_id": 39572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / An Apizius den Zweiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / An Apizius den Zweiten",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.203Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "3ef1yb4mntimpbm"
+    }
+  ]
+}

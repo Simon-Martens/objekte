@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; paginiert 2. Illustration zu »Faust und Gretchen« von H. Smidt INr 59495, Obj 14 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust und Gretchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59486_5mmxugox5z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust und Gretchen #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.035Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "5iw03qoo3m63ya1"
+    }
+  ]
+}

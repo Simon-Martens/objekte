@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Einige Vorschläge zu Gebäuden für die GartenLandschaft« INr 74244, Obj 38 /) # Titel aus dem Text /) # Zuschreibung: Fischer S. 244",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "sechsekiges Gebäude #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3110_74247_2xupbck5e1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "sechsekiges Gebäude #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.569Z",
+      "agent": "wal6qjr1bhcbnqq",
+      "source_id": "1o8xnjokwpnq40q"
+    }
+  ]
+}

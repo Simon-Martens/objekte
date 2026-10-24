@@ -1,0 +1,45 @@
+{
+  "annotation": "Apollo (Sammlung INr 91527, Obj 51) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Auf zum Tanz, ihr Jünglinge, / Auf zum Saitenspiel, / Denn der Gott ist nahe!",
+  "language": [],
+  "musenalm_id": 91533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "kqytn3p2m6z6usv"
+    }
+  ]
+}

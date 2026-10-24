@@ -1,0 +1,651 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1812",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist und Pianist, Schriftsteller, Universalgelehrter; Domherr; Freiherr"
+      ],
+      "dateOfBirth": [
+        "1752-05-17"
+      ],
+      "dateOfDeath": [
+        "1812-07-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Carl Schubert"
+          ],
+          "creditText": [
+            "This image has been extracted from another file"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Friedrich%20Hugo%20von%20Dalberg.jpg",
+          "license": [
+            {
+              "abbr": "CC BY 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/4.0",
+              "name": "Creative Commons Attribution 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Friedrich%20Hugo%20von%20Dalberg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Friedrich%20Hugo%20von%20Dalberg.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172036348",
+        "https://d-nb.info/gnd/174062796",
+        "https://d-nb.info/gnd/1090260539"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:18:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116028203/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Wolfgang Heribert"
+          ],
+          "nameAddition": [
+            "Reichsfreiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1052840582",
+          "label": "Dalberg, Nanny von"
+        },
+        {
+          "forename": [
+            "Karl Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118720961",
+          "label": "Karl Theodor, Mainz, Erzbischof"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1052840590",
+          "label": "Dalberg, Fanny von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116028203",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1052840582",
+          "label": "Dalberg, Nanny von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1052840590",
+          "label": "Dalberg, Fanny von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118720961",
+          "label": "Karl Theodor, Mainz, Erzbischof"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116028203",
+      "oldAuthorityNumber": [
+        "(DE-588)1090260539",
+        "(DE-588c)4506774-0",
+        "(DE-588)174062796",
+        "(DE-588)172036348",
+        "(DE-588a)172036348",
+        "(DE-588a)116028203",
+        "(DE-588a)174062796"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4003191-3",
+          "label": "Aschaffenburg"
+        }
+      ],
+      "preferredName": "Dalberg, Johann Friedrich Hugo von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich Hugo"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Dalberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Dalberg, Friedrich H. von: Geschichte einer Drusen-Familie",
+        "Jones, William: Ueber die Musik der Indier",
+        "Dalberg, Friedrich H. von: Vom Erfinden und Bilden",
+        "Dalberg, Friedrich H. von: Untersuchungen über den Ursprung der Harmonie und ihre allmä*",
+        "Dalberg, Friedrich H. von: Ueber Meteor-Cultus der Alten",
+        "Dalberg, Friedrich H. von: Trauer-Chor auf den Tod Joseph des II.",
+        "Dalberg, Friedrich H. von: Ariston oder über die Wirksamkeit der peinlichen Strafgesezze",
+        "Fānī, Mīrzā Muḥammad: [Dābistān]",
+        "Jayadeva: Gita-govinda",
+        "Dalberg, Friedrich H. von: Fantasien aus dem Reiche der Töne"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14981675q"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002030397"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56277227"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215517"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116028203"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090260539"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116028203/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172036348"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174062796"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Hugo_von_Dalberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079972179"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116028203"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116028203.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116028203.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116028203"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116028203"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Dalberg, F. H. de",
+        "Dalberg, F. de",
+        "Dalberg, Johann Friedrich Hugo Nepomuk Eckenbrecht von",
+        "Dalberg, Johann Friedrich Hugo Nepomuk Eckenbert von",
+        "Dalberg, Johann Friedrich Hugo, Freiherr von",
+        "Dalberg, Johann F. von",
+        "Dalberg, Friedrich Hugo von",
+        "Dalberg, Johann Friedrich von",
+        "Dalberg, F. J. de",
+        "Dalberg, F. von",
+        "Dalberg, Friedrich von",
+        "Dalberg, Frédéric de",
+        "Dalberg, Fritz",
+        "Dalberg, Friedrich",
+        "Dalberg, Friz",
+        "Dalberg, Fr. von",
+        "Dalberg, F.H. von",
+        "Dalberg, Friedrich H. von",
+        "Dalberg, Fritz von",
+        "Dalberg, F. H. von",
+        "Dalberg, Johann-Friedrich de",
+        "Von Dalberg, Johann Friedrich Hugo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F. H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F.H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F. H."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Hugo"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Hugo Nepomuk Eckenbrecht"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Hugo"
+          ],
+          "surname": [
+            "Von Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fritz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann-Friedrich"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fritz"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Hugo"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "F. J."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Hugo Nepomuk Eckenbert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friz"
+          ],
+          "surname": [
+            "Dalberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Hugo_von_Dalberg",
+          "label": "https://de.wikipedia.org/wiki/Johann_Friedrich_Hugo_von_Dalberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:10:45Z",
+    "gnd_query_biographical_data": "1760-1812",
+    "gnd_query_name": "dalberg, johann friedrich hugo von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 485,
+  "name": "Dalberg, Johann Friedrich Hugo von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 781",
+  "updated": "2026-06-11 13:29:21.986Z",
+  "uri": "https://d-nb.info/gnd/116028203",
+  "editor": ""
+}

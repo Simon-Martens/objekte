@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geselligkeit gewidmete Lieder. (Sammlung INr 50243, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Wenn, von der Ruhmverkünderinn begleitet, / Heroischer Gesang den Geist entzündet,",
+  "language": [],
+  "musenalm_id": 50246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maskentanz. / Zum 30. Januar 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maskentanz. / Zum 30. Januar 1803",
+  "updated": "2007-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.821Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "6b9m1bc0ao5le1n"
+    }
+  ]
+}

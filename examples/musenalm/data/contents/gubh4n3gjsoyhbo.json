@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Was dir theurer Freund! die Bilder eine heiteren, harmlosen Gegenwart - das sind für mich die Geister der Vergangenheit.",
+  "language": [],
+  "musenalm_id": 116797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß Karlstein in Böhmen. / Eine Reiseerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rudolf Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß Karlstein in Böhmen. / Eine Reiseerinnerung",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.512Z",
+      "agent": "z276kpo6m8d5nvd",
+      "source_id": "y0ehaywqc7kmv9b"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. graphischer Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91226,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Almanac / de Poche / pour l’Année / MDCCLXVII. / Avec la Naissance des / Rois, Reines, Prinices, et / Princesses de l'Europe, et / Suivi de pieces agreabels et / utiles, et orné d'Emblemes et / d'Autres Figures en Taille- / douce. Avec l'Approbation / de l'Academie Roiale des / Sciences / Par les heritiers / de / J. G. Wolffgang / à Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gravé par Schleuen",
+  "scans": [
+    "alm_778_91226_mpnuy6eyvm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Almanac / de Poche / pour l’Année / MDCCLXVII. / Avec la Naissance des / Rois, Reines, Prinices, et / Princesses de l'Europe, et / Suivi de pieces agreabels et / utiles, et orné d'Emblemes et / d'Autres Figures en Taille- / douce. Avec l'Approbation / de l'Academie Roiale des / Sciences / Par les heritiers / de / J. G. Wolffgang / à Berlin",
+  "updated": "2008-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1767,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.447Z",
+      "agent": "znun8xp4hmee1nu",
+      "source_id": "c73x747w1l350de"
+    }
+  ]
+}

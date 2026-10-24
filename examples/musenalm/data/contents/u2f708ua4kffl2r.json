@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende Graphik INr 80821, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Aufwärts stieg ich einst aus tiefem Thal / Zu den Bergeshöh'n im Morgenstrahl",
+  "language": [],
+  "musenalm_id": 80820,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Namenlose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Namenlose",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.981Z",
+      "agent": "6qn9afrpxniwvx7",
+      "source_id": "1dh7frasxc1z9d2"
+    }
+  ]
+}

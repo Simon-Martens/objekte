@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94173, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94172,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Camilla und Leisle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1867_94172_txe58a7697.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Camilla und Leisle",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.537Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "vje4u9vfnr2c9qr"
+    }
+  ]
+}

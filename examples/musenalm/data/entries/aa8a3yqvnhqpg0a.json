@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 7 BB G-Verz dazu 6 GG, SS I-II I-Verz, S 1 nT, SS 3-440, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauentaschenbuch 1828",
+    "norm": "~ K gibt 10 GG an",
+    "biblio": 100858,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 358,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (J. L. Schrag)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Frauentaschenbuch 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 47; L/R 75; Goed VIII. 86, 165",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1828. / Nürnberg / bei / Joh. Leonh. Schrag",
+  "updated": "2026-06-11 10:18:54.644Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "deyuz9w3o1f54m9"
+  ],
+  "contents": [
+    "7vdthc9sukn5scw",
+    "la5erzfd361spd5",
+    "v064rdlyrdtudcy",
+    "0zo6q7gd8jdmzms",
+    "i6ycovr9iacafb4",
+    "zsx6bmy7yms807k",
+    "wehnw2ti4quudad",
+    "u792u8jz0semijc",
+    "y1lvq6mqf1humo1",
+    "inyzc7hmtjcqhpo",
+    "zchsw8umaow95rm",
+    "62j1olqlhnmgiat",
+    "0by0g8zqv78u5ku",
+    "6gtv5bp71ukna4b",
+    "htyx3v386xkj9c7",
+    "v95rd2irridncaa",
+    "0q06w3ffkvp1yei",
+    "nwaaow5lc9ezoy2",
+    "v4lxnm4ma6etqfx",
+    "izmd2dpibd0estu",
+    "o23rzfwlcyr8he5",
+    "9eyk3nnhwynlbjc",
+    "9z4681qqchv5j95",
+    "iqb2qcbzhbq3bwt",
+    "4ic2u5zhr3mtboh",
+    "b6z5ziojm3lklws",
+    "r86qg7ktefzm99p",
+    "an8zzjzznwpfzwf",
+    "14w3c90zk15rml7",
+    "pc6e7tgp6fk588p",
+    "je8t902qzso2qeq",
+    "22ysqiyu4vid53g",
+    "r20b3pe85cjundc",
+    "uphzbxqv8wks5ql",
+    "sphu9bko1p5k2ew"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.625Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.625Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "780ozvgpnec6dnx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.070Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.070Z",
+      "agent": "spbxl251etd1dvt",
+      "source_id": "gpmlxe8dg0wbwk9"
+    }
+  ]
+}

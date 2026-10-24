@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Die Sag' erzählet von einem Mann, / Der dacht' allimmer himmelan,",
+  "language": [],
+  "musenalm_id": 14818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Luftschiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Luftschiffer",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.615Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "3iiefyr3srjfvtf"
+    }
+  ]
+}

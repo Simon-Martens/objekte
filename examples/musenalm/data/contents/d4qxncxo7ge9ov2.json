@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Constantia, die Tochter des Stadtpräsidenten, war in Hackbretts Musikhandlung gekommen, um Novitäten zu durchsehen, und verlangte jetzt noch, um sie mitzunehmen, einige Werke Sebastian Bachs.",
+  "language": [],
+  "musenalm_id": 55103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kirchenbau. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kirchenbau. / Novelle",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.786Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "ficzlmj2ac8n0fk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41510,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Indianischer Krieger / am Maranon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_543_41510_jrn0zcsiwn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Indianischer Krieger / am Maranon",
+  "updated": "2005-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.748Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "zpmmookm3mcii87"
+    }
+  ]
+}

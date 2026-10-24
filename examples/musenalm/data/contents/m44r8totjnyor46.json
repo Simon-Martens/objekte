@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Das Königstädtische Theater ist gerettet! so schrieb ein vom Schwindel des Enthusiasmus ergriffenes Blatt nach dem ersten Debut der Dlle Vio aus Wien.",
+  "language": [],
+  "musenalm_id": 44916,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die Kunst-Rosse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die Kunst-Rosse",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.987Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "loy0i2syhmf896z"
+    }
+  ]
+}

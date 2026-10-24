@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Stiller Sinn« von Thaddäus Müller INr 23258, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23280,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stiller Sinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ant. Sulzer",
+  "scans": [
+    "alm_308_23280_gqlt6z8wca.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stiller Sinn",
+  "updated": "2002-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.245Z",
+      "agent": "rel7cpgcy0cce01",
+      "source_id": "1szy3oi4t8hljhb"
+    }
+  ]
+}

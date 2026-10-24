@@ -1,0 +1,75 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, S III W, SS V-XI Vrwrt, SS 1-50",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbüchel für junge Leute 1801",
+    "norm": "~",
+    "biblio": 409415,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-05-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4428,
+  "parallel_title": "",
+  "place_statement": "Ravensburg",
+  "places": [
+    "72gybpl6z67cx8x"
+  ],
+  "preferred_title": "Taschenbüchel für junge Leute 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ulr. Chr. G-n.",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbüchel / für / junge Leute, / zu Haus, auf Reisen, an allen / Orten und zu allen Zeiten / zu benutzen: / von Mercier. / Frey aus dem Französischen übersetzt / von / Ulr. Chr. G-d-n. / Gesetzt und verlegt / von Johann Anton Gradmann. / 1801",
+  "updated": "2026-06-11 10:18:55.274Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "nazefz64gw6l95c"
+  ],
+  "contents": [
+    "arih8jrll2e8y59",
+    "n3gqvgyeijtwf31",
+    "1012dyrwzd7hp0a",
+    "iuu8t8yl3ucbqbv",
+    "bk26jq0xz4zisqm",
+    "59gp99klmb4lvme",
+    "2l2mk9ns7q9tmkf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.376Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.376Z",
+      "agent": "ilfuh0eikjrumrx",
+      "source_id": "tpep5tpl3d9gv6v"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Wenn du, Lydia, Telephus / Rosennacken mir rühmst, Telephus runden / Arm,",
+  "language": [],
+  "musenalm_id": 17998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lydia. / Horazen's 13. Ode des I. Buchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lydia. / Horazen's 13. Ode des I. Buchs",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.891Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "ga96damee7zlbin"
+    }
+  ]
+}

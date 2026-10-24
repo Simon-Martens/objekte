@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "An hoher Wolk' ein Sternlein hieng, / Ein Röslein auf dem Himmelsbeet,",
+  "language": [],
+  "musenalm_id": 55839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stern und der Knabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stern und der Knabe",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.517Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "jt5ueogu4btfxro"
+    }
+  ]
+}

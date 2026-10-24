@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87853, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sieges-Pforte zu Cairo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3100_87854_ebbajw9fnu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sieges-Pforte zu Cairo",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.262Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "mvrvv9b8jogxxbs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.262Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "q6z2xgnva77hklc"
+    }
+  ]
+}

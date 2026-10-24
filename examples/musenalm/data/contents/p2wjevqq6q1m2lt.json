@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz. Illustration zu »Die Gondel« von George Gordon Byron s. Textbezug INr 43894, 0bj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43892,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gondel #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by H. Richter Engraved by H. T. Ryall",
+  "scans": [
+    "alm_590_43892_7saqrz36vj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gondel #",
+  "updated": "2006-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.259Z",
+      "agent": "2p87lmr62wiucvw",
+      "source_id": "5a71s1rpp74bciy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.259Z",
+      "agent": "eywmxpqe6du7wyv",
+      "source_id": "fh8lvn9iikohxiy"
+    }
+  ]
+}

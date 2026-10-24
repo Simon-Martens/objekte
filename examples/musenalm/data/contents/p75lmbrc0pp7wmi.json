@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54868, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Nicht in der Stubengruft / Wuchs zum Lied der Gedanke,",
+  "language": [],
+  "musenalm_id": 54872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In freier Luft und Sonnenschein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In freier Luft und Sonnenschein",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.901Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "w8e4uqianq976do"
+    }
+  ]
+}

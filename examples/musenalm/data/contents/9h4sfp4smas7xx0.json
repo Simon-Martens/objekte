@@ -1,0 +1,56 @@
+{
+  "annotation": "Tabulae votivae (Sammlung INr 38033, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Bürger erzieht ihr der sittlichen Welt, wir / wollten euch loben,",
+  "language": [],
+  "musenalm_id": 38094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erzieher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erzieher",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.876Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "4po018ieaae091z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.876Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "t9didkxofpdsoqi"
+    }
+  ]
+}

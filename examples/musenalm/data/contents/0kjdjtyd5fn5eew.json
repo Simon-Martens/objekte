@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Epigramme (Sammlung INr 42404, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Weil Du herausgetreten aus idealischem Leben, / Und jetzt bleiern, und schwer drückt die gemeine / Natur,",
+  "language": [],
+  "musenalm_id": 42406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mißmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mißmuth",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.954Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "b1sbg1hty0p3gan"
+    }
+  ]
+}

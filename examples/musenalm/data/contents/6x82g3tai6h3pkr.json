@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33878, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33877,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRÜHLING",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. C. W. Schenk sc.",
+  "scans": [
+    "alm_470_33877_dasupwt29q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRÜHLING",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.430Z",
+      "agent": "8u98l2oorjap7pb",
+      "source_id": "d35dghcagdoawud"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.430Z",
+      "agent": "wn0jpqwykk4f079",
+      "source_id": "ry2q615656u5104"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.430Z",
+      "agent": "voq5dlml9870uhq",
+      "source_id": "v6r4womaqifajnm"
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.454Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichterin; 1804 Heirat mit dem Prediger Friedrich August Reinhardt, der 1821 in die Ukraine ging"
+      ],
+      "dateOfBirth": [
+        "1770-04-30"
+      ],
+      "dateOfDeath": [
+        "1843-11-11"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-11T16:41:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116420472/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Wagner"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1224995406",
+          "label": "Reinhardt, Friedrich August"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116420472",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1224995406",
+          "label": "Reinhardt, Friedrich August"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116420472",
+      "oldAuthorityNumber": [
+        "(DE-588a)116420472",
+        "(DE-588a)100619959",
+        "(DE-588c)4844304-9"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003011-8",
+          "label": "Arnstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "preferredName": "Reinhardt, Friederike",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friederike"
+        ],
+        "surname": [
+          "Reinhardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1084608375",
+          "label": "Reinhardt, Lina"
+        }
+      ],
+      "publication": [
+        "Dramatische Kleinigkeiten",
+        "Die graue Führerin junger Pilger und Pilgerinnen durch die Thäler ..",
+        "Vater Kindermann unter seiner Familie. - 1835 - 1837",
+        "Stunden-Blumen",
+        "Sinnpflanzen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007083906"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/45053901"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18916763"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116420472/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friederike_Reinhardt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109683651"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116420472"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116420472.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116420472"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Reinhardt, Johanne Friederike Karoline",
+        "Wagner, Johanne Friederike Caroline",
+        "Wagner, Lina",
+        "Wagner, Friederike",
+        "Wagner, Johanna Friederica Carolina",
+        "Reinhardt, Johanne Friederike Caroline",
+        "Wagner, Johanne Friederike Karoline"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Friederike Karoline"
+          ],
+          "surname": [
+            "Reinhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Lina"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Friederike Caroline"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Friederica Carolina"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Friederike Caroline"
+          ],
+          "surname": [
+            "Reinhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Friederike Karoline"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friederike_Reinhardt",
+          "label": "https://de.wikipedia.org/wiki/Friederike_Reinhardt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:36:51Z",
+    "gnd_query_biographical_data": "1770-1843",
+    "gnd_query_name": "reinhardt, friederike"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2223,
+  "name": "Reinhardt, Friederike",
+  "profession": "Text",
+  "pseudonyms": "Lina Reinhardt",
+  "refs": "ADB XXVIII, 70; E 282",
+  "updated": "2026-06-11 13:29:24.229Z",
+  "uri": "https://d-nb.info/gnd/116420472",
+  "editor": ""
+}

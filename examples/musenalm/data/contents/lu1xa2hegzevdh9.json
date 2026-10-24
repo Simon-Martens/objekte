@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Und somit hätte er die triftigsten Gründe erschöpft und zwar von Rechtswegen.",
+  "language": [],
+  "musenalm_id": 44943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gründe, warum der Verfasser des schwar- / zen Gespenstes München und Baiern ver- / lassen muß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gründe, warum der Verfasser des schwar- / zen Gespenstes München und Baiern ver- / lassen muß",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.982Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "nenwo1f322ixgtc"
+    }
+  ]
+}

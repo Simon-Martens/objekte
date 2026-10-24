@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Glück auf im wilden Bergrevier! / Glück auf, Du wackrer Bergmann, Dir",
+  "language": [],
+  "musenalm_id": 20751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang zum Eisenhammer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang zum Eisenhammer",
+  "updated": "2002-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.638Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "x4r63235avsjlez"
+    }
+  ]
+}

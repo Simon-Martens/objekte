@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 43381, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43389,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Strahlenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. C. Haldenwang sc.",
+  "scans": [
+    "alm_570_43389_jvb3vzws0k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Strahlenburg",
+  "updated": "2006-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.336Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "fx28eahtc1yuoj3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.336Z",
+      "agent": "mwin9klvyol78mm",
+      "source_id": "zxq6nne6psxz7r5"
+    }
+  ]
+}

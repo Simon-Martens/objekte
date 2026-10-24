@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Die Herausgeber dieses Taschenbuchs haben mich ersucht, die Anordnung des vierten Jahrgangs zu übernehmen.",
+  "language": [],
+  "musenalm_id": 114538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. J. v. Collin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.551Z",
+      "agent": "o0scxlabqbxt72i",
+      "source_id": "lbud3r1yj8jd74h"
+    }
+  ]
+}

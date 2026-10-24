@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Es gibt so schwere Stunden, / In denen alles Weh',",
+  "language": [],
+  "musenalm_id": 89710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gehilfen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gehilfen",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.445Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "ybmiw3n7vbld1iy"
+    }
+  ]
+}

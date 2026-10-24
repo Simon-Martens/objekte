@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Gedichte in Aachener Mundart (Sammlung INr 65879, Obj 70) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "E Medchen op de Ball ze gohn, / En woßt nit wat et öm sau schlohn,",
+  "language": [],
+  "musenalm_id": 65881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2) De Maskeball",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Jansen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2) De Maskeball",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.226Z",
+      "agent": "6n6rqwxyicpa3g2",
+      "source_id": "vnxa3jiowpjioyh"
+    }
+  ]
+}

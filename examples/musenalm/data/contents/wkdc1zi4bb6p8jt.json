@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Als im Pappelgezweig ein Mückchen summend umherflog, / Träufelte flüssiges Harz über das Thierchen herab.",
+  "language": [],
+  "musenalm_id": 75012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mückchen im Bernstein. / (Nach Martial.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mückchen im Bernstein. / (Nach Martial.)",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.775Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "0dwvaywfvg8ie73"
+    }
+  ]
+}

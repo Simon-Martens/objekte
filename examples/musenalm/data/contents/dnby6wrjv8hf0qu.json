@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Sieg des Todes. Eine Ballade« von Z. Werner INr 78355, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Perger del et sc. 1813)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del et sc. 1813",
+  "scans": [
+    "alm_3732_78356_ytc5a99ld4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.518Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "9vj0jwv5yrxavte"
+    }
+  ]
+}

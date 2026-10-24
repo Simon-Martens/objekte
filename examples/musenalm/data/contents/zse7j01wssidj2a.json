@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« von Fr. Buchholz INr 58560, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58557,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn Ew. Majestät Blut verlangen, so / nehmen Sie meins. Jenes bekommen Sie / nicht, so lange ich noch sprechen darf. / S. 44",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury sc.",
+  "scans": [
+    "alm_860_58557_jgi3rtu9wy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wenn Ew. Majestät Blut verlangen, so / nehmen Sie meins. Jenes bekommen Sie / nicht, so lange ich noch sprechen darf. / S. 44",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.955Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "wqgehc9ux686lf5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.954Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "x8ml37fbr6lrmdh"
+    }
+  ]
+}

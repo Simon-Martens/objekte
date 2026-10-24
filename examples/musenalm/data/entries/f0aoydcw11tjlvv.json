@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumenlese, Poetische aus der Pfalz 1887",
+    "norm": "",
+    "biblio": 409311,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4329,
+  "parallel_title": "",
+  "place_statement": "Kaiserslautern (Gotthold)",
+  "places": [
+    "bwbyq3lor4kodxq"
+  ],
+  "preferred_title": "Blumenlese, Poetische aus der Pfalz 1887",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Schreyer",
+  "subtitle_statement": "",
+  "title_statement": "Eine Sammlung / pfälzischen Dichtungen aus neuerer Zeit / für das Jahr 1887. / Poetische Blumenlese / aus der Pfalz. / Herausgegegeben / von / J. Schreyer. / Zweiter Jahrgang. / Kaiserslautern. / Aug. Gotthold's Verlags-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.545Z",
+  "variant_title": "",
+  "year": 1887,
+  "editor": "",
+  "items": [
+    "npk4l5bffo2e0dh"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.924Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.924Z",
+      "agent": "ezqfp9nh2b5kt9b",
+      "source_id": "gd681lqa8pskavd"
+    }
+  ]
+}

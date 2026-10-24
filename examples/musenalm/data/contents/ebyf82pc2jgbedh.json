@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Deutsch: Dummheit. Eine heroisch-komische Ode .. Muß unter Pauken und Trompeten deklamirt werden.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ha! wie majestätisch erglänzt / Am mitternächtlichen Himmel / Von Ambrawolken umflossen / Dein großer Kopf, Souvräne Dunsia.",
+  "language": [],
+  "musenalm_id": 131003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Souvräne Dunsia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Souvräne Dunsia",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.079Z",
+      "agent": "0b9nelfb23buwgh",
+      "source_id": "hd76kka1a6ii18r"
+    }
+  ]
+}

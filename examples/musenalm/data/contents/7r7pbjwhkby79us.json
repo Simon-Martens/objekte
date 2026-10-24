@@ -1,0 +1,45 @@
+{
+  "annotation": "An Novalis (Sammlung INr 71135, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Ein frommer Pilger zieht zum heil'gen Lande, / doch ist zur Rükkehr noch sein Sinn gewendet,",
+  "language": [],
+  "musenalm_id": 71138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.526Z",
+      "agent": "ift6i2oy1gozbs3",
+      "source_id": "19y0hbhshp3gfv8"
+    }
+  ]
+}

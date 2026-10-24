@@ -1,0 +1,56 @@
+{
+  "annotation": "TABELLEN zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 50356, Obj 54) /) als Stecher ist der Berliner F. Ramberg anzunehmen (kurze Erwähnung bei L/R 159 und bei Rümann: Die iIllustrierten deutschen Bücher des 18. Jahrhunderts )",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50366,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SEPTEMBER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel del. F. Ramberg sc.",
+  "scans": [
+    "alm_8_50366_r269v937nc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SEPTEMBER",
+  "updated": "2007-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.661Z",
+      "agent": "yn5dqo3oyes0o9i",
+      "source_id": "iwg4wph6k3emdzf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.661Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "wzfhk1x36k643y4"
+    }
+  ]
+}

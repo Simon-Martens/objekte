@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Vermischte Gedichte (Sammlung INr 29844, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Ich sah sie traurig am Hügel stehn, / Dort war ihr Hänfling begraben:",
+  "language": [],
+  "musenalm_id": 29847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der verfehlte Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der verfehlte Trost",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "956l7eqmb4kyv76"
+    }
+  ]
+}

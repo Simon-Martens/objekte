@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zur folgenden szen. Darstellung INr 85832, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Man hat so oft bemerkt, daß Schauspiele eine vorzügliche Urkunde über die Geschichte ihrer Zeit für die Nachwelt werden können, und wie es nicht an Beispielen fehle, die dies beweisen.",
+  "language": [],
+  "musenalm_id": 85831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein weiblicher Charakter / unsrer Zeit. / Scenen. / Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iffland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein weiblicher Charakter / unsrer Zeit. / Scenen. / Vorerinnerung",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.071Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "lnmz0agjb8prmlq"
+    }
+  ]
+}

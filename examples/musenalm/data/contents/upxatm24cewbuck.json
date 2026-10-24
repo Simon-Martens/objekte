@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77448,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TIVOLI. VILLA D'ESTE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Toma del. a Rome. Fried. Geissler sculp. Nberg",
+  "scans": [
+    "alm_2405_77448_0qdfqbxvvj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TIVOLI. VILLA D'ESTE",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.621Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "0bf0o0dr7u1fvfq"
+    }
+  ]
+}

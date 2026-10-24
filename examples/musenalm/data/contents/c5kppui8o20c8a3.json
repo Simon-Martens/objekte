@@ -1,0 +1,45 @@
+{
+  "annotation": "Reiseblätter (Sammlung INr 41899, Obj 101)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Welch lange, hohle Felsengasse, / Tief in den Steinberg eingekerbt,",
+  "language": [],
+  "musenalm_id": 41937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach der Natur. / (Von Überlingen nach Goldbach.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach der Natur. / (Von Überlingen nach Goldbach.)",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.736Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "cgf7axfkqaqedbc"
+    }
+  ]
+}

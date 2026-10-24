@@ -1,0 +1,389 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1795",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.427Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Arzt, Naturwissenschaftler, Dramatiker, Dozent und Erzähler; Mitbegründer der \"Societas physica privata Gottingensis\""
+      ],
+      "dateOfBirth": [
+        "1768-06-29"
+      ],
+      "dateOfDeath": [
+        "1795-11-29"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/136777872"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T08:46:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117558540/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117558540",
+      "id": "https://d-nb.info/gnd/117558540",
+      "oldAuthorityNumber": [
+        "(DE-588a)117558540",
+        "(DE-588a)136777872",
+        "(DE-588)136777872"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Meyer, Friedrich Albrecht Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Albrecht Anton"
+        ],
+        "surname": [
+          "Meyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4150507-4",
+          "label": "Dozent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398977-9",
+          "label": "Zoologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4152967-4",
+          "label": "Erzähler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88038682"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/62329772"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1998397"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117558540/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/136777872"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Albrecht_Anton_Meyer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Albrecht_Anton_Meyer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Albrecht_Anton_Meyer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061598756"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117558540"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1785_stoever;140"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117558540.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117558540"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Meyer, Friedrich-Albrecht A.",
+        "Meyer, Friedrich Albrecht",
+        "Meyer, Friedrich-Albrecht",
+        "Meyer, Fridericus A.",
+        "Meyer, Friederich Albrecht Anton",
+        "Meyer, Friedrich Albert Anton",
+        "Meyer, Friedrich-Albrecht Anton",
+        "Meyer, Friedr. Albr. Ant.",
+        "Meier, Friedrich Albrecht Anton",
+        "Meyer, F.A.A.",
+        "Meyer, Friedrich",
+        "Meyer, F. A. A.",
+        "Meyer, Fridericus Albertus Antonius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich-Albrecht Anton"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus Albertus Antonius"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Albert Anton"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "F.A.A."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich-Albrecht A."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Albrecht"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich-Albrecht"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus A."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Albrecht Anton"
+          ],
+          "surname": [
+            "Meier"
+          ]
+        },
+        {
+          "forename": [
+            "F. A. A."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Albr. Ant."
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Friederich Albrecht Anton"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Albrecht_Anton_Meyer",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Albrecht_Anton_Meyer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:16:21Z",
+    "gnd_query_biographical_data": "1768-1795",
+    "gnd_query_name": "meyer, friedrich albrecht anton"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1809,
+  "name": "Meyer, Friedrich Albrecht Anton",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 1099",
+  "updated": "2026-06-11 13:29:23.802Z",
+  "uri": "https://d-nb.info/gnd/117558540",
+  "editor": ""
+}

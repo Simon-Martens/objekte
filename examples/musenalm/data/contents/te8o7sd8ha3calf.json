@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24549, Obj 127)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Die Liebe bleibt, wie Rosen, immer neu, / Ob ihre Blüthe morgen auch vorbei",
+  "language": [],
+  "musenalm_id": 24550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Zur Rosenzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Zur Rosenzeit",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.189Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "scifw7yd1n3q9c6"
+    }
+  ]
+}

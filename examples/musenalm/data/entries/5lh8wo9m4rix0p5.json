@@ -1,0 +1,123 @@
+{
+  "annotation": "UG recto und verso aus Exemplar BiblioNr. 405907",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, T, SS1–12, SSI–VIII, darin Vrwrt, SS1–220, darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Biographisches deutscher Bühnenkünstler und Künstlerinnen 1836",
+    "norm": "~ +++ 405907",
+    "biblio": 105471,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2925,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fischer und Fuchs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Biographisches deutscher Bühnenkünstler und Künstlerinnen 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 110; nicht bei L/R",
+  "responsibility_statement": "L. v. Alvensleben",
+  "subtitle_statement": "",
+  "title_statement": "Biographisches / Taschenbuch / deutscher / Bühnen-Künstler / und / Künstlerinnen / Herausgegeben / von / L. v. Alvensleben. / 1836. / Erster Jahrgang / Mit 3 Portraits / Leipzig, Verlag von Fischer & Fuchs",
+  "updated": "2026-06-11 10:18:54.570Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "6mh4jr0xqvz837u",
+    "lyppkuda0pkik1g"
+  ],
+  "contents": [
+    "ft9qzj03id8sf68",
+    "br6isqn3vsi561q",
+    "ymdngihsr84rnvb",
+    "g80vykk4gafot5x",
+    "dr467amkvxh81gc",
+    "rdvqxkbm9a9m5l7",
+    "qmjbdd2oluo34x5",
+    "qdicipjd4fzefju",
+    "36kz5zks4k7f6c2",
+    "49pdtuidqx6lkr1",
+    "k34lk6fdxl7aeuo",
+    "oaboqzbdm67f1x7",
+    "zrhhz0p16l9zfol",
+    "j29s7w9ir93bsju",
+    "j1b9ar2c5xvllbk",
+    "i7lpsav5p32b31z",
+    "6uvqd4a7euo9dap",
+    "6fjcx1in0gc06k2",
+    "vv1op56p6sjfdts",
+    "jacssq77rz77uxe",
+    "942e2nhyzfa3hsd",
+    "miqkg8cxo9n5xkb",
+    "2cmps19zvm0oyd3",
+    "7d2uk93fcqa78kc",
+    "1qxvaqx0hl2fwgc",
+    "3b3phl3kwcs9zgv",
+    "oui2zcpjab601ed",
+    "xifwk6ldpwv88dw",
+    "kswo81sgm0anvu9",
+    "nyhm17bplvgpo30",
+    "s8vpozh7st60rya",
+    "9zhz3fbvd1nz7lv",
+    "syi9c7zk4i4xvpu",
+    "lsknm9vvh2b4v46",
+    "c4zr4dkqpn0ink8",
+    "ut86xl7grgnw6pa",
+    "8zgsw75mn3ylk5y",
+    "8xbvxg21f4eya4j",
+    "873rt1lfsuf76cg",
+    "jsip5qc5ytnnmkv",
+    "50rc3fganjgpa8f",
+    "5bzrnh0x17ndtsb",
+    "mgda8wwq0rnr6ie"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.841Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.841Z",
+      "agent": "bjhd546pvaqik0b",
+      "source_id": "d5snmmujks7cdtj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.158Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.158Z",
+      "agent": "chd0njp3ogros7m",
+      "source_id": "lpnzwuusyphev4g"
+    }
+  ]
+}

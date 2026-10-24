@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Zu Harzburg in dem Bronne / Da steht ein Tisch von Stein;",
+  "language": [],
+  "musenalm_id": 111841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 229,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kaiserbrunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Christoph Ferdinand Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kaiserbrunnen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.395Z",
+      "agent": "qwtd1omxjc7b309",
+      "source_id": "i8os854dl022s5r"
+    }
+  ]
+}

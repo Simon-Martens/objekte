@@ -1,0 +1,923 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1887",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.377Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118814249",
+          "label": "Alkan, Charles Henri Valentin"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Französischer Dichter, Abgeordneter der Pariser Nationalversammlung; lebte 1851-1870 aus politischen Gründen im Exil in Belgien, auf Jersey und Guernsey; trat 1871 für die Begnadigung der Kämpfer der Pariser Kommune ein"
+      ],
+      "dateOfBirth": [
+        "1802-02-26"
+      ],
+      "dateOfDeath": [
+        "1885-05-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Étienne Carjat"
+          ],
+          "creditText": [
+            "Bibliothèque nationale de France"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Victor%20Hugo%20by%20%C3%89tienne%20Carjat%201876%20-%20full.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Victor%20Hugo%20by%20%C3%89tienne%20Carjat%201876%20-%20full.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Victor%20Hugo%20by%20%C3%89tienne%20Carjat%201876%20-%20full.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118554654/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119340380",
+          "label": "Hugo, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119249545",
+          "label": "Hugo, Jean"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115350004",
+          "label": "Hugo, Joseph Léopold Sigisbert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/140001913",
+          "label": "Hugo, Georges-Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130632880",
+          "label": "Hugo, Eugène"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121498417",
+          "label": "Hugo, Abel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118839527",
+          "label": "Hugo, Adèle"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139481427",
+          "label": "Hugo, Jeanne"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121221059",
+          "label": "Hugo, François Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11753952X",
+          "label": "Hugo, Charles-Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136206115",
+          "label": "Hugo, Léopoldine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1019741201",
+          "label": "Hugo, Adèle"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118554654",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11753952X",
+          "label": "Hugo, Charles-Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136206115",
+          "label": "Hugo, Léopoldine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121221059",
+          "label": "Hugo, François Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118839527",
+          "label": "Hugo, Adèle"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118814249",
+          "label": "Alkan, Charles Henri Valentin"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/139481427",
+          "label": "Hugo, Jeanne"
+        },
+        {
+          "id": "https://d-nb.info/gnd/140001913",
+          "label": "Hugo, Georges-Victor"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/119340380",
+          "label": "Hugo, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115350004",
+          "label": "Hugo, Joseph Léopold Sigisbert"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/130632880",
+          "label": "Hugo, Eugène"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121498417",
+          "label": "Hugo, Abel"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1019741201",
+          "label": "Hugo, Adèle"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118554654",
+      "oldAuthorityNumber": [
+        "(DE-588c)4026123-2",
+        "(DE-588a)118554654"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008460-7",
+          "label": "Brüssel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028585-6",
+          "label": "Jersey"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4022467-3",
+          "label": "Guernsey"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005972-8",
+          "label": "Besançon"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Hugo, Victor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Victor"
+        ],
+        "surname": [
+          "Hugo"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124076-5",
+          "label": "Romancier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120013223",
+          "label": "Drouet, Juliette"
+        }
+      ],
+      "publication": [
+        "Étude sur Mirabeau",
+        "Bug-Jargal",
+        "Oeuvres complètes",
+        "Angelo",
+        "Les Misérables",
+        "Cromwell",
+        "Hernani ou l'honneur castillan",
+        "Notre-Dame de Paris",
+        "Lucrèce Borgia",
+        "Les feuilles d'automne"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79091479"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9847974"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11461.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q535"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118554654/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118554654"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Victor_Hugo"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Victor_Hugo"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Victor_Hugo"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Victor_Hugo"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118554654"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121200982"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118554654"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118554654"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118554654"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/523CC573BE0744F6A8492851CB8FA73D"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118554654"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hūgo, Viktor",
+        "Hjuho, Viktor",
+        "Giġó, Viktor",
+        "Hugo, Vicktor",
+        "Hugo",
+        "הוגא, ויקטור",
+        "Yugō, Vikutōru Marī",
+        "Hugo, Victor Marie, comte",
+        "Hugo, Victor Maria",
+        "유고, 웍또르",
+        "웍또르 유고",
+        "Ugkō, Biktōr",
+        "Hugo, François-Victor",
+        "Yuguo",
+        "Hugo, Vittor",
+        "Hugo, Victor-Marie",
+        "雨果, 维克多",
+        "Yūgō, Viktar",
+        "ユゴー, ヴィクトール・マリ─",
+        "Yugo, Viktar",
+        "Hugo, Biktōr",
+        "ユゴー, ビクトール・マリ─",
+        "Hugo, Viktor",
+        "ฮูโก, วิคตอร์",
+        "Gjugo, V.",
+        "Hugo, Ṿiḳṭor",
+        "Hüγu, Viḳtur",
+        "Hiyugō, Vikṭar",
+        "Hiyugo, Wiktor",
+        "Hugo, Wiktor",
+        "Hüγo",
+        "Yuguo, Weikeduo",
+        "Hīǧu, Fīktūr",
+        "Yugō",
+        "Gjugo, Viktor",
+        "Iuyiγu, Vik’tur",
+        "Hugo, Victor M.",
+        "Huygô, Vichto",
+        "雨果",
+        "Hugo, Victor Marie",
+        "Hiwko, Vigt'or",
+        "Hüγo, Viḳtor",
+        "Хюго, Виктор",
+        "هوگو، ويكتور",
+        "Huog, Victor Marie",
+        "Khjugo, Wiktor",
+        "Igo, Viktor"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fīktūr"
+          ],
+          "surname": [
+            "Hīǧu"
+          ]
+        },
+        {
+          "forename": [
+            "Vikutōru Marī"
+          ],
+          "surname": [
+            "Yugō"
+          ]
+        },
+        {
+          "forename": [
+            "Vik’tur"
+          ],
+          "surname": [
+            "Iuyiγu"
+          ]
+        },
+        {
+          "forename": [
+            "Victor Maria"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Igo"
+          ]
+        },
+        {
+          "forename": [
+            "Viktar"
+          ],
+          "surname": [
+            "Yugo"
+          ]
+        },
+        {
+          "forename": [
+            "Victor Marie"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Виктор"
+          ],
+          "surname": [
+            "Хюго"
+          ]
+        },
+        {
+          "forename": [
+            "ビクトール・マリ─"
+          ],
+          "surname": [
+            "ユゴー"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Gjugo"
+          ]
+        },
+        {
+          "forename": [
+            "Vichto"
+          ],
+          "surname": [
+            "Huygô"
+          ]
+        },
+        {
+          "forename": [
+            "Vigt'or"
+          ],
+          "surname": [
+            "Hiwko"
+          ]
+        },
+        {
+          "forename": [
+            "Vikṭar"
+          ],
+          "surname": [
+            "Hiyugō"
+          ]
+        },
+        {
+          "forename": [
+            "Victor M."
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "personalName": [
+            "雨果"
+          ]
+        },
+        {
+          "forename": [
+            "Wiktor"
+          ],
+          "surname": [
+            "Hiyugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Hūgo"
+          ]
+        },
+        {
+          "forename": [
+            "Biktōr"
+          ],
+          "surname": [
+            "Ugkō"
+          ]
+        },
+        {
+          "personalName": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "วิคตอร์"
+          ],
+          "surname": [
+            "ฮูโก"
+          ]
+        },
+        {
+          "forename": [
+            "Victor Marie"
+          ],
+          "surname": [
+            "Huog"
+          ]
+        },
+        {
+          "forename": [
+            "Wiktor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "personalName": [
+            "웍또르 유고"
+          ]
+        },
+        {
+          "forename": [
+            "François-Victor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Victor-Marie"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "ויקטור"
+          ],
+          "surname": [
+            "הוגא"
+          ]
+        },
+        {
+          "forename": [
+            "Ṿiḳṭor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viḳtor"
+          ],
+          "surname": [
+            "Hüγo"
+          ]
+        },
+        {
+          "personalName": [
+            "هوگو، ويكتور"
+          ]
+        },
+        {
+          "forename": [
+            "Vittor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Victor-Marie"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Hjuho"
+          ]
+        },
+        {
+          "personalName": [
+            "Hüγo"
+          ]
+        },
+        {
+          "forename": [
+            "Victor Marie"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Vicktor"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Biktōr"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "Victor Marie"
+          ],
+          "nameAddition": [
+            "comte"
+          ],
+          "surname": [
+            "Hugo"
+          ]
+        },
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Gjugo"
+          ]
+        },
+        {
+          "forename": [
+            "Viḳtur"
+          ],
+          "surname": [
+            "Hüγu"
+          ]
+        },
+        {
+          "forename": [
+            "Weikeduo"
+          ],
+          "surname": [
+            "Yuguo"
+          ]
+        },
+        {
+          "personalName": [
+            "Yuguo"
+          ]
+        },
+        {
+          "forename": [
+            "Wiktor"
+          ],
+          "surname": [
+            "Khjugo"
+          ]
+        },
+        {
+          "forename": [
+            "维克多"
+          ],
+          "surname": [
+            "雨果"
+          ]
+        },
+        {
+          "forename": [
+            "웍또르"
+          ],
+          "surname": [
+            "유고"
+          ]
+        },
+        {
+          "personalName": [
+            "Yugō"
+          ]
+        },
+        {
+          "forename": [
+            "ヴィクトール・マリ─"
+          ],
+          "surname": [
+            "ユゴー"
+          ]
+        },
+        {
+          "forename": [
+            "Viktor"
+          ],
+          "surname": [
+            "Giġó"
+          ]
+        },
+        {
+          "forename": [
+            "Viktar"
+          ],
+          "surname": [
+            "Yūgō"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Victor_Hugo",
+          "label": "https://de.wikipedia.org/wiki/Victor_Hugo"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:49:09Z",
+    "gnd_query_biographical_data": "1802-1887",
+    "gnd_query_name": "hugo, victor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1262,
+  "name": "Hugo, Victor",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 236",
+  "updated": "2026-06-11 13:29:23.012Z",
+  "uri": "https://d-nb.info/gnd/118554654",
+  "editor": ""
+}

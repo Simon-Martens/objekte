@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Lieder (Sammlung INr 57776, Obj72)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Ueberreizt, des Wanderns müde / Durch des Forschens Wüstenei, / Seufz' ich fruchtlos: Gottesfriede, / Süße Schlummer komm' herbei.",
+  "language": [],
+  "musenalm_id": 57778,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Nachtgedanken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Graf von Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Nachtgedanken",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.681Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "wwz5kbfch6edhqz"
+    }
+  ]
+}

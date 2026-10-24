@@ -1,0 +1,67 @@
+{
+  "annotation": "mit Kalendarien und zahlreichen Tabellen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Dresdner 1820",
+    "norm": "",
+    "biblio": 410872,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-12-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4762,
+  "parallel_title": "",
+  "place_statement": "Dresden (Dorn)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Kalender, Dresdner 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Dresdner Kalender / zum Gebrauch / der Residenz / auf das Jahr / 1820 / Mit Königl. Sächsi. allergn. / Priveligio. / Dresden, / zu finden bey T. F. Dorn, / Alt.Markt Lochg. No. 513",
+  "updated": "2026-06-11 10:18:55.758Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "g0kc38dglttcxeo"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.739Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.739Z",
+      "agent": "3nv8j5gw4zeafho",
+      "source_id": "vkr5q2ibw9uu2lg"
+    }
+  ]
+}

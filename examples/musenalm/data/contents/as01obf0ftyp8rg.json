@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Komm, Spötter, sag uns unsre Schwächen, / Dir sey's erlaubt, feimütig ins Gesicht!",
+  "language": [],
+  "musenalm_id": 17634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mädchen und der Wizling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mädchen und der Wizling",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.627Z",
+      "agent": "jn3l1dg6imwx04v",
+      "source_id": "40v0chyl4w4eaub"
+    }
+  ]
+}

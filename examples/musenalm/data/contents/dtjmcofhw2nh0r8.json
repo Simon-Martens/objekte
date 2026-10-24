@@ -1,0 +1,43 @@
+{
+  "annotation": "Gedicht im Kalendarium Mai",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Stets geht Amand mit unbedeck- / tem Kopf. / Was soll der Deckel auch auf ei- / nem leeren Tropf?",
+  "language": [],
+  "musenalm_id": 79795,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amand",
+  "updated": "2012-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.871Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "mqf5x457jzg0teg"
+    }
+  ]
+}

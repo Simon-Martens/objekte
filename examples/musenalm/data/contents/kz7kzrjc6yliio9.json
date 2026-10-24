@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Briefe, von Schiller, Johannes Müller und Iffland (Sammlung INr 48593, Obj 12) s. Kommentar INr 48594, Obj 13 # J. v. O. = »Jungfrau von Orleans«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Empfangen Sie, mein verehrter Freund, den besten Dank für die mir günstig mitgetheilte Recension der J. v. O. Sie zeigt zwar einen fähigen Verfasser, und ich habe Ursache, mit den guten Gesinnungen,die derselbe für mich und mein Gedicht hegt, #",
+  "language": [],
+  "musenalm_id": 48595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[1. Schiller an Schütz] Weimar d. 22. Jan. 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[1. Schiller an Schütz] Weimar d. 22. Jan. 1802",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.570Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "hxznbmczwi6gk35"
+    }
+  ]
+}

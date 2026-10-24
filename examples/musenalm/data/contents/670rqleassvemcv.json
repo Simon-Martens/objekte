@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "So treibt's uns endlos fort, stets neuem Strand entgegen, / Fort zu der ew'gen Nacht, die keine Rückkehr kennt?",
+  "language": [],
+  "musenalm_id": 67848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See. / (Nach de la Martine.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heilmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der See. / (Nach de la Martine.)",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "tnq6md63kck2ryw",
+      "source_id": "7b5tpp3pknwp5wl"
+    }
+  ]
+}

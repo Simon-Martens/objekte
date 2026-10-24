@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schul- und Christenlehr-Almanach, Wiener 1781",
+    "norm": "",
+    "biblio": 101184,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2610,
+  "parallel_title": "",
+  "place_statement": "Wien (Verlagsgewölbe der deutschen Schulanstalt bei St. Anna in der Johannesgasse)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Schul- und Christenlehr-Almanach, Wiener 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Wiener / Schul- und Christenlehr- / Almanach / auf das / Schuljahr / 1781. / Mit Ihrer röm. kais. auch kais. königl. / apost. Maj. allergnädigster Druck- / freyheit. / Wien, / im Verlagsgewölbe der deutschen Schulanstalt / bei St. Anna in der Johannesgasse. / 1781",
+  "updated": "2026-06-11 10:18:55.406Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "ofz7f44byl6q5pw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "ru79df3dsr0lvr6",
+      "source_id": "k4aclgdnp0me7ip"
+    }
+  ]
+}

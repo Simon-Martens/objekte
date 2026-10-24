@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Hätt' ich den Zoll wohl auf dem Rhein, / Müßt' ihn verzehren ganz allein,",
+  "language": [],
+  "musenalm_id": 99668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Betrachtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Betrachtung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.664Z",
+      "agent": "qwtd1omxjc7b309",
+      "source_id": "tdkc2wessu1kwuh"
+    }
+  ]
+}

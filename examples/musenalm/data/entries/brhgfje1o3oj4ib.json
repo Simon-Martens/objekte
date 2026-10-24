@@ -1,0 +1,111 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, SS III- XX Tab, SS XXI-XXVIII Vrwrt d Hrsg, S I-Verz, S C, SS 1- 367 darin 8 MusBB 3 GG, S, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hortensia 1827",
+    "norm": "~",
+    "biblio": 200197,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 436,
+  "parallel_title": "",
+  "place_statement": "Berlin (Pauli'sche Buchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Hortensia 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 64; nicht bei L/R; Goed VIII. 76, 137; Goed VIII. 119, 300",
+  "responsibility_statement": "Dr. August Kuhn",
+  "subtitle_statement": "",
+  "title_statement": "Hortensia. / Ein / Taschenbuch für Damen / auf das Jahr / 1827. / Herausgegeben / von / Dr. August Kuhn. / Mit dem Bildnisse des Herausgebers / und drei Scenekupfern, nach L. Wolf gestochen von F. W. / Meyer sen. und L. Meyer jun., und Compositionen von / Carl Blum, C. F. Ebers, Carl Klage, I. Moscheles, / A. Neithardt, G. A. Schneider und dem / Ritter Spontini. / Berlin: / Pauli'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.671Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "xv1vwmfba78mwhy"
+  ],
+  "contents": [
+    "501ao04hfx5gsqs",
+    "ok9oks0z99ru15s",
+    "q6ozay5vvtfdtrr",
+    "yxr9lxxflv4b130",
+    "szj0fauo51s0xm2",
+    "iix68lmhxa9j8qq",
+    "h91sa4yt6a96h4h",
+    "f83bqsga2omutx4",
+    "y0t0pj8uzxb64gr",
+    "ykmwt0krizha2r4",
+    "xua1dknof0kxvau",
+    "5xpqgkadrmr05xk",
+    "d1xw21fhxamyv8a",
+    "itbost3az9mpnia",
+    "05ikgsjdhtthyk9",
+    "vrfgn2rsjbr5kl8",
+    "rou36er7w65w5k9",
+    "qckgjq211nhr1gz",
+    "0f0102kklr7wx54",
+    "sj1z9ql3s2aebeu",
+    "qzds2vmieqr9uxy",
+    "q1tpzld14qcvpi1",
+    "gfs572dczgy8qc9",
+    "1nl1nc8gi3ji9hz",
+    "e7dfg8tjczp7xe9",
+    "05w2icsin3h8k4d",
+    "t5xhifl35womcyi",
+    "lkfmccgc0mg622m",
+    "ss4mwsmbvtpnma0",
+    "77310k2sjb6li4r",
+    "8z02qq0g3946fml",
+    "70pnbblydasliyn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "x8bkr2tuh816gl5",
+      "source_id": "c0t2ooa24tmaoaw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.662Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.662Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "j43647zf2x9wj7i"
+    }
+  ]
+}

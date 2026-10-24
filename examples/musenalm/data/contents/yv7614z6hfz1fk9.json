@@ -1,0 +1,45 @@
+{
+  "annotation": "Stechpalmen (Sammlung INr 92739, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Seht ihr den Leu, der hinter Gittern / Erwachsen, lässig hingestreckt, / Die freie Luft beginnt zu wittern / Und rasch den Kopf, die Glieder reckt,",
+  "language": [],
+  "musenalm_id": 92782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Löwe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Löwe",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.679Z",
+      "agent": "nwzg4t9e6f4r4qh",
+      "source_id": "4gktxnew8gkfl3s"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) s. Textbezug INr 29768, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29769,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. Ramberg del. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_385_29769_0bgwr32xm5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.287Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ygg6cooyev7c26q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.287Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "z39rowqgeqxkvp6"
+    }
+  ]
+}

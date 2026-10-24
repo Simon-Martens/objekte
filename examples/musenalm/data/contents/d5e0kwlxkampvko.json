@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "492",
+  "incipit_statement": "Was errungen und erreicht wird, erhält erst durch das Zusammenhalten und Zusammwirken, durch die immer nähere und innigere Verbindung der Nationen, Bestand und Verbreitung.",
+  "language": [],
+  "musenalm_id": 45068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Fortschritte des menschlichen Geistes. Entdeckungen, Erfindungen, Unternehmungen]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Fortschritte des menschlichen Geistes. Entdeckungen, Erfindungen, Unternehmungen]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.381Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "a29mnntsgf3holi"
+    }
+  ]
+}

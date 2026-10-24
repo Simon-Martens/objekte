@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Neunte Lieferung. Faust. Zweite Hälfte ( Sammlung INr 40867, Obj 5) s. Graphik INr 40871, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Meine Ruh' ist hin, / Mein Herz ist schwer;",
+  "language": [],
+  "musenalm_id": 40870,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Gretchens Stube. / Gretchen am Spinnrade allein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Gretchens Stube. / Gretchen am Spinnrade allein",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.175Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "2hkla6tm6y8bnv3"
+    }
+  ]
+}

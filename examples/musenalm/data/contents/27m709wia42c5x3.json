@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 50112, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Durch die schmeichelhafteste Aufnahme ermuntert, erscheint Alruna ihren Freundinnen in diesem Jahre wieder, und wird auch künftig erscheinen, solange sie des schätzbaren Beifalls derselben gewiß seyn darf.",
+  "language": [],
+  "musenalm_id": 50127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alruna. / Zweiter Jahrgang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alruna. / Zweiter Jahrgang",
+  "updated": "2007-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.976Z",
+      "agent": "v1mpxx0n8e76xaz",
+      "source_id": "a3a9wewr4tabwuu"
+    }
+  ]
+}

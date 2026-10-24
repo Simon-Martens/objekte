@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Juristen, Aerzte, Priester sind alle drei beflissen / Die Leute zu purgiren",
+  "language": [],
+  "musenalm_id": 6008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Fakultäten. / (Nach Logau)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Fakultäten. / (Nach Logau)",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.953Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "3zvjpcqyk7d2imk"
+    }
+  ]
+}

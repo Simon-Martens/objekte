@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Hildegard« von K. Geib INr 62976, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62981,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz gez. M. Hofmann sc. Viennae",
+  "scans": [
+    "alm_1033_62981_0vk2jn1gxk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.168Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "0lkdcks109pi9m1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.168Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "6v1caihv3muvx2w"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 15040-15042, Obj 37-39 s. G 68",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnette aus Werners Nachlaß. / Zu einem Brief an Göthe, am 18. Januar 1814. / An Helios",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "aus Werners Nachlaß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnette aus Werners Nachlaß. / Zu einem Brief an Göthe, am 18. Januar 1814. / An Helios",
+  "updated": "2001-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.460Z",
+      "agent": "g7f1xv6d8kkyhx1",
+      "source_id": "udfkp8lgga2kh8i"
+    }
+  ]
+}

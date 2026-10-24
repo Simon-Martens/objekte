@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Kal darin 6 GG, SS I-XXX, SS XXXI-XXXV G-Verz, S XXXVI nT, SS XIL-XL VWrt d Hrsg; S XLI-XLII I-Verz, SS 1-391, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaia (Frankfurt) 1802",
+    "norm": "~",
+    "biblio": 100544,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-03-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 504,
+  "parallel_title": "",
+  "place_statement": "Frankfurt",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Aglaia (Frankfurt) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5, 150; L/R 71; Goed VIII. 55, 20; Goed VIII. 75,131",
+  "responsibility_statement": "N. P. Stampeel",
+  "subtitle_statement": "",
+  "title_statement": "AGLAIA. / Jahrbuch / für / Frauenzimmer / auf / 1802. / Herausgegeben / von / N. P. Stampeel. / Mit 7 Kupfern von W. Jury. / Frankfurt a. M. / bei August Hermann",
+  "updated": "2026-06-11 10:18:55.494Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "7xn1bq6d3chf80b"
+  ],
+  "contents": [
+    "5y6awsewul5riey",
+    "nhfhx17f9lacnw6",
+    "l80gt8xoputqisg",
+    "bz441amo3k5nr57",
+    "20jaxjjddkayijk",
+    "ns28egrwv236mgu",
+    "doq50tf7nkm48em",
+    "8688wv1ko7ybryg",
+    "3htcpgg2e1e72li",
+    "k94zcfr3jpf7xid",
+    "2di4b8j6kq2mk2i",
+    "ocegfztuphoftk4",
+    "2cie64zwrm08mb6",
+    "2hmgm8ot0xx5s41",
+    "j4csufohpv6r62n",
+    "fl2pxmcw69hs53o",
+    "v7i7ivi4xgtjm3u",
+    "gz10tdjkh4xu983",
+    "sdxfroovu5k4awi",
+    "lr146ydhak8obcs",
+    "3e5kr5xxv5749kc",
+    "ihid2zdpd9a3bjp",
+    "f98c4rqsbkfdzzb",
+    "68tclijuoh5e6mn",
+    "wm48d5zmfxaz40j",
+    "rbez3khvvfy9rst",
+    "u6628akkl3z89uw",
+    "08i9ad1mz9lz0m4",
+    "grsk2auajr4128h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.437Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.437Z",
+      "agent": "3z83et291u8n9cb",
+      "source_id": "8kn275k662vz9u1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.688Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.688Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "9pvtz7qes4ll8oe"
+    }
+  ]
+}

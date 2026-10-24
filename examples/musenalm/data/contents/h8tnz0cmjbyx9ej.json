@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Die Herren Mitarbeiter am Berl. Musenalmanach werden um die Gefälligkeit ersucht: ihre Beiträge in der Mitte des Mai's entweder an den Hrn. Prediger Bindemann in Schwedt, oder an mich einzusenden.",
+  "language": [],
+  "musenalm_id": 83765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt, Feldprediger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschrift",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.995Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "jdth15hq58kfqhu"
+    }
+  ]
+}

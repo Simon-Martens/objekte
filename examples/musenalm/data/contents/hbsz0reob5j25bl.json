@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Es spielt der kühle Abendwind / Mit dunklen Epheuschlingen,",
+  "language": [],
+  "musenalm_id": 89747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Knaben Abendgang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ig. Zingerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Knaben Abendgang",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.305Z",
+      "agent": "q8nfldmjay7nmqe",
+      "source_id": "n3fw6hsb7y297p9"
+    }
+  ]
+}

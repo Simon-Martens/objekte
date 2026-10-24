@@ -1,0 +1,112 @@
+{
+  "annotation": "Erscheinungsverlauf unklar: KVK, Hebis: 1843-1846; 1846: Zürich u. Baden (Locher); Hrsg. J. Staub /) Zum Abdruck von 4 Gedíchten Gottfried Kellers heißt es: Dieses und die folgenden Lieder des ausgezeichneten jungen Dichters sind entlehnt aus dem »deutschen Taschenbuch, Verlag des litt. Compt. in Zürich u. Winterthur«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B I-Verz, SS 1-188",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alpenblumen. Ein Schweizerischer Almanach 1846",
+    "norm": "~ +++ (409360 (Titelportrait)",
+    "biblio": 407793,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-04-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3946,
+  "parallel_title": "",
+  "place_statement": "Zürich und Baden (Locher)",
+  "places": [
+    "jwu7vcqk0mvlpd7",
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Alpenblumen. Ein Schweizerischer Almanach 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; ADB XXXV, 506",
+  "responsibility_statement": "J. Staub",
+  "subtitle_statement": "",
+  "title_statement": "Alpenblumen. / Ein / Schweizerischer Almanach / herausgegeben / von / J. Staub, / Verfasser der Drei Nächte eines Schullehrers und der / Drei Tage eines Geistlichen. / IV. / 1. Die Jesuiten auf dem Rigi. 2. Dr. Steiger's Leben. / 3. Gedichte. / Verlag: J. H. Locher's Buchhandlung / in Zürich und Baden. / 1846",
+  "updated": "2026-06-11 10:18:55.185Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "3022xxz8pgov3hw",
+    "axqme0afmvaaudd"
+  ],
+  "contents": [
+    "5sv61r5brah31sg",
+    "t4t8vjwyth02mvp",
+    "oszrv4deep9bx2u",
+    "irymaovozy5uwfk",
+    "u4a1tfzx3l0iewy",
+    "xv8t2i8f3fo2myn",
+    "54ao1okwb3184wk",
+    "gko9znwlpjm2tcq",
+    "4srjpxx0cg0g1mz",
+    "nxqds00a6xzkiyf",
+    "dibcz85l173oad4",
+    "vcpspiunro4qfuz",
+    "pfs2xrknbo9pkq3",
+    "9ji1e2e26wc6oyj",
+    "cgh0wnokbxzyih0",
+    "qfrkti9dg62crlk",
+    "87r6im2rdrbtv39",
+    "g13otmz7o6s17gl",
+    "24glokzqltk0ssu",
+    "3fk8kkrx0w76kg7",
+    "5fc2szjxfgj8m1o",
+    "hga0i1si89zxdhg",
+    "wfy7khkszcbtfgp",
+    "ed5hrtml3l4k3y8",
+    "r75rntxy1c8qx8m",
+    "9ewqpycztgmtn3k",
+    "wjj6byezrkwdqsb",
+    "zlj5zox1g3brui7",
+    "tfp2i4sryrwjba7",
+    "4fb86vvr22uyl6v",
+    "l7mh5kwopjp8ozf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.314Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.314Z",
+      "agent": "51bbzv9i5oo6wa1",
+      "source_id": "pk2blqi31caawy9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.101Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.101Z",
+      "agent": "rf2acmhhvo3k1v7",
+      "source_id": "xeq39epmaj7irir"
+    }
+  ]
+}

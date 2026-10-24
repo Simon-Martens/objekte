@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Der Graf Faliero wollte heute ein grosses Fest geben. Es galt die Heimkehr seines Bruders Enrico, der lange Jahre auf Reisen zu gebracht, zu feiern,",
+  "language": [],
+  "musenalm_id": 59741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Löwe von Butter. / (Eine Skizze.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Mühlbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Löwe von Butter. / (Eine Skizze.)",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.877Z",
+      "agent": "yd9nrgetvhvrenx",
+      "source_id": "eu08lk08uybfks9"
+    }
+  ]
+}

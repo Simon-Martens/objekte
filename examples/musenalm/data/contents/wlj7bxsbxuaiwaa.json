@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Apollo, lebet noch dein hold Verlangen, / Das an Thessal'scher Flut die blonden Haare / In dir entflammt,",
+  "language": [],
+  "musenalm_id": 71233,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / X.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / X.",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.554Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "7ouuwnlrojgtf38"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.554Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "h9km7wg977vexqq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Wir schwindeln hinab und sinken in den Mittelpunkt des Nichts;",
+  "language": [],
+  "musenalm_id": 39824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir schwindeln hinab und sinken in den Mittelpunkt des Nichts;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.164Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "2m1180qzqbmk2tj"
+    }
+  ]
+}

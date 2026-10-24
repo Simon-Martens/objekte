@@ -1,0 +1,98 @@
+{
+  "annotation": "# K gibt einen Jg 1802 3. Aufl. an; # L/R 145 geben Jg 1796 an /) vorh.: Jg 1795 und (erweiterte) Titelauflagen 1796, 1797, 1798; Erlangen (Walther); Hrsg: J. G. C. Fick /) § die in den Jgg  1797, 1798 beigegebene Karte fehlt hier",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 3 BB Vrwrt d Hrsg, 13 SS Kal dazu 12 SS Tab, S I-Verz, ar: SS 1-92, ar1: SS 1-200, SS 201-219, Tabb2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1795",
+    "norm": "~",
+    "biblio": 403998,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2856,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Walther)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143 #; L/R 145 #",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH /  für / Reisende jeder Gattung / durch Deutschland / auf das Jahr / 1795. / herausgegeben / von / Joh. Chr. Fick / Lehrer am illust. Gymn. zu Erlangen. / Erlangen / in der Waltherschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.063Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "f82pp8ipjizrdlw"
+  ],
+  "contents": [
+    "scehr9uxys3ctyu",
+    "kbxinoqxkpu2l30",
+    "ho0zai78a83gsll",
+    "f3vo23xbjf05jn0",
+    "qnznluvml9gebxm",
+    "4ilp8sktpmjuso7",
+    "qfwhh15z1ilbqjw",
+    "io8m2u67qyn0mi8",
+    "jp838p0thqbisha",
+    "snazihqtmeglft5",
+    "beuenhb0y079ttp",
+    "x63jue0copv3858",
+    "3y1hgnfh4o53pdu",
+    "y92dofse273lgm7",
+    "8gtfvebrrcxvzj8",
+    "doe2beho1b6abyy",
+    "9uc6dbn35pamk8p",
+    "scwnewsfzsbtow5",
+    "7hjt1rd53hsrtba"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.153Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.153Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "b827yt4ewpuvita"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "hgipdt1djucx1dr",
+      "source_id": "jhpbkgilt6cpusd"
+    }
+  ]
+}

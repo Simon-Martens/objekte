@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 8 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7222,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XC. Anecdote / Peter der Große erklährt sich zum Haupt / der Kirche in seinem Reiche. / p. 255",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7222_kjp46ns4ly.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "XC. Anecdote / Peter der Große erklährt sich zum Haupt / der Kirche in seinem Reiche. / p. 255",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.149Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ecv2vglhrg3lan2"
+    }
+  ]
+}

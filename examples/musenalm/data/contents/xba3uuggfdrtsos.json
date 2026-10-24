@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Und der Tod hält Musterungen, / wen er soll von dannen tragen. / Also war ein Lied erklungen / Einst an hellen Maientagen.",
+  "language": [],
+  "musenalm_id": 36892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqé",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.061Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "f9x6eqyjojnp8rr"
+    }
+  ]
+}

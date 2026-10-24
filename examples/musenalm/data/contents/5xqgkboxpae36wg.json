@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Komm, lieber May, und mache / Die Bäume wieder grün,",
+  "language": [],
+  "musenalm_id": 5213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fritzchen an den May",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Z.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fritzchen an den May",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.083Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "t1xpwlihxtxg6kv"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze fürs Klavier von Vinzenz Mascheck (Sammlung INr 12260, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12262,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 211,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_211_12262_ltarmhb5dm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angloise 2",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.483Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "s8zabxx2gtl2wm6"
+    }
+  ]
+}

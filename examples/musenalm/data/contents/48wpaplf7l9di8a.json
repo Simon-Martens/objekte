@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Poetische Kleinigkeiten (INr 93436, Obj 121)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Merzt doch das falsche Sprichwort aus: / Wer's Glück hat, führt die Braut nach Haus.",
+  "language": [],
+  "musenalm_id": 93444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berichtigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berichtigung",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.242Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "z93g4aslg0fy4zr"
+    }
+  ]
+}

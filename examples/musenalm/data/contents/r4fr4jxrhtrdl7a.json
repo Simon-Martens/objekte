@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsgedanken (Sammlung INr 34736, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "O zieh' den Liebesknoten fester zu noch! / So lang' ich athme, fand ich keine Ruh' noch.",
+  "language": [],
+  "musenalm_id": 34751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15.",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.779Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "06j53ikh4x4jrvw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Wohl dem Jüngling, der im Kreise / Wilder Freuden, unbethört / Wachend über sich, die leise / Stimme seines Herzens hört;",
+  "language": [],
+  "musenalm_id": 61934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An **",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.962Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "0ll40v5wsub9ygp"
+    }
+  ]
+}

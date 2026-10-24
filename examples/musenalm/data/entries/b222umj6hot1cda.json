@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der königlichen Akademie der Wissenschaften 1845",
+    "norm": "",
+    "biblio": 409306,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-07-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4323,
+  "parallel_title": "",
+  "place_statement": "München (Verlag der K. B. Akademie der Wissenschaften)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Almanach der königlichen Akademie der Wissenschaften 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / königlichen bayerischen / Akademie / der / Wissenschaften / für / das Jahr 1845. / München. / Verlag der K. B. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.091Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "x2tm6487h5jyy05"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "wfzpxn2sgt5vepe",
+      "source_id": "k16rtoj5lfcub3j"
+    }
+  ]
+}

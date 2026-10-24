@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55025, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Singt der Fink auch gleicher Weise / Auf den Knospenzweigen allen,",
+  "language": [],
+  "musenalm_id": 55033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[V. Alte Lieder.] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[V. Alte Lieder.] 2.",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.851Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "ete1oh4mo1tiqvc"
+    }
+  ]
+}

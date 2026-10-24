@@ -1,0 +1,45 @@
+{
+  "annotation": "s. »Das Chorpult. (Nach Boileau)« Erster Gesang in: Salzburger Musenalmanach 1787, S. 38; alm-1759, INr 68720, Obj 10 und »Das Chorpult. (Nach Boileau)« Zweiter und Dritter Gesang in diesem Almanach: INr 131014, 131015, Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Die Veranlassung dieses Gedichts war eine im Scherz gemachte Aufforderung des Dichters, über den Zank des Schazzmeisters, (Trésorie, oder Propsts) mit dem Kantor, ein Gedicht zu machen.",
+  "language": [],
+  "musenalm_id": 131016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einige Anmerkungen zu den ersten / drei Gesängen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einige Anmerkungen zu den ersten / drei Gesängen",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.080Z",
+      "agent": "0b9nelfb23buwgh",
+      "source_id": "ljvqb2t0fbblou1"
+    }
+  ]
+}

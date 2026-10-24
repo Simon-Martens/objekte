@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I-IV Vrwrt d Hrsg, SS V-XXXVIII Tab, S XXIX-XXX I-Verz C, SS 1-353, 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1818",
+    "norm": "~",
+    "biblio": 106779,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2687,
+  "parallel_title": "",
+  "place_statement": "München (Herausgeber); München (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "Med. Rath Will und Dr. Schwab",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Pferdekunde / für / Stallmeister, Offiziere, Oeconomen, / Thierärzte und Freunde des Pferdes / überhaupt. / Herausgegeben / von den Professoren / MED. RATH WILL u. RATH SCHWAB. / Auf das Jahr / 1818. / MÜNCHEN / Auf Kosten der Herausgegeber. / und J. Lindauer in Commission",
+  "updated": "2026-06-11 10:18:55.836Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "6r5un8a0iydd9dz"
+  ],
+  "contents": [
+    "picfsyg8duyfx6c",
+    "i73o15yvu0mkj7i",
+    "ki5hzm21au7tj2n",
+    "8mrb1e0995979y4",
+    "yiaus8ls35px698",
+    "dwtmjh1ws7zqmiz",
+    "ugebj1ief8zrv1q",
+    "k1crogn1in10fc2",
+    "tk5h4tln33sks0g",
+    "08a196jir5s8bgw",
+    "jz5l5qrfeazaco5",
+    "73b5sv8o71cmh37",
+    "lkhl1ymqufb6rh0",
+    "c7pstqe2xk7g4gi",
+    "zsnjw5ca7w6i19k",
+    "4hcm1ypolscbn3q",
+    "1ye0sfru1wn4m4z",
+    "gbrmfudxsh4u29h",
+    "bj156y23zik28fb",
+    "jrmcr2obz0kyq7p",
+    "ykgwzpko9ukc9nr",
+    "m2ctpegbcj5g6j3",
+    "vivvv7otf7ibhuc",
+    "dedmkqw95rfllvx",
+    "rtrwebw81chbm8f",
+    "q27lctperh1725j",
+    "rtwmu92m4gdedi1",
+    "tp0sqfx999v3btg",
+    "7h3sv3d6s72dtn8",
+    "xrityf1x1vdbn76"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.100Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.100Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "moxefe2jv7sgmmq"
+    }
+  ]
+}

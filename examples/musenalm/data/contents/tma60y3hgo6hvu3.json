@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Gebannt in stillem Kreise sanfter Hügel, / Schlingt sich ein Strom von ewiggleichen Tagen,",
+  "language": [],
+  "musenalm_id": 26413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Bahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freyherr v. Eichendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Bahn",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.362Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "fs2mwwv9g1nvvpt"
+    }
+  ]
+}

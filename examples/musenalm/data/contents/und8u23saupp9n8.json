@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122765, Obj 109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Es saßen zwei zusammen / In letzter Jahresnacht, / Die manche Jugendnächte / Gar fröhlich hingebracht",
+  "language": [],
+  "musenalm_id": 122767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Silvesternächte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuk Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Silvesternächte",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.696Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "f96exo7rd3p66xy"
+    }
+  ]
+}

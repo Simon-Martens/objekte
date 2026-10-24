@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Modelectüre sind jetzt Scenen aus den frühern Zeiten oder der sogeannten Vorzeit unsers Vaterlandes. Unter den Nahmen von geschichtlichen und Ritter-Romanzen werden sie uns wenigstens verfälscht in Rücksicht der Sache selbst",
+  "language": [],
+  "musenalm_id": 75882,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Modelectüre sind jetzt Scenen aus den frühern Zeiten oder der sogeannten Vorzeit unsers Vaterlandes. Unter den Nahmen von geschichtlichen und Ritter-Romanzen werden sie uns wenigstens verfälscht in Rücksicht der Sache selbst…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.058Z",
+      "agent": "i1y44hlx8jbhczd",
+      "source_id": "bg28t0rjai9mib2"
+    }
+  ]
+}

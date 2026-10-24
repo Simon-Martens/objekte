@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Alle meine Bekannten, sogar die, welche nur oberflächlich mich kennen, wissen, daß meine ganze Persönlichkeit auch nicht den leisesten Anflug von Genialität verräth,",
+  "language": [],
+  "musenalm_id": 40818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Die Genialen. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Die Genialen. / Eine Erzählung",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.217Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "04qgwmo7kkmdakv"
+    }
+  ]
+}

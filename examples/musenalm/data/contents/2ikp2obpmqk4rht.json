@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 55521, Obj 137",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Tief drin im Unterwaldner Land, / Allwo der Titlis ob der Truft / Mit Schneedach ragt und Giebelwand,",
+  "language": [],
+  "musenalm_id": 55522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Frauenkloster zu Engelberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Frauenkloster zu Engelberg",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.635Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "v35c3lz90gsv5sc"
+    }
+  ]
+}

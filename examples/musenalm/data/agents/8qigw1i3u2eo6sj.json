@@ -1,0 +1,418 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. phil."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024338-8",
+          "label": "Albert-Ludwigs-Universität Freiburg"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt.-österr. Historiker und Schriftsteller; 1805 Professor für Weltgeschichte und Österreichische Geschichte am Lyzeum Linz, ab 1806 am Lyzeum Graz, 1823-1833 Professor für Philosophie und Geschichte an der Universität Freiburg im Breisgau; 1830 Hofrath"
+      ],
+      "dateOfBirth": [
+        "1777-03-03"
+      ],
+      "dateOfDeath": [
+        "1833-05-12"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172361710"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:17:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100268498/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100268498",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100268498",
+      "oldAuthorityNumber": [
+        "(DE-588)172361710",
+        "(DE-588a)100268498",
+        "(DE-588c)4789092-7",
+        "(DE-588a)172361710"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021912-4",
+          "label": "Graz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074255-6",
+          "label": "Linz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018272-1",
+          "label": "Freiburg im Breisgau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "preferredName": "Schneller, Julius Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius Franz"
+        ],
+        "surname": [
+          "Schneller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Velox"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hain"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Geschichte der Menschheit",
+        "Geschichte von Böhmen",
+        "Staatengeschichte des Kaiserthums Österreich",
+        "Rede auf Thaddäus Rinderle, Professor der Mathematik, bei dessen akademischer Todtenfeier in dem Münster zu Freiburg am 10. November 1825",
+        "Republicanism als Repräsentativ-System oder Volkswortführung",
+        "Die Geschichte Ungarns",
+        "Jetzt",
+        "Gedächtnissrede auf Ludwig Grossherzog von Baden Königliche Hoheit",
+        "Österreichs Einfluss auf Teutschland und Europa",
+        "Der Mensch und die Geschichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/164424660"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19196693"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100268498/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172361710"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julius_Franz_Borgias_Schneller"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Franz_Julius_Borgias_Schneller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081259065"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100268498"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100268498"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schneller_Julius-Franz-Borgias_1777_1833.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100268498.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100268498"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100268498"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schneller, Franz Julius",
+        "Schneller, Franz Julius Borgias",
+        "Schneller, J. F. B.",
+        "Schneller, Julius Franz Borgias",
+        "Hain, Friedrich",
+        "Schneller, Julius Franz Borgeas",
+        "Schneller, Franz Ludwig Borgias",
+        "Schneller, ...",
+        "Schneller, Julius",
+        "Velox, Julius",
+        "Schnöller, Julius Franz Borgias"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Velox"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Franz Borgeas"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hain"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Franz Borgias"
+          ],
+          "surname": [
+            "Schnöller"
+          ]
+        },
+        {
+          "forename": [
+            "J. F. B."
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Julius"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Julius Borgias"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Franz Borgias"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ludwig Borgias"
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Schneller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julius_Franz_Borgias_Schneller",
+          "label": "https://de.wikipedia.org/wiki/Julius_Franz_Borgias_Schneller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:51:06Z",
+    "gnd_query_biographical_data": "1776-1833",
+    "gnd_query_name": "schneller, franz julius borgias"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2509,
+  "name": "Schneller, Franz Julius Borgias",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 165",
+  "updated": "2026-06-11 13:29:24.750Z",
+  "uri": "https://d-nb.info/gnd/100268498",
+  "editor": ""
+}

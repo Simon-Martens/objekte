@@ -1,0 +1,72 @@
+{
+  "annotation": "Jgg 1797-1801;  Regensburg (Montag und Weiß) K gibt ledigl. Jg 1797 an]",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ehestandsalmanach 1797",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1725,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Ehestandsalmanach 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; L/R 170",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.611Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "jc0tm322n6jhz3l",
+      "source_id": "chzwxvyzokp96te"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.217Z",
+      "agent": "cd11rvd1kfhc02z",
+      "source_id": "sht0h2wd1h7xm8i"
+    }
+  ]
+}

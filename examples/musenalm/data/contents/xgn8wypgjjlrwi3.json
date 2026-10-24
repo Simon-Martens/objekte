@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Als guter Bürger jauchzt Xaver: / Triumph, Triumph! Das Vaterland ist frei!",
+  "language": [],
+  "musenalm_id": 56874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwiefache Person",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwiefache Person",
+  "updated": "2008-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.940Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "plt7ilzei00gfah"
+    }
+  ]
+}

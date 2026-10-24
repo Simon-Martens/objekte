@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24402, Obj 182)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "O Brautgeschenk, das einst am Hochzeittage / Proserpinen der große Vater gab,",
+  "language": [],
+  "musenalm_id": 24403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 183,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Abschied von Sizilien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Abschied von Sizilien",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.260Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "ksj2vg9vdsifok0"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29591,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg inv. del. C. Westermayr sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg inv. del. C. Westermayr sculp.",
+  "scans": [
+    "alm_383_29591_k00g3b2gys.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.386Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "42o0b61pv6oviee"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.386Z",
+      "agent": "2d34emvmf13qf3h",
+      "source_id": "fyaffebeonadx0p"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1832",
+    "norm": "",
+    "biblio": 200500,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2987,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "Friedrich von Raumer",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Mit Beiträgen / von / Lorentz, Raumer, Varnhagen von Ense, / herausgegeben / von / Friedrich von Raumer. / Dritter Jahrgang. / Mit dem Bildnisse Kaiser Ferdinands II. / Leipzig. / F. A. Brockhaus / 1832",
+  "updated": "2026-06-11 10:18:54.773Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "cnulsq94q96i4bn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.592Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.592Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "9w19ccv1e9z1hb5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.167Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.167Z",
+      "agent": "gjmd3adkws0h0dh",
+      "source_id": "jrsbbdtklcpj4ud"
+    }
+  ]
+}

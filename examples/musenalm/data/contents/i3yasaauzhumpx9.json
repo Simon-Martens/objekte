@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Unser Schiff lag krank in Pargas Hafen. / Ausgeladen war sein Bauch voll Eisen / Für den grimmen Pascha von Janina;",
+  "language": [],
+  "musenalm_id": 121859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die türkischen Christbäume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die türkischen Christbäume",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.700Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "xfm1hdgadripiez"
+    }
+  ]
+}

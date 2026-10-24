@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Ich wollte - so erzählt ein ehrwürdiger englischer Geistlicher in seinen bis jetzt noch ungedruckten Memoiren",
+  "language": [],
+  "musenalm_id": 2002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Miß Jenny Harrower. / Eine Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Miß Jenny Harrower. / Eine Skizze",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.968Z",
+      "agent": "sazh274fui35fcn",
+      "source_id": "v0u7ar6q8r2bqkp"
+    }
+  ]
+}

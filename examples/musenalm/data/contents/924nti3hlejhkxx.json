@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Daß du dem Manne, den du liebst, / Nur Töchter deines Reizes giebst,",
+  "language": [],
+  "musenalm_id": 17174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Gräfin *** / (die bei der Geburt ihrer dritten / Tochter weinte, daß sie noch nicht / Mutter eines Sohns sei.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Gräfin *** / (die bei der Geburt ihrer dritten / Tochter weinte, daß sie noch nicht / Mutter eines Sohns sei.)",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.781Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "q2ldn5lu4grx327"
+    }
+  ]
+}

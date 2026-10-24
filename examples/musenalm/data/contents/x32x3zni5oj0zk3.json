@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Da schlägt die Stunde, wo der Zofe / Geschäftigen Hand, die Dam', ins Gallakleid / geschnürt, entschlüpft,",
+  "language": [],
+  "musenalm_id": 5788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Neujahrsabend. / An Julchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frl. vom Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Neujahrsabend. / An Julchen",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.996Z",
+      "agent": "13xjh9gg49rip3p",
+      "source_id": "njuwaw57l43fp2n"
+    }
+  ]
+}

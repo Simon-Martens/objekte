@@ -1,0 +1,126 @@
+{
+  "annotation": "35 Jgg 1810-1848. 1813 Titelauflage von 1812. Jgg 1811, 1814, 1816, 1825 nicht erschienen. 1810 Amsterdam (Kunst- und Industrie-Comptoir), 1812 Amsterdam u. Leipzig (Kunst- und Industrie- Comptoir), 1815, 1817, 1818 Leipzig u. Altenburg (F. A. Brockhaus), 1819-1824, 1826-1848 Leipzig (F. A. Brockhaus) Hrsg : 1810 J. K. W. Spazier; 1812-1823, 1824 (?) F. A. Brockhaus; 1824-1848 ?",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 6 SS Vrwrt d Hrsg, SS III-IV I-Verz, SS V-XXXXVI darin 6 GG, SS 1-394, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1810",
+    "norm": "~",
+    "biblio": 100981,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 37,
+  "parallel_title": "",
+  "place_statement": "Amsterdam (Kunst- und Industrie-Comptoir)",
+  "places": [
+    "84fokpvl9sftctt"
+  ],
+  "preferred_title": "Urania 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch für das Jahr 1810. / Amsterdam, / im Kunst- und Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:55.501Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "8z4g76x6dyt1btr"
+  ],
+  "contents": [
+    "hilp7aileai8asa",
+    "k3081vqy2egkw9z",
+    "ef4719gccjcmj55",
+    "x6q67unyqix6arn",
+    "sj6n2sxeb6tfsi4",
+    "ng4i2ospjbgosbc",
+    "c9o84mab97t67hd",
+    "gsppk18s5n4p9yr",
+    "bwwyl2sgoqwpo1n",
+    "eq6bj7w246ph4ln",
+    "rplg7x1heyiwui0",
+    "2zm6mekfzmgqvi4",
+    "epq9a6o6a9wb92r",
+    "4x5qc1vsikxj4s8",
+    "6y6vojr7w44f2xk",
+    "67335kkrxhzyk0m",
+    "2vdkfzreu8gdt3v",
+    "r5qojn5q163um5m",
+    "vwajbsoj8f4afag",
+    "g4ec93oagsa46kl",
+    "85dflcovulhgnu9",
+    "t39tx1x9r0cv2xr",
+    "ammfsqbb1xq45gi",
+    "i0m8isvval9kxfz",
+    "vqghu17u32t1py1",
+    "rf3tb9mnhv16bne",
+    "87dm5h79s0nupur",
+    "h01kghvf2so17mn",
+    "xi43apr9b4lmdi9",
+    "11g42w2dc0kjyc3",
+    "g7rb5q2clb9f402",
+    "k39lg5k82ski3md",
+    "7rqbqdomyu5ev99",
+    "0cekahqif8p7ahh",
+    "8qmg4kejj9fydp5",
+    "bfb58z1kw2wq1mw",
+    "vzvbi31ltvdqoa7",
+    "2sc93gvuybooo12",
+    "hapkz7wri8lbgzi",
+    "6ziz99ubyiedgkr",
+    "gihd1ni6x4j20g4",
+    "028g08f5b1w64ui",
+    "myian075cl5fz4a",
+    "rmrzpfmrqueahjz",
+    "y2cdhpbd3spf9tm",
+    "cw2by15ywzfjb8p",
+    "7mg68zjlq6xxx3f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "lob1ezlykpp1imx",
+      "source_id": "adgl6ukeajsoa0c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.194Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.194Z",
+      "agent": "6bba95qi5qffiw1",
+      "source_id": "ppboxrzsflp0k63"
+    }
+  ]
+}

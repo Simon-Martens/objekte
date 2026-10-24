@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89498, Obj 16) mit einer Illustration s. Graphik INr 89503, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Thomas Morus, der berühmte Gelehrte, die Zierde ganz Engellands, saß einst nebst andern Richtern zu Gerichte.",
+  "language": [],
+  "musenalm_id": 89502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Richter und der Dieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Richter und der Dieb",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.360Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "35sz54k49znit59"
+    }
+  ]
+}

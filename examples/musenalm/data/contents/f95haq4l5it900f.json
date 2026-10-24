@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111516,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "G. F. W. Grossmann / Schauspieldichter und Schauspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cöntgen del. Geyer sc.",
+  "scans": [
+    "alm_3255_111516_vgzkthg4rw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "G. F. W. Grossmann / Schauspieldichter und Schauspieler",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.283Z",
+      "agent": "v38gvs8cux6ho2o",
+      "source_id": "kx5o7clfn4oakrw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.283Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "ls3x2v9leewepyt"
+    }
+  ]
+}

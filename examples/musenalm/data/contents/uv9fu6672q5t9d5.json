@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Würde ziemet dem Mann; er mildre sie / lieblich durch Anmuth,",
+  "language": [],
+  "musenalm_id": 83534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würde und Anmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kapf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Würde und Anmuth",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.779Z",
+      "agent": "cosha5k0ycv5np0",
+      "source_id": "w8dpl3gvyn1znss"
+    }
+  ]
+}

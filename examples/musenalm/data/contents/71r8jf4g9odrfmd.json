@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1813 (Sammlung INr 39437,",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "471",
+  "incipit_statement": "Mit meiner ersten Sylbe ruft / Ermuntrung man ins Herz,",
+  "language": [],
+  "musenalm_id": 39459,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Charade",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.096Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "i0hykuazc3koeto"
+    }
+  ]
+}

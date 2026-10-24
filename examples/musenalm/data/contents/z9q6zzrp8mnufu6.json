@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "In dem nahe am Ardenner Walde gelegenen Dorfe Aulnay le Vicomte war Alles in gespannter Erwartung, in unruhiger Bewegung.",
+  "language": [],
+  "musenalm_id": 63261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vikar, / oder / die Stimme des Herzens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fanny Tarnow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vikar, / oder / die Stimme des Herzens",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.985Z",
+      "agent": "oaar9957opo6yl4",
+      "source_id": "1a4twgp89yki0ye"
+    }
+  ]
+}

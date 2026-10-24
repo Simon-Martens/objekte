@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Kinder! rief der Kaufmann Braun, wir wollen aufs Land, und zwar auf so lang, als ihr nur immer wollt.",
+  "language": [],
+  "musenalm_id": 115218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Landparthie. / Skizze aus dem Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Landparthie. / Skizze aus dem Leben",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.351Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "llulyoqgyr48hhd"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seht Fraeulein! jenes Schloss ist alles was ich besitze- / Braucht es denn Vieles um glücklich zu seyn?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ERF. & GEZ. VON MART. USTERI GEST. VON SUTER IN ZOFINGEN",
+  "scans": [
+    "alm_746_55015_tjgsk4i8tu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seht Fraeulein! jenes Schloss ist alles was ich besitze- / Braucht es denn Vieles um glücklich zu seyn?",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.879Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "f665oza0w1qijhi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.879Z",
+      "agent": "s71huq0znurva76",
+      "source_id": "qlio8yhyeax5jqk"
+    }
+  ]
+}

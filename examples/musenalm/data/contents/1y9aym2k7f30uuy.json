@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Klein Friedel« von Kretschmann INr 13247, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13222,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleinfriedel v. Kretschmann. / Beckers Taschenbuch 1809 S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_216_13222_s64m441mos.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kleinfriedel v. Kretschmann. / Beckers Taschenbuch 1809 S.",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.451Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "5gcbe14krdg3w6q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.451Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "66ekmc39jplto5h"
+    }
+  ]
+}

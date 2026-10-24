@@ -1,0 +1,45 @@
+{
+  "annotation": "auszufaltende Vertonung des Gedichts »Hoffnung« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.036Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110739,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Seidel",
+  "scans": [
+    "alm_1342_110739_9kwnehqyn0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.192Z",
+      "agent": "omjs8nz0glooz8h",
+      "source_id": "91ecjv16kzqudw4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) # Bez. und Titel aus dem G-Verz (INr 21767, Obj 15) Illustration zu »Herrmann und Dorothea« von J. W. v. Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pfarrer und Apotheker #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del & sc. 1798",
+  "scans": [
+    "alm_295_21760_67544qh9pt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Pfarrer und Apotheker #",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.023Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "s3xd6ck78nrz0i2"
+    }
+  ]
+}

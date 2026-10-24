@@ -1,0 +1,77 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, nT, I-Verz, SS1–268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Dramatisches 1815",
+    "norm": "",
+    "biblio": 404896,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2931,
+  "parallel_title": "",
+  "place_statement": "Dresden (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Taschenbuch, Dramatisches 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 115; nicht bei L/R; Goed VIII. 129, 11",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches Taschenbuch / auf / das Jahr 1815. / Dresden, / in der Arnoldischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.552Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "moazd87cfj2mdte"
+  ],
+  "contents": [
+    "7o1asqqa9xxkqop",
+    "gx1e0hdlcdk9usx",
+    "matq9z9vs20i487",
+    "ptzln716teeppzf",
+    "nxti615cv0ib2we",
+    "5t0ix3lo06924qa",
+    "1qtx0rhp197un83",
+    "4ghfcvk97p7dpoo",
+    "ohnt5bsuqov2xj3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.483Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.483Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "r4rbd3smim1u15o"
+    }
+  ]
+}

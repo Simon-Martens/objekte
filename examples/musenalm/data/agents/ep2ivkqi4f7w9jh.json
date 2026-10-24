@@ -1,0 +1,352 @@
+{
+  "annotation": "",
+  "biographical_data": "1792-1852",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.337Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/600951-7",
+          "label": "Fürsten- und Landesschule Sankt Afra"
+        },
+        {
+          "id": "https://d-nb.info/gnd/36150-1",
+          "label": "Rheinische Friedrich-Wilhelms-Universität Bonn"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dichter, Volks- und Jugendschriftsteller; Lehrer an der Fürstenschule in Meißen, dann Erzieher eines jungen Fürsten Wittgenstein, russischer Hofrat, 1818-1823 Professor der Philosophie an der Universität Bonn, danach literarisches Wanderleben: 1824 Mannheim, 1825 Stuttgart, 1831 Karlsruhe, 1848 Tübingen; benutzte \"Heinrich Rebau\" als anagrammat. Schriftstellernamen"
+      ],
+      "dateOfBirth": [
+        "1792-08-28"
+      ],
+      "dateOfDeath": [
+        "1852-11-15"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187132348",
+        "https://d-nb.info/gnd/174087837",
+        "https://d-nb.info/gnd/174144121",
+        "https://d-nb.info/gnd/116483687"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T18:20:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100519024/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100519024",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100519024",
+      "oldAuthorityNumber": [
+        "(DE-588a)174087837",
+        "(DE-588a)174144121",
+        "(DE-588a)116483687",
+        "(DE-588)174144121",
+        "(DE-588a)100519024",
+        "(DE-588a)187132348",
+        "(DE-588)187132348",
+        "(DE-588)174087837",
+        "(DE-588)116483687"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4038474-3",
+          "label": "Meißen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1068033401",
+          "label": "Knobelsdorf (Waldheim)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4061147-4",
+          "label": "Tübingen"
+        }
+      ],
+      "preferredName": "Gebauer, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Gebauer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1064836151",
+          "label": "Rebau, Heinrich"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Al."
+          ],
+          "surname": [
+            "Bauer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bauer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hrsg. von: D. Martin Luther und seine Zeitgenossen als Kirchenliederdichter",
+        "Hrsg. von: Paul, Jean: Das Schönste und Gediegenste aus seinen verschiedenen Schriften und Aufsätzen",
+        "Bilder der Liebe: eine Frühjahrsausgabe",
+        "Simon Dach und seine Freunde als Kirchenliederdichter",
+        "Bonn und seine Umgebungen",
+        "Stunden der Einsamkeit"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007069122"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/248342611"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94795523"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100519024/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116483687"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174087837"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174144121"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187132348"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000368043413"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100519024"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100519024"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100519024.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100519024"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym"
+      ],
+      "variantName": [
+        "Bauer, Al.",
+        "Gebauer, Christian August",
+        "Bauer, A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Al."
+          ],
+          "surname": [
+            "Bauer"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bauer"
+          ]
+        },
+        {
+          "forename": [
+            "Christian August"
+          ],
+          "surname": [
+            "Gebauer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:28:09Z",
+    "gnd_query_biographical_data": "1792-1852",
+    "gnd_query_name": "gebauer, august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 839,
+  "name": "Gebauer, August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VIII, 449",
+  "updated": "2026-06-11 13:29:22.446Z",
+  "uri": "https://d-nb.info/gnd/100519024",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Die Mitternacht eröffnet Pfort' und Riegel; / Da geht hervor ein enges Geisterleben;",
+  "language": [],
+  "musenalm_id": 27125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage eines gefangenen Geistes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klage eines gefangenen Geistes",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.211Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "1ofjr7n7tr8mugv"
+    }
+  ]
+}

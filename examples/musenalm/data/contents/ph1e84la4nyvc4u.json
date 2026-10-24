@@ -1,0 +1,58 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) Illustration zu »Ritter Toggenburg« INr 76958, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76957,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Toggenburg von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg Rosmäsler in Dresden 1821",
+  "scans": [
+    "alm_2394_76957_dt8hkrkuwm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Toggenburg von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.828Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "fay4vmd2l68avl2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.827Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "n0cp685pspgebmc"
+    }
+  ]
+}

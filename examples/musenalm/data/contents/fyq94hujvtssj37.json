@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 3. Illustration zu »Faust« von J. W. v. Goethe s. Textbezug INr 59634, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59633,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trink sag' ich! / Faust Abtheil. 4. Sc. 9.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L.Wolf del. F. W. Meyer sc.",
+  "scans": [
+    "alm_922_59633_8trbfqvvjl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trink sag' ich! / Faust Abtheil. 4. Sc. 9.",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.087Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "5q0kwawte1arwn5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.087Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "ewghpzvl1ugg50s"
+    }
+  ]
+}

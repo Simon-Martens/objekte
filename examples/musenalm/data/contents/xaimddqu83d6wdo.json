@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Wollt' ich vor Zeiten Dank verdienen, / Verglich die Schönen ich mit fleiß'gen Bienen.",
+  "language": [],
+  "musenalm_id": 56937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeiten ändern sich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-i-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeiten ändern sich",
+  "updated": "2008-04-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.941Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "x1gqa9j6glhi36w"
+    }
+  ]
+}

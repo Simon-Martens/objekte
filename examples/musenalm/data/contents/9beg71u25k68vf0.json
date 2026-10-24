@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; kol. Illustration zu »Die seltsame Entführung« von Kurländer (INr 124617, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124605,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seltsame Entführung 8te Scene. / Eine Thräne welche dankbare Erinnerung an unsere / Wohlthäter dem Auge entlockt, ehrt auch den tapfersten Krieger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bruckner sc.",
+  "scans": [
+    "alm_1248_124605_9smmofw0tc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seltsame Entführung 8te Scene. / Eine Thräne welche dankbare Erinnerung an unsere / Wohlthäter dem Auge entlockt, ehrt auch den tapfersten Krieger",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.837Z",
+      "agent": "55cqr78phstoqzu",
+      "source_id": "4eduat6qpzyt0uc"
+    }
+  ]
+}

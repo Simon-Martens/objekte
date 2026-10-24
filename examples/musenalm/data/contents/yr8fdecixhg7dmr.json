@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende 2 Gedichte, Einleitung und 3. Gedicht INr 57718-57721, Obj 14-17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Leila d.i. die Nacht, die schwarzbraune Beduinin, die Geliebte von Kais, welcher aus Liebe zu ihr rasend, das morgenländische Vorbild des Orlando furioso, ist auch uim Abendland durchdie von Chezy herausgegebene Uebersetzung des Gedichts Dschami's,",
+  "language": [],
+  "musenalm_id": 57717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leila",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leila",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.921Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "7pofl5ey16enfxc"
+    }
+  ]
+}

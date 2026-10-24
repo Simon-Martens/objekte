@@ -1,0 +1,43 @@
+{
+  "annotation": "Titel des einzigen Beitrags; es folgt: détailliertes I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118521,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Völkermesse / von / Nischni-Nowgorod. / Phantasie und Wahrheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Völkermesse / von / Nischni-Nowgorod. / Phantasie und Wahrheit",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.576Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "p53q6vqe3mx176m"
+    }
+  ]
+}

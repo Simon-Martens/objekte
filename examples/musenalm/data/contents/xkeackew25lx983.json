@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 37545-37549, Obj 38-42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37544,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Einfälle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Einfälle",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.435Z",
+      "agent": "ka1wm9mc4kl7y0b",
+      "source_id": "y8qzh2pczi7gk3o"
+    }
+  ]
+}

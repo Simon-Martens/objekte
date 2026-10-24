@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Es war im Sommer des Jahres 1830, als Schreiber dieses die, bei dem Städtchen W. belegenen Ruinen des alten ehemaligen herzoglich pommerischen Residenzschlosses besuchte.",
+  "language": [],
+  "musenalm_id": 58042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Coquette / oder / das fürstliche Todtengewölbe zu W-st. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Meinhold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Coquette / oder / das fürstliche Todtengewölbe zu W-st. / Eine Novelle",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.963Z",
+      "agent": "ol9dto53rbhfs1y",
+      "source_id": "yslfasc77kw1fwn"
+    }
+  ]
+}

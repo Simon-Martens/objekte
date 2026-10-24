@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64217, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64224,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von den Broden und Fischen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Dubufe pxt. J. W. Baumann sct.",
+  "scans": [
+    "alm_1063_64224_jsu1q4wfr9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Von den Broden und Fischen #",
+  "updated": "2009-05-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.364Z",
+      "agent": "6y4rw75bkercnfq",
+      "source_id": "4ey1mk92d13mtzo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.364Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "pwnfvpqv86pxzq1"
+    }
+  ]
+}

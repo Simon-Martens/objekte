@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Der Bote ging in schlichtem Gewand, / Mit geschältem Stab in der biedern Hand,",
+  "language": [],
+  "musenalm_id": 26793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andenken des Wandsbecker Boten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Gr. zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Andenken des Wandsbecker Boten",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.062Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "j4oztb66z0na5lx"
+    }
+  ]
+}

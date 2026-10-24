@@ -1,0 +1,464 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1874",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.422Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Germanist und Sportpädagoge; Mitbegründer des deutschen Turnwesens"
+      ],
+      "dateOfBirth": [
+        "1797-08-15"
+      ],
+      "dateOfDeath": [
+        "1874-08-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Fritz Behrend: Geschichte der deutschen Philologie in Bildern: Eine Ergänzung zu dem Deutschen Literatur-Atlas von Könnecke-Behrend, Marburg 1927, Seite 34"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Ferdinand%20Ma%C3%9Fmann.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hans%20Ferdinand%20Ma%C3%9Fmann.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hans%20Ferdinand%20Ma%C3%9Fmann.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/181152061"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119059193/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119059193",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119059193",
+      "oldAuthorityNumber": [
+        "(DE-588c)4296105-1",
+        "(DE-588)181152061",
+        "(DE-588a)119059193",
+        "(DE-588a)181152061"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4040893-0",
+          "label": "Bad Muskau"
+        }
+      ],
+      "preferredName": "Massmann, Hans F.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hans F."
+        ],
+        "surname": [
+          "Massmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4331060-6",
+          "label": "Sportpädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156858-8",
+          "label": "Germanist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Doktor der Philologie",
+        "Turnlehrer"
+      ],
+      "publication": [
+        "Sanct Alexius Leben in acht gereimten mittelhochdeutschen Behandlungen",
+        "Hrsg. von: Der Keiser und der Kunige buoch oder die sogenannte Kaiserchronik",
+        "Erläuterungen zum Wessobrunner Gebet des achten Jahrhunderts",
+        "Eraclius",
+        "Der 2. April 1813 und Johanna Stegen, das Mädchen von Lüneburg ...",
+        "Die kleinen Sprachdenkmale des VIII bis XII. Jhts.",
+        "Deutsche Gedichte des  zwölften Jahrhunderts und der nächstverwandten Zeit",
+        "Du gaminthsa jah gamandeinai Hosamanna gahkof",
+        "Denkmäler deutscher Sprache und Literatur aus Handschriften des 8. bis 16. Jahrhunderts"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12350360p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86802094"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27141115"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q68085"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119059193/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/181152061"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Hans_Ferdinand_Massmann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hans_Ferdinand_Ma%C3%9Fmann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Hans_Ferdinand_Ma%C3%9Fmann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Hans_Ferdinand_Massmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122777011"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119059193"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119059193"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119059193.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119059193"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119059193"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Massmann, Hans Ferdinand",
+        "Massmann, Joannes Ferdinandus",
+        "Maßmann, F. H.",
+        "Maßmann, H. F.",
+        "Massmann, H. F.",
+        "Maßmann",
+        "Massmann, Jean Ferdinand",
+        "Massmann, Joannes Ferdinand",
+        "Maßmann, Ferdinand",
+        "Massmann, Hans Ferd.",
+        "Maßmann, Hans Ferdinand",
+        "Massmann, Hans Johann Ferdinand",
+        "Massmann, Joannes F.",
+        "Massmann, Johann Ferdinand"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joannes Ferdinand"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Ferdinandus"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "H. F."
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "H. F."
+          ],
+          "surname": [
+            "Maßmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Ferdinand"
+          ],
+          "surname": [
+            "Maßmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Maßmann"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Ferdinand"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Ferdinand"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes F."
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Ferdinand"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Johann Ferdinand"
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Ferd."
+          ],
+          "surname": [
+            "Massmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Maßmann"
+          ]
+        },
+        {
+          "forename": [
+            "F. H."
+          ],
+          "surname": [
+            "Maßmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hans_Ferdinand_Ma%C3%9Fmann",
+          "label": "https://de.wikipedia.org/wiki/Hans_Ferdinand_Ma%C3%9Fmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:12:45Z",
+    "gnd_query_biographical_data": "1797-1874",
+    "gnd_query_name": "maßmann, hans (johann) ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1737,
+  "name": "Maßmann, Hans (Johann) Ferdinand",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 141",
+  "updated": "2026-06-11 13:29:23.737Z",
+  "uri": "https://d-nb.info/gnd/119059193",
+  "editor": ""
+}

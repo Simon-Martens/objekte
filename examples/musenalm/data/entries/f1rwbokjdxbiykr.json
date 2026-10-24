@@ -1,0 +1,107 @@
+{
+  "annotation": "Jgg 1770-1799; 1770-1778: Lauenburg (Berenberg),  1779: Lauenberg (Berenberg u. Dantzmann), 1780-1788: Lauenburg (Berenberg), 1789-mind. 1790: Lauenburg (Berenberg) Göttingen (Siedentopf), spätest. 1792-1796: Lauenburg (Berenberg) Frankfurt / M (Jaeger), 1797 u. 1799: Frankfurt /M (Jaeger); Titel: 1770-1779; Königl. Grossbr. u. Churf. Braunschw. Lüneb. Genealogischer Calender, 1780-1788: Königl. Grossbr. Genealogischer Calender, 1789-1796: Königl. Grosbritannischer Historischer Genealogischer Calender, 1797: Königlich Grosbritannischer Historischer Calender, 1799:Grosbrittanischer historisch-genealogischer Calender /) einzelne französische Ausgaben erfaßt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 33 SS Kal darin 12 GG, 156 SS, 2 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1770",
+    "norm": "~",
+    "biblio": 405001,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2148,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1770",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Großbrit. / und Churf. Braunschw. Lüneb. / Genealogie- / Calender / auf / das 1770. Jahr. / Lauenburg / bey Joh. Georg Berenberg",
+  "updated": "2026-06-11 10:18:55.885Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "items": [
+    "x9ev3x1osha0x0b"
+  ],
+  "contents": [
+    "5yssokzsj9ey396",
+    "5jmctg2zuot5wl7",
+    "5fd0t992lqja9ak",
+    "5z60w292b5525tq",
+    "a0nfq9f71l5k21n",
+    "rsw6n0g3705dpi2",
+    "4f2tdmg6chevr2d",
+    "adxwgb4rs7mvq1d",
+    "to7f3tj84y3wxs5",
+    "id2b8124cbl40ni",
+    "r0iatj078cqwovr",
+    "0m38wgrz3e1ttmz",
+    "lce6fdhhzdf3yqm",
+    "geyzb7gl4926m6y",
+    "gbwxk74hvc17ltt",
+    "pnjt5w4oiwpbcdb",
+    "5npyvbate7q5plq",
+    "sxivt3j4eqhn4z5",
+    "v9q7cf5lg9o5cyc",
+    "jd1exbcw5jttpmu",
+    "cjpxh6d4y2z5ncp",
+    "t7n7quzl3u3nz2u",
+    "z9l84zablezjb00",
+    "124diejzpwry7re",
+    "4mjgtnk2858ftog",
+    "rihdnllningtvzz",
+    "tlq4veyfnjriz1j",
+    "s168424v0tqbbnv",
+    "2529c0zakxgbnl1",
+    "opyz8zijqjclmug",
+    "r8t7239f84lyyot",
+    "rg19mqynlzp18ce",
+    "4jmwyt2xgez2eln",
+    "g7i3s5lqa9y7b77",
+    "2xwm3o9ahfmr30g",
+    "5u71rlklaphto5j",
+    "3c3vzqj18jsc2ok",
+    "uvwuvdlsz0j5jg3",
+    "tugemcue2okrik9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.538Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.538Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "obx8j7p3wj1pesx"
+    }
+  ]
+}

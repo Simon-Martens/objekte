@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. bez. Monat März",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50573,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fall des Tessin am Gotthard Berg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. G. f.",
+  "scans": [
+    "alm_681_50573_dmtknh6wiz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fall des Tessin am Gotthard Berg",
+  "updated": "2007-07-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.716Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "aqayj87nn6af7fx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ghaselen (Sammlung INr 45606, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Singt den Frühling nur, ihr Andern, ich will trinken, / ich will loben / Ihn den Herbst, den Freudenbringer, dieses Glas sei / ihm erhoben!",
+  "language": [],
+  "musenalm_id": 45611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Singt den Frühling nur, ihr Andern!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Singt den Frühling nur, ihr Andern!",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.161Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "7n3fq9omck91zg7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Bei stillem Abend hatte Myrtill noch den mondbeglänzten Sumpf besucht; die ruhige Gegend im Mondschein, und das Lied der Nachtigall hatten im stillem Entzücken ihn aufgehalten.",
+  "language": [],
+  "musenalm_id": 92323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Myrtill",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geßner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Myrtill",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.636Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "vwi72eqticmnkaq"
+    }
+  ]
+}

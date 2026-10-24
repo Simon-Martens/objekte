@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiegel, Der. Ein Taschenbuch für Deutschlands edle Töchter 1832",
+    "norm": "",
+    "biblio": 406760,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-08-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3707,
+  "parallel_title": "",
+  "place_statement": "Magdeburg (Heinrichshofen)",
+  "places": [
+    "37pvqift972kzxs"
+  ],
+  "preferred_title": "Spiegel, Der. Ein Taschenbuch für Deutschlands edle Töchter 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 103; nicht bei L/R",
+  "responsibility_statement": "Dr. Karl Gutmann",
+  "subtitle_statement": "",
+  "title_statement": "Neuester Spiegel. / Ein Taschenbuch / für / Deutschlands edle Töchter, / zur Beförderung des häuslichen und ehelichen Glücks. / Von / Dr. Karl Gutmann. / Magdeburg: / Wilhelm Heinrichshofen. 1832",
+  "updated": "2026-06-11 10:18:55.416Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "s16rfys1ds8rtgp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.983Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.983Z",
+      "agent": "e8zj5jwq64ihpyq",
+      "source_id": "7stfpxk4i4wnfjx"
+    }
+  ]
+}

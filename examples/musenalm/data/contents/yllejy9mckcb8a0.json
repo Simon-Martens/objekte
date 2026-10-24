@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37356,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DEN MANEN VON GOUE'S",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmasler del. G. Boettger senior sc. Lips. 1799",
+  "scans": [
+    "alm_502_37356_53u8akhr5i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DEN MANEN VON GOUE'S",
+  "updated": "2004-11-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.148Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "wmzgwejxdrgokff"
+    }
+  ]
+}

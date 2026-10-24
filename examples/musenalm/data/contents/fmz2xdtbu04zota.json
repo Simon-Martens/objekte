@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102880,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMALIE, / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Wien Fr. Stöber gest. in Stahl",
+  "scans": [
+    "alm_3376_102880_xita14zfbs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMALIE, / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.936Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "sho4c8hsplxbnac"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.936Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "x39wkgzanwz700l"
+    }
+  ]
+}

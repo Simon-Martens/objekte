@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Horch wie orgelt, wie braust die Aeolsharfe / der Schöpfung!",
+  "language": [],
+  "musenalm_id": 37973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Harmonie der Sphären",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Harmonie der Sphären",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.966Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "6aftunqq61h1odv"
+    }
+  ]
+}

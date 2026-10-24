@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Im Carcer zu Wittenberg saßen im Herbste des Jahres 1615. der Jurist Franke und der Student der Arznei-Gelahrtheit Wölfel.",
+  "language": [],
+  "musenalm_id": 20946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rector Magificus, / oder / Der Feind vor den Thoren! / Historisch-romantische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rector Magificus, / oder / Der Feind vor den Thoren! / Historisch-romantische Erzählung",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.079Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "ipwppemtiak9t3c"
+    }
+  ]
+}

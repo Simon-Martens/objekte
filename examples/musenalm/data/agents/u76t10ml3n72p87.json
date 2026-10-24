@@ -1,0 +1,193 @@
+{
+  "annotation": "",
+  "biographical_data": "1817-1880",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.353Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schüler von Antoine Jean Gros"
+      ],
+      "dateOfBirth": [
+        "1817"
+      ],
+      "dateOfDeath": [
+        "1880"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Étienne Carjat"
+          ],
+          "creditText": [
+            "RMN"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Guillemin%20Alexandre%20Marie%20-%20Carjat.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Guillemin%20Alexandre%20Marie%20-%20Carjat.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Guillemin%20Alexandre%20Marie%20-%20Carjat.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-02-16T05:33:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1037936221/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1037936221",
+      "id": "https://d-nb.info/gnd/1037936221",
+      "preferredName": "Guillemin, Alexandre Marie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alexandre Marie"
+        ],
+        "surname": [
+          "Guillemin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/228718416"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q4720796"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037936221/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alexandre-Marie_Guillemin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000364537010"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1037936221"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Guillemin, Alexandre-Marie",
+        "Guillemin, Alexandre"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alexandre-Marie"
+          ],
+          "surname": [
+            "Guillemin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Guillemin"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:36:24Z",
+    "gnd_query_biographical_data": "1817-1880",
+    "gnd_query_name": "guillemin, alexandre marie"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1005,
+  "name": "Guillemin, Alexandre Marie",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "T/B XV, 311",
+  "updated": "2026-06-11 13:29:22.712Z",
+  "uri": "https://d-nb.info/gnd/1037936221",
+  "editor": ""
+}

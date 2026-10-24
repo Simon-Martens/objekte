@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 90441, 90442; Obj 38, 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. M. Enk. (Mölk.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.274Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "8el1udff7tbtlyn"
+    }
+  ]
+}

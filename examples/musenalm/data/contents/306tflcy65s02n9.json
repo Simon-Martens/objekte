@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Ob siege Machmud, oder ob Nikolas / Den Popen höre; ob sich der Bischof Roms / Despotisch aufbläh',",
+  "language": [],
+  "musenalm_id": 2209,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruhe",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.693Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "3dlbm06cl88s91j"
+    }
+  ]
+}

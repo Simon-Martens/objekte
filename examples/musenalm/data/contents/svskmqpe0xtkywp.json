@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Die zwei Seiten der Dinge« (INr 130514, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Furchtbar ist das Grab! / Kalte Winde sausen, / Dumfe Schauer grausen, / Gram und Grauen hausen / Um das stumme Grab!",
+  "language": [],
+  "musenalm_id": 130513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Furchtbarkeit und Lieblichkeit / des Grabes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Furchtbarkeit und Lieblichkeit / des Grabes",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.073Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "3iz2dsll7275kpc"
+    }
+  ]
+}

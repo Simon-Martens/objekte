@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 77776, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77773,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwesterliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H. Payne sc. engl. Kunstanstalt Leipzig",
+  "scans": [
+    "alm_2413_77773_82yu606fo3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schwesterliebe",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.881Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "hbx0wjnkxeo2i9c"
+    }
+  ]
+}

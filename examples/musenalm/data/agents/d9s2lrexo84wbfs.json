@@ -1,0 +1,401 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor für griech. und hebr. Sprache am Gymnasium zum Grauen Kloster in Berlin; Mitglied der Preuß. Akademie der Wissenschaften; heiratet 1792 die verwitwete Tochter eines Berliner Silberschmieds, Wilhelmine Louise Müller (1760-1815), diese Ehe blieb kinderlos; Spaldings Neffe Gustav Müller stammt wahrscheinlich aus deren Familie"
+      ],
+      "dateOfBirth": [
+        "1762-04-08"
+      ],
+      "dateOfDeath": [
+        "1811-06-07"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/127944001"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:37:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117480088/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118751719",
+          "label": "Spalding, Johann Joachim"
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/100275176",
+          "label": "Spalding, Karl August Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117480088",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118751719",
+          "label": "Spalding, Johann Joachim"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/100275176",
+          "label": "Spalding, Karl August Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117480088",
+      "oldAuthorityNumber": [
+        "(DE-588a)127944001",
+        "(DE-588a)117480088",
+        "(DE-588)127944001"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4080273-5",
+          "label": "Barth"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4394762-1",
+          "label": "Friedrichsfelde (Berlin)"
+        }
+      ],
+      "preferredName": "Spalding, Georg Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Ludwig"
+        ],
+        "surname": [
+          "Spalding"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        }
+      ],
+      "publication": [
+        "Demosthenes: Oratio in Midiam",
+        "Spalding, Johann J.: Johann Joachim Spaldings Lebensbeschreibung",
+        "Spalding, Georg L.: Versuch didaktischer Gedichte",
+        "Johann Joachim Spalding's Lebensbeschreibung von ihm selbst aufgesetzt und hrsg. mit einem Zusatze von dessen Sohne Georg Ludewig Spalding",
+        "Spalding, Georg L.: Über die deutsche Sprache",
+        "Spalding, Georg L.: Commentarius in primam partem libelli de Xenophane",
+        "Spalding, Georg L.: Oratio funebris de Buschingio",
+        "Spalding, Georg L.: Über die Zauberei durch Schlangen",
+        "Spalding, Georg L.: Das erste Jahrhundert der Universität Halle",
+        "Spalding, Georg L.: De Dionysiis Athenensium festo commentatio",
+        "Kleist, Ewald C. von: Ver"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb137500402"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2009099217"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10028125"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q101086"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117480088/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127944001"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Georg_Ludwig_Spalding"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Ludwig_Spalding"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Ludwig_Spalding"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108693938"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117480088"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1778_schmid;12"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117480088.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117480088"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117480088"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Spalding, Georg L.",
+        "Spalding, Georg. Ludovicus",
+        "Spalding, Georg Ludewig",
+        "Spalding, Georgius L.",
+        "Spaldingius, Georgius Ludovicus",
+        "Spalding, Georgius Ludovicus",
+        "Spalding, Georg Ludovicus",
+        "Spaldingius, G. L.",
+        "Spalding, Ludwig"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georgius Ludovicus"
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "Georg L."
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "G. L."
+          ],
+          "surname": [
+            "Spaldingius"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius Ludovicus"
+          ],
+          "surname": [
+            "Spaldingius"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius L."
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Ludovicus"
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Ludewig"
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "Georg. Ludovicus"
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Spalding"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Ludwig_Spalding",
+          "label": "https://de.wikipedia.org/wiki/Georg_Ludwig_Spalding"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:00:36Z",
+    "gnd_query_biographical_data": "1762-1811",
+    "gnd_query_name": "spalding, georg ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2700,
+  "name": "Spalding, Georg Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXV, 29",
+  "updated": "2026-06-11 13:29:25.090Z",
+  "uri": "https://d-nb.info/gnd/117480088",
+  "editor": ""
+}

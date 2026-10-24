@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Besuch noch zu so später Stunde! rief Eduard ein junger, reicher Edelmann, durch klirrenden, über die Stiege in das Gemach dringenden Spornschritt aus einem mehrstündigen Schlummer geweckt,",
+  "language": [],
+  "musenalm_id": 80051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Giftbecher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Giftbecher",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.000Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "aflpt5sem6fexu1"
+    }
+  ]
+}

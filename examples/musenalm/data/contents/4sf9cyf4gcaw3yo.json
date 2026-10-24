@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einigen poet. Beispielen und Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Landgraf Ludwig der achte von Hessen-Darmstadt (geb. den 5ten April 1691 gest. den 17ten Oct. 1768) war wahrscheinlich einer der leidenschaftlichsten und berühmtesten durchlauchtigen Jagdliebhaber seiner Zeit.",
+  "language": [],
+  "musenalm_id": 66810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Noch etwas über die Fürstliche Jagdlust / der Vorzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Noch etwas über die Fürstliche Jagdlust / der Vorzeit",
+  "updated": "2009-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.171Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "weq0l54r64r5zm4"
+    }
+  ]
+}

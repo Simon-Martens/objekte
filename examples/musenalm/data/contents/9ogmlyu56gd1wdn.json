@@ -1,0 +1,36 @@
+{
+  "annotation": "<div>2 BB</div>",
+  "content_type": [],
+  "created": "2026-10-14 09:34:53.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140713,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "",
+  "scans": [
+    "alm_5003_140713_001_00p66or7sj.jpg",
+    "alm_5003_140713_002_xwjm7yj7pp.jpg",
+    "alm_5003_140713_003_1rrfddq9db.jpg",
+    "alm_5003_140713_004_5vtpb7wjng.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-10-14 10:29:05.601Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": []
+}

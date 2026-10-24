@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59609,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unvergesslichen drei hohen / Retter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf; Riepenhausen",
+  "scans": [
+    "alm_921_59609_xc7uxy7hw1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die unvergesslichen drei hohen / Retter",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.823Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "eh50x96vfet0dms"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.823Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "jdq6102eeg06isy"
+    }
+  ]
+}

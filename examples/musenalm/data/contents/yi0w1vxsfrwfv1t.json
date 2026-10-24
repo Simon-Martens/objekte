@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 67903, Obj 5,06",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "425",
+  "incipit_statement": "Tief im Riesengebirge, am Fuße himmelanstrebender Felsen, breitete sich ein anmuthiges vom Elbstrom malerisch durchschnittenes Thal aus.",
+  "language": [],
+  "musenalm_id": 20762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mönch und die Nonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ungern Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mönch und die Nonne",
+  "updated": "2002-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.970Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "vjhhfeyav3gyp4n"
+    }
+  ]
+}

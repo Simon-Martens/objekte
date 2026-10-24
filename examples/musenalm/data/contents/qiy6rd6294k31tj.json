@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 39308, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau vonOrleans. 5r. Aufz. 14r. Auft. / Hinauf - hinauf! Die Erde flieht zurück! / Kurz ist der Schmerz und ewig ist die Freude!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Jury sc.",
+  "scans": [
+    "alm_516_39309_b9j0gq819g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau vonOrleans. 5r. Aufz. 14r. Auft. / Hinauf - hinauf! Die Erde flieht zurück! / Kurz ist der Schmerz und ewig ist die Freude!",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.971Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "ffuh7y5ho7pyal2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.971Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "g2rav2rdxjjttcs"
+    }
+  ]
+}

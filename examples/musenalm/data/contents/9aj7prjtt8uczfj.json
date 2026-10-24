@@ -1,0 +1,45 @@
+{
+  "annotation": "Altfranzösische Gedichte, übersetzt von Ludwig Uhland (Sammlung INr 49133, Obj 161)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Es ist 'ne Kirche wohlbekannt, / Sankt Michael vom Berg genannt, / Am Ende vom Normannenlande",
+  "language": [],
+  "musenalm_id": 49136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Legende",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.306Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "aya84bzq5qwra0g"
+    }
+  ]
+}

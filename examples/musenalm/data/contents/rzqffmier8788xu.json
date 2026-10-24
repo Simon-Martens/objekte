@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung vermischter Poesien (Sammlung INr 90145, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Warum Belinde ihr Gesicht / In dichtem Schleier mag verstecken?",
+  "language": [],
+  "musenalm_id": 90154,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Belinda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Belinda",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.068Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "cf13tenq4lpq4dc"
+    }
+  ]
+}

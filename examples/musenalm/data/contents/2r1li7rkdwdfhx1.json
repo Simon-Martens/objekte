@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 11. /) # Bezeichnung aus dem G-Verz s. Textbezug INr 18715, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9155,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlacht bei Abukir. / d. 1. August 1798",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_198_9155_m9ohky04qz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schlacht bei Abukir. / d. 1. August 1798",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.394Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "ccar2r8e9wofiz1"
+    }
+  ]
+}

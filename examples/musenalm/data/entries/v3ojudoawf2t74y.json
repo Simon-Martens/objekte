@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1822",
+    "norm": "",
+    "biblio": 200708,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2766,
+  "parallel_title": "",
+  "place_statement": "Wien (Härter)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "von Hormayer, von Mednyansky",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / vaterländische Geschichte. / Herausgegeben / durch die / Freyherren von Hormayr und von Mednyansky. / Dritter Jahrgang / 1822. / Wien, / im Verlage der Franz Härter'schen Buchhandlung. / Gedruckt bey Franz Ludwig",
+  "updated": "2026-06-11 10:18:55.077Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "1b3udd8tri8f3ml"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.136Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.136Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "54mnr72fpxohxr5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.961Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.961Z",
+      "agent": "b06oqy0i55dqx8r",
+      "source_id": "i16fk61xx0egsuo"
+    }
+  ]
+}

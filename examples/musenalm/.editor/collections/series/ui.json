@@ -1,0 +1,116 @@
+{
+  "label": "Series",
+  "display": "title",
+  "singularLabel": "Series",
+  "icon": "ri-book-shelf-line",
+  "position": 0,
+  "sidebarGroup": "Catalogue",
+  "fields": {
+    "/properties/title": {
+      "title": "Title"
+    },
+    "/properties/pseudonyms": {
+      "title": "Pseudonyms"
+    },
+    "/properties/refs": {
+      "title": "Refs"
+    },
+    "/properties/frequency": {
+      "title": "Frequency"
+    },
+    "/properties/created": {
+      "title": "Created"
+    },
+    "/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/musenalm_id": {
+      "title": "Musenalm id"
+    },
+    "/properties/edit_state": {
+      "title": "Edit state"
+    },
+    "/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    },
+    "/properties/editor": {
+      "title": "Editor"
+    },
+    "/properties/related_entries/items/properties/source_id": {
+      "title": "Source id"
+    },
+    "/properties/related_entries/items/properties/entry": {
+      "title": "Entry"
+    },
+    "/properties/related_entries/items/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/related_entries/items/properties/created": {
+      "title": "Created"
+    },
+    "/properties/related_entries/items/properties/updated": {
+      "title": "Updated"
+    }
+  },
+  "fieldOrder": [
+    "title",
+    "pseudonyms",
+    "refs",
+    "frequency",
+    "created",
+    "updated",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment",
+    "editor",
+    "entries",
+    "related_entries"
+  ],
+  "labels": {
+    "list": [
+      "title"
+    ],
+    "search": [
+      "title"
+    ],
+    "record": [
+      "title"
+    ],
+    "reference": [
+      "title"
+    ]
+  },
+  "search": [
+    "title",
+    "pseudonyms",
+    "refs",
+    "frequency",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment"
+  ],
+  "list": {
+    "columns": [
+      "title",
+      "musenalm_id",
+      "entries"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "autoFilters": false,
+    "filters": [
+      "edit_state"
+    ]
+  },
+  "sidebarTree": false
+}

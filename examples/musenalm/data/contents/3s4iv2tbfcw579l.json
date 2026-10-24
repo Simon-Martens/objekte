@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 119396-119399, Obj 101-104",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanzen und Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanzen und Lieder",
+  "updated": "2017-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.699Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "dyb1vulq46m67h9"
+    }
+  ]
+}

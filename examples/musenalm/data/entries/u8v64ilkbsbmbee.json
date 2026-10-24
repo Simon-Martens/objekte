@@ -1,0 +1,115 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt /) Die unbezeichneten Beiträg sind V. A. Coremanns zuzuschreiben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S W, SS 1-4 Vrwrt d Hrsg, SS 5-147, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freiheitsblitze 1832",
+    "norm": "~",
+    "biblio": 406071,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3584,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Winter)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Freiheitsblitze 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; KVK, BVB",
+  "responsibility_statement": "Dr. V. A. Coremans",
+  "subtitle_statement": "",
+  "title_statement": "Freiheitsblitze. / Taschenbuch / für / gesetzliebende Freisinnige / von / Dr. V. A. Coremans. / Vorwärts, vorwärts sollst du schauen, / Darfst zurücke niemals seh'n! / König Ludwig von Bayern. / Mit dem Bildnisse des Verfassers. / Nürnberg, 1832. / Verlag von George Winter",
+  "updated": "2026-06-11 10:18:54.663Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "ueimasgomi94ofa"
+  ],
+  "contents": [
+    "luh45uz8vn95i1i",
+    "nhznnuxs6ec802p",
+    "yhqbjehwrqex3oo",
+    "z8ixlb7cyhja81m",
+    "2wq7npz8oa3o1iu",
+    "9f5kgfu1q38bif5",
+    "l4trpn2atfvvlj0",
+    "xvd3bq9kauayykn",
+    "9wu2uoke9fsevxq",
+    "yhnxd2kqhoszz1k",
+    "eidwyez55vumqe3",
+    "jwwvr64raa7elkp",
+    "pzoxypsa728620k",
+    "s81fnagzjsehj5k",
+    "tkkgbp15fybjpn3",
+    "hkcbdo28dwppkcx",
+    "tyhd3niy9jorszm",
+    "2ivf24l89bthkb0",
+    "e3enujun6p4o6be",
+    "1ciob8ck6knwry1",
+    "zdi4i9uomzxql3z",
+    "kci3dhztipl93xc",
+    "srhbm0wfztzkoc8",
+    "s1ydbj32k3ntqn2",
+    "96afzfv1r5h3ndm",
+    "g62jedaje1e645y",
+    "svo14qrnhg3o5zq",
+    "927dth82nev5eec",
+    "grxj9cnoofk9r4t",
+    "d720f3sg86q8y5h",
+    "0ktnl210jhlbkxz",
+    "rpz8ibd8rceht9k",
+    "yggoy1chdm9vphw",
+    "ltw1ycy7uz5fmpa",
+    "s65147q0y3try1d",
+    "m2fsm74g8cqsvle"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.265Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.265Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "hf9vqzyahk9gf9t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.188Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.188Z",
+      "agent": "vat9hwzpij5f5uz",
+      "source_id": "kilgqcfgq2fpyy8"
+    }
+  ]
+}

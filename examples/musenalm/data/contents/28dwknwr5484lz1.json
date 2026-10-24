@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Empfang' ihn, den du heut von jedem, / der dich liebet,",
+  "language": [],
+  "musenalm_id": 856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angebinde.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Q.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Angebinde.",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.923Z",
+      "agent": "5zi0b6u2dct0970",
+      "source_id": "5sx4f2zhh42khyj"
+    }
+  ]
+}

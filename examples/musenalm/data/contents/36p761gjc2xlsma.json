@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48840,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grillenthal. / Ein / Natur-Gemälde / menschlicher / Stärken und Schwächen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottlob Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grillenthal. / Ein / Natur-Gemälde / menschlicher / Stärken und Schwächen.",
+  "updated": "2007-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.589Z",
+      "agent": "amqten9820medl4",
+      "source_id": "ycn2ip4lgoyygex"
+    }
+  ]
+}

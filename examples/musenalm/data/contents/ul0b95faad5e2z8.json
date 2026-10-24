@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Was zieht da für schreckliches Sausen, / Wie Pfeifen durch Sturmes Wehn?",
+  "language": [],
+  "musenalm_id": 26703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Soldatenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Soldatenlied",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.311Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "0qup87zusw1x8yn"
+    }
+  ]
+}

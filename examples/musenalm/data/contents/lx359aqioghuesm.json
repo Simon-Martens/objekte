@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Bei mir geht’s Zug auf Zug im Schach / Ich denke wunderselten nach,",
+  "language": [],
+  "musenalm_id": 2897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / hurtige Schachspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / hurtige Schachspieler",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.009Z",
+      "agent": "h8teagsnwe3omy2",
+      "source_id": "hkunt71c7b6yytl"
+    }
+  ]
+}

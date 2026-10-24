@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, S 1 nT, SS 3-106, 8 BB Kal",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbüchlein zur Unterhaltung und zum Nutzen zunächst für Ostfriesland und Harrlingerland 1841",
+    "norm": "~",
+    "biblio": 409307,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-07-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4324,
+  "parallel_title": "",
+  "place_statement": "Emden ( Woortman)",
+  "places": [
+    "ps4axcazhxum1hi"
+  ],
+  "preferred_title": "Jahrbüchlein zur Unterhaltung und zum Nutzen zunächst für Ostfriesland und Harrlingerland 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "G. W. Bueren",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbüchlein / zur / Unterhaltung und zum Nutzen, / zunächst für / Ostfriesland und Harrlingerland. / Auf das Jahr 1841. / Herausgegeben von / G. W. Bueren, / Doctor der Rechte und Stadtsyndicus in Emden. / Emden. 1840. / Gedruckt in der Officin von H. Woortman, / Stadt-Buchdrucker",
+  "updated": "2026-06-11 10:18:55.734Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "v8jw93dh9c34ni3"
+  ],
+  "contents": [
+    "nvmdzv91iolhpxl",
+    "evqymkah5mrwcgn",
+    "dwsrcoae0ac1id8",
+    "j40p98pzjd73q79",
+    "j0abzjz434zzet7",
+    "1sg6e9hx5r89cxt",
+    "io71f7t3sn8l6g9",
+    "mwx89xiw8ovsaq9",
+    "lqbxuie8ieyv5ln",
+    "t5sq5rpeh5joika",
+    "1wi6q5n3hipejww",
+    "yrx0ocuc4kje5e2",
+    "krf6fzpi1r48i0q",
+    "nojsc1jjqbank66",
+    "5x043tdbuou33lp",
+    "j7vh0b25ae2tq58",
+    "poxfa3r7fhp1324",
+    "zv4usv5bp668fsc",
+    "znxcf4qv2l6kx9i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.365Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.365Z",
+      "agent": "5y1y8nf1h7agmbv",
+      "source_id": "uxc84r3tkyif7jh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "kcd1ujolnnb7xmb",
+      "source_id": "vlszkunp4fbuaic"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Die dunkle Landcharte; Etwas aus den Kreisen des heil. röm. Reichs.(Sammlung INr 85017, Obj 19) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "des heil. röm. Reichs wimmeln von diesen Kläffern der Nacht allenthalben und in allen Ecken.",
+  "language": [],
+  "musenalm_id": 85022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "e) Die südlichen Kreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "e) Die südlichen Kreise",
+  "updated": "2012-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "i1m0o75lvyphony",
+      "source_id": "1rt9ole49sdepiv"
+    }
+  ]
+}

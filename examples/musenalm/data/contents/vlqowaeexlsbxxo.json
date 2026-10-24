@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Hier liegt ein Männchen, das / Erwarb sich vielen Haß,",
+  "language": [],
+  "musenalm_id": 66239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines Recensenten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines Recensenten",
+  "updated": "2009-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.099Z",
+      "agent": "n5liie3i2dvrx17",
+      "source_id": "wtg0mfc115cmazq"
+    }
+  ]
+}

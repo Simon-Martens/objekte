@@ -1,0 +1,56 @@
+{
+  "annotation": "CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Mutter mein, o Mutter! / Hüter stellet ihr: / Hüt' ich mich nicht selber, / Wehrt kein Hüten mir.",
+  "language": [],
+  "musenalm_id": 71330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SCHALKHAFTE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cervantes; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE SCHALKHAFTE",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "6fkse8c0pbmtzxf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "weyfjsfook5ewzx",
+      "source_id": "hvrjlehffwt8dyd"
+    }
+  ]
+}

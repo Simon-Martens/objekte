@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 26629, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Mein inniger Betrüber, / Der Gram, ging mit mir aus;",
+  "language": [],
+  "musenalm_id": 25631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Weinkelter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nic. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Weinkelter",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.899Z",
+      "agent": "mx9csh9d4aqs9fu",
+      "source_id": "4nhr8ghwzvnqqn3"
+    }
+  ]
+}

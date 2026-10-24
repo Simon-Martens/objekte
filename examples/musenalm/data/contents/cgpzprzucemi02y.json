@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Iden des Märzes, ihr bringt der göttlichen / Anna Perenna / Lustiges Fest,, an dem Bord, welchen der Ti- / bris umwallt.",
+  "language": [],
+  "musenalm_id": 34940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest der Anna Perenna. / (Ovid. Fast. III. 523.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest der Anna Perenna. / (Ovid. Fast. III. 523.)",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.637Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "o4cg72w5bd33qzt"
+    }
+  ]
+}

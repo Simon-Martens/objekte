@@ -1,0 +1,252 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.438Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Arzt, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1768"
+      ],
+      "dateOfDeath": [
+        "1843"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:09:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10076357X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10076357X",
+      "id": "https://d-nb.info/gnd/10076357X",
+      "oldAuthorityNumber": [
+        "(DE-588a)117038113",
+        "(DE-588a)10076357X"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Lüchow bei Lüneburg"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4043457-6",
+          "label": "Oldenburg (Oldenburg)"
+        }
+      ],
+      "preferredName": "Nöldeke, Georg Justus Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Justus Friedrich"
+        ],
+        "surname": [
+          "Nöldeke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "publication": [
+        "Armstrong, John: Die Kunst immer gesund zu seyn",
+        "Rondonneau, Louis: Handbuch des Einregistrirungs-, Stempel-, Greffe- und Hypothekenwesens",
+        "Blair, Hugh: Das Grab. Aus dem Englischen Hugo Blairs übertragen von Geo. Just. Friedr. N*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74204470"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122415"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10076357X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Justus_Friedrich_Noeldecke"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10076357X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10076357X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10076357X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Nöldecke, Georg Justus Friedrich",
+        "Noeldeke, Georg Justus",
+        "Noeldeke, Georg Justus Friedrich",
+        "Noeldecke, Georg Justus Friedrich",
+        "Nöldecke, Georg J.",
+        "Nöldeke, Georg J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Justus"
+          ],
+          "surname": [
+            "Noeldeke"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Justus Friedrich"
+          ],
+          "surname": [
+            "Noeldecke"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Justus Friedrich"
+          ],
+          "surname": [
+            "Nöldecke"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Justus Friedrich"
+          ],
+          "surname": [
+            "Noeldeke"
+          ]
+        },
+        {
+          "forename": [
+            "Georg J."
+          ],
+          "surname": [
+            "Nöldecke"
+          ]
+        },
+        {
+          "forename": [
+            "Georg J."
+          ],
+          "surname": [
+            "Nöldeke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Justus_Friedrich_Noeldecke",
+          "label": "https://de.wikipedia.org/wiki/Georg_Justus_Friedrich_Noeldecke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:24:21Z",
+    "gnd_query_biographical_data": "1768-1843",
+    "gnd_query_name": "nöldecke, georg justus friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1972,
+  "name": "Nöldecke, Georg Justus Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXIII, 759",
+  "updated": "2026-06-11 13:29:23.970Z",
+  "uri": "https://d-nb.info/gnd/10076357X",
+  "editor": ""
+}

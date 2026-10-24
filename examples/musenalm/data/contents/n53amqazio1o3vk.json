@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Steig' aufwärts, Morgenstunde! / Zerreiß' die Nacht, daß ich in meinem Wehe / Den Himmel wiedersehe,",
+  "language": [],
+  "musenalm_id": 26665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An W. / Zum Abschiede. Im Jahre 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freih. von Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An W. / Zum Abschiede. Im Jahre 1813",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.014Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "ls796lj60o9h3op"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77712, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Am Krankenbett des Kindes steht / Die Mutter still im Schmerz.",
+  "language": [],
+  "musenalm_id": 77717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das kranke Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das kranke Kind",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.729Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "n115645nzd0cbrn"
+    }
+  ]
+}

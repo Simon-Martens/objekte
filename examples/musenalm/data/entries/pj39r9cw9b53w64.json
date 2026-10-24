@@ -1,0 +1,89 @@
+{
+  "annotation": "Dem Ex. beigefügt: Postkarte mit Wilhelm Hensels Vorzeichnung zum Titelportrait E. T. A. Hofmann",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Feierstunden 1822",
+    "norm": "",
+    "biblio": 409551,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-04-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4512,
+  "parallel_title": "",
+  "place_statement": "Brünn (Traßler)",
+  "places": [
+    "mlac40mytl30b3z"
+  ],
+  "preferred_title": "Feierstunden 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; nicht bei L/R",
+  "responsibility_statement": "Ferdinand Freiherrn v. Biedenfeld; Christoph Kuffner",
+  "subtitle_statement": "",
+  "title_statement": "Feierstunden. Eine / Schrift / für edle / Unterhaltung / in zwanglosen Bänden. / Herausgegeben / von / Ferdinand Freiherrn v. Biedenfeld / und / Christoph Kuffner. / Zweiter Band. / Mit den Bildnissen von E. T. A. Hoffmann und F. / Baron de la Motte Fouqué. / Brünn 1822. / Bei Joseph Georg Traßler",
+  "updated": "2026-06-11 10:18:55.627Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "dvgc2r5kst859bt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "w5h9y9l3v23rdps",
+      "source_id": "1pt1ds020wjw6gz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.388Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.388Z",
+      "agent": "pfo0elfwwaodex8",
+      "source_id": "juspd8t961p6r4b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.388Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.388Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "zl00pvfiaexx3xr"
+    }
+  ]
+}

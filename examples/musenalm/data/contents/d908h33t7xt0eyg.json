@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Sommerabend« von W. G. Becker INr 13921, Obj 34  (Photos 61717,01; 61717,02) /) Anhang zu Beckers Taschenbuch 1813 enthaltend: Compositionen und Tänze, von Bergt, A. Harder, Methfeßel und Zelter (Sammlung INr 61716, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61717,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sommerabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_220_61717_01_gplds6kvc6.jpg",
+    "alm_220_61717_02_8bkpdhfap4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Sommerabend",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.969Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "kfqjxyl58wbtiry"
+    }
+  ]
+}

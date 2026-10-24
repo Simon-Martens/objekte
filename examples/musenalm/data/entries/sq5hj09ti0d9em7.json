@@ -1,0 +1,67 @@
+{
+  "annotation": "Titel verso lautet: Jenaischer Universitäts-Almanach für das Jahr 1816. Herausgegeben von D. Georg Güldenapfel; Professor der Philosophie und zweyten Bibliothekar bey der Universität. Mit Kupfern. Jena, bey J. G. Schreiber und Comp. 1816",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Universitäts-Almanach, Jenaischer 1816",
+    "norm": "",
+    "biblio": 409882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-12-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4683,
+  "parallel_title": "",
+  "place_statement": "Jena (Schreiber u. Co.)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Universitäts-Almanach, Jenaischer 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "D. Georg Gottlieb Güldenapfel",
+  "subtitle_statement": "",
+  "title_statement": "Literarisches Museum für die Gross Herzoglich Sächsischen Lande. Herausgegeben von D. Georg Gottlieb Güldenapfel, Professor der Philosophie zu Jena. / Erster Band. / Mit Kupfern. / Jena, bey J. G. Schreiber und Comp. 1816",
+  "updated": "2026-06-11 10:18:55.019Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "oynb8myltquh2m6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "mrariperoewn5mw",
+      "source_id": "owt3npsf1bre9hd"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121662, Obj. 2)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ein Schwan zieht auf dem See; / Du hörst kein Lied ihn singen, / Ihn drückt ein tiefes Weh; / Möcht’ sich zur Sonne schwingen.",
+  "language": [],
+  "musenalm_id": 121659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwanenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwanenlied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.794Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "sqlyn40cmuzfbni"
+    }
+  ]
+}

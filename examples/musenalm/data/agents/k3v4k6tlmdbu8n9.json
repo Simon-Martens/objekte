@@ -1,0 +1,329 @@
+{
+  "annotation": "",
+  "biographical_data": "1795 (1796?)-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.339Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/601471-9",
+          "label": "Stadttheater (Danzig)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7630838-8",
+          "label": "Königstädtisches Theater"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123012-8",
+          "label": "Königlich Sächsisches Hoftheater zu Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/500662-4",
+          "label": "Stadttheater (Aachen)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ab 1841 Leiter des Stadttheaters Danzig."
+      ],
+      "dateOfBirth": [
+        "1795-06-24"
+      ],
+      "dateOfDeath": [
+        "1856-03-04"
+      ],
+      "describedBy": {
+        "dateModified": "2025-10-16T14:24:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116540494/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116540656",
+          "label": "Genée, Ottilie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119312212",
+          "label": "Genée, Richard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116542020",
+          "label": "Genée, Rudolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116540494",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116542020",
+          "label": "Genée, Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119312212",
+          "label": "Genée, Richard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116540656",
+          "label": "Genée, Ottilie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116540494",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116540494"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000003-5",
+          "label": "Aachen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        }
+      ],
+      "preferredName": "Genée, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Genée"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4362006-1",
+          "label": "Bassist <Sänger>"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2018087654"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/72147800"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1459213"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116540494/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gen%C3%A9e"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000499348719"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116540494"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116540494"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116540494"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Genée, Johann Friedrich",
+        "G., Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Genée"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "G."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gen%C3%A9e",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Gen%C3%A9e"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T11:29:00Z",
+    "gnd_query_biographical_data": "1795 (1796?)-1856",
+    "gnd_query_name": "genée, johann friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 856,
+  "name": "Genée, Johann Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 644",
+  "updated": "2026-06-11 13:29:22.481Z",
+  "uri": "https://d-nb.info/gnd/116540494",
+  "editor": ""
+}

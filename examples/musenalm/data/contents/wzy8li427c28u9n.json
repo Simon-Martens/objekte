@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 76734, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Unter den Weibern, welche im späten Mittelalter die Throne Deutschlands zierten, und durch ächt weibliche Tugenden sich auszeichneten, gebührt ohne Zweifel der Churfürstin Anna von Sachsen eine vorzügliche Stelle.",
+  "language": [],
+  "musenalm_id": 76746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Churfürstin Anna von Sachsen, / Churfürst August des Ersten Gemahlin. / Biographische Skizze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Churfürstin Anna von Sachsen, / Churfürst August des Ersten Gemahlin. / Biographische Skizze",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "mq5n4jr3jie5n5f"
+    }
+  ]
+}

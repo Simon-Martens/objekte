@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Sonnette an Grafen Reinhardt. (Sammlung INr 91646, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Im vielbetretenen, im schmalen Gleise, / So führten mich mit strenger milder Rechte, / Den weiterstrebenden, die Lebensmächte.",
+  "language": [],
+  "musenalm_id": 91649,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.277Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "jlqssenbl9ucd8x"
+    }
+  ]
+}

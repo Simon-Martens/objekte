@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Arthur und Hugo waren die Söhne zweier Nachbarn im Städtchen D., zwei Stunden von der Hauptstadt.",
+  "language": [],
+  "musenalm_id": 44628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzfehler. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josef Rank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herzfehler. / Novelle",
+  "updated": "2006-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.472Z",
+      "agent": "h1rm6ctjxvxk0m6",
+      "source_id": "1yyq89hemkaw5dc"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "franz. Ausgabe des Kalenders: Bei gleichem Inhalt leichte Abweichungen im Umfang des G-Verz und der div. Tabellen /) Titel als Photo",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, T, 23 SS Kal, 143 SS",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1782 /) (franz. Ausgabe: Almanac généalogique pour l’Année 1782)",
+    "norm": "",
+    "biblio": 407697,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-02-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3928,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1782 (franz. Ausgabe: Almanac généalogique pour l’Année 1782)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / Généalogique / pour / L'Année / 1782. / avec l'approbation / de L'Académie Royale / des Sciences / et belles Lettres / A. Berlin",
+  "updated": "2026-06-11 10:18:55.763Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "wpoftfajz8qvc4i"
+  ],
+  "contents": [
+    "f0b0svrs699pdqp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "gw6zfqbn1quq52t"
+    }
+  ]
+}

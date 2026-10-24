@@ -1,0 +1,82 @@
+{
+  "annotation": "2. Ex.: varianter Umschlag. Umschlaggraphiken und Titel sind als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, B I-Verz, S G-Verz, 4 GG, S 1 T, S 2, SS 3-230 darin 12 GG, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) TB der Liebe, der Freundschaft und dem Familienleben des deutschen Volkes gewidmet 1848 [var.]",
+    "norm": "~",
+    "biblio": 409871,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4653,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Franckh)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) TB der Liebe, der Freundschaft und dem Familienleben des deutschen Volkes gewidmet 1848 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; L/R 99; Goed VIII. 126, 332 b",
+  "responsibility_statement": "Carl Spindler",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / Carl Spindler. / Für das Jahr 1848. / Mit Illustrationen von L. Weißer und Hohenstein. / Stuttgart. / Franckh'scher Verlag",
+  "updated": "2026-06-11 10:18:54.854Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "0wyatbu6pi2pu2p"
+  ],
+  "contents": [
+    "9m28roxm3slmotn",
+    "y9rw8o4i578z44a",
+    "8ojci3tp4x5waw9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.402Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.402Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "h2r2xi6nxkewjvj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.870Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.870Z",
+      "agent": "px7obnkeo4tgafv",
+      "source_id": "rt1fm56rla8ce4v"
+    }
+  ]
+}

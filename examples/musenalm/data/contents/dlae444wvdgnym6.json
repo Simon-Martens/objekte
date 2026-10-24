@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57706,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Otto Gest. v. A. H. Payne",
+  "scans": [
+    "alm_768_57706_ltakruedcc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosa",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.920Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "z4x63p74mnm9r1h"
+    }
+  ]
+}

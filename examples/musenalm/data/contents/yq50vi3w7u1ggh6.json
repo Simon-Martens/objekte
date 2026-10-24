@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Heuchler ferne von mir! Besonders du wi- / driger Heuchler,",
+  "language": [],
+  "musenalm_id": 38614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 477,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abscheu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abscheu",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.943Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "2gwui3ra7801e2o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.944Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "m7uxf1nwfi91wcv"
+    }
+  ]
+}

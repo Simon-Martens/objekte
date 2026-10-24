@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen. Dritter Abschnitt.« von F. W. Schubert INr 59028, Obj 19 s.a. Textbezug INr 59032, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johannes Hevelius, / Astronomus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc. Berlin",
+  "scans": [
+    "alm_871_59014_2fv75mpvlu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johannes Hevelius, / Astronomus",
+  "updated": "2008-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.660Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "ypmx70io5idbebz"
+    }
+  ]
+}

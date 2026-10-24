@@ -1,0 +1,82 @@
+{
+  "annotation": "Hrsg.: K. H. Heydenreich; dieser wohl Autor der unbezeichneten Beiträge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, röm: S I W, SS III-VI Vrwrt d Hrsg, SS VII- VIII I-Verz, ar: SS 1-238, SS 139-220 I-Verz, SS 143-240, ar1: SS 1-124",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1798",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3083,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Martini)",
+  "places": [],
+  "preferred_title": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; L/R 177; Goed VII, 274",
+  "responsibility_statement": "K. H. Heydenreich",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.368Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "conmgzfqkgz0qpl",
+    "jaa4652gap8cise",
+    "a5lzl4ix0id4da2",
+    "iebl1rx201chuff",
+    "wvvqoxlzoxjiym3",
+    "356xvtao6610fj2",
+    "igsm86kx27nhv57",
+    "n8dqov6ihd6qdey",
+    "t9n8nr2kjt3sdx6",
+    "vu7zdandog23iz4",
+    "wewspu9q1n5zq3e",
+    "jby6ks0p2tj9gep",
+    "sauyh8ctjuo4fgq",
+    "j682fsibrdozpo4",
+    "4c5i0sbqj3puubo",
+    "51isl2mbxj2pn02",
+    "thx1yatkfu8baj4",
+    "i3d6vpxtqeo1pzm",
+    "49bjfvpkrw1jfx1",
+    "zijxm0aw8jgp0km"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.457Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.457Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "jcucp990nvjqfxq"
+    }
+  ]
+}

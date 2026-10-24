@@ -1,0 +1,55 @@
+{
+  "annotation": "KVK, SBB gibt Jgg 1804-1821; KVK, Österreichische Nationalbibliothek gibt Fortsetzung Jgg 1821-1908 an. Genaue Erscheinungsweise unklar; bei K 63 und Goed VIII. 131, 29: Jg 1825",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater Jounal, Wiener 1821",
+    "norm": "",
+    "biblio": 405490,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3760,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater Jounal, Wiener 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R; nicht bei Goed VIII. 131, 29",
+  "responsibility_statement": "Koller und Cserny",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Hof-Theater / Journal / auf das Jahr / 1821 / Enthält alle vom 10ten October 1819 bis 12ten / December 1820 in beyden K.K. Hoftheatern auf- / geführten Stücke, Opern und Ballete. Nebst ei- nem Ausweis aller Darstellungen, Gast- / und Debuts Rollen - Norma Tage - und ein- / nem Anhange von gemischten Gedichten. / herausgegeben / von Koller und Cserny / Souffleur des K.K. Nat. Hoftheaters / WIEN 1821",
+  "updated": "2026-06-11 10:18:55.665Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "txrxy1y4j0j8ucl"
+  ],
+  "contents": [],
+  "agents": []
+}

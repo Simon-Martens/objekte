@@ -1,0 +1,583 @@
+{
+  "annotation": "",
+  "biographical_data": "485/484 od. 480-406",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.318Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/121650723",
+          "label": "Utenhove, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124362427",
+          "label": "Portus, Aemilius"
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "surname": [
+            "Gelous"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118530666",
+          "label": "Erasmus, Desiderius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118960563",
+          "label": "Rhenanus, Beatus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119630451",
+          "label": "Brodeau, Jean"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119708930",
+          "label": "Heusler, Matthaeus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116276967",
+          "label": "Possel, Johann"
+        },
+        {
+          "forename": [
+            "Kaspar"
+          ],
+          "surname": [
+            "Stiblin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118575228",
+          "label": "Lucianus, Samosatensis"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Griechischer Tragödiendichter der Antike"
+      ],
+      "dateOfBirthAndDeath": [
+        "[485/480 v. Chr.-406 v.Chr.]"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Marie-Lan Nguyen"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Euripides%20Pio-Clementino%20Inv302.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Euripides%20Pio-Clementino%20Inv302.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Euripides%20Pio-Clementino%20Inv302.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187973296",
+        "https://d-nb.info/gnd/1089717628"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-09T16:39:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118531395/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XS",
+          "label": "Griechenland (Altertum)"
+        }
+      ],
+      "gndIdentifier": "118531395",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118531395",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/grc",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/grc"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)1089717628",
+        "(DE-588a)187973296",
+        "(DE-588)187973296",
+        "(DE-588a)118531395",
+        "(DE-588c)4015691-6"
+      ],
+      "preferredName": "Euripides",
+      "preferredNameEntityForThePerson": {
+        "personalName": [
+          "Euripides"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Euripides: Hecuba, Orestes et Iphigenia, Phoenissae",
+        "Euripides: \\=GARISTOLOGIA EURIPIDEIĒ hellēnikolatinē.\\=g ARISTOLOGIA EVRIPIDEA ... 1559. (VD16 E 4223)",
+        "Euripides: TRAGOEDIA HECVBA, SAPIENTISSIMI ET ELEGANTISSIMI POETAE EVRIPIDIS, CVM INterpretatione ... 1555. (VD16 E 4233)",
+        "Euripides: Jephtes. 1567. (VD16 E 4225)",
+        "Euripides: Iphigenia in Aulide, ein überaus schöne Historia oder Comoediotragedia. 1584. (VD16 ZV 25121)",
+        "Euripides: Orestes. 1551. (VD16 ZV 21765)",
+        "Euripides: Electra",
+        "Euripides: Phoenissae",
+        "Euripides: Fabulae",
+        "Euripides: Bacchae",
+        "Euripides: Hecuba, Orestes",
+        "Euripides: TRAGOEDIA HECVBA, SAPIENTISSIMI ET ELEGANTISSIMI POETAE EVRIPIDIS, CVM INterpretatione ... 1554. (VD16 E 4232)",
+        "Euripides: \\=GEURIPIDU EPISTOLAI.\\=g. 1569. (VD16 E 4258)",
+        "Euripides: Tragoediae duae Hecuba et Iphigenia",
+        "Euripides: Andromache",
+        "Euripides: Phoenissae EVRIPIDIS TRAGOEDIA Latino metro versa A' M. GEORGIO CALAMINO ... 1577. (VD16 E 4255)",
+        "Euripides: \\=GHIPPOLYTOS STEPHANĒPHOROS.\\=g HYPPOLYTVS CORONATVS. (L.ANNEI SEnecae. ... 1599. (VD16 E 4242)",
+        "Euripides: TRAGOEDIA PHOENISSARVM. EVRIPIDIS Poetae Tragici. Nicolao Gabllmanno Interprete.. 1592. (VD16 E 4256)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79063679"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/265326651"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q48305"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089717628"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118531395/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187973296"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118531395"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Euripides"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Euripides"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Euripides"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Euripides"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121382034"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118531395"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118531395"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118531395"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/3CD985506CFF44178FC6AA3EEE9ECC45"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118531395"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "udkCode": [
+        "500 - 401 v. Chr. "
+      ],
+      "variantName": [
+        "Euripides, Sohn des Mnesarchides",
+        "Yūrı̄bidı̄s\"",
+        "Euripidis\"",
+        "Evripede\"",
+        "Euripidas",
+        "Eurípides",
+        "Euripides, Atheniensis",
+        "Euripide",
+        "Euripides, Tragiker",
+        "Euripide, de Salamine",
+        "Euripid, Salaminjanin",
+        "Euripides, Sohn des Mnesarchos",
+        "Euripid",
+        "Euripides, Tragicus",
+        "Pseudo-Euripides",
+        "Euripides, von Athen",
+        "Evripid\"",
+        "Evripides",
+        "Eyripidēs",
+        "Yūrībidīs\"",
+        "Euripides\", Pseudo-",
+        "Euripides, von Salamis",
+        "Euripidész",
+        "Euripedes",
+        "Euripides Alcestis",
+        "Euripidē",
+        "Euripid, Sin Mnesarhov",
+        "Eurypides"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Eyripidēs"
+          ]
+        },
+        {
+          "personalName": [
+            "Eurípides"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripidas"
+          ]
+        },
+        {
+          "personalName": [
+            "Yūrı̄bidı̄s\""
+          ]
+        },
+        {
+          "nameAddition": [
+            "Tragiker"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripides Alcestis"
+          ]
+        },
+        {
+          "personalName": [
+            "Evripides"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripid"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Pseudo-"
+          ],
+          "personalName": [
+            "Euripides\""
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Atheniensis"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Sin Mnesarhov"
+          ],
+          "personalName": [
+            "Euripid"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripidis\""
+          ]
+        },
+        {
+          "personalName": [
+            "Euripedes"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripidész"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Athen"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Sohn des Mnesarchos"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Salaminjanin"
+          ],
+          "personalName": [
+            "Euripid"
+          ]
+        },
+        {
+          "personalName": [
+            "Evripid\""
+          ]
+        },
+        {
+          "nameAddition": [
+            "Tragicus"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Salamis"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Sohn des Mnesarchides"
+          ],
+          "personalName": [
+            "Euripides"
+          ]
+        },
+        {
+          "personalName": [
+            "Eurypides"
+          ]
+        },
+        {
+          "personalName": [
+            "Euripidē"
+          ]
+        },
+        {
+          "personalName": [
+            "Evripede\""
+          ]
+        },
+        {
+          "nameAddition": [
+            "de Salamine"
+          ],
+          "personalName": [
+            "Euripide"
+          ]
+        },
+        {
+          "personalName": [
+            "Yūrībidīs\""
+          ]
+        },
+        {
+          "personalName": [
+            "Euripide"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Euripides",
+          "label": "https://de.wikipedia.org/wiki/Euripides"
+        }
+      ]
+    },
+    "gnd_candidate_count": 10,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:20:21Z",
+    "gnd_query_biographical_data": "485/484 od. 480-406",
+    "gnd_query_name": "euripides"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 679,
+  "name": "Euripides",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "P II, 440",
+  "updated": "2026-06-11 13:29:22.204Z",
+  "uri": "https://d-nb.info/gnd/118531395",
+  "editor": ""
+}

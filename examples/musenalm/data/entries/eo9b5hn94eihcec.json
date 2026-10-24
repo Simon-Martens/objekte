@@ -1,0 +1,118 @@
+{
+  "annotation": "3 Jgg 1794-1796; Berlin; Hrsg. lt. L/R 183: Markus Rudolph Balthasar Gerhardt /) auch erschienen unter dem Titel: Gemeinnütziger Almanach für Kaufleute und Bangiers für das Jahr ...",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 7 BB Kal dazu 12 GG, 2 BB Tabb, SS 1-218, SS 219-222 I-Verz, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Gemeinnütziger (Berlin) 1794",
+    "norm": "~",
+    "biblio": 406557,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-03-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3651,
+  "parallel_title": "",
+  "place_statement": "Berlin (Felisch)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Gemeinnütziger (Berlin) 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 183",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gemeinnütziger / Almanach / für / das Jahr / 1794. / Berlin bey Ernst Felisch",
+  "updated": "2026-06-11 10:18:54.828Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "odo17y00l8yxa8s"
+  ],
+  "contents": [
+    "n1vx4c99fp3nldw",
+    "y0ho456o85whudo",
+    "7oe8rawrzr5ubfc",
+    "bh7uwu6wlmzz3el",
+    "hzyc40duy5l7ui6",
+    "9m3046ytjde06al",
+    "z33oymxk4tearlz",
+    "h7yn1l1dl13231s",
+    "vewjfjg1xfgnsmx",
+    "c9xor5l3xedi5c9",
+    "fo495jqpbuv2gm1",
+    "q9deksndfngjccm",
+    "71xwacqet6bpil4",
+    "l7bufy3cv5b5t8w",
+    "dfqm56yewavl4v4",
+    "pfed2xiiimmyzmf",
+    "o6a1ano0pdrcx9k",
+    "x930fql5n1xdrl3",
+    "kxi8ky4hz9h2hlt",
+    "j8ireg8b96dh0z2",
+    "dezwa4xlr43kinf",
+    "ve1yjosrmk8yfnd",
+    "a98rons8lhcl7n3",
+    "ielaqffq3tksaob",
+    "ew8dz84jrn7hwzh",
+    "j0zfct3s5pd6ae5",
+    "fldidne5ioevu1j",
+    "newz1e9k886wx11",
+    "yl6kvdcnlhn86wz",
+    "by7pcljzvomtk4o",
+    "oqgafig8okq8smv",
+    "i68xybcck868rnd",
+    "eyib3fybm7f314x",
+    "sd96iaaumevchwm",
+    "cdp5mgdnuccfey4",
+    "ixryd9v3tibky3i",
+    "6rkz9tage3c1fr7",
+    "y2bg75x57owmk50",
+    "ylcsefs4oteuorw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.840Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.840Z",
+      "agent": "3p5feso82l0p40c",
+      "source_id": "35rymjsdezj2568"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.272Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.272Z",
+      "agent": "kmojoi6xgoadif1",
+      "source_id": "c368f1lm6j9qtew"
+    }
+  ]
+}

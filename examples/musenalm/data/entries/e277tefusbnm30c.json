@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Konstitutions-Almanach für das Königreich Bayern 1820",
+    "norm": "",
+    "biblio": 409549,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4535,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Hamm)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Konstitutions-Almanach für das Königreich Bayern 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 73; nicht bei L/R",
+  "responsibility_statement": "Wirth, Johann Christian",
+  "subtitle_statement": "",
+  "title_statement": "Konstitutions-Almanach / für das / Königreich Baiern / auf das / Schaltjahr 1820. / Enthaltend: / Die Verfassungs-Urkunde des Reichs mit allen Beilagen, [...] Mit allerhöchster Erlaubniß / herausgegeben / von / Johann Christian Wirth, / Gesellschafter der Hamm'schen Buchdrukerei / Mit sechs Bildnissen. / Augsburg. / Gedrukt und zu haben in der Hamm'schen Buchdrukerei. / Litt. H. 246",
+  "updated": "2026-06-11 10:18:55.908Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "1jf6cph6vy1k5mf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.958Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.958Z",
+      "agent": "9qgeyhwl0fa5w4e",
+      "source_id": "l8hixr63ohc6gy9"
+    }
+  ]
+}

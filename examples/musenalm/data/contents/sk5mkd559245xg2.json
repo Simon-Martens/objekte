@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: En amour tout est vrai et tout est faux; c'est la seule chose, sur laquelle on ne puisse pas dire des bêtises. / Chamfort",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zwei junge Frauen, die verwitwete Gräfin Benna von T. und ihre Freundin Auguste, saßen eines Abends stickend und plaudernd beisammen.",
+  "language": [],
+  "musenalm_id": 57853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekenntnisse. / Humoreske",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekenntnisse. / Humoreske",
+  "updated": "2008-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.791Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "pufrj2e8iqacd8o"
+    }
+  ]
+}

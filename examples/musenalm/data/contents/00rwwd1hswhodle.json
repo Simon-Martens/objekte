@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 28067, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Sebald wärmt sich an brennenden Eiszapfen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pet. Vischer fec. Alb. Reindel sc.",
+  "scans": [
+    "alm_361_28066_ezwhlyhcvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Sebald wärmt sich an brennenden Eiszapfen",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.389Z",
+      "agent": "2j4fmhpjuaqhaao",
+      "source_id": "cngzils4nyubrp6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.389Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "mg64j6mk9sb6nuh"
+    }
+  ]
+}

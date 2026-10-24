@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Adolfs Eck« INr 72873, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cornelius del. H. Lips sculp.",
+  "scans": [
+    "alm_2692_72874_zi5ay1f14y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.705Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "0t5wbiu47oyk60t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.705Z",
+      "agent": "ns8syak978vfvbp",
+      "source_id": "dyhv3dcwsinbojn"
+    }
+  ]
+}

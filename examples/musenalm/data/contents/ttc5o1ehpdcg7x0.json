@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "O Geliebte! Eine Leier / Halt' ich dich in meinem Arm; / Und der Busen hebt sich freier, / Und die Seele wird mir warm.",
+  "language": [],
+  "musenalm_id": 42506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Alles",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Alles",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.960Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "7vm8fzwuxa97sb3"
+    }
+  ]
+}

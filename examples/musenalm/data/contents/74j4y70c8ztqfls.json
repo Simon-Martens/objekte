@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Beiträgen INr 45491-45503, Obj 200-212",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Denksprüche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Denksprüche",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.366Z",
+      "agent": "q3hkrc4mbx3ugx0",
+      "source_id": "77p601g57argaoy"
+    }
+  ]
+}

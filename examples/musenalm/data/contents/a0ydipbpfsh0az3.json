@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 13.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13905,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Jungfrau-Gebirges",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. Darnstedt sc.",
+  "scans": [
+    "alm_220_13905_ftncvypyz7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Jungfrau-Gebirges",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.533Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "19kcnfto54sfkrh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.533Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "m0sxgi8yjzrn1ph"
+    }
+  ]
+}

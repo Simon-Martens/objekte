@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Verhaftung Voltaire's in Frankfurt am Main durch den preußischen Residenten von Freytag ist ein Ereigniß, welchem einst die ganze gebildete Welt in Staunen und Spannung horchte,",
+  "language": [],
+  "musenalm_id": 59155,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Voltaire / in Frankfurt am Main 1753",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Varnhagen von Ense",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Voltaire / in Frankfurt am Main 1753",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.763Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "ku1t8sj6nikrhd7"
+    }
+  ]
+}

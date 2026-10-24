@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Unglücklich Herz - Und mußt' es seyn, / Daß ich dich so zertrümmert sah?",
+  "language": [],
+  "musenalm_id": 19993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ein zerbrochnes Herz von Carneol. / Nach dem Englischen des Lord Byron",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Klothilde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ein zerbrochnes Herz von Carneol. / Nach dem Englischen des Lord Byron",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.887Z",
+      "agent": "j3qxc741zzed3s0",
+      "source_id": "kocrwq7i3z2jkgt"
+    }
+  ]
+}

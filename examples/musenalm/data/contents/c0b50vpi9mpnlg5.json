@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Trübender Schimmer fällt auf mich von jenen / Kummerstillenden Höhen, wo dein Antlitz",
+  "language": [],
+  "musenalm_id": 4189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.987Z",
+      "agent": "ka1wm9mc4kl7y0b",
+      "source_id": "2k8bmg8rjv8i72e"
+    }
+  ]
+}

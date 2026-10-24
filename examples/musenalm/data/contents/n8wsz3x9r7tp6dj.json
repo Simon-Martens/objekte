@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Dem edlen Deutschen gegenüber, / Der glorreich mit dem Griechen rang,",
+  "language": [],
+  "musenalm_id": 15839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In ein Stammbuch. / (Auf dem gegenüberliegenden Blatte hatte sich / der deutsche Übersetzer des Homer einge- / schrieben.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In ein Stammbuch. / (Auf dem gegenüberliegenden Blatte hatte sich / der deutsche Übersetzer des Homer einge- / schrieben.)",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.557Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "s1p3fzqskbxggpp"
+    }
+  ]
+}

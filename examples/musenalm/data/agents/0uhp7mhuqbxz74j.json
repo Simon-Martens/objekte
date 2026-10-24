@@ -1,0 +1,556 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1833",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.396Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Griechischer Schriftsteller und Gelehrter; Hellenist"
+      ],
+      "dateOfBirth": [
+        "1748-04-27"
+      ],
+      "dateOfDeath": [
+        "1833-04-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "en:Image:Adamantios Korais.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adamantios%20Korais.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adamantios%20Korais.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adamantios%20Korais.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187201528",
+        "https://d-nb.info/gnd/188276726",
+        "https://d-nb.info/gnd/18178808X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T20:34:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118565346/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GR",
+          "label": "Griechenland"
+        }
+      ],
+      "gndIdentifier": "118565346",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118565346",
+      "oldAuthorityNumber": [
+        "(DE-588)188276726",
+        "(DE-588a)187201528",
+        "(DE-588)18178808X",
+        "(DE-588a)18178808X",
+        "(DE-588c)4032436-9",
+        "(DE-588a)118565346",
+        "(DE-588)187201528",
+        "(DE-588a)188276726"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Smyrna"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Koraēs, Adamantios",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adamantios"
+        ],
+        "surname": [
+          "Koraēs"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Sprachforscher"
+      ],
+      "publication": [
+        "Koraēs, Adamantios: Prodromus Bibliothecae Hellenicae",
+        "Ti sympherei eis tēn eleutherōmenēn apo Turkus Hellada na praxē *",
+        "Bios Adamantiu Koraē",
+        "Koraēs, Adamantios: Symmikta diaphora ek tōn syngrapheōn tōn neōterōn Hellēnōn er*",
+        "Hellēnikē bibliothēkē. - 1807 - 1826",
+        "Koraēs, Adamantios: Salpisma polemistērion",
+        "Salpisma polemistērion",
+        "Koraēs, Adamantios: Bios Adamantiu Koraē",
+        "Mémoire sur l'état actuel de la civilisation dans la Grèce",
+        "Hellēnikē bibliothēkē / Parerga. - 1809 - 1827",
+        "Koraēs, Adamantios: Ta eis diaphorus syngrapheis ... prolegomena",
+        "Prodromus Bibliothecae Hellenicae",
+        "Koraēs, Adamantios: Ti sympherei eis tēn eleutherōmenēn apo Turkus Hellada na praxē *",
+        "Ta eis diaphorus syngrapheis ... prolegomena",
+        "Koraēs, Adamantios: Mémoire sur l'état actuel de la civilisation dans la Grèce"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82208074"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95174123"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q319635"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118565346/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18178808X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187201528"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188276726"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adamantios_Korais"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adamantios_Korais"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adamantios_Korais"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441591"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118565346"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118565346"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118565346"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Coray, Adamantinus",
+        "Corayius, Amantius",
+        "Hydraios, Kritolas",
+        "Korai̲s, Adamantios",
+        "Coray, ...",
+        "Atromète",
+        "Corais, Adamantius",
+        "Atromētos Marathonios",
+        "Coray, Adamantius",
+        "Coray, Adamance",
+        "Coray, Adamantis",
+        "Korais, Adamantios",
+        "Corais, Adamantios",
+        "Coray, Adamant",
+        "Koraēz, Adamantios",
+        "Korai, Adamantios",
+        "Coray, Diamant",
+        "Koraēs, Diamantēs",
+        "Koraes, Adamantios",
+        "Pantazidēs, G.",
+        "Koraēs, Adamantios Iōannu",
+        "Coraes, Adamantius",
+        "Korais, Adamandios",
+        "Coray, Adamantios",
+        "Coray, Diamantes"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Korais"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantinus"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantius"
+          ],
+          "surname": [
+            "Coraes"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantius"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Korai"
+          ]
+        },
+        {
+          "forename": [
+            "Adamance"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "personalName": [
+            "Atromète"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Diamant"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Koraes"
+          ]
+        },
+        {
+          "forename": [
+            "Diamantēs"
+          ],
+          "surname": [
+            "Koraēs"
+          ]
+        },
+        {
+          "forename": [
+            "Adamant"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantius"
+          ],
+          "surname": [
+            "Corais"
+          ]
+        },
+        {
+          "forename": [
+            "Diamant"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "Amantius"
+          ],
+          "surname": [
+            "Corayius"
+          ]
+        },
+        {
+          "forename": [
+            "Adamandios"
+          ],
+          "surname": [
+            "Korais"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Koraēz"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Corais"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios Iōannu"
+          ],
+          "surname": [
+            "Koraēs"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantis"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "personalName": [
+            "Atromētos Marathonios"
+          ]
+        },
+        {
+          "forename": [
+            "Kritolas"
+          ],
+          "surname": [
+            "Hydraios"
+          ]
+        },
+        {
+          "forename": [
+            "Adamantios"
+          ],
+          "surname": [
+            "Korai̲s"
+          ]
+        },
+        {
+          "forename": [
+            "Diamantes"
+          ],
+          "surname": [
+            "Coray"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Pantazidēs"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Coray"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adamantios_Korais",
+          "label": "https://de.wikipedia.org/wiki/Adamantios_Korais"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "ascii_name",
+    "gnd_matched_at": "2026-06-11T11:58:54Z",
+    "gnd_query_biographical_data": "1772-1833",
+    "gnd_query_name": "koraïs, adamantios"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1458,
+  "name": "Koraïs, Adamantios",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) X, 525",
+  "updated": "2026-06-11 13:29:23.322Z",
+  "uri": "https://d-nb.info/gnd/118565346",
+  "editor": ""
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Kantons Schwyz« INr 51866, Obj 5 /) s.a. Textbezug INr 51889, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bauernhaus im Canton Schwyz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinr. Meyer f.",
+  "scans": [
+    "alm_707_51871_hu4k4y29qz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bauernhaus im Canton Schwyz",
+  "updated": "2007-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.507Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "q8433ke7y0ibge7"
+    }
+  ]
+}

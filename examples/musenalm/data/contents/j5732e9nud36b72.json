@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Faßt denn Alles der Tod, den Klang, den Reim und / die Saiten, / Deckt die ewige Nacht herzlos den Ruhm und das / Lied?",
+  "language": [],
+  "musenalm_id": 14957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf eine zerbrochene Leier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf eine zerbrochene Leier",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.576Z",
+      "agent": "gvrm573djft0g9v",
+      "source_id": "n4fk0s78udb7rk7"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 186. /) Illustration zu »Isabella de Ponce-Leon« vom Verfasser des Romans Heliodora d.i. D. Lindau INr 76752, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76743,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Isabelle de Ponce-Leon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. G. Boettger senior sc. Lips.",
+  "scans": [
+    "alm_2386_76743_sic1jzgkpw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Isabelle de Ponce-Leon",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "71siqd9ndj0q8at"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "edn7w2euk26pvqh"
+    }
+  ]
+}

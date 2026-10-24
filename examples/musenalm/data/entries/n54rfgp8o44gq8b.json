@@ -1,0 +1,102 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, 14 BB, ar: SS 1-298, S C, ar1: SS 1-28, ar2: SS 1-74",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Berlinischer 1820",
+    "norm": "~",
+    "biblio": 106403,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 890,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender, Berlinischer 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 156; nicht bei L/R; Goed VIII. 92, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINISCHER / Taschen-Kalender / auf / das Schalt-Jahr 1820. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.252Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "ytipevbd3qsdbpg"
+  ],
+  "contents": [
+    "1nxn9htb7ta8g3o",
+    "nofvx2w6k7q5lah",
+    "q915nj9ad6h75eq",
+    "tyfi8wc0322nfxm",
+    "4gx500elv4zpr6u",
+    "yc5obx5ask33ue3",
+    "rfkttd7xivshpfd",
+    "mu4von9es9t4k6t",
+    "g2nm1uqwroxdjaz",
+    "jpxpffxucc9w0az",
+    "45zlnriyt62ecey",
+    "u4mxf81836hbhp4",
+    "0mbukiash4y907r",
+    "oe1wtzvv5dt97yi",
+    "f5wum8izlqxafid",
+    "0bpk9bcu4ceioob",
+    "p9g2u3nd8hbys6o",
+    "94b1xw2go0pfi1i",
+    "j5kjm7gnu5har8m",
+    "g7lf0hsyzlrfs9m",
+    "lqaj10v0j87if3b",
+    "l11h19mj2gy3vta",
+    "wqweqgvqk89v2rx",
+    "ju8rdchxwtlwgsq",
+    "5b7r98bhss4h5mj",
+    "wylf9mabwnxe1i7",
+    "ik8w7fw5obbu83w",
+    "befyzag13kdeiwb",
+    "t1whz24mn7gcqb1",
+    "0vnszvwnisvpve7",
+    "bolrdoo7gy64s5x",
+    "md5ekkhrj168vse",
+    "tlv4c4gfbsjqlrb",
+    "mtfxryinkrs89wx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "p2wbfucyxnhn6cz"
+    }
+  ]
+}

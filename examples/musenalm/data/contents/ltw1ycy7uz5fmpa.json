@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 70690, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "haben vielleicht in den ersten Tagen dieses Bändchens nicht genug Feuer gefunden, um den Titel Blitze vollkommen zu rechtfertigen.",
+  "language": [],
+  "musenalm_id": 70697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Leser",
+  "updated": "2010-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.333Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "snq8h7kwwzmhzby"
+    }
+  ]
+}

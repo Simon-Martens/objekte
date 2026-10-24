@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1759"
+      ],
+      "dateOfDeath": [
+        "1842"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-08T17:12:15.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/128653426/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117322415",
+          "label": "Schleich, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117321834",
+          "label": "Schleich, Adrian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128653574",
+          "label": "Schleich, Joseph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "128653426",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117321834",
+          "label": "Schleich, Adrian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117322415",
+          "label": "Schleich, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128653574",
+          "label": "Schleich, Joseph"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/123984890",
+          "label": "Jungwierth, Franz Xaver"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122759931",
+          "label": "Mettenleiter, Johann Jakob"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/128653426",
+      "oldAuthorityNumber": [
+        "(DE-588c)7526291-5",
+        "(DE-588a)128653426"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Schleich, Johann Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Carl"
+        ],
+        "surname": [
+          "Schleich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/122759931",
+          "label": "Mettenleiter, Johann Jakob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123984890",
+          "label": "Jungwierth, Franz Xaver"
+        }
+      ],
+      "publication": [
+        "Baiern",
+        "Geographischer Conspect der Baierisch und Ober-Pfälzischen Chausséen",
+        "Plan Der Königl[ichen] Haupt Und Residenz-Stadt München ..",
+        "Naab-Kreis"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14954269s"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2011062977"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49493202"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1546263"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128653426/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Karl_Schleich"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000118715184"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/128653426"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd128653426.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/128653426"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/128653426"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schleich",
+        "Schleich, Carl, senior",
+        "Schleich, Johann Karl",
+        "Schleich, G.",
+        "Schleich, Johann Carl, Senior",
+        "Schleich, Carl",
+        "Schleich, Johann Carl, der Ältere",
+        "Schleich, C.",
+        "Schleich, J. Carl",
+        "Schleich, Johann Karl, Senior",
+        "Schleich, Karl, der Ältere",
+        "C. S.",
+        "Schleich, J. C.",
+        "Schleich, sen.",
+        "Schleich, Karl",
+        "Schleich, Johann Karl, d. Ältere",
+        "Schleich, C., senior",
+        "Schleich, C., sen.",
+        "Schleich, Carl, der Ältere",
+        "Schleich, Johann Karl, der Ältere"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "nameAddition": [
+            "Senior"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "nameAddition": [
+            "d. Ältere"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "nameAddition": [
+            "Senior"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "nameAddition": [
+            "sen."
+          ],
+          "personalName": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "personalName": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "nameAddition": [
+            "senior"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "personalName": [
+            "C. S."
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "nameAddition": [
+            "sen."
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "nameAddition": [
+            "senior"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        },
+        {
+          "forename": [
+            "J. Carl"
+          ],
+          "surname": [
+            "Schleich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Karl_Schleich",
+          "label": "https://de.wikipedia.org/wiki/Johann_Karl_Schleich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:48:36Z",
+    "gnd_query_biographical_data": "1759-1842",
+    "gnd_query_name": "schleich, johann carl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2459,
+  "name": "Schleich, Johann Carl",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 101",
+  "updated": "2026-06-11 13:29:24.657Z",
+  "uri": "https://d-nb.info/gnd/128653426",
+  "editor": ""
+}

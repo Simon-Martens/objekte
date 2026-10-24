@@ -1,0 +1,673 @@
+{
+  "annotation": "",
+  "biographical_data": "1812-1886",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.293Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1072987317",
+          "label": "Glyphographisches Institut"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Publizist, Politiker",
+        "1824 Kadettenhaus Potsdam; 1830 Leutnant in Mainz; 1835 Abschied vom Heeresdienst und Tätigkeit als Schriftsteller",
+        "Leben in Deutschland, Amerika und England"
+      ],
+      "dateOfBirth": [
+        "1812-10-12"
+      ],
+      "dateOfDeath": [
+        "1886-03-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "G. Werner"
+          ],
+          "creditText": [
+            "Aus dem Leben eines Volkskämpfers, Amsterdam 1861"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20von%20Corvin.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20von%20Corvin.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Otto%20von%20Corvin.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:39:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118522310/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/135681642",
+          "label": "Wiersbitzki, Georg Ludwig von"
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Helena"
+          ],
+          "surname": [
+            "Corvin-Wiersbitzka"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August Heinrich"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Lous"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118522310",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/135681642",
+          "label": "Wiersbitzki, Georg Ludwig von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118522310",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118522310",
+        "(DE-588a)126224064",
+        "(DE-588a)109763300",
+        "(DE-588c)4010602-0"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4094267-3",
+          "label": "Gumbinnen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "preferredName": "Corvin-Wiersbitzki, Otto Julius Bernhard von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Otto Julius Bernhard"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Corvin-Wiersbitzki"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4416871-8",
+          "label": "Leutnant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Publizist"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Weiden"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Aus dem Leben eines Volkskämpfers",
+        "Biographien historisch berühmter Maitressen",
+        "Die Einzelhaft und das Zellengefängniß in Bruchsal",
+        "Hrsg. von: Der Jäger",
+        "Rastatter Casematten-Erzählungen eines Freigewordenen",
+        "Taschenbuch für Jäger und Naturfreunde",
+        "Der Niederländische Freiheitskrieg",
+        "Herzog Carl und die Revolution in Braunschweig",
+        "Erinnerungen aus meinem Leben",
+        "Sporting-Almanach",
+        "Midas",
+        "Hrsg. von: Der Marstall"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n89654373"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95174507"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q75265"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118522310/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Otto_von_Corvin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Otto_von_Corvin"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Otto_von_Corvin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Otto_von_Corvin"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118522310"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081678518"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118522310"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118522310"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118522310.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118522310.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118522310"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Corvin, Otto von",
+        "Wiersbitzki, Otto Julius Bernhard von Corvin-",
+        "Wiersbitzki, Otto",
+        "Wiersbitsky, Otto J. von",
+        "Corvin",
+        "Corvin, Otto J. von",
+        "Wiersbitsky, Corvin",
+        "Wiersbitzki, Otto von Corvin-",
+        "Corvin-Wiersbitzki, Otto J. von",
+        "Corvin-Wiersbitzki, Otto von",
+        "Corvin Wiersbitzki",
+        "Corvin Wiersbitzki, Otto von",
+        "Corvin, Otto Julius Bernhard von",
+        "Corvin Wiersbitsky, Otto Julius Bernhard von",
+        "Corvin Wiersbitsky, Otto J. von",
+        "Corvin, Otto",
+        "Weiden, Otto von der",
+        "Corvin, Otón",
+        "Corvin, Otto v.",
+        "Wiersbitzki, Otto J. von",
+        "Ernest-Falk",
+        "Wierbitzky, Otto",
+        "Wiersbitzki, Corvin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Otto J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin Wiersbitsky"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Wierbitzky"
+          ]
+        },
+        {
+          "forename": [
+            "Otto J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin-Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Julius Bernhard von Corvin-"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Julius Bernhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "personalName": [
+            "Corvin Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Weiden"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin-Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin-Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wiersbitsky"
+          ]
+        },
+        {
+          "forename": [
+            "Corvin"
+          ],
+          "surname": [
+            "Wiersbitsky"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Julius Bernhard von Corvin-"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto von Corvin-"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otón"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Julius Bernhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin Wiersbitsky"
+          ]
+        },
+        {
+          "personalName": [
+            "Corvin"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        },
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Corvin Wiersbitzki"
+          ]
+        },
+        {
+          "personalName": [
+            "Ernest-Falk"
+          ]
+        },
+        {
+          "forename": [
+            "Corvin"
+          ],
+          "surname": [
+            "Wiersbitzki"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Otto_von_Corvin",
+          "label": "https://de.wikipedia.org/wiki/Otto_von_Corvin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:09:00Z",
+    "gnd_query_biographical_data": "1812-1886",
+    "gnd_query_name": "corvin-wiersbitzki, otto julius bernhard von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 450,
+  "name": "Corvin-Wiersbitzki, Otto Julius Bernhard von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XLVII, 531",
+  "updated": "2026-06-11 13:29:21.925Z",
+  "uri": "https://d-nb.info/gnd/118522310",
+  "editor": ""
+}

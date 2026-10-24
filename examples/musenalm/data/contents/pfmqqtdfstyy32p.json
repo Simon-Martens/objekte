@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Ich kann hier nicht singen, / Aus dieser Mauern dunklen Ringen / Muß ich mich schwingen",
+  "language": [],
+  "musenalm_id": 26700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lerche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lerche",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.310Z",
+      "agent": "h99uxdryiugeh6h",
+      "source_id": "jme0fwxincpues1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 40664, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Wißt, Robert's Genosse / (Im Erker vom Schosse / Vorsichtig bewahrt) / War immer ein Rabe, / Mit sonderer Gabe,",
+  "language": [],
+  "musenalm_id": 40671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robert und Ditters. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Robert und Ditters. / Legende",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.753Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "cfbku8w7dabb54i"
+    }
+  ]
+}

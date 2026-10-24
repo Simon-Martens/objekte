@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Genealogisch-historisch-statistischer 1834",
+    "norm": "",
+    "biblio": 405270,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1439,
+  "parallel_title": "",
+  "place_statement": "Weimar (Landes-Industrie-Comptoir)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Almanach, Genealogisch-historisch-statistischer 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogisch-historisch- / statistischer / Almanach. / Eilfter Jahrgang, für / das Jahr 1834. / Weimar, / im Verlage des Landes-Industrie-Comptoirs / 1834",
+  "updated": "2026-06-11 10:18:54.834Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "7s5e9q2jy0ptley"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.087Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.087Z",
+      "agent": "kl5qdlx0bl59fkd",
+      "source_id": "8dpfv845fb2w2nr"
+    }
+  ]
+}

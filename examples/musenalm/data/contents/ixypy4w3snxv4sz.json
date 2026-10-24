@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Eintracht heißt sie, deren Wink die Chöre / Sanfter Tugenden vereint,",
+  "language": [],
+  "musenalm_id": 14730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eintracht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eintracht",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.737Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "fvuredsiqj82yfx"
+    }
+  ]
+}

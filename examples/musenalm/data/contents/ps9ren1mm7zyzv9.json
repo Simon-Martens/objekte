@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; paginiert 10. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58478,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Feldmarschall bei Ligny unter Feinden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Bollinger sc.",
+  "scans": [
+    "alm_852_58478_lkjxhssill.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Feldmarschall bei Ligny unter Feinden",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.982Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "ia2jb40yqckbh4y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.982Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "ttjfuj6zppvfkjl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Ihr kalten Heuchler sprecht von den Göttern nicht! / Ihr habt Verstand! ihr glaubt nicht an Helios,",
+  "language": [],
+  "musenalm_id": 21985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die scheinheiligen Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die scheinheiligen Dichter",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.856Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "dzjqs75vhs6nnr1"
+    }
+  ]
+}

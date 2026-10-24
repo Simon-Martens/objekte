@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die freundliche Aufnahme, welche der erste Jahrgang dieses, der Vorzeit geweihten, Taschenbuches bei Lesern und Kunstrichtern zu finden, so glücklich war, hat es dem Herausgeber und den Mitarbeitern zur angenehmen Pflicht gemacht,",
+  "language": [],
+  "musenalm_id": 97685,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.806Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "6ztioftijfk7udn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht INr 111206, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111205,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Künstlerwerkstatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Tétar an Elven sculps",
+  "scans": [
+    "alm_3453_111205_x233zo5dxn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Künstlerwerkstatt",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.466Z",
+      "agent": "7l66ckmup6wdhiw",
+      "source_id": "ulun08uz17mha44"
+    }
+  ]
+}

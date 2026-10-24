@@ -1,0 +1,58 @@
+{
+  "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Graf Walter « von G. A. Bürger; s. Gedichtauszug INr 73781, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73782,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Walter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. J. Lips sc.",
+  "scans": [
+    "alm_136_73782_yq7mtzq2kd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Graf Walter",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.810Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "lb8l559m195bysm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.810Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "z0aji3d31wei822"
+    }
+  ]
+}

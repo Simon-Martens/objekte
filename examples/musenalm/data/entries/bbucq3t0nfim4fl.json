@@ -1,0 +1,99 @@
+{
+  "annotation": "Das Bändchen ist gewidmet den »verehrlichen Mitgliedern des diesjährigen Karneval-Komite's« und gibt eine Beschreibung des Karneval-Verlaufes mit eingewobenen allgemeinen Betrachtungen und zahlreichen Liedstrophen. Venedig wird zum Maßstab des Festes gewählt, es wird repräsentiert durch die Prinzessin Venetia. Der Herausgeber des Almanachs und wohl auch Autor der Beschreibung stand in dieser Zeit den rheinisch-westphälischen Dichtern, W. Smets, J. B. Rousseau, Fr. Rassmann nahe; s. Beitrag »Der Mädchen Urtheil über den Künstler« in: Musenalmanach, Rheinisch-westfälischer 1823; (Hrsg. J. B. Rousseau) alm-112,  INr 67857",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S W, SS 1-85",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Karnevals-Almanach, Kölnischer 1824",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3589,
+  "parallel_title": "",
+  "place_statement": "Köln (Schlösser)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Karnevals-Almanach, Kölnischer 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 38; nicht bei L/R; Goed X. 541, 10, 16",
+  "responsibility_statement": "Chr. S. Schier",
+  "subtitle_statement": "",
+  "title_statement": "Kölnischer / Karnevals- / Almanach / vom / Jahre / 1824. / Herausgegeben / von / Chr. S. Schier. / Köln, in der Fr. X. Schlösser'schen Buchdruckerei",
+  "updated": "2026-06-11 10:18:55.898Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "yfxqai8lt9ddec1",
+    "buy3j36g8pqyeod",
+    "k9p4uo5miqjg3j8",
+    "ubr22fvc66w7dxl",
+    "8o51o02nnqq48u1",
+    "wcvj2h6pxunb40c",
+    "jwer0zaa8difeix",
+    "02jy2krur4gg9bw",
+    "60ufuvii2wof9ev",
+    "oviqfazzlyj23s3",
+    "1o28nh6op7y2dl8",
+    "gzqwngel85445ky",
+    "w8v53x6iqgn7imw",
+    "1x8ifl4rmj4kd3f",
+    "v1p00rxtbfyl4u2",
+    "uoo6zvojhasejvt",
+    "0dnqz9etgol9dnp",
+    "oj031oe96oydb67",
+    "sbm4o7jmmw4ydma",
+    "b530oyabv44oi4k",
+    "x2euj3mphxfrrsz",
+    "4snox9k8s8e4dzh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "lcb59mx771leydy",
+      "source_id": "afmup11uf2tpioq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.265Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.265Z",
+      "agent": "rwmqwhk4w36lq6p",
+      "source_id": "hhaqlo0wuhxp4mj"
+    }
+  ]
+}

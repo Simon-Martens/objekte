@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Höhnt immer meinen Glauben / An Silphen oder Feyn, / Ihr sollt mir nimmer rauben / So schönen Nordlichtschein!",
+  "language": [],
+  "musenalm_id": 40498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Feenliebe. / Sage in Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Feenliebe. / Sage in Romanzen",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.947Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "rrbasiozw8ts5sx"
+    }
+  ]
+}

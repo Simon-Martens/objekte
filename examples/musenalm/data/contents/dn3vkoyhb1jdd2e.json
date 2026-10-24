@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 99497, Obj 76) X. Rheinland (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Waldmeister steckt sein Köpfchen heraus, / Das lustige Waldmeisterlein -",
+  "language": [],
+  "musenalm_id": 99498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Vorfrühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Vorfrühling",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.952Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "bqqw0xmbi6kqzos"
+    }
+  ]
+}

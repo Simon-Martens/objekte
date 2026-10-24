@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03 10:07:22.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Wie sehr hat sich mein Herz getäuschet, / Nach Liebe - Liebe sehnt es sich!",
+  "language": [],
+  "musenalm_id": 140492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amaliens Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amaliens Klage",
+  "updated": "2026-09-03 10:08:23.559Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03 10:08:23.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-03 10:08:23.560Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "tzxmywe1kltmdp3"
+    }
+  ]
+}

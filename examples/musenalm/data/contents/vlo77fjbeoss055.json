@@ -1,0 +1,45 @@
+{
+  "annotation": "Gegenüber! Liederkranz (Sammlung INr 69478, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Du brauchst es nicht zu bescheinen / Das Haus da d'rüben, o Mond! / Es ist die Reinste der Reinen, / Die friedlich drinnen wohnt.",
+  "language": [],
+  "musenalm_id": 69483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.332Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "8kq11e9uidfr9rn"
+    }
+  ]
+}

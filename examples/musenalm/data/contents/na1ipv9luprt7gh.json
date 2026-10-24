@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort s. INr 39933, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Ich schätze die Tage meines Zusammenseyns mit Schröder'n mit Recht als einzig in ihrer Art.",
+  "language": [],
+  "musenalm_id": 39934,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Friedrich Ludewig Schröder / in Hamburg / Im Sommer 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Friedrich Ludewig Schröder / in Hamburg / Im Sommer 1795",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.206Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "c49selu6q9ffoy6"
+    }
+  ]
+}

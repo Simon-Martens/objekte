@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Istrien und Dalmatien (Sammlung INr 87889, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht aus den Gallerien des Tempels des Jupiters, gegen die grosse Vorhalle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Gerstner sc.",
+  "scans": [
+    "alm_3099_87902_567vmxrolj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht aus den Gallerien des Tempels des Jupiters, gegen die grosse Vorhalle",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.090Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "durmuseyggud95m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.090Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "rdz9ge71c2088k0"
+    }
+  ]
+}

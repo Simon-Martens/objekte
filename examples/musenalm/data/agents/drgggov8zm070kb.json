@@ -1,0 +1,469 @@
+{
+  "annotation": "",
+  "biographical_data": "1799-1854",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.310Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Jugendschriftsteller und Journalist."
+      ],
+      "dateOfBirth": [
+        "1799-03-22"
+      ],
+      "dateOfDeath": [
+        "1854-10-27"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Josef%20Sigmund%20Ebersberg.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Josef%20Sigmund%20Ebersberg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Josef%20Sigmund%20Ebersberg.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-18T18:45:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116329602/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Marie"
+          ],
+          "surname": [
+            "Nádory"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nádory"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116329696",
+          "label": "Ebersberg, Ottokar Franz"
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Ebersperger"
+          ]
+        },
+        {
+          "forename": [
+            "O. F."
+          ],
+          "surname": [
+            "Berg"
+          ]
+        },
+        {
+          "forename": [
+            "Josepha"
+          ],
+          "surname": [
+            "Dünkel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Julius"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116329602",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116329696",
+          "label": "Ebersberg, Ottokar Franz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116329602",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116329602"
+      ],
+      "periodOfActivity": [
+        "1821-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7605765-3",
+          "label": "Großmugl-Steinabrunn"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4095100-5",
+          "label": "Hernals"
+        }
+      ],
+      "preferredName": "Ebersberg, Josef Sigmund",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Josef Sigmund"
+        ],
+        "surname": [
+          "Ebersberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Luise"
+          ],
+          "surname": [
+            "Ebersberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Ebersberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Einundfünfzig Zeichen der Zeit",
+        "Das Buch vom guten geselligen Tone"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/3219123"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1705768"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116329602/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Josef_Sigmund_Ebersberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083514592"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116329602"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_E/Ebersberg_Joseph-Sigmund_1799_1854.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116329602.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116329602"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Ebersberg, Joseph Siegmund",
+        "Ebersberg, Joseph Siegmund von",
+        "Ebersberg, Joseph Sigismund",
+        "Ebersberg, Louise",
+        "Ebersberg, Joseph Sigmund",
+        "Ebersberg, Josef S.",
+        "Ebersberg, Josef Sigismund",
+        "Ebersberg",
+        "Ebersberg, Josef Siegmund",
+        "Ebersberg, J. S.",
+        "Ebersberg, Jos. Sigm.",
+        "Ebersberg, Luise"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef Siegmund"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Sigmund"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Siegmund"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Josef S."
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Luise"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Sigismund"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Sigismund"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "J. S."
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. Sigm."
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ebersberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Josef_Sigmund_Ebersberg",
+          "label": "https://de.wikipedia.org/wiki/Josef_Sigmund_Ebersberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:16:45Z",
+    "gnd_query_biographical_data": "1799-1854",
+    "gnd_query_name": "ebersberg, joseph sigmund"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 607,
+  "name": "Ebersberg, Joseph Sigmund",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI456",
+  "updated": "2026-06-11 13:29:22.127Z",
+  "uri": "https://d-nb.info/gnd/116329602",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November paginiert 6. /) Illustration zu »Theseus« von W. G. Becker INr 10372, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62168,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cimon Milttiades Sohn bringt die / Gebeine des Theseus nach Athen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. Cl. Kohl V.",
+  "scans": [
+    "alm_133_62168_12rfi7s8js.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cimon Milttiades Sohn bringt die / Gebeine des Theseus nach Athen",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.846Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "a5jzia9030bksgc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.845Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "gpc3bvrwuc87vqm"
+    }
+  ]
+}

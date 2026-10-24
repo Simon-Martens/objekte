@@ -1,0 +1,218 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.371Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Jurist, Dichter",
+        "Dt. Jurist, Dichter"
+      ],
+      "dateOfBirth": [
+        "1764"
+      ],
+      "dateOfDeath": [
+        "1830"
+      ],
+      "describedBy": {
+        "dateModified": "2022-02-23T17:25:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10022203X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10022203X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10022203X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10022203X",
+        "(DE-588c)4694950-1"
+      ],
+      "preferredName": "Hinsberg, Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Hinsberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "publication": [
+        "Erinnerungen über die beiden Entwürfe eines Gesetzbuchs für das Verfahren in Strafsachen und eines Strafgesetzbuchs für das Königreich Bayern vom Jahr 1831",
+        "Hinsberg, Joseph von: Erinnerungen des k. B. Oberappellationsraths von Hinsberg gegen d*",
+        "Das Lied der Nibelungen",
+        "Hinsberg, Joseph von: Bemerkungen über den Entwurf der Prozeßordnung in bürgerlichen Re*",
+        "Armin der Cheruskerfürst",
+        "Das Lied der Nibelungen. 2. verb. Aufl",
+        "Hinsberg, Joseph von: Ueber den revidirten Entwurf eines Strafgesetzbuches für das Köni*",
+        "Hinsberg, Joseph von: Armin, der Cheruskerfuerst",
+        "Hinsberg, Joseph von: Die Völker-Schlacht bey Leipzig",
+        "Hinsberg, Joseph von: Über den revidirten Entwurf der Prozeßordnung in bürgerlichen Rec*",
+        "Hinsberg, Joseph von: Erinnerungen über die beiden Entwürfe eines Gesetzbuches für das *",
+        "Ueber den revidirten Entwurf eines Strafgesetzbuchs fuer das Koenigreich Bayern vom Jahr 1827"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002032018"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7727833"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55909234"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10022203X/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061555844"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10022203X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10022203X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Hinsberg, J. Jos. von",
+        "Hinsberg, Josef von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "J. Jos."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hinsberg"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:45:57Z",
+    "gnd_query_biographical_data": "1764-1836",
+    "gnd_query_name": "hinsberg, joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1198,
+  "name": "Hinsberg, Joseph von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 370",
+  "updated": "2026-06-11 13:29:22.940Z",
+  "uri": "https://d-nb.info/gnd/10022203X",
+  "editor": ""
+}

@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, röm: SS I-IV Vrwrt d Hrsg, S I-Verz, röm1: SS I-XV darin 7 GG, G, SS 1-336, 12 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1828",
+    "norm": "~",
+    "biblio": 100638,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2371,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Orphea 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 96; Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1828. / Fünfter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU PRECIOSA. / LEIPZIG. / Ernst Fleischer",
+  "updated": "2026-06-11 10:18:55.328Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "q5a77etkv3vcjdh"
+  ],
+  "contents": [
+    "4ccknyenzu3rvwz",
+    "g26k2w1mgsvhpmw",
+    "pusiv8682xfothw",
+    "spvpc2v1sbgicng",
+    "0c5e6pkxy8347jr",
+    "h1ed6rvscfwz6pe",
+    "lfh6i69rje6d9rw",
+    "iaoa7jpthkhs7t1",
+    "4a4b8g9febov5bj",
+    "vpftiq740j312xn",
+    "x12qm3no99zxejw",
+    "0m2ljfjokumi6kq",
+    "rozmbc0jphk01za",
+    "1ci7pv033dyhld3",
+    "wlc19rbopaa8n2w",
+    "rywl2s3perzy81d",
+    "2mpcp3yqtycz98k",
+    "q1jthi354g3fvmi",
+    "mktp2f7k47ngwjf",
+    "4bi5gtz6fms7i65",
+    "kdiy1pcduf6rjm7",
+    "ghoj02yn48a6y8b",
+    "8dtjhjg87xu6hu2",
+    "3mej2o96hfk23c1",
+    "18bj6k58uaca1we",
+    "5v0zzwzofrdfptf",
+    "4qr4nm0r9lcwxdz",
+    "z48d3r8jm4yj80z",
+    "hzq8oe8clw0iwz2",
+    "lvelpt4b6ranf4t",
+    "ge40h581k0n6dds",
+    "jvxzmu9344bjcvu",
+    "qldd85mf1x4g0pe",
+    "4xl61f4jlc1egjk",
+    "s7vkhandnb1y2r9",
+    "lkz4fh6cqan75p6",
+    "8zld7p539ymj2xw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.851Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.851Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "vmrq5j8nffb9hq0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.057Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.057Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "zcp6g1emczk1sfs"
+    }
+  ]
+}

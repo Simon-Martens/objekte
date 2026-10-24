@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Preis euch, ihr Starken! Hehr, herrlich bewährt / Habt Ahnung ihr, Hoffnung und Glauben!",
+  "language": [],
+  "musenalm_id": 70630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Preußens Krieger / nach den Siegen an der Katzbach, bei Groß- / beeren, Culm, Dennewitz, Wartenberg, Skeudiz / und Leipzig. / (Im Oktober 1813.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Preußens Krieger / nach den Siegen an der Katzbach, bei Groß- / beeren, Culm, Dennewitz, Wartenberg, Skeudiz / und Leipzig. / (Im Oktober 1813.)",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.435Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "fsn23a0bypx7jl4"
+    }
+  ]
+}

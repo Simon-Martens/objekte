@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 30664, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Wenn ich zu boshaft werde, ist es nicht meine Schuld! Mit dem vierten Blatte wollte ich enden,",
+  "language": [],
+  "musenalm_id": 30649,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rückenstück",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rückenstück",
+  "updated": "2003-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.553Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "plja6f9u4hj81pv"
+    }
+  ]
+}

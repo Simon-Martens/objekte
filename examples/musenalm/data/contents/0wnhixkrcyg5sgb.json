@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.444Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Mein Bruder war ein junges Blut, / Sein Herz schlug warm, sein Sinn war gut,",
+  "language": [],
+  "musenalm_id": 45751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bruder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bruder",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.305Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "59lz0ri9dtks9vi"
+    }
+  ]
+}

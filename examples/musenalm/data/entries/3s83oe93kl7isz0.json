@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Anhang zu Friedrich Schillers Musenalmanach (Nicolai) 1797",
+    "norm": "",
+    "biblio": 101304,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1524,
+  "parallel_title": "",
+  "place_statement": "Berlin und Stettin",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "w5i2z90esk40gff"
+  ],
+  "preferred_title": "Anhang zu Friedrich Schillers Musenalmanach (Nicolai) 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Friedrich Nicolai",
+  "subtitle_statement": "",
+  "title_statement": "Anhang / zu / Friedrich Schillers / Musen-Almanach / für / das Jahr 1797. / von / Friedrich Nicolai. / Duplex libelli dos est: quod risum mouet, / Et quod prudenti vitam consilio monet. / Berlin und Stettin",
+  "updated": "2026-06-11 10:18:54.604Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "r0p9z35zblbiwb4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.926Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.925Z",
+      "agent": "4ovfylfp8ee72sd",
+      "source_id": "erxudb9mfrv9das"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Aar an Schnelle, Leu an Muth, / Reitet Isfendar der Held / Mit der treuen Schar ins Weite,",
+  "language": [],
+  "musenalm_id": 94514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Isfendjar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Isfendjar",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.726Z",
+      "agent": "demesi9ujep1ia6",
+      "source_id": "itftlxvv5g1x1l3"
+    }
+  ]
+}

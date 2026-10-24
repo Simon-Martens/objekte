@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Treue zur Fahne« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111168, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Camill",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nic. v. Barabás del. C. Preisel sc.",
+  "scans": [
+    "alm_3485_111170_smrq62hvfl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Camill",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.365Z",
+      "agent": "9s6c9wuymvvgbhx",
+      "source_id": "ecffex22eoku111"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.364Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "kq1ujtktujui9mz"
+    }
+  ]
+}

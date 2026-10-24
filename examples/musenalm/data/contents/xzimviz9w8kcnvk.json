@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Als noch das Flügelkleid dich liebliche / Daphne umwallte, / Damals zogst du ein Heer williger Sclaven / dir auf.",
+  "language": [],
+  "musenalm_id": 1259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Daphne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Daphne",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.687Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "p1s1bd4efvgtcya"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "annotation": "nummeriert 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abbildung einiger K.K. Freycorps zu Fuß.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_942_110333_vf60ubh637.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abbildung einiger K.K. Freycorps zu Fuß.",
+  "updated": "2016-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": []
+}

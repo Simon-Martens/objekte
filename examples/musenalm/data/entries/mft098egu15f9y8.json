@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, S I T, SS III-IV Vrwrt d Hrsg, SS V-VI I-Verz, SS 1-203",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Jäger und Naturfreunde 1846",
+    "norm": "~",
+    "biblio": 407887,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2852,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Teubner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Jäger und Naturfreunde 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; nicht bei L/R 140",
+  "responsibility_statement": "Otto von Corvin-Wiersbitzki",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Jäger und Naturfreunde. / Herausgegeben / von / Otto von Corvin-Wiersbitzki. / Mit einem Stahlstich. / Leipzig, / Druck und Verlag von B. G. Teubner. / 1846",
+  "updated": "2026-06-11 10:18:54.734Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "nrvmuk85pkg40h0"
+  ],
+  "contents": [
+    "5nce9hqa50jpl9z",
+    "3cixob1w46z0pf5",
+    "50nrz3wpih4l097",
+    "xnpdlgiyumx3ost",
+    "oocvzg8vfcqnhv5",
+    "rp54d0nxayn5zy7",
+    "fxcpn2jkkk9qpq9",
+    "p2gbs46brrdbzsv",
+    "upl5dahyf7f0dih",
+    "m2cfm6l8opzo0q0",
+    "gdu6w9ebfgmawbc",
+    "jg3o55m9zaxjwz1",
+    "zxgmc0cu25qjw8g",
+    "0q3j0dgn0d5y38e",
+    "isfjkyfggsmfhhg",
+    "vercwsv94pver0e",
+    "o8yqdaaqnn5du8a",
+    "mf2dhqib1fi96v9",
+    "8g5kwihqbns6x24",
+    "mlkjoz4hyb65sf9",
+    "lc1mulv64rcf76z",
+    "dn9gy81j13q8zu3",
+    "2e6mr308v9jrx24",
+    "9j691nczyq39vj9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.153Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.153Z",
+      "agent": "cmylaolo9dbcgmr",
+      "source_id": "1ax70n12rety1w5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "2mpqn36c4imse0n",
+      "source_id": "8kltrm6eavrlax0"
+    }
+  ]
+}

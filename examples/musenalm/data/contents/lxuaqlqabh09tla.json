@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Der alte Giramella / Hat eine schöne Tochter;",
+  "language": [],
+  "musenalm_id": 46401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Haus ohne Treppe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Haus ohne Treppe",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.313Z",
+      "agent": "aq3u8k3couckqq1",
+      "source_id": "1i5rno3qrt4ulfy"
+    }
+  ]
+}

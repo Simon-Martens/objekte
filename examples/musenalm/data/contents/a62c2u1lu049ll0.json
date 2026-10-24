@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Auf ärmlichen Lager, von Binsen und Moose, ruhten Thebald und Helmion zwey Fischer, die nichts hatten, als was ihnen das Netz und die schwankende Angelruthe eintrugen.",
+  "language": [],
+  "musenalm_id": 28368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Aleth. / Hirtenbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Aleth. / Hirtenbild",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.422Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "gwaqnf7ihwy51bt"
+    }
+  ]
+}

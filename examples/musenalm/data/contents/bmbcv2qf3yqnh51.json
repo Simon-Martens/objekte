@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Die Erzählung der Feind, war von Hoffmann für den vorigen Jahrgang dieses Taschenbuchs bestimmt. Wir geben seinen Freunden hier das Fragment, so weit es der Verfasser in den letzten Tagen seines Lebens diktirt hat.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Noch einen tüchtigen vollgefüllten Römer, Herr Wirth; zwar schlug es nun schon neun, aber der Regen stürmt an die Fenster;",
+  "language": [],
+  "musenalm_id": 27717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Feind. / Eine Erzählung. / Fragment #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. A. Hoffmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Feind. / Eine Erzählung. / Fragment #",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.210Z",
+      "agent": "hhytu0neum83euj",
+      "source_id": "r8209c6otvl9j75"
+    }
+  ]
+}

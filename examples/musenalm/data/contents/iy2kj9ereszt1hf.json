@@ -1,0 +1,35 @@
+{
+  "annotation": "graph. Titel s. Gedicht INr 44025, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44022,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RHEINISCHES / TASCHENBUCH / 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Kunstverlag",
+  "scans": [
+    "alm_596_44022_a3oz4m9a09.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RHEINISCHES / TASCHENBUCH / 1841",
+  "updated": "2006-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ach Elslein, liebstes Elslein, / Wie gern wär' ich bei Dir! [...] Altes Lied",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Mag's auch nicht wahr sein; aber ich glaub' eben daran, da0ß der Athem irgend euines sfeinen, luftigen, lieben Geschöpfleins die Knospen der Blumen schwellt und die Krnenblätter auseinander trreibt;",
+  "language": [],
+  "musenalm_id": 64159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elslein. Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elslein. Ein Mährchen",
+  "updated": "2009-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.319Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "zmas3n9ptkyh9d3"
+    }
+  ]
+}

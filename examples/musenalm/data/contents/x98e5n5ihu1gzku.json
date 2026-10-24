@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 1. /)  Illustration zu »Aus dem Tagebuch einer Gesellschaft junger Reisender. 1780. Gotthards-Berg« INr 50622, Obj 20 /) # Bez. an Blatt 7. der Suite",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wassen, im Canton Uri",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S. Geßner f.",
+  "scans": [
+    "alm_682_50623_0mfo6fvwg1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wassen, im Canton Uri",
+  "updated": "2007-07-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.614Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "zmmzrnq0dtl00wz"
+    }
+  ]
+}

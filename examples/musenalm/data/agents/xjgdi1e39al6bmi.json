@@ -1,0 +1,366 @@
+{
+  "annotation": "",
+  "biographical_data": "1729-1802",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.287Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Historiker, Dramatiker"
+      ],
+      "dateOfBirth": [
+        "1729-09-07"
+      ],
+      "dateOfDeath": [
+        "1802-09-03"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:35:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116468157/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/135719062",
+          "label": "Casparson, Johann"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116468157",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/135719062",
+          "label": "Casparson, Johann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116468157",
+      "oldAuthorityNumber": [
+        "(DE-588a)116468157"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4020989-1",
+          "label": "Gießen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4020989-1",
+          "label": "Gießen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "preferredName": "Casparson, Wilhelm Johann Christian Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm Johann Christian Gustav"
+        ],
+        "surname": [
+          "Casparson"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Casparson, Wilhelm J.: Leben und Tod des berüchtigten Juden Joseph Süß-Oppenheimers aus H*",
+        "Casparson, Wilhelm J.: Abhandlung von Verhütung des Bettelns in einer Haupt- und Residenz*",
+        "Casparson, Wilhelm J.: Ankündigung eines deutschen epischen Gedichts der altschwäbischen *. - 178O",
+        "Casparson, Wilhelm J.: Von deutscher Polizey und der Hessischen insbesondere",
+        "Casparson, Wilhelm J.: Die Sache Theresiens und Friedrichs nach ihrer innern und wesent*",
+        "Casparson, Wilhelm J.: Wie kann der Landmann seine Stadt-, Dorf- und Feldwege ohne Kosten*",
+        "Casparson, Wilhelm J.: Nachrichten von der Person ... Jo. Joach. von Rusdorf",
+        "Fortsetzung der Sache Theresiens und Friedrichs",
+        "Casparson, Wilhelm J.: Gedichte",
+        "Casparson, Wilhelm J.: Wie kann der Landmann seine Dorfwege ohne Kosten des Staats ... ve*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88132513"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20432601"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122864"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116468157/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116468157"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Wilhelm_Christian_Gustav_Casparson"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000026368904"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116468157"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116468157.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116468157"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/116468157"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Casparson, W. J. C. Gustav",
+        "Casparson, W. J. C. G.",
+        "Casparson, Johann W.",
+        "Casparson, Wilhelm Johann",
+        "Casparson, J. W. C. G.",
+        "Casparson, Johann",
+        "W. J. C. G. C.",
+        "Kasparson, Wilhelm",
+        "Casparson, Wilhelm J.",
+        "Casparson, Wilhelm",
+        "Casparson, Johann Wilhelm",
+        "Casparson, Johann Wilhelm Christian Gustav"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "J. W. C. G."
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Johann"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "W. J. C. G."
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Kasparson"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm Christian Gustav"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "personalName": [
+            "W. J. C. G. C."
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm J."
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Johann W."
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "W. J. C. Gustav"
+          ],
+          "surname": [
+            "Casparson"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Wilhelm_Christian_Gustav_Casparson",
+          "label": "https://de.wikipedia.org/wiki/Johann_Wilhelm_Christian_Gustav_Casparson"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:06:06Z",
+    "gnd_query_biographical_data": "1729-1802",
+    "gnd_query_name": "casparson, johann wilhelm christian gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 390,
+  "name": "Casparson, Johann Wilhelm Christian Gustav",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB IV, 57",
+  "updated": "2026-06-11 13:29:21.845Z",
+  "uri": "https://d-nb.info/gnd/116468157",
+  "editor": ""
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1794",
+    "norm": "",
+    "biblio": 404540,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2044,
+  "parallel_title": "",
+  "place_statement": "Gotha (Ettinger)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / Hof / KALENDER / zum / Nutzen und Vergnügen / auf das Jahr 1794. / Gotha, / bey C. E. Ettinger",
+  "updated": "2026-06-11 10:18:55.786Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "ur76mxgi4zj2s9t"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.795Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.795Z",
+      "agent": "57058q4ca487ing",
+      "source_id": "hou22tzw9h0kxur"
+    }
+  ]
+}

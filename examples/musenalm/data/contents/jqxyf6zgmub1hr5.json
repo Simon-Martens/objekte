@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Karte",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reise- / Charte / durch / Sachsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Nestler",
+  "scans": [
+    "alm_3847_82063_fm2szrhhhg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Reise- / Charte / durch / Sachsen",
+  "updated": "2012-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.056Z",
+      "agent": "m1yqei1i9pp5q0k",
+      "source_id": "28p70vc5879g5pq"
+    }
+  ]
+}

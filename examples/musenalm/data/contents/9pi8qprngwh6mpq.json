@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Rheinland ( /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Einst lud im alten Speier - / Warm lag der Sonnenschein - / Zur frohen Maienfeier / Ein Mann sich Gäste ein.",
+  "language": [],
+  "musenalm_id": 99493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das jüngste Rolandslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das jüngste Rolandslied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.951Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "9xzfi86hys8mqpx"
+    }
+  ]
+}

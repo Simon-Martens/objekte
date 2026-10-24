@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 39499-39501, Obj 38-40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39498,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Drei Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqé",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Drei Gedichte",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.169Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "5iqw6986ujh0mtw"
+    }
+  ]
+}

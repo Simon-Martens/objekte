@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1891",
+    "norm": "",
+    "biblio": 200992,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3049,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1891",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Maurenbrecher",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Begründet von Friedrich von Raumer. / Herausgegeben / von / Wilhelm Maurenbrecher / Sechste Folge. Zehnter Jahrgang. / Leipzig. / F. A. Brockhaus. / 1891",
+  "updated": "2026-06-11 10:18:54.758Z",
+  "variant_title": "",
+  "year": 1891,
+  "editor": "",
+  "items": [
+    "jm34q4bm0jc5dlu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.581Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.581Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "2oqsj78sgaf78z2"
+    }
+  ]
+}

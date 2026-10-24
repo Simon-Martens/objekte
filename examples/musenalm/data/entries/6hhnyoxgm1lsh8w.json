@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Müchler) 1803",
+    "norm": "",
+    "biblio": 100833,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1614,
+  "parallel_title": "",
+  "place_statement": "Berlin (Maurer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Aurora (Müchler) 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; nicht bei L/R; Goed VIII. 59, 57",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Aurora / auf das Jahr 1803. / Herausgegeben / von / Karl Müchler. Berlin, / bei Friedrich Maurer",
+  "updated": "2026-06-11 10:18:55.531Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "23oxvfxri9zlcqg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.104Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.104Z",
+      "agent": "uacpcajd0vzsizs",
+      "source_id": "ka1ud3722fbhq6b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.941Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.941Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "wpjq9stbrfd6gdc"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Blätten der Suite /) paginiert 5. s. Textbezug INr 59918, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einige Preussische Cürassiers erobern eine Hol- / ländische Patrioten Festung 1787",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert Riepenhausen",
+  "scans": [
+    "alm_934_59917_rzaq7oakei.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einige Preussische Cürassiers erobern eine Hol- / ländische Patrioten Festung 1787",
+  "updated": "2008-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.893Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "bdt0vzbl9u2mfoa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.893Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "f5n62h01pxb315i"
+    }
+  ]
+}

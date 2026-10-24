@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 22785, Obj 30) Gedichte (Sammlung INr 22784, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Was kann fühlen ein Mensch, das nicht / der Menschheit gehörte,",
+  "language": [],
+  "musenalm_id": 22786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1)",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.914Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "23uzq76xdp65zgc"
+    }
+  ]
+}

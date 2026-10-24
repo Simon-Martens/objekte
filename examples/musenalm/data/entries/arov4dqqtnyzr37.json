@@ -1,0 +1,79 @@
+{
+  "annotation": "zusammengebunden mit Gaben der Milde 1818 (3) alm-3713",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS 1-216",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gaben der Milde 1818 (4)",
+    "norm": "~",
+    "biblio": 406772,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3714,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Gaben der Milde 1818 (4)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 97, 193",
+  "responsibility_statement": "F. W. Gubitz",
+  "subtitle_statement": "",
+  "title_statement": "Gaben der Milde / Viertes Bändchen. / Mit Beiträgen / von / L. Achim von Arnim, F. W. Gubitz, / Heraklius, C. F. E. Ludwig, Wilh. / Müller, L. Velhar und Julius / von Voß. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1818",
+  "updated": "2026-06-11 10:18:54.690Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "xg8owz41t9cab7k"
+  ],
+  "contents": [
+    "lble2xj8waedf2m",
+    "pm67btdhxl8nsgl",
+    "yecniz4tgto3i9k",
+    "fhi79vcqtpe7qj5",
+    "5x8aiec34bwwo8v",
+    "4pd8l27f0japtxz",
+    "7bjjtmit67extjz",
+    "6jqiyf16yr0f7by",
+    "cb7c4fmnk29htwm",
+    "4krk3lye0ml3er6",
+    "6rv8cpo15u3sl39"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.285Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.285Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "2nk4dzij4md7jlc"
+    }
+  ]
+}

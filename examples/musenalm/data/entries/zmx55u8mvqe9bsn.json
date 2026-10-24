@@ -1,0 +1,103 @@
+{
+  "annotation": "Jgg 1800, 1801; Frankfurt (Jäger) /) §1§ lt. I-Verz und Vorwort fehlt Graphik im Kalendarium: Illustration zu »Abendphantasie« von Fr. Hölderlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B Vrwrt d Hrsg, 6 BB VrlgM, 8 BB Kal darin G §1§, ar: SS 1-17 G-Verz darin 7 GG, ar1: SS 1-31, ar2: SS 3-98, ar3: SS 1-136 Tab, ar4: SS 1-21 Tab, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Brittischer 1800",
+    "norm": "~",
+    "biblio": 407401,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-07-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3855,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Jäger)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Damenkalender, Brittischer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 41; nicht bei L/R 71",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "BRITTISCHER / DAMENKALENDER / und / TASCHENBUCH / für das Jahr / Achtzehnhundert / Mit Kupfern / Frankfurt am Main / in der Jaegerschen Buchhandlung / 1800",
+  "updated": "2026-06-11 10:18:55.606Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "4frdw5xk2p35wg8"
+  ],
+  "contents": [
+    "zv82fbo4cnk8cqw",
+    "ui5ion43uf2p65h",
+    "x12zxkr4i7q3kdr",
+    "gd760dsyj0y2bcg",
+    "4qy0rhhwjqr02xr",
+    "kqx9dedicis4fd0",
+    "umo4dtk8ihefonz",
+    "hghuqvsbm2o9mjj",
+    "idfjvz36pja4jlb",
+    "5gue3oez3jnctdp",
+    "rgg57scz4vr5gnd",
+    "gskviph84viqu5u",
+    "emehes4zj3celr5",
+    "fpdnqenfqoqyvsk",
+    "o9dk3ofazv0tec3",
+    "x2a7yi8jf51xjce",
+    "xgukd8cevmxqfu8",
+    "eix0sq6qmvnb3go",
+    "z3rhw7x0xi05i7j",
+    "qj3py1502wgo9xk",
+    "b9ak8wdu031hk63",
+    "h4xi90i30vazy21",
+    "ilcdcznznw4f4uc",
+    "lxwfsl85a3chhvg",
+    "v2x6cthwzm80agj",
+    "bvruh1daa7gq8ha",
+    "x5coc06738b2d5a",
+    "dnf8vooh68d2db5",
+    "tpo3uek848trl9s",
+    "k5jk21fxzcxocce",
+    "c5nmuuqqowlua4c",
+    "pbayyy6o5p05c54",
+    "6y387pj53vti532",
+    "462ji5ug0wjrzq1",
+    "a9k66a0918x2xz2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "ta8otlp46sg21oz"
+    }
+  ]
+}

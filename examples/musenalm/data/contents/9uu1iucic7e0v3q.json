@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Nicht weit vom Bodensee im Voralberg, gibt es ein kleines Dorf - es heißt: im Waldgrund, und liegt in einem Thal, das wie ein Dreyeck zu sehen ist,",
+  "language": [],
+  "musenalm_id": 63317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Warner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Warner",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.153Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "gbjp3ewj0ztrvym"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. II. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76920, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Herr, der spricht zu Fridolin: / Mußt gleich zum Eisenhammer hin,",
+  "language": [],
+  "musenalm_id": 76919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Gang nach dem Eisenhammer] / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Gang nach dem Eisenhammer] / 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.673Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "505xtzbq2s8we2e"
+    }
+  ]
+}

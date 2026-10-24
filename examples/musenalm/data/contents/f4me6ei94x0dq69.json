@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 3. /) Illustration zum Gedicht »Der Eremit von Melito« von Engelschall INr 4133, Obj 78. # vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "und jedes deiner Glieder / Stirbt einen langen Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nahl #; Riepenhausen",
+  "scans": [
+    "alm_93_4134_cqhvn9u935.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "und jedes deiner Glieder / Stirbt einen langen Tod",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.979Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "e7z4mw8qzmreno2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.978Z",
+      "agent": "19dpt0c5iom2ho8",
+      "source_id": "qca1sdrz69lf1i7"
+    }
+  ]
+}

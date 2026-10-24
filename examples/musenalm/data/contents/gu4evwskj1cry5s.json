@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80639, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80640,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spinne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Casey del. C. Kotterba sc.",
+  "scans": [
+    "alm_1797_80640_my2n1vb0ql.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Spinne",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.013Z",
+      "agent": "m13f2ep4cif54gn",
+      "source_id": "c9ypnnv0zva2eqc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.013Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "kar8k2tbgyifie7"
+    }
+  ]
+}

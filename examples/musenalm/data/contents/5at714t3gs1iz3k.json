@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November paginiert 6. Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten. « von Fr. Buchholz INr 58580, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58578,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich habe keinen neuen Verbündeten; aber der / alte dort oben, der verläßt uns nicht.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. Fr. Wi. Meyer senior sc.",
+  "scans": [
+    "alm_861_58578_f0m9ktotqv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich habe keinen neuen Verbündeten; aber der / alte dort oben, der verläßt uns nicht.",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.669Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "dkjvp23b33ctstv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.668Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "m8syxkl536nzhud"
+    }
+  ]
+}

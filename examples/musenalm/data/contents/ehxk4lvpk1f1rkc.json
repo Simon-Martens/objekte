@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Und bist schon auferstanden, / Du holdes Frühlingslicht!",
+  "language": [],
+  "musenalm_id": 53503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der frühe Frühling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der frühe Frühling",
+  "updated": "2007-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.495Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "rfa4smkl8c6kje5"
+    }
+  ]
+}

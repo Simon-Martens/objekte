@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9 /) Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anfang der Häuslichen / Glückseeligkeit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_785_69919_wfiww6neso.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anfang der Häuslichen / Glückseeligkeit",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.424Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "4oljpkvjbrzweb2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.424Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "ti2y9qs601aw2no"
+    }
+  ]
+}

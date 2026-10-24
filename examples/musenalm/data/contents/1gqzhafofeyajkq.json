@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Biographie (Sammlung INr 67236, Obj 8) mit einer Illustration s. Titelportrait INr 67230, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die würdigen Herausgeber des freundlichen Sylvans haben mich aufgefordert, meine eigene Biographie für den Jahrgang 1820 zu liefern.",
+  "language": [],
+  "musenalm_id": 67237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebens-Skizze / des / Königl. Bairischen Forstmeisters Freiherrn / von der Borch. / (Von ihm selbst entworfen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebens-Skizze / des / Königl. Bairischen Forstmeisters Freiherrn / von der Borch. / (Von ihm selbst entworfen.)",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.059Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "48f9br52kg2kwzk"
+    }
+  ]
+}

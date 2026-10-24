@@ -1,0 +1,45 @@
+{
+  "annotation": "Huldigung dem Liebchen (Sammlung INr 95239, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Wo ist ein Mädchen in der Welt, / Von Kopf zu Fuß so schön bestellt,",
+  "language": [],
+  "musenalm_id": 95240,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Mein Liebchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Mein Liebchen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.292Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "fya8n4zl338gyjv"
+    }
+  ]
+}

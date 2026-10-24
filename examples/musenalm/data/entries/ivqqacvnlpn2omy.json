@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Historienbüchlein, Vaterländisches von Prof. Siebold, 1801",
+    "norm": "",
+    "biblio": 411302,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-06-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4687,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Fues)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Historienbüchlein, Vaterländisches von Prof. Siebold, 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Prof. Siebold",
+  "subtitle_statement": "",
+  "title_statement": "Vaterländisches / Historienbüchlein / von / Prof. Siebold. / Sub principe justo vera libertas. / Giualani. / Tübingen / bei Ludwig Fues. / 1801",
+  "updated": "2026-06-11 10:18:55.653Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "y7vdqc6bjjsllz0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.880Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.880Z",
+      "agent": "kbr62gmierfj36q",
+      "source_id": "bkna7z6btw80cfq"
+    }
+  ]
+}

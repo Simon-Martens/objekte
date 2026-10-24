@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 103775, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103774,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DOCTOR FAUST",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr pinx. & del. J. Kovatsch sculp.",
+  "scans": [
+    "alm_1927_103774_j6yjp44z47.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DOCTOR FAUST",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.120Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "2doko2ihgkrarz7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.120Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "d17genfkehzvdc8"
+    }
+  ]
+}

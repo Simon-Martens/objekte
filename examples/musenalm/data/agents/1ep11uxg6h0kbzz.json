@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.240Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1765-10-15"
+      ],
+      "dateOfDeath": [
+        "[184X]"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-21T15:47:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#4",
+          "label": "Katalogisierungslevel 4"
+        },
+        "id": "https://d-nb.info/gnd/1326940031/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1326940031",
+      "id": "https://d-nb.info/gnd/1326940031",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Arnstein, Benedikt David",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Benedikt David"
+        ],
+        "surname": [
+          "Arnstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1326940031/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Arnsteiner, Benedikt David"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Benedikt David"
+          ],
+          "surname": [
+            "Arnsteiner"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:49:57Z",
+    "gnd_query_biographical_data": "1765-1840",
+    "gnd_query_name": "arnstein, benedikt david"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 65,
+  "name": "Arnstein, Benedikt David",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 64",
+  "updated": "2026-06-11 13:29:21.385Z",
+  "uri": "https://d-nb.info/gnd/1326940031",
+  "editor": ""
+}

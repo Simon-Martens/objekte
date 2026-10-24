@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Seite INr 80894, Obj 6 /) Illustration zu »Eine Dichterliebe« von K. R. Frühauf INr 80923, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Victorine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1802_80890_evz95ysmnd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Victorine",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.508Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "b43vcuc70ug5j0r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.508Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "rs8ug51nzycdtyb"
+    }
+  ]
+}

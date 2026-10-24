@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert No. 3. /) Illustration zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen« INr 59950, Obj 15; s.a. Textbezug INr 59975, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Patriotismus einiger Handwerker, bei / der Einnahme von Frankfurth am Mayn 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhaus. sclp.",
+  "scans": [
+    "alm_935_59977_cyid2tp6cm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Patriotismus einiger Handwerker, bei / der Einnahme von Frankfurth am Mayn 1792",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.084Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "cf6aynyookiu3j1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.084Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "vdimub6dwxf1xsv"
+    }
+  ]
+}

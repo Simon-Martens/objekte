@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Vampyr« von H. Marschner / W. A. Wohlbrück s. Textbezug INr 75456, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VAMPYR. / II. Aufz. 21. Sc. Aubrey. Dies Scheusal hier ist - ein Vampyr!!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2375_75457_bu2a7z30gf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VAMPYR. / II. Aufz. 21. Sc. Aubrey. Dies Scheusal hier ist - ein Vampyr!!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.786Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "cpl71t4l7jowncf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.786Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "m2j5fekjjzjosjg"
+    }
+  ]
+}

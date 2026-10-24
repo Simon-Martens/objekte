@@ -1,0 +1,92 @@
+{
+  "annotation": "Formatwechsel zu 8° /) in der Ausgabe des Berliner Kalenders als »Berliner Taschenbuch« kein Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, ar: SS1-24 darin 6 GG, ar1: SS 1-220, ar2: SS 1-71, S 71 C,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1845",
+    "norm": "~",
+    "biblio": 404165,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 880,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimarus)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Taschenbuch / für / 1845. / Neunzehnter Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / (Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+  "updated": "2026-06-11 10:18:55.755Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "cj11kmlf1509p4x"
+  ],
+  "contents": [
+    "q674d9zn6zo22ts",
+    "xf6jyxu99arsmnc",
+    "n2gs7qsczsbse4k",
+    "ifdfw8n7t19nmnm",
+    "eks7l37mkwrj7sp",
+    "rl69ahvdzogl812",
+    "isgr6fyc4sxgone",
+    "jpa5fgk7t1t97yt",
+    "sin2ilb1di7cfm0",
+    "0jkli5bhes2er2b",
+    "turf5llqmx0g12h",
+    "wa6rec2bymejf53",
+    "4wfm6f8lsj1ky9v",
+    "1qyu9tdf5z5gh9t",
+    "upt05c5eqrvkgdj",
+    "qdxzmtt6oovtraf",
+    "c4l1fwbombelb2v",
+    "kbai1uzfiv4h4qr",
+    "i2cmliaj3xecm2a",
+    "hpqbsvxlkuyt5mw",
+    "amea4a9yly4puoa",
+    "obpblhr1s5w08vd",
+    "iui7zhukr13lbh2",
+    "7cfwcx8jm9nft68"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "1b5noioln9ih9oy",
+      "source_id": "yomavnfljen6lbo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Die reiche Pflanzensammlung unsers Herrn Hofgärtners Seidel vermehrt sich von Jahre zu Jahre sehr ansehnlich.",
+  "language": [],
+  "musenalm_id": 74770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwas über den Pandanus odoratissimus. / Dresden, im Mai 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwas über den Pandanus odoratissimus. / Dresden, im Mai 1804",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.617Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "pp7loj41dd9qr3k"
+    }
+  ]
+}

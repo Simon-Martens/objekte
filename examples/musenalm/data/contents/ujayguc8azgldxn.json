@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124102, Obj 1); Illustration zu »Der Alte muß!« von Costenoble (INr 124114, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Brandeis. / Ha ha ha! beginnt das Lustspiel – die Rollen / sind einstudiert – der Vorhang fliegt auf, und ich / schlüpfe ins Souffleurloch. / Schwärmer, Sansfaçon. 5te Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1293_124115_0eq68gvll7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V. / Brandeis. / Ha ha ha! beginnt das Lustspiel – die Rollen / sind einstudiert – der Vorhang fliegt auf, und ich / schlüpfe ins Souffleurloch. / Schwärmer, Sansfaçon. 5te Scene",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.785Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "n5toboy7oekzzzh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.785Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "nu3ett4qemyuy9a"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S VrlgM verso, T, T, S 1 I-Verz, SS 3-10 Vrwrt d Hrsg, SS 11-124, 2 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sardellen für satyrische Näscher 1818",
+    "norm": "~",
+    "biblio": 406070,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3583,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Herold)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Sardellen für satyrische Näscher 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 210; Goed VI. 391, 23, 16",
+  "responsibility_statement": "T. H. Friedrich",
+  "subtitle_statement": "",
+  "title_statement": "Sardellen / für / satyrische Näscher. / Von / T. H. Friedrich, / Verfasser der satyrischen Feldzüge. / Neujahrsgabe / für 1818. / Hamburg, / in der Herold'schen Buchhandlung. / Aufgeschnittene und beschmutzte Exemplare werden nicht / zurück genommen",
+  "updated": "2026-06-11 10:18:55.464Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "bskrzxvooklpq24"
+  ],
+  "contents": [
+    "nr0yua81q5eqgfp",
+    "eebv6v0zb2x0er3",
+    "6yea8wy1b878bso",
+    "zpw2jlcs4qjbx14",
+    "b62k45lrdbbzq4f",
+    "ldsprqb6y215sea",
+    "cdwpvdfdrx0jb94",
+    "dfnz1ozxayyi531",
+    "ghelqnuh5cz9mk0",
+    "er1kv30l37hv65p",
+    "lqu61n2kc79l0mk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.998Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.998Z",
+      "agent": "p61edzq4yde43sv",
+      "source_id": "9wywt3zy6do1z7s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.264Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.264Z",
+      "agent": "ig1o98q79i5gv1i",
+      "source_id": "ic4k294y5pgfzxj"
+    }
+  ]
+}

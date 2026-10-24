@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Die Künste entwickeln gegenwärtig eine lebendigere Regsamkeit als in den beiden letzten Jahrhunderten; dies wird namentlich in Deutschland gefühlt.",
+  "language": [],
+  "musenalm_id": 78072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber / die Entwicklung / der neueren deutschen Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber / die Entwicklung / der neueren deutschen Kunst",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.725Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "bxu4xikbtinj8vw"
+    }
+  ]
+}

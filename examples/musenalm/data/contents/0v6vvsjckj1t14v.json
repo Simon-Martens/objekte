@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Der Blume holde Göttin läßt / Die Säle des Olymps für andre Götter / glänzen;",
+  "language": [],
+  "musenalm_id": 62073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Gräfin Flora von ** / an ihrem Namensfeste, / als man in einem zu ihrem Gute gehöri- / gen Wäldchen einen Tempel errichtet / hatte, mit der Aufschrift: / Der Flora gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Gräfin Flora von ** / an ihrem Namensfeste, / als man in einem zu ihrem Gute gehöri- / gen Wäldchen einen Tempel errichtet / hatte, mit der Aufschrift: / Der Flora gewidmet",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.075Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "ro57leyxzu33m9r"
+    }
+  ]
+}

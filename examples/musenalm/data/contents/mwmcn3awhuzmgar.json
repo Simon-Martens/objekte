@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Die Rolle, welche Johann Graf von Capo d'Istrias als Präsident der provisorischen Regierung Griechenlands während der vier letzten Jahre bis zum 9.October 1831 gespielt hat, erfordert, daß man auf frühere Begebenheiten zurückgehe,",
+  "language": [],
+  "musenalm_id": 82339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Graf von Cappo d'Istrias / oder / die vier letzten Jahre der griechischen Revolution",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Buchholz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann Graf von Cappo d'Istrias / oder / die vier letzten Jahre der griechischen Revolution",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.103Z",
+      "agent": "zdx2xr44xgrz9w7",
+      "source_id": "vapw23f4a3d9mph"
+    }
+  ]
+}

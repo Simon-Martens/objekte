@@ -1,0 +1,108 @@
+{
+  "annotation": "KVK: Jg 1825",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 8 GG, 8 BB Kal darin 6 Tabb, B Tab, SS 1-110 darin     GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenalmanach, Historischer (Graz) 1824",
+    "norm": "~",
+    "biblio": 408557,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-07-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4125,
+  "parallel_title": "",
+  "place_statement": "Graz (Kaiser)",
+  "places": [
+    "qww1pxzqibaxvpt"
+  ],
+  "preferred_title": "Damenalmanach, Historischer (Graz) 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Kautzner",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Damenalmanach / auf das Jahr 1824. / von / Carl Kautzner. / Mit vielen illuminirten Moden, und zwölf / lythogr. historischen Darstellungen. / GRATZ / bey Jos. Fr. Kaiser",
+  "updated": "2014-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "zhqujit4zqgneyi"
+  ],
+  "contents": [
+    "1eg3lhtr5xwqf9r",
+    "jrb73dyxgupvblk",
+    "xl08oisxdt2prbg",
+    "6f4od5f7ruxwwi5",
+    "yvrijt3x2mi0o6y",
+    "xiya8kfphv2q3vv",
+    "y18hqa1xg26rogr",
+    "6mti22eltvrdrr3",
+    "6wbno73ka4ki1t9",
+    "fipmnyubxq2l7ef",
+    "y1zisny9peojp1o",
+    "1yrrb01ytj5n11i",
+    "yr2eh2ec49uxb7y",
+    "lzus0fj062h7hct",
+    "qap5otxdzpav9h1",
+    "aeunz7ys2j7rp7l",
+    "iqz8x332eysht14",
+    "xvgu722lp7afe25",
+    "tglng827yh6l65y",
+    "yhjtwxo7aqmr53h",
+    "1uosh81fwy5kkaf",
+    "ysu3p7m9tnfycqx",
+    "xfuau92mo4esr4h",
+    "7upi0i9oqojn1xn",
+    "214k4ozidzuaxo8",
+    "bq5ymv1a25oulz1",
+    "fa5pj705pv49ecy",
+    "sgsamqftxjurhnv",
+    "ms3e1tkdydj9dqc",
+    "a9nic034ixep7rk",
+    "j0rnojdxoxagqtu",
+    "26hzcrdhgpet9fx",
+    "6slzxgjn9d69hyk",
+    "oqmo6o86agpmwum",
+    "42quy3g6kwnaad4",
+    "epw7wdf7l7rblaz",
+    "54guoacdoxh7zos",
+    "f7kio75nrlvuu70",
+    "8vaj5jcoub8794i",
+    "jdrsw7qstrst7dn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "x39b8yary5ectmp",
+      "source_id": "ad6ho4h27fd9b65"
+    }
+  ]
+}

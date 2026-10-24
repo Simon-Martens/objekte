@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Studenten-Musenalmanach (Breslau) 1842",
+    "norm": "",
+    "biblio": 404818,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2289,
+  "parallel_title": "",
+  "place_statement": "Breslau (Freund)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Studenten-Musenalmanach (Breslau) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "STUDENTEN / MUSEN-ALAMANACH / für das / JAHR 1842 / Enthaltend / GEDICHTE / von / im Jahre 1841 / in / Breslau Studierender / Breslau bei Leopold Freund",
+  "updated": "2026-06-11 10:18:55.430Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "3n9258btu6aywec"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.875Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.875Z",
+      "agent": "3sg9glsubtslwv6",
+      "source_id": "y91sgku82t0viaf"
+    }
+  ]
+}

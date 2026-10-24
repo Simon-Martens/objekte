@@ -1,0 +1,46 @@
+{
+  "annotation": "III. Sechs Sonette an Friedrich Graf von Kalckreuth (Sammlung INr 725, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Seh' ich die schattenlosen Straßen brennen / Und öd' die Stadt zur Stunde der Sieste,",
+  "language": [],
+  "musenalm_id": 729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Sigismund Ruhl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2000-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.749Z",
+      "agent": "yh1ekssto2994v5",
+      "source_id": "49dqhdr199cj6sz"
+    }
+  ]
+}

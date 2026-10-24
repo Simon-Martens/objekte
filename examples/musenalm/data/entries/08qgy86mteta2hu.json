@@ -1,0 +1,80 @@
+{
+  "annotation": "Hrsg.: K. H. Heydenreich; dieser wohl Autor der unbezeichneten Beiträge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, röm: S I W, SS III-XIVI Vrwrt d Hrsg, SS XV-XVI I-Verz, ar: SS 1-240, ar1: SS 1-126",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1799",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-08-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4850,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Martini)",
+  "places": [],
+  "preferred_title": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; L/R 177; Goed VII, 274",
+  "responsibility_statement": "K. H. Heydenreich",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.368Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "5a3vlgdu4vtautw",
+    "349ffnagt9dpb7f",
+    "bnt36qs2zns9kgk",
+    "asygirvuyje1tkt",
+    "iczc4em4g4pvejz",
+    "9ijp489jkrhc8pj",
+    "e0tmvgnkhr8tmqr",
+    "4lciocsha8s5b4u",
+    "pdd6krnd9lcuzwi",
+    "f44iv1cpw3xvxnl",
+    "bg26e1ps5ajhi7c",
+    "i00lxfo6jp9sm6b",
+    "1meck3w9u2rfuus",
+    "n5v6yfsujekz1we",
+    "hfkf7ifbxye8uu8",
+    "hjs5tm3olxiqxwu",
+    "5thhm07wgxjnm1a",
+    "f7efczow9npxt26"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.457Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.457Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "5gm8wy8i37mpv5j"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Gott, wie schön!  - da muß man klatschen, / Klatschen, daß das Haus erhebt;",
+  "language": [],
+  "musenalm_id": 115677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klatscher. / Motto: Darin, ihr Götter, macht ihr Schwaches stark. / Shakespeare",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Liber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klatscher. / Motto: Darin, ihr Götter, macht ihr Schwaches stark. / Shakespeare",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.459Z",
+      "agent": "zfc98s6qn3u27oa",
+      "source_id": "8qzwmft5k1zku18"
+    }
+  ]
+}

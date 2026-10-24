@@ -1,0 +1,45 @@
+{
+  "annotation": "Reiseblätter (Sammlung INr 41899, Obj 101)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Halb abgestorben, grünst du, Baum, / Noch halb, am See und Wellenschaum!",
+  "language": [],
+  "musenalm_id": 41923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Baum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Baum",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.112Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "v8qjm6fmwxu6gqr"
+    }
+  ]
+}

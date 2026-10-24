@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Emilie (Sammlung INr 90610, Obj 206)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Mir starrt das bitt're Abschiedswort im Munde, / Wenn Hand in Hand gedrückt wir scheidend steh'n;",
+  "language": [],
+  "musenalm_id": 90613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 209,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Beim Scheiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Constant Wurzbach. (Laibach.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Beim Scheiden",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.461Z",
+      "agent": "wm9mmfgzc6wy00i",
+      "source_id": "dhkankear6mszfl"
+    }
+  ]
+}

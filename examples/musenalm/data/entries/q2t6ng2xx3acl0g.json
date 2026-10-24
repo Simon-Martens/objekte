@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelauflage von 1795; erweitert um die Tabelle »Einige der vorzüglichsten Postrouten durch Deutschland wozu die vornehmsten Städte Deutschlands als Mittelpunct angenommen sind«; mit beigegebener Karte /) § die in den Jgg  1797, 1798 beigegebene Karte fehlt hier",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, T, 3 BB Vrwrt d Hrsg, 13 SS Kal dazu 12 SS Tab, S I-Verz C, ar: SS 1-88, ar1: SS 1-208, SS 209-264 Tabb, SS 265-266 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1796",
+    "norm": "",
+    "biblio": 1796,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4115,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Walther)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143 #; L/R 145 #",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Reisende jeder Gattung / durch Deutschland / auf das Jahr / 1796. / herausgegeben / von / Joh. Chr. Fick / Lehrer am illust. Gymn zu Erlangen. / Erlangen / in der Waltherschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.063Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "p0b3be3r0vny3ww"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.335Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.335Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "sl82d5lbork9yff"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "hgipdt1djucx1dr",
+      "source_id": "vq7hgbh20defpyj"
+    }
+  ]
+}

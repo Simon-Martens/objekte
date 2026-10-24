@@ -1,0 +1,45 @@
+{
+  "annotation": "Briefe an Freunde (Sammlung INr 119868, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Es ist ein gar süßes Ding, wenn wir Frieden mit Gott und daher auch mit uns haben.",
+  "language": [],
+  "musenalm_id": 119868,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / An H. M.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / An H. M.",
+  "updated": "2018-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.678Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "uu4hsecu6hcuzmu"
+    }
+  ]
+}

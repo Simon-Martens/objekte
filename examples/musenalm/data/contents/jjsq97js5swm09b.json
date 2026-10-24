@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Beschreibung der dreyzehn vereinigten Provinzen in Nordamerica« INr 68520, Obj 21 s.a. Textbezug INr 68531, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68519,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Vereinigten Staaten von / NORD-AMERICA / nach der von Wm. Faden 1783 / herausgegebenen Charte,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "genau zusammengetragen von D. Sotzmann",
+  "scans": [
+    "alm_925_68519_0a2ljt3wou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die / Vereinigten Staaten von / NORD-AMERICA / nach der von Wm. Faden 1783 / herausgegebenen Charte,",
+  "updated": "2008-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.164Z",
+      "agent": "llfbsdoltk6o89d",
+      "source_id": "pimyftgqvmnjas2"
+    }
+  ]
+}

@@ -1,0 +1,386 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1874",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/10313543X",
+          "label": "Wagner, Sylvester"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Vertreter oberösterreichischer Mundartdichtung des ländlich-bäuerlichen Milieus; Textdichter der oberösterreichischen Landeshymne \"s'Hoamátgsang\""
+      ],
+      "dateOfBirth": [
+        "1802-11-29"
+      ],
+      "dateOfDeath": [
+        "1874-07-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Riss"
+          ],
+          "creditText": [
+            "europeana.eu"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Stelzhamer%20%28um%201865%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Stelzhamer%20%28um%201865%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20Stelzhamer%20%28um%201865%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-04T18:38:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118753444/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1314136119",
+          "label": "Stelzhamer, Therese"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118753444",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/10313543X",
+          "label": "Wagner, Sylvester"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118753444",
+      "oldAuthorityNumber": [
+        "(DE-588c)4105692-9",
+        "(DE-588a)118753444"
+      ],
+      "periodOfActivity": [
+        "1842-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4024386-2",
+          "label": "Henndorf am Wallersee"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4401172-6",
+          "label": "Großpiesenham"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4024386-2",
+          "label": "Henndorf am Wallersee"
+        }
+      ],
+      "preferredName": "Stelzhamer, Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "surname": [
+          "Stelzhamer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Reizhamer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Peter Andreas Xaver Franz"
+          ],
+          "surname": [
+            "Reizhamer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Gedichte",
+        "Die Dorfschule",
+        "Heimgarten",
+        "Lieder in obderenns'scher Volksmundart"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Peter Andreas Xaver Franz"
+          ],
+          "surname": [
+            "Stelhamer"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb122154051"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85141119"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71440404"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q45580"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118753444/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Stelzhamer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108584651"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118753444"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118753444"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Stelzhamer_Franz-Xav_1802_1874.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118753444.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118753444"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Reizhamer, Peter Andreas Xaver Franz",
+        "Stelzhammer, Franz",
+        "Stelhamer, Peter Andreas Xaver Franz",
+        "Reizhamer, Franz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Peter Andreas Xaver Franz"
+          ],
+          "surname": [
+            "Reizhamer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Reizhamer"
+          ]
+        },
+        {
+          "forename": [
+            "Peter Andreas Xaver Franz"
+          ],
+          "surname": [
+            "Stelhamer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Stelzhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Stelzhammer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Stelzhamer",
+          "label": "https://de.wikipedia.org/wiki/Franz_Stelzhamer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:45Z",
+    "gnd_query_biographical_data": "1802-1874",
+    "gnd_query_name": "stelzhamer, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2765,
+  "name": "Stelzhamer, Franz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXVI, 37",
+  "updated": "2026-06-11 13:29:25.198Z",
+  "uri": "https://d-nb.info/gnd/118753444",
+  "editor": ""
+}

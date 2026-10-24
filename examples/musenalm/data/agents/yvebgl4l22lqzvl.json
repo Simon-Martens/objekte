@@ -1,0 +1,660 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1880",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.356Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1826-1829 Ehe mit ihrem Vetter Friedrich (Adolf) Graf von Hahn; ab 1852 katholisches Ordensmitglied in Frankreich, später Klostergründerin in Mainz, auch Reisebücher"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1805-06-22"
+      ],
+      "dateOfDeath": [
+        "1880-01-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Heinrich Groß: Deutsche Dichterinen und Schriftstellerinen in Wort und Bild. Fr. Thiel, Berlin 1885, S. 291."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ida%20Gr%C3%A4fin%20Hahn-Hahn.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ida%20Gr%C3%A4fin%20Hahn-Hahn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ida%20Gr%C3%A4fin%20Hahn-Hahn.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/158591348",
+        "https://d-nb.info/gnd/188882383",
+        "https://d-nb.info/gnd/1058806793",
+        "https://d-nb.info/gnd/160710391",
+        "https://d-nb.info/gnd/185824366"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-23T21:53:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118544918/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Ida Marie Luise Sophie Friederike Gustava"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ida Maria Luise Sophie Friederike Gustava"
+          ],
+          "nameAddition": [
+            "Gräfin von"
+          ],
+          "surname": [
+            "Hahn"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/136830331",
+          "label": "Hahn, Ferdinand von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116391448",
+          "label": "Hahn, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136830358",
+          "label": "Hahn, Friedrich von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118544918",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116391448",
+          "label": "Hahn, Karl von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/136830331",
+          "label": "Hahn, Ferdinand von"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/136830358",
+          "label": "Hahn, Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118544918",
+      "oldAuthorityNumber": [
+        "(DE-588a)158591348",
+        "(DE-588)188882383",
+        "(DE-588a)118544918",
+        "(DE-588a)130939579",
+        "(DE-588a)188882383",
+        "(DE-588)1058806793",
+        "(DE-588c)4022951-8",
+        "(DE-588)160710391",
+        "(DE-588a)160710391",
+        "(DE-588)185824366",
+        "(DE-588)158591348",
+        "(DE-588a)185824366"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Tressow"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "preferredName": "Hahn-Hahn, Ida, Gräfin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ida"
+        ],
+        "nameAddition": [
+          "Gräfin"
+        ],
+        "surname": [
+          "Hahn-Hahn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4381669-1",
+          "label": "Publizistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4075434-0",
+          "label": "Nonne"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Sibylle",
+        "Sigismund Forster",
+        "Der Rechte",
+        "Eudoxia, die Kaiserin. - [Mikrofiche-Ausg.]. - 1866",
+        "Aus der Gesellschaft",
+        "Meine Reise in England",
+        "Ulrich",
+        "Die Erbin von Cronenstein",
+        "Orientalische Briefe",
+        "Faustine : Ein Roman aus der Biedermeierzeit",
+        "Gräfin Faustine",
+        "Heiligenlegenden",
+        "Cecil",
+        "Gedicht",
+        "Clelia Conti",
+        "Zwei Frauen",
+        "Von Babylon nach Jerusalem"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119502771"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81052514"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/4145970190832251516"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q92101"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1058806793"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118544918/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158591348"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160710391"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185824366"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188882383"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ida,_Countess_von_Hahn-Hahn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ida_Hahn-Hahn"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ida_von_Hahn-Hahn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ida%2C_Countess_von_Hahn-Hahn"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121377112"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118544918"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118544918"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118544918.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118544918.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118544918"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4770088-9",
+          "label": "Gräfin"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hahn, Ida Marie Luise Sophie Friederike Gustava von",
+        "Hahn-Hahn, Ida M.",
+        "Hahn-Hahn, Ida, Gräfin von",
+        "Hahn-Hahn, Ida Maria Gustave von, Gräfin",
+        "Hahn, Ida, Gräfin Hahn-",
+        "Hahn, Ida Gräfin Hahn-",
+        "Hahn-Hahn, Ida Marie Luise Sophie Friederike Gustava, Gräfin",
+        "Hahn-Hahn, Ida Maria Luise Sophie Friederike Gustava, Gräfin von",
+        "Hahn-Hahn, Ida von",
+        "Hahn-Hahn, Ida Marie Luise Gustave von",
+        "Hahn, Ida Maria Luise Sophie Friederike Gustava, Gräfin von",
+        "Hahn, Ida von",
+        "Hahn-Hahn, Ida",
+        "Hahn-Hahn, Jda",
+        "Hahn, Ida M.",
+        "Hahn-Hahn, Ida Maria Luise Sophie Friederike Gustava, Gräfin",
+        "Hahn, Ida von, Gräfin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jda"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Maria Luise Sophie Friederike Gustava"
+          ],
+          "nameAddition": [
+            "Gräfin von"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Gräfin Hahn-"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Maria Luise Sophie Friederike Gustava"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Maria Luise Sophie Friederike Gustava"
+          ],
+          "nameAddition": [
+            "Gräfin von"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Maria Gustave"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "nameAddition": [
+            "Gräfin von"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "nameAddition": [
+            "Gräfin Hahn-"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Marie Luise Sophie Friederike Gustava"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida M."
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Marie Luise Gustave"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida Marie Luise Sophie Friederike Gustava"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        },
+        {
+          "forename": [
+            "Ida M."
+          ],
+          "surname": [
+            "Hahn-Hahn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ida_Hahn-Hahn",
+          "label": "https://de.wikipedia.org/wiki/Ida_Hahn-Hahn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:37:57Z",
+    "gnd_query_biographical_data": "1805-1880",
+    "gnd_query_name": "hahn-hahn, ida von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1037,
+  "name": "Hahn-Hahn, Ida von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 191",
+  "updated": "2026-06-11 13:29:22.770Z",
+  "uri": "https://d-nb.info/gnd/118544918",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Nicht nur in Hütten des Elends verschmachtet so / dürftig der Arme. / Auch in Palästen verweilt finster die Trauer- / gestalt.",
+  "language": [],
+  "musenalm_id": 33637,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Arme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie v. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Arme",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.724Z",
+      "agent": "7wewn5gfr0shp0v",
+      "source_id": "qx20162p10zc7e0"
+    }
+  ]
+}

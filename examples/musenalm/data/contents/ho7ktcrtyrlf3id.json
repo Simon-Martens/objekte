@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 80214, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Frevel ist's, dem Verdienst den Kranz zu weigern; ein größerer / Frevel ist es, den Kranz nichtigem Unwerth zu weih'n.",
+  "language": [],
+  "musenalm_id": 80222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweierlei Frevel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweierlei Frevel",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.624Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "lkzn51gx2ftnikj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Margaretha, die begünstigte Tochter des fünften Karl, war durch den jüngeren Farnese, ihren zweiten Gemahl, nun auch die Nichte Paul des Dritten,",
+  "language": [],
+  "musenalm_id": 1999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der letzte Savello",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Fr. von Rumohr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der letzte Savello",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.967Z",
+      "agent": "t3pl2h42coo65p3",
+      "source_id": "q4vlnzvh2xn50c3"
+    }
+  ]
+}

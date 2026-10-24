@@ -1,0 +1,475 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.475Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1747-03-31"
+      ],
+      "dateOfDeath": [
+        "1800-06-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann_Abraham_Peter_Schulz_(Jügel).jpg: F. Jügel derivative work: Rabanus Flavus (talk)"
+          ],
+          "creditText": [
+            "Johann_Abraham_Peter_Schulz_(Jügel).jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Abraham%20Peter%20Schulz%20%28J%C3%BCgel%29%20Detail%202.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Abraham%20Peter%20Schulz%20%28J%C3%BCgel%29%20Detail%202.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Abraham%20Peter%20Schulz%20%28J%C3%BCgel%29%20Detail%202.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-18T18:17:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118762494/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1144538335",
+          "label": "Schulz, W. F."
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118762494",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1144538335",
+          "label": "Schulz, W. F."
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118762494",
+      "oldAuthorityNumber": [
+        "(DE-588a)134794699",
+        "(DE-588a)127969578",
+        "(DE-588c)4107198-0",
+        "(DE-101c)310484693",
+        "(DE-588a)118762494"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4049810-4",
+          "label": "Rheinsberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036512-8",
+          "label": "Lüneburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4297951-1",
+          "label": "Schwedt/Oder"
+        }
+      ],
+      "preferredName": "Schulz, Johann Abraham Peter",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Abraham Peter"
+        ],
+        "surname": [
+          "Schulz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170836-2",
+          "label": "Musikwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117333255",
+          "label": "Weyse, Christoph Ernst Friedrich"
+        }
+      ],
+      "publication": [
+        "Über den Choral, und die ältere Literatur desselben",
+        "Voß, Johann H.: Oden und Lieder von Joh. Heinr. Voß",
+        "Hymne",
+        "Die wahren Grundsätze zum Gebrauch der Harmonie",
+        "Gedanken über den Einfluß der Musik auf die Bildung eines Volks und üb*",
+        "Chöre und Gesänge zur Athalia von Racine",
+        "Partitur in Chiffern von Maria und Johannes, einem Passions-Oratorium",
+        "Serenata im Walde zu singen",
+        "Choeurs d'Athalie",
+        "Lieder im Volkston, bey dem Claviere zu singen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no97015275"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/78784476"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q706221"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118762494"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118762494/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Abraham_Peter_Schulz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Abraham_Peter_Schulz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Abraham_Peter_Schulz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120290787"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118762494"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118762494"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118762494.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118762494.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118762494"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118762494"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schulz, Johann A. P.",
+        "Schulz, Johann Peter Abraham",
+        "Schulze, Johann Abraham Peter",
+        "Schulz, Johann A.",
+        "Schulze, J. A. P.",
+        "Schulz, Joh. A. P.",
+        "Schulze, J. A.",
+        "Schulz, Johann Abraham",
+        "Schulz, J. P. A.",
+        "Schulze, I. A. P.",
+        "Schultz, Johann Abraham Peter",
+        "Schulz, Johann Abr. Peter",
+        "Schulz, J. A. P.",
+        "Schulz, I. A. P."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "I. A. P."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Abr. Peter"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A. P."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Abraham Peter"
+          ],
+          "surname": [
+            "Schulze"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Abraham"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Abraham"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "J. P. A."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "J. A. P."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Schulze"
+          ]
+        },
+        {
+          "forename": [
+            "J. A. P."
+          ],
+          "surname": [
+            "Schulze"
+          ]
+        },
+        {
+          "forename": [
+            "I. A. P."
+          ],
+          "surname": [
+            "Schulze"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Abraham Peter"
+          ],
+          "surname": [
+            "Schultz"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. A. P."
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Abraham_Peter_Schulz",
+          "label": "https://de.wikipedia.org/wiki/Johann_Abraham_Peter_Schulz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:54:27Z",
+    "gnd_query_biographical_data": "1747-1800",
+    "gnd_query_name": "schulz, johann abraham peter"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2576,
+  "name": "Schulz, Johann Abraham Peter",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXIV, 744",
+  "updated": "2026-06-11 13:29:24.872Z",
+  "uri": "https://d-nb.info/gnd/118762494",
+  "editor": ""
+}

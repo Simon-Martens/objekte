@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK mit Standorten für Jgg 1796-1799",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Gutsbesitzer, Pächter und Wirtschaftsbeamte, besonders in Schlesien 1798",
+    "norm": "",
+    "biblio": 200764,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2850,
+  "parallel_title": "",
+  "place_statement": "Breslau (Korn)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Taschenbuch für Gutsbesitzer, Pächter und Wirtschaftsbeamte, besonders in Schlesien 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "G. Brieger",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Gutsbesitzer, / Pächter und Wirtschaftsbeamte, / besonders in Schlesien. Herausgegeben / von / G. Brieger. / Dritter Jahrgang. / Mit einem Kupfer. / Breßlau, / bei Wilhelm Gottlieb Korn / 1798",
+  "updated": "2026-06-11 10:18:54.735Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "mbmnuzb1ym21fel"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.079Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.079Z",
+      "agent": "k0fk4lrvgxeyjnw",
+      "source_id": "t1atni2zzp43wco"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "Beitrag »Register über die sechs ersten Jahrgänge von Mosers Taschenbuch für teutsche Schulmeister« als Photos 76637,01-76637,17",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS 901-1031, SS 1032-1033 Nwrt d Hsrg, 17 SS Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für teutsche Schulmeister 1791",
+    "norm": "~",
+    "biblio": 406744,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3691,
+  "parallel_title": "",
+  "place_statement": "Ulm (Wohler)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Taschenbuch für teutsche Schulmeister 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Christoph Ferdinand Moser",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / teutsche / Schulmeister / auf / das Jahr 1791. / Herausgegeben / von / Christoph Ferdinand Moser, / Pfarrer zu Wippingen und Lautern. / Sechster Jahrgang. / Nebst Register über diese sechs Jahrgänge. / Ulm / in der Wohlerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.055Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "cr8xqzo5zglgcn3"
+  ],
+  "contents": [
+    "xtqhwiwtz8n8ix9",
+    "vq608ug2s5nr6fy",
+    "06gp5pajj7zrx7v",
+    "v2o6yrxlwnb7ntt",
+    "ocy302nw4bn35s3",
+    "ze2w0w77ae8h5qn",
+    "vwhflv720pjhbpq",
+    "aeo1cgn3iqvou53",
+    "dxb94p8ujdwnxe3",
+    "2gfyhok39bx1fok",
+    "ly7dldjtxvkh1oo",
+    "etwdifywmyzk388",
+    "tj94ipl8t8giby9",
+    "nm83vyzpubm4icc",
+    "4bv9rscmc7tthan"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.283Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.283Z",
+      "agent": "opllmisqfx4rssx",
+      "source_id": "3uv1lncany1ea3y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.189Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.189Z",
+      "agent": "skp0g12v6742tpg",
+      "source_id": "omhpzw8p2e94t9c"
+    }
+  ]
+}

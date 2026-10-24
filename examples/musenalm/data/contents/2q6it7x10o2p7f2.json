@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration: bez. Graphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Herr Bartholomäus Doll war gebohren am 24. August des Jahres 1740, und hatte gerade diesem Tage seinen Taufnamen zu danken,",
+  "language": [],
+  "musenalm_id": 53585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alter schützt vor Thorheit nicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alter schützt vor Thorheit nicht",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.794Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "hpt1n4cwjkip2ql"
+    }
+  ]
+}

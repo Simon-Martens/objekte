@@ -1,0 +1,45 @@
+{
+  "annotation": "Ritornelle (Sammlung INr 45465, Obj 174)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Hellblaues muntres Gretchen in der Hecke! / Sie haben hübsch bei Seite sich geschlichen:",
+  "language": [],
+  "musenalm_id": 45473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hellblaues muntres Gretchen in der Hecke! / Sie haben hübsch bei Seite sich geschlichen:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Schimper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.336Z",
+      "agent": "u5s6hi2kvh4f7vh",
+      "source_id": "iywcpbi6kux9w8f"
+    }
+  ]
+}

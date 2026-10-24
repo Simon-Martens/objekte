@@ -1,0 +1,45 @@
+{
+  "annotation": "Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Ein betrübter Schäfersmann / Weidend seine kleine Heerde,",
+  "language": [],
+  "musenalm_id": 49058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoff, wo nichts zu hoffen ist",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Floridan",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoff, wo nichts zu hoffen ist",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.505Z",
+      "agent": "5ppbwmws8645e1o",
+      "source_id": "enp810t3ujlyu9k"
+    }
+  ]
+}

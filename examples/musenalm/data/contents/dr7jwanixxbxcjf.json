@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium September s. Textbezug INr 72439, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72403,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Panin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bollinger fec.",
+  "scans": [
+    "alm_833_72403_46swfdcic7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Panin",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.666Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "1t5nighm32f24rd"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Reiff denn, des zweeten Baums, verpflanzt in / Einen Garten / Von einem Stamm, für uns zu edle Frucht,",
+  "language": [],
+  "musenalm_id": 79150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift einer adelichen Dame, der zwey- / ten Schwester in einer Ehe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift einer adelichen Dame, der zwey- / ten Schwester in einer Ehe",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.824Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "g0xjwbrck981fe7"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "annotation": "Photos 104631,01-104631,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104631,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik-Verzeichnis",
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik-Verzeichnis, Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3249_104631_01_0ljpzoozlu.jpg",
+    "alm_3249_104631_02_k5nfka1ymt.jpg",
+    "alm_3249_104631_03_al1b1pjblr.jpg",
+    "alm_3249_104631_04_5s4dwvyx0c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": []
+}

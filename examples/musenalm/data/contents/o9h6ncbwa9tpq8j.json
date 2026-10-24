@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Graphik INr 79069, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zweierlei Genien sind's, die dich durchs Leben geleiten: / Wohl dir, wenn sie vereint helfend zur Seite dir / stehn!",
+  "language": [],
+  "musenalm_id": 79068,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Führer des Lebens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Führer des Lebens",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.975Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "87s0yyh2myj5nbg"
+    }
+  ]
+}

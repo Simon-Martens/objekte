@@ -1,0 +1,45 @@
+{
+  "annotation": "Französische Nüsse (Sammlung INr 65028, Obj 88) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Wol glorreich fiel der Feldzug aus / Der Krieger gegen die Piraten,",
+  "language": [],
+  "musenalm_id": 65030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wol glorreich fiel der Feldzug aus / Der Krieger gegen die Piraten,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.132Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "t1phl4r9wa9dt19"
+    }
+  ]
+}

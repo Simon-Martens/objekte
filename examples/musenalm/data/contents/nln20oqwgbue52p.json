@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt im Kalendarium /) Graphik im Kalendarium paginiert 6 /) Illustration zu Motiven aus »Das merkwürdigste Jahr meines Lebens» von A. v. Kotzebue (Berlin 1801)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56797,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem knieenden tatarischen Weibchen / röthete die Flamme das Gesicht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner de sct.1802",
+  "scans": [
+    "alm_47_56797_az3jea5dsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dem knieenden tatarischen Weibchen / röthete die Flamme das Gesicht",
+  "updated": "2008-04-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.857Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "wbhcsvh8kxyx1q0"
+    }
+  ]
+}

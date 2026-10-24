@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Seerräuber« von W. Scott s. Textbezug INr 43701, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43702,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Seeräuber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fleischmann sc.",
+  "scans": [
+    "alm_582_43702_7eli1il1dn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Seeräuber",
+  "updated": "2006-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.933Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "r0he9ej67wurn35"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Kleine Notizen (Sammlung INr 97851, Obj 29) Miszellen (Sammlung INr 97846, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "In dem Aufsatze: Ueber die vormalige sehr alte Hospitals-Kapelle im deutschen Hause, u.s.w. findet sich (S. 243 u. 244) eine kleine Differenz in der Angabe der Länge und Breite derselben,",
+  "language": [],
+  "musenalm_id": 97853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "b.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "b.",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.678Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "8f6zwd6gppjfn81"
+    }
+  ]
+}

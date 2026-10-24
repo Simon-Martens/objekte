@@ -1,0 +1,67 @@
+{
+  "annotation": "11 Jgg 1850-1853, 1854/85,1856-1858, 1862-1864; Basel (Schweighauser); Hrsgg.: 1850-1858: Wilh. Theod. Streuber; 1862-1864: D. A. Fechter",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Basler 1850",
+    "norm": "",
+    "biblio": 200802,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2914,
+  "parallel_title": "",
+  "place_statement": "Basel (Schweighauser)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Taschenbuch, Basler 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 109; nicht bei L/R",
+  "responsibility_statement": "Wilh. Theod. Streuber",
+  "subtitle_statement": "",
+  "title_statement": "Basler Taschenbuch / auf / das Jahr 1850. / Herausgegeben / von / Dr. Wilh. Theod. Streuber, / Mitglied der historischen Gesellschaft zu Basel, der allgemeinen geschichtforschenden / Gesellschaft der Schweiz und der historisch-theologischen Gesellschaft zu Leipzig. / Erster Jahrgang. / Basel, / Druck und Verlag der Schweighauser'schen Buchhandlung. / 1850",
+  "updated": "2026-06-11 10:18:54.583Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "ptbroucls1flgcb"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.150Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.150Z",
+      "agent": "sdel9pv3gwbaibx",
+      "source_id": "872khz6dcj92p9l"
+    }
+  ]
+}

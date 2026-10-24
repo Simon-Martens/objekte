@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Stufenleiter des Weibes. Sonettenkranz (Sammlung INr 80835, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Sich selbst nicht mehr, dem Gatten, dem Erwählten, / Gehört ihr Wünschen, Streben, Lieben, Sorgen,",
+  "language": [],
+  "musenalm_id": 80839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Gattin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Gattin",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.878Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "qxuu3utpq21as1v"
+    }
+  ]
+}

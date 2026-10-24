@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 81947-81954, Obj 104-111",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oesterreichische Volkssagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Oesterreichische Volkssagen",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.986Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "d8fy2pwsln7p11d"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 111078, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111069,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rembrandt's Behausung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. PIENEMANN. Joh. de Mare pinx.",
+  "scans": [
+    "alm_3480_111069_j1rf3mmyyu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rembrandt's Behausung",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.230Z",
+      "agent": "hljjikv82e4coq5",
+      "source_id": "ckpzejlw830pb51"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.230Z",
+      "agent": "q50dykweuxf7u2c",
+      "source_id": "mr44q5jjzaxgwlp"
+    }
+  ]
+}

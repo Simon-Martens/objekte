@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Wie es heute stürmt und lermt, als wenn der ganze Himmel auf Erde herunterbrausen wollte!",
+  "language": [],
+  "musenalm_id": 50825,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Dosis / gesunden / Menschenverstands / aus den Bergen. / Aus dem Tagebuch / des armen Mannes im Tockenburg [M.DCC.LXXIX. (1. Jan- 13. u. 14. Febr.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Dosis / gesunden / Menschenverstands / aus den Bergen. / Aus dem Tagebuch / des armen Mannes im Tockenburg [M.DCC.LXXIX. (1. Jan- 13. u. 14. Febr.)]",
+  "updated": "2007-07-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.869Z",
+      "agent": "doxs6e7jngdbevw",
+      "source_id": "cga1mloyw37dd5h"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Des Ganges Ufer hörten des Freudengotts / Triumph, als allerobernd vom Indus her / Der junge Bacchus kam,",
+  "language": [],
+  "musenalm_id": 1331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An unsre Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HOELDERLIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An unsre Dichter",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.983Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "81thho5vloiz4rc"
+    }
+  ]
+}

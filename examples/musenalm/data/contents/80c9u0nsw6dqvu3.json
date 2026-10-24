@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Ich saß auf dem Moos an Einsiedels Haus, / Und lauschte den Nachtigallen",
+  "language": [],
+  "musenalm_id": 28652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Schwanilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Schwanilde",
+  "updated": "2002-10-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.389Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "5qc6xxlpsg1fqv8"
+    }
+  ]
+}

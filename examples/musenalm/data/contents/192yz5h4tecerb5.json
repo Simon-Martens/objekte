@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Der Himmel hört und sieht Alles auf der Welt, / Er hört das Haar, wenn es vom greisen Haupte fällt,",
+  "language": [],
+  "musenalm_id": 114789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erdenfluch und Himmelssegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erdenfluch und Himmelssegen",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.523Z",
+      "agent": "31iymrx6tazubtp",
+      "source_id": "aei7wo5ad4ftsfh"
+    }
+  ]
+}

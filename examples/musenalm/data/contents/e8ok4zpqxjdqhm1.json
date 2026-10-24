@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Wonniglich strahlt ihr dem Bild, der Erde geliebtere / Fluren, / Thäler und Höhen, so mild lachend im Frühlingesglanz;",
+  "language": [],
+  "musenalm_id": 78364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rettung des Bacchus. / Ein mythologisches Gemälde nach Homer. / (Ilias, VI. 130-40.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Docen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rettung des Bacchus. / Ein mythologisches Gemälde nach Homer. / (Ilias, VI. 130-40.)",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.783Z",
+      "agent": "b84h4bki5ok921e",
+      "source_id": "ynvd4erl4y02gy2"
+    }
+  ]
+}

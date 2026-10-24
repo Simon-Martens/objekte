@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli paginiert 7. s. Textbezug INr 66289, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66275,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König von Frankreich, Ludwig XIV. / lässt deutsche Länder verheeren, 1689",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66275_e7y80sfsye.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der König von Frankreich, Ludwig XIV. / lässt deutsche Länder verheeren, 1689",
+  "updated": "2009-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.125Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "5a4gfwrntjvi9g5"
+    }
+  ]
+}

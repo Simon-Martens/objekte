@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Nachlaß des Dr. Eberhardus (INr 64832, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Lieber Neffe! Ob ich gleich durch mein Testament Dich zum Universalerben meines zeitlichen Nachlasses eingesetzt und Dir an leiblichen, wie geistigen Gütern so viel hinterlassen habe, daß Du allenfalls der ärztlichen Praxis Dich ganz entschlagen,",
+  "language": [],
+  "musenalm_id": 64833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dein treuer Oheim, Eberhardus, Dr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.119Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "nhzh7q3gbmzrmh0"
+    }
+  ]
+}

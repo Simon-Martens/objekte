@@ -1,0 +1,122 @@
+{
+  "annotation": "Eine »Nachricht an die Leser dieses Taschenbuchs« kündigt 4 fehlende Graphiken mit sächsischen Landschaftsmotiven für Folgejahrgang an /) auch vorhanden als französische Ausgabe: Almanac de Goettingue 1806",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, ar: S 1 T, 4 GG, SS 3-60 Kal darin 4 GG, ar1: S 1 T, SS 3-267 darin 8 GG, SS 268-272 G-Verz, 3 SS I-Verz, 2 SS Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1806",
+    "norm": "~",
+    "biblio": 100563,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-12-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 30,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Göttingischer / Taschen-Kalender / für das Jahr 1806. / Göttingen / bey Heinrich Dieterich",
+  "updated": "2026-06-11 10:18:55.218Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "5h4nnoexfvpjlb9"
+  ],
+  "contents": [
+    "8t09b9qff32qt8c",
+    "m5ir5tjdrubyemr",
+    "cqelnbnd64b7te5",
+    "gidzdmcyu6hmre4",
+    "am6p1ara4wuqy00",
+    "i8io15rdtos5yzy",
+    "a7w3z183g7bjz55",
+    "otqlxxquvhupn3a",
+    "fwfiubet1v7lloz",
+    "3x26llv75y5vdd7",
+    "j7tx145w7p7rtz0",
+    "agk6p0gbraox155",
+    "ag9gt6j4pw6eij5",
+    "p2u3d7r85yboc6j",
+    "kr4jnzx7lkft1sr",
+    "xytofsluue8es66",
+    "60pjr5xfp09wgin",
+    "16q65vy4dlu9fte",
+    "cwyem7fx03er8dg",
+    "u7lliigz8xhgrmq",
+    "ao1hvl2whsvdo20",
+    "zu0bdspz7bbdwn1",
+    "u77mejk6nte8p9m",
+    "4g71ttjvuerapj3",
+    "1p3jpgug6zs2ym7",
+    "hgmu104gl4ma1z5",
+    "w1lyzcicp6meczj",
+    "o821gtjfh5gdl9i",
+    "5pexyik1s1gsk7j",
+    "hlsq03m2683gdtl",
+    "yi05xp3tfftwf43",
+    "eqhu98ol40czwkm",
+    "2p749z515k3gmjk",
+    "vfswdu7mw63occy",
+    "gfdd2n2itgl1g9h",
+    "28c9wu50cvpw0ys",
+    "4ic33pr39lqlh64",
+    "ej2p325floiegaw",
+    "fen9cjj1bj70apz",
+    "1tdn7xnj4qsz4th",
+    "oqh2bgadj3fdpas",
+    "k29dvatgbz1vu0k",
+    "h25n7hcgokako3i",
+    "lujq1se8cje71gz",
+    "g3sbmbsf592yg0i",
+    "jsbkgofqfzbrwv9",
+    "sivs2y8nytw829p",
+    "je701g57ntc6qsh",
+    "9ndenbjodwqpmnu",
+    "8l9dmgx6qf07ldv",
+    "ddb0g1we5w4qbta",
+    "02o52cstj5iloja",
+    "g2u539wspxb0vl2",
+    "66vjrertlia9xb2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.944Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.944Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "81izqc5zz9uhxjj"
+    }
+  ]
+}

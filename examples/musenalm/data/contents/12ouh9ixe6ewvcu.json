@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Wer ists, der wild / Und fürchterlich siegreich brüllt, / Ins Hiffthorn stößt zum blumigen Tanze?",
+  "language": [],
+  "musenalm_id": 5273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der rasende Geldar. / An Hahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der rasende Geldar. / An Hahn",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.118Z",
+      "agent": "xudibmgptrwrx3w",
+      "source_id": "ejjsqf02xuf6jke"
+    }
+  ]
+}

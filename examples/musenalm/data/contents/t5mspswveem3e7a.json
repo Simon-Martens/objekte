@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsgedanken (Sammlung INr 34736, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Feuer ohne Nahrung muß im Wind verlodern, / Ohne Luft und Sonne muß die Pflanze modern.",
+  "language": [],
+  "musenalm_id": 34761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "25.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "25.",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.703Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "si57h6gp3ay635g"
+    }
+  ]
+}

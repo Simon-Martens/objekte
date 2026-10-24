@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Der Hof und seine Pracht ist deiner Wünsche Ziel? / O Freund! der Hof ist wie der Unbestand des Meers,",
+  "language": [],
+  "musenalm_id": 79162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Selint",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Madame Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Selint",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.815Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "7k1z65wxlc7kauq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Freiheit ist der Inbegriff des Glaubensbekenntnisses unserer Zeitgenossen. Aber diese Freiheit darf keine engherzige seyn, sie muß sich auf alle Meinungen ausdehnen.",
+  "language": [],
+  "musenalm_id": 70667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Statt einer Einleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Coremans",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Statt einer Einleitung",
+  "updated": "2010-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.506Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "yp9ueu0jvsx6pod"
+    }
+  ]
+}

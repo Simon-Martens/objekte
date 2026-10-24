@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 29011, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Du starker Pfeiler in des Leidens Wogen! / Du sich're Freistatt in des Sturmes Nacht!",
+  "language": [],
+  "musenalm_id": 29012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundschaft",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.182Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "y857ymrv8eibuc7"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "graph. Vortitel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALMANACH / für / JÜNGLINGE / auf das Jahr / MDCCXCI / Leipzig / bey J. G. Hamann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Malvieux fec.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / für / JÜNGLINGE / auf das Jahr / MDCCXCI / Leipzig / bey J. G. Hamann",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.055Z",
+      "agent": "rpm3jfs7o8do52j",
+      "source_id": "yyoqlmlvnzgcg8i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Mit Gunst ! ihr ausgelassnen Spötter, / Die ihr mit eurer Witzeley / niemanden schont (es sey des Kadi Vetter,",
+  "language": [],
+  "musenalm_id": 30718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rabeners Anakrise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rabeners Anakrise",
+  "updated": "2003-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.713Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "rec98mq49xzsw3p"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Sinnend steh' ich und ernst am grasigen Ufer des / Flusses, / Der durch die herrliche Flur hin zum Gebirge sich / zieht.",
+  "language": [],
+  "musenalm_id": 21865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fluß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Fluß",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.009Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "ygvoaagr76vy2sl"
+    }
+  ]
+}

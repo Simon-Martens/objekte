@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Ein jeder von euch macht in zehnerley Gestalten / Den Hypochonder; spricht: kein Mittel hilft bey / mir!",
+  "language": [],
+  "musenalm_id": 8585,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An zwey eingebildete Dummköpfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An zwey eingebildete Dummköpfe",
+  "updated": "2000-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.489Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "z0wxmd0tlkrsa3p"
+    }
+  ]
+}

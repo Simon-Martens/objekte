@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Rätseln INr 33186-33188, Obj 37-39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2003-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.412Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "9secwvbnxvvjkc8"
+    }
+  ]
+}

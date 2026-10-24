@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25587, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Mich ärgert stets das Kosen / Der Menge mit den Rosen,",
+  "language": [],
+  "musenalm_id": 25589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Dichters Leidwesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Wihl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Dichters Leidwesen",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.062Z",
+      "agent": "z9zzha2tz10lf47",
+      "source_id": "nmby1wzki69jtxj"
+    }
+  ]
+}

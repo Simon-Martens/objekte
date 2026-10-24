@@ -1,0 +1,263 @@
+{
+  "annotation": "",
+  "biographical_data": "1742-1794",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.295Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Verzeichniß einer kleinen Sammlung von Büchern, aus der Verlassenschaft des seeligen Herrn Rectors Crome welche den 19. Jan. 1795 in dem Sterbehause öffentlich verkauft werden sollen",
+        "um 1765 Lehrer am Gymnasium Andreanum in Hildesheim; schon vor 1788 Rektor des Johanneums (Gymnasium) in Lüneburg"
+      ],
+      "dateOfBirth": [
+        "1742-08-20"
+      ],
+      "dateOfDeath": [
+        "1794-07-05"
+      ],
+      "describedBy": {
+        "dateModified": "2023-10-28T09:08:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100804160/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100804160",
+      "id": "https://d-nb.info/gnd/100804160",
+      "oldAuthorityNumber": [
+        "(DE-588a)100804160"
+      ],
+      "preferredName": "Crome, Ludwig G.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig G."
+        ],
+        "surname": [
+          "Crome"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        }
+      ],
+      "publication": [
+        "Crome, Ludwig G.: Epithalamium nuptiis V. Cl. J. Frid. Wagneri ... sacrum",
+        "Gedichte",
+        "Musson, ...: Pragmatische Geschichte der vornehmsten Mönchsorden. - 1774 - 1783",
+        "Crome, Ludwig G.: De legendo dialogo de oratoribus, sive de causis corruptae eloquentiae,*",
+        "Crome, Ludwig G.: De legendo Terentio",
+        "Crome, Ludwig G.: Verzeichniß einer kleinen Sammlung von Büchern aus der Verlassenschaft *",
+        "Crome, Ludwig G.: Ursprung und Fortgang der Reformation in Einbeck .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058733"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69284059"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1874446"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100804160/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Gottlieb_Crome"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066684362"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100804160"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1764_lepper;111"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100804160"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Crome, Ludovico Gottlieb",
+        "Crome, Ludwig Gottlob",
+        "Crome, Ludovicus Gottlieb",
+        "Crome, Ludewig Gottlieb",
+        "Crome, Ludwig Gottlieb",
+        "Krome, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Gottlieb"
+          ],
+          "surname": [
+            "Crome"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Krome"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gottlob"
+          ],
+          "surname": [
+            "Crome"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Gottlieb"
+          ],
+          "surname": [
+            "Crome"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovico Gottlieb"
+          ],
+          "surname": [
+            "Crome"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus Gottlieb"
+          ],
+          "surname": [
+            "Crome"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Gottlieb_Crome",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Gottlieb_Crome"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:10:00Z",
+    "gnd_query_biographical_data": "1742-1794",
+    "gnd_query_name": "crome, ludwig gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 470,
+  "name": "Crome, Ludwig Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 423",
+  "updated": "2026-06-11 13:29:21.950Z",
+  "uri": "https://d-nb.info/gnd/100804160",
+  "editor": ""
+}

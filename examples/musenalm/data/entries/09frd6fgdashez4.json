@@ -1,0 +1,130 @@
+{
+  "annotation": "Ausgabe ohne gest. Titel und Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz G-Verz, SS 1-308 darin 9 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1810",
+    "norm": "~",
+    "biblio": 106390,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-01-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 655,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1810",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für / Frauenzimmer, / zum / Nutzen und Vergnügen / auf das Jahr 1810. / Mit zehn Kupfern, / von Jury, A. W. Böhm, Bolt und Ros- / mäsler, nach Zeichnungen von Schubert / und Schnorr v. K. / Leipzig , / bey Adam Friedrich Böhme",
+  "updated": "2026-06-11 10:18:54.656Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "4cvyorkop7yco9q"
+  ],
+  "contents": [
+    "1c5aapehuy8vza9",
+    "x7d55y6yjheolf0",
+    "igvwrcsafhk8eot",
+    "9v6ylephq7030hw",
+    "vohynxf42gutw4t",
+    "um107if9o465n70",
+    "tc3y7918g0kerus",
+    "u02mks230b3sja4",
+    "g158i4pkp5sixhf",
+    "m64wy9pa5juv3t8",
+    "g8q5yr8ewidkks6",
+    "7hnc919o33m5f24",
+    "yb3wr06fntmahmq",
+    "ut4yd3x63js8p95",
+    "zj0hvt9eu1h9ls9",
+    "s79vyw14lotql5d",
+    "d8nn83qcxyejpzf",
+    "bwh95ozwtvk2jup",
+    "9xn4t4nws2v3npr",
+    "x5jieoefny98rvl",
+    "2qijkwtuxyk7xaw",
+    "rsimgqruh2xad6e",
+    "jd0bqjc5mynll69",
+    "ee8tm0fp8xml3v8",
+    "tn65zs8jhusfls7",
+    "ex8p12er67fm2qk",
+    "zo1i4wi6875dwi4",
+    "hl5lqh2fdptcgwu",
+    "ld457v9vaqv8pgb",
+    "o54tk1ey02nwd6d",
+    "fkvo5pl3gx0iwyn",
+    "y60zsqrnox95jp1",
+    "p6debrxnlk2qjer",
+    "k2vfxbrnkpnfqxr",
+    "iottbzgqe11b9fo",
+    "1v8h669hp076zgo",
+    "lg5tqqbydf3kt43",
+    "5gfycshntj3sijf",
+    "4mbtvsh3jjli7hx",
+    "4lxo9c5opyx11sc",
+    "ebqk7n4d8d5jwhf",
+    "7us4yc67nn9qa4c",
+    "9bo2vgxw0cs4zrm",
+    "vdo7rowrd8tp75b",
+    "kzgyv28hmzd2d0w",
+    "vtfp0pmnruodxis",
+    "f6sdvuxtwh6l2gd",
+    "smpivkko2d3rpl0",
+    "6j5pvhdu0zew47e",
+    "ib4bb6o77yj7ioa",
+    "xsyvdc1wbhgu8fd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.729Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.729Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "btbus0nkfhb113h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.557Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.557Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "kf2ignne2s5kv96"
+    }
+  ]
+}

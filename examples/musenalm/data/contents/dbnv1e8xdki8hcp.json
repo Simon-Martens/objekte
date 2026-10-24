@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum folgenden Beitrag: »Klopstock, im Sommer 1795. Ein Bruchstück aus meinem Tagebuche« INr 39504, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Zu den süßesten Erinnerungen einer Reise, die ich im August des Jahrs 1795 mit einem nun auch schon heimgegangenen Freunde nach Hamburg und bis an die Küste der Ostsee machte,",
+  "language": [],
+  "musenalm_id": 39503,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.180Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "p6jr6e9j6do05c4"
+    }
+  ]
+}

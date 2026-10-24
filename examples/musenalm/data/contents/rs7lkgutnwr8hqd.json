@@ -1,0 +1,45 @@
+{
+  "annotation": "Neujahrswünsche (Sammlung INr 16543, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Mahl' unserm lieben Ittner heut, / Als Symbolum der bösen Zeit, / Sein Lieblingsthier, und schreibe dann",
+  "language": [],
+  "musenalm_id": 16545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / An den Herrn Kommenthur von *** / der sich, als Dilettant, mit der / Malerey beschäftigt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / An den Herrn Kommenthur von *** / der sich, als Dilettant, mit der / Malerey beschäftigt",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.588Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "maeka0cpsni2l43"
+    }
+  ]
+}

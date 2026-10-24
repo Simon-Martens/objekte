@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der neuesten Geschichte (Prutz) 1851",
+    "norm": "",
+    "biblio": 405061,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2685,
+  "parallel_title": "",
+  "place_statement": "Dessau (Katz)",
+  "places": [
+    "68ic34vcdx9s3je"
+  ],
+  "preferred_title": "Taschenbuch der neuesten Geschichte (Prutz) 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 22",
+  "responsibility_statement": "Robert Prutz",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / neuesten Geschichte. / Von / Robert Prutz. / Erster Jahrgang: / Das Jahr achtzehnhundert neun und vierzig. / Dessau. / Verlag von Moritz Katz",
+  "updated": "2026-06-11 10:18:55.836Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "gecqah8m179jd0y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.121Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.121Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "5lo2xq10a08cfi0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "jump8caapqtm0bn",
+      "source_id": "v09yxz2qe5qton8"
+    }
+  ]
+}

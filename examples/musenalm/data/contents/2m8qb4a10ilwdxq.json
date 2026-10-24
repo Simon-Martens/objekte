@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116160, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Kühn hatten die Schweizer die Schlacht / Mit den Burgundern geschlagen,",
+  "language": [],
+  "musenalm_id": 116163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Rose des Sieges. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Rose des Sieges. / Ballade",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.512Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "w9qvx34p62k1rp4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 7.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21692,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göz bei Stürmung einer Warte mit unter / den ersten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner",
+  "scans": [
+    "alm_292_21692_qa3lkq5iy4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Göz bei Stürmung einer Warte mit unter / den ersten",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.772Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "54y3jqebbyh3j97"
+    }
+  ]
+}

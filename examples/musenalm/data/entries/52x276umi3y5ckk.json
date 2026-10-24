@@ -1,0 +1,85 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S gT, S G-Verz, 3 GG, S I-Verz, SS 1-339 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1844",
+    "norm": "~",
+    "biblio": 106739,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2486,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1844. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.470Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "89qk74wruofwkcg"
+  ],
+  "contents": [
+    "wkmd77vbiws17s2",
+    "3io38r70w1v8kgq",
+    "s5b5crkz384tksw",
+    "znyy6jvm02zqlfs",
+    "gpfew25gd986cu9",
+    "jxg543py57iu6wz",
+    "z1wqg5odacuhh6r",
+    "0rzyei4rqlcl25l",
+    "ojwynvqkrnj8743",
+    "253ii87qseg0sqj",
+    "ad11auyaieieipn",
+    "fm1u8ghj79ozzsz",
+    "0yq97khwkzl1igv",
+    "eh9uejt1k3zv4hy",
+    "g5ylhp4knq0dbvi",
+    "2j8oridggmhrg8d",
+    "5or10eh6nib9eaw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "9tmmc9cgkifv47m"
+    }
+  ]
+}

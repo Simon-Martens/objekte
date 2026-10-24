@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Im wilden Nahethale lebte ein junger Ritter, Gerwin mit Nahmen, der den Krieg und die Jagd liebte.",
+  "language": [],
+  "musenalm_id": 98383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verlassene Mühle. / Romantische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die verlassene Mühle. / Romantische Novelle",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.691Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "qz4pkzndc7inach"
+    }
+  ]
+}

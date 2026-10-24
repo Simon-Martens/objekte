@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 69530, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Weiht das ganze Herz der Lust, / Wenn der Tod beherrscht die Erde.",
+  "language": [],
+  "musenalm_id": 69531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / An die Brüder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / An die Brüder",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.394Z",
+      "agent": "xaj6m1llkx5hiyx",
+      "source_id": "9jdynihue8l9bop"
+    }
+  ]
+}

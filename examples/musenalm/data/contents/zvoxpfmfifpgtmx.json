@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Frau Magdalis, ein leckres Weibchen, / Und unvorsichtig obendrein,",
+  "language": [],
+  "musenalm_id": 13494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Katze in der Speisekammer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Katze in der Speisekammer",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.597Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "ib74oxghp4u7rtn"
+    }
+  ]
+}

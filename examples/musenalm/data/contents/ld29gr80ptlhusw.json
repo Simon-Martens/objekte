@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Karl der Große. In vier Romanzen. 2.« von K. Geib Nr 63301, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz del. Fleischmann sc.",
+  "scans": [
+    "alm_1037_63308_c80h5vp7e4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.181Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "duuh1hn3ic72iq3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.181Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "wmyf1sq3xj30hcw"
+    }
+  ]
+}

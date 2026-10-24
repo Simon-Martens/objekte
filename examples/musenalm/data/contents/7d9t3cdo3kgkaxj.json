@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wandrer und Pächterin« von J. W. von Goethe s. Gedicht INr 40248, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40249,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wandrer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_525_40249_lzf9tsj2pf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Wandrer",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.749Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "ng3ztv5mu7m92zb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.749Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "rew4wzkwvc6eklr"
+    }
+  ]
+}

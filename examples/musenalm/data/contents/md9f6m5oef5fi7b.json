@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Die Freude kann der Flüchtling nicht erreichen, / Die Trauer eilt ihm nach und fehlt ihm nicht.",
+  "language": [],
+  "musenalm_id": 100478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken meines Vaters, / Philipp Pfau, / ausgewandert nach Amerika imJahre 1849, gestorben zu Covington / am Ohio im Jahre 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pfau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken meines Vaters, / Philipp Pfau, / ausgewandert nach Amerika imJahre 1849, gestorben zu Covington / am Ohio im Jahre 1852",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.764Z",
+      "agent": "faiv8kpnorpjyle",
+      "source_id": "aqlfuqt7002pygw"
+    }
+  ]
+}

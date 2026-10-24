@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Der Wirth erwartet Gäste, / Er kennt sie nicht, o weh!",
+  "language": [],
+  "musenalm_id": 70958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der harrende Wirth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thorbecke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der harrende Wirth",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.502Z",
+      "agent": "p1d53vycpex1zlo",
+      "source_id": "1y94wob4gwxggu9"
+    }
+  ]
+}

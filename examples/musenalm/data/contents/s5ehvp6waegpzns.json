@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Der Abend kam, die Schlacht war aus, / Da lagen drei auf dem Schlachtfeld drauß';",
+  "language": [],
+  "musenalm_id": 93035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reitertod. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reitertod. / Ballade",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.620Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "jqtugxj21dqrdqp"
+    }
+  ]
+}

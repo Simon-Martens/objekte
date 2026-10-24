@@ -1,0 +1,43 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich übernahm die Herausgabe dieses Musenalmanachs unter sehr unsicheren und ungünstigen Aussichten. Bürger hatte für das Jahr 1795 wenig gesammelt",
+  "language": [],
+  "musenalm_id": 4059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschrift",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.051Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "a6ltl930q1wp51x"
+    }
+  ]
+}

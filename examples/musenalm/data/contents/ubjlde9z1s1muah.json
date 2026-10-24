@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63674, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Wie eitel sind des Lebens Freuden, wie / So eitel jeder Tag! Geschlechter fallen / Wie Blätter von der Eich' im Wintersturm,",
+  "language": [],
+  "musenalm_id": 63676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alpins Gesang. / (Nach Ossian.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alpins Gesang. / (Nach Ossian.)",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.212Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "6nqsoa2f2nipimj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122000, Obj 154)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Kommst du wieder, milde Stunde, / Die mich oft so traurig macht, / Wenn im Herzen mir die Kunde / Der Vergangenheit erwacht.",
+  "language": [],
+  "musenalm_id": 122002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Milde Stunde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Milde Stunde",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.636Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "e7hu92rygoqgouz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "An den Ufern der Bretagne horch! welch nächtlich Wie- / derhallen! / Aus den Wellen, aus den Wogen hört man es wie / Lieder schallen,",
+  "language": [],
+  "musenalm_id": 25396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bretagne. / 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bretagne. / 1793",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.256Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "26rlnqfjn1xrdrg"
+    }
+  ]
+}

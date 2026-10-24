@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Wie das Jahr sich hat gewendet, / Ist die heil'ge Drei vollendet.",
+  "language": [],
+  "musenalm_id": 44408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Jungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Kinkel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Jungen",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.386Z",
+      "agent": "xohpn56jqt8nmfq",
+      "source_id": "pfss8yojbgss28d"
+    }
+  ]
+}

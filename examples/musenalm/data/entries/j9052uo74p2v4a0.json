@@ -1,0 +1,89 @@
+{
+  "annotation": "Erscheinungsverlauf unklar: KVK mit Standorten für Jgg 1851-1868 und darüber hinaus (wohl Neuauflagen). Vorhanden: 1.-6. Jg.: Jgg 1851, 1852, 1853, (Breslau) 1857, 1858, (Hamburg), 1867 (Breslau).; der vierte Jahrgang (erschienen 1854, 1855, 1856) als 3. Auflage 1867 /) Hrsg. Karl August Görner",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Bühnenspiele (Görner) 1851",
+    "norm": "",
+    "biblio": 407632,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3910,
+  "parallel_title": "",
+  "place_statement": "Breslau (Graß, Barth u. Comp.)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Almanach dramatischer Bühnenspiele (Görner) 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. A. Görner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Bühnenspiele / zur / geselligen Unterhaltung für Stadt und Land / von / C. A. Görner, / Hoftheater-Direktor in Neustrelitz. / Erster Jahrgang. / Breslau, 1851. / Graß, Barth und Comp. Verlagsbuchhandlung. / (C. Zäschmar.)",
+  "updated": "2026-06-11 10:18:55.133Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "5i7oh6cdd94vw2v"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.930Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.930Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "0y4sz4aio4z6wjl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.308Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.308Z",
+      "agent": "vbnxwvvqqzta4uw",
+      "source_id": "enu46czsbmup32i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.931Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.931Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "pm2tvgoxjfysgjf"
+    }
+  ]
+}

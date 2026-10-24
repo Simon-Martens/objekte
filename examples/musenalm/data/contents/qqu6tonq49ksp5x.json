@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Im 16ten Jahrhundert war Italien das Land, das, wie in unsern Tagen England und Frankreich, in den Moden und Sachen des Geschmacks den Ton angab.",
+  "language": [],
+  "musenalm_id": 32509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Miscellaneen / aus der Geschichte der Moden / und häuslichen Gebräuche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Miscellaneen / aus der Geschichte der Moden / und häuslichen Gebräuche",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.405Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "q1qlwpyitvptfsf"
+    }
+  ]
+}

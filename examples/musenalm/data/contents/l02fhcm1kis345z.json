@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Der lang' ersehnte Friede nahet wieder / Und alles scheint umkränzet und umlaubt,",
+  "language": [],
+  "musenalm_id": 101238,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht; / überreicht der regierenden Frau Herzogin / zu Sachsen Weimar zu ihrem Ge- / burtstage, von einem theatralischen Aufzuge auf der Redoute zu / Weimar, den 26ten Jänner 1798 [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht; / überreicht der regierenden Frau Herzogin / zu Sachsen Weimar zu ihrem Ge- / burtstage, von einem theatralischen Aufzuge auf der Redoute zu / Weimar, den 26ten Jänner 1798 [...]",
+  "updated": "2014-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.786Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "upp5n8k3liao3s4"
+    }
+  ]
+}

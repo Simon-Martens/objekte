@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Ein hohes Schloß, das hatt' ich innen; / Nur eine Brücke sprang vom Thor;",
+  "language": [],
+  "musenalm_id": 53383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Flucht der Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Tanner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Flucht der Jugend",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.700Z",
+      "agent": "lwav9yimjbjfzci",
+      "source_id": "9h2hqi107fdg9lu"
+    }
+  ]
+}

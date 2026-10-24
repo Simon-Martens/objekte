@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. VIII. (Sammlung INr 77161, Obj 6) s. Graphik INr 77163, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In der Frauen Herz der Ew'ge goß / Der Milde lieblichen Thau,",
+  "language": [],
+  "musenalm_id": 77162,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenübermuth. / (Der Handschuh.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauenübermuth. / (Der Handschuh.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.730Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "eavdo4zkop3zmv8"
+    }
+  ]
+}

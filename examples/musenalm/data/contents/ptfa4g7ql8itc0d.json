@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 4434, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Schweigen will ich! Keine deiner Thrä- / nen / Werde, süßes Mädchen, mir geweint!",
+  "language": [],
+  "musenalm_id": 4433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edmund an Fanny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Schmidt-Phiseldeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Edmund an Fanny",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.135Z",
+      "agent": "ex0h5d47i0ltdl2",
+      "source_id": "3vbzn0vk4nxpvy0"
+    }
+  ]
+}

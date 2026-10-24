@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61406,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner inv fe)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner inv fe",
+  "scans": [
+    "alm_967_61406_3b2ttxjku8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.052Z",
+      "agent": "mwvtf64bmzwstck",
+      "source_id": "gunb7qqlmqpb5db"
+    }
+  ]
+}

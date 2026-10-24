@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Ist, Deutschen, heilig euch der Freyheit große / Sache, / So thut die Sprache Galliens in Bann,",
+  "language": [],
+  "musenalm_id": 53118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Deutschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Deutschen",
+  "updated": "2007-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.619Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "cpchj16h95emisf"
+    }
+  ]
+}

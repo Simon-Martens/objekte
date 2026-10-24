@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Ich war nach langen Jahren von einer weiten Reise seit einigen Wochen in meine Vaterstadt zurückgekehrt.",
+  "language": [],
+  "musenalm_id": 14974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Paulistin. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josephine Perin, geborne von Vogelsang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Paulistin. / Erzählung",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.674Z",
+      "agent": "jvr9ms12j3ec0zq",
+      "source_id": "kkcjmr0bmk8tquo"
+    }
+  ]
+}

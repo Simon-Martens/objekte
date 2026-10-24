@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Gedichte. Erste Sammlung. (INr 17527)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Wann nun mein Sarg vorüber gehen wird, / So denke nicht, daß nur die kleinste Sorge",
+  "language": [],
+  "musenalm_id": 17539,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Verse aus dem achten Kapitel des / Zukhiret al Moluk. / Aus dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Verse aus dem achten Kapitel des / Zukhiret al Moluk. / Aus dem Persischen",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.895Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "8e9w99bkj55clis"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 6676, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "In rother Frühe, / Da hüpf' ich barfuß oft hinaus, / Und wähle, welche Blum' im Strauß / Am schönsten blühe.",
+  "language": [],
+  "musenalm_id": 6675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE FRÜHE MELKERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VOSS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE FRÜHE MELKERIN",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.238Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "wgqxd4zrdmi5kaq"
+    }
+  ]
+}

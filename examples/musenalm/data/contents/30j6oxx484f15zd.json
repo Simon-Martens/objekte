@@ -1,0 +1,45 @@
+{
+  "annotation": "Grabschriften (Sammlung INr 90492, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Ruh' aus, Unseliger! vom Irrsal deiner Plagen, / Du, der in schöner Welt der erste Hasser war,",
+  "language": [],
+  "musenalm_id": 90494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Kain",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal. (Laibach.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Kain",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.333Z",
+      "agent": "rxn9x0k5ac10jd7",
+      "source_id": "57k129y6bcw9g3p"
+    }
+  ]
+}

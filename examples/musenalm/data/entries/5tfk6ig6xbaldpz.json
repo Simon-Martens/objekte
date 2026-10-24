@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, verso G, SS 1-192, G, 5 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Krates und Hipparchia (Wieland) 1805",
+    "norm": "~",
+    "biblio": 409303,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-07-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4322,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Krates und Hipparchia (Wieland) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 174; L/R 53; Goed IV. 208 b, 146",
+  "responsibility_statement": "C. M. Wieland",
+  "subtitle_statement": "",
+  "title_statement": "Krates und Hipparchia / ein Seitenstück / zu / Menander und Glycerion / von / C. M. Wieland. / Zum Neujahrs-Geschenk / auf / 1805. / Tübingen, / in der J. G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.909Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "yzki98wvo9lvtbk"
+  ],
+  "contents": [
+    "l1t8823ymu8mlwm",
+    "bra6pp39rsrm3wl",
+    "kmcmbkq6aqqvbwr",
+    "w5m74gu3y7ti53x",
+    "kkzqwem1yq05gie",
+    "ymuftgdgaz6e1yx",
+    "ex37u3elhj11a0t",
+    "98agiyhoj65puse",
+    "tyln9m550roycic",
+    "astkws7epq8mzo9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.675Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.675Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "0fa0ntvqswxh7xr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.365Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.365Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "qw731db5b847j10"
+    }
+  ]
+}

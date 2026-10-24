@@ -1,0 +1,141 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "8 BB Kal, T, B Kal, T, verso G, B Vrwrt d Hrsg, 6 BB 2. Kal dazu 12 GG, 17 SS Tab, ar: SS 2-7 G-Verz, SS 3-64 darin 3 GG, ar1: SS 1-102, SS 111-112 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender für Pferdeliebhaber 1793",
+    "norm": "~",
+    "biblio": 106600,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3121,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Akademische Buchdruckerei) Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenkalender für Pferdeliebhaber 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 158; nicht bei L/R",
+  "responsibility_statement": "F. M. F. Freiherr Bouwinghausen von Wallmerode",
+  "subtitle_statement": "",
+  "title_statement": "Taschenkalender / auf / das Jahr 1793, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdruckerei und / im Verlag der J. G. Cottaischen Buch- / handlung in Tübingen",
+  "updated": "2026-06-11 10:18:55.256Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "cofaa0tdnh78m4p"
+  ],
+  "contents": [
+    "p5ezsod9bna9bbs",
+    "adlpy2jfgaxidco",
+    "rxfwiv05cak2ssp",
+    "6e5mcxvxgf3y2ju",
+    "bwyk9hr3mm2k5qc",
+    "ho7yy0zknxf167a",
+    "q2v2kq56hc7dbq2",
+    "7x23ww835wpo441",
+    "n16s5q2en4de038",
+    "nxty9xdxk1lq3an",
+    "aq4e7cz5zqiypt4",
+    "j5yifqdhduip03i",
+    "8jqddch0tg6no5q",
+    "9yc1f7owbzrck6b",
+    "w4yvvhi4d7c77za",
+    "scgz37uyzd8piig",
+    "u4dr126ey6w8x8q",
+    "uhljpe1yi3x9rwx",
+    "mvlejhq70ldzjnb",
+    "wd77etxyjczfwp3",
+    "m1lhfcyky6lngp5",
+    "95iew7ksvbd9eqg",
+    "t7d2q0aw358va28",
+    "1fi09b2pk9wzmcw",
+    "hhd8eplkqiasytr",
+    "bm9tibzr2c7vg5w",
+    "sp7r5mz0iytu0de",
+    "zsb639lue1owxey",
+    "xgi3jfiwf8yt8wf",
+    "5v7ayh36hnctkbj",
+    "vr8p5hxq04m7sgu",
+    "1oaphb2xyb6hdqz",
+    "7aszdevsgi0j4z4",
+    "qk2vpiniqiogk7o",
+    "4slvn9i8z21px4o",
+    "ewqt6phg1h13e2m",
+    "vg0d9k8z9b61ylr",
+    "xnko66uwevulv0g",
+    "56gsfxraadwa9nl",
+    "6vqitay1scfpitt",
+    "xtxioogtrevrcdt",
+    "vubx1y7omheya6f",
+    "suoafp7q3k8lvaq",
+    "wh3n0qw32ueelw4",
+    "bq3z113lltnxkkz",
+    "1ql2hlulc6qeely",
+    "qlc73clcp07gzp9",
+    "zc6skfnvldau7wv",
+    "asgwo8a5f3gmxk1",
+    "31ag87qecwk63qa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.183Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.183Z",
+      "agent": "azadxb055n0u58d",
+      "source_id": "so87zemfnqy9gok"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.694Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.694Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "v5hb5yqzzi1eqeo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.467Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.467Z",
+      "agent": "06wseegnqyzsyh2",
+      "source_id": "y59ezq85q1a55q1"
+    }
+  ]
+}

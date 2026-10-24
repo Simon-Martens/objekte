@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Gedicht INr 112739, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112738,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ODALISKE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. nach Corbaux. Nürnberg, Carl Mayer's Kunst-Anstalt",
+  "scans": [
+    "alm_2481_112738_fqnemkfvnk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ODALISKE",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.264Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "f4hfni79z531o26"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.263Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "m2o741ecfv2t7m1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.263Z",
+      "agent": "x4wr3clisfzne16",
+      "source_id": "savq4ako1y300gz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Wenn man aus dem verfallenen Thore der alten Sarazenenstadt Bosa auf der Westküste der Insel Sardinien reitet, um, nach kurzem Aufenthalt in dem leeren Seehafen und dem armen, fast in Trümmern liegenden Städtchen",
+  "language": [],
+  "musenalm_id": 58101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Marquis von Jamaika. / Historische Novelle / 1708",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Marquis von Jamaika. / Historische Novelle / 1708",
+  "updated": "2008-06-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.631Z",
+      "agent": "ayxe6k12ru1cyko",
+      "source_id": "rbe51il32feya5r"
+    }
+  ]
+}

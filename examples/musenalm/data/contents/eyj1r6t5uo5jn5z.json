@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Liebe Vertrauen« von C. H. F. Posselt INr 79029, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79018,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe Vertrauen von Posselt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Retzsch del. H. Reinhold sc.",
+  "scans": [
+    "alm_2389_79018_m8jvxgs8rh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebe Vertrauen von Posselt",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.513Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "ns0el7z48sc3kj7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.513Z",
+      "agent": "taioarhybgrj69k",
+      "source_id": "s6yu9md486k1gq6"
+    }
+  ]
+}

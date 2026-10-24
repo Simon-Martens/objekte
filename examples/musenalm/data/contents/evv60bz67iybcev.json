@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. I. Das Lied von der Glocke, in 7 Darstellungen nach Ramberg (Sammlung INr 76869, Obj 5) mit einer Illustration s. Graphik INr 76878, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Einen Blick / Nach dem Grabe seiner Habe / Sendet noch der Mensch zurück",
+  "language": [],
+  "musenalm_id": 76877,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.884Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "e36xl2lo4co586z"
+    }
+  ]
+}

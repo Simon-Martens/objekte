@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48588,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "POESIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael del. A. W. Böhm sc.",
+  "scans": [
+    "alm_664_48588_1lbou8d442.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "POESIS",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.567Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "d08ky77s7wtqsnv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.567Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "gf6pn4f01u421qd"
+    }
+  ]
+}

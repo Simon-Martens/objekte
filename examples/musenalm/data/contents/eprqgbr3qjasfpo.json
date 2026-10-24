@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titelblatt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Die älteste Geschichte der Etrusker, des mächtigsten und kultivirtesten Volks in Italien vor den Zeiten der Römer, verliert sich in undurchdringliche Dunkelheiten,",
+  "language": [],
+  "musenalm_id": 61027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte der Etrusker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte der Etrusker",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.928Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "68nty7z5frwso4b"
+    }
+  ]
+}

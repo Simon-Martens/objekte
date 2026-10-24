@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 12 Kapiteln mit Motti aus Schillers »Fiesko«. Dem Text vorangestellt: Nicht der Tummelplatz des Lebens / sein Gehalt bestimmt seinen Werth. / Schiller's »Fiesko«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Es war in der Terra di lavoro, in der Nähe des kleinen Städtchens Itri. Heiß brannte die Sonne, aber der Himmel war wolkenleer und tiefblau.",
+  "language": [],
+  "musenalm_id": 80115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frà Diavolo. / Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hanusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frà Diavolo. / Skizze",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.951Z",
+      "agent": "1gx7z956tuv7ghs",
+      "source_id": "7gx1isbnkjohiuk"
+    }
+  ]
+}

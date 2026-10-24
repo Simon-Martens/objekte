@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu La Motte Fouqué's »Held des Nordens« (Sammlung INr 20985, Obj 7) s. Graphik INr 20995, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Gudruna aber, Sigurds Wittib, erhielt nun Brynhildis Bruder, den mächtigen König Atle, zum Gemal.",
+  "language": [],
+  "musenalm_id": 20996,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Thormod Legis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.862Z",
+      "agent": "1k9wqtqdatu7v5n",
+      "source_id": "48605jrjovu68s5"
+    }
+  ]
+}

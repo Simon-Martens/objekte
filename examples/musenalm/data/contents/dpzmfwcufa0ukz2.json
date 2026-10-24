@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Es war im zweiten Jahr des siebenjährigen Krieges; die Franzosen plünderten nach der Schlacht von Hostenbeck in Westphalen mehr, als sie sich schlugen.",
+  "language": [],
+  "musenalm_id": 64158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geschwister. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geschwister. / Novelle",
+  "updated": "2009-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.319Z",
+      "agent": "zi8zh5xhvi7k26j",
+      "source_id": "q259mbfid2pylhw"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T u I-Verz, S G-Verz, G, SS 1-444 darin 5 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1836",
+    "norm": "~",
+    "biblio": 108668,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3472,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1836",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. von Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1836. / Von / A. von Tromlitz. / Neunter Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.501Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "ej3k9ov4jbts6ry"
+  ],
+  "contents": [
+    "smemuibpvt6ytof",
+    "d7y8d65r05khafs",
+    "ueft4y1raizvv3k",
+    "5dijjlt2gxuhv1e",
+    "c1buj1b13d3ewjp",
+    "3y9g7iwrykygoz2",
+    "mivktq7a6gjyzqt",
+    "i6thwz7xc3od972",
+    "63gvmv2jsf4mpmw",
+    "m8u90eqc7o1btel",
+    "xu9yfsuew2b3cro",
+    "hxmiphuoazbi1sv",
+    "2m8rbu11w9723n8",
+    "chvu2yoocw88d3q",
+    "6p29e16q53stz14",
+    "bkym46dk8307qmp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.049Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.049Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "d1eqw39xffdrtry"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.230Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.230Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "kodvn7oh3p2kavn"
+    }
+  ]
+}

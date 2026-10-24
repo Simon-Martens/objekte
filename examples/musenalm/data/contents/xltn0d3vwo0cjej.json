@@ -1,0 +1,45 @@
+{
+  "annotation": "Anakreontische Lieder (Sammlung INr 117832, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Sieh! wie der Mond so silbern, / Sieh! wie die Nacht so helle; / Kein Lufthauch weht zur Stelle, / Kein Blumenblatt sich regt.",
+  "language": [],
+  "musenalm_id": 117833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Nach Jacopo Vitorelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacopo Vittorelli [übers.] C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Nach Jacopo Vitorelli",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.604Z",
+      "agent": "ett5544anganpff",
+      "source_id": "vdiqza2yc9p1ao9"
+    }
+  ]
+}

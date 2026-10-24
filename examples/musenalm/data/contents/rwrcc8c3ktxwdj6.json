@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Der Jüngling machte Götter aus Stein, / Der edle Greis, ein Phöbus unter Wilden",
+  "language": [],
+  "musenalm_id": 77,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SOKRATES",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "FRANZ MASSLIEBEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SOKRATES",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.801Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "6zp8r1z5zdr4p40"
+    }
+  ]
+}

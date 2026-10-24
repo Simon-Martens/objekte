@@ -1,0 +1,109 @@
+{
+  "annotation": "KVK: Réro: Jgg 1783-1795 /) §1-3§ Graphiken im Kalendarium Nr. 1., 3., 9. fehlen /) Unvollständige Jahresangabe im Titel. Gem. Kalendarium sind die Bezugsjahre 1782, 1793, 1799 möglich.  Die »Genealogie der regierenden Häupter« INr 85983; Abt. Pröbste der Eidgenossenschaft gibt an: Luzern: Nicolaus Balthasar von Luzern, 48 Jahr. Erw[ählt] 1792. Wahrscheinliches Bezugsjahr also: 1793",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, 13 SS Kal 12 SS darin §1-3§ 9 GG, SS 2-92 Tab, SS 93-167",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmerkalender (Zürich) 1793",
+    "norm": "~",
+    "biblio": 407656,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3917,
+  "parallel_title": "",
+  "place_statement": "Zürich (Hoffmeister)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Frauenzimmerkalender (Zürich) 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Frauen Zimmer / Calender / Auf das Jahr / 178 / Zürich bey / Johann Hoffmeister / an der RosenGaß",
+  "updated": "2026-06-11 10:18:54.660Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "e4wncdsxuv8jx6b"
+  ],
+  "contents": [
+    "vs1m0z909s378xr",
+    "aeo9gfjjc3btzs1",
+    "7mykixd2la44i66",
+    "ns96nakg25tkiwx",
+    "wyg0740nei830rd",
+    "dxqdp3wud9gn8oo",
+    "lecsjtp1uad9qhg",
+    "u3axawh01hq1u7y",
+    "8nnz54krq73jndu",
+    "ib1jimti2mua585",
+    "uyrk7udsd3n8ky6",
+    "gr6f9gatwxizbyd",
+    "wehhnejqwo9ly0m",
+    "zbz8i7qr1n0v3h2",
+    "j87xfbqopbn491q",
+    "6ideve2u2bsxb2f",
+    "a8nxq12mzp2bo0s",
+    "lp3s5no50tv9fpb",
+    "fkj4wifphxabqev",
+    "q6edfy9l4f5vjmc",
+    "v2qy4y8pnx24kil",
+    "tr0tpc7fwp2rwqf",
+    "4yeakj32kcxdcg4",
+    "11jwnksipsevwl5",
+    "gr4w2stawy5eh12",
+    "fcahbpu6m8zqpi0",
+    "79c73em94uz5hcb",
+    "qf7x6rfqf8c4d7r",
+    "us3qau6z4gygwv9",
+    "b8m15rrd61ay9jq",
+    "un99b8fmo5am4yw",
+    "jeerybxew7kb8r9",
+    "scnmsipoo6ml3bv",
+    "cag1q1gvoib6pft",
+    "dctkk5jlakqgk6y",
+    "usbpfg3r12d4ccv",
+    "u3mco7o8e4c8zed",
+    "d2sag2od3jsd0uw",
+    "m2jqb2cpxyylkns",
+    "wyaas6qh96jv979",
+    "danvtyj7dk7dk5v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.043Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.043Z",
+      "agent": "vjiyycub4l15j8f",
+      "source_id": "53rhli0souoqrss"
+    }
+  ]
+}

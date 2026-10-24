@@ -1,0 +1,45 @@
+{
+  "annotation": "Kopfputz der vier weiblichen Alter(Sammlung INr 32513, Obj 9) s. Graphik INr 32518, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Diese Periode des weiblichen Alters hat einen ziemlich weiten Umfang,",
+  "language": [],
+  "musenalm_id": 32517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3 / Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3 / Frau",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.591Z",
+      "agent": "1j2glyr4uzfohrn",
+      "source_id": "ez6b5qsfz6zdh93"
+    }
+  ]
+}

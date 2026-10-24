@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24121, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Abdallah liegt behaglich am Quell der Wüste und ruht, / Es weiden um ihn die Kameele, die achtzig, sein gan- / zes Gut;",
+  "language": [],
+  "musenalm_id": 24123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Abdallah / (Tausend und eine Nacht.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Abdallah / (Tausend und eine Nacht.)",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.866Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "h2b9dv5fnoj7eka"
+    }
+  ]
+}

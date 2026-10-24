@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) Illustration zu »Bertulf und Bertha« INr 120852, Ob 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120838,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bertulf und Bertha",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Bl. sc.",
+  "scans": [
+    "alm_4585_120838_7jazmrrdqt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bertulf und Bertha",
+  "updated": "2018-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.632Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "k894l9ci9sudava"
+    }
+  ]
+}

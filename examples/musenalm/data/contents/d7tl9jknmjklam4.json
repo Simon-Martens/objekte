@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 1528-1530, Obj 48-50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "369",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesänge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf v. Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesänge",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.332Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "qe58404sd1t9g5h"
+    }
+  ]
+}

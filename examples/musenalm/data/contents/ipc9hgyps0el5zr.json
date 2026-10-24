@@ -1,0 +1,43 @@
+{
+  "annotation": "# s. Goed V. 296; 20, 12 /) mit kleiner Graphik unter dem Titel s. Graphik INr 48964, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zwischen dem Rhein und dem Main, in einem kleinen Thale, das einem kleinen Herrn gehört, liegt ein kleines Städtchen, das der Kunstfleiss bereichert.",
+  "language": [],
+  "musenalm_id": 56609,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[STUFENFOLGE / der / Liebe]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Steigentesch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[STUFENFOLGE / der / Liebe]",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.631Z",
+      "agent": "hbndpd23j3pyj28",
+      "source_id": "i3vxw51s4uszcpq"
+    }
+  ]
+}

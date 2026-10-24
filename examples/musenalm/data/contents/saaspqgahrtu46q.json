@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "400",
+  "incipit_statement": "Lüftchen, du wehest so lind, gleich Harfen säu- / seln die Tannen;",
+  "language": [],
+  "musenalm_id": 22468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gefallenen. / Elegie (gedichtet im October 1806.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gefallenen. / Elegie (gedichtet im October 1806.)",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.010Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "w4cxv5rjivmwp8l"
+    }
+  ]
+}

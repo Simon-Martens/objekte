@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Charadenkranz an Johanna (Sammlung INr 140449)</div>",
+  "content_type": [],
+  "created": "2026-09-10 08:52:47.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Ich bin ein Weib! mein Nah'n muß Freude schaffen, / Doch planlos irr' ich auf der Welt umher",
+  "language": [],
+  "musenalm_id": 140550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2026-09-10 08:56:26.373Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-10 08:56:25.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10 08:56:26.374Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "oiy0v96gyixd1gy"
+    }
+  ]
+}

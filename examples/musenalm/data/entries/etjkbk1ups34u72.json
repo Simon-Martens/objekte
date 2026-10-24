@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Militär-Almanach, Allgemeiner (Prausnitz) 1838",
+    "norm": "",
+    "biblio": 408549,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4117,
+  "parallel_title": "",
+  "place_statement": "Glogau und Leipzig",
+  "places": [
+    "07mte6q7iuxhg8a",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Militär-Almanach, Allgemeiner (Prausnitz) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "H. Prausnitz",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeiner / Militair-Almanach / für / Officiere und Militairpersonen / der deutschen und auswärtigen Staaten. / Zweiter Jahrgang. / Glogau und Leipzig, / H. Prausnitz. 1838",
+  "updated": "2026-06-11 10:18:55.930Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "e83qd6cxi6pywfs"
+  ],
+  "contents": [],
+  "agents": []
+}

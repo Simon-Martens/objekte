@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Aus des Thales düstern Auen / Locken mich die lichten Höh'n,",
+  "language": [],
+  "musenalm_id": 47907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berglied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berglied",
+  "updated": "2007-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.473Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "xvvx63tnx7we5a2"
+    }
+  ]
+}

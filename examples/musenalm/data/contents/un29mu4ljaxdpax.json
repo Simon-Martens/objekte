@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Wohin, du kecker Ritter, / Durch Wogennacht und Sturmgebraus?",
+  "language": [],
+  "musenalm_id": 27080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sturmfahrt. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sturmfahrt. / Ballade",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.218Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "phme51euppy2jt6"
+    }
+  ]
+}

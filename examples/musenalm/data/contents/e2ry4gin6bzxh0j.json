@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik (Umrißgraphik) /) s. Textbezug INr 90707, Obj 3; dort»Hemmling« (wohl H. Memling) zugeschrieben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90705,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fendi del. Benedetti sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fendi del. Benedetti sc.",
+  "scans": [
+    "alm_1830_90705_ivvwooljdo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.463Z",
+      "agent": "c6rsfvf49nz2v5w",
+      "source_id": "57w0a99htnnm7ge"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.463Z",
+      "agent": "aj12jgcexyaf6b2",
+      "source_id": "oqbo9pqv4rq4up9"
+    }
+  ]
+}

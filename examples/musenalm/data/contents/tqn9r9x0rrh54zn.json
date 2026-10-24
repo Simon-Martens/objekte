@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht im Beitrag »Wagen gewinnt« von A. Schreiber INr 62562, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Der Sternenschein / Wiegt die Müden ein, / Doch andres Leben / Will sich erheben / In Flur und Hain.",
+  "language": [],
+  "musenalm_id": 62563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sternenschein / Wiegt die Müden ein, / Doch andres Leben / Will sich erheben / In Flur und Hain.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.088Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "6yvba8ffrp2n0s5"
+    }
+  ]
+}

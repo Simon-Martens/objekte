@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Rosmaesler del. C. F. Stoelzel sc. 1798)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del. C. F. Stoelzel sc. 1798",
+  "scans": [
+    "alm_1824_101063_7ffo8j6oml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.128Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "jss1n11j9bx9av5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.128Z",
+      "agent": "blv4elcdjphescj",
+      "source_id": "o1m7rfa3zj4cq82"
+    }
+  ]
+}

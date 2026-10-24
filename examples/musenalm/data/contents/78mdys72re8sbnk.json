@@ -1,0 +1,45 @@
+{
+  "annotation": "28-31. Karl der Große. In vier Romanzen nach einer Chronik. (Sammlung INr 63299, Obj 6) Rheinische Sagen (Sammlung INr 63298, Obj 5) s. Graphik INr 63310, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Vor den König kam die Rede, / Wie sich auf der Burg zu Pell / Ein gar weises Knäblein fände,",
+  "language": [],
+  "musenalm_id": 63303,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.256Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "04kahz2h1ax41ty"
+    }
+  ]
+}

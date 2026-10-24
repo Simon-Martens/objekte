@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 55952, Obj 5 /) unter der Graphik: Zu finden bei Braun in Carlsruhe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55948,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDERIKE DOROTHEE WILHELMINE / Königin von Schweden / geb. Prinzessin von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Epple gez. Mariage sculp.",
+  "scans": [
+    "alm_755_55948_gd4cnpmdyk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDERIKE DOROTHEE WILHELMINE / Königin von Schweden / geb. Prinzessin von Baden",
+  "updated": "2008-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.799Z",
+      "agent": "25jvh8xvym3n4kb",
+      "source_id": "j5fd56d7931nzbg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.799Z",
+      "agent": "omlby14xexxm7xb",
+      "source_id": "rpvsv43tiiurfia"
+    }
+  ]
+}

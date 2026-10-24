@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton Aargau / Bauer aus dem Frikthal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_716_52391_60fe3bokyt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton Aargau / Bauer aus dem Frikthal",
+  "updated": "2007-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.537Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "grrghi5h2ztyims"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 75716, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75701,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Lips sc. H. Meyer del.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips sc. H. Meyer del.",
+  "scans": [
+    "alm_2144_75701_sylz77zi6l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.302Z",
+      "agent": "oo9udbnis38dav0",
+      "source_id": "ifuozxpdjov3nhc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.302Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "skozc2k4s0rk0tk"
+    }
+  ]
+}

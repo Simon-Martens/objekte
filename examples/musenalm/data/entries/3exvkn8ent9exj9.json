@@ -1,0 +1,94 @@
+{
+  "annotation": "zusammen mit dem ersten Teil /) Auswahl aus d. Göttinger und Hamburger Musenalmanach. Die Beiträge sind nicht aufgenommen /) Photos von Einleitung und Inhaltsverzeichnis",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-VIII Vrwrt d Hrsg, 3 BB I-Verz, SS 1-272",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vademecum für Dichterfreunde 1780",
+    "norm": "~",
+    "biblio": 410659,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4651,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Fürstl. Hof- und Reg. Buchdruckerei; J. J. Will)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Vademecum für Dichterfreunde 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed IV. 367, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Vademecum / für / Dichterfreunde. / Zweiter Theil. / Darmstadt, / gedruckt in der Fürstl. Hof- und Reg. Buchdruckerei, / durch J. J. Will, d. Z. Factor. 1780",
+  "updated": "2026-06-11 10:18:54.881Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [
+    "yriteduslwyd92e"
+  ],
+  "contents": [
+    "f0yiqojezb53hqz",
+    "7w6ied7bgystxik",
+    "sho5ngvsqmkcg1k",
+    "t5fcu3pfqec7lym"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.401Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.401Z",
+      "agent": "365fawpuuslnmhf",
+      "source_id": "5or5dtouhwh44dh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.881Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.881Z",
+      "agent": "nofik9vs4ppihzo",
+      "source_id": "8h4k1xfnndiefgk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.069Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.069Z",
+      "agent": "tbqlf5mvczxw49p",
+      "source_id": "kwh708f57wtiflu"
+    }
+  ]
+}

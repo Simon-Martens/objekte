@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 9037, Obj 37 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9015,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brissot",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_191_9015_2j58jmcz3a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brissot",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.271Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "ry7jk6b0zpy0xz6"
+    }
+  ]
+}

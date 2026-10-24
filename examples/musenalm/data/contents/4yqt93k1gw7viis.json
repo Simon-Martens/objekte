@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus dem Süden von Irland (Sammlung INr 43989, Obj 16) Dem Text vorangestellt: Gut, hier sitzen wir; / Bernardo soll uns von der Sach' erzählen. / Shakspeare",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Man gebe einem Irischen Landmann, nach den Arbeiten des Tages, ein behagliches Torffeuer - man lasse seine Bekannten, jung und alt, sich um ihn sammeln",
+  "language": [],
+  "musenalm_id": 43994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Spuck-Gemach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Spuck-Gemach",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "2n7n4jreg2lbg51"
+    }
+  ]
+}

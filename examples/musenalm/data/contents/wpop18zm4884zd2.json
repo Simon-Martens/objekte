@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Wo lebt ein junges Weib, das dem ge- / liebten Mann, / Den ihm der Tod entriß, nicht heiße Thränen / weint,",
+  "language": [],
+  "musenalm_id": 17515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die junge Witwe. / Eine komische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die junge Witwe. / Eine komische Erzählung",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.822Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "3a5end0pkcufji8"
+    }
+  ]
+}

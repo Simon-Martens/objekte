@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 51537, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51513,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Scholberg-dem Lucisteig gegenüber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hess sc.",
+  "scans": [
+    "alm_699_51513_vme10g94zj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am Scholberg-dem Lucisteig gegenüber",
+  "updated": "2007-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.603Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "icuidsamg7ly4yb"
+    }
+  ]
+}

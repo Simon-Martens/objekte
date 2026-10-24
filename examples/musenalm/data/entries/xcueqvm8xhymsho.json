@@ -1,0 +1,106 @@
+{
+  "annotation": "die kolorierten Graphiken im Kalendarium, die kolorierte Karte und der kolorierte Titel eines zweiten Exemplars des Jg 1820 sind dem autopsierten Exemplar als 14 Datensätze und als Vollbilder beigegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso Kr, 12 BB Kal darin 12 GG, ar: SS 1-212, SS 213-220 G-Verz, B C, ar1: SS 1-106, ar2: SS 1-61",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1820",
+    "norm": "~ +++ 406383",
+    "biblio": 100309,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 855,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Schalt-Jahr 1820. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.879Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "2rqo7a4vbpgq6tc",
+    "nkosg3zc55tsptg"
+  ],
+  "contents": [
+    "1ymmzvlufseqcro",
+    "5urvpuajv9t6jpy",
+    "gt1sntrkwlcmogs",
+    "9x1558w46l0tgn8",
+    "cnakjwugi74pnmx",
+    "ryhzlfhxnwuk596",
+    "sesndrv54jsezrm",
+    "cfrrqhv3yxgs3w0",
+    "vzcvpq2gdmmg80s",
+    "bhy4mfdtrk31qoj",
+    "s5p1fymarj65rwy",
+    "aqerolfdmwlwgiz",
+    "6bzp0jyzpeb7vrq",
+    "hr98pq7ccwzuffy",
+    "mrko1qf36jtfee6",
+    "mi4qkzch8b00o7n",
+    "pwhoe4b2xties6t",
+    "7is6own4zcri53s",
+    "e95gi7qy8wubvx3",
+    "tigdn34bhkkl0mx",
+    "58h8yag0bogefmk",
+    "7v76tsmnzboihyz",
+    "gkboot5xi5scntn",
+    "4bm7dsk4d1rvgl9",
+    "l2lmy3does1epbb",
+    "kxhyuhhf6pf6nwk",
+    "x9z0usejvsvdtvo",
+    "qmk8w7nwpptefh1",
+    "f4ldjhr081d76af",
+    "r0mcsrszhe3t3bd",
+    "yr5vbt05b698kfe",
+    "mf4tsxgrk7umxla",
+    "coaqzegfpmt2p3l",
+    "c1yr4l7lh6435dl",
+    "86mcmo55fuzbu1o",
+    "6hpgj4fwxqn3bbp",
+    "bpu8re19hfkkdjy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "akbqbip27ji1y0z"
+    }
+  ]
+}

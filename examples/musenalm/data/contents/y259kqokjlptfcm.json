@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Nicht dem irdischen Glanz, der vor dem Grabe noch bleichet, / Nicht der Schönheit, die früh' welkt, wie die Stimme des May's",
+  "language": [],
+  "musenalm_id": 63351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Ankunft einer hohen Person zu Freiburg im Breisgau. / 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Ankunft einer hohen Person zu Freiburg im Breisgau. / 1826",
+  "updated": "2009-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.165Z",
+      "agent": "h05fi1l9hhcmfmt",
+      "source_id": "d8beuuhhxq8gvs4"
+    }
+  ]
+}

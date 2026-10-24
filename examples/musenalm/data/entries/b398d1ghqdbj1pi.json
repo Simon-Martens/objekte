@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Bergmännischer 1791",
+    "norm": "",
+    "biblio": 110573,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2008,
+  "parallel_title": "",
+  "place_statement": "Freyberg u. Annaberg (Craz)",
+  "places": [
+    "rabihmy05w3no58",
+    "0zijzn2javj75in"
+  ],
+  "preferred_title": "Kalender, Bergmännischer 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68, nicht bei L/R",
+  "responsibility_statement": "Alexander Wilhelm Köhler",
+  "subtitle_statement": "",
+  "title_statement": "Bergmännischer / Kalender / für / das Jahr 1791 / von / Alexander Wilhelm Köhler, / Secretair bey dem churfürstl. sächs. Oberberg- / amte zu Freyberg, öffentlichen Lehrer der / Bergrechte bey der Bergacademie ebenda- / selbst, und der Leipziger ökonomischen / Societät Ehrenmitgliede. / Freyberg und Annaberg / in der Crazischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.750Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "f6s8g0kkfjt0ry9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.701Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.701Z",
+      "agent": "ddefbt1dz7v3y86",
+      "source_id": "s0f7grct51vc99m"
+    }
+  ]
+}

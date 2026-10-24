@@ -1,0 +1,45 @@
+{
+  "annotation": "Arabesken (Sammlung INr 14613, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Schon die Muschel gefällt dir, der schimmernde Glanz des / Gehäuses?",
+  "language": [],
+  "musenalm_id": 14617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schon die Muschel gefällt dir, der schimmernde Glanz des / Gehäuses?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Chr. Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.782Z",
+      "agent": "id1mj19iathigp2",
+      "source_id": "yxd83bsm9e82f1t"
+    }
+  ]
+}

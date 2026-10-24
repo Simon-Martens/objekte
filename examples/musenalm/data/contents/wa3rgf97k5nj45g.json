@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 8 Illustrationen s. Graphiken im Kalendarium INr 81133-81139, 81142; Obj 5-11, 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die weite Ebene, welche sich am Südrande des baltischen Meeres, längs den Flußgebieten der Brahe und Netze durch die brandenburgischen Marken bis an die Elbe erstreckt,",
+  "language": [],
+  "musenalm_id": 81146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte / von / Pommern und Rügen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / von / Pommern und Rügen",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.901Z",
+      "agent": "kmfsn447xevj97l",
+      "source_id": "h28spgjlz88ybnt"
+    }
+  ]
+}

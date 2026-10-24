@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Albert und Helena« von C. L. Neuffer  62953, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62951,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albert und Helena / von Neuffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Loder del. M. Hoffmann sc. Vienne",
+  "scans": [
+    "alm_1032_62951_ihtqtxco0w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Albert und Helena / von Neuffer",
+  "updated": "2009-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.945Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "uhycseqpni30u3l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.945Z",
+      "agent": "5m3k81xtringcag",
+      "source_id": "uzdhkvbfwr2dprw"
+    }
+  ]
+}

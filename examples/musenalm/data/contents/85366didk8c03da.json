@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Stich & Druck durch Kunst-Verlag in Carlsruhe]. Illustration zu »Die Braut von Abydos« von George Gordon Byron s. Textbezug INr 43859, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43858,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRAUT VON ABYDOS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Richter pinx. Ed. Schuler sculp.",
+  "scans": [
+    "alm_589_43858_qans28fyzm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRAUT VON ABYDOS",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.371Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "32q9oplbtqhkpjl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.371Z",
+      "agent": "2p87lmr62wiucvw",
+      "source_id": "62vgk582wsd9045"
+    }
+  ]
+}

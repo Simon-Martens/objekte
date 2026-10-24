@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 beigegebenem Gedichten INr 65155, 65156; Obj 215, 216",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Ob ein Schriftner das poetische Flügelroß reite oder auf prosaischemMaulthiere dahintrabe?",
+  "language": [],
+  "musenalm_id": 65154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 214,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Schlußwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Schlußwort",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.254Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "knzc6k3ul4mkrei"
+    }
+  ]
+}

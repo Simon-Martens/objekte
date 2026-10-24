@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Magister Zimpels Ehechronik« von A. F. E. Langbein; INr 19438, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83184,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zimpels Ehe-Chronik, von Langbein 1s. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_263_83184_kln1hkb0xe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zimpels Ehe-Chronik, von Langbein 1s. Blatt",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "13hhe0644elfmte"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.092Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "wuv23tcab3asqo3"
+    }
+  ]
+}

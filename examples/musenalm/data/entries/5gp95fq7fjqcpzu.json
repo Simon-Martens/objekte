@@ -1,0 +1,121 @@
+{
+  "annotation": "Beigegeben ist die Portraitsammlung und die Kurzbiographien: »Die Durchlauchtigsten Marggrafen Zu Brandenburg aus dem Hohenzollerischen Hause Von Friderich I. bis auf Sr. jetztregierenden Maj. König Friderichs. In 14 Kupfern vorgestellet von J. G. Wolfgang Königl. Hof-Kupferstecher in Berlin« mit der Sammlung »Kurzgefaßte merckwürdige Lebens- und Regierungs-Geschichte der Brandenburgischen Churfürsten aus dem Hohenzollerischen Hause. Von Friedrich I.  an bis auf König Friederich Wilhelm« zuerst in: Genealogischer Schreib- und Post-Calender 1753, Alm-2509; dann in: Genealogischer Schreib- und Post-Calender 1761. Diese Portraitsammlung hier für den Genealogischen Kalender 1770 neu gestochen; Bezeichnung  am 14. Portrait »Friderich II.« hier nach veränderter, aktualisierter zeichn. Vorlage: J. E. Gericke sc. Berol. 1766; wahrscheinlich gilt die Bezeichnung an Blatt 14 für die gesamte Suite",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, verso G, 47 SS Kal darin 12 GG, 114 SS, 3 SS VrlgM, 14 GG, 78 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1770",
+    "norm": "~",
+    "biblio": 404172,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 781,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1770",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "Königl. Academie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1770; / mit Kupfern gezieret / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.759Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "items": [
+    "0ynyg28cjas5su2"
+  ],
+  "contents": [
+    "2g98mqe49cp3r8x",
+    "6j50zm6fahk8507",
+    "izud039q58mbyte",
+    "v2mun9nid74ckyg",
+    "5ugqpbty1x8ypof",
+    "nlneijk5ce49o88",
+    "5pptwttrenb5s88",
+    "a9rmmtevm8sd136",
+    "g6kp8c9a21arppd",
+    "r109w0y1hkpu56q",
+    "uctkqfnzsm5owwa",
+    "7i4zqkec0ga97er",
+    "j55gols26stcdx9",
+    "x6j34d5hg4btibz",
+    "1tuy8tfo8oivcon",
+    "s9il5x4k4zwtpxk",
+    "mb2p9zmfuwm7hsw",
+    "7bbk6fl8p3w7aex",
+    "qcgl6f6xlek31jd",
+    "xoiekski660mh5b",
+    "fpfb93nl9u3q7rq",
+    "tj73i5aacs5lxqk",
+    "x7o7gl8cq85tf9u",
+    "0ymc6fmhw1l0v5f",
+    "t60n5pzzhsbzwct",
+    "vymywndu29338la",
+    "cvobfu8nt089c2l",
+    "avkbsb2p8u0jgov",
+    "t6ivnm5uz5z6lb0",
+    "e7waxnuxjasxh0m",
+    "l9t1vejrp3lncnu",
+    "iieuub2ekbwoxyv",
+    "l26bi0mql56ernc",
+    "xj0q50p163tgphp",
+    "zd2x5w2sei6yd2n",
+    "riba09ni8pmwlvy",
+    "1hxdhwncwn6sv03",
+    "czs9nln4q8gd7xh",
+    "dxb7yxmk9bzpma0",
+    "sm6q7vhkenaa4zn",
+    "00a6b4n7wmqmcqj",
+    "6ypibrvjll4y4b6",
+    "eekxivyco3grnt4",
+    "4zugft2akk3bzge",
+    "nz21kqclb1i6txv",
+    "d9osxkhtxwvhqo5",
+    "jt0sf7onbzhp66d",
+    "em3za7nkk9j6jj3",
+    "eb7wkhe5hr1nduz",
+    "jk11sp3d7v18ebd",
+    "26pquwnt13nwtun",
+    "8quax2br83y5s61",
+    "ip5zalytajsacqg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "efzbhxpv3c52x9s"
+    }
+  ]
+}

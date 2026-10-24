@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, S I T, S G-Verz, S, B I-Verz, G, B, G, B, SS 1-401 darin 4 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1848",
+    "norm": "~",
+    "biblio": 100790,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3484,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1848",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "Bernd von Guseck",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1848. / Von / Bernd von Guseck",
+  "updated": "2026-06-11 10:18:54.504Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "mnpj1h8his5ob0d"
+  ],
+  "contents": [
+    "6ho9sk98mqacppx",
+    "fcxg86ybooegi0s",
+    "rm45mkrjdd8ffzm",
+    "ke2tpmsdqbw1kyl",
+    "juq4sw56ttj6lxo",
+    "07cq6yko4k3scdb",
+    "jxgx1ril2m3n9mc",
+    "b61pm0rsy9mg2v7",
+    "ahkab5fk8az5wh3",
+    "al3lyrngdaf63vy",
+    "u8t0j53nsdvimze",
+    "w01xfx2nqa4ncl4",
+    "4ao9i16eft8b4cp",
+    "eu4oqkzjjdd7vv5",
+    "0rabm5pswnyvgri",
+    "35ze3cebh9vvoam",
+    "qm2h24a24xr08i9",
+    "v6koz68s2m91kwh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.519Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.519Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "avw6zeru8mqhmuw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.237Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.237Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "k59jinegbrif66u"
+    }
+  ]
+}

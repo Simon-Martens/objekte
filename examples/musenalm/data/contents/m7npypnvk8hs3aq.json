@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Welt haben heißt diejenige Klugheit, Gewandheit und Geschicklichkeit im Betragen besitzen, die uns in guten Gesellschaften, für Menschen feiner Bildung, erklären.",
+  "language": [],
+  "musenalm_id": 73466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "43. / Suche dir diejenigen Vollkommen- / heiten zu erwerben, die den Mann be- / zeichnen, von welchem man sagt, er / habe Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "43. / Suche dir diejenigen Vollkommen- / heiten zu erwerben, die den Mann be- / zeichnen, von welchem man sagt, er / habe Welt",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.579Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "w7ckbmjdky5tmuu"
+    }
+  ]
+}

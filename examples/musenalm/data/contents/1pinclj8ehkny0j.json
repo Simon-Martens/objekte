@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. I-Verz: »Das Licht im Walde. Mit Melodie von C.M. v. Weber« §1§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Der Geishirt steht am Felsenrand, / Ein Dirnlein naht in Pilgergewand.",
+  "language": [],
+  "musenalm_id": 20377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Licht im Thale #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Licht im Thale #",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.923Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "ltotjc03om04xfz"
+    }
+  ]
+}

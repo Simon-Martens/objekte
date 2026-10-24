@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Sind wir hier am Ziel unsrer Reise, / Dürfen wir wissen, warum sie geschah?",
+  "language": [],
+  "musenalm_id": 127517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Parzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Parzen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.943Z",
+      "agent": "lonqcs6pn486ebs",
+      "source_id": "rn59xaz3juft3d5"
+    }
+  ]
+}

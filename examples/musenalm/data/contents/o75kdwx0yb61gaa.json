@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Wie die Nacht jetzt mit dem Tag kämpft, / Und der Tag mit Finsterniß, / Finsterniß mit Morgengold",
+  "language": [],
+  "musenalm_id": 129882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein / Schicksalstag in Spanien. / Comödie mit Gesang in drei Aufzügen / von Ludwig Robert. / (Nachlaß)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein / Schicksalstag in Spanien. / Comödie mit Gesang in drei Aufzügen / von Ludwig Robert. / (Nachlaß)",
+  "updated": "2022-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.050Z",
+      "agent": "shwrrrsohbx2ih5",
+      "source_id": "m9ltjkmaeh268gd"
+    }
+  ]
+}

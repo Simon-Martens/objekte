@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. und Titel s. Textbezug INr 48827, Obj 6 /) $ s. Anm. oben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48826,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die H. Jungfrau und die vier Schutzheiligen von Perugia #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pietro Vanucci, genannt Perugino # Malbeste $",
+  "scans": [
+    "alm_667_48826_ttiq1shfma.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die H. Jungfrau und die vier Schutzheiligen von Perugia #",
+  "updated": "2007-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.575Z",
+      "agent": "9flq29otnqnhiho",
+      "source_id": "n0v2d1e340jrm5y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.575Z",
+      "agent": "t6kwrc1ens7g178",
+      "source_id": "v8cqwt6o1zud7nw"
+    }
+  ]
+}

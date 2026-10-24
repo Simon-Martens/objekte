@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Mai; nummeriert 5.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107020,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quoi! Marche-t-'il, ou ne marche-t'il point? / Elles parlent, il ne l'entend point! [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_2156_107020_ril7zcfthi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quoi! Marche-t-'il, ou ne marche-t'il point? / Elles parlent, il ne l'entend point! [...]",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.716Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "d33t0uiclt6vyjg"
+    }
+  ]
+}

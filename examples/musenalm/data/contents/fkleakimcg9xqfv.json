@@ -1,0 +1,47 @@
+{
+  "annotation": "1. Vertonung des Gedichts »Ständchen« von F. K. Lang INr 75971, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3666_75972_46b3p6v7mh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen",
+  "updated": "2011-05-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.858Z",
+      "agent": "cx1t1g6vij8mhnm",
+      "source_id": "fnz4cd39n57g14m"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Hier lieg' ich schwach und siech; / Und ach! die alte Sophilette",
+  "language": [],
+  "musenalm_id": 38343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seufzer in einer / Krankheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "N. Hamb. Zeit. 1767",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seufzer in einer / Krankheit",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.547Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.547Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "7ed1896wpjmoxzn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Pfingst-Sonette (Sammlung INr 54717, Obj 30) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Die Flammen, so vom Licht des Vaters stammen, / der Unheil tilgt und alles Heil begründet,",
+  "language": [],
+  "musenalm_id": 54719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.494Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "9yi8kp70efinqyw"
+    }
+  ]
+}

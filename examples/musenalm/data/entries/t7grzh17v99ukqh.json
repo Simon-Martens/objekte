@@ -1,0 +1,88 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Waadt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, B Vrwrt d Hrsg, SS 1-260 darin 6 GG, SS 261-264 C, SS 262-265 I-Verz, S 266 G-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1815",
+    "norm": "~",
+    "biblio": 200425,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 715,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1815. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.164Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "e0vn85um9egrwqq"
+  ],
+  "contents": [
+    "68ji9k8inqyylpp",
+    "ikas21npokoqnkh",
+    "cng90srqotsz69q",
+    "ujvwts0o203avcw",
+    "2gwm0dvsxztepve",
+    "fj7mv9tnegkp4l4",
+    "9wl5q2vkqcwe0sx",
+    "fjnqffz65m5hz22",
+    "un7t4btry158fbw",
+    "ap2581s9r15rtd7",
+    "cg62alqwttnyevc",
+    "kftgzz2h8gmffwv",
+    "sxdm4qd9s5gfajk",
+    "4c1i5ryqovg17xu",
+    "jq3xtxl36v0daad",
+    "4io07rmx92j6q83",
+    "ihbgttkbtfn53hr",
+    "jlay806slldiw04",
+    "4cfnolsk3g7xxr3",
+    "8ddujrn3k45dfwu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "fuibqz2vjioytg6"
+    }
+  ]
+}

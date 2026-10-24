@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) graph. Titel s. Textbezug INr 26757, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26753,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1819 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. & del. F. Fleischmann sc.",
+  "scans": [
+    "alm_349_26753_dhd7brjkdt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1819 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.369Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "2ukdc15m662253l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.370Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "v2e5kq4x31ms4zf"
+    }
+  ]
+}

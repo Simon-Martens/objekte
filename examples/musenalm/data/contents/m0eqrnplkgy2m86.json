@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3 /) Graphik im Kalendarium März /) Illustration zu »Begebenheiten des Peregrine Pickles« von T. G. Smollet s. Textbezug INr 70069, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70056,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haben Sie nicht? oder fühlen Sie nicht? / I. Th. 10. Cap.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_797_70056_vtsje22yfz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Haben Sie nicht? oder fühlen Sie nicht? / I. Th. 10. Cap.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.335Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "mt2vel4g5tjuyii"
+    }
+  ]
+}

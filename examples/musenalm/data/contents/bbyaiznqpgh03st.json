@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "448",
+  "incipit_statement": "Ueber den neuesten Zustand des Inselreiches Japan, das seinen festen Entschluß verfolgt, dem Handel der Europäer seine Häfen geschlossen zu halten, oder nur unter sehr beschränkenden Bedingungen zu eröffnen, haben wir wenig Auskunft.",
+  "language": [],
+  "musenalm_id": 45055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Asien]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Asien]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.098Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "sg50yp48b5y5hyc"
+    }
+  ]
+}

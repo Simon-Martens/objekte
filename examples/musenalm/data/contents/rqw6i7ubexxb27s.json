@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Kaiser Friedrich und Gela« von K. Geib INr 62945, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62949,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz gez. J. Lips gest.",
+  "scans": [
+    "alm_1032_62949_y5xwbd84qp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.944Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "i6kdzpo67vsbx6h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.944Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "nvs0znktv369kjg"
+    }
+  ]
+}

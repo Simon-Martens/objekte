@@ -1,0 +1,115 @@
+{
+  "annotation": "Nachtitel: Iduna; am Nachtitel: 1848; Kalenderstempel für 1849",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S, VB, verso G, T, 6 GG, 8 BB Kal darin 6 GG, 4 BB Tabb, nT, B, SS 1-142, B I, Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wien, Riedl) 1849 /) Titelauflage von Iduna 1848",
+    "norm": "~",
+    "biblio": 405020,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1915,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch (Wien, Riedl) 1849 [Titelauflage von Iduna 1848]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / das Jahr / 1849 / WIEN, / bei Franz Riedls sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No.136",
+  "updated": "2026-06-11 10:18:55.449Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "008bzvk1wcmt1u1"
+  ],
+  "contents": [
+    "c47jl2o3l9re3mh",
+    "ev40o482l4h6lig",
+    "ttrn56hldkxx5ke",
+    "rt9jptaye4tind8",
+    "069z5fkyz744uac",
+    "mr0r95kdmaz564g",
+    "ps26p3v8v9y2524",
+    "5qgjpqjq7n3vf01",
+    "6ikj3zbumqgsa69",
+    "pb47p9k9ayff35e",
+    "ahifa4dg1u9y7ga",
+    "ntoj5pwjqhnwtu8",
+    "biqn3rel5elh5pr",
+    "fdj81bvc0y7r0ka",
+    "j8jip5jzyy6xqve",
+    "4dhif0tuutr973j",
+    "755gpm5stqseitx",
+    "vcsghwf2hh0kbhu",
+    "y6udw5vwbrxnojc",
+    "rqs9rdxjgcaruww",
+    "5wvjf8gehfxrvxo",
+    "n66cd6htoyj6ctq",
+    "uhh1ia2ffhb0kj4",
+    "hj7gkrkis3i9c7z",
+    "337bl52xh0rysil",
+    "uhp8vsov5l0wsdh",
+    "fmuvhveeo4t42xr",
+    "inkdjrtph9puriw",
+    "vshgmeve6agxnse",
+    "7f8ga9f2p22ek92",
+    "fydm94iks0dw4t7",
+    "3ty2ohp3hw1bidu",
+    "142ovy98wip3lv2",
+    "qn5nf058yaxlgbd",
+    "jfcch449548brht",
+    "rndko2uhf67f4gz",
+    "t21cwngswmqtlkq",
+    "3f1ucjxb12ez1vj",
+    "f89iohh98ec6a8p",
+    "0cuv1oy1v7fnwtj",
+    "p41p7zukksul1na",
+    "myvjt0z5theoasn",
+    "8zvnm6wintfqfqd",
+    "cguyw6o3hcudz4n",
+    "1vsg0gmo67bmzve",
+    "7ebjfmclljish2f",
+    "axoyli50jfm22ik"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "oz3f8yzr3klj5le"
+    }
+  ]
+}

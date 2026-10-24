@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76219,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaise 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3283_76219_xp9sczjc56.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaise 2.",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.770Z",
+      "agent": "cx1t1g6vij8mhnm",
+      "source_id": "kea7uq6uyt5i50n"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Unter dieser Bennenung ist eine Bildsäule im Dome zu Naumburg an der Saale bekannt. /) 7. Gedichte von Langbein, Schütze und Tiedge (Sammlung INr 29956, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Herr Ritter, sagte der alte Graf, / Traut meinem Gelöbniß im Stillen!",
+  "language": [],
+  "musenalm_id": 29957,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die lachende Braut #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die lachende Braut #",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.318Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "9pnegoj3uklwq6b"
+    }
+  ]
+}

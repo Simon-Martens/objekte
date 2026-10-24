@@ -1,0 +1,45 @@
+{
+  "annotation": "Motto zur Sammlung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "At impium sic alloquitur deus: / Tua fronte leges tu recitas meas?",
+  "language": [],
+  "musenalm_id": 133200,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "paraphr. D.s. L.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "BUCHANANUS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "paraphr. D.s. L.",
+  "updated": "2023-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.103Z",
+      "agent": "ra2pu7qox8ibm0x",
+      "source_id": "wr6kcmfv22jcqyp"
+    }
+  ]
+}

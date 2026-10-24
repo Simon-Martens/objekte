@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Soll im Ernst, mein Lieber, in dem dumpfen / Arbeitsstübchen, vor dem Aktenschrank, / Frohsinn und Gesundheit dir verschrumpfen?",
+  "language": [],
+  "musenalm_id": 39100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung zu einer Lustfahrt nach / Tegel. / An Herrn Regimentsqartiermeister und Auditeur / Knüppel in Berlin. / (Abends im Juny 1793.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung zu einer Lustfahrt nach / Tegel. / An Herrn Regimentsqartiermeister und Auditeur / Knüppel in Berlin. / (Abends im Juny 1793.)",
+  "updated": "2005-07-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.128Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "92qet2nexw3nkrr"
+    }
+  ]
+}

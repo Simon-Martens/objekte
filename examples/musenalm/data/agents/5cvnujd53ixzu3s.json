@@ -1,0 +1,760 @@
+{
+  "annotation": "",
+  "biographical_data": "1803-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.395Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller, Satiriker u. Mythologe",
+        "Der Autor, der ursprünglich Seligmann Kohn hieß, schrieb unter vielen Pseudonymen; als Vornamen verwendete er Josef, Ferdinand, Friedrich, Adolf, Felix, Franz, Selig, als Familiennamen Korn, Nork, Angelhuber, auch als Spiritus Asper, Spiritus Lenis oder Ein Unbefangener trat er auf, vielleicht noch unter anderen Namen - wohl um den Behörden und den von seinen Satiren angegriffenen Zeitgenossen zu entgehen. Geboren wurde er in Prag als Sohn eines Leinenhändlers. Mit 17 Jahren bezog er das Gymnasium, wurde wegen einer Satire über einen Lehrer relegiert und sollte im Geschäft seines Vaters arbeiten, interessierte sich aber mehr für philologische Studien und verfaßte weiterhin Satiren. 1828 begann er für Berliner Zeitungen zu schreiben; 1829 zog er nach Leipzig und wurde Mitarbeiter der Zeitschrift »Hebe«. Da er keinen gültigen Paß besaß, zog er weiter nach Halle, trat dort zum Christentum über und wollte sich mit einer Leihbibliothek sein Brot verdienen; er konnte aber nicht bleiben und zog nach Pest, Wien, Prag, Dresden und Connewitz bei Leipzig. Nach der Revolution von 1848 hoffte er sich in Österreich niederlassen zu können, starb aber auf der Reise von Leipzig nach Wien."
+      ],
+      "dateOfBirth": [
+        "1803"
+      ],
+      "dateOfDeath": [
+        "1850"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172728428",
+        "https://d-nb.info/gnd/159146925"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116340266/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Seligmann"
+          ],
+          "surname": [
+            "Kohn"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Selig"
+          ],
+          "surname": [
+            "Kohn"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Selig"
+          ],
+          "surname": [
+            "Korn"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116340266",
+      "id": "https://d-nb.info/gnd/116340266",
+      "oldAuthorityNumber": [
+        "(DE-588)159146925",
+        "(DE-588a)172728428",
+        "(DE-588a)116340266",
+        "(DE-588a)159146925",
+        "(DE-588)172728428"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4059481-6",
+          "label": "Teplitz"
+        }
+      ],
+      "preferredName": "Kohn, Joseph Seligmann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph Seligmann"
+        ],
+        "surname": [
+          "Kohn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4333843-4",
+          "label": "Satiriker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Mythologe"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich N."
+          ],
+          "surname": [
+            "Nork"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Spiritus lenis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Felix Ad."
+          ],
+          "surname": [
+            "Korn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Nork"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Anglhuber"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Nork"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Nork"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Kove"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Spiritus asper"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Felix Adolph"
+          ],
+          "surname": [
+            "Nork"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Spiritus"
+          ],
+          "surname": [
+            "Asper"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Spiritus"
+          ],
+          "surname": [
+            "Lenis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Felix Adolph"
+          ],
+          "surname": [
+            "Korn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Küffner, A. W.: Sammlung der Ruinen- und Ritterburgen Frankenlands",
+        "Korn, Friedrich: Ueber Fatalismus oder Vorherbestimmung der menschlichen Schicksale",
+        "Korn, Friedrich: Rabbinische Quellen und Parallelen zu neutestamentlichen Schriftstellern",
+        "Korn, Friedrich: Mythen der alten Perser als Quellen christlicher Glaubenslehren und Ritu*",
+        "Korn, Friedrich: Zeriel's des infernalischen Schauspieldirectors Reise auf die Oberwelt",
+        "Korn, Friedrich: Vergleichende Mythologie zum nähern Verständniß vieler Bibelstellen",
+        "Korn, Friedrich: Ueber den Sonnencultus der alten Völker und seine geistige Bedeutung",
+        "Korn, Friedrich: Panorama von Ofen und Pesth",
+        "Korn, Friedrich: Das Leben Mosis aus dem astrognostischen Standpunkte betrachtet",
+        "Korn, Friedrich: Braminen und Rabbinen"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Korn"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb103590524"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr92025409"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17211891"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1458357"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116340266/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159146925"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172728428"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116340266"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Nork"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108444296"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116340266"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116340266"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Kohn_Josef_1804_1850.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116340266.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116340266"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Anglhuber, J. F.",
+        "Korn, Josef F.",
+        "Seligmann Kohn, Joseph",
+        "Nork, Felix",
+        "Kohn, Selig",
+        "Korn, Ferdinand",
+        "Spiritus lenis",
+        "Nork, Franz",
+        "Kove, F. A.",
+        "Asper, Spiritus",
+        "Korn, Felix Adolph",
+        "Kohn, Josef",
+        "Korn, Felix A.",
+        "Nork, Friedrich N.",
+        "Kohn, Felix Adolph",
+        "Spiritus lenis und Spiritus asper, Gebrüder",
+        "Lenis, Spiritus",
+        "Kohn, Joseph S.",
+        "Korn, Friedrich",
+        "Kohn, Felix A.",
+        "Kohn, Seligmann",
+        "Nork, Ferdinand",
+        "Korn, Felix",
+        "Norck, F. P.",
+        "Korn, Joseph",
+        "Korn, Selig",
+        "Korn, Felix Ad.",
+        "Korn, Josef Ferdinand Friedrich",
+        "Nork, Felix Adolph",
+        "Spiritus asper",
+        "Nork, Friedrich",
+        "Nork, Josef",
+        "Spiritus Lenis en Spiritus Asper, gebroeder",
+        "Kohn, Friedrich",
+        "Nork, F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "nameAddition": [
+            "gebroeder"
+          ],
+          "personalName": [
+            "Spiritus Lenis en Spiritus Asper"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Ad."
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Selig"
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Anglhuber"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Seligmann"
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Adolph"
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "personalName": [
+            "Spiritus lenis"
+          ]
+        },
+        {
+          "personalName": [
+            "Spiritus asper"
+          ]
+        },
+        {
+          "forename": [
+            "Felix A."
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "Josef F."
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Spiritus"
+          ],
+          "surname": [
+            "Lenis"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Gebrüder"
+          ],
+          "personalName": [
+            "Spiritus lenis und Spiritus asper"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Spiritus"
+          ],
+          "surname": [
+            "Asper"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich N."
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph S."
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "Selig"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "F. P."
+          ],
+          "surname": [
+            "Norck"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Adolph"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Adolph"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix A."
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Seligmann Kohn"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Ferdinand Friedrich"
+          ],
+          "surname": [
+            "Korn"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Kove"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Nork"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "Kohn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Nork",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Nork"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:58:15Z",
+    "gnd_query_biographical_data": "1803-1850",
+    "gnd_query_name": "kohn, seligmann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1445,
+  "name": "Kohn, Seligmann",
+  "profession": "Text",
+  "pseudonyms": "F. Nork; Felix Adolf Korn; Spiritus lenis",
+  "refs": "Goed X, 629",
+  "updated": "2026-06-11 13:29:23.299Z",
+  "uri": "https://d-nb.info/gnd/116340266",
+  "editor": ""
+}

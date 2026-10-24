@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium; # Bez. am 1. Blatt der Suite /) Illustration zu »Der kluge Rath« INr 120817, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120805,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kluge Rath",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Maillard del. Cl. Kohl. sc.",
+  "scans": [
+    "alm_3285_120805_qibra94rjm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der kluge Rath",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.681Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "numdtpm9lvbf5d9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.681Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "srxbwe7g99i7lay"
+    }
+  ]
+}

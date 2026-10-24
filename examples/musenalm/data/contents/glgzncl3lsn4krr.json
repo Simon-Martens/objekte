@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration s. Graphik INr 123636, Obj 6; # Bezeichnung aus den Jg. bis 1806",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Nun, Minchen, entschließe Dich kurz und gut, denn / ich habe Deinen Freiern kund gethan, daß du heute / zwischen ihnen wählen würdest.",
+  "language": [],
+  "musenalm_id": 123637,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blind geladen. / Lustspiel in einem Akt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blind geladen. / Lustspiel in einem Akt",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.845Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "uv1sbjrgdmg5if8"
+    }
+  ]
+}

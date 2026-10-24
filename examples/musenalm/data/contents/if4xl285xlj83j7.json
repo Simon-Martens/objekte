@@ -1,0 +1,56 @@
+{
+  "annotation": "Tabulae votivae (Sammlung INr 38033, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Alle Schöpfung ist Werk der Natur. Von / Jupiters Throne / Zuckt der allmächtige Strahl,",
+  "language": [],
+  "musenalm_id": 38114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 183,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genialische Kraft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Genialische Kraft",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.771Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "o5dxsuwjseyo2cf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.771Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "so2seqit3qr2p8g"
+    }
+  ]
+}

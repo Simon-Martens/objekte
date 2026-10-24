@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, S I zT, SS III-XIV G-Verz darin 5 GG, SS XV-XVI I-Verz, S 1 nT, SS 3-199, S 200 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für edle Weiber und Mädchen 1807",
+    "norm": "~",
+    "biblio": 100666,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 321,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (C. F. Müller)",
+  "places": [
+    "ouysrvcrf9nrnri"
+  ],
+  "preferred_title": "Taschenbuch für edle Weiber und Mädchen 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 151; L/R 71; Goed VIII. 56, 28",
+  "responsibility_statement": "Wilhelmine Müller",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Edle Frauen u. Mädchen / 1807. / mit Kupfern von Weinrauch. / Carlsruhe / bei C. F. Müller. / Leipzig. / in Comisssion bei Jakobäer",
+  "updated": "2026-06-11 10:18:54.702Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "8x504194i3mlfuy"
+  ],
+  "contents": [
+    "ka1kyw65t5hj5oy",
+    "n9fj5zhpy0xfm0v",
+    "cvwnklrncc4anod",
+    "7x5uz1kjebozfgy",
+    "1jsqnqsn833d87s",
+    "3yzek0aoszsb3zk",
+    "gjhh86mb3ooliwk",
+    "336umrk6s7isz5z",
+    "xqk9n1e84yicwcw",
+    "0trkvz97g7djp0j",
+    "15g33zyj2j59r1h",
+    "pb08jektm2sdl6j",
+    "8jwgf1d2e9g7nec",
+    "561yzt4wf8qwnv8",
+    "k4guejw85q7msjy",
+    "9warrclg4z5eb7m",
+    "x14cst6nw63km6h",
+    "mpop51wxa0p5z9t",
+    "qsjw595lgb55xx0",
+    "s918om4ell7jbj0",
+    "p4onwvsd8r4vmro",
+    "3i4k60sebcfc991",
+    "3fmea75dzuwv8d2",
+    "vq92ipeb477cnrj",
+    "8l6ywccxuci8ai3",
+    "w6nyxc74m9hezqe",
+    "mu4esvusxel6zfq",
+    "utujp1ewb5bf4gn",
+    "vnlphjxoy13nsg0",
+    "e8feh2hi7nkl5fv",
+    "2zbn0outmg2xhc2",
+    "fcrl90wafejc06o",
+    "3vq2p7qv3qv0pmp",
+    "k94y9359gqkpslj",
+    "wl8eid9apvamjx5",
+    "byzaanw8g2mk881",
+    "badp0m1wf6jtza0",
+    "krhg2k1onpbv42s",
+    "5h3b6bm4itdcfvv",
+    "5dkfyx8gir8gxfa",
+    "sllemoakrwcm5bs",
+    "dj0jg8ddk9tku58",
+    "9805kj2u581idtb",
+    "4u1h6c834ynso1b",
+    "yhfxw7osxxfelka",
+    "iqhff04a66d9u7q",
+    "e24xxphl2vapo98",
+    "hn5l36dmg54b237",
+    "u9w69sbs8672qiq",
+    "2hu72iqran0vw5i",
+    "qizpwgmjzpbfa9a",
+    "ookbn8sgz9rexs3",
+    "wl5ua5woxw0bfn0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.634Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.634Z",
+      "agent": "3ruy368fakfbib3",
+      "source_id": "qjhfahb5gln7u89"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.596Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.596Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "uc755x2u05y71jw"
+    }
+  ]
+}

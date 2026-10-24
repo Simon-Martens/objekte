@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ich sitze, du sitzest, er sitzet, / Wir sitzen, ihr sitzet, sie sitzen. / Boileau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Mein witziger Figaro! So eben erfahre ich, daß Sie, allgeliebter Figaro, am 25sten Februar zu einer sechsmonatlichen Haft, zu einer Geldstrafe von 1000 Francs und zur Tragung der Kosten verurtheilt worden sind.",
+  "language": [],
+  "musenalm_id": 44936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sendschreiben des »schwarzen Gespenstes« / an den »Figaro«",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Das schwarze Gespenst",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sendschreiben des »schwarzen Gespenstes« / an den »Figaro«",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.521Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "fei2p27i6c3vgiy"
+    }
+  ]
+}

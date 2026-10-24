@@ -1,0 +1,417 @@
+{
+  "annotation": "",
+  "biographical_data": "1654-1729",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.260Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "aus Frauenburg/Kurland; Resp. in Königsberg; Berlin, Dresden (Wirkungsorte); Dt. Dichter, Hofdichter, Zeremonienmeister, von König Friedrich I. von Preußen am 14./24. Mai 1690 in den Adelsstand erhoben",
+        "Buchbesitz: Privatbibliothek Johann von Besser"
+      ],
+      "dateOfBirth": [
+        "1654-05-08"
+      ],
+      "dateOfDeath": [
+        "1729-02-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Illustrierte Literaturgeschichte, Autor: Otto von Leixner, Leipzig 1880"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20von%20Besser.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20von%20Besser.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20von%20Besser.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:32:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11851024X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120585456",
+          "label": "Besser, Catharina Elisabeth"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11851024X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/120585456",
+          "label": "Besser, Catharina Elisabeth"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11851024X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4006044-5",
+        "(DE-588a)11851024X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1048044599",
+          "label": "Saldus"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Besser, Johann von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Besser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4649342-6",
+          "label": "Zeremonienmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398831-3",
+          "label": "Legationsrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Hofpoet"
+      ],
+      "publication": [
+        "Besser, Johann von: Schriften, beydes in gebundener und ungebundener Rede",
+        "Besser, Johann von: Sr. Churfürstl. Durchl. zu Brandenburg Fridrich des Dritten geheimtester Staats-Minister/ Eberhard von Danckelmann ..",
+        "Besser, Johann von: Preußische Krönungs-Geschichte",
+        "Besser, Johann von: Relation des cérémonies faites à la dedicace de la nouvelle univ*",
+        "Besser, Johann von: Chur-Brandenburgs Trost Friderich der Dritte, Ein würdiger Nachfolger Fri*"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/131175623X",
+          "label": "Exlibris (Wappen, Besser, Johann von), 01"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130358249X",
+          "label": "Privatbibliothek Johann von Besser"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031732"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/besser-johann-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/67256426"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1696751"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11851024X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_von_Besser"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081474849"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11851024X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11851024X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11851024X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11851024X"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/11851024X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11851024X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "B. von",
+        "Besser, Johannes",
+        "Besser, Johann",
+        "Besser, Johannes a",
+        "Besser von",
+        "Beßer, Johann von",
+        "Besser, Jean de",
+        "Besser, Joannes"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beßer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Besser"
+          ]
+        },
+        {
+          "personalName": [
+            "Besser"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Besser"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Besser"
+          ]
+        },
+        {
+          "personalName": [
+            "B."
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Besser"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Besser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_von_Besser",
+          "label": "https://de.wikipedia.org/wiki/Johann_von_Besser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:55:54Z",
+    "gnd_query_biographical_data": "1654-1729",
+    "gnd_query_name": "besser, johann von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 186,
+  "name": "Besser, Johann von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 346",
+  "updated": "2026-06-11 13:29:21.559Z",
+  "uri": "https://d-nb.info/gnd/11851024X",
+  "editor": ""
+}

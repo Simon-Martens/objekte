@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Wohl mag in diesen Zeiten / Verrath die Flügel breiten,",
+  "language": [],
+  "musenalm_id": 71148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friede",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.527Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "zxcdwbkreukhfxt"
+    }
+  ]
+}

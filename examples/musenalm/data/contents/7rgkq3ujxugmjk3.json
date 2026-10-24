@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Textbezug (Gedicht) INr 64169, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64178,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madonna #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sct. Mchn",
+  "scans": [
+    "alm_1061_64178_16hih1yhtd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madonna #",
+  "updated": "2009-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.363Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "3ej2nnvlxgh0vyj"
+    }
+  ]
+}

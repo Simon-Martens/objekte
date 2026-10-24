@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Die Haremsrose« von J. G. Seidl INr 58057, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HAREMSROSE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach dem Leben gez. in Cairo v. J. Heicks. Gest. v. C. Mahlknecht u. J. Axmann",
+  "scans": [
+    "alm_773_58058_oh3q2e10xe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HAREMSROSE",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.866Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "grnr7cfjc0nr75k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.866Z",
+      "agent": "etectz7b8c64di9",
+      "source_id": "urpnlfsgeblgebs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.866Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "y167xbwhpmorqy6"
+    }
+  ]
+}

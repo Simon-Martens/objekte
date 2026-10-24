@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wie dem Menschen zu Muthe ist, der mit empfänglichem Sinne sich aufmacht, die Herrlichkeiten der Natur zu betrachten",
+  "language": [],
+  "musenalm_id": 9269,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Shakespeare / Zugabe zu den Kupfern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. R. Abeken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Shakespeare / Zugabe zu den Kupfern",
+  "updated": "2000-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.286Z",
+      "agent": "9hjmbbfy8dxk9m3",
+      "source_id": "rxddtbxvxvrnscm"
+    }
+  ]
+}

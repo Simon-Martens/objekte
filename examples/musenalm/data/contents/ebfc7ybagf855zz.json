@@ -1,0 +1,45 @@
+{
+  "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59) S 352 unten: Druck und Papier von C. L. Brede in Offenbach",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Diejenigen Dichter, welche in der unruhigen Zeit desertirt und aus der Poesie in die Politik übergegangen sind, werdenhiermit ersucht, wieder zur Fahne Apollo's zurückzukehrern,",
+  "language": [],
+  "musenalm_id": 98439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.831Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "jlathzokgnyz3o0"
+    }
+  ]
+}

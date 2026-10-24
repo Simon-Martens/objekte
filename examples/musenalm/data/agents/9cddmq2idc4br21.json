@@ -1,0 +1,1955 @@
+{
+  "annotation": "",
+  "biographical_data": "1550-1590",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.323Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. jur."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118512307",
+          "label": "Bodin, Jean"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119725304",
+          "label": "J.W.V.L."
+        },
+        {
+          "id": "https://d-nb.info/gnd/117459003",
+          "label": "Sebisch, Melchior"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118615823",
+          "label": "Sozzini, Lelio"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119157845",
+          "label": "Nigrinus, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124856217",
+          "label": "Liébault, Jean"
+        },
+        {
+          "id": "https://d-nb.info/gnd/129831190",
+          "label": "Barnaud, Nicolas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118645870",
+          "label": "Arnauld, Antoine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119719606",
+          "label": "Isinder, Melchior"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118530666",
+          "label": "Erasmus, Desiderius"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Satiriker, Publizist und Jurist; 1574 Promotion zum Dr. jur. in Basel; 1581-1583 Praktikant am Reichskammergericht in Speyer; ab 1583 Amtmann in Forbach"
+      ],
+      "dateOfBirth": [
+        "1546"
+      ],
+      "dateOfDeath": [
+        "1590"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Fischart"
+          ],
+          "creditText": [
+            "http://portrait.kaar.at/Deutschsprachige%20Teil%201/images/johann_fischart.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20fischart.hut.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20fischart.hut.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20fischart.hut.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1013781317"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:44:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118533185/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118533185",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118533185",
+      "oldAuthorityNumber": [
+        "(DE-588a)1013781317",
+        "(DE-588a)118533185",
+        "(DE-588)1013781317",
+        "(DE-588c)4017261-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4387429-0",
+          "label": "Forbach (Departement Moselle)"
+        }
+      ],
+      "preferredName": "Fischart, Johann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann"
+        ],
+        "surname": [
+          "Fischart"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4333843-4",
+          "label": "Satiriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142294-6",
+          "label": "Amtmann"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "I. N."
+          ],
+          "surname": [
+            "Trau v. Trü"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hultrich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emericus"
+          ],
+          "surname": [
+            "Lebusius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Alonicus"
+          ],
+          "surname": [
+            "Meliphron Theutofrancus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Engelbrecht"
+          ],
+          "surname": [
+            "Moerewinder von Fredewart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "nameAddition": [
+            "aus Seeland"
+          ],
+          "surname": [
+            "Moerewinder von Fredewart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Emericus Lebusius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Wisartus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Huldreich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pickart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Huldreich"
+          ],
+          "surname": [
+            "Ellokosperos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H. Engelprecht"
+          ],
+          "surname": [
+            "Mörewinder von Fredewart aus Seeland"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "nameAddition": [
+            "aus Seeland"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fredewart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansecht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Georg Goldrich"
+          ],
+          "surname": [
+            "Saltzwasser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emericus"
+          ],
+          "surname": [
+            "Lebusinus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotuisus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "ElloposclerosReznem"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickhardt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Alonicus Meliphrona Theutofrancus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Wisart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotvisus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansecht von Treubach"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ulrich M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Treubach"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Windhold"
+          ],
+          "surname": [
+            "Alcofribas Wüstblutus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pickard von Trostburg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Evensberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Alonicus"
+          ],
+          "surname": [
+            "Meliphron"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Windhold Alcofribas"
+          ],
+          "surname": [
+            "Wüstblutus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "B. G."
+          ],
+          "surname": [
+            "Mercurianus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. Noha"
+          ],
+          "surname": [
+            "Trauschiff von Trübuchen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Alonicus Meliphrona"
+          ],
+          "surname": [
+            "Theutofrancus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickhart"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Alonicus Theutofrancus"
+          ],
+          "surname": [
+            "Meliphrona"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Fischart, Johannes: Das Glückhafft Schiff von Zürich. Ein Lobspruch vonn der Glücklichen vnd Wolfertigen ...  1577.  (VD16 ZV 5862)",
+        "Fischart, Johannes: Aigenliche Beschreibung Des Jüngstergangenẽ Zugs in Frankreich von dem Durchleuchtigen ...  1576.  (VD16 F 1137)",
+        "Marnix, Philips van: Bienenkorb Deß Heil.Roem. Jm̃enschwarms seiner Hummelszellen <oder Him̃elszellen> ...  1581.  (VD16 M 1049)",
+        "Künstliche Figuren biblischer Historien mit artigen Reimen begriffen",
+        "Celsi, Mino: In haereticis coercendis quatenus progredi liceat disputatio.  1577.  (VD16 ZV 3203)",
+        "Christ, Ulrich [Pseud.]: Newer Creutzgang",
+        "Bodin, Jean: .  1592.  (VD16 B 6272)",
+        "Das glückhafte Schiff von Zürich",
+        "Ordentliche Beschreibung, welcher Gestalt die nachbarliche Bündnuß und Verain ..",
+        "Marnix, Philips van: Binenkorb Deß Heyl.Roemischen Jmenschwarms seiner Hum̃elszellen <oder Himmelszellen> ...  1580.  (VD16 M 1047)",
+        "Estienne, Charles: Warhaffte Beschreibung deß Edelen Krauts Nicotinae ..",
+        "Der unvernünfftige und unsinnige Bannstrahl ..",
+        "Flöh-Hatz Weiber Tratz",
+        "Nacht-Rab oder Nebelkräh",
+        "Fischart, Johannes: Prodagram̃isch Trostbüchlin. Jnnhaltend Zwo artlicher SchuzReden von herlicher ankonft ...  1577.  (VD16 F 1159)",
+        "Estienne, Charles: XV. Bücher Von dem Feldbaw und recht volkommener Wolbestellung eines bekömmlichen Landtsitzes ..",
+        "Aller Practick Großmutter",
+        "LE VRAY PATRIOT &c.|| Das ist:  Getreues Ermahnen vnd Außschreiben deren inn den ...  1579.  (VD16 V 2798)",
+        "Die Trostreiche Historia von der verklerung unsers Herrn ..",
+        "Fides Jesu et Jesuitarum",
+        "Fischart, Johannes: Floeh Hantz, Weiber Trantz. Der wunder vnrichtige, vñ spotwichtige Rechtshandel der Floeh ...  1573.  (VD16 F 1142)",
+        "Fischart, Johannes: Gantz gedenckwuerdige vnd Eygentliche Verzeuchnuß wie die ... Spanische Armada zu end ...  1588.  (VD16 F 1144)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80098015"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41863390"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11788.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q69303"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1013781317"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118533185/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Fischart"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Fischart"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Fischart"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Fischart"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108911368"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118533185"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118533185"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118533185.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118533185.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118533185"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118533185"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Pickhardt, Jesuwalt",
+        "Christ zu Gottstatt bey Bethaven, Huldrich",
+        "Elloposcleros, Huldreich",
+        "Janot, Bernhard",
+        "Mentzer, Johann",
+        "Fischart, Johan",
+        "Moerewinder von Fredewart, Engelbrecht",
+        "Wisartus, Donatus",
+        "Pickard von Trostburg, Jesuwald",
+        "Treubach, Ulrich M. von",
+        "Pickart, Jesuweit",
+        "Janot, Bernart",
+        "Badborn, Georg Goldrich Saltzwasser von",
+        "Saltzwasser, Georg G.",
+        "Theutofrancus, Alonicus Meliphrona",
+        "Wuestblutus, Winhold Alcofribas",
+        "Guisart, Baptista",
+        "Elloposcleros, Hultrich",
+        "Moerewinder von Fredewart, H. E., aus Seeland",
+        "Alcofribas Wuestblutus, Winhold",
+        "Reznem, Huldrich Elloposcleron",
+        "Wisartus Trivonensis, Donatus",
+        "Meliphron, Alonicus",
+        "Lebusinus, Emericus",
+        "Treübach, Ulrich Mansehr von",
+        "Fischer, Johann",
+        "Wisartus Trinonensis, Donatus",
+        "Trauschiff von Trübuchen, J. Noha",
+        "Fissharuto, Yōhan",
+        "Elloposcleron, Huldrich",
+        "Meliphrona, Alon., Theutofrancum",
+        "Fischardus, Joannes",
+        "Menzer, J. F. G.",
+        "Meliphrona, Alonicus Theutofrancus",
+        "Fischart, Iohannes",
+        "Pickart, Jesuwalt",
+        "Christ zu Gotstatt bey Bethaven, Huldrich",
+        "F. M. G., J.",
+        "Nachenmoser von Brandwälden, Adamus",
+        "F., J.",
+        "Fischart, Johann Friedrich",
+        "Mentzer, Johann F.",
+        "Fischart-Menzer, Johann",
+        "Lebusius, Emericus",
+        "Fischartus, Joh.",
+        "Fischmentzweiler, Art von",
+        "Trübuchen, J. Noha Trauschiff von",
+        "Emericus Lebusius",
+        "Wuestblutus von Aristephans, Alcofribas",
+        "Janot, Bernhart",
+        "Fischmentzweiler, Artwisus von",
+        "Christ, Huldreich",
+        "Christ zu Gotstatt, Huldrich",
+        "Fredewart, H. E. von, aus Seeland",
+        "Gotvisus Trivonensis, Donatus",
+        "Mansehr vom Treuebach, Ulrich",
+        "Mentzer, Johann Fischart-",
+        "J. F. G. M.",
+        "Elloposcleron, Hultrich",
+        "Pickart, Jesuwald",
+        "Fischaert, Johann",
+        "Pickhart, Jesuwald",
+        "Elloposcleros, Huldrich",
+        "Fischaert, Iohannes",
+        "Pikhart, Jesuwalt",
+        "Molanus, J. F.",
+        "VomTreuebach, Ulrich Mansehr",
+        "J. F.",
+        "Odyssäus, Ulysses",
+        "Retznem",
+        "Eysenberg, Jacobus",
+        "Mansehr vom Treübach, Ulrich",
+        "Fischmenzweiler, Artuisus von",
+        "Elloposcieron, Huldrich",
+        "Hartfisch, J.",
+        "Trau v. Trü, I. N.",
+        "Fischardus, Johannes",
+        "B. G.",
+        "Fischart, Johannes",
+        "Vom Treuebach, Ulrich Mansehr",
+        "Mentzer, H. F.",
+        "Mörewinder, H. E.",
+        "Mentzer, Nasenfischer",
+        "Fischart, Johann Baptist",
+        "ElloposclerosReznem, Huldrich",
+        "Gotstatt, Huldrich Christ zu",
+        "Elloposcleron Reznem, Huldrich",
+        "Meliphrona, Alonicus",
+        "Pikhart, Jesuwald",
+        "Guisart, Baptist",
+        "Wisart, Huldrich",
+        "J.F.M.G.",
+        "Mansehr, Ulrich",
+        "Liebhart, Johann",
+        "Elloposcheron, Huldrich",
+        "Moerewinder, Eugen",
+        "Pickhart, Jesuwaltus",
+        "Mentzer, J. F. G.",
+        "J.F.G.M.",
+        "Evensberg, Jacob",
+        "Mansecht, Ulrich",
+        "Menzer, Johan Fischart",
+        "Treuebach, Ulrich Mansehr vom",
+        "J. F. M. G.",
+        "Fischartus, Johannes",
+        "Fischardus, Ioannes",
+        "Moguntinus, F. G.",
+        "Eysenberg, Jacob",
+        "Mansecht von Treubach, Ulrich",
+        "Alcofribas Wüstblutus, Windhold",
+        "Saltzwasser, Georg Goldrich",
+        "Pickhart, Jesuwalt",
+        "Mentzer",
+        "Mansehr von Treübach, Ulrich",
+        "Menter",
+        "Artwisus von Fischmentzweiler",
+        "Mörewinder von Fredewart aus Seeland, H. Engelprecht",
+        "Saltzwasser von Badborn, Georg Goldrich",
+        "Mentzer, J. F.",
+        "Meliphron Theutofrancus, Alonicus",
+        "Gotuisus Trivonensis, Donatus",
+        "Mörewinder, Engelprecht",
+        "Ellokosperos, Huldreich",
+        "Alonicus Meliphrona Theutofrancus",
+        "Mercurianus, B. G.",
+        "Gotuisus, Donatus",
+        "Menzer, Johann Fischart-",
+        "Christ, Huldrich",
+        "Fischart-Mentzer, Johann",
+        "Fischart, Johann Baptist Friedrich",
+        "Moerewinder, Engelprecht",
+        "Menzer, Johann F.",
+        "Nachenmoser, Adam",
+        "Wüstblutus, Windhold Alcofribas",
+        "Gotvisus, Donatus",
+        "Fischart, Jean"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jesuwaltus"
+          ],
+          "surname": [
+            "Pickhart"
+          ]
+        },
+        {
+          "forename": [
+            "Baptist"
+          ],
+          "surname": [
+            "Guisart"
+          ]
+        },
+        {
+          "forename": [
+            "J. Noha"
+          ],
+          "surname": [
+            "Trauschiff von Trübuchen"
+          ]
+        },
+        {
+          "forename": [
+            "Engelprecht"
+          ],
+          "surname": [
+            "Mörewinder"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "F. M. G."
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Christ"
+          ]
+        },
+        {
+          "forename": [
+            "Ulysses"
+          ],
+          "surname": [
+            "Odyssäus"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard"
+          ],
+          "surname": [
+            "Janot"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Fischart-"
+          ],
+          "surname": [
+            "Menzer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Guisart"
+          ]
+        },
+        {
+          "forename": [
+            "Engelbrecht"
+          ],
+          "surname": [
+            "Moerewinder von Fredewart"
+          ]
+        },
+        {
+          "forename": [
+            "J. Noha Trauschiff"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Trübuchen"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Georg G."
+          ],
+          "surname": [
+            "Saltzwasser"
+          ]
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "surname": [
+            "Mörewinder"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Christ zu Gottstatt bey Bethaven"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "ElloposclerosReznem"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes"
+          ],
+          "surname": [
+            "Fischaert"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Goldrich Saltzwasser von"
+          ],
+          "surname": [
+            "Badborn"
+          ]
+        },
+        {
+          "forename": [
+            "Nasenfischer"
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "nameAddition": [
+            "aus Seeland"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fredewart"
+          ]
+        },
+        {
+          "forename": [
+            "Hultrich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Fischart-Menzer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Fischartus"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotuisus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Fischart-"
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Alonicus"
+          ],
+          "surname": [
+            "Meliphrona"
+          ]
+        },
+        {
+          "personalName": [
+            "J. F."
+          ]
+        },
+        {
+          "forename": [
+            "J. F. G."
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist Friedrich"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "B. G."
+          ],
+          "surname": [
+            "Mercurianus"
+          ]
+        },
+        {
+          "personalName": [
+            "Retznem"
+          ]
+        },
+        {
+          "forename": [
+            "Adamus"
+          ],
+          "surname": [
+            "Nachenmoser von Brandwälden"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansehr von Treübach"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickart"
+          ]
+        },
+        {
+          "forename": [
+            "Jacobus"
+          ],
+          "surname": [
+            "Eysenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich Mansehr"
+          ],
+          "surname": [
+            "VomTreuebach"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Eysenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pikhart"
+          ]
+        },
+        {
+          "forename": [
+            "Alonicus"
+          ],
+          "surname": [
+            "Meliphron Theutofrancus"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes"
+          ],
+          "surname": [
+            "Fischardus"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich Elloposcleron"
+          ],
+          "surname": [
+            "Reznem"
+          ]
+        },
+        {
+          "personalName": [
+            "Alonicus Meliphrona Theutofrancus"
+          ]
+        },
+        {
+          "forename": [
+            "I. N."
+          ],
+          "surname": [
+            "Trau v. Trü"
+          ]
+        },
+        {
+          "forename": [
+            "Johan"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansecht von Treubach"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansehr vom Treübach"
+          ]
+        },
+        {
+          "forename": [
+            "Huldreich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Wisartus"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Goldrich"
+          ],
+          "surname": [
+            "Saltzwasser von Badborn"
+          ]
+        },
+        {
+          "forename": [
+            "J. F. G."
+          ],
+          "surname": [
+            "Menzer"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuweit"
+          ],
+          "surname": [
+            "Pickart"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcheron"
+          ]
+        },
+        {
+          "forename": [
+            "Huldreich"
+          ],
+          "surname": [
+            "Christ"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcleron"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pickhart"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansehr vom Treuebach"
+          ]
+        },
+        {
+          "forename": [
+            "Huldreich"
+          ],
+          "surname": [
+            "Ellokosperos"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Wisart"
+          ]
+        },
+        {
+          "forename": [
+            "Artwisus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fischmentzweiler"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcleron Reznem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Alonicus Theutofrancus"
+          ],
+          "surname": [
+            "Meliphrona"
+          ]
+        },
+        {
+          "personalName": [
+            "J.F.G.M."
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotuisus Trivonensis"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "Windhold"
+          ],
+          "surname": [
+            "Alcofribas Wüstblutus"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansehr"
+          ]
+        },
+        {
+          "forename": [
+            "H. Engelprecht"
+          ],
+          "surname": [
+            "Mörewinder von Fredewart aus Seeland"
+          ]
+        },
+        {
+          "forename": [
+            "Engelprecht"
+          ],
+          "surname": [
+            "Moerewinder"
+          ]
+        },
+        {
+          "forename": [
+            "Bernart"
+          ],
+          "surname": [
+            "Janot"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich Mansehr"
+          ],
+          "surname": [
+            "Vom Treuebach"
+          ]
+        },
+        {
+          "forename": [
+            "Yōhan"
+          ],
+          "surname": [
+            "Fissharuto"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Fischardus"
+          ]
+        },
+        {
+          "forename": [
+            "Art"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fischmentzweiler"
+          ]
+        },
+        {
+          "forename": [
+            "Winhold Alcofribas"
+          ],
+          "surname": [
+            "Wuestblutus"
+          ]
+        },
+        {
+          "personalName": [
+            "Menter"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Evensberg"
+          ]
+        },
+        {
+          "personalName": [
+            "J. F. G. M."
+          ]
+        },
+        {
+          "forename": [
+            "Alcofribas"
+          ],
+          "surname": [
+            "Wuestblutus von Aristephans"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Wisartus Trivonensis"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Hartfisch"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich Mansehr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Treübach"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich"
+          ],
+          "surname": [
+            "Mansecht"
+          ]
+        },
+        {
+          "forename": [
+            "Joh."
+          ],
+          "surname": [
+            "Fischartus"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Fischart"
+          ],
+          "surname": [
+            "Menzer"
+          ]
+        },
+        {
+          "forename": [
+            "Emericus"
+          ],
+          "surname": [
+            "Lebusinus"
+          ]
+        },
+        {
+          "forename": [
+            "Winhold"
+          ],
+          "surname": [
+            "Alcofribas Wuestblutus"
+          ]
+        },
+        {
+          "personalName": [
+            "Emericus Lebusius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Goldrich"
+          ],
+          "surname": [
+            "Saltzwasser"
+          ]
+        },
+        {
+          "personalName": [
+            "J.F.M.G."
+          ]
+        },
+        {
+          "forename": [
+            "Bernhart"
+          ],
+          "surname": [
+            "Janot"
+          ]
+        },
+        {
+          "forename": [
+            "H. E."
+          ],
+          "nameAddition": [
+            "aus Seeland"
+          ],
+          "surname": [
+            "Moerewinder von Fredewart"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcleros"
+          ]
+        },
+        {
+          "personalName": [
+            "B. G."
+          ]
+        },
+        {
+          "forename": [
+            "Windhold Alcofribas"
+          ],
+          "surname": [
+            "Wüstblutus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Menzer"
+          ]
+        },
+        {
+          "forename": [
+            "Hultrich"
+          ],
+          "surname": [
+            "Elloposcleron"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Christ zu Gotstatt bey Bethaven"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Christ zu Gotstatt"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "surname": [
+            "Fischardus"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pickart"
+          ]
+        },
+        {
+          "forename": [
+            "F. G."
+          ],
+          "surname": [
+            "Moguntinus"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich"
+          ],
+          "surname": [
+            "Elloposcieron"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "F."
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich Mansehr"
+          ],
+          "prefix": [
+            "vom"
+          ],
+          "surname": [
+            "Treuebach"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotvisus Trivonensis"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwald"
+          ],
+          "surname": [
+            "Pickard von Trostburg"
+          ]
+        },
+        {
+          "forename": [
+            "Artuisus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fischmenzweiler"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickhardt"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Molanus"
+          ]
+        },
+        {
+          "personalName": [
+            "Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Huldrich Christ"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Gotstatt"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pickhart"
+          ]
+        },
+        {
+          "forename": [
+            "Ulrich M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Treubach"
+          ]
+        },
+        {
+          "forename": [
+            "Emericus"
+          ],
+          "surname": [
+            "Lebusius"
+          ]
+        },
+        {
+          "forename": [
+            "Eugen"
+          ],
+          "surname": [
+            "Moerewinder"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "surname": [
+            "Fischart"
+          ]
+        },
+        {
+          "forename": [
+            "Alonicus Meliphrona"
+          ],
+          "surname": [
+            "Theutofrancus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Fischart-Mentzer"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Wisartus Trinonensis"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Liebhart"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Fischaert"
+          ]
+        },
+        {
+          "forename": [
+            "Adam"
+          ],
+          "surname": [
+            "Nachenmoser"
+          ]
+        },
+        {
+          "forename": [
+            "H. F."
+          ],
+          "surname": [
+            "Mentzer"
+          ]
+        },
+        {
+          "personalName": [
+            "J. F. M. G."
+          ]
+        },
+        {
+          "forename": [
+            "Alon."
+          ],
+          "nameAddition": [
+            "Theutofrancum"
+          ],
+          "surname": [
+            "Meliphrona"
+          ]
+        },
+        {
+          "forename": [
+            "Jesuwalt"
+          ],
+          "surname": [
+            "Pikhart"
+          ]
+        },
+        {
+          "forename": [
+            "Donatus"
+          ],
+          "surname": [
+            "Gotvisus"
+          ]
+        },
+        {
+          "personalName": [
+            "Artwisus von Fischmentzweiler"
+          ]
+        },
+        {
+          "forename": [
+            "Alonicus"
+          ],
+          "surname": [
+            "Meliphron"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Fischart",
+          "label": "https://de.wikipedia.org/wiki/Johann_Fischart"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:22:21Z",
+    "gnd_query_biographical_data": "1550-1590",
+    "gnd_query_name": "fischart, johann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 720,
+  "name": "Fischart, Johann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed II, 489",
+  "updated": "2026-06-11 13:29:22.261Z",
+  "uri": "https://d-nb.info/gnd/118533185",
+  "editor": ""
+}

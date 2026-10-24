@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10 /) Graphik im Kalendarium Oktober /) Illustration zu »»Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70253,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "- welch ein Anblick! / 5. Th. 5. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculpsit",
+  "scans": [
+    "alm_801_70253_c0wtyjoncr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "- welch ein Anblick! / 5. Th. 5. B.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "g04gfm9vdjt8716"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "m5ximrr015p7dmf"
+    }
+  ]
+}

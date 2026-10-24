@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124272, Obj 4); Illustration zu »Jugendstreiche« von Nabehl (INr 124277, Obj 8); # Pseudonym",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Aron). Mei Schlomche hot krumme Beine, / er fangt erst an zu lofen. / (Jugendstreiche) (2 Scene)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser dell.",
+  "scans": [
+    "alm_1301_124277_btz956ofir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "(Aron). Mei Schlomche hot krumme Beine, / er fangt erst an zu lofen. / (Jugendstreiche) (2 Scene)",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.859Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "zrty4q3wfa5vdol"
+    }
+  ]
+}

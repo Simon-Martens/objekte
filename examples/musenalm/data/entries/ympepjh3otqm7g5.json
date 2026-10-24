@@ -1,0 +1,67 @@
+{
+  "annotation": "<div>weitere Jgg nicht ermittelt;<br>Titel auf dem Umschlag: Allgemeiner deutscher Theater-Almanach, für das Jahr 1817. Von Adolf Bäuerle</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die deutsche Schaubühne 1817",
+    "norm": "",
+    "biblio": 405906,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3391,
+  "parallel_title": "",
+  "place_statement": "Wien (Selbstverlag)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für die deutsche Schaubühne 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 146; nicht bei L/R; nicht bei Goed VIII. 129, 12",
+  "responsibility_statement": "Adolf Bäuerle",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die deutsche Schaubühne / AUF DAS JAHR 1817. / herausgegeben von / ADOLF BÄUERLE. / WIEN. / beim Verfasser in der Jägerzeile. / No. 432. neben dem Theater",
+  "updated": "2026-09-24 09:49:52.680Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "8i1rasqh08jx0wu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-24 09:49:13.514Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-24 09:49:52.681Z",
+      "agent": "1lkxjega66pfmft",
+      "source_id": "hiufyxz3z9nxe7c"
+    }
+  ]
+}

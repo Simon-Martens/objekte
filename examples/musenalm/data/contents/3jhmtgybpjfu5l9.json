@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Leben. Sonnette (Sammlung INr 133760, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Wenn auf den Schlangenwindungen des / Lebens / Du Reisegefährten triffst, die die Gefahr, / Und was Erfreuliches das Glück gebar, / Gern mit dir theilen,",
+  "language": [],
+  "musenalm_id": 133763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.119Z",
+      "agent": "t0ac1fy2s8750zm",
+      "source_id": "m9w0cm9lkxfdkd7"
+    }
+  ]
+}

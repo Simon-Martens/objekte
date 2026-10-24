@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Weinend kamst du zur Welt, von Freunden mit / Lächeln empfangen.",
+  "language": [],
+  "musenalm_id": 23863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geburtstags-Wunsch. / (Nach dem Arabischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Schweighäuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geburtstags-Wunsch. / (Nach dem Arabischen.)",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.966Z",
+      "agent": "07qu7qawpxno6h3",
+      "source_id": "lvq08m7d229o6sq"
+    }
+  ]
+}

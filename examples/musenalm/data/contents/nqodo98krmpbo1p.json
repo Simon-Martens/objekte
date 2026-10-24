@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33522, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spröde und die Bekehrte II. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. H. Lips sculp.",
+  "scans": [
+    "alm_465_33538_7dccubgn6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Spröde und die Bekehrte II. #",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "b1yng5ln738w6dk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "yda6xq8n6u4i8l4"
+    }
+  ]
+}

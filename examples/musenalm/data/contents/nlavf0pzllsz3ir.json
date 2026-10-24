@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Gerechtigkeit und Milde üben, / Das heiß' ich seinen Nächsten lieben.",
+  "language": [],
+  "musenalm_id": 125828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das wahre Leben des Menschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eulogius Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das wahre Leben des Menschen",
+  "updated": "2020-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.801Z",
+      "agent": "gk20o89d373azlf",
+      "source_id": "df4d3vyme53yp4z"
+    }
+  ]
+}

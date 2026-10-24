@@ -1,0 +1,573 @@
+{
+  "annotation": "",
+  "biographical_data": "1799-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.455Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1830 bis 1841 Herausgeber der Musikzeitschrift 'Iris im Gebiete der Tonkunst'"
+      ],
+      "dateOfBirth": [
+        "1799-04-13"
+      ],
+      "dateOfDeath": [
+        "1860-11-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "deutschefotothek"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Rellstab.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Rellstab.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig%20Rellstab.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-10T18:49:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118744453/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Henriette"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "surname": [
+            "Bennecke"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131556452",
+          "label": "Rellstab, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/131938614",
+          "label": "Henry, Emma"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139082905",
+          "label": "Rellstab, Caroline"
+        },
+        {
+          "forename": [
+            "Katharina"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/128472154",
+          "label": "Rellstab, Ludwig"
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/128472243",
+          "label": "Rellstab, Ludwig"
+        },
+        {
+          "forename": [
+            "Johann Karl Friedrich"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/100317960",
+          "label": "Rellstab, Johann Carl Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118744453",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/128472154",
+          "label": "Rellstab, Ludwig"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/100317960",
+          "label": "Rellstab, Johann Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/131556452",
+          "label": "Rellstab, Caroline"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/139082905",
+          "label": "Rellstab, Caroline"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/131938614",
+          "label": "Henry, Emma"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118744453",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-101c)311096417",
+        "(DE-588a)118744453",
+        "(DE-588a)135406412",
+        "(DE-588c)4103688-8"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Rellstab, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Rellstab"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4120774-9",
+          "label": "Musikkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Freimund"
+          ],
+          "surname": [
+            "Zuschauer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Rellstab, Ludwig: Sommerfrüchte",
+        "Rellstab, Ludwig: Gedichte",
+        "Rellstab, Ludwig: Drei Jahre von Dreissigen",
+        "Rellstab, Ludwig: Sagen und romantische Erzählungen",
+        "Rellstab, Ludwig: Sommerblumensträusse den holden Frauen gewidmet von L. Rellstab",
+        "Rellstab, Ludwig: Erzählungen, Skizzen und Gedichte",
+        "Rellstab, Ludwig: Der Wildschütz",
+        "Rellstab, Ludwig: Henriette, oder die schöne Sängerin",
+        "Rellstab, Ludwig: Gesammelte Werke",
+        "Rellstab, Ludwig: Garten und Wald"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Heinrich Friedrich Ludwig"
+          ],
+          "surname": [
+            "Rellstab"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12474972w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84146133"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27166527"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q28858"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118744453"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118744453/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118744453"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Rellstab"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Rellstab_%28Dichter%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Rellstab"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Rellstab"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110473934"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118744453"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118744453"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118744453.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118744453.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118744453"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Rellstab, Ludvík",
+        "Freischauer, Ferdinand",
+        "Rellstab, L.",
+        "Ludwig, Heinrich Friedrich",
+        "Zuschauer, Freimund",
+        "Rellstab, Heinrich Friedrich Ludwig",
+        "Rellstab, Heinrich F.",
+        "L. D. R.",
+        "Rel'štab, L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich Friedrich Ludwig"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvík"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Freischauer"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "personalName": [
+            "L. D. R."
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Rel'štab"
+          ]
+        },
+        {
+          "forename": [
+            "Freimund"
+          ],
+          "surname": [
+            "Zuschauer"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich F."
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Friedrich Ludwig"
+          ],
+          "surname": [
+            "Rellstab"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Friedrich"
+          ],
+          "surname": [
+            "Ludwig"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Rellstab_%28Dichter%29",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Rellstab_%28Dichter%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:37:24Z",
+    "gnd_query_biographical_data": "1799-1860",
+    "gnd_query_name": "rellstab, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2234,
+  "name": "Rellstab, Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XI/1, 539; Goed XIV, 737, 1020",
+  "updated": "2026-06-11 13:29:24.256Z",
+  "uri": "https://d-nb.info/gnd/118744453",
+  "editor": ""
+}

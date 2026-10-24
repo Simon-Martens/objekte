@@ -1,0 +1,377 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.432Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Politiker und Kanzler; Erhebung in den Adelsstand 30. 01.1807; 1815 Kanzler in Weimar; 1829 Geheimer Rat; Testamentsvollstrecker Johann Wolfgang von Goethes"
+      ],
+      "dateOfBirth": [
+        "1779-04-13"
+      ],
+      "dateOfDeath": [
+        "1849-10-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Kreidezeichnung von J.Schmeller, Goethe-Nationalmuseum Weimar (1932)"
+          ],
+          "creditText": [
+            "Hans Wahl, Anton Kippenberg: Goethe und seine Welt, Insel-Verlag, Leipzig 1932 S.207"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichVonMueller.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/FriedrichVonMueller.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:FriedrichVonMueller.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-04T12:15:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117580104/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117580104",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117580104",
+      "oldAuthorityNumber": [
+        "(DE-588c)4499964-1",
+        "(DE-588a)117580104"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4462616-2",
+          "label": "Kunreuth"
+        }
+      ],
+      "preferredName": "Müller, Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Müller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123488-1",
+          "label": "Kanzler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Staatsmann <Weimar>",
+        "Geheimer Regierungsrat"
+      ],
+      "publication": [
+        "Müller, Friedrich von: D[okto]r Johann Stephan Schütze",
+        "Müller, Friedrich von: Dem Könige die Muse",
+        "Müller, Friedrich von: Göthe in seiner practischen Wirksamkeit",
+        "Müller, Friedrich von: Epilog zu Tasso",
+        "Müller, Friedrich von: Bei Göthe's maurerischem Jubelfeste",
+        "Müller, Friedrich von: Unterhaltungen mit dem Kanzler Friedr. von Müller",
+        "Müller, Friedrich von: Goethes Persönlichkeit",
+        "Müller, Friedrich von: Goethes Unterhaltungen mit dem Kanzler Friedrich von Müller"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12180968c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82139039"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71433638"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214194"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117580104/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_von_M%C3%BCller_(statesman)"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_M%C3%BCller_%28Politiker%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_von_M%C3%BCller_%28statesman%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109137423"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117580104"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117580104"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117580104.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117580104.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117580104"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Müller, Kanzler",
+        "Müller, Friedrich Theodor Adam Heinrich von",
+        "Müller, Theodor Adam Heinrich Friedrich",
+        "Von Müller, Friedrich",
+        "Mjuller, F. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Theodor Adam Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Kanzler"
+          ],
+          "personalName": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Von Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Theodor Adam Heinrich Friedrich"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mjuller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_von_M%C3%BCller_%28Politiker%29",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_von_M%C3%BCller_%28Politiker%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:20:03Z",
+    "gnd_query_biographical_data": "1779-1849",
+    "gnd_query_name": "müller, friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1884,
+  "name": "Müller, Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXII, 535; Goed (H) 346",
+  "updated": "2026-06-11 13:29:23.877Z",
+  "uri": "https://d-nb.info/gnd/117580104",
+  "editor": ""
+}

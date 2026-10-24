@@ -1,0 +1,45 @@
+{
+  "annotation": "1815 (Sammlung INr 40885, Obj 23)  II. Tafeln am Wege (Sammlung INr 40884, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Kotzebue's Rebbock erschien wieder, mit allen seinen muntern und muthwilligen Kapriolen, auf der Bühne,",
+  "language": [],
+  "musenalm_id": 40901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.087Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "7d4ev6yz1m8czm3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Gebet, in Sehnsucht, Wehmuth, Trauer, - / Die Lippe nenn'es oder nicht - / Es ist der heil'gen Flamme Schauer,",
+  "language": [],
+  "musenalm_id": 101551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ist Gebet?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andreas Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was ist Gebet?",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.916Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "1u7i4pehkmiyxee"
+    }
+  ]
+}

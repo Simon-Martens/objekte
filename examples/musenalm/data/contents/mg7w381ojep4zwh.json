@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Frau Königin, komm, spähe / Zur Rose da hinein,",
+  "language": [],
+  "musenalm_id": 86722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rosenkäferlein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottfried Ritter von Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rosenkäferlein",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.035Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "v7zu7fjk6ep0t28"
+    }
+  ]
+}

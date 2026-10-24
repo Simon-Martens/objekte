@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105699, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Dreymahl glückliches Volk! der Tag der deinen / Beherrscher / Dir zum Segen gebar, ladet zur Feyer / dich ein,",
+  "language": [],
+  "musenalm_id": 105702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rede, / am Geburtstage Sr. Durchlaucht des / Herzogs von Mecklenburg-Schwe- / rin, gehalten von Demoiselle Wer- / then, Schwerin, den 10. Dec. 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Ludwig Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rede, / am Geburtstage Sr. Durchlaucht des / Herzogs von Mecklenburg-Schwe- / rin, gehalten von Demoiselle Wer- / then, Schwerin, den 10. Dec. 1791",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.195Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "id9sv72mknaawgt"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Vermischte Gedichte (Sammlung INr 1871, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "393",
+  "incipit_statement": "Wohin bin ich entrückt? Fremd ist die Gegend - / Ich selbst mir / Fremd!",
+  "language": [],
+  "musenalm_id": 1643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Traum. / Elegie, / den / Manen der Geschwister / Theodor und Emma Körner / geweiht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Traum. / Elegie, / den / Manen der Geschwister / Theodor und Emma Körner / geweiht",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.980Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "z1g3g1bc6veskv4"
+    }
+  ]
+}

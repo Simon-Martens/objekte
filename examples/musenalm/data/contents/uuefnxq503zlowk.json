@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 49299, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49300,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tummle dich!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_675_49300_7oav30tep4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tummle dich!",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.278Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "tu74lvjlno4k7gu"
+    }
+  ]
+}

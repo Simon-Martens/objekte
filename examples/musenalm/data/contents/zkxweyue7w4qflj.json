@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mein schätzbarer Freund, Herr Blumauer, hat die Herausgabe des Wienermusenalmanaches, die ich schon seit einigen Jahren gemeinschaftlich mit ihm besorgte, nun ganz mir allein übertragen.",
+  "language": [],
+  "musenalm_id": 31415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2003-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.411Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "zgbvpx5qgtqxh6w"
+    }
+  ]
+}

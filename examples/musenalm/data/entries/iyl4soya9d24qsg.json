@@ -1,0 +1,114 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach von Radierungen (Schwind) 1844",
+    "norm": "",
+    "biblio": 200274,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1412,
+  "parallel_title": "",
+  "place_statement": "Zürich (Veith) Carlsruhe und Petersburg (Velten); Berlin (Gropius)",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "0tbax3skbo30l9r",
+    "m0im5l7d7yp8fkz",
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach von Radierungen (Schwind) 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; nicht bei L/R",
+  "responsibility_statement": "M. v. Schwind; Ernst Freiherr von Feuchtersleben",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / von / Radierungen / von / M. v. Schwind / mit erklärendem Text in Versen / von / Ernst, Freiherr von Feuchtersleben. / Erster Jahrgang 1844. / 42 radierte Epigramme enthaltend. / Zürich, / Verlag von J. Veith. / Carlsruhe und Petersburg, / J. Velten. / Berlin, / Gropius'sche Kunsthandlung. / 1844",
+  "updated": "2026-06-11 10:18:54.806Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "kc04verr9oso39d"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.905Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.905Z",
+      "agent": "dz642gh37bafou9",
+      "source_id": "0xgxpqgjildvz22"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.935Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.935Z",
+      "agent": "bwkz1v1v6e56tr6",
+      "source_id": "3eiup1w3vtzktoe"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "xwqko425n6kgjkk",
+      "source_id": "mz4pk1ufxld02th"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "ch1g0ct66dgsqkw",
+      "source_id": "xyv8gzdir2kdzbv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.905Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.905Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "yyyoi91ft84ul00"
+    }
+  ]
+}

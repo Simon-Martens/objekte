@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80514, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Liverseege invt. C. Kotterba sc.",
+  "scans": [
+    "alm_1794_80515_eg3vepvh4f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erwartung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.561Z",
+      "agent": "gr3ej5rgsyjwe06",
+      "source_id": "m80uonsz8kkunc5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.561Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "vrkcs96r9fb8cfs"
+    }
+  ]
+}

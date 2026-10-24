@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32853,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das erhabenste / Und schönste / Beispiel / Des Weibes, / Der Gattin, / Der Mutter, / Wagte diesen Blättern, / Bestimmt dem Geschlecht, in welchem Sie / Königin ist, / Voranzustellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das erhabenste / Und schönste / Beispiel / Des Weibes, / Der Gattin, / Der Mutter, / Wagte diesen Blättern, / Bestimmt dem Geschlecht, in welchem Sie / Königin ist, / Voranzustellen",
+  "updated": "2003-04-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.101Z",
+      "agent": "0rnyqiybfu5n3e2",
+      "source_id": "k6fe74qf6e65hoh"
+    }
+  ]
+}

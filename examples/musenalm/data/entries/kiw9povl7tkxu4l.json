@@ -1,0 +1,115 @@
+{
+  "annotation": "3 Jgg 1805-1807; Wien (Doll); Hrsg.: J. Schwaldopler /) Titel recto: Geschichte des neunzehnten Jahrhunderts. Mit besonderer Hinsicht auf die östreichischen Staaten. Erstes Bändchen. Geschichte des Jahres 1801. Wien, 1805. Im Verlage bey Anton Doll",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso T, recto T, S I W, SS III-X Vrwrt d Hrsg u I-Verz, SS 11-256 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches mit besonderer Rücksicht auf die Österreichischen Staaten 1805",
+    "norm": "~",
+    "biblio": 408088,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4014,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Historisches mit besonderer Rücksicht auf die Österreichischen Staaten 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 23",
+  "responsibility_statement": "Schwaldopler",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Mit / besonderer Hinsicht / auf die östreichischen Staaten. / Erster Jahrgang. / Geschichte des Jahres 1801. / Wien, 1805. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:54.756Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "tmadob5vfp3p7sh"
+  ],
+  "contents": [
+    "k9yormn76iiimyx",
+    "48l06t393chjgae",
+    "ecs292pucfgh7ge",
+    "cddr7oqmm1l9kwp",
+    "8y24p1791zpzi92",
+    "0eh55fkz53nb66e",
+    "jfaj4ly5dxigyl1",
+    "ywxhts1h3wp9j4j",
+    "0csloyl96u5ko3i",
+    "as06vtu27fugary",
+    "7e6cn4l7amz6a9t",
+    "eovvog86lr6jowy",
+    "cyosgouibu07l3v",
+    "9tb4n564kg9l5md",
+    "p3va5hvnrjy4pym",
+    "mn9e8qmwww6zjgd",
+    "q2mhy5m3b2kkhso",
+    "2nbw7wp8obt3rpq",
+    "0dd8i437e1d8wo9",
+    "ygr6vfmi90wgytl",
+    "2013qpuzb89lht4",
+    "0qlrss1ikbtkcpe",
+    "c97o56yh263bj11",
+    "79sx939gmyf53bu",
+    "7865ox75yth9lil",
+    "mawcjmkiog6yeh6",
+    "90cw9u7swd44jey",
+    "2se2m4vx1t7mbod",
+    "zy47nc34gd67n46",
+    "ozqa0sap5c9yte5",
+    "xznj1q3zu9lx9pr",
+    "vntcgim57s6gh0y",
+    "ekm2k38qrnfpj8i",
+    "ch424nuh5do3b5g",
+    "5itvrcn14z69xwx",
+    "s5k61whx2fwne5l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.322Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.322Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "adbqxcc96yta636"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.733Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.733Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "fm9xik8a657qhi8"
+    }
+  ]
+}

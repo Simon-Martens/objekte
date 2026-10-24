@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52297, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Bellinzona",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Achilles Benz del. J. H. Meyer sc.",
+  "scans": [
+    "alm_712_52284_9sw3o88x5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Bellinzona",
+  "updated": "2007-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.579Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "fyzjyubqtvcu4tw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.579Z",
+      "agent": "ldosmz32ve7ibjb",
+      "source_id": "t1x29gvw2389cpc"
+    }
+  ]
+}

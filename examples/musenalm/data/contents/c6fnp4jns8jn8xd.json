@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Dich auch will ich begrüßen im feyernden Tone des Liedes, / Holde Göttin der Nacht, Vertraute schweigender Stunden;",
+  "language": [],
+  "musenalm_id": 15876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus an Selene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus an Selene",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.416Z",
+      "agent": "ymo6fj9vzc9ufg1",
+      "source_id": "s6l8y8y7mkboxbh"
+    }
+  ]
+}

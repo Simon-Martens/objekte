@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Vom Himmel mit ergrimmter Wuth / Entströmt die Flut, / Sie geißept wild den Felsen kahl",
+  "language": [],
+  "musenalm_id": 100176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutterliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuk Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutterliebe",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.848Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "eu22rh5rbn0cn0f"
+    }
+  ]
+}

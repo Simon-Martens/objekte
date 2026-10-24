@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67972,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Ritter des schwarzen Adler-Ordens in / seiner Ordenstracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stilke del. L. Haas sculp.",
+  "scans": [
+    "alm_857_67972_mv7o2g1lnx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Ritter des schwarzen Adler-Ordens in / seiner Ordenstracht",
+  "updated": "2008-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.327Z",
+      "agent": "4ht5ezov61cxhie",
+      "source_id": "o74mcsy4mrrl7oy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium. paginiert 1. # Bezeichnung an 6 von 12 Graphiken der Suite. Illustration zu »Agathon« von C. M. Wieland",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4818,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agathon,1.Thl., 7. B., 2. C., p. 271",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_60_4818_2sjm2iq7su.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agathon,1.Thl., 7. B., 2. C., p. 271",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.704Z",
+      "agent": "tofq8m4srkv5wfy",
+      "source_id": "36xhrmdjvdby1ws"
+    }
+  ]
+}

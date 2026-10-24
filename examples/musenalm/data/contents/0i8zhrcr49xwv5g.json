@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Sagt, was ist der Zug der Liebe, / Der der Körper Kräfte füllt?",
+  "language": [],
+  "musenalm_id": 3452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe / Schöpferinn und Geschaffne. / Eine Phantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boutterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe / Schöpferinn und Geschaffne. / Eine Phantasie",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.101Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "hj1mzic5ehz4fbb"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "nummeriert II /) kol. Illustration zu »Das Damwild« von Hr. Reichs-Graf von Mellin zu Damizor in Vorpommern INr 120233, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Damthier und Kalb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. GB. f.",
+  "scans": [
+    "alm_1130_120234_p7zwx72p4l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Damthier und Kalb",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.721Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "3fqdhd6xi43qyht"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.721Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "u63ezju2kphyiqs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Heimkehrend zur Nacht durch den finstern Tann / Und die Haide, die silberbeschneite, / Lenkt Olafs Gattin ihr ländlich Gespann,",
+  "language": [],
+  "musenalm_id": 46269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die traurige Heimfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die traurige Heimfahrt",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.428Z",
+      "agent": "q3hkrc4mbx3ugx0",
+      "source_id": "5khcrhd03hyun07"
+    }
+  ]
+}

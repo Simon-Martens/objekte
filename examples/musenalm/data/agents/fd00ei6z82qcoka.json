@@ -1,0 +1,397 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.291Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1778-03-03"
+      ],
+      "dateOfDeath": [
+        "1824-11-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Cambridge University Press 978-0-521-02875-2 - Schubert’s Late Lieder: Beyond the Song-Cycles Susan Youens. Chapter 1: Of dwarfs, perversion, and patriotism: Schubert and Mattha ̈us von Collin [1]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Matth%C3%A4us%20Casimir%20von%20Collin.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Matth%C3%A4us%20Casimir%20von%20Collin.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Matth%C3%A4us%20Casimir%20von%20Collin.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T16:33:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119298406/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Heinrich Joseph"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11852156X",
+          "label": "Collin, Heinrich Joseph von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "119298406",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/11852156X",
+          "label": "Collin, Heinrich Joseph von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119298406",
+      "oldAuthorityNumber": [
+        "(DE-588c)4395626-9",
+        "(DE-588a)119298406"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Collin, Matthäus von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Matthäus"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Collin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller"
+      ],
+      "publication": [
+        "Collin, Matthäus von: Dramatische Dichtungen. - 1813 - 1817",
+        "Collin, Matthäus von: Nachgelassene Gedichte",
+        "Belas Krieg mit dem Vater. - 1808"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13944120t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2001046431"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22333001"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q89355"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119298406/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Matth%C3%A4us_Casimir_von_Collin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Matth%C3%A4us_von_Collin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Matth%C3%A4us_Casimir_von_Collin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081015036"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119298406"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119298406"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_C/Collin_Matthaeus_1779_1824.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119298406.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119298406.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119298406"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119298406"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Collin, Matthäus Kasimir von",
+        "Collin, Mathaeus von",
+        "Collin, Matthaeus von",
+        "Collin, H. J. von",
+        "Collin, Matthäus Casimir von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Matthaeus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "H. J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Matthäus Kasimir"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Mathaeus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Matthäus Casimir"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Matth%C3%A4us_von_Collin",
+          "label": "https://de.wikipedia.org/wiki/Matth%C3%A4us_von_Collin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:08:03Z",
+    "gnd_query_biographical_data": "1779-1824",
+    "gnd_query_name": "collin, matthäus casimir von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 429,
+  "name": "Collin, Matthäus Casimir von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 107",
+  "updated": "2026-06-11 13:29:21.903Z",
+  "uri": "https://d-nb.info/gnd/119298406",
+  "editor": ""
+}

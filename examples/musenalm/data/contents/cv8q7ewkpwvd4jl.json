@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87835, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Porticus des Diocletian zu Palmyra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3100_87836_4vhy91dgse.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Porticus des Diocletian zu Palmyra",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.091Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "0gk45tb26onkgkr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.091Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "2d7lvsvteamwk66"
+    }
+  ]
+}

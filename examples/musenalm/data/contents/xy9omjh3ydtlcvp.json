@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 6. [Heirathsanträge. Zweite Folge] s. Textbezug INr 42991, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42963,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pächter / Le Baillif",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodoviecki del & sculps.",
+  "scans": [
+    "alm_156_42963_oq8scsfy1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Pächter / Le Baillif",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.315Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "71j2ppwcf6se77w"
+    }
+  ]
+}

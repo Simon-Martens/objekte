@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 59171, Obj 11 /) unter der Graphik: Gedruckt v. Altmayer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KASERNE FÜR DAS II GARDE-ULANEN (LANDWEHR) REGIMENT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Biermann. Gest. v. Finke",
+  "scans": [
+    "alm_883_59172_asntwdfbry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KASERNE FÜR DAS II GARDE-ULANEN (LANDWEHR) REGIMENT",
+  "updated": "2008-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.907Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "9yi748s44asvirq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.907Z",
+      "agent": "ulca7kvs9vkm8e6",
+      "source_id": "tfmmc92o40d75ve"
+    }
+  ]
+}

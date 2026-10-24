@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Staats-Almanach, Helvetischer 1800",
+    "norm": "",
+    "biblio": 200092,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2641,
+  "parallel_title": "",
+  "place_statement": "Bern (Gruner und Geßner)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Staats-Almanach, Helvetischer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 104; nicht bei L/R",
+  "responsibility_statement": "L. Meister und W. Hofmeister",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Staats-Almanach / auf das Jahr 1800. / Herausgegeben / von L. Meister und W. Hofmeister / Bern, / bei Gruner und Geßner, Nationalbuchdrucker",
+  "updated": "2026-06-11 10:18:55.422Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "ecypf2pnuoao11w"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.936Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.936Z",
+      "agent": "vpqro00y3s44t72",
+      "source_id": "2y4s21yqswpoobz"
+    }
+  ]
+}

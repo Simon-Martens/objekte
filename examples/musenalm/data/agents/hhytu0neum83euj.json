@@ -1,0 +1,1422 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.372Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1103057200",
+          "label": "Südpreußen. Regierung (Warschau)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/111468449X",
+          "label": "Nationaltheater Bamberg"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Musikdirektor bei der Operngesellschaft Joseph Secondas (Dresden und Leipzig)",
+        "ab 1808 in Bamberg als Musikkritiker für die Leipziger musikalische Zeitung tätig."
+      ],
+      "dateOfBirth": [
+        "1776-01-24"
+      ],
+      "dateOfDeath": [
+        "1822-06-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "E. T. A. Hoffmann"
+          ],
+          "creditText": [
+            "Alte Nationalgalerie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/E.%20T.%20A.%20Hoffmann%2C%20autorretrato.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/E.%20T.%20A.%20Hoffmann%2C%20autorretrato.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:E.%20T.%20A.%20Hoffmann%2C%20autorretrato.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089152086",
+        "https://d-nb.info/gnd/1060002159",
+        "https://d-nb.info/gnd/158523059",
+        "https://d-nb.info/gnd/104596297X",
+        "https://d-nb.info/gnd/1018644350",
+        "https://d-nb.info/gnd/1075993830",
+        "https://d-nb.info/gnd/104415764X",
+        "https://d-nb.info/gnd/184656907",
+        "https://d-nb.info/gnd/1014122317"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-10T19:29:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118552465/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Ernst Theodor Wilhelm"
+          ],
+          "surname": [
+            "Hoffmann"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1266020861",
+          "label": "Hoffmann, Carl Wilhelm Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266021094",
+          "label": "Hoffmann, Johann Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266017534",
+          "label": "Hoffmann, Christoph Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266018069",
+          "label": "Hoffmann, Friedrich Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/131890603",
+          "label": "Hoffmann, Maria Thekla Michaelina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/110979939X",
+          "label": "Hoffmann, Caecilia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266018948",
+          "label": "Doerffer, Johann Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266018492",
+          "label": "Hoffmann, Louise Albertine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118552465",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/110979939X",
+          "label": "Hoffmann, Caecilia"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/1266018069",
+          "label": "Hoffmann, Friedrich Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266018948",
+          "label": "Doerffer, Johann Jacob"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1266017534",
+          "label": "Hoffmann, Christoph Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266018492",
+          "label": "Hoffmann, Louise Albertine"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1266021094",
+          "label": "Hoffmann, Johann Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1266020861",
+          "label": "Hoffmann, Carl Wilhelm Philipp"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/131890603",
+          "label": "Hoffmann, Maria Thekla Michaelina"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118552465",
+      "oldAuthorityNumber": [
+        "(DE-588a)1018644350",
+        "(DE-588)1075993830",
+        "(DE-588a)127592148",
+        "(DE-588a)1014122317",
+        "(DE-588)104596297X",
+        "(DE-588a)134408470",
+        "(DE-588)158523059",
+        "(DE-588a)184656907",
+        "(DE-588a)158523059",
+        "(DE-588)184656907",
+        "(DE-588a)127206744",
+        "(DE-588a)130981400",
+        "(DE-588)1060002159",
+        "(DE-588a)127206752",
+        "(DE-588a)118552465",
+        "(DE-588a)1014884179",
+        "(DE-588)104415764X",
+        "(DE-588)1014122317",
+        "(DE-588a)127396853",
+        "(DE-588a)160383722",
+        "(DE-588)1089152086",
+        "(DE-588a)126650969",
+        "(DE-588)1018644350",
+        "(DE-588a)126651337"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "uk",
+          "@value": "Гофман, E. T. A."
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046868-9",
+          "label": "Posen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4103144-1",
+          "label": "Płock"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4004391-5",
+          "label": "Bamberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4079048-4",
+          "label": "Warschau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Hoffmann, E. T. A.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "E. T. A."
+        ],
+        "surname": [
+          "Hoffmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "C. F. A."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig Theodor Wilhelm"
+          ],
+          "surname": [
+            "Hoffmann"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/37211-0",
+          "label": "E.T.A. Hoffmann-Gesellschaft"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11907623v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80075856"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/hoffmann-ernst-theodor-amadeus/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29535422"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q150471"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118552465"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014122317"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1018644350"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104415764X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104596297X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1060002159"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1075993830"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089152086"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118552465/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158523059"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/184656907"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118552465"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/E._T._A._Hoffmann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/E._T._A._Hoffmann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/E._T._A._Hoffmann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/E._T._A._Hoffmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121258025"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118552465"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118552465"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118552465.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118552465.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118552465"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/FAE35C26F17F4A14B67D95795CEE4C5E"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118552465"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hoffmann, Ernest T. A.",
+        "Hoffmann, ETA",
+        "Chofman, E. T. A.",
+        "Hôffman, Ernsṭ Têʾôdôr Amadêʾûs",
+        "Hoffmann, Ernst Theodor",
+        "Hofuman, E.Te.A.",
+        "Gofman, T.",
+        "Huofuman, En Tai A",
+        "Hoffmann, Ernst Theodor Gottlieb",
+        "Хофман, Е. Т. А.",
+        "E.T.A. Huo fu man",
+        "Hoffmann, E.T.A.",
+        "Gofman, Ė.T.A.",
+        "Гофман, Эрнст Тэ́адор Ві́льгельм Амадэ́й",
+        "Hoffmann, Ernst Theodor Amadeus",
+        "Hoffmann, Ernst T.",
+        "הופמן, א.ת.א.",
+        "Hoffmann, Ernesto Teodoro Amedeo",
+        "Gofman, Ernst-Teodor-Amadej",
+        "Gofman, Ė.-T.-A.",
+        "Hoffman, Ernst Theodor Amadeus",
+        "Гофман, Эрнст Тэадор Ві́льгельм",
+        "Hoffmann, E.T.",
+        "Хофман, Ернст Теодор Амадеус",
+        "Гофман, Э. Т. А.",
+        "Hoffmann, Ernesto Teodoro Guillermo",
+        "ホフマン, E・T・A",
+        "Chophman, E. T. A.",
+        "Gofman, Ėrnst Teodor Amadej",
+        "Hofuman, E.T.A.",
+        "霍甫曼",
+        "En-Tai-A-Huofuman",
+        "Chofman, Ernst Teodor Amadeus",
+        "Hôfman, E. T. A.",
+        "Hoffmann, E. T. W.",
+        "Hofman, Ernst Teodor Amadej",
+        "Hoffmann, E. Th. Am.",
+        "Hoffmann, E.",
+        "Hofmanas, Ernstas Teodoras Amadėjus",
+        "E・T・A・ホフマン",
+        "Hoffmann, Ernst-Theodor-Amadeus",
+        "Гофман, Э. Т. Ві.",
+        "Hofmanas, E.T.A.",
+        "Goffmann, Ernst Theodor Amadeus",
+        "Хофман, Ернст Теодор Вилхелм",
+        "Gofman, Ernst",
+        "E.-T.-A.-Huofuman",
+        "Hoffmann, Ernst T. A.",
+        "Huofuman",
+        "Hoffmann, Amadeo",
+        "Hofmans, E. T. A.",
+        "Hoffmann, Ernst Th. Amadeus",
+        "C. F. A.",
+        "Chofman, Ernst Theodor Amadeus",
+        "Hoffmann, Ernst Theodor Wilhelm",
+        "Huofuman zhu, En-Tai-A-",
+        "Hoffmann, Ernst Theodor Wilhelm Amadeus",
+        "Gofman, Ernst Teodor Amadei",
+        "Hoffmann, Ernst Theodor Amadäus",
+        "Гофман, Эрнст Тэадор Амадэй",
+        "Hofmanis, E. T. A.",
+        "Χόφμαν, Ερνστ Τέοντορ Βίλεμ",
+        "Гофман, E. T. A.",
+        "Гофман, Эрнст Теодор Амадей",
+        "Hofman, E. T. A.",
+        "Hoffmann, Ernst Theodor Amadaeus",
+        "Gofman, Ėrnst Teodor Amadei",
+        "Hôffman, Ernsṭ Têôdôr Amadêûs",
+        "Хофман, Ернест Теодор",
+        "Хофман, Ернест Теодор Амадеус",
+        "Hoffmann, Ernest Th. A.",
+        "Huofuman, E. T. A.",
+        "Χόφμαν, Ε. Τ. Α.",
+        "Гофман, Ернст Теодор Амадей",
+        "Hoffmann, E. Th. A.",
+        "Hoffmann, A. E. Th.",
+        "Hofmanis, Ernests Teodors Amadejs",
+        "霍夫曼, E・T・A",
+        "Goffmann, Ernst Teodor Amadej",
+        "Hoffmann, Ludwig Theodor Wilhelm",
+        "Gofman, Ernst Teodor Amadej",
+        "Χόφμαν, Ερνστ Τέοντορ Αμαντέους",
+        "Hoffmann, Amadeus Ernst Theodor"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ernst Theodor"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst-Theodor-Amadeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ερνστ Τέοντορ Βίλεμ"
+          ],
+          "surname": [
+            "Χόφμαν"
+          ]
+        },
+        {
+          "forename": [
+            "Ernest T. A."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernesto Teodoro Amedeo"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Huofuman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst-Teodor-Amadej"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ėrnst Teodor Amadei"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Wilhelm"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Е. Т. А."
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "personalName": [
+            "En-Tai-A-Huofuman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernest Th. A."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Gottlieb"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Э. Т. А."
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ernests Teodors Amadejs"
+          ],
+          "surname": [
+            "Hofmanis"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Chophman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ернест Теодор Амадеус"
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Teodor Amadej"
+          ],
+          "surname": [
+            "Hofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Th. Amadeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Е. Т. А."
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Huofuman"
+          ]
+        },
+        {
+          "forename": [
+            "Ė.-T.-A."
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "En-Tai-A-"
+          ],
+          "surname": [
+            "Huofuman zhu"
+          ]
+        },
+        {
+          "forename": [
+            "E・T・A"
+          ],
+          "surname": [
+            "霍夫曼"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst T. A."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Teodor Amadej"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ернст Теодор Вилхелм"
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "forename": [
+            "Е. Т. А."
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadeus"
+          ],
+          "surname": [
+            "Hoffman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadeus"
+          ],
+          "surname": [
+            "Goffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadäus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ернест Теодор"
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Teodor Amadei"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Amadeo"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadaeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "א.ת.א."
+          ],
+          "surname": [
+            "הופמן"
+          ]
+        },
+        {
+          "forename": [
+            "A. E. Th."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "E.T."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "E. Th. A."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernstas Teodoras Amadėjus"
+          ],
+          "surname": [
+            "Hofmanas"
+          ]
+        },
+        {
+          "personalName": [
+            "C. F. A."
+          ]
+        },
+        {
+          "forename": [
+            "Эрнст Тэадор Амадэй"
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ė.T.A."
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "E.T.A."
+          ],
+          "surname": [
+            "Hofmanas"
+          ]
+        },
+        {
+          "forename": [
+            "E・T・A"
+          ],
+          "surname": [
+            "ホフマン"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Chofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ернст Теодор Амадеус"
+          ],
+          "surname": [
+            "Хофман"
+          ]
+        },
+        {
+          "personalName": [
+            "霍甫曼"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Hôfman"
+          ]
+        },
+        {
+          "forename": [
+            "E.Te.A."
+          ],
+          "surname": [
+            "Hofuman"
+          ]
+        },
+        {
+          "forename": [
+            "Эрнст Теодор Амадей"
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Эрнст Тэадор Ві́льгельм"
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ε. Τ. Α."
+          ],
+          "surname": [
+            "Χόφμαν"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Amadeus"
+          ],
+          "surname": [
+            "Chofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ернст Теодор Амадей"
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. W."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theodor Wilhelm"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "ETA"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ερνστ Τέοντορ Αμαντέους"
+          ],
+          "surname": [
+            "Χόφμαν"
+          ]
+        },
+        {
+          "forename": [
+            "T."
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Hofmanis"
+          ]
+        },
+        {
+          "forename": [
+            "E.T.A."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "E. Th. Am."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernsṭ Têôdôr Amadêûs"
+          ],
+          "surname": [
+            "Hôffman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Wilhelm"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Amadeus Ernst Theodor"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "personalName": [
+            "E.-T.-A.-Huofuman"
+          ]
+        },
+        {
+          "forename": [
+            "E.T.A."
+          ],
+          "surname": [
+            "Hofuman"
+          ]
+        },
+        {
+          "personalName": [
+            "E.T.A. Huo fu man"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Hofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst T."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Teodor Amadej"
+          ],
+          "surname": [
+            "Goffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Э. Т. А."
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor Wilhelm Amadeus"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Э. Т. Ві."
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. A."
+          ],
+          "surname": [
+            "Hofmans"
+          ]
+        },
+        {
+          "forename": [
+            "Ernesto Teodoro Guillermo"
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "En Tai A"
+          ],
+          "surname": [
+            "Huofuman"
+          ]
+        },
+        {
+          "forename": [
+            "Эрнст Тэ́адор Ві́льгельм Амадэ́й"
+          ],
+          "surname": [
+            "Гофман"
+          ]
+        },
+        {
+          "forename": [
+            "Ėrnst Teodor Amadej"
+          ],
+          "surname": [
+            "Gofman"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Teodor Amadeus"
+          ],
+          "surname": [
+            "Chofman"
+          ]
+        },
+        {
+          "personalName": [
+            "E・T・A・ホフマン"
+          ]
+        },
+        {
+          "forename": [
+            "Ernsṭ Têʾôdôr Amadêʾûs"
+          ],
+          "surname": [
+            "Hôffman"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/E._T._A._Hoffmann",
+          "label": "https://de.wikipedia.org/wiki/E._T._A._Hoffmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:46:42Z",
+    "gnd_query_biographical_data": "1776-1822",
+    "gnd_query_name": "hoffmann, ernst theodor wilhelm (amadeus)"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1213,
+  "name": "Hoffmann, Ernst Theodor Wilhelm (Amadeus)",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 468; Goed XIV, 352",
+  "updated": "2026-06-11 13:29:22.955Z",
+  "uri": "https://d-nb.info/gnd/118552465",
+  "editor": ""
+}

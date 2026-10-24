@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 77398, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77399,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apollonia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. von Felix Schiavoni gest. in Stahl von F. John",
+  "scans": [
+    "alm_2404_77399_iapwzfigfg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Apollonia",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.684Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "1q3j0jhvzwq88ga"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.683Z",
+      "agent": "by6d7qadwb43vko",
+      "source_id": "rwzgkujfvw3m7tt"
+    }
+  ]
+}

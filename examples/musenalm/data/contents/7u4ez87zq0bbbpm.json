@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42881,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffages berlinois. / 12. Herisson, 3. Chapeau 4. noble simplicité, 5. Passepartout",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki",
+  "scans": [
+    "alm_153_42881_117efadsyn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffages berlinois. / 12. Herisson, 3. Chapeau 4. noble simplicité, 5. Passepartout",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.255Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "3e9xhsk2j41o69m"
+    }
+  ]
+}

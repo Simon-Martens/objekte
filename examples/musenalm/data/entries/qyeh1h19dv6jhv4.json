@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Anekdotenalmanach (Müchler) 1827",
+    "norm": "",
+    "biblio": 100060,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1511,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker und Humblot)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Anekdotenalmanach (Müchler) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 23; L/R 213; Goed VIII. 66, 108",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Anekdotenalmanach / auf / das Jahr 1827. / Gesammelt und herausgegeben / von / Karl Müchler. / Mit einem Titelkupfer. / Berlin, / bei Duncker und Humblot",
+  "updated": "2026-06-11 10:18:54.599Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "xq2dzt32b3144ek"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.922Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.922Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "9dujqjmmo55xljw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.749Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.749Z",
+      "agent": "rgoxvg7uuoc3chb",
+      "source_id": "u8g37x7rg6t9bb2"
+    }
+  ]
+}

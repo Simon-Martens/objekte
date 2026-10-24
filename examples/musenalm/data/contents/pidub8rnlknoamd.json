@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Wie jedes Wirthshaus führt ein Schild, / Trägt jeder Dame Brust izt ihres Mannes Bild.",
+  "language": [],
+  "musenalm_id": 75267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Mode, des Mannes Bild auf der Brust zu tragen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Rahmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Mode, des Mannes Bild auf der Brust zu tragen",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.419Z",
+      "agent": "apv8utbqro872oi",
+      "source_id": "tim88xn6a616clh"
+    }
+  ]
+}

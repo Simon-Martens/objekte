@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Lasset zur Kranken mich hin! Ihr wehret / mir? Ist sie gestorben?",
+  "language": [],
+  "musenalm_id": 4352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter-Klage bei Kalliste'ns / Tode. / Nach dem Neu-Griechischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutter-Klage bei Kalliste'ns / Tode. / Nach dem Neu-Griechischen",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.052Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "75f4hdlcmdengqh"
+    }
+  ]
+}

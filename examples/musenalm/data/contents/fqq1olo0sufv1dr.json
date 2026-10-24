@@ -1,0 +1,45 @@
+{
+  "annotation": "Gaselen (Sammlung INr 95073, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Was klagt ihr? Ist's nicht schön, emporzustreben / Vom Staub zum Himmel, frei dahin zu schweben",
+  "language": [],
+  "musenalm_id": 95075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.429Z",
+      "agent": "g5bo98tjkpy8a15",
+      "source_id": "u9v7m8mgh4qa58w"
+    }
+  ]
+}

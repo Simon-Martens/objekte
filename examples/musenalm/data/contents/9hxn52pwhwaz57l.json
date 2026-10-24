@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der alte Steinbruch im Wolfsgraben « von J. S. Holzmeister INr 94107, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung: Der Eisenhammer / im Wolfsgraben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Decker del. J. Korvatsch sc.",
+  "scans": [
+    "alm_1866_94108_5r4hgkdav7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung: Der Eisenhammer / im Wolfsgraben",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "uq3x8380i98vcbc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "80ynrlk6xwlunry",
+      "source_id": "yh0n5nk6utdz0gm"
+    }
+  ]
+}

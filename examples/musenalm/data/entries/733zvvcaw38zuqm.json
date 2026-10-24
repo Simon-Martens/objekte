@@ -1,0 +1,126 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "recto G, verso G, T, 8 BB Kal, B I-Verz, SS 1-228",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gartenkalender (Hirschfeld) 1789",
+    "norm": "~+++ 409371 (G, Kal)",
+    "biblio": 106626,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-06-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 257,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Gartenkalender (Hirschfeld) 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49, L/R 130",
+  "responsibility_statement": "C. C. L. Hirschfeld",
+  "subtitle_statement": "",
+  "title_statement": "Gartenkalender / auf das Jahr / 1789, / herausgegeben / von C. C. L. Hirschfeld. / Siebenter Jahrgang. / Braunschweig, in der Schulbuchhandlung",
+  "updated": "2026-06-11 10:18:55.631Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "ctwnp7dik4zqi1w",
+    "zh3ja0prx0tzj17"
+  ],
+  "contents": [
+    "gd2c5pxe7469lld",
+    "m0t0jblr7cykqfr",
+    "wysiztkrf7eus1x",
+    "8xaopj58r8mf5xw",
+    "e46y87mu4qpryqn",
+    "lnqr4bxfr90z7oa",
+    "28etpiymip6e2j2",
+    "5tfr5hqvkjhjhnh",
+    "7mwrn5m1c9iwb35",
+    "cm3jgxeepfxaznw",
+    "ahct4csi0o925v6",
+    "1jswuxs1re4gk4j",
+    "jl2zs3hezfdb4mt",
+    "ogoydhr2o2lp1qn",
+    "niykotm1efu06go",
+    "5insnyprktq96c2",
+    "nezt69dm48ymkwy",
+    "24fujd14pyqt05j",
+    "ue88a4ml2i5soit",
+    "nu2abp7bhb1miux",
+    "3schanr2haggxq2",
+    "onknsrgbkhc8i8i",
+    "9f09yrswruh1sa2",
+    "kra3nyi5uf0w8l4",
+    "dpvfxwickytpugo",
+    "0achsjx49fpjdiv",
+    "02cxftgdxibfv8p",
+    "ns06zcd41ccdlaj",
+    "t320v59bf184510",
+    "caq3fhvx8yhwtkh",
+    "zfu40x2sg1ci6h8",
+    "ibdjcvnw26a5xei",
+    "vzg9anywehc1kvt",
+    "jlpir4rt1ep3shq",
+    "b2tknv5pylfq2ut",
+    "bypn04e38x5gqec",
+    "ctb07ta081o3uut",
+    "uaunknrm187jxq3",
+    "jgevzfdzrh7mpjp",
+    "ncmqavihs6w6489",
+    "jewatup8ha61s62",
+    "xwc7m6abov79weg",
+    "jqtxpvsg6rc27l3",
+    "99itggl50yfngu0",
+    "sy3q9oknl9vnzep",
+    "rrat1lxle1z0cjt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "3k1rfppwdzlk4ia"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.556Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.556Z",
+      "agent": "aeds1phnefxrmnb",
+      "source_id": "5ubqp7rhw1ip7do"
+    }
+  ]
+}

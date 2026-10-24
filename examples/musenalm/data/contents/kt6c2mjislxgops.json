@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Finden mag, was jeder verlangt. Nicht allen / ist Eines / Angenehm:",
+  "language": [],
+  "musenalm_id": 6403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ausleger der Alten. / Nach Petronius",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ausleger der Alten. / Nach Petronius",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.144Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "ywhirr5ii5d69l5"
+    }
+  ]
+}

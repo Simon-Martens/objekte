@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, T, Vrwt, SS 1–341, darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1827",
+    "norm": "~",
+    "biblio": 405182,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1295,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 128",
+  "responsibility_statement": "Carl Lebrun",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Begründet / von / AUG. von KOTZEBUE, / herausgegeben / von / Carl Lebrün. / Fünf und Zwanzigster Jahrgang. / HAMBURG. / bei Hoffmann & Campe / 1827",
+  "updated": "2026-06-11 10:18:55.003Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "ozbu4k9tbmsvrej"
+  ],
+  "contents": [
+    "ggpans5jkg21sxg",
+    "9mg4yhol1qvqjfh",
+    "ovvaf7o0yz529yj",
+    "tb34finrvryocz1",
+    "vmbpzexgbujzldz",
+    "cj4xz8jx89zrhb9",
+    "eomqkjiz1jy60q4",
+    "nd8q3k2c9p2c4h9",
+    "d9arpgb65828ppm",
+    "fmsvi0rbj4rbhf0",
+    "ow5ic2jupvc1af0",
+    "qfb6x3gvynnqrlx",
+    "9ne6whdwn8y11t3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.876Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.876Z",
+      "agent": "dlpgk2os95jpmjk",
+      "source_id": "1jnazrh5valx6mt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.041Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.041Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "jlxf3xl08xrsejb"
+    }
+  ]
+}

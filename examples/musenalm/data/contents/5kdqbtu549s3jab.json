@@ -1,0 +1,56 @@
+{
+  "annotation": "Es folgt: Sammlung von 4 Beiträgen INr 67225-67228, Obj 58,01-58,04 /) V. Vermischte Gegenstände (Sammlung INr 67156, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Je mehr auf unseren Cartouche der Jagdthiere gefahndet und seine Schelmenstücke inquirirt würde,",
+  "language": [],
+  "musenalm_id": 67184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Abentheuerliche Wolfsjagden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Abentheuerliche Wolfsjagden",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.252Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "g3qi8d5xdd0a526"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.253Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "ue4eepxv3plsdk5"
+    }
+  ]
+}

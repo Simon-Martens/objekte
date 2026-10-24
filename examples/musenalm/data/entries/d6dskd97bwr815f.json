@@ -1,0 +1,111 @@
+{
+  "annotation": "einziger Jahrgang; Wiederholung 1837 /) Für die Titelvignette und die acht Textvignetten vermutet L/R 96  als Schneider: Blasius Höfel und stellt die Nähe dieser Reihe zu M. Schwinds Federzeichnungen »Gräber und Todesgedanken« fest /) S. 454: Wien, 1823. Gedruckt bey dem Edlen von Ghelen'schen Erben /) Goed VIII. 106, 250 gibt Neudruck Regensburg 1837 an. s. alm-3851",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S I W, SS III-IV, S nT, SS 1-454 darin 8 GG MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Balsaminen 1823",
+    "norm": "~ auch erschienen als Vorzugsausgabe mit Seideneinband bei gleichem Umschlagschmuck",
+    "biblio": 100198,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1616,
+  "parallel_title": "",
+  "place_statement": "Wien (Volke)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Balsaminen 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; L/R 95; Goed VIII. 106, 250",
+  "responsibility_statement": "E. J. Veith",
+  "subtitle_statement": "",
+  "title_statement": "Balsaminen / Ein / Taschenbuch / für das Jahr / 1823 / von / E. J. Veith. / Mit Beyträgen von F. L. Z. Werner. / Wien / Bey Friedrich Volke. / 1823.",
+  "updated": "2026-06-11 10:18:55.533Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "ij24url6sjgfpy4"
+  ],
+  "contents": [
+    "g5rg15l68vsmol9",
+    "4qa7fb1qnczyiy8",
+    "k4kpmcps21bhvei",
+    "d792wttlhhsl9dd",
+    "sibxb6nqf92xlge",
+    "osjy0bh9v5vychp",
+    "6md1a5uv5jhj28k",
+    "ya5mjr0bdtgawbk",
+    "5rze7pdnrfkerci",
+    "2t2837r1puynuvw",
+    "x5bsgjzqyxqjoql",
+    "vmcle0ryz474x1o",
+    "vyordvm0g2ocqn8",
+    "ag5rossn3xtp76e",
+    "e38xdxifoiuni3h",
+    "eghb3mi5oe4k8wj",
+    "swom3khvt2d8a90",
+    "ex6ws82g9t8cstg",
+    "q0o04utv4ylrth0",
+    "pkjsogszlohqgv3",
+    "n0k83134yk096nf",
+    "btusihtz16yi7g9",
+    "trnj7s8b4kwal5s",
+    "0jlsbc2d5pclywb",
+    "4upgnjhp1schbx2",
+    "08jt9afenvi5nce",
+    "zvtwtiylxibpunu",
+    "j8m5hjte57kodj7",
+    "t1is4usje7qajzs",
+    "qazv2dldk1n69ya",
+    "afsq8zflsg196wn",
+    "aaljyhn532wcdou"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "zh3frmavpyowshf",
+      "source_id": "a88zlinci0fdyhu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.942Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.942Z",
+      "agent": "qfipgoo804kgoao",
+      "source_id": "y8o3s95lpabwj09"
+    }
+  ]
+}

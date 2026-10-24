@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dir blüht Erinnerung am Tajo-Strande, / Wo Luft des Südens lispelt in den Hainen;",
+  "language": [],
+  "musenalm_id": 86075,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dir blüht Erinnerung am Tajo-Strande, / Wo Luft des Südens lispelt in den Hainen;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.275Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "bcha2zkj6lkbft9"
+    }
+  ]
+}

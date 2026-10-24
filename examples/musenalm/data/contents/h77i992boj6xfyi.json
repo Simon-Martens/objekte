@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 48899, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deianire vom Centaur Nessus entführt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni W. Böhm",
+  "scans": [
+    "alm_669_48898_hq75knwoif.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deianire vom Centaur Nessus entführt",
+  "updated": "2007-04-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.306Z",
+      "agent": "azlvdz0ge43hlgu",
+      "source_id": "0c6h1d1kb6ucyh7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.306Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "e5330r59lreejl3"
+    }
+  ]
+}

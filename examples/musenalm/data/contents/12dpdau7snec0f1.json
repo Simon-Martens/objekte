@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102309, Obj 116)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Wenn ich hinaus in die Natur / In Gottes großen Tempel gehe / Und da erblicke, wie der Baum / Lichtdurstig rankt sich in die Höhe,",
+  "language": [],
+  "musenalm_id": 102330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. / Wenn ich hinaus in die Natur -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Drobisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. / Wenn ich hinaus in die Natur -",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.920Z",
+      "agent": "qf0rumqvyhc5lnw",
+      "source_id": "zj20op6zzzxxmxs"
+    }
+  ]
+}

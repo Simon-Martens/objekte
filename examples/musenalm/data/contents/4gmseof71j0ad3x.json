@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Schildwache« von Fr. Rochlitz INr 28455, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28412,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verrathen Sie mich und meinen August nicht!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_368_28412_emvb4axi9o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verrathen Sie mich und meinen August nicht!",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.116Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "izyaj8027oay7vs"
+    }
+  ]
+}

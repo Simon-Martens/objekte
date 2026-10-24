@@ -1,0 +1,113 @@
+{
+  "annotation": "Vielleicht weiterer Jahrgang 1810 /) Jahrgang /) § Titel beschädigt: Die Jahreszahl des Titels verändert und handschrifltich »4« vor »Kupfern« eingetragen /) §§ es fehlen Titelgraphik, eine weitere Graphik, sowie Kalendarium /) am Ende des I-Verz: 6 Kupferstiche, 1 vollst. Kalender apart",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T. SS V-VI I-Verz, nT, SS 1-306 darin 4 GG,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Romantisches 1809",
+    "norm": "~ /) lt. I-Verz: 6 Kupferstiche, 1 vollst. Kalender apart",
+    "biblio": 407393,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-07-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3850,
+  "parallel_title": "",
+  "place_statement": "Bremen und Aurich (Müller)",
+  "places": [
+    "40lffsuvkzjxuns",
+    "vicuz8irdyy1b34"
+  ],
+  "preferred_title": "Taschenbuch, Romantisches 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 145; nicht bei L/R; Goed VIII. 69, 119",
+  "responsibility_statement": "Ernst von Heimburg",
+  "subtitle_statement": "",
+  "title_statement": "Romantisches / Taschenbuch / auf das Jahr 1809. / Von / Ernst von Heimburg. / Mit [4] Kupfern / Bremen und Aurich, / bey Johann Heinrich Müller. / 1809",
+  "updated": "2026-06-11 10:18:55.288Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "786doc9e1ybs13b"
+  ],
+  "contents": [
+    "loeebwsscasgw7y",
+    "drtyp6dm26i22s7",
+    "mnryjrhonj89gk9",
+    "f0x8cb366ryum2u",
+    "atgd78qjj8cfh1p",
+    "8axnca7e668hkrd",
+    "rsmem35a07z202t",
+    "qvsv7okmv04g6eb",
+    "420dzg7nbzw49vv",
+    "bmx8yhznkqnt36r",
+    "tv4rjstqsn2xrc4",
+    "u1kko44r64xvyrm",
+    "c9d6axf1cfsaga3",
+    "vp3jfnwdvxs04r8",
+    "rcanvy4mjt8yz96",
+    "ew6endudst0mx69",
+    "l2jp2zf5ylunjz1",
+    "q15i9undph3e7y9",
+    "u0sge307x1bwufb",
+    "rk1ib5skjglsbjg",
+    "8ep8ec1oc5lnskx",
+    "w3ybiuen089kt4f",
+    "ge8oj7o8lrmd1w6",
+    "blfe8ibn8eco2vf",
+    "cmx9mxauunue76q",
+    "1fp78v2s1flvit4",
+    "w80dd2s9r4l2q0x",
+    "kce8madszoqwhhn",
+    "ilenfd5p3bgk5jf",
+    "86hvbyl3o3ti9a2",
+    "ct3l205hq1vgwl3",
+    "52ybbkzuz90si72",
+    "j3z4307p9z8hp2d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "pxck6p183u78owo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.451Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.451Z",
+      "agent": "orx7v7pqp6w1agz",
+      "source_id": "tcv9v7ipfjf8l3c"
+    }
+  ]
+}

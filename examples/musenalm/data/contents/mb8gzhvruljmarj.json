@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Zum Kampfe gerüstet die Schaaren stehn, / Die Banner des Halbmondes und Adlers wehn.",
+  "language": [],
+  "musenalm_id": 45712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schamyl in den Wäldern von Itschkery",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schamyl in den Wäldern von Itschkery",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.140Z",
+      "agent": "3bb8mhymqsjn5dk",
+      "source_id": "xrwib9k0ski20t6"
+    }
+  ]
+}

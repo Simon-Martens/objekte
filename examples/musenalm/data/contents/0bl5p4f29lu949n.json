@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67135, Obj 9) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67144, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Dem Leser wird der Anblick der Abbildung auch ohne nähere Beschriebung zeigen, daß diese Eiche ihren Namen mit Recht trägt.",
+  "language": [],
+  "musenalm_id": 67145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die täuschende Eiche. Quercus decipiens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die täuschende Eiche. Quercus decipiens",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "kq4g56g38zxvy1z",
+      "source_id": "mvr37jjsy7fnqdf"
+    }
+  ]
+}

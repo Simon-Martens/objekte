@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, SS 1-381, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Berliner (Cosmar) 1838",
+    "norm": "~",
+    "biblio": 404871,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3241,
+  "parallel_title": "",
+  "place_statement": "Berlin (Bade)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Theater-Almanach, Berliner (Cosmar) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 160; nicht bei L/R",
+  "responsibility_statement": "Alexander Cosmar",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / Theater-Almanach / auf / das Jahr 1838. / Herausgegeben / von / Alexander Cosmar. / Dritter Jahrgang. / Berlin. / Verlag von Th. Bade",
+  "updated": "2026-06-11 10:18:54.811Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "py1w9jv4w227xrf"
+  ],
+  "contents": [
+    "mdbzt6heyi7wzdh",
+    "a70u2sgb1543kuw",
+    "a32jzgc8ny7fg4v",
+    "4652d60i2nul9wt",
+    "f7iemh9db7zwx96",
+    "grtr0rbwxy46gji",
+    "w7u0tzhkglxlw3j",
+    "f2slkjs3onecjvz",
+    "kcet4aytqdkl2b6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.492Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.492Z",
+      "agent": "n66bvh8gcjdzgo4",
+      "source_id": "rh0l8ldlpzx0c0y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.192Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "tswhww6nmopnczb"
+    }
+  ]
+}

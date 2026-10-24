@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetische Kleinigkeiten (Sammlung INr 33556, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Wundert ihr euch, daß die Gottes-Liebe jetzt öfter im schwachen Weibe als im starken Manne wohnt und wärmt?",
+  "language": [],
+  "musenalm_id": 33559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Religion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Religion",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "1fr24ikyu5kpu4w"
+    }
+  ]
+}

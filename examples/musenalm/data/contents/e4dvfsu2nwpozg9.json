@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42102, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Torquato Tasso / Act IV. Scene 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geissler del. Buser sc.",
+  "scans": [
+    "alm_535_42109_sie7o9gjiz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Torquato Tasso / Act IV. Scene 2.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.186Z",
+      "agent": "gpua5gdwasv89sy",
+      "source_id": "bzp40p6lug5ghxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.186Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "ovroswuikdcf9jn"
+    }
+  ]
+}

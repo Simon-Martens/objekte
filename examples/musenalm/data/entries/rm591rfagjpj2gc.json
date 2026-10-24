@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S G-Verz I-Verz, 7 SS G-Verz, 5 GG, SS 1-366",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1848",
+    "norm": "~",
+    "biblio": 106483,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1056,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Walter Tesche",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1848 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 33. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2026-06-11 10:18:55.590Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "n2sd1ri8u1nod8v"
+  ],
+  "contents": [
+    "uqe0pn60pzljh4v",
+    "qfx5y8nerm4y51m",
+    "g9fsuel8otu5vsv",
+    "h4og7p3ggfp9r7n",
+    "vg0qu6eit0s4q3e",
+    "9h2wr2fdzv87fn6",
+    "b88r91sveonwhj0",
+    "55uxkmblc22jzbc",
+    "lme2goi93z1ud0o",
+    "rrdspfwonoe1g58",
+    "o8uj7a1d07a1joe",
+    "aasrau89g8gj9be",
+    "3kvi6sblvjcwqit",
+    "jgb3393wl77qv42",
+    "6g3dm30q93r9ops",
+    "ird2kxedxscou2h",
+    "r0smh3wizxv269m",
+    "jfuh7cocvv6vx3p",
+    "8o1y9cqml2n7ty4",
+    "7czyki9vzzd62uh",
+    "0qoha59gcte5lll"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.811Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.811Z",
+      "agent": "ayxe6k12ru1cyko",
+      "source_id": "i86inhm2j9had29"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.088Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.088Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "nycbdrutcl1rylz"
+    }
+  ]
+}

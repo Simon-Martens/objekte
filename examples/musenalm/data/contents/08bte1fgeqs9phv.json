@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Er hat den Vestris tanzen seh'n; / Man sieht wohl, daß er die Kunst versteht;",
+  "language": [],
+  "musenalm_id": 84093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der steif-treue Uebersetzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der steif-treue Uebersetzer",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.970Z",
+      "agent": "qto9t6cuwltpfja",
+      "source_id": "3qdyt567q625x7n"
+    }
+  ]
+}

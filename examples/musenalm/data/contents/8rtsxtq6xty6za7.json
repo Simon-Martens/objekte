@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Es gibt Menschen, deren Leben eine solche Kette von Ungemach ist, das aus wolkenlosem Himmel auf sie fällt, daß sie endlich betäubt werden, und dastehen, und den Hagel auf sich ergehen lassen,",
+  "language": [],
+  "musenalm_id": 65337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Addias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Addias",
+  "updated": "2009-07-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.014Z",
+      "agent": "gqt48yh8xk0p2zo",
+      "source_id": "thanms0rz8a7nkz"
+    }
+  ]
+}

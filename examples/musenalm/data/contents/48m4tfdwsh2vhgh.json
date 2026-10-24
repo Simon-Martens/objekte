@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Die Mutter wiegt in stiller Lust / Ihr liebes Knäbelein / An ihre liebewarme Brust / In sanften Schlummer ein.",
+  "language": [],
+  "musenalm_id": 80035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindleins Tod",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kindleins Tod",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.786Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "0g4s33svnl0nd31"
+    }
+  ]
+}

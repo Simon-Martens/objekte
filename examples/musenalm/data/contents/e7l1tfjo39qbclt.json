@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Bäche neigen sich zu Flüssen, / Ströme münden sich in See'n,",
+  "language": [],
+  "musenalm_id": 19521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Theil im Ganzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Theil im Ganzen",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.855Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "mymsnquyqpm399e"
+    }
+  ]
+}

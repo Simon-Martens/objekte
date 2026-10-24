@@ -38,6 +38,9 @@ struct Shell<'a> {
     preferences: String,
 }
 pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
+    navigation_with_heading(editor, workspace, None)
+}
+fn navigation_with_heading(editor: &Editor, workspace: &str, heading: Option<&str>) -> Result<String> {
     // The section key is emitted by our workspace templates, never inferred by browser code.
     let section = workspace
         .split_once("data-section=\"")
@@ -89,7 +92,9 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             .and_then(|g| g["position"].as_i64())
             .unwrap_or(0);
         let all_links = ui["sidebarAllLinks"].as_str().unwrap_or("none");
-        let tree = if !c.child_collections().is_empty() {
+        let tree = if ui["sidebarTree"] == false {
+            String::new()
+        } else if !c.child_collections().is_empty() {
             crate::hierarchy::navigation_tree(editor, name, workspace, all_links == "all")?
         } else {
             tree_navigation(editor, name, all_links == "all")?
@@ -148,10 +153,11 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
         .file_name()
         .unwrap_or_default()
         .to_string_lossy();
-    let mut html = format!(
-        "<aside id=\"project-navigation\"><a href=\"/\" data-nav class=\"repository-heading\" aria-label=\"Repository root\"><i class=\"ri-git-repository-line\" aria-hidden=\"true\"></i><div><span class=\"eyebrow\">Repository</span><strong>{}</strong></div></a><nav aria-label=\"Repository navigation\">",
+    let default_heading = format!(
+        "<a href=\"/\" data-nav class=\"repository-heading\" aria-label=\"Repository root\"><i class=\"ri-git-repository-line\" aria-hidden=\"true\"></i><div><span class=\"eyebrow\">Repository</span><strong>{}</strong></div></a>",
         escape(&repository)
     );
+    let mut html = format!("<aside id=\"project-navigation\">{}<nav aria-label=\"Repository navigation\">", heading.unwrap_or(&default_heading));
     let mut last = String::new();
     for (_, _, group, label, url, tree, all_url, icon, show_root_all) in items {
         if group != last {
@@ -261,10 +267,15 @@ fn tree_navigation(editor: &Editor, name: &str, show_all_links: bool) -> Result<
     );
     Ok(html)
 }
-pub fn shell(editor: &Editor, actor: &Actor, content: &str, assets: &Assets) -> Result<String> {
+pub(crate) fn project_navigation(state: &crate::AppState, actor: &Actor, content: &str) -> Result<String> {
+    navigation_with_heading(&state.editor, content, Some(&crate::projects::chooser(state, actor)))
+}
+pub fn shell(state: &crate::AppState, actor: &Actor, content: &str) -> Result<String> {
+    let editor = &state.editor;
+    let assets = &state.assets;
     Ok(Shell {
         actor: actor.into(),
-        navigation: navigation(editor, content)?,
+        navigation: project_navigation(state, actor, content)?,
         content,
         assets: &assets.tags,
         preferences: crate::preferences::fragment(editor),

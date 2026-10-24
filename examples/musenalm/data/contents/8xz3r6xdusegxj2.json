@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Liebe Lust und Qual. Zwölf Sonnette (Sammlung INr 14407, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "So ruhet denn, ihr tonbelebten Saiten, / Die oft so süß mir in die Seele klangen,",
+  "language": [],
+  "musenalm_id": 14419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Chr. Baron Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2001-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.581Z",
+      "agent": "id1mj19iathigp2",
+      "source_id": "q6re0ia79i0gbnp"
+    }
+  ]
+}

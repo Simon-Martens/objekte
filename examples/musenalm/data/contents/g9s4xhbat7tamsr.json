@@ -1,0 +1,46 @@
+{
+  "annotation": "Frühling (Sammlung INr 23217, Obj 16) dem Beitrag beigefügt: Gedicht mit dem Incipit: Wo Tempel und Pallast in ihren Trüm- / ern liegen, / Durch öde Hallen, Jahrelang,",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Von allen Freuden, welche die Natur uns darbeut, sind keine so allgemein durch Lieder verherrlicht worden, als die Freuden des Frühlings",
+  "language": [],
+  "musenalm_id": 23219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Qui mare et terras, variisque mundum / Temperat horis. / Horat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Qui mare et terras, variisque mundum / Temperat horis. / Horat",
+  "updated": "2002-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.913Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "cvzv3lowh7d5uf7"
+    }
+  ]
+}

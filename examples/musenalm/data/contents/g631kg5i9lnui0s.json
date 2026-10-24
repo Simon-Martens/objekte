@@ -1,0 +1,45 @@
+{
+  "annotation": "Vulkan (Sammlung INr 91563, Obj 87) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Als Vulkan in dem Treffen vor Troja auf Befehl seiner Mutter sich mit seinen Flammen dem Flußgott Skamander widersetzte,",
+  "language": [],
+  "musenalm_id": 91568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf des Vulkan / mit dem Flußgott Skamander",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf des Vulkan / mit dem Flußgott Skamander",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.262Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "tinkbu10wty28fc"
+    }
+  ]
+}

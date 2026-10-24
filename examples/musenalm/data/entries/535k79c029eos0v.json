@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Shakespeare-Almanach 1836",
+    "norm": "",
+    "biblio": 200093,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2618,
+  "parallel_title": "",
+  "place_statement": "Berlin (Veit u. Comp.)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Shakespeare-Almanach 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 102; nicht bei L/R",
+  "responsibility_statement": "Gottlob Regis",
+  "subtitle_statement": "",
+  "title_statement": "Shakespeare-Almanach. / Herausgegeben / von / Gottlob Regis. / Berlin. / Verlag von Veit und Comp. / 1836",
+  "updated": "2026-06-11 10:18:55.409Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "1g2icccg6rhzxjo"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "jsfwkqtg1jwek5a",
+      "source_id": "xsib5w8sdsyyjez"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Gesehen hab' ich sie, gesehen, / Wie sie wankte - matt",
+  "language": [],
+  "musenalm_id": 35036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sacco-Medea, / gemalt von Herrn Hickel dem jüngern. / Fragment 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sacco-Medea, / gemalt von Herrn Hickel dem jüngern. / Fragment 1779",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.695Z",
+      "agent": "v5wbuj6yomki99q",
+      "source_id": "hks6yhns01xgevx"
+    }
+  ]
+}

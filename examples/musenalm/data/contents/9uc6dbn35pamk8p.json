@@ -1,0 +1,46 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Aachen, eine Reichsstadt im westphäl. K. in dem Herz. Jülich, 4 M. von Jülich und Maastricht, mit 24000 Einw. und einem kais. Postamt,",
+  "language": [],
+  "musenalm_id": 97402,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das für einen Reisenden Merkwürdigste und / Interessanteste von den vornehmen Ländern / und Städten in Deutschland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das für einen Reisenden Merkwürdigste und / Interessanteste von den vornehmen Ländern / und Städten in Deutschland",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.632Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "4u7f84i2wnh9ykv"
+    }
+  ]
+}

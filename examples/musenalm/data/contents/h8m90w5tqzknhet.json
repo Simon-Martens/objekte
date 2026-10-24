@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Ludwig Christoph Heinrich Hölty's Sämtliche Werke, kritisch und chronologisch herausgegeben von Wilhelm Michael. Weimar 1914. Bd. 1. S. 92; s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Kein Blick der Hoffnung heitert die Seele mir, / Kein Blick der Freude!",
+  "language": [],
+  "musenalm_id": 2324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laura. / 1772",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Laura. / 1772",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.874Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "0fv7t1kk8i98byt"
+    }
+  ]
+}

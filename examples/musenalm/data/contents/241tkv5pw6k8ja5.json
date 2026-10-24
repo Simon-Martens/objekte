@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Neunzehn ungedruckte Epigramme (Sammlung INr 39645, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Wird das Gedicht nicht gesprochen; so seht ihr die / Seelen nicht, denen / Inhalt, treffendes Wort mit zu erscheinen gebot.",
+  "language": [],
+  "musenalm_id": 39653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Die Rhapsoden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Die Rhapsoden",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.154Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "otp9f57pi3ljgso"
+    }
+  ]
+}

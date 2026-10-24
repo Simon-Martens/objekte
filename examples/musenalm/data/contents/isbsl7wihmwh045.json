@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Wohin bist du, o Königin, entflohn / O hast du nur im Himmel deinen Thron?",
+  "language": [],
+  "musenalm_id": 8486,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Himmel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Himmel",
+  "updated": "2026-06-23 09:01:04.885Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.140Z",
+      "agent": "9ffesqccgj8nyl5",
+      "source_id": "89658dozhonqg39"
+    }
+  ]
+}

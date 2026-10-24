@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Ruinen 1834 (4. Bd.)",
+    "norm": "",
+    "biblio": 407042,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3755,
+  "parallel_title": "",
+  "place_statement": "Wien (Lechner)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Ruinen 1834 (4. Bd.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 99; nicht bei L/R 23; nicht bei Goed VIII 119, 296",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Ruinen / oder / Taschenbuch / zur / Geschichte verfallener Ritterburgen und Schlösser / nebst ihren Sagen, Legenden und Mährchen. / Für / Freunde der Vorzeit. / Vierter Band. / Enthält […] / Wien, 1834. / Bey Mich. Lechner, Universitäts-Buchhändler",
+  "updated": "2026-06-11 10:18:55.467Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "jszsrz6m8lcbd0h"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.091Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.091Z",
+      "agent": "s3dblxeemp6e8xv",
+      "source_id": "wtntu3d8lr1714n"
+    }
+  ]
+}

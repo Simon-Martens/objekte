@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Der Schatz durch den Schatz. Biographie Hans Breidbachs des Goldschmidts von Fryburg, aus dem XVI. Jahrhundert« von J. M. Usteri INr 50182, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. M. Usteri del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_4_50183_311v9yqtuv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.654Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "n2vrlwqaicz6he4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.654Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "wsp6a0my9vuwbd2"
+    }
+  ]
+}

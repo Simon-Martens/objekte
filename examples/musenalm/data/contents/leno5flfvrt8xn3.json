@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 13366, Objekt 2 und einer Musikbeigabe INr 13554, Objekt 193",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Mein Vater war gestorben / Und meine Mutter todt; / Sie hatten nichts erworben, / Und ich war ohne Brod",
+  "language": [],
+  "musenalm_id": 13384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Tirolermädchen. / Mit Compos. v. Hrn. Reiner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Tirolermädchen. / Mit Compos. v. Hrn. Reiner",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.642Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "y970tbhnk8cvpbh"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK/SWB &nbsp;4J gg 1852-1855; Magdeburg (Fabricius); Hrsg.: C. Gude und A. Grube",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Unterhaltungen und Studien aus dem Natur- und Menschenleben. Ein Almanach für die Jugend 1852",
+    "norm": "",
+    "biblio": 408287,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3325,
+  "parallel_title": "",
+  "place_statement": "Magdeburg (Fabricius)",
+  "places": [
+    "37pvqift972kzxs"
+  ],
+  "preferred_title": "Unterhaltungen und Studien aus dem Natur- und Menschenleben. Ein Almanach für die Jugend 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. Gude und A. Grube",
+  "subtitle_statement": "",
+  "title_statement": "Unterhaltungen und Studien / aus dem / Natur- und Menschenleben. / Ein / Almanach für die Jugend / bearbeitet und herausgegeben / von / C. Gude und A. Grube. / Erster Jahrgang. / Magdeburg. / Verlag von E. Fabricius. / 1852",
+  "updated": "2026-06-11 10:18:54.947Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "3x3nadx5pw5t8kc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.838Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.838Z",
+      "agent": "jeetxxcj6xdbo08",
+      "source_id": "9cio4ni2e6sv7tb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zweytes Jahr (Sammlung INr 48675, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Schon ließ sich vierzehn Tage lang / Die Sonne nicht mehr sehn;",
+  "language": [],
+  "musenalm_id": 48684,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Frost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Frost",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.479Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "xdzzhb9i45cpuok"
+    }
+  ]
+}

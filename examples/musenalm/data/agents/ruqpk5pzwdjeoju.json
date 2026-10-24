@@ -1,0 +1,273 @@
+{
+  "annotation": "",
+  "biographical_data": "1783–1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.459Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schüler in Grimma; 1801-1804 Theol.-Student in Leipzig; Hauslehrer; 1808 Dr. phil. in Wittenberg; ab 1818 Oberlehrer am evangel. Gynasium in Glogau; 1855 pensioniert"
+      ],
+      "dateOfBirth": [
+        "1783-11-11"
+      ],
+      "dateOfDeath": [
+        "1869-05-10"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1055312641"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-26T19:29:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/12117977X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/121166317",
+          "label": "Röller, Traugott Günther"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "12117977X",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/121166317",
+          "label": "Röller, Traugott Günther"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/12117977X",
+      "oldAuthorityNumber": [
+        "(DE-588)1055312641",
+        "(DE-588a)12117977X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7743551-5",
+          "label": "Schönfels (Lichtentanne)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        }
+      ],
+      "preferredName": "Röller, Gottfried Günther",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried Günther"
+        ],
+        "surname": [
+          "Röller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398796-5",
+          "label": "Oberlehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "publication": [
+        "Ode an die Freude",
+        "Coelum ludimagistrorum",
+        "Pyreneus gener Monetae"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2022011146"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95965815"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q108811647"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055312641"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12117977X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/12117977X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1811_roeller"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/12117977X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Roeller, G. G.",
+        "Röller, Günther G.",
+        "Röller, Gottfr. Günth.",
+        "Roeller, Gottfried Günther"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gottfried Günther"
+          ],
+          "surname": [
+            "Roeller"
+          ]
+        },
+        {
+          "forename": [
+            "G. G."
+          ],
+          "surname": [
+            "Roeller"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfr. Günth."
+          ],
+          "surname": [
+            "Röller"
+          ]
+        },
+        {
+          "forename": [
+            "Günther G."
+          ],
+          "surname": [
+            "Röller"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:40:51Z",
+    "gnd_query_biographical_data": "1783–1840",
+    "gnd_query_name": "röller, gottfried günther"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2304,
+  "name": "Röller, Gottfried Günther",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Deutsche Biographie, https://www.deutsche-biographie.de/pnd12117977X.html [15.06.2022]",
+  "updated": "2026-06-11 13:29:24.375Z",
+  "uri": "https://d-nb.info/gnd/12117977X",
+  "editor": ""
+}

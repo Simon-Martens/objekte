@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Vater-Erbe« INr 102811, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "478",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LEOPOLDINE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Loder del. Jos Stöber sc. Viennae",
+  "scans": [
+    "alm_3371_102814_zaq9zw5nk0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LEOPOLDINE",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.769Z",
+      "agent": "5m3k81xtringcag",
+      "source_id": "a4ku1zknl14xs86"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.769Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "r36ds5mwhsnhd3r"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "In seiner heil'gen Sonntagsscheune, / Bei vollgedrängter Dorfgemeine",
+  "language": [],
+  "musenalm_id": 10526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Kritik / einer schlechten Parentation in einer schlechten / Dorfkirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Kritik / einer schlechten Parentation in einer schlechten / Dorfkirche",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.577Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "pctgk6lxy7salh2"
+    }
+  ]
+}

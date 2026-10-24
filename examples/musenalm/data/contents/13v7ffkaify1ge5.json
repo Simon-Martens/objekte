@@ -1,0 +1,45 @@
+{
+  "annotation": "Heldensage in Romanzen (Sammlung INr 72083, Obj 6) mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Was zauderst Du so träg, vergessend Speer und Schild / Verrathnes Dänenheer, im feindlichen Gefild?",
+  "language": [],
+  "musenalm_id": 72095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tod",
+  "updated": "2010-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.426Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "8dct32iya7k4x24"
+    }
+  ]
+}

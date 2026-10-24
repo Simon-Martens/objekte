@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Zartes Töchterchen von Floren, / Hat dich nicht der Lenz erkoren?",
+  "language": [],
+  "musenalm_id": 17220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Primel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Primel",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.805Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "05j5ddmiq4p9uzb"
+    }
+  ]
+}

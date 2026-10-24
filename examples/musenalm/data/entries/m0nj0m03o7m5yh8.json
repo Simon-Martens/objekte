@@ -1,0 +1,111 @@
+{
+  "annotation": "auch erschienen als Taschenbuch zur Beförderung der Vaterlandsliebe von C. G. Salzmann [...] 1802",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "Ug, VB, verso G, T, 6 BB Kal darin 6 GG, SS 1-44 G-Verz, SS 45-205, SS 206-210 Nwrt u Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Beförderung der Vaterlandsliebe 1801",
+    "norm": "~",
+    "biblio": 408512,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-04-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4017,
+  "parallel_title": "",
+  "place_statement": "Schnepfenthal (Buchhhandlung der Erziehungsanstalt)",
+  "places": [
+    "vre8r4u738ul09k"
+  ],
+  "preferred_title": "Taschenbuch zur Beförderung der Vaterlandsliebe 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 109; nicht bei L/R; nicht bei Goed V. 487, 1",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / Beförderung der Vaterlandsliebe. / Auf das Jahr 1801. / Schnepfenthal, / im Verlage der Buchhandlung der Erziehungsanstalt. / 1801",
+  "updated": "2026-06-11 10:18:55.682Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "8mnzwzamaj15z04"
+  ],
+  "contents": [
+    "z978xn3ygjabxz9",
+    "c17dd5suutm9hya",
+    "ob5hic8p4auv3f2",
+    "o7xtmwdwaqy7mr8",
+    "e20y88hrqrc85z0",
+    "wm4ip8dnlrii3bh",
+    "h3zjordl8qid3j1",
+    "kdlrk963zu74bb6",
+    "5q0adi35w97f52i",
+    "v6npkea6e15s8pl",
+    "gma5n5y290ijzxm",
+    "pb4m2a57kxd9hwu",
+    "y4gaial76zcci1v",
+    "y460cys4vr6x9gz",
+    "7yjplcdrwwezqdx",
+    "urs3f4k3k30sfy1",
+    "yqicv1kye2anag6",
+    "gvqkf6snxmx350u",
+    "gtrleh1syflwlyj",
+    "88h2rkt3c2eogaq",
+    "qp40qnj6uddbr35",
+    "1tdftxfvukuzt7y",
+    "67j6a4ulcn8ypk0",
+    "gl2p29ibobpzkeh",
+    "rt9sbe6blbb91dl",
+    "upeot0r1664xoo9",
+    "jou9tipryabx193",
+    "l4ig64498o8gzy0",
+    "qb7zuuax945pghq",
+    "azjhm6rksh8s1ey",
+    "r8j3v4m9y764c18",
+    "ea3fikb44pv2m2d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.324Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.324Z",
+      "agent": "zta4jxuxzdm872n",
+      "source_id": "6pwkg8ja3qzzmcq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.614Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.614Z",
+      "agent": "uoqf9e8hzzpk623",
+      "source_id": "lggo6jptm43lcgl"
+    }
+  ]
+}

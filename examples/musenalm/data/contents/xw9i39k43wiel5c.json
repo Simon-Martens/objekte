@@ -1,0 +1,45 @@
+{
+  "annotation": "mit beigegebenem Gedicht Houwalds INr 76970, Obj 24 /) s. Graphik INr 76971, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Hier lebte und dichtete der allen Freunden des Schönen und Guten theure und liebe Ernst von Houwald",
+  "language": [],
+  "musenalm_id": 76969,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Ansicht von Sellendorf, bei Golfen in der / Niederlausitz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Ansicht von Sellendorf, bei Golfen in der / Niederlausitz",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.859Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "wqd9nx4g0xw1vef"
+    }
+  ]
+}

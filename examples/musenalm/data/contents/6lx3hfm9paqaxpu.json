@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. und Titel s. Textbezug INr 48831, Obj 10 /) $ s. Anm. oben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine H. Familie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paolo Veronese # Malbeste $",
+  "scans": [
+    "alm_667_48830_0duy668qwk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine H. Familie #",
+  "updated": "2007-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.325Z",
+      "agent": "t6kwrc1ens7g178",
+      "source_id": "e3uds9gnhf74vci"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.325Z",
+      "agent": "biwl8qdoqjku67m",
+      "source_id": "ku5qu9g26wkxe66"
+    }
+  ]
+}

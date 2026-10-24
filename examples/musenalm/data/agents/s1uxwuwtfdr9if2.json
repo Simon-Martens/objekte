@@ -1,0 +1,381 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.518Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1770-02-09"
+      ],
+      "dateOfDeath": [
+        "1817-06-19"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-04T14:19:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117435007/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Karoline Dorothea"
+          ],
+          "surname": [
+            "Ambrust"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117435007",
+      "id": "https://d-nb.info/gnd/117435007",
+      "oldAuthorityNumber": [
+        "(DE-588a)117435007",
+        "(DE-588a)115342109",
+        "(DE-588a)100708188"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4043457-6",
+          "label": "Oldenburg (Oldenburg)"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Prag"
+      ],
+      "preferredName": "Woltmann, Karl Ludwig von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Ludwig"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Woltmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter",
+        "Historiker"
+      ],
+      "publication": [
+        "Plan für historische Vorlesungen",
+        "Geschichte der Reformation in Deutschland",
+        "Erzählungen",
+        "Memoiren des Freiherrn von S...a",
+        "Geschichte der Europäischen Staaten. - 1797 - 1799",
+        "Schriften. - 1806 - 1807",
+        "Kleine historische Schriften",
+        "Geschichte des Westphälischen Friedens",
+        "Johann von Müller",
+        "Inbegriff der Geschichte Böhmens"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no99061917"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22918998"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q92378"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117435007/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_von_Woltmann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Ludwig_von_Woltmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109598166"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117435007"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117435007"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117435007.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117435007"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Woltmann, ...",
+        "Woltmann, Karl Ludewig",
+        "Woltmann, Karl",
+        "Woltmann, Carl Ludwig von",
+        "Woltmann, Carl Ludwig",
+        "Woltmann, Karl von",
+        "Woltmann, Karl Ludwig",
+        "Woltmann, K. F. von",
+        "Gloxin, C. D.",
+        "Woltmann, Carl von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludewig"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "K. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ludwig"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "C. D."
+          ],
+          "surname": [
+            "Gloxin"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Woltmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ludwig_von_Woltmann",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ludwig_von_Woltmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:25:00Z",
+    "gnd_query_biographical_data": "1770-1817",
+    "gnd_query_name": "woltmann, karl ludwig von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3195,
+  "name": "Woltmann, Karl Ludwig von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 318",
+  "updated": "2026-06-11 13:29:25.862Z",
+  "uri": "https://d-nb.info/gnd/117435007",
+  "editor": ""
+}

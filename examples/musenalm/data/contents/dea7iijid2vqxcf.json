@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 33457, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (d'Argent sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_464_33473_bvf6wd6bf4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.528Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "ih9vqov8r962u16"
+    }
+  ]
+}

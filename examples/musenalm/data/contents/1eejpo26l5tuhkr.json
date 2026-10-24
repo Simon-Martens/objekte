@@ -1,0 +1,45 @@
+{
+  "annotation": "Strophen (Sammlung INr 92787, Obj 54) Strophen, Distichen und Elegieen (Sammlung INr 92786, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Aus frischen Bergeslüften, / Wo aus des Eises Klüften / Die Quellen sich befrei'n, / In's heiße Thal hinein!",
+  "language": [],
+  "musenalm_id": 92789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Thalfahrt. / Haslithal im Juli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Thalfahrt. / Haslithal im Juli",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "wpio85du1y7gzb5"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "annotation": "7 Jgg: 1784, 1786, 1787, 1789, 1798, 1799, 1800; Berlin (Haude und Spener); Hrsg.: 1784, 1786, 1798: M. C. Sprengel /) Jg 1784: Sog. Amerika-Almanach; Jg 1798 auch als: Historisches Taschenbuch für das Jahr 1798 enthaltend des Grafen Macartney Gesandtschaftsreise nach China … s. alm-2489",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, gT, 12 BB Kal darin 12 GG, ar: SS 1-74 Tab, nT, 3 BB Vrwrt d Hrsg, Kr, ar1: SS 1-160, SS 161-182 G-Verz, 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1784",
+    "norm": "~",
+    "biblio": 106628,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 925,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 16",
+  "responsibility_statement": "M. C. Sprengel",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1784. / Leipzig / zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2026-06-11 10:18:55.883Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "6h3107lrkfbxy75"
+  ],
+  "contents": [
+    "2gq082e761jag4p",
+    "azry347p60iix66",
+    "rmk3fdpkojwyha1",
+    "y94xn0jbyalyv8x",
+    "1kwefozue9t5xlw",
+    "94ne1u4tbyu8e6w",
+    "94b0zw80ypqmuif",
+    "rrqzkfog67msak8",
+    "k7btcaq7o2y1ceo",
+    "b7rlng5f1qxha4v",
+    "8kqw75r2qwetfa8",
+    "efwg3va2d0t07nx",
+    "pkfrwguqpfmkfbf",
+    "g3e9z9t4f6rp4cv",
+    "ytvrkj67906n452",
+    "eav1u9yf64dgvpy",
+    "gwebspecps7ft5s",
+    "zreo1qt6b4uo347",
+    "pffieqh0wfsjgf2",
+    "jjsq97js5swm09b",
+    "3t968cdpos5d4jb",
+    "oeq9eyhi3asib69",
+    "666u0pl6phonxxo",
+    "e7pph9yqpyggf4h",
+    "63ia9ehcfc6h6zi",
+    "4umryp8tksddlu0",
+    "uruf93f6rogyjtc",
+    "n0k5zwdq7e7x71t",
+    "jyei8sim7wtbq0v",
+    "btmgzrrjaxv5p2x",
+    "7jvzimsajoc6tsn",
+    "slmd24n1k7tu9c9",
+    "vrb095r0ts87tso",
+    "3oifmtvrgqcnfze",
+    "jk3lv8wwroyplvn",
+    "0xau1p8l35bmflz",
+    "fcawuj7j9exgc7u",
+    "wvu09li2mb1c5w4",
+    "mphit56b7ygio6b",
+    "cplqwk5ugs42jau",
+    "us8lx92mrrh8rvy",
+    "dolygnxrxtl3i8f",
+    "psi4xkswo61rf76",
+    "wap14kjand5xiyk",
+    "4zo3yd71nsxeo7i"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.779Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.779Z",
+      "agent": "1eqjoxnybezb6wq",
+      "source_id": "1ejxpg5ju49a5oy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.973Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.973Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "brengdnb6ovysqv"
+    }
+  ]
+}

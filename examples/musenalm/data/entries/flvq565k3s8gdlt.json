@@ -1,0 +1,117 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, G, 11 BB Kal darin 11 GG, ar: SS 1-190, SS 191-201 G-Verz, S 201 C, ar1: SS 1-106, 33 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1811",
+    "norm": "~",
+    "biblio": 404139,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 846,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Jahr 1811. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.876Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "zlqj8ggpncb6q4c"
+  ],
+  "contents": [
+    "t6fkacd1co2951u",
+    "ybupku3egos0pql",
+    "gr4mi6fggph4eyb",
+    "fes9int8lmt7yri",
+    "8kit1vx39yvfsid",
+    "hlxty9i4vxsoqb7",
+    "gj2bmrxvzsljc2p",
+    "w0yjzs4l4hfa3j5",
+    "i8fusjcaz1s71jc",
+    "xq5bgc2f4mhc190",
+    "48cwhyaspid6wv7",
+    "dvlii6rlicx2pab",
+    "zti0ic1a8sbxga5",
+    "78uhsaw694wd1g7",
+    "i51gu2sx5bomr0l",
+    "l8ywmd0yzfjhu3g",
+    "pj6az1v2pvpuze7",
+    "aqctlhrk5etj40v",
+    "54dbk7y1fpee3no",
+    "qrsqt6ryxsmyavh",
+    "d0unrrrmb4jn7lh",
+    "0puw66csea6g4vm",
+    "xv9ezzrvuzfb7xa",
+    "uv7cvmc3a4xh2ra",
+    "hkhuat2zmdp8p97",
+    "ftflecta3o23ak9",
+    "acf8cn4vv5l9d3n",
+    "0mp9tsbzwfzso66",
+    "2ny04tcmosgvv4i",
+    "2kjicbj6bff4kot",
+    "lqg5wv9kw7auq1g",
+    "lu5cp7i2pbur0uo",
+    "73ownr66b25a49j",
+    "cq3358qyb03pnrj",
+    "wea95t7gyettj5a",
+    "rll56zabbbago23",
+    "w6q9oygzm9wur5d",
+    "rnq23g4hjkij5du"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.215Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.215Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "u4ko6x4yxv2aezv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "xfd2klv1xrdfdyt"
+    }
+  ]
+}

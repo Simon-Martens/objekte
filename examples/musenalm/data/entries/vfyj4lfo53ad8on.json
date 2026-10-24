@@ -1,0 +1,122 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, S I-Verz, SS 1-300, SS 301-308 G-Verz u C, ar1: SS 1-98, ar2: SS 1-62, S, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1834",
+    "norm": "~",
+    "biblio": 200751,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 869,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / KALENDER / auf / das Gemein Jahr / 1834. / MIT KUPFERN / HERAUSGEGEBEN / VON DER KÖN. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.753Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "wkjcits54a29gwi"
+  ],
+  "contents": [
+    "ykz8q74sa2unr9h",
+    "xe7v8namyjp84ax",
+    "e0btr5o6lp1lwkq",
+    "926mbtxlg8b0nb9",
+    "tyv7nx4f83nnl24",
+    "6p2gq1a3445nnz1",
+    "u0g9w8vqagidlue",
+    "n0rj0jw5d634jkm",
+    "2otcfv2xnmci9cr",
+    "ov2q8eqsbzitcfy",
+    "yulgbetejdladf2",
+    "vx5s21t3uswq5n4",
+    "2mzavpc9cpdlso0",
+    "9eo3odu5ncy6llu",
+    "pljbo6tj4gcoy60",
+    "6u03shd0nj8jmes",
+    "08qciawoyfdfkht",
+    "ce7agi7oj691r0f",
+    "q9r35jlmzwpptpt",
+    "q8s0i5c4q40hlm0",
+    "j8f0d7rv0ieuprg",
+    "mi1cnr4u75nqm30",
+    "ahxwwy7r74ehdyg",
+    "ed7f6dn36axzxo6",
+    "gp4sy8ru0ll9tmf",
+    "49xi1baynik8r0z",
+    "wb5hz5f21htfonc",
+    "2ev7enc6h3hq94g",
+    "72q7eml1vciqvxv",
+    "mo1a140zgy8kemp",
+    "395aewrxoqeifmw",
+    "1hi68mzs235ezaw",
+    "t53ym6gb7gs1zvw",
+    "83pi4p0mey18b48",
+    "0sffr3o30faqx6f",
+    "g0scchkb1p9akvl",
+    "doji45t3hkyo03l",
+    "u4k7yjr2cqo2u0i",
+    "oa45cdsfhgfv7v3",
+    "xq0buzhj6b64qn9",
+    "kej3h5e0gukjxdr",
+    "4eh7mqg72dho147",
+    "trsuylfcayd52pf",
+    "bruo8f62crunccx",
+    "iq12q9cg72tqt9a",
+    "yrlrf8gb72t1mt7",
+    "8hihqojxic6tdfp",
+    "xrqylzi5u2rq5xr",
+    "pjj2jpau4a50lqg",
+    "pginsmpf7ze2hmn",
+    "vmhilht13m9z859",
+    "h12lmefrr0aog8s",
+    "jshoa8il633yef0",
+    "2kaoa2u9dals9zl"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "m6kc1qzq1j7zxd9"
+    }
+  ]
+}

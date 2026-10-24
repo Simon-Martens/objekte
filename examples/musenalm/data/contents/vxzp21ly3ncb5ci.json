@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Kommt auf Schwingen milder Lüfte / Auch der Frühling in mein Thal,",
+  "language": [],
+  "musenalm_id": 85658,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsnähe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsnähe",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.253Z",
+      "agent": "qnb96innln6psir",
+      "source_id": "jj20me1gzajtrwp"
+    }
+  ]
+}

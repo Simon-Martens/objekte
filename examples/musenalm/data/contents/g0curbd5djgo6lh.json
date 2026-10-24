@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Donn'rer der Meere, du faßtest den Sieg mit / dem einzigen Arme, / Den vieler Tausende Kraft oft nicht zu fesseln / vermag.",
+  "language": [],
+  "musenalm_id": 62013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter Nelsons Bildniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter Nelsons Bildniß",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.086Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "fpl31zw2kh1mljw"
+    }
+  ]
+}

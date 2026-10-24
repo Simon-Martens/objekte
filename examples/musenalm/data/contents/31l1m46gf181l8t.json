@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Die Sarmaten feierten den Abgang ihres Seniors von der Akademie. Halb Königsberg war auf den Straßen und an den Fenster, als Zuschauer eines reichen Komitates, welches die Landsmannschaften dem jungen Prinzen gaben.",
+  "language": [],
+  "musenalm_id": 78074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr von Sacken. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr von Sacken. / Novelle",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.562Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "zqve8s9tpred1ue"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Leihn Sie mir einmal ihr Ohr! / Tantchen! ach, ich kann im Leben",
+  "language": [],
+  "musenalm_id": 29288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Heirathsphilosophie. / Ein Gespräch unter vier Augen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Heirathsphilosophie. / Ein Gespräch unter vier Augen",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.506Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "npvw1ghumypu7w8"
+    }
+  ]
+}

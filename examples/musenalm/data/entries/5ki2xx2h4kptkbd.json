@@ -1,0 +1,78 @@
+{
+  "annotation": "7 Jgg 1843-1849; Leipzig (Reclam); Hrsg.: Eduard Maria Oettinger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Narrenalmanach 1843",
+    "norm": "",
+    "biblio": 106661,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2347,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reclam)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Narrenalmanach 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 89; nicht bei L/R",
+  "responsibility_statement": "Eduard Maria Oettinger",
+  "subtitle_statement": "",
+  "title_statement": "NARRENALMANACH / für / 1843 / von / Eduard Maria Oettinger. / Erster Band. / Leipzig, 1843. / Druck und Verlag von Philipp Reclam jun.",
+  "updated": "2026-06-11 10:18:55.967Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "fsr1qk9barfceon"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.048Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.048Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "48avrn81ivnhf0r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "xqjsqjp6szne3wu"
+    }
+  ]
+}

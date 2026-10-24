@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Der Jagdthiere sind jetzt weniger, als in der Vorzeit - mit den Jagdbüchern ist es der umgekehrte Fall.",
+  "language": [],
+  "musenalm_id": 109131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Fortgesetzter Beytrag zur älteren Jagdliteratur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Fortgesetzter Beytrag zur älteren Jagdliteratur",
+  "updated": "2015-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.968Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "iudd0qj7u35u3kg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Der Ruhe Bissen, Ruh' der Kehle, / Du brachtest aus dem Osten mit,",
+  "language": [],
+  "musenalm_id": 86987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stammbuchblatt / für Mrs. Wyse, die aus Athen türkisches Zuckerwerk, genannt, / Rahatlokum, nach Gleichenberg mitbrachhte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stammbuchblatt / für Mrs. Wyse, die aus Athen türkisches Zuckerwerk, genannt, / Rahatlokum, nach Gleichenberg mitbrachhte",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.412Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "1myf7ggk0wqxrmu"
+    }
+  ]
+}

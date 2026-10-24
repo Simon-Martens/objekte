@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Die Jäger« von A. W. Iffland. s. Textbezug INr 70127, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70113,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und wüsten wir wo jemand trau- / rig läge, wir gäben ihm den Wein. / V. Aufz. 14. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec.",
+  "scans": [
+    "alm_798_70113_znsofiarih.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und wüsten wir wo jemand trau- / rig läge, wir gäben ihm den Wein. / V. Aufz. 14. Auftr.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.238Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "5imlmo4lzfyq748"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "annotation": "4 Jgg 1795, 1796, 1798, 1799. Jgg 1795, 1796: Königsberg u. Leipzig ( Fr. Nicolovius); Jgg 1798, 1799: Basel (S. Flick) Hrsg: J. G. Jacoby. Der Jg 1798 wurde 1804 unter dem Titel: Almanach zur angenehmen Unterhaltung für das Jahr 1804, Basel bey Samuel Flick neu aufgelegt s. Alm-309. Fortgesetzt durch: Taschenbuch, Überflüssiges 1800, Alm-311 u. Taschenbuch für das Jahr 1802 Alm-312; Iris 1803-1813, Alm- 25, 26, 28, 29 ,254, 255, 256, 258, 259, 260, 261",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal, B I-Verz, S G-Verz, S 1 zT, G, SS 3-48, S 49 zT, G, SS 51-84, S 85 zT, G, SS 87-122, S 123 zT, G, SS 125-186",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch von J. G. Jacobi und seinen Freunden 1795",
+    "norm": "~",
+    "biblio": 100687,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-03-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 305,
+  "parallel_title": "",
+  "place_statement": "Königsberg und Leipzig (Nicolovius)",
+  "places": [
+    "estq96n359vg7mv",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch von J. G. Jacobi und seinen Freunden 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 55",
+  "responsibility_statement": "J. G. Jacobi und seine Freunde",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / von / J. G. Jacobi und seinen Freunden / für / 1795. / Mit Kupfern nach Chodowiecky. / Königsberg und Leipzig, / bei Friedrich Nicolovius",
+  "updated": "2026-06-11 10:18:54.747Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "x4i0q6q10vjkjmw"
+  ],
+  "contents": [
+    "s1g91dgjsxuop2r",
+    "wkzcubztgzndj1l",
+    "c939jjzok8uckyj",
+    "h8s6yt1mnyvwh2o",
+    "2klajlt3hxi92l9",
+    "0ds2nf6fk2sbv8z",
+    "xenxypxt9b32qb4",
+    "ytfqqbnp5rn51ok",
+    "2v005ckqmtoj2v9",
+    "6308mwf08gf589m",
+    "xfsxivuklk9q91b",
+    "djlx1c8d3zsqmcm",
+    "6fbf9tambc4jhpb",
+    "9ret1cszlj1zqeu",
+    "5jhzzath7arrb5v",
+    "s4bbq1qrh5xokjv",
+    "uu4uzr6ej7qjeap",
+    "g9s4xhbat7tamsr",
+    "o1yd8wnc5wax9s5",
+    "xnii711n247gqac",
+    "9n6uq7chuh2fve8",
+    "sr4jg4kvi4w22yk",
+    "89d24houq6bogiy",
+    "ver1g5j0y63bpqt",
+    "3pzv4ai5wh41je5",
+    "wigpe0iiz615uyt",
+    "k02ffi5j8l4lytk",
+    "qsgl7g6sml8magp",
+    "1fhsiscace5ex13",
+    "0kfu9is74yx6bbx",
+    "xfcbh3uugo8fezl",
+    "d8jyhfxdn3xtcuf",
+    "5wq5ghqqaff58gt",
+    "ubcs4weoo025anx",
+    "ksmlpl5uuwkcdti",
+    "f54wqknjq4j844t",
+    "rp4nb3otjtn20kl",
+    "nxticjdapop6vmi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.113Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.113Z",
+      "agent": "zuiycymwu7vlw2f",
+      "source_id": "ls9e6ilikbg8t7j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.590Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.590Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "pol6zglk5wllvno"
+    }
+  ]
+}

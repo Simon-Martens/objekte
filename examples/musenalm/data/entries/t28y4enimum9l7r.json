@@ -1,0 +1,104 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 3 BB Vrwrt d Hrsg, 12 GG, SS 1-86, B, Taf",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kriegs-Kalender zum Gebrauch der K.K. Truppen 1779",
+    "norm": "~",
+    "biblio": 404982,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2209,
+  "parallel_title": "",
+  "place_statement": "Wien (Trattner)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Kriegs-Kalender zum Gebrauch der K.K. Truppen 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 23",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kriegs-Kalender / zum / Gebrauch der K.K. / Truppen / für / das Jahr / 1779. / Wien / bey Jos. Anton Edlen v. Trattner / K.K. privl. Grosshändler",
+  "updated": "2026-06-11 10:18:55.910Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "7be7owern43g1hy"
+  ],
+  "contents": [
+    "ig9acll3c6qhgf6",
+    "25iejntnhi6lujb",
+    "8l8njva86jk8tub",
+    "dbwu9kraf4et8n8",
+    "c2ccadg2v5v53pu",
+    "761tjivltkugf99",
+    "prb6octpotaalpd",
+    "dly6ep1tifjpboj",
+    "f39udgkl0vv9c7n",
+    "zjjxgzogcwrm0rt",
+    "f3r9bqe96fh0gbg",
+    "vu5xabgl1y12lzk",
+    "fvew5herkebuefq",
+    "tpoj88vqmdy7qx3",
+    "a7ip0f4n585emqc",
+    "i85ug0d2bxb88o4",
+    "1g4cacybwvhqeux",
+    "rqk325cbaszcxf1",
+    "pw5u4zosbi5ludu",
+    "on6odz640fpfun6",
+    "ycf6x9eusdr9587",
+    "4kemc1vu5dtchx7",
+    "xv8gab09qv1jz0y",
+    "6zrv8o1ozoisng9",
+    "7l9ehbmuhhfnpy2",
+    "76m0v3jaz114oqq",
+    "ut1rm4pq93ca8xx",
+    "vvt02g6pcjzmrtz",
+    "c7pl6qg0wry7gxk",
+    "z9sgp5tsibkt8yw",
+    "41pdenkajsoskq7",
+    "h6d8crkiawd9x6g",
+    "cucvs0i2ra9l0zc",
+    "qeaobsj5xg0iswk",
+    "pt1o545zbugl5pp",
+    "hjqtitc4z96mvzx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.165Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.165Z",
+      "agent": "n1lmat56g6nzlbb",
+      "source_id": "eb5del4t60ptjik"
+    }
+  ]
+}

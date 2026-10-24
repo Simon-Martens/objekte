@@ -1,0 +1,378 @@
+{
+  "annotation": "",
+  "biographical_data": "1787-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.241Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. med."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118561545",
+          "label": "Kerner, Justinus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118520040",
+          "label": "Chamisso, Adelbert von"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller; Freund Chamissos und Kerners"
+      ],
+      "dateOfBirth": [
+        "1787-12-12"
+      ],
+      "dateOfDeath": [
+        "1842-04-25"
+      ],
+      "describedBy": {
+        "dateModified": "2022-05-11T20:58:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/102182094/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Assur"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118572393",
+          "label": "Lewald, Fanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116211342",
+          "label": "Assing, Ottilia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119376377",
+          "label": "Assing, Ludmilla"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118626175",
+          "label": "Varnhagen, Rahel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116371641",
+          "label": "Assing, Rosa Maria"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XY",
+          "label": "Juden"
+        }
+      ],
+      "gndIdentifier": "102182094",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116211342",
+          "label": "Assing, Ottilia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119376377",
+          "label": "Assing, Ludmilla"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/118572393",
+          "label": "Lewald, Fanny"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116371641",
+          "label": "Assing, Rosa Maria"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/102182094",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116371560",
+        "(DE-588a)102182094"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Assing, David Assur",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "David Assur"
+        ],
+        "surname": [
+          "Assing"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "publication": [
+        "Assing, Rosa Maria: Poetischer Nachlass. - 1841",
+        "Nenien nach dem Tode Rosa Marias. - 1840"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1117157741",
+          "label": "Initiale (Assing, David Assur), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031634"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44687184"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1173597"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/102182094/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/102182094"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/David_Assing"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/David_Assing"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000004659436X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/102182094"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/102182094"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd102182094.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/102182094"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "D. A. A.",
+        "Assur, David",
+        "Assing, D. A.",
+        "Assur Assing, David",
+        "Assing, David"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "D. A. A."
+          ]
+        },
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Assur"
+          ]
+        },
+        {
+          "forename": [
+            "D. A."
+          ],
+          "surname": [
+            "Assing"
+          ]
+        },
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Assing"
+          ]
+        },
+        {
+          "forename": [
+            "David"
+          ],
+          "surname": [
+            "Assur Assing"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/David_Assing",
+          "label": "https://de.wikipedia.org/wiki/David_Assing"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:50:12Z",
+    "gnd_query_biographical_data": "1787-1842",
+    "gnd_query_name": "assing, david assur"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 70,
+  "name": "Assing, David Assur",
+  "profession": "Text",
+  "pseudonyms": "Assur",
+  "refs": "Goed VI, 186",
+  "updated": "2026-06-11 13:29:21.392Z",
+  "uri": "https://d-nb.info/gnd/102182094",
+  "editor": ""
+}

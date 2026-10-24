@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 34282, Obj 6) s. Graphik INr 34286, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Wir verabredeten uns (Chartas und der Einsiedler) den folgenden Tag bey der ersten Morgenröthe unter den Bogen der Felsenbrücke beym Eingang des Todtenhaines zu begraben.",
+  "language": [],
+  "musenalm_id": 34285,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Atala's Begräbniß. Von Girodet. / In der Gallerie von Luxemburg in Paris. Aus Atala / oder die Liebe zweyer Wilden. Von Chateaubriant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet u. Chateaubriand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Atala's Begräbniß. Von Girodet. / In der Gallerie von Luxemburg in Paris. Aus Atala / oder die Liebe zweyer Wilden. Von Chateaubriant",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.527Z",
+      "agent": "bjsbuc294wnuf3p",
+      "source_id": "ciu3y972oojwxt2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Ein Wasserbächlein floß / Nicht fern von einem Strom, der seine stol- / zen Wellen / Durch weite Blumenauen goß.",
+  "language": [],
+  "musenalm_id": 101741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Strom und der Bach, / oder / der - große und der - kleine / Mann. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Strom und der Bach, / oder / der - große und der - kleine / Mann. / Eine Fabel",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.118Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "9io3dlkdm4llpo7"
+    }
+  ]
+}

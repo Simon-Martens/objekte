@@ -1,0 +1,179 @@
+{
+  "annotation": "",
+  "biographical_data": "1818-1880",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.519Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Stahlstecher"
+      ],
+      "dateOfBirth": [
+        "1818"
+      ],
+      "dateOfDeath": [
+        "1880"
+      ],
+      "describedBy": {
+        "dateModified": "2021-12-17T17:12:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOELB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOELB"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/104228766X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "104228766X",
+      "id": "https://d-nb.info/gnd/104228766X",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4057645-0",
+          "label": "Stockerau"
+        }
+      ],
+      "preferredName": "Zastěra, Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "surname": [
+          "Zastěra"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2008116220"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/63826381"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q22814331"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104228766X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Zast%C4%9Bra"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000418937635"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Zastiera, Franz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Zastiera"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Zast%C4%9Bra",
+          "label": "https://de.wikipedia.org/wiki/Franz_Zast%C4%9Bra"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:26:00Z",
+    "gnd_query_biographical_data": "1818-1880",
+    "gnd_query_name": "zastera, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3215,
+  "name": "Zastera, Franz",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXVI, 417",
+  "updated": "2026-06-11 13:29:25.882Z",
+  "uri": "https://d-nb.info/gnd/104228766X",
+  "editor": ""
+}

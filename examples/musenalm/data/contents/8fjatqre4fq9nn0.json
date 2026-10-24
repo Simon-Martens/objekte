@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Herr Stax erhält heut einen Titel: / Sein schlechtes Herz braucht diesen Kittel.",
+  "language": [],
+  "musenalm_id": 93210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bedürfniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bedürfniß",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.424Z",
+      "agent": "wyoix05eehnfe9p",
+      "source_id": "0r19osxbinleku8"
+    }
+  ]
+}

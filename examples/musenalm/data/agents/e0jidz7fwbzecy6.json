@@ -1,0 +1,754 @@
+{
+  "annotation": "",
+  "biographical_data": "1739-1791",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.474Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1777-1787 politischer Gefangener auf dem Hohenasperg"
+      ],
+      "dateOfBirth": [
+        "1739-03-24"
+      ],
+      "dateOfDeath": [
+        "1791-10-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ernst Morace / After August Friedrich Oelenhainz"
+          ],
+          "creditText": [
+            "Abgedruckt in Biese: Deutsche Literaturgeschichte, München 1910."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernest%20Morace%20after%20August%20Friedrich%20Oelenheinz%20-%20Schubart.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernest%20Morace%20after%20August%20Friedrich%20Oelenheinz%20-%20Schubart.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ernest%20Morace%20after%20August%20Friedrich%20Oelenheinz%20-%20Schubart.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/142461016",
+        "https://d-nb.info/gnd/1014915538"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118610953/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1014525675",
+          "label": "Schubart, Johann Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116216832",
+          "label": "Böckh, Christian Gottfried"
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "surname": [
+            "Kaufmann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117107344",
+          "label": "Schubart, Helene"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11710745X",
+          "label": "Schubart, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1136148000",
+          "label": "Hoyer, Jacobina Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1136149171",
+          "label": "Hoyer, Johann Christoph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118610953",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11710745X",
+          "label": "Schubart, Ludwig"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1014525675",
+          "label": "Schubart, Johann Jacob"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1136148000",
+          "label": "Hoyer, Jacobina Dorothea"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118610953",
+      "oldAuthorityNumber": [
+        "(DE-101c)310286603",
+        "(DE-588a)118610953",
+        "(DE-588c)4053349-9",
+        "(DE-588a)1014915538",
+        "(DE-588a)142461016",
+        "(DE-588)142461016",
+        "(DE-588a)134596609",
+        "(DE-588)1014915538"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4250493-4",
+          "label": "Obersontheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Schubart, Christian Friedrich Daniel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Friedrich Daniel"
+        ],
+        "surname": [
+          "Schubart"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163926-1",
+          "label": "Kirchenmusiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb120527795"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81127306"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76335466"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61251"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118610953"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014915538"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118610953/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/142461016"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_Friedrich_Daniel_Schubart"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Friedrich_Daniel_Schubart"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_Friedrich_Daniel_Schubart"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Friedrich_Daniel_Schubart"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109170610"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118610953"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1755_hehner;181"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1756_schafeitel;219"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1757_hummel;123"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1759_doerfler;201"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1770_wuerttemberger;123"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1774_feuerlein;196"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_matthisson;176"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1788_treuttel;110"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1790_grass;113"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118610953"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118610953.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118610953.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118610953"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118610953"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schubart, Christian",
+        "Schubart, Ch. Fr. Dan.",
+        "Schubart, Chr. F. D.",
+        "Šubart, Kristian Fridrich Danielʹ",
+        "Schubart, C. F. D.",
+        "Schubart, Christian D.",
+        "Schubart, Chr. Fr. Daniel",
+        "Schubart, Christian Friederich Daniel",
+        "Schubart, Christian Frdr. Daniel",
+        "Schubart, C. D. F.",
+        "Schubart, Chr. Daniel Friedrich",
+        "Schubart, Christof Friedrich Daniel",
+        "Schubart, Daniel",
+        "Schubart, Christian Daniel Friedrich",
+        "Shubart, Kristian Fridrikh Danielʹ",
+        "Shubart, Kristian Fridrikh Daniel",
+        "Schubart, Christian F.",
+        "Schubart, Chr. Fr. D.",
+        "Šubart, Kristian Fridrich Daniel",
+        "Schubart, Christian Daniel",
+        "Schubart, Ch. Fr. Daniel",
+        "Schubart, Christian Friedrich",
+        "Schubart, Christ. Frid. Daniel",
+        "Schubart, Christian Daniel Friederich",
+        "Schubart, Christ. Fr. Dan."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christof Friedrich Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian D."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "C. D. F."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Frid. Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Kristian Fridrich Daniel"
+          ],
+          "surname": [
+            "Šubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Fr. Dan."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Daniel Friederich"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Frdr. Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. Fr. Dan."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. F. D."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friederich Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Kristian Fridrikh Danielʹ"
+          ],
+          "surname": [
+            "Shubart"
+          ]
+        },
+        {
+          "forename": [
+            "Kristian Fridrich Danielʹ"
+          ],
+          "surname": [
+            "Šubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Daniel Friedrich"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Daniel Friedrich"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. Fr. Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Kristian Fridrikh Daniel"
+          ],
+          "surname": [
+            "Shubart"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Fr. D."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. D."
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Fr. Daniel"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Friedrich_Daniel_Schubart",
+          "label": "https://de.wikipedia.org/wiki/Christian_Friedrich_Daniel_Schubart"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:53:12Z",
+    "gnd_query_biographical_data": "1739-1791",
+    "gnd_query_name": "schubart, christian friedrich daniel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2551,
+  "name": "Schubart, Christian Friedrich Daniel",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 849",
+  "updated": "2026-06-11 13:29:24.834Z",
+  "uri": "https://d-nb.info/gnd/118610953",
+  "editor": ""
+}

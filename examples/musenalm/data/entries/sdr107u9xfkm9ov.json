@@ -1,0 +1,99 @@
+{
+  "annotation": "<div>im Schuber; Innenseite des Deckels mit eingeklebten unbezeichneten Gedicht: La Pensée</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 17 SS Kal darin 6 GG, 7 SS Tabb, S 1 nT, SS 3-143, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1826",
+    "norm": "",
+    "biblio": 405864,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3337,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / Veilchen / ein / Taschenbuch / für FREUNDE &nbsp;einer / gemüthlichen und erheiternden / Lecktüre. / NEUNTER JAHRGANGANG. / 1826. / WIEN. / bey Jos. Riedls sel. Wittwe / im Schottenhofe No. 136",
+  "updated": "2026-06-18 08:35:52.807Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "74e1z7isu6015hl"
+  ],
+  "contents": [
+    "d1o29gik0fb96bp",
+    "wxli3jouflir7op",
+    "o5ahctdr6xm5hfh",
+    "k5zlgy2d0d8l9l3",
+    "n8arv6b12zvfoed",
+    "iqkmak35r7213s0",
+    "05kt38eq8lrwfig",
+    "ytxvyxucscmf2z1",
+    "8m2fi66e4ngpq1x",
+    "lvth63rpdl3x781",
+    "9kaqiovp51vw33e",
+    "t0a1jv0mdpeplvt",
+    "3fmlenxs5xlrk11",
+    "40baz7xasrni0ql",
+    "mvuj8cs4y8wbvkd",
+    "ebz3fy5ajrb4a84",
+    "9fbvwys2ylqn8vg",
+    "x447oj2epgsf07n",
+    "ndr4qu0d0qyr34u",
+    "ytjrjhc02d7esf1",
+    "ay8n8dmd3oxfb8n",
+    "2ooqfhvvzaus644",
+    "xaws6bldpnr4719",
+    "a1wgw80uncm9o96",
+    "tt4aa84qgwvezzd",
+    "xqeq3762gbzufu2",
+    "zasak699x6icu2n",
+    "dokknmgpo9xksjv",
+    "8ffsmndpcxyn6l3",
+    "hbegn1r02dtzdfc",
+    "ua8lqiqm1xndxu6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-18 08:35:52.808Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "j8i96d27nf7e7sv"
+    }
+  ]
+}

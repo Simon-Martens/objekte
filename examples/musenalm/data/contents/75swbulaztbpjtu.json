@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Werden und sterben, die beiden Pole des mensch- / lichen Lebens; / Zwischen beiden ist nur albern Gekräusel; - die / Welt.",
+  "language": [],
+  "musenalm_id": 96532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Welt",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.675Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "8mteb06xgcmk0d1"
+    }
+  ]
+}

@@ -1,0 +1,139 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS I-II G-Verz, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, G, SS 1-181 darin 5 GG MusB, S, B VrlgM, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Forst- und Jagdfreunde 1807",
+    "norm": "~",
+    "biblio": 404572,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-09-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1140,
+  "parallel_title": "",
+  "place_statement": "Marburg (Neue academische Buchhandlung)",
+  "places": [
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Taschenbuch für Forst- und Jagdfreunde 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 115; L/R 138",
+  "responsibility_statement": "L. C. E. H. F. von Wildungen; D. P. L. Bunsen",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Forst- und Jagdfreunde / für das Jahr / 1807 / herausgegeben / von / L. C. E. H. F. v. Wildungen / Oberforstmeister zu Marburg / und / D. P. L. Bunsen, / Fürstl. Waldeckischen Regierungsrath / zu Arolsen. / Marburg, / in der neuen academischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.704Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "93j9l4s5lq7n37q"
+  ],
+  "contents": [
+    "j08oqxwxzzlnwee",
+    "j9l79spn7li32yk",
+    "osc8i7qs35m6z6d",
+    "hn4cztdigvx850l",
+    "64v0rkqocn0mdvd",
+    "cgr8xzvaqqww0j9",
+    "xv5io6ee7m9dnor",
+    "x6c6hn8to0by6dt",
+    "rujenlaykyc6ga0",
+    "9f27e5ruqu9g8tj",
+    "ga1vrrcg3gken9u",
+    "c0cbdkwasv00buf",
+    "rfnqx0dxowg6lae",
+    "uw0vjghj93fu6ga",
+    "l6em06qt70qk9tv",
+    "ivmdj73g8xok7ul",
+    "g8s4xk20yav95j9",
+    "898gjwx19b0qzlg",
+    "si6pbaxz4zq8xd9",
+    "9eqxqek7mga6whg",
+    "xax50eko80trkxy",
+    "e4pli51j16tn00e",
+    "tbwfx7h4670qtyz",
+    "rgfaln9occ3h5uc",
+    "vzwkqzc5qsjuorl",
+    "84djxw1d9fd6htm",
+    "0xum99oo24iwctz",
+    "bphzhh93idi7h04",
+    "kqrjxd3yhuzjmtx",
+    "1a4jgc2ahmxv01q",
+    "o34b5yet586wlvi",
+    "qv5m411txheo4f7",
+    "mbphc38z6xkudu8",
+    "kuxfcetk2nv2tpb",
+    "3qabm7dwt1p7np6",
+    "165yqdo2qz0owtl",
+    "yzx2wn97hcv3y24",
+    "zqrb6wm6pkxh5pi",
+    "em722azzd6w5ter",
+    "4a8br43mdf942ou",
+    "99nsg4uyy56qd15",
+    "aveulkf4e79vhtz",
+    "ggt8uya0fbzygt6",
+    "bqm74vingo8jlel",
+    "y5310om57huchze",
+    "9obrwao6okw5wpc",
+    "n23484penkxw06n",
+    "mhspcor9yvxbvpj",
+    "qiuabui8fmtabbh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.833Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.833Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "cj6tk7bv56ey94k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.832Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.832Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "fn0214j5bnxvgwi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.112Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.112Z",
+      "agent": "ld176sg3we0xibu",
+      "source_id": "o9w50z930by5xsf"
+    }
+  ]
+}

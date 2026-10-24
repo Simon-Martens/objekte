@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Charaden, Logogryphen und Räthsel (Sammlung INr 93472, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Keine Tropfen, keine Strahlen, / Läßt mein Erstes durch sich fallen.",
+  "language": [],
+  "musenalm_id": 93480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fellinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.584Z",
+      "agent": "1qmtp93bgh7ryk0",
+      "source_id": "9wk17fucdi3fddc"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, SS 3-36 Kal, SS 37-142 darin 9 GG, B Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach zum Vergnügen und zur Erbauung für Aufgeklärte und Unaufgeklärte 1795",
+    "norm": "~",
+    "biblio": 410920,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4771,
+  "parallel_title": "",
+  "place_statement": "Wien ( W. A. Schmidt; I. Grund)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach zum Vergnügen und zur Erbauung für Aufgeklärte und Unaufgeklärte 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 21; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / zum / Vergnügen und zur Erbauung / für Aufgeklärte und Unaufgeklärte, / auf das Jahr / 1795. / Wien, / zu haben bey Mathias Andreas Schmidt / k.k. Hofbuchdrucker. / und bey Ignaz Grund im Buchbindergewölbe / nächst St. Stephan",
+  "updated": "2026-06-11 10:18:54.807Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "levpw6akybj72z5"
+  ],
+  "contents": [
+    "sfbjwb65cf7u81w",
+    "xahdte6ytzfl9to",
+    "9whol730yx2bqmt",
+    "gcvw3ic12uubgdc",
+    "bb1otbbh0gpgnk3",
+    "albvz663kw6vscx",
+    "s3ifi6wl0f2u5e7",
+    "z20fts185gmke8z",
+    "7rh6qsg2j09lu89",
+    "y381xdx8vtoczg6",
+    "8kjytpo3q11a5p0",
+    "98ul9zmlb58u0bi",
+    "mfll3y3ymlspmyw",
+    "8s8sx8cfb9f2ffd",
+    "0j9efi6srwwnhw4",
+    "9h9ogh9ixa3x704",
+    "c90dbav2e25ol17"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.102Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.102Z",
+      "agent": "9f5yi0c70jexikj",
+      "source_id": "4j2xzqol4dox9hm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.045Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.045Z",
+      "agent": "4ah252umlq391xz",
+      "source_id": "ngxx0sh1vtkipme"
+    }
+  ]
+}

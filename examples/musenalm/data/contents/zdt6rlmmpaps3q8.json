@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu » Lady Rooper. Oder: Die Macht der kindlichen Liebe« INr 47583, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47584,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Großvater, wird dir diese Kette nun leichter?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. 1802 Meno Haas sc. Berlin",
+  "scans": [
+    "alm_648_47584_xieh8mkutf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Großvater, wird dir diese Kette nun leichter?",
+  "updated": "2007-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.373Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "1jduinmxrm7msak"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.373Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "uvar6ajqa650inr"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel darin Illustration zu »Der Waldgänger« von A. Stifter INr 58071, Obj 6 /) unter dem Titel: Druck v. F. Kargl",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58068,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iris. / Deutscher Almanach / für 1847. / Zu Stifters Waldgänger. / Pesth. / Gustav Heckenast",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Joha Geiger. Jos. Axmann",
+  "scans": [
+    "alm_774_58068_tx7m4ht2ds.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Iris. / Deutscher Almanach / für 1847. / Zu Stifters Waldgänger. / Pesth. / Gustav Heckenast",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.826Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "lx0iihsoojkdiuh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.826Z",
+      "agent": "3lqsa16o80o69t8",
+      "source_id": "rh6b0e8m7fyouu1"
+    }
+  ]
+}

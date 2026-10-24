@@ -1,0 +1,100 @@
+{
+  "annotation": "4 Jgg 1816-1819; $ vermutl. zwei GG ausgeschnitten; handschriftl. Widmung auf VB: »Zu herzlichem Andenken / von / Carl Nehrlich«; in Nehrlichs eigenen Beiträgen im Buch handschriftliche Ergänzungen und Korrekturen.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB T, SS1–144, darin I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hoftheater-Taschenbuch, Königlich Württembergisches 1816",
+    "norm": "~",
+    "biblio": 200269,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1841,
+  "parallel_title": "",
+  "place_statement": "Stuttgart",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hoftheater-Taschenbuch, Königlich Württembergisches 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 64; L/R 120",
+  "responsibility_statement": "Korsinsky, Bernhard",
+  "subtitle_statement": "",
+  "title_statement": "KOENIGLICH / WÜRTTEMBERGISCHES / Hof-Theater / TASCHENBUCH / auf das Jahr / 1816. / Erster Jahrgang. / Stuttgart",
+  "updated": "2026-06-11 10:18:55.666Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "axpegcr8f596bm9"
+  ],
+  "contents": [
+    "x6h8fsqch8tptp4",
+    "tpfphm2mpcd0vvc",
+    "fmtbvcpz7rgsguq",
+    "hwxql9gbsvzvyn2",
+    "7ua31ix05j7dae9",
+    "45u4fg5x53qmg53",
+    "p45vqajoyaawyja",
+    "p5jlj6f8ofca1aq",
+    "u5kn8mhclfe9rza",
+    "cwc9jk8zm39cy79",
+    "hfz66bn2t7fvpy4",
+    "mxgs8vk485qil5q",
+    "xwcr1d7ow9of59l",
+    "7clvfgkbgxpid5n",
+    "xx2w0b809zok5yx",
+    "ikeowbz0y89bzdy",
+    "4stbnh179n6zszt",
+    "1odzpw4exfxwvu3",
+    "feu1iel3bfnxhfk",
+    "ucvfjafbcv3d8qk",
+    "cgiq186dl081us7",
+    "1ykhets2yjx58dq",
+    "8zz7kxixs37vnqy",
+    "ohudvn14wllbjeo",
+    "8cnslkb93zhrxko",
+    "b3j0jdoreqajc0n",
+    "nnev4yjjdx8rzam",
+    "om7gy6fgrsdiudv",
+    "lqoqjtfcjgymguq",
+    "03u79xd8ae1iexi",
+    "ha1talrajdckhct",
+    "uhi2nc88cfguzlx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.185Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.185Z",
+      "agent": "wm9j08mfjk3c14b",
+      "source_id": "fomel6crsdari8s"
+    }
+  ]
+}

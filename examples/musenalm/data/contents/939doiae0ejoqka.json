@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Find' ich auf des Juras steilen Höhen / Dich, von Moos und Felsen rauh umgeben?",
+  "language": [],
+  "musenalm_id": 51042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Blümchen Männertreue, / auf dem Jura",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Blümchen Männertreue, / auf dem Jura",
+  "updated": "2007-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.722Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "cbk5ruylwg2dbiq"
+    }
+  ]
+}

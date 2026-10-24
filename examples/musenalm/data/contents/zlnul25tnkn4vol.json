@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel /) s. Anm. oben",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48824,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1801 / von / C. G. Cramer / Köln / bei / Haas und Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Malbeste sculp.",
+  "scans": [
+    "alm_667_48824_yix83n9ka4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1801 / von / C. G. Cramer / Köln / bei / Haas und Sohn",
+  "updated": "2007-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.575Z",
+      "agent": "t6kwrc1ens7g178",
+      "source_id": "unmvrobbnawqajg"
+    }
+  ]
+}

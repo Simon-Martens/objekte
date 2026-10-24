@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelkupfer s. Textbezug INr 72440, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72396,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Meil inv. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv. et sc.",
+  "scans": [
+    "alm_833_72396_dcq0q87t32.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.557Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "y2mcxqy1690z1g4"
+    }
+  ]
+}

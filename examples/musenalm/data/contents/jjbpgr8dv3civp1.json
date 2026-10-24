@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November; nummeriert 11.; s. Textbezug INr 133031, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LUDWIG CARL / VON KALKSTEIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas f.",
+  "scans": [
+    "alm_3960_133014_gwywgax1ca.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LUDWIG CARL / VON KALKSTEIN",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.101Z",
+      "agent": "3mymtnunkvww3p2",
+      "source_id": "3wogr9c310tv3ke"
+    }
+  ]
+}

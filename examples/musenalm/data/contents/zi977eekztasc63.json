@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Nimm hin dies Bild, das auch in weite / Ferne / Dir folgen darf, Geliebter: nimm es hin!",
+  "language": [],
+  "musenalm_id": 85835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei Übersendung meines Bildes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Natalie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei Übersendung meines Bildes",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.071Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "2ncespe54ggedmx"
+    }
+  ]
+}

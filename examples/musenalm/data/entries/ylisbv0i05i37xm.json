@@ -1,0 +1,86 @@
+{
+  "annotation": "Der vorliegende Genealogische Schreib- und Postkalender (Berlin) 1756 weist die gleiche Struktur und Anordnung der Beiträge (Karte, Kalendarium mit 12 Monatskupfern, Genealogie und diverse Tabellen) wie der ebenfalls vorhandene Almanac de Poche pour l'Année (Berlin) 1756, dieser ist  jedoch mit anderen graphischen Beigaben ausgestattet; s. alm-4207",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, 2 GG, T, Kr, 16 BB Kal darin 12 GG, 50 BB darin 6 BB Tab VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreib- und Postkalender, Genealogischer (Berlin) 1756",
+    "norm": "~ s. Almanac de Poche pour l'Année 1756 : Struktur: UG, VB, G, 2 SS gT, Kr, 16 BB Kal darin 12 GG, 50 BB darin 6 BB Tab VrlgM",
+    "biblio": 404996,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2512,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schreib- und Postkalender, Genealogischer (Berlin) 1756",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Schreib- und Post- / Calender, / auf das Schalt-Jahr / 1756. / Welcher vorstellet / die Genealogie der jetztlebenden / Hohen Häupter und anderer / Fürstlichen Personen / wie auch / die Post-Curse / und / andere nützliche Sachen. / Herausgegeben / Mit Approbation der Kön. Preuß. / Academie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.402Z",
+  "variant_title": "",
+  "year": 1756,
+  "editor": "",
+  "items": [
+    "876xrd2xqjs9mzb"
+  ],
+  "contents": [
+    "ua08agjf9ci3sw9",
+    "0ste77hsh0lo467",
+    "sx1n2uytdgd5s4v",
+    "j087ens0qddzlm4",
+    "jz1b5dfl7dy53j7",
+    "pscud4fjj22kt6z",
+    "enynd69rb4wqbpv",
+    "970398rudmtmu2i",
+    "dusxtzr2fdgnduu",
+    "uq9yaju3tfw6irg",
+    "z1ay32od93kijka",
+    "t2fhmf9qqthanyw",
+    "202t6lo1sy3acao",
+    "kymfh1vu48dy6bx",
+    "cg99yyuz8d69fnp",
+    "9cyntsm86y7chwl",
+    "1gc7sduy4ydix67",
+    "93n53h0ny3r8sug",
+    "qtbx8tzgxpgo7uo",
+    "yd69t4xujjlhnc0",
+    "uqfdzauenjmy2gq",
+    "2o9xraqdi16z351",
+    "2d8weu7kne7ayw9",
+    "qpnive9w7kdaxc2",
+    "l36bwd7mxlg7qis",
+    "brknpgyob7w6cn4",
+    "k65p9i62r6h4e34",
+    "zpez2uiwekvqvy3",
+    "j3d14mrq1l7sske",
+    "ztcsmhukvr7981f"
+  ],
+  "agents": []
+}

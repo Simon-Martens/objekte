@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Mischlinge (Sammlung INr 75462, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Gesiegt von uns ward in der Schlacht, / Mit Ruhm ist unser Werk vollbracht1",
+  "language": [],
+  "musenalm_id": 75464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sterbende Indianer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der sterbende Indianer",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.787Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "egakmw99266x4re"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sagen (Sammlung INr 59666, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Issa heilte Kranke, Todte rief er / Auf zu neuem Leben aus der Grabnacht,",
+  "language": [],
+  "musenalm_id": 59667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sem",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sem",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.832Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "v3xlvw52cxr8lh1"
+    }
+  ]
+}

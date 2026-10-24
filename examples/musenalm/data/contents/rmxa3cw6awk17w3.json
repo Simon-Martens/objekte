@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen aus der Kinderstube (Sammlung INr 48405, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Matronen stehen viel entfernter von Jünglingen, als Greise von Jungfrauen;",
+  "language": [],
+  "musenalm_id": 48406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.402Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "nb2xnq3au7unl3r"
+    }
+  ]
+}

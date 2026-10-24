@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1807 (Register)",
+    "norm": "",
+    "biblio": 200034,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1240,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1807 (Register)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "Bellermann, Johann Joachim",
+  "subtitle_statement": "",
+  "title_statement": "Register-Band / über den Almanach / der / neuesten Fortschritte, Erfindungen / und Entdeckungen / in den / spekulativen und positiven / Wissenschaften, herausgegeben von / D. J. J. Bellermann, / des Ersten bis Sechsten Jahrgangs. / Erfurt, 1807, / bey Georg Adam Keyser",
+  "updated": "2026-06-11 10:18:55.099Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "cqpn28jyncba9hw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "dbm4u4qazqfs5ww"
+    }
+  ]
+}

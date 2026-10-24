@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB verso G,  T, röm: SS I-II Vrwrt d Hrsg, S I-Verz, zT, röm1: SS I-XV darin 7 GG, SS 1- 352, SS 353-382 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1829",
+    "norm": "~",
+    "biblio": 100423,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2373,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Orphea 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 96; Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1829. / Sechster Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU OBERON. / LEIPZIG. / Ernst Fleischer",
+  "updated": "2026-08-13 09:18:42.752Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "1oka9eip87b3p5c"
+  ],
+  "contents": [
+    "sxngx8zitwisur1",
+    "osqy6dl1wps2ay5",
+    "qi3u0ed5tm8cbah",
+    "r7guprc7jyb81am",
+    "de2tpglnxrqc2j3",
+    "8uulgtt8iruwm89",
+    "o7ndq6posltanyb",
+    "8lyzxrpadrddw75",
+    "l3o92minq8shz2d",
+    "k9gexd7dpnn0442",
+    "tf33ji0xam5johs",
+    "a0e67j8zggvhk4e",
+    "gaxowd2cegp05dr",
+    "qdhj8p1ekwsw55r",
+    "ts49njreuipt08c",
+    "1hzloykr266fx34",
+    "8vbpuzk9kw6e1ug",
+    "li3vs6eif5yvp8t",
+    "mp1sn4xactyzvaz",
+    "sf0fw8soj56cfqp",
+    "ib7pae18iw3zzk9",
+    "i0mcqg7efbk3srl",
+    "a3aavsv9c2tmluc",
+    "f54xspz30eds1rf",
+    "odbuv5oxk01u6lp",
+    "yvrajzvfsauo8in"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.057Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-08-13 09:18:42.753Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "wj0n4r9p15nnv4u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.851Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-08-13 09:18:42.753Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "x1prlx3obybsx0o"
+    }
+  ]
+}

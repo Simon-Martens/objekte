@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Milde Luft, Lenzensblüh'n / Stimmte den düstern Sinn",
+  "language": [],
+  "musenalm_id": 89397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied im Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied im Frühling",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.171Z",
+      "agent": "qnb96innln6psir",
+      "source_id": "fvzz1scryimjxeb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergissmeinnicht / ein / TASCHENBUCH / für 1823 / von / H. Clauren. / Leipzig / bei Friedrich August Leo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_3368_102756_g47hrlykrx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vergissmeinnicht / ein / TASCHENBUCH / für 1823 / von / H. Clauren. / Leipzig / bei Friedrich August Leo",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.984Z",
+      "agent": "u3ev7bjxvo21hzz",
+      "source_id": "dn7mkhtzzs3n3fv"
+    }
+  ]
+}

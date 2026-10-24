@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Medicinischer 1841",
+    "norm": "",
+    "biblio": 405248,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1464,
+  "parallel_title": "",
+  "place_statement": "Berlin (Liebmann & Comp.)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Medicinischer 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Johann Jacob Sachs",
+  "subtitle_statement": "",
+  "title_statement": "MEDICINISCHER ALMANACH / für das Jahr / 1841. / Von / Johann Jacob Sachs, / Doctor der gesammten Medicin und auch der Philosophie u. fr. K. / Doctor und Magister, verantwortl. Redacteur d. medicin. Central-Zeitung [...] / Sechster Jahrgang. / Mit dem Bildnisse Blumenbach's / Berlin, 1841. / Liebmann & Comp.",
+  "updated": "2026-06-11 10:18:55.172Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "vt6wpm4kt77kjj3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.098Z",
+      "agent": "zkc544egbfrvs1u",
+      "source_id": "zwoftkr0g8sa19y"
+    }
+  ]
+}

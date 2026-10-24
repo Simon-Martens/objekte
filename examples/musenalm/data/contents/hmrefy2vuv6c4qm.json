@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Willkommen dort am Horizont, / Du lieber, voller, blanker Mond,",
+  "language": [],
+  "musenalm_id": 46538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. v. Ulmenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.399Z",
+      "agent": "cwttmuw4wau2fpy",
+      "source_id": "wdjrfn5g95dbg7d"
+    }
+  ]
+}

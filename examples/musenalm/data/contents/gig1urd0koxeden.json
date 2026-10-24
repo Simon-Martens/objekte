@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Militair« von L. Brachmann INr 20275, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20239,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Militair von Louise Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. T. Cheeseman sculp.",
+  "scans": [
+    "alm_270_20239_bda0dw8kr6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Militair von Louise Brachmann",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.020Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "rzllcumhnl71fow"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.020Z",
+      "agent": "74opuoejkgqg6uv",
+      "source_id": "y3ijp93o6zox3rb"
+    }
+  ]
+}

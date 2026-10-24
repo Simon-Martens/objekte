@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Du sehnst zurück dich nach Napoli, / Gesteh' es nur, ich hab' es längst bemerkt.",
+  "language": [],
+  "musenalm_id": 34462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Thurm mit sieben Pforten. / Ein Lustspiel in Einem Akt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf Platen-Hallermünde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Thurm mit sieben Pforten. / Ein Lustspiel in Einem Akt",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.665Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "sdw2ej7usja8luu"
+    }
+  ]
+}

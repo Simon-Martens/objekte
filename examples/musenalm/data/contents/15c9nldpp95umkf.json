@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühling (Sammlung INr 23246, Obj 9) mit einer Musikbeigabe INr 23279, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Weg von Lustgesang und Reigen! / bei der Andacht ernstem Schweigen",
+  "language": [],
+  "musenalm_id": 23249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "März. / Am Aschermittwoch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "März. / Am Aschermittwoch",
+  "updated": "2002-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.913Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "xojtaumxok2dmu6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Hier liegt Erast, von Schwermut, Krank- / heitspein / Und allen Uebeln frei, die ihn gefoltert haben;",
+  "language": [],
+  "musenalm_id": 17418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift / eines Ehemannes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift / eines Ehemannes",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.629Z",
+      "agent": "pbt3h5zr358vg6h",
+      "source_id": "09ooepr2w2l9sfx"
+    }
+  ]
+}

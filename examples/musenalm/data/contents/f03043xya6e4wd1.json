@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Kupfern (Sammlung INr 63468, Obj 3) s. Graphik INr 63475, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Als die ersten Lehrer des Christentums nach Germanien kamen, bauten sie ihre Zelte auf schattigen Hügeln oder in einsamen Thälern,",
+  "language": [],
+  "musenalm_id": 63477,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Der Siebenrorhrbrunnen in Heilbronn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Der Siebenrorhrbrunnen in Heilbronn",
+  "updated": "2009-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.041Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "oz0jrbmzkcq4yve"
+    }
+  ]
+}

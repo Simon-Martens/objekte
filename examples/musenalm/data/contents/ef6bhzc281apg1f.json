@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Das Kaiserthum Brasilien, rings von den neuen Republiken umlagert, mag sich nach der Ausdehnung seines Gebiets zu dem Südlichen Amerika's verhalten, wie die Republik der vereinigten Staaten zu der nördlichen Hälfte dieses Erdtheils.",
+  "language": [],
+  "musenalm_id": 45027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiserthum Brasilien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiserthum Brasilien",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.304Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "n2i49jgdcctkrxv"
+    }
+  ]
+}

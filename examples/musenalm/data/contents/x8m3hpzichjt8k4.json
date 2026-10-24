@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Laßt mich, laßt mich die Stunden segnen, / Da mir in diesem Nebelthal / Aufging der Freundschaft Sonnenstrahl!",
+  "language": [],
+  "musenalm_id": 78724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glück des Einsamen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. H. Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glück des Einsamen",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.738Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "jxipoui9uyl9hi7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Dein Undank bei empfang'nen Gaben, / Dein Kaltsinn gegen Leute,",
+  "language": [],
+  "musenalm_id": 101772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klette / und / der Mensch. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klette / und / der Mensch. / Eine Fabel",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.999Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "xcxoo6zytz176cc"
+    }
+  ]
+}

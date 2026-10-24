@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1812 (Sammlung INr 39347, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Das Lied hör ich aus vollem Herzen gerne, / Doch kalt sieht's mich auf meiner Ersten an.",
+  "language": [],
+  "musenalm_id": 39377,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "29. / Homonyme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "29. / Homonyme",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.974Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "16giudqg596qo9r"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Nach der alten Regel / Floh'n die Reisevögel / Längst schon in die Fremde.",
+  "language": [],
+  "musenalm_id": 75852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländliche Winterscenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ländliche Winterscenen",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.476Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "tknu3owke01e2fq"
+    }
+  ]
+}

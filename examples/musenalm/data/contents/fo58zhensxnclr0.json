@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfertafeln (Sammlung INr 72062, Obj 138) s. Graphik im Kalendarium INr 71928, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Der Liebe Göttin schwebt von junger Neugier und zärtlichem Muthwillen begleitet, auf ihrem Wagen vom Olymp herab und schaut",
+  "language": [],
+  "musenalm_id": 72064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Bild",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.522Z",
+      "agent": "o2pvd0n9c0ulrf4",
+      "source_id": "r6d4vugkj135p8c"
+    }
+  ]
+}

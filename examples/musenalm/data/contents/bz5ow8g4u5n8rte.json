@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Die Zukunft ist für uns, wie die ver- / gangne Zeit, / Ein Namen ohne Wirklichkeit.",
+  "language": [],
+  "musenalm_id": 5063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.247Z",
+      "agent": "6y2vclvz6pkp0l9",
+      "source_id": "r7krydcihdr486w"
+    }
+  ]
+}

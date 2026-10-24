@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Sag' an Gesell, / Was klingt so hell, / Wie Glockenspiel und Saiten?",
+  "language": [],
+  "musenalm_id": 55692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "34. / Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "34. / Trinklied",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.862Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "sixtwo4qovnik64"
+    }
+  ]
+}

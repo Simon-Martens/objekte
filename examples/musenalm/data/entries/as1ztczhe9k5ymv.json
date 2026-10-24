@@ -1,0 +1,82 @@
+{
+  "annotation": "lt. L/R 49 handelt es sich um die zweite Variante der Luxusausgabe mit D. Girards Seideneinband; Titelkupfer: Die preußische Königsfamilie; dem kolorierten Modekupfer von Fr. Gilly gez., G. Gropius gest.; den Graphiken im Kalendarium  Schubert del., Darnstedt sc.: paginiert 6. 11. 4. 3. 5. 12. /) ein unbekannter Druck von »Herrmann und Dorothea« in: Taschenkalender, Berner 1804 (Goethe: Herrmann und Dorothea) alm-1120",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, G, 7 BB Kal darin 6 GG, zT, SS 1-174",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (Luxusausgabe II.)",
+    "norm": "~ Paginierung der Graphiken im Kalendarium 6. 11. 4. 3. 5. 12.",
+    "biblio": 404588,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-06-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1085,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vieweg)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (Luxusausgabe II.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 52; K 106; L/R 49; Goed IV/3. 334, 68; Goed VIII. 49, 10; G 4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1798. / Herrmann und Dorothea / von / J. W. von Göthe. / Berlin / bey Friedrich Vieweg dem älteren",
+  "updated": "2026-06-11 10:18:55.445Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "xgwvut6tg8my3q0"
+  ],
+  "contents": [
+    "raz0uuh5cacw49q",
+    "rc7ys7gu6wsq9iu",
+    "0vmjnkvfmj1xmjs",
+    "am382g0tjj59wnh",
+    "mkp189170ehaq1f",
+    "siz7to9i85t4o3l",
+    "d0gh9lqjq1ys4vq",
+    "o856eqjnwd1v04u",
+    "6s3dqsvndj432c8",
+    "le7b6f6xugb6k64",
+    "sgbl9j5i2zojzdz",
+    "x5x0jyqlughac8o",
+    "etcgl5ncjgca5r7",
+    "op43vanq8u6dc7f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "8by8n8w44ygf0or"
+    }
+  ]
+}

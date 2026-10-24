@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Muse, was weht durch die einsamen Wipfel / Muse, was rauscht aus der hüpfenden Quelle,",
+  "language": [],
+  "musenalm_id": 31196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Muse und der Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Muse und der Dichter",
+  "updated": "2003-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.650Z",
+      "agent": "v5wbuj6yomki99q",
+      "source_id": "5znp5vobisv5di2"
+    }
+  ]
+}

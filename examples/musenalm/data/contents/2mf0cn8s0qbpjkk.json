@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Mein Dank für deine Herzensgüte / Wär ewiger als mein Gedicht,",
+  "language": [],
+  "musenalm_id": 30963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau M* in Heidelberg. / Bey Uebersendung seiner Gedichte. / Mannheim den 23. May 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau M* in Heidelberg. / Bey Uebersendung seiner Gedichte. / Mannheim den 23. May 1781",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.513Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "6maw7vl7ijoszee"
+    }
+  ]
+}

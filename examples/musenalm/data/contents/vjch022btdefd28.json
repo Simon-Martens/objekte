@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Farben, Pinsel und Palette! - Fenster abendwärts / gelüftet.",
+  "language": [],
+  "musenalm_id": 99387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 293,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Studien beim Sonnenuntergang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Studien beim Sonnenuntergang",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.973Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "1fz21ipzkbt0a97"
+    }
+  ]
+}

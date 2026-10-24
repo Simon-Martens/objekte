@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni /) Illustration zu »Der Weg zum Himmel« von J. Seidl INr 89636, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89601,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weg zum Himmel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. A. Geiger sc.",
+  "scans": [
+    "alm_3356_89601_ntzm3z1q8t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Weg zum Himmel",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.214Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "y2etvmmxfr84doc"
+    }
+  ]
+}

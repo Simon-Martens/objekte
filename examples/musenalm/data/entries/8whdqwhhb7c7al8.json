@@ -1,0 +1,100 @@
+{
+  "annotation": "Original Buchrücken eingeklebt nach VB",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, G, gT, nT, I-Verz, SS1–324, darin 4 GG, 3 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "English Fireside, The 1829",
+    "norm": "~",
+    "biblio": 411232,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-05-09T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4814,
+  "parallel_title": "",
+  "place_statement": "Heidelberg",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "English Fireside, The 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Hedman",
+  "subtitle_statement": "",
+  "title_statement": "The / ENGLISH FIRESIDE / upon the banks / OF THE / Rhine / An Almanack for the year / 1829. / Exhibiting / a choice of English and German Tales, / poems and historical anecdotes / selected by / J. Hedman / »My judgment is, that they ought / to serve but for winter talk / by the fireside.“ / Bacon. / Embellished with superb engravings. / Printed and sold by JOS. ENGELMANN. / HEIDELBERG. / Lithogr. by R. Schlicht, Mannheim",
+  "updated": "2026-06-11 10:18:55.615Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "8eoql0r9a0t7885"
+  ],
+  "contents": [
+    "2ashv4176kgl9rj",
+    "5637g4w9528goci",
+    "j1i9hjmhpcv0keq",
+    "61h1fme3mq6en42",
+    "q12wq4ddqk9i884",
+    "uqvxavwc1kg629l",
+    "xz2ounqb1ykv8gy",
+    "pkw16ddii0ae19q",
+    "6sy295y3xj2755q",
+    "kz2653e70pm15bm",
+    "pcyp3c5bpdgmztg",
+    "fu0dkdhg4githia",
+    "tkjrha418ijpa0i",
+    "dzwwkac9gquhmgd",
+    "wafuz5qk76yold4",
+    "3pimp82zrowx7un",
+    "wm6uqtrp7elgww3",
+    "c10thg4c8pu0ke4",
+    "aru6wquzj8rtjkl",
+    "gi7bzrml0eoya9f",
+    "8cx13jc38dt2cqp",
+    "jijlxe6rle5a2an",
+    "74k85nsn533u25b",
+    "m1yi5onla5e6iie",
+    "paywx3cmimvt1dy",
+    "y8y4wfhddl15dbd",
+    "ywirmt7f5xkbizl",
+    "ddwng4xrbw4w9yw",
+    "lmtnh32fj6xqnzh",
+    "6guk97cwxdyba5k",
+    "szq8aebhb044naj",
+    "1rv981nvsrh4orz",
+    "1nb8n1z60bnfvzc",
+    "5qac2afndasqmz2",
+    "dux0o7i6v43q1vr",
+    "gi1a2ks92txm1ac",
+    "ttrciirpu53jk32",
+    "tqfzou8af4phnk1",
+    "4fbt7dz6c30kjs1",
+    "543ki3ykvn3ahkq",
+    "84o0db1o8qasgqc",
+    "bnkersjenkgnivg",
+    "lnetwb3tidqeucq",
+    "kiy8q2yngbarezt"
+  ],
+  "agents": []
+}

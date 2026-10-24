@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblätter (Sammlung INr 28038, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "433",
+  "incipit_statement": "Wie der Herbst die vollen Kränze / Nur aus gelben Blättern wind't,",
+  "language": [],
+  "musenalm_id": 28046,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Weihe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Weihe",
+  "updated": "2002-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.364Z",
+      "agent": "15ilq8sfeqx1cly",
+      "source_id": "qkhcxju4xj4ykcn"
+    }
+  ]
+}

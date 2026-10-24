@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130140,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KLEINES BUCH / für / Frauenzimmer / die gern dencken / als / etwas Nützliches / in den Strickbeutel / Mit bunt gedruckten / Kupfern und einer gemahl- / ten Schlussvignette. / Leipzig / Bei F. G. Baumgartner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tromlitz sc.",
+  "scans": [
+    "alm_4813_130140_vn11ux6ubq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KLEINES BUCH / für / Frauenzimmer / die gern dencken / als / etwas Nützliches / in den Strickbeutel / Mit bunt gedruckten / Kupfern und einer gemahl- / ten Schlussvignette. / Leipzig / Bei F. G. Baumgartner",
+  "updated": "2022-03-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.058Z",
+      "agent": "ajmfzw9e08ldl0m",
+      "source_id": "hvd0t5xwsjzcd2x"
+    }
+  ]
+}

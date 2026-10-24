@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Es wallt hoch ob dem Schweizerland / Ein stiller Riesengeist,",
+  "language": [],
+  "musenalm_id": 54453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schweizergeist",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schweizergeist",
+  "updated": "2008-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.488Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "a9zkl944b8la9n7"
+    }
+  ]
+}

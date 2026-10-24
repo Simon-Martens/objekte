@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Ist Alles denn versunken / Was deutsche Freiheit heißt? / Verlöscht der letzte Funken, / Sind wir so gar verwaist?",
+  "language": [],
+  "musenalm_id": 126562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rostorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2020-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.761Z",
+      "agent": "nt4h9rywajl3p54",
+      "source_id": "f6hz44yvosdj5hn"
+    }
+  ]
+}

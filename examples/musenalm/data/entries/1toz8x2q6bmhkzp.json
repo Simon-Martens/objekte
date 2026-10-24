@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Charitas 1836",
+    "norm": "",
+    "biblio": 200996,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1660,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Pustet)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Charitas 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 38; L/R 100; Goed VIII. 580, 34",
+  "responsibility_statement": "Eduard von Schenk",
+  "subtitle_statement": "",
+  "title_statement": "Charitas. / Festgabe / für 1836 / von / Eduard von Schenk. / Dritter Jahrgang. / Mit Beiträgen von König Ludwig von Bayern, / L. Aurbacher, F. Beck, S. Daxenberger, M. Diepen- / brock, Fr. Rückert, G. H. v. Schubert, F. L. Frhr. v. / Baricourt, Dr. C. Weichselbaumer und dem Herausgeber. / Kupfer nach P. v. Cornelius, Overbeck und M. Ellem- / rieder, gestochen von E. Schäffer und A. / Regensburg. / Friedrich Pustet",
+  "updated": "2026-06-11 10:18:55.568Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "hfte5l1a2gribi1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.947Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.947Z",
+      "agent": "lgzkna3xrmxutak",
+      "source_id": "0cbqkjeujamd5j2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.132Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.132Z",
+      "agent": "xqame88yb4eapqn",
+      "source_id": "ol6i6mugvn0thf9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. Anm. d. Hrsg. aus: Zürcher Beiyträge, 4. Heft, S. 123",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Wer ist, die aus dem Hause tritt, / Als ob sie Leiden trüge;",
+  "language": [],
+  "musenalm_id": 53759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mutterherz. / Eine Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mutterherz. / Eine Ballade",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.786Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "l44ka4d5xci5nqz"
+    }
+  ]
+}

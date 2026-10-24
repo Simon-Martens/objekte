@@ -1,0 +1,45 @@
+{
+  "annotation": "Kernsprüche von Thomas Morus (Sammlung INr 65665, Obj 233) Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Oft stürzt, wer furchtsam geht auf hohem engem Steg;",
+  "language": [],
+  "musenalm_id": 65671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 239,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oft stürzt, wer furchtsam geht auf hohem engem Steg;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.302Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "jqlm5kka57vtsyr"
+    }
+  ]
+}

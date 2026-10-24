@@ -1,0 +1,112 @@
+{
+  "annotation": "§1§ Kal fehlt; $§ vermutl fehlt Tab [Geburtstage] Tab [Genealogie]",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, 11 SS G-Verz, §1§ Kal, 9 GG, S 1 zT, SS 3-109, S 111 zT, SS 113-349",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1816; s. a. Hofkalender, Großherzoglich Hessischer 1816",
+    "norm": "~",
+    "biblio": 100781,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 571,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1816; s. a. Hofkalender, Großherzoglich Hessischer 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1816 / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.363Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "med9ptblxjsadud"
+  ],
+  "contents": [
+    "xiftp29cqig5peo",
+    "zuap9jfzsw1bsoj",
+    "itrrd6uhl851zu4",
+    "i3gheldmzskl9ay",
+    "f5bwszhrzqetbf9",
+    "ikwwrc9ycs8myd5",
+    "5nu5fq0yelziwn6",
+    "m5kkxmijmq3rygq",
+    "2mavby5uyq5srx7",
+    "u75nd74s5v8178o",
+    "24ukybcxyfage2s",
+    "n7ypx855iky8slr",
+    "igx0zw18izytudt",
+    "scwvzpmpabza8j0",
+    "kqrrzfy3866p5pf",
+    "y0y0r21c9ao2hbs",
+    "eoqdp077oftjdzk",
+    "4iq2tize3o0bz8s",
+    "rl4owymqa2rte55",
+    "xti1qhi5zc5n8oe",
+    "hdidtwsjg9wr3b6",
+    "cjvxa3r89h2qkrp",
+    "t0xrx8f4akkri5v",
+    "bc0idipvzlrugrw",
+    "b6qls0cttkor0al",
+    "r3b5i9ftftvjb67",
+    "uhg0hdp534a38ti",
+    "alocl22yqm7b5nj",
+    "7cr20yt1u48l22h",
+    "udai59bu7mymdx8",
+    "10q9ousnd60p3v5",
+    "xvb5bqv0zwtswmk",
+    "65hqn6rkmwh8ks3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.009Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.009Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "4vin1d1ydp3l78r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.451Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.451Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "vawtac3wgvbxnfv"
+    }
+  ]
+}

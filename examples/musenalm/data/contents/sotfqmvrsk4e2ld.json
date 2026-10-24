@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Hie lieget, der mit jeder Lage / Die Art zu leben wohl verband,",
+  "language": [],
+  "musenalm_id": 3239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.072Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "m4mcm7sh7emd5ah"
+    }
+  ]
+}

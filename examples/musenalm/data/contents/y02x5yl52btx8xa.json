@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Wenn du an's Herz sie drückst, / In's Schwesteraug' ihr blickst,",
+  "language": [],
+  "musenalm_id": 96593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stammbuchsblatt / für Elmine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stammbuchsblatt / für Elmine",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.763Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "jd8eu2faok6ce8a"
+    }
+  ]
+}

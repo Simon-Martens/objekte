@@ -1,0 +1,45 @@
+{
+  "annotation": "Streitgedicht s. Entgegnung Rückerts INr 26524; Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Die vom Schwur sich losgezählet, / In der reichsten Schönheit Schmuck / Ist sie doch ein Höllenspuk,",
+  "language": [],
+  "musenalm_id": 26522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tenzon. / Sänger sagt mit einem Spruch! / Sagt mir, was ist mindre Noth: / Der Geliebten Treuebruch, / Oder der Geliebten Tod?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tenzon. / Sänger sagt mit einem Spruch! / Sagt mir, was ist mindre Noth: / Der Geliebten Treuebruch, / Oder der Geliebten Tod?",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.514Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "b13katm8t8sdnsy"
+    }
+  ]
+}

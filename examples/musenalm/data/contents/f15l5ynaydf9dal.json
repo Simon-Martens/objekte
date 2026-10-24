@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Rümpfet immer eu're Nasen / Über meine Lässigkeit, / Mahnet mich mit derben Phrasen, / An die Flucht der edlen Zeit;",
+  "language": [],
+  "musenalm_id": 133590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterfrühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterfrühling",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.029Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "6qjpwvq098sqs1o"
+    }
+  ]
+}

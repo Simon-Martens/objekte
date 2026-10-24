@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus den Scholien zu den Bildern (Sammlung 9204, Obj 9) s. Textbezug INr 19377, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9198,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hebe liebkoset dem Adler des Zeus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hartmann pinx. Heinr. Schmidt sc.",
+  "scans": [
+    "alm_37_9198_5gza7nuxu9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hebe liebkoset dem Adler des Zeus #",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.429Z",
+      "agent": "0khisp5x3ouhx44",
+      "source_id": "0ibtk20vspow3bv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.430Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "w3zasnce7gokmxo"
+    }
+  ]
+}

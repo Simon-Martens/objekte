@@ -1,0 +1,45 @@
+{
+  "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Die Nacht enttflieht, der Tannen Wipfel glühen, / Es jubelt schon die bunte Sängerschaar.",
+  "language": [],
+  "musenalm_id": 75029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Viersilbige Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Viersilbige Charade",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.817Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "4iz04hpmabuv63g"
+    }
+  ]
+}

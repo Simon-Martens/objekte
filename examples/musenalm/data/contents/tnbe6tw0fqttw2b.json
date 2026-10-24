@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Aebtissin und die Nonne« von Th. von Kobbe INr 62636, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.965Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62637,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ÄBTISSIN UND DIE NONNE. / Ein Wechselgesang von Theodor von Kobbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kuhlau",
+  "scans": [
+    "alm_1026_62637_3ect72itu0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ÄBTISSIN UND DIE NONNE. / Ein Wechselgesang von Theodor von Kobbe",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.909Z",
+      "agent": "bnlb4pr1rcluif8",
+      "source_id": "zy6ib7cjv56wkzt"
+    }
+  ]
+}

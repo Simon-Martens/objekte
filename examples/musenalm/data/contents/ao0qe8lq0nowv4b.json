@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Die rauchige Schwerdtfeger- und Schuhflickergasse meiner Vaterstadt lag wie in einem Hohlweg, fast unterirdisch zu nennen, krumm und eng unter den hohen, breiten Straßen der Hauptstadt",
+  "language": [],
+  "musenalm_id": 41645,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Stephan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schöll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Stephan",
+  "updated": "2005-12-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.117Z",
+      "agent": "0ezo8w01apomai9",
+      "source_id": "r6vw4y5l1ollbmn"
+    }
+  ]
+}

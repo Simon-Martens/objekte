@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 8 Beiträgen als Textbezüge zu den Graphiken des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es liegt in unserer Absicht, nach und nach ein kleine Bildergallerie zu veranstalten, worin die verschiedensten in Rom befindlichen Künstler irgendein Blättchen liefern,",
+  "language": [],
+  "musenalm_id": 69051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.491Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "6kykgbm3sg7a12f"
+    }
+  ]
+}

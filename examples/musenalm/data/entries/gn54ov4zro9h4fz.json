@@ -1,0 +1,84 @@
+{
+  "annotation": "Jgg 1781, 1789; 1781: Häresiopel [Züllichau (Frommann)], 1787: Gibeon [Berlin (Vieweg)]; Hrsg. K. F. Bahrdt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kirchen- und Ketzer-Almanach (Bahrdt) 1781",
+    "norm": "",
+    "biblio": 100315,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2191,
+  "parallel_title": "",
+  "place_statement": "Häresiopel [Züllichau] (Frommann)]",
+  "places": [
+    "jhttkxys7t9bnvj"
+  ],
+  "preferred_title": "Kirchen- und Ketzer-Almanach (Bahrdt) 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 71; L/R 199; Goed IV/1. 823, 61 a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kirchen- und Ketzer- / Almanach / aufs Jahr / 1781. / [Motto aus Plato: Criton] / Häresiopel / im Verlag der Ekklesia pressa",
+  "updated": "2026-06-11 10:18:55.903Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "8o6ky7nrkyjoszt"
+  ],
+  "contents": [
+    "7osrm7sg64stv8x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.005Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.005Z",
+      "agent": "zfgpm2eg679x0n5",
+      "source_id": "pv9bdz9mj0y9vie"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.878Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.878Z",
+      "agent": "q3vbkf0g61pylwz",
+      "source_id": "yzq39jpq39zwd66"
+    }
+  ]
+}

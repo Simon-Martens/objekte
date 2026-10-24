@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ich hab' ihn geliebt; es kann nicht mehr ein Cherub den Ewigen lieben. Raupach",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "In dem Kaffeehause ging es gerade so zu wie in jedem andern Kaffeehause. Alte Herren saßen an einem Tische und klagten über Neuerungen, von denen ihre Jugenzeit keine Idee gehabt,",
+  "language": [],
+  "musenalm_id": 117083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilie. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Emilie. / Novelle",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.638Z",
+      "agent": "onb8bft2jljf6eb",
+      "source_id": "o5mfdkq00aedpgd"
+    }
+  ]
+}

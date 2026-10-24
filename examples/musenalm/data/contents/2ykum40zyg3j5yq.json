@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Rache-Gelübde. Spaniersage in neun Romanzen (Sammlung INr 21139, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ausgetobt und ausgewüthet / Hat der Sturm, die Wogen wälzen",
+  "language": [],
+  "musenalm_id": 21143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Landung",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.087Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "4f8sa2k7a3siltz"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. v. Goethe s. Textbezug INr 9218, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9222,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust Scene im Zwinger, / Gretchen vor dem Andachtsbilde der Mutter dolorosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_39_9222_xl5cqk4w8x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust Scene im Zwinger, / Gretchen vor dem Andachtsbilde der Mutter dolorosa",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.367Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "axhlty34o6ufhzl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.367Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "k5jkv2rbgdu4krc"
+    }
+  ]
+}

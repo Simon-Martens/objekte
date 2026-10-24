@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Militärisches (Leipzig) 1820",
+    "norm": "",
+    "biblio": 406414,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3624,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Militärisches (Leipzig) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärisches / Taschenbuch. / Zweiter Jahrgang. / Mit einer Uebersichtscharte und einem Plane. / Leipzig, / in der Baumgärtnerschen Buchhandlung. / 1820",
+  "updated": "2026-06-11 10:18:55.390Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "ptzs5mluunlo1rl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.513Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.513Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "qdowrzbycg5nvka"
+    }
+  ]
+}

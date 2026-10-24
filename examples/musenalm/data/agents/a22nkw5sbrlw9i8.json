@@ -1,0 +1,654 @@
+{
+  "annotation": "",
+  "biographical_data": "1740-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.382Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Wirtschaftswissenschaftler und Schriftsteller, 1787-1803: Prof. für ökonomische Wissenschaften in Marburg"
+      ],
+      "dateOfBirth": [
+        "1740-09-12"
+      ],
+      "dateOfDeath": [
+        "1817-04-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Stich von Halle nach Zeichnung von J.Bund"
+          ],
+          "creditText": [
+            "Hans Wahl, Anton Kippenberg: Goethe und seine Welt, Insel-Verlag, Leipzig 1932 S.26"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/HeinrichJung-Stilling.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/HeinrichJung-Stilling.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:HeinrichJung-Stilling.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-06T11:36:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118558862/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1221838415",
+          "label": "St. George, Maria Salome von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1167199537",
+          "label": "Jung-Coing, Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116563079",
+          "label": "Heddäus, Christine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118558862",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116563079",
+          "label": "Heddäus, Christine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118558862",
+      "oldAuthorityNumber": [
+        "(DE-588c)4029029-3",
+        "(DE-588a)118558862"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4518678-9",
+          "label": "Grund (Hilchenbach)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        }
+      ],
+      "preferredName": "Jung-Stilling, Johann Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Heinrich"
+        ],
+        "surname": [
+          "Jung-Stilling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003579-7",
+          "label": "Augenarzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188566-1",
+          "label": "Volkswirt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Stilling"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hendrik"
+          ],
+          "surname": [
+            "Stilling"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Stilling"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Lehrbegriff der ... Thierarzneykunde",
+        "Des Christlichen Menschenfreundes Biblische Erzählungen",
+        "Apologie der Theorie der Geisterkunde",
+        "Geschichte Florentius von Fahlendorn",
+        "Heinrich Stillings Leben",
+        "Über die Art Verbesserungs Vorschläge abzufassen",
+        "Chrysäon, oder das goldene Zeitalter",
+        "Lehrbuch der Cammeral-Wissenschaft"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Jung"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb118866531"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83040701"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95215666"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215845"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118558862/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118558862"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Heinrich_Jung"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_Jung-Stilling"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Heinrich_Jung-Stilling"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Heinrich_Jung"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441938"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118558862"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1805_schenckendorf;27"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118558862"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118558862.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118558862.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118558862"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118558862"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118558862"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118558862"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Jung gen. Stilling, Johann Heinrich",
+        "Jung Stilling, Heinrich",
+        "Jung-Stilling, Heinrich",
+        "Jung-Stilling",
+        "Stilling, Henrich",
+        "Jung, Johannes Henricus",
+        "Jung-Stilling, Johann H.",
+        "Jung-Stilling, I.G.",
+        "Jung, Johannes Heinrich",
+        "Jung, Johann Heinrich",
+        "Jung, Joh. Heinr.",
+        "Jung Stilling, Johann Heinrich",
+        "Jung dit Stilling, Jean Henri",
+        "Iung, Iohann H.",
+        "Stilling, Johann H.",
+        "Stilling, Heinrich",
+        "Stilling, Heinrich Jung-",
+        "Stilling, Johann Heinrich",
+        "Yungu-Shutiringu",
+        "Stilling, Hendrik",
+        "Jung-Stilling, I. G.",
+        "Stilling, Johann",
+        "Jung genannt Stilling, Johann Heinrich",
+        "Jung, Johann H.",
+        "Stilling, Johann Heinrich Jung-",
+        "Stilling"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joh. Heinr."
+          ],
+          "surname": [
+            "Jung"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Jung-Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Jung Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Jung Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Jung"
+          ]
+        },
+        {
+          "personalName": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "surname": [
+            "Jung-Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "I.G."
+          ],
+          "surname": [
+            "Jung-Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "personalName": [
+            "Jung-Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Jung genannt Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Jung-"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Hendrik"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Henri"
+          ],
+          "surname": [
+            "Jung dit Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Jung gen. Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Henrich"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann H."
+          ],
+          "surname": [
+            "Iung"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich"
+          ],
+          "surname": [
+            "Jung"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Jung-"
+          ],
+          "surname": [
+            "Stilling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Jung-Stilling"
+          ]
+        },
+        {
+          "personalName": [
+            "Yungu-Shutiringu"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Henricus"
+          ],
+          "surname": [
+            "Jung"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Jung"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_Jung-Stilling",
+          "label": "https://de.wikipedia.org/wiki/Johann_Heinrich_Jung-Stilling"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:52:03Z",
+    "gnd_query_biographical_data": "1740-1817",
+    "gnd_query_name": "jung-stilling, johann heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1320,
+  "name": "Jung-Stilling, Johann Heinrich",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 688; Goed VII, 189",
+  "updated": "2026-06-11 13:29:23.074Z",
+  "uri": "https://d-nb.info/gnd/118558862",
+  "editor": ""
+}

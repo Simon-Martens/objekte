@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S III, I-Verz, SS V-XXIV G-Verz dazu 9 GG, SS 1-454",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1828",
+    "norm": "~",
+    "biblio": 100678,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-05-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 478,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49, 11",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Damen. / Auf das Jahr 1828. / Mit zehn englischen Kupfern. / Stuttgart und Tübingen, / Verlag der J. G. Cotta'schen Buchhandlung. / 1828",
+  "updated": "2026-06-11 10:18:55.814Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "52ik4w4ja2xuz8l"
+  ],
+  "contents": [
+    "ywilg7cdqayy37v",
+    "eq0otcy64u2thzz",
+    "z5p0yyiar77j1dh",
+    "3vsdb5co0ygloft",
+    "ab1tihqxuh2qqov",
+    "fy1mxvleak0dfzl",
+    "5y179aftbcoa4kt",
+    "mym1ytdhb0wk9e1",
+    "g9n50gi9x2cg6jq",
+    "5ib1wq31hibt2qu",
+    "9wcsztdvwcs55lk",
+    "fnkxzkndx7jud4z",
+    "hhhm6bcmn83gdwy",
+    "siygozb0zcsf3q9",
+    "68523zxa2m5qm1m",
+    "jm05170cug3yqvj",
+    "nij0hznkbldeohb",
+    "by9w81if3hfgisk",
+    "3jvrg1464fpmxb6",
+    "s6rncvxt4whxsj1",
+    "ho6j8cq5b4w8994",
+    "47j0cs6ufrd4nlb",
+    "f3bws7c6f9cybi1",
+    "ygjjilmt3t1xie5",
+    "5zhcudigaeqs7qn",
+    "t9sn1nxgl0aukt1",
+    "2ma7x5nmvcghe4l",
+    "9khyq27c3mjhbmt",
+    "6x8rvj4kt6xzxsu",
+    "wtmt4ghtsc8ek5e",
+    "mou0x9fsi6psdlh",
+    "8dx0slpwgmhra54",
+    "jpho25leg36z3fq",
+    "mavmu3n58deznjk",
+    "w7ti8fx2gjb3u6l",
+    "r0eaeufsy8enb31",
+    "5vxtq96ufoq9nyi",
+    "48ysu6wzftu5vww",
+    "gw7q1b5q0uy5fuq",
+    "tc8f90kt27i8l91",
+    "qblppcpe41ki967",
+    "zn1j8pdgprcqnlt",
+    "2jpmikn1uqaxqny",
+    "n5fgokuhkeqmv23",
+    "23cqzkta4hn9f1s",
+    "hkuk1u69udbt2tx",
+    "goimr4qdwojw73a",
+    "bj5nc81d4g103zp",
+    "rqtlcjauuvo7wfx",
+    "xa4shapkjtp3zs9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.692Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.692Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "jpeafc3n3gcj4xf"
+    }
+  ]
+}

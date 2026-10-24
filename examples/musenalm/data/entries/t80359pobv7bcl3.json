@@ -1,0 +1,82 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I–IV Vrwt, SS 1–308, darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1821",
+    "norm": "~",
+    "biblio": 105945,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1289,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 128",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / Angefangen / von / Aug. von Kotzebue, / fortgesetzt / von Mehrern. / Neunzehnter Jahrgang. / Leipzig. / bei P. G. Kummer / 1821",
+  "updated": "2026-06-11 10:18:55.001Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "ii137b50lz6otg5"
+  ],
+  "contents": [
+    "l290v07l2fd3x6t",
+    "2usc4enaonqtgry",
+    "6w8r0fghy7c6745",
+    "dck4nd0vzoxlsix",
+    "sv9wjpt22cibf1h",
+    "iw546cvjpu8d5sj",
+    "zhhf3sp9a1670ws",
+    "mnzoguwjtgnhhh9",
+    "kh64fuvzuu0d6i7",
+    "sgk6rfllnzf3d1j",
+    "ynrdw7lke9fl5i9",
+    "x8o5694f5ni7zz3",
+    "w7jyd6dt399bnyn",
+    "yla6k5tvxm8prfg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "9wief7jpytmx6id"
+    }
+  ]
+}

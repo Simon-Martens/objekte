@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 49174, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.444Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Herr Walter hatte ein Instrument gedrechselt, das auf unserm Decemberkupfer mitten auf dem Tische steht.",
+  "language": [],
+  "musenalm_id": 49189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dreyzehntes Kupfer. / Die Erzähler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dreyzehntes Kupfer. / Die Erzähler",
+  "updated": "2007-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.305Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "d53xb8ln6f4xqs5"
+    }
+  ]
+}

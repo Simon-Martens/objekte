@@ -1,0 +1,56 @@
+{
+  "annotation": "»Die Flüsse« (Sammlung INr 38277, Obj 346) Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Ganz hypochondrisch bin ich vor langer / Weile geworden,",
+  "language": [],
+  "musenalm_id": 38289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 358,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "P** bey N**",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "P** bey N**",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.027Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "01u86oalabh5wxk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.027Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "0s4rdyug6wltc8a"
+    }
+  ]
+}

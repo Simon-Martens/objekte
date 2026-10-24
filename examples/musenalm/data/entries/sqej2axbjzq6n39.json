@@ -1,0 +1,104 @@
+{
+  "annotation": "so nicht bei K 92; nicht bei L/R 96; der Almanach entspricht dem Jg 1829 der Orphea, die Verlagsmitteilungen des Fleischer Verlags Leipzig fehlen hier /) §1§ Zwischentitel fehlt, §2§ röm1: SS XI-XIV mit 2 Scenen aus »Oberon« als Textbezüge zu 2 Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I-II Vrwrt d Hrsg, §1§, röm1: SS I-X §2§ XV dazu 7 GG, SS 1-352",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Orphea 1829 (Titelauflage: Berlin, Carl Heymann 1828)",
+    "norm": "~",
+    "biblio": 100429,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2372,
+  "parallel_title": "",
+  "place_statement": "Berlin (Heymann)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Orphea 1829 (Titelauflage: Berlin, Carl Heymann 1828)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 92; nicht bei L/R 96; nicht bei Goed VIII. 114, 266",
+  "responsibility_statement": "Ernst Fleischer",
+  "subtitle_statement": "",
+  "title_statement": "ORPHEA / TASCHENBUCH / FÜR / 1828. / Fünfter Jahrgang. / Mit acht Kupfern nach Heinr. Ramberg / ZU OBERON. / BERLIN. / Carl Heymann",
+  "updated": "2026-06-11 10:18:55.328Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "an61xq1qkkwog74"
+  ],
+  "contents": [
+    "g86r5jbjl553drn",
+    "uqtkl6bjlgmu935",
+    "ckvr4e2psn26pt0",
+    "uldnyg7z8twx3l8",
+    "gg039fa02rycyk1",
+    "te7ywvsl6s9k6vb",
+    "kv0ak9km2nf84r8",
+    "l3l26tolqsitrvu",
+    "k3idcw8slcgf2op",
+    "7l123wtczwnpd96",
+    "ae1gsuc7ccapmmt",
+    "cyobbds1m2cpktl",
+    "f4e7uvnrtrxp5qh",
+    "b5h654y37wye5sq",
+    "hmxvf2f342fk4pn",
+    "s5fbw00g4ldxy3x",
+    "f3jwr7oyzzypah3",
+    "s6s3ydcn9h6i9j6",
+    "krfxcwite3ir5su",
+    "na29kcs4vudcftg",
+    "6ltogkj34v51u0i",
+    "wsd7y0rvkirorsb",
+    "xy80f9jqp0pvb1p",
+    "vt63tbc9ouptnjt",
+    "5uanbgl5iegnr2x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.057Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.057Z",
+      "agent": "orvggoshiht8kde",
+      "source_id": "qgcardocgjdhdl7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.011Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.011Z",
+      "agent": "6bh1f9wamci70n6",
+      "source_id": "xt5d7iuovipz40y"
+    }
+  ]
+}

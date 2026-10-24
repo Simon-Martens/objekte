@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Der Lenz erwacht mit jugendlichem Streben, / Die Wiese grünt, die Wipfel sind belaubt;",
+  "language": [],
+  "musenalm_id": 19766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Dolorosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Dolorosa",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.855Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "novlcuqsyvsqru3"
+    }
+  ]
+}

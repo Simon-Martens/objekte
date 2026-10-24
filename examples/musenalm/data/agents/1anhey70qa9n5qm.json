@@ -1,0 +1,329 @@
+{
+  "annotation": "",
+  "biographical_data": "1734-1779",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.307Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter; Musiker; Komponist; Tenor"
+      ],
+      "dateOfBirth": [
+        "1734-09-23"
+      ],
+      "dateOfDeath": [
+        "1779-04-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Heinrich Tischbein"
+          ],
+          "creditText": [
+            "http://www.ernst-von-siemens-kunststiftung.de/johann-heinrich-tischbein-d-ae-bildnis-des-ernst-christoph-dressler.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Heinrich%20Tischbein%20der%20%C3%84ltere%20Ernst%20Christoph%20Dressler%201780.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Heinrich%20Tischbein%20der%20%C3%84ltere%20Ernst%20Christoph%20Dressler%201780.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Heinrich%20Tischbein%20der%20%C3%84ltere%20Ernst%20Christoph%20Dressler%201780.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172048265"
+      ],
+      "describedBy": {
+        "dateModified": "2024-09-29T10:02:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100112269/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100112269",
+      "id": "https://d-nb.info/gnd/100112269",
+      "oldAuthorityNumber": [
+        "(DE-588a)100112269",
+        "(DE-588a)172048265",
+        "(DE-588)172048265"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4391494-9",
+          "label": "Greußen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "preferredName": "Dressler, Ernst Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst Christoph"
+        ],
+        "surname": [
+          "Dressler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125219-6",
+          "label": "Opernsänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        }
+      ],
+      "publication": [
+        "Freundschaft und Liebe in melodischen Liedern",
+        "Theater-Schule",
+        "Die Drießnitz",
+        "Theater-Schule für die Deutschen, das Ernsthafte Singe-Schauspiel betreffend",
+        "Gedanken, die Vorstellung der Alceste, Ein deutsches ernsthaftes Singspiel, betreffend"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n90675174"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71734202"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3732389"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=100112269"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100112269/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172048265"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_Christoph_Dressler"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_Christoph_Dressler"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083931767"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100112269.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100112269"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "D., E. C.",
+        "Dressler, Ernst C.",
+        "Dreßler, Ernst Christoph",
+        "E. C. D.",
+        "Dressler, E. C.",
+        "Dresler, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ernst Christoph"
+          ],
+          "surname": [
+            "Dreßler"
+          ]
+        },
+        {
+          "forename": [
+            "E. C."
+          ],
+          "surname": [
+            "Dressler"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst C."
+          ],
+          "surname": [
+            "Dressler"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Dresler"
+          ]
+        },
+        {
+          "personalName": [
+            "E. C. D."
+          ]
+        },
+        {
+          "forename": [
+            "E. C."
+          ],
+          "surname": [
+            "D."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_Christoph_Dressler",
+          "label": "https://de.wikipedia.org/wiki/Ernst_Christoph_Dressler"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:15:12Z",
+    "gnd_query_biographical_data": "1734-1779",
+    "gnd_query_name": "dressler, ernst christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 575,
+  "name": "Dressler, Ernst Christoph",
+  "profession": "Text u. Musik",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 108; DBI 439",
+  "updated": "2026-06-11 13:29:22.099Z",
+  "uri": "https://d-nb.info/gnd/100112269",
+  "editor": ""
+}

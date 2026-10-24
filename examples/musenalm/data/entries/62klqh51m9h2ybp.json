@@ -1,0 +1,55 @@
+{
+  "annotation": "2 Jgg 1828, 1849; Berlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender des Montags-Klubbs 1828",
+    "norm": "",
+    "biblio": 404251,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1963,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender des Montags-Klubbs 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / des / Montags-Klubbs / in / Berlin. / Ausgegeben / am Tage der Feier / der / fünzigjährigen Mitgliedschaft / des Seniors / Friedrich Philipp Rosenstiel / den 14. April / 1828",
+  "updated": "2026-06-11 10:18:55.744Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "o3ca88t0a9uqsc0"
+  ],
+  "contents": [],
+  "agents": []
+}

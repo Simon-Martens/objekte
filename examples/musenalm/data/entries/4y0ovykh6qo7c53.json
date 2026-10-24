@@ -1,0 +1,78 @@
+{
+  "annotation": "Die Neuauflage bringt lediglich die Textbeiträge, und 7 (von 10) Graphiken; Kalendarium, Musikbeigaben, Tanzanleitungen, Engagemenstabellen etc  werden nicht gegegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, T, SS 1-9 I-Verz, SS 9-10 G-Verz, 7 GG, SS 1-318",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zum geselligen Vergnügen 1799 (neue Auflage)",
+    "norm": "",
+    "biblio": 409367,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-03-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4368,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zum geselligen Vergnügen 1799 (neue Auflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; K 150; K 152; L/R 101; Goed VIII. 42, 3 a u. b",
+  "responsibility_statement": "W. G. Becker",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zum / geselligen Vergnügen. / Herausgegeben / von / W. G. Becker. / 1799. / Neue Auflage / Leipzig, / bei Johann Friedrich Gleditsch",
+  "updated": "2026-06-11 10:18:55.697Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "3svky276i8wxzpo"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.908Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.908Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "gvwlrdj09yw8www"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.374Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.374Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "jhghn79z5gjgdx0"
+    }
+  ]
+}

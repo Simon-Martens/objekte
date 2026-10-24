@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Sonnette nach dem Petrarca (Sammlung INr 31256, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Zephir kömmt; der holde Frühling bringt / Laub und Blüthen, Gras und Blumen wieder,",
+  "language": [],
+  "musenalm_id": 31261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Bey'm Anbruch des Frühlings. / 269. S. Zefiro torna, e'l bel tempo rimena & c.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Bey'm Anbruch des Frühlings. / 269. S. Zefiro torna, e'l bel tempo rimena & c.",
+  "updated": "2003-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.531Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "rg59k70ceqlijwr"
+    }
+  ]
+}

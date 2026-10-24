@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Amor! Amor, du berühmter Kleiner! / Ist doch wohl von allen Göttern keiner,",
+  "language": [],
+  "musenalm_id": 2708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amor / D'aucun dieu l'on n'a dit tant de mal et de bien: / Le plus grand des malheurs est de n'en dire rien. / Marquis de Pezai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amor / D'aucun dieu l'on n'a dit tant de mal et de bien: / Le plus grand des malheurs est de n'en dire rien. / Marquis de Pezai",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.877Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "06n9xycz48i70zl"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "annotation": "ohne Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III, SS V-XVI Vrwrt d Hrsg, SS XVII-XX I-Verz, SS 1-323 darin G MusB, S, S C, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1798",
+    "norm": "~",
+    "biblio": 100595,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2824,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Scherzes und der Satire (Falk) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 119; L/R 205, Goed VIII, 48, 7a; ADB VI, 549",
+  "responsibility_statement": "J. D. Falk",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Scherzes / und / der Satire. / Herausgegeben / von / J. D. Falk. / Mit Churfürstl. Sächs. Privilegio. / Leipzig, / in der Sommerschen Buchhandlung. / 1798",
+  "updated": "2026-06-11 10:18:54.719Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "c6bmo4zrwv267s5"
+  ],
+  "contents": [
+    "94c6p6f4idxfhy0",
+    "t0d0ain222n1u5f",
+    "eabc4x8xa93cf0t",
+    "bqhqmk7wrugmng3",
+    "213qad08u0uciw0",
+    "85a93ndacvthwkt",
+    "dioavsoa2r87uy1",
+    "gv75nv3tcp8s96d",
+    "ewtgcok3olj9zlv",
+    "xb7eq5gf5rr039u",
+    "t2w3o32f6j6x9mt",
+    "kdrpdprthqwimkh",
+    "hyhd0l05pn160lu",
+    "ydnu35dcn6yitw0",
+    "b4g3ieeesifawhr",
+    "xwgoncdi2qo7pm3",
+    "lbyiuyutphq8wtd",
+    "tv8zieizjpjqtkf",
+    "w3ypz6yfor2a09p",
+    "l7kcnydjqvgkq8b",
+    "ax3caccd1rzyt3o",
+    "5bxgsb0ka1wkgm4",
+    "kfx0zcz4gm3gupm",
+    "v7qswjhwq79fgig",
+    "rczs68h1bmerywi",
+    "dfhwf7s2ax3q9ac",
+    "iml8fxrtza35ss0",
+    "0fj5xtsj92927zi",
+    "cssqvzv5h0t6vtb",
+    "5kof2mg4r7jyra5",
+    "gsdjmzsbgm6h0fl",
+    "apyg5pfi865dlyn",
+    "micqgzmppwbx8ck",
+    "yp79hlm34917xy0",
+    "v86ok1ra9kmg2he",
+    "z9z43x7r6kspl8f",
+    "ceuil2m08qq18gy",
+    "4w332iarm1kgfgg",
+    "l86lvqwumcb3orf",
+    "gbcpt0f3089alrz",
+    "hyjrix7zs70l3sc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "szwwooy2j4czf4x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.149Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.149Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "uvh7zwl2zzuv9yu"
+    }
+  ]
+}

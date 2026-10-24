@@ -1,0 +1,130 @@
+{
+  "annotation": "KVK: mehrere Standorte (dort: ungenaue »cirka« Datierungen); weitere Jahrgänge nicht nachweisbar /) Nachdruck von: Revolutions-Almanach 1793 (Göttingen (Dieterich) alm-934 /)  Bei größerer Type und anderer Paginierung, graph. Beigaben in Neustich vollständig, die Umschlaggraphiken (Portraitmedaillons) in kleinerem Schmuckrahmen im Text. Dieser Nachdruck mit einem zusätzlichem Beitrag: »Die Jacobiner. Eine historische Skizze. Entworfen im July 1792« von J. W. von Archenholz INr 79274",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, r T, 5 BB, B I-Verz, B Vrwrt d Hrsg, SS 1-276 darin G, 2 GG zu SS 277-302 G-Verz darin 10 GG, SS 303-344 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Geschichte der Nachtheiligen Folgen der Staatsrevolutionen [Raubdruck von: Revolutions-Almanach] 1793",
+    "norm": "~",
+    "biblio": 406212,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2490,
+  "parallel_title": "",
+  "place_statement": "Hohenzollern [Wien] (Wallishausser)",
+  "places": [
+    "31n865keags4n1n",
+    "xq847zzieli78e9"
+  ],
+  "preferred_title": "Geschichte der Nachtheiligen Folgen der Staatsrevolutionen [Raubdruck von: Revolutions-Almanach] 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / der / nachtheiligen Folgen / der / Staatsrevolutionen / alter und neuer Zeiten / Hohenzollern / Bey Joh. Bapt. Wallishausser",
+  "updated": "2026-06-11 10:18:55.643Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "cdhwsqq0vzzxool"
+  ],
+  "contents": [
+    "5hs3xvw1byy11v0",
+    "is5n9tu6irq3rt3",
+    "esroxjeftk169kx",
+    "jssku83f4p4fee6",
+    "9st9b1xwofes3tg",
+    "sp8mbrvjtb8ut6b",
+    "skpuzbmwikls62d",
+    "jzkflzel19rjzg5",
+    "2avkwrd24718ypd",
+    "do6csddmfwlmb77",
+    "j8xukp0f8fq9u4f",
+    "e73fqkd944r53eb",
+    "1qnjs3yjq8sdqyp",
+    "kbg9w9fctozis34",
+    "2m5hf3k46qippgl",
+    "m91cgfomgn59fum",
+    "klmp2zq7mbaajcw",
+    "xcgh92kje6074nb",
+    "ppiy3se2hu6taxt",
+    "el20ebwhvw3yu3q",
+    "ot22x18yqsai0g4",
+    "ftpmx5rosw0tds0",
+    "9q2spwb8is2r6cr",
+    "unztz7ym5x0w555",
+    "e4f4w38kz0vj0ff",
+    "oifwuel864cbhk6",
+    "0whtk9fjipkio4a",
+    "fc1guarr0cqe80p",
+    "4q4ue83s0jyicky",
+    "m85oteto31f3q7p",
+    "4xdwo33omu5qmj3",
+    "xgmhkhzqanu8ax6",
+    "8j6nkqrq9xytirs",
+    "teuh9d0cbioy1rx",
+    "e2n4a2c0j2tslvp",
+    "mv3gnftjln0j6j9",
+    "minjrhdl0a15dd2",
+    "f0zx7jsep7mkm6t",
+    "3xugeh34uchl16s",
+    "y7viluxdoq9hj3z",
+    "ammi5x2jgap6a9j",
+    "tvby78eldc6fo6i",
+    "rx673hbul7l4wbd",
+    "f2o9zmx2yaxkloa",
+    "awk4gn7mwozfapd",
+    "5z4c9vcdogub8rt",
+    "pe6cj8qrlpgqs52",
+    "re6590829y9a8bc",
+    "x86gi9exjyipxxa",
+    "736ei52t6qjpaqx",
+    "jvsb2g5s00l8qth",
+    "2es6is5y0npga6q",
+    "pnfztwkljx5b5yx",
+    "04zp77dpslujepw",
+    "wcsio7vcfvkxx2j",
+    "1l0kxk3pr6dv4ti",
+    "7d9szxetqkjj07h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "6brabvuhg5zzvmx"
+    }
+  ]
+}

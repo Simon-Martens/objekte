@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Nah dem Schlachtfeld bei ****** liegt ein sonst wohlhabendes und glückliches Dörfchen. Frischrothe Ziegeldächer und verkohlte Lindenwipfel bezeichnen die Gränzen, die Brand und Verwüstung sich dort setzten.",
+  "language": [],
+  "musenalm_id": 39628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Die neue Lenore. / Ein Nachtstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Die neue Lenore. / Ein Nachtstück",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.120Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "puc3gpni1zjnjpw"
+    }
+  ]
+}

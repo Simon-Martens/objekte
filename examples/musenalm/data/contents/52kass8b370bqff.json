@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum folgenden Gedicht INr 14239, Obj 4,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Dem Hause, zu dessen feyerlichen Eröffnung wir uns heute versammelt haben,",
+  "language": [],
+  "musenalm_id": 16705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Echte Größe. / Gesprochen bey der Eröffnung des Museums zu Salzburg, am / Nahmensfeste Ihrer Majestät der Königinn von Baiern 1810, / in Gegenwart der Französischen Behörden. / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Aloys Weissenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Echte Größe. / Gesprochen bey der Eröffnung des Museums zu Salzburg, am / Nahmensfeste Ihrer Majestät der Königinn von Baiern 1810, / in Gegenwart der Französischen Behörden. / Vorwort",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.757Z",
+      "agent": "dh3tm3lh6b5ehoz",
+      "source_id": "md14xgj7x8clazy"
+    }
+  ]
+}

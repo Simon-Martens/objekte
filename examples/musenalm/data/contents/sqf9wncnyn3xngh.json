@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 10242, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Wie Pfeile fliegen die Jahre unsers Lebens / Zur gränzenlosen Ewigkeit!",
+  "language": [],
+  "musenalm_id": 9523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Pfeile fliegen die Jahre unsers Lebens / Zur gränzenlosen Ewigkeit!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Phil. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.283Z",
+      "agent": "e50fn3dat2tsaev",
+      "source_id": "3wy7frgvyryeaoy"
+    }
+  ]
+}

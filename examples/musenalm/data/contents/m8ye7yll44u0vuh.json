@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 97893, Obj 38) mit einer Illustration s. Graphik INr 97896, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Durch die Gefälligkeit eines auswärtigen gelehrten Freundes erhielt ich acht Schutzbriefe von berühmten Heerführern im dreißigjährigen Kriege",
+  "language": [],
+  "musenalm_id": 97895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Fac simile's von acht berühmten Heer- / führern im dreißigjährigen Kriege, / nebst einem Schutzbriefe des Landgrafen Wilhelm's V., / des Beständigen, für die Stadt Höxter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Fac simile's von acht berühmten Heer- / führern im dreißigjährigen Kriege, / nebst einem Schutzbriefe des Landgrafen Wilhelm's V., / des Beständigen, für die Stadt Höxter",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.728Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "pg4afl6x96dcva3"
+    }
+  ]
+}

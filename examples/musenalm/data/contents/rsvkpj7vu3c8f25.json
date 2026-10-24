@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Willst du dich selber erkennen: So sieh die / Andern es treiben; [...] Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "In der so schönen Wienerstadt Die so viel gute Menschen hat, steht in einem der ältesten Stadttheile ein schwarzberußtes zweystöckiges Haus.",
+  "language": [],
+  "musenalm_id": 114158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Gruppe aus dem neunzehnten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Gruppe aus dem neunzehnten Jahrhundert",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.523Z",
+      "agent": "1gx7z956tuv7ghs",
+      "source_id": "hygs17o2zr0fwno"
+    }
+  ]
+}

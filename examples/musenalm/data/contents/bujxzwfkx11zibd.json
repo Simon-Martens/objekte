@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; /) Graphik im Kalendarium paginiert 10. /) Illustration zu »Die lustigen Weiber von Windsor« von W. Shakespeare s. Textbezug INr 6926, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mich hat man betrogen und ge- / prügelt oben drein. / IV. Aufz. 9. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_139_6890_0barqe7to4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mich hat man betrogen und ge- / prügelt oben drein. / IV. Aufz. 9. Auftr.",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.091Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "bzz4jytypei0a1i"
+    }
+  ]
+}

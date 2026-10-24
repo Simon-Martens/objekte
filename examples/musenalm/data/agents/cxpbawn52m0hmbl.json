@@ -1,0 +1,318 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.453Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponistin u. Musikpädagogin"
+      ],
+      "dateOfBirth": [
+        "1779-04-11"
+      ],
+      "dateOfDeath": [
+        "1826-11-17"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-20T12:43:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119344769/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118599100",
+          "label": "Reichardt, Johann Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119344769",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118599100",
+          "label": "Reichardt, Johann Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119344769",
+      "oldAuthorityNumber": [
+        "(DE-588a)126807108",
+        "(DE-588a)134815734",
+        "(DE-588c)4413139-2",
+        "(DE-588a)119344769",
+        "(DE-101c)310505739"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Reichardt, Louise",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louise"
+        ],
+        "surname": [
+          "Reichardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032010-8",
+          "label": "Komponistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4367362-4",
+          "label": "Sopranistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4051246-0",
+          "label": "Sängerin"
+        }
+      ],
+      "publication": [
+        "Choralbuch",
+        "Reichardt, Louise: [Lieder / Ausw.]",
+        "Reichardt, Louise: [Gesänge op. 3]. - [ca. 1839]",
+        "Reichardt, Louise: 12 Gesänge mit Begleitung des Fortepiano",
+        "Christliche liebliche Lieder",
+        "Reichardt, Louise: 12 deutsche und italiänische romantische Gesänge mit Begleitung des *",
+        "Reichardt, Louise: 6 deutsche Lieder mit Begleitung des Pianoforte",
+        "Reichardt, Louise: Choralbuch",
+        "Reichardt, Louise",
+        "Reichardt, Louise: Die Blume der Blumen"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Reichardt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80125346"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30344665"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q6688923"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119344769/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Louise_Reichardt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Louise_Reichardt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083686941"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119344769"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119344769.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119344769"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Reichardt, Caroline Luise",
+        "Reichardt, Li",
+        "Reichardt, Luise",
+        "Reichart, L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Reichardt"
+          ]
+        },
+        {
+          "forename": [
+            "Luise"
+          ],
+          "surname": [
+            "Reichardt"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Reichart"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Luise"
+          ],
+          "surname": [
+            "Reichardt"
+          ]
+        },
+        {
+          "forename": [
+            "Luise"
+          ],
+          "surname": [
+            "Reichardt"
+          ]
+        },
+        {
+          "forename": [
+            "Li"
+          ],
+          "surname": [
+            "Reichardt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Louise_Reichardt",
+          "label": "https://de.wikipedia.org/wiki/Louise_Reichardt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:36:18Z",
+    "gnd_query_biographical_data": "1780-1826",
+    "gnd_query_name": "reichardt, luise"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2212,
+  "name": "Reichardt, Luise",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXVII, 648",
+  "updated": "2026-06-11 13:29:24.210Z",
+  "uri": "https://d-nb.info/gnd/119344769",
+  "editor": ""
+}

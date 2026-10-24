@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 103349, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103348,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eifersucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schönn pinx. Lechleitner sc.",
+  "scans": [
+    "alm_4089_103348_lrenbq0q6v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eifersucht",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.930Z",
+      "agent": "1inhvdbmldwvk66",
+      "source_id": "uc5lbw0aug5tobo"
+    }
+  ]
+}

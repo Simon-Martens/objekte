@@ -1,0 +1,50 @@
+{
+  "annotation": "<div>K gibt nur (fälschlich?) Jg 1822 an</div>",
+  "carrier_type": [],
+  "content_type": [],
+  "created": "2026-07-30 10:11:00.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": null,
+  "musenalm_id": 5020,
+  "parallel_title": "",
+  "place_statement": "Quedlinburg und Leipzig  (Gottfried Basse)",
+  "places": [
+    "d7kbujq7399g22j",
+    "46j536iwo85rk0x"
+  ],
+  "preferred_title": "Almanach der Weisheit, der Tugend und des Erdenglücks 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 21; nicht bei L/R",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Weisheit, der Tugend und des Erdenglücks, / Eine Mitgabe / für diejenigen / des weiblichen Geschlechts, / welche / in die große Welt treten wollen. / Quedlinburg und Leipzig, 1823. / Bei Gottfried Basse",
+  "updated": "2026-07-30 10:46:12.439Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-30 10:15:23.467Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-30 10:46:12.440Z",
+      "agent": "bohc65n0m3k3628",
+      "source_id": "ythk3dooirhj5o9"
+    }
+  ]
+}

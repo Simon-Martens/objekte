@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Ach! Amor, Herzenzieler, / Wie falsch, wie falsch bist du,",
+  "language": [],
+  "musenalm_id": 10518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Amor, der Joujouspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Amor, der Joujouspieler",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.370Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "i8wxgzqaex2sb7d"
+    }
+  ]
+}

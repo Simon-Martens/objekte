@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, Sp, verso G, T, 4 GG, 17 SS Kal darin 6 GG, 7 SS Tab, nT, SS 1-120",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1820",
+    "norm": "~",
+    "biblio": 200882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 984,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / FREUND / des / schönen Geschlechts / ein / angenehmer und nützlicher / TASCHENKALENDER / für das Jahr / 1820 / WIEN, / bey Jos. Riedl bürgl. Buchbinder im / Schottenhof",
+  "updated": "2026-06-11 10:18:54.672Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "4djua1tark4isdw"
+  ],
+  "contents": [
+    "vir1pryka2ireh0",
+    "yo2oexnnrot0zkh",
+    "cml0ny3wei74sif",
+    "2e4trlc35vgfnp7",
+    "4f3q5tvhkup4hkq",
+    "one8id838h4tmrj",
+    "shlx205ois5pk2o",
+    "bnpk0g53x6pf2z8",
+    "ke2buldy67visrn",
+    "86n41cafzdll8kk",
+    "ma67l5yg9tp3vyp",
+    "1jwr3s4eqc0xkhw",
+    "1gl9q6ljkx3obno",
+    "w4761drslw65ydt",
+    "5rceoao2etcfaas",
+    "k33u4r9sy1utbhs",
+    "q1trxcz5dw7zo14",
+    "6ktxlf6i374ei86",
+    "ezui56gbg78fies",
+    "plxhqfvmhklt9np",
+    "mukedoeqbx7cgvh",
+    "psoyrfve6sihsk4",
+    "fbp54yjyf1j6jow",
+    "lv8aavr2xggv27j",
+    "17g4ct9o6v5cuh1",
+    "7ncv731z9khn50c",
+    "z79eu4mv02n91cv",
+    "z43biu3j40cunxc",
+    "jlht7tjd8euhfl2",
+    "s22jm4fd9wa6ku3",
+    "uzflsgu1xq73r27",
+    "wgzb48klpkz83th",
+    "vxi5g6ags6jre30",
+    "l1lh9gmflxr8ws9",
+    "ycnqce6jbhpb8rh",
+    "v1p8hexvm94ckqy",
+    "5p7u665cfeqevqf",
+    "rwsrvca91g6fg77",
+    "awswp90e1oshfg4",
+    "ppk504eqn32nteg",
+    "8crg6vrdzql678x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "2nja1cbikx5axox"
+    }
+  ]
+}

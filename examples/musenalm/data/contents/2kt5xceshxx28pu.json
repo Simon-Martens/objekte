@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Fünfte Lieferung. Egmont (Sammlung INr 40641, Obj 7) s. Graphik INr 40649, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Der Schelm sitzt überall im Vortheil. Auf dem Armensünder-Stühlchen hat er den Richter zum Narren;",
+  "language": [],
+  "musenalm_id": 40650,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Vierter Aufzug. Erste Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Vierter Aufzug. Erste Scene",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.953Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "k614rjqma34sxxa"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Der Frühling komt, den sonst mein Lied erhöhte; / Nun grüssen meine Thränen ihn.",
+  "language": [],
+  "musenalm_id": 17388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelheim. / Aus einem ungedruckten Roman",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelheim. / Aus einem ungedruckten Roman",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.617Z",
+      "agent": "e50fn3dat2tsaev",
+      "source_id": "2nclew21eukvep0"
+    }
+  ]
+}

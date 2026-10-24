@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderung. Jagd. Krieg. (Sammlung INr 49029, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Der Graf zum Walde reitet, / Von den Jägern all' begleitet;",
+  "language": [],
+  "musenalm_id": 49038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der verlorene Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der verlorene Jäger",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.620Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "cu3qphuo4jlxhnp"
+    }
+  ]
+}

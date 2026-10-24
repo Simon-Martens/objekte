@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch neuester Thaten und Zeiten 1833",
+    "norm": "",
+    "biblio": 409646,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-07-31T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4583,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hoffmann)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Jahrbuch neuester Thaten und Zeiten 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "ADB 32, 165",
+  "responsibility_statement": "Dr. Julius Franz Schneller",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / neuester / Thaten und Zeiten, / für / 1833. / Von / Dr. Julius Franz Schneller, / öffentl. Ordentl. Professor der Weltweisheit und Geschichte an / der Universität zu Freiburg im Breisgau. / Stuttgart, / bei Carl Hoffmann. / 1833",
+  "updated": "2026-06-11 10:18:55.726Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "bw9n50c174yc1zd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.038Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.038Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "ii41a25toaqlhj4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.389Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.389Z",
+      "agent": "8qigw1i3u2eo6sj",
+      "source_id": "pcmae414k8v4601"
+    }
+  ]
+}

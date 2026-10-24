@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Welch' ein schmerzlich süßes Sehnen / Von hinüber und herüber, / Wehmuthslächeln, milde Thränen,",
+  "language": [],
+  "musenalm_id": 93770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehen und nicht sprechen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehen und nicht sprechen",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.502Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "y0qwyhj82aac0z4"
+    }
+  ]
+}

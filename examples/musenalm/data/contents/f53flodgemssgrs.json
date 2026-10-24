@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Nach langer Zeit zum ersten Mahl erwarmen / Fühl' ich mich wieder, Freund! in deinen Armen,",
+  "language": [],
+  "musenalm_id": 25998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gruss an J. G. Seidl. / Als er im Frühling 1829 nach Steiermark einwanderte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Ritter von Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gruss an J. G. Seidl. / Als er im Frühling 1829 nach Steiermark einwanderte",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.015Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "0dn1hg4yhavuv4c"
+    }
+  ]
+}

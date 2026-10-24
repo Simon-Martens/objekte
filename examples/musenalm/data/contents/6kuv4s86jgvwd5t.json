@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81337, Obj 9 /) Illustration zu »Etienne Marville« von Ferd. Siegmund INr 81367, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81336,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Florentine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nürnberg",
+  "scans": [
+    "alm_1810_81336_57kvf5tg7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Florentine",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.928Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "zsibwvs0ckgzt5m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.928Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "zww96rh6f9oa5b7"
+    }
+  ]
+}

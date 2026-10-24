@@ -1,0 +1,54 @@
+{
+  "annotation": "Umschlaggraphik r. /) # Bezeichnung s. Textbezug INr 82103, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Zeichnung von Heideloff. Stich von Busser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichnung von Heideloff. Stich von Busser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.923Z",
+      "agent": "gpua5gdwasv89sy",
+      "source_id": "34zv5i7v8rw40x0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.922Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "5hz0zaqtlk9q1rn"
+    }
+  ]
+}

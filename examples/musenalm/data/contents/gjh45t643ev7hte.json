@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Du, durch Gebet und Händeringen / Zurückgerißner Freund, nun ist die Höhle fest",
+  "language": [],
+  "musenalm_id": 8275,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Domdechant, / Freyherrn Spiegel zum Diesenberg: / Nach einer ausgestandenen schweren / Krankheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mad. Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Domdechant, / Freyherrn Spiegel zum Diesenberg: / Nach einer ausgestandenen schweren / Krankheit",
+  "updated": "2000-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.187Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "3tlkz61kz3iexhe"
+    }
+  ]
+}

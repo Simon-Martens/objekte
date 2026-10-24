@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumen aus Krain",
+    "norm": "",
+    "biblio": 410506,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4691,
+  "parallel_title": "",
+  "place_statement": "Laybach",
+  "places": [
+    "uyvji470okt29u9"
+  ],
+  "preferred_title": "Blumen aus Krain",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 29; nicht bei L/R; Goed IV. 367, 15",
+  "responsibility_statement": "Linhard, A. Th.",
+  "subtitle_statement": "",
+  "title_statement": "Blumen / aus / Krain. / Für / das Jahr / 1781. / Laybach, / gedruckt mit Egerschen Schriften",
+  "updated": "2026-06-11 10:18:55.542Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "igo6vgnlvj06t2u"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.407Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.407Z",
+      "agent": "i7antd5g4uu55ov",
+      "source_id": "6z7izgvgjvwgf41"
+    }
+  ]
+}

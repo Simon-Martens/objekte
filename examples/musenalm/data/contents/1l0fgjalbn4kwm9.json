@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 282. /) Illustration zu »Scenen aus der Familie Ehrenberg. Charlotte Benndorf « INr 47394, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alle meine Lebensfreude und Ruhe schlum- / mern in diesem Grabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc.",
+  "scans": [
+    "alm_642_47395_3tzupxp2jt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alle meine Lebensfreude und Ruhe schlum- / mern in diesem Grabe",
+  "updated": "2006-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.329Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "bmjokqpk0div96r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.329Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "gd3qwv858jn0t5w"
+    }
+  ]
+}

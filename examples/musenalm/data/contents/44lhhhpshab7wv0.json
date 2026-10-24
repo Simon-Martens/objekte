@@ -1,0 +1,43 @@
+{
+  "annotation": "Ueber die Kupferstiche (Sammlung INr 26280, Obj 6) s. Umschlaggraphik v. INr 38107, Obj 95",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nach der Sorge für Kleidung und Putz kommt die Sorge für die Umgebung",
+  "language": [],
+  "musenalm_id": 26282,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Umschlag. / Die Gegenseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. v. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Umschlag. / Die Gegenseite",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.228Z",
+      "agent": "9vh2kvwpmqn4agb",
+      "source_id": "djukqm5y91g91jb"
+    }
+  ]
+}

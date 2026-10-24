@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Muscheln von der Insel Rügen. 1825 (Sammlung INr 1888, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Wenn uns ein Seehund die Aale zerbissen, / Wenn er die Netz' uns in Stücke gerissen,",
+  "language": [],
+  "musenalm_id": 1898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Seehund. / Mönkgut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Seehund. / Mönkgut",
+  "updated": "2000-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.946Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "mbdj07bsa2vfxo4"
+    }
+  ]
+}

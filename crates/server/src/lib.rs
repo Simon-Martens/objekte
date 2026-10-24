@@ -8,6 +8,7 @@ pub mod error;
 pub mod fields;
 mod media;
 mod pickers;
+pub mod projects;
 mod routes;
 pub mod sessions;
 pub mod templates;
@@ -28,6 +29,8 @@ use structured_editor_core::Editor;
 
 pub struct AppState {
     pub editor: Editor,
+    pub project_id: String,
+    pub projects: Arc<Vec<structured_editor_core::projects::Project>>,
     pub auth: Auth,
     pub assets: Assets,
     pub sessions: Arc<Mutex<Sessions>>,
@@ -52,8 +55,25 @@ impl AppState {
             .await
             .map_err(WebError::internal)??;
         let auth = Auth::open(&state.join("server.sqlite"), insecure).await?;
+        Ok(Self::for_project(
+            editor,
+            auth,
+            assets,
+            "default".into(),
+            Arc::new(vec![]),
+        ))
+    }
+    pub(crate) fn for_project(
+        editor: Editor,
+        auth: Auth,
+        assets: Assets,
+        project_id: String,
+        projects: Arc<Vec<structured_editor_core::projects::Project>>,
+    ) -> Arc<Self> {
         let state = Arc::new(Self {
             editor,
+            project_id,
+            projects,
             auth,
             assets,
             sessions: Arc::new(Mutex::new(Sessions::default())),
@@ -70,7 +90,7 @@ impl AppState {
                 sessions.lock().unwrap().expire();
             }
         });
-        Ok(state)
+        state
     }
 }
 pub fn router(state: Arc<AppState>) -> axum::Router {

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Zeitiglich blühet im Lenze der goldene Krokus, / es blühen / Andere Blümchen hervor,",
+  "language": [],
+  "musenalm_id": 18115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundlicher Anfang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundlicher Anfang",
+  "updated": "2001-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.888Z",
+      "agent": "lw3uqo50dp1mpif",
+      "source_id": "g09cr5xveedjdf6"
+    }
+  ]
+}

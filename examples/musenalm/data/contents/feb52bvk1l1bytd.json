@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik nach dem Monatskonto Januar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. G. Bttgr. sen. sc. 1810",
+  "scans": [
+    "alm_2382_95820_wabtkpxan4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frühling",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.842Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "21ochsinces88p0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.842Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "8ilhm3lg8rd45eo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Am schmalen Gartensaume, / Im grünen Dämmerschein, / Da sitz' ich unter'm Baume, / Mit meinem Gram allein.",
+  "language": [],
+  "musenalm_id": 95354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter'm Baume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Zusner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter'm Baume",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.612Z",
+      "agent": "bl67sc1w31pzw0u",
+      "source_id": "vaduocrojssvrzc"
+    }
+  ]
+}

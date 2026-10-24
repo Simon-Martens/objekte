@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert Pl. I.  Page 1. /) Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79449,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Il vient apres mille ans, / Changer nos lois grossieres",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau le jeune Del. J. B. Simonet Sculp. 1791",
+  "scans": [
+    "alm_3776_79449_elpe9v0nxe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Il vient apres mille ans, / Changer nos lois grossieres",
+  "updated": "2012-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.912Z",
+      "agent": "l9p6mkjcqfzaq1v",
+      "source_id": "uavspa7d7ihu280"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.912Z",
+      "agent": "6v2mea0laepybs2",
+      "source_id": "z6cefa90kjlpup6"
+    }
+  ]
+}

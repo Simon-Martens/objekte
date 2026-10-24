@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert 5. s. Textbezug INr 60043, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Münster zu Straßburg, als Tempel der / neufranzösischen Vernunft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_936_60042_1zgfz2exe4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Münster zu Straßburg, als Tempel der / neufranzösischen Vernunft",
+  "updated": "2008-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.072Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "xbo3k5qcg2gmnzi"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember. Illustration zu »Blick auf die Entwickelung der Ereignisse und die Folge der politischen Beziehungen, durch welche das Großherzogthum Posen eine Provinz des preußischen Staats geworden ist.« INr 59066, Obj 17; s. a. Textbezug INr 59080, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mäusethurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. von Minutoli Gest. v. H. Finke",
+  "scans": [
+    "alm_874_59063_c29dbi894y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mäusethurm",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.944Z",
+      "agent": "62nlulcv8at2x8q",
+      "source_id": "uupcal7s5i1ui4u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.944Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "zdskxzcop81m824"
+    }
+  ]
+}

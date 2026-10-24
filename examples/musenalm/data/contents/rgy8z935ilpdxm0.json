@@ -1,0 +1,45 @@
+{
+  "annotation": "Dritte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Graphik INr 77579, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Im Genusse nur ist Leben! / Also lautet noch der Wahlspruch / Eines ächten wahren Moslem,",
+  "language": [],
+  "musenalm_id": 77580,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Vor dem Kaffé Hadissareh in Smyrna",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Vor dem Kaffé Hadissareh in Smyrna",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.669Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "0cqjndwkwfawyxz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 59462, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "In der hohen Häuser Schatten steht ein rüstiger / Gesell; / Tiefer dunkelt schon der Abend - ihm im Herzen ist es / hell.",
+  "language": [],
+  "musenalm_id": 59477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Das Stelldichein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Das Stelldichein",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.891Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "oc0vopuj6t8e3rd"
+    }
+  ]
+}

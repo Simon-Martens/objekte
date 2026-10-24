@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Noch habt ihr mich in eurer Mitte; / Noch seh ich eure Freuden an,",
+  "language": [],
+  "musenalm_id": 34873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Kinder",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.644Z",
+      "agent": "ewuwl9lvke5jtiz",
+      "source_id": "pwijtg8e5qw2r3y"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64253, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "O sieh hoch auf der Kuppe von Basalt, / Wie eine Felseninsel tief im Wald,",
+  "language": [],
+  "musenalm_id": 64245,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Die Schaumburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Die Schaumburg",
+  "updated": "2009-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.062Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "nx3lee3pl0cynox"
+    }
+  ]
+}

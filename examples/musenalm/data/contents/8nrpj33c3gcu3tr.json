@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Gedichte (Sammlung INr 29273, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "O willkommen, süße Ruh! / Sicher in des Hauses Schranken",
+  "language": [],
+  "musenalm_id": 29285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ruhe",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.453Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "e4kugv1ubftyu0i"
+    }
+  ]
+}

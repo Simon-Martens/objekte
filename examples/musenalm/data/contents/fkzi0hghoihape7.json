@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "Schwerer und schwerer athmete die kranke Alte; die Brust besaß nicht mehr die Kraft,",
+  "language": [],
+  "musenalm_id": 1885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Männertreue, / oder / so sind nicht Alle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Männertreue, / oder / so sind nicht Alle",
+  "updated": "2000-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.032Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "artu6nzt2quc75s"
+    }
+  ]
+}

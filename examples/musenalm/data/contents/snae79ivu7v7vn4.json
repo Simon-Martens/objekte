@@ -1,0 +1,56 @@
+{
+  "annotation": "unter der Graphik: Carlsruhe, im Kunst Verlag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78098,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SÖHNE EDUARDS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hildebrandt pinx. Ed. Schuler sculp.",
+  "scans": [
+    "alm_2930_78098_a6371aq0j6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SÖHNE EDUARDS",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.800Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "sto8c4bny23tsel"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.800Z",
+      "agent": "mb3mjtp0wkmk6y5",
+      "source_id": "zqtr0jglseszbjy"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "KVK-GBV: Jgg 1795-1803",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S 1 T, SS 3-178 darin 4 GG, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreibepult, Das geöffnete [oJ]",
+    "norm": "~",
+    "biblio": 409328,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-11-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4342,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gräff)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Schreibepult, Das geöffnete [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 102; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Das / geöffnete Schreibepult / zum / Unterrichte und Vergnügen / junger Personen. / Aus dem Englischen der Mistreß / Barbault übersetzt. / Drittes Bändchen. / Mit Kupfern und Vignetten. / Ein / Weihnachtsgeschenk für die Jugend. / Sechstes Jahr. / Leipzig, / bey Heinrich Gräff",
+  "updated": "2026-06-11 10:18:55.406Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "0wohkjs42ocgm1g"
+  ],
+  "contents": [
+    "astho1e3p5rhces",
+    "nxba7yinp29rs35",
+    "il9wdv15yvtqrhq",
+    "zz2lwc72dauk2lu",
+    "a674fud8qyb0gu3",
+    "d790wufl12zf9aq",
+    "2wt3g0b7fawcv8v",
+    "kh46zppq5w41oal",
+    "0oeeyzn5i1p0vzt",
+    "jyidxxcvp2pqtlp",
+    "jdohl22ly4g1bsf",
+    "4x4gzjc628ddoda",
+    "o8p59nblp1e93zn",
+    "wvmc9hyot1nwddj",
+    "a12jxgpwet83ir4",
+    "yhqd351jd3rj2kt",
+    "0jt0v10ih70advo",
+    "ux9zt2nlgksymav",
+    "j8f6et9hx6yin15",
+    "vqufdk84zjay6n5",
+    "5krvgngvsb0lmp0",
+    "qmh8nfthvhj8d4z",
+    "51qge9fpx31nkg1",
+    "2c8slf2t8kr4btj",
+    "iwcmolhdwwm1i6s",
+    "3ebpqsvxd0twbe5",
+    "c5kxvhknv9mpjvg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.925Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.925Z",
+      "agent": "rtqiw9wehi8dz1n",
+      "source_id": "0t5kgcpw6yyb0fs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "418",
+  "incipit_statement": "Es ziehn drei Gesellen in's Weite hinaus, / Es litt sie wohl nimmer im engen Haus;",
+  "language": [],
+  "musenalm_id": 94044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nahme, Bild und Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ant. Alex. Gr. v. Auersperg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nahme, Bild und Lied",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.638Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "r2gajpvqlfgxu05"
+    }
+  ]
+}

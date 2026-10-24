@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Lieder eines Gefangenen (Sammlung INr 71458, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Es giebt ein Schwert von scharfem Erz, / Weh' dem, den es verwundet!",
+  "language": [],
+  "musenalm_id": 71462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrheit",
+  "updated": "2010-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.645Z",
+      "agent": "qwibej56fq45fjs",
+      "source_id": "h2uiy6v1wk8hx8i"
+    }
+  ]
+}

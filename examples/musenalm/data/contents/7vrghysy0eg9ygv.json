@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug (Gedicht) INr 77568, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77566,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIA ANNA CAROLINA, / Kaiserin von Oesterreich etc.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gemalt von P. Fendi. In Stahl gest. von Fr. X. Eissner in Wien",
+  "scans": [
+    "alm_2408_77566_i2xn2mnueg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIA ANNA CAROLINA, / Kaiserin von Oesterreich etc.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.741Z",
+      "agent": "z64ev7tzpav4ds5",
+      "source_id": "f2qy1rxrbxrdan1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.741Z",
+      "agent": "aj12jgcexyaf6b2",
+      "source_id": "gase7jnyeyc13ti"
+    }
+  ]
+}

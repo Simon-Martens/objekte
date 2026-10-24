@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104079, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104078,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ÄPFELSCHÄLERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Terburg pinx. S. v. Perger del. Kovatsch sculp.",
+  "scans": [
+    "alm_1931_104078_ioqk3dphlo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ÄPFELSCHÄLERIN",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.157Z",
+      "agent": "866u89rd1g9ffru",
+      "source_id": "9c63pyaet1quy3r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.157Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "iiellrqxg2ib7la"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.157Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "l8zc90b9mgttty4"
+    }
+  ]
+}

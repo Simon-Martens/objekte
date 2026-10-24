@@ -1,0 +1,195 @@
+{
+  "annotation": "",
+  "biographical_data": "1801-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "österr. Maler"
+      ],
+      "dateOfBirth": [
+        "1801-10-28"
+      ],
+      "dateOfDeath": [
+        "1879"
+      ],
+      "describedBy": {
+        "dateModified": "2020-05-20T07:41:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1025726286/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        }
+      ],
+      "gndIdentifier": "1025726286",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1025726286",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Steinrucker, Leopold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Leopold"
+        ],
+        "surname": [
+          "Steinrucker"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4332867-2",
+          "label": "Bildnismaler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/263432490"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18511686"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1025726286/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Steinrucker, L.",
+        "Steinrucker, Poldi",
+        "Steinruker, Leopold",
+        "Steinrucker, Leo",
+        "Steinruker, Leo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Poldi"
+          ],
+          "surname": [
+            "Steinrucker"
+          ]
+        },
+        {
+          "forename": [
+            "Leo"
+          ],
+          "surname": [
+            "Steinrucker"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "surname": [
+            "Steinruker"
+          ]
+        },
+        {
+          "forename": [
+            "Leo"
+          ],
+          "surname": [
+            "Steinruker"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Steinrucker"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:03:39Z",
+    "gnd_query_biographical_data": "1801-?",
+    "gnd_query_name": "steinrucker, leopold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2763,
+  "name": "Steinrucker, Leopold",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 578",
+  "updated": "2026-06-11 13:29:25.194Z",
+  "uri": "https://d-nb.info/gnd/1025726286",
+  "editor": ""
+}

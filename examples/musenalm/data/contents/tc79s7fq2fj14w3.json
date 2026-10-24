@@ -1,0 +1,45 @@
+{
+  "annotation": "Ahnenbilder (Sammlung INr 20007, Obj 91) mit einer Illustration s. Graphik INr 19936, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Willkommen, Ritter, tretet ein, / Vertraut dem Knecht das Roß!",
+  "language": [],
+  "musenalm_id": 20009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Guntram",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Guntram",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.923Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "fyf4kcgwrjfcpvf"
+    }
+  ]
+}

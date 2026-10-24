@@ -1,0 +1,611 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.452Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Politischer Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1768-11-24"
+      ],
+      "dateOfDeath": [
+        "1824-09-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unidentified painter"
+          ],
+          "creditText": [
+            "Bamberger Historische Studien Band 5 Veröffentlichungen des Stadtarchivs Bamberg Band 13, S. 15"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Rebmann%20Georg%20Friedrich%20a.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Rebmann%20Georg%20Friedrich%20a.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Rebmann%20Georg%20Friedrich%20a.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/158591933",
+        "https://d-nb.info/gnd/186601484"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:25:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118598775/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118598775",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118598775",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)131150022",
+        "(DE-588a)118598775",
+        "(DE-588)186601484",
+        "(DE-588)158591933",
+        "(DE-588a)186601484",
+        "(DE-588a)125831501",
+        "(DE-588a)158591933",
+        "(DE-588c)4048702-7"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Sugenheim/Franken"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "preferredName": "Rebmann, Andreas Georg Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Andreas Georg Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Rebmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Justinus"
+          ],
+          "surname": [
+            "Pfefferkorn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anselm"
+          ],
+          "surname": [
+            "Rabiosus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Justinius"
+          ],
+          "surname": [
+            "Pfefferkorn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Samelino"
+          ],
+          "surname": [
+            "Paulinski"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Burkh"
+          ],
+          "surname": [
+            "Abysius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anselmus"
+          ],
+          "surname": [
+            "Rabiosus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Anselmus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Rabiosus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Huergelmer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Hürgelmer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Kiek-in-die-Welt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Rebmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der politische Thierkreis",
+        "Briefe über Erlangen",
+        "Historisch-politische Miscellen aus dem Jahrhundert der Contraste",
+        "Vollständige Geschichte meiner Verfolgungen",
+        "Blick auf die vier neuen Departemente des linken Rheinufers",
+        "Heinrich von Neideck",
+        "Vorläufiger Aufschluß über mein sogenanntes Staatsverbrechen ..",
+        "Holland und Frankreich, in Briefen geschrieben auf einer Reise  von der Niederelbe nach Paris im Jahre 1796",
+        "Die Schildwache",
+        "Neue Caricaturen und Anekdoten zur Erbauung u. zum Nasenrümpfen",
+        "Nelkenblätter",
+        "Briefe über Jena"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80159015"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59088359"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q95818"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118598775/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158591933"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186601484"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_Rebmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110275620"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118598775"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118598775.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118598775.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118598775"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Pfefferkorn, Justinius",
+        "Rebmann, Georg F.",
+        "Pfefferkorn, Justinus",
+        "Paulinski, Samelino",
+        "Kiek-in-die-Welt, Hans",
+        "Rebmann, Georg Friedrich von",
+        "Rabiosus, Anselm",
+        "Abysius, Burkh",
+        "G. F. R.",
+        "Hürgelmer",
+        "Rabiosus, Anselmus",
+        "R., G. F.",
+        "Rebmann, G. F.",
+        "Rabiosus, Anselmus, der Jüngere",
+        "Rebmann, Andreas G. von",
+        "Rebmann, Andreas Georg Friedrich",
+        "Rebmann, A. Georg Friedrich",
+        "Rebmann, der Jüngere",
+        "Rebmann, Johann Andreas Georg Friedrich",
+        "Huergelmer",
+        "Rebmann, Johann A.",
+        "Rebmann, Georg Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Justinius"
+          ],
+          "surname": [
+            "Pfefferkorn"
+          ]
+        },
+        {
+          "forename": [
+            "Samelino"
+          ],
+          "surname": [
+            "Paulinski"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Georg Friedrich"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Kiek-in-die-Welt"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Huergelmer"
+          ]
+        },
+        {
+          "forename": [
+            "Justinus"
+          ],
+          "surname": [
+            "Pfefferkorn"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Andreas Georg Friedrich"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "personalName": [
+            "G. F. R."
+          ]
+        },
+        {
+          "forename": [
+            "Anselm"
+          ],
+          "surname": [
+            "Rabiosus"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Rebmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Hürgelmer"
+          ]
+        },
+        {
+          "forename": [
+            "Burkh"
+          ],
+          "surname": [
+            "Abysius"
+          ]
+        },
+        {
+          "forename": [
+            "Anselmus"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Rabiosus"
+          ]
+        },
+        {
+          "forename": [
+            "A. Georg Friedrich"
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        },
+        {
+          "forename": [
+            "Anselmus"
+          ],
+          "surname": [
+            "Rabiosus"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "R."
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Rebmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_Rebmann",
+          "label": "https://de.wikipedia.org/wiki/Georg_Friedrich_Rebmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:35:42Z",
+    "gnd_query_biographical_data": "1768-1824",
+    "gnd_query_name": "rebmann, andreas georg friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2200,
+  "name": "Rebmann, Andreas Georg Friedrich von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed V, 547; ADB XXVII, 484",
+  "updated": "2026-06-11 13:29:24.198Z",
+  "uri": "https://d-nb.info/gnd/118598775",
+  "editor": ""
+}

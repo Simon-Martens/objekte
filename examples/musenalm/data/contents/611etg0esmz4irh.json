@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Beiträgen INr 43881-43887, Obj 27-33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scenen aus dem Volksleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scenen aus dem Volksleben",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.264Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "816dponmy2vbakk"
+    }
+  ]
+}

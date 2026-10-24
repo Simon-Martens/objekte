@@ -1,0 +1,241 @@
+{
+  "annotation": "",
+  "biographical_data": "1775-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.328Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "franz. Maler, Lithograph, Zeichner u. Bildhauer"
+      ],
+      "dateOfBirth": [
+        "1775"
+      ],
+      "dateOfDeath": [
+        "1835"
+      ],
+      "describedBy": {
+        "dateModified": "2016-04-13T17:47:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1047470047/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1047470047",
+      "id": "https://d-nb.info/gnd/1047470047",
+      "preferredName": "Fortier, Claude-François",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Claude-François"
+        ],
+        "surname": [
+          "Fortier"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4139550-5",
+          "label": "Bildhauer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14040674r"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr99039225"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/211861"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18508098"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1047470047/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000063083182"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/1047470047"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1047470047"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Fortier, C. F.",
+        "Fortier, Claude F.",
+        "Fortier, Claud François",
+        "Fortier, C.",
+        "Fortier, Claude-François, Radierer und Reproduktionsstecher",
+        "Fortier, Claude"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Claude F."
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        },
+        {
+          "forename": [
+            "Claude"
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        },
+        {
+          "forename": [
+            "Claude-François"
+          ],
+          "nameAddition": [
+            "Radierer und Reproduktionsstecher"
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        },
+        {
+          "forename": [
+            "Claud François"
+          ],
+          "surname": [
+            "Fortier"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:24:27Z",
+    "gnd_query_biographical_data": "1775-1835",
+    "gnd_query_name": "fortier, claude francois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 762,
+  "name": "Fortier, Claude Francois",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XII, 227",
+  "updated": "2026-06-11 13:29:22.340Z",
+  "uri": "https://d-nb.info/gnd/1047470047",
+  "editor": ""
+}

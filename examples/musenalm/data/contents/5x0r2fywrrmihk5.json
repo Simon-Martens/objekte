@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Drei Tage war ich schon unterwegs, noch hatte ich nicht gefunden, was ich suchte. Auch der vierte fing bereits an sich seinem Ende zu nähern,",
+  "language": [],
+  "musenalm_id": 76895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Handschuh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Gleich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Handschuh",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "0voj2kqu0am5322",
+      "source_id": "bkg1fxv24qf9591"
+    }
+  ]
+}

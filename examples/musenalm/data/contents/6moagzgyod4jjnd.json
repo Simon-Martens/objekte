@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) Illustration zu »Das Beinhaus bei Murten« INr 72511, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72508,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Beinhaus / zu Murten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_849_72508_jhucd3jisq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Beinhaus / zu Murten",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.745Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "itu6e5qee6ftb4f"
+    }
+  ]
+}

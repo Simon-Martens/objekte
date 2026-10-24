@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Narrenalmanach 1845",
+    "norm": "",
+    "biblio": 106663,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2349,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reclam)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Narrenalmanach 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 89; nicht bei L/R",
+  "responsibility_statement": "Eduard Maria Oettinger",
+  "subtitle_statement": "",
+  "title_statement": "NARRENALMANACH / für / 1845 / von / Eduard Maria Oettinger. / Dritter Band. / Mit einer räthselhaft dunklen Medaille und einem wunderbar / schönen Holzschnitt / Leipzig, 1845. / Druck und Verlag von Philipp Reclam jun.",
+  "updated": "2026-06-11 10:18:55.966Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "o3uw43684lvmh8n"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "pbp5rv6y7svq7pq"
+    }
+  ]
+}

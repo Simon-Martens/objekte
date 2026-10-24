@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Sammlung von &nbsp; Rätseln INr 140450-140555</div>",
+  "content_type": [],
+  "created": "2026-09-10 08:47:58.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140549,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charadenkranz / an Johanna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charadenkranz / an Johanna",
+  "updated": "2026-09-10 09:22:30.157Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-10 08:49:15.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10 09:22:30.158Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "dzcpi1x4jfsur71"
+    }
+  ]
+}

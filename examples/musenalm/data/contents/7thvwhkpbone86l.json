@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123764, Obj 1); # Illustration zu »Wer weiß wozu das gut ist« von Kotzebue (INr 123774, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Wenn man so einen Rock auf dem Leib trägt, / so fährt Einem der Feufel in den Leib. / Wer weiß wozu das gut ist. Scene 10",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Böttger sen. sc.",
+  "scans": [
+    "alm_1283_123775_0btl8y4qj8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V. / Wenn man so einen Rock auf dem Leib trägt, / so fährt Einem der Feufel in den Leib. / Wer weiß wozu das gut ist. Scene 10",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.847Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "395aeden7vklekg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.847Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "hv5i803ar7vm0lz"
+    }
+  ]
+}

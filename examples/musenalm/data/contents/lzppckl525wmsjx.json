@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11659, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Alles liebt und paart sich wieder, / Liebend steigt der Lenz hernieder",
+  "language": [],
+  "musenalm_id": 11658,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "29. / Frühlingsempfindung. / Mit Composition",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "29. / Frühlingsempfindung. / Mit Composition",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.495Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "7mwazebmujcq9fz"
+    }
+  ]
+}

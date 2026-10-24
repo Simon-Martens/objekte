@@ -1,0 +1,45 @@
+{
+  "annotation": "Priameln. Im Jahre 1826 (Sammlung INr 94496, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Tönen nicht mehr deine Lieder? / Ei ein And'rer spielt die Geige!",
+  "language": [],
+  "musenalm_id": 94509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tönen nicht mehr deine Lieder? / Ei ein And'rer spielt die Geige!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.722Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "30x8rga3owr145d"
+    }
+  ]
+}

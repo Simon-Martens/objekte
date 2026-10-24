@@ -1,0 +1,386 @@
+{
+  "annotation": "",
+  "biographical_data": "1746-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.484Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024276-1",
+          "label": "Martin-Luther-Universität Halle-Wittenberg"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Historiker, Bibliothekar, Geograph, Indologe, Ethnologe, Philosoph; Prof. der Philosphie in Göttingen, Professor der Geschichte in Halle, Saale; erster Bibliothekar der Universitätsbibliothek Halle"
+      ],
+      "dateOfBirth": [
+        "1746-08-24"
+      ],
+      "dateOfDeath": [
+        "1803-01-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "A. C. Gaspari, F. J. Bertuch (1803) Allgemeine geographische Ephemeriden, Band 11 (pdf), Weimar: Landes - Industrie - Comptoir Retrieved on 23 December 2014."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Matthias%20Christian%20Sprengel%20AGE%20V11%201803.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Matthias%20Christian%20Sprengel%20AGE%20V11%201803.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Matthias%20Christian%20Sprengel%20AGE%20V11%201803.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:38:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117486701/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117486701",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117486701",
+      "oldAuthorityNumber": [
+        "(DE-588a)117486701",
+        "(DE-588c)4777378-9"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Sprengel, Matthias Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Matthias Christian"
+        ],
+        "surname": [
+          "Sprengel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161574-8",
+          "label": "Indologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4153098-6",
+          "label": "Ethnologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4504156-8",
+          "label": "Polyhistor"
+        }
+      ],
+      "publication": [
+        "Geschichte der Revolution von Nord-America",
+        "Geschichte der Maratten",
+        "Geschichte der wichtigsten indischen Staatsveränderungen",
+        "Hyder Aly und Tippo Saheb oder: Übersicht des Mysorischen Reichs",
+        "Geschichte der wichtigsten geographischen Entdeckungen",
+        "Briefe über Portugall",
+        "Auswahl der besten ausländischen geographischen und statistischen Nachrichten ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85240640"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34518810"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1274154"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117486701/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Matthias_Christian_Sprengel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Matthias_Christian_Sprengel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Matthias_Christian_Sprengel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081132814"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117486701"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117486701.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117486701"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117486701"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sprengel, Matthias Chrstn.",
+        "Sprengel, M. Chr.",
+        "Sprengel, Matthias Christianus",
+        "Sprengel, M. C.",
+        "Sprengel, Matth. Christian.",
+        "Sprengel, Matthias C.",
+        "Sprengel, M.C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Matthias C."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "M. Chr."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "M. C."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Matthias Chrstn."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Matth. Christian."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "Matthias Christianus"
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        },
+        {
+          "forename": [
+            "M.C."
+          ],
+          "surname": [
+            "Sprengel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Matthias_Christian_Sprengel",
+          "label": "https://de.wikipedia.org/wiki/Matthias_Christian_Sprengel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:01:36Z",
+    "gnd_query_biographical_data": "1746-1803",
+    "gnd_query_name": "sprengel, matthias christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2721,
+  "name": "Sprengel, Matthias Christian",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXV, 299",
+  "updated": "2026-06-11 13:29:25.125Z",
+  "uri": "https://d-nb.info/gnd/117486701",
+  "editor": ""
+}

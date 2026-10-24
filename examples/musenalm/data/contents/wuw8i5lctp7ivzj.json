@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; paginiert XII /) Illustration zu »Deutschland, ein historisches Gemälde« von F. C. Schlenkert INr 73851, Obj 31 /) s. Textbezug INr 73849, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73836,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesunkenes Ansehen der Geistlichkeit / im achten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc.",
+  "scans": [
+    "alm_3648_73836_t4co8f6iqp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gesunkenes Ansehen der Geistlichkeit / im achten Jahrhundert",
+  "updated": "2011-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "6h9tfrh0k31hu45"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "kvo395omn9h3pwe"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "annotation": "im Schuber /) 3 Jgg 1798-1800; Augsburg (Rollwagen); Hrsg: G. A. Neuhofer /) fortgesetzt durch: Taschenbuch für Geschichte und Unterhaltung (Neuhofer) 1801-1803 und durch: Klio und Euterpe (Neuhofer) 1804-1808/1809",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, 15 BB Kal darin 12 GG, S 1 T, SS 3-110, 6 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Deutsch und französischer (Neuhofer) 1798",
+    "norm": "~",
+    "biblio": 409677,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2009,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Kalender, Deutsch und französischer (Neuhofer) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; nicht bei L/R; ADB XXIII, 509",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Deutsch und französischer / CALENDER / für / das Jahr 1798. / Nebst / der Geschichte / des letzen Feldzugs / der Franzosen in Schwaben / und einigen Gedichten. / Augsburg, / bey Johann Georg Rollwagen / unter der Barfüsser Kirche",
+  "updated": "2026-06-11 10:18:55.757Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "z0jltw8sqf88226"
+  ],
+  "contents": [
+    "7fioo2w47jvhlpi",
+    "0402yupjma1g503",
+    "se3bc6639ehvjj0",
+    "xf3gwabukwyfb69",
+    "ie8ukbu6o3zv0m3",
+    "o2ipewiehb8zxle",
+    "x4ttccwethk3qpk",
+    "s483it9zfxqc587",
+    "vdw7akyolnkvs04",
+    "0mfclfpjt9azhvw",
+    "pvf95ni7jixmdon",
+    "sspud6hnfhc5ztk",
+    "hn45kdrmaalyr4b",
+    "ruaw90l0tu1tnv2",
+    "t56rvg4z5u5suxj",
+    "a85ulnimfky1ngf",
+    "ytt7c60k859pm4h",
+    "5jmzsbts69e8y4p",
+    "srus76cnrfiuavp",
+    "7iglwlbb11pl2ye",
+    "3evgivy20iucood",
+    "s261jabepuf5vd8",
+    "7hozmorljdywlre",
+    "6mwrzkdbgvo20jm",
+    "xvz1rzl2cx1etxd",
+    "sfnl2r7gl9adsf4",
+    "tkpuqzqp4ik5gyq",
+    "lp0n0xm2evtg76d",
+    "pjbyq2sxfj02dou",
+    "1j9zxcqo8m33y4v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.001Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.001Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "ybq5d5w29hwen0t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "z2lmd12dljiwnd7"
+    }
+  ]
+}

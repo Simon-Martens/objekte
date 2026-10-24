@@ -1,0 +1,45 @@
+{
+  "annotation": "Seebilder (Sammlung INr 90413, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Sehnte lange mich nach diesem Bilde, / Werth ist's eine Reise um die Welt!",
+  "language": [],
+  "musenalm_id": 90422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. Innerer Sturm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. Innerer Sturm",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.377Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "a5ozc0gsywdmk0z"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "annotation": "K gibt Jgg 1801-1831an; G-C gibt Jgg 1802/1803-1840 an und belegt nach 1831 die Jgg 1832, 1835, 1840. Fischer gibt Jgg 1801/1802-1831 an /) Jgg 1801-1831: Tübingen (Cotta), in Frankreich: Jgg 1801/1802; Paris (Fuchs; Levraux), 1802/1803 Paris (Fuchs; Levraux; Henrichs), 1810 Paris (Xhrouët), 1811-1831 Paris (Treuttel et Würtz). Vermutl. erschien der Almanach 1832-1840 nur noch in Paris",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Dames 1801, 1802",
+    "norm": "",
+    "biblio": 200666,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4376,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta); Paris (Fuchs; Levrault)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Almanach des Dames 1801, 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; nicht bei L/R; G-C 359, 1377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES DAMES, / POUR L'AN X, 1801 ET 1802. / AVEC FIGURES / [...] A TUBINGUE, / Chez J. G. COTTA. / ET A PARIS, / Chez Fuchs, Libraire, rue des Mathurins. / LEVRAULT FRÈRES, Libraires, quai Mala- / quais. / AN X - 1801 et 1802",
+  "updated": "2026-06-11 10:18:55.111Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "aoe6t9l6r85fql4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.671Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.671Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "g9usfjw664opzu2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "kbc8artt3f5n1yx",
+      "source_id": "oxdn19pz4rbvlbk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.880Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.880Z",
+      "agent": "pgaobek0g9nyuf0",
+      "source_id": "yxr7y7zy2bf5bjm"
+    }
+  ]
+}

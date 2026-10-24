@@ -1,0 +1,354 @@
+{
+  "annotation": "",
+  "biographical_data": "1723-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.455Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Sir; Plymouth, London, Menorca (Wirkungsorte); Engl. Maler und Kunsttheoretiker"
+      ],
+      "dateOfBirth": [
+        "1723-07-16"
+      ],
+      "dateOfDeath": [
+        "1792-02-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joshua Reynolds"
+          ],
+          "creditText": [
+            "This file was derived from: Sir Joshua Reynolds - Self-Portrait - Google Art Project (2315517).jpg:&nbsp;"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Joshua%20Reynolds%20-%20Self-Portrait%20-%20Google%20Art%20Project%20%282315517%29FXD.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Joshua%20Reynolds%20-%20Self-Portrait%20-%20Google%20Art%20Project%20%282315517%29FXD.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sir%20Joshua%20Reynolds%20-%20Self-Portrait%20-%20Google%20Art%20Project%20%282315517%29FXD.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/177157364"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-04T14:54:19.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118744771/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118744771",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118744771",
+      "oldAuthorityNumber": [
+        "(DE-588a)118744771",
+        "(DE-588)177157364",
+        "(DE-588c)4103746-7",
+        "(DE-588a)177157364"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4255050-6",
+          "label": "Plymouth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Reynolds, Joshua",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joshua"
+        ],
+        "surname": [
+          "Reynolds"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Reynolds, Joshua: Seven discourses",
+        "Reynolds, Joshua: A discourse",
+        "Reynolds, Joshua: A discourse. - 1769 - 1779",
+        "Reynolds, Joshua: Akademische Reden über das Studium der Malerey, zur Bildung junger Küns*",
+        "Reynolds, Joshua: Discourses on the Fine Arts",
+        "Reynolds, Joshua: The works",
+        "Reynolds, Joshua: Discourses on painting and the fine Arts",
+        "Reynolds, Joshua: Discourses",
+        "Reynolds, Joshua: The works of Joshua Reynolds",
+        "Reynolds, Joshua: Akademische Reden über das Studium der Malerey"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12032127v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84168483"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27081216"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q194402"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118744771/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/177157364"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joshua_Reynolds"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joshua_Reynolds"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joshua_Reynolds"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108815237"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118744771"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118744771"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118744771"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118744771"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Reynolds, Joshua, Sir",
+        "Reynolds, Goshua",
+        "Reynolds, Giosue",
+        "Reynolds, Josua",
+        "Reynolds, Josué"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joshua"
+          ],
+          "nameAddition": [
+            "Sir"
+          ],
+          "surname": [
+            "Reynolds"
+          ]
+        },
+        {
+          "forename": [
+            "Goshua"
+          ],
+          "surname": [
+            "Reynolds"
+          ]
+        },
+        {
+          "forename": [
+            "Giosue"
+          ],
+          "surname": [
+            "Reynolds"
+          ]
+        },
+        {
+          "forename": [
+            "Josua"
+          ],
+          "surname": [
+            "Reynolds"
+          ]
+        },
+        {
+          "forename": [
+            "Josué"
+          ],
+          "surname": [
+            "Reynolds"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joshua_Reynolds",
+          "label": "https://de.wikipedia.org/wiki/Joshua_Reynolds"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:38:06Z",
+    "gnd_query_biographical_data": "1723-1792",
+    "gnd_query_name": "reynolds, joshua"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2248,
+  "name": "Reynolds, Joshua",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVIII, 217",
+  "updated": "2026-06-11 13:29:24.281Z",
+  "uri": "https://d-nb.info/gnd/118744771",
+  "editor": ""
+}

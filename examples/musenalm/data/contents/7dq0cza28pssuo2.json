@@ -1,0 +1,43 @@
+{
+  "annotation": "Text zu den Kupfern (Sammlung INr 28973, Obj 5) s. Graphik INr 28996, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wie kann der Mensch den Wein erheben, / Da ihn der Wein vielmehr erhebt?",
+  "language": [],
+  "musenalm_id": 28995,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "October",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "October",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.479Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "ek3li2z20fegyu3"
+    }
+  ]
+}

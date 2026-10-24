@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "In Deinem Herzen, da weiß ich Bescheid / Am frühen Morgen, zur Abendzeit,",
+  "language": [],
+  "musenalm_id": 45568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 277,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor'm Scheiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor'm Scheiden",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.470Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "lsj8fi6k30kxu5b"
+    }
+  ]
+}

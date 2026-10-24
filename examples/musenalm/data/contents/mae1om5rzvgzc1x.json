@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts von Stolberg INr 101074, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Frölich tönt der Becherklang, im vertrauten Kreise",
+  "language": [],
+  "musenalm_id": 101174,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichardt",
+  "scans": [
+    "alm_1824_101174_kgvulo8jqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 15.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.801Z",
+      "agent": "it8ptc76fbrkd73",
+      "source_id": "r409yu5iccn0thr"
+    }
+  ]
+}

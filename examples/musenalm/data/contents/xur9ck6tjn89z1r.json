@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Langsam kömmt ein Wandrer nieder / Durch den hohen Wald, / Streckt im Schatten seine Glieder",
+  "language": [],
+  "musenalm_id": 1494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wanderer",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.849Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "8xldzyhsfzj3hlo"
+    }
+  ]
+}

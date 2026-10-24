@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Bardengesänge aus Klopstocks Herrmann und die Fürsten (Sammlung INr 2089, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Schwester Cannä's, Winfelds Schlacht, / Wir sahen dich mit wehendem, blutigen Haar,",
+  "language": [],
+  "musenalm_id": 2091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.965Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "ufcqn79xajdmamj"
+    }
+  ]
+}

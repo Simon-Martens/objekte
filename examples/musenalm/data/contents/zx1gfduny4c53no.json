@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 94863, 94864; Obj 43, 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder und Romanzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder und Romanzen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.418Z",
+      "agent": "xy1xe258ffgo9ok",
+      "source_id": "jku6nrv8z1qkdzv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Glaukopis (Sammlung INr 24916, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Mächtiger noch als die Macht in deinen Augen",
+  "language": [],
+  "musenalm_id": 24921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 202,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mächtiger noch als die Macht in deinen Augen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.939Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "8fb8aokwa9y9vlj"
+    }
+  ]
+}

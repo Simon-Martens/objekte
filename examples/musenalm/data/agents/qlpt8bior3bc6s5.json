@@ -1,0 +1,240 @@
+{
+  "annotation": "",
+  "biographical_data": "~ 1605-1654",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.294Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Niederländ. Maler"
+      ],
+      "dateOfBirth": [
+        "1605"
+      ],
+      "dateOfDeath": [
+        "1661"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joos van Craesbeeck / Formerly attributed to Adriaen Brouwer"
+          ],
+          "creditText": [
+            "Joconde database: Home - info - pic"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joos%20van%20Craesbeeck%20-%20The%20Smoker.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joos%20van%20Craesbeeck%20-%20The%20Smoker.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joos%20van%20Craesbeeck%20-%20The%20Smoker.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2012-01-05T14:52:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/12999457X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        }
+      ],
+      "gndIdentifier": "12999457X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/12999457X",
+      "oldAuthorityNumber": [
+        "(DE-588a)12999457X",
+        "(DE-588c)4826652-8"
+      ],
+      "preferredName": "Craesbeeck, Joos van",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joos"
+        ],
+        "prefix": [
+          "van"
+        ],
+        "surname": [
+          "Craesbeeck"
+        ]
+      },
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74947499"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1703544"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12999457X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joos_van_Craesbeeck"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joos_van_Craesbeeck"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joos_van_Craesbeeck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000082663481"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/12999457X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd12999457X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/12999457X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Craesbeke, Joos van"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joos"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Craesbeke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joos_van_Craesbeeck",
+          "label": "https://de.wikipedia.org/wiki/Joos_van_Craesbeeck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:09:30Z",
+    "gnd_query_biographical_data": "~ 1605-1654",
+    "gnd_query_name": "craesbeeck, joos van"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 460,
+  "name": "Craesbeeck, Joos van",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VIII, 44",
+  "updated": "2026-06-11 13:29:21.938Z",
+  "uri": "https://d-nb.info/gnd/12999457X",
+  "editor": ""
+}

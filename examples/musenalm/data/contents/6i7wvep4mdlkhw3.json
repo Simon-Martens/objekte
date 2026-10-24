@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Fürst Olaf und Frau Lotte« von Fanny Tarnow INr 48580, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48530,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schnorr v. K. gezeich. Esslinger gest.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. gezeich. Esslinger gest.",
+  "scans": [
+    "alm_663_48530_xop2y7wzn3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.580Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "hiihspwjbyo529b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.580Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "rcun1fpi7dba6y9"
+    }
+  ]
+}

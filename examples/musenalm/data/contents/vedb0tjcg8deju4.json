@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Graphik im Kalendarium Juni /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78272, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der in der Schlacht bey Zorndorff gefan- / genen Russischen / Generalität werden, wegen / Einäscherung der Stadt Cüstrin, auf des / Königs Befehl die Casematten der Festung / zum Quartier angewiesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. J. Penzel sc.",
+  "scans": [
+    "alm_928_78250_8yh4y9cfxb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der in der Schlacht bey Zorndorff gefan- / genen Russischen / Generalität werden, wegen / Einäscherung der Stadt Cüstrin, auf des / Königs Befehl die Casematten der Festung / zum Quartier angewiesen",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.921Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "46rpmir03wfn7m8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.921Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "mkgbvrem7p27wjb"
+    }
+  ]
+}

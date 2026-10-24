@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 13 Textbezügen INr  60924-60337, Obj 26-39 zu den Graphiken des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60923,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.781Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "dyu0amf6ryxuhr7"
+    }
+  ]
+}

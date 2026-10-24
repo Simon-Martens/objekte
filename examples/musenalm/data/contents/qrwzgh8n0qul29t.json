@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Nahst du dem Ende dich, Freund, und schneidet die schreckliche Parze / Deinen Faden ab, winket Verschwinden dir zu:",
+  "language": [],
+  "musenalm_id": 127195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die furchtbare und liebliche Gestalt / des Todes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. W. Bommer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die furchtbare und liebliche Gestalt / des Todes",
+  "updated": "2021-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.838Z",
+      "agent": "s5myzcuzsygfm34",
+      "source_id": "nyq9wgnjvssgfpg"
+    }
+  ]
+}

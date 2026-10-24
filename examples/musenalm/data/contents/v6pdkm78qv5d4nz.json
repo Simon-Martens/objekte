@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Auf der Morgenröte lichtem Fittig, / Eh der Thau noch von der Rose träuft,",
+  "language": [],
+  "musenalm_id": 21347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Freiheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Armbruster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Freiheit",
+  "updated": "2002-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.999Z",
+      "agent": "at81kdy5mbfogcs",
+      "source_id": "gvy4jipvx24no6l"
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "annotation": "",
+  "biographical_data": "1811-1889",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.412Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118729624",
+          "label": "Lützow, Therese von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1273278798",
+          "label": "Magnus-Gerson, Anna"
+        }
+      ],
+      "dateOfBirth": [
+        "1811-03-24"
+      ],
+      "dateOfDeath": [
+        "1889-08-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Eurhinosaurus"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Lewald%20Fanny.JPG",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lewald%20Fanny.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Lewald%20Fanny.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-04T11:48:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118572393/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119164035",
+          "label": "Lewald, August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/141712597",
+          "label": "Lewald, Otto"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116969830",
+          "label": "Lewald, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119499703",
+          "label": "Gurlitt, Louis"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116969504",
+          "label": "Lewald, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118572415",
+          "label": "Lewald, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/107350588X",
+          "label": "Minden, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117398381",
+          "label": "Simon, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1081196068",
+          "label": "Lewald, Familie : 1812-"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11875257X",
+          "label": "Stahr, Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116930675",
+          "label": "Gurlitt, Fritz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118572393",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#9.5p",
+          "label": "Personen zu Soziologie, Gesellschaft, Arbeit, Sozialgeschichte"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/116969830",
+          "label": "Lewald, Friedrich"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/116930675",
+          "label": "Gurlitt, Fritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118572415",
+          "label": "Lewald, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116969504",
+          "label": "Lewald, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/107350588X",
+          "label": "Minden, Heinrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/141712597",
+          "label": "Lewald, Otto"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118572393",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Stahr"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4035530-5",
+        "(DE-588a)118572393",
+        "(DE-588a)130997692"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Lewald, Fanny",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Fanny"
+        ],
+        "surname": [
+          "Lewald"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4381669-1",
+          "label": "Publizistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4275213-9",
+          "label": "Feministin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Iduna"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H. H."
+          ],
+          "surname": [
+            "Iduna"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Adriana"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Iduna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "H.. H.."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Lewald, Fanny: Dünen- und Berggeschichten",
+        "Lewald, Fanny: Diogena",
+        "Lewald, Fanny: Eine Lebensfrage",
+        "Lewald, Fanny: Treue Liebe",
+        "Lewald, Fanny: Jenny",
+        "Lewald, Fanny: Wandlungen",
+        "Lewald, Fanny: Auf Rother Erde",
+        "Lewald, Fanny: Prinz Louis Ferdinand",
+        "Lewald, Fanny: Clementine",
+        "Lewald, Fanny: Liebesbriefe"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Marcus"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80138612"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/lewald-fanny/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59217212"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77318"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118572393/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118572393"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fanny_Lewald"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fanny_Lewald"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Fanny_Lewald"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fanny_Lewald"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121350550"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118572393"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=183x_mueller;7"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=183x_lewald"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118572393"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572393.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118572393.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118572393"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118572393"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Iduna",
+        "Iduna, H. H.",
+        "H.. H.., Iduna von",
+        "Lewald, Fanny",
+        "Stahr, Fanny Lewald-",
+        "Markus, Fanny",
+        "Lewald-Stahr, Fanny",
+        "Stahr, Fanny",
+        "Adriana",
+        "Stahr-Lewald, Fanny",
+        "H.. H.., Iduna",
+        "Marcus, Fanny"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Markus"
+          ]
+        },
+        {
+          "personalName": [
+            "Iduna"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Lewald-Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "H. H."
+          ],
+          "surname": [
+            "Iduna"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Lewald"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Lewald-Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny Lewald-"
+          ],
+          "surname": [
+            "Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Stahr"
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Marcus"
+          ]
+        },
+        {
+          "forename": [
+            "Iduna"
+          ],
+          "surname": [
+            "H.. H.."
+          ]
+        },
+        {
+          "personalName": [
+            "Adriana"
+          ]
+        },
+        {
+          "forename": [
+            "Iduna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "H.. H.."
+          ]
+        },
+        {
+          "forename": [
+            "Fanny"
+          ],
+          "surname": [
+            "Stahr-Lewald"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fanny_Lewald",
+          "label": "https://de.wikipedia.org/wiki/Fanny_Lewald"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:07:18Z",
+    "gnd_query_biographical_data": "1811-1889",
+    "gnd_query_name": "lewald, fanny"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1626,
+  "name": "Lewald, Fanny",
+  "profession": "Text",
+  "pseudonyms": "Verfasserin der Jenny und Clementine",
+  "refs": "Goed VIII, 75; Goed (H) 304,",
+  "updated": "2026-06-11 13:29:23.573Z",
+  "uri": "https://d-nb.info/gnd/118572393",
+  "editor": ""
+}

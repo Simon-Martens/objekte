@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Das Theater zu Abdera« von J. Fr. Schink s. Textbezug INr 61228, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61229,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie sezte halbnakkend über das hohe / Bauchgebürge. / Schink's Abdera 2. T. p. 319",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barbiez del. J. Ramberg sc.",
+  "scans": [
+    "alm_956_61229_s6dat0f22z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie sezte halbnakkend über das hohe / Bauchgebürge. / Schink's Abdera 2. T. p. 319",
+  "updated": "2008-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.883Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "8v5bb0300bgqez2"
+    }
+  ]
+}

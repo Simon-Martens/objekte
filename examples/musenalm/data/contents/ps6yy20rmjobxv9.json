@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Es war Abend geworden in der kleinen Hafenstadt; die Schiffslaternen an den Masten wurden angezündet,",
+  "language": [],
+  "musenalm_id": 2085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Flucht nach Amerika. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Flucht nach Amerika. / Novelle",
+  "updated": "2000-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.965Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "vgs03jxsd0fd5t7"
+    }
+  ]
+}

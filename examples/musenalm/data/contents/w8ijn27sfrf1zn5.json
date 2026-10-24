@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Die Krone fiel vom Haupte dir, / Der Zepter ist zerschlagen,",
+  "language": [],
+  "musenalm_id": 100148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Krone fiel vom Haupte dir!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Marggraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Krone fiel vom Haupte dir!",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.953Z",
+      "agent": "xpfslvhm6lhhpgp",
+      "source_id": "0tyb356rhk7pb8u"
+    }
+  ]
+}

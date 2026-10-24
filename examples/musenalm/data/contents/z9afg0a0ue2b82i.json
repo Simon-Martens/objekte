@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 12. s. Textbezug INr 7122, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach, was hab' ich gemacht? undankbar / meineidig, grausam, bundbrüchig, Gottes / lästerer, Mörder bin ich. / V. Aufz. 4. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_143_7095_crp6q026ug.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach, was hab' ich gemacht? undankbar / meineidig, grausam, bundbrüchig, Gottes / lästerer, Mörder bin ich. / V. Aufz. 4. Auft.",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.435Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "8ez6s6g58ugdfg3"
+    }
+  ]
+}

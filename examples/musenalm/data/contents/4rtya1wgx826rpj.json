@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am Titelportrait /) Graphik im Kalendarium /)  kol. Trachtenkupfer /) Motiv: W. Tell und Geßler",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72456,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Dähling del. Meno Haas sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling del. Meno Haas sc.",
+  "scans": [
+    "alm_841_72456_tdm7s3zwfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.670Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "199iueaw6njm7e6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.670Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "ncasbetnzuji7h5"
+    }
+  ]
+}

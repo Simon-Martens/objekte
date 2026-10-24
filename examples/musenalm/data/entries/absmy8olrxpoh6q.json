@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Oekonomisches und Cameralistisches 1793",
+    "norm": "",
+    "biblio": 406163,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-09-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2742,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Oekonomisches und Cameralistisches 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Oekonomisches und Cameralistisches / Taschenbuch / für das Jahr 1793. / Herausgegeben / von / M. F. G. Leonhardi, / Ord. Prof. der Oekonomie, der Leipz. ökonom. u. d. / Hall. Naturf. Gesellsch. Ehrenmittglied, / mit Kupfern. / Leipzig, / in der Baumgärtnerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.377Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "pyn4dhkkowpil9l"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.132Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.132Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "tyrvsv96uucs65p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.513Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.513Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "xfylzebhsqzwi2s"
+    }
+  ]
+}

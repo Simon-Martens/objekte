@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Du kleines Menschauge / Mit deinem großen Blick. / Ein Weltall kannst du fassen, / Im Geist ein Weltgeschick!",
+  "language": [],
+  "musenalm_id": 124849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Betrachtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Betrachtung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.809Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "xzfgaht020svx1w"
+    }
+  ]
+}

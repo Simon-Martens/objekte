@@ -1,0 +1,978 @@
+{
+  "annotation": "",
+  "biographical_data": "70-19 v. Chr.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.501Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Augusteischer antiker Dichter aus dem Kreis des Maecenas"
+      ],
+      "dateOfBirth": [
+        "-0070"
+      ],
+      "dateOfDeath": [
+        "-0019"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Armando Mancini"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Parco%20della%20Grotta%20di%20Posillipo5%20%28crop%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Parco%20della%20Grotta%20di%20Posillipo5%20%28crop%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Parco%20della%20Grotta%20di%20Posillipo5%20%28crop%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/108991346X",
+        "https://d-nb.info/gnd/1089929463",
+        "https://d-nb.info/gnd/18824204X",
+        "https://d-nb.info/gnd/18756695X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-09T18:50:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118626574/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XT",
+          "label": "Römisches Reich"
+        }
+      ],
+      "gndIdentifier": "118626574",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118626574",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)159159563",
+        "(DE-588a)138368449",
+        "(DE-588a)131156829",
+        "(DE-588a)134587391",
+        "(DE-588)18824204X",
+        "(DE-588)18756695X",
+        "(DE-588)108991346X",
+        "(DE-588a)18824204X",
+        "(DE-588)1089929463",
+        "(DE-588a)18756695X",
+        "(DE-588a)131131427",
+        "(DE-588a)118626574"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "ורגיליוס מרו, פובליוס"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1058583514",
+          "label": "Andiast"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4080536-0",
+          "label": "Brindisi"
+        }
+      ],
+      "preferredName": "Vergilius Maro, Publius",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Publius"
+        ],
+        "surname": [
+          "Vergilius Maro"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Virgilius Maro, Publius: P. VERGILII MARONIS BVCOLICORVM, GEORGICORVM, ET AENEIDOS. Cum accurata simul & fideli ... 1534. (VD16 V 1340)",
+        "Virgilius Maro, Publius: BVCOLICA P. VERGILII MARONIS. ADIECTIS SCHOLIIS PHILIPPI MELANCH.. 1589. (VD16 V 1516)",
+        "Virgilius Maro, Publius: BVCOLICA P. VERGILII MARONIS. ACCESSERVNT ADNOTATIONES H. EOBANI HESSI POETAE. Scholia ... 1550. (VD16 V 1497)",
+        "Virgilius Maro, Publius: De orthographia. 1589. (VD16 V 1390)",
+        "Virgilius Maro, Publius: P. VIRGILII MARONIS BVCOLICA, GEORGICA, ET AENEIS: NICOLAI ERYTHRAEI I.C. OPEra in ... 1583. (VD16 V 1384)",
+        "Virgilius Maro, Publius: Aeneis, Ausz. 1538. (VD16 V 1433)",
+        "Virgilius Maro, Publius: P. Virgilij Maronis Mantuani Carmen Buccolicum: decem aeglogarum opus.(emendatione ... 1510. (VD16 V 1444)",
+        "Virgilius Maro, Publius: P. VERGILII MARONIS BVCOLICORVM libellus.. 1535. (VD16 V 1479)",
+        "Virgilius Maro, Publius: P. VERGILII MARONIS BVCOlica, nunc denuo edita ac recognita, cum commentarijs Antonij ... 1532. (VD16 V 1473)",
+        "Virgilius Maro, Publius: P. Virgilij Maronis Mantuani Carmen Bucolicum: decem Aeglogarum opus. ... (emẽdatione ... 1516. (VD16 ZV 21209)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79014062"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8194433"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1398"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/108991346X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089929463"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118626574/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18756695X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18824204X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Virgil"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Vergil"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Vergil"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Virgil"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000408382621"
+        },
+        {
+          "collection": {
+            "abbr": "ISNI",
+            "icon": "https://www.isni.org/sites/default/files/isni_new_favicon.ico",
+            "id": "https://isni.org",
+            "name": "International Standard Name Identifier (ISNI)",
+            "publisher": "International Standard Name Identifier (ISNI)"
+          },
+          "id": "https://isni.org/isni/0000000430695667"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118626574"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118626574"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118626574"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118626574"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Vergilius, Publius Maro",
+        "Virgilio Marone, Publio",
+        "Wirgiliusz Maro, Publiusz",
+        "Maroo, Publius Virgilius",
+        "Maro",
+        "Virgilius, Maro",
+        "Wirgiliusz",
+        "Wergiljusz",
+        "Vergilius, Publius",
+        "Maro, Publius Vergilius",
+        "Marone, Publio Virgilio",
+        "Uergilius",
+        "P.V.M.",
+        "Virgill",
+        "Vergilius Maro, P.",
+        "Vergilius, Poet",
+        "Maro, P. Vergilius",
+        "Vergilius Maro, Pub.",
+        "Virgilius, Joannes de",
+        "Maron",
+        "Maro, Virgilius",
+        "Vergill",
+        "Vergilius, Publius M.",
+        "Vergilius Maro",
+        "Vergilius, Augusteus",
+        "Pseudo-Vergilius",
+        "Virgile, Maron",
+        "Maro, Publius V.",
+        "Vergilio",
+        "Wirgiliusz Maron, Publiusz",
+        "Vergile Maron, Publius",
+        "Maro, Vergilius",
+        "Virgilius, Johann de",
+        "Virgilius Maro, P.",
+        "Pub.V.M.",
+        "Virgilio Marón, Publio",
+        "Wergiliusz",
+        "Wergiliusz Maro, Publiusz",
+        "Virgile, Publius",
+        "Virgilio Maron, Publio",
+        "Virgilio Marone, Publius",
+        "Birgilios Maro, Publios",
+        "Virgile",
+        "Virgilius, Publius",
+        "Vergilius",
+        "Virgile de Mantoue, Publius",
+        "Virgil",
+        "Virgilio Maro, Publico",
+        "Vergilius-Maro, Publius",
+        "Virgilius Maro, Publius",
+        "Pseudo-Virgilio",
+        "Mar., Publ. Virgilius",
+        "Vergilijus",
+        "Virjile\"",
+        "Virgile de Mantove, Publius",
+        "Virgille",
+        "Virgilius",
+        "Virgile, d'Andes",
+        "Vergilije Maron, Publije",
+        "Vergil",
+        "Virgilius Maro",
+        "Marone, Publio V.",
+        "Wergilius Maro, Publius",
+        "Wirgilius Maro, Publius",
+        "Marone, Virgilio",
+        "Vergilius, Poeta",
+        "Marone, P. Virgilio",
+        "Vergilius, von Mantua",
+        "Vergilius, von Andes",
+        "Vergilius, Maro",
+        "Virgilio Mantoano",
+        "V. M., P.",
+        "P. V. M.",
+        "Virgilius Maroos, Publius",
+        "Virgilio",
+        "Veržiliu"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Vergilius Maro"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Maro"
+          ],
+          "personalName": [
+            "Virgilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius Maro"
+          ],
+          "surname": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgile"
+          ]
+        },
+        {
+          "personalName": [
+            "Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Publio V."
+          ],
+          "surname": [
+            "Marone"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Wergilius Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgill"
+          ]
+        },
+        {
+          "personalName": [
+            "Uergilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Vergile Maron"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgille"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Poeta"
+          ],
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Virgilio"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Maron"
+          ],
+          "personalName": [
+            "Virgile"
+          ]
+        },
+        {
+          "personalName": [
+            "Virjile\""
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Virgilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius Virgilius"
+          ],
+          "surname": [
+            "Maroo"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgilius Maroos"
+          ]
+        },
+        {
+          "personalName": [
+            "Wergiljusz"
+          ]
+        },
+        {
+          "forename": [
+            "Virgilio"
+          ],
+          "surname": [
+            "Marone"
+          ]
+        },
+        {
+          "forename": [
+            "Publio"
+          ],
+          "surname": [
+            "Virgilio Marone"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Virgilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Wirgilius Maro"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Mantua"
+          ],
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergil"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgilio Marone"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgilius Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Publius V."
+          ],
+          "surname": [
+            "Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Publio"
+          ],
+          "surname": [
+            "Virgilio Maron"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Virgilius Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "von Andes"
+          ],
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgil"
+          ]
+        },
+        {
+          "forename": [
+            "Publio Virgilio"
+          ],
+          "surname": [
+            "Marone"
+          ]
+        },
+        {
+          "personalName": [
+            "P.V.M."
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgile de Mantove"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgilio Mantoano"
+          ]
+        },
+        {
+          "forename": [
+            "Virgilius"
+          ],
+          "surname": [
+            "Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergill"
+          ]
+        },
+        {
+          "forename": [
+            "Publiusz"
+          ],
+          "surname": [
+            "Wergiliusz Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergil"
+          ]
+        },
+        {
+          "forename": [
+            "P. Vergilius"
+          ],
+          "surname": [
+            "Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Maron"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Vergilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publio"
+          ],
+          "surname": [
+            "Virgilio Marón"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgilius"
+          ]
+        },
+        {
+          "forename": [
+            "Vergilius"
+          ],
+          "surname": [
+            "Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Publ. Virgilius"
+          ],
+          "surname": [
+            "Mar."
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Wirgiliusz"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Vergilius-Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergilio"
+          ]
+        },
+        {
+          "forename": [
+            "Publije"
+          ],
+          "surname": [
+            "Vergilije Maron"
+          ]
+        },
+        {
+          "personalName": [
+            "Pub.V.M."
+          ]
+        },
+        {
+          "forename": [
+            "Publico"
+          ],
+          "surname": [
+            "Virgilio Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Wergiliusz"
+          ]
+        },
+        {
+          "forename": [
+            "Pub."
+          ],
+          "surname": [
+            "Vergilius Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Publius Vergilius"
+          ],
+          "surname": [
+            "Maro"
+          ]
+        },
+        {
+          "forename": [
+            "Augusteus"
+          ],
+          "surname": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Vergilijus"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "V. M."
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgile"
+          ]
+        },
+        {
+          "forename": [
+            "P. Virgilio"
+          ],
+          "surname": [
+            "Marone"
+          ]
+        },
+        {
+          "personalName": [
+            "P. V. M."
+          ]
+        },
+        {
+          "personalName": [
+            "Virgilio"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Maro"
+          ],
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publios"
+          ],
+          "surname": [
+            "Birgilios Maro"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Vergilius Maro"
+          ]
+        },
+        {
+          "nameAddition": [
+            "d'Andes"
+          ],
+          "personalName": [
+            "Virgile"
+          ]
+        },
+        {
+          "forename": [
+            "Publius M."
+          ],
+          "surname": [
+            "Vergilius"
+          ]
+        },
+        {
+          "forename": [
+            "Publiusz"
+          ],
+          "surname": [
+            "Wirgiliusz Maron"
+          ]
+        },
+        {
+          "forename": [
+            "Publiusz"
+          ],
+          "surname": [
+            "Wirgiliusz Maro"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Poet"
+          ],
+          "personalName": [
+            "Vergilius"
+          ]
+        },
+        {
+          "personalName": [
+            "Veržiliu"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgile de Mantoue"
+          ]
+        },
+        {
+          "forename": [
+            "Publius"
+          ],
+          "surname": [
+            "Virgilius Maro"
+          ]
+        },
+        {
+          "personalName": [
+            "Virgil"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Vergil",
+          "label": "https://de.wikipedia.org/wiki/Vergil"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T13:14:24Z",
+    "gnd_query_biographical_data": "70-19 v. Chr.",
+    "gnd_query_name": "vergilius maro"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 2981,
+  "name": "Vergilius Maro",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "P V, 1190",
+  "updated": "2026-06-11 13:29:25.536Z",
+  "uri": "https://d-nb.info/gnd/118626574",
+  "editor": ""
+}

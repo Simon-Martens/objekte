@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18967, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1996,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SCHMUGGLER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Tennant pinx. Hessloehl sculp.",
+  "scans": [
+    "alm_59_1996_obkurscdjw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SCHMUGGLER",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "rapf8e2oir4vfeo",
+      "source_id": "8whkswyxchcjkag"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "9jfanw3vjv58rhf"
+    }
+  ]
+}

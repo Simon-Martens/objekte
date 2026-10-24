@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik paginert 1. Illustration zu »Ludwig V. der Getreue, Landgraf von Hessen-Darmstadt« von K. W. Justi INr 43362, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landgraf Georg I. empfängt die freudige Nachricht von / der Geburt seines Sohnes Ludwig. / Seite 4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schwerdgeburth del. et sc.",
+  "scans": [
+    "alm_569_43339_lzeyhcyb0x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landgraf Georg I. empfängt die freudige Nachricht von / der Geburt seines Sohnes Ludwig. / Seite 4.",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.988Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "sfqljf62lwnsh7r"
+    }
+  ]
+}

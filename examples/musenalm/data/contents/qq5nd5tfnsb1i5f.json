@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Obwol die gelehrte Dorfakademie des deutschen Grandison vor mehr als funfzig Jahren die Preisfrage aufgestellt hat: Wer des berühmten Goldschmidts Jungen Vater gewesen? so ist doch diese wichtige Frage bis jetzt nicht erledigt,",
+  "language": [],
+  "musenalm_id": 65003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Etwas über / Goldschmidts Jungen und dessen / Gedanken",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Lampadus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Etwas über / Goldschmidts Jungen und dessen / Gedanken",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.199Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "or7jgwjx295bd1t"
+    }
+  ]
+}

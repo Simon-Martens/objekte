@@ -1,0 +1,45 @@
+{
+  "annotation": "Frauenblätter (Sammlung INr 95156, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Als ich zum ersten Mal dich sah, / Warst du mein erstes Vergnügen mir,",
+  "language": [],
+  "musenalm_id": 95158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. An Illa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. An Illa",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.457Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "kp4u92p5tirpbt4"
+    }
+  ]
+}

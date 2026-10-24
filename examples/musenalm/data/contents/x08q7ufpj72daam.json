@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisklänge. An J. W. v. Göthe und Fr. Rückert (Sammlung INr 68056, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Buch und Flöte und bemalte Fenstern / Warmes Öfchen und vertraulich Stübchen,",
+  "language": [],
+  "musenalm_id": 68085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Buch und Flöte und bemalte Fenstern / Warmes Öfchen und vertraulich Stübchen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.106Z",
+      "agent": "xojpiwzkdga93tk",
+      "source_id": "zemabzhwoomrdtm"
+    }
+  ]
+}

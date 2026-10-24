@@ -1,0 +1,46 @@
+{
+  "annotation": "Dem Text vorangestellt: Es ist in alten Jahrbüchern deutscher Geschichten eine Sage enthalten von Erchinger und Berchtold, des deutschen Königs Kammerboten in Alemannien, [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Wir haben Eisen und Schwerter, fünf Finger / in jeder Faust, / Dazu ein Herz im Leibe - Jetzt komm, wenn Du / Dich traust,",
+  "language": [],
+  "musenalm_id": 40586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die Kammerboten in Schwaben. / Geschichtliche Sage aus dem neunten und zehnten / Jahrhundert. / Seinem Freunde / Herrn D. Pfister, / dem Geschichtsschreiber Schwabens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die Kammerboten in Schwaben. / Geschichtliche Sage aus dem neunten und zehnten / Jahrhundert. / Seinem Freunde / Herrn D. Pfister, / dem Geschichtsschreiber Schwabens",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.901Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "9256297a7ug9wxo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Endlich, Schmerz, doch find'st du Worte! / Brich heraus, mein Klaggesang!",
+  "language": [],
+  "musenalm_id": 54056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selmars Trauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selmars Trauer",
+  "updated": "2008-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.609Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "koxsb111m61icjp"
+    }
+  ]
+}

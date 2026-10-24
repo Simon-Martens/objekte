@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Rühm' ich die freundlichen Plätze, wo oft die Sehnsucht mich hintreibt, / Sey auch ein Distichon dir, Santa Lucia, geweiht,",
+  "language": [],
+  "musenalm_id": 69098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.441Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "0cg0b9onwfmqkfx"
+    }
+  ]
+}

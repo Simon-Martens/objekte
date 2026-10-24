@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 11 /) Graphik im Kalendarium November /) Illustration zu »»Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70254,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nein, mein Freund, ich fühle mich; der Tod dringt / auf mich ein; wir müssen uns verlassen / 6. Th. 11. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculpsit",
+  "scans": [
+    "alm_801_70254_up66rfh3sr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nein, mein Freund, ich fühle mich; der Tod dringt / auf mich ein; wir müssen uns verlassen / 6. Th. 11. B.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "gm8gp9ogd4ft4vp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "uk2v09fwtac6js1"
+    }
+  ]
+}

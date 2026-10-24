@@ -1,0 +1,65 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1821",
+    "norm": "",
+    "biblio": 200707,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2765,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "von Hormayer, von Mednyansky",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / vaterländische Geschichte. / Herausgegeben / durch die / Freyherren von Hormayr und von Mednyansky. / Erster Jahrgang / 1820. / Wien, / gedruckt und im Verlage bey Anton Strauß",
+  "updated": "2026-06-11 10:18:55.077Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "y2m3vrdkkdl15wy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.135Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.135Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "oxhnagjpv3gng6m"
+    }
+  ]
+}

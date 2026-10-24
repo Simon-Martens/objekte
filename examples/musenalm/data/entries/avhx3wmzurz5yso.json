@@ -1,0 +1,79 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, SSIII–XII, darin T, Vrwrt, I-Verz, SS1–239",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für die Jugend (Berlin) 1821",
+    "norm": "",
+    "biblio": 200518,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1196,
+  "parallel_title": "",
+  "place_statement": "Berlin (Petri)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für die Jugend (Berlin) 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R; Goed VIII. 131, 22",
+  "responsibility_statement": "Moritz Thieme",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Spiel / für / die Jugend. / Von / Moritz Thieme. / Erster Jahrgang. / Berlin, / bei H. Ph. Petri. / 1821",
+  "updated": "2026-06-11 10:18:55.136Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "nphzxh2rssr77q9"
+  ],
+  "contents": [
+    "oj0tvhxzuxp8pr4",
+    "km2go2rnf1a8nze",
+    "qozpv293r60uh0y",
+    "kl4uxbe37itn9sf",
+    "b1sbox8rgkz8iwv",
+    "0qnmxzm8hmefnhp",
+    "403rrrj4e4cthp1",
+    "7bkzwch2a51emmg",
+    "5mgnky2j2suioya",
+    "5uqk06x9v65z9gq",
+    "epstsbkz1oh5ecq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.128Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.128Z",
+      "agent": "ayvmt5iusfnbbs5",
+      "source_id": "o5npp2qh13uc524"
+    }
+  ]
+}

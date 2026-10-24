@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Wie schön entschläft die Blüthenwelt, / Vom Mond erhellt,",
+  "language": [],
+  "musenalm_id": 53835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Frühlingsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. T. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Frühlingsabend",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.763Z",
+      "agent": "42yarzq0yz2e1hp",
+      "source_id": "gvlnakhvrega1k1"
+    }
+  ]
+}

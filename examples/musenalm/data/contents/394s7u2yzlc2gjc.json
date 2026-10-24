@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Bey Nektar und Ambrosia / Sitzt Vater Zeus gefoltert da;",
+  "language": [],
+  "musenalm_id": 2260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.087Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "axr9zjgvv7d2lfm"
+    }
+  ]
+}

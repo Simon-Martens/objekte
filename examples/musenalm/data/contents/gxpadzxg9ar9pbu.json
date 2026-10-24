@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67308, Obj 8) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67313, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Auch dieser Sumpfvogel hatte, wie viele seiner gefiederten Brüder ungeachtet seines öfteren Vorkommens das Loos, von den Jägern zwar nicht verkannt, aber von den Ornithologen doch nicht recht gekannt zu seyn.",
+  "language": [],
+  "musenalm_id": 67314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der schreiende Brachvogel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der schreiende Brachvogel",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.184Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "cp0zaw7hxbslbdp"
+    }
+  ]
+}

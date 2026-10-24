@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Die Welt ist schön! Für jeden unsrer Blicke / Giebt die Natur uns neuen Reitz zur Lust,",
+  "language": [],
+  "musenalm_id": 31078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ratschky",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ratschky",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.304Z",
+      "agent": "v5wbuj6yomki99q",
+      "source_id": "2wa2i3z0k20jdyc"
+    }
+  ]
+}

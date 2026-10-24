@@ -1,0 +1,90 @@
+{
+  "annotation": "mit dem 1. Teil von »Des Grafen Macartney Gesandschaftsreise nach China […]« von G. Staunton /) ohne Kalendarium auch erschienen als: Historisches Taschenbuch für das Jahr 1798 enthaltend des Grafen Macartney Gesandtschaftsreise nach China in den Jahren 1792 bis 1794. Aus den Tagebüchern des Ambassadeurs und der vornehmsten Personen seines Gefolges herausgegeben von Sir George Staunton Ambassade-Secretair. Aus dem Englischen frey übersetzt. Erster Theil mit Kupfern. Berlin bei  Haude und Spener; s. alm-2489. /) Das Werk: »Des Grafen Macartney Gesandtschaftsreise nach China […]« von G. Staunton erschien bei Haude und Spener in drei Bänden 1798-1800. Zu vermuten ist, daß auch Teil 2 und 3 als »Historisches Taschenbuch für das Jahr […]«1799 und 1800 und als »Historisch-Genealogischer Calender oder Jahrbuch der merkwürdigsten neuen Welt-Begebenheiten für […]« 1799 und 1800 herausgegeben wurden.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, gT, 30 BB Kal, ar: SS 1-96 Tab, G, S I nT, SS III-VIII Vrwrt d Hrsg, ar1: SS 1-376 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1798",
+    "norm": "~",
+    "biblio": 404152,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 929,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 16",
+  "responsibility_statement": "C. S.",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1798. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2026-06-11 10:18:55.884Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "nc08f8ny3034y77"
+  ],
+  "contents": [
+    "5sv68uexmhfyo9s",
+    "fgnc31gs33brm9p",
+    "6hxxqlb8lqn145s",
+    "7synmc5d36uj5vg",
+    "zqd1ybvrugk680v",
+    "mt84ym5qz073iqj",
+    "rjdodo89zckbt2n",
+    "3xb9c3hyne6h8zb",
+    "dsq0igzntw9uzqp",
+    "zu4q47f5ngny28b",
+    "z3r9gh4yx0u4yhv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.780Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.780Z",
+      "agent": "1eqjoxnybezb6wq",
+      "source_id": "9x1vyy0017sj0vp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.974Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.974Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "mi3gmk2063b6fmy"
+    }
+  ]
+}

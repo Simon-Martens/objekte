@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 21 SS Kal darin 14 GG, S VrlgM, SS 1-141, S 142-143 G-Verz, S VrlgM, 84 BB, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1798",
+    "norm": "~",
+    "biblio": 404128,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 833,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / Kalender / auf / das Gemein-Jahr 1798. / Katharina II. / Ein historischer Versuch. / Mit den Bildnissen berühmter Männer, den / Ansichten merkwürdiger Gebäude, einigen / Schaumünzen und 8 Kupfervorstellungen / aus der Regierungszeit Katharinens. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.872Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "c5u413jwdbdfclv"
+  ],
+  "contents": [
+    "bgh9ui3bk45z0wm",
+    "wuvg165m7s6u8n9",
+    "3scdse21depsd0d",
+    "dc7jsyxh69dj6s1",
+    "6x65a0decdikqtb",
+    "oldunwg9oxsdxgi",
+    "bty4rbxuiext4lh",
+    "dr7jwanixxbxcjf",
+    "mxf1df4uvd90g56",
+    "985903vug93acns",
+    "b1fhojpcjkp5ctj",
+    "f3wux4y4pmlhfkg",
+    "jf3xgjrl776uivt",
+    "ghci1opq7bq8azo",
+    "yn71ibidmkqg6x2",
+    "a5gxc58oh1o8oi2",
+    "lmcwbynqbn6z237",
+    "7i9ostypulheon1",
+    "jme1wrwc6419u9o",
+    "t0mxzoxzm5x2tki",
+    "wbq56lmvxp5pj5t",
+    "6kff10e2zextwra",
+    "6fd3qu7fzm9943n",
+    "y2eiq9r8znqnj4q",
+    "xsk2dnccmrvqw4b",
+    "hnfb5kxm1sqvjw7",
+    "2p2irtruzbll3hx",
+    "dvd7tt6p82de6ea",
+    "9dvpsymuidsc3g2",
+    "ukl2dzm12s0hley",
+    "9g8nh0e5ii2bckf",
+    "05jvtghdqtdphc0",
+    "31cyz1exvw5ldcq",
+    "1s9nspzv2nfclzl",
+    "kxd1311b6nbep13",
+    "xm22au0sfise8e1",
+    "d9ge7ki6en0cu8d",
+    "y61f850omedcoid",
+    "9d4dh7jws1n2xxr",
+    "7g2xhwvb2l1a31d",
+    "2u7g47gt40gh7fr",
+    "fme2wn3ecld1bzc",
+    "e2ayd68682ihpxt",
+    "w8w32al37c7wzsq",
+    "f5xg3mdunoks3mk",
+    "2ba0j5vs11rjyhu",
+    "lreq7sc7d1zjc0q",
+    "4zovwkm38v0x6um",
+    "37hxl5w9ikibevw",
+    "9diel2hyspk2p46",
+    "5mg5y57imbdroxt",
+    "ziv45xb9yxf3757"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "y5b4gxku0favc4g"
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.446Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter"
+      ],
+      "dateOfBirth": [
+        "1785"
+      ],
+      "dateOfDeath": [
+        "1856"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Pomologische Monatshefte. Jg. 1856, Tafel zu S. 145 – Google Books"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20von%20Pochhammer%20portrait%201856.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20von%20Pochhammer%20portrait%201856.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Wilhelm%20von%20Pochhammer%20portrait%201856.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2016-11-23T06:56:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/172310326/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "172310326",
+      "id": "https://d-nb.info/gnd/172310326",
+      "oldAuthorityNumber": [
+        "(DE-588a)172310326"
+      ],
+      "preferredName": "Martell, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Martell"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059123"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/43968624"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q41437673"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172310326/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Pochhammer_%28Generalleutnant%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000043814865"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/172310326"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Pochhammer, Karl H. von [Wirkl. Name]",
+        "Pochhammer, Karl Heinrich Wilhelm von [Wirkl. Name]",
+        "Pochhammer, Wilhelm von [Wirkl. Name]",
+        "Pochhammer, Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Pochhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich Wilhelm"
+          ],
+          "prefix": [
+            "von [Wirkl. Name]"
+          ],
+          "surname": [
+            "Pochhammer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelm_von_Pochhammer_%28Generalleutnant%29",
+          "label": "https://de.wikipedia.org/wiki/Wilhelm_von_Pochhammer_%28Generalleutnant%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:30:36Z",
+    "gnd_query_biographical_data": "1785-1856",
+    "gnd_query_name": "pochhammer, karl heinrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2097,
+  "name": "Pochhammer, Karl Heinrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 241",
+  "updated": "2026-06-11 13:29:24.091Z",
+  "uri": "https://d-nb.info/gnd/172310326",
+  "editor": ""
+}

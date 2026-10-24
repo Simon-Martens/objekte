@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 13 Artikeln",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Ich glaube, daß die Söhne Aeskulaps im Finstern tappen.",
+  "language": [],
+  "musenalm_id": 44840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glaubensbekenntniß eines Kranken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glaubensbekenntniß eines Kranken",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.241Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "nzf3fo14odeu2ep"
+    }
+  ]
+}

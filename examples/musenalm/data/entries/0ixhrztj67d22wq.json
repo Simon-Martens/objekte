@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Würtembergischer 1790",
+    "norm": "",
+    "biblio": 408199,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4052,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Academie-Duckerei)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hofkalender, Würtembergischer 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Wirtembergischer / Hof- / CALENDER / für das Jahr / 1790. / Stuttgart / In der Academie-Drukerei",
+  "updated": "2026-06-11 10:18:55.665Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "tmoxjb7oa6xb4uz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.466Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.466Z",
+      "agent": "5oo00740sywdjz7",
+      "source_id": "2pxvwpzkjm0ik7l"
+    }
+  ]
+}

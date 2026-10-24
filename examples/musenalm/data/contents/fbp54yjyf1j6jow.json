@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen (Sammlung INr 61578, Obj 22) Kleinigkeiten aus J. Carl Ungers ungedruckten Schriften (Sammlung INr 61575, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Menschen, die ein Vergnügen daran finden, die Natur in ihren Schriften treu zu mahlen, Tugenden und Laster, die Reitze und die Lächerlichkeiten des geselligen Lebens zu zeichnen, sind größten Theils verschwiegen und menschenscheu;",
+  "language": [],
+  "musenalm_id": 61579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das braungelbe Kleid. / Nach Bouilly",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Carl Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das braungelbe Kleid. / Nach Bouilly",
+  "updated": "2009-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "15nbmddtgd12alc"
+    }
+  ]
+}

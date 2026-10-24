@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122005, Obj 159)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Zu Simmering thürmen sich Schragen / Im Monat April oder Mai, / Da gibt es ein lustiges Wagen / Für Vollblut und kecken Jokei.",
+  "language": [],
+  "musenalm_id": 122008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Jokeilied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Ritter von Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Jokeilied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.514Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "ju2r4pgnuf7hy2h"
+    }
+  ]
+}

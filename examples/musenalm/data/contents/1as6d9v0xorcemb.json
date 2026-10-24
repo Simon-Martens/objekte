@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Charaden, Logogryphen und Räthsel (Sammlung INr 93472, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Das Mächtigste bin ich auf Tellus Runde, / Und Schön'res hat die Sonne nie erblickt,",
+  "language": [],
+  "musenalm_id": 93476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ermin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Charade",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.335Z",
+      "agent": "789wjmtdto8ioae",
+      "source_id": "v4ifk6rprky8pfj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "So lange mich mein Röschen liebt, / Bin ich vergnügt und bin zufrieden;",
+  "language": [],
+  "musenalm_id": 2464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Triolet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Triolet",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.049Z",
+      "agent": "3m5nfg6fbusqjem",
+      "source_id": "5oxxblg4zo973gs"
+    }
+  ]
+}

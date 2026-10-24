@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Kunstbeflissen und unverzagt, / Feder und Farben und Stift in den Taschen,",
+  "language": [],
+  "musenalm_id": 20134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Urbild und die Abbilder. / An eine Nicht-Dichterin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Urbild und die Abbilder. / An eine Nicht-Dichterin",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.084Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "n4sf5mdy99bd2ok"
+    }
+  ]
+}

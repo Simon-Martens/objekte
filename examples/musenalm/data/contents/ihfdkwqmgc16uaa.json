@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Unter den mannigfaltigen Gegenständen der Beobachtung und Bewunderung, welche unsere Schweiz in ihrem kleinen Umfange darbietet, wodurch so viele Reisende aus allen europäischen Ländern alljährlich herbeygelockt werden,",
+  "language": [],
+  "musenalm_id": 53016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Gang / durch das Museum der vaterländischen / Naturgeschichte in Bern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meisner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Gang / durch das Museum der vaterländischen / Naturgeschichte in Bern",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.610Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "t1yhb8vfb2ebqkd"
+    }
+  ]
+}

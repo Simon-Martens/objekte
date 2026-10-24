@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachschrift zu »Pflicht um Pflicht« von Wolff (INr 125504, Obj 10); # Bez. aus dem Vrwrt. (INr 125496, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Ich habe vor zwei Jahren das Vergnügen gehabt, von vorstehendem Drama eine Darstellung zu sehen, an welcher der Dichter selbst [...] in der Rolle des deutschen Ritters Theil nahm.",
+  "language": [],
+  "musenalm_id": 125506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschrift des Herausgebers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschrift des Herausgebers",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.894Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "ei730azluhmm8tn"
+    }
+  ]
+}

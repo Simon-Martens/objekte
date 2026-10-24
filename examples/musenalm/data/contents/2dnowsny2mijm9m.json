@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 9. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65777, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65778,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der König im Cantonirungs-Quartier zu Köben / an der Oder, am Podagra kranck, dictiert, vor der / versamleten Generalität, seine Ordres zur Distribution / der Armée, im October 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ch. del. E. H. sc.",
+  "scans": [
+    "alm_1105_65778_wlrtnraa84.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der König im Cantonirungs-Quartier zu Köben / an der Oder, am Podagra kranck, dictiert, vor der / versamleten Generalität, seine Ordres zur Distribution / der Armée, im October 1859",
+  "updated": "2009-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.018Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "5lbrqxp2x9kv10t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.018Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "7005gscd59vxpeh"
+    }
+  ]
+}

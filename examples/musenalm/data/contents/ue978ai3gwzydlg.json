@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus der »Erklärung der Kupfertafel« /) Graphik im Kalendarium Juni /) paginiert VI. /) s. vorstehenden Textbezug INr 82367, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82368,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Amour ordonne a Mercure d'annoncer son pouvoir à l'Univers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Le Sueur; Riepenhausen",
+  "scans": [
+    "alm_168_82368_v94p2kuoqn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Amour ordonne a Mercure d'annoncer son pouvoir à l'Univers",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.129Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "s3t8de7ahybz43r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.129Z",
+      "agent": "rgscrveej5a4mer",
+      "source_id": "twji423kmpbyigb"
+    }
+  ]
+}

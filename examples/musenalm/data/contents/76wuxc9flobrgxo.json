@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27660, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27661,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Götzenberger del. A. Weber sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Götzenberger del. A. Weber sc.",
+  "scans": [
+    "alm_354_27661_19t1ymekur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.400Z",
+      "agent": "k52j0ci4hisa6dc",
+      "source_id": "q8hmo1n8aw9fw4b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.400Z",
+      "agent": "g7nwy8gxkm3sfp2",
+      "source_id": "tsttctd689gdkr2"
+    }
+  ]
+}

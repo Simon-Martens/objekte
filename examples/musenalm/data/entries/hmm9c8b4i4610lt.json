@@ -1,0 +1,102 @@
+{
+  "annotation": "# Exemplar ist dem Historischen Almanach für den deutschen Adel 1795 (Alm-294) beigebunden. /)  SS 164/165 mit Hinweisen auf vorherigen und folgenden Jg /) KVK-SWB gibt Jgg 1794-1798 als nachgewiesen sowie als Herausgeber Friedrich Karl Gottlob Hirsching an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "# VB, G, T, Vrwrt d Vrlg, S, 13 SS Kal, SS 1-274 darin 3 Tabellen",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Nationalkalender, Teutschlands 1796",
+    "norm": "~",
+    "biblio": 200091,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-04-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 307,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Jacobäer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Nationalkalender, Teutschlands 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Teutschlands / National-Kalender / zur gründlichen / Kenntniß des jetzigen Zustandes / aller / teutschen Staaten und Länder / Auf das Jahr 1796. / Erste Fortsetzung / enthaltend / Mainz, Trier, Cöln, / samt ihren Nebenländern. / Leipzig, / bey Friedrich Gottlob Jacobäer",
+  "updated": "2026-06-11 10:18:55.964Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "r5tnl1co65jzsq6"
+  ],
+  "contents": [
+    "hgnoh7ecei4cluq",
+    "en56cn9cil812ca",
+    "v5ijlnj351xlutu",
+    "ttudqj4y31xxwzb",
+    "zwekh4tj4qwvy88",
+    "eblrxc4lszuwqty",
+    "jni5kpqei2s2vft",
+    "t990j3hzgxv2lrb",
+    "mrpcoca39xjd63i",
+    "yfoom6id1tsnqzf",
+    "txehiptw1rjd5b1",
+    "bo5arx6hm38k968",
+    "dk3c01mz9dw1i53",
+    "hgr6thclgplttp2",
+    "sc2i8i9i2qate45",
+    "vb0hf8tnxjy4nfn",
+    "0c21bs478e2gz1n",
+    "2zeav8f90w687yh",
+    "omx766w2q49sw9g",
+    "gld5ollrjcllsu1",
+    "dc2q5p6l7fszp0j",
+    "pazbfwml7a4nmi8",
+    "uez8nox74vb9dmm",
+    "znzc3fxmzxyoex4",
+    "61penswtek1zl1m",
+    "v9t86safeyxidz9",
+    "sws4yz5vs9vm1cb",
+    "2ita95j2j8lsoso",
+    "m973ys76fecz0ul",
+    "zvn40ljrpewqrbl",
+    "bsy15a27b1cl7v8",
+    "59jvqovrhodu6tm",
+    "fzu204cu17jnp06",
+    "h10qx1esmt99pt5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "y2e35no1so2wxg7",
+      "source_id": "fgo2otkpqb102xu"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jetzt! Taschenbuch der Zeitgeschichte 1832 (1)",
+    "norm": "",
+    "biblio": 200876,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1957,
+  "parallel_title": "",
+  "place_statement": "Dresden (Hilscher)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Jetzt! Taschenbuch der Zeitgeschichte 1832 (1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Julius Franz Schneller",
+  "subtitle_statement": "",
+  "title_statement": "Jetzt! / Taschenbuch der Zeitgeschichte / für / 1832 / Von / Dr. Julius Franz Schneller, / öffentl. ordentl. Professor der Philosophie und Geschichte an / der Universität zu Freiburg im Breisgau. / Erstes Bändchen / Dresden / P. G. Hilschersche Buchhandlung. / 1831",
+  "updated": "2026-06-11 10:18:55.736Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "dtnu14rm6x1ntxf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.012Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.012Z",
+      "agent": "37n7p2hewzwh108",
+      "source_id": "83aqneh2ba2vhb9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.992Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.992Z",
+      "agent": "8qigw1i3u2eo6sj",
+      "source_id": "a81hxdzh858a085"
+    }
+  ]
+}

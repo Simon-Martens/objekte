@@ -1,0 +1,78 @@
+{
+  "annotation": "2 Jgg 1846, 1847; Leipzig (Reclam); Hrsg.: K. B. S. Herlossohn",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Phantasiegemälde (Herlossohn) 1846",
+    "norm": "",
+    "biblio": 106086,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2442,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reclam)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Phantasiegemälde (Herlossohn) 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 95; nicht bei L/R",
+  "responsibility_statement": "C. Herlossohn",
+  "subtitle_statement": "",
+  "title_statement": "Phantasiegemälde. / Taschenbuch romantischer Erzählungen / für / 1846. / von / C. Herlossohn. / Mit einem Stahlstich. / Leipzig, 1846. / Druck und Verlag von Philipp Reclam jun.",
+  "updated": "2026-06-11 10:18:55.294Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "h9nd5qsei6hi159"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "187r8ms9aduniwg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.097Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.097Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "1f9pdjtlo9elg1e"
+    }
+  ]
+}

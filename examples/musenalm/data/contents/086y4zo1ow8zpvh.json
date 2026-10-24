@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5353, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Göttin Liebe, / Wie so bang' und trübe / Fließt dies Bächlein hin!",
+  "language": [],
+  "musenalm_id": 5352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dafne am Bach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dafne am Bach",
+  "updated": "2000-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.108Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "fju0kvh2tvwfkhh"
+    }
+  ]
+}

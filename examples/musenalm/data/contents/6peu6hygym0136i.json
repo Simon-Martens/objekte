@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Weiche Wolken umziehn den herbstlichen Abend- / himmel, / Sonn' ist hinüber den Berg, lange zuvor schon / umhüllt.",
+  "language": [],
+  "musenalm_id": 34212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Herbstabend. / 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Herbstabend. / 1817",
+  "updated": "2003-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.649Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "4qg8zjul7pe4dqr"
+    }
+  ]
+}

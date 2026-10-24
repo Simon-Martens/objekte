@@ -1,0 +1,45 @@
+{
+  "annotation": "Der bestrafte Jäger oder die Rache der Thiere (INr 102397, Obj 23) s. Graphik INr 102401, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Die Exekution ist in vollem Gang: mehrere, vorzüglich weibliche, Zuschauer haben sich dabei eingefunden,",
+  "language": [],
+  "musenalm_id": 102400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweite Tafel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweite Tafel",
+  "updated": "2009-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.030Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "a2ese87f2kv1z4b"
+    }
+  ]
+}

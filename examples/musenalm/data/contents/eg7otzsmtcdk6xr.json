@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 108693, Obj 27) Auszug aus »Quinctius Heimeran von Flamming« s. Graphik im Kalendarium INr 108684, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Wir finden jetzt unsern Quinctius, der nun nach dem Tode seines Vaters",
+  "language": [],
+  "musenalm_id": 108697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 4.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.096Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "lphtcv6zuw1nwak"
+    }
+  ]
+}

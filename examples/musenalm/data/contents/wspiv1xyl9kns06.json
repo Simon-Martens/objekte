@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 94079, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Folgender Criminalfall, der sich vor nicht vielen Jahren in Norwegen zugetragen haben soll, hat mich, obgleich nicht durch Actenstücke selbst,",
+  "language": [],
+  "musenalm_id": 94078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klosterruine in Norwegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klosterruine in Norwegen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.623Z",
+      "agent": "jfhywk4cbxcodws",
+      "source_id": "glp2h94z0ffd70k"
+    }
+  ]
+}

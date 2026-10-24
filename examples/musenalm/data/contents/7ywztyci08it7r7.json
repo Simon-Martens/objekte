@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Denksprüchen INr 61176-61180, Obj 27-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüche zur Blume Vergißmeinnicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. von Klencke, geborne Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüche zur Blume Vergißmeinnicht",
+  "updated": "2008-12-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.882Z",
+      "agent": "rqw69nb9cfocqm3",
+      "source_id": "5qnmdzodmzksd56"
+    }
+  ]
+}

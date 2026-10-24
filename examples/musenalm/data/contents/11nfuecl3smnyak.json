@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Der kleine Hermann stand, mit bangem Herzen, im Vorsaale. Wart' Er nur hier! sprach der Kammerdiener: meine Herrschaft wird eben vorübergehen.",
+  "language": [],
+  "musenalm_id": 76936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Witwe Leid und Lohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Witwe Leid und Lohn",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.551Z",
+      "agent": "tiijnij1nbeebby",
+      "source_id": "2x2uxsip1lgybnn"
+    }
+  ]
+}

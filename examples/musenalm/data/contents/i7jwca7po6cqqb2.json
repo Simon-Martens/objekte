@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 124928, Obj 2); # Bezeichnung aus dem Titel (INr 124929, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Was nützt Ihre Verwunderung? Es ist doch so! / Und Niemand als Virginie hat sie begleitet?",
+  "language": [],
+  "musenalm_id": 124939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der aufrichtigste Freund. / Lustspiel in einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der aufrichtigste Freund. / Lustspiel in einem Aufzuge",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.671Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "g1p29c5x12mikxi"
+    }
+  ]
+}

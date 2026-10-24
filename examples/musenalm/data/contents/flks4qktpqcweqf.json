@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jagd des heiligen Hubertus« von Paul von Haugwitz INr 72908, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (P. Cornelius del. H. Ritter sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Cornelius del. H. Ritter sculp.",
+  "scans": [
+    "alm_2693_72909_noggvvpe75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.573Z",
+      "agent": "ns8syak978vfvbp",
+      "source_id": "obp1xfsne29k60q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.573Z",
+      "agent": "o5uxoh544mfxugq",
+      "source_id": "tjyasvfmcwzn803"
+    }
+  ]
+}

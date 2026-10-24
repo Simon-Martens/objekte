@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 90013, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90012,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OTOSITAS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pt. F. John sc.",
+  "scans": [
+    "alm_229_90012_kd2ggw91ow.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OTOSITAS",
+  "updated": "2001-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.280Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "50g6b03ghd26xdm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.280Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "65vffhyiakwi0r8"
+    }
+  ]
+}

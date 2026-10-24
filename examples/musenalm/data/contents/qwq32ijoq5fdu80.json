@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Was ringst du, und stämmst, und mühest dich sehr, / Und suchest zu wehren, und dämmen?",
+  "language": [],
+  "musenalm_id": 40503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sisyphus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sisyphus",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.947Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "gpqd3y0pw75p3ln"
+    }
+  ]
+}

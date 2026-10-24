@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Stolz und Liebe« von A. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach, Egbert, ich wäre vergangen vor Schmerz, so wie ich itzt sterben mögte vor Freude. Stolz und Liebe von Lafontaine. S. 116",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_203_10655_pim1ilo2na.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach, Egbert, ich wäre vergangen vor Schmerz, so wie ich itzt sterben mögte vor Freude. Stolz und Liebe von Lafontaine. S. 116",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.523Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "2strc1lrt4nrqs4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.523Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "pd8d4it10nrqgv5"
+    }
+  ]
+}

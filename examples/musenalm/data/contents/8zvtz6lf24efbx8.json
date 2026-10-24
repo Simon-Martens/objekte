@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Teufelsleiter« von K. Geib INr 63183, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63189,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz gez. Jb. Lips gest. Zürich",
+  "scans": [
+    "alm_1035_63189_i973yoqk32.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.092Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "mf453puua8u39dw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.092Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "nudnnbfqwwx4u66"
+    }
+  ]
+}

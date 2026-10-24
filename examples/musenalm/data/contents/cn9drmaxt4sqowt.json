@@ -1,0 +1,45 @@
+{
+  "annotation": "Die  Vier Temperamente in den vier Jahreszeiten (Sammlung INr 115187, Obj 21) Incipit des ersten von vier Gedichten",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Alles weiß! So weit ich seh' / Schnee und Schnee, und nichts als Schnee!",
+  "language": [],
+  "musenalm_id": 115191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Winter",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.330Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "7e9pwy456xezd78"
+    }
+  ]
+}

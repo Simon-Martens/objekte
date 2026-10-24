@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Der Wintersturm, das Wolkenheer verzieh'n, / Und Waldgesang verkündet süssen Frieden,",
+  "language": [],
+  "musenalm_id": 101774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnet, / im Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnet, / im Frühling",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.999Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "xfvdi6xhavvb4qe"
+    }
+  ]
+}

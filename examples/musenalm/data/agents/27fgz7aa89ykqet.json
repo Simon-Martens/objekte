@@ -1,0 +1,407 @@
+{
+  "annotation": "",
+  "biographical_data": "1729-1791",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "heiratete 1755 den Leipziger Beamten G. Philipp, signierte seither als J. D. Philippin, geb. Sysangin"
+      ],
+      "dateOfBirth": [
+        "1729-04-07"
+      ],
+      "dateOfDeath": [
+        "1791-03-02"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:22:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/131975048/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/122052919",
+          "label": "Sysang, Johann Christoph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "131975048",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/122052919",
+          "label": "Sysang, Johann Christoph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/131975048",
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "I. D."
+          ],
+          "surname": [
+            "Philippin"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Philippin"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philippi"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Philipp"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philipp"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philippin"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joh. Dor."
+          ],
+          "surname": [
+            "Philippin"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)103752676",
+        "(DE-588a)131975048",
+        "(DE-588c)7538605-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Sysang, Johanna Dorothea",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johanna Dorothea"
+        ],
+        "surname": [
+          "Sysang"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4589335-4",
+          "label": "Kupferstecherin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1064698727",
+          "label": "Radiererin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4454346-3",
+          "label": "Illustratorin"
+        }
+      ],
+      "publication": [
+        "Die Fünfte Charte worauf die Zwey Königreiche Iuda und Israel, wie sie nach Salomons To*",
+        "Carte von der Schlacht bey Pharsales",
+        "Die Erste Charte worauf die natürliche Beschaffenheit des Landes Kanaan vorgestellet wi*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2006075695"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/70077844"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q17482358"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131975048/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johanna_Dorothea_Sysang"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115738655"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/131975048"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/131975048"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/131975048"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/131975048"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Sysangin, Johanna Dorothea",
+        "Sysangin, I. D.",
+        "Philippin, I. D.",
+        "Philippin, Joh. Dor.",
+        "Philipp, J. D.",
+        "Philipp, Johanna Dorothea",
+        "Sysang",
+        "Sysangin, J. D.",
+        "Philippin, J. D.",
+        "Philippi, Johanna Dorothea",
+        "Philippin, Johanna Dorothea"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Philipp"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philipp"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philippin"
+          ]
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Sysangin"
+          ]
+        },
+        {
+          "forename": [
+            "I. D."
+          ],
+          "surname": [
+            "Philippin"
+          ]
+        },
+        {
+          "personalName": [
+            "Sysang"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Sysangin"
+          ]
+        },
+        {
+          "forename": [
+            "I. D."
+          ],
+          "surname": [
+            "Sysangin"
+          ]
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Philippin"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Dorothea"
+          ],
+          "surname": [
+            "Philippi"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Dor."
+          ],
+          "surname": [
+            "Philippin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johanna_Dorothea_Sysang",
+          "label": "https://de.wikipedia.org/wiki/Johanna_Dorothea_Sysang"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:08:00Z",
+    "gnd_query_biographical_data": "1729-1791",
+    "gnd_query_name": "sysang, johanna dorothea"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2851,
+  "name": "Sysang, Johanna Dorothea",
+  "profession": "Graphik",
+  "pseudonyms": "J. D. Philippin",
+  "refs": "T/B XXXII, 369",
+  "updated": "2026-06-11 13:29:25.346Z",
+  "uri": "https://d-nb.info/gnd/131975048",
+  "editor": ""
+}

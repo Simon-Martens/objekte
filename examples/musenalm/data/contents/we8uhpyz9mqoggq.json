@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Du klagst, dein kleiner Sohn sey reich an / losen Streichen, / voll Muthwill, Leichtsinn, Hinterlist,",
+  "language": [],
+  "musenalm_id": 87712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ****",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ****",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.181Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "bjm339u7wkbwyv8"
+    }
+  ]
+}

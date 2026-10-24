@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung  von 5 Beiträgen INr 87236-87240, Obj 10-14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historische Anekdoten / und / Schilderungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. P. Wilmsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Historische Anekdoten / und / Schilderungen",
+  "updated": "2010-08-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.047Z",
+      "agent": "16tb3i8mxvamyxl",
+      "source_id": "5njmvg63szpa2f7"
+    }
+  ]
+}

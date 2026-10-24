@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 113388, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Die Rosenzeit und ihre schönen Stunden, / Und all ihre Freuden sind entschwunden.",
+  "language": [],
+  "musenalm_id": 113389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / gesprochen / bey Eröffnung eines Gesellschafts-Theaters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / gesprochen / bey Eröffnung eines Gesellschafts-Theaters",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.410Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "jdg1joc2ejiver9"
+    }
+  ]
+}

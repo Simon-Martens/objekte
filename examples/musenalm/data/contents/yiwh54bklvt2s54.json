@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Hör' immer viel von einer reinen Lehre, Möcht' auch wohl wissen, was sie wäre?",
+  "language": [],
+  "musenalm_id": 4017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reine Lehre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reine Lehre",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.654Z",
+      "agent": "9ffesqccgj8nyl5",
+      "source_id": "ybtcyub4vkcbe2q"
+    }
+  ]
+}

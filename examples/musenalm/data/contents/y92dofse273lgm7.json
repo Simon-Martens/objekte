@@ -1,0 +1,46 @@
+{
+  "annotation": "# Bez.aus dem Vorwort /) Erster Abschnitt. Regeln für Reisende (Sammlung INr 97392, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Jedem lebenden Wesen ist die Gesundheit das nöthigste, das wichtigste Gut, da ohne sie die Geschäfte des Lebens unterbrochen, oder gar aufhören würden.",
+  "language": [],
+  "musenalm_id": 97400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Diätetische Lehrsätze für Reisende",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Doctor Mark",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Diätetische Lehrsätze für Reisende",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.632Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "jzg6kc97m9vxnyg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Krank an bitterschweren Todeswunden / Lag daheim auf seinem Bette Tristran,",
+  "language": [],
+  "musenalm_id": 43091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tristrans Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tristrans Tod",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.312Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "bj1d2rwu1pe251d"
+    }
+  ]
+}

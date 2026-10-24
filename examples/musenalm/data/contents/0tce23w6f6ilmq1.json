@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Blumen (Sammlung INr 84228, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Wie das Auge des Kindes mit lieblichem Lächeln uns ansieht, / So auch blickst du uns an, hell und bescheiden beredt.",
+  "language": [],
+  "musenalm_id": 84231,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Veilchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Veilchen",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.018Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "71drm0x55psxcc2"
+    }
+  ]
+}

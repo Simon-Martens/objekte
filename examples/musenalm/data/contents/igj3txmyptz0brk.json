@@ -1,0 +1,45 @@
+{
+  "annotation": "ausfaltbare Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85032,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Hochfürstlich Salzburgischen Sommer Reutschule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Hempel d. d'Argent sc.",
+  "scans": [
+    "alm_3122_85032_3xfx1c5okf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Hochfürstlich Salzburgischen Sommer Reutschule",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.957Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "z3pdsuksll1kgpq"
+    }
+  ]
+}

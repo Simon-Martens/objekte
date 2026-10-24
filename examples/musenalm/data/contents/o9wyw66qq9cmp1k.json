@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 77688, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Wenn heut die Krone Deine Stirn umschließet, / Der Königspurpur Deinen Wuchs umwallt,",
+  "language": [],
+  "musenalm_id": 77691,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Victoria, / Königin von Großbrittanien. / Am 28. Juni 1838",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Victoria, / Königin von Großbrittanien. / Am 28. Juni 1838",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.821Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "mqc2cz5xb0cihg8"
+    }
+  ]
+}

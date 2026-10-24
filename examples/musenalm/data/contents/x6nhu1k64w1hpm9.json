@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ja, ja, von einem dutzend Diktatoren, / Das uns hofmeistern will,",
+  "language": [],
+  "musenalm_id": 3844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ihro Durchlaucht, / Herrn Aprilis den 1792ten. / Den 2. April 1792",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Xz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ihro Durchlaucht, / Herrn Aprilis den 1792ten. / Den 2. April 1792",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.761Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "9dmbcuz7nwnfzcy"
+    }
+  ]
+}

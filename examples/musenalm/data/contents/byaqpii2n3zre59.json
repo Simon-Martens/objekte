@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragmente aus einer Genoveva (Sammlung INr 46143, Obj 247)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "375",
+  "incipit_statement": "Leiser Tritt durch's stille Haus, / Fern ist er, der sie bewacht.",
+  "language": [],
+  "musenalm_id": 46147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 252,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dämonengesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dämonengesang",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.248Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "gsa2cznz95e75t9"
+    }
+  ]
+}

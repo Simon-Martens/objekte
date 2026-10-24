@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60924, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Penzel del. & fec. 1795)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1795",
+  "scans": [
+    "alm_949_60899_a92cpop23s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.960Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "swgez7z2h3c9qws"
+    }
+  ]
+}

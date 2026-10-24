@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Jungfer Lieschen weisst du was, Komm mit mir ins grüne Gras« in: Vergißmeinnicht (Clauren) 1827; INr 102828",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102843,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfer Lieschen weisst du was, / Komm mit mir ins grüne Gras",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_3373_102843_2ljc8ep46j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfer Lieschen weisst du was, / Komm mit mir ins grüne Gras",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.863Z",
+      "agent": "yf7uqcfkp0nwlnb",
+      "source_id": "kgvn9yx9by8vngy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.863Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "qzr4gtww39fg4ct"
+    }
+  ]
+}

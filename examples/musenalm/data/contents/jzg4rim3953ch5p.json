@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Mein Vater lehrte tausend Silbertöne / Im Haine mich, für jede Mayenschöne,",
+  "language": [],
+  "musenalm_id": 90364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lerche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Thomas v. Schönfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lerche",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.150Z",
+      "agent": "g2mjz3npda4fz9f",
+      "source_id": "zdb2b1qb2rouwxx"
+    }
+  ]
+}

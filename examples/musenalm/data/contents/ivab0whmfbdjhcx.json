@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ein Knabe steht an Baches Fluth, / Und sieht dem Rinnen der Wellen zu,",
+  "language": [],
+  "musenalm_id": 62063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe am Wasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe am Wasser",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.049Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "uz5018wzqfnmlgz"
+    }
+  ]
+}

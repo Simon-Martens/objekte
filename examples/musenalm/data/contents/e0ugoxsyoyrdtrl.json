@@ -1,0 +1,45 @@
+{
+  "annotation": "<div># Bez. am 2. Blatt der Suite /) Graphik im Kalendarium Januar; über der Graphik: Lebensbilder 1. P. 9.; Illustration zu »Lebensbilder« von C. Burger INr&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-08-04 09:57:53.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Huberta du hängst den Kopf",
+  "language": [],
+  "musenalm_id": 140259,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huberta du hängst den Kopf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba",
+  "scans": [
+    "alm_5001_140259_6f01d6tloj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-08-05 10:04:23.057Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-04 09:58:55.233Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-08-05 10:04:23.056Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "940yxqzhbq2nnxk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Nur das Wahre sey schön, behauptete, wer das / Geheimniß / Jenes Verhältnisses zwar, aber zur Hälte nur, / rieth.",
+  "language": [],
+  "musenalm_id": 53953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Begabten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Begabten",
+  "updated": "2008-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.493Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "two7a6q3oprt53u"
+    }
+  ]
+}

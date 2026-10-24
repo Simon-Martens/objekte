@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s.Textbezug »Arria« von Th. Hell d.i. K. G. T. Winkler INr 76713, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76701,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ARRIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. K. 1814 C. T. Riedel sc. 1814",
+  "scans": [
+    "alm_2385_76701_8gmo8i6whc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ARRIA",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.689Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "jye8sehpkeaetlp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.689Z",
+      "agent": "69t1km5kfklijqt",
+      "source_id": "zwasea2hvvavv7k"
+    }
+  ]
+}

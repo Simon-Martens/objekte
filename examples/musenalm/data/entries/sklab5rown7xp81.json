@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-VI Vrwrt d Hrsg, S VII I-Verz, S VIII Tab, SS IX- XXIV Kal darin 3 GG, SS 1-1214",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1894",
+    "norm": "",
+    "biblio": 407463,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-09-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3864,
+  "parallel_title": "",
+  "place_statement": "Gotha",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1894",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / Genealogischer Hofkalender / nebst / diplomatisch-statistischem Jahrbuch. / 1894. / Hunderteinunddreißigster Jahrgang. / Gotha / Justus Perthes",
+  "updated": "2026-06-11 10:18:55.486Z",
+  "variant_title": "",
+  "year": 1894,
+  "editor": "",
+  "items": [
+    "0qjqgztdxlrl7mx"
+  ],
+  "contents": [
+    "eu8q203n5mgnsx6",
+    "deudcai65jpjuy8",
+    "3bujaxt33kau49x",
+    "o9q9mso20j8pd2c",
+    "qi9ve43iofq6pek",
+    "la3ec7kds7d12wk",
+    "psn2atvg7bqa9xu",
+    "61hu2cjatfxzqig",
+    "xnvpd3z5269e75c",
+    "4n1v0quemohcerx",
+    "bzf8goyd19qfkge",
+    "rbjyw1djg7t6m4h",
+    "ozw738oszgy0ogd",
+    "yqq2i1daaysyaca",
+    "v8xlc4966abuzyu",
+    "jigdafjxwi8o56q",
+    "yu9n8yo1l21jxbk",
+    "p0j7bm3huob57bs",
+    "54hbpzer9g94zr3",
+    "0ns3nfgx8x4or7q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.126Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.126Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "ulu7w57bzch06k1"
+    }
+  ]
+}

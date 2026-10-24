@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Im Frühlingsschatten fand ich sie; / Da band ich sie mit Rosenbändern:",
+  "language": [],
+  "musenalm_id": 38363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schlafende Mädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosenbaums Lieder fürs Clavier. II. Th.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das schlafende Mädchen",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.023Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "p6n7bkctikus3dc"
+    }
+  ]
+}

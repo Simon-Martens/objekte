@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Franken (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Was blickst du, bleiches Felsenkind / So still, so räthselhaft mich an?",
+  "language": [],
+  "musenalm_id": 99441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Edelweiß. / (Leontopidum alpinum.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scherer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Edelweiß. / (Leontopidum alpinum.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.721Z",
+      "agent": "ksktvxfvp5rsora",
+      "source_id": "34chj6mi31emxsh"
+    }
+  ]
+}

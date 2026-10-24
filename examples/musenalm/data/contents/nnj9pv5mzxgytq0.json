@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117136, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Drei Güter sind's, und keines mehr / So reich wie diese drei - / Das Alltagsleben, hart und schwer, / Vergeistigt sich dabei.",
+  "language": [],
+  "musenalm_id": 117137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Gut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Gut",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.598Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "mxxitqztnwhuk2c"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "ein Jg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die physische Erziehung der Kinder 1802",
+    "norm": "",
+    "biblio": 407178,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3777,
+  "parallel_title": "",
+  "place_statement": "Fürth (Bureau für Litteratur)",
+  "places": [
+    "73xbe52959p0a6e"
+  ],
+  "preferred_title": "Taschenbuch für die physische Erziehung der Kinder 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Joh. Ant. Schmidtmüller",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / physische Erziehung / der / Kinder / zunächst / der Säuglinge / von / Joh. Ant. Schmidtmüller / der Arzney- und Wundarzneykunde Doctor / und Privatlehrer an der hohen Schule zu / Erlangen / Fürth 1802. / Im Bureau für Litteratur",
+  "updated": "2026-06-11 10:18:55.802Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "b2zcyzo2k7jd9bz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.622Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.622Z",
+      "agent": "sbhmimk7mbc9zol",
+      "source_id": "oey5fxs92jka9bq"
+    }
+  ]
+}

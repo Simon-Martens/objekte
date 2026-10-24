@@ -1,0 +1,110 @@
+{
+  "annotation": "Auch vorhanden als: Berliner Taschenbuch auf das Gemein-Jahr 1829",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 11 GG Kr, S zT, ar: S 1 zT, SS 3-362, SS 363-380 G-Verz, ar1: SS 1-104, S, ar2: SS 1-55",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1829",
+    "norm": "~+++404930 (Titelgraphik)",
+    "biblio": 200822,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 864,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / Kalender / auf / das Gemein-Jahr 1829. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.751Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "26p8j3g7hakuaab",
+    "lmkbrz80iuhucqk"
+  ],
+  "contents": [
+    "4sne739ng5zjr66",
+    "bhfugjqrm5sumd8",
+    "0ijn1nv65j9dsq9",
+    "987vodlbs6d2sgj",
+    "t1sg9yn75ke2cii",
+    "kn3phcubu8z4e47",
+    "xjpmxuykzpheb90",
+    "vsjlts7tk1ka1y2",
+    "smv11gm5kz3854a",
+    "3jsgbisoda39z6g",
+    "bta1pp2hr33txc0",
+    "v9wp01nzt53przi",
+    "j316quy5wyy0kzl",
+    "i15qwb2bzk94jrp",
+    "69t8pruodee5e39",
+    "1m9p1b83qw4og9y",
+    "dr50y7z9uzotn4m",
+    "2hzowmgwc1y4x8k",
+    "zwhvgbu3qhncosv",
+    "2qx3uybls6urln0",
+    "skd9opepo2nu9oj",
+    "s1p1s274xz5kyc4",
+    "g82bjalvntowsk7",
+    "go0r49w7osaw9ax",
+    "cwikmb3yjwe9pfy",
+    "3bvme6v5dw3p1mc",
+    "qhuxonrf38pynoz",
+    "pgtmxs657ninp42",
+    "9ltrsvlf07uwu5i",
+    "d3jbwa8gfkp2acj",
+    "srunamnz4ei6ggl",
+    "z8kdfgxhgivo3jp",
+    "6dcylp3zywx8eeb",
+    "rtlfb6l5ocxiuaa",
+    "32o01a8cbawl3ra",
+    "opkrbvpy67ek0ki",
+    "9zevjc9369xpn3h",
+    "ix8p7da512rw6kx",
+    "85365fe9o8cljba",
+    "6hn1ngzy1l7uqkq",
+    "6em8dzqr2nz4hzp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.208Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.208Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "qkyr6knppbgp3wa"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Juwelen-Kästchen des Frohsinns und der heitern Laune (Wien) 1817",
+    "norm": "",
+    "biblio": 110580,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-03-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4615,
+  "parallel_title": "",
+  "place_statement": "Wien (Pichler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Juwelen-Kästchen des Frohsinns und der heitern Laune (Wien) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Herausgeber des Museums, des Witzes und der Laune, des Jokus u. a. m",
+  "subtitle_statement": "",
+  "title_statement": "Juwelen-Kästchen / des / Frohsinns und der heitern Laune. / Vom / Herausgeber / des / Museums, des Witzes und der Laune, des Jokus u. a. m. / Wien, / bey Anton Pichler, / 1817",
+  "updated": "2026-06-11 10:18:55.740Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "g7b7kgm6ec0ndvk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.465Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.465Z",
+      "agent": "mh7qs5l57bq89om",
+      "source_id": "ydemww0358f0c3z"
+    }
+  ]
+}

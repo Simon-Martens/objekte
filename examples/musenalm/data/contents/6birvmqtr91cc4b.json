@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Allhier ißt und trinkt man gut / Das ist alles, was man allhier thut.",
+  "language": [],
+  "musenalm_id": 12769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber den Speisesaal / eines Hochwohlweisen Herrn zu N.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber den Speisesaal / eines Hochwohlweisen Herrn zu N.",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.594Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "e0l3gn855hkl62g"
+    }
+  ]
+}

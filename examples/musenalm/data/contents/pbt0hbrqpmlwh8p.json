@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Festtagskranz (Sammlung INr 29830, Obj 86) XII. Gedichte (Sammlung INr 29828, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Er hängt am Kreuz, verblutend an den Wunden, / Mit roher Hand von Mördern ihm geschlagen,",
+  "language": [],
+  "musenalm_id": 29836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charfreitag. / a.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie Schoppe, geb. Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charfreitag. / a.",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.524Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "t0pibl3rrh13100"
+    }
+  ]
+}

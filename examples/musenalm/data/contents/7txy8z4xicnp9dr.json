@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Von Weihrauch duftend, steigt das Opferfeuer, / Geschmückt mit Blumen ist der Festaltar;",
+  "language": [],
+  "musenalm_id": 13589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Erstlingsopfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Erstlingsopfer",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.491Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "gy1u8ahc2f3ih3p"
+    }
+  ]
+}

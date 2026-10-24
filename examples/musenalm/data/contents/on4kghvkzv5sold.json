@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41273,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEIL. CATHARINA VON ALEXANDRIEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael pinxt. F. Wagner sculpst. Nbg",
+  "scans": [
+    "alm_482_41273_p07ln2rhtr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEIL. CATHARINA VON ALEXANDRIEN",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.727Z",
+      "agent": "zcahh3ez21pnltp",
+      "source_id": "855a4bs3g654t9a"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.727Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "c6zhcjyzeploqbe"
+    }
+  ]
+}

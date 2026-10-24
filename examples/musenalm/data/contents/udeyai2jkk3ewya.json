@@ -1,0 +1,45 @@
+{
+  "annotation": "Eisenbahnträume (Sammlung INr 45952, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Durch die heiße weite Ebne / Flog der Zug mit dreißig Wagen;",
+  "language": [],
+  "musenalm_id": 45953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Mühle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hugo von Blomberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Mühle",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.462Z",
+      "agent": "ux1m3x30b0spqqa",
+      "source_id": "l4ulx6l25545kw4"
+    }
+  ]
+}

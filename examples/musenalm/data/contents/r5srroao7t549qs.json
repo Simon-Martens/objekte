@@ -1,0 +1,56 @@
+{
+  "annotation": "Portrait paginiert 3; s. Textbezug INr 58304, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58298,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. B. de Boyer / Marquis d'Argens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frisch pinx. F. Carstens sc.",
+  "scans": [
+    "alm_829_58298_5lr3w7a4zd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. B. de Boyer / Marquis d'Argens",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.754Z",
+      "agent": "pxcq3jg95iqk4au",
+      "source_id": "h3qa0v48m461zio"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.753Z",
+      "agent": "qbx7z8yvqh8m9zu",
+      "source_id": "r9b7kjhrwsntbf9"
+    }
+  ]
+}

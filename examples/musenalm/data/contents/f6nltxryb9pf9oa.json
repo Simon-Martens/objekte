@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an der Monatstabelle Januar /) Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 87922, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FEBRUAR",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. J. Gerstner sc.",
+  "scans": [
+    "alm_3099_87924_2ziv492u4f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FEBRUAR",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.128Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "3mw64ino6y6qm63"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.128Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "kczxs0imwgnou47"
+    }
+  ]
+}

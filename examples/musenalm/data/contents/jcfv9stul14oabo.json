@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "O weine nicht, weg mit den Thränen! / Mein junges Herz, o weine nicht!",
+  "language": [],
+  "musenalm_id": 95061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O weine nicht!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schulheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "O weine nicht!",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.717Z",
+      "agent": "miy11spit4lljvz",
+      "source_id": "l2p9eniuy2i98cs"
+    }
+  ]
+}

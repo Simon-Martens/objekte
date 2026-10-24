@@ -1,0 +1,45 @@
+{
+  "annotation": "Alte und junge Weisheit (Sammlung INr 46365, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Sekundenglück und Jahresschmerz, / Das ist der Fluch, der armes Herz, / Vom Himmel dir beschieden ist,",
+  "language": [],
+  "musenalm_id": 46366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 210,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sekundenglück und Jahresschmerz, / Das ist der Fluch, der armes Herz, / Vom Himmel dir beschieden ist,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Endrulat",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.398Z",
+      "agent": "iphyvrg6im9wr03",
+      "source_id": "kkjsf884dn7eqay"
+    }
+  ]
+}

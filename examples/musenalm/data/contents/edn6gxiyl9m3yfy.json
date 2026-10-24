@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied« aus »Die weiße und rote Rose« von Theodor Hell d.i. K. G. Th. Winkler INr 19403, 61734;  Obj 19, 20 /) Anhang zu Beckers Taschenbuch 1815 enthaltend: Composition und Tänze, von Dotzauer, Marschner, und Methfessel (Sammlung INr 61731, Obj 83) /) (Photos 61733,01; 61733,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61733,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied, / aus der Erzählung: die weiße und rothe Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_263_61733_01_tv5bhmr6ob.jpg",
+    "alm_263_61733_02_tyfoexl71w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied, / aus der Erzählung: die weiße und rothe Rose",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.140Z",
+      "agent": "ij45jg2izry2pga",
+      "source_id": "ivjzbdtojg7k24d"
+    }
+  ]
+}

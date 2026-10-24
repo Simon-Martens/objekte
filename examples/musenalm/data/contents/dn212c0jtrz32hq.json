@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Fortsetzung der Auszüge aus dem Achlack al-mohseni (Sammlung INr 128915, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Im alten persischen Reiche bestand ein Grundgesetz, kraft dessen die Könige ihre Gesellschafter und Hausfreunde aus den Gelehrten und Weltweisen wählen,",
+  "language": [],
+  "musenalm_id": 128916,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Der Umgang mit Guten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Der Umgang mit Guten",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.015Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "lyk3kkf571ur3b4"
+    }
+  ]
+}

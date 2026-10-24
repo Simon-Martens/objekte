@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Der Abend naht, die Sonne strahlet milder, / Und still verhallt der Vöglein Jubelsang,",
+  "language": [],
+  "musenalm_id": 87093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.370Z",
+      "agent": "tpwve3h1enyv5eo",
+      "source_id": "pdojoy5v4fvxx8s"
+    }
+  ]
+}

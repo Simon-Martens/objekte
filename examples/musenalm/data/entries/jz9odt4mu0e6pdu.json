@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Fortschritte, neuesten Erfindungen und Entdeckungen 1810",
+    "norm": "",
+    "biblio": 408575,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4131,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der Fortschritte, neuesten Erfindungen und Entdeckungen 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "D. J. B. Trommsdorf",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Fortschritte, neuesten Erfindungen / und Entdeckungen / in / Wissenschaften, Künsten, / Manufakturen / und / Handwerken, / von der Oster-Messe 1808 bis dahin 1809. / Von / mehreren Gelehrten bearbeitet / herausgegeben / von / D. J. B. Trommsdorff, / Professor in Erfurt. / Vierzehnter Jahrgang. / Mit 2 Kupfertafeln und eingedr. Figur. / Erfurt 1810, / bei Georg Adam Keyser",
+  "updated": "2026-06-11 10:18:55.520Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "182c63m8b5kdedn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "95k9zcit9j2l4pu"
+    }
+  ]
+}

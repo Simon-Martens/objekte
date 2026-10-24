@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124110, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Wir sind am Ziel – dort ist die alte Burg, / Dieß ist der Garten den man uns beschrieben.",
+  "language": [],
+  "musenalm_id": 124109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / verschleierte Dame. / Ein romantisches Spiel in einem Act / von / Deinhardstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / verschleierte Dame. / Ein romantisches Spiel in einem Act / von / Deinhardstein",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.732Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "jktzmtv6pzgymuw"
+    }
+  ]
+}

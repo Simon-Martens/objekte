@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 109874, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Herr Erlach und Rudi die Junker kühn, / Sie sitzen und schwelgen beim Wein,",
+  "language": [],
+  "musenalm_id": 109876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Besserstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Besserstein",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.308Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "p7qmpsfkthnw22h"
+    }
+  ]
+}

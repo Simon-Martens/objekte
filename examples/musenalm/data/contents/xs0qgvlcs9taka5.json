@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Die Grazien / Verherlichen / Rosalien",
+  "language": [],
+  "musenalm_id": 16937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Rosalien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Rosalien",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.825Z",
+      "agent": "anq3gu79zmuyrfg",
+      "source_id": "efhi49z6gdrqk66"
+    }
+  ]
+}

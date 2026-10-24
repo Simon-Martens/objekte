@@ -1,0 +1,67 @@
+{
+  "annotation": "mit einer Beigabe s. INr 52589, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wir übergeben der Lesewelt einen neuen Alamanch, der billig vor allem aus sein Daseyn entschuldigen muß. Auch dem kleinsten Büchlein wird es nicht so gut als den erbärmlichsten Menschen. Das Büchlein muß sagen woher, wozu, warum, wohin?",
+  "language": [],
+  "musenalm_id": 52588,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede, oder Ausrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede, oder Ausrede",
+  "updated": "2007-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.504Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "5ltcw5nu83e4vhk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.504Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "iwrn45f4i98fh47"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.504Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "yzmo6uwcpatjg0c"
+    }
+  ]
+}

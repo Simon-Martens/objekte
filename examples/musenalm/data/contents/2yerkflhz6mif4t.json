@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 167 # Bezeichnung am 1. Blatt der Suite /) s. Textbezug INr 16767, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Royalistischer Aufruhr vom 13. Ven- / demiair (5. Octb.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9101_wftysfl6ve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Royalistischer Aufruhr vom 13. Ven- / demiair (5. Octb.)",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.244Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "y3trrfp1jvloc7h"
+    }
+  ]
+}

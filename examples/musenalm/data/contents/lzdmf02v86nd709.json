@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) paginiert 1 /) Graphik im Kalendarium Februar /) s. Textbezug INr 76540, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76484,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. W. Küffner del. & sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc.",
+  "scans": [
+    "alm_3709_76484_wpqufljs2z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.910Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "3724q2l779div18"
+    }
+  ]
+}

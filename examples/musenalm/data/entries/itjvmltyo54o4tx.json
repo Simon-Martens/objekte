@@ -1,0 +1,96 @@
+{
+  "annotation": "Bezeichnung F. Berger sculpsit an der 1. Graphik der Suite von 12 Graphiken im Kalendarium zu Rousseaus »Neuer Heloise« wohl fälschlich für D. Berger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, Kr, 23 SS Kal darin 12 GG, 145 SS",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1783",
+    "norm": "~",
+    "biblio": 404184,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 794,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1783. / mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.763Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "ltnpfu0sm3vjhqh"
+  ],
+  "contents": [
+    "h7x9coxl6q0jzw9",
+    "ywtca8m7t8te0nb",
+    "0o95aa2b04b9mg1",
+    "aq0n7oo5fkn8hre",
+    "o5qx98a6o3ntmab",
+    "5il20iulnrqmpbf",
+    "952jljypb8hgd8e",
+    "addc49zvxm6sj8f",
+    "o9ffbibdt68gpwj",
+    "qzyl59eyu3pitni",
+    "0e1ym6z9d30omv2",
+    "f7v4edlzyvr9nqe",
+    "37bz1t2r6bfcqkn",
+    "onjpa3i592l5jjh",
+    "eb6udd7fykhk4gt",
+    "3au7spb83tdpb2q",
+    "nw0a519p7ibl26p",
+    "ceev16ogn2awewg",
+    "jfi0uyl2vh2kgno",
+    "3yomir6jvhbza92",
+    "9wsp1jgf56sqq5a",
+    "ny4hs1nlbqf3xhu",
+    "46rm1yk5wtc4vsw",
+    "fmc59j52krsst6d",
+    "y30lri0b3lzg5sx",
+    "bstvqeniilvaegw",
+    "0u53srjeuv0o3o0",
+    "uq0le0n6vpr3xf2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "c2dcu1g8bqanzmu"
+    }
+  ]
+}

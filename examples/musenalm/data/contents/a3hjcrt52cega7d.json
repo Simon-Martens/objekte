@@ -1,0 +1,45 @@
+{
+  "annotation": "17. Blumen vom Harze (Sammlung INr 11389, Obj 72) Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Oed' ist's hier, ich mag nicht weilen, / Lieber Führer, laß uns eilen!",
+  "language": [],
+  "musenalm_id": 11391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Rübeland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In Rübeland",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.196Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "77e0jendaifjr4u"
+    }
+  ]
+}

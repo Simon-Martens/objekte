@@ -1,0 +1,396 @@
+{
+  "annotation": "",
+  "biographical_data": "1756-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.416Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1756-06-24"
+      ],
+      "dateOfDeath": [
+        "1831-05-10"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1050551419",
+        "https://d-nb.info/gnd/1038352819"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-23T20:01:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/101984759X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XY",
+          "label": "Juden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "101984759X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/101984759X",
+      "oldAuthorityNumber": [
+        "(DE-588)1038352819",
+        "(DE-588a)101984759X",
+        "(DE-588)1050551419"
+      ],
+      "preferredName": "Lowe, Johann Michael Siegfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Michael Siegfried"
+        ],
+        "surname": [
+          "Lowe"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4299716-1",
+          "label": "Miniaturist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Miniaturmaler"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Samuel"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149558043"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19950227"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18626376"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101984759X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1038352819"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1050551419"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/101984759X"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Michael_Siegfried_Lowe"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Michael_Siegfried_L%C3%B6we"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000003014580"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101984759X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/101984759X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101984759X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/101984759X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Moses Samuel",
+        "Lowe, Johann Michael S.",
+        "Samuel, Moses",
+        "Lowe, Michael Siegfried",
+        "Lowe, Siegfried Michael",
+        "Lowe, Michael S.",
+        "Lowe, Moses Samuel",
+        "Lowe, M. S.",
+        "Löwe, Moses Samuel",
+        "Lowe, Siegfried M.",
+        "Löwe, Johann Michael Siegfried",
+        "Loewe, Johann Michael Siegfried",
+        "Lowe, Johann M.",
+        "Lowe"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "M. S."
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael S."
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Moses Samuel"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "forename": [
+            "Michael Siegfried"
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael Siegfried"
+          ],
+          "surname": [
+            "Löwe"
+          ]
+        },
+        {
+          "personalName": [
+            "Moses Samuel"
+          ]
+        },
+        {
+          "forename": [
+            "Moses Samuel"
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Samuel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann M."
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Siegfried Michael"
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Siegfried M."
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Michael S."
+          ],
+          "surname": [
+            "Lowe"
+          ]
+        },
+        {
+          "personalName": [
+            "Lowe"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael Siegfried"
+          ],
+          "surname": [
+            "Loewe"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Michael_Siegfried_Lowe",
+          "label": "https://de.wikipedia.org/wiki/Johann_Michael_Siegfried_Lowe"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:09:42Z",
+    "gnd_query_biographical_data": "1756-1831",
+    "gnd_query_name": "lowe, moses samuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1674,
+  "name": "Lowe, Moses Samuel",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIII, 421",
+  "updated": "2026-06-11 13:29:23.657Z",
+  "uri": "https://d-nb.info/gnd/101984759X",
+  "editor": ""
+}

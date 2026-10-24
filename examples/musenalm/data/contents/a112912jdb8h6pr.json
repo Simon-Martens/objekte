@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1815 (Sammlung INr 39576, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "453",
+  "incipit_statement": "Mit schneller Hand, wie um die Wette, / Schaff't Jemand oft bei Nacht ein Bild;",
+  "language": [],
+  "musenalm_id": 39592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Räthsel",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.172Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "ztpmoh7y8gkhlfc"
+    }
+  ]
+}

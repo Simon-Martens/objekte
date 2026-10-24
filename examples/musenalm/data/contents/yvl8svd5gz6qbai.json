@@ -1,0 +1,43 @@
+{
+  "annotation": "Einleitung welche zugleich die Erklärung der Kupfer enthält (Sammlung INr 32604, Obj 4) s. graph. Anleitungen INr 32623-32627, 32671; Obj 23-27,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sechs Blätter Stickerey-Muster, davon 4 ausgemalt sind;",
+  "language": [],
+  "musenalm_id": 32613,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2)",
+  "updated": "2003-03-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.570Z",
+      "agent": "1j2glyr4uzfohrn",
+      "source_id": "foa7jslkneqhub3"
+    }
+  ]
+}

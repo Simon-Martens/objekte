@@ -1,0 +1,79 @@
+{
+  "annotation": "1842-1852; 1842: Braunschweig (Otto) Wolfenbüttel (Holle), 1843: Braunschweig (Otto), 1844- mindest. 1849: Braunschweig (Meinecke); Hrsg.: W. Görges",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Postalmanach, Deutscher 1842",
+    "norm": "",
+    "biblio": 200005,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2448,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Otto); Wolfenbüttel (Holle)",
+  "places": [
+    "juyttf4bsw9orki",
+    "t73318stg3smp5g"
+  ],
+  "preferred_title": "Postalmanach, Deutscher 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Görges",
+  "subtitle_statement": "",
+  "title_statement": "Deutscher / Post-Almanach für das Jahr / 1842. / Herausgegeben / von Wilhelm Görges, / Herzogl. Braunschw. Postschreiber. / Erster Jahrgang, / mit 8 lithographirten Bildern. / Braunschweig, / Druck von Friedrich Otto. / Commission: Holle'sche Buchhandlung / in Wolfenbüttel",
+  "updated": "2026-06-11 10:18:55.298Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "17966iwivk9pikj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.044Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.044Z",
+      "agent": "oa1f4yuivi6elvo",
+      "source_id": "21lgiw5g48ddaft"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.120Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.120Z",
+      "agent": "g7ww7bglnc0n5zh",
+      "source_id": "c1tyt02nm9kj37i"
+    }
+  ]
+}

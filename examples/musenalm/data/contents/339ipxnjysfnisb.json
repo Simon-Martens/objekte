@@ -1,0 +1,46 @@
+{
+  "annotation": "VIII. Fünf Briefe (Sammlung INr 40829, Obj 34) Mit einer Übersetzung von Prediger Salomo 12, 2 ff durch den Verf.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "406",
+  "incipit_statement": "Du mußt es Deinem alten Vater nicht verargen, wenn er anfängt, ein unfleißiger Korrespondent zu werden.",
+  "language": [],
+  "musenalm_id": 40835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Stuttgardt, den 9ten Julius 1791. / Kaufmann sezt sich, und schreubt flugs, wie folgt: / Lieber Sohn!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart, der Vater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Stuttgardt, den 9ten Julius 1791. / Kaufmann sezt sich, und schreubt flugs, wie folgt: / Lieber Sohn!",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.876Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "jyr6soqel3nkt27"
+    }
+  ]
+}

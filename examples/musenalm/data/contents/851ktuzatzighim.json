@@ -1,0 +1,45 @@
+{
+  "annotation": "Trilogie der Liebe (Sammlung INr 100076, Obj16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Es trat der Mond hervor in seiner Pracht, / Und gleich, wie mit dem König die Vasallen,",
+  "language": [],
+  "musenalm_id": 100077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Bund der Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Bund der Treue",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.880Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "31zu2dhbobria9h"
+    }
+  ]
+}

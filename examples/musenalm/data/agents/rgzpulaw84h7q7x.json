@@ -1,0 +1,207 @@
+{
+  "annotation": "",
+  "biographical_data": "1787-1854",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.461Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Promotion in Wittenberg, Mediziner"
+      ],
+      "dateOfBirth": [
+        "1787-08-24"
+      ],
+      "dateOfDeath": [
+        "1854-11-04"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/130573515",
+        "https://d-nb.info/gnd/117598410"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-04T00:30:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1329556674/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1329556674",
+      "id": "https://d-nb.info/gnd/1329556674",
+      "oldAuthorityNumber": [
+        "(DE-588)130573515",
+        "(DE-588)117598410",
+        "(DE-588a)130573515",
+        "(DE-588a)117598410"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4550686-3",
+          "label": "Lieberose"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/7689141-0",
+          "label": "Marbach (Striegistal)"
+        }
+      ],
+      "preferredName": "Rublack, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Rublack"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60840903"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117598410"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/130573515"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1329556674/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Rublack, Carl Friedrich August",
+        "Rublack, Karl Friedrich August",
+        "Rublack, Carolus Fridericus Augustus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Friedrich August"
+          ],
+          "surname": [
+            "Rublack"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich August"
+          ],
+          "surname": [
+            "Rublack"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus Augustus"
+          ],
+          "surname": [
+            "Rublack"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:42:24Z",
+    "gnd_query_biographical_data": "1787-1854",
+    "gnd_query_name": "rublack, karl friedrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2335,
+  "name": "Rublack, Karl Friedrich August",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed VI, 414",
+  "updated": "2026-06-11 13:29:24.423Z",
+  "uri": "https://d-nb.info/gnd/1329556674",
+  "editor": ""
+}

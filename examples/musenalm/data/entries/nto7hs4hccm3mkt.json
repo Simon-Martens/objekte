@@ -1,0 +1,53 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Etrennes aux amateurs de Vénus 1787",
+    "norm": "",
+    "biblio": 409648,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4581,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Etrennes aux amateurs de Vénus 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "G-C 219",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ETRENNES / AUX / AMATEURS / DE / VÉNUS / A PAPHOS, / OU CYTHERE",
+  "updated": "2026-06-11 10:18:55.621Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "s02os3fgs007ah8"
+  ],
+  "contents": [],
+  "agents": []
+}

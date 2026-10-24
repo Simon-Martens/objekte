@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78148, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Da bin ich wieder. / Nun was hast du ausgekundschaftet? / So eben ist in dem gräflichen Schlosse ein Brief angekommen, der große Bestürzung verbreitet hat.",
+  "language": [],
+  "musenalm_id": 78147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geist / oder / die unterbrochene Theaterprobe. / Ein Schwank in Einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. H. Friedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geist / oder / die unterbrochene Theaterprobe. / Ein Schwank in Einem Aufzuge",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "ig1o98q79i5gv1i",
+      "source_id": "cbvy86yg16gqm0c"
+    }
+  ]
+}

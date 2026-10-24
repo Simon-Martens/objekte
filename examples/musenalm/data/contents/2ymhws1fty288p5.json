@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Ratschkys Singspiel »Weiß und Rosenfarb« in: Musenalmanach, Wiener 1777, INr 30697",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Ha! Zänkerinn, Das sollst du büssen!",
+  "language": [],
+  "musenalm_id": 30868,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwey Arietten zu Weiß und Rosenfarb. / S. 58. nach den Worten: soll ich Art lehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwey Arietten zu Weiß und Rosenfarb. / S. 58. nach den Worten: soll ich Art lehren",
+  "updated": "2003-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.707Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "ykspw878au0gknw"
+    }
+  ]
+}

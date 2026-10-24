@@ -1,0 +1,86 @@
+{
+  "annotation": "Titelportrait (Goethe) F. Oberkogler sculp. Neben einer Sammlung von 8 Gedichten des Graphikers und Dichterdilletanten Balthasar Anton Dunker bingt der Almanach Goethes »Herrmann und Dorothea« mit Nachstichen von 3 Illustrationen von Chodowiecki bzw Küffner zu »Herrmann und Dorothea« von J. W. v. Goethe aus: Taschenbuch für Frauenzimmer von Bildung 1799; INr 21758, 21761, 21762",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 7 BB Kal, ar: SS 1-14, S T, ar1: SS 1-97 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Berner (Goethe: Herrmann und Dorothea) 1804",
+    "norm": "~",
+    "biblio": 404895,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1120,
+  "parallel_title": "",
+  "place_statement": "Bern (Typographische Societäts-Buchhandlung)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Taschenkalender, Berner (Goethe: Herrmann und Dorothea) 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; nicht bei G",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berner / Taschen-Kalender / auf / das Jahr 1804. / Bern, bey der Typographischen / Societäts-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.249Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "h5y7s4y4dfvjrm1"
+  ],
+  "contents": [
+    "q1x3zdqr5ixmsa0",
+    "06whayf1myo9g71",
+    "sxlj9ymsdxsaznk",
+    "sd180az91ybjyht",
+    "rdkymp3m18mwjp1",
+    "ug3kytuusxmfjr9",
+    "2q61ce1pqohob62",
+    "y23cc2jbg7tkeh8",
+    "g1gft89l30275m2",
+    "5kvavz68hfth8hv",
+    "17go9g7p68ggdqz",
+    "ot9d8x02anayy60",
+    "vlqowaeexlsbxxo",
+    "qwt6q8lxk5vaozw",
+    "bys9igeqn6voqqm",
+    "2nadbhstgl9qffs",
+    "azpjzskn17tlccb",
+    "6d1w330qiu2b8u1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.167Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.167Z",
+      "agent": "07f6zdnozvymj0q",
+      "source_id": "tvi4nyyw51vvquz"
+    }
+  ]
+}

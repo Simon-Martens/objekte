@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Die Faust ist schwach, das Haar ist grau, / Ich mag kein Roß mehr lenken;",
+  "language": [],
+  "musenalm_id": 14283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Vaters Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Vaters Abschied",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.860Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "ucblzm37bnbtbat"
+    }
+  ]
+}

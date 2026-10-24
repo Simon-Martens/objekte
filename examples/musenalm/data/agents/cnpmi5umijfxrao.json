@@ -1,0 +1,272 @@
+{
+  "annotation": "",
+  "biographical_data": "17? - 1799",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.314Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Pädagoge und Dichter; Hauslehrer; ab 1759 Konrektor der Ratsschule in Hann. Münden; lebte seit 1797 in Erfurt"
+      ],
+      "dateOfDeath": [
+        "1799-04-01"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T19:29:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/12118661X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Sophie Elisabeth"
+          ],
+          "surname": [
+            "Bauermeister"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119108267",
+          "label": "Einem, Charlotte von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "12118661X",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119108267",
+          "label": "Einem, Charlotte von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/12118661X",
+      "oldAuthorityNumber": [
+        "(DE-588a)12118661X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4098444-8",
+          "label": "Kirchweyhe (Uelzen)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2018960-6",
+          "label": "Münden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4227295-6",
+          "label": "Stolzenau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        }
+      ],
+      "preferredName": "Einem, Johann Konrad von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Konrad"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Einem"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        }
+      ],
+      "publication": [
+        "Einem, Johann Konrad von: Witz und Gutmüthigkeit Friedrichs des Einzigen, in Poetischem Gew*. - 1799"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77164968"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55124253"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12118661X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/12118661X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd12118661X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/12118661X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Einem, Johann C. von",
+        "Einem, Johann Konrad",
+        "Einem, Johann Conrad von",
+        "Einem, Johann K. von",
+        "Einem, Johann Conrad",
+        "Einem, Johannes Konrad von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes Konrad"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Conrad"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Konrad"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Conrad"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Einem"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:18:06Z",
+    "gnd_query_biographical_data": "17? - 1799",
+    "gnd_query_name": "einem, johann konrad von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 634,
+  "name": "Einem, Johann Konrad von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 971; ADB V, 758",
+  "updated": "2026-06-11 13:29:22.146Z",
+  "uri": "https://d-nb.info/gnd/12118661X",
+  "editor": ""
+}

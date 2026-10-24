@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach oder Taschenbuch für Scheidekünstler und Apotheker 1807",
+    "norm": "",
+    "biblio": 404426,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1383,
+  "parallel_title": "",
+  "place_statement": "Weimar (Hoffmann)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Almanach oder Taschenbuch für Scheidekünstler und Apotheker 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 19; L/R 172",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / oder / Taschen-Buch / für / Scheidekünstler und Apotheker / auf das Jahr 1807. / Weimar, / in der Hoffmannischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.946Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "l2f1tqrf7gld0aq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.892Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.892Z",
+      "agent": "zdx2xr44xgrz9w7",
+      "source_id": "gm1ndj16lxrs9mc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.035Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.035Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "zy5swcpcz9m8whg"
+    }
+  ]
+}

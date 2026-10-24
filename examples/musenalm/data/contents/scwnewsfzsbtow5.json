@@ -1,0 +1,45 @@
+{
+  "annotation": "Das für einen Reisenden Merkwürdigste und Interessanteste von den vornehmen Ländern und Städten in Deutschland (INr 97418, Ob 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97403,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bestimmung des Werthes / der gangbarsten / Münzen in Deutschland. / G. bedeutet Gold; S. Silber; K. Kupfer und / F. fingirte Münze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bestimmung des Werthes / der gangbarsten / Münzen in Deutschland. / G. bedeutet Gold; S. Silber; K. Kupfer und / F. fingirte Münze",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.632Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "lqr7xejyp3pss0s"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "2. Aufl. des Jg 1816",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Parodien und Travestien 1826",
+    "norm": "",
+    "biblio": 106375,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-11-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4756,
+  "parallel_title": "",
+  "place_statement": "Leipzig ( Taubert)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Parodien und Travestien 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 15; L/R 214",
+  "responsibility_statement": "C. F. Solbrig",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DER / Parodien / und / Travestien. / Herausgegeben / von / C. F. SOLBRIG. / Zweite vermehrte und verbesserte Ausgabe. / LEIPZIG, / Taubert'sche Buchhandlung 1826",
+  "updated": "2026-06-11 10:18:55.103Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "xllunl8hn98pgyi"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.418Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.418Z",
+      "agent": "etqeiq0g3gswd8j",
+      "source_id": "6ug0jxlxqhma4qa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "ktx34ni1t0sk6h0",
+      "source_id": "w4pc53wkpego964"
+    }
+  ]
+}

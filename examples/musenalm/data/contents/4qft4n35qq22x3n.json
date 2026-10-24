@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Fabeln (INr 93355, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Dem Dichter Honigseim / Ihr kennt ihn, seine Stärke ist der Reim / Warf jüngst des Söhnleins Übermuth / Den neu'sten Band erlesener Gedichte / In den Kamin.",
+  "language": [],
+  "musenalm_id": 93357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macht der Poesie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. Bernard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Macht der Poesie",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.459Z",
+      "agent": "32czpb0kbok37kn",
+      "source_id": "zjaa80sj0i6akow"
+    }
+  ]
+}

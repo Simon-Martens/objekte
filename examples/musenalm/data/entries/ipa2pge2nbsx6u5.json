@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Militäralmanach, Oesterreichischer 1800",
+    "norm": "",
+    "biblio": 409652,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-08-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4587,
+  "parallel_title": "",
+  "place_statement": "Wien (Gräffer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Militäralmanach, Oesterreichischer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 77; nicht bei L/R",
+  "responsibility_statement": "Gräffer",
+  "subtitle_statement": "",
+  "title_statement": "OESTERREICHISCHER / MILITAER- / ALMANACH / für das Jahr / 1800. / Wien bey Cath. Gräffer",
+  "updated": "2026-06-11 10:18:55.932Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "rpr0pm1wwbyt583"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.926Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.926Z",
+      "agent": "5c5y52yi3jjq5ok",
+      "source_id": "d1s5ml0drznd6uf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.390Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.390Z",
+      "agent": "ownqf1g5q5avd5y",
+      "source_id": "mz0s4tm20dwpi9p"
+    }
+  ]
+}

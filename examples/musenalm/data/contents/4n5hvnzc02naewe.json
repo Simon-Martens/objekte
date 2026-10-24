@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Wie unser Pfarrer selbst sich widerspricht! / Mich warnt er oft; Kind, liebt den Heinrich nicht",
+  "language": [],
+  "musenalm_id": 122939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widerspruch. / Louischesn Selbstgespräch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widerspruch. / Louischesn Selbstgespräch",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.823Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "joi6ivdta853yyn"
+    }
+  ]
+}

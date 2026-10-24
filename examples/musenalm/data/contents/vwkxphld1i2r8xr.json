@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt im Kalendarium /) Graphik im Kalendarium paginiert 5 /) Illustration zu Motiven aus »Mährchen, Erzählungen, kleine Romane« von Aug. Lafontaine (Berlin 1801)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56775,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lafontaine kleine Romane 9r. theil. / Ich fand, daß ich meine 40 Jahre auf / den Rücken hatte; das Handschuhbinden mißrith gänzlich. / p 122",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner de sct.1802",
+  "scans": [
+    "alm_47_56775_jqdaje9cxy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lafontaine kleine Romane 9r. theil. / Ich fand, daß ich meine 40 Jahre auf / den Rücken hatte; das Handschuhbinden mißrith gänzlich. / p 122",
+  "updated": "2008-04-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.927Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "53hyq61fvlxo6ey"
+    }
+  ]
+}

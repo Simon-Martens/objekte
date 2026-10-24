@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln (Sammlung INr 91618, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Einst sah ein junger Krebs aus seiner Höhl' am Strande / Der muntern Muschel zu, die auf dem Ufersande / Des nahen Stroms ihr Haus jetzt auseinander bog,",
+  "language": [],
+  "musenalm_id": 91622,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Muschel und der Krebs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Muschel und der Krebs",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.250Z",
+      "agent": "ktano13bmefet8q",
+      "source_id": "tuseeb1jpe7e83y"
+    }
+  ]
+}

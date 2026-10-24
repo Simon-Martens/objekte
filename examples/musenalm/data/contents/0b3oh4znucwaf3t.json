@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen d. Hrsg. Laurop /) mit einer Illustration s. Titelportrait INr 67128, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mein Lieber! Sie wünschen dem Forst- und Jagd-Publikum meine Lebensbeschreibung, in Ihrem beliebten Sylvan, mitzutheilen. Hier ist sie für diesen Zweck;",
+  "language": [],
+  "musenalm_id": 67134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Ober- Landforstmeister und Staatsrath / Hartig zu Berlin / an / den Oberforstrath Laurop zu Karlsruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Ludwig Hartig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Ober- Landforstmeister und Staatsrath / Hartig zu Berlin / an / den Oberforstrath Laurop zu Karlsruhe",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.368Z",
+      "agent": "hgrjbmc4usfwpzd",
+      "source_id": "himws4c7iuiwfev"
+    }
+  ]
+}

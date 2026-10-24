@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensansichten (Sammlung INr 14570, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Ich weiß wohl einen Apfelbaum, / Der streckt die dunkellaub'gen Äste / Rings abwärts bis zur Erde Saum,",
+  "language": [],
+  "musenalm_id": 14575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Die Häusliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Die Häusliche",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.737Z",
+      "agent": "jho0bsnjm9w01d5",
+      "source_id": "816bhkv9ez4e3ss"
+    }
+  ]
+}

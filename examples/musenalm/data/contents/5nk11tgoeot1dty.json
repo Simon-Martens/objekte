@@ -1,0 +1,45 @@
+{
+  "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5) s. folgendes Gedicht INr 92162, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "So nennt man insgemein zwey große wohlgebaute Häuser am Ende der Wiese, in denen sich zur ebenen Erde und im ersten Stocke Säle befinden,",
+  "language": [],
+  "musenalm_id": 92161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "m) Der sächsische und böhmische Saal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "m) Der sächsische und böhmische Saal",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.342Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "w9dqhiagwvm6h2d"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73691,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grazien Beruf ist - wahr zu seyn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Schubert gest. v. Hoppe",
+  "scans": [
+    "alm_645_73691_92n9pugtif.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Grazien Beruf ist - wahr zu seyn",
+  "updated": "2007-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.755Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "6rwhner955qntkf"
+    }
+  ]
+}

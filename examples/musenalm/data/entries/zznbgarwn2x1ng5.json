@@ -1,0 +1,94 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Bern",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, 8 BB G-Verz darin 4 GG §1§-§2§, SS 1-258, SS 258-259 I-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1819",
+    "norm": "~+++ 408940 (2 Trachtenkupfer)",
+    "biblio": 200429,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 719,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1819. / Zürich, / bey Orell, Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.165Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "k8vm5zzzwzl6xp5",
+    "qfldkbfba8vtun1"
+  ],
+  "contents": [
+    "3ff0bje8rq1kq11",
+    "o18aineehio0cqp",
+    "yum9ixqnjbhnhdy",
+    "1zwbj00nrmd8gqf",
+    "qvm6m6neiivg54v",
+    "7savmhj6nmp3vsg",
+    "o143xpsn3y1b598",
+    "7yu7oj8s31x0i19",
+    "vkzftwv4wtg3260",
+    "lwnv2rkl35kwnpn",
+    "f7gx69c01kh74wo",
+    "iyh5jolu5zw0m7g",
+    "osk9h4winitl1fr",
+    "910h970dcbz4j9h",
+    "rhe549961obynky",
+    "dv9pn9rhiwxrv3n",
+    "g3nuj0t9izdsw6r",
+    "01cbna52ll2n6qw",
+    "8s30htedf3aun7y",
+    "s39xtvpm4aul17t",
+    "f80lj7cbuhr465j",
+    "k18z6efb2jw03nj",
+    "6jqkhesftpmmm8y",
+    "ve5ra95cufbkypx",
+    "6xd9sv0wio8ldqi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.118Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.118Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "srgbt0y0v6rv9q7"
+    }
+  ]
+}

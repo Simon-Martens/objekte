@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Wild schnaubt der Held im Recensenten- / glanze, / Hält seinen stumpfen Kiel für Argals Lanze,",
+  "language": [],
+  "musenalm_id": 3879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Murzuphlus der Kritiker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bajocco Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Murzuphlus der Kritiker",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.953Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "i6p8lu7bqbic9ek"
+    }
+  ]
+}

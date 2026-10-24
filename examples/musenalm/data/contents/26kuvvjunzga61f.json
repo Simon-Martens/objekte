@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Was ists, das Herz an Herzen bindet, / Und uns die schönsten Kränze windet?",
+  "language": [],
+  "musenalm_id": 84695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Vertrauen. / An Adolph von Malapert - Neufville, / aus Frankfurt am Main. / Den 9. November 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Vertrauen. / An Adolph von Malapert - Neufville, / aus Frankfurt am Main. / Den 9. November 1803",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.101Z",
+      "agent": "qxcj6iktsu2xp76",
+      "source_id": "3mpsw8mp12krx6r"
+    }
+  ]
+}

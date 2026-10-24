@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Was ich hier gesäet habe, / Dafür wird mir einst der Lohn. / Ja gewiß! dort über'm Grabe / Reifet meine Ernte schon.",
+  "language": [],
+  "musenalm_id": 101389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vergeltung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herrmann Waldov",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vergeltung",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.709Z",
+      "agent": "nicecucaceak00n",
+      "source_id": "3wg7asuqg4bbn7x"
+    }
+  ]
+}

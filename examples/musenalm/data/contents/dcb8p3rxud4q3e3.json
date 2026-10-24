@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Ach! wie bist du, o Tod! so wundersüß und / so herbe",
+  "language": [],
+  "musenalm_id": 84060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.971Z",
+      "agent": "8jkm2mpf22llpf2",
+      "source_id": "w5mxyzjrjwk994b"
+    }
+  ]
+}

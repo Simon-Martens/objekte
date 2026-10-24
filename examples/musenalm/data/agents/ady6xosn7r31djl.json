@@ -1,0 +1,930 @@
+{
+  "annotation": "",
+  "biographical_data": "1714-1788",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.243Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "\"Berliner\" oder \"Hamburger Bach\"; 1738/40 im Dienst Friedrich II. von Preußen; seit 1768 Kantor und Musikdirektor in Hamburg"
+      ],
+      "dateOfBirth": [
+        "1714-03-08"
+      ],
+      "dateOfDeath": [
+        "1788-12-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Johann Philipp Bach"
+          ],
+          "creditText": [
+            "http://www.cpebach.org/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Philipp%20Emanuel%20Bach.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Philipp%20Emanuel%20Bach.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Philipp%20Emanuel%20Bach.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/131201913",
+        "https://d-nb.info/gnd/1032171006",
+        "https://d-nb.info/gnd/157689522"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118505505/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11850553X",
+          "label": "Bach, Johann Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123566452",
+          "label": "Bach, Johann August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117764523",
+          "label": "Bach, Johanna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505521",
+          "label": "Bach, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128732369",
+          "label": "Bach, Maria Barbara"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505548",
+          "label": "Bach, Wilhelm Friedemann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118651471",
+          "label": "Bach, Johann Christoph Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1169173039",
+          "label": "Bach, Anna Carolina Philippina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135772559",
+          "label": "Bach, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124534767",
+          "label": "Bach, Johann Sebastian"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118505505",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1169173039",
+          "label": "Bach, Anna Carolina Philippina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124534767",
+          "label": "Bach, Johann Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123566452",
+          "label": "Bach, Johann August"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/11850553X",
+          "label": "Bach, Johann Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128732369",
+          "label": "Bach, Maria Barbara"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118505521",
+          "label": "Bach, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135772559",
+          "label": "Bach, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118651471",
+          "label": "Bach, Johann Christoph Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505548",
+          "label": "Bach, Wilhelm Friedemann"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117764523",
+          "label": "Bach, Johanna Maria"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118505505",
+      "oldAuthorityNumber": [
+        "(DE-588)1032171006",
+        "(DE-588c)4004107-4",
+        "(DE-588a)157689522",
+        "(DE-101c)310008751",
+        "(DE-588a)185679803",
+        "(DE-588a)131201913",
+        "(DE-588a)134318757",
+        "(DE-588)157689522",
+        "(DE-588)131201913",
+        "(DE-588a)118505505"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041908-3",
+          "label": "Neuruppin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Bach, Carl Philipp Emanuel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Philipp Emanuel"
+        ],
+        "surname": [
+          "Bach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170836-2",
+          "label": "Musikwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13975298w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79074233"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/204566"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76428"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118505505"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1032171006"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118505505/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131201913"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157689522"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Philipp_Emanuel_Bach"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Carl_Philipp_Emanuel_Bach"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110198135"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118505505"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1765_zurwohnung;3"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118505505"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118505505.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118505505.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118505505"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/08F333277B254A0AAC67CDA62256B455"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118505505"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bach, Philipp E.",
+        "Bach, Carlo Philippo Emanuele",
+        "Bach, Karl Philipp Emanuel",
+        "Bach, Carlo Filippo Emanuele",
+        "Bach, Ph. Eman.",
+        "Bach, C. Phil. Em.",
+        "Bach, C. F. E.",
+        "Bach, C. Ph. Em.",
+        "Bach, Karl Phil. Eman.",
+        "Bach, Ph. Em.",
+        "Bach, C. P. E.",
+        "Bach, Carl Philipp Emmanuel",
+        "Bach, C. Ph. Emm.",
+        "Bach, Philipp Em.",
+        "Bach, Emanuel",
+        "Bahha, P. E.",
+        "Bach, Em.",
+        "Bach, Carl-Philipp E.",
+        "Bach, P. Em.",
+        "E. B.",
+        "Bach, Karl Philipp Emanvel",
+        "Bach, Carl P.",
+        "Bach, Carl-Philipp Emanuel",
+        "Bach, Ph. E.",
+        "Bach, C. Ph. E.",
+        "Bach, C. F. Emanuele",
+        "Bach, Carl Phil. Em.",
+        "Bah, Karl Filip Emanuel",
+        "Bach, C. Philipp Emanuel",
+        "Bach, Charles Philippe Emmanuel",
+        "Bach, K. Philipp Emanuel",
+        "Bach, Carl Ph. E.",
+        "Bach, Carl Filipp Emanuel",
+        "Berliner Bach",
+        "Bach, Philipp Emmanuel",
+        "Bach, Carlo Filippo Emmanuele",
+        "Bach, Carl Ph. Em.",
+        "Bach, K. P. E.",
+        "Bach, Fil. Em.",
+        "Bach, Karl P.",
+        "Bach, K. Ph. E.",
+        "Bach, C. F. Em.",
+        "Hamburger Bach",
+        "Bach, Karl Phil. Emanuel",
+        "Bach, Carl Phil. Emanuel",
+        "Bach, Philipp Emanuel",
+        "Bach",
+        "Bach, Carl Philipp Emanuell",
+        "Bach, Carl Philip Emanuel",
+        "Bach, E."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Phil. Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Philippe Emmanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Emmanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl-Philipp E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Philippo Emanuele"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "E. B."
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Phil. Eman."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. Phil. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "K. Philipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. Ph. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Philipp Emanvel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Filipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ph. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. Ph. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Phil. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "P. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. Emanuele"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl-Philipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Philip Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Hamburger Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Philipp Emanuell"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Phil. Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. Ph. Emm."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Ph. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Filip Emanuel"
+          ],
+          "surname": [
+            "Bah"
+          ]
+        },
+        {
+          "forename": [
+            "K. Ph. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Philipp Emmanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Filippo Emanuele"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Ph. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Ph. Eman."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Fil. Em."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "P. E."
+          ],
+          "surname": [
+            "Bahha"
+          ]
+        },
+        {
+          "forename": [
+            "C. P. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl P."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "C. Philipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Philipp Emanuel"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl P."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Berliner Bach"
+          ]
+        },
+        {
+          "forename": [
+            "K. P. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Filippo Emmanuele"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ph. E."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach",
+          "label": "https://de.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:51:00Z",
+    "gnd_query_biographical_data": "1714-1788",
+    "gnd_query_name": "bach, carl philipp emanuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 86,
+  "name": "Bach, Carl Philipp Emanuel",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB I, 744",
+  "updated": "2026-06-11 13:29:21.430Z",
+  "uri": "https://d-nb.info/gnd/118505505",
+  "editor": ""
+}

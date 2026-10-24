@@ -1,0 +1,67 @@
+{
+  "annotation": "5 Jgg 1839-1841, 1844, 1846; Freiburg (Emmerling); Hrsg.: Heinrich Schreiber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "5 Jgg 1839-1841, 1844, 1846; Freiburg (Emmerling); Hrsg.: Heinrich Schreiber",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Geschichte und Alterthum in Süddeutschland 1839",
+    "norm": "",
+    "biblio": 101335,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2845,
+  "parallel_title": "",
+  "place_statement": "Freiburg (Emmerling)",
+  "places": [
+    "nmnwnqcyxaqev1h"
+  ],
+  "preferred_title": "Taschenbuch für Geschichte und Alterthum in Süddeutschland 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Diesch 3995",
+  "responsibility_statement": "Dr. Heinrich Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Geschichte und Alterthum / in / Süddeutschland / Herausgegeben / von / Dr. Heinrich Schreiber. / Freiburg im Breisgau. / Universitäts-Buchhandlung von Adolph Emmerling. / 1839",
+  "updated": "2026-06-11 10:18:54.731Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "oc3xhchsvrlsa63"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.768Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.768Z",
+      "agent": "4wtyaw8whjyal3d",
+      "source_id": "bqh855c0r7pl2wr"
+    }
+  ]
+}

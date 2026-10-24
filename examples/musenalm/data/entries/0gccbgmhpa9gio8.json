@@ -1,0 +1,67 @@
+{
+  "annotation": "TA von: Neuestes Taschenbuch für Frauenzimmer edlerer Bildung. Von Eulalia Gutwill. Erster Jahrgang. Mit Kupfern. Leipzig, in der Sommerschen Buchhandlung. 1801 (Alm-1103)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, B G-Verz, ar: SS 1-292, ar1: SS 1-16 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Frauenzimmer edlerer Bildung [oJ]",
+    "norm": "",
+    "biblio": 200035,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2796,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Frauenzimmer edlerer Bildung [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Frauenzimmer / edlerer Bildung / Mit Kupfern. / Leipzig, / in der Sommerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.706Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "dgc6ymenai99l0o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "xgxeq5sxo5kt0go"
+    }
+  ]
+}

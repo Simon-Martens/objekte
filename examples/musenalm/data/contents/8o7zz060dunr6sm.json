@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 33664, Obj 19 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33665,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die büßende Magdalena #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Canova inv. Lambert sculp.",
+  "scans": [
+    "alm_467_33665_vpw7zdhlxt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die büßende Magdalena #",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.703Z",
+      "agent": "9lwet5ce7lt672a",
+      "source_id": "58kdh4i3phrtcmm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.703Z",
+      "agent": "jd76dxa9fdnopey",
+      "source_id": "dzu19v1tw6qruxt"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123442, Obj 10; # Bezeichnung aus den Vorworten bis Jg. 1806",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Nein, nein, nein, / Ich seh’ es endlich ein, / Man muß sich bequemen / Eine Frau zu nehmen –",
+  "language": [],
+  "musenalm_id": 123444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hagestolz und die Körbe. / Ein Intermezzo",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hagestolz und die Körbe. / Ein Intermezzo",
+  "updated": "2018-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.770Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "v874o4vzn73mdot"
+    }
+  ]
+}

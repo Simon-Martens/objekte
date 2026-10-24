@@ -1,0 +1,312 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1845",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Steindrucker, Graphik-Sammler und Kunsthistoriker"
+      ],
+      "dateOfBirth": [
+        "1764-07-05"
+      ],
+      "dateOfDeath": [
+        "1845-03-01"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Otto Speckter"
+          ],
+          "creditText": [
+            "http://resolver.sub.uni-hamburg.de/goobi/PPN663944163"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/PPN663944163%20Joh.%20Michael%20Speckter.%20%281839%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/PPN663944163%20Joh.%20Michael%20Speckter.%20%281839%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:PPN663944163%20Joh.%20Michael%20Speckter.%20%281839%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T09:14:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10409186X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119041626",
+          "label": "Speckter, Otto"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10409186X",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119041626",
+          "label": "Speckter, Otto"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10409186X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10409186X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4841237-5",
+          "label": "Uthlede"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Speckter, Johann Michael",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Michael"
+        ],
+        "surname": [
+          "Speckter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4128272-3",
+          "label": "Kaufmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4451607-1",
+          "label": "Privatgelehrter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4179037-6",
+          "label": "Sammler"
+        }
+      ],
+      "publication": [
+        "Verzeichniss der Kupferstichsammlung des Herrn J. M. Spekter in Hamburg. - 1822"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29960706"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1698043"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10409186X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johannes_Michael_Speckter"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johannes_Michael_Speckter"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10409186X"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10409186X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10409186X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/10409186X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Spekter, J. M.",
+        "Speckter, J. M.",
+        "Spekter, Johann Michael",
+        "Speckter, Johannes Michael",
+        "Speckter, Johann M."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann M."
+          ],
+          "surname": [
+            "Speckter"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Michael"
+          ],
+          "surname": [
+            "Speckter"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "surname": [
+            "Spekter"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael"
+          ],
+          "surname": [
+            "Spekter"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "surname": [
+            "Speckter"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johannes_Michael_Speckter",
+          "label": "https://de.wikipedia.org/wiki/Johannes_Michael_Speckter"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:00:45Z",
+    "gnd_query_biographical_data": "1764-1845",
+    "gnd_query_name": "speckter, johann michael"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2703,
+  "name": "Speckter, Johann Michael",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 348",
+  "updated": "2026-06-11 13:29:25.095Z",
+  "uri": "https://d-nb.info/gnd/10409186X",
+  "editor": ""
+}

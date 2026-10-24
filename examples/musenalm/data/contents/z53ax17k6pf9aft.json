@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Erster will im Dorf ich lieber / Als in Rom der Zweite sein! / Solcher Sinn wuchs an der Tiber / Nicht zur Götterzeit allein.",
+  "language": [],
+  "musenalm_id": 80538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cäsar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cäsar",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.756Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "8ss5oxdhs4juozb"
+    }
+  ]
+}

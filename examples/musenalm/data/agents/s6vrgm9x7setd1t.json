@@ -1,0 +1,453 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.513Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller und Arzt; Medizin- und Philosophiestudium in Leipzig und Jena, ab 1809 Redakteur des \"Fränk. Merkurs\"; nach älteren Vermutungen möglicherw. Verf. des anonym ersch. Romans \"Die Nachtwachen des Bonaventura\" (wird nach neueren Erkenntnissen aber Ernst August Friedrich Klingemann zugeschrieben)"
+      ],
+      "dateOfBirth": [
+        "1779-09-14"
+      ],
+      "dateOfDeath": [
+        "1819-07-27"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-26T11:21:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118767542/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Henäcker"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118767542",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118767542",
+      "oldAuthorityNumber": [
+        "(DE-588a)118767542",
+        "(DE-588a)103996311",
+        "(DE-588c)4108090-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4004968-1",
+          "label": "Bautzen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4004391-5",
+          "label": "Bamberg"
+        }
+      ],
+      "preferredName": "Wetzel, Friedrich Gottlob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Gottlob"
+        ],
+        "surname": [
+          "Wetzel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4121541-2",
+          "label": "Puppenspieler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dramatiker",
+        "Schriftleiter",
+        "Lyriker"
+      ],
+      "publication": [
+        "Weyrauch, August H. von: Nach Osten! - ca. 1845",
+        "Rhinoceros",
+        "Jeanne d'Arc",
+        "Briefe über Brown's System der Heilkunde",
+        "Gesammelte Gedichte und Nachlaß",
+        "Prolog zum großen Magen",
+        "Kunz, Carl F.: Kurze Geschichte des Buchs: Sarsena",
+        "Magischer Spiegel ..",
+        "Die  Hämorrhoiden nebst Mitteln dagegen",
+        "Aus dem Kriegs- und Siegesjahr ..",
+        "Schriftproben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr96028287"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27867304"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q106711"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118767542/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Friedrich_Gottlob_Wetzel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gottlob_Wetzel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Gottlob_Wetzel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Friedrich_Gottlob_Wetzel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108826999"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118767542"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118767542"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Wezel, Karl",
+        "Wetzel, K. F. G.",
+        "Wezel, Karl Friedrich Gottlob",
+        "Wetzel, Carl Friedrich Gottlob",
+        "Wetzel, Karl Friedrich Gottlob",
+        "Wetzel, Carl",
+        "Wetzel, Karl Friedrich Gottlob Karl",
+        "Wetzel, Karl",
+        "Theophrast",
+        "Wezel, Carl",
+        "Wetzel, Friedrich G.",
+        "Wezel, Friedrich Gottlob",
+        "Theophrastus, Teutonicus",
+        "Wetzel, F.",
+        "Wetzel, F. G.",
+        "Wezel, Carl F.",
+        "Wetzel, Carl F.",
+        "Wezel, Carl Friedrich Gottlob",
+        "Wetzel, Friedrich",
+        "Wetzel, Karl F.",
+        "Wetzel, Friedrich Gottlob Karl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Gottlob Karl"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich Gottlob"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "F. G."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        },
+        {
+          "forename": [
+            "K. F. G."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Gottlob Karl"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Gottlob"
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Wetzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Gottlob"
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        },
+        {
+          "personalName": [
+            "Theophrast"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich Gottlob"
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Teutonicus"
+          ],
+          "personalName": [
+            "Theophrastus"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlob"
+          ],
+          "surname": [
+            "Wezel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Gottlob_Wetzel",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Gottlob_Wetzel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:21:39Z",
+    "gnd_query_biographical_data": "1779-1819",
+    "gnd_query_name": "wetzel, karl friedrich gottlob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3126,
+  "name": "Wetzel, Karl Friedrich Gottlob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 845; Goed XI/1, 344",
+  "updated": "2026-06-11 13:29:25.732Z",
+  "uri": "https://d-nb.info/gnd/118767542",
+  "editor": ""
+}

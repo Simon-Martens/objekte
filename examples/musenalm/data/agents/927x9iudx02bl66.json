@@ -1,0 +1,758 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1814",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.322Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2174952-8",
+          "label": "Universität zu Jena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1036337227",
+          "label": "Universität zu Berlin"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Philosoph; 1794-1799 Professor in Jena; Mitgründer der Berliner Universität, 1810 Dekan und 1811-1812 Rektor"
+      ],
+      "dateOfBirth": [
+        "1762-05-19"
+      ],
+      "dateOfDeath": [
+        "1814-01-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Albrecht Fürchtegott Schultheiß"
+          ],
+          "creditText": [
+            "https://www.bildarchivaustria.at/Pages/ImageDetail.aspx?p_iBildID=8926861"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottlieb%20Fichte%20by%20Friedrich%20Bury.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottlieb%20Fichte%20by%20Friedrich%20Bury.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gottlieb%20Fichte%20by%20Friedrich%20Bury.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/158734718",
+        "https://d-nb.info/gnd/159994535",
+        "https://d-nb.info/gnd/16035322X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-08T08:15:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118532847/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10066151",
+          "label": "http://lod.gesis.org/thesoz/concept_10066151"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/107609936X",
+          "label": "Rahn, Hartmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118687018",
+          "label": "Fichte, Immanuel Hermann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1216251185",
+          "label": "Fichte, Christian"
+        },
+        {
+          "forename": [
+            "Maria Dorothea"
+          ],
+          "surname": [
+            "Schurich"
+          ]
+        },
+        {
+          "forename": [
+            "Clara von"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118687026",
+          "label": "Fichte, Johanna"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118532847",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118687018",
+          "label": "Fichte, Immanuel Hermann"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1216251185",
+          "label": "Fichte, Christian"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118687026",
+          "label": "Fichte, Johanna"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118532847",
+      "oldAuthorityNumber": [
+        "(DE-588a)158734718",
+        "(DE-588)158734718",
+        "(DE-588)159994535",
+        "(DE-588a)159994535",
+        "(DE-588a)118532847",
+        "(DE-588)16035322X",
+        "(DE-588a)16035322X",
+        "(DE-588c)4017046-9"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4368618-7",
+          "label": "Rammenau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Fichte, Johann Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottlieb"
+        ],
+        "surname": [
+          "Fichte"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Deducirter Plan einer zu Berlin zu errichtenden höhern Lehranstalt",
+        "Die Grundzüge des gegenwärtigen Zeitalters",
+        "Reden an die deutsche Nation - 1807/08",
+        "Grundlage der gesamten Wissenschaftslehre",
+        "Über den Begriff des wahrhaften Krieges",
+        "Grundlage des Naturrechts nach Principien der Wissenschaftslehre. - 1796 - 1797",
+        "Appelation an das Publikum",
+        "Friedrich Nicolais Leben",
+        "Über den Begriff der Wissenschaftslehre",
+        "Grundriß des Eigenthümlichen der Wissenschaftslehre in Rücksicht ..",
+        "Der geschlossene Handelsstaat"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11902725m"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79003279"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29533830"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D48209.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q102585"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118532847/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158734718"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159994535"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/16035322X"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118532847"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottlieb_Fichte"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Fichte"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Gottlieb_Fichte"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottlieb_Fichte"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012277833X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118532847"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118532847"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118532847.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118532847.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118532847"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118532847"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Fihte, J. G.",
+        "Fihte, Johans Gotlībs",
+        "Fichte-Schelling",
+        "Fichte, Iohann Gottlieb",
+        "Fichtė, E͏̈han Hotlib",
+        "Buyibidieshi",
+        "Fichte, Johan Gottlieb",
+        "フィヒテ, ヨハン・ゴットリープ",
+        "Fichte",
+        "Fichte, J.-G.",
+        "Fichte, G. W.",
+        "Fichtė, J. G.",
+        "Buyibidi",
+        "Fichte, Iogann Gotlib",
+        "Fichte, Joh. Gottl.",
+        "Fichte, I. G.",
+        "Fihte, Johan Gotlib",
+        "Fichte, Jochan Gotlib",
+        "Fihte",
+        "布依比第",
+        "Fichte, Joh. Gottlieb",
+        "פיכטה, יוהן ג.",
+        "Fikhṭeh, Yohan Goṭlib",
+        "Fichte, Johann G.",
+        "Fihte, Johans G.",
+        "ヨハン・ゴットリープ・フィヒテ",
+        "布依比疊氏",
+        "Fichte, Johannes Gottlieb",
+        "Fichte, Johann Gottlob",
+        "Fichte, Giovanni Amedeo",
+        "Fei xi de",
+        "Fikhṭeh, Yohan G.",
+        "Fihite",
+        "Fichte, Johann"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G. W."
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "ヨハン・ゴットリープ・フィヒテ"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Gotlib"
+          ],
+          "surname": [
+            "Fihte"
+          ]
+        },
+        {
+          "forename": [
+            "יוהן ג."
+          ],
+          "surname": [
+            "פיכטה"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottl."
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Yohan G."
+          ],
+          "surname": [
+            "Fikhṭeh"
+          ]
+        },
+        {
+          "personalName": [
+            "Buyibidieshi"
+          ]
+        },
+        {
+          "forename": [
+            "I. G."
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Gottlieb"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Johans G."
+          ],
+          "surname": [
+            "Fihte"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "Fichte-Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Jochan Gotlib"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Gotlib"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "ヨハン・ゴットリープ"
+          ],
+          "surname": [
+            "フィヒテ"
+          ]
+        },
+        {
+          "personalName": [
+            "Buyibidi"
+          ]
+        },
+        {
+          "forename": [
+            "J.-G."
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann Gottlieb"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Fichtė"
+          ]
+        },
+        {
+          "forename": [
+            "Johans Gotlībs"
+          ],
+          "surname": [
+            "Fihte"
+          ]
+        },
+        {
+          "forename": [
+            "Yohan Goṭlib"
+          ],
+          "surname": [
+            "Fikhṭeh"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Amedeo"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "布依比第"
+          ]
+        },
+        {
+          "personalName": [
+            "Fihite"
+          ]
+        },
+        {
+          "forename": [
+            "E͏̈han Hotlib"
+          ],
+          "surname": [
+            "Fichtė"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Gottlieb"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "Fihte"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlob"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "布依比疊氏"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Fihte"
+          ]
+        },
+        {
+          "personalName": [
+            "Fei xi de"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottlieb"
+          ],
+          "surname": [
+            "Fichte"
+          ]
+        },
+        {
+          "personalName": [
+            "Fichte"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Fichte",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Fichte"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:21:51Z",
+    "gnd_query_biographical_data": "1762-1814",
+    "gnd_query_name": "fichte, johann gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 710,
+  "name": "Fichte, Johann Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 7",
+  "updated": "2026-06-11 13:29:22.240Z",
+  "uri": "https://d-nb.info/gnd/118532847",
+  "editor": ""
+}

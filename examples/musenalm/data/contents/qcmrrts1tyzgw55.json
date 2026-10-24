@@ -1,0 +1,45 @@
+{
+  "annotation": "# s.: Musenalmanach (Göttinger) 1783, INr 2972",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Sage, Freund! was lohnt den wackern / Sänger? / Ist es Gold aus Fürstenhand,",
+  "language": [],
+  "musenalm_id": 12745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort an Filidor. / (S. vorigjährigen M. Alm.) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort an Filidor. / (S. vorigjährigen M. Alm.) #",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.467Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "2thby325u5jxeu4"
+    }
+  ]
+}

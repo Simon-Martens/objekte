@@ -1,0 +1,88 @@
+{
+  "annotation": "Titelportrait und 12 Monatskupfer wie in: Schreib- und Postkalender, Genealogischer (Berlin) 1762; alm-2518",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, Kr, 16 BB Kal darin 12 GG, 62 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreib- und Postkalender, Genealogischer (Berlin) 1765",
+    "norm": "~",
+    "biblio": 405000,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2521,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schreib- und Postkalender, Genealogischer (Berlin) 1765",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Schreib- und Post- / Calender, / auf das Gemeine Jahr / 1765. / Welcher vorstellet / die Genealogie der jetztlebenden / Hohen Häupter und anderer / Fürstlichen Personen / wie auch / die Post-Curse / und / andere nützliche Sachen. / Herausgegeben / Mit Approbation der Kön. Preuß. / Academie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.405Z",
+  "variant_title": "",
+  "year": 1765,
+  "editor": "",
+  "items": [
+    "3r5pj22ktfrf0h5"
+  ],
+  "contents": [
+    "78kpcpianyl3sjt",
+    "wu06qubszkix971",
+    "7asl92ebt0uy611",
+    "20540y6yz3np4bb",
+    "3zbea1s8qwtrrve",
+    "71jx26j2hwzmosq",
+    "m655ftnhg9momh2",
+    "ytn7m8nzxab0n6j",
+    "kz0zbpyzf6cz68b",
+    "acntduhku48uk9z",
+    "rkuul6gfm0cy045",
+    "ggzqy45ixpbiwu2",
+    "ur65in1ojjwb9hh",
+    "62iqms8635jz06c",
+    "aedwbp7qwntn0on",
+    "ff4j539epkumn0b",
+    "zbt53o5qjc4pvfx",
+    "i51twe3g2ymb1zu",
+    "ooxf6469j4z4qn1",
+    "2662ctb8jjw512s",
+    "z2jx4eqp32kqhzd",
+    "r72xbj1yw7p1pg5",
+    "azpkb1wpgggkmkr",
+    "94uer9fxsv5s0cx",
+    "zrggyoev7v6bzby",
+    "0xc96i5f7sd3zv2",
+    "fb2qcjgk631lpon",
+    "pc5mcsnb0ng105o",
+    "y6edejxrjm1jknx",
+    "a9yxwltesxyzviz",
+    "jr4949frh3ec97v",
+    "au8baz5j7kk5a37"
+  ],
+  "agents": []
+}

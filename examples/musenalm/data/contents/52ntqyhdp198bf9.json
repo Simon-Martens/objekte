@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "538",
+  "incipit_statement": "Das hohe Wort,das ew'ge: Werde! / Des Schöpfers Ruf: es werde Licht!",
+  "language": [],
+  "musenalm_id": 21216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Tage des Lichts. / Zum zweiten November,1817",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Tage des Lichts. / Zum zweiten November,1817",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.915Z",
+      "agent": "0lth2adu21imy6k",
+      "source_id": "c5531nmmkuxiuhp"
+    }
+  ]
+}

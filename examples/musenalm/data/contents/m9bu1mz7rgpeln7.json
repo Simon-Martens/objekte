@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag »Erinnerung an Johann von Besser, und seine Gattin Katharina Elisabeth, geborene Kühlewein« von Fr. Horn INr 26790, Obj 40 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Blau sind meiner Ammonen Augen, / Weil sie uns zum Zeugnis sollen taugen,",
+  "language": [],
+  "musenalm_id": 36445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die blauen und die schwarzen Augen. / Die blauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann von Besser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die blauen und die schwarzen Augen. / Die blauen",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.759Z",
+      "agent": "71e9r7ulp49pzsm",
+      "source_id": "f38fv4ntx7irsws"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Von der Verehrung des Schöpfers (Sammlung INr 75137, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ein Kaufmann verlor einst durch einen Schiffbruch sein ganzes Vermögen. Kaum war er nebst seinem Sklaven so glüklich, sein Leben durch Schwimmen zu retten.",
+  "language": [],
+  "musenalm_id": 75138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieber kleiner Leser!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieber kleiner Leser!",
+  "updated": "2011-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.676Z",
+      "agent": "58byfz890fzelu8",
+      "source_id": "m03xjstjl0ev8qo"
+    }
+  ]
+}

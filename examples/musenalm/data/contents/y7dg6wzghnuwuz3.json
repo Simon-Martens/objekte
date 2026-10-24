@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Der Schiffer gisset den Ort der See, / Der Mond bescheint den Wasserschwall.",
+  "language": [],
+  "musenalm_id": 99788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 192,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schutzgeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iganz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schutzgeist",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.743Z",
+      "agent": "szz6mzfzlpcduar",
+      "source_id": "3hfo24irv6ohi00"
+    }
+  ]
+}

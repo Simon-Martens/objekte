@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus F. G. Wetzels Nachlasse (Sammlung INr 22405, Obj 29) mit einer Musikbeigabe s. INr 22486, Obj 109",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Wie lieblich ist's hienieden, / Wenn Brüder, treu gesinnt,",
+  "language": [],
+  "musenalm_id": 22407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Ecce quam bonum!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Ecce quam bonum!",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.930Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "7h8qe4zz46rbp62"
+    }
+  ]
+}

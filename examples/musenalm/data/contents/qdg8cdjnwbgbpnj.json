@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 111815-111819, Obj 203-207 /) Der Sammlung vorangestellt: Des Maurers Wandeln / Es gleicht dem Leben. / Göthe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 202,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maurerlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfried Kapper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maurerlieder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.352Z",
+      "agent": "gy712kukgmbne1v",
+      "source_id": "ulyhobn9ssv81xf"
+    }
+  ]
+}

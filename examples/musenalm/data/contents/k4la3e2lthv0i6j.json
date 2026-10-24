@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 95117-95120, Obj 24-27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todte Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. L. Baltekron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todte Liebe",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.326Z",
+      "agent": "oqavxmzabvmo0s1",
+      "source_id": "8ealvfgrcmwoncv"
+    }
+  ]
+}

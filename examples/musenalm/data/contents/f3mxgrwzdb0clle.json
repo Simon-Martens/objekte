@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Vorwort , Zusammenfassung der vier Aufzüge des fünften Aktes des Stück, die metrisierte Fassung des fünften Aktes",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünfter Aufzug / des / Allessandro Manzonischen Trauerspieles: / Craf Carmagnola. / Metrisch von J. G. Seidl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünfter Aufzug / des / Allessandro Manzonischen Trauerspieles: / Craf Carmagnola. / Metrisch von J. G. Seidl",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.144Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "4m8afttlyq4iftm"
+    }
+  ]
+}

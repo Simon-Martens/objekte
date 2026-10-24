@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Schönheit, Jugend und das Leben schwin- / det, / Gleich dem süßen, wonnevollen Traum;",
+  "language": [],
+  "musenalm_id": 47768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Selmar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susanne v. Bondemer, geb. v. Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Selmar",
+  "updated": "2007-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.670Z",
+      "agent": "63e8s8hkpbnksyg",
+      "source_id": "pixoe1m66xap9av"
+    }
+  ]
+}

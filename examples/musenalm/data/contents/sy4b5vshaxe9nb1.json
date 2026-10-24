@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) Graphik im Kalendarium September /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75640, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75627,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gustav Adolph im Sarge nach der Schlacht / bey Lützen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2142_75627_pv4rldihgx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gustav Adolph im Sarge nach der Schlacht / bey Lützen",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.691Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "yyuhkekz7mg18w4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.691Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "zbwhifg4wl4jbxo"
+    }
+  ]
+}

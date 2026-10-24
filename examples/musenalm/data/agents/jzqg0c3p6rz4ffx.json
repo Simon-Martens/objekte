@@ -1,0 +1,547 @@
+{
+  "annotation": "",
+  "biographical_data": "1823-1909",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.347Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1864 bis 1888 Herausgeber der 'Blätter für literarische Unterhaltung'.",
+        "Verheiratet mit Marie Freiin von Seherr-Thoß, gemeinsamer Sohn Hermann Gottschall."
+      ],
+      "dateOfBirth": [
+        "1823-09-30"
+      ],
+      "dateOfDeath": [
+        "1909-03-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "http://ngiyaw-ebooks.de"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Rudolf%20Gottschall.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Rudolf%20Gottschall.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Rudolf%20Gottschall.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/185699138",
+        "https://d-nb.info/gnd/157577627"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T16:53:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119449072/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Marie"
+          ],
+          "nameAddition": [
+            "Freiin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seherr-Toyß"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Alfred"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119449072",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119449072",
+      "oldAuthorityNumber": [
+        "(DE-588)157577627",
+        "(DE-588a)185699138",
+        "(DE-588a)119449072",
+        "(DE-588)185699138",
+        "(DE-588c)4453402-4",
+        "(DE-588a)157577627"
+      ],
+      "periodOfActivity": [
+        "1847-1849"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Gottschall, Rudolf von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Rudolf"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Gottschall"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185045-2",
+          "label": "Theaterkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        }
+      ],
+      "publication": [
+        "Verkümmerte Existenzen",
+        "Die Papierprinzessin",
+        "Romeo und Julie am Pregel",
+        "Poetik - Die Dichtkunst und ihre Technik",
+        "Das goldene Kalb",
+        "Verschollene Größen",
+        "ectiones cursorias a Carol. Rud. Gottschall Vratislavensi iurium candidato a. d. XVI. m. MDCCCLVI. hora XI-XII. in auditorio maximo habendas indicit Martinus Eduardus Sigismundus Simson U. I. D. Iur. civ. P. P. O. - ICtorum h. t. decanus. Inest: Quaestionum ex jure Prussorum civili cap. 4..",
+        "Das Fräulein von St.Amaranthe",
+        "Im Banne des Schwarzen Adlers",
+        "Die Erbschaft des Blutes",
+        "Welke Blätter"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Karl Rudolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10568197p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84219262"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/gottschall-rudolf-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52499345"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q96796"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119449072/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157577627"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185699138"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Rudolf_von_Gottschall"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Rudolf_von_Gottschall"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Rudolf_Gottschall"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Rudolf_von_Gottschall"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109015557"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119449072"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1896_mueller;20"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119449072"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119449072"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gottschall, Carl Rudolf von",
+        "Gottschall, Karl Rudolf von",
+        "Gottschall, Rudolf",
+        "Gottschall, Rudolph von",
+        "Gottschall, Rudolf Karl von",
+        "Gottschall, Carl Rudolf",
+        "Gottschall, Carol. Rud.",
+        "Von Gottschall, Rudolf",
+        "Gottschall, Rudolph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Rudolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Carol. Rud."
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Rudolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Von Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Rudolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Rudolf"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gottschall"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Rudolf_von_Gottschall",
+          "label": "https://de.wikipedia.org/wiki/Rudolf_von_Gottschall"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:32:57Z",
+    "gnd_query_biographical_data": "1823-1909",
+    "gnd_query_name": "gottschall, rudolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 935,
+  "name": "Gottschall, Rudolf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 169",
+  "updated": "2026-06-11 13:29:22.601Z",
+  "uri": "https://d-nb.info/gnd/119449072",
+  "editor": ""
+}

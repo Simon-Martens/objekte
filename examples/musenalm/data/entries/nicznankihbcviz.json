@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1866",
+    "norm": "",
+    "biblio": 406833,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3772,
+  "parallel_title": "",
+  "place_statement": "Wien (Verlag der typogr.-literar.-artist. Anstalt von C. Dittmarsch))",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1866",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter Kalender / und / Novellen-Almanach / für 1866. / Mit Beiträgen von Menk-Dittmarsch, Louise Mühlbach und J. Rank / Herausgegeben / von / F. Menk-Dittmarsch. / Wien und Leipzig. / Verlag der literarisch-artistischen Anstalt von C. Dittmarsch. / Druck von L. M. Zamarski",
+  "updated": "2026-06-11 10:18:55.346Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "items": [
+    "baednyx3wjddqw4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.294Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.294Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "3c0yr3mytox0hjn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.173Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.173Z",
+      "agent": "2j4vq9ddkra4s01",
+      "source_id": "780rrhp6bfuyor7"
+    }
+  ]
+}

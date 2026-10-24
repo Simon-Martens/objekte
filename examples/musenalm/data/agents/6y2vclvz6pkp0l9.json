@@ -1,0 +1,341 @@
+{
+  "annotation": "",
+  "biographical_data": "1726-1791",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.339Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Freiherr; Schriftsteller und Dichter; württembergischer Regierungspräsident; Herr zu Brüg und Presteneck, Hornberger Linie",
+        "Dichter, Beamter"
+      ],
+      "dateOfBirth": [
+        "1726-11-05"
+      ],
+      "dateOfDeath": [
+        "1791-01-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Wilhelm Ketterlinus (18th century)"
+          ],
+          "creditText": [
+            "18th century print"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Eberhard-Friedrich-v-Gemmingen.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Eberhard-Friedrich-v-Gemmingen.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Eberhard-Friedrich-v-Gemmingen.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:17:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118538365/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Eberhard"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Eberhardine"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Katharine Justine"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118538365",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118538365",
+      "oldAuthorityNumber": [
+        "(DE-588c)4020062-0",
+        "(DE-588a)118538365"
+      ],
+      "preferredName": "Gemmingen, Eberhard Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eberhard Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Gemmingen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Gemmingen, Eberhard F. von: Heinrich Schickard's Baumeisters von Herrenberg Lebensbesch*. - 1821",
+        "Gemmingen, Eberhard F. von: Poetische und prosaische Stücke. - 1769"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88649654"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15560953"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1278996"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118538365/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eberhard_Friedrich_von_Gemmingen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008095471X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118538365"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118538365"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118538365.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118538365"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118538365"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gemmingen, Eberhard F. von",
+        "Gemmingen-Presteneck, Eberhard Friedrich von",
+        "Gemmingen, Eberhard von",
+        "Gemmingen, Eberhard Friedrich Freiherr von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Eberhard F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard Friedrich Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gemmingen"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Gemmingen-Presteneck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eberhard_Friedrich_von_Gemmingen",
+          "label": "https://de.wikipedia.org/wiki/Eberhard_Friedrich_von_Gemmingen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:28:57Z",
+    "gnd_query_biographical_data": "1726-1791",
+    "gnd_query_name": "gemmingen, eberhard friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 855,
+  "name": "Gemmingen, Eberhard Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 118",
+  "updated": "2026-06-11 13:29:22.480Z",
+  "uri": "https://d-nb.info/gnd/118538365",
+  "editor": ""
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2. /) Graphik im Kalendarium Februar. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Zweyte Abtheilung oder Geschichte des siebenjährigen Krieges. Erste Hälfte. 1756-1759.« INr 72381, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72364,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich II. entdeckt in der Stunde der Ausfüh- / rung eine gegen sein Leben gemachte Verschwö- / rung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "dessiné par Kimpfel Commencé en Iuin 94 et gravé à l'eau forte jusqu'au 24 Okt 94 par W. Arndt!!! Executé par Meno Haas",
+  "scans": [
+    "alm_830_72364_n8yonttrfo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich II. entdeckt in der Stunde der Ausfüh- / rung eine gegen sein Leben gemachte Verschwö- / rung",
+  "updated": "2008-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.056Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "0w0q1ksw446eb2d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.056Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "41n6ia0gk2jk1hy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.056Z",
+      "agent": "vchcd29ycfa3hgi",
+      "source_id": "flj620d4o76ashs"
+    }
+  ]
+}

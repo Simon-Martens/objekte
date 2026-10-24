@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Geleite mich einmal, mein freundlicher Leser, an eine Stelle, die so wenig wie irgend eine der ganze Gattung je den Schauplatz einer Novelle abgab.",
+  "language": [],
+  "musenalm_id": 64257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schneiderpoet. / Scene aus dem bayerischen Landleben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schneiderpoet. / Scene aus dem bayerischen Landleben",
+  "updated": "2009-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.163Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "9cz6ho025swtnpy"
+    }
+  ]
+}

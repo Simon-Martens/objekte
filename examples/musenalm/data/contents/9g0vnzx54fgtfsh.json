@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Mein lieber Herr Vormund, es sind hier viel schreckliche Dinge mit uns vorgegangen, oder vielmehr angenehme Dinge, ich weiß nicht recht, wie ich sie nehmen soll.",
+  "language": [],
+  "musenalm_id": 76792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieschen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.894Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "oj5wpm7wc405uw9"
+    }
+  ]
+}

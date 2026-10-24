@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "In Nr. 245 der Berlinischen Nachrichten werdet Ihr wahrscheinlich gelesen haben daß das Halten der Hunde, sie mögen Namen haben, wie sie wollen, mit einer jährlichen Abgaben von drei Thalern belegt worden.",
+  "language": [],
+  "musenalm_id": 44827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Circulare / an die sämmtlichen Hunde Europas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Contrasignirt: Eduard Oettinger Gez. Caro-König",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Circulare / an die sämmtlichen Hunde Europas",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.704Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "0zdrd6qsh8zqemv"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, S I-Verz, ar: S1 zT, SS 3-226, ar1: SS 3-107, SS 109-118 G-Verz, ar2: SS 1-104, 2 BB, ar3: SS 1-62, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1831",
+    "norm": "~",
+    "biblio": 106394,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 866,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / Kalender / auf / das Gemein Jahr 1831. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.751Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "xtdv98feolnot7z"
+  ],
+  "contents": [
+    "x83tqwytzryb73g",
+    "ojuuoerpthoceak",
+    "rrui78x8shwm61u",
+    "omh9a0v12zfupyu",
+    "fqojm25rqrzb1aw",
+    "anl2diqj4m0grgj",
+    "ce7lvfuh0tgghzb",
+    "kjqg5n2xwrspfa5",
+    "ptcrxktqb0msk8g",
+    "ffcfj66jmoaqi4e",
+    "cgau1eu2l9m4o9f",
+    "heqbmjl9jtlkq10",
+    "tr86djloetvycrz",
+    "9q59qg3d3t8jocj",
+    "xr1loockxgzc0yu",
+    "90ht2wftc7rkrzl",
+    "t8uxyx02ii8us5r",
+    "pb42hkn7jiqrd9f",
+    "1gd95so51hh8x6e",
+    "4o7glw6mw1byqe5",
+    "tasw7xhlnf6reh9",
+    "js14l9jzw2ko39y",
+    "5whkhavv025vt5f",
+    "aqzi5l4qgnkarro",
+    "xta3980cax87up9",
+    "dt24sr1gwgey22g",
+    "6ur418o7i015tqi",
+    "dsw5y6mbc9eorhl",
+    "arwivunu8fcdqyj",
+    "ana3w1qd8q24bor",
+    "6upkw7q2vvpq1hb",
+    "gkglmyepml55oa1",
+    "nqc5a555o8163vj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.208Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.208Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "l8c4nyd6omnp4gj"
+    }
+  ]
+}

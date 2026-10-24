@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44516, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44512,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "H. Rustige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kurtz del. E. Dertinger sculp.",
+  "scans": [
+    "alm_607_44512_qoiryif1jx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "H. Rustige",
+  "updated": "2006-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.376Z",
+      "agent": "1mjs1m8y9099sep",
+      "source_id": "4kqoar4yqfztwxc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.376Z",
+      "agent": "kqfi52iyorbc33s",
+      "source_id": "pxp29moix8t2omt"
+    }
+  ]
+}

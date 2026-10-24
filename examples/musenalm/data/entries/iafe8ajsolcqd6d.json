@@ -1,0 +1,68 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Kranz deutscher Dichterinnen 1828",
+    "norm": "",
+    "biblio": 409514,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4502,
+  "parallel_title": "",
+  "place_statement": "Wolfenbüttel und Leipzig (Verlags-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j",
+    "t73318stg3smp5g"
+  ],
+  "preferred_title": "Novellen-Kranz deutscher Dichterinnen 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 91; Goed VIII. 121, 308",
+  "responsibility_statement": "C. Niedemann",
+  "subtitle_statement": "",
+  "title_statement": "Novellen-Kranz / deutscher / Dichterinnen. / Erster Kranz, / aus Beiträgen von / [...] gewunden / von / C. Niedemann. / Wolfenbüttel und Leipzig: Im Verlags-Comptoir. / 1828",
+  "updated": "2026-06-11 10:18:55.336Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "hdv6j9xe4y9d43m"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "hc0m08c5j8ox9fe",
+      "source_id": "3ym2asxte7j2skq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Anm. INr 26796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Kein Mensch ist freudiger als der zu aller Stund",
+  "language": [],
+  "musenalm_id": 26901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "105) Wer der freudigste Mensch ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Angelus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "105) Wer der freudigste Mensch ist",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.030Z",
+      "agent": "u6qx1yh697eqyvy",
+      "source_id": "12twr1efynxfg4f"
+    }
+  ]
+}

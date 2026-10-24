@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Epigramme (Sammlung, INr 121721, Obj. 26); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Bettler, dich rufe ich um, und gebe dir doppelt, / du hast mir, / Eh’ du das Geld noch beseh’n, das du empfingst, / schon gedankt!",
+  "language": [],
+  "musenalm_id": 121814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Bettler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Bettler",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.630Z",
+      "agent": "slo2tnoqzd1g9wn",
+      "source_id": "0fjio7oah4y4mwa"
+    }
+  ]
+}

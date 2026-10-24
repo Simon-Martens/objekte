@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den ersten vier Graphiken der Suite /) paginiert V. s. Textbezug INr 76728, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76714,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht nach der Posta und Wehlen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1813",
+  "scans": [
+    "alm_2385_76714_frtci6wq4m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht nach der Posta und Wehlen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.716Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "tflgecgi359scnp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.716Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "uyvy393117gcx28"
+    }
+  ]
+}

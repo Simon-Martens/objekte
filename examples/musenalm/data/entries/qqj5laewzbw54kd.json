@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Mnemosyne (Giesebrecht) 1807",
+    "norm": "",
+    "biblio": 405309,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-03-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4806,
+  "parallel_title": "",
+  "place_statement": "Bremen ( Hanseatische Buchhandlung)",
+  "places": [
+    "vicuz8irdyy1b34"
+  ],
+  "preferred_title": "Mnemosyne (Giesebrecht) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 79; nicht bei L/R",
+  "responsibility_statement": "Karl Giesebrecht",
+  "subtitle_statement": "",
+  "title_statement": "Mnemosyne / ein / Taschenbuch / auf / 1807 / von / Karl Giesebrecht. / Bremen. / In der Hanseatischen Buchhandlung",
+  "updated": "2026-06-11 10:18:56.021Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "jgc475e62vd0dds"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.960Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.960Z",
+      "agent": "a3oql52rs1smi8h",
+      "source_id": "qm4quvvwsdkvdvm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.426Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.426Z",
+      "agent": "3wx7rh0mbtuxryc",
+      "source_id": "vsi1iuk857j2e90"
+    }
+  ]
+}

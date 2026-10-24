@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium paginiert 5. s. Textbezug INr 72430, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72410,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weyhe der türkischen Beute-Flaggen / auf Peter des 1 Grabe. / Consecration des pavillons turcs sur le / tombeau de Pierre 1",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fec. 1797",
+  "scans": [
+    "alm_833_72410_6tz8n6lcfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weyhe der türkischen Beute-Flaggen / auf Peter des 1 Grabe. / Consecration des pavillons turcs sur le / tombeau de Pierre 1",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.614Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "3iu1iqva3mcjm7n"
+    }
+  ]
+}

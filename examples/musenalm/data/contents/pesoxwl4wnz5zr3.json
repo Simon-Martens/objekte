@@ -1,0 +1,52 @@
+{
+  "annotation": "sep. Beilage: paginiert 1-8; Vertonung des Gedichts »Der Sänger der Hirtin« von J. G. Seidl /) Photos 69565,01-69565,08",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69565,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER SÄNGER UND DIE HIRTIN / Gedicht von Joh. Gab. Seidl. / Musik von Franz Lachner, / königl. baierischem Hofkapellmeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Lachner",
+  "scans": [
+    "alm_758_69565_01_afjkel2zrz.jpg",
+    "alm_758_69565_02_cscgvtusq0.jpg",
+    "alm_758_69565_03_luqjdf2wnf.jpg",
+    "alm_758_69565_04_01xya304dj.jpg",
+    "alm_758_69565_05_wfs54ec21k.jpg",
+    "alm_758_69565_06_mk55ekq1k0.jpg",
+    "alm_758_69565_07_utqwm27slk.jpg",
+    "alm_758_69565_08_g4gqr0j2ia.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER SÄNGER UND DIE HIRTIN / Gedicht von Joh. Gab. Seidl. / Musik von Franz Lachner, / königl. baierischem Hofkapellmeister",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.125Z",
+      "agent": "hy3v4hhhknnul24",
+      "source_id": "z3zdtu3to3xzu5l"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1812 (Sammlung INr 39347, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Lies mich von vorn, lies mich von hinten, / Ich bleibe stets mir selbsten gleich,",
+  "language": [],
+  "musenalm_id": 39362,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Palindrom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Palindrom",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.959Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "dmop601ixs49fv9"
+    }
+  ]
+}

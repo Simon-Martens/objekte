@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. IV. (für V.) /) kolorierte Illustration zu »Der Seeadler oder Beinbrecher« von L. C. E. H. F. von Wildungen INr 66503, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Falco ossifragus Lin. Der Seeadler - Männchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susemihl jun. pinx. G. Bttg sen. sc. 1800",
+  "scans": [
+    "alm_1136_66502_o5mft4hb6z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Falco ossifragus Lin. Der Seeadler - Männchen",
+  "updated": "2009-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.240Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "hpfdxanllvdoofy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.240Z",
+      "agent": "0krc3qfy4wkj0vx",
+      "source_id": "ka68tu92s5f4jyi"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Klagen (Sammlung INr 71188, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Mag sanfte Lieb' in stillen Hütten wohnen; / Zieht auch herbei den Himmel, holdes Spielen;",
+  "language": [],
+  "musenalm_id": 71190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie B. geb. Tiek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.269Z",
+      "agent": "fcah7hi0lxq4o7t",
+      "source_id": "fasgt26vznuhtrp"
+    }
+  ]
+}

@@ -1,0 +1,310 @@
+{
+  "annotation": "",
+  "biographical_data": "1823-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.411Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/122487-6",
+          "label": "Académie Royale des Beaux-Arts (Antwerpen)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Belg. Maler; kam 1838 aufgrund seiner Begabung im Alter von nur 15 Jahren an die Kunstakademie nach Antwerpen; 1854 Dozent an der Antwerpener Kunstakademie, ab 1860 Professor für Malerei"
+      ],
+      "dateOfBirth": [
+        "1823-11-23"
+      ],
+      "dateOfDeath": [
+        "1876-02-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jozef Van Lerius"
+          ],
+          "creditText": [
+            "http://collectie.kmska.be/#/query/a0be26a2-4c76-439b-83e5-b7176ae746cb"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20vVn%20Lerius%20-%20Self-portrait.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20vVn%20Lerius%20-%20Self-portrait.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20vVn%20Lerius%20-%20Self-portrait.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2020-01-30T10:02:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-MUS-048413",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-MUS-048413"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1181022703/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576-3",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576-3"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        }
+      ],
+      "gndIdentifier": "1181022703",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/117138452",
+          "label": "Wappers, Gustaaf"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1181022703",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008460-7",
+          "label": "Brüssel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1081706-2",
+          "label": "Boom"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074654-9",
+          "label": "Mecheln"
+        }
+      ],
+      "preferredName": "Lerius, Joseph van",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "van"
+        ],
+        "surname": [
+          "Lerius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4332867-2",
+          "label": "Bildnismaler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Genremaler"
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117138452",
+          "label": "Wappers, Gustaaf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14966585j"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64278119"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1600620"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1181022703/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_van_Lerius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jozef_Van_Lerius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066634672"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1181022703"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Lerius, Joseph Henri François van",
+        "Van Lerius, Joseph",
+        "Lerius, Joseph H. F. van",
+        "Lerius, Joseph Hendrik Frans van"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph Hendrik Frans"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Lerius"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Henri François"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Lerius"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph H. F."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Lerius"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Van Lerius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_van_Lerius",
+          "label": "https://de.wikipedia.org/wiki/Joseph_van_Lerius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:06:30Z",
+    "gnd_query_biographical_data": "1823-1876",
+    "gnd_query_name": "lerius, joseph henri francois van"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1610,
+  "name": "Lerius, Joseph Henri Francois van",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIII, 112",
+  "updated": "2026-06-11 13:29:23.550Z",
+  "uri": "https://d-nb.info/gnd/1181022703",
+  "editor": ""
+}

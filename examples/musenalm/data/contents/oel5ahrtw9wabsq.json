@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 111974, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Da sitzt nun der schwarze, und da sitzt der weiße Kerl, sagte der Ackermann Bärfeld, der eine will mein Gretchen, und der andre mein Lieschen heirathen;",
+  "language": [],
+  "musenalm_id": 111973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zaubermädchen in der Pfarre, / oder / die Revolution im Sacke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Zaubermädchen in der Pfarre, / oder / die Revolution im Sacke",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.391Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "uavqgns4miwlvhv"
+    }
+  ]
+}

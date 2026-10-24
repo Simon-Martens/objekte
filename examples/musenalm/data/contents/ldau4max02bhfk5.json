@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Weiß einer, was eine Nixe ist, seitdem das ehedem so beliebte Donau-Weibchen auf unsern Bühnen nicht mehr gegeben wird?",
+  "language": [],
+  "musenalm_id": 116279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Nix in der Fremde. / Märchen aus Baden-Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Nix in der Fremde. / Märchen aus Baden-Baden",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.347Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "t9rs37ncbnpg5ki"
+    }
+  ]
+}

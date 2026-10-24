@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Unter den Stürmen des Krieges ist die Fortsetzung meines Almanachs zu Tage gefördert worden, unter tausend Sorgen habe ich seine Erscheinung durchgesetzt;",
+  "language": [],
+  "musenalm_id": 35262,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friede dem Vaterlande / und / Friede meinen Lesern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friede dem Vaterlande / und / Friede meinen Lesern",
+  "updated": "2003-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.816Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "6874tbgwc9fgzls"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Herr Pastor, wie verkehrt und schwach / Wird stets des Menschen Herz befunden!",
+  "language": [],
+  "musenalm_id": 3712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel an einen Prediger. / Nach Imbert",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schl.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel an einen Prediger. / Nach Imbert",
+  "updated": "2000-09-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.138Z",
+      "agent": "nqdpraxlb33rmaq",
+      "source_id": "v5u3zahxx2uvqgs"
+    }
+  ]
+}

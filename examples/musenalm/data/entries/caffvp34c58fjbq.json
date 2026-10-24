@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, G, 12 BB Kal darin 12 GG, 84 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1785",
+    "norm": "~",
+    "biblio": 404186,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 796,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1785. / mit Kupfern gezieret / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin herausgegeben",
+  "updated": "2026-06-11 10:18:55.764Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "u187cxdzgciz3ur"
+  ],
+  "contents": [
+    "b7iv11lleo5pfil",
+    "ij9x9auh3n92wrr",
+    "97lrx6hurrv5k2v",
+    "ly23v6i1kzr69xm",
+    "jmvyq23vgionc2s",
+    "jc6fst5g39ng61p",
+    "xs0oobyyidk2nzo",
+    "0fp1whmrmkhgx3o",
+    "4uy0h879ye6vq7r",
+    "hw7i2p6ydthk202",
+    "qjfsmvicrnvlgfb",
+    "7hehk5p6kzng9es",
+    "4dr45bt7m4rpicm",
+    "lynjkmev5tjqtq4",
+    "xodf7ymaq9v04nj",
+    "8zpt06yer57rfix",
+    "cjm5fw2oa8k81ae",
+    "do6mp1g16dvkggr",
+    "tijqdry8ouv9p9l",
+    "to0mvs1irk5k8ff",
+    "6mtr3e1faerohcu",
+    "3whprk5qt4jhx1p",
+    "jo7i8ckpdq8riiy",
+    "qmq9y9b1h60n4w2",
+    "5518gh4w10xou25",
+    "6ymsrqs837c97d2",
+    "bocryw2gi9rflwh",
+    "j7ih6837lm2uw7q",
+    "ml95knuks99taus",
+    "tniv0tucuec3yql"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "cp2x2vkty66ki5e"
+    }
+  ]
+}

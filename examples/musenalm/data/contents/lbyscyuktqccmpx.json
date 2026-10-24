@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni;  Illustration zu »Friedrich Hattersdorfs Jugendgeschichte« von A. C. Kayser in: Taschenbuch für häusliche und gesellschaftliche Freuden 1797, INr 35265",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35490,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben Sie wohl edler Freund einer Unglücklichen! / Beruhigen Sie sich. Nur Strafbahre zittern vor dem Kerker, in welchen mich das Schicksal ruft. / Hattersdorfs Jugendgeschichte von Kayser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. de Goetz inv. & sculp. 1797",
+  "scans": [
+    "alm_488_35490_rvzfa9nkpi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leben Sie wohl edler Freund einer Unglücklichen! / Beruhigen Sie sich. Nur Strafbahre zittern vor dem Kerker, in welchen mich das Schicksal ruft. / Hattersdorfs Jugendgeschichte von Kayser",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.684Z",
+      "agent": "jr33zvibuxpvxjy",
+      "source_id": "kpp0ekm2zy6bfx4"
+    }
+  ]
+}

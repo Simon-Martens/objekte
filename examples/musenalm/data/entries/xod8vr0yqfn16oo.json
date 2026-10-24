@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1812; s. a. Hofkalender, Großherzoglich Hessischer 1812",
+    "norm": "~",
+    "biblio": 411095,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4066,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1812; s. a. Hofkalender, Großherzoglich Hessischer 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1812. / Darmstadt / bei Carl Wilhelm Leske",
+  "updated": "2026-06-11 10:18:55.364Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "ichj8gbzptfnjtl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "2hv18y6w2kyys6a"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.449Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.449Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "883tfewpdx7punj"
+    }
+  ]
+}

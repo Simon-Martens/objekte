@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 56855, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "In langwieriger Fehde mit ihren Nachbaren waren die Grafen Eberhard und Adolph von der Mark verwickelt gewesen, bis endlich ein Vertrag die Ruhe herstellte.",
+  "language": [],
+  "musenalm_id": 56854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Eberhard. / (Eine Sage der Vorzeit.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Eberhard. / (Eine Sage der Vorzeit.)",
+  "updated": "2008-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.862Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "dfrqfyt1wkjtnv7"
+    }
+  ]
+}

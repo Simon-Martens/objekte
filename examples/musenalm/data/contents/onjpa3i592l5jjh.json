@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9. /) Graphik im Kalendarium September /) Illustration zu »Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90945,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "wir sind alle zusammen schon lange Ihre / Unterthanen. 5. Th. 3. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki F. Berger sculpsit",
+  "scans": [
+    "alm_794_90945_tumu47himb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "wir sind alle zusammen schon lange Ihre / Unterthanen. 5. Th. 3. B.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.260Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ezoz9cltx8ixxy0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.260Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "h0l7quy0i35vvsr"
+    }
+  ]
+}

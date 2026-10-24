@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert T. 4. /)  Illustration zu »Kopfputz der vier weiblichen Alter« INr 32512, Obj 8 s. Textbezug INr 32520, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (d. H.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [
+    "alm_451_32519_eu8j0iphix.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.591Z",
+      "agent": "1j2glyr4uzfohrn",
+      "source_id": "052jdlqhfxcerbn"
+    }
+  ]
+}

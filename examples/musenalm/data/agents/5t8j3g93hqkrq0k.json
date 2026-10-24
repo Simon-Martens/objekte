@@ -1,0 +1,689 @@
+{
+  "annotation": "",
+  "biographical_data": "1743-1812",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.238Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller; Offizier; Zeitschriftenherausgeber; Publizist",
+        "1760-1763 preußischer Hauptmann im Siebenjährigen Krieg; Geschichtsschreiber, Herausgeber und Verleger"
+      ],
+      "dateOfBirth": [
+        "1743-09-03"
+      ],
+      "dateOfDeath": [
+        "1812-02-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Georg Weitsch"
+          ],
+          "creditText": [
+            "http://museum-digital.de/nat/index.php?t=objekt&amp;oges=886"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Archenholz.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Archenholz.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Archenholz.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1073441695"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:27:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118503839/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118503839",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118503839",
+      "oldAuthorityNumber": [
+        "(DE-588c)4002836-7",
+        "(DE-588)1073441695",
+        "(DE-588a)118503839"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/125972-6",
+          "label": "Danzig-Langfuhr"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4643987-0",
+          "label": "Hamburg-Öjendorf"
+        }
+      ],
+      "preferredName": "Archenholz, Johann Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Archenholz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        }
+      ],
+      "publication": [
+        "The British Mercury",
+        "Annalen der brittischen Geschichte. - 1790 - 1800",
+        "Die Jacobiner",
+        "Geschichte der Flibustier",
+        "Annalen der brittischen Geschichte",
+        "England und Italien",
+        "Annalen der brittischen Geschichte. - 1795 - 1800",
+        "Geschichte Gustavs Wasa",
+        "Die Pariser Jacobiner in ihren Sitzungen",
+        "Geschichte des siebenjährigen Krieges in Deutschland"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12380947r"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85813031"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/archenholtz-johann-wilhelm-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44379490"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q170029"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073441695"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118503839/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Wilhelm_von_Archenholz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Wilhelm_von_Archenholz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Wilhelm_von_Archenholz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Wilhelm_von_Archenholz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121304167"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118503839"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118503839"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118503839.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118503839.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118503839"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118503839"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Archengolʹc I. V. fon",
+        "Archenoltz, Johann Wilhelm von",
+        "Archenholtz, ... d'",
+        "Archenholtz, Joh. Wilh. von",
+        "Achenholtz, Johann W. von",
+        "Archenholz, Joannes G. von",
+        "Archenholz, Johannes Guilielmus de",
+        "Achenholtz, Johann Wilhelm von",
+        "Archenholtz, Johannes Wilhelmus d'",
+        "Archenholz, J. W.",
+        "Archenholz, Johannes Wilhelm von",
+        "Archenholz, ... von",
+        "Archenholtz, Johann Wilhelm von",
+        "Archenholz, Johann Wilhelm",
+        "Archenholz, Iohannes Guilielmus de",
+        "Archengolʹc Iogann Vilʹgelm fon",
+        "Archenolz, Johannes Guilelmus de",
+        "Archenholz, Johann W. von",
+        "Archenholz, Joannes Guilielmus de",
+        "Archenholtz, Johann W. von",
+        "Archenholz, J. W. von",
+        "Archenholtz, J. W. d'",
+        "Archenholtz, J. W.",
+        "Archenholtz, J. W. von",
+        "Archenholz, Joa. G. de",
+        "Archenholtz, Johann Wilhelm",
+        "Archenholtz, ... von",
+        "Archenholz, Johannes Guilelmus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Achenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "Iohannes Guilielmus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Wilh."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Guilelmus"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Achenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "Joa. G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Guilielmus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Archengolʹc I. V."
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Guilielmus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Wilhelmus"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Guilelmus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Archenolz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Archengolʹc Iogann Vilʹgelm"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenoltz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholz"
+          ]
+        },
+        {
+          "forename": [
+            "J. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Archenholtz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Wilhelm_von_Archenholz",
+          "label": "https://de.wikipedia.org/wiki/Johann_Wilhelm_von_Archenholz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:49:24Z",
+    "gnd_query_biographical_data": "1743-1812",
+    "gnd_query_name": "archenholz, johann wilhelm von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 54,
+  "name": "Archenholz, Johann Wilhelm von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 280",
+  "updated": "2026-06-11 13:29:21.363Z",
+  "uri": "https://d-nb.info/gnd/118503839",
+  "editor": ""
+}

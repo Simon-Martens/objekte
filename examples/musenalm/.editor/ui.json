@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "Catalogue",
+      "label": "Catalogue",
+      "position": 0
+    }
+  ],
+  "defaults": {},
+  "collections": {}
+}

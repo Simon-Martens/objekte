@@ -1,0 +1,45 @@
+{
+  "annotation": "50. (Sammlung INr 98949, Obj 151) Herbst 1833 in Neusel (Sammlung INr 98898, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Immer noch erklärt für zeitig / Er sie nicht, wie ich und du;",
+  "language": [],
+  "musenalm_id": 98959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X.",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.770Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "rvk5lu7kf1q41vp"
+    }
+  ]
+}

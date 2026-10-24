@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium April; nummeriert 4. /) s. Textbezug INr 108450, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zusammenkunft des Königs von Preussen, des / Kaisers, und des Kurfürsten von Sachsen zu / Pillnitz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_2171_108463_owqpjgj7ki.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zusammenkunft des Königs von Preussen, des / Kaisers, und des Kurfürsten von Sachsen zu / Pillnitz",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.275Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "chh54jeb15jx26y"
+    }
+  ]
+}

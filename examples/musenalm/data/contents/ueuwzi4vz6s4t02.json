@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58117,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Durchlauchtigsten / Herzogin und Frau / Frau / Charlotte Auguste / Mathilde / Regierenden Herzogin von Wirtemberg etc. / gebohrnen Kronprinzessin von Gros- / Brittannien / Königlichen Hocheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Löflund",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Durchlauchtigsten / Herzogin und Frau / Frau / Charlotte Auguste / Mathilde / Regierenden Herzogin von Wirtemberg etc. / gebohrnen Kronprinzessin von Gros- / Brittannien / Königlichen Hocheit",
+  "updated": "2008-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.940Z",
+      "agent": "f1yvhyt8r3wpl41",
+      "source_id": "jx043cxl43q7wf8"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "annotation": "einziger Jahrgang /) 1800 Pirna (Arnold u. Pinther) Herausgeber bzw. Autor ungenannt. /) satirische, detailreiche Rezensionen von 10 Almanachen auf das Jahr 1800 . Vorwort, Einleitung und Nachwort des Autors (Anonymus) sind als Vollbild  dargestellt (Photos 50211,01-50211,03; 50212,01-50212,11; 50224,01-50224,03) 2. Titel lautet: Die Menschlichkeiten der deutschen Musenalmanache auf das Jahr 1800. Ein nöthiger Anhang zu den Almanachen von Schiller, Reinhard, Voss, Becker, Jakobi, Mohn, Lindemann und andern.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso T, T, 4 SS, SS 3-154, S, 154 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Das letzte auf das achtzehnte Jahrhundert 1800",
+    "norm": "~ K gibt als Erscheinungsort Dresden an",
+    "biblio": 101303,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 5,
+  "parallel_title": "",
+  "place_statement": "Pirna",
+  "places": [
+    "0t6lug4nf3yorcq"
+  ],
+  "preferred_title": "Taschenbuch, Das letzte auf das achtzehnte Jahrhundert 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Das / letzte Taschenbuch / auf das / achtzehnte Jahrhundert. / Ohne Kupfer. / Pirna, / bei Arnold und Pinther",
+  "updated": "2026-06-11 10:18:54.557Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "53zpcg5p33f59fo"
+  ],
+  "contents": [
+    "8swp6q46lto0fr1",
+    "azkv7ucvr344cuv",
+    "rx68qfweprdi928",
+    "fbvfwsvzv0717w2",
+    "dgiy881f2iq6ahm",
+    "1s9wnupdttxbxxv",
+    "8cq1g59kea6e1et",
+    "3oa3ni3eaa73czs",
+    "90q3wzvjm644jmv",
+    "ls9w9awp9tu8peq",
+    "2cmo7rta3siry7c",
+    "6c0l85kai8qn1o7",
+    "9pj7t7uyrhoytn5",
+    "j8a1k4nl980fbrx",
+    "d9qx92dir1hx13h",
+    "y93a6s0urv6zdld",
+    "ou67skv5ryphryw",
+    "fheo8j5k1mlvzf5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.432Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.432Z",
+      "agent": "v131mam5arazl24",
+      "source_id": "sdqdvp4f84qjrr1"
+    }
+  ]
+}

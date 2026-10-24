@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. vom Titel ; paginiert 1./) s. Textbezug INr 42149, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42151,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied des Erzherzogs Carl von / seiner Armée. (17. Merz) / 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_196_42151_5vx6yc5ud8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abschied des Erzherzogs Carl von / seiner Armée. (17. Merz) / 1800",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "8ejfx7ee3uri3bq"
+    }
+  ]
+}

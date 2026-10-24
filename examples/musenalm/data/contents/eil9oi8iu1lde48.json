@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41495,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUSSICHT AUF SURINAME. / 1) Schlange Aboma. 2) Art dort auf dem Marsche zuschlafen. 3) KriegsBarke. 4) der Ai. 5) Kolibri u. Nest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Veit scp. Dresd.",
+  "scans": [
+    "alm_542_41495_dfm2di7rfx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUSSICHT AUF SURINAME. / 1) Schlange Aboma. 2) Art dort auf dem Marsche zuschlafen. 3) KriegsBarke. 4) der Ai. 5) Kolibri u. Nest",
+  "updated": "2005-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.215Z",
+      "agent": "agad4ahnieynhoj",
+      "source_id": "t7cxq85svzt4qh5"
+    }
+  ]
+}

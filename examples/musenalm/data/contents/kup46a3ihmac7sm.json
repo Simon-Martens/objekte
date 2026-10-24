@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64139,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1852 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 37. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Nilson del. A. Schad sc.",
+  "scans": [
+    "alm_1060_64139_l7umtnsc4l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1852 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 37. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2009-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.237Z",
+      "agent": "8bb100zizr2ji3a",
+      "source_id": "3d740yxh7mb4jr9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.237Z",
+      "agent": "3gnzs7actzcxdwq",
+      "source_id": "a7smhi5fqfgyorn"
+    }
+  ]
+}

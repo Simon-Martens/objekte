@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert V. /)  Illustration zu »Amalgunde, Kaiser Adolphs von Nassau erste Geliebte« INr 48377, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48342,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blumen, werdet ihr Ihn an jene süsse / Vergangenheit erinnern?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. H. Schmidt sc.",
+  "scans": [
+    "alm_659_48342_07qwujd6p0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blumen, werdet ihr Ihn an jene süsse / Vergangenheit erinnern?",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "5air6fcidurbfun"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "t2atw1y0f6xpq55"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Wie die Blume nach dem Lenze, / Wie der Vogel nach dem Süden, / Wie die Kunst um ihre Kränze, / Wie der Müde nach dem Frieden:",
+  "language": [],
+  "musenalm_id": 114742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.511Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "9la2wuvo54cor27"
+    }
+  ]
+}

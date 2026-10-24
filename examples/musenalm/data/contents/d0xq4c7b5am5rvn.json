@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Ein Knabe, schön, mit holden Zügen, / Begrüsste froh das Licht der Welt,",
+  "language": [],
+  "musenalm_id": 123289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gunst der Götter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Henriette Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gunst der Götter",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.791Z",
+      "agent": "7ij2pm536zgo0ya",
+      "source_id": "ljgtx07urq6ibc1"
+    }
+  ]
+}

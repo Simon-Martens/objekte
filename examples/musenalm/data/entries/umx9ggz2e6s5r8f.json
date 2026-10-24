@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Medizinischer für Ärzte und Nichtärzte (Mecklenburg) 1815",
+    "norm": "",
+    "biblio": 200874,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2179,
+  "parallel_title": "",
+  "place_statement": "Rostock, Hamburg (Appel)",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "g6pfqf5rlmtkji6"
+  ],
+  "preferred_title": "Kalender, Medizinischer für Ärzte und Nichtärzte (Mecklenburg) 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Georg Heinrich Masius",
+  "subtitle_statement": "",
+  "title_statement": "Medizinischer Kalender / für / Aerzte und Nichtärzte, / auf das Jahr 1815. / Mit besonderer Hinsicht / auf / die Herzogthümer / Mecklenburg und Schwedisch-Pommern. Herausgegeben / von Dr. Georg Heinrich Masius, / Professor der Arzneywissenschaft zu Rostock, verschiedener / gelehrter Gesellschaften Mitgliede. / Mit dem Bildnisse des Herrn Hofrath Wildberg / in Neu-Strelitz. / Rostock / auf Kosten des Herausgebers / gedruckt bey J. B. Appel / in Hamburg",
+  "updated": "2026-06-11 10:18:55.894Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "lltcgdd34wi2is8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.478Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.478Z",
+      "agent": "25ch0g9nwfjy5b5",
+      "source_id": "x294xjkmvpq9ynt"
+    }
+  ]
+}

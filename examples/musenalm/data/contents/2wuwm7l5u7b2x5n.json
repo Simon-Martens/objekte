@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Gott Phöbus ist anheut zum achtenmal / In seiner Thetis Schoos vergnügt dahin gesunken;",
+  "language": [],
+  "musenalm_id": 8736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pamphil an seine Glycerium. / Eine Epistel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pamphil an seine Glycerium. / Eine Epistel",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.302Z",
+      "agent": "x1mwystx1l16y0s",
+      "source_id": "cno8z9fep6dhysh"
+    }
+  ]
+}

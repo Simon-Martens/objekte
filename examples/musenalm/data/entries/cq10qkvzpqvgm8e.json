@@ -1,0 +1,67 @@
+{
+  "annotation": "2 Jgg 1812, 1813; Nürnberg (Schrag); Hrsg.: Ferdinand Roth",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Nürnbergisches 1812",
+    "norm": "",
+    "biblio": 405993,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-04-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3552,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Schrag)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch, Nürnbergisches 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 139; L/R 149",
+  "responsibility_statement": "Ferdinand Roth",
+  "subtitle_statement": "",
+  "title_statement": "Nürnbergisches / Taschenbuch. / Herausgegeben / von / Ferdinand Roth. / Erstes Bändchen. / Nürnbergs Geschichte. / Mit drey Kupfern. / Nürnberg, / Bey Johann Leonhard Schrag. / 1812",
+  "updated": "2026-06-11 10:18:55.379Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "bmprgymvn70vydd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "86iq2bt8qq3xx61",
+      "source_id": "ncu3g31hnmtz5f3"
+    }
+  ]
+}

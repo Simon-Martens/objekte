@@ -1,0 +1,636 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1859",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.484Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist, Dirigent, Pädagoge, Organisator von Musikfesten und ein Geiger von internationalem Ruf."
+      ],
+      "dateOfBirth": [
+        "1784-04-05"
+      ],
+      "dateOfDeath": [
+        "1859-10-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Bergen Public Library Norway from Bergen, Norway"
+          ],
+          "creditText": [
+            "Ludwig Spohr portrait"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Spohr%20portrait.jpg",
+          "license": [
+            {
+              "abbr": null,
+              "attributionRequired": true,
+              "id": "https://www.gesetze-im-internet.de/urhg/",
+              "name": "Urheberrechtlich geschützt"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Spohr%20portrait.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig%20Spohr%20portrait.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1061276775",
+        "https://d-nb.info/gnd/188110828"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118616366/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Grete"
+          ],
+          "surname": [
+            "Meduna-Finger"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116163607",
+          "label": "Pfeiffer, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121381161",
+          "label": "Spohr, Carl Heinrich"
+        },
+        {
+          "forename": [
+            "E. J."
+          ],
+          "surname": [
+            "Henke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131755528",
+          "label": "Spohr, Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116949031",
+          "label": "Zahn, Emilie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118839853",
+          "label": "Spohr, Dorette"
+        },
+        {
+          "forename": [
+            "Walter"
+          ],
+          "surname": [
+            "Braunfels"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116163712",
+          "label": "Pfeiffer, Marianne"
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Wolff"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117018201",
+          "label": "Sauerma, Rosalie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118616366",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116949031",
+          "label": "Zahn, Emilie"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/117018201",
+          "label": "Sauerma, Rosalie von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/121381161",
+          "label": "Spohr, Carl Heinrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/131755528",
+          "label": "Spohr, Ferdinand"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118616366",
+      "oldAuthorityNumber": [
+        "(DE-588a)118616366",
+        "(DE-588a)13922579X",
+        "(DE-101c)31021727X",
+        "(DE-588a)134527275",
+        "(DE-588a)188110828",
+        "(DE-588)1061276775",
+        "(DE-588)188110828",
+        "(DE-588c)4056343-1"
+      ],
+      "periodOfActivity": [
+        "1837-1858"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4020295-1",
+          "label": "Gera"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "preferredName": "Spohr, Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louis"
+        ],
+        "surname": [
+          "Spohr"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398808-8",
+          "label": "Generalmusikdirektor"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1180507169",
+          "label": "Winter, Christian Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116136049",
+          "label": "Berlijn, Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117039977",
+          "label": "Nohr, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1160549257",
+          "label": "Deichert, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116744545",
+          "label": "Hermstedt, Johann Simon"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116544570",
+          "label": "Ries, Hubert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120950877X",
+          "label": "Winterstein, Simon"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12288076m"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81032853"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54210590"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57226"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118616366"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1061276775"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118616366/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188110828"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Louis_Spohr"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Louis_Spohr"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Louis_Spohr"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Louis_Spohr"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118616366"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121335350"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118616366"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1830_filipowicz;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1856_jachimek;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=180x_spohr"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118616366"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118616366.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118616366.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118616366"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/05DD8B13B89A4B60993CD4C1766E0C13"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/C0F077AFA125470981D09379F333E909"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118616366"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118616366"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Shpor, Ludvig",
+        "Spohr, Ludewig",
+        "Spohr, Luigi",
+        "Spohr, L.",
+        "Spohr, Ludwig",
+        "Spohrer, Alfred",
+        "Spohr, Lidwig",
+        "Spohr",
+        "Špor, Ljudvig",
+        "Spohr, Luis"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lidwig"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "Luigi"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "Ljudvig"
+          ],
+          "surname": [
+            "Špor"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "surname": [
+            "Shpor"
+          ]
+        },
+        {
+          "forename": [
+            "Alfred"
+          ],
+          "surname": [
+            "Spohrer"
+          ]
+        },
+        {
+          "personalName": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig"
+          ],
+          "surname": [
+            "Spohr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Louis_Spohr",
+          "label": "https://de.wikipedia.org/wiki/Louis_Spohr"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:01:24Z",
+    "gnd_query_biographical_data": "1784-1859",
+    "gnd_query_name": "spohr, louis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2716,
+  "name": "Spohr, Louis",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXV, 239",
+  "updated": "2026-06-11 13:29:25.119Z",
+  "uri": "https://d-nb.info/gnd/118616366",
+  "editor": ""
+}

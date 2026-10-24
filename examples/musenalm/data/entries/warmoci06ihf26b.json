@@ -1,0 +1,103 @@
+{
+  "annotation": "§§ Graphiken fehlen; wahrscheinlich Titelauflage einer anderen bei Riedl erschienenen Reihe (Freund des schönen Geschlechts? Veilchen?)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 15 SS Kal, 7 SS Tab, SS 3-120",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wien, Riedl) 1821",
+    "norm": "~",
+    "biblio": 407841,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3948,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch (Wien, Riedl) 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1821. / Wien. / bey Jos. Riedl. bürgl. Buchbinder im Schottenhof",
+  "updated": "2026-06-11 10:18:55.447Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "l8rfwwph12m4032"
+  ],
+  "contents": [
+    "26prtb7q1q52szx",
+    "xg99z89x6fec1sa",
+    "wow0c5q9u3mqwtw",
+    "ji7najiu74rnfkq",
+    "b0omz1829m6fhwm",
+    "t2q9xo1kwuf1xzr",
+    "lzkkbicpix0opaf",
+    "inj6zmbzrlspdgv",
+    "s1ilrkgqy56mra1",
+    "7nfzc6nkynwme67",
+    "bzo2mruybj1iaef",
+    "j7cbtk7ymh5gr84",
+    "44zjpwq2tno6emn",
+    "mwryepv9nno9pbn",
+    "wz2snky058qw1ta",
+    "h4e2vto2jyf8exg",
+    "97sj2gl6on8ggr7",
+    "zfn9a70vx9w1bun",
+    "hzt6q2iumz15996",
+    "iigtmm200bzqooa",
+    "zlqlrqtwfimlqe4",
+    "kmu7snikh1gr60t",
+    "gsfvdv195j2b41e",
+    "bjhh5um3iqgof0e",
+    "9u4zz8jtpn69l3l",
+    "4ix6hut5n8ra3cf",
+    "rwh8jg2ccqlnq91",
+    "625ulbxgrdmrh7z",
+    "bejwos6f7aie45j",
+    "07ar718vpopd4u5",
+    "ssy8bqo7wistpk7",
+    "zd7prum0henabmp",
+    "v9cn8l13tifb9w1",
+    "6w5qzqzixjlmkwo",
+    "j81eujqk7vk0rw4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "5gh2c1r5l0zr0w4"
+    }
+  ]
+}

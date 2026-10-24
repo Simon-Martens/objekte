@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen bei Ebbe und Fluth (Sammlung INr 104333, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Crick! - Crack! Der Blitz in Dein Genick! ein schönes Kind in mein Hamak! Geschwind eine lustige Historie von der schönen Catherine von St. Malo.",
+  "language": [],
+  "musenalm_id": 104337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die / schöne Catherine von St. Malo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die / schöne Catherine von St. Malo",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.043Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "c4f7szul447jjm4"
+    }
+  ]
+}

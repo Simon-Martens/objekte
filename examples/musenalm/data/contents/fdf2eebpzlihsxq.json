@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosa Siciliana (Sammlung INr 2755, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Wenn ich zu Walde geh' mit meiner Schönen / So gucken vor aus allen Büschen Faunen,",
+  "language": [],
+  "musenalm_id": 27510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.285Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "kgxj2kb6i3z12s6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Bleibt in Thalias Heiligthum / Denn Alles ungerührt bei diesen Schauer- / scenen?",
+  "language": [],
+  "musenalm_id": 4172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tragische Wirkung eines gewissen / Trauerspiels. / (Französisches Impromptu)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tragische Wirkung eines gewissen / Trauerspiels. / (Französisches Impromptu)",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.014Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "83sd9amg54hv9sp"
+    }
+  ]
+}

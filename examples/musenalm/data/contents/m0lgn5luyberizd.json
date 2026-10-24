@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. /) s. Titelportrait INr 77157, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "383",
+  "incipit_statement": "Rühmlich mit erworb'nen Schätzen / Prangte das Geschlecht der Welser",
+  "language": [],
+  "musenalm_id": 77181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philippine Welser. Romanzen-Cyklus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Philippine Welser. Romanzen-Cyklus",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.592Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "op4sgxj3qnc04kd"
+    }
+  ]
+}

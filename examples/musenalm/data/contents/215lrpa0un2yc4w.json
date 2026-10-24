@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkungen des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20608,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkung",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.845Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "pe5z889he0g67xq"
+    }
+  ]
+}

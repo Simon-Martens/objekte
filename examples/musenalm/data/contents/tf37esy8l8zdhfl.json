@@ -1,0 +1,45 @@
+{
+  "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Himmels Botschaft ist erklungen, / Ach, ein wunderbarer Klang!",
+  "language": [],
+  "musenalm_id": 123144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Hirten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Hirten",
+  "updated": "2019-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.828Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "ig91wphn9jk5j8j"
+    }
+  ]
+}

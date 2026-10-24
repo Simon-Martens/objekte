@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Genf« INr 52410, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vûe de Génêve prise près la Jonction du Rhône & de l'Arve",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hackert del. F. Hegi sc.",
+  "scans": [
+    "alm_717_52414_lj8jb4xups.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vûe de Génêve prise près la Jonction du Rhône & de l'Arve",
+  "updated": "2007-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.876Z",
+      "agent": "avozpk6km5v99u7",
+      "source_id": "529cu458gpad60g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.876Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "eaxbow68iwoyyha"
+    }
+  ]
+}

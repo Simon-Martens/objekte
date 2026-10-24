@@ -1,0 +1,56 @@
+{
+  "annotation": "über der Graphik: S. 60. /) Graphik im Kalendarium Oktober; s. Textbezug (Gedicht) INr 131683, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131674,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. v. Holbein gest. v. Rossmässler)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Holbein gest. v. Rossmässler",
+  "scans": [
+    "alm_4824_131674_tkldg4zryl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2022-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.036Z",
+      "agent": "szo3356ebdd17zv",
+      "source_id": "12fjr4sk8sf4kbr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.036Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "q3g657ypqaqkz0h"
+    }
+  ]
+}

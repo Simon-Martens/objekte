@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Als nur für mich dein junger Busen / hüpfte; / Und noch kein Stutzer, mir zur Schmach,",
+  "language": [],
+  "musenalm_id": 3104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter und sein Mädchen, / nach dem Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. B. Berger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter und sein Mädchen, / nach dem Horaz",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.942Z",
+      "agent": "lmhkzj71seuklka",
+      "source_id": "7ckbfvsdsx8nmbz"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Löwenkranz« von O. H. v. Löben INr 20258, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20237,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Löwenkranz von O. H. Gr. v. Löben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Zschoch sc.",
+  "scans": [
+    "alm_270_20237_s4cz0lx0lf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Löwenkranz von O. H. Gr. v. Löben",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.019Z",
+      "agent": "s4g5qqmtfq8rt8j",
+      "source_id": "6xozk8fm9lg6whe"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.019Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "zkxeens01aqe6cz"
+    }
+  ]
+}

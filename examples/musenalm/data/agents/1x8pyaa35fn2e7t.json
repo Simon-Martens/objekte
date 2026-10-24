@@ -1,0 +1,462 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.465Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor für Chirurgie; Professor für Ophtalmologie; Lyriker; Bühnendichter",
+        "Schriftsteller, Arzt"
+      ],
+      "dateOfBirth": [
+        "1819-04-23"
+      ],
+      "dateOfDeath": [
+        "1876-10-21"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/156548976",
+        "https://d-nb.info/gnd/159202361",
+        "https://d-nb.info/gnd/155810685",
+        "https://d-nb.info/gnd/159202388",
+        "https://d-nb.info/gnd/15920237X"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:36:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118754157/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/132648075",
+          "label": "Schauenburg, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136938973",
+          "label": "Schauenburg, Moritz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118754157",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/132648075",
+          "label": "Schauenburg, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136938973",
+          "label": "Schauenburg, Moritz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118754157",
+      "oldAuthorityNumber": [
+        "(DE-588)155810685",
+        "(DE-588)15920237X",
+        "(DE-588a)156548976",
+        "(DE-588a)118754157",
+        "(DE-588)159202388",
+        "(DE-588)159202361",
+        "(DE-588a)159202388",
+        "(DE-588)156548976",
+        "(DE-588c)4105821-5",
+        "(DE-588a)15920237X",
+        "(DE-588a)155810685",
+        "(DE-588a)159202361"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031410-8",
+          "label": "Koblenz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008747-5",
+          "label": "Bünde"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4039916-3",
+          "label": "Moers"
+        }
+      ],
+      "preferredName": "Schauenburg, Hermann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hermann"
+        ],
+        "surname": [
+          "Schauenburg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Dr."
+          ],
+          "surname": [
+            "Ellen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Loschge"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Das Accomodationsvermögen der Augen",
+        "Ophthalmintik aus den neuesten Forschungen für das Studium und die *",
+        "Allgemeines deutsches Commersbuch. - [um 1871]",
+        "Allgemeines deutsches Commersbuch. - ca. 1863",
+        "Julie und ihr Haus",
+        "Ophthalmintik aus dem neuesten Forschungsstand für das Studium und *",
+        "Ophthalmintik aus der neuesten Forschung für das Studium und die Pr*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87102310"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22937046"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19918119"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118754157/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/155810685"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/156548976"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159202361"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/15920237X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159202388"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Hermann_Schauenburg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081022543"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118754157"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118754157"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Ellen, Dr.",
+        "Schauenburg, Carl H.",
+        "Schauenburg, C. H.",
+        "Schauenburg, Hermannus",
+        "Schauenburg, Herrmann",
+        "Schauenburg, Carl Herm.",
+        "Schauenburg, Carl Hermann",
+        "Schauenburg, Carolus Hermannus",
+        "Loschge, Heinrich",
+        "Schauenburg, C. Hermann",
+        "Schauenburg, Karl-Hermann",
+        "Schauenburg, Karl H.",
+        "Schauenburg, Karl Hermann"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. Hermann"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Herrmann"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Hermannus"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Hermannus"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl-Hermann"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "C. H."
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Hermann"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Loschge"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Hermann"
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Herm."
+          ],
+          "surname": [
+            "Schauenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Dr."
+          ],
+          "surname": [
+            "Ellen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Hermann_Schauenburg",
+          "label": "https://de.wikipedia.org/wiki/Carl_Hermann_Schauenburg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:45:54Z",
+    "gnd_query_biographical_data": "1819-1876",
+    "gnd_query_name": "schauenburg, karl hermann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2405,
+  "name": "Schauenburg, Karl Hermann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1770",
+  "updated": "2026-06-11 13:29:24.546Z",
+  "uri": "https://d-nb.info/gnd/118754157",
+  "editor": ""
+}

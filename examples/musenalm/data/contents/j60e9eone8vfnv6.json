@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Wie, mein Freund, Sie wollen eine unglaubliche Geschichte erzählen? Und das sagen Sie so geradezu heraus?",
+  "language": [],
+  "musenalm_id": 44258,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fahrten des Timotheus. / Eine Märchennovelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Duller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fahrten des Timotheus. / Eine Märchennovelle",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.459Z",
+      "agent": "7bekt7k216mxue5",
+      "source_id": "56580xgf56raiuq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Gedichten INr 100044-100051, Obj 208-215 /) Fortsetzung aus: Musenalmanach, Deutscher (Schad) 1855, alm-2302; INr 99821-99827,",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 207,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Aus dem Klingenwald. / Mädchenlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Aus dem Klingenwald. / Mädchenlieder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.987Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "4j5yurmw83ln000"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "annotation": "2. Auflage",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Erheiterung für Freunde des Scherzes [oJ]",
+    "norm": "",
+    "biblio": 104000,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2881,
+  "parallel_title": "",
+  "place_statement": "Hamburg u. Itzehoe (Schuberth & Niemeyer)",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "qppck3shcd1pwzf"
+  ],
+  "preferred_title": "Taschenbuch zur Erheiterung für Freunde des Scherzes [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 115; nicht bei L/R; H.-G. VII. 597",
+  "responsibility_statement": "Superbe Kurzweil",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / Erheiterung für Freunde des Scherzes. / Schwarm / Berliner, Wiener und Hamburger / Spassvögel / von jeder Farbe und Geschlecht. / Aufgejagt / von / Superbe Kurzweil, / Magister der freien Künste, / Zweite Auflage. / (Mit einem Colorirten Kupfer.) / Hamburg & Itzehoe / Schuberth & Niemeyer",
+  "updated": "2026-06-11 10:18:55.683Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "5ig2dgi2seqycyb"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "98esnf4b8aw8281",
+      "source_id": "oykdtku9vld3gfa"
+    }
+  ]
+}

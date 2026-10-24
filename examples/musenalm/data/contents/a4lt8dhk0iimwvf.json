@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Die Mutter hat mich jüngst gescholten, / Und vor der Liebe steng gewarnt:",
+  "language": [],
+  "musenalm_id": 90661,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gretchens Abscheu vor der Liebe. / (Mit Musik von weiland Franz Schubert, in / dessen Refrainliedern.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gretchens Abscheu vor der Liebe. / (Mit Musik von weiland Franz Schubert, in / dessen Refrainliedern.)",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.400Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "qw4p84mvr7kldbl"
+    }
+  ]
+}

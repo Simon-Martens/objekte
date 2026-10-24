@@ -1,0 +1,52 @@
+{
+  "annotation": "Vertonung von 2 Strophen des Gedichts »Sympathie« von J. Hanhart INr 53332, Obj 41 /) Photos 53333,01-53333,06",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sympathie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Huber, Musiklehrer in Hofwyl",
+  "scans": [
+    "alm_730_53333_01_0ecnlehfx8.jpg",
+    "alm_730_53333_02_i65vqz3qaq.jpg",
+    "alm_730_53333_03_jukhqft94v.jpg",
+    "alm_730_53333_04_yrkazmxcrq.jpg",
+    "alm_730_53333_05_qjzwtvmmxp.jpg",
+    "alm_730_53333_06_5zfck6f6p4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sympathie",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.691Z",
+      "agent": "sotbd7eujnrv6f6",
+      "source_id": "vx4d7bcb27qjuvw"
+    }
+  ]
+}

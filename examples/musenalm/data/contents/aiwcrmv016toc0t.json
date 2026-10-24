@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Ja der Mensch ist ein ärmlicher Wicht, ich / weiss - doch das wollt ich / Eben vergessen,",
+  "language": [],
+  "musenalm_id": 38191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 260,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen gewissen moralischen Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen gewissen moralischen Dichter",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.015Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "886sbjv3jz6jecx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.015Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "p9u41ae5slxfg85"
+    }
+  ]
+}

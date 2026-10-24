@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "recto G, verso G, T, 7 BB Kal darin 6 GG, SS 1-212",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1803",
+    "norm": "~ in roter Maroquin-Brieftasche; lt. Preisliste für die fünf verschiedenen Ausgaben, wie sie dem Jg 1802 beigefügt ist, handelt es sich um die vierte Ausgabe s. Photo alm-9-50407",
+    "biblio": 100683,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 10,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Vieweg)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; L/R 51; Goed VIII. 49, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1803. / Inhalt. / I. Narcissus und Narcissa. Aus einer Handschrift, das Pantameron von Rosenhein beititelt. Von C. M. Wieland. / II. Ariadne-Libera. Ein Melodrama. Von J. G. von Herder. / III. Mehr Glück, als Verstand. Eine Erzählung in Briefen. / Von F. L. Huber. / IV. Suschen. Von Aug. Lafontaine. / Braunschweig, / gedruckt und verlegt / bei Friedrich Vieweg",
+  "updated": "2026-06-11 10:18:55.446Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "ykbyh247i9hrocc"
+  ],
+  "contents": [
+    "e52ln3v67cqs6sl",
+    "rg1mkjvhgn1twxe",
+    "zlu1l33penzdwn2",
+    "dxp8o1b6zyrqbwd",
+    "19dpolkil553x3i",
+    "j5aijqg27z5kj1w",
+    "rciup6yw76kc4c3",
+    "iqd0g9r3mwpgnrb",
+    "irodtuugjuhjjov",
+    "8rwjuqwy317pfsu",
+    "6l4wo3xwovk0lrs",
+    "1t9rdq7mo5iw2pj",
+    "0vk6fh5hopkwhh2",
+    "md7wys7lzyren5q",
+    "m6rbcr43fxhvsz8",
+    "azemqpfvxpfs068",
+    "pvg6kol3av8v272",
+    "jyucbz8gh0tbdx6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "awaquvqiw7hblv6"
+    }
+  ]
+}

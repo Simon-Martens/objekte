@@ -1,0 +1,97 @@
+{
+  "annotation": "Die Vorzugsausgabe mit den Beiträgen der varianten Ausgabe des TB z ges Verg 1823 (2); s. Alm-4448 /) Die Vorzugsausgabe ist nicht mit ihren Beiträgen aufgenommen: Photos von Schuber, Umschlägen und Titel und Inhaltsverzeichnis als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zum geselligen Vergnügen 1823 (2: Gleditsch) [var.]: Vorzugsausgabe",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2017-08-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4450,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch); Wien (Gerold)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch zum geselligen Vergnügen 1823 (2: Gleditsch) [var.]: Vorzugsausgabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; K 150; K 152; L/R 101; Goed VIII. 42, 3 a u. b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1823. / Mit Königl. Sächs. allergnädigstem Privilegio. / LEIPZIG / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "updated": "2026-06-11 10:18:55.690Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "aote9e6vov5tfkr",
+    "rl1dl8505em0zs0",
+    "9z2jgc2en8uo61l",
+    "aj9z6ishu7razq7",
+    "voj68hgcr198s46",
+    "tz955hva18w644d",
+    "055j5v0ngptt75l",
+    "ymxg6v9a7xkl1dr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.382Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.382Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "1tqobp1fk011fu3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.895Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.895Z",
+      "agent": "nurakxtx6easbnq",
+      "source_id": "pkf79aczgfhy3ni"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.907Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.907Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "x519a6hwib8rnox"
+    }
+  ]
+}

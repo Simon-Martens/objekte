@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "In Höh'n und Tiefen wandert' ich, / Durchspähend die Natur.",
+  "language": [],
+  "musenalm_id": 93566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jahreszeiten der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Jahreszeiten der Liebe",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.209Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "l183jgbx7j7obfv"
+    }
+  ]
+}

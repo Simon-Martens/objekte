@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B, S I-Verz , 7 GG, SS 1-498",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Clauren) 1835",
+    "norm": "~",
+    "biblio": 108636,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3379,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Clauren) 1835",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 165; L/R 94; Goed VIII. 98, 202",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "VERGISSMEINNICHT / EIN / TASCHENBUCH / FÜR 1835. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:54.863Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "i7dfsjns41av98e"
+  ],
+  "contents": [
+    "vahf58yxq4e8sua",
+    "yzldfhnh1rc6eqf",
+    "vkyhljduecbg6h8",
+    "mjbxcbi4nz7f1n1",
+    "8utwpx0r0f6slz9",
+    "aflszrsntcadwwx",
+    "leb79t3jf69ogv8",
+    "iojz1fc5ri7myhq",
+    "xqa3t5k383xx4ak",
+    "m0wmo59xn5hip57",
+    "5lwckwy7k5b9r2m",
+    "7wdlv4jnjkvl9h8",
+    "wwgsdvvfr0i9d94",
+    "xior8oyvxdae4mq",
+    "t12tgxpbw43mnoq",
+    "u6v4ks5d9hau4qe",
+    "3ovtnucfoj5emi3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.209Z",
+      "agent": "zhpoyrlt9ionxj2",
+      "source_id": "4m3l4xckw0d3utq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.094Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.094Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "vrjbjncwo4xzddz"
+    }
+  ]
+}

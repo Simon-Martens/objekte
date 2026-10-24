@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern /) Graphik im Kalendarium $ vermutl. nachgelieferte Illustration zu einem Beitrag eines früheren Jahrgangs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier sind wir alle, die geweint haben um Dich!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_621_45272_cp1caqumbj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hier sind wir alle, die geweint haben um Dich!",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.514Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "b14aizv5n5dv0ky"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.514Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "txru50321jv3qo2"
+    }
+  ]
+}

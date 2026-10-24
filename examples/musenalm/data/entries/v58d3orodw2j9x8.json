@@ -1,0 +1,81 @@
+{
+  "annotation": "Übersetzung nach »ALMANACH HISTORIQUE DE LA RÉVOLUTION FRANÇOISE, POUR L'ANNÉE 1792, RÉDIGÉ Par M. J. P. RABAUT. On y a joint l'Acte constitutionnel des Francois avec le Discours d'acceptation du Roi. Ouvrage orné de gravures d'après les dessins de Moreau. A PARIS, Chez ONFROY, Libraire, rue S.-Victor, No. 11. A STRASSBOURG, Chez J. C. TREUTTEL, Libraire. De l'Imprimerie de DIDOT L'AÎNÉ; alm-3776 /) hier: zusätzliche chronol. Tabelle und Neustich der Graphiken; s.a. Taschenbuch der Franken enth. die Geschichte der franz. Revolution  1792 (Übers. von: Almanach historique de la Revolution Francoise 1792)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, ar: SS 1-98 Tab, ar1: SS 1-342, S 342 C, SS 343, 344 Anm d Hrsg, ar2: SS 1-52, ar3: SS 1-60",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches von Rabaut de St. Etienne 1793",
+    "norm": "~",
+    "biblio": 409302,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-06-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4320,
+  "parallel_title": "",
+  "place_statement": "Straßburg (Treuttel)",
+  "places": [
+    "1q8z8aa12br1w4q"
+  ],
+  "preferred_title": "Taschenbuch, Historisches von Rabaut de St. Etienne 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; nicht bei G-C",
+  "responsibility_statement": "Rabaut de St. Etienne",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCHES / TASCHENBUCH / von Rabaut de St. Etienne / für das Jahr 1793 / das erste der Fränkischen Republick / STRASBURG / bey J. G. Treuttel",
+  "updated": "2026-06-11 10:18:54.755Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "zmq3us9dbde9z5h"
+  ],
+  "contents": [
+    "cz5s295024lqtoe",
+    "0k2uzddfvnom67o",
+    "tw8nvjgq66ot2xo",
+    "t2t05qkts8oxcns",
+    "4p1gqykic8e8kfu",
+    "kk65jgee0o48n3k",
+    "ylox1g0np6ov1wj",
+    "rfemilb5s53a8js",
+    "96wi6kif5nzp5b7",
+    "89s4hgphe4axavs",
+    "lkrhp02qbeaomyv",
+    "4q4hewe53yg3ziu",
+    "jrzp3blx3e6oiu3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.165Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.165Z",
+      "agent": "1zu0y53dr2n5y9v",
+      "source_id": "e869niadmc88ozb"
+    }
+  ]
+}

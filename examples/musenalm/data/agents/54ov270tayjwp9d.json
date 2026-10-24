@@ -1,0 +1,352 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.397Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. theol."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. ev. Theologe, Philosoph, Publizist u. Dichter; ab 1810: Professor, Garnisonprediger u. Diakon in Jena; ab 1819: Oberpfarrer, Superintendent u. Konsistorialrat in Allstedt"
+      ],
+      "dateOfBirth": [
+        "1781-07-30"
+      ],
+      "dateOfDeath": [
+        "1850-10-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Gotthilf Heinrich Schubert in seinen Briefen. Stuttgart 1918, nach S. 144"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Koethe%2C%20Friedrich%20August%20%281781-1850%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Koethe%2C%20Friedrich%20August%20%281781-1850%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Koethe%2C%20Friedrich%20August%20%281781-1850%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-04-13T13:11:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/100796532/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116301864",
+          "label": "Koethe, Sylvie"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100796532",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116301864",
+          "label": "Koethe, Sylvie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100796532",
+      "oldAuthorityNumber": [
+        "(DE-588a)100796532"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4079709-0",
+          "label": "Allstedt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4111417-6",
+          "label": "Lübben (Spreewald)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4079709-0",
+          "label": "Allstedt"
+        }
+      ],
+      "preferredName": "Koethe, Friedrich August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich August"
+        ],
+        "surname": [
+          "Koethe"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4184110-4",
+          "label": "Superintendent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "publication": [
+        "Die Psalmen",
+        "Für häusliche Erbauung",
+        "Historische Darstellungen",
+        "Vom Einfluß des kirchenhistorischen Studium auf die Bildung",
+        "Die Wiederkehr",
+        "Stimmen der Andacht",
+        "Lieder und Sprüche eines Kranken für Kranke und Gesunde",
+        "Geistliche Lieder",
+        "Eine Woche",
+        "Ansichten von der Gegenwart, und Aussicht in die Zukunft"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb15564915f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr00037750"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52006676"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122418"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100796532/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_August_Koethe"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066628168"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100796532"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100796532"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100796532.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100796532"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Koethe, Friedrich A.",
+        "Köthe, Friedrich A.",
+        "Koethe, F.A.",
+        "Köthe, Friedrich August",
+        "Koethe, F. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "surname": [
+            "Köthe"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "surname": [
+            "Koethe"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "surname": [
+            "Köthe"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "surname": [
+            "Koethe"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Koethe"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_August_Koethe",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_August_Koethe"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:59:21Z",
+    "gnd_query_biographical_data": "1781-1850",
+    "gnd_query_name": "köthe, friedrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1467,
+  "name": "Köthe, Friedrich August",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XVI, 761",
+  "updated": "2026-06-11 13:29:23.335Z",
+  "uri": "https://d-nb.info/gnd/100796532",
+  "editor": ""
+}

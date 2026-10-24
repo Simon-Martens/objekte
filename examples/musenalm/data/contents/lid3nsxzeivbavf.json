@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Sinnesänderung« von Bürger INr 17847, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sinnesänderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Chr. Queck",
+  "scans": [
+    "alm_91_17848_0sz7t9aw5w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sinnesänderung",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.778Z",
+      "agent": "9ayonyltogbumpo",
+      "source_id": "c4s44r4dncmewxk"
+    }
+  ]
+}

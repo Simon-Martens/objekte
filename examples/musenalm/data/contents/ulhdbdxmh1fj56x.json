@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Herrmann Lange« von A. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "entschuldigen Sie mich für eine Stunde bei der Gesellschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 1799",
+  "scans": [
+    "alm_489_35693_5hlord2i51.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "entschuldigen Sie mich für eine Stunde bei der Gesellschaft",
+  "updated": "2003-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.525Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "4oo81lncachkmzf"
+    }
+  ]
+}

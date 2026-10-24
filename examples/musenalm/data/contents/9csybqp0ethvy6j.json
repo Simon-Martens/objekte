@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64649, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unfrieden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. de Braekeler pinx. J. W. Kaiser sculps.",
+  "scans": [
+    "alm_1079_64655_i3eqqpk9z8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unfrieden #",
+  "updated": "2009-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "p3hijooo9pslzw2",
+      "source_id": "bqw3skqbk5ldi7e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "cflkct5g0bw448d",
+      "source_id": "ek11xt3t7syk420"
+    }
+  ]
+}

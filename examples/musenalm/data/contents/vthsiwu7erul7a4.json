@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gesänge (Sammlung INr 78038, Obj 164) # Das Gedicht mit Bezeichnung erstmals in: Musenalmanach (Hamburger) 1792, alm-124, INr 6373",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Wer ist ein freier Mann? / Der, dem nur eigner Wille, / Und keines Zwangherrn Grille, / Gesetze geben kann;",
+  "language": [],
+  "musenalm_id": 78567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der freie Mann. / Ein Volkslied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der freie Mann. / Ein Volkslied",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.712Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "xksp328n3szwu1n"
+    }
+  ]
+}

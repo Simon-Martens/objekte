@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Tusch geblasen! rief der dicke Jägermeister durch die offenstehende Thüre den Musikanten zu;",
+  "language": [],
+  "musenalm_id": 43772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stiefmama und Stieftochter. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starkloff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stiefmama und Stieftochter. / Novelle",
+  "updated": "2006-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.131Z",
+      "agent": "tux46t2b96six6d",
+      "source_id": "qog0mbwkdauooer"
+    }
+  ]
+}

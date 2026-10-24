@@ -1,0 +1,96 @@
+{
+  "annotation": "&nbsp;Jgg 1796-1799; Leipzig, 1796: Leipzig (Martini); Hrsg.: K. H. Heydenreich /) Buch mit dem Titel: »Worte einer edlen Mutter an den Geist und das Herz ihrer Tochter« von K. H. Heydenreich. Leipzig (Martini) 1796; Nr 4815 beigebunden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S W, B, ar: SS 1-164, B ar1: SS 1-98, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1796",
+    "norm": "~",
+    "biblio": 200275,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3081,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Martini)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; L/R 177; Goed VII, 274",
+  "responsibility_statement": "K. H. Heydenreich",
+  "subtitle_statement": "",
+  "title_statement": "Philosophisches / TASCHENBUCH / für / denkende Gottesverehrer / von / K. H. Heydenreich / I ster Jahrgang. / Leipzig / bey Gottfried Martini / 1796",
+  "updated": "2026-06-11 10:18:55.369Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "1wq4b49u6amkjgw"
+  ],
+  "contents": [
+    "m0q3ib3rq48ls82",
+    "ib7lwmztdsrsu7g",
+    "i3imrte46awakkr",
+    "p4keipvwjuaenak",
+    "8iglw3exzyh1euf",
+    "xs18uqc829n6xpt",
+    "lnpqmk8s10w3ang",
+    "1hibng78q7vi1xu",
+    "lvb39bhn54gesn3",
+    "qz97kl0hbz4t6j5",
+    "ayb1bpvn359pd4f",
+    "eb2hcy9m2pqc3dc",
+    "pfmk3zpywiq1vmu",
+    "3n9s4q059o5pecn",
+    "9n6jasozwbh8g7q",
+    "zaf16f2d04imqq7",
+    "ou0883qw08u0g4k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "u0lf7ypcjqcowxa",
+      "source_id": "5a91rkfzkmgdoty"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.182Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.182Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "8jusmdz8mmvr1kb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 93649, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Seyd, o Götter, gnädig meinem Flehen, / Laßt ein Meer zu diesem Thale dringen;",
+  "language": [],
+  "musenalm_id": 93652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Baron von Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.237Z",
+      "agent": "id1mj19iathigp2",
+      "source_id": "4jwv54l0aeeppwi"
+    }
+  ]
+}

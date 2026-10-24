@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 89552, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89531,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zweifel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clem. Russ del. Krepp",
+  "scans": [
+    "alm_3354_89531_gsmmnu138j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Zweifel",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.210Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "3sxar96cpw5imcl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.210Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "siedatnaxwgsdla"
+    }
+  ]
+}

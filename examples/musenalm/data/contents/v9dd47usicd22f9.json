@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54921, Obj 81)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Der Sommer hat verstürmet / Der Wetter heißen Zorn;",
+  "language": [],
+  "musenalm_id": 54948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstlied",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.507Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "uogul3p3crcdd31"
+    }
+  ]
+}

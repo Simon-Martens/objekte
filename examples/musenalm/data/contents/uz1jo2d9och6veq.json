@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Kränzchenlied« von W. G. Becker INr 10320, Obj 85 (Photo 10321,01; 10321,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kränzchenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_134_10321_k9xavk2urs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kränzchenlied",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.518Z",
+      "agent": "ubitdekwc4vpg28",
+      "source_id": "ucuaw1yrd1x9np7"
+    }
+  ]
+}

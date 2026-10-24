@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Ueber Göthe's Gedicht, Herrmann und Dorothea« INr 86049, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Wir wollen halten und dauern, / Fest uns halten und fest der schönen Güter / Besitzthum.",
+  "language": [],
+  "musenalm_id": 86050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir wollen halten und dauern, / Fest uns halten und fest der schönen Güter / Besitzthum.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.127Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "867t0hnbqylnojv"
+    }
+  ]
+}

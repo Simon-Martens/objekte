@@ -1,0 +1,90 @@
+{
+  "annotation": "2. Jgg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, SS 3-194, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Neujahrgeschenk (Wien) 1837",
+    "norm": "~",
+    "biblio": 408547,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4802,
+  "parallel_title": "",
+  "place_statement": "Wien (Mechitaristen-Congregations-Buchhandlung)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Neujahrgeschenk (Wien) 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 90; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neujahrgeschenk , / 1837. / Wien. / Druck und Verlag der Mechitaristen-Congregations-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.960Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "v9f6vvelf9z3m37"
+  ],
+  "contents": [
+    "6rf947zl77tcm8b",
+    "tskigxuzny0bge0",
+    "zakzlc6vaepipem",
+    "ma81xwwsnvqfo9v",
+    "cr7vtuyzj7x7lxs",
+    "mgat1bwa1j2vq7s",
+    "ln8fccm5v3ghd9x",
+    "8ho5difaucqzn0u",
+    "8enujkl9yazdy0z",
+    "c2cjcwtll4cdnl6",
+    "xivwsuqwmr5hp2k",
+    "d0a93jx6vg7xnxh",
+    "ih8z852wux6j1gt",
+    "lx1s4ti0b0q5tq2",
+    "b84pa9dq354alcs",
+    "1c3pbg96eze77fh",
+    "w6acaufh2km0e0s",
+    "4ihr1whxctwv5p0",
+    "59kzoo6vnk2gimz",
+    "ck8o12l9k7suucm",
+    "p0s817lcubbcmdu",
+    "ssy23zf9t02g6ov"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "wcrwj6cw4dcmhgb",
+      "source_id": "29ydnbq2lz5ewue"
+    }
+  ]
+}

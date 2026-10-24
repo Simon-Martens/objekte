@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Ein'ge zwanzig Schritte / In des Dorfes Mitte / Steht ein kleines Haus.",
+  "language": [],
+  "musenalm_id": 129902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Häuschen am Dornbache",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Häuschen am Dornbache",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.051Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "yhbuzy64ipm7tha"
+    }
+  ]
+}

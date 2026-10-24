@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Vom Leuen ward der Fuchs, nachdem er / kaum ein Jahr / Minister und schon feist wie Fallstav war,",
+  "language": [],
+  "musenalm_id": 45,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER FUCHS UND DER HUND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER FUCHS UND DER HUND",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.964Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "7tqqaqpi98inwbg"
+    }
+  ]
+}

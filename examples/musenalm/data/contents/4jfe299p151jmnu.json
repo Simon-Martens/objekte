@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 7. Illustration zu »Das Weib des Räubers«  von E. Ferrand d.i. Ed. Schulz INr 59580, Obj 98 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59581,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Weib des Räubers #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weller # Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59581_jg8duz5klv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Weib des Räubers #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.861Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "j50tj4e0gan45m5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.861Z",
+      "agent": "ybobhjrcgh1huei",
+      "source_id": "xo25dnkctz2be8p"
+    }
+  ]
+}

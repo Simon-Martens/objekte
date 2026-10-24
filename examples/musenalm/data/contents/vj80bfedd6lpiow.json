@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August paginiert 5. s. Textbezug INr 584",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58458,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Jeh! unsre gnädige Frau!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Meno Haas",
+  "scans": [
+    "alm_848_58458_9knp6mbyfe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herr Jeh! unsre gnädige Frau!",
+  "updated": "2008-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.949Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "16n5qsspouc1pol"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.949Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "fjumhhstlwe36bm"
+    }
+  ]
+}

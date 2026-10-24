@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Dir, Mädchen! dünket wohl der Frauenschleyer / Viel reitzender, als dieser Blumenkranz,",
+  "language": [],
+  "musenalm_id": 14292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ** / Über die leichtsinnige Wahl eines Gatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justine Freyinn v. Krufft",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ** / Über die leichtsinnige Wahl eines Gatten",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.297Z",
+      "agent": "igdgpg4w9acg6tm",
+      "source_id": "1q8ruvk9ymtpl9r"
+    }
+  ]
+}

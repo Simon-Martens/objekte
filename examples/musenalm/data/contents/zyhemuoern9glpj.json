@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Graphik im Kalendarium Januar; paginiert 1. /) Illustration zu »Lanassa« von K. M. Plümicke",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107761,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lanassa / Ein Trauer Spiel / Verzeih! ich will gehorchen / 1r. Aufz. 5r. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del . et sc.",
+  "scans": [
+    "alm_2161_107761_iw3yr4i98o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lanassa / Ein Trauer Spiel / Verzeih! ich will gehorchen / 1r. Aufz. 5r. Auftr.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.212Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "y98baf2hkfvxezz"
+    }
+  ]
+}

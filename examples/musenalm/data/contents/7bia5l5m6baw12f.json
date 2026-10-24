@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Wie? immer, immer kehrst du durstig wieder, / Du sammtne Hummel, spielst im Sonnenglanz,",
+  "language": [],
+  "musenalm_id": 26303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruinen des Waldschlosses",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruinen des Waldschlosses",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.311Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "9rykhosoopcgpoz"
+    }
+  ]
+}

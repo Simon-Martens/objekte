@@ -1,0 +1,831 @@
+{
+  "annotation": "",
+  "biographical_data": "1685-1759",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.358Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Komponist des Barock, einer der fruchtbarsten und bedeutendsten Musiker der Geschichte (u.a. 42 Opern); 1706-1710 Studienreise durch Italien, ab 1710 in London tätig"
+      ],
+      "dateOfBirth": [
+        "1685-02-23"
+      ],
+      "dateOfDeath": [
+        "1759-04-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Attributed to Balthasar Denner"
+          ],
+          "creditText": [
+            "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof. This may be due to recognition of the \"sweat of the brow\" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement. Please see Commons:When to use the PD-Art tag for more information."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/George%20Frideric%20Handel%20by%20Balthasar%20Denner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/George%20Frideric%20Handel%20by%20Balthasar%20Denner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:George%20Frideric%20Handel%20by%20Balthasar%20Denner.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-01T14:52:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118544489/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1192997913",
+          "label": "Flörcke, Johanna Friederike von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104248599",
+          "label": "Rotth, Christian August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136717292",
+          "label": "Händel, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102556601",
+          "label": "Händel, Georg"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118544489",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1192997913",
+          "label": "Flörcke, Johanna Friederike von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136717292",
+          "label": "Händel, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102556601",
+          "label": "Händel, Georg"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118544489",
+      "oldAuthorityNumber": [
+        "(DE-588c)4022828-9",
+        "(DE-101c)310084954",
+        "(DE-588a)131214926",
+        "(DE-588a)118544489",
+        "(DE-588a)141606444",
+        "(DE-588a)13439495X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Händel, Georg Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Friedrich"
+        ],
+        "surname": [
+          "Händel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1392639646",
+          "label": "1392639646"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79129204"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5126950"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q7302"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118544489"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118544489/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118544489"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/George_Frideric_Handel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_H%C3%A4ndel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Georg_Friedrich_H%C3%A4ndel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/George_Frideric_Handel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122759702"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118544489"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118544489"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118544489.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118544489.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118544489"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/FDC1BF9CD03D4374A2030DFC9E2D8B93"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118544489"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hendel, Georg Friedrich",
+        "Händel, G. Friedrich",
+        "Händel, G.F.",
+        "Haendel, Georg Friedrich",
+        "Handel, Georg F.",
+        "Händel, Georg Friederich",
+        "Handel, George Fridric",
+        "Handell",
+        "Handel, G. F.",
+        "Häddelischen",
+        "Handel, George Friedrich",
+        "Händel, G. Fr.",
+        "Handel, George F.",
+        "Händl, F. G.",
+        "Händl, F.G.",
+        "Händel, G. F.",
+        "Händel, George F.",
+        "Handel, George Friderick",
+        "Händel, Georg F.",
+        "Handel, George Frederic",
+        "Handel",
+        "Handel, G.F.",
+        "Haendel, Georg-Friedrich",
+        "Händel, H.",
+        "Händel, F. G.",
+        "Hendel",
+        "Hendel, Giorgio-Federico",
+        "Händel",
+        "Händle, Georg Friedrich",
+        "Handel, Georg Friedrich",
+        "Handel, Georg Frideric",
+        "Handel, Georgio F.",
+        "Haendel, G. F.",
+        "Handel, Georgio Fredrico",
+        "Hendel, George Friederich",
+        "Handel, George Frederick",
+        "Händel, C. F.",
+        "Händel, Friedrich G.",
+        "Hændel, G.-F.",
+        "Händel, C.F.",
+        "Händel, George Frideric",
+        "Handel, Goerg Friedrich",
+        "Handel, Giorgio Federico",
+        "Handel, Georg Frederic",
+        "Händel, F.G.",
+        "Händel, Georg Fr.",
+        "Händel, George Friedrich",
+        "Handel, George Frideric",
+        "Händl, Georg Friedrich",
+        "Händel, Georg-Friedrich",
+        "Hendeli, Georg Pʹridrix",
+        "Haendel"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Hendel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg-Friedrich"
+          ],
+          "surname": [
+            "Haendel"
+          ]
+        },
+        {
+          "forename": [
+            "George Fridric"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "G.F."
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "personalName": [
+            "Handell"
+          ]
+        },
+        {
+          "forename": [
+            "George Friederich"
+          ],
+          "surname": [
+            "Hendel"
+          ]
+        },
+        {
+          "forename": [
+            "G.F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "George Friedrich"
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "F.G."
+          ],
+          "surname": [
+            "Händl"
+          ]
+        },
+        {
+          "forename": [
+            "George Frideric"
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "personalName": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Frederic"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "George F."
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "personalName": [
+            "Hendel"
+          ]
+        },
+        {
+          "forename": [
+            "Giorgio Federico"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Händl"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Fr."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "personalName": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "George Frideric"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "G. Friedrich"
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Georgio F."
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg-Friedrich"
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "G. Fr."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "George Friedrich"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "personalName": [
+            "Haendel"
+          ]
+        },
+        {
+          "forename": [
+            "F.G."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "personalName": [
+            "Häddelischen"
+          ]
+        },
+        {
+          "forename": [
+            "George Frederic"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "F. G."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "C.F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Haendel"
+          ]
+        },
+        {
+          "forename": [
+            "Giorgio-Federico"
+          ],
+          "surname": [
+            "Hendel"
+          ]
+        },
+        {
+          "forename": [
+            "Goerg Friedrich"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Frideric"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "George Friderick"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friederich"
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Händle"
+          ]
+        },
+        {
+          "forename": [
+            "F. G."
+          ],
+          "surname": [
+            "Händl"
+          ]
+        },
+        {
+          "forename": [
+            "George Frederick"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "Georgio Fredrico"
+          ],
+          "surname": [
+            "Handel"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "surname": [
+            "Haendel"
+          ]
+        },
+        {
+          "forename": [
+            "G.-F."
+          ],
+          "surname": [
+            "Hændel"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Pʹridrix"
+          ],
+          "surname": [
+            "Hendeli"
+          ]
+        },
+        {
+          "forename": [
+            "George F."
+          ],
+          "surname": [
+            "Händel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_H%C3%A4ndel",
+          "label": "https://de.wikipedia.org/wiki/Georg_Friedrich_H%C3%A4ndel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:39:00Z",
+    "gnd_query_biographical_data": "1685-1759",
+    "gnd_query_name": "händel, georg friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1058,
+  "name": "Händel, Georg Friedrich",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XII, 777",
+  "updated": "2026-06-11 13:29:22.792Z",
+  "uri": "https://d-nb.info/gnd/118544489",
+  "editor": ""
+}

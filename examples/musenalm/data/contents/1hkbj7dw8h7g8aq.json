@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33883, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33884,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WINTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. C. W. Schenk sc.",
+  "scans": [
+    "alm_470_33884_t0yuiobdm4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WINTER",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "voq5dlml9870uhq",
+      "source_id": "3nzgki1az3rjc8f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "wn0jpqwykk4f079",
+      "source_id": "gkmyyjqo1hm1v9j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "8u98l2oorjap7pb",
+      "source_id": "qwjktjt4eql4r1o"
+    }
+  ]
+}

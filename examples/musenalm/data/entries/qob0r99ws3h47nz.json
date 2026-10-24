@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, W, VB, T, B G-Verz I-Verz, 4 BB G-Verz, 7 GG, SS 1-350",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1852",
+    "norm": "~",
+    "biblio": 106485,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-05-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1060,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "J. W. Appell",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1852 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von J. W. Appell / 37. JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2026-06-11 10:18:55.591Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "ytjivauyt1h8iqw"
+  ],
+  "contents": [
+    "3t65i17njtvhrfr",
+    "wedbk0dlqet5837",
+    "cwnplyzs0gyzoq9",
+    "kup46a3ihmac7sm",
+    "cnvjqu5g3zgvilp",
+    "3g13eqga9bq0rhs",
+    "2uhoisyy5momotr",
+    "74klqwugex1honc",
+    "jexsc9jieddn9li",
+    "5fek20pmivmczls",
+    "2gvuy8l9p64t3aa",
+    "unts91zmooe42kf",
+    "eqz6hm6xtvyisse",
+    "2o89lpv3x8prlu6",
+    "aiyrjd0zosnx3js",
+    "euyuzx60jb4ab9r",
+    "94q9jhhx68anrd6",
+    "3och3rdv8pjlmjc",
+    "0blg347hb2y0dyz",
+    "g7b6eshm9lsae1m",
+    "rp2bwr9qes20c5t",
+    "adiphq6lzz9budv",
+    "dpzmfwcufa0ukz2",
+    "ocseowrlur6uteg",
+    "pom498jf2w2o04x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.089Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.089Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "8imxn2x2mue9fw2"
+    }
+  ]
+}

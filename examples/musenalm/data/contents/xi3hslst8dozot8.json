@@ -1,0 +1,47 @@
+{
+  "annotation": "Medaille recto-verso",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BONAPARTE PREMIER CONSUL DE LA REPUBLIQUE FRAN.se. // PAIX DE LUNEVILLE / LE XX. PLUVIOSE / AN IX",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andrieu F.",
+  "scans": [
+    "alm_944_60482_robue1ohd3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BONAPARTE PREMIER CONSUL DE LA REPUBLIQUE FRAN.se. // PAIX DE LUNEVILLE / LE XX. PLUVIOSE / AN IX",
+  "updated": "2008-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.706Z",
+      "agent": "ut2yonmve92cmwi",
+      "source_id": "p8t0tnnhy4jaol4"
+    }
+  ]
+}

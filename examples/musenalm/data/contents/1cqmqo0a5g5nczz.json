@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FERDINAND RAIMUND, / Schauspieler des k.k. priv. Theaters / in der Leopoldstadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frank pinx. Joh. Passini sc.",
+  "scans": [
+    "alm_2703_121411_eym595dtdo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FERDINAND RAIMUND, / Schauspieler des k.k. priv. Theaters / in der Leopoldstadt",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.728Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "bbe5pxj2mex2fxn"
+    }
+  ]
+}

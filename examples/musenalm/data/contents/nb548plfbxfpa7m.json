@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 5 Gedichten als Textbezüge zu den Grapheiken des Taaschenbuchs INr 95280-95288, Obj 6-14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95279,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauen-Blumen. / Kupfererklärung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauen-Blumen. / Kupfererklärung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.576Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "v879c24rzt4g6qx"
+    }
+  ]
+}

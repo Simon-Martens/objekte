@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43633, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kenilworth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. R. Leslie. Rossmäsler Dresd. 1824",
+  "scans": [
+    "alm_580_43634_5ofhw9czwy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kenilworth",
+  "updated": "2006-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.939Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "pytgqwc0c12jj1x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.939Z",
+      "agent": "i4ngciqyls3qwnk",
+      "source_id": "r7g3nyycbywrrf1"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Vampyr« von H. Marschner / W. A. Wohlbrück s. Textbezug INr 75443, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75444,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VAMPYR. / I. Aufz. 2. Sc. / Ruthwen. Bei der Urkraft alles Bösen! / Schwör' ich euch, mein Wort zu lösen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2375_75444_qlujq477vz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VAMPYR. / I. Aufz. 2. Sc. / Ruthwen. Bei der Urkraft alles Bösen! / Schwör' ich euch, mein Wort zu lösen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.552Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "0nnuqyb6mlnk8tq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.552Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7d4ovzhe5olcta6"
+    }
+  ]
+}

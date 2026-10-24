@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers s. Titelgraphik INr 50145, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn Alruna Deutschlands Söhnen und Töchtern auch in diesen trüben, freudenlosen Tagen noch erscheint; wenn sie auch jetzt ihre Zurückweisungen auf das, was unsere Väter einst waren, noch fortsetzt,",
+  "language": [],
+  "musenalm_id": 50160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alruna. / Dritter Jahrgang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alruna. / Dritter Jahrgang",
+  "updated": "2007-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.976Z",
+      "agent": "v1mpxx0n8e76xaz",
+      "source_id": "lyatxvwwlxfmjf2"
+    }
+  ]
+}

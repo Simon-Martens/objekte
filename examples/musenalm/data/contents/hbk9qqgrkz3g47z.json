@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Die meisten der Frauen halten die Deutschen nach alter Sitte für weissagend. [...] Tacitus",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Die Heerde des Gutes wurde zum letzten Male auf den Wiesen geweidet. Schon hoben Teufelsabbiß und Kuckucksblume ihre Knospenstiel aus dem jungen saftigen Grase empor.",
+  "language": [],
+  "musenalm_id": 65348,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die kluge Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Gödeke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die kluge Frau",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.197Z",
+      "agent": "6zyupub38rz6auu",
+      "source_id": "qkum3rdhv8w5kl3"
+    }
+  ]
+}

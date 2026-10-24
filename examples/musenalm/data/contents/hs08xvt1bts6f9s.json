@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Aller Anfang ist schwer. Das fühle ich zwiefach, ich armer Cyrillus Spangenbeck, Staatsgefangener auf der Duodezfestung Kartengrundstein;",
+  "language": [],
+  "musenalm_id": 21057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Autobiographie / des / Dorfschulmeisters / Cyrillus Spangenbeck. / Humoreske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. L. B. Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Autobiographie / des / Dorfschulmeisters / Cyrillus Spangenbeck. / Humoreske",
+  "updated": "2002-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.962Z",
+      "agent": "9hf3yrzfqx4aso2",
+      "source_id": "e2m2ykca8c1iak9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24974, Obj 255)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "Gewischt vom Himmel ist der Flor, / Das Heer der Regenwolken ist verstoben,",
+  "language": [],
+  "musenalm_id": 24978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 259,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Leser",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.000Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "ug6jx5hejq8jlv3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90200,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joseph der 2te / Römischer Kaiser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Adam fecit",
+  "scans": [
+    "alm_2209_90200_qal5v324rl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joseph der 2te / Römischer Kaiser",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.232Z",
+      "agent": "v31c77tq4slj851",
+      "source_id": "rwnx0ywq6mq41ne"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Weinlieder (Sammlung INr 24512, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Als der erste Sonnenstrahl / Heute kam zur Erde, / Saß ein Knabe schrittlings drauf",
+  "language": [],
+  "musenalm_id": 24524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Junker Durst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Junker Durst",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.189Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "zku5we4clza2s8e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Satyrisken (Sammlung INr 65552, Obj 120) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Fort mit allen Quinten und Finten! / Der bleibt ewig der beste Mann,",
+  "language": [],
+  "musenalm_id": 65559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fort mit allen Quinten und Finten! / Der bleibt ewig der beste Mann,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.022Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "z42p5sl2aro7qlb"
+    }
+  ]
+}

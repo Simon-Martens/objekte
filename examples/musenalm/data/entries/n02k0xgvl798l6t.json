@@ -1,0 +1,87 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, SS 1-382",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach (Gödeke) 1843",
+    "norm": "~",
+    "biblio": 404799,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1095,
+  "parallel_title": "",
+  "place_statement": "Hannover (Hahn)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Novellen-Almanach (Gödeke) 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Gödeke, Karl",
+  "subtitle_statement": "",
+  "title_statement": "Novellen-Almanach / für / das Jahr 1843. / Herausgegeben / von / Karl Gödeke. / Hannover. / Im Verlage der Hahn'schen Hofbuchhandlung. / 1842",
+  "updated": "2026-06-11 10:18:55.347Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "7wf0s0wc54hp34m"
+  ],
+  "contents": [
+    "8rqgaj7zi2ztbhm",
+    "mbiflgf719bh4rz",
+    "19eipupzbfbs7pa",
+    "xasbiy10qjvzbcl",
+    "5ucuz51wp3p9i5l",
+    "0i7yt1qp0t16s20",
+    "dumd6q6u11c75bz",
+    "hbk9qqgrkz3g47z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.950Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.950Z",
+      "agent": "4vob6y8vk0x4foi",
+      "source_id": "l9y9m54c3e89852"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.821Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.821Z",
+      "agent": "6zyupub38rz6auu",
+      "source_id": "zdrcmaqpccv760e"
+    }
+  ]
+}

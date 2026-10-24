@@ -1,0 +1,80 @@
+{
+  "annotation": "Kurzaufnahme: Umschlag, Titel,  Widmung und Autorenverzeichnisse als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, S I T, S III, SS V-VI W, S VII G, SS X-XI MusB, S XII VrlgM, SS XIII-XVI, S XVII W, SS XIX-XX Vrwrt d Hrsg, S XXI I-Verz, SS 1-348",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumenlese, Poetische aus der Pfalz 1887",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1119,
+  "parallel_title": "",
+  "place_statement": "Kaiserslautern (Gotthold)",
+  "places": [
+    "bwbyq3lor4kodxq"
+  ],
+  "preferred_title": "Blumenlese, Poetische aus der Pfalz 1887",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Schreyer",
+  "subtitle_statement": "",
+  "title_statement": "Eine Sammlung / pfälzischer Dichtungen aus neuerer Zeit / für das Jahr 1887. / Poetische Blumenlese / aus der Pfalz. / Herausgegeben / von / J. Schreyer. / Zweiter Jahrgang. / Kaiserslautern. / Aug. Gotthold's Verlags-Buchhandlung",
+  "updated": "2026-06-11 10:18:55.545Z",
+  "variant_title": "",
+  "year": 1887,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "afw855q9u9s81bu",
+    "u7ipd6hai8xpaev",
+    "8e4i7wio22o4i87",
+    "bxh4l4t467nngqw",
+    "zi8fxlr08fi9wbn",
+    "noan6px7afoej5p",
+    "5yn2lkkht49kst1",
+    "y45ebtebfdg3yyv",
+    "xlikqsl3i2yommh",
+    "m1holaj7nsjs7v7",
+    "t7f57hei79gc9gs",
+    "tac7oiwpw1cly4p",
+    "2yronj4tiqi9995",
+    "283m1w484w0ktx6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.924Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.924Z",
+      "agent": "ezqfp9nh2b5kt9b",
+      "source_id": "fue6z8jn9qmru4v"
+    }
+  ]
+}

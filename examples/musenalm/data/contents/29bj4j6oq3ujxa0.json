@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 122137, Obj 213); # Bezeichnung an der Sammlung Inr 122137, Obj 213",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "O Blumenluft! / O Morgenduft! / O Perlenthau! / Oh Schmelz der Au!",
+  "language": [],
+  "musenalm_id": 122139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 214,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenschmuck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenschmuck",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.757Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "j58uk14rhwi9euq"
+    }
+  ]
+}

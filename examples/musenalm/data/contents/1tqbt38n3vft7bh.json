@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Stolz und Liebe« von A. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10656,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sagt in Trier daß ich glücklich sey; durch diese Hand glücklich. / aus A. Lafontaine S. 117",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_203_10656_68amtvvdsx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sagt in Trier daß ich glücklich sey; durch diese Hand glücklich. / aus A. Lafontaine S. 117",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.523Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "4xmr9f3b95kkayk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.523Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "h9d4yiurfoavg1n"
+    }
+  ]
+}

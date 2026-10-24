@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 3. u. 4. Blatt der Suite /) paginiert 1. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von Marien- / Theresien",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_3985_89801_2ts2beomtu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von Marien- / Theresien",
+  "updated": "2013-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.412Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "dqkuy0agdfj3l3h"
+    }
+  ]
+}

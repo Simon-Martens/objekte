@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / für / weisen und frohen Lebens-Genuss / 1800. / von / A. LINDEMANN. / Mit Kupfern von / D. Chodowiecki, Bolt, Küffner, u. a. / Mit Liedern und Tänzen. ALTONA. / bey I. F. Hammerich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fosmann sculp. Hambg.",
+  "scans": [
+    "alm_3795_95756_z6yvzhp230.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / weisen und frohen Lebens-Genuss / 1800. / von / A. LINDEMANN. / Mit Kupfern von / D. Chodowiecki, Bolt, Küffner, u. a. / Mit Liedern und Tänzen. ALTONA. / bey I. F. Hammerich",
+  "updated": "2012-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.739Z",
+      "agent": "jnegtljfy4r4jqe",
+      "source_id": "fwhu8r8s2rk9nj0"
+    }
+  ]
+}

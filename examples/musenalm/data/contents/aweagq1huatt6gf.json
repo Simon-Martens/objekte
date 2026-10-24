@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Mein Pegasus, verweile hier, / Ich muß zur Stadt hinein,",
+  "language": [],
+  "musenalm_id": 42545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Pegasus, verweile hier, / Ich muß zur Stadt hinein,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.252Z",
+      "agent": "5fdnbj9xwyjpym9",
+      "source_id": "rxl1b8qufzb3u92"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bemerkungen (Sammlung INr 48486, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Der Mensch strebt aus der Beengung heraus der nächsten lebendigen Sphäre zu,",
+  "language": [],
+  "musenalm_id": 48487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch strebt aus der Beengung heraus der nächsten lebendigen Sphäre zu,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.564Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "w84yo53sgoi271b"
+    }
+  ]
+}

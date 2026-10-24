@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33595, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sechs Stationen des Lebens. Die Kinderwelt #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Catel del. Lips sculp.",
+  "scans": [
+    "alm_466_73678_ya6zq8lr9x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die sechs Stationen des Lebens. Die Kinderwelt #",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.734Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "aorjfsi0j6qqg5i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.734Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "e53eh50qu32xqzz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Bei dieser Hand, dem Werkzeug ird'scher Macht! / Bei dieser Hand, die ich zum Himmel hebe,",
+  "language": [],
+  "musenalm_id": 94861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei dieser Hand! / - mon coeur à la Dame -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei dieser Hand! / - mon coeur à la Dame -",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.418Z",
+      "agent": "1gx7z956tuv7ghs",
+      "source_id": "d774zwknb77u0e9"
+    }
+  ]
+}

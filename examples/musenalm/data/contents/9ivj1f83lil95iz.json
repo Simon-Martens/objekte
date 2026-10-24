@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel (Sammlung INr 53357, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Still ziehet auf blauem Meere / Ein einsamer Nachen dahin,",
+  "language": [],
+  "musenalm_id": 53358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.741Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "cgiemcheg5th7tf"
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-11794",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.288Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1753"
+      ],
+      "dateOfDeath": [
+        "1795-05-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jean Duplessis-Bertaux"
+          ],
+          "creditText": [
+            "G. Lenotre, Le Tribunal révolutionnaire (1793-1795), Paris&nbsp;: Perrin, 1908."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/ChateletLePrieur.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/ChateletLePrieur.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:ChateletLePrieur.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188447229"
+      ],
+      "describedBy": {
+        "dateModified": "2022-07-30T01:49:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/137541287/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "137541287",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/137541287",
+      "oldAuthorityNumber": [
+        "(DE-588)188447229",
+        "(DE-588a)188447229",
+        "(DE-588a)137541287",
+        "(DE-588c)7650258-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Châtelet, Claude-Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Claude-Louis"
+        ],
+        "surname": [
+          "Châtelet"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14086872w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n98101737"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/85938572"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2976769"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/137541287/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188447229"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Claude-Louis_Ch%C3%A2telet"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116816774"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Chastelet, Claude-Louis",
+        "Chastelet, Claude Louis",
+        "Châtelet, Charles-Louis",
+        "Chatelet",
+        "Chatelet, Charles Louis",
+        "Châtelet, Claude Louis"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Claude-Louis"
+          ],
+          "surname": [
+            "Chastelet"
+          ]
+        },
+        {
+          "personalName": [
+            "Chatelet"
+          ]
+        },
+        {
+          "forename": [
+            "Charles-Louis"
+          ],
+          "surname": [
+            "Châtelet"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Louis"
+          ],
+          "surname": [
+            "Chatelet"
+          ]
+        },
+        {
+          "forename": [
+            "Claude Louis"
+          ],
+          "surname": [
+            "Chastelet"
+          ]
+        },
+        {
+          "forename": [
+            "Claude Louis"
+          ],
+          "surname": [
+            "Châtelet"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "ascii_name",
+    "gnd_matched_at": "2026-06-11T11:06:48Z",
+    "gnd_query_biographical_data": "1753-11794",
+    "gnd_query_name": "chatelet, claude louis"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 404,
+  "name": "Chatelet, Claude Louis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VI, 428",
+  "updated": "2026-06-11 13:29:21.878Z",
+  "uri": "https://d-nb.info/gnd/137541287",
+  "editor": ""
+}

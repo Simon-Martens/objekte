@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Willkommen mir, du liebes Bild, willkommen! / Der Ehrgeiz selbst hat nie noch Stern und Band",
+  "language": [],
+  "musenalm_id": 14243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriele Batsányi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schillers Bild",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.495Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "y4uhdzu7a3tka9z"
+    }
+  ]
+}

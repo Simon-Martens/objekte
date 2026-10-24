@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In der vollsten Mittagshitze eines schönen Sommertages rollte ein bequemer Reisewagen aus einem Seitenwege voll Schatten und Einsamkeit auf die breite Landstraße.",
+  "language": [],
+  "musenalm_id": 2084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sigismund. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Therese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sigismund. / Novelle",
+  "updated": "2000-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.965Z",
+      "agent": "un665fta9qpg6db",
+      "source_id": "3m4auw411dw3vkz"
+    }
+  ]
+}

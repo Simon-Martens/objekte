@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Herbei, herbei, das Vaterland / braucht seiner Bürger Schwert!",
+  "language": [],
+  "musenalm_id": 3989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegslied / der bewaffneten Grenzverteidiger in den vorderern deutschen Reichskreisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Albr. Ant. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kriegslied / der bewaffneten Grenzverteidiger in den vorderern deutschen Reichskreisen",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.966Z",
+      "agent": "ql9bbd2ltci2fxo",
+      "source_id": "8bpfwlxzd6ivq44"
+    }
+  ]
+}

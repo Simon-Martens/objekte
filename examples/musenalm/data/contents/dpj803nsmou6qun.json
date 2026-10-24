@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "565",
+  "incipit_statement": "In meinen vier Pfählen geht's wunderlich zu: / Ich habe bei Tag und bei Nacht keine Ruh'",
+  "language": [],
+  "musenalm_id": 22216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der seltsame Besuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der seltsame Besuch",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.024Z",
+      "agent": "7z02zmx8ocy9uwz",
+      "source_id": "fqsht5kyena43nf"
+    }
+  ]
+}

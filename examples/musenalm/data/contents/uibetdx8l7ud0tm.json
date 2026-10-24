@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Sey gegrüßet, schöne Frau der Huld, / Und der reinen, schönen Minne,",
+  "language": [],
+  "musenalm_id": 98391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Marienbild / in einem Baume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Marienbild / in einem Baume",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.859Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "1098m3z4qebov5h"
+    }
+  ]
+}

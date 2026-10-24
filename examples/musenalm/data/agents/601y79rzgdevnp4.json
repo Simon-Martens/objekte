@@ -1,0 +1,540 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.464Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "dateOfBirth": [
+        "1765-08-25"
+      ],
+      "dateOfDeath": [
+        "1828-08-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "unknown original artist"
+          ],
+          "creditText": [
+            "George is an ancestor of mine and I had the photo from which the scan was made in my family papers. The original photo was given to my grandmother of which I was co-executor of her estate."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/WaltershausenGeorge.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/WaltershausenGeorge.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:WaltershausenGeorge.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-23T05:50:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100405479/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116809639",
+          "label": "Sartorius von Waltershausen, Wolfgang"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116809736",
+          "label": "Sartorius von Waltershausen, Caroline"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100405479",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116809639",
+          "label": "Sartorius von Waltershausen, Wolfgang"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116809736",
+          "label": "Sartorius von Waltershausen, Caroline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100405479",
+      "oldAuthorityNumber": [
+        "(DE-588a)131139673",
+        "(DE-588c)4672763-2",
+        "(DE-588a)100405479"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Sartorius, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Sartorius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        }
+      ],
+      "publication": [
+        "Sartorius von Waltershausen, Georg F.: Abhandlungen, die Elemente des National-Reichthums*",
+        "Sartorius von Waltershausen, Georg F.: Handbuch der Staatswirthschaft",
+        "Sartorius von Waltershausen, Georg F.: Geschichte des Hanseatischen Bundes",
+        "Sartorius von Waltershausen, Georg F.: Urkundliche Geschichte des Ursprungs der deutschen*",
+        "Sartorius von Waltershausen, Georg F.: Ueber die Gefahren, welche Deutschland bedrohen, und die Mittel, ihnen *",
+        "Sartorius von Waltershausen, Georg F.: Von den Elementen des National-Reichthums ... nach*",
+        "Sartorius von Waltershausen, Georg F.: Versuch über die Regierung der Ostgothen während i*",
+        "Sartorius von Waltershausen, Georg F.: Versuch einer Geschichte des deutshen Bauernkriegs oder der Empörung in*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb145907591"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85295215"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27313302"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q73090"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100405479/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Georg_Friedrich_Sartorius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_Sartorius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Georg_Friedrich_Sartorius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Friedrich_Sartorius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116114131"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100405479"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100405479"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100405479.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100405479"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Waltershausen, Georg Sartorius von",
+        "Sartorius, Georg Friedrich",
+        "Sartorius v. Waltershausen, G. F. von",
+        "Sartorius, Georg Friedrich Christoph",
+        "Sartorius, Georg von Waltershausen-",
+        "Waltershausen, Georg S. von",
+        "Sartorius de Walterhausen, Georgius",
+        "Sartorius von Waltershausen, Georg F.",
+        "Sartorius von Waltershausen, Georg Friedrich Christoph",
+        "Sartorius, Johann G.",
+        "Waltershausen-Sartorius, Georg von",
+        "Waltershausen, Georg Friedrich Christoph Sartorius von",
+        "Sartorius von Waltershausen, Georg Friedrich Christopher",
+        "Waltershausen, Georg F. von",
+        "Waltershausen Sartorius, Georg von",
+        "Sartorius von Waltershausen, G. F. von",
+        "Sartorius, Georg F.",
+        "Sartorius, Georg von Waltershausen",
+        "Sartorius, George",
+        "Sartorius von Waltershausen, Georg"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg von Waltershausen-"
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sartorius v. Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Christoph"
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Christoph Sartorius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen-Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg S."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Sartorius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sartorius von Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "surname": [
+            "Sartorius von Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg von Waltershausen"
+          ],
+          "surname": [
+            "Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Christoph"
+          ],
+          "surname": [
+            "Sartorius von Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Sartorius de Walterhausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Christopher"
+          ],
+          "surname": [
+            "Sartorius von Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg von"
+          ],
+          "surname": [
+            "Waltershausen-Sartorius"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Sartorius von Waltershausen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Waltershausen Sartorius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Friedrich_Sartorius",
+          "label": "https://de.wikipedia.org/wiki/Georg_Friedrich_Sartorius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:44:54Z",
+    "gnd_query_biographical_data": "1765-1828",
+    "gnd_query_name": "sartorius, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2385,
+  "name": "Sartorius, Georg",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXX, 390",
+  "updated": "2026-06-11 13:29:24.512Z",
+  "uri": "https://d-nb.info/gnd/100405479",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 16716, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90004,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER LEHRENDE SCHUTZENGEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matteo Roselli pt. F. John sc.",
+  "scans": [
+    "alm_229_90004_o8vtd62s55.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER LEHRENDE SCHUTZENGEL",
+  "updated": "2001-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.279Z",
+      "agent": "0urufz81sstmsni",
+      "source_id": "ousl0w8htfxdkzd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.279Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "xt691ejnh8eas7s"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "1a /) paginiert I. Illustration zu »Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts« von J. E. F. W. Müller INr 50099, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Immer bleibst du dir gleich, o Muttertreu! du erflehst / Gottes Segen dem Kind, das an dem Busen dir liegt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_1_61051_d923o8jcgc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Immer bleibst du dir gleich, o Muttertreu! du erflehst / Gottes Segen dem Kind, das an dem Busen dir liegt",
+  "updated": "2007-06-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.913Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "etwrs612hlywofu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.913Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "i2lp5v8xgxhygtt"
+    }
+  ]
+}

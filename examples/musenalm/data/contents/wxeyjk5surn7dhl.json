@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Tanzkunst (Sammlung INr 117585, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Die Damen, denen einzig diese Blätter geweiht sind, würden mit mir gewiß unzufrieden werden, wenn ich immer von ihren Mängeln und Fehlern sprechen wollte,",
+  "language": [],
+  "musenalm_id": 117591,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Theorie der Tanzkunst. / (Fortsetzung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Theorie der Tanzkunst. / (Fortsetzung.)",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.679Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "am1f31m1zpcemey"
+    }
+  ]
+}

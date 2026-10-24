@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Hofrat und Bibliothekar in Wolfenbüttel, jezt tod! Die Krone unsers Hauptes ist gefallen! Wenn werden wir einen Mann wiederbekommen, wie er?",
+  "language": [],
+  "musenalm_id": 98717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gotthold Ephraim Lessing",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gotthold Ephraim Lessing",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.686Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "vyt99cojw9dutg8"
+    }
+  ]
+}

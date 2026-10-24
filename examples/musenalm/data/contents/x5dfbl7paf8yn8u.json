@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Petrus Apianus, oder: Achtung der Wissenschaft« von F. Kind INr 20005, Obj 88",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37408,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apian v. Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_268_37408_x08zufecpk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Apian v. Fr. Kind",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "hqerwkkpbhllbca"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.886Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "vy0o9zi7zvit6m0"
+    }
+  ]
+}

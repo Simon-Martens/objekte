@@ -1,0 +1,412 @@
+{
+  "annotation": "",
+  "biographical_data": "1721-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.287Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller",
+        "Geb. in Acquapendente, Viterbo, gest. in Paris; Ital. Dichter"
+      ],
+      "dateOfBirth": [
+        "1721-07-01"
+      ],
+      "dateOfDeath": [
+        "1803-02-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Paolobon140"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Battista%20Comolli%20%281775-1830%29%20Erma%20di%20Giovan%20Battista%20Casti%20%281804%29.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Giovanni%20Battista%20Comolli%20%281775-1830%29%20Erma%20di%20Giovan%20Battista%20Casti%20%281804%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Giovanni%20Battista%20Comolli%20%281775-1830%29%20Erma%20di%20Giovan%20Battista%20Casti%20%281804%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T20:45:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118668773/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118668773",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118668773",
+      "oldAuthorityNumber": [
+        "(DE-101c)310034906",
+        "(DE-588a)118668773",
+        "(DE-588c)4089431-9",
+        "(DE-588a)134344901"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4343127-6",
+          "label": "Acquapendente"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Casti, Giovanni Battista",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Giovanni Battista"
+        ],
+        "surname": [
+          "Casti"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "nameAddition": [
+            "Alideno"
+          ],
+          "personalName": [
+            "Niceste"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Niceste"
+          ],
+          "surname": [
+            "Abideno"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Novelle galanti",
+        "Gli Animali parlanti",
+        "L' Abate Giambattista Casti confutato e giudicato ne'suoi scritti al regno delle ombre",
+        "Novelle piacevoli di celebre Autore moderno. - s.a.",
+        "Novelle",
+        "Il Poema Tartaro",
+        "Gli animali parlanti. - [ca. 1805]",
+        "Poesie liriche e dramatiche"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83220286"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95167907"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q251926"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118668773/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Giovanni_Battista_Casti"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Giambattista_Casti"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Giovanni_Battista_Casti"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441508"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118668773"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118668773"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118668773"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118668773"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Niceste",
+        "Casti, Giovanni B.",
+        "Casti, Giovan Battista",
+        "Casti, Giovann B.",
+        "Niceste, Alideno",
+        "Casti, Giambattista",
+        "Casti, Giambatista",
+        "Casti, Juan Bautista",
+        "Abideno, Niceste",
+        "Casi, Giambattista",
+        "Casti, Giovanbattista"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Juan Bautista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Giambattista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Niceste"
+          ],
+          "surname": [
+            "Abideno"
+          ]
+        },
+        {
+          "forename": [
+            "Giambatista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni B."
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Giambattista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "personalName": [
+            "Niceste"
+          ]
+        },
+        {
+          "forename": [
+            "Giovann B."
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Giambattista"
+          ],
+          "surname": [
+            "Casi"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanbattista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "forename": [
+            "Giovan Battista"
+          ],
+          "surname": [
+            "Casti"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alideno"
+          ],
+          "personalName": [
+            "Niceste"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Giambattista_Casti",
+          "label": "https://de.wikipedia.org/wiki/Giambattista_Casti"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:06:15Z",
+    "gnd_query_biographical_data": "1721-1803",
+    "gnd_query_name": "casti, giambattista"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 393,
+  "name": "Casti, Giambattista",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 81",
+  "updated": "2026-06-11 13:29:21.861Z",
+  "uri": "https://d-nb.info/gnd/118668773",
+  "editor": ""
+}

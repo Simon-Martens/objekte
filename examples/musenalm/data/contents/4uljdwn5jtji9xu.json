@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Hier sind Aepfel und auch Birnen! / Liebes Kind, nun wähle dir.",
+  "language": [],
+  "musenalm_id": 12760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vater und sein Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vater und sein Kind",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.170Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "3awa08ut80eh134"
+    }
+  ]
+}

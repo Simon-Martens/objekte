@@ -1,0 +1,45 @@
+{
+  "annotation": "XVIII. Jägerlieder (Sammlung INr 66525, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Laßt nur den Apostaten ziehn! / Verlohren ist verlohren!",
+  "language": [],
+  "musenalm_id": 66529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Mevius an seine Kollegen / über / die Abtrünnigkeit des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Reg. Rath Bunsen zu Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Mevius an seine Kollegen / über / die Abtrünnigkeit des Herausgebers",
+  "updated": "2009-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.273Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "fvkehumopp7peu7"
+    }
+  ]
+}

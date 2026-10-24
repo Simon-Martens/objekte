@@ -1,0 +1,125 @@
+{
+  "annotation": "auch vorhanden als: Almanac de Göttingue pour l'année 1799. chez I. C. Dieterich",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, 6 GG, 29 BB Kal darin 12 GG, 8 BB Kal (franz.), S 1 T, SS 3-236, 2 SS I- Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1799",
+    "norm": "~",
+    "biblio": 100491,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-12-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 161,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "G. C. Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "Göttinger / Taschen / CALENDER / Für das Jahr / 1799. / bei Joh. Chr. Dieterich",
+  "updated": "2026-06-11 10:18:55.223Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "ybyy55pwq6x39zb"
+  ],
+  "contents": [
+    "14f0yeklr32mogq",
+    "f5ksqg45vvklk15",
+    "kg3ljcceuqxhn3s",
+    "pjowdiqmtpwroxd",
+    "m24fmsxbd1w8c8d",
+    "j269f8816w1z892",
+    "i8nwp3r7zli31b4",
+    "xeqi2h59hvtc6c6",
+    "ayq7qda8u1id1a6",
+    "73wq67w26v3qans",
+    "aawbxseyle98cnr",
+    "0ua98y8yxad1ly2",
+    "eykyndqsymy3iyt",
+    "zvummdfnqt7agz4",
+    "zdsiromys1tip61",
+    "odijn6nl4m4xy0h",
+    "64hvrapgom6at1c",
+    "3l5vfdynmbyvmvb",
+    "rcf0f0gjs94nhcr",
+    "etwip04crt91yyo",
+    "5bcgao8f71c8u8c",
+    "bndpunfnbnj1fz6",
+    "jq6cdbyiw78axtx",
+    "8r87jfsxdwetsm0",
+    "e6jjydtxf63t2x0",
+    "4rsnepq64zvaipo",
+    "45llvad430yvpkm",
+    "yjc31t1rob46ev1",
+    "afa3kglcw68fl62",
+    "ofgj21dzz31q2cx",
+    "0cw54z1i59rbosb",
+    "tuo7rtdpp7qip6i",
+    "i2nj6ybpk5klg8z",
+    "89xvf09eiuemhoq",
+    "0ue3k5qkpbqjqdu",
+    "gkf8cu1umvz4q8q",
+    "l8o3slo7dgfjm7w",
+    "l3in36xx1l911b6",
+    "wuqflkglplmyyf7",
+    "vwfsud4dzkmwxak",
+    "yk2195aiw35xmbt",
+    "b2asguaa6pq7eeo",
+    "qo1i47wfwe4c4dn",
+    "wejcotibh8iytke",
+    "7enbbhqhbo5g6ho",
+    "3xbp1xb3gjmnsiw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.058Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.058Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "7k2tq3koh0aco3k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.203Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.203Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "zolvtm39ulisr04"
+    }
+  ]
+}

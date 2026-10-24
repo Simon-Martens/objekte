@@ -1,0 +1,581 @@
+{
+  "annotation": "",
+  "biographical_data": "1792-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.409Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5076877-3",
+          "label": "Hamburger Stadttheater"
+        }
+      ],
+      "dateOfBirth": [
+        "1792-10-08"
+      ],
+      "dateOfDeath": [
+        "1842-07-25"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/116850302"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-23T19:35:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116850310/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/138510431",
+          "label": "Lebrun, Karoline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136557783",
+          "label": "Lebrun, Antonie"
+        },
+        {
+          "forename": [
+            "Antonie"
+          ],
+          "surname": [
+            "Don"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1064628710",
+          "label": "Lebrun, Julinka"
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Abiger"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1064631495",
+          "label": "Abiger, Louisa"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116850310",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1064628710",
+          "label": "Lebrun, Julinka"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136557783",
+          "label": "Lebrun, Antonie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1064631495",
+          "label": "Abiger, Louisa"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/138510431",
+          "label": "Lebrun, Karoline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116850310",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116850280",
+        "(DE-588c)7677527-6",
+        "(DE-588a)100855237",
+        "(DE-588a)116850310",
+        "(DE-588)116850302",
+        "(DE-588a)116850302"
+      ],
+      "periodOfActivity": [
+        "1834-1851"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4022987-7",
+          "label": "Halberstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Lebrun, Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl"
+        ],
+        "surname": [
+          "Lebrun"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Intendant"
+      ],
+      "publication": [
+        "Neue kleine Lustspiele und Possen",
+        "Kleine Lustspiele und Possen",
+        "Nummer 777",
+        "Lustspiele und Possen",
+        "Neueste kleine Lustspiele und Possen",
+        "Lustspiele, Original und Bearbeitung",
+        "Die Empfehlungsbriefe",
+        "Neue Bühnenspiele",
+        "Spiele für die Bühne"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83227377"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49987551"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q125304"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116850302"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116850310/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Lebrun"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109699485"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116850310"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116850310"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116850310.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116850310"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116850310"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Lebrünn, Carl August",
+        "Brün, Carl le",
+        "Brun, Carl August le",
+        "Lebrün, Karl August",
+        "Lebrün, C.",
+        "Lebrun, C. A.",
+        "Lebrün, Carl August",
+        "Lebrün, ...",
+        "Lebrun, Carl A.",
+        "Le Brun, Carl",
+        "le Brun, Carl August",
+        "Lebrün, L.",
+        "Lebrun, ...",
+        "Le Brün, Carl",
+        "Lebrun, C.",
+        "Lebrün, Carl",
+        "Brun, Carl le",
+        "Lebrün, Karl",
+        "Lebrünn, Karl August",
+        "Lebrun, Karl",
+        "Lebrun, Karl August",
+        "Lebrun, Carl August",
+        "Lebrun, Karl A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brün"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Lebrünn"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Le Brün"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Lebrünn"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Lebrün"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Lebrun",
+          "label": "https://de.wikipedia.org/wiki/Karl_August_Lebrun"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:05:15Z",
+    "gnd_query_biographical_data": "1792-1842",
+    "gnd_query_name": "lebrun, carl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1585,
+  "name": "Lebrun, Carl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XI/1, 387",
+  "updated": "2026-06-11 13:29:23.519Z",
+  "uri": "https://d-nb.info/gnd/116850310",
+  "editor": ""
+}

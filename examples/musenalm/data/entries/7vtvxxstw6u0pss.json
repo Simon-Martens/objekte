@@ -1,0 +1,86 @@
+{
+  "annotation": "$§ vermutl. fehlen 2 Graphiken (Monatskupfer)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 11 BB Kalendarium darin 11 GG, SS 1-106, 32 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1811",
+    "norm": "~",
+    "biblio": 404212,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 822,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer Kalender / auf / das Jahr 1811. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.773Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "rcy6x5i0t9smoie"
+  ],
+  "contents": [
+    "qd3xy31ezzbgzrk",
+    "gnrij296swhve8l",
+    "5so73uqcntrd996",
+    "e5b6modaj8ijo81",
+    "f8e9wh04xmb02ii",
+    "r7yeftzj90ha1qo",
+    "g8qy2164irupzs5",
+    "i6lgjdasef3jivi",
+    "n4dzt91cd85ws0l",
+    "9pumxbkulipcf5p",
+    "yskuttqxefa40vy",
+    "0vzw2iec4qvkkki",
+    "apxwd0ia9soztdj",
+    "91v8dn5dpok40hv",
+    "32nl827k94oyqmh",
+    "uml3vxqzeikd2bh",
+    "qx7586fillla8ca",
+    "65dpk9kbp7etvp7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "10kewtm9sdf2scv"
+    }
+  ]
+}

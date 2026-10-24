@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58901,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesundbrunnen zu Neustadt-Eberswalde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach d. Natur gez. v. Blechen gest. von J. G. Martini 1830",
+  "scans": [
+    "alm_866_58901_d6tp3lev75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gesundbrunnen zu Neustadt-Eberswalde",
+  "updated": "2008-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.722Z",
+      "agent": "iyauzg61pbtokgc",
+      "source_id": "k4dtilylbiv3uio"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.723Z",
+      "agent": "bix4netz2kpq0qd",
+      "source_id": "sh6gmdoofegmyvx"
+    }
+  ]
+}

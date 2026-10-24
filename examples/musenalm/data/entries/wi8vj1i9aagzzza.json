@@ -1,0 +1,123 @@
+{
+  "annotation": "11 Jgg 1797-1803, 1805-1808; Berlin (Unger)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 31 SS Kal darin 12 GG, S VrlgM, 7 GG, ar: SS 1-116, S 116 C, ar1: SS 1-2 VrlgM, SS 3-88 darin G, SS 89-96 VrgM, 159 SS Tabb, S VrlgM, B Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1797",
+    "norm": "~",
+    "biblio": 105899,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2180,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1797. / Mit 12 Bildnissen preußischer Generale, / 2 histor. Vorstellungen von Hrn. D. Chodowiecki / und 7 Kupfern / zur Geschichte der Artillerie / des Hrn. General von Tempelhoff. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.894Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "0xec103xhf5yku9"
+  ],
+  "contents": [
+    "bzeidx042rsztng",
+    "dce47rrnzjqds6n",
+    "6e6kmkb6yvbh3ge",
+    "38tk08p4gbl6wmh",
+    "bejdltc3g5elf3v",
+    "dpmpcvz6nvnwf1a",
+    "22mz8p905vt7qfe",
+    "maqaemvmmjws997",
+    "osyant7aajtftn6",
+    "8nz3b1yey6q7vs1",
+    "l4rg7x9conx0mys",
+    "1mwdocnexkjik4j",
+    "9gp9tlqkr9mmcct",
+    "7k8v2rlhefuixrw",
+    "dzjchf4dk6gmm0d",
+    "vxvz51z6zrxyovx",
+    "ex3nhb2bku81hu8",
+    "rsnnlpy9duxx6do",
+    "hun46fnp1sye2ju",
+    "akypmt3judu4g0s",
+    "k47yxu2kwn9sccm",
+    "nqoelmfcdgbhbp9",
+    "bs9wdhd5cypy2jp",
+    "q21sjpysqe9pm6m",
+    "q94b54i346fhhu7",
+    "shhc9y89q966jug",
+    "3m54s2io59m8c79",
+    "jsctc0367r6zg2e",
+    "67xhhhln0e54jym",
+    "lg2c514vgql1soy",
+    "q4qlrcr233ll068",
+    "t5anmuixktijtdi",
+    "i2ul4si6suo46y1",
+    "4vg9xxo760484tc",
+    "aizvo8ys26gf3ut",
+    "p7l8f56hsi4fxaj",
+    "3n84n4i0v393wep",
+    "oahhoaf8ftyfwbz",
+    "7z45sfwo8mcb568",
+    "bm54mkzct4hvyd2",
+    "vn04grr4wtban2v",
+    "pfh5vx06ysgre3z",
+    "hbu0vizxxi5qkk3",
+    "3r9tbphmlmo283g",
+    "m0nvd872vrry8g8",
+    "qhshr8mv67nz3tk",
+    "0awnmxgzs36m4hy",
+    "v5xfxh60nulqtnw",
+    "sx2bvqmi21v1cw4",
+    "escuqa46j2peg49",
+    "72jgrm8e0uqg12t",
+    "bnsah3kvj1vvoa9",
+    "343rswlramv98tt",
+    "ba57gg09ebah640",
+    "tlj6q9c9zm88a2v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "9gjmv78cddpe4bv"
+    }
+  ]
+}

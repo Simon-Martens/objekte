@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "So schlingen sich die alten Kreise wieder, / Die alte Freude klopft an unsre Brust,",
+  "language": [],
+  "musenalm_id": 24095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weihnachtsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Weihnachtsabend",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.031Z",
+      "agent": "26mg8s2ch4m8csz",
+      "source_id": "zx1ugurodug02ei"
+    }
+  ]
+}

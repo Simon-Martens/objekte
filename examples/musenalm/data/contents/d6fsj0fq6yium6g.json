@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Lore Ley« von August Schmidt INr 69490, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lore Ley",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer del. J. Krupp sculp. Viennae",
+  "scans": [
+    "alm_758_69489_avjpl5uphl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lore Ley",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.266Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "2eoc6ptip9kzaou"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.266Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "ujahs57q6ykhci3"
+    }
+  ]
+}

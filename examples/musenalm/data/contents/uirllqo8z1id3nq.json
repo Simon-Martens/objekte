@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert V. /) s. Textbezug INr 84684, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 84685,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mungo Parks Besuch bey einem / Maurischen Prinzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. P. Eisen sc.",
+  "scans": [
+    "alm_2751_84685_ve3j4gup70.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mungo Parks Besuch bey einem / Maurischen Prinzen",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.270Z",
+      "agent": "e4ofmmug7c18d10",
+      "source_id": "m03eo0hcop3zw60"
+    }
+  ]
+}

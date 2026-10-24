@@ -1,0 +1,1094 @@
+{
+  "annotation": "",
+  "biographical_data": "1547-1616",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.288Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1547-10-07"
+      ],
+      "dateOfDeath": [
+        "1616-04-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Attributed to Juan de Jáuregui"
+          ],
+          "creditText": [
+            "1. Unknown sourceUnknown source2. cervantesvirtual.com3. Bridgeman Art Library: Object 119216"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Cervantes%20J%C3%A1uregui.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cervantes%20J%C3%A1uregui.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Cervantes%20J%C3%A1uregui.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160324483",
+        "https://d-nb.info/gnd/186048807",
+        "https://d-nb.info/gnd/127525858",
+        "https://d-nb.info/gnd/1056574100"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11851993X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1114744212",
+          "label": "Salazar de Palacio, Catalina de"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-ES",
+          "label": "Spanien"
+        }
+      ],
+      "gndIdentifier": "11851993X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1114744212",
+          "label": "Salazar de Palacio, Catalina de"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11851993X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/spa",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/spa"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)128279680",
+        "(DE-588a)160324483",
+        "(DE-588a)126286906",
+        "(DE-588)160324483",
+        "(DE-588c)4009691-9",
+        "(DE-588a)127525858",
+        "(DE-588)186048807",
+        "(DE-588)127525858",
+        "(DE-588a)11851993X",
+        "(DE-588a)186048807",
+        "(DE-588)1056574100"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "he",
+          "@value": "סרונטס, מיגל דה"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4079690-5",
+          "label": "Alcalá de Henares"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4036862-2",
+          "label": "Madrid"
+        }
+      ],
+      "preferredName": "Cervantes Saavedra, Miguel de",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Miguel"
+        ],
+        "prefix": [
+          "de"
+        ],
+        "surname": [
+          "Cervantes Saavedra"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4824772-8",
+          "label": "Kammerdiener"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4169132-5",
+          "label": "Matrose"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Leben und Taten des scharfsinnigen Edlen Don Quijote von der Mancha"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb118957747"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79100233"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17220427"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q5682"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1056574100"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11851993X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127525858"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160324483"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186048807"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/11851993X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Miguel_de_Cervantes"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Miguel_de_Cervantes"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Miguel_de_Cervantes"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Miguel_de_Cervantes"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121221919"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11851993X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11851993X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11851993X"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/DB1731C6D407451395E52C32EA3FDF1C"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11851993X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "סרוואנטס סאאוודרה, מיגואל די",
+        "Servantes, M.",
+        "塞萬提斯",
+        "סערוואנטעס, מיגל דה",
+        "Cervantes, Michael a",
+        "Cervantes, Michael de",
+        "Cervantes de Saavedra, Miguel de",
+        "Sai wan ti si",
+        "Cervantes de Saavédra, Miguel, Don",
+        "Saavedra, Miguel de",
+        "Saavedra, Miguel de C.",
+        "Saavédra, Miguel",
+        "Serwantes",
+        "Cervantes y Saavedra, Miguel de",
+        "Cervantes",
+        "Saavedra, Miguel de Saavedra",
+        "Zerbantes, Miguel de",
+        "Cervantes de la Saavedra, Miguel",
+        "Cervantes, M.",
+        "Savedra, Miguel Cervantes",
+        "Ceruantes Saauedra, Miguel de",
+        "Cerbantes, Miguel de",
+        "Saavedra, Miguel Cervantes de",
+        "סערוואנטעס סאאוועדרא, מיגעל דע",
+        "Cervantes, Miguel",
+        "Cervantes Savedra, Miguel",
+        "סרוונטס סאאוודרה, מיגל דה",
+        "Servantes Saavedra, Michail de",
+        "Servantes, Miguel' de",
+        "Sjerwantjes Saawjedra, Migjelj dje",
+        "Cervantes Saavedra, Michel de",
+        "Servantes Saavedra, Migel' de",
+        "Saavedra, Miguel de Cervantes y",
+        "Cervantes Saavedra, Michael a",
+        "Minkel nte Therbantes",
+        "Servantes",
+        "Cervantes Saavedra, Miquel de",
+        "Cervantes Savedra, Miguel de",
+        "Servant Saavedra, Michail",
+        "סרונטס, מיגל די",
+        "Savedra, Migelʹ Servantes",
+        "Saavedra, Miguel Cervantes",
+        "Cervantes Saavedra, Mikiel de",
+        "סירונטס, מיגואל די",
+        "Saavedra, Michiel de Cervantes",
+        "Servantes Savedra, Migelʹ",
+        "Μιγκελ ντε Θερβαντες",
+        "Cervantes Saavédra, Miguel de",
+        "Cervantes, Michel de",
+        "Servantesas",
+        "Cervantes, Michele",
+        "赛万提斯",
+        "Sīrwāntis",
+        "Мигель де Сервантес Сааведра",
+        "Cervantes, Miguel de",
+        "Cervantes-Saavedra, Miguel de",
+        "Savedra, Miguel de Cervantes",
+        "Servantes, Miguel'",
+        "Θερβαντες, Μιγκελ ντε",
+        "Cervantes Saavedra, Michiel de",
+        "Saavedra, Miguel C. de",
+        "Saavedra, Miguel de Cervantes",
+        "Saavedra, Miguèl Cervantes de",
+        "סרבנטס, מיגואל די",
+        "Serṿantes, Miguel di",
+        "Saiwantisi",
+        "Servantes Saavedra, Migelʹ de",
+        "Cervantes Saavedra, Miguèl de",
+        "De Cervantes Saavedra, Miguel",
+        "Cerbantes Saavedra, Miguel",
+        "Cervantes Saavedra, Miguel",
+        "Therbantes, Minkel nte"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Miguel de Cervantes"
+          ],
+          "surname": [
+            "Savedra"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Servantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel C."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Cervantes Savedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguèl"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "personalName": [
+            "Мигель де Сервантес Сааведра"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "nameAddition": [
+            "Don"
+          ],
+          "surname": [
+            "Cervantes de Saavédra"
+          ]
+        },
+        {
+          "forename": [
+            "Michael"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Saavédra"
+          ]
+        },
+        {
+          "forename": [
+            "Μιγκελ"
+          ],
+          "prefix": [
+            "ντε"
+          ],
+          "surname": [
+            "Θερβαντες"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel de Cervantes"
+          ],
+          "prefix": [
+            "y"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Minkel"
+          ],
+          "prefix": [
+            "nte"
+          ],
+          "surname": [
+            "Therbantes"
+          ]
+        },
+        {
+          "personalName": [
+            "Sīrwāntis"
+          ]
+        },
+        {
+          "forename": [
+            "Migelʹ"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Servantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes de Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "מיגל די"
+          ],
+          "surname": [
+            "סרונטס"
+          ]
+        },
+        {
+          "personalName": [
+            "Servantes"
+          ]
+        },
+        {
+          "forename": [
+            "מיגל דה"
+          ],
+          "surname": [
+            "סרוונטס סאאוודרה"
+          ]
+        },
+        {
+          "forename": [
+            "Michel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "De Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes y Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michael"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "personalName": [
+            "Serwantes"
+          ]
+        },
+        {
+          "forename": [
+            "מיגל דה"
+          ],
+          "surname": [
+            "סערוואנטעס"
+          ]
+        },
+        {
+          "personalName": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cerbantes"
+          ]
+        },
+        {
+          "forename": [
+            "Michael"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "מיגעל דע"
+          ],
+          "surname": [
+            "סערוואנטעס סאאוועדרא"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel de C."
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Ceruantes Saauedra"
+          ]
+        },
+        {
+          "forename": [
+            "Mikiel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Cervantes de la Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michail"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Servantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Migelʹ Servantes"
+          ],
+          "surname": [
+            "Savedra"
+          ]
+        },
+        {
+          "forename": [
+            "מיגואל די"
+          ],
+          "surname": [
+            "סירונטס"
+          ]
+        },
+        {
+          "forename": [
+            "Miguèl Cervantes"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michele"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "personalName": [
+            "赛万提斯"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavédra"
+          ]
+        },
+        {
+          "forename": [
+            "Michail"
+          ],
+          "surname": [
+            "Servant Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel Cervantes"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michiel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miquel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel Cervantes"
+          ],
+          "surname": [
+            "Savedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Zerbantes"
+          ]
+        },
+        {
+          "personalName": [
+            "塞萬提斯"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel Cervantes"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes"
+          ]
+        },
+        {
+          "forename": [
+            "מיגואל די"
+          ],
+          "surname": [
+            "סרבנטס"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Michiel de Cervantes"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Migel'"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Servantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel de Cervantes"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes Savedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "surname": [
+            "Cerbantes Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel de Saavedra"
+          ],
+          "surname": [
+            "Saavedra"
+          ]
+        },
+        {
+          "personalName": [
+            "Servantesas"
+          ]
+        },
+        {
+          "forename": [
+            "Migjelj dje"
+          ],
+          "surname": [
+            "Sjerwantjes Saawjedra"
+          ]
+        },
+        {
+          "personalName": [
+            "Sai wan ti si"
+          ]
+        },
+        {
+          "personalName": [
+            "Saiwantisi"
+          ]
+        },
+        {
+          "personalName": [
+            "Minkel nte Therbantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel'"
+          ],
+          "surname": [
+            "Servantes"
+          ]
+        },
+        {
+          "forename": [
+            "מיגואל די"
+          ],
+          "surname": [
+            "סרוואנטס סאאוודרה"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Serṿantes"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel'"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Servantes"
+          ]
+        },
+        {
+          "personalName": [
+            "Μιγκελ ντε Θερβαντες"
+          ]
+        },
+        {
+          "forename": [
+            "Miguel"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Cervantes-Saavedra"
+          ]
+        },
+        {
+          "forename": [
+            "Migelʹ"
+          ],
+          "surname": [
+            "Servantes Savedra"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Miguel_de_Cervantes",
+          "label": "https://de.wikipedia.org/wiki/Miguel_de_Cervantes"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:06:33Z",
+    "gnd_query_biographical_data": "1547-1616",
+    "gnd_query_name": "cervantes, miguel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 399,
+  "name": "Cervantes, Miguel",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 82",
+  "updated": "2026-06-11 13:29:21.871Z",
+  "uri": "https://d-nb.info/gnd/11851993X",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Was machen Sie denn? Zurück! zurück! / Die Gardine herunter! / Abscheulich! Ist sowas erhört! Mir das? / Kabale! Rache!",
+  "language": [],
+  "musenalm_id": 51499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichtersprache. / Eine Posse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Reinbek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichtersprache. / Eine Posse",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.528Z",
+      "agent": "j6u4xe56jqv8urn",
+      "source_id": "r0t7emstq5oupbd"
+    }
+  ]
+}

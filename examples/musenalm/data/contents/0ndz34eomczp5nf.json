@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Heil uns! heut stieg im Strahl der Sonne / Der feyerliche Tag herab",
+  "language": [],
+  "musenalm_id": 32734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Chorgesang. / an Geburtstägen edler Frauen zu / singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Chorgesang. / an Geburtstägen edler Frauen zu / singen",
+  "updated": "2003-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.308Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "64fhkgv5bzflped"
+    }
+  ]
+}

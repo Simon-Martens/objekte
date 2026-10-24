@@ -1,0 +1,421 @@
+{
+  "annotation": "",
+  "biographical_data": "1481-1523",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.480Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "forename": [
+            "Hartmut"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Cronberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Schweblin"
+          ]
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Reichsritter; Feldhauptmann; Anhänger der Reformation"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1481-03-02"
+      ],
+      "dateOfDeath": [
+        "1523-05-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "AnonymousUnknown author"
+          ],
+          "creditText": [
+            "Neumeister Kunstauktionen"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20von%20Sickingen%20%2816%20Jh%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20von%20Sickingen%20%2816%20Jh%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20von%20Sickingen%20%2816%20Jh%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:17:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118613898/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1234032910",
+          "label": "Sickingen, Schweickhardt von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118613898",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.4p",
+          "label": "Personen zu politischer Theorie, Militär"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1234032910",
+          "label": "Sickingen, Schweickhardt von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118613898",
+      "oldAuthorityNumber": [
+        "(DE-588a)143542451",
+        "(DE-588a)117337307",
+        "(DE-588a)118613898",
+        "(DE-588c)4054821-1"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4716719-1",
+          "label": "Ebernburg (Bad Kreuznach)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/7534665-5",
+          "label": "Burg Nanstein (Landstuhl)"
+        }
+      ],
+      "preferredName": "Sickingen, Franz von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Sickingen"
+        ]
+      },
+      "publication": [
+        "Sickingen, Franz von: Eyn Sendbrieff, so der Edel und Ernvest Franciscus von Sickingen ..",
+        "Sickingen, Franz von: Ein send brieff so der Edel vnd Ernuest Franciscus von Sickingen seynem schweher dem Edlen ...  1522.  (VD16 S 6311)",
+        "Sickingen, Franz von: Ein sendbrieff so der Edel vnd Ernuest Franciscus von Sickingen seynem schweher dem Edlen ...  1522.  (VD16 S 6312)",
+        "Sickingen, Franz von: Ausz schreiben vnd veranntwürtung Franciscus von Sigkingen vff Rugklich verclagen erdicht ...  1522.  (VD16 S 6306)",
+        "Sickingen, Franz von: Eyn sendbrieff so der Edel vnnd Ernuest Franciscus von Sickingen seinem schweher dem Edlen ...  1522.  (VD16 S 6313)",
+        "Sickingen, Franz von: Ain sendbrieff so der Edel vnd Ernuest Franciscus von Sickingen seim schweher dem Edlen vnd ...  1522.  (VD16 S 6309)",
+        "Sickingen, Franz von: Eyn sendbriff wye der Edel vnnd Ernuest Franciscus von Syckingen seynem schweher geschriben ...  1522.  (VD16 S 6314)",
+        "Sickingen, Franz von: Ein sendbrieff so der Edel vnd Ernuest Franciscus von Sickingen seinem schweher dem Edlen ...  1522.  (VD16 S 6315)",
+        "Sickingen, Franz von: Brief an Franciscus von Sickingen, seinen Vetter.  1522.  (VD16 S 6316)",
+        "Sickingen, Franz von: Ervorderung vnd verkundung des Edlen vnd vesten Francisci von Sickingen: z°u Eberburg an vñ ...  1519.  (VD16 S 6308)",
+        "Sickingen, Franz von: Warhafftiger bericht Francisci von Sickingen ..",
+        "Sickingen, Franz von: Außschreiben und veranntwürtung uff Rugklich verclagen ..",
+        "Sickingen, Franz von: Warhafftiger bericht Francisci von Sickingen vff das vngegründt vßschrybẽ deren võ ...  1515.  (VD16 S 6317)",
+        "Sickingen, Franz von: Ervorderung und verkundung .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85278548"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35249493"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q143108"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118613898/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Franz_von_Sickingen"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_von_Sickingen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Franz_von_Sickingen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061279771"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118613898"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118613898"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118613898.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118613898.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118613898"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118613898"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sickingen, Franziscus von",
+        "Sickingen, Franz von",
+        "Sigkingen, Franciscus von",
+        "Sickingen, Frantz von",
+        "Sickingen, Franciscus von",
+        "Von Sickingen, Franz",
+        "Syckingen, Franz von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Frantz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sickingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franziscus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sickingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Syckingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sigkingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sickingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franz von"
+          ],
+          "surname": [
+            "Sickingen"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Von Sickingen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_von_Sickingen",
+          "label": "https://de.wikipedia.org/wiki/Franz_von_Sickingen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:58:15Z",
+    "gnd_query_biographical_data": "1481-1523",
+    "gnd_query_name": "sickingen, franz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2653,
+  "name": "Sickingen, Franz von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXIV, 151",
+  "updated": "2026-06-11 13:29:25.008Z",
+  "uri": "https://d-nb.info/gnd/118613898",
+  "editor": ""
+}

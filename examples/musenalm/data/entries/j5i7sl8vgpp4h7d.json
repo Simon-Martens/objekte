@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G §1§, T, 12 BB Kal darin 3 GG §2-10§, ar: SS 1-350, SS 351-366 G-Verz, ar1: SS 1-97, S 98 C, ar2: 1-104",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1839",
+    "norm": "~+++ 409248 (TG, GG)",
+    "biblio": 100354,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 874,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / KALENDER / auf das / Gemein-Jahr / 1839. / MIT KUPFERN / HERAUSGEGEBEN / VON DER KÖN. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.754Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "6pc642vhb9l9r63",
+    "9ovpxtidsqt1tma"
+  ],
+  "contents": [
+    "cucte6meonq1c4x",
+    "skwqrmwydv25c14",
+    "2a5u8qd9wcg28aa",
+    "ahylnr33mcq0cfv",
+    "o1d9u6fjjp4tp7b",
+    "yryaqfkfmtcqqis",
+    "6uzzrrlaq6hahgh",
+    "zu80frxzehk6p0z",
+    "kvolx6ybr15uw39",
+    "2h2aodhi0p47jip",
+    "hp1w706th9v0yd4",
+    "7suulovs962a8t6",
+    "psq3qfc18fso021",
+    "gkl0ctyawpa3uve",
+    "gzjog8lpvk2sk06",
+    "8mxy3xq6eo3giiu",
+    "50kkjqw5gz35l5b",
+    "p3teymrxyzj3aqa",
+    "9m0h19f5mnboezs",
+    "ef5aiz2eyfkkbyy",
+    "aof510n2f9tirm8",
+    "r92ywuc9gnjehx3",
+    "8420g3b45nqlafr",
+    "ps083zyvdwmq5jw",
+    "ohc11d5i5qi5rku",
+    "u2pj8qm00lhi5nn",
+    "hzeqkan4tsf40eo",
+    "himi5fbcl3hdhe4",
+    "ofv7l1jciw893d4",
+    "3dqlr9vead8l7hg",
+    "jgq8brjgejuq2gn",
+    "z1zl2q7adrltkvf",
+    "voy7weumgfajz00",
+    "36bhe97p3tv72lj",
+    "76ldatwbbptzxa4",
+    "d28z52v2ab2h7mb",
+    "apvh1itxbuuf3wo",
+    "i2jgib9tkub4xs2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "os24t7ltd2r0wty"
+    }
+  ]
+}

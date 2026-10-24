@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 14191-14193, Obj 12-14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Drey Frühlingsbilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Drey Frühlingsbilder",
+  "updated": "2001-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.646Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "idjd5wuwsbm850o"
+    }
+  ]
+}

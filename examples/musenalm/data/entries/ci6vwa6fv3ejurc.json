@@ -1,0 +1,85 @@
+{
+  "annotation": "Variante des Heidelberger Taschenbuchs 1809;  bis auf Titel und Vorwort identisch mit dem Heidelberger Taschenbuch 1809. Im Vorwort des Verlegers: »Das Heidelberger Taschenbuch auf 1809 kam zu spät in den Buchhandel, und unter zu ungünstigen Umständen, als daß es sich in die entfernteren Gegenden Deutschlands hätte verbreiten können. [...]« /) Kurzaufnahme: Titelgraphik, Titel, Vorwort und Inhaltsverzeichnis sind als Vollbild gegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, W, SS I-II, SS III-IV Vrwrt d Hrsg, SS 1-3 I-Verz, SS 5-12 G-Verz, S 13 zT, SS 15-200 darin 8 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Heidelberger 1809 (Titelauflage)",
+    "norm": "~",
+    "biblio": 200924,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-02-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 20,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Taschenbuch, Heidelberger 1809 (Titelauflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; L/R 39, 83; Goed VIII. 68, 117",
+  "responsibility_statement": "A. Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "Spätlinge. / Erzählungen und Gedichte, / mit Kupfern. / Herausgegeben / von / A. Schreiber. / Heidelberg 1809. / Gedruckt und verlegt von J. Engelmann",
+  "updated": "2026-06-11 10:18:54.785Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "66ebighg1ipxr95"
+  ],
+  "contents": [
+    "f43t8naw4waqzzt",
+    "3kbmc3ganrwk39c",
+    "pvpbr6fn6iafwld",
+    "ftbx1tlq1rks92a",
+    "td7uv99yt8aum1m",
+    "ludcikp22266u4u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.193Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.193Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "1y94nyr21ny7v1c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.783Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.783Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "qmycbsox31jbvwb"
+    }
+  ]
+}

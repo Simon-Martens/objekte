@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Lasset die Freud' uns im Flug' erhaschen, / Eh' sie entschwebt!",
+  "language": [],
+  "musenalm_id": 12983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wein, Gesang und Kuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Noeller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wein, Gesang und Kuß",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.556Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "3t52l2bil8n3xon"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "sep. Beilage: paginiert 1-4; Vertonung des Gedichts »Das Vaterhaus« von Dr. Frank d.i. Gustav von Frank /) Photos 69567,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wir rasseln durch ein Städtchen, so öd' und friedhofsstill,",
+  "language": [],
+  "musenalm_id": 69567,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS VATERHAUS / Gedicht von Dr. Frank. / Musik von Ignaz Ritter von Seyfried. / Kapellmeister in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Ritter von Seyfried",
+  "scans": [
+    "alm_758_69567_01_y3hasr5gb9.jpg",
+    "alm_758_69567_02_b6u98wu98k.jpg",
+    "alm_758_69567_03_x0dotr421x.jpg",
+    "alm_758_69567_04_6pzncdt5tp.jpg",
+    "alm_758_69567_05_d6uhtddp4t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS VATERHAUS / Gedicht von Dr. Frank. / Musik von Ignaz Ritter von Seyfried. / Kapellmeister in Wien",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.975Z",
+      "agent": "0jv59az01keoeil",
+      "source_id": "fhbdvrya5ge9i0a"
+    }
+  ]
+}

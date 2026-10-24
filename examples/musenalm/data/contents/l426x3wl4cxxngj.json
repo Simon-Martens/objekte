@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtrag zum vorstehenden Beitrag INr 74390, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Das von Chancey hier beschriebene Sorgho donna ist nach Linné: Holcus sorghum, glumis villosis, semnibus aristatis panicula ovata. SorgoHonigGras, dessen Blumenkelche rauh sind,",
+  "language": [],
+  "musenalm_id": 74391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das von Chancey hier beschriebene Sorgho donna ist nach Linné: Holcus sorghum, glumis villosis, semnibus aristatis panicula ovata. SorgoHonigGras, dessen Blumenkelche rauh sind,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.331Z",
+      "agent": "wnbgysvwlvcts0h",
+      "source_id": "k889ayawfikksk9"
+    }
+  ]
+}

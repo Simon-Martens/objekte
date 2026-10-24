@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "So züchtig, Freund, mit so bescheidnen Blicken, / Wie du ihn malst, sah ich den Amor nie.",
+  "language": [],
+  "musenalm_id": 11251,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "99. / Der ruhende Amor. / An S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "99. / Der ruhende Amor. / An S.",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.542Z",
+      "agent": "29ohnryhyvah0tt",
+      "source_id": "fzpek6khbgaqu56"
+    }
+  ]
+}

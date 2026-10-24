@@ -1,0 +1,295 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1852",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.327Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schwedischer Kupferstecher und Zeichner; wirkte zeitweise in Paris und Amsterdam"
+      ],
+      "dateOfBirth": [
+        "1777"
+      ],
+      "dateOfDeath": [
+        "1852"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Maria Röhl http://viaf.org/viaf/54126478/"
+          ],
+          "creditText": [
+            "http://libris.kb.se/bib/17258392"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Forssell-1832.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Forssell-1832.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Forssell-1832.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2021-01-13T07:55:04.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/120877791/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SE",
+          "label": "Schweden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "120877791",
+      "id": "https://d-nb.info/gnd/120877791",
+      "oldAuthorityNumber": [
+        "(DE-588a)120877791"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4001783-7",
+          "label": "Amsterdam"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4221969-3",
+          "label": "Helsingborg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4057648-6",
+          "label": "Stockholm"
+        }
+      ],
+      "preferredName": "Forssell, Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian"
+        ],
+        "surname": [
+          "Forssell"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "publication": [
+        "Album pittoresque du Nord. - 1838",
+        "Grafström, Anders A.: Ett ar i Sverige. - 1827"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83058362"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/31966103"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q5737558"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/120877791/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055378730"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/120877791"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/120877791"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/120877791"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Forssell, Christan D.",
+        "Forssel, Christian Didrik",
+        "Forssell, Christian Didrik",
+        "Forssell, C.",
+        "Forssell, Christian D.",
+        "Forssel, C.",
+        "Forssell, Christan Didrik"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Forssell"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Forssel"
+          ]
+        },
+        {
+          "forename": [
+            "Christan D."
+          ],
+          "surname": [
+            "Forssell"
+          ]
+        },
+        {
+          "forename": [
+            "Christian D."
+          ],
+          "surname": [
+            "Forssell"
+          ]
+        },
+        {
+          "forename": [
+            "Christan Didrik"
+          ],
+          "surname": [
+            "Forssell"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Didrik"
+          ],
+          "surname": [
+            "Forssel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Didrik"
+          ],
+          "surname": [
+            "Forssell"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:24:06Z",
+    "gnd_query_biographical_data": "1777-1852",
+    "gnd_query_name": "forssell, christian didrik"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 755,
+  "name": "Forssell, Christian Didrik",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XII, 220",
+  "updated": "2026-06-11 13:29:22.323Z",
+  "uri": "https://d-nb.info/gnd/120877791",
+  "editor": ""
+}

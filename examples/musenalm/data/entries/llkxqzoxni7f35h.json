@@ -1,0 +1,68 @@
+{
+  "annotation": "Einziger Beitrag: Heinrich August Müllers »Oswald und Luise« /) Vortitel lautet: Oswald und Luise / Gedicht / in drey Gesängen / als Seitenstück zu Göthes / Herrmann und Dorothea / und / Vossens Luise / Hamburg / bey G. Vollmer.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues Der Liebe und Freundschaft gewidmet 1809",
+    "norm": "",
+    "biblio": 100809,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3068,
+  "parallel_title": "",
+  "place_statement": "Hamburg und Altona (Vollmer)",
+  "places": [
+    "snvlmxpira867wf",
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch, Neues Der Liebe und Freundschaft gewidmet 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 138; nicht bei L/R; Goed VI. 400; Goed VIII. 69, 118",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / für / das Jahr 1809. / Der / Liebe und Freundschaft / gewidmet. / Hamburg und Altona, / bey Gottfried Vollmer",
+  "updated": "2026-06-11 10:18:55.385Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "waf6adaiolawxps"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "e84ku84wupj2auz",
+      "source_id": "1la1t3rzucv06kr"
+    }
+  ]
+}

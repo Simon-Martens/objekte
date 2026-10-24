@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19584,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Alatri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Darnstedt sc.",
+  "scans": [
+    "alm_265_19584_31xfaicl35.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Alatri",
+  "updated": "2001-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.668Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "78bxzob6nts822y"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Hans Waldmann, Bürgermeister von Zürich. Romantische Erzählung aus dem Ende des funfzehnten Jahrhunderts«  von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110929, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Retzsch del. J. Axmann sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. J. Axmann sculp.",
+  "scans": [
+    "alm_3472_110931_9h54xy3u70.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.395Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "jqqukvsgak1y6be"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.395Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "vat174amm5d3rim"
+    }
+  ]
+}

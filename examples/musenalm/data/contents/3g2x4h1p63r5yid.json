@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Es war wohl bey Anhörung der Jahrszeiten nach der trefflichen Tonsetzung Haydn's ein sehr natürlicher Gedanke, daß sich zu einem Seitenstücke für dieselben die Tageszeiten unstreitig passend eignen würden. […] / Th. Hell",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "386",
+  "incipit_statement": "Noch ruht die Nacht so still auf Feld und Flur, / Und Alles schläft im Schooße der Natur.",
+  "language": [],
+  "musenalm_id": 77153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.690Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "15lq68ibip9jtra"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Am hellen Nachmittag rollte mein Wägelchen über das etwas unsanfte Pflaster der saubern kleinen Stadt und hielt vor dem Wirtshause zum rothen Engel.",
+  "language": [],
+  "musenalm_id": 44607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kreisrichter. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kreisrichter. / Novelle",
+  "updated": "2006-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.454Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "1k1bwo2p5o38an2"
+    }
+  ]
+}

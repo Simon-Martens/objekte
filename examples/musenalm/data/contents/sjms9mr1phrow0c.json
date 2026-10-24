@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 5 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7219,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LXXI. Anecdote / Peter des Grossen chirurgische Operationen / p. 208",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7219_u6telxgxwq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LXXI. Anecdote / Peter des Grossen chirurgische Operationen / p. 208",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.149Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "h1g63unmvoja1ab"
+    }
+  ]
+}

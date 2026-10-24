@@ -1,0 +1,103 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt /) Vorläuferjahrgang zu: Almanach, Satyrischer 1799-1801",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, SS 1-408",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blätter, Satyrische 1798",
+    "norm": "~",
+    "biblio": 407528,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3726,
+  "parallel_title": "",
+  "place_statement": "Hohnstadt [Hamburg]",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "k44l5azdnh7yk82"
+  ],
+  "preferred_title": "Blätter, Satyrische 1798",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Janus Eremita",
+  "subtitle_statement": "",
+  "title_statement": "Satirische Blätter. / Herausgegeben / von Janus Eremita. / Mit einem Titelkupfer. / Hohnstadt, / auf Kosten der Leer- und Querköpfe, / 1798",
+  "updated": "2026-06-11 10:18:55.542Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "8ma6gmfcznxjhjs"
+  ],
+  "contents": [
+    "et025sy51oovyyw",
+    "13zyxbv1gg6yhv5",
+    "1u4znuipd1vzkk1",
+    "8ti38k7ppnyxhho",
+    "c8s560w2i9cl7qu",
+    "5lhs4rc597nkdfo",
+    "1g04r7z5ylie5sb",
+    "cykqur2e44yk0yc",
+    "rc4iwb3ij5i8x3b",
+    "m65w1pe86xdmz9o",
+    "7drr7cffh7cf1li",
+    "bec9z0ua4e1gudx",
+    "e0uozk4x0ei35t6",
+    "xbqvi9kqujuybb5",
+    "r73js76svm747ub",
+    "ezfmdh8eb7anib8",
+    "mz479jnji3rnc2c",
+    "v4ldi4lz1l19u41",
+    "ms1neb3nqahney6",
+    "h8yzjdjujb41lso",
+    "21yv5f7ql939lcl",
+    "x1rig3xwu87v564",
+    "zn87b2udcxkcx12",
+    "364x5q9ssngn2ul",
+    "s24w1xf8ryvmsg5",
+    "4tb4hnf4z2i6y0q",
+    "5skm2hkblr8udl1",
+    "koijtctrk01b1le",
+    "t6018zc421viv4x",
+    "xnnsj662wfeyspv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.286Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.286Z",
+      "agent": "769r8tmydq2o7xf",
+      "source_id": "0aaf3tfmtadxo9d"
+    }
+  ]
+}

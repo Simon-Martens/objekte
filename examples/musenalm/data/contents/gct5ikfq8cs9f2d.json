@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Hanfbrecherinnen« von J. R. Wysz d. J. INr 53530, Obj 59 /) unter der Graphik: Alpenrosen, 10r. Jahrgg.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hanfbrecherinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Freudenberger inv. Eichler sculp.",
+  "scans": [
+    "alm_732_53531_z79flrr0ig.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Hanfbrecherinnen",
+  "updated": "2007-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.396Z",
+      "agent": "uqmz1z1gxwdl23p",
+      "source_id": "9xhw0nbjaks6118"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.396Z",
+      "agent": "zi6mt5x19lyyq70",
+      "source_id": "zzf973woawxjmjl"
+    }
+  ]
+}

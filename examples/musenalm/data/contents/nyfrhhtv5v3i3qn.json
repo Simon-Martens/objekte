@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt I-Verz: Mit Melodie von C. M. v. Weber. §4§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Herz, mein Herz, ermanne dich, / Wie vernichtend auch die Zeit,",
+  "language": [],
+  "musenalm_id": 20395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schmerz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf Blankensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schmerz",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.960Z",
+      "agent": "l8ofx6a8nd7fpu5",
+      "source_id": "254oyztmjccp7si"
+    }
+  ]
+}

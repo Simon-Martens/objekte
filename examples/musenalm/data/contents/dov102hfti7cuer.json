@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Der Ofen summt, die zischenden Kannen / Gedulden sich länger nicht mehr.",
+  "language": [],
+  "musenalm_id": 46526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Geburtstage meiner Gattin. / Den 14ten Dez. 1799, beym Frühstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Geburtstage meiner Gattin. / Den 14ten Dez. 1799, beym Frühstück",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.399Z",
+      "agent": "o2pvd0n9c0ulrf4",
+      "source_id": "fjqkiwc5gn2gkut"
+    }
+  ]
+}

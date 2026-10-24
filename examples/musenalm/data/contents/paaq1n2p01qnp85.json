@@ -1,0 +1,49 @@
+{
+  "annotation": "Vier Walzer für das Pianoforte (Sammlung INr 61756, Obj 119) /) Anhang zu Becker's Taschenbuch 1816 enthaltend: Compositionen und Tänze, von Bergt, Dotzauer, Marschner, Methfessel, Pohlenz und Minna Schütz (Sammlung INr 61749, Obj 112) (Photos 61758,01-61758,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61758,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_264_61758_01_42j0y6djx4.jpg",
+    "alm_264_61758_02_i8sreotx39.jpg",
+    "alm_264_61758_03_5mi9z5h13b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 2",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.074Z",
+      "agent": "ij45jg2izry2pga",
+      "source_id": "e4i4lv7rx406maz"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "annotation": "§1§-§4§ 4 Graphiken im Kalendarium (Februar, März, August, September) fehlen /) Die unbezeichneten Beiträge wohl von C. G. Cramer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G T, 11 BB Kal darin §1-4§ 12 GG, 8 BB G-Verz, SS I-X, SS 1-382, B I-Verz, 8 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Geschichts-Almanach, Sächsischer 1793",
+    "norm": "~",
+    "biblio": 407710,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-02-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3929,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Richter)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Geschichts-Almanach, Sächsischer 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 50; nicht bei L/R",
+  "responsibility_statement": "Carl Gottob Cramer",
+  "subtitle_statement": "",
+  "title_statement": "Saechsischer / GESCHICHTS- / ALMANACH / für das Jahr / 1793. / von / Carl Gottlob Cramer. / mit Churf.-Saechs. Privilegio. / Dresden und Leipzig / in der Richter'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.645Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "qe0141ukpbddzmz"
+  ],
+  "contents": [
+    "b2aajav21t2qtwc",
+    "cg0czty4lk52lru",
+    "hmd60joyjjic0c3",
+    "k84jgkgjk2o6hgd",
+    "urln26wiaeq71u2",
+    "zsujdja8i6fddmy",
+    "r2jychaid249lrx",
+    "x2p5x2w1x7hvgqs",
+    "10usn3s7yai6jif",
+    "bfekis031ks2s6e",
+    "xne6o95l6ibmcpm",
+    "s9vsgnsxkekuruv",
+    "ju5i1osbdz7snrb",
+    "ztrx06k054z3q9w",
+    "x97csngtk05u2ym",
+    "pm1s2l46gtflmp8",
+    "ehkkemww0toghlb",
+    "a56hqrzugpzmzxj",
+    "adxq2iiowt8ig9i",
+    "0t2c6hc3of40fec",
+    "0ptpmvj7mlvw2cc",
+    "8bu48rz61gbbw7w",
+    "5qwcne1jlt41xgl",
+    "um41v2xocgc4pdw",
+    "as0z17ybvupkhkh",
+    "n34knla8unokkdk",
+    "9gjsmujlg1arthz",
+    "l89uea8rejcpzph",
+    "iexrj7hrm46wyha",
+    "myzxvtkiqpw5zqt",
+    "5ya37l0cn5tusq9",
+    "r1ff58f1075q9ow",
+    "nfoayfciu8am0wh",
+    "seawlw15mih3k3j",
+    "meeawlz9zab1lqs",
+    "cy1pnv783oziapn",
+    "doj6ldu1f4jwvqp",
+    "6i7ejfgrbfxm0z6",
+    "e925uingy49kqbz",
+    "lav6rs3k20a1zry",
+    "9kbx7tcsy5emr3y",
+    "63anyb3fwcsr6mq",
+    "uu4b8x3dpi6skmn",
+    "2i31amf31p17pyb",
+    "e5qmv826pj8tjtz",
+    "092d4zo60h1la3c",
+    "o06n2wdabhtcqn7",
+    "1uygc2mxo5cgek6",
+    "j7yyalv3w4td3h5",
+    "5bd43xabx7je14b",
+    "xt4wajeww5gvgu4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "b4ztpbye7xb6uqv",
+      "source_id": "kbbeafckbxwdik7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.311Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.311Z",
+      "agent": "amqten9820medl4",
+      "source_id": "ub07vmh8kpvkll0"
+    }
+  ]
+}

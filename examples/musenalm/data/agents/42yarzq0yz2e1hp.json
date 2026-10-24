@@ -1,0 +1,330 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.444Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "lebte und arbeitete in der Schweiz; Professor; Altphilologe und Musiklehrer"
+      ],
+      "dateOfBirth": [
+        "1771-11-05"
+      ],
+      "dateOfDeath": [
+        "1849-05-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rochholz, Ernst Ludwig, 1809-1892. Schröter, Karl, stadtpfarrer in Rheinfelden. Historische Gesellschaft des Kantons Aargau."
+          ],
+          "creditText": [
+            "\"Argovia\" Volume 65, 1953"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael%20Traugott%20Pfeiffer.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Michael%20Traugott%20Pfeiffer.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Michael%20Traugott%20Pfeiffer.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-01-17T11:39:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104161582/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1353419495",
+          "label": "Keller-Pfeiffer, Josephine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1196154422",
+          "label": "Pfeiffer, Elisabeth"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "104161582",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1353419495",
+          "label": "Keller-Pfeiffer, Josephine"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1196154422",
+          "label": "Pfeiffer, Elisabeth"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104161582",
+      "oldAuthorityNumber": [
+        "(DE-588a)104161582"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4280917-4",
+          "label": "Wülfershausen (Wasserlosen)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065872-7",
+          "label": "Wettingen"
+        }
+      ],
+      "preferredName": "Pfeiffer, Michael Traugott",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Michael Traugott"
+        ],
+        "surname": [
+          "Pfeiffer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163221-7",
+          "label": "Kantor"
+        }
+      ],
+      "publication": [
+        "Chorgesangschule",
+        "Auszug aus der Gesangbildungslehre nach Pestalozzischen Grundsätzen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88648323"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29962465"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D9055.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q25422994"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=104161582"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104161582/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Michael_Traugott_Pfeiffer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Michael_Traugott_Pfeiffer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079887046"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104161582"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104161582"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Pfeifer, Michael Traugott",
+        "Pfeiffer, M.T.",
+        "Pfeiffer, Johann Michael Traugott",
+        "Pfeiffer, M. T."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "M. T."
+          ],
+          "surname": [
+            "Pfeiffer"
+          ]
+        },
+        {
+          "forename": [
+            "M.T."
+          ],
+          "surname": [
+            "Pfeiffer"
+          ]
+        },
+        {
+          "forename": [
+            "Michael Traugott"
+          ],
+          "surname": [
+            "Pfeifer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Michael Traugott"
+          ],
+          "surname": [
+            "Pfeiffer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Michael_Traugott_Pfeiffer",
+          "label": "https://de.wikipedia.org/wiki/Michael_Traugott_Pfeiffer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:28:51Z",
+    "gnd_query_biographical_data": "1771-1849",
+    "gnd_query_name": "pfeiffer, michael traugott"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2062,
+  "name": "Pfeiffer, Michael Traugott",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1548",
+  "updated": "2026-06-11 13:29:24.063Z",
+  "uri": "https://d-nb.info/gnd/104161582",
+  "editor": ""
+}

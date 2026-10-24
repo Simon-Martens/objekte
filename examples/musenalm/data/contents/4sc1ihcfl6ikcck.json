@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Wie lächelt verjüngt, o du Mutter Natur! / Dein Angesicht lieblich im Hain, auf der Flur,",
+  "language": [],
+  "musenalm_id": 2919,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach einer Krankheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach einer Krankheit",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.859Z",
+      "agent": "jn3l1dg6imwx04v",
+      "source_id": "kf2rck2t3q9p0wx"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Christliches (Döring) 1830",
+    "norm": "",
+    "biblio": 411034,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-04-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4783,
+  "parallel_title": "",
+  "place_statement": "Elberfeld und Barmen (Weise'sche Buchhandlung)",
+  "places": [
+    "89gtkonjjcz1oai",
+    "tm7wlyj27p2bd02"
+  ],
+  "preferred_title": "Taschenbuch, Christliches (Döring) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 111; nicht bei L/R",
+  "responsibility_statement": "Karl August Döring",
+  "subtitle_statement": "",
+  "title_statement": "Christliches / Taschenbuch / auf das Jahr / 1830. / Herausgegeben / von / Karl August Döring, / Pastor in Elberfeld. / Elberfeld und Barmen, / Weise'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:54.563Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "7k8cgsq6x46wwjj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.184Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.184Z",
+      "agent": "eceeeh7iygvnrq2",
+      "source_id": "npdr443d09xxuuw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.423Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.423Z",
+      "agent": "350iidik1x26l6n",
+      "source_id": "qpy4q6o0c5ahabk"
+    }
+  ]
+}

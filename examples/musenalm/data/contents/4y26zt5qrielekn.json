@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Namouna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2487_107463_jll82sh9gx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Namouna",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.041Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "0wzgpcenibvsaiv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.041Z",
+      "agent": "x4wr3clisfzne16",
+      "source_id": "bycoq1vbby2y7m6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.041Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "nhky8vqzjk8145z"
+    }
+  ]
+}

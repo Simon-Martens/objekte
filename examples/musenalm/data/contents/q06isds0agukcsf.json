@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Rosenknospe! So schön blühete keine noch / Von den Töchtern des Mays,",
+  "language": [],
+  "musenalm_id": 5202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine sterbende Schwester / Sophie Magdalene / 1773",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine sterbende Schwester / Sophie Magdalene / 1773",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.082Z",
+      "agent": "gtq8zou6jpsfpy4",
+      "source_id": "i1w4av9ird5e82t"
+    }
+  ]
+}

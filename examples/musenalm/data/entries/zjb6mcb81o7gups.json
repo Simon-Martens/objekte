@@ -1,0 +1,101 @@
+{
+  "annotation": "unter dem I-Verz: Gedruckt bey Anton Strauß",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 17 SS Kal darin 6 GG, 7 SS Tabb, SS 1-82, S I-Verz, 9 SS Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1828",
+    "norm": "~",
+    "biblio": 404994,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1894,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / Ein / Almanach für das Jahr 1828. / Frohen Erheiterungen gewidmet. / WIEN, / Verlag des F. Pfautsch, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:55.702Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "n5v0kq76qhh24dx"
+  ],
+  "contents": [
+    "hwhr4vgj5x0po6p",
+    "irgohreq1rtoxgu",
+    "avnoq3b7jqvqjto",
+    "mfvafsevhtrrwii",
+    "tzyggz51udm2twe",
+    "9zleph01bkranga",
+    "0gjj2fm1zlhad30",
+    "7tl71ux6h5pdb7r",
+    "q1ns71lvthiskc3",
+    "53a9ucwt7209kkw",
+    "lj77twk8ia4rhd2",
+    "kvn859cc8y8obpp",
+    "wt90wd5ttpgjprh",
+    "pjaqyq03kzlp23m",
+    "xocsdz000q3ufl0",
+    "ec4kfyq4faifijd",
+    "fb9ao5jaslce2ly",
+    "68b4zilj1ljhzje",
+    "r7z15euplcl5nfo",
+    "i50ss6dhh3b3qk3",
+    "9upxxsn7h6f71q0",
+    "ecisyyvnb3md9bc",
+    "fgne2k9v3jpuswy",
+    "c8rp6vf428lox90",
+    "i7dnak2sqrfcmya",
+    "3twuh9w9vm1oy0a",
+    "iunm51qonxy5m97",
+    "mvl8bg5rmgc1xgs",
+    "priaku5u3wscupt",
+    "chre0tidbg27zk7",
+    "w830ylutyjj4c1d",
+    "iiz4stoy3fsezes",
+    "ljru4oxl3apqo55"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "ybeuqu65i3c3aln"
+    }
+  ]
+}

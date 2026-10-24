@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember s. Textbezug INr 72438, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72405,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Suvorow Rymnikski",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_833_72405_wxu84s3kz7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Suvorow Rymnikski",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.613Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "wsvvpufqybf0ynz"
+    }
+  ]
+}

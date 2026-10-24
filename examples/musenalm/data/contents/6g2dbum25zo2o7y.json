@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Selbstbeschauung« von Wilh. Müller INr 41380, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41365,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbstbeschauung / von Wilhelm Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Westall pinx. Fr. Wagner sc.",
+  "scans": [
+    "alm_483_41365_hz0pnvikel.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Selbstbeschauung / von Wilhelm Müller",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.103Z",
+      "agent": "zcahh3ez21pnltp",
+      "source_id": "38205e9brx9jjv8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.103Z",
+      "agent": "uq6rhrihzl9bx5q",
+      "source_id": "3mowrqcvjdulh42"
+    }
+  ]
+}

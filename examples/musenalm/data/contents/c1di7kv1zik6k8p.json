@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82333,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloß und Ruine Sayn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Lasinsky delin. Rosmäsler sculps.",
+  "scans": [
+    "alm_868_82333_xlt61jz420.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloß und Ruine Sayn",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.084Z",
+      "agent": "rvw5lmkfyfm128i",
+      "source_id": "crgqp6nhdds9nf3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.084Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "stzd9xubpfjqavz"
+    }
+  ]
+}

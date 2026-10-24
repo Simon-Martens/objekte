@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Der Knabe spielt; er taucht ein dünnes Rohr / In Schaum, und haucht sich eine Welt hervor;",
+  "language": [],
+  "musenalm_id": 14009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Neujahrs-Sermon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Neujahrs-Sermon",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.520Z",
+      "agent": "cxnpeuic3nrym95",
+      "source_id": "h589erzxsslt8ub"
+    }
+  ]
+}

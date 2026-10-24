@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Bekränzten Hauptes und statt der schwerfaltigen Toga einen leichten festlich bunten Mantel auf der Schulter tragend, schritt Genesius das römische Forum hinab.",
+  "language": [],
+  "musenalm_id": 60785,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genesius. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Genesius. / Eine Erzählung",
+  "updated": "2008-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.824Z",
+      "agent": "dlauvagqjefeu2b",
+      "source_id": "13v6k1t82fudflr"
+    }
+  ]
+}

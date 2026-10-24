@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Was man am liebsten denkt, das träumt man, / heißt es zwar. / Doch, schöne Freundinn, trotz der Psychologen / Schlüssen, / Ist dieser Satz nicht immer wahr;",
+  "language": [],
+  "musenalm_id": 128851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau von R**. / Mit einem Exemplare der Pucelle d'Or- / leans von Voltaire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. v. Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau von R**. / Mit einem Exemplare der Pucelle d'Or- / leans von Voltaire",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.988Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "648n5ibyzopngjr"
+    }
+  ]
+}

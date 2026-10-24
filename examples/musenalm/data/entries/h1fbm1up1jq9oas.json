@@ -1,0 +1,130 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS III-V Vrwrt d Hrsgg, SS VI-XII I-Verz, SS XIII-XVI G-Verz, SS 1-317 darin 13 GG, SS 318-332 C, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Reisen (Zimmermann) 1817",
+    "norm": "~",
+    "biblio": 200627,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-12-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 558,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch der Reisen (Zimmermann) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143; L/R 141",
+  "responsibility_statement": "F. Rühs und H. Lichtenstein",
+  "subtitle_statement": "",
+  "title_statement": "E. A. W. von ZIMMERMANNS / TASCHENBUCH / DER / REISEN, / oder / unterhaltende Darstellung /  der Entdeckungen des 18ten Jahrhunderts, / in Rücksicht / auf Länder- Völker- und Productenkunde. / Fortgesetzt / von / F. RÜHS und H. LICHTENSTEIN, / Professoren an der Universität zu Berlin. / Dreizehnter Jahrgang / oder / siebenzehntes Bändchen. / Mit 14 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng. / 1817",
+  "updated": "2026-06-11 10:18:55.830Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "l4xbr64e3epvet1"
+  ],
+  "contents": [
+    "5swpxq4dubprhtj",
+    "avfmtuv90prdiy5",
+    "1x4nveb8z3y7aj4",
+    "mzz4yd49vd4hh4s",
+    "x1s8wmxa81vxvdg",
+    "0oiagh90yyti2ka",
+    "rku150yrztwcn44",
+    "c69cbymqto4zjq3",
+    "4ixsbfxusbxwfyz",
+    "eq5hpfk7lbjzhjn",
+    "qoc6kj1gy07lnm1",
+    "hrbn98kmz49sqep",
+    "pfjh3og14lpgo0n",
+    "oawz9dekf5kskh2",
+    "2i7no1lfe8l4usd",
+    "lwc8klxxwzvvhnv",
+    "0takw9tg0092o0t",
+    "4ui2w71br3vo8rw",
+    "8czn89mfaoy4iia",
+    "71bmf9suarlum8n",
+    "u5qbk1giv3znhgn",
+    "60ucb4bsjzr9l5x",
+    "lu4s90vcec59i56",
+    "xs92314sm54293v",
+    "4ftyw6o1fdvhghb",
+    "ndbfaei9zzvub5l",
+    "us93owegkowa1h1",
+    "75pnl2plsqupnh7",
+    "zuwsf7y01rkx2g2",
+    "j37kbac1axdf0sa",
+    "0tqdo3t863w2f6b",
+    "ihd7p8m1yjzis1j",
+    "o19wirklzyqsdsb",
+    "d9lskodx126r6h8",
+    "9zwesrst67vpl10",
+    "o88axowp1hrxtd2",
+    "vq9pl15ej7bl3mx",
+    "cjqe731nn88kula",
+    "9gsab9d9l6o8fmc",
+    "590u67u38d1kzba"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.703Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.703Z",
+      "agent": "wa9sa5vspt41k6t",
+      "source_id": "2yqlclprfmzy6ub"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.703Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.703Z",
+      "agent": "q5rzjlx40lnqx6r",
+      "source_id": "59zxrrm1821qqyw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.843Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.843Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "dhv5q2dn0prfgf2"
+    }
+  ]
+}

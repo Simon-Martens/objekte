@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Europa steht! / Und die Zeiten, / Die ewig schreiten, / Der Völker-Chor, / Und die alten Jahrhundert', / Sie schauen verwundert / Empor.",
+  "language": [],
+  "musenalm_id": 92417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der glorreiche Augenblick. / Cantate. / In Musik gesetzt / von / Ludwig van Beethoven",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Aloys Weißenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der glorreiche Augenblick. / Cantate. / In Musik gesetzt / von / Ludwig van Beethoven",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.462Z",
+      "agent": "dh3tm3lh6b5ehoz",
+      "source_id": "ezjavmrb8bvuaax"
+    }
+  ]
+}

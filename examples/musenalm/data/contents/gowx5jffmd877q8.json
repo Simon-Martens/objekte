@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei Sprüchlein (Sammlung INr 20107, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Der Leier gleich, von Rosen überblüht, / Ruh' Poesie im liebenden Gemüth.",
+  "language": [],
+  "musenalm_id": 20108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.688Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "z8utf0g8kdszj3z"
+    }
+  ]
+}

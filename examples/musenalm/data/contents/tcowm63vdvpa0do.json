@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem G-Verz s. INr 51540, Obj 38 /)  paginiert C s. Textbezug INr 51529, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Zürchersee",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Heß",
+  "scans": [
+    "alm_699_51527_nn3j627rmz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am Zürchersee",
+  "updated": "2007-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.679Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "xsktu6xqheph6s4"
+    }
+  ]
+}

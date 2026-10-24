@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 8972, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Verirret hatte sich mein liebstes Lämmchen, war / Auf jenen steifsten Fels hinaufgestiegen,",
+  "language": [],
+  "musenalm_id": 8973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / (Eine Schäferin redet.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schmitt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / (Eine Schäferin redet.)",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.427Z",
+      "agent": "57y4of9yk0759mz",
+      "source_id": "u2yh0047mm1hr50"
+    }
+  ]
+}

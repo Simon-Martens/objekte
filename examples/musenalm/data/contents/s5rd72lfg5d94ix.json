@@ -1,0 +1,46 @@
+{
+  "annotation": "ausfaltbare Titelgraphik # Bez. u. Titel vom Textbezug 59227, Obj 5; s. Gedicht INr 59226, Obj 4 /) Photos 59223,01 u. 59223,02",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59223,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bachus und Ariadne auf Naxos. Gemälde auf dem Proscenium des Theaters #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Schadow",
+  "scans": [
+    "alm_891_59223_01_5btnlnag2r.jpg",
+    "alm_891_59223_02_c6isj5qaxv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bachus und Ariadne auf Naxos. Gemälde auf dem Proscenium des Theaters #",
+  "updated": "2008-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.933Z",
+      "agent": "26vitnec2l92noy",
+      "source_id": "d82puk9y1du2cb9"
+    }
+  ]
+}

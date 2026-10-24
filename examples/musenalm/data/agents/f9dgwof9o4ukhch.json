@@ -1,0 +1,501 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1829",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.323Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller, Historiker und Philologe"
+      ],
+      "dateOfBirth": [
+        "1771-08-29"
+      ],
+      "dateOfDeath": [
+        "1829-04-14"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:21:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115361413/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115361413",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115361413",
+      "oldAuthorityNumber": [
+        "(DE-588a)115361413",
+        "(DE-588c)4498210-0"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "preferredName": "Fischer, Christian August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian August"
+        ],
+        "surname": [
+          "Fischer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Felix"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fröhlichsheim"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Althing"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Althing\""
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Gottvertraut"
+          ],
+          "surname": [
+            "Schwamm"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Bernhard"
+          ],
+          "surname": [
+            "Roll"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Erickson"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Wolframm"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Pruzum"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adam Theobald"
+          ],
+          "surname": [
+            "Pruzum"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Erichson"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Beyträge zur genauern Kenntniß der Spanischen Besitzungen ..",
+        "Description de Valence",
+        "Wolframm, Johannes [Pseud.]: Magnetismus und Immoralität",
+        "Gemälde von Madrid",
+        "Voyage en Espagne, aux années 1797 et 1798",
+        "Description de Valence, ou Tableau de cette Provence ..",
+        "Reise nach Montpellier",
+        "Gemälde von Valencia",
+        "Bergreisen",
+        "Die merkwürdige Heilungsgeschichte der Fürstin Mathilde ..",
+        "Spanische Novellen. - [ca. 1810]",
+        "Über Collegien und Collegienhefte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13007367c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr91017956"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51823998"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q109671"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115361413/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_August_Fischer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_August_Fischer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110267639"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115361413"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/115361413"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115361413"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Pruzum, der Jüngere",
+        "Fischer, Althing",
+        "Wolframm, Johannes",
+        "Althing, Christian",
+        "Fischer, Christianus Augustus",
+        "Hebenstreit, Friedrich",
+        "Fröhlichsheim, Felix von",
+        "Roll, Bernhard",
+        "Fischer, Chr. Aug.",
+        "Althing\"",
+        "Pruzum, Adam Theobald",
+        "Fischer, Chr. A.",
+        "Fischer, Chrétien Auguste",
+        "Erickson, George",
+        "Schwamm, Gottvertraut",
+        "Erichson, George"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Althing"
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Aug."
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Althing"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Erickson"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Pruzum"
+          ]
+        },
+        {
+          "forename": [
+            "Chrétien Auguste"
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hebenstreit"
+          ]
+        },
+        {
+          "forename": [
+            "Gottvertraut"
+          ],
+          "surname": [
+            "Schwamm"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard"
+          ],
+          "surname": [
+            "Roll"
+          ]
+        },
+        {
+          "forename": [
+            "Adam Theobald"
+          ],
+          "surname": [
+            "Pruzum"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Augustus"
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Erichson"
+          ]
+        },
+        {
+          "personalName": [
+            "Althing\""
+          ]
+        },
+        {
+          "forename": [
+            "Chr. A."
+          ],
+          "surname": [
+            "Fischer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Wolframm"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fröhlichsheim"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_August_Fischer",
+          "label": "https://de.wikipedia.org/wiki/Christian_August_Fischer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:22:27Z",
+    "gnd_query_biographical_data": "1771-1829",
+    "gnd_query_name": "fischer, christian august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 722,
+  "name": "Fischer, Christian August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 519",
+  "updated": "2026-06-11 13:29:22.265Z",
+  "uri": "https://d-nb.info/gnd/115361413",
+  "editor": ""
+}

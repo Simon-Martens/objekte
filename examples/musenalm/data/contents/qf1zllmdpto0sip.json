@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Als Jüngling war Herr Peter Gereis schon / Der hohen Gottesmutter treu ergeben; / Der Königin auf lichtem Himmelsthron / Blieb ganz geweiht sein Künstlerstreben",
+  "language": [],
+  "musenalm_id": 122845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 188,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Künstlerleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Mühl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Künstlerleben",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.733Z",
+      "agent": "3ggojesaj1bjxjc",
+      "source_id": "wzbo553js33828h"
+    }
+  ]
+}

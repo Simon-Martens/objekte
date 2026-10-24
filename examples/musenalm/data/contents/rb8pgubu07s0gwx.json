@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert XIII.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures [de Leipsic] / 1 a l'air ouvert 2.à l'aigrette / 3. Dormeuse Angloise 4. Chapeau / soufflé",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner del. et sculp.",
+  "scans": [
+    "alm_149_7890_y61cx76fr2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures [de Leipsic] / 1 a l'air ouvert 2.à l'aigrette / 3. Dormeuse Angloise 4. Chapeau / soufflé",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.076Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "1zzmaolmd8srraj"
+    }
+  ]
+}

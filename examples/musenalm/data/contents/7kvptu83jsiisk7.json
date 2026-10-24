@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2083,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich von Raumer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Begas gem. A. Teichel gest.",
+  "scans": [
+    "alm_74_2083_l7t62gu1eg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich von Raumer",
+  "updated": "2000-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.964Z",
+      "agent": "p2wbs7ivhx2i5bf",
+      "source_id": "5af2rjh204gmj0x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.965Z",
+      "agent": "filrbdi16sdmhwd",
+      "source_id": "bcq93kkfejsnpu8"
+    }
+  ]
+}

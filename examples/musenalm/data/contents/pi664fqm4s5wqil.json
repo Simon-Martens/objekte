@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Wohl mir, daß wieder dichtes Grün / Mein Fensterchen beschattet;",
+  "language": [],
+  "musenalm_id": 17781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / im Frühling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / im Frühling",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.911Z",
+      "agent": "jw839qn8xbse64z",
+      "source_id": "ac3r6z0j6o3phif"
+    }
+  ]
+}

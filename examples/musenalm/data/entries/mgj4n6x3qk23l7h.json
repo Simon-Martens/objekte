@@ -1,0 +1,78 @@
+{
+  "annotation": "vorh. 3 Exemplare: Die Einbände in verschiedenen Farben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer für die Schweizerische Jugend 1827",
+    "norm": "",
+    "biblio": 406024,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1131,
+  "parallel_title": "",
+  "place_statement": "Bern (Jenni)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Kalender, Historischer für die Schweizerische Jugend 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "E. Stierlin",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Kalender / für die / Schweizerische Jugend, / für 1827. / Herausgegeben von E. Stierlin, / Pfarrer am Münster. / Siebenter Jahrgang. / Bern , bey C. A. Jenni, Buchhändler",
+  "updated": "2026-06-11 10:18:55.869Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "6z9uudkk5v5yrbr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.829Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.829Z",
+      "agent": "cnlkd07v6a6w54w",
+      "source_id": "2iiyc5lmgukapxj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.073Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.073Z",
+      "agent": "29k52bnv6igjhjc",
+      "source_id": "ajre79ek3vh7w2s"
+    }
+  ]
+}

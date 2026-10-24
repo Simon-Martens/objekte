@@ -1,0 +1,45 @@
+{
+  "annotation": "Oesterreichische Volkssagen (Sammlung INr 129951, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Lange schon war das Getümmel der Schlacht in der Ferne verhallt, als die zitternden Mädchen nach einem feierlichen Dankbgebete für die Erhaltung ihres Lebens sich aus den Steinwällen hervorwagten,",
+  "language": [],
+  "musenalm_id": 129954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Bannau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Bannau",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.027Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "7uh5feje72ysium"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Sprich für den Adel nicht, der ohne dich / besteht, / Du halb geadelter Poet!",
+  "language": [],
+  "musenalm_id": 3798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen gewissen nicht leicht zu / errathenden. / Aus dem Russischen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen gewissen nicht leicht zu / errathenden. / Aus dem Russischen",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.998Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "pq2khn5jm574o1t"
+    }
+  ]
+}

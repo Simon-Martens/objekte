@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Der Tag verläßt die schattenreiche Flur, / Sein Scheidestrahl erlischt am Felsgesteine;",
+  "language": [],
+  "musenalm_id": 21786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtphantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lohbauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtphantasie",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.018Z",
+      "agent": "69k49eskiwmqj57",
+      "source_id": "thtgayfxmua3h06"
+    }
+  ]
+}

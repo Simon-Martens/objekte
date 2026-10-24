@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 98032, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Etwa drei Viertel Stunden von Wetter, jenseits des Flüßchens Wettschaft, - von Hessens lateinischen Dichtern des sechszehnten Jahrhunderts Bestava genannt, - in der Nähe des alten Burgwaldes,",
+  "language": [],
+  "musenalm_id": 98033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Burg Melnau, / bei Wetter, / in der kurfürstlichen Provinz Oberhessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Burg Melnau, / bei Wetter, / in der kurfürstlichen Provinz Oberhessen",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.763Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "av94tmmkgxn2d1v"
+    }
+  ]
+}

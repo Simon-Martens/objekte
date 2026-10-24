@@ -1,0 +1,87 @@
+{
+  "annotation": "Das Jahrbuch wird fortgesetzt bis zum Jg 1866",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–358, darin VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1836",
+    "norm": "~",
+    "biblio": 409199,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4278,
+  "parallel_title": "",
+  "place_statement": "Berlin u. Königsberg (Vereinsbuchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "estq96n359vg7mv"
+  ],
+  "preferred_title": "Jahrbuch deutscher Bühnenspiele (Holtei/Gubitz) 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 65, nicht bei L/R; Goed VIII. 130, 20",
+  "responsibility_statement": "F. W. Gubitz",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / deutscher Bühnenspiele. / Herausgegeben / von / F. W. Gubitz. / Funfzehnter Jahrgang, für 1836. / In der Vereins-Buchhandlung. / Berlin und Königsberg in der Neumark. 1836",
+  "updated": "2026-06-11 10:18:55.723Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "9pzf2y2zp4mtuwi"
+  ],
+  "contents": [
+    "n1yi5gwc9i5qrzs",
+    "cuicq1wk4ln2d8t",
+    "ing1f43zyx57o7b",
+    "e2k6wcvxcx5wlvl",
+    "qdes2btlcrhku50",
+    "r6hwsr44c5wafb2",
+    "riy6ehvk3qyglzz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.358Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.358Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "his2hmimsakugvu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.172Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.172Z",
+      "agent": "u8n7psm3j7f1du6",
+      "source_id": "nx5ggn1d2ojee42"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Die Nachtigall, die wohl so holde Klagen / Um ihren Gatten seufzt, um ihre Söhne,",
+  "language": [],
+  "musenalm_id": 71265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / XXXIV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] GRIES",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / XXXIV.",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.420Z",
+      "agent": "29ohnryhyvah0tt",
+      "source_id": "0k2o4nffvgpnvmm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.420Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "3lt0vdr031cm8o0"
+    }
+  ]
+}

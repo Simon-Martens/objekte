@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Graphik im Kalendarium Mail /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78271, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78249,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der König, im Winterquartier, besucht in / Leipzig, / den in der Schlacht bey Ross- / bach verwundeten Französischen General / Cüstine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. C. del. J. N. sc.",
+  "scans": [
+    "alm_928_78249_unp3pz6q5c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der König, im Winterquartier, besucht in / Leipzig, / den in der Schlacht bey Ross- / bach verwundeten Französischen General / Cüstine",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.921Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "5ue5e4haonjupz2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.921Z",
+      "agent": "1cxxm0968owp2z9",
+      "source_id": "fotk2ahwtvguqru"
+    }
+  ]
+}

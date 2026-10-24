@@ -1,0 +1,1018 @@
+{
+  "annotation": "",
+  "biographical_data": "1809-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118704931",
+          "label": "Hiller, Ferdinand von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1067700846",
+          "label": "Conservatorium der Musik"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1835-1843, 1845-1847 Gewandhauskapellmeister"
+      ],
+      "dateOfBirth": [
+        "1809-02-03"
+      ],
+      "dateOfDeath": [
+        "1847-11-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Eduard Magnus"
+          ],
+          "creditText": [
+            "Berlin State Library"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix%20Mendelssohn%20Bartholdy%20by%20Eduard%20Magnus%20%281833%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Felix%20Mendelssohn%20Bartholdy%20by%20Eduard%20Magnus%20%281833%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Felix%20Mendelssohn%20Bartholdy%20by%20Eduard%20Magnus%20%281833%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160532175",
+        "https://d-nb.info/gnd/188029869",
+        "https://d-nb.info/gnd/1032692987"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-30T09:33:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118580779/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117561193",
+          "label": "Mendelssohn-Bartholdy, Ernst von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881011",
+          "label": "Mendelssohn Bartholdy, Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881054",
+          "label": "Mendelssohn Bartholdy, Cécile"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881119",
+          "label": "Mendelssohn Bartholdy, Lea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877065",
+          "label": "Mendelssohn, Eleonora von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137020090",
+          "label": "Mendelssohn Bartholdy, Otto von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11707621X",
+          "label": "Wach, Lili"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881100",
+          "label": "Mendelssohn Bartholdy, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117092665",
+          "label": "Jeanrenaud, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580736",
+          "label": "Hensel, Fanny"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137020317",
+          "label": "Mendelssohn-Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1117144119",
+          "label": "Mendelssohn, Marianne"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207265527",
+          "label": "Benecke, Eduard Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137020171",
+          "label": "Mendelssohn Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137996330",
+          "label": "Mendelssohn Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1124596127",
+          "label": "Rothschild, Adelheid von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137018967",
+          "label": "Mendelssohn, Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123521475",
+          "label": "Mendelssohn-Bartholdy, Pauline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116876956",
+          "label": "Mendelssohn, Alexander"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1211961168",
+          "label": "Meyer, Recha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116720948",
+          "label": "Hensel, Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133468380",
+          "label": "Mendelssohn Bartholdy, Felix, der Jüngere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881046",
+          "label": "Mendelssohn Bartholdy, Albrecht"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116138211",
+          "label": "Lejeune Dirichlet, Rebecka"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881151",
+          "label": "Mendelssohn Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118095102",
+          "label": "Beer, Rebecka"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580728",
+          "label": "Mendelssohn, Arnold Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580744",
+          "label": "Mendelssohn, Moses"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877146",
+          "label": "Mendelssohn, Georg Benjamin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116119756",
+          "label": "Benecke, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137019777",
+          "label": "Mendelssohn Bartholdy, Hugo von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877227",
+          "label": "Mendelssohn, Joseph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118580779",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/137018967",
+          "label": "Mendelssohn, Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116877227",
+          "label": "Mendelssohn, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1211961168",
+          "label": "Meyer, Recha"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/11707621X",
+          "label": "Wach, Lili"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116119756",
+          "label": "Benecke, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133468380",
+          "label": "Mendelssohn Bartholdy, Felix, der Jüngere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137996330",
+          "label": "Mendelssohn Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881100",
+          "label": "Mendelssohn Bartholdy, Carl"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118704931",
+          "label": "Hiller, Ferdinand von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116881046",
+          "label": "Mendelssohn Bartholdy, Albrecht"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137020090",
+          "label": "Mendelssohn Bartholdy, Otto von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1207265527",
+          "label": "Benecke, Eduard Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137020171",
+          "label": "Mendelssohn Bartholdy, Paul"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/118580744",
+          "label": "Mendelssohn, Moses"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/123521475",
+          "label": "Mendelssohn-Bartholdy, Pauline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116720948",
+          "label": "Hensel, Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580728",
+          "label": "Mendelssohn, Arnold Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117561193",
+          "label": "Mendelssohn-Bartholdy, Ernst von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116881119",
+          "label": "Mendelssohn Bartholdy, Lea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881011",
+          "label": "Mendelssohn Bartholdy, Abraham"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116138211",
+          "label": "Lejeune Dirichlet, Rebecka"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116881151",
+          "label": "Mendelssohn Bartholdy, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580736",
+          "label": "Hensel, Fanny"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116881054",
+          "label": "Mendelssohn Bartholdy, Cécile"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/116716460",
+          "label": "Henning, Carl Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118580779",
+      "oldAuthorityNumber": [
+        "(DE-588a)160532175",
+        "(DE-101c)310150310",
+        "(DE-588a)134460316",
+        "(DE-588a)131205781",
+        "(DE-588)160532175",
+        "(DE-588a)141570202",
+        "(DE-588)188029869",
+        "(DE-588a)118580779",
+        "(DE-588c)4038606-5",
+        "(DE-588)1032692987",
+        "(DE-588a)188029869"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Mendelssohn Bartholdy, Felix",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Felix"
+        ],
+        "surname": [
+          "Mendelssohn Bartholdy"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119138131",
+          "label": "Franck, Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1216018944",
+          "label": "Hanne, Frau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116716460",
+          "label": "Henning, Carl Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1212276450",
+          "label": "Kohlmann, Christel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118786482",
+          "label": "Novello, Clara"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118785028",
+          "label": "Moscheles, Ignaz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117388483",
+          "label": "Verhulst, Johannes"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13984603f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79139515"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/2665666"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41463.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q46096"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118580779"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1032692987"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118580779/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160532175"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188029869"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118580779"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Felix_Mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Felix_Mendelssohn_Bartholdy"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Felix_Mendelssohn_Bartholdy"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Felix_Mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118580779"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121181195"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118580779"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1822_mendelssohn"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118580779"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580779.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580779.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118580779"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118580779"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118580779"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Mendelssohn, Felix",
+        "Mendelssohn Bartholdy, Felix Jakob",
+        "F****",
+        "Bartholdy, Felix M.",
+        "Mendelssohn, F.",
+        "Mendelson-Bartoldi, Feliks",
+        "Mendelssohn Bartholdi",
+        "Felix Meritis",
+        "Mendelssohn, Jacob Ludwig Felix",
+        "Mendelssohn Batholdy, Felix",
+        "Mendelssohn-Bartholdy, Felix J.",
+        "Mendelssohn Bartholdy",
+        "Mendellsohn-Bartholdy, Felix",
+        "Mendelssohn-Bartholdy, Jacob Ludwig Felix",
+        "Mendelsohn-Bartholdy, Felix",
+        "Mendelssohn Bartholdy, F.",
+        "Mendelssohn",
+        "Mendelssohn-Bartholdi, Felix",
+        "Mendelʹson-Bartolʹdi, Feliks",
+        "Mend",
+        "F.",
+        "Bartholdy, Felix",
+        "Mendelssohn-Bartholdy, Felix",
+        "Mendel'son, F.",
+        "Mendelssohn, Jakob Ludwig Felix",
+        "Bartholdy, Jacob Ludwig Felix",
+        "Mendelssohn-Bartholdy",
+        "Bartholdy, Felix Mendelssohn",
+        "Mendelssohn-Bartholdy, F.",
+        "Mendelssohn Bartholdy, Jakob Ludwig Felix",
+        "Mendelssohn-Bartholdy, Jakob Ludwig Felix",
+        "Mendelssohn B., Felix",
+        "Mendel'son, Feliks",
+        "Mendelsson-Bartholdy, Felix"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendellsohn-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix J."
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Mendelssohn Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdi"
+          ]
+        },
+        {
+          "forename": [
+            "Feliks"
+          ],
+          "surname": [
+            "Mendel'son"
+          ]
+        },
+        {
+          "personalName": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Jakob"
+          ],
+          "surname": [
+            "Mendelssohn Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "personalName": [
+            "F****"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelsohn-Bartholdy"
+          ]
+        },
+        {
+          "personalName": [
+            "Mendelssohn Bartholdy"
+          ]
+        },
+        {
+          "personalName": [
+            "Felix Meritis"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn Batholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Feliks"
+          ],
+          "surname": [
+            "Mendelson-Bartoldi"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix M."
+          ],
+          "surname": [
+            "Bartholdy"
+          ]
+        },
+        {
+          "personalName": [
+            "Mend"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Feliks"
+          ],
+          "surname": [
+            "Mendelʹson-Bartolʹdi"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Mendel'son"
+          ]
+        },
+        {
+          "personalName": [
+            "Mendelssohn-Bartholdy"
+          ]
+        },
+        {
+          "personalName": [
+            "F."
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn"
+          ]
+        },
+        {
+          "forename": [
+            "Felix Mendelssohn"
+          ],
+          "surname": [
+            "Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelsson-Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Mendelssohn B."
+          ]
+        },
+        {
+          "personalName": [
+            "Mendelssohn Bartholdi"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Ludwig Felix"
+          ],
+          "surname": [
+            "Bartholdy"
+          ]
+        },
+        {
+          "forename": [
+            "Jacob Ludwig Felix"
+          ],
+          "surname": [
+            "Mendelssohn-Bartholdy"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Felix_Mendelssohn_Bartholdy",
+          "label": "https://de.wikipedia.org/wiki/Felix_Mendelssohn_Bartholdy"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:14:57Z",
+    "gnd_query_biographical_data": "1809-1847",
+    "gnd_query_name": "mendelssohn-bartholdy, jacob ludwig felix"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1781,
+  "name": "Mendelssohn-Bartholdy, Jacob Ludwig Felix",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXI, 324",
+  "updated": "2026-06-11 13:29:23.773Z",
+  "uri": "https://d-nb.info/gnd/118580779",
+  "editor": ""
+}

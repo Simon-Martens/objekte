@@ -1,0 +1,45 @@
+{
+  "annotation": "Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Das Leben ist der Güter höchstes nicht, / Der Uebel größtes aber ist die Schuld.",
+  "language": [],
+  "musenalm_id": 24657,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter Müllners Bildniss. / (Aus Schillers Braut von Messina)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter Müllners Bildniss. / (Aus Schillers Braut von Messina)",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.974Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "ahpgvogc2o0nzii"
+    }
+  ]
+}

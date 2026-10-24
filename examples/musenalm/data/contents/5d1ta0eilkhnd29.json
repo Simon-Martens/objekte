@@ -1,0 +1,45 @@
+{
+  "annotation": "Brief an F. H. Jacobi",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Triumph, mein Theuerster! Ich bin auf der Höhe des Gotthard gewesen,",
+  "language": [],
+  "musenalm_id": 222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Herrn Geheimenrath Jacobi / in Düsseldorf. / Bern, den 10. September 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Herrn Geheimenrath Jacobi / in Düsseldorf. / Bern, den 10. September 1780",
+  "updated": "2001-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.671Z",
+      "agent": "96yqxmr44n9ci0o",
+      "source_id": "v9n29mu5puvdncl"
+    }
+  ]
+}

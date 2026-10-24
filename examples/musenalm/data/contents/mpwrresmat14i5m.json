@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Dein Witz geht an, o Schöne mein! / Noch eher, als dein bairisch Bier!",
+  "language": [],
+  "musenalm_id": 100449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berliner Hebe. / (1850.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berliner Hebe. / (1850.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.878Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "q1d367oeohcfabu"
+    }
+  ]
+}

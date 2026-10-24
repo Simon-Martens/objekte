@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait v.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73915,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PHILIPPINE CHARLOTTE / Duchesse regnante de Brunsvic / et de Lunebourg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Wolffgang Sculp. A. V.",
+  "scans": [
+    "alm_2512_73915_cyk732qnjj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PHILIPPINE CHARLOTTE / Duchesse regnante de Brunsvic / et de Lunebourg",
+  "updated": "2010-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1756,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.615Z",
+      "agent": "t0skl0zuoovbyqo",
+      "source_id": "74awapkx6dq1cq6"
+    }
+  ]
+}

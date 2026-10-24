@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Des frechen Schmierers Feder hält / Kein Drohen, keine Furcht im Zügel.",
+  "language": [],
+  "musenalm_id": 17725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Pasquillanten: / Paßte auch auf manchen / Recensenten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Frhr. v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Pasquillanten: / Paßte auch auf manchen / Recensenten",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.843Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "5fffl24909gg9c1"
+    }
+  ]
+}

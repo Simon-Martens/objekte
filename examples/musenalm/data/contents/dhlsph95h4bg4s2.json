@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Mit dem Schicksal in Hader und Streit / kämpft Amor, zum Schutz mir bereit;",
+  "language": [],
+  "musenalm_id": 87716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Nina. / (Nach dem Portugiesischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Ahlwardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Nina. / (Nach dem Portugiesischen.)",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.182Z",
+      "agent": "zh4jp396sh7uyw8",
+      "source_id": "l6v7kbflpmlbkh5"
+    }
+  ]
+}

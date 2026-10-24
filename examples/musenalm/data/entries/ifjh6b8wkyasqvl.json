@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zunächst für katholische Geistliche und solche, die es werden wollen 1822",
+    "norm": "",
+    "biblio": 411342,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-12-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2877,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Wollf)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Taschenbuch zunächst für katholische Geistliche und solche, die es werden wollen 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 120; L/R 177",
+  "responsibility_statement": "unebzeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zunächst für / katholische Geistliche / und solche, / die es werden wollen; / dann für / jeden Gebildeten, / zur / Belehrung und Erbauung / im Geiste und in der Wahrheit. / Augsburg, / In der J. Wolffischen Buchhandlung. / 1822",
+  "updated": "2026-06-11 10:18:55.682Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "abbir7ptxhlsobq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "599u311s93w3924",
+      "source_id": "r42y4ydzyerthrf"
+    }
+  ]
+}

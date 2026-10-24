@@ -1,0 +1,272 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.276Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller und Jurist"
+      ],
+      "dateOfBirth": [
+        "1771"
+      ],
+      "dateOfDeath": [
+        "1800-09-14"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-11T16:28:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116723866/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116723866",
+      "id": "https://d-nb.info/gnd/116723866",
+      "oldAuthorityNumber": [
+        "(DE-588a)109415574",
+        "(DE-588a)116723866",
+        "(DE-588a)100060153"
+      ],
+      "preferredName": "Broxtermann, Theobald Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Theobald Wilhelm"
+        ],
+        "surname": [
+          "Broxtermann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Demophilos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Demophilus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Broxtermann, Theobald W.: Ungedruckte Briefe",
+        "Broxtermann, Theobald W.: Demophilos an Eukrates: Über die Gränzen der Staatsgewalt",
+        "Broxtermann, Theobald W.: Demophilos an Eukrates",
+        "Broxtermann, Theobald W.: Ehrgefühl und Liebe ...",
+        "Broxtermann, Theobald W.: Sämmtliche Werke",
+        "Broxtermann, Theobald W.: Gedichte",
+        "Broxtermann, Theobald W.: Demophilus an Eukrates: über die Gränzen der Staatsgewalt und e*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81024236"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20438969"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q54912159"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116723866/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Theobald_Wilhelm_Broxtermann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080765513"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116723866"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116723866.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116723866"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Demophilus",
+        "Broxtermann, Theobald W.",
+        "Demophilos",
+        "Broxtermann, Friedrich W.",
+        "Broxtermann, Theobald",
+        "Broxtermann, Theob. Wilh."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Theobald W."
+          ],
+          "surname": [
+            "Broxtermann"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Broxtermann"
+          ]
+        },
+        {
+          "forename": [
+            "Theobald"
+          ],
+          "surname": [
+            "Broxtermann"
+          ]
+        },
+        {
+          "personalName": [
+            "Demophilos"
+          ]
+        },
+        {
+          "forename": [
+            "Theob. Wilh."
+          ],
+          "surname": [
+            "Broxtermann"
+          ]
+        },
+        {
+          "personalName": [
+            "Demophilus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Theobald_Wilhelm_Broxtermann",
+          "label": "https://de.wikipedia.org/wiki/Theobald_Wilhelm_Broxtermann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:18Z",
+    "gnd_query_biographical_data": "1771-1800",
+    "gnd_query_name": "broxtermann, theobald wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 314,
+  "name": "Broxtermann, Theobald Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB III, 373",
+  "updated": "2026-06-11 13:29:21.767Z",
+  "uri": "https://d-nb.info/gnd/116723866",
+  "editor": ""
+}

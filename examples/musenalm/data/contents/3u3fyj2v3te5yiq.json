@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung und Titel aus dem G-Verz. s. Textbezug INr 32991, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32993,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Toilette im Idyllenlande #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Catel",
+  "scans": [
+    "alm_458_32993_itw8i6bskp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Toilette im Idyllenlande #",
+  "updated": "2003-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.419Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "noahfn2lzd9cocd"
+    }
+  ]
+}

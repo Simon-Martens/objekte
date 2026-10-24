@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphiken INr 21728-21739, Obj 10-21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Zwölf Monats-Kupfer / von Küffner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Zwölf Monats-Kupfer / von Küffner",
+  "updated": "2002-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.103Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "7wv0f5bdvb0kylj"
+    }
+  ]
+}

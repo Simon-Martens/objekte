@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Gedichte (Sammlung INr 24364, Obj 144)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Auf welcher seltsamen Manie / Laßt ihr euch doch betreten:",
+  "language": [],
+  "musenalm_id": 24373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haut-goût",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haut-goût",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.275Z",
+      "agent": "rw4d1lc8bcz0sk7",
+      "source_id": "nvue07r1ztmuykm"
+    }
+  ]
+}

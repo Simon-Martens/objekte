@@ -1,0 +1,55 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Olympia, Taschenbuch von der Pfalz 1848",
+    "norm": "",
+    "biblio": 408572,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4129,
+  "parallel_title": "",
+  "place_statement": "Heuchelheim",
+  "places": [
+    "770g9lah7mammsr"
+  ],
+  "preferred_title": "Olympia, Taschenbuch von der Pfalz 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Friedrich Jung",
+  "subtitle_statement": "",
+  "title_statement": "OLYMPIA. / Taschenbuch von der Pfalz. / Herausgegeben / von / Friedrich Jung. / Erster Jahrgang. / Heuchelheim. / Selbstverlag des Herausgebers. / 1848",
+  "updated": "2026-06-11 10:18:55.332Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "p3x1sww8ncflycq"
+  ],
+  "contents": [],
+  "agents": []
+}

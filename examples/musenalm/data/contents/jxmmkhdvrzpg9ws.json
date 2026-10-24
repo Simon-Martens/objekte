@@ -1,0 +1,45 @@
+{
+  "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Wie eine durch die Ferne verkürzte Strecke sich in der Nähe ausdehnt:",
+  "language": [],
+  "musenalm_id": 33738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "30. / Das Alter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "30. / Das Alter",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.781Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "tpdo8k2aveany6i"
+    }
+  ]
+}

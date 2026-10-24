@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei Seestücke (Sammlung INr 38942, Obj 130)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Noch einen Strahl, eh' in dem Wogenbette / Du Deines Tages letzte Glut ertränkst",
+  "language": [],
+  "musenalm_id": 38943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Am Leuchtthurm auf Helgoland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Am Leuchtthurm auf Helgoland",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.228Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "tmt3aujoptq8luf"
+    }
+  ]
+}

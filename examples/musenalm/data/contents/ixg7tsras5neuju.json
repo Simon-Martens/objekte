@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 90408, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Vom König Etzel rühmst du dich entsprungen, / Dem grimmen Leu'n, dem Blitz' in Kriegeswettern,",
+  "language": [],
+  "musenalm_id": 90409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. An Elise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bernard. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. An Elise",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.557Z",
+      "agent": "32czpb0kbok37kn",
+      "source_id": "w2n0afu7mnqh6wc"
+    }
+  ]
+}

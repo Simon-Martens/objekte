@@ -1,0 +1,359 @@
+{
+  "annotation": "",
+  "biographical_data": "1752-1805",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.423Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Pfarrer, Lehrer, Historiker",
+        "Zürcher Schriftsteller und Historiker, Pfarrer in Affoltern am Albis"
+      ],
+      "dateOfBirth": [
+        "1752"
+      ],
+      "dateOfDeath": [
+        "1805"
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-09T16:02:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/14087173X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "14087173X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/14087173X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10053399X",
+        "(DE-588a)14087173X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4577885-1",
+          "label": "Hottingen (Zürich)"
+        }
+      ],
+      "preferredName": "Maurer, Hans Rudolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hans Rudolf"
+        ],
+        "surname": [
+          "Maurer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "publication": [
+        "Maurer, Hans R.: Kurze Geschichte der Schweiz",
+        "Maurer, Hans R.: Der warme Hirsbrey von Zurich auf dem Freyschiessen zu Strassburg",
+        "Maurer, Hans R.: Lokal-Beschreibung des Heilbads zu Baden in der Schweiz",
+        "Maurer, Hans R.: Beschreibung des Habspurgerbads"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb156132200"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2012142956"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64330383"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D12099.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55903270"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/14087173X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hans_Rudolf_Maurer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079998432"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/14087173X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/14087173X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Murer, Hans R.",
+        "Maurer, Hans Rudolph",
+        "Murer, Johann R.",
+        "Murer, J. R.",
+        "Maurer, Johann Rudolf",
+        "Murer, Rudolf",
+        "Murer, Hans Rudolf",
+        "Maurer, Hans R.",
+        "Maurer, Johannes Rudolf",
+        "Murer, Johann Rudolf",
+        "Maurer, Rudolf",
+        "Murer, J. Rudolf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "J. R."
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "J. Rudolf"
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "Hans R."
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "Rudolf"
+          ],
+          "surname": [
+            "Maurer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann R."
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Rudolph"
+          ],
+          "surname": [
+            "Maurer"
+          ]
+        },
+        {
+          "forename": [
+            "Hans R."
+          ],
+          "surname": [
+            "Maurer"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Rudolf"
+          ],
+          "surname": [
+            "Murer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Rudolf"
+          ],
+          "surname": [
+            "Maurer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Rudolf"
+          ],
+          "surname": [
+            "Maurer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Rudolf"
+          ],
+          "surname": [
+            "Murer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hans_Rudolf_Maurer",
+          "label": "https://de.wikipedia.org/wiki/Hans_Rudolf_Maurer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:13:18Z",
+    "gnd_query_biographical_data": "1752-1805",
+    "gnd_query_name": "maurer, hans rudolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1748,
+  "name": "Maurer, Hans Rudolf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1338",
+  "updated": "2026-06-11 13:29:23.743Z",
+  "uri": "https://d-nb.info/gnd/14087173X",
+  "editor": ""
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Günstlinge. Gemälde aus den letzten Tagen der Regierung Ludwigs des 13ten« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110890, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie von Nevers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl",
+  "scans": [
+    "alm_3470_110891_tmg45dh4oj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie von Nevers",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.284Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "ml89xjnwari9hoj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.284Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "uro73xdm9ab7h9t"
+    }
+  ]
+}

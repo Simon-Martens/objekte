@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130139,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE DENCKERIN / Bey F. G. Baumgärtner in Leipzig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engraved by Clar",
+  "scans": [
+    "alm_4813_130139_u9z4j7lhsv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE DENCKERIN / Bey F. G. Baumgärtner in Leipzig",
+  "updated": "2022-03-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.058Z",
+      "agent": "cj6pzq84zp925pc",
+      "source_id": "l30by9x7dwdgcd3"
+    }
+  ]
+}

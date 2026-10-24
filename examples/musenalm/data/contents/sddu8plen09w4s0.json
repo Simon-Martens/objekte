@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Bey des blauen Himmelshelle / Treiben wir mit frohem Sinn,",
+  "language": [],
+  "musenalm_id": 9425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIII. / Schifflied. / Mel. Die du Herzen sanft verbindest etc No VII",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIII. / Schifflied. / Mel. Die du Herzen sanft verbindest etc No VII",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.352Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "bwvefqxlkvfk3hh"
+    }
+  ]
+}

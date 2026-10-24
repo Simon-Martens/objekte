@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Heiterkeit! du holde Gabe, / Die vom Himmel niedersteigt,",
+  "language": [],
+  "musenalm_id": 10481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "60. / Heiterkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "60. / Heiterkeit",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.372Z",
+      "agent": "adxjhf2nm1jjsuh",
+      "source_id": "8yapu7llwoql7ed"
+    }
+  ]
+}

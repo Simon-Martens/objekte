@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Der Gang nach dem Eisenhammer« von Fr. Schiller s. Textbezug (Gedicht) aus »Gallerie aus Schiller's Gedichten« INr 77213, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie war so sanft, sie war so gut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_2400_77209_qqfop4o9gk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie war so sanft, sie war so gut",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.592Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "8wqolwqwpbjbp2y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.592Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "kl22zn592uteshj"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 5 SS Vrwrt d Hrsg, 3 SS I-Verz, 8 BB Kal, S 1 nT, SS 3-296 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1800",
+    "norm": "~",
+    "biblio": 404850,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1114,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Küchler)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Kalender / für das Jahr / 1800. / Mit Kupfern. / Leipzig. / bei Karl Wilhelm Küchler",
+  "updated": "2026-06-11 10:18:55.631Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "6xoehfydq7ghxnx"
+  ],
+  "contents": [
+    "09isumdnqang55n",
+    "vhy3bpxjb54qrdp",
+    "ucnjvkoxbuo0osl",
+    "v71551h7ztnijyk",
+    "t2ewzv7w21n2qgg",
+    "2rwyowasko62bjn",
+    "w6j6680aimk1lc2",
+    "9vcvroclg82786o",
+    "s7h5wq1v5uoozwy",
+    "n1nzrs7p00of1l3",
+    "wof1krrmb80v6fa",
+    "e07g18ysx7go409",
+    "9uj95vommv04e4t",
+    "p87lse9lwhr9wpc",
+    "6dqkembdnoay9tu",
+    "yjx8up3jb52yjp7",
+    "1x4kwh3ybe3pja0",
+    "3j7k7f0y87c2hie",
+    "iv8jfnv3lrugc58",
+    "2hab6jferpc7rjg",
+    "grvwk1q6jn2ktt1",
+    "yrhwj11gxjnijed",
+    "qr5rjwcmkszmfk8",
+    "czevzppq2xhz7mp",
+    "w5ci4v7jr2hgvll",
+    "h8d23h5zydnmah8",
+    "9d0dfu5umki06ui",
+    "6shjn5gumin7e8f",
+    "60orrbyx3dfw2xx",
+    "dgda7b55mfefddc",
+    "yfegf2xycdn7ae4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.827Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.827Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "l1y02h9423ol3jx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "i9davz1vy72p8ib",
+      "source_id": "pbixi91sqnqngbb"
+    }
+  ]
+}

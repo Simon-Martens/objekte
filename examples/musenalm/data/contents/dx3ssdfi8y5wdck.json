@@ -1,0 +1,45 @@
+{
+  "annotation": "Pseud. #",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Zu Frankfurt am schönen Maine, / Da geht es gar lustig her,",
+  "language": [],
+  "musenalm_id": 65919,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schelm von Bergen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schelm von Bergen",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.405Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "voygxxz1klapamc"
+    }
+  ]
+}

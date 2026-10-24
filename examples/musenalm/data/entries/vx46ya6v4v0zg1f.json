@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, gT, 8 GG, 51 SS Kal darin 12 GG, S, ar: SS 1-64, T, ar1: SS 1-121, SS 121-122 I-Verz, S 123 VrlgM, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1782 (franz. Ausg.: Almanac de Goettingue 1782)",
+    "norm": "~",
+    "biblio": 407891,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3966,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1782 (franz. Ausg.: Almanac de Goettingue 1782)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de Goettingue / pour l'année / 1782. / chez J. C. Dietrich",
+  "updated": "2026-06-11 10:18:55.231Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "om8y6rsle0socr3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.053Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.053Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "u45y61096rduhk3"
+    }
+  ]
+}

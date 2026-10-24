@@ -1,0 +1,313 @@
+{
+  "annotation": "",
+  "biographical_data": "1792-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.263Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Studium in Halle und Göttingen, Jura, 1815 Tätigkeit  bei der Regierung, 1816 Gesandschaftssekretär in Turin, Verwaltung der Güter in Pommern und Neumark"
+      ],
+      "dateOfBirth": [
+        "1792-11-04"
+      ],
+      "dateOfDeath": [
+        "1867-07-14"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1176666002"
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-07T20:49:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116199962/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "nameAddition": [
+            "Prinzessin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolach-Schönaich"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116199962",
+      "id": "https://d-nb.info/gnd/116199962",
+      "oldAuthorityNumber": [
+        "(DE-588a)116199962",
+        "(DE-588)1176666002"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4346089-6",
+          "label": "Wieleń"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Teschenau"
+      ],
+      "preferredName": "Blankensee, Georg Friedrich Alexander von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Friedrich Alexander"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Blankensee"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4156934-9",
+          "label": "Gesandter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031741"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30281499"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57539032"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116199962/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1176666002"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_von_Blankensee"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000040668575"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116199962"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116199962"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Blankensee, Georg",
+        "Blankensee, G. F. A. a",
+        "Blankensee, Georg F. von",
+        "Blankensee, Georg Friedrich, Graf",
+        "Blankensee, Georg Friedrich Alexander von, Graf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G. F. A."
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Blankensee"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Blankensee"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Blankensee"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Blankensee"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Alexander"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Blankensee"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_von_Blankensee",
+          "label": "https://de.wikipedia.org/wiki/Georg_von_Blankensee"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:57:06Z",
+    "gnd_query_biographical_data": "1792-1867",
+    "gnd_query_name": "blankensee, georg friedrich alexander von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 210,
+  "name": "Blankensee, Georg Friedrich Alexander von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 280; Goed XI/1, 466",
+  "updated": "2026-06-11 13:29:21.590Z",
+  "uri": "https://d-nb.info/gnd/116199962",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Als Henriette Mirian / Durch Staxen jüngst zu Falle kam,",
+  "language": [],
+  "musenalm_id": 2440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Standes-Erhöhung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Standes-Erhöhung",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.969Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "iyy6jlljd6241wz"
+    }
+  ]
+}

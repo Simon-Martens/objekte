@@ -1,0 +1,565 @@
+{
+  "annotation": "",
+  "biographical_data": "1768-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.440Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Pfarrer, Historiker, Politiker, Prälat, Memoirenschreiber"
+      ],
+      "dateOfBirth": [
+        "1768-06-12"
+      ],
+      "dateOfDeath": [
+        "1839-04-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Faber (Zeichnung); J. Vocherodt (Lithographie)"
+          ],
+          "creditText": [
+            "Universitätsbibliothek Salzburg Signatur G1312I"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Pahl%20G1312I%20Ausschnitt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottfried%20Pahl%20G1312I%20Ausschnitt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gottfried%20Pahl%20G1312I%20Ausschnitt.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10038384X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10038384X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10038384X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)7727793-4",
+        "(DE-588a)10038384X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4673971-3",
+          "label": "Abtsgmünd-Neubronn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4000015-1",
+          "label": "Aalen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Pahl, Johann Gottfried von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottfried"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Pahl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199497-8",
+          "label": "Prälat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Wilibald"
+          ],
+          "surname": [
+            "Panshaf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Athanasius"
+          ],
+          "surname": [
+            "Wurmsamen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hans W."
+          ],
+          "surname": [
+            "Panzhaaf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Alethinos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Bruder Thomas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sabina"
+          ],
+          "surname": [
+            "Käsbohrerin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hans W."
+          ],
+          "surname": [
+            "Panzhaff"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Käsbohrer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Käsborer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Panzhaaf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Bruder"
+          ],
+          "personalName": [
+            "Thomas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Pahl, Johann G. von: Denkwürdigkeiten zur Geschichte von Schwaben",
+        "Pahl, Johann G. von: Das öffentliche Recht der evangelisch-lutherischen Kirche in Teu*",
+        "Pahl, Johann G. von: Politische Lectionen für die Teutschen des 19. Jahrhunderts",
+        "Pahl, Johann G. von: Oswald der Menschenhasser",
+        "Pahl, Johann G. von: Geschichte von Würtemberg. - 1827 - 1828",
+        "Pahl, Johann G. von: Neue Nationalchronik der Teutschen 1820 bis 1824. - 1820 - 1824",
+        "Pahl, Johann G. von: Eduards Wiedergeburt",
+        "Pahl, Johann G. von: Herda. - 1811 - 1815",
+        "Pahl, Johann G. von: Ueber das Einheitsprincip in dem Systeme des Rheinischen Bundes",
+        "Pahl, Johann G. von: Ueber den Obscurantismus, der das teutsche Vaterland bedroht"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no99004046"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/354492"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1437750"
+        },
+        {
+          "collection": {
+            "abbr": "AAA",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://aaa.gf-franken.de",
+            "name": "Album Academicum Altorphinum (AAA)",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://aaa.gf-franken.de/de/recherche.html?permaLink=10897"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10038384X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Pahl"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Gottfried_Pahl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083387351"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10038384X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10038384X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10038384X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10038384X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10038384X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Käsbohrerin, Sabina",
+        "Pahl, Johann G.",
+        "Pahl, Jakob Gottfried",
+        "Panzhaaf, Hans W.",
+        "Alethinos",
+        "Wurmsamen, Athanasius",
+        "Panzhaff, Hans W.",
+        "Bruder Thomas",
+        "Panshaf, Wilibald",
+        "Pahl, J. G.",
+        "Käsbohrer, Sebastian",
+        "Panzhaff, Hans Willibald",
+        "Käsborer, Sebastian",
+        "Pahl, Johann G. von",
+        "Panzhaaf, William",
+        "Pahl, Johann Gottfried",
+        "Thomas, Bruder"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Panzhaaf"
+          ]
+        },
+        {
+          "forename": [
+            "Wilibald"
+          ],
+          "surname": [
+            "Panshaf"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Pahl"
+          ]
+        },
+        {
+          "personalName": [
+            "Alethinos"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Gottfried"
+          ],
+          "surname": [
+            "Pahl"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Willibald"
+          ],
+          "surname": [
+            "Panzhaff"
+          ]
+        },
+        {
+          "personalName": [
+            "Bruder Thomas"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Pahl"
+          ]
+        },
+        {
+          "forename": [
+            "Athanasius"
+          ],
+          "surname": [
+            "Wurmsamen"
+          ]
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Käsbohrer"
+          ]
+        },
+        {
+          "forename": [
+            "Sebastian"
+          ],
+          "surname": [
+            "Käsborer"
+          ]
+        },
+        {
+          "forename": [
+            "Hans W."
+          ],
+          "surname": [
+            "Panzhaaf"
+          ]
+        },
+        {
+          "forename": [
+            "Hans W."
+          ],
+          "surname": [
+            "Panzhaff"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Bruder"
+          ],
+          "personalName": [
+            "Thomas"
+          ]
+        },
+        {
+          "forename": [
+            "Sabina"
+          ],
+          "surname": [
+            "Käsbohrerin"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Pahl"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pahl"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Pahl",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Pahl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:26:27Z",
+    "gnd_query_biographical_data": "1768-1839",
+    "gnd_query_name": "pahl, johann gottfried von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2014,
+  "name": "Pahl, Johann Gottfried von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed V, 546",
+  "updated": "2026-06-11 13:29:24.021Z",
+  "uri": "https://d-nb.info/gnd/10038384X",
+  "editor": ""
+}

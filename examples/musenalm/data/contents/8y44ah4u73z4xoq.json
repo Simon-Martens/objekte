@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Graphik paginiert VI /) paginiert IV /) kol. Illustration zu »Der Nachtreiher« von v. Wildungen INr 6986, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Artea Nycticorax. Nachtreiher. Focke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. del. G. B. fexc.",
+  "scans": [
+    "alm_1134_69687_aj3wxzn8l2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Artea Nycticorax. Nachtreiher. Focke",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.400Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "3xldx1qgfoyp01o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.401Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "9c4x12jonba7ouh"
+    }
+  ]
+}

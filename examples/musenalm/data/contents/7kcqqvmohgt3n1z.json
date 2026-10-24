@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung aus den umliegenden Jg.; Illustration zu »Einer für drei« (INr 124211, Obj 11); $ Zeichner: Christian Heinrich Schneider (T/B 30, 192)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schauspieler. / Nu, Spasmänneken, Se sehn, dat ick ohne Degen seyn duhe / 14 Auftritt. Einer für drei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneider del. gest. bei Fleischmann # $",
+  "scans": [
+    "alm_1298_124212_zp7flgdlc3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schauspieler. / Nu, Spasmänneken, Se sehn, dat ick ohne Degen seyn duhe / 14 Auftritt. Einer für drei",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.780Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "apv4md3igdvpdav"
+    }
+  ]
+}

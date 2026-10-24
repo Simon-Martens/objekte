@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 19557, Obj 91)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Zwei Sylben gab Natur uns allen; / Sie heil'gen dir das kleinste Haus",
+  "language": [],
+  "musenalm_id": 19561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Howald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Charade",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.873Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "cy7di5ejud0gpok"
+    }
+  ]
+}

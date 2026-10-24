@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus Joh. Mayrhofers Nachlasse (Sammlung INr 95137, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Fand am Wege eine Amsel, / Ganz erstarrt auf Schnee gebettet;",
+  "language": [],
+  "musenalm_id": 95140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die erstarrte Amsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Mayrhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die erstarrte Amsel",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.616Z",
+      "agent": "z2a77hujndvxeug",
+      "source_id": "qt5m88gd1ydzq95"
+    }
+  ]
+}

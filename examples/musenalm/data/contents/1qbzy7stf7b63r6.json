@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "An jenem heil'gen Ort, wo unsre gute Frauen / Der Wahrheit Ehrentempel bauen,",
+  "language": [],
+  "musenalm_id": 10707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Sittenverfeinerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Sittenverfeinerung",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.361Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "p3xlzcqsv01djkp"
+    }
+  ]
+}

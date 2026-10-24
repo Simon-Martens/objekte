@@ -1,0 +1,130 @@
+{
+  "annotation": "Verlagsmitteilung im Jg 1812: INr 50205: »Anzeige. Der Verleger dieses Taschenbuchs bietet die drei ersten Jahrgänge der Alruna von 1805, 1807, 1809 von jetzt bis künftige Ostern, um folgende herabgesetzte Preise an: Ein ganzes Exempl. mit illum. Kupf. in Maroq. Leder geb. für 8 Thlr. 2r u. 3r Jahrg. jeder à 2 Thlr.; Ein dergl. mit braunen Kupf. in Maroq. Papier geb. für 4 Thlr. 2r u. 3r Jahrg. jeder à 1 Thlr.; Ein dergl. mit schwarzen Kupfern, eben so geb. für 4 Thlr. 2r u. 3r Jahrg. jeder à 1 Thlr.« /) lt. Nachwort des Verlegers INr 50144 war der Almanach  für das Jahr 1806 fertiggestellt, die Auslieferung  allerdings kriegsbedingt nicht möglich, sodaß er ohne Jahrangabe mit der Spezifikation  »Zweytes Jahr« für 1807 herauskam /) Die 10 Graphiken der Suite  »Die Rückkehr zur Spindel. Sittengemälde des XV. Jahrhunderts« (M. Usteri del. H. Lips sculp.) sind nach zwei der drei Ausgaben autopsiert und werden  als Vollbild gegeben:  Aquatinta (im Anmerkungsfeld : 1b-10b) und kol. Aquatinta (im Anmerkungsfeld 1c-10c)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Tab, S I -XVI Vrwrt d Hrsg, ar: SS 1-126 darin 9 GG, ar1: SS 1-86, B VrlgM, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alruna 1805",
+    "norm": "~ /) Die Jgg 1805, 1807, 1809 der Alruna erschienen in drei Ausgaben s. Anmerkung",
+    "biblio": 100873,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1,
+  "parallel_title": "",
+  "place_statement": "Zürich u. Leipzig (Füßli u. Sohn); (Comm. J. B. Schiegg)",
+  "places": [
+    "d7kbujq7399g22j",
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Alruna 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 22; nicht bei L/R , Goed VIII. 62, 76",
+  "responsibility_statement": "Ernst Müller",
+  "subtitle_statement": "",
+  "title_statement": "Alruna. / Ein / Taschenbuch für Freunde / der / deutschen Vorzeit / von / Ernst Müller. / Erstes Jahr 1805. / Mit neun Bildern / der Muttertreue / nach J. M. Usteri, von H. Lips. / Zürich und Leipzig, / bey J. H. Füßli, Sohn, und in Commission / bey J. B. Schiegg",
+  "updated": "2026-06-11 10:18:55.194Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "3pgba7oaybiwh0e"
+  ],
+  "contents": [
+    "a1ay4oz6gcamx94",
+    "2yifx5zwynyoif2",
+    "caen1uke6cgutt8",
+    "wv9xoxd3wzzt1eh",
+    "tfs3qpnew72x1lo",
+    "lvvv253tfoq36vw",
+    "z21d8yuric1j6s6",
+    "ced4d4wo3v71h9i",
+    "hgord7atpl5pl2b",
+    "aq5oexwi5vxk6xv",
+    "76cknx9dnnjnaqe",
+    "9xjbpwy7bj6q4j2",
+    "eqd4cn4616duzw8",
+    "pzotiwa37be1g77",
+    "2zphag9k1xyfbwr",
+    "0nob6mswbry1fsc",
+    "vxtt4gmhc08f8ec",
+    "0fl4j689x9ylvtx",
+    "ikcmjy8fqvdv2pm",
+    "ts35vvevb1ujn7r",
+    "pj8m9vnq4goidxz",
+    "n8lq33a2p6qb35l",
+    "gzsltklpgas18q7",
+    "s015bzsv755irer",
+    "mramri98xy2zf9v",
+    "u6xjzxg25tblq73",
+    "kkdkzqparx30xvk",
+    "n65q9k1uk7hl90m",
+    "n3tgt5anzo8ro9t",
+    "0lwml2fzxwksy1p",
+    "z11rdmi8pk8kqdo",
+    "rtf3mc6dtx93e5n",
+    "crm97bsg9y6vsbf",
+    "gjr06rvailk7g3p",
+    "al4x6y3e482uttc",
+    "j4ezkcg3bct2bgs",
+    "fb37ir1y8t91af8",
+    "2e1a2nvr51kxp4t",
+    "gszaj4us38ckayf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.658Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.658Z",
+      "agent": "u8doyl4xw7nktgx",
+      "source_id": "4b55vsoi3jkuilx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.881Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.881Z",
+      "agent": "qkuzc1bwcl1rry7",
+      "source_id": "6ac4f3hwt5afr1w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.192Z",
+      "agent": "v1mpxx0n8e76xaz",
+      "source_id": "6ohaonvn2yzxpps"
+    }
+  ]
+}

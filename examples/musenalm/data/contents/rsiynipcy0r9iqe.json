@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Hier wohnt er also? Ja. gnädiger Herr: Wie lange schon? O! seit März; es war noch Alles kahl und jetzt wollen beinahe die Blätter fallen.",
+  "language": [],
+  "musenalm_id": 111285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Macht der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Macht der Liebe",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.340Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "w41sg8nn2z0xabo"
+    }
+  ]
+}

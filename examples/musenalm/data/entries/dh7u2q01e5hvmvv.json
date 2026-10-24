@@ -1,0 +1,114 @@
+{
+  "annotation": "2 Jgg 1829, 1830 (1. und 2. Buch); Berlin (Reimer); Herausgeber und Autor der unbezeichneten literarischen Beiträge: W. Waiblinger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I- Verz, SS 1-4, SS 5- 28 G-Verz darin 7 GG, SS 29-406",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch aus Italien und Griechenland 1829",
+    "norm": "~ +++ 406036",
+    "biblio": 100700,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2654,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch aus Italien und Griechenland 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 151; Goed VIII, 122, 315",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / aus / Italien und Griechenland / auf das Jahr 1829. / Herausgegeben / von / Wilhelm Waiblinger. / Erstes Buch: Rom. / Mit acht Kupfern / Berlin, / bei G. Reimer",
+  "updated": "2026-06-11 10:18:55.449Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "8e6kzolxwkqikay",
+    "9s3yxa3xp0471t8"
+  ],
+  "contents": [
+    "wwmw6zaa5xi36xv",
+    "grj6sgbu2sv1exw",
+    "npyqapymifobacf",
+    "1r6yzht9bb89bcl",
+    "o2s50i4y91xcwlw",
+    "s8d625huc5fvjno",
+    "96iho3ygenwhk2s",
+    "r3gb8oi7wqfqno8",
+    "lkptwe5fkm2lwhn",
+    "ewk8l7os8i1wfuc",
+    "3k6rg9oxa3k5jps",
+    "6umhp38p06dm3jq",
+    "zx4hinft479ui31",
+    "3z3rec7wc538jl2",
+    "g43omcev6n1zs7t",
+    "mgl3lu302njml5u",
+    "fsevg5mluhxn2wa",
+    "koq8ia7r4ur7jku",
+    "thw07ygimr4a3n8",
+    "vk9eu1om6lcb4x3",
+    "x606ftlobny164q",
+    "v3mygfu2z5zml2h",
+    "vuimu6hw9p75ahv",
+    "rt3axdpnuybkxw1",
+    "vppwuclbcjwnj3v",
+    "qotk0a9k08gp6pk",
+    "r8wuje75ly1kgng",
+    "jm0qopijckyu66x",
+    "fl817g3kvc8p012",
+    "hluj4bb6lww33pd",
+    "pytbp06lmht7284",
+    "b3csgowp0afbm47",
+    "u1591c9m759z1gw",
+    "y63u72crlb0zf8s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "qtba1dg2hv0ov1a",
+      "source_id": "0gzr8um1snc9t6f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.116Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.116Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "ct1046mky4f3sa5"
+    }
+  ]
+}

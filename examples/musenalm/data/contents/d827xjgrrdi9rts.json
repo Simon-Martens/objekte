@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. d. Hrsg. zum vollständigen Abdruck des Beitrags: Ein erster Teil bereits in: Taschenbuch, Bergisches 1802; alm-1016, INr 62034",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Nun hör', Konrad! sagte der alte Vincenz und warf einen Gürtel mit Geld auf den Tisch, -",
+  "language": [],
+  "musenalm_id": 101822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Konrad der Gute. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Konrad der Gute. / Eine Erzählung",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.002Z",
+      "agent": "a22nkw5sbrlw9i8",
+      "source_id": "cohgrpseoprrwg9"
+    }
+  ]
+}

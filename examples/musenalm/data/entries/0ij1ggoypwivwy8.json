@@ -1,0 +1,97 @@
+{
+  "annotation": "mit bemerkenswerter Almanachetymologie s. INr u. Photo 82027",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, 29 SS Kal, 3 SS Tab, B Tab, 40 BB Tab, SS 1-128, B I-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach de Dresde 1769",
+    "norm": "~",
+    "biblio": 406164,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-07-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3839,
+  "parallel_title": "",
+  "place_statement": "Dresden (C. S. Walther)",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Almanach de Dresde 1769",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 10; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DE / DRESDE, / POUR L'ANNÉE / MDCCLXIX. / AVEC PRIVILEGE. / DRESDE, / CHEZ CONR. SAL. WALTHER, / LIBRAIRE-IMPRIMEUR DE LA COUR",
+  "updated": "2026-06-11 10:18:55.510Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "",
+  "items": [
+    "ezvxoo059b84z3y"
+  ],
+  "contents": [
+    "voesqak57fcdr0r",
+    "38k5m6htpjyyng0",
+    "k3oljjfbn0x95a4",
+    "xc9y1s30tcrbbn0",
+    "v0ycxi02u3qr8cl",
+    "w6pecekjfv1utuh",
+    "1jjvp0ol2tu4067",
+    "ml81x69pzizkcap",
+    "cipro3f888tmvod",
+    "0elp370ngbn18zj",
+    "usqbfie124qstrr",
+    "p51zrolfjstvmxr",
+    "xjimwhm9tazvvxv",
+    "e7naq55dy5w3491",
+    "kjm00s93861ewbh",
+    "e0a8gf6v21fnhg6",
+    "0j168hv5ezcgscg",
+    "bv033i2smwfm8kw",
+    "n13a9w2n6ltivd2",
+    "ikobxqymduf07em",
+    "myng5ujjzu2kh7r",
+    "yd363ahhg9iagyb",
+    "werci9a0hem6m15",
+    "7b2oyr4f8fbpkbq",
+    "ieaiz69he1dwxl1",
+    "0ji3fbishhz4mjg",
+    "sac4av5t6fm7djo",
+    "y6circ6th8nzsnj",
+    "1x48owcynbgg82y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.635Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.635Z",
+      "agent": "9tkzp70gyfnfysi",
+      "source_id": "2qff7qzcjhb52a6"
+    }
+  ]
+}

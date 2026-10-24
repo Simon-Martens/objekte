@@ -1,0 +1,147 @@
+{
+  "annotation": "",
+  "biographical_data": "Mitte 19. Jht.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.250Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1771-11-16"
+      ],
+      "dateOfDeath": [
+        "1828-12"
+      ],
+      "describedBy": {
+        "dateModified": "2014-11-05T09:06:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-22",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-22"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/103507527X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "103507527X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.3p",
+          "label": "Personen zu Architektur, Bautechnik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/103507527X",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4049080-4",
+          "label": "Rehau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4072581-9",
+          "label": "Hof (Saale)"
+        }
+      ],
+      "preferredName": "Baumann, Johann Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Wilhelm"
+        ],
+        "surname": [
+          "Baumann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4002844-6",
+          "label": "Architekt"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/301942196"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94915080"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103507527X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/103507527X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ]
+    },
+    "gnd_candidate_count": 6,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:00Z",
+    "gnd_query_biographical_data": "Mitte 19. Jht.",
+    "gnd_query_name": "baumann, johann wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 127,
+  "name": "Baumann, Johann Wilhelm",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 79",
+  "updated": "2026-06-11 13:29:21.498Z",
+  "uri": "https://d-nb.info/gnd/103507527X",
+  "editor": ""
+}

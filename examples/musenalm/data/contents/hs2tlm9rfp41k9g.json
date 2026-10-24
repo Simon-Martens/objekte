@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83922,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altena a. d. Lenne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. v. Laer. gest. v. Fincke",
+  "scans": [
+    "alm_878_83922_r0jonz43tu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Altena a. d. Lenne",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.146Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "l9dt9cp6e7iw76n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.146Z",
+      "agent": "npndkjuvc6cqvzm",
+      "source_id": "p53fbwsve2175mu"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Was holt vom Nachbar nicht sich über / unsern Rhein / Mein Landsmann Alles her?",
+  "language": [],
+  "musenalm_id": 3539,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In ein / Stammbuch eines Franzosen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In ein / Stammbuch eines Franzosen",
+  "updated": "2000-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.088Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "wwxkbkqs08esbql"
+    }
+  ]
+}

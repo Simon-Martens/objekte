@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer s. Textbezug INr 51617, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berner Bauernmädchen / auf dem Lande",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_702_51619_1l94ress51.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Berner Bauernmädchen / auf dem Lande",
+  "updated": "2007-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "xq62sdxkn8g0ewg"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INt 64619, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64614,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Posten #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Israëls pinxt. J. W. Kaiser sculps.",
+  "scans": [
+    "alm_1077_64614_5yoky0120v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am Posten #",
+  "updated": "2009-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1869,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.987Z",
+      "agent": "ke4j6uj44tz04rd",
+      "source_id": "shgjuk255qwxm0t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.987Z",
+      "agent": "p3hijooo9pslzw2",
+      "source_id": "wrsqivs2qy70fbb"
+    }
+  ]
+}

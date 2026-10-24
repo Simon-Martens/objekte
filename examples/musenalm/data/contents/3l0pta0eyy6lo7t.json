@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Wie hinterm Feuerwerk der Meister ungesehn / Die Zeichen seiner Kunst aufleuchtend läßt geschehn,",
+  "language": [],
+  "musenalm_id": 45460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gott",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.403Z",
+      "agent": "43zf9fb3jx70ouy",
+      "source_id": "ww0l2lpc8iekafj"
+    }
+  ]
+}

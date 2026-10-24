@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS 311-483, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für teutsche Schulmeister 1788",
+    "norm": "~",
+    "biblio": 406741,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3688,
+  "parallel_title": "",
+  "place_statement": "Ulm (Wohler)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Taschenbuch für teutsche Schulmeister 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Christoph Ferdiand Moser",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / teutsche / Schulmeister / auf / das Jahr 1788. / Herausgegeben / von / Christoph Ferdinand Moser, / Pfarrer zu Wippingen und Lautern. / Dritter Jahrgang. / Ulm / bei Johann Conrad Wohler",
+  "updated": "2026-06-11 10:18:55.056Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "9ys2s13dmsh8p2m"
+  ],
+  "contents": [
+    "s7h9q815jxs8p9w",
+    "1z99deoovcpa14j",
+    "spfi906s5gouaj5",
+    "9enbd79simp9h31",
+    "rmxzes95jp0koej",
+    "m64n4jhyrs9hmvk",
+    "4b1v58i4f2c5eky",
+    "kmhj2a678c75fuk",
+    "tkdk1or4zjultzi",
+    "2y4b0r1a4ofnh3i",
+    "ztmggbmv3l1fi4i",
+    "wqlf86xhslcidxn",
+    "v0kho17yv8fu4pj",
+    "vk4s6a0r0amy37c",
+    "g0w87n6va0u57ew",
+    "aws6r03lanxnlw6",
+    "7l736sqmnwaqw2m",
+    "ajdvbqz5uho5m9p",
+    "7g5j7bxnu0n2db0",
+    "5eqygu2d2zpvzzu",
+    "my6njju4pfya176",
+    "fobtt7re1q5mq1e",
+    "n43m133burwr470",
+    "1b6jz538qshjlfu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.281Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.281Z",
+      "agent": "opllmisqfx4rssx",
+      "source_id": "7jnkqnph5a73cl6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.189Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.189Z",
+      "agent": "skp0g12v6742tpg",
+      "source_id": "iq4uwunmm0hmzgz"
+    }
+  ]
+}

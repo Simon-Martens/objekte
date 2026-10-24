@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Wechsel der Dinge« von  J. G. v. Herder INr 19501, Obj 35 /) Anhang zu Becker's Taschenbuch 1816 enthaltend: Compositionen und Tänze, von Bergt, Dotzauer, Marschner, Methfessel, Pohlenz und Minna Schütz (Sammlung INr 61749, Obj 112) /) (Photos 61750,01-61750,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61750,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wechsel der Dinge. / An Comala",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_264_61750_01_cvmxmlhspx.jpg",
+    "alm_264_61750_02_v5rke33ten.jpg",
+    "alm_264_61750_03_h4j3kos01q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Wechsel der Dinge. / An Comala",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.080Z",
+      "agent": "ij45jg2izry2pga",
+      "source_id": "sz70hsguqtvtlxe"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Nun walte Gott! der Morgen bricht / Herein mit goldnem Sonnenlicht, / Und kühlt mit seinen Wellen wieder / Die Wangen mir und alle Glieder,",
+  "language": [],
+  "musenalm_id": 121771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tägliche Haustafel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tägliche Haustafel",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.794Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "c8gbs65ymzer1vb"
+    }
+  ]
+}

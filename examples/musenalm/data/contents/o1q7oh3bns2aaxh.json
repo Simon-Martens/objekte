@@ -1,0 +1,45 @@
+{
+  "annotation": "Szen. Darstellung in 17 Akten /) mit 6 Illustrationen s. Graphiken INr 79281-79286, Obj 6-11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Wenn wir heute nicht entscheiden, so entscheiden wir nie! Der Nakken dieses stolzen Ketzers muß sich doch endlich beugen, oder - brechen.",
+  "language": [],
+  "musenalm_id": 79280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Johann Fridrichs des Großmüthigen, des letzten Churfürsten zu Sachsen, Ernestische Linie, Niederlage und Gefangenschaft bei Mühlberg dramatisirt von Carl Gottlob Cramer]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottlob Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Johann Fridrichs des Großmüthigen, des letzten Churfürsten zu Sachsen, Ernestische Linie, Niederlage und Gefangenschaft bei Mühlberg dramatisirt von Carl Gottlob Cramer]",
+  "updated": "2012-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.972Z",
+      "agent": "amqten9820medl4",
+      "source_id": "ilv8wi38tdezn51"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Wonne! da schwebt er hervor aus der ewi- / gen Pforte des Himmels,",
+  "language": [],
+  "musenalm_id": 78802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jubelgesang. / An J. St. Halfmann, Prediger des Evange- / liums zu HIlden, un dgewesenen Präses der / ref. bergischen Synode. 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jubelgesang. / An J. St. Halfmann, Prediger des Evange- / liums zu HIlden, un dgewesenen Präses der / ref. bergischen Synode. 1800",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.791Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "k6unfbw35xmffmj"
+    }
+  ]
+}

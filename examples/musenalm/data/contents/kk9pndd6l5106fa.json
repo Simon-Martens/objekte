@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. vom Titel /) Illustration zu »Die Wunder des Doms« INr 112310, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wunder des Doms",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Blaschke",
+  "scans": [
+    "alm_4327_112309_76q8f8bvzo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wunder des Doms",
+  "updated": "2016-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.309Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "wnm8j4d8s2e1fzi"
+    }
+  ]
+}

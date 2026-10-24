@@ -1,0 +1,1116 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.255Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Staatsmann, liberaler Abgeordneter, der engagiert für die Demokratie eintrat, humoristischer und politischer Schriftsteller; 1791 kurmainzischer Regierungsrat in Erfurt, 1803 Staatsrat des Kur-Erzkanzlers in Regensburg, 1804 Geheimer Staatsrat, 1806 in badischen Diensten: 1807 Direktor der Generalstudienkommission, 1808 Ministerialdirektor im Innenministerium, 1810 Oberhofgerichtspräsident in Mannheim, 1811-1813 Staats- und Finanzminister im Großherzogtum Frankfurt, 1825-1828 Abgeordneter der Bayerischen Ständekammer; konvertierte 1827 zusammen mit seinem Bruder Gottfried vom Katholizismus zum Protestantismus; veröffentlichte mit \"Anti-Israel\" 1818 eine projüdische Satire; lebte 1814-1834 auf Schloß Emmerichshofen"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1767-04-09"
+      ],
+      "dateOfDeath": [
+        "1849-08-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Olaf Kosinsky"
+          ],
+          "creditText": [
+            "Archiv des Liberalismus"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/ADL%20Hambacher%20Tuch%20Karl%20Christian%20Ernst%20Graf%20von%20Bentzel-Sternau.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0 de",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+              "name": "Creative Commons Attribution-Share Alike 3.0 de"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/ADL%20Hambacher%20Tuch%20Karl%20Christian%20Ernst%20Graf%20von%20Bentzel-Sternau.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:ADL%20Hambacher%20Tuch%20Karl%20Christian%20Ernst%20Graf%20von%20Bentzel-Sternau.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/182728331"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-28T16:12:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11612363X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117462608",
+          "label": "Bentzel-Sternau, Marie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "11612363X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11612363X",
+      "oldAuthorityNumber": [
+        "(DE-588a)128278439",
+        "(DE-588a)182728331",
+        "(DE-588a)11612363X",
+        "(DE-588a)126036330",
+        "(DE-588)182728331"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4048989-9",
+          "label": "Regensburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037372-1",
+          "label": "Mannheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4838164-0",
+          "label": "Emmerichshofen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018118-2",
+          "label": "Frankfurt am Main"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4015310-1",
+          "label": "Erlenbach (Kanton Zürich)"
+        }
+      ],
+      "preferredName": "Bentzel-Sternau, Christian Ernst von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Ernst"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Bentzel-Sternau"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Horatius"
+          ],
+          "surname": [
+            "Cocles"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Anti-Israel",
+        "Das goldne Kalb",
+        "Gespräche im Labyrinth aus dem Klarfeldischen Archive",
+        "Pigmäen-Briefe",
+        "Lebensgeister aus dem Klarfeldischen Archive",
+        "Der alte Adam",
+        "Weiss und Schwarz",
+        "Morfeus oder das Reich der Träume",
+        "Der steinerne Gast",
+        "Gemmen",
+        "Titania oder das Reich der Mährchen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr92011579"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/68997425"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1730647"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11612363X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182728331"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/11612363X"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Christian_Ernst_von_Bentzel-Sternau"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Christian_Ernst_von_Bentzel-Sternau"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Christian_Ernst_von_Bentzel-Sternau"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?11612363X"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110691317"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11612363X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11612363X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11612363X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11612363X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11612363X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/11612363X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11612363X"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Sternau, Christian Ernst von Bentzel-",
+        "G. C. v. B. S.",
+        "Benzel-Sternau, Paul Christian Ernst zu",
+        "Benzel, Ch. C. von",
+        "Benzel-Sternau, Carl Christian Ernst von",
+        "Benzel, Christian von",
+        "Benzel Sternau, Christian Ernst von",
+        "Benzel-Sternau, Christian Ernst von",
+        "Sternau, Christian Ernst von",
+        "Benzel-Sternau, Christian Ernst von, Graf",
+        "Sternau, Carl Christian Ernst von Benzel-",
+        "Sternau, Christian Ernst von Benzel-",
+        "Benzel, Christian Ernst von, Graf",
+        "Benzel-Sternau, Karl Christian Ernst von",
+        "Bentzel-Sternau, Christian Ernst, Graf von",
+        "Benzel-Sternau, Ernst von",
+        "Bentzel-Sternau, Karl Christian Ernst, Graf von",
+        "Benzel-Sternau, Carl C. von",
+        "Benzel Sternau, Christian E. von",
+        "Benzel-Sternau",
+        "Sternau, Carl C. von",
+        "Bentzel von Sternau, Chr. Ernst von",
+        "Bentzel-Sternau, Christian Ernst von, Graf",
+        "Bentzel Sternau, Christian Ernst von",
+        "Benzel, Christian C. von",
+        "Benzel-Sternau von",
+        "Bentzel-Sternau, Carl Christian Ernst, Graf von",
+        "Bentzel-Sternau, Carl Christian Ernst von",
+        "Benzel-Sternau, Paul C. von",
+        "Sternau, Carl Christian Ernst von",
+        "Bentzel von Sternau, Karl Christian Ernst von",
+        "Benzel-Sternau, Karl Christian Ernst, Graf von",
+        "Bentzel Sternau, Christian E. von",
+        "Sternau und Hohenau, Karl Christian Ernst Betzel zu",
+        "Bentzel-Sternau, Karl Christian Ernst von",
+        "Benzel-Sternau, Karl von",
+        "Benzel-Sternau, Christian Ernst, Graf von",
+        "Benzel-Sternau, Carl Christian Ernst, Graf von",
+        "Sternau, Christian E. von",
+        "Benzel Sternau, Ch. C.",
+        "Bentzel-Sternau, Christ. Ernst von",
+        "Sternau, Karl Christian Ernst von, Graf",
+        "Cocles, Horatius",
+        "Bentzel von Sternau, Karl Christian Ernst",
+        "Benzel-Sternau, Ch. E. von",
+        "Bentzel, Karl Christian Ernst",
+        "Benzel-Sternau, Carolus de",
+        "Bentzel-Sternau, Christian E. von",
+        "Bentzel, Karl Christian Ernst von, Graf",
+        "Benzel, Christian Ernst von",
+        "Benzel",
+        "Bentzel-Sternau, Karl Christian Ernst von, Graf",
+        "Bentzel zu Sternau und Hohenau, Karl Christian Ernst",
+        "Benzel, Christian Ernst",
+        "Bentzel, Christian Ernst von",
+        "Sternau, Christian Ernst",
+        "Sternau, ... von Benzel-",
+        "Benzel-Sternau, Christian E. von",
+        "Hohenau, Karl Christian Ernst Bentzel zu Sternau und",
+        "Benzel-Sternau, Ernst Karl Christian zu",
+        "Bentzel Sternau, Ch. E. von",
+        "Bentzel-Sternau, Carl C. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "... von Benzel-"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel von Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst von Benzel-"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "personalName": [
+            "G. C. v. B. S."
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst Bentzel zu Sternau und"
+          ],
+          "surname": [
+            "Hohenau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel Sternau"
+          ]
+        },
+        {
+          "personalName": [
+            "Benzel-Sternau"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "personalName": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst von Bentzel-"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Paul C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Horatius"
+          ],
+          "surname": [
+            "Cocles"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "surname": [
+            "Bentzel von Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel von Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel"
+          ]
+        },
+        {
+          "personalName": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "surname": [
+            "Bentzel zu Sternau und Hohenau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst von Benzel-"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. C."
+          ],
+          "surname": [
+            "Benzel Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Karl Christian"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Paul Christian Ernst"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Christian Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christ. Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst Betzel"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Sternau und Hohenau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel-Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Carl C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Christian C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sternau"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Benzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "surname": [
+            "Bentzel"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Christian Ernst"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Bentzel-Sternau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Christian_Ernst_von_Bentzel-Sternau",
+          "label": "https://de.wikipedia.org/wiki/Karl_Christian_Ernst_von_Bentzel-Sternau"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:54:42Z",
+    "gnd_query_biographical_data": "1767-1849",
+    "gnd_query_name": "bentzel-sternau, karl christian ernst von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 161,
+  "name": "Bentzel-Sternau, Karl Christian Ernst von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 468; Goed VII, 244",
+  "updated": "2026-06-11 13:29:21.528Z",
+  "uri": "https://d-nb.info/gnd/11612363X",
+  "editor": ""
+}

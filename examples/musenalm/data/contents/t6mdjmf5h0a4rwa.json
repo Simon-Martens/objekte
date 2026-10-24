@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Auf dem Berge« von A. E. Fröhlich INr 54740, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54811,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem Berge (S. 171.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Fröhlich",
+  "scans": [
+    "alm_744_54811_rtqw5q2q4r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem Berge (S. 171.)",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.775Z",
+      "agent": "2zdwvvsdgu1m59h",
+      "source_id": "zvy0jqiitzx6yv2"
+    }
+  ]
+}

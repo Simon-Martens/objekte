@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Illustration zu »Merkur« von K. Ph. Moritz INr 91587, Obj 111",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carstens del. D. Berger sc. 1791)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carstens del. D. Berger sc. 1791",
+  "scans": [
+    "alm_4074_91586_pr2zvmfmsz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.286Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "1677jynb9yxlrw5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.286Z",
+      "agent": "g3hedbg3ghoqo3o",
+      "source_id": "y6x8vx2knmffybv"
+    }
+  ]
+}

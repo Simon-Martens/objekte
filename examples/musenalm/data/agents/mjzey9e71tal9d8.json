@@ -1,0 +1,415 @@
+{
+  "annotation": "",
+  "biographical_data": "1766->1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.508Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1. Ehe ab 1789 mit Josepha Kronheim/Cronheim (1764-1794); 2. Ehe ab 1797 mit Louise Spitzeder (1779-1806); 3. Ehe vermutlich ab 1808 mit Therese Mack (1785/86-1831)"
+      ],
+      "dateOfBirth": [
+        "1766-06-19"
+      ],
+      "dateOfDeath": [
+        "1832"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-17T19:34:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117157678/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117158542",
+          "label": "Weber, Franz Anton von"
+        },
+        {
+          "forename": [
+            "Josefa"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Katharina Antoinette"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130841056",
+          "label": "Weber, Maria Antonia"
+        },
+        {
+          "forename": [
+            "Viktoria Josephine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130841013",
+          "label": "Weber, Maria Adelheid Josepha"
+        },
+        {
+          "forename": [
+            "Aloisia"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118629662",
+          "label": "Weber, Carl Maria von"
+        },
+        {
+          "forename": [
+            "Carl Moritz Wilhelm Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131427326",
+          "label": "Spitzeder, Franz Anton"
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Mack"
+          ]
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117157678",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117158542",
+          "label": "Weber, Franz Anton von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/130841013",
+          "label": "Weber, Maria Adelheid Josepha"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117157678",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)10396004X",
+        "(DE-588a)130840858",
+        "(DE-588a)117157678"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4024881-1",
+          "label": "Hildesheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4067037-5",
+          "label": "Würzburg"
+        }
+      ],
+      "preferredName": "Weber, Edmund von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Edmund"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Weber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        }
+      ],
+      "publication": [
+        "[Trios, Ob Fg Va (1960)]. - (1960)"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Franz Edmund Kaspar Joseph Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2010173129"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30305931"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q64374282"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=117157678"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117157678/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Edmund_von_Weber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081100273"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117157678"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1798_weber"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117157678"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Weber, Franz Edmund Kaspar Joseph Maria von",
+        "Weber, Edmund",
+        "Weber, Franz Edmund Kaspar Johann Nepomuk Joseph Maria"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Edmund Kaspar Joseph Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Edmund Kaspar Johann Nepomuk Joseph Maria"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Edmund Kaspar Joseph Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Edmund"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Edmund_von_Weber",
+          "label": "https://de.wikipedia.org/wiki/Edmund_von_Weber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:18:33Z",
+    "gnd_query_biographical_data": "1766->1826",
+    "gnd_query_name": "weber, edmund von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3064,
+  "name": "Weber, Edmund von",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 2155",
+  "updated": "2026-06-11 13:29:25.633Z",
+  "uri": "https://d-nb.info/gnd/117157678",
+  "editor": ""
+}

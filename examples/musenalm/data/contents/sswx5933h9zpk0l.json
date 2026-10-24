@@ -1,0 +1,45 @@
+{
+  "annotation": "Spanische Lieder (Sammlung INr 45410, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Wie wär' ein Mädchen, / Das Blumen pflückte, / Noch nicht verliebt!",
+  "language": [],
+  "musenalm_id": 45416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cual es la niña",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cual es la niña",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.340Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "8tdtyjkyv0zvwqg"
+    }
+  ]
+}

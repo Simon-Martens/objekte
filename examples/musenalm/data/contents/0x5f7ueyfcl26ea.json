@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7941,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. R. f)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. R. f",
+  "scans": [
+    "alm_141_7941_945m7lh8u3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.256Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "osharn0ozni0snb"
+    }
+  ]
+}

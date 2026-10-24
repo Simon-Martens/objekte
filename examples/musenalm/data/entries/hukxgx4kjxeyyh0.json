@@ -1,0 +1,70 @@
+{
+  "annotation": "7.-9. Abt. in einem Band /) Titel und I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 3 BB I-Verz, SS 1-146",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichter und Dichterfreunde 1779 10. Abt.",
+    "norm": "",
+    "biblio": 106793,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2747,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Dyck)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Dichter und Dichterfreunde 1778 9. Abt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichter und Dichterfreunde. / Zehnte Abtheilung. / Leipzig, / in der Dyckischen Buchhandlung. / 1779",
+  "updated": "2026-06-11 10:18:55.810Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "zpl7q676t35rqxy"
+  ],
+  "contents": [
+    "s74mkh91oaoqqvn",
+    "vm2325wu7gr671d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.758Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.758Z",
+      "agent": "itls9uetbsspgi7",
+      "source_id": "tcudls92tn2w98z"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, verso G, S IgT, SS III-VIII Vrwrt d Hrsg, 2 BB I-Verz, 4 BB G-Verz u VrlgM dazu 2 GG, SS 1-308 darin 2 GG, S 308 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Mode und des Geschmacks für Damen 1802",
+    "norm": "~",
+    "biblio": 407275,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-12-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1710,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach der Mode und des Geschmacks für Damen 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 14; nicht bei L/R; Hayn-G. VII, 532",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Mode und des Geschmacks / für Damen, / Auf das Jahr 1802. / Zur / Kunde eleganter Gegenstände, und zur Be- / urtheilung des Schönen in der Tanzkunst, / Schauspielkunst, Musik, Zeichenkunst, Ma- / lerei, Stickerei u.s.w. / Mit Kupfern. / Berlin, 1802, / bei Oehmigke dem Jüngern. / ( Preis 1 Thl 16 Gr., m. illum. Kupf. 2. Thl. 8 Gr.",
+  "updated": "2026-06-11 10:18:55.093Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "ln0jg7la7hz3dz8"
+  ],
+  "contents": [
+    "6w86ku857t9kcnt",
+    "edxvdfchu25sk5c",
+    "zsru7ztogsllo9f",
+    "23wur57buewoeaj",
+    "kru1l9jeuimf9md",
+    "g0oyp6rp4if2fgp",
+    "c49p0prrbz2d3fw",
+    "u66my1ky8ufcr66",
+    "1umw9vfqccn95zg",
+    "a59f1zi2e2ywrgw",
+    "pppddlf3gbrxv9b",
+    "hg4emp4gyeetuhe",
+    "r9y3bwgod4gbwzp",
+    "op5ogeg8om0r680",
+    "kipmtp3q0o682ft",
+    "8fq9bda924mkrck",
+    "dijzi32fnf2oa0e",
+    "74y8vaj7vc4n0i3",
+    "w4udkwwt9nt7tpx",
+    "oinkn79gc3gtia9",
+    "u593q6c8p8wkhfk",
+    "l338zatpteif60n",
+    "01ejuh6irm2pp8z",
+    "4og4a85u5797kja",
+    "hi4f5me3pi0j550",
+    "sytisr7nhcxawel",
+    "b4jogp7579z3ix3",
+    "wzvtp147od2mpq6",
+    "hvkz6jxxsunfa6k",
+    "t6kwcywx7468hdu",
+    "q63di3us9hqpzj6",
+    "5kq5kmsnskr41j5",
+    "mc6qqpmmipbugw0",
+    "2s59eang8qhp1ia",
+    "rrb8f2f0t00uz8g",
+    "wky33rytnzyo8md",
+    "agwwhj7wqkwmdnp",
+    "c6lzpp49dy5s5uv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.114Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.114Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "9zislncv1uiw45e"
+    }
+  ]
+}

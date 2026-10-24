@@ -1,0 +1,45 @@
+{
+  "annotation": "Hoz a mai, domaun a tai. Heute mir, morgen dir. (Sammlung INr 103560, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Wie es zu jenen Zeiten in den drei Bünden ausgesehen, kann ausführlich hier nicht geschildert werden.",
+  "language": [],
+  "musenalm_id": 103565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Böse Zeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Böse Zeiten",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.162Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "tiv1p5axvt1ib8g"
+    }
+  ]
+}

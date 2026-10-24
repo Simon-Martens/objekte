@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Griechenland (Sammlung INr 89944, Obj 9) s. Textbezug INr 89950, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das weiß marmorne Grabmahl auf Siphanto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hilair del. J. Blaschke sc.",
+  "scans": [
+    "alm_3104_89951_3ol384lyhv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das weiß marmorne Grabmahl auf Siphanto",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.381Z",
+      "agent": "a0ldppgdsdbno74",
+      "source_id": "6qxau62aq2q54vg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.381Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "zpnnkn1n6lp1ans"
+    }
+  ]
+}

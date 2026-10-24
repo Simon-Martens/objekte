@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64294, Obj 6) s. Graphik INr 64308, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Gekämmt, gebürstet und gewaschen / Hat Emma ihren Lieblingshund",
+  "language": [],
+  "musenalm_id": 64300,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Der Lieblingshund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Der Lieblingshund",
+  "updated": "2009-05-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.976Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "o3hzsm0q6r7sqiv"
+    }
+  ]
+}

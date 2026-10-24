@@ -1,0 +1,476 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1825",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.415Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1786-08-18"
+      ],
+      "dateOfDeath": [
+        "1825-04-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Wilhelm Hensel"
+          ],
+          "creditText": [
+            "Google Books-USA*"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20von%20Loeben.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Otto%20von%20Loeben.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Otto%20von%20Loeben.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T09:44:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118728733/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118728733",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118728733",
+      "oldAuthorityNumber": [
+        "(DE-588a)118728733",
+        "(DE-588c)4099741-8"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Loeben, Otto Heinrich, Graf von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Otto Heinrich"
+        ],
+        "nameAddition": [
+          "Graf von"
+        ],
+        "surname": [
+          "Loeben"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1074371453",
+          "label": "Isidorus Orientalis"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Kuckuck"
+          ],
+          "surname": [
+            "Waldbruder"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Loeben, Otto H. von: Der Vorhof",
+        "Loeben, Otto H. von: Der goldene Faden",
+        "Loeben, Otto H. von: Die Befreiungs-Religion und Liebe",
+        "Loeben, Otto H. von: Der Fremdling",
+        "Loeben, Otto H. von: Romantische Darstellungen",
+        "Loeben, Otto H. von: Das Labyrinth",
+        "Loeben, Otto H. von: Deutsche Worte über die Ansichten der Frau von Stae͏̈l von unserer *",
+        "Loeben, Otto H. von: Rosengarten"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n96028249"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/807363"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q105016"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118728733/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Otto_Heinrich_von_Loeben"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Otto_von_Loeben"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Otto_von_Loeben"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Otto_Heinrich_von_Loeben"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122756317"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118728733"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1818_loeben"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118728733"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118728733.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118728733.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118728733"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Löben, Otto Heinrich von",
+        "Loeben, Otto H. von",
+        "Waldbruder, Kuckuck",
+        "Loeben, Heinrich von",
+        "Loeben, Otto Heinrich, Graf",
+        "Leoben, Otto Heinrich von",
+        "Löben, Graf von",
+        "Loeben, Otto von",
+        "Loeben, Johann Heinrich von",
+        "Loeben, Otto Heinrich von",
+        "Loeben, Ferdinand August Otto Heinrich von",
+        "Loeben, O. H., Graf v."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Otto"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Otto H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Leoben"
+          ]
+        },
+        {
+          "forename": [
+            "O. H."
+          ],
+          "nameAddition": [
+            "Graf v."
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Heinrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Graf von"
+          ],
+          "personalName": [
+            "Löben"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Kuckuck"
+          ],
+          "surname": [
+            "Waldbruder"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand August Otto Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Loeben"
+          ]
+        },
+        {
+          "forename": [
+            "Otto Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Löben"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Otto_von_Loeben",
+          "label": "https://de.wikipedia.org/wiki/Otto_von_Loeben"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:08:48Z",
+    "gnd_query_biographical_data": "1786-1825",
+    "gnd_query_name": "loeben, otto heinrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1656,
+  "name": "Loeben, Otto Heinrich von",
+  "profession": "Text",
+  "pseudonyms": "Isidorus [orientalis]; GOHL",
+  "refs": "Goed VI, 108; H/B 143",
+  "updated": "2026-06-11 13:29:23.621Z",
+  "uri": "https://d-nb.info/gnd/118728733",
+  "editor": ""
+}

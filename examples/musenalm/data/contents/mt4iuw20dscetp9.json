@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Graphik paginiert III /) über der Graphik: Jahrg. 1794 /) Illustration zu »Das Edelwild« von  L. C. E. H. F. von Wildungen INr 8242, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wildkalb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. G. B. sc.",
+  "scans": [
+    "alm_1127_82143_azif0dm2f2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wildkalb",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.914Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "1xquq9ireu72d17"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.914Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "8w3ikwgrnzuc2qo"
+    }
+  ]
+}

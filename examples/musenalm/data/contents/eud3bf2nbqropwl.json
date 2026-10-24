@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Du gehst sehr ordentlich zu Kirch' und / Abendmahl; / Er etwa dann und wann einmal.",
+  "language": [],
+  "musenalm_id": 5859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Richtet nicht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Richtet nicht",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.254Z",
+      "agent": "ewuwl9lvke5jtiz",
+      "source_id": "di0l9er5cp2ias1"
+    }
+  ]
+}

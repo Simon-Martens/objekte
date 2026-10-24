@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60914, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Im Jahre 1062 feierte der Kaiser Heinrich IV. Weihnachten zu Goslar, wozu sich auch eine große Anzahl deutscher Fürsten eingefunden hatte,",
+  "language": [],
+  "musenalm_id": 60928,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.996Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "9myx94k98037sel"
+    }
+  ]
+}

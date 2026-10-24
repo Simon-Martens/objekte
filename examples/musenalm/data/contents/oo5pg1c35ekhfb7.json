@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Chemische Kunststücke (Sammlung INr 84711, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Dem wißbegierigen Leser traue ichs zu, daß er wenigstens zu den merkwürdigsten dieser natürlichen Zaubereyen den Schlüssel zu haben wünscht.",
+  "language": [],
+  "musenalm_id": 84727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem wißbegierigen Leser traue ichs zu, daß er wenigstens zu den merkwürdigsten dieser natürlichen Zaubereyen den Schlüssel zu haben wünscht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blasche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.191Z",
+      "agent": "7h5ljocv7u3xkmf",
+      "source_id": "kbanxj6654ig97q"
+    }
+  ]
+}

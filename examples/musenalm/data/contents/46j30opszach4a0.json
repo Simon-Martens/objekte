@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verl. von J. D. Sauerländer] s. Textbezug INr 44439, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44440,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER HARFNER UND MIGNON",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. M. Oppenheim gest. v. Backenberg",
+  "scans": [
+    "alm_604_44440_kd8xo0j624.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER HARFNER UND MIGNON",
+  "updated": "2006-07-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.303Z",
+      "agent": "8x02yubdd9ru1dh",
+      "source_id": "0qfelp3yx3invj3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.303Z",
+      "agent": "tp1u938y9s48zeu",
+      "source_id": "b2citgmpjo9i8g5"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die gebrochenen Fesseln« von F. C. Schindler INr 116124, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OLIVIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mezler J. B. del. Krepp I. sculps.",
+  "scans": [
+    "alm_3211_116081_5xmr6acxi6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OLIVIA",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.416Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "bkra4anjjt67igo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.416Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "p1c2nxxydc4r0ix"
+    }
+  ]
+}

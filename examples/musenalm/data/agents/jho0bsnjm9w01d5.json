@@ -1,0 +1,587 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1825",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.292Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller und Landschaftsmaler",
+        "Schriftsteller, Deutschland",
+        "Verfasser von Novellen, Gedichten und Theater-Lustspielen; Landschaftsmaler",
+        "Dt. Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1777-08-19"
+      ],
+      "dateOfDeath": [
+        "1825-06-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "Klaus Günzel: Die deutschen Romantiker. Artemis, Zürich 1995, ISBN&nbsp;3-7608-1119-1"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Contessa%2C%20Karl%20Wilhelm%20Salice%20%281777-1825%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Contessa%2C%20Karl%20Wilhelm%20Salice%20%281777-1825%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Contessa%2C%20Karl%20Wilhelm%20Salice%20%281777-1825%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T16:22:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11900688X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116763167",
+          "label": "Contessa, Christian Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1088447481",
+          "label": "Contessa, Familie : 15. Jh.- : Sala Comacina"
+        },
+        {
+          "forename": [
+            "Jakob Christian"
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11900688X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116763167",
+          "label": "Contessa, Christian Jacob"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11900688X",
+      "oldAuthorityNumber": [
+        "(DE-588a)157897680",
+        "(DE-588a)11900688X",
+        "(DE-588c)4271868-5",
+        "(DE-588a)160476712",
+        "(DE-588a)187600694"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4025049-0",
+          "label": "Hirschberg im Riesengebirge"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Salice-Contessa, Carl Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Wilhelm"
+        ],
+        "surname": [
+          "Salice-Contessa"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Zwei Erzählungen",
+        "Contessa, Carl W.: Das Bild der Mutter u. das blonde Kind",
+        "Contessa, Carl W.: Das Räthsel",
+        "Contessa, Carl W.: Erzählungen",
+        "Contessa, Carl W.: [Der Orakelspruch]",
+        "Houwald, Christoph E. von: Romantische Akkorde",
+        "Contessa, Carl W.: Schriften",
+        "Das Bild der Mutter u. das blonde Kind",
+        "Der Orakelspruch",
+        "Contessa, Carl W.: Zwei Erzählungen",
+        "Das Räthsel",
+        "Schneider, Georg A.: Das entschlossene Mädchen",
+        "Contessa, Carl W.: Der Orakelspruch",
+        "Der Schatz"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89001098"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/contessa-karl-wilhelm/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22225322"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q96771"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11900688X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Wilhelm_Salice-Contessa"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010878205X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11900688X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11900688X"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11900688X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11900688X"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/11900688X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11900688X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Salice-Contessa, Karl Wilhelm Franz",
+        "Salice-Contessa, Carl W.",
+        "Contessa, Christian Wilhelm",
+        "Salice-Contessa, Karl Wilhelm",
+        "Contessa, ...",
+        "Salice, Christian Wilhelm",
+        "Contessa, C. W. Salice",
+        "Contessa, Karl Wilh. Salica-",
+        "Contessa, E. W.",
+        "Salice-Contessa, Karl Wilh.",
+        "Contessa, C. W.",
+        "Salice-Contessa, Karl W.",
+        "Salice Contessa, Carl Wilhelm",
+        "Contessa, Carl Wilhelm",
+        "Contessa, Karl Wilh. Salice-",
+        "Contessa, Karl Wilhelm",
+        "Contessa, Karl W.",
+        "Contessa, Carl Wilhelm Salice",
+        "Comtessa, ...",
+        "Salice Contessa, Carl W.",
+        "Contessa, C.",
+        "Contessa, Karl Wilhelm Salice",
+        "Contessa, Carl W.",
+        "Salice Contessa, Karl Wilhelm",
+        "Kontessa, ...",
+        "Salice-Contessa, C. W.",
+        "Contessa, Carl Wilhelm Salice-",
+        "Contessa, K. W. S.",
+        "Salice, Karl Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm"
+          ],
+          "surname": [
+            "Salice Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilh. Salice-"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "surname": [
+            "Salice Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl W."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "surname": [
+            "Salice"
+          ]
+        },
+        {
+          "forename": [
+            "E. W."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "surname": [
+            "Salice Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "C. W. Salice"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm Salice"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilh."
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm"
+          ],
+          "surname": [
+            "Salice"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm"
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "K. W. S."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilh. Salica-"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Kontessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm Salice"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl W."
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Comtessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Wilhelm Franz"
+          ],
+          "surname": [
+            "Salice-Contessa"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Wilhelm Salice-"
+          ],
+          "surname": [
+            "Contessa"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Wilhelm_Salice-Contessa",
+          "label": "https://de.wikipedia.org/wiki/Karl_Wilhelm_Salice-Contessa"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:08:15Z",
+    "gnd_query_biographical_data": "1777-1825",
+    "gnd_query_name": "contessa, karl wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 435,
+  "name": "Contessa, Karl Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 473; Goed VII, 448; Goed XI/1, 434; Goed XIII, 228; Goed XIV, 163",
+  "updated": "2026-06-11 13:29:21.908Z",
+  "uri": "https://d-nb.info/gnd/11900688X",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "#vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Wenn unerbittlich Mars und Ate wüthen, / Und rings Verderben dräu'n,",
+  "language": [],
+  "musenalm_id": 15871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang. / Durch die starrende Wildniß, begränzt von der Wieg' und / demSarge, / Ebnen mit göttlicher Huld Freundschaft und Liebe den Pfad. / Matthisson",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang. / Durch die starrende Wildniß, begränzt von der Wieg' und / demSarge, / Ebnen mit göttlicher Huld Freundschaft und Liebe den Pfad. / Matthisson",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.885Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "78dl8mugaa8k840"
+    }
+  ]
+}

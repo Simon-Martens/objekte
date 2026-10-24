@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Vom Concerte ruhte auf dem Tische die Flöte neben einem Pinsel aus, mit dem ihr Herr schon manches Zauberspiel vollendete.",
+  "language": [],
+  "musenalm_id": 89094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Flöte und der Pinsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Flöte und der Pinsel",
+  "updated": "2013-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.388Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "a8gj2hhcc72mwxc"
+    }
+  ]
+}

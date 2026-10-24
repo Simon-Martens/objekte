@@ -1,0 +1,256 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.516Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Aquarellist, Illustrator"
+      ],
+      "dateOfBirth": [
+        "1784-01-21"
+      ],
+      "dateOfDeath": [
+        "1849-06-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Metro Centric"
+          ],
+          "creditText": [
+            "Piccadilly"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bust%20of%20Peter%20de%20Wint%2C%20Piccadilly%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "CC BY 2.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/2.0",
+              "name": "Creative Commons Attribution 2.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bust%20of%20Peter%20de%20Wint%2C%20Piccadilly%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bust%20of%20Peter%20de%20Wint%2C%20Piccadilly%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/173033903"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118807587/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118807587",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118807587",
+      "oldAuthorityNumber": [
+        "(DE-588a)118807587",
+        "(DE-588c)4118053-7",
+        "(DE-588)173033903",
+        "(DE-588a)173033903"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4118781-7",
+          "label": "Staffordshire"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "De Wint, Peter",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Peter"
+        ],
+        "surname": [
+          "De Wint"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13743578n"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83035712"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39554977"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3595589"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118807587/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/173033903"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Peter_De_Wint"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008118733X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "DeWint, P.",
+        "Wint, Peter de",
+        "DeWint, Peter"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "DeWint"
+          ]
+        },
+        {
+          "forename": [
+            "Peter"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Wint"
+          ]
+        },
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "DeWint"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:23:18Z",
+    "gnd_query_biographical_data": "1784-1849",
+    "gnd_query_name": "wint, peter de"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3159,
+  "name": "Wint, Peter de",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXVI, 73",
+  "updated": "2026-06-11 13:29:25.792Z",
+  "uri": "https://d-nb.info/gnd/118807587",
+  "editor": ""
+}

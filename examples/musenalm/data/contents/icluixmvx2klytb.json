@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Der Ritter Mimami ruhet hier, / Wenn anders der kan selbst im Grabe Ruhe haben,",
+  "language": [],
+  "musenalm_id": 5487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf den Ritter M.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf den Ritter M.",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.127Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "cmdiw8rgy6ujova"
+    }
+  ]
+}

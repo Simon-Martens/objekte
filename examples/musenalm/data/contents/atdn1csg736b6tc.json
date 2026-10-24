@@ -1,0 +1,48 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Der Besuch« von Schiller INr 38023, Obj 92 (Photos 38805,01; 38805,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38805,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 667,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Besuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W.",
+  "scans": [
+    "alm_511_38805_01_em12zcxzx2.jpg",
+    "alm_511_38805_02_mn5jveixyv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Besuch",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.940Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "7fi1oym7jegu5nv"
+    }
+  ]
+}

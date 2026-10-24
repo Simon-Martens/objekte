@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkungen zu den vorstehenden Gedichten INr 17119, 17120; Obj 71, 72",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 72.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkungen",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.769Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "qznbuvovt2ifwv3"
+    }
+  ]
+}

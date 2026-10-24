@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; nummeriert 4. /) Illustration zu »Otto von Wittelsbach«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105087,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philipp! sey das Jubelgeschrei / der Hölle, wenn ein Undankba- / rer verdammt wird",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhaus.",
+  "scans": [
+    "alm_3257_105087_shztng8kky.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philipp! sey das Jubelgeschrei / der Hölle, wenn ein Undankba- / rer verdammt wird",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.992Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "7nic1e8cqbmlbhb"
+    }
+  ]
+}

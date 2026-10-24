@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33520, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinderspiele. Spiel der Unschuld #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Autenrieth sc.",
+  "scans": [
+    "alm_465_33535_lahf6ahv60.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kinderspiele. Spiel der Unschuld #",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.498Z",
+      "agent": "494d92fqsi62f1e",
+      "source_id": "qsxbi8t8xphwc4m"
+    }
+  ]
+}

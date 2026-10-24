@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Heil dem Jüngling, der am treuen Busen / Der zwei Ersten wohlgeschirmt noch weilt!",
+  "language": [],
+  "musenalm_id": 41410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.113Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "ttaq4sdx3lozrps"
+    }
+  ]
+}

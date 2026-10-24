@@ -1,0 +1,45 @@
+{
+  "annotation": "Der junge Polyfemos. Zwei Idyllen des Theokrit (Sammlung INr 17118, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Wahrlich, gegen die Lieb' erwuchs kein andres / Mittel, / Nikias, weder in Salbe, so scheint es mir, noch in / Latwerge",
+  "language": [],
+  "musenalm_id": 17119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Kyklop",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Kyklop",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.780Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "ri5tp47eofhq8a1"
+    }
+  ]
+}

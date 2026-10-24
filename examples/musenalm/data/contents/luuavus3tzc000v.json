@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75687, Obj 34 /) s.a. Textbezug INr 75680, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75664,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eroberung von Breysach / Herzog Bernhard speiset die Hungrigen / und vergiebt seinen Feinden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec.",
+  "scans": [
+    "alm_2143_75664_vhc765llep.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Eroberung von Breysach / Herzog Bernhard speiset die Hungrigen / und vergiebt seinen Feinden",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.562Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "0tp4y496db1jqxz"
+    }
+  ]
+}

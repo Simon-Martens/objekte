@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21662,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sag' deinen Herrn, ich habe neue Mauern, sie / neues Geschüz, wir wolten mit beÿden eins wagen!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_291_21662_6kdhdt3nkr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sag' deinen Herrn, ich habe neue Mauern, sie / neues Geschüz, wir wolten mit beÿden eins wagen!",
+  "updated": "2002-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.038Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "ogead9r1b5mnla5"
+    }
+  ]
+}

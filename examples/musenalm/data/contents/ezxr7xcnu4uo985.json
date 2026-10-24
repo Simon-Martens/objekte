@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Scene aus Byrons Gedichten: Don Juan - The Island - Mazeppa « INr 63517, Obj 8 s. Gedicht »Müssige Stunden« INr 63662, Obj 1,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63523,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Müssige Stunden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Richter pinx. F. Fleischmann sc.",
+  "scans": [
+    "alm_1043_63523_in0oifkt7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Müssige Stunden #",
+  "updated": "2009-04-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.174Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "32o7cv5koe6h9cx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.174Z",
+      "agent": "2p87lmr62wiucvw",
+      "source_id": "484cfmgd037d1ci"
+    }
+  ]
+}

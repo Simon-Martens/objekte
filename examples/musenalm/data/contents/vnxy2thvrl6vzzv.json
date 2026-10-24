@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Als vor langer, grauer Zeit / Herr Urian die Christenheit / Noch zu besuchen pflegte maskirt,",
+  "language": [],
+  "musenalm_id": 66059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Teufel und der Schneider. / Ein Schwank nach einer Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wahlert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Teufel und der Schneider. / Ein Schwank nach einer Volkssage",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.350Z",
+      "agent": "s0zlclb66w9xa97",
+      "source_id": "66vxmi7inwa9uqx"
+    }
+  ]
+}

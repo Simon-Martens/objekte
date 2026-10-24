@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Die Berge stehn so düster, / Von Nebeldunst umflort;",
+  "language": [],
+  "musenalm_id": 6320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Todtenopfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Todtenopfer",
+  "updated": "2000-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.153Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "kjq2say9echifw0"
+    }
+  ]
+}

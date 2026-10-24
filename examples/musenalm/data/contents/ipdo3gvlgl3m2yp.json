@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 86781, Obj 10 /) Illustration zu »Die Tochter der Dora« von J. G. Seidl INr 86787, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86780,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter der Dora",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. N. Geiger del. C. Defet sc.",
+  "scans": [
+    "alm_1606_86780_xdogpm14x6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter der Dora",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.210Z",
+      "agent": "3lqsa16o80o69t8",
+      "source_id": "ewi0w55r01ab8un"
+    }
+  ]
+}

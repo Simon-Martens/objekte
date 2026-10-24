@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Fürchterlich brauste der Sturm durch die Wipfel der entblätterten Eichen",
+  "language": [],
+  "musenalm_id": 2055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Jahr. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frau von W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Jahr. / Novelle",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.636Z",
+      "agent": "ngiqzohpakvtqf9",
+      "source_id": "84y94k24sxxe4of"
+    }
+  ]
+}

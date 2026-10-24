@@ -1,0 +1,123 @@
+{
+  "annotation": "lt. L/R 84 kann als Autor der Erläuterungen von Rambergs Graphiken zu Werken Schillers  K. A. Böttiger gelten",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, 4 SS I-Verz, ar: SS 1-20, SS 21-64 darin 8 GG, ar1: SS 1-379",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Minerva 1811",
+    "norm": "~",
+    "biblio": 100882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 515,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Minerva 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 78; L/R 83; Goed VIII. 66, 115",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "MINERVA. / für / das Jahr 1811. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+  "updated": "2026-06-11 10:18:55.935Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "5yn8j62whoipx2i"
+  ],
+  "contents": [
+    "hncx71o1vbcouaz",
+    "nskfftvcko9mxvd",
+    "8oro3zb3a0h4j8r",
+    "hj47yhexgtjkiee",
+    "ve3xuulzrpvkj6b",
+    "raqe3po4t6k1ohz",
+    "z5nh9873yecu8wo",
+    "o4f9z7q4ee8i2ub",
+    "x2tfysql7j4v3bs",
+    "gpd90fgspou27fb",
+    "dv04pe7mpfc6iqh",
+    "k42njqk8md3zzmw",
+    "8kd0iao0mvvtrd4",
+    "onyievy0s4b851j",
+    "pgqr49h33mwm7vn",
+    "h9svste44k21xps",
+    "tzbqf0csf18ubkv",
+    "fo4l7jc5028pvdj",
+    "4e49asj84tz97ji",
+    "jf7uxi875p9fjt0",
+    "wks284vrk9r3416",
+    "jd54b5ffhzhi92d",
+    "51484xysk4sde32",
+    "kokgfk49gri8q59",
+    "xtzdblmuuik70ot",
+    "r3lss4d8xghk0u9",
+    "2kpz3rjb3b2toxc",
+    "hmqkfsljrziy2p4",
+    "wkz5udo9lpzxs5s",
+    "hgxbu5ufyb9d7w5",
+    "2gqkyn3ziop1qbx",
+    "leyz00fxjwngexa",
+    "jn8x8vxd95bcrzm",
+    "hugazjlid4r27mq",
+    "rr3arpdga6jzoqx",
+    "ege0vq2lj23xqn4",
+    "3l9ed5135k07rep",
+    "omy0urqfh5p3h6k",
+    "pe6u85sa0mv9nve",
+    "354p6ujpkezb4m1",
+    "9otwkikp16ustu2",
+    "soeorbl3gbpo71i",
+    "160230ulol6e9lz",
+    "3eye6mc3qxawewp",
+    "y07t7rr811bxsai",
+    "lphmsug3v7kixdh",
+    "yfl7fu14tehhlp8",
+    "2x64x4i1o6cy6at",
+    "cg6drar11pyx0cg",
+    "m3estq2yujx7jei",
+    "9tifxxvnxoxuu2n",
+    "05m7jjnnigecjbb",
+    "pc0jujsznxd4q72",
+    "sx7wag7nl929e86",
+    "le6fko8mnjt4svo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.845Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.845Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "j7d5we5nh8siaxq"
+    }
+  ]
+}

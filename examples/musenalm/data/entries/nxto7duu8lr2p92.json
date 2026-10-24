@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Ritterorden 1817",
+    "norm": "",
+    "biblio": 407554,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-11-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3896,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Ritterorden 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 55; nicht bei L/R",
+  "responsibility_statement": "Friedrich Gottschalk",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DER / RITTER-ORDEN / VON / FRIEDRICH GOTTSCHALCK, / Herzogl. Anhalt-Bernburg-Assistenzrathe. / ERSTE ABTHEILUNG. / Die deutschen Ritter-Orden. / LEIPZIG, / bei Georg Joachim Goeschen. / MDCCCXVII",
+  "updated": "2026-06-11 10:18:55.106Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "wlrh1neexr1y360"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.914Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.914Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "hycx9rx741xf72l"
+    }
+  ]
+}

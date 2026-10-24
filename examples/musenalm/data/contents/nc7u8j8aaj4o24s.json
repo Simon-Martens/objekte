@@ -1,0 +1,45 @@
+{
+  "annotation": "Heinrich von Kempten. Romanzenkette (Sammlung INr 80992, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Der deutsche Kaiser Otto trug einen langen Bart; / Nichts großes ist's; die Kinne der Männer sind behaart.",
+  "language": [],
+  "musenalm_id": 80993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kaisers Bart",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Kaisers Bart",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.910Z",
+      "agent": "big4tm69ocucym5",
+      "source_id": "5b55l3ntqe3lyg4"
+    }
+  ]
+}

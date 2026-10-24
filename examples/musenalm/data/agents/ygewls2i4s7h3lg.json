@@ -1,0 +1,290 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor der dt. u. römischen Literatur in Münster"
+      ],
+      "dateOfBirth": [
+        "1767-11-06"
+      ],
+      "dateOfDeath": [
+        "1841-10-08"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Baumbach (1794–1860), Heinrich Auling (1806–1882)"
+          ],
+          "creditText": [
+            "Anton Aloys Schlüter: Mittheilungen aus dem Leben von Dr. Johann Christoph Schlüter; mit einem Bildnisse desselben, Münster 1845"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Schl%C3%BCter.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Schl%C3%BCter.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Christoph%20Schl%C3%BCter.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:47:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117517895/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117517895",
+      "id": "https://d-nb.info/gnd/117517895",
+      "oldAuthorityNumber": [
+        "(DE-588a)117517895"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4040608-8",
+          "label": "Münster (Westf)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4040608-8",
+          "label": "Münster (Westf)"
+        }
+      ],
+      "preferredName": "Schlüter, Johann Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christoph"
+        ],
+        "surname": [
+          "Schlüter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Tacitus, Cornelius: Iulius Agricola",
+        "Tacitus, Cornelius: Geschichtsbücher",
+        "Tacitus, Cornelius: Julius Agricola",
+        "Sallustius Crispus, Gaius: Römische Geschichte. - 1799 - 1803",
+        "Sallustius Crispus, Gaius: Romische Geschichte",
+        "Tacitus, Cornelius: C. Cornelius Tacitus über Germanien",
+        "Sallustius Crispus, Gaius: Römische Geschichte. - 1810 - 1821",
+        "Tacitus, Cornelius: Über Germanien",
+        "Tacitus, Cornelius: Des C. Cornelius Tacitus Annalen",
+        "Brosses, Charles de: Sallusts Römische Geschichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52469414"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1693067"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117517895/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Schl%C3%BCter"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000059614710"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117517895"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117517895.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117517895"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117517895"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schlueter, Johann Christoph",
+        "Schlüter, Johann C.",
+        "Schlüter, Johannes Christoph",
+        "Schlueter, Johannes Christoph",
+        "Schlüter, Joh. Christoph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Christoph"
+          ],
+          "surname": [
+            "Schlueter"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christoph"
+          ],
+          "surname": [
+            "Schlüter"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Christoph"
+          ],
+          "surname": [
+            "Schlüter"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christoph"
+          ],
+          "surname": [
+            "Schlueter"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Schlüter"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Schl%C3%BCter",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christoph_Schl%C3%BCter"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:49:33Z",
+    "gnd_query_biographical_data": "1767-1841",
+    "gnd_query_name": "schlüter, johann christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2478,
+  "name": "Schlüter, Johann Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXI, 614",
+  "updated": "2026-06-11 13:29:24.689Z",
+  "uri": "https://d-nb.info/gnd/117517895",
+  "editor": ""
+}

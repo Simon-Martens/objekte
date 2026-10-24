@@ -1,0 +1,246 @@
+{
+  "annotation": "",
+  "biographical_data": "1751-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.464Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1751"
+      ],
+      "dateOfDeath": [
+        "1850-12-12"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-17T11:44:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104256346/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104256346",
+      "id": "https://d-nb.info/gnd/104256346",
+      "oldAuthorityNumber": [
+        "(DE-588a)104256346"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Neuhaus"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Sannens, Friedrich Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Karl"
+        ],
+        "surname": [
+          "Sannens"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich Karl"
+          ],
+          "surname": [
+            "Sannenz von Sensenstein"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10279441"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q54554387"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104256346/about"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Karl_Sannens"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104256346"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104256346"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Sensenstein, Friedrich Karl von",
+        "Sannenz von Sensenstein, Friedrich Karl",
+        "Sannens, Fr. Karl",
+        "Sannens, F. K.",
+        "Sannens, Fr. Carl",
+        "Sannenz, Friedrich Karl",
+        "Sannens, Franz Karl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sensenstein"
+          ]
+        },
+        {
+          "forename": [
+            "F. K."
+          ],
+          "surname": [
+            "Sannens"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Karl"
+          ],
+          "surname": [
+            "Sannens"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl"
+          ],
+          "surname": [
+            "Sannenz von Sensenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Karl"
+          ],
+          "surname": [
+            "Sannenz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Karl"
+          ],
+          "surname": [
+            "Sannens"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Carl"
+          ],
+          "surname": [
+            "Sannens"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:44:30Z",
+    "gnd_query_biographical_data": "1751-1850",
+    "gnd_query_name": "sannens, friedrich karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2377,
+  "name": "Sannens, Friedrich Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1752",
+  "updated": "2026-06-11 13:29:24.500Z",
+  "uri": "https://d-nb.info/gnd/104256346",
+  "editor": ""
+}

@@ -1,0 +1,68 @@
+{
+  "annotation": "2 Jgg 1790, 1791 (Jg 1790 nicht bei K 68); Freyberg u. Annaberg (Craz); Hrsg.: A. W. Köhler",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Bergmännischer 1790",
+    "norm": "",
+    "biblio": 200840,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2007,
+  "parallel_title": "",
+  "place_statement": "Freyberg u. Annaberg (Craz)",
+  "places": [
+    "rabihmy05w3no58",
+    "0zijzn2javj75in"
+  ],
+  "preferred_title": "Kalender, Bergmännischer 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 68; nicht bei L/R",
+  "responsibility_statement": "Alexander Wilhelm Köhler",
+  "subtitle_statement": "",
+  "title_statement": "Bergmännischer / Kalender / für / das Jahr 1790 / von / Alexander Wilhelm Köhler, / Secretair bey dem churfürstl. sächs. Oberberg- / amte zu Freyberg, öffentlichen Lehrer der / Bergrechte bey der Bergacademie ebenda- / selbst, und der Leipziger ökonomischen / Societät Ehrenmitglied. / Freyberg und Annaberg / in der Crazischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.749Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "50bojnx0xphcm0j"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.700Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.700Z",
+      "agent": "ddefbt1dz7v3y86",
+      "source_id": "dhojmevlah8u06i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Von allen, welche noch das Weib gebar / Ward jeglichem ein wacher Genius / Hinzugesellt, da er dies Rund betrat.",
+  "language": [],
+  "musenalm_id": 75306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrheit. / An A. Steiner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrheit. / An A. Steiner",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.812Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "n62bembr4nrxqdx"
+    }
+  ]
+}

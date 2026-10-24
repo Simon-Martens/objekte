@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an Graphik INr 6842, Obj 22 Graphik im Kalendarium paginiert 11. s. Textbezug INr 6878, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6846,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Boleslaus Chrobri, Herzog der Pohlen erhält / die Königs Würde, und wird von Otto III zu / Gnesen gekrönt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del",
+  "scans": [
+    "alm_138_6846_oakwgzlcex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Boleslaus Chrobri, Herzog der Pohlen erhält / die Königs Würde, und wird von Otto III zu / Gnesen gekrönt",
+  "updated": "2000-11-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.358Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "rs9wg634b8ttilo"
+    }
+  ]
+}

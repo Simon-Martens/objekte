@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung  von 6 Gedichten INr 87001-87006, Obj 33-38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italiänische Volkslieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Italiänische Volkslieder",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.413Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "mq9i3x9qix1axsx"
+    }
+  ]
+}

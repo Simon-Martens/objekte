@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 22134, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Als der Herr am Kreuz gestorben, / Finstert sich der Sonne Licht,",
+  "language": [],
+  "musenalm_id": 22142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Trauer-Weide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Trauer-Weide",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.002Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "kp48jvf4mva3fi2"
+    }
+  ]
+}

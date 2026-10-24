@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 76833, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scene aus Pompeji",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler jun. sc",
+  "scans": [
+    "alm_2391_76832_c8jwotz77x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scene aus Pompeji",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.690Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "dr6qwl4jruq4tsn"
+    }
+  ]
+}

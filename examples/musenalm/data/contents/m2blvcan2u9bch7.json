@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Ach, noch einmal hellt der Mond die Gänge / Durch der Buchen dunkles Labyrinth!",
+  "language": [],
+  "musenalm_id": 19420,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied vom Vaterlande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied vom Vaterlande",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.932Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "qwy64xsqhisvk4h"
+    }
+  ]
+}

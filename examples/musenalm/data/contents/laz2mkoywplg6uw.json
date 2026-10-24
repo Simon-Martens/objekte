@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der närrische Fiedler« von A. Schreiber INr 62814, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62791,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der närrische Fiedler. / Von A. Schreiber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff inv. Fleischmann sc.",
+  "scans": [
+    "alm_1029_62791_ys79jvild3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der närrische Fiedler. / Von A. Schreiber",
+  "updated": "2009-03-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.639Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "ed8uam0surkv1bj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.639Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "l8mjfh8e72ew08u"
+    }
+  ]
+}

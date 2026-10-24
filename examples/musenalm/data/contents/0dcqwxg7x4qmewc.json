@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "In Breslau vor dem Dome stand einst ein Bettelmann / In grauem, leinenem Kittel mit vielen Lappen dran;",
+  "language": [],
+  "musenalm_id": 39045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 233,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der polnische Bettler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Freytag",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der polnische Bettler",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.062Z",
+      "agent": "a4ng811mdzdhowg",
+      "source_id": "zw36uy0xw9kcfbu"
+    }
+  ]
+}

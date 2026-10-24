@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Von dir, du ew'ger Stoff zum Klagen, / Läßt zwar sich wenig gutes sagen;",
+  "language": [],
+  "musenalm_id": 61976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wohlthätige Tod. / Mors nisi mactaret juvenes lanioque juvencos, / Omnia stultorum plena boumque forent. / JO. OWENUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. H. Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wohlthätige Tod. / Mors nisi mactaret juvenes lanioque juvencos, / Omnia stultorum plena boumque forent. / JO. OWENUS",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.061Z",
+      "agent": "n6qsoh59lz0ry1n",
+      "source_id": "wf1bxlvkwvl5kgm"
+    }
+  ]
+}

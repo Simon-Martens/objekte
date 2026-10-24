@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 57991, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Es gibt Menschen, die nicht blos sich selbst, sondern leicht auch Andere darin täuschen, daß sie Charakter zu haben scheinen.",
+  "language": [],
+  "musenalm_id": 57997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charakter ohne Charakter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charakter ohne Charakter",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.025Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "uttf6129a7obqvq"
+    }
+  ]
+}

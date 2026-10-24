@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117550, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Die Wolke wohl zur Ferne zieht / Mit mächtigem Verlangen, / Wo Welle sie und Himmel sieht / Sich liebevoll umfangen.",
+  "language": [],
+  "musenalm_id": 117551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Errungen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Errungen!",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.582Z",
+      "agent": "em3dkpa48ys3kzf",
+      "source_id": "s9cps3fl9uf6s3x"
+    }
+  ]
+}

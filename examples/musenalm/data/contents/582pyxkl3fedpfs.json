@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (Sammlung INr 117434, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Voll Särge steht des Schreiners Haus, / Gar todesschaurig sieht's dort aus.",
+  "language": [],
+  "musenalm_id": 117436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Es klopft im Sarge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Es klopft im Sarge",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.563Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "f38dskcr6f89byk"
+    }
+  ]
+}

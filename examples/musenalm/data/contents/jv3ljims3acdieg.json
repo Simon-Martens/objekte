@@ -1,0 +1,48 @@
+{
+  "annotation": "# s- vorst. Beitrag /) Beigabe zu » III. Tanzkunst« (Sammlung INr 76008, Obj 20) Photos 76020,01;  76020,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer 2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ebenders.",
+  "scans": [
+    "alm_3280_76020_01_oonpp2pwo8.jpg",
+    "alm_3280_76020_02_8exp901jju.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer 2.",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.872Z",
+      "agent": "gsmgkc8acx85e65",
+      "source_id": "yxvrlo3gx3w6mf8"
+    }
+  ]
+}

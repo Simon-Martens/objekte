@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Beiträgen INr 51148-51153, Obj 26-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51147,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anekdoten und Fragmente, / aus meiner Schreibtafel. / (Auf einer Herbstreise 1795 gesammelt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anekdoten und Fragmente, / aus meiner Schreibtafel. / (Auf einer Herbstreise 1795 gesammelt.)",
+  "updated": "2007-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.722Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "z8ijt6i15yrmmsd"
+    }
+  ]
+}

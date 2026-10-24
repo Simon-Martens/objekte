@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton Neuchatel. / Mädchen in der Stadt dienend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_718_52433_9jfgd1ga3i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton Neuchatel. / Mädchen in der Stadt dienend",
+  "updated": "2007-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.601Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "f9kbptopb0d9fru"
+    }
+  ]
+}

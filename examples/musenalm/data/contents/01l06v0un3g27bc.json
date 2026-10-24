@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47988,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER SCHUTZGEIST",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Fendi pinx. J. Passini sc. Viennae",
+  "scans": [
+    "alm_344_47988_urxdpudy24.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER SCHUTZGEIST",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.503Z",
+      "agent": "aj12jgcexyaf6b2",
+      "source_id": "6jgcbo1tjqdi01t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.504Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "qd1vtyw6nzv2ye9"
+    }
+  ]
+}

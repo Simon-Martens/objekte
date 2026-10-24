@@ -1,0 +1,67 @@
+{
+  "annotation": "K gibt Erscheinungsverlauf 1823-1834 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Der prophetische 1824",
+    "norm": "",
+    "biblio": 409545,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-04-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4510,
+  "parallel_title": "",
+  "place_statement": "Leipzig ( Expedition des europäschen Aufsehers)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach, Der prophetische 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / prophetische Almanach / auf das Jahr 1824 / oder / Nachrichten von allen merkwürdigen Begeben- / heiten und Ereignissen in der politischen, mora- / lischen und physischen Welt in diesem / Jahre. / Aus einer alten in einem Kloster gefundenen / Handschrift. / Die Gegenwart geht mit der Zukunft schwanger. / Leibnitz. / Zweiter Jahrgang. / Leipzig, 1824. / Die Expedition des europäischen Aufsehers",
+  "updated": "2026-06-11 10:18:54.823Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "xpy1m3eg3bth8dm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.823Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.823Z",
+      "agent": "wqooklxmpj2ppxu",
+      "source_id": "cs2t5fap3n8va1c"
+    }
+  ]
+}

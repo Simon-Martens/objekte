@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ihr kleinen Sterne dort bey Nacht, / Die, funkelnd unserm Angesicht,",
+  "language": [],
+  "musenalm_id": 5045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Eine in der Natur",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Eine in der Natur",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.159Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "1v66fpyslvdqbtm"
+    }
+  ]
+}

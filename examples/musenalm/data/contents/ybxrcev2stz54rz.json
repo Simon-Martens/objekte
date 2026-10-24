@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort: Der Verfasser schrieb dieses Gedicht zugleich mit mehreren andern, welche als Theile eines größern Cyclus, unter dem Titel: Sachsenzeiten, in den Gedichten des Verfassers (Goeschen 1820) abgedruckt worden, [....]",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Heil dir, mein Volk! Du Volk der Huld und Treue, / Der Lieb' und Zucht im frommen Himmelsbunde!",
+  "language": [],
+  "musenalm_id": 1849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / König Otto der Sachse in Rom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / König Otto der Sachse in Rom",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.856Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "9hey9lsia43wzg8"
+    }
+  ]
+}

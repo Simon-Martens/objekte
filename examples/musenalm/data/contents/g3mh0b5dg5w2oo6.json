@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldsymbolik (Sammlung INr 63263, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Bienen gesellen sich mir und die Lieb' in verschwiegener Stunde,",
+  "language": [],
+  "musenalm_id": 63269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Linde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Linde",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.985Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "5t5083xo9ltr0pf"
+    }
+  ]
+}

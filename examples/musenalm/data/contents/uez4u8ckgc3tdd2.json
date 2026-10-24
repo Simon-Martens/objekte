@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "386",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. R. del. J. A. sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. R. del. J. A. sculp.",
+  "scans": [
+    "alm_3475_110979_ujdbay8jgq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.271Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "5oxrbvmf3agj3lu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.271Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "v5aw4w2um7rohpx"
+    }
+  ]
+}

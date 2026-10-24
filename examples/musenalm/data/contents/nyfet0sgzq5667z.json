@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Arbeit, Arbeit würzt das Brod! / Mir will drum mein Brod nicht schmeken.",
+  "language": [],
+  "musenalm_id": 63038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grillenfänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Grillenfänger",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.143Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "jamwm7svvm8w44m"
+    }
+  ]
+}

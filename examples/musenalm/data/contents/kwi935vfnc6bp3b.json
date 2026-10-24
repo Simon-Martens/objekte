@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Der Tulpe gleich bist du die Wollust / des Gesichts,",
+  "language": [],
+  "musenalm_id": 2688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Dorilis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A-g.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Dorilis",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.046Z",
+      "agent": "6idi6dadwhz65cj",
+      "source_id": "bh70ezer1mut59d"
+    }
+  ]
+}

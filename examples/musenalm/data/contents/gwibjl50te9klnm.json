@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Weisst du wohl warum die Thränen / Glühend mir vom Herzen rinnen?",
+  "language": [],
+  "musenalm_id": 51343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ROBERT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Quelle",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.644Z",
+      "agent": "shwrrrsohbx2ih5",
+      "source_id": "nj4gi8dqbzwmj4n"
+    }
+  ]
+}

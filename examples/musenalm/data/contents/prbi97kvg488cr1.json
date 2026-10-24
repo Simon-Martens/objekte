@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichts (Sammlung INr 25234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Das Land der Kindheit ließ ich hinterm Rücken liegen, / Und vorwärts wie der Schritt begann der Blick zu fliegen.",
+  "language": [],
+  "musenalm_id": 25261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.198Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "5qgl8bl8wu8mbxd"
+    }
+  ]
+}

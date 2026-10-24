@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: 1852-1860",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freimaurer-Kalender (Maurerisches Taschenbuch) 1852",
+    "norm": "",
+    "biblio": 409326,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-10-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4340,
+  "parallel_title": "",
+  "place_statement": "Gotha (Müller)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Freimaurer-Kalender (Maurerisches Taschenbuch) 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Horst Bretschneider",
+  "subtitle_statement": "",
+  "title_statement": "Freimaurer-Kalender / auf das Jahr / 1852. / MAURERISCHES TASCHENBUCH / im Verein mit Mehreren / herausgegeben / von / HORST BRETSCHNEIDER, / Dr. med. / Gotha, / Verlag von J. G. Müller. / 1852",
+  "updated": "2026-06-11 10:18:54.663Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "sx1g6d4gypvvvve"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "4wj4b17zc5ylq4o"
+    }
+  ]
+}

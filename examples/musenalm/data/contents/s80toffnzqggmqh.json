@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Die Erdbeeren« von L. Brachmann INr 13401, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13374,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erdbeeren. v. L. Brachmann. Seite 86.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Hess sc.",
+  "scans": [
+    "alm_217_13374_ye7oc1moy9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erdbeeren. v. L. Brachmann. Seite 86.",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.641Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ns2yacn3lhdp1md"
+    }
+  ]
+}

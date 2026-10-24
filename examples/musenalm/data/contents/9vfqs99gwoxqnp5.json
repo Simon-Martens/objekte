@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Als nun Jupiter an seinem zweyten Schöpfungstage wieder seine Auserwählten um sich versammelte,",
+  "language": [],
+  "musenalm_id": 31489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Herrschaft der sieben Gestirne / und ihrer Feyer. / In zwey Götterfabeln. / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Herrschaft der sieben Gestirne / und ihrer Feyer. / In zwey Götterfabeln. / 2.",
+  "updated": "2003-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.063Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "phk58p1ycke422m"
+    }
+  ]
+}

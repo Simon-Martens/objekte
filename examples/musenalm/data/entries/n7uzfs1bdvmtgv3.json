@@ -1,0 +1,116 @@
+{
+  "annotation": "Sammlungen mit mehreren Beiträgen werden lediglich mit Incipit des ersten Beitrags dargestellt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, B I-Verz, 3 BB Vrwrt d Vrlg, G, SS 1-233 darin 11 GG, SS 234-243 G-Verz darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Revolutions-Almanach 1804 (Kriegs- und Friedens-Almanach 1804)",
+    "norm": "~",
+    "biblio": 100349,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-10-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 945,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Revolutions-Almanach 1804 (Kriegs- und Friedens-Almanach 1804)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 18",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kriegs- / und / Friedens-Almanach / von 1804. / Göttingen. / Bey Heinrich Dieterich",
+  "updated": "2026-06-11 10:18:55.952Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "bvyiixqrt7ck105"
+  ],
+  "contents": [
+    "b5x4yroackp76s7",
+    "cjtyon5tdw4uzyb",
+    "08b2lg6fh8yub3s",
+    "8y8vnnjb8kfjd2o",
+    "ayfzjx4hjp6vpru",
+    "cljsqenfyrgjvm2",
+    "frpvcnlw5z6l1dz",
+    "znzxbk9z86sd1n8",
+    "c3a1s78r0laydyv",
+    "6v3a8onwfndjm8g",
+    "3ht2wp8zu9ni7wn",
+    "6iq1cv4zly30hz7",
+    "3xz8qvoac82lw6r",
+    "00p77scrru88tg8",
+    "1nr618uooi31wed",
+    "lxmw8xnuvuy427r",
+    "ihzk8subzb9h5sb",
+    "f842e819qaa024q",
+    "q4n8qbltbhdh0mh",
+    "njval659qg4ukm5",
+    "n4w5w47prls3orb",
+    "zkn24vhqjec5bqd",
+    "e3c2rjalbb9kkmt",
+    "9moaoqktefv1kwz",
+    "pqy98lomr8zccpb",
+    "bb91zjcsys1eg8f",
+    "m1r5gusgrzb1l40",
+    "5lfg1mjxhjzl3en",
+    "rhegpxo8sm8hexp",
+    "b1exo11gduvy09i",
+    "rayjj7g26ropsnk",
+    "7l1iancugy3yhs8",
+    "dcxmaqwxmbgreow",
+    "29dcpcntl2uv7wd",
+    "0yjma22zm25bxlp",
+    "o39wuhq29aklh33",
+    "sxvur3v1hp3dptr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.783Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.783Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "b3b9nl55mffz3y3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.946Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.946Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "btvxtlbewd2dpz5"
+    }
+  ]
+}

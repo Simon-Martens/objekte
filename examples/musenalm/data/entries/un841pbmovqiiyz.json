@@ -1,0 +1,107 @@
+{
+  "annotation": "Titel: Historischer Kalender u. nicht: Historisch-genealogischer Kalender; Format (8,3 x 11,2) und Type größer als die umgebenden Jgg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.838Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 7 BB Kal, 13 GG, SS 1-132, G, 90 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1803",
+    "norm": "~",
+    "biblio": 404133,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 838,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Kalender / auf / das Gemein-Jahr 1803. / Wallenstein / von / Woltmann. / Mit Kupfern von Daniel Chodowiecki und / 7 Bildnissen. / Berlin, bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.874Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "0j8q5g9ht4khc8n"
+  ],
+  "contents": [
+    "8rwozi8ec49vway",
+    "lf2qzugzb1t9pvu",
+    "s7tsl5n0eeg30qe",
+    "g331ti5ike03l7q",
+    "alibfli2q142qlw",
+    "0wjs19wjp0v7vfp",
+    "0fgnf0cw32rbzz1",
+    "xeevr2nvplglj62",
+    "sx6wq94927bqkoy",
+    "zbuzdcz4q35mlce",
+    "4tf1k2eq0meukal",
+    "1nucwb6xbjs61qv",
+    "svw2ig4g9k9zzco",
+    "pfu0opk0dur9mi9",
+    "u4berox6e4dc2iz",
+    "8p8515r289e2l2m",
+    "lp3wwd6cv1tpsk8",
+    "sk5nldst18m9t7a",
+    "4ngwr50mqj4ybxt",
+    "i7kkcleuls09lwn",
+    "k60ube51kywuhr0",
+    "fxvs5o5ch3vmfxv",
+    "zd8ksjzbqj6am9m",
+    "2fm3whewta32p7q",
+    "4uh1wt5s57dpe30",
+    "jbt7ecsb98xmfo7",
+    "wtq66yklz8smh7y",
+    "bz2502jtoeufb4u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.777Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.777Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "q0cr4jz0g04x2s1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "w0n8jemarzlukcc"
+    }
+  ]
+}

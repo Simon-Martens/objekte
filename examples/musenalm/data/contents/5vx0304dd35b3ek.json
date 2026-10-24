@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Baden, aus den kleinen Bädern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wezel del. F. Hegi sc.",
+  "scans": [
+    "alm_716_52393_83khbqvs3o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Baden, aus den kleinen Bädern",
+  "updated": "2007-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.537Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "olm2tn54v04ccro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.537Z",
+      "agent": "l2xzujzn2ajajwc",
+      "source_id": "onqoo9scor7ic17"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Demetrius« von Fr. Schiller s. Textbezug INr 39892, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Demetrius 1r. Aufz. / Saphieha. Der Staat muß untergehn, früh oder spät, / Wo Mehrheit siegt, und Unverstand entscheidet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_522_39893_orrjcu8psc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Demetrius 1r. Aufz. / Saphieha. Der Staat muß untergehn, früh oder spät, / Wo Mehrheit siegt, und Unverstand entscheidet",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.873Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "se0atociq1sroik"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.873Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "y79k2s2ejvyfv1h"
+    }
+  ]
+}

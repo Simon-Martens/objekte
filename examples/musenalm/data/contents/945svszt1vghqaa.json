@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. Illustration zu »Luise« von J. H. Voß",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11097,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ehrbar Kinder, und sacht! ihr lauft ja so stark. / Louise v. Voß. 1. Idylle S. 52",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_204_11097_vs8yfftx9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ehrbar Kinder, und sacht! ihr lauft ja so stark. / Louise v. Voß. 1. Idylle S. 52",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.501Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "clm334wwjky9jp6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.500Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "jbx381vhq6foy4q"
+    }
+  ]
+}

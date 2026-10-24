@@ -1,0 +1,336 @@
+{
+  "annotation": "",
+  "biographical_data": "1834-1896",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.454Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1834-09-19"
+      ],
+      "dateOfDeath": [
+        "1896-06-04"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-07T06:19:43.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116433221/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nyß"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116433221",
+      "id": "https://d-nb.info/gnd/116433221",
+      "oldAuthorityNumber": [
+        "(DE-588a)101224559",
+        "(DE-588a)116433221"
+      ],
+      "preferredName": "Reitzenstein, Franziska von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franziska"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Reitzenstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1329896254",
+          "label": "Nemmersdorf, Franz von"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nemmersdorf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Moderne Gesellschaft",
+        "La Stella. - 1863"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5682544"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q99861"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116433221/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Franziska_von_Reitzenstein"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franziska_von_Reitzenstein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Franziska_von_Reitzenstein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000022176868"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116433221"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116433221"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116433221.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116433221"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/7538687-2",
+          "label": "Freifrau"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym"
+      ],
+      "variantName": [
+        "Reizenstein-Regnitzlosa, Franziska von",
+        "Regnitzlosa, Franziska von Reizenstein",
+        "Reitzenstein, Francisca von",
+        "Nemmersdorf, Franz von",
+        "Reizenstein Regnitzlosa, Franziska von",
+        "Nyß, Franziska von",
+        "Reizenstein, Franziska von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franziska von Reizenstein"
+          ],
+          "surname": [
+            "Regnitzlosa"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nemmersdorf"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nyß"
+          ]
+        },
+        {
+          "forename": [
+            "Francisca"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reitzenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reizenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reizenstein Regnitzlosa"
+          ]
+        },
+        {
+          "forename": [
+            "Franziska"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reizenstein-Regnitzlosa"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franziska_von_Reitzenstein",
+          "label": "https://de.wikipedia.org/wiki/Franziska_von_Reitzenstein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:37:21Z",
+    "gnd_query_biographical_data": "1834-1896",
+    "gnd_query_name": "reitzenstein, franziska von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2233,
+  "name": "Reitzenstein, Franziska von",
+  "profession": "Text",
+  "pseudonyms": "Franz von Nemmersdorf; Franziska Nyß",
+  "refs": "E 283",
+  "updated": "2026-06-11 13:29:24.254Z",
+  "uri": "https://d-nb.info/gnd/116433221",
+  "editor": ""
+}

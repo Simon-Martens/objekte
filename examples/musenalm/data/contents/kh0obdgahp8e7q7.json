@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Fürstenherzen, oder die Prinzen von Lüneburg« von W. Blumenhagen INr 112516, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "484",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muss doch jenes Schloss meine Seele anziehn, / das den Körper binden wird",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender del. J. Passini sc. Viennae",
+  "scans": [
+    "alm_2472_112517_2b6jf1s9y2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Muss doch jenes Schloss meine Seele anziehn, / das den Körper binden wird",
+  "updated": "2010-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.427Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "3v2xtmdebbx3t31"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.427Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "eoupxlmdtbbhd2g"
+    }
+  ]
+}

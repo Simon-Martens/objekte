@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S 1 T, SS 3-159, S 160 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für teutsche Schulmeister 1792",
+    "norm": "~",
+    "biblio": 406745,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3692,
+  "parallel_title": "",
+  "place_statement": "Ulm (Wohler)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Taschenbuch für teutsche Schulmeister 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Christoph Ferdinand Moser",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / teutsche / Schulmeister / auf / das Jahr 1792. / Herausgegeben / von / Christoph Ferdinand Moser, / Pfarrer zu Wippingen und Lautern / im Wirtembergischen. / Siebenter Jahrgang. / Ulm / Auf Kosten der Wohlerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.055Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "xnd8j3qofaxean1"
+  ],
+  "contents": [
+    "cdvylp26b4f9816",
+    "9ossmaw9tjl99pm",
+    "tn9o4k23f7cd94f",
+    "4o2ff94eu57j26g",
+    "jn2wo3wcldkggfx",
+    "i02fb1vhy5hrpie",
+    "6uju8pr19ib1823",
+    "6mjnqnamh2pyi8m",
+    "g2th32vp2zltijg",
+    "7wxzh7z2zfja4w5",
+    "furo5aujd35vtbl",
+    "jft9fqi5jtqzr5p",
+    "y4ro7vda8teory1",
+    "ya1llnprekigaa0",
+    "4u3zab586bszck8",
+    "vpg516xwf68js2c",
+    "4u3w2shhvqg12ky",
+    "tsityqv1ysrldaz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.283Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.283Z",
+      "agent": "opllmisqfx4rssx",
+      "source_id": "2avw77j0dp3gn9n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "skp0g12v6742tpg",
+      "source_id": "cxbk9h8ek5ba30v"
+    }
+  ]
+}

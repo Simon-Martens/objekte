@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "418",
+  "incipit_statement": "Wie wir, ohn' daß ein tiefres Leiden, / Mit seinem Stachel uns zerfleischt, / Erkaltet von dem Freunde scheiden,",
+  "language": [],
+  "musenalm_id": 57795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufgegeben!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufgegeben!",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.777Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "pqnwkorqdzx70k5"
+    }
+  ]
+}

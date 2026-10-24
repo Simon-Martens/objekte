@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Frau Lilith, Adams erste Frau, / Schuf Gott, wie ihn, aus Erde;",
+  "language": [],
+  "musenalm_id": 3012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frau Lilith. / Eine jüdische Fabel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. L-n.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frau Lilith. / Eine jüdische Fabel",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.094Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "wx0ms0dzxrxnalu"
+    }
+  ]
+}

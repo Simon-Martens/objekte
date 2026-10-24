@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Gehorcht der hohen Obrigkeit, / Ihr Leut' und laßt euch sagen,",
+  "language": [],
+  "musenalm_id": 3394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunderbare, doch wahrhafte Historia / eines schrecklichen Vorfalls, der sich im / Hessenlande zugetragen im 1786sten / Jahr, da der Zungenkrebs / im Lande war. / Gedruckt mit etwas stumpfen Lettern, / Bestimmt zu Varinas und gelben virgini / schen Blättern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunderbare, doch wahrhafte Historia / eines schrecklichen Vorfalls, der sich im / Hessenlande zugetragen im 1786sten / Jahr, da der Zungenkrebs / im Lande war. / Gedruckt mit etwas stumpfen Lettern, / Bestimmt zu Varinas und gelben virgini / schen Blättern",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.086Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "a81igl0lo9k2rrv"
+    }
+  ]
+}

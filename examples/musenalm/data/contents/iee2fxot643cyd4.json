@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnettenkranz an Lyssa (Sammlung INr 113618, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "O süßes Bild, das ich mit Zittern mahle, / Bey dir sah' ich die Muse lächelnd winken,",
+  "language": [],
+  "musenalm_id": 113621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.245Z",
+      "agent": "31iymrx6tazubtp",
+      "source_id": "x6pjukt3ed1kn5l"
+    }
+  ]
+}

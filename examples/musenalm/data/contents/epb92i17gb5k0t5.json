@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 18591, Obj 7) s. Graphik INr 18599, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Eine außerordentliche Erscheinung in der Menschenwelt, wovon uns aber zu wenig Züge bekannt sind,",
+  "language": [],
+  "musenalm_id": 18601,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.) / Charlotte Corday im Gefängnisse. / Siehe Seite 136-239 des Taschenbuchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.) / Charlotte Corday im Gefängnisse. / Siehe Seite 136-239 des Taschenbuchs",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.859Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "b3wf3drxct6qukj"
+    }
+  ]
+}

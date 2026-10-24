@@ -1,0 +1,347 @@
+{
+  "annotation": "",
+  "biographical_data": "1822-1891",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.386Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Niederländ. Genremaler; Graphiker; Zeichner; Aquarellist; Lithograph"
+      ],
+      "dateOfBirth": [
+        "1822-02-16"
+      ],
+      "dateOfDeath": [
+        "1891-03-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "nvt"
+          ],
+          "creditText": [
+            "1882 Eigen Haard"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Kate%2C%20HFC%20ten.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Kate%2C%20HFC%20ten.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Kate%2C%20HFC%20ten.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-11-10T15:12:49.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11612024X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116120266",
+          "label": "Kate, Herman Frederik Carel ten"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "11612024X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116120266",
+          "label": "Kate, Herman Frederik Carel ten"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11612024X",
+      "oldAuthorityNumber": [
+        "(DE-588a)11612024X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011446-6",
+          "label": "Den Haag"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011446-6",
+          "label": "Den Haag"
+        }
+      ],
+      "preferredName": "Kate, Herman Frederik Carel ten",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Herman Frederik Carel"
+        ],
+        "prefix": [
+          "ten"
+        ],
+        "surname": [
+          "Kate"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25345381"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2444286"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11612024X/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Herman_Frederik_Carel_ten_Kate_%28artist%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066758245"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11612024X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11612024X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11612024X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "TenCate, Herman Frederik Carel",
+        "Kate, Herman ten",
+        "Ten Cate, Herman Frederik Carel",
+        "Cate, Herman Frederik Carel ten",
+        "TenKate, Herman Frederik Carel",
+        "Ten Kate, Herman Frederik Carel",
+        "Kate, Herman ten, the Elder",
+        "Kate, H. F. C.",
+        "Kate, Herman Frederik Carel ten, the Elder",
+        "Kate, Hermann Frederik Charles"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "prefix": [
+            "ten"
+          ],
+          "surname": [
+            "Cate"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Frederik Charles"
+          ],
+          "surname": [
+            "Kate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "surname": [
+            "Ten Kate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "surname": [
+            "Ten Cate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman"
+          ],
+          "nameAddition": [
+            "the Elder"
+          ],
+          "prefix": [
+            "ten"
+          ],
+          "surname": [
+            "Kate"
+          ]
+        },
+        {
+          "forename": [
+            "H. F. C."
+          ],
+          "surname": [
+            "Kate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman"
+          ],
+          "prefix": [
+            "ten"
+          ],
+          "surname": [
+            "Kate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "nameAddition": [
+            "the Elder"
+          ],
+          "prefix": [
+            "ten"
+          ],
+          "surname": [
+            "Kate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "surname": [
+            "TenCate"
+          ]
+        },
+        {
+          "forename": [
+            "Herman Frederik Carel"
+          ],
+          "surname": [
+            "TenKate"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:53:48Z",
+    "gnd_query_biographical_data": "1822-1891",
+    "gnd_query_name": "kate, herman frederik carel ten"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1355,
+  "name": "Kate, Herman Frederik Carel ten",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIX, 589",
+  "updated": "2026-06-11 13:29:23.149Z",
+  "uri": "https://d-nb.info/gnd/11612024X",
+  "editor": ""
+}

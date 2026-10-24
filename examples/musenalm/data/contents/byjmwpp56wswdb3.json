@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 42639, Obj 173",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Tiefe Stille; alles schweiget / Vor der Sonne Gluthenpracht,",
+  "language": [],
+  "musenalm_id": 42640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsabend",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.243Z",
+      "agent": "5fdnbj9xwyjpym9",
+      "source_id": "fkjh2qpchmp5ca9"
+    }
+  ]
+}

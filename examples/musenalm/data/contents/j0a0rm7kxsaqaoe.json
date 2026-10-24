@@ -1,0 +1,45 @@
+{
+  "annotation": "Philidors Klagen (Sammlung INr 12555, Obj 76) Philidor und Nanny (Sammlung INr 12548, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "In die Fernen, in die Fernen! / Ferne blüht das Glück.",
+  "language": [],
+  "musenalm_id": 12558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.375Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "kfuok4vlidz5m77"
+    }
+  ]
+}

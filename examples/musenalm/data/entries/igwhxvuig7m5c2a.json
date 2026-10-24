@@ -1,0 +1,91 @@
+{
+  "annotation": "$ vermutl. fehlt Verlagsmitteilung /) s. deutsche Ausgabe: Kalender, Historisch-Genealogischer (Berlin) 1800. alm-4019",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, G, 21 SS Kal darin 11 GG, S VrlgM, SS 1-143, S VrlgM, 80 BB Tab, $",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1800 /) (franz. Ausgabe: Almamac Historique et Généalogique 1800)",
+    "norm": "~",
+    "biblio": 404130,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 835,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1800 (franz. Ausgabe: Almamac Historique et Généalogique 1800)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / HISTORIQUE ET GÉNÉALOGIQUE / POUR / L'ANNÉE COMMUNE / 1800. / Histoire / du massacre de la St. Barthélemi. / Seconde Partie. / Avec / 5 portraits et 8 estampes historiques / de D. CHODOWIECKI / BERLIN / CHEZ JEAN FRÉDERIC UNGER",
+  "updated": "2026-06-11 10:18:55.873Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "kfcpprscg6kjyg2"
+  ],
+  "contents": [
+    "ufzb16m3lki9scm",
+    "x6sidtgeu0vfxdd",
+    "9afzc2rlnlj4awg",
+    "czorzn1sri139oj",
+    "x1l85c331aqmgtj",
+    "qyn1dv3r54d4le1",
+    "ydgq2ta312q6gv0",
+    "eq7zemq6dwp8d2f",
+    "wzju0lcleldmdv9",
+    "dy43tvp71koa2z7",
+    "nkor46jf6g9dds2",
+    "dlih69ah23rhzjt",
+    "ct7obzljnjdbpod",
+    "ctbjxb9ow1rx24y",
+    "75obc7hxumymu65",
+    "zzufr0aehs7p8ov",
+    "n5oaiguxban5wuz",
+    "60i6mp8t9jg650f",
+    "2d8phwl2f2lg9fb",
+    "qjzgnhe3r5bu81j",
+    "g5a8sbfn5gt25d6",
+    "urzf9cogv82cf6d",
+    "bpjpdimm981lrzb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.167Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.167Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "mbufs4g9i25iks7"
+    }
+  ]
+}

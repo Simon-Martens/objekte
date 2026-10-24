@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 62970, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62967,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria mit dem Jesuskinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luigi pinx. Keller del. Martin Esslinger gestochen",
+  "scans": [
+    "alm_1033_62967_cs791h7lqv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria mit dem Jesuskinde",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.066Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "blbsbf1f3ecw4xr"
+    }
+  ]
+}

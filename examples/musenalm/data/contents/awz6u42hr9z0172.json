@@ -1,0 +1,48 @@
+{
+  "annotation": "Tänze fürs Klavier 2 Menuetten, 2 Quadrillen, 6 Angloisen und 6 Walzer 1806 (Sammlung INr 12637, Obj 160) (Photos 12641,01; 12641,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12641,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadrille allemande 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_212_12641_01_68ix8yakql.jpg",
+    "alm_212_12641_02_l4ivw5pjtl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadrille allemande 2",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.487Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "2kygt79igq3uoo6"
+    }
+  ]
+}

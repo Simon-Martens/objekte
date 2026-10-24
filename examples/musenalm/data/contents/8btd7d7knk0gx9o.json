@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An Iris« von J. A. Weppen INr 16849, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Iris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Weis",
+  "scans": [
+    "alm_110_16833_7axsx07spo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An Iris",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.847Z",
+      "agent": "x1lckegivk1oedd",
+      "source_id": "nsv6g0dr8zsom6v"
+    }
+  ]
+}

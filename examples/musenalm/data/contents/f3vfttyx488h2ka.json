@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 49154, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Indeß die junge Gesellschaft am 1ten Februar mit mancherley bekannten Spielen beschäftigt war, winkte Hr. Walter den beyden ältesten, Emil und Ferdinand.",
+  "language": [],
+  "musenalm_id": 49179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Kupfer. / Das Kegelspiel mit schwebender Kugel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Kupfer. / Das Kegelspiel mit schwebender Kugel",
+  "updated": "2007-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.410Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "ew74m8j93udxete"
+    }
+  ]
+}

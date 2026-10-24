@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Egmont« von J. W. von Goethe s. Textbezug INr 40656, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40655,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Egmont Vr. Aufz. Letzte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_529_40655_ql7b5cemk6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Egmont Vr. Aufz. Letzte Scene",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.891Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "igjp120edrg6q6l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.891Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "sdcrkcozai1m0bh"
+    }
+  ]
+}

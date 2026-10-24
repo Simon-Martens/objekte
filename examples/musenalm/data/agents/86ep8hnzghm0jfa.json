@@ -1,0 +1,203 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.363Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Professor, Rektor"
+      ],
+      "dateOfBirth": [
+        "1759"
+      ],
+      "dateOfDeath": [
+        "1842"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/101773714"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-20T22:06:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-35",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-35"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1034910582/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1034910582",
+      "id": "https://d-nb.info/gnd/1034910582",
+      "oldAuthorityNumber": [
+        "(DE-588a)101773714",
+        "(DE-588)101773714"
+      ],
+      "periodOfActivity": [
+        "1820"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4039406-2",
+          "label": "Minden (Westf)"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Valdorf"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Lingen <Ems>"
+      ],
+      "preferredName": "Heidekamp, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Heidekamp"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        }
+      ],
+      "publication": [
+        "Heidekamp, Friedrich: Iussu Georgii IV. recens gymnasium cinditum d. 19. Apritis rite ina*. - 1820"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/301954699"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55901382"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101773714"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1034910582/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000408962220"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1034910582"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Heidekamp, Fridericus",
+        "Heydekamp, Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Heydekamp"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Heidekamp"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:42:00Z",
+    "gnd_query_biographical_data": "1759-?",
+    "gnd_query_name": "heidekamp, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1118,
+  "name": "Heidekamp, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 821",
+  "updated": "2026-06-11 13:29:22.852Z",
+  "uri": "https://d-nb.info/gnd/1034910582",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April /) Illustration zu »Ein Duell« von B. Gallet INr 89709, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89682,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Duell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. del. A. D. sc.",
+  "scans": [
+    "alm_3360_89682_qonks52lk5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Duell",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.444Z",
+      "agent": "masan4fv3ew8l5z",
+      "source_id": "jxf1ub5zny2vbt8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.444Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "n5jdkqo168rop4r"
+    }
+  ]
+}

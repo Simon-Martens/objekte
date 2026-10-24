@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Mit einem Kopfe voll Gedanken und einem Herzen voll Sorgen komm' ich zu Dir, liebe Therese, und klage Dir mein Leid,",
+  "language": [],
+  "musenalm_id": 39620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. So war es nicht gemeint",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. So war es nicht gemeint",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.761Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "o04tbh09l648w0a"
+    }
+  ]
+}

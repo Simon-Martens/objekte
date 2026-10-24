@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Still und düster schaust du mich an, du einsame Fels- / wand, / Und es gemahnt mich streng, wie ein verschlossnes Ge- / müth",
+  "language": [],
+  "musenalm_id": 92168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friederikens Felsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friederikens Felsen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.293Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "xbml8qum5bo429p"
+    }
+  ]
+}

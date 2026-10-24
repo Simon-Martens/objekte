@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71371, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Ich würde keine Seele haben in Kupfer stechen lassen, wenn es nicht andere vor mir gethan hätten.",
+  "language": [],
+  "musenalm_id": 71372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 10ten Kupfertafel. / Die Seele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 10ten Kupfertafel. / Die Seele",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.517Z",
+      "agent": "a1tvqjbk8115iq7",
+      "source_id": "m1pia2r193smiik"
+    }
+  ]
+}

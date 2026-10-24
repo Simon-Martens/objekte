@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Pandora« von Goethe INr 85407 ff, Obj 1 ff",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85411,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner inv. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner inv. et sc.",
+  "scans": [
+    "alm_3906_85411_2lraduafj6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.102Z",
+      "agent": "mwvtf64bmzwstck",
+      "source_id": "84hxye13jly6cgf"
+    }
+  ]
+}

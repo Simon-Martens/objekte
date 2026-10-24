@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Allgütger, der du mich erschufst, / Und mich zum neuen Dasein rufst, / So oft die Sonne wiederkehrt;",
+  "language": [],
+  "musenalm_id": 135675,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenlied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.153Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "b9rnaf2eg39miti"
+    }
+  ]
+}

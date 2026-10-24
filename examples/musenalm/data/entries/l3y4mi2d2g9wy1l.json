@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 3 BB gT, ar: SS 1-138, ar1: SS 1-119, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1793",
+    "norm": "~",
+    "biblio": 200404,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-08-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 693,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / fürs Jahr / 1793. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.859Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "xc1ks5f7e4f154a"
+  ],
+  "contents": [
+    "7vprleteq8rbuc2",
+    "k54f8gtschkt9wm",
+    "lzsxbcmgmlpaynp",
+    "arxxqwam9wu8e7o",
+    "z39lrkgtfddrv7w",
+    "ltgksxp06n37tjy",
+    "408jg77l1hna653",
+    "5vkj26bkwfjyjjn",
+    "xz5gd39f3uppw0j",
+    "k5uspwmd34vujnf",
+    "wh9u1lx9ut2w2tm",
+    "vxilwv98jsmmkxb",
+    "qeedtoecbyyputs",
+    "for7duzwwg86j89",
+    "7zzemi9nmgqfnk8",
+    "78qjev00hzy12j9",
+    "24feoesumw9w0ib",
+    "8ca4gwiu3nntjxw",
+    "2iskybtjr18af7g",
+    "xy1w19gq7ni3716",
+    "c290kpyc4xkl7yz",
+    "bkqdniansod4opm",
+    "0vi5yilthhozzt4",
+    "1gwx6s40hahy9us",
+    "5uxdrlnrckfshbu",
+    "amcl0dlossdnrc9",
+    "hutirbycefm4f39",
+    "ter6qcszs4nibbp",
+    "7fkgj0l7ap202em",
+    "zbl2eyf410ft4il",
+    "cjgk6lks9jv2pp1",
+    "e6v10e4wrnl2tj4",
+    "zei34rjtt9jehdz",
+    "4uf24y8wmjz93sh",
+    "v0hptmdyx9bb2ro",
+    "rx1g71bv5z0h7yk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.902Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.902Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "p0objg606xgqmoh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Der berühmte Küster von Bergen, in Norwegen, kam während seiner unterirdischen Reise in ein Land,",
+  "language": [],
+  "musenalm_id": 23669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weiblicher Heroism. / Einige Züge aus der neuesten Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Posselt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weiblicher Heroism. / Einige Züge aus der neuesten Geschichte",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.111Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "hxdeg64eegx6hdr"
+    }
+  ]
+}

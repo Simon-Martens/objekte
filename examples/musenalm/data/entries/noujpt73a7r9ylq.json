@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Akazienblüthen aus der Schweiz 1819",
+    "norm": "",
+    "biblio": 406284,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1183,
+  "parallel_title": "",
+  "place_statement": "Bern",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Akazienblüthen aus der Schweiz 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 6; nicht bei L/R; Goed VIII. 100, 214",
+  "responsibility_statement": "Heldmann, Br. Fried.",
+  "subtitle_statement": "",
+  "title_statement": "Akazienblüthen / aus / DER SCHWEIZ / von / Br. Fried. Heldmann / Erster Jahrgang / Bern 1819 / Br. L. A. Haller",
+  "updated": "2026-06-11 10:18:54.845Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "nbrzsjbp1ose1ho"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.444Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.444Z",
+      "agent": "grm9gsam6nybfj4",
+      "source_id": "nxee1b3yny3g3zb"
+    }
+  ]
+}

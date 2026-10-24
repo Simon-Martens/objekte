@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an Blatt A der Suite. Détail aus »Die Parlamentswahl. Vierte Scene. Der Aufzug im Triumphsessel.« paginiert L. s. Textbezug INr 7301, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. Riepenhausen sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riepenhausen sc.",
+  "scans": [
+    "alm_147_7302_sbksl3gk5j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.422Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "6a4e8wpdodpbgil"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.422Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "u22t6r8hpcb79ik"
+    }
+  ]
+}

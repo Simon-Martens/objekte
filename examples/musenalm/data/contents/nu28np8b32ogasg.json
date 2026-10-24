@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Im weiten Reich der Phantasiegebilde, / Da schlängelt sich ein räthselhaftes Thal,",
+  "language": [],
+  "musenalm_id": 93762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wunderstrom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wunderstrom",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.501Z",
+      "agent": "bmrndjx591terfe",
+      "source_id": "rfdpra9pygh86z6"
+    }
+  ]
+}

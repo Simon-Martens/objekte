@@ -1,0 +1,49 @@
+{
+  "annotation": "9 Jgg 1824-1840 [1832-1837, 1839 nicht erschienen] Wien; Hrsg.: F. X. Told",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Fortuna 1824",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1769,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Fortuna 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 96; Goed VIII. 113, 265",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:54.628Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

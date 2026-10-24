@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge (Sammlung INr 41075, Obj 100) mit einer Musikbeigabe s. INr 41077, Obj 102",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Ertöne froher Jubelsang / Dem Neugekelterten zu Ehren,",
+  "language": [],
+  "musenalm_id": 41078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Lied / beym Most zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Lied / beym Most zu singen",
+  "updated": "2005-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.073Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "fjljolsynpignzm"
+    }
+  ]
+}

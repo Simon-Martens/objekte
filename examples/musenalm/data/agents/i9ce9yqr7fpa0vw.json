@@ -1,0 +1,361 @@
+{
+  "annotation": "",
+  "biographical_data": "1746–1816",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Graveur-géographe; Schüler seines Onkels Jacques Nicolas Tardieu (1716-1791); Adresse: Rue de Sorbonne, N.o 10"
+      ],
+      "dateOfBirth": [
+        "1746"
+      ],
+      "dateOfDeath": [
+        "1816-09-18"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-27T14:40:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/137618344/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/123491655X",
+          "label": "Tardieu, Jean-Baptiste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11722913X",
+          "label": "Tardieu, Alexandre"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1051538955",
+          "label": "Tardieu, Jacques-Nicholas"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "137618344",
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/1051538955",
+          "label": "Tardieu, Jacques-Nicholas"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/11722913X",
+          "label": "Tardieu, Alexandre"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/137618344",
+      "oldAuthorityNumber": [
+        "(DE-588a)137618344"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Tardieu, Jean Baptiste Pierre",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jean Baptiste Pierre"
+        ],
+        "surname": [
+          "Tardieu"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029820-6",
+          "label": "Kartograf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb152418203"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007060025"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37187954"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q27908851"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/137618344/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jean_Baptiste_Pierre_Tardieu"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066365564"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/137618344"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Tardieu, Jean B.",
+        "Tardieu, Jean-Baptiste-Pierre",
+        "Tardieu, Jean-Baptiste",
+        "Tardieu, Jean B., l'aîné",
+        "Tardieu, Jean Baptiste Pierre, l'aîné",
+        "Tardieu, P.",
+        "Tardieu, der Ältere",
+        "Tardieu, Jean Baptiste",
+        "Tardieu, Jean-Baptiste P.",
+        "Tardieu, l'aîné",
+        "Tardieu, J. B. P.",
+        "Tardieu",
+        "Tardieu, Jean-Baptiste Pierre",
+        "Tardieu, Jean",
+        "Tardieu, J. B."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jean-Baptiste P."
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "personalName": [
+            "Tardieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "personalName": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Baptiste"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Baptiste-Pierre"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "J. B. P."
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Baptiste"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "J. B."
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "P."
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Baptiste Pierre"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean B."
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "nameAddition": [
+            "l'aîné"
+          ],
+          "personalName": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean B."
+          ],
+          "nameAddition": [
+            "l'aîné"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Baptiste Pierre"
+          ],
+          "nameAddition": [
+            "l'aîné"
+          ],
+          "surname": [
+            "Tardieu"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jean_Baptiste_Pierre_Tardieu",
+          "label": "https://de.wikipedia.org/wiki/Jean_Baptiste_Pierre_Tardieu"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:08:09Z",
+    "gnd_query_biographical_data": "1746–1816",
+    "gnd_query_name": "tardieu, jean-baptiste pierre"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2854,
+  "name": "Tardieu, Jean-Baptiste Pierre",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXII, 444",
+  "updated": "2026-06-11 13:29:25.351Z",
+  "uri": "https://d-nb.info/gnd/137618344",
+  "editor": ""
+}

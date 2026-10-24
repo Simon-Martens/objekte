@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Du gehst jetzt eine Zwiespalt entgegen, liebe Tochter, der, wie du wohl fühlst, das Schicksal Deines Lebens bestimmen wird.",
+  "language": [],
+  "musenalm_id": 132040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schreiben eines Vaters / an / seine Tochter. / Die Wahl eines Gatten betreffend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schreiben eines Vaters / an / seine Tochter. / Die Wahl eines Gatten betreffend",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.085Z",
+      "agent": "pt1hiqrxpeom0l4",
+      "source_id": "zy2ttdrkpapvvj0"
+    }
+  ]
+}

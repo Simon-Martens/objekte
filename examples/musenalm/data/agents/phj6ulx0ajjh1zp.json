@@ -1,0 +1,546 @@
+{
+  "annotation": "",
+  "biographical_data": "1729-1803",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.278Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1729-12-30"
+      ],
+      "dateOfDeath": [
+        "1803-06-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Pierre-Jean-Baptiste Bradel (fl. 1768–1786)"
+          ],
+          "creditText": [
+            "Alfred Gudeman: Imagines philologorum, Berlin/Leipzig 1911, S. 16."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Richard%20Fran%C3%A7ois%20Philippe%20Brunck%20-%20Imagines%20philologorum.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Richard%20Fran%C3%A7ois%20Philippe%20Brunck%20-%20Imagines%20philologorum.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Richard%20Fran%C3%A7ois%20Philippe%20Brunck%20-%20Imagines%20philologorum.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1087868696"
+      ],
+      "describedBy": {
+        "dateModified": "2018-11-14T00:35:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/100059376/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "100059376",
+      "id": "https://d-nb.info/gnd/100059376",
+      "oldAuthorityNumber": [
+        "(DE-588)1087868696",
+        "(DE-588a)100059376"
+      ],
+      "preferredName": "Brunck, Richard Franz Philipp",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Richard Franz Philipp"
+        ],
+        "surname": [
+          "Brunck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        }
+      ],
+      "publication": [
+        "Euripides: Tragoediae quatuor Hecuba, Phoenissae, Hippolytus et Bacchae",
+        "Anthologia Graeca sive poetarum Graecorum lusus",
+        "Catalogue de la bibliothèque de Rich. Fr. Ph. Brunck (1729 -1803)",
+        "Brunck, Richard F.: Analecta veterum poetarum graecorum",
+        "Sophocles: Trachiniae",
+        "Sophocles: Sophoclis quae extant omnia",
+        "Analecta veterum Poetarum Graecorum",
+        "Gnomici poetae Graeci",
+        "Gnomici Poetae Graeci",
+        "Sophocles: Tragoediae septem"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb120716839"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no98096614"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/82656304"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q454469"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100059376/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1087868696"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Richard_Fran%C3%A7ois_Philippe_Brunck"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Richard_Fran%C3%A7ois_Philippe_Brunck"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Richard_Fran%C3%A7ois_Philippe_Brunck"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121415510"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100059376"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100059376.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100059376"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100059376"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Brunck a Fründeck, Richardus F.",
+        "Brunck, Richard Franciscus Philippus",
+        "Brunckius, Richard Franz Philipp",
+        "Brunck, Richard F.",
+        "Brunckius, Rich. Fr. Phil.",
+        "Brunck",
+        "Brunck, Richard Philipp Friedrich",
+        "Brunkius, Richard Franz Philipp",
+        "Brunck, Richardus Franciscus Philipp",
+        "Bruck, Rich. Fr. Phil.",
+        "Frundeck, Franciscus Richardus Philippus Brunck de",
+        "Brunckius, Richardus Franciscus Philippus",
+        "Brunck, Richardus Franciscus Philippus",
+        "Brunckius, Ricardus Franciscus Philippus",
+        "Brunckius, Richard François Philipp",
+        "Brunck, Rich. Franc. Phil.",
+        "Brunck, Rich. Franç. Phil.",
+        "Brunckius, Ricardus F.",
+        "Brunck, Richardus F.",
+        "Brunck, Richard François Philippe",
+        "Brunck, Richard François Phil.",
+        "Bruncken",
+        "Brunck a Fründeck, Richardus Franciscus Philippus",
+        "Brunckius, Richardus Franz Philipp",
+        "Brunckius",
+        "Brunck, Richard Fr. Philipp",
+        "Brunckius, Richard F.",
+        "Brunckius, Richardus F.",
+        "Brunck, Rich. F.",
+        "Brunck, Richard François Philipp",
+        "Brunck de Frundeck, Franciscus Richardus Philippus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Richard Franz Philipp"
+          ],
+          "surname": [
+            "Brunkius"
+          ]
+        },
+        {
+          "forename": [
+            "Richard François Philippe"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richard F."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richard François Phil."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Rich. Franç. Phil."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus F."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richard Franciscus Philippus"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus Richardus Philippus Brunck"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Frundeck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus F."
+          ],
+          "surname": [
+            "Brunck a Fründeck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus Franciscus Philippus"
+          ],
+          "surname": [
+            "Brunck a Fründeck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus Franciscus Philippus"
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Rich. Franc. Phil."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus Richardus Philippus"
+          ],
+          "surname": [
+            "Brunck de Frundeck"
+          ]
+        },
+        {
+          "forename": [
+            "Rich. Fr. Phil."
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus F."
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "personalName": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richard Fr. Philipp"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richard François Philipp"
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Rich. F."
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "personalName": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Ricardus F."
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Richard Philipp Friedrich"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus Franciscus Philipp"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Ricardus Franciscus Philippus"
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus Franz Philipp"
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Richard François Philipp"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "forename": [
+            "Rich. Fr. Phil."
+          ],
+          "surname": [
+            "Bruck"
+          ]
+        },
+        {
+          "forename": [
+            "Richardus Franciscus Philippus"
+          ],
+          "surname": [
+            "Brunck"
+          ]
+        },
+        {
+          "personalName": [
+            "Bruncken"
+          ]
+        },
+        {
+          "forename": [
+            "Richard Franz Philipp"
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        },
+        {
+          "forename": [
+            "Richard F."
+          ],
+          "surname": [
+            "Brunckius"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Richard_Fran%C3%A7ois_Philippe_Brunck",
+          "label": "https://de.wikipedia.org/wiki/Richard_Fran%C3%A7ois_Philippe_Brunck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:39Z",
+    "gnd_query_biographical_data": "1729-1803",
+    "gnd_query_name": "brunck, richard franz philipp"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 321,
+  "name": "Brunck, Richard Franz Philipp",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB III, 440",
+  "updated": "2026-06-11 13:29:21.772Z",
+  "uri": "https://d-nb.info/gnd/100059376",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Göttin mit dem süßbegabten Munde, / Stillt dein Balsam auch der Liebe Schmerz?",
+  "language": [],
+  "musenalm_id": 26677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Muse Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Muse Trost",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.049Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "w4xudkoigchtqwy"
+    }
+  ]
+}

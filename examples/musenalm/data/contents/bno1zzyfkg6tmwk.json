@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien (Sammlung INr 91888, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Was auch immer verräth die gefällige Muse, o / Leser! / Denk' mein Bester, es sey eine poetische Welt,",
+  "language": [],
+  "musenalm_id": 91889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Leser!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bellvoglio",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Leser!",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.399Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "emfvna1slljl9jg"
+    }
+  ]
+}

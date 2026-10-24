@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Aufruf und der Aufstand der Freiwilligen im Jahre 1815 in Preußen war nur eine Nachdröhnung der Volkserhebung im Jahre 1813.",
+  "language": [],
+  "musenalm_id": 77810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blätter aus meinen Erinnerungen. / Mein Marsch nach Frankreich",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blätter aus meinen Erinnerungen. / Mein Marsch nach Frankreich",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.771Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "7g3beot3nc0oxli"
+    }
+  ]
+}

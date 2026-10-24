@@ -1,0 +1,75 @@
+{
+  "annotation": "Nachweis: http://opac.smb.spk-berlin.de/ Standort unter:http://www.ifskb.de/?q=node/11 (28.08.08)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 4 GG, 11 BB Kal darin 8 GG, SS 1-4 G-Verz, SS 5-120, B, 82 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Postkalender, Genealogischer und (Berlin) 1817",
+    "norm": "~",
+    "biblio": 200880,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 921,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Postkalender, Genealogischer und (Berlin) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / und / Post-Kalender / auf / das Gemein-Jahr 1817. / Mit Kupfern. / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.310Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "27703253pxkdrle"
+  ],
+  "contents": [
+    "wsij4fpx29o0cnq",
+    "a92stmu55b87ikw",
+    "plrqm5t6lan23ga",
+    "6ydf1q6ogi8hpa6",
+    "es7jrivdrlbl367",
+    "15sew8m3vv37rxj",
+    "vawa5fvnmqd3qfr",
+    "zaz7thgyjsgzr8w",
+    "iarpzdmfufdz9ea",
+    "mqej259wjszq6dr",
+    "gcvaznrdl9x4tmc",
+    "7wmj9e83jy0gbxy",
+    "ul9su80cm16whbo",
+    "pp48i9y6nmz3cfv",
+    "2dyjz3ttt3jlbmk",
+    "zrtvru6zlott2s0",
+    "nej1pzi1f8ynogs",
+    "kldzwpc4lhcbod6",
+    "qyk1fo6ipiij20n"
+  ],
+  "agents": []
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4. s. Textbezug INr 50974, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50957,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "vom Rimberg gegen den Lowerzer-See, im Cant. Schweiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conr. Steiner del. J. Heinr. Meyer sc.",
+  "scans": [
+    "alm_694_50957_o9znns0z0l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "vom Rimberg gegen den Lowerzer-See, im Cant. Schweiz",
+  "updated": "2007-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.448Z",
+      "agent": "v7r9loty2oslvis",
+      "source_id": "2uf9k48i7dso1ii"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.448Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "bt5dftz8n90ow1i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Früh war erfüllt dein Lauf; es zerbrach der Bau, / Den dir Natur gab, zart wie der Flöte Form:",
+  "language": [],
+  "musenalm_id": 99511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Nachruf auf Felix Mendelssohn-Bartholdy. / 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Minckwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Nachruf auf Felix Mendelssohn-Bartholdy. / 1848",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.869Z",
+      "agent": "dpkh7u6gok5xlc0",
+      "source_id": "qm90j4nolusdu2e"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11900,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen des Schlosses bei Kohra in Sachsen, / wo Kunz von Kaufungen wohnte.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_209_11900_dajcq2muil.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen des Schlosses bei Kohra in Sachsen, / wo Kunz von Kaufungen wohnte.",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "dmx3s8xygl2muro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "iay4ogz2c6dpqxy"
+    }
+  ]
+}

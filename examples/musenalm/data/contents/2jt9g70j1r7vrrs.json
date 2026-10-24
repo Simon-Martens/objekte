@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "383",
+  "incipit_statement": "Zur Zeit des zweiten Balduins herrschte in Tripolis ein mächtiger Graf, aus einem edlen Provencalischen Geschlechte entsprossen und hochgerühmt in den Kämpfen des heiligen Landes.",
+  "language": [],
+  "musenalm_id": 102958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mährchen von / der Rubinrose",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Thekla",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mährchen von / der Rubinrose",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.786Z",
+      "agent": "aynjnikxgmzv0y5",
+      "source_id": "zdfqv4emdq3ekiw"
+    }
+  ]
+}

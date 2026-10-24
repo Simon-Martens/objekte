@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131769, Obj 25 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131756, 131757; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Parmi de certains Coqs incivils, / peu galans, / Toujours en noise et turbulens,",
+  "language": [],
+  "musenalm_id": 131770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / La Perdrix et les Coqs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / La Perdrix et les Coqs",
+  "updated": "2018-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.039Z",
+      "agent": "3i4im09snt5w2js",
+      "source_id": "bczu6mu18wxnxkn"
+    }
+  ]
+}

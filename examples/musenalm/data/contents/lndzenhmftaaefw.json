@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Dein Sohn will nun zu dir heraufkommen, wie du ihm befohlen hast.",
+  "language": [],
+  "musenalm_id": 2351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scene / Aus / Klopstocks Hermann und die Fürsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scene / Aus / Klopstocks Hermann und die Fürsten",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.019Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "rrufw1qvsdvnvot"
+    }
+  ]
+}

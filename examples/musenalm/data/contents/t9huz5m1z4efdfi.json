@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 8. /) # Titel s. Gedicht INr 106347, Obj 99 und »Lösung der Andeutungen« (INr 106360, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106263,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kalender #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. G. inv. et sc.",
+  "scans": [
+    "alm_4208_106263_qruxj6l9qt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kalender #",
+  "updated": "2015-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.900Z",
+      "agent": "mwvtf64bmzwstck",
+      "source_id": "iadx59i6nq0l3oo"
+    }
+  ]
+}

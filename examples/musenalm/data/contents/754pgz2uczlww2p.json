@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte von Joseph Emanuel Hilscher. Aus dessen Nachlasse mitgetheilt von Lud. Aug. Frankl. (Sammlung INr 57841, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "422",
+  "incipit_statement": "Es ging ein Geist vorüber, schleierlos / Ersah ich der Unsterblichkeit Gesicht;",
+  "language": [],
+  "musenalm_id": 57844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Job. / (Nach Byron.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Emanuel Hilscher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Job. / (Nach Byron.)",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.936Z",
+      "agent": "2rqw07czl4o2h4j",
+      "source_id": "45nhqfmwkfqosaz"
+    }
+  ]
+}

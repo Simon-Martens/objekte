@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Schlesischer 1839",
+    "norm": "",
+    "biblio": 200573,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2346,
+  "parallel_title": "",
+  "place_statement": "Breslau (Bremer u. Minuth)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Musenalmanach, Schlesischer 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 88; nicht bei L/R 44; nicht bei Goed VIII. 118, 294",
+  "responsibility_statement": "Theodor Brand",
+  "subtitle_statement": "",
+  "title_statement": "Schlesischer / MUSENALMANACH / 1839 / Herausgegeben / von / Theodor Brand. / BRESLAU, / bei Brehmer und Minuth",
+  "updated": "2026-06-11 10:18:55.975Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "nydnfzcukx2t8a3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.574Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.574Z",
+      "agent": "702zbmy914jmcjx",
+      "source_id": "dxnm6pixbeqtric"
+    }
+  ]
+}

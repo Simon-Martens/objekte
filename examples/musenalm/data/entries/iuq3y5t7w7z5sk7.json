@@ -1,0 +1,99 @@
+{
+  "annotation": "Jgg 1830-1849; Jgg 1844-1849 unter erweitertem Titel: Vergißmeinnicht (Spindler) TB der Liebe, der Freundschaft und dem Familienleben des deutschen Volkes gewidmet; 1830, 1831 Stuttgart (Franckh), 1832-1843: Stuttgart (Hallberger), 1844-1849: Stuttgart (Franckh); Hrsg. C. Spindler",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, T, S I-Verz, 5 GG 5 BB, SS 1-360 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) 1830",
+    "norm": "~",
+    "biblio": 100968,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3403,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Franckh)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; L/R 99; Goed VIII. 126, 332 a",
+  "responsibility_statement": "C. Spindler",
+  "subtitle_statement": "",
+  "title_statement": "Vergiß mein nicht. / Taschenbuch / für das Jahr / 1830. / Herausgegeben / von / C. Spindler. / STUTTGART / bey / Gebrüder Franckh",
+  "updated": "2026-06-11 10:18:54.860Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "xf92ce9mka8vofp"
+  ],
+  "contents": [
+    "gx3tw110025b1c2",
+    "65h3npn52s8cg1r",
+    "1yc6x8npu4lkjd6",
+    "wuk1x8ycrsxwg4i",
+    "7hmply4zccq1m5b",
+    "3vsfifcm3wm2nl4",
+    "q51lucovsyarurm",
+    "mv44a4cslav95s6",
+    "3c77w3c6n2jyn8e",
+    "4bb43p8db6y64ly",
+    "i1z6snc6d9ygy3i",
+    "n7x8nsetat470k3",
+    "wd3kypkvudnm1gd",
+    "kwemklhf0f7w62u",
+    "izdm6wa2i4yzhsk",
+    "yute5uihvli1k0k",
+    "a5r6iqp7w067bkh",
+    "popzrhfrcrnd0m6",
+    "kfr5vtv9igxjhba",
+    "grld1m4jo9l5uoo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.867Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.867Z",
+      "agent": "px7obnkeo4tgafv",
+      "source_id": "874el67co7907nr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.213Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "svtdxb8k4n46cgp"
+    }
+  ]
+}

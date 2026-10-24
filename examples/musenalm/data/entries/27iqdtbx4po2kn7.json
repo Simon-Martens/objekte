@@ -1,0 +1,99 @@
+{
+  "annotation": "<div>KVK: Landesbibliothekenverbund Österreich/Südtirol: Jgg 1795-1833; ab Jg 1805: Toilettenkalender für Damen; Jgg 1832, 1833: Toilettenalmanach für Damen bei K 162: Toilette-Kalender für Damen 1815 und 1822 im vorliegenden Jg zwei Beiträge und die bez. Graphiken übernommen aus: Cornelia 1820 s. Anmm. an den Objekten</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, 15 SS Kal darin 6 GG, S Tab, T, S I-Verz, ar: SS 1-50, ar1: SS1-44, 7 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toilettenkalender für Frauenzimmer (Wien) 1825",
+    "norm": "UG, VB, verso G, T, 6 GG, 15 SS Kal darin 6 GG, S Tab, T, S I-Verz, ar: SS 1-50, ar1: SS1-44, 7 BB Tabb",
+    "biblio": 405844,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3313,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [],
+  "preferred_title": "Toilettenkalender für Frauenzimmer (Wien) 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TOILETTE / Kalender / für / DAMEN / 1825. / Wien bey J. Grämmer, Buchbinder / in der Grünanger Gasse No. 835",
+  "updated": "2026-07-16 09:52:07.863Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "hkofbhv99f42usf"
+  ],
+  "contents": [
+    "1wg8jt5qikeabd5",
+    "zrfkf5sspiups2z",
+    "dcn9r0pp04p2zsz",
+    "rk8m5tl3saauhpl",
+    "1zget5j6nkk6mmj",
+    "ym67ngrq68dq0ci",
+    "zd8kvzzg0rkli3p",
+    "irze5oqp828jgy7",
+    "6v70y25bl55xbrj",
+    "19nrf6lj34gpk1k",
+    "5d24k0nt8nau18u",
+    "ni2q80vjvs7an2o",
+    "6o5z0baj7zsrq0p",
+    "ziyr5kc4c0g20ny",
+    "us9h0itzubhl6xq",
+    "2yzmdjd220u2qb2",
+    "yh148973h856uc4",
+    "t9dwsj4fykzj3pp",
+    "cehldpop5v573s2",
+    "ijngrwsvcqyo8h2",
+    "qtjjh4n0kcej10o",
+    "1efh8adz5jwdyvo",
+    "pt414b4rnl1k8un",
+    "pzhc84z4e17d6hh",
+    "lqjbkdkzsd1lvpl",
+    "o8vzplryqxkqv4v",
+    "ejow124q5hefyc6",
+    "hzwtu0ngb3301zg",
+    "1wyistzorkncift",
+    "x6i77snnp1ta0bd",
+    "661x67oyew6w2c2",
+    "q6egchvtms7zh9c",
+    "1d4heoqsrfsw8mv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.203Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-16 09:52:07.865Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "6smlqmmjheu82tt"
+    }
+  ]
+}

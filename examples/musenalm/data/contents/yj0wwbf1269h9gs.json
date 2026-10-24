@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Die beiden jungen Freunde hatten sich an der Aussicht über den Strom hin geweidet, und gingen jetzt über die Brücke, um sich jenseits zu trennen,",
+  "language": [],
+  "musenalm_id": 85786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gesellschaft auf dem Lande. / (Novelle.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gesellschaft auf dem Lande. / (Novelle.)",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.220Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "mjd44ppy9ogsa28"
+    }
+  ]
+}

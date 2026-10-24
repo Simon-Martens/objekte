@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach für Knaben und Mädchen (Leipzig) [oJ]",
+    "norm": "",
+    "biblio": 408461,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-03-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4092,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Spiel-Almanach für Knaben und Mädchen (Leipzig) [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Spiel-Almanach / für / Knaben und für Mädchen / von 8 bis 14 Jahren. / Enthaltend: / ein zwölffaches und dreyßig andere / Gesellschaftsspiele, / zu / angenehmer und zugleich belehrender Unterhaltung / in Erholungsstunden. / Mit 24 illuminirten Bildern. / Leipzig, / in der Sommerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.420Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "0r9h4t0oowenvk8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "kpp01ww7vyu0hao"
+    }
+  ]
+}

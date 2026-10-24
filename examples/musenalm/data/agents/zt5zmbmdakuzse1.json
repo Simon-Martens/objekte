@@ -1,0 +1,210 @@
+{
+  "annotation": "",
+  "biographical_data": "1825-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.522Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1825"
+      ],
+      "dateOfDeath": [
+        "1876"
+      ],
+      "describedBy": {
+        "dateModified": "2022-06-24T09:07:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1260530116/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "1260530116",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1260530116",
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4036784-8",
+          "label": "Maastricht"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Nieuwer Amstel (Noord-Holland)"
+      ],
+      "preferredName": "Zürcher, Anton Frederick",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Frederick"
+        ],
+        "surname": [
+          "Zürcher"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Aquatintastecher"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/139463140"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q17928831"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1260530116/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Antonie_Frederik_Z%C3%BCrcher"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000094686808"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Zürcher, Antoni Frederik",
+        "Zürcher, Anton Frederik",
+        "Zürcher, Antonie Frederik",
+        "Zürcher, Antonie",
+        "Zürcher, Antoni"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Antonie"
+          ],
+          "surname": [
+            "Zürcher"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Frederik"
+          ],
+          "surname": [
+            "Zürcher"
+          ]
+        },
+        {
+          "forename": [
+            "Antonie Frederik"
+          ],
+          "surname": [
+            "Zürcher"
+          ]
+        },
+        {
+          "forename": [
+            "Antoni"
+          ],
+          "surname": [
+            "Zürcher"
+          ]
+        },
+        {
+          "forename": [
+            "Antoni Frederik"
+          ],
+          "surname": [
+            "Zürcher"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:27:39Z",
+    "gnd_query_biographical_data": "1825-1876",
+    "gnd_query_name": "zürcher, anton frederik"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3249,
+  "name": "Zürcher, Anton Frederik",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXVI, 585",
+  "updated": "2026-06-11 13:29:25.922Z",
+  "uri": "https://d-nb.info/gnd/1260530116",
+  "editor": ""
+}

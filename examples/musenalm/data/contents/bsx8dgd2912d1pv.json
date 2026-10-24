@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Von den Peruanern« INr 130031, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritterschlag der Yncas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Clar sculps. 1790",
+  "scans": [
+    "alm_3055_130032_rrwnarx53m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ritterschlag der Yncas",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.055Z",
+      "agent": "cj6pzq84zp925pc",
+      "source_id": "iiddxyjouiy0kvf"
+    }
+  ]
+}

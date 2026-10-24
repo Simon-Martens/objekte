@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Ost- und Westpreußischer 1861",
+    "norm": "",
+    "biblio": 405489,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2337,
+  "parallel_title": "",
+  "place_statement": "Königsberg (Koch)",
+  "places": [
+    "estq96n359vg7mv"
+  ],
+  "preferred_title": "Musenalmanach, Ost- und Westpreußischer 1861",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 87; nicht bei L/R",
+  "responsibility_statement": "Redaktions-Kommission des literarischen Kränzchens zu Königsberg",
+  "subtitle_statement": "",
+  "title_statement": "Ost- und Westpreußischer / Musen-Almanach. / Fünfter Jahrgang / im Namen des Altpreußischen Dichtervereins / herausgegeben / von der / Redaktions-Kommission des literarischen Kränzchens / zu / Königsberg. / Königsberg 1861. / In Kommission bei W. Koch",
+  "updated": "2026-06-11 10:18:55.978Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "items": [
+    "lfqk80qs56azr33"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.078Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.078Z",
+      "agent": "ta02i8j6dj1d0d2",
+      "source_id": "twcztupxbssxm07"
+    }
+  ]
+}

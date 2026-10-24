@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Asträa, Taschenbuch für Freimaurer 1826",
+    "norm": "",
+    "biblio": 200471,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1534,
+  "parallel_title": "",
+  "place_statement": "Ilmenau (Voigt)",
+  "places": [
+    "k3pxge24b7tlxan"
+  ],
+  "preferred_title": "Asträa, Taschenbuch für Freimaurer 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 24, L/R 179",
+  "responsibility_statement": "Friedrich von Sydow",
+  "subtitle_statement": "",
+  "title_statement": "Astraea. / Taschenbuch für Freimaurer / auf / das Jahr 1826. / Herausgegeben / von / Friedrich von Sydow, / Capitain im 31. Königl. Preuß. Linien-Infanterie- / Regimente / DritterJahrgang. / Preis 1 Rthlr. oder 1 Fl. 43. Kr. / Ilmenau, / gedruckt und verlegt bei Bernh. Friedr. Voigt",
+  "updated": "2026-06-11 10:18:54.612Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "cn29nmnybeqvq7f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.929Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.929Z",
+      "agent": "6xjnjk3hecydoti",
+      "source_id": "c6kb6jft91mbqns"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "v4v1la7b3fwhxsc"
+    }
+  ]
+}

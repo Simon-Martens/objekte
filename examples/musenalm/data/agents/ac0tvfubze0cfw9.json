@@ -1,0 +1,232 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.338Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österreichischer Schabkünstler und Kupferstecher"
+      ],
+      "dateOfBirth": [
+        "1773-07-29"
+      ],
+      "dateOfDeath": [
+        "1856-10-31"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-20T10:59:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116494905/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1036763560",
+          "label": "Geiger, Johann"
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Geiger"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116494905",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1036763560",
+          "label": "Geiger, Johann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116494905",
+      "oldAuthorityNumber": [
+        "(DE-588a)116494905"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4079296-1",
+          "label": "Wien-Neubau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4108158-4",
+          "label": "Wien-Josefstadt"
+        }
+      ],
+      "preferredName": "Geiger, Andreas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Andreas"
+        ],
+        "surname": [
+          "Geiger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20164294742808410651"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q21083268"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116494905/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116494905"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_G/Geiger_Andreas_1765_1856.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116494905"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Geiger, Andreas Joseph",
+        "Geiger, A.",
+        "Geiger, Andreas Josef",
+        "Geiger, And."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Andreas Josef"
+          ],
+          "surname": [
+            "Geiger"
+          ]
+        },
+        {
+          "forename": [
+            "And."
+          ],
+          "surname": [
+            "Geiger"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas Joseph"
+          ],
+          "surname": [
+            "Geiger"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Geiger"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:28:27Z",
+    "gnd_query_biographical_data": "1765-1856",
+    "gnd_query_name": "geiger, andreas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 845,
+  "name": "Geiger, Andreas",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXIII, 341",
+  "updated": "2026-06-11 13:29:22.465Z",
+  "uri": "https://d-nb.info/gnd/116494905",
+  "editor": ""
+}

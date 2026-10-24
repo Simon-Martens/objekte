@@ -1,0 +1,311 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1834",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.506Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1766-07-09"
+      ],
+      "dateOfDeath": [
+        "1834"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1053495846"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-24T14:02:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-20",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-20"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/132753553/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-20",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-20"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "132753553",
+      "id": "https://d-nb.info/gnd/132753553",
+      "oldAuthorityNumber": [
+        "(DE-588)1053495846",
+        "(DE-588a)132753553"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Wagner, Johann Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Jakob"
+        ],
+        "surname": [
+          "Wagner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Le Scharron"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Charron"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ldw."
+          ],
+          "surname": [
+            "Charron"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "surname": [
+            "Charron"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der Parvenü in Paris",
+        "Abendmuße zweyer Freunde",
+        "Novellen aus der neuesten Zeit- und Sittengeschichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/67636014"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q87344575"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1053495846"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132753553/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/132753553"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/132753553"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/132753553"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Charron, Ludwig",
+        "Le Scharron",
+        "W., J. J.",
+        "Charron, Ldw.",
+        "Wagner, Johan n Jakob III.",
+        "Wagner, J. J.",
+        "Wagner, Johann Jacob",
+        "Charron, Ludw.",
+        "Wagner, Joh. Jakob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Charron"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Jakob"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Jacob"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "W."
+          ]
+        },
+        {
+          "counting": [
+            "III."
+          ],
+          "forename": [
+            "Johan n Jakob"
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Wagner"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "surname": [
+            "Charron"
+          ]
+        },
+        {
+          "forename": [
+            "Ldw."
+          ],
+          "surname": [
+            "Charron"
+          ]
+        },
+        {
+          "personalName": [
+            "Le Scharron"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:17:09Z",
+    "gnd_query_biographical_data": "1766-1834",
+    "gnd_query_name": "wagner, johann jakob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3036,
+  "name": "Wagner, Johann Jakob",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXV, 39",
+  "updated": "2026-06-11 13:29:25.604Z",
+  "uri": "https://d-nb.info/gnd/132753553",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüthen aus der Schweiz. Erster Strauß (Sammlung INr 54261, Obj 83) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Wie bezaubernd! es liegt in nächtlicher Stille / der / Kirchet, / Ueber den mich des Pfads einsame Felsen / geführt.",
+  "language": [],
+  "musenalm_id": 54262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Meyringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Meyringen",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.802Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "xac3am5kb0yzkov"
+    }
+  ]
+}

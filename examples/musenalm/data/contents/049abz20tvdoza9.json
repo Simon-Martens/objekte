@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Blüht im Kranz, o Mädchen, dir noch / die Rose, / Wenn du, gleich Sylfiden,",
+  "language": [],
+  "musenalm_id": 4036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andenken. 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Andenken. 1788",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.049Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "u3zi0rzbj7g535s"
+    }
+  ]
+}

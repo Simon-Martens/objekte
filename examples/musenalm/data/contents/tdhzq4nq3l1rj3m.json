@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64165, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64173,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeichnende #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. E. Hering pinxt. W. H. Mote sculpt.",
+  "scans": [
+    "alm_1061_64173_6msmds52jm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeichnende #",
+  "updated": "2009-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.362Z",
+      "agent": "jzxj1metfvef8yb",
+      "source_id": "4kw83q01qa7ix4p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.362Z",
+      "agent": "o8kezqqcehkzpy8",
+      "source_id": "yjwio4mdz7vjenb"
+    }
+  ]
+}

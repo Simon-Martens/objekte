@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "O du mit alle dem, was Seel' und Aug' / entzücket, / Von der Natur verschwenderisch geschmücket,",
+  "language": [],
+  "musenalm_id": 31252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Gräfinn von Wolkenstein, / gebohrne Gräfin von Stahremberg. / Bey Uebersendung des Numa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Gräfinn von Wolkenstein, / gebohrne Gräfin von Stahremberg. / Bey Uebersendung des Numa",
+  "updated": "2003-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.420Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "90v89pz59fogig6"
+    }
+  ]
+}

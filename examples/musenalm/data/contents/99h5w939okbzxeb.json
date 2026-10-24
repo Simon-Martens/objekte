@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111319, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111320,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einsamkeit #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perignon pinxt. C. Preisel sc.",
+  "scans": [
+    "alm_3458_111320_do89ar6lk7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einsamkeit #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.378Z",
+      "agent": "cu0vdl5aysi41h6",
+      "source_id": "305uuzv0qa8u2gz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.378Z",
+      "agent": "9s6c9wuymvvgbhx",
+      "source_id": "dct3dlz7d6cgba8"
+    }
+  ]
+}

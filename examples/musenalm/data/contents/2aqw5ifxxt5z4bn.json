@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43502, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Es war an einem reizenden Frühlingstage, als Joseph Walburg, nach achtjähriger Wanderschaft in die Heimath zurückkehrend, die roten Ziegeldächer seines Geburtsstädtchens von fern zwischen den Ulmen und Linden hervorragen sah,",
+  "language": [],
+  "musenalm_id": 43505,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanderung und Heimkehr. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanderung und Heimkehr. / Eine Erzählung",
+  "updated": "2006-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.257Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "jebuvf3gourg3fp"
+    }
+  ]
+}

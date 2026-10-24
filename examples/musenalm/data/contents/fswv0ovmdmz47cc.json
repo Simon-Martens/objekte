@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung s. Textbezug (Gedicht) INr 77364, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77363,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andromache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pöhacker # A. Brückner sc.",
+  "scans": [
+    "alm_2403_77363_21llcxoi9h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Andromache",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "n3frc0soph8hl9f",
+      "source_id": "ck09342qxzgvu8f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "55cqr78phstoqzu",
+      "source_id": "dv0tp15gx9xuwfr"
+    }
+  ]
+}

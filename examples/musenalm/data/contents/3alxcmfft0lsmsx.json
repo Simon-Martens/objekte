@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug 51616, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51593,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schweizerische Bauernhochzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König del. H. Lips sculp.",
+  "scans": [
+    "alm_702_51593_k96ffd0itu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schweizerische Bauernhochzeit",
+  "updated": "2007-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.540Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "24g7pn4w8i17zp5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.540Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "6dnnaq9t76bjn8e"
+    }
+  ]
+}

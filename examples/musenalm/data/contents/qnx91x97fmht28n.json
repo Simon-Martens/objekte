@@ -1,0 +1,45 @@
+{
+  "annotation": "Kirchhofs-Idyllen (Sammlung INr 79364, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Der Ritter sah von der Ahnenburg, / Hinab in den Kirchhofgarten,",
+  "language": [],
+  "musenalm_id": 79366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.961Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "4dcpxh4kz1hv6qx"
+    }
+  ]
+}

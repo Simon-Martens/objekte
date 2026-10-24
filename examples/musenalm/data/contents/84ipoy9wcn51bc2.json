@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6 /) kol. Graphik im Kalendarium November /) Illustration zum unbetitelten, unbezeichneten Beitrag INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81971,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorfall bey der Belagerung der / Citadelle von Würzburg (S. 110)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber inv. P. J. Lamint sc.",
+  "scans": [
+    "alm_3830_81971_ksxxbrgm6r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorfall bey der Belagerung der / Citadelle von Würzburg (S. 110)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "5q25ah2x1tr5ir8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "n0bkf3vbtt1zcc3"
+    }
+  ]
+}

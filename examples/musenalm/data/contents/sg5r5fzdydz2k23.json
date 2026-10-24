@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Du sinnest auf ein passend Bild / Zu deines Taschenbuches Schild?",
+  "language": [],
+  "musenalm_id": 96362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelkupfer zu einem poetischen Ta- / schenbuche, an P*",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titelkupfer zu einem poetischen Ta- / schenbuche, an P*",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.681Z",
+      "agent": "x9u4n2qst16e030",
+      "source_id": "qlsc9ghxfsextek"
+    }
+  ]
+}

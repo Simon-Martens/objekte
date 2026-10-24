@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106397,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEDENKE MEIN / 1835.Wien. F. Pfautsch Currentgasse 414; Leipzig A. Liebeskind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1790_106397_jq0ybdcq0p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN / 1835.Wien. F. Pfautsch Currentgasse 414; Leipzig A. Liebeskind",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.102Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "02nk21mncd9ajz9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.102Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "k8zzk546lw9cher"
+    }
+  ]
+}

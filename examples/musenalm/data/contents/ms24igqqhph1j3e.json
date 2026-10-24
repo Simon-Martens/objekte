@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 57991, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Der größte Mißgriff, welchen wir bei dem Streben nach Kenntniß unserer selbst oder Anderer begehen, ist, daß wir es immer auf ein Fertiges anlegen,",
+  "language": [],
+  "musenalm_id": 58001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sein und Werden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sein und Werden",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.025Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "025dscbir7h5r1l"
+    }
+  ]
+}

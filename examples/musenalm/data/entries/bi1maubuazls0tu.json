@@ -1,0 +1,82 @@
+{
+  "annotation": "mit kol. Illustrationen; Fortsetzung von: Almanach dramatischer Spiele für Gesellschaftstheater 1811-1837 Hrsg. F. A. von Kurländer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, nT, Vrwrt, I-Verz, SS 1–317 darin 3 GG, I-Verz, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1841",
+    "norm": "~",
+    "biblio": 405215,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1269,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "C. W. Koch",
+  "subtitle_statement": "",
+  "title_statement": "F. A. von Kurländers / dramatischer Almanach / für das Jahr 1841. / Fortgesetzt / von / C. W. Koch. / Dreißigster Jahrgang. / Leipzig. / Baumgärtners Buchhandlung",
+  "updated": "2026-06-11 10:18:55.145Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "otyftvw3y6sabit"
+  ],
+  "contents": [
+    "kwg0fp4khlbrjqw",
+    "evr32911yhk668f",
+    "0xt3w26bkxpdxma",
+    "crvawuz6qujd095",
+    "1bvyx3v1ozt5vga",
+    "jwzf2cgap43eiws",
+    "12uvzqqtpc763l3",
+    "o8eci89o62b19iq",
+    "o378ktrbc2xurst",
+    "zna40vkbj0ox7bl",
+    "4sqvqhv5jiwfhas",
+    "kbzx8bhjrzbbmwi",
+    "wcn62z66xkgskax",
+    "nlr47nf6rcp1so0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.503Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.503Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "72dwwjfonlbo0vj"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Jagdschloß Sababurg in Kurhessen« INr 67152, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß Sababurg von der Parkseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gundlach del. G. Boettger senior sc. 1815",
+  "scans": [
+    "alm_1146_67153_a1bbyj6o87.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß Sababurg von der Parkseite",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.407Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "pcixq6f8ciempyd"
+    }
+  ]
+}

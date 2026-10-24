@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Der Winter hielt die Erde noch gefangen, / Und traurig standen alle Bäum' und Auen.",
+  "language": [],
+  "musenalm_id": 15251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder der Kindheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SOPHIE B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder der Kindheit",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.787Z",
+      "agent": "fcah7hi0lxq4o7t",
+      "source_id": "4go7mz1eesk90ws"
+    }
+  ]
+}

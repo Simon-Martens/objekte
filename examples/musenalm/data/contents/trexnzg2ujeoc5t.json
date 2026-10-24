@@ -1,0 +1,45 @@
+{
+  "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Jahrgang 1799 (Sammlung INr 9171, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Friede von CampoFormio schien der Gröse der fränkischen Republik das lezte Siegel aufgedrükt zu haben.",
+  "language": [],
+  "musenalm_id": 9172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Abschnitt. / Einleitung / Allgemeines Gemählde des politischen Zu- / stands von Europa nach dem Frieden von Campo / Formio. [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Abschnitt. / Einleitung / Allgemeines Gemählde des politischen Zu- / stands von Europa nach dem Frieden von Campo / Formio. [...]",
+  "updated": "2001-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.391Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "19irvsmb13q5pba"
+    }
+  ]
+}

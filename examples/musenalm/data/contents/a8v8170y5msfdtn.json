@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IHRER MAJESTÄT / DER KÖNIGIN BEIDER SICILIEN / DER FREUNDIN / DES GUTEN UND SCHÖNEN [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilmans",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IHRER MAJESTÄT / DER KÖNIGIN BEIDER SICILIEN / DER FREUNDIN / DES GUTEN UND SCHÖNEN [...]",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.099Z",
+      "agent": "q9v9seq8bme8931",
+      "source_id": "82nmv500grvlbvt"
+    }
+  ]
+}

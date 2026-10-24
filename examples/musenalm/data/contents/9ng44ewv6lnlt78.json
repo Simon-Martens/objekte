@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 116847, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116846,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Lanzelstorfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hemerlein pinx. Stahlst. v. F. Tastiera",
+  "scans": [
+    "alm_3219_116846_vei3u4dzge.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie Lanzelstorfer",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.282Z",
+      "agent": "hef56e732k1ylun",
+      "source_id": "2pl500jpxm6jep9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.282Z",
+      "agent": "ocng47uzapri3n3",
+      "source_id": "86d9coqkfdb4lpn"
+    }
+  ]
+}

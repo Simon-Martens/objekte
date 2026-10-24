@@ -1,0 +1,127 @@
+{
+  "annotation": "Erscheinungsverlauf unklar; vorh. Jgg 1818, 1819 /) Jg mit ausgefallenem Umschlag /) s. a.: Almanach für Damen (Gratz) 1820",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 13 GG, B Tab, 8 BB Kal darin 6 BB Tabb, 7 BB Tab, T, S, SS 1-72 darin 12 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Kleiner für Damen (Graz) 1819",
+    "norm": "~",
+    "biblio": 410821,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-09-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4751,
+  "parallel_title": "",
+  "place_statement": "Graz (Kaiser)",
+  "places": [
+    "qww1pxzqibaxvpt"
+  ],
+  "preferred_title": "Almanach, Kleiner für Damen (Graz) 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. A. Kumar",
+  "subtitle_statement": "",
+  "title_statement": "Kleiner / ALMANACH für DAMEN / auf das Jahr 1819. / Von J. A. KUMAR / GRÄTZ / Bey Joseph Kaiser / Buchbinder nächst dem / Muhrthor",
+  "updated": "2026-06-11 10:18:55.170Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "5glrbaxilw73ux4"
+  ],
+  "contents": [
+    "p21om406hhdox9t",
+    "wr6ij7z0ko20f2l",
+    "d70bzcaahncbb3x",
+    "qffx1r5ugbz0rav",
+    "1miebgiaqk8vbdf",
+    "n66pha3me10k6wi",
+    "59r8lcut6a1jqsi",
+    "q3dc1ti39sme8gw",
+    "3sa0bmaqfjzf384",
+    "bu3c2gn2ortw8nl",
+    "eqwp4df61rquy8f",
+    "oujwc4dpac6h624",
+    "kqaaqhto4ab6pls",
+    "qmcrkcr3x0v560k",
+    "6fsqo6iivtdhkuh",
+    "605eaar9uqhk71j",
+    "bo52evbztqhmi6t",
+    "sa60ynxcn9rcpqt",
+    "ollpkoix8oiayfo",
+    "cbuar04as318d2x",
+    "9iul4q40rfpv4qi",
+    "4bcb868ukjqqfww",
+    "jwk06k5p56phdup",
+    "8dmg9avfoqfd2eh",
+    "34u6qjk7rjfjh2o",
+    "5pvfaqr0yq6g1bx",
+    "vsypdpnq20yug4j",
+    "fulth2y93todgjq",
+    "wklyww6jprm2o3x",
+    "5zqjkhdli1tpqm9",
+    "9uknrur5wlg02if",
+    "oeazq582g3q3fj5",
+    "rcp8wezl31xliau",
+    "p2vfgh139tmlij1",
+    "5jlo1cdel79o4el",
+    "yuapopwdmeenkas",
+    "815wmvuz43uv260",
+    "os0400d04uzlri3",
+    "39l2cu9s5ty8asv",
+    "xu15in9p3vzz3g6",
+    "kanvh7vnkqdzgbv",
+    "aomdt14uy6qbkwd",
+    "7965jc91altn8id",
+    "z95obw2ug619zjr",
+    "ooemnqbrxbkt1ny",
+    "ewixc6mm9h6pzsi",
+    "uk46hngttzmy8od",
+    "2flneynv62o8smc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "x39b8yary5ectmp",
+      "source_id": "57yesdzzso1yo75"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.417Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.417Z",
+      "agent": "rd1rezufezr9qx8",
+      "source_id": "ax4znlc8jn76dvc"
+    }
+  ]
+}

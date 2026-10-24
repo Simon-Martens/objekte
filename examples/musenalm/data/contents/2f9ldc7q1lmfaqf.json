@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts » Rosinde« von Gallisch INr 17606, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Doct. Weiß",
+  "scans": [
+    "alm_107_17605_r42zrodqio.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosinde",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.750Z",
+      "agent": "x1lckegivk1oedd",
+      "source_id": "5jrbe2uxgjdh9l7"
+    }
+  ]
+}

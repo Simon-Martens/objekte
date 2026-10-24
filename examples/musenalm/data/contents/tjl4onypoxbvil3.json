@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Mittag« paginiert C. s. Textbezug INr 7246, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+  "scans": [
+    "alm_146_7247_kocidjz5rf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.196Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "135faumzkhnb3l3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.196Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "gcih93i8y3cz03t"
+    }
+  ]
+}

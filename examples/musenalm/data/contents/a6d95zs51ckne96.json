@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelkupfer; vgl. »Die Schlittenfahrt« (INr 125888, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125889,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz v Holbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Saar pinx. Th. Benedetti sc.",
+  "scans": [
+    "alm_2735_125889_pqhs7yhfog.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franz v Holbein",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.717Z",
+      "agent": "c6rsfvf49nz2v5w",
+      "source_id": "cwnw1rsucrgf0gm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.717Z",
+      "agent": "napc3h8k481wgz2",
+      "source_id": "u5wn5gq52s6ycdf"
+    }
+  ]
+}

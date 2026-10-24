@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Weil man der Damen Gusto nicht besti- / men kann, / Nahm Jupiter so viel Gestalten an:",
+  "language": [],
+  "musenalm_id": 76370,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damengeschmack",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkler von Mohrenfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Damengeschmack",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.893Z",
+      "agent": "z7sxko2rf1mce5f",
+      "source_id": "ojhhfe7yowsti6o"
+    }
+  ]
+}

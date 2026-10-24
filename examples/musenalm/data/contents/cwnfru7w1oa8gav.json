@@ -1,0 +1,46 @@
+{
+  "annotation": "Mit 5 Beiträgen in der Rahmenerzählung INr 64693-64697, Obj 20-24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Hast Du Dich einmal, mein lieber Leser, draußen in der großen Welt etwas länger als gebührlich umgethan, und bist etwa übersatt geworden, also daß Du Dich sehnst nach einem kleinen, engabgemarkten Raum, wo es still und heimlich ist,",
+  "language": [],
+  "musenalm_id": 64406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erzählungen des alten Cantors",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erzählungen des alten Cantors",
+  "updated": "2009-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.185Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "3mf98lnui924z43"
+    }
+  ]
+}

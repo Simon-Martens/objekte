@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Hochzeitmorgen. Glosse (INr 25926, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Nun zur Kirche sie gegangen / An dem Arme ihres Lieben,",
+  "language": [],
+  "musenalm_id": 25928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Ach des Lebens schönste Feier / Endigt auch den Lebensmai. / Mit dem Gürtel mit dem Schleier. / Reißt der schöne Wahn entzwei",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Ach des Lebens schönste Feier / Endigt auch den Lebensmai. / Mit dem Gürtel mit dem Schleier. / Reißt der schöne Wahn entzwei",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.978Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "vnfqodhtqbpxsq0"
+    }
+  ]
+}

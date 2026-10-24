@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25388, Obj 159)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Schweigen ist ein schönes Ding! / Doch nicht immer ist's manierlich.",
+  "language": [],
+  "musenalm_id": 25392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Schweigen ist ein schönes Ding",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Schweigen ist ein schönes Ding",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.256Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "zl1asiw6aeba9a9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 68015-68018, Obj 32-35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Träumer. / Liederkranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kreuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Träumer. / Liederkranz",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.252Z",
+      "agent": "nwzqfwyixmokyap",
+      "source_id": "zvr4nf4jwec2nwp"
+    }
+  ]
+}

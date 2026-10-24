@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, S III-IV I-Verz, SS V-XXV G-Verz darin 9 GG, ar: S 1 G, S 3 zT, SS 5-17, ar1: SS 1-305",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1831",
+    "norm": "~",
+    "biblio": 100673,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 481,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49, 11",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Damen. / Auf das Jahr 1831. / Mit zehn englischen Stahlstichen. / München, Stuttgart und Tübingen, / Verlag der J. G. Cotta'schen Buchhandlung. / 1831",
+  "updated": "2026-06-11 10:18:55.813Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "zpcgt3ydane3wpa"
+  ],
+  "contents": [
+    "fdtvsa5qjzhb8ob",
+    "divvvs3qduqciam",
+    "cejj48qdjmlgt5u",
+    "6ag677s1xklafd0",
+    "jxivtitv0ofrikc",
+    "w11rcxtzpvw2tgi",
+    "v22kdvud0ibawab",
+    "gy6133d28rpgoeu",
+    "1tw3luxwrdhv2k2",
+    "1hofe136hx7d8z8",
+    "u67bgt7yg6csn0p",
+    "rcdfn2had9fe5r4",
+    "qr1lyyp99sh742d",
+    "570bbgrlxomqqws",
+    "6mhzwev38e7usc5",
+    "f1opz38q4hh41tz",
+    "uk2fkwy2f8nusg8",
+    "rauckm2itwirvet",
+    "owdgvnd09fqza6v",
+    "imopr2lftwir8iy",
+    "cc0ba1hz09ocp15",
+    "s1j51bl6q0tiz5s",
+    "xyvrujevs6l7uyl",
+    "ur6j27mg7w00yc6",
+    "77cj1zwxkg0eyr5",
+    "66e6rgm4s0net0b",
+    "llebht0mmqezc6z",
+    "1m8r93t100b9lo4",
+    "y4btna8hcn6cm2h",
+    "m4y6jr688vv8o6p",
+    "o0h5m2ga1j437wj",
+    "ody7e0zsvkeopxu",
+    "nc04ab0drv0nm3w",
+    "40qp1snqwduj3eu",
+    "cnve0mskgc2bn7c",
+    "3322ihc5agzsess",
+    "1ivc92iqvambw5l",
+    "l1i5jo8o4hp1d24",
+    "gui4ycds4qps9uz",
+    "ylc60fg83csmtqq",
+    "a8uecsdzj0mgaq5",
+    "861pcdno6m5jmtr",
+    "7658ug69274eqth",
+    "n0lztex34co0xvj",
+    "x7nieuzxwpubljj",
+    "82pp5hhj9qxtl70",
+    "65vnwjpn75mfgcs",
+    "2l2g0pobscptvz1",
+    "8m63u0ssjfm666u",
+    "jjnhrfzig1aibw6",
+    "0w0nkov3ewmwc3e",
+    "nxud877j2bpwy2s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.692Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.692Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "m3q3czeptxt4htt"
+    }
+  ]
+}

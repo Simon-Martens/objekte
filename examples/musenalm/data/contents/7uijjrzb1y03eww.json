@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichts (Sammlung INr 25234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Wo mit der Dumpfheit sich die Wissenschaft verbündet, / Wird Unerfreuliches kunstmäßig fest gegründet.",
+  "language": [],
+  "musenalm_id": 25272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "38.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "38.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.927Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "h12peh057h8yi66"
+    }
+  ]
+}

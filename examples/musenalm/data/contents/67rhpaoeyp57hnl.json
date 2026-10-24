@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Habt ihr durch eigne Schuld heillos euch / gestürzet in's Unheil,",
+  "language": [],
+  "musenalm_id": 4653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Solon an die Athenienser. (Als sie den Philistratus und seine / Söhne zu ihren Tyrannen ange- / nommen hatten) / Aus dem Griechischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Solon an die Athenienser. (Als sie den Philistratus und seine / Söhne zu ihren Tyrannen ange- / nommen hatten) / Aus dem Griechischen",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.042Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "q97ytx42lohrjqp"
+    }
+  ]
+}

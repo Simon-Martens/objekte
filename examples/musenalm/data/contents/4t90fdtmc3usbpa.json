@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "In einer wilden Dornenhecke war auch ein Rosenstock aufgewachsen und entfaltete die reizendsten Knospen.",
+  "language": [],
+  "musenalm_id": 71866,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rosenstock und die Dornen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rosenstock und die Dornen",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.398Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "832u3det2sf2xu2"
+    }
+  ]
+}

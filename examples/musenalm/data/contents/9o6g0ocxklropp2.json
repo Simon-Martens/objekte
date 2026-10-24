@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63668, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Mögen die Falten der Stirn sich mehren! / Mag erbleichen mein Haar,",
+  "language": [],
+  "musenalm_id": 63671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wellmar an Apoll",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wellmar an Apoll",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.212Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "8yyvsnoia15qjiz"
+    }
+  ]
+}

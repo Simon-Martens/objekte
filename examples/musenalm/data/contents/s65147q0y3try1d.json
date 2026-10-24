@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Nur vier Monate sind seit dem Mai vergangen; aber diese waren vier Jahre der Erfahrung für mich.",
+  "language": [],
+  "musenalm_id": 70698,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Coremans",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachwort",
+  "updated": "2010-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.261Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "y5teq677fq47q4x"
+    }
+  ]
+}

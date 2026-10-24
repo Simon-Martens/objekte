@@ -1,0 +1,946 @@
+{
+  "annotation": "",
+  "biographical_data": "1265-1321",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.298Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/119676869",
+          "label": "Fricker, Hieronymus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118736396",
+          "label": "Oporinus, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118644432",
+          "label": "Alciati, Andrea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119707292",
+          "label": "Herold, Johannes"
+        }
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1265-05-12"
+      ],
+      "dateOfDeath": [
+        "1321-09-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Sandro Botticelli"
+          ],
+          "creditText": [
+            "telegraph http://www.pileface.com/sollers/article.php3?id_article=312"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Dante.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait%20de%20Dante.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portrait%20de%20Dante.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/159989167",
+        "https://d-nb.info/gnd/187852308",
+        "https://d-nb.info/gnd/1073523802",
+        "https://d-nb.info/gnd/188336729",
+        "https://d-nb.info/gnd/187232725",
+        "https://d-nb.info/gnd/13779360X"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-24T14:32:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118523708/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120123568",
+          "label": "Donati, Gemma"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1256774294",
+          "label": "Alighieri, Dante"
+        },
+        {
+          "id": "https://d-nb.info/gnd/101944225",
+          "label": "Alighieri, Pietro"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100732305",
+          "label": "Alighieri, Jacopo"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130686166",
+          "label": "Antonia, Alighieri"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118523708",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/101944225",
+          "label": "Alighieri, Pietro"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130686166",
+          "label": "Antonia, Alighieri"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100732305",
+          "label": "Alighieri, Jacopo"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1256774294",
+          "label": "Alighieri, Dante"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118523708",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/133410293",
+          "label": "Alighieri, Familie : 1091-1558"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)188336729",
+        "(DE-588)187232725",
+        "(DE-588a)118523708",
+        "(DE-588a)187852308",
+        "(DE-588)1073523802",
+        "(DE-588)187852308",
+        "(DE-588)159989167",
+        "(DE-588a)119651602",
+        "(DE-588a)135074940",
+        "(DE-588a)188336729",
+        "(DE-588a)187232725",
+        "(DE-588)13779360X",
+        "(DE-588a)126692459",
+        "(DE-588a)159989167",
+        "(DE-588a)13779360X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4048629-1",
+          "label": "Ravenna"
+        }
+      ],
+      "preferredName": "Dante, Alighieri",
+      "preferredNameEntityForThePerson": {
+        "nameAddition": [
+          "Alighieri"
+        ],
+        "personalName": [
+          "Dante"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Alciato, Andrea: De monarchia. 1559. (VD16 A 1650)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78095495"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/97105654"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1067"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118523708"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073523802"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118523708/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/13779360X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159989167"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187232725"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187852308"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188336729"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Dante_Alighieri"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Dante_Alighieri"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Dante_Alighieri"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Dante_Alighieri"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121446210"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118523708"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118523708"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118523708"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/67E8913ECEBD4D37ACEAEEC45FAF19C2"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118523708"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Aligjjeri, Dantje",
+        "Alighieri, Dante",
+        "Alighieri, Dant",
+        "Dāntī Alīǧyīrī",
+        "Dante, Aligieri",
+        "Alig'jeri, Dante",
+        "Alleghieri, Dante",
+        "Aligerius, Dante",
+        "Dante-Alighieri",
+        "Dante, Alig'jeri",
+        "Dante, Alih'ieri",
+        "Dante Alagerius",
+        "Aligeri, Dante",
+        "Dante Aligieri",
+        "Dante, Alagherii",
+        "Alig'eri, Dante",
+        "Dantte",
+        "Alighieri, Dante, Poète",
+        "Dante, Aligheri",
+        "Dantes, Alagherius",
+        "Dante Aldigherius",
+        "Aldigherius, Dante",
+        "Dante",
+        "Danti, Alijyiri",
+        "Dantes, Aligerius",
+        "Aldigeri, Dante",
+        "Durante, Alighieri",
+        "Tan-ting",
+        "Dante, Alagherius",
+        "Alihiieri, Dante",
+        "Dante Alagherius",
+        "Dant, Allighieri",
+        "Dantes, Alagerius",
+        "Dante, Allighieri",
+        "Dante, Aligerius",
+        "Dante, Alighieri",
+        "Alagherii, Dante",
+        "Danthe, Alighieri",
+        "Dāntī, Alīǧyrīy",
+        "Aliyiri, Danti",
+        "Dantes, Alighierus",
+        "Alaghieri, Dante",
+        "Allighieri, Dante",
+        "Dant, Alighieri",
+        "Aligʹeri, Dante",
+        "Dante Alaghieri",
+        "Aligieri, Dant",
+        "Tantte",
+        "Dante, Aleghieri",
+        "Dante, Aligʹeri",
+        "Dant, Aligieri",
+        "Dante Aliǵeri",
+        "Aligjeris, Dantė",
+        "Dantis, Alagherius",
+        "Aligheri, Dante",
+        "Pseudo-Dante, Alighieri",
+        "Alighiere, Dante"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Dante"
+          ],
+          "nameAddition": [
+            "Poète"
+          ],
+          "surname": [
+            "Alighieri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligieri"
+          ],
+          "personalName": [
+            "Dant"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alaghieri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighierus"
+          ],
+          "personalName": [
+            "Dantes"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alagherius"
+          ],
+          "personalName": [
+            "Dantes"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alig'eri"
+          ]
+        },
+        {
+          "personalName": [
+            "Dantte"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alagherius"
+          ],
+          "personalName": [
+            "Dantis"
+          ]
+        },
+        {
+          "personalName": [
+            "Tan-ting"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligheri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Aligieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dantje"
+          ],
+          "surname": [
+            "Aligjjeri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Allighieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alihiieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aligʹeri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligerius"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aldigeri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alagherius"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "forename": [
+            "Danti"
+          ],
+          "surname": [
+            "Aliyiri"
+          ]
+        },
+        {
+          "forename": [
+            "Alighieri"
+          ],
+          "surname": [
+            "Dante"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aligerius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligʹeri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "personalName": [
+            "Tantte"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighieri"
+          ],
+          "personalName": [
+            "Danthe"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aligheri"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alighieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dant"
+          ],
+          "surname": [
+            "Alighieri"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alagherii"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Alagerius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alijyiri"
+          ],
+          "personalName": [
+            "Danti"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alih'ieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alīǧyrīy"
+          ],
+          "personalName": [
+            "Dāntī"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alig'jeri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alagerius"
+          ],
+          "personalName": [
+            "Dantes"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Allighieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alleghieri"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Aldigherius"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Alaghieri"
+          ]
+        },
+        {
+          "forename": [
+            "Allighieri"
+          ],
+          "surname": [
+            "Dant"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighieri"
+          ],
+          "personalName": [
+            "Durante"
+          ]
+        },
+        {
+          "forename": [
+            "Dantė"
+          ],
+          "surname": [
+            "Aligjeris"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alig'jeri"
+          ]
+        },
+        {
+          "forename": [
+            "Dant"
+          ],
+          "surname": [
+            "Aligieri"
+          ]
+        },
+        {
+          "personalName": [
+            "Dāntī Alīǧyīrī"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Allighieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alagherii"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aleghieri"
+          ],
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Aligerius"
+          ],
+          "personalName": [
+            "Dantes"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Alagherius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighieri"
+          ],
+          "personalName": [
+            "Dant"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aldigherius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Alighieri"
+          ],
+          "personalName": [
+            "Pseudo-Dante"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante Aliǵeri"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante-Alighieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Aligeri"
+          ]
+        },
+        {
+          "personalName": [
+            "Dante"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Dante"
+          ],
+          "personalName": [
+            "Alighieri"
+          ]
+        },
+        {
+          "forename": [
+            "Dante"
+          ],
+          "surname": [
+            "Alighiere"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Dante_Alighieri",
+          "label": "https://de.wikipedia.org/wiki/Dante_Alighieri"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:11:12Z",
+    "gnd_query_biographical_data": "1265-1321",
+    "gnd_query_name": "dante alighieri"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 494,
+  "name": "Dante Alighieri",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 95",
+  "updated": "2026-06-11 13:29:21.999Z",
+  "uri": "https://d-nb.info/gnd/118523708",
+  "editor": ""
+}

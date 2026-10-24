@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 22 Gedichten INr 98519-98540, Obj 7-28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.731Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "ezrm8cz6rnncpe8"
+    }
+  ]
+}

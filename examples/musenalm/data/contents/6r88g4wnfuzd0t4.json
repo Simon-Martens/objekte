@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42468,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Petzl del. Fr. Tieck. Meno Haas sc. Berlin 1829)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Petzl del. Fr. Tieck. Meno Haas sc. Berlin 1829",
+  "scans": [
+    "alm_560_42468_nkp8yvp2v9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.147Z",
+      "agent": "zkrhktpab2zd8ar",
+      "source_id": "80405mn5vdo4oh9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.147Z",
+      "agent": "jo4gipjsowa4j99",
+      "source_id": "qm8gwjwc54koo6f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.147Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "wfl3kjvllbcj6u8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Sie halten heilige Messe / Im Dom zu Ingolstadt: / Sie bitten vom himmlischen Helfer, / Was Jeder zu bitten hat.",
+  "language": [],
+  "musenalm_id": 30625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Das Marienbild zu Ingolstadt. / Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig von Erfurt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Das Marienbild zu Ingolstadt. / Romanze",
+  "updated": "2002-11-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.495Z",
+      "agent": "iasekwt08rxpzyu",
+      "source_id": "spi90q3e97z2ko0"
+    }
+  ]
+}

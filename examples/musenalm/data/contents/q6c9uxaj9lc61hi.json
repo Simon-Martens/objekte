@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 18. /) # Titel aus dem G-Verz; s. Textbezug »Der Tempel des Jupiter Patulejus in Ostia« Alm-1188, INr 68866",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68892,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tempel des Jupiter Patilejus in Ostia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. R.",
+  "scans": [
+    "alm_1858_68892_so10x6t3fj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tempel des Jupiter Patilejus in Ostia",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.528Z",
+      "agent": "xeh43apdx4986px",
+      "source_id": "s6irdiiqqwgdp6m"
+    }
+  ]
+}

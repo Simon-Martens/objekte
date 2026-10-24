@@ -1,0 +1,96 @@
+{
+  "annotation": "im Schuber mit Rückenschild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I vT, verso G, S III T, S V-VI I-Verz, S VII-VIII Vrwrt d Hrsg, S IX -XXII G-Verz darin 6 GG, SS 1-476",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1831",
+    "norm": "~",
+    "biblio": 100999,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 54,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1831. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1831",
+  "updated": "2026-06-11 10:18:54.892Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "7lq2hs2n14efhqa"
+  ],
+  "contents": [
+    "9rtn73um1x81ue6",
+    "r66jh0dfv278ykb",
+    "319yy9os4hmw9zx",
+    "qfeenj1j7nwthjq",
+    "brhzi260f2lah8g",
+    "exvh2e2fpuqvim5",
+    "nus7zxrc97jpr3u",
+    "ltg1r3hu69cvt8t",
+    "0hj3z3jsn4lmiwa",
+    "8sqixye2zcdn0pc",
+    "xyntdi3uu29919y",
+    "j1g407ytdn5dvph",
+    "eblm8zdma8wbyuf",
+    "0za5wlr3t93580i",
+    "0scelnxs4t30pct",
+    "p0hev9k6ift90w8",
+    "v25e3miyf4bgqtp",
+    "xfppgniog6frn1o",
+    "q5e8yot18ky1rjy",
+    "xxfpyns5iq15gb1",
+    "4wueetv8n48w34r",
+    "kh9z8v52b5kws8r",
+    "g5saelqcfbn77ot",
+    "debnce18267jcss",
+    "9bwr68eqd3bwwtz",
+    "zgm7glz7m5ioo48",
+    "y6zkp2at44ng06o",
+    "tnn2q9ulo33wiem"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.599Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.599Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "yvjcputrh8rhftg"
+    }
+  ]
+}

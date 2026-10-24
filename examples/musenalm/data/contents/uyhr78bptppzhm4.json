@@ -1,0 +1,45 @@
+{
+  "annotation": "Meiner Unbekannten. Sonette (Sammlung INr 85651, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Ihr Flammen meines Busens möget brennen, / Nach Außen darf nicht eure Röthe schlagen",
+  "language": [],
+  "musenalm_id": 85652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Liebesreiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Liebesreiz",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "roqd4m2swedwv3j",
+      "source_id": "e0fzqe4mz49cicy"
+    }
+  ]
+}

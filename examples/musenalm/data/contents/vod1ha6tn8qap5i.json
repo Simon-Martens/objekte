@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Der Gemsenjäger« von J. Schnerr INr 538 74, Obj 12 /) unter der Graphik: Alpenrosen XIVr. Jahrg.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53864,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gemsenjäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Heideloff del. Fr. Geissler sculp.",
+  "scans": [
+    "alm_736_53864_l547ecrgv4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gemsenjäger",
+  "updated": "2008-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.780Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "1ryutv3nrt99d74"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.780Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "j92ptq3j6rcpmf2"
+    }
+  ]
+}

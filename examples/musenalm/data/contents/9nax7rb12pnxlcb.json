@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Da mein Taschenbuch der Strick- Näh- und anderer Arbeiten einen so ungetheilten Beifall erhalten hat, daß wenige Monate nach dessen Erscheinen schon eine zweite Auflage nöthig war, und auch durch eine vortheihafte Recension in der Allgemeinen Literatur",
+  "language": [],
+  "musenalm_id": 48936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einleitung",
+  "updated": "2007-04-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.446Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "hnemfixw0y6suqi"
+    }
+  ]
+}

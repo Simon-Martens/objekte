@@ -1,0 +1,124 @@
+{
+  "annotation": "2 Jgg 1806, 1806; Tübingen (Cotta); Hrsg.: J. D. Falk /) Fortsetzung von: TB für Freunde des Scherzes und der Satire (Falk) 1797-1803",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 2 BB I-Verz, B Vrwrt d Hrsg, SS 1-200 darin 10 GG, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Grotesken, Satyren und Naivitäten (Falk) 1806",
+    "norm": "~",
+    "biblio": 100597,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1826,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Grotesken, Satyren und Naivitäten (Falk) 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 53; L/R 207; Goed VIII. 48, 7b; ADB VI, 549",
+  "responsibility_statement": "Johannes Daniel Falk",
+  "subtitle_statement": "",
+  "title_statement": "GROTESKEN, / SATYREN UND NAIVITÄTEN / AUF DAS JAHR 1806. / Mit eilf Umrissen, nach Raphael, Michael / Angelo, Teniers, und andern alten Meistern. / Herausgegeben / von / J. D. FALK. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.647Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "8gqhzqkauq4lajb"
+  ],
+  "contents": [
+    "wbzzoxtt19hhykz",
+    "ner6g7myifo42u4",
+    "n86irtw1oglcirt",
+    "pb08fcrlwb68svy",
+    "z8p3lm0u3in7bq2",
+    "ywp8b5bfcvo2ilp",
+    "4574r275nv2fnyt",
+    "80o9rlw9pghwpjg",
+    "7ish2s1ryxhctml",
+    "cziyi9ld9o9ij4r",
+    "ngohmax0lpzb8qk",
+    "h90gup3fm9o7rlq",
+    "pys5enilqp2a8om",
+    "96d676jnkpynf9e",
+    "vjy8xj0x9qoc0qt",
+    "roitcvqd3t6ttob",
+    "a2aklv01dw10ldn",
+    "vlrndxichq9nzgp",
+    "t3ys9pj3km1nwnh",
+    "zx6yuktt0ep6vsm",
+    "ymxg5mjioob6swp",
+    "9h9gt9c2wgsl9fq",
+    "iu0bxi38poyudqs",
+    "czm2gqpzbqoxfnp",
+    "4z9xus86mkrd13w",
+    "idust7kt1cw66j1",
+    "d3xhyb4tf1j86nm",
+    "uow40gq68wvgl6t",
+    "9rzwxdq8iqk6gca",
+    "vnwutfzlm399wnn",
+    "5vucki6ragyfo06",
+    "v7h14x4s7n8pijl",
+    "jz9ksf3ugg1vw9j",
+    "omn66l90yarf8ii",
+    "lqmx69e58akvdix",
+    "f78faw3gegbrkgg",
+    "26o69upy39doobf",
+    "l6lg75qk6ez6l0a",
+    "0rkdbxhi0nfx8ci",
+    "63b2hwacruuhv13",
+    "ollbc2hcr4e37s9",
+    "hjo3yt70gi14d8e",
+    "fxtnl70wdh2xnjk",
+    "be1snuw6pzc6wdg",
+    "qdmfrkz3xqhmht1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.674Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.674Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "kzhzposrynygnjj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.975Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.975Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "sa482vny13y2byn"
+    }
+  ]
+}

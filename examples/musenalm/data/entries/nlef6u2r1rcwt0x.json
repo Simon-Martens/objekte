@@ -1,0 +1,78 @@
+{
+  "annotation": "2 Jgg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Marburger für Geschichte [...] der Steiermark 1853",
+    "norm": "",
+    "biblio": 408541,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-06-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4112,
+  "parallel_title": "",
+  "place_statement": "Graz (Leykams Erben)",
+  "places": [
+    "qww1pxzqibaxvpt"
+  ],
+  "preferred_title": "Taschenbuch, Marburger für Geschichte [...] der Steiermark 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Rudolf Gustav Puff",
+  "subtitle_statement": "",
+  "title_statement": "Marburger / Taschenbuch / für / Geschichte, / Landes- und Sagenkunde / der / Steiermark / und der / an dieselbe grenzenden Länder / von / Dr. Rudolf Gustav Puff. / Erster Jahrgang. / Graz, 1853. / Druck und Papier von A. Leykam's Erben",
+  "updated": "2026-06-11 10:18:55.394Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "kb9vrww25scgcx5"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.459Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.459Z",
+      "agent": "z276kpo6m8d5nvd",
+      "source_id": "0zmzknccwt915lb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "wyeh9ra9496txz7",
+      "source_id": "3kuf1iftoevvauo"
+    }
+  ]
+}

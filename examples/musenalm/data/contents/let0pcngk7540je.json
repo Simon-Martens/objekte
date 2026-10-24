@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Du singst und singst, und nie wirst du von uns / erhoben: / Sing uns dein Schwanlied, dann wollen wir dich loben.",
+  "language": [],
+  "musenalm_id": 36056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen schlechten Liederdichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen schlechten Liederdichter",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.815Z",
+      "agent": "tvrder99cpa3fos",
+      "source_id": "lbikb1ei2v1ai37"
+    }
+  ]
+}

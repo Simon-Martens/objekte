@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24987, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Sagt mir nicht von Landschaftsbildern, / Nichts von Frucht- und Blumenstücken,",
+  "language": [],
+  "musenalm_id": 25005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Wirklichkeit und Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Wirklichkeit und Bild",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.066Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "aaen36188ja1iqp"
+    }
+  ]
+}

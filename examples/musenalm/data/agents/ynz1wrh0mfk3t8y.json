@@ -1,0 +1,725 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.420Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Geb. in Pest (Ungarn); Graf; Geschichtsschreiber"
+      ],
+      "dateOfBirth": [
+        "1786-10-05"
+      ],
+      "dateOfDeath": [
+        "1855-01-03"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/116968281"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-25T09:08:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116688912/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        }
+      ],
+      "gndIdentifier": "116688912",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116688912",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)131014358",
+        "(DE-588a)116688912",
+        "(DE-588a)130901539",
+        "(DE-588)116968281",
+        "(DE-588a)116968281"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4137172-0",
+          "label": "Pest (Stadt)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4056971-8",
+          "label": "Starnberger See"
+        }
+      ],
+      "preferredName": "Mailáth, Johann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann"
+        ],
+        "surname": [
+          "Mailáth"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Mailáth, Johann: Geschichte der Stadt Wien von der Gründung derselben bis 1830",
+        "Mailáth, Johann: Geschichte der Magyaren. - 1828 - 1831",
+        "Der animalische Magnetismus als Heilkraft",
+        "Die Religionswirren in Ungarn. - 18XX",
+        "Mailáth, Johann: Der ungarische Reichstag im Jahre 1830",
+        "Koloczaer Codex altdeutscher Gedichte",
+        "Mailáth, Johann: Praktisch-ungrische Sprachlehre zum Selbstunterrichte ..",
+        "Mailáth, Johann: Magyarische Sagen und Mährchen",
+        "Magyarische Sagen, Mährchen und Erzählungen. - 18XX",
+        "Auserlesene altdeutsche Gedichte",
+        "Geschichte des östreichischen Kaiserstaates. - 18XX",
+        "Mailáth, Johann: Magyarische Gedichte",
+        "Geschichte von Östreich. - 18XX",
+        "Magyarische Sagen und Mährchen",
+        "Register",
+        "Mailáth, Johann: Das ungrische Urbarialsystem ..",
+        "Das ungrische Ubarialsystem oder des Grundherrn und des Bauers Wechselverhältniß in Ungern",
+        "Der ungarische Reichstag im Jahre 1830"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12818263d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058960"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/74609784"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1163478"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116688912/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116968281"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Mail%C3%A1th"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/J%C3%A1nos_Majl%C3%A1th"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109883231"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116688912"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_M/Mailath-Szekhely_Janos_1786_1855.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116688912.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116688912.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116688912"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Majláth, Johann Nepomuk Graf von",
+        "Maylath, Johann",
+        "Mailáth, János Nepomuk Jozsef, Gróf",
+        "Majláth, Nepomuki J.",
+        "Mailáth, János, székhelyi",
+        "Majlath, János",
+        "Majláth, Johann Nepomuk von",
+        "Mailáth, János Nepomuk Joszef, Graf von, Historiker, Schriftsteller, Uebersetzer",
+        "Mailath, Johann Graf von",
+        "Mailath, Johann Nepomuk",
+        "Mailath, Johann von",
+        "Mailáth, János, Graf von, Historiker, Schriftsteller, Uebersetzer",
+        "Mailáth, Johann Nepomuk von",
+        "Mailath, János",
+        "Mailáth, Johann Nepomuk Joszef, Graf von, Historiker, Schriftsteller, Uebersetzer",
+        "Mailáth, Nepomuki János",
+        "Majláth, Johann von",
+        "Mailáth, Johann N. von",
+        "Mailáth, János Nepomuk József",
+        "Majláth, Johann",
+        "Mailath, Johann Nepomuk Josef von",
+        "Mailáth, Johannes",
+        "Mailáth von Székhely, Johannes",
+        "Maylath, Johann von",
+        "Mailäth, Johann von",
+        "Mailath, Johann Nepomuk Joseph",
+        "Mailáth, Johann Graf von",
+        "Majláth, Nepomuki János",
+        "Mailáth, Nepomuk",
+        "Mailáth",
+        "Mailáth v. Székhely, Johann",
+        "Mailáth, Janos Nepomuk Jozsef",
+        "Székhely, Johann Mailáth von",
+        "Mailath, Johann Nepomuk von",
+        "Mailáth, Johann, Graf von, Historiker, Schriftsteller, Uebersetzer",
+        "Mailáth von Székhely, Johann",
+        "Mailáth, János",
+        "Mailáth von Székhely, Johann, Graf von, Historiker, Schriftsteller, Uebersetzer"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Nepomuk Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Mailáth v. Székhely"
+          ]
+        },
+        {
+          "forename": [
+            "János"
+          ],
+          "nameAddition": [
+            "székhelyi"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "János"
+          ],
+          "surname": [
+            "Majlath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Maylath"
+          ]
+        },
+        {
+          "forename": [
+            "János"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Mailáth von Székhely"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "János"
+          ],
+          "nameAddition": [
+            "Graf von, Historiker, Schriftsteller, Uebersetzer"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk Joszef"
+          ],
+          "nameAddition": [
+            "Graf von, Historiker, Schriftsteller, Uebersetzer"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann N."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Nepomuki János"
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk Joseph"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "nameAddition": [
+            "Graf von, Historiker, Schriftsteller, Uebersetzer"
+          ],
+          "surname": [
+            "Mailáth von Székhely"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailäth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "nameAddition": [
+            "Graf von, Historiker, Schriftsteller, Uebersetzer"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailath"
+          ]
+        },
+        {
+          "forename": [
+            "János Nepomuk Joszef"
+          ],
+          "nameAddition": [
+            "Graf von, Historiker, Schriftsteller, Uebersetzer"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Mailáth"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Székhely"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Mailáth von Székhely"
+          ]
+        },
+        {
+          "forename": [
+            "János"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "János Nepomuk József"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "forename": [
+            "Nepomuki J."
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "forename": [
+            "János Nepomuk Jozsef"
+          ],
+          "nameAddition": [
+            "Gróf"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Nepomuki János"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "personalName": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Nepomuk"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Maylath"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Majláth"
+          ]
+        },
+        {
+          "forename": [
+            "Janos Nepomuk Jozsef"
+          ],
+          "surname": [
+            "Mailáth"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Mail%C3%A1th",
+          "label": "https://de.wikipedia.org/wiki/Johann_Mail%C3%A1th"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:11:00Z",
+    "gnd_query_biographical_data": "1786-1855",
+    "gnd_query_name": "mailáth, johann von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1700,
+  "name": "Mailáth, Johann von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 339; Goed XII, 409",
+  "updated": "2026-06-11 13:29:23.704Z",
+  "uri": "https://d-nb.info/gnd/116688912",
+  "editor": ""
+}

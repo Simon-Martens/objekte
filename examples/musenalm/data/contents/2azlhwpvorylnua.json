@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1824, gesammelt von Theodor Hell (Sammlung INr 40605, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "442",
+  "incipit_statement": "Ihr rathet Schweres gern, ich weiß es schon, / Die Freude des Enträthselns ist der Lohn.",
+  "language": [],
+  "musenalm_id": 40629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "25. / Charade von drei Sylben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "25. / Charade von drei Sylben",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.226Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "581cebstkgsrrzp"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sporting-Almanach 1844",
+    "norm": "",
+    "biblio": 406275,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-05-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4622,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Teubner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Sporting-Almanach 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 104; nicht bei L/R",
+  "responsibility_statement": "Otto von Corvin-Wiersbitzki",
+  "subtitle_statement": "",
+  "title_statement": "SPORTING-ALMANACH / 1844. / Von / Otto von Corvin-Wiersbitzki. / Erster Jahrgang. / Mit 3 engl. Stahlstichen und 70 feinen Holzschnitten illustrirt. / Leipzig, / Druck und Verlag von B. G. Teubner",
+  "updated": "2026-06-11 10:18:55.421Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "1o5646sjaa9bnzx"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "2mpqn36c4imse0n",
+      "source_id": "pip0bpb1so7oj9v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.396Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.396Z",
+      "agent": "cmylaolo9dbcgmr",
+      "source_id": "tn2cxzkbv57bhi4"
+    }
+  ]
+}

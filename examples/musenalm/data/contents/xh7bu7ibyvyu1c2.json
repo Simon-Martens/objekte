@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Entschuldigen Sie, unbekannter Freund, diese Zeilen, die ich an Sie richte, und abzudrucken bitte. Meine Absicht ist nichts weniger, als Sie zu schmähen,",
+  "language": [],
+  "musenalm_id": 69197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Autor an den Setzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Autor an den Setzer",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.418Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "4e36jmdi6uk4ftc"
+    }
+  ]
+}

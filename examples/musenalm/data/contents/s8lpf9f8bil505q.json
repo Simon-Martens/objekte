@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Die du hieroben schlaff in der Halle hingst / Und lautlos, dessen klügelnd der Sueve lacht;",
+  "language": [],
+  "musenalm_id": 8444,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Bardenfest, / den 24ten May 1773",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Telynhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Bardenfest, / den 24ten May 1773",
+  "updated": "2026-06-23 09:01:04.878Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.985Z",
+      "agent": "kguhc4kb9u0c03l",
+      "source_id": "pn5ao2jx6mj6uiu"
+    }
+  ]
+}

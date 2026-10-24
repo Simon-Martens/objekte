@@ -1,0 +1,47 @@
+{
+  "annotation": "kein Textbezug im Almanach",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "In dem Abendglanz der Sonne gieng ich still am Wiesenbach",
+  "language": [],
+  "musenalm_id": 35452,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendphantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bornkessel",
+  "scans": [
+    "alm_487_35452_hkwq8xlfcp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendphantasie",
+  "updated": "2003-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.278Z",
+      "agent": "4wfwnyhinkwvphl",
+      "source_id": "xa0xh107a5p2ztd"
+    }
+  ]
+}

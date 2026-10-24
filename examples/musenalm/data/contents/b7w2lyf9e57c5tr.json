@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Die Luft war schwül und die Wolken schwer, der Regen rauschte plötzlich in Bächen zum Boden, und die im Park zerstreute Badegesellschaft flüchtete sich von allen Seiten nach dem nahegelegenen Kursaal,",
+  "language": [],
+  "musenalm_id": 64231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Form und Geist. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Jeanne Marie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Form und Geist. / Novelle",
+  "updated": "2009-05-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.365Z",
+      "agent": "3wuzr6tb9xdgoey",
+      "source_id": "hahtzsq59djoqh4"
+    }
+  ]
+}

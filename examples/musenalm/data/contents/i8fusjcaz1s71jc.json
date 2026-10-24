@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. Am 1. Blatt der Suite /) Graphik im Kalendarium Mai paginiert 6. /) Illustration zu »Der Handschuh« von Fr. Schiller s. Textbezug INr 72483, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72466,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und aus der Ungeheuer Mitte / Nimmt er den Handschuh mit keckem Finger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. F. W. Bollinger sc.",
+  "scans": [
+    "alm_846_72466_f1fe7lfq87.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und aus der Ungeheuer Mitte / Nimmt er den Handschuh mit keckem Finger",
+  "updated": "2008-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.372Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "hltvjtznmoru9fw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.372Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "oouqrq4atjzs8k4"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September. Illustration zu »Blick auf die Entwickelung der Ereignisse und die Folge der politischen Beziehungen, durch welche das Großherzogthum Posen eine Provinz des preußischen Staats geworden ist.« INr 59066, Obj 17; s. a. Textbezug INr 59077, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59060,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gottuchow",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. J. Minutoli gest. v. H. Finke",
+  "scans": [
+    "alm_874_59060_uxpqn4lvs3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gottuchow",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.944Z",
+      "agent": "62nlulcv8at2x8q",
+      "source_id": "1y8cs5ze22vvmbm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.944Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "3nbvvskmpajlhyt"
+    }
+  ]
+}

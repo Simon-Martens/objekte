@@ -1,0 +1,80 @@
+{
+  "annotation": "§§ SS 11-14 fehlen, $ vermutl fehlt Modekupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 6 BB Kal darin 5 GG, SS 1-48 §§, 20 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toilettenkalender (Mannheim) 1795",
+    "norm": "~",
+    "biblio": 200102,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-04-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 27,
+  "parallel_title": "",
+  "place_statement": "Mannheim",
+  "places": [
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Toilettenkalender (Mannheim) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Toiletten / CALENDER / Mannheim. / 1795",
+  "updated": "2026-06-11 10:18:54.969Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "ce3oxm0fhsjdmh5"
+  ],
+  "contents": [
+    "qsnwvoh4o412fy3",
+    "bl5xwtjrwtgh93y",
+    "vch2c68e5dn8oiz",
+    "l0gadp2i9v5qxa1",
+    "thgvylks2pa5tet",
+    "zq0ux6253o6asr2",
+    "2suuji2e230h5yw",
+    "mk6wh2xofaxh679",
+    "xkn93hwgafuonwm",
+    "023b5fhk31x8lto",
+    "z8fo8xu3vi0fykm",
+    "lg803x55807fldv",
+    "ektxbe0jju5jcxd",
+    "wtwqqvv9d301ptb",
+    "6lqt1vzm11eioo8",
+    "f8fh6lb2xntv6k1",
+    "qbgzz0pw4qrktpa",
+    "ynxw3fa2p4kbhkz",
+    "djzid8n0qv9brjl",
+    "5qjd3c8axtkg4oc",
+    "t1nmqocag7tkwqm",
+    "1y2q6d80x26cys1",
+    "71xsmyef5tgo39c",
+    "dunirzjgoljlgih"
+  ],
+  "agents": []
+}

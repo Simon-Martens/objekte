@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Es tritt ein Wandersmann herfür / An eines Dorfes Schenke,",
+  "language": [],
+  "musenalm_id": 15234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Warnung. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Warnung. / Romanze",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.803Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "58g14bxrsqkk4wv"
+    }
+  ]
+}

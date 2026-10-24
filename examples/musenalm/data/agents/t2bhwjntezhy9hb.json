@@ -1,0 +1,395 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.273Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin"
+      ],
+      "dateOfBirth": [
+        "1777-02-09"
+      ],
+      "dateOfDeath": [
+        "1822-09-17"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:16:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116384697/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116384697",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116384697",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116384697",
+        "(DE-588a)100795951",
+        "(DE-588c)7563289-5"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Rochlitz"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Brachmann, Louise",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Louise"
+        ],
+        "surname": [
+          "Brachmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichterin"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Klarfeld"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "B. Louise"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Sternheim"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Gedichte",
+        "Schilderungen aus der Wirklichkeit",
+        "Auserlesene Dichtungen. - 1824 - 1826",
+        "Das Gottesurtheil",
+        "Verirrungen oder die Macht der Verhältnisse"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031765"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/47512095"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q103564"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116384697/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Louise_Brachmann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karoline_Marie_Luise_Brachmann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Louise_Brachmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109690958"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116384697"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116384697.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116384697.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116384697"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Brachmann, Caroline",
+        "Brachmann, Karoline Luise",
+        "Brachmann, Karoline Marie Luise",
+        "Sternheim",
+        "Brachmann, Louise Karoline",
+        "Klarfeld",
+        "B. Louise",
+        "Brachmann, Luise Caroline",
+        "Brachmann, Karoline Marie Louise",
+        "Brachmann, Louise Karoline Marie",
+        "Brachmann, Luise",
+        "Brachmann, Louise Caroline",
+        "Brachmann, Karoline Louise",
+        "Brachman, Louise"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Luise"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Louise Karoline"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Louise Caroline"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Louise Karoline Marie"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Marie Luise"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Louise"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Marie Louise"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Klarfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Luise Caroline"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Sternheim"
+          ]
+        },
+        {
+          "forename": [
+            "Louise"
+          ],
+          "surname": [
+            "Brachman"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Luise"
+          ],
+          "surname": [
+            "Brachmann"
+          ]
+        },
+        {
+          "personalName": [
+            "B. Louise"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Louise_Brachmann",
+          "label": "https://de.wikipedia.org/wiki/Louise_Brachmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:00:48Z",
+    "gnd_query_biographical_data": "1777-1822",
+    "gnd_query_name": "brachmann, karoline marie luise"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 284,
+  "name": "Brachmann, Karoline Marie Luise",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 137",
+  "updated": "2026-06-11 13:29:21.699Z",
+  "uri": "https://d-nb.info/gnd/116384697",
+  "editor": ""
+}

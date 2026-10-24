@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Sie läßt den Mann nicht von der Seite / kommen. / Sie hat den Mann zur Frau genommen.",
+  "language": [],
+  "musenalm_id": 6668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "POLLA. / Nach Martial",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "OVERBECK",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "POLLA. / Nach Martial",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.237Z",
+      "agent": "qh3g3sytdf754hd",
+      "source_id": "9xo6ran7mbwscer"
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1832",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.361Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1784-02-02"
+      ],
+      "dateOfDeath": [
+        "1832"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:51:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116528095/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116528095",
+      "id": "https://d-nb.info/gnd/116528095",
+      "oldAuthorityNumber": [
+        "(DE-588a)130943436",
+        "(DE-588a)116528095"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4037124-4",
+          "label": "Mainz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Haupt, Theodor von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Theodor"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Haupt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4048755-6",
+          "label": "Rechtsanwalt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Peregrinus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Peregrinus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Haupt, Theodor von: Hamburg und der Marschall Davoust",
+        "Haupt, Theodor von: Aehrenlese aus der Vorzeit",
+        "Paris, das Buch der Hundert-Eins",
+        "Haupt, Theodor von: Theoretisch-praktischer Commentar des Napoleonischen Gesetzbuchs",
+        "Haupt, Theodor von: Hochverrathsproceß der Minister Karl's X. von Frankreich",
+        "Dupaty, Charles M.: Blüthen aus Italien",
+        "Haupt, Theodor von: Triers Vergangenheit und Gegenwart",
+        "Haupt, Theodor von: Hambourg et le Maréchal Davoust",
+        "Tasso, Torquato: Le veglie",
+        "Haupt, Theodor von: Jacobe, Herzogin zu Jülig, geborne Markgräfin von Baden"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Markus Theodor"
+          ],
+          "surname": [
+            "Haupt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93008450"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7635007"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1901833"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116528095/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Theodor_von_Haupt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Theodor_von_Haupt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000114597002"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116528095"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116528095"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116528095.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116528095"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Haupt, Th. de",
+        "Haupt-Schneider, ...",
+        "Haupt, Th. von",
+        "Haupt, Markus Theodor von",
+        "Peregrinus",
+        "Haupt, Markus Theodor",
+        "Haupt, Marcus T. von",
+        "Haupt, Theodor",
+        "Peregrinus, Theodor",
+        "Haupt, Th. v.",
+        "Haupt, Marcus Theodor von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Peregrinus"
+          ]
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Markus Theodor"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Haupt-Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Peregrinus"
+          ]
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Marcus T."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        },
+        {
+          "forename": [
+            "Markus Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Haupt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Theodor_von_Haupt",
+          "label": "https://de.wikipedia.org/wiki/Theodor_von_Haupt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:41:03Z",
+    "gnd_query_biographical_data": "1784-1832",
+    "gnd_query_name": "haupt, theodor von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1099,
+  "name": "Haupt, Theodor von",
+  "profession": "Text",
+  "pseudonyms": "Theodor Peregrinus",
+  "refs": "Goed VII, 251",
+  "updated": "2026-06-11 13:29:22.831Z",
+  "uri": "https://d-nb.info/gnd/116528095",
+  "editor": ""
+}

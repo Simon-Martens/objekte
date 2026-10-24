@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Pindars Flug, wer den zu erreichen trachtet, / Freund! der wagt's auf Flügeln von Wachs !",
+  "language": [],
+  "musenalm_id": 31873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Julus Antonius / Nach Horaz 2. Ode 4. Buchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Julus Antonius / Nach Horaz 2. Ode 4. Buchs",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.392Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "taiap9d2w03k4lh"
+    }
+  ]
+}

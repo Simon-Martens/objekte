@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verlag von J. D. Sauerländer / Dr. v. W. Maas] s. Textbezug INr 44140, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44139,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BLONDEL VOR DEM GEFÄNGNISSE DES RICHARD LÖWENHERZ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. K. W. v. Heideck Gest. v. Carl Müller",
+  "scans": [
+    "alm_599_44139_hd4ajr3a8w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BLONDEL VOR DEM GEFÄNGNISSE DES RICHARD LÖWENHERZ",
+  "updated": "2006-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "d05hk8pdykf008a",
+      "source_id": "wfpwquiz1wtznrl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 63203, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Dem Adler gleich, wenn ihn die Schwingen heben, / Die Königin des Himmels zu begrüßen,",
+  "language": [],
+  "musenalm_id": 63204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.830Z",
+      "agent": "tetas6nm69fwpjp",
+      "source_id": "6mlnne13mmqz4cz"
+    }
+  ]
+}

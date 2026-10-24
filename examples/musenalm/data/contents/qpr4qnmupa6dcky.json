@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April. Illustration zu »Die Fichtelberger« von C. Weisflog INr 59457, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59419,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und bis dahin - mein Mätzlein- gehabt euch / denn wohl! / zu der Erzählung: Die Fichtelberger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. Fr. Wi. Meyer senior sc.",
+  "scans": [
+    "alm_896_59419_utr1b37dkn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und bis dahin - mein Mätzlein- gehabt euch / denn wohl! / zu der Erzählung: Die Fichtelberger",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.891Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "l7fk86ghvpdemwk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.891Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "zbo9mjq0m8wq2hv"
+    }
+  ]
+}

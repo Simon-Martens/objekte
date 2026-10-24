@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Gottlob! Ich bin erwacht aus meinem Schlummer, / Der lange bleyern auf mir lag,",
+  "language": [],
+  "musenalm_id": 69250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein neues Leben. / Im Mai 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein neues Leben. / Im Mai 1805",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.503Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "rt6zqrzb69lj48h"
+    }
+  ]
+}

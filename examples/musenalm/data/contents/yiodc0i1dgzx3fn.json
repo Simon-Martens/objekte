@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Juni /) # Titel s.Textbezug INr 85056, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein französischer Schwimmer, nach englischer Facon #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. f.",
+  "scans": [
+    "alm_3122_85043_znytpz4qra.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein französischer Schwimmer, nach englischer Facon #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.185Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "0l3toiwldg6bqox"
+    }
+  ]
+}

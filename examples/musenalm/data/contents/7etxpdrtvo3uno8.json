@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 109863, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Was habt ihr, sprecht, was habt ihr Brüder? / Die Stirnen furch't, und senket ihr:",
+  "language": [],
+  "musenalm_id": 109864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwester. / (Nach Victor Hugo.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. C. Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwester. / (Nach Victor Hugo.)",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.380Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "b3jffbsx82d7vhc"
+    }
+  ]
+}

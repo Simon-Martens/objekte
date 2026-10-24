@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, S I T, SS III-IV I-Verz, S V G-Verz, S VI C, 5 GG, SS 1-409, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Deutsches (Büchner) 1838",
+    "norm": "~",
+    "biblio": 100654,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2930,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker und Humblot)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Deutsches (Büchner) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "Karl Büchner",
+  "subtitle_statement": "",
+  "title_statement": "Deutsches Taschenbuch / auf das Jahr 1838. / Mit Beiträgen / von / Willibald Alexis, F. G. Kühne, Theodor Mügge, Ludwig / Rellstab, Leopold Schefer und Anderen. / Herausgegeben / von / Karl Büchner. / Mit 6 Kupfer- und Stahlstichen. / Berlin. / Verlag von Duncker und Humblot",
+  "updated": "2026-06-11 10:18:54.554Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "h052bnzzjop9hbf"
+  ],
+  "contents": [
+    "p68gbse7xohwsoq",
+    "k6dv8xxgekls1a9",
+    "ctpw815cww6g8k8",
+    "p17ajypbeawyiwb",
+    "ppgmtqymvgiob20",
+    "xb9hfoiywt9ndti",
+    "61ybx4tj8zl0apu",
+    "x98c8zhud9tklzq",
+    "v4bs3fhdd2yb6qh",
+    "snae79ivu7v7vn4",
+    "v6d8s7onbo1slas",
+    "1b5f8djj8cmvx2v",
+    "srk99z1tnc22cxa",
+    "6hjb6yspr97ts8k",
+    "y38vfur2c45mj3q",
+    "xhrnlrjn6g8rvn1",
+    "9sy8h96lzr4laxk",
+    "r0l66wbahyvxvql",
+    "qa3w76g1doy9gin",
+    "gci8xj5ow52hy5v",
+    "k7aqn79o1thp70e",
+    "kqgr2q8ef8u0ct6",
+    "dupom94wuzcs8oj",
+    "zmad9qx0r3ie692",
+    "t5qe36j8n7ipu90",
+    "bbiw57319zgmxj3",
+    "jfyy1t89fbmhxbn",
+    "fs611uyvw9dtzx3",
+    "lvn4rn3v3cx7lp4",
+    "ww33yskscl7ogvy",
+    "knc69s5idzp2fiy",
+    "c359mxlk4znp4k2",
+    "857l2zn7s6jsyh2",
+    "g56j0mkn8legn4z",
+    "rjdteq0htpjvfmj",
+    "ujsyar9ues6utoy",
+    "bgwz3qczvjuxc3p",
+    "2htfh915s3x7sbu",
+    "xsea5s0fstwp1vk",
+    "3fx0t2uguer2cg6",
+    "ot2i6bn80t9j3dh",
+    "x8ry5pquk4rtqvz",
+    "ih1bw29insac8br",
+    "rvc3zsuqyo148pq",
+    "tf28aht9ew37hl9",
+    "4lve9uy7whfrntw",
+    "41cu2obg0u0wkh4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.753Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.753Z",
+      "agent": "rgoxvg7uuoc3chb",
+      "source_id": "21yarcedcdhvh0w"
+    }
+  ]
+}

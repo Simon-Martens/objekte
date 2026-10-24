@@ -1,0 +1,45 @@
+{
+  "annotation": "Variazionen (Sammlung INr 51294, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Glänzend wer die grüne Heide, / Blumen rings und Sonnenstralen / Heisser Liebe süsse Quaalen / Waren meine Seelenweide.",
+  "language": [],
+  "musenalm_id": 51295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. VARNHAGEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.868Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "8ei6gkmseori2fi"
+    }
+  ]
+}

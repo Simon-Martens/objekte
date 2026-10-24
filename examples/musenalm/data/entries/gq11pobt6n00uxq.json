@@ -1,0 +1,132 @@
+{
+  "annotation": "Titelauflage des 1798 unter dem Titel »Taschenbuch von J. G. Jacobi und seinen Freunden für das Jahr 1798« Königsberg (Nicolovius) erschienenen Almanachs, der sich lt. Vorwort wegen der »Schweitzer Revolution« und der »Wiedererneuerung des französischen Revolutions-Krieges im Jahr 1798« nicht verkauft hatte.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS 1-2 Vrwrt d Hrsg, SS 3-166 darin 4 GG MusB, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch von J. G. Jacobi und seinen Freunden 1798 /) TA: Almanach zur angenehmen Unterhaltung 1804",
+    "norm": "~",
+    "biblio": 200576,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-05-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 309,
+  "parallel_title": "",
+  "place_statement": "Basel (Flick)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Taschenbuch von J. G. Jacobi und seinen Freunden 1798 [TA: Almanach zur angenehmen Unterhaltung 1804]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 55; Goed VIII. 61, 66",
+  "responsibility_statement": "J. G. Jacobi",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / zur / angenehmen Unterhaltung / für / das Jahr 1804. / Basel, / bey Samuel Flick",
+  "updated": "2026-06-11 10:18:54.746Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "xxhh0alp24g6f7h"
+  ],
+  "contents": [
+    "lkz0kpkhyt80kcf",
+    "dkd4k6qxl56qgvv",
+    "ewce194damhdi6w",
+    "c9nd7a8nd3ssn91",
+    "rlh1ki4ahcfq70r",
+    "sp8refy43ae7632",
+    "wtrh0exzacb3441",
+    "kqeyjrzq1oalwka",
+    "w9vdhw4f8ldmigb",
+    "a084wc8ocuzj6j9",
+    "0udd38tf9dmmrrj",
+    "32ie1jhvppe5lpr",
+    "5uazsiszn6pq1rz",
+    "xsaz8fc3i954h1y",
+    "14dh4ne5epdse8a",
+    "qx39yeks58bagpo",
+    "znu59ghrjvczpf9",
+    "r59wc2499p78shq",
+    "gaj5paefry9apfl",
+    "qg210v7ks5t3yz8",
+    "06swexo1e0ttsp5",
+    "oly4riiovxtn0l5",
+    "bzdw89aua39czaw",
+    "pi4ls5g58xeq8rg",
+    "snhtq0zyortrryr",
+    "mig4sca472qmz24",
+    "u1u27lii9yii4hv",
+    "p20vzu4bow6e7n9",
+    "r42xujnjg67jckj",
+    "fdsdtl853oad7hl",
+    "yf7gzyx92zlg7y1",
+    "qilvn9w0tqhpspq",
+    "n71pnz5yleycw2f",
+    "tj0r9csu5miipae",
+    "w5m2e2xoqiur34g",
+    "qn3yei2rgp6loyh",
+    "xo5507rro7m5kkv",
+    "jqxkci9r9eqzqgv",
+    "wvdnjzvolvkru6n",
+    "x88t0bv6lv2nl1x",
+    "8abw21atmg0wgst",
+    "jr0g3ng6tni69ha",
+    "ttxz4f2j3vzlvib",
+    "gqhm5jcrg537f6g",
+    "xag33hk1229s11r",
+    "ecgmoyimb8zwp9o",
+    "hqka00bbnlvcsyn",
+    "zj656oakjwvi8k0",
+    "zgwt1zst7ley7i4",
+    "f5bxg28vq9dfoik",
+    "bud5s1fjbu4tx1x",
+    "dfocyzjsi31tngo",
+    "2hwtddb8utw5qwo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.859Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.859Z",
+      "agent": "yipsbe3vu0radw1",
+      "source_id": "hec4l91z38bqe9n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.591Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.591Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "ync7nzrfxellw6v"
+    }
+  ]
+}

@@ -1,0 +1,632 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1872",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.350Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1036794091",
+          "label": "Stingel, Vincenz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1281219266",
+          "label": "Lammer, Josef"
+        }
+      ],
+      "dateOfBirth": [
+        "1791-01-15"
+      ],
+      "dateOfDeath": [
+        "1872-01-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Grillparzer.jpg: Josef Kriehuber&nbsp;(1800–1876)&nbsp;&nbsp; &nbsp; Alternative names Joseph Kriehuber Description Austrian- painter and lithographer Date of birth/death 14 December 1800&nbsp; 30 May 1876&nbsp; Location of birth/death Vienna&nbsp; Vienna&nbsp; Work period 1815&nbsp;–1876&nbsp; Work location Austria Authority file : Q93804 VIAF: 71599977 ISNI: 0000000066588354 ULAN: 500093668 LCCN: n88195846 MusicBrainz: 28488493-973c-48cd-8bb0-00ce0330e84b WorldCat creator QS:P170,Q93804 Foto: Peter Geymayer derivative work: Memorino (talk)"
+          ],
+          "creditText": [
+            "Grillparzer.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Grillparzer%20cropped.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grillparzer%20cropped.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Grillparzer%20cropped.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1060002132"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-10T19:08:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118542192/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/136139205",
+          "label": "Grillparzer, Wenzel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/103949828",
+          "label": "Sonnleithner, Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104290331",
+          "label": "Rizy, Johann Sigmund"
+        },
+        {
+          "forename": [
+            "Camillo"
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/115712187X",
+          "label": "Rizy, Auguste"
+        },
+        {
+          "forename": [
+            "Anna Franziska"
+          ],
+          "surname": [
+            "Sonnleithner"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1023069105",
+          "label": "Grillparzer, Anna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118615637",
+          "label": "Sonnleithner, Ignaz von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104332042",
+          "label": "Sonnleithner, Joseph"
+        },
+        {
+          "forename": [
+            "Wenzel E. J."
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/13719336X",
+          "label": "Sonnleithner von Edelheim, Christoph Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1157101410",
+          "label": "Rizy, Franziska"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116575468",
+          "label": "Rizy, Theobald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100274153",
+          "label": "Sonnleithner, Franz Xaver"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137193319",
+          "label": "Sonnleithner, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1157100694",
+          "label": "Rizy, Maria Benedicta"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118542192",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.8p",
+          "label": "Personen zu Archiv, Museum"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/104332042",
+          "label": "Sonnleithner, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13719336X",
+          "label": "Sonnleithner von Edelheim, Christoph Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100274153",
+          "label": "Sonnleithner, Franz Xaver"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137193319",
+          "label": "Sonnleithner, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104290331",
+          "label": "Rizy, Johann Sigmund"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1157101410",
+          "label": "Rizy, Franziska"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118615637",
+          "label": "Sonnleithner, Ignaz von"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/103949828",
+          "label": "Sonnleithner, Christoph"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1023069105",
+          "label": "Grillparzer, Anna Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136139205",
+          "label": "Grillparzer, Wenzel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118542192",
+      "oldAuthorityNumber": [
+        "(DE-101c)310365570",
+        "(DE-588a)174167695",
+        "(DE-588c)4022074-6",
+        "(DE-588a)118542192",
+        "(DE-588a)128100494",
+        "(DE-588)1060002132",
+        "(DE-588a)134675576"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Grillparzer, Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "surname": [
+          "Grillparzer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4489416-8",
+          "label": "Finanzbeamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4623517-6",
+          "label": "Archivdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Gedichte",
+        "König Ottokar's Glück und Ende",
+        "Das goldene Vließ",
+        "Der Traum, ein Leben",
+        "Ein treuer Diener seines Herrn",
+        "Sappho",
+        "Die Ahnfrau"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12155340x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79125107"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12345937"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q154438"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1060002132"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118542192/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118542192"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Franz_Grillparzer"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Grillparzer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Franz_Grillparzer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Franz_Grillparzer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108703059"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118542192"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118542192"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_G/Grillparzer_Franz_1791_1872.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118542192.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118542192.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118542192"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/2D501E5B814542E684015AAE65437F5C"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118542192"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Grilʹparcer, Franc",
+        "Grillparzer, Franz Seraphicus",
+        "Grillparzer",
+        "Grīlpāertzir, Frānts",
+        "Grilparcer, Franc",
+        "Grilparc'eri, P'ranc'",
+        "Grillparzer, F.",
+        "Grilʹpart︠s︡er, Frant︠s︡",
+        "그릴파르쩌, 프란츠",
+        "Grillparzer, Franciszek",
+        "グリルパルツェル, フランツ",
+        "גרילפרצר, פרנץ",
+        "Grillparzer, Franz Seraphim"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Seraphicus"
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Seraphim"
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "forename": [
+            "P'ranc'"
+          ],
+          "surname": [
+            "Grilparc'eri"
+          ]
+        },
+        {
+          "forename": [
+            "フランツ"
+          ],
+          "surname": [
+            "グリルパルツェル"
+          ]
+        },
+        {
+          "forename": [
+            "프란츠"
+          ],
+          "surname": [
+            "그릴파르쩌"
+          ]
+        },
+        {
+          "forename": [
+            "Franciszek"
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "forename": [
+            "Frānts"
+          ],
+          "surname": [
+            "Grīlpāertzir"
+          ]
+        },
+        {
+          "forename": [
+            "Franc"
+          ],
+          "surname": [
+            "Grilparcer"
+          ]
+        },
+        {
+          "forename": [
+            "Frant︠s︡"
+          ],
+          "surname": [
+            "Grilʹpart︠s︡er"
+          ]
+        },
+        {
+          "personalName": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Grillparzer"
+          ]
+        },
+        {
+          "forename": [
+            "Franc"
+          ],
+          "surname": [
+            "Grilʹparcer"
+          ]
+        },
+        {
+          "forename": [
+            "פרנץ"
+          ],
+          "surname": [
+            "גרילפרצר"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Grillparzer",
+          "label": "https://de.wikipedia.org/wiki/Franz_Grillparzer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:34:39Z",
+    "gnd_query_biographical_data": "1791-1872",
+    "gnd_query_name": "grillparzer, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 970,
+  "name": "Grillparzer, Franz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 37; Goed XI/2, 129",
+  "updated": "2026-06-11 13:29:22.663Z",
+  "uri": "https://d-nb.info/gnd/118542192",
+  "editor": ""
+}

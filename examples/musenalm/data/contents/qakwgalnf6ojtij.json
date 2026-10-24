@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Rätseln INr 59307, 59308; Obj 44, 45 /) Gedichte (Sammlung INr 59291, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Logogrifen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Logogrifen",
+  "updated": "2008-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.021Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "ozk2mlsdfz3hwvj"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Serenade« von F. C. Rassmann INr 96578, Obj 129",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Serenade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Vagedes",
+  "scans": [
+    "alm_4094_96577_qcu0akj301.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Serenade",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.355Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "ttatxaevbclugc6"
+    }
+  ]
+}

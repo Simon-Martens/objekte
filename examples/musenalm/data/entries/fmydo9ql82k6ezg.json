@@ -1,0 +1,87 @@
+{
+  "annotation": "ohne Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Vrwrt, I-Verz, SS 1–430",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1812",
+    "norm": "~",
+    "biblio": 111745,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1198,
+  "parallel_title": "",
+  "place_statement": "Wien u. Triest (Geistinger)",
+  "places": [
+    "31n865keags4n1n",
+    "dp43n1va7to3kqu"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "Franz August von Kurländer",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Spiele / für Gesellschaftstheater / Von / Franz August von Kurländer / Zweyter Jahrgang. / Wien und Triest, / bey Joseph Geistinger / 1812",
+  "updated": "2026-06-11 10:18:55.138Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "7hvvishfzheruvv"
+  ],
+  "contents": [
+    "l9zo9nkmii3duf6",
+    "5ip4hm6zz04npvu",
+    "0y4h0gt03k0udfe",
+    "3pscumyo9fuqwon",
+    "6ajwolx1qzpl057",
+    "6v8o4o4f55zbwir",
+    "24w3c9cthda1yoc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.888Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.888Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "1hr5k35lk0xr7p9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.851Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.851Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "89tle93svupmbak"
+    }
+  ]
+}

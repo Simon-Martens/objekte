@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Die Sächsischen Bauern-Unruhen 1790« INr 79225, Obj 7 /) s. Textbezug INr 79262, Obj 44 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auftrit aus dem Sächsischen Bauer-Unruhen / 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Gerstner sc.",
+  "scans": [
+    "alm_2490_79261_639nwjjuk1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auftrit aus dem Sächsischen Bauer-Unruhen / 1790",
+  "updated": "2012-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.877Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "n59niqp98ouclug"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht ist Motto von Schiller vorangestellt. s. INr 16432, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Voll heil'ger Wuth, im Arm Apollos Leyer, / Jauchzt zum Olymp empor,",
+  "language": [],
+  "musenalm_id": 16433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geburtstagsfeyer eines Edlen. / (Gesungen den 14. März 1809.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geburtstagsfeyer eines Edlen. / (Gesungen den 14. März 1809.)",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.592Z",
+      "agent": "teyd4hg5cxxyi5t",
+      "source_id": "vce5y7z7sxyugjf"
+    }
+  ]
+}

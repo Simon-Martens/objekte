@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Ein Schüler war's in stiller Zelle, geziert durch Fröm- / migkeit und Fleiß,",
+  "language": [],
+  "musenalm_id": 46668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 211,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Fund",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.435Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "h4obfqyqkcm3a41"
+    }
+  ]
+}

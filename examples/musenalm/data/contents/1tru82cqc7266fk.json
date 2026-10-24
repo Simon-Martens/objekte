@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. INr 83845, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Seht ihr im Myrthenschatten dort / Den holden Knaben stehn?",
+  "language": [],
+  "musenalm_id": 83847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor. / (Mit Musik von Clasing.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Winfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor. / (Mit Musik von Clasing.)",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.107Z",
+      "agent": "gj3r3a4y3md15rv",
+      "source_id": "2ui1a1rxkiks72s"
+    }
+  ]
+}

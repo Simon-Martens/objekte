@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März; nummeriert 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106949,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HERCULES",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "antiq. del. et sc. Ganz",
+  "scans": [
+    "alm_2155_106949_p0n4hcte0x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HERCULES",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.965Z",
+      "agent": "4j6pez8cpuc0vx7",
+      "source_id": "c5he3v4iwq5c7sz"
+    }
+  ]
+}

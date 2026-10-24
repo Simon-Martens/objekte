@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Glockenklang erschallet aus dem hohen Thurm, / ob den Landen wallet Harmoniensturm,",
+  "language": [],
+  "musenalm_id": 54713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Glocke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Glocke",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.902Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "pfaxf8rk7rk6dcu"
+    }
+  ]
+}

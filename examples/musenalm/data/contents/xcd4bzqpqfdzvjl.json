@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwey Sonette (Sammlung INr 9230, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "So laß dich binden mit dem süßen Ringe, / O süße Hand, die mir das Herz gebunden;",
+  "language": [],
+  "musenalm_id": 1427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rikard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.829Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "6xj7c1pt7csw1u9"
+    }
+  ]
+}

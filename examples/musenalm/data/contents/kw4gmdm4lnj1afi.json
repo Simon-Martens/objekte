@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Er kömmt, der Mai, wie festlich / Bewillkommt ihn die Flur!",
+  "language": [],
+  "musenalm_id": 35423,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mailied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Carl Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mailied",
+  "updated": "2003-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.768Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "6zm67vpepqqmsc0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Es steht die Hemisphäre / Getheilt in Blitz und Schaum, / Ein Lied zu Gottes Ehre / Erfüllt den Weltenraum.",
+  "language": [],
+  "musenalm_id": 113252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom Meere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom Meere",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.197Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "04ru33tsudcrnxm"
+    }
+  ]
+}

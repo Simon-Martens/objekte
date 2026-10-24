@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Hört die schreckliche Geschichte, / Welche sich in alten Tagen / Grauer Zeit hat zugetragen,",
+  "language": [],
+  "musenalm_id": 55138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die neue Semele. / Ein Natutbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "X. Schnyder von Wartensee, Tonkünstler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die neue Semele. / Ein Natutbild",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.734Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "4a1cga125wsao7t"
+    }
+  ]
+}

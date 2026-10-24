@@ -1,0 +1,45 @@
+{
+  "annotation": "Vulkan (Sammlung INr 91563, Obj 87) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Der hinkende, wegen seiner Häßlichkeit vom Himmel geschleuderte Sohn der Juno, welcher unbehülflich das Amt des zarten Ganymed verrichtet, ist in der mechanischen Kunst vortreflich;",
+  "language": [],
+  "musenalm_id": 91566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Majestät des Vulkan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Majestät des Vulkan",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.263Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "6a2si0p1iq7eq06"
+    }
+  ]
+}

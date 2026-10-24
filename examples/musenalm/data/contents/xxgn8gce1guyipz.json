@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Sei mir gegrüßt in deiner grünen Mitte, / Sei mir gegrüßt in deinem kühlen Schooß,",
+  "language": [],
+  "musenalm_id": 5671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Hütte in der neuen Welt, / eine reizende Einsiedelei unweit Basel. / Im Sept. 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Hütte in der neuen Welt, / eine reizende Einsiedelei unweit Basel. / Im Sept. 1779",
+  "updated": "2000-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.105Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "3ovde8onfqiky2k"
+    }
+  ]
+}

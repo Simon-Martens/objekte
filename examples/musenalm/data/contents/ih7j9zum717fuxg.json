@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Die Vesperglocke war Siziliens Bewohnern das Signal zum allgemeinen Morden. Kein Franzose entkam dem Würgeschwert der rachedürstenden Insulaner,",
+  "language": [],
+  "musenalm_id": 43198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giulio und Bianka. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Haupt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Giulio und Bianka. / Novelle",
+  "updated": "2006-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.903Z",
+      "agent": "koxqi9pf1ksdxvw",
+      "source_id": "0rfowpybwnm0sgi"
+    }
+  ]
+}

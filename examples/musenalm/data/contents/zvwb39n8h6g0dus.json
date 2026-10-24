@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Illustration zu »Die Konquistadoren« von K. v. Wachsmann INr 109902, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109896,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nadina",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Schuler sculpsit",
+  "scans": [
+    "alm_2233_109896_hars2dlp6z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nadina",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.259Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "rbpi5xtwhy26zzp"
+    }
+  ]
+}

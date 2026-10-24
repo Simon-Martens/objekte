@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Mag die Rose auch erröthen, / Mag zum Berg auch zieh'n der Hirt,",
+  "language": [],
+  "musenalm_id": 52912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Troubadours-Gesang. / Aus einer Oper",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Troubadours-Gesang. / Aus einer Oper",
+  "updated": "2007-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.718Z",
+      "agent": "v63rmmxw84k8ut2",
+      "source_id": "uykovnf38hmunkt"
+    }
+  ]
+}

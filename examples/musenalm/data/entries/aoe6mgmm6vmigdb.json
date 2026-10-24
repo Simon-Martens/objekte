@@ -1,0 +1,121 @@
+{
+  "annotation": "keine weiteren Jgg ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 1 T, S 3 W, SS 5-204, 2 BB I-Verz, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kinder-Almanach, Deutscher 1788",
+    "norm": "~",
+    "biblio": 406994,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-12-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3741,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Bohn)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Kinder-Almanach, Deutscher 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. H. Jacobi",
+  "subtitle_statement": "",
+  "title_statement": "Deutscher / Kinder-Allmanach / auf / das Jahr 1788, / Ein / Weihnachtsgeschenk / zur / angenehmen und lehrreichen / Unterhaltung / für Kinder und die Jugend. / Herausgegeben von / J. H. Jacobi. Ph. Mr. / Hamburg, / bey Carl Ernst Bohn",
+  "updated": "2026-06-11 10:18:55.901Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "5gw4jbtzdr7ogbw"
+  ],
+  "contents": [
+    "8ebnis24nys0inf",
+    "ti14m5t2lofaevu",
+    "6wlekpx0y6pvgtz",
+    "dvgyrw40ppsbzk1",
+    "bdfi86sur4o0zoo",
+    "a4nd4f1m9z19j5x",
+    "572tpeqnaeaeifn",
+    "je0bx0wc60llr7q",
+    "xjf8lkzrd70n0cd",
+    "w9flxouwa9acmdi",
+    "7bwa8bbm988tpw0",
+    "u8eg4xth142b3gx",
+    "fvgdlmk1af04o13",
+    "29q5vwpe52az6cs",
+    "zstwatdkdglo534",
+    "uksz1q2wef4qo63",
+    "xbitnd4s2hen9sw",
+    "lwe1xrj0bf40w8t",
+    "ctkjgpwz3ujg7tl",
+    "djryh5sb2mkat55",
+    "weofpn8uurp34ix",
+    "57atluqd5fukn7q",
+    "oqiboqsz6cq6xzl",
+    "zw6sm6oay8m6obm",
+    "5s9aq5gbuexdest",
+    "rp84wn0be9r0btb",
+    "cr933q7qw7dyo4e",
+    "lgq5h0bu2oib3s4",
+    "nbg2oi0uuh91vul",
+    "0jayga7r8khj0dw",
+    "asl22k062sbvxwq",
+    "z31g2hquvu38tyd",
+    "9nuddq3rgqfszyy",
+    "klhzyj8pquw33mx",
+    "k575751gr64ui9j",
+    "j2971mrw1de6090",
+    "0893u09vdgjsinw",
+    "w5iucf2tdeigeah",
+    "hwoc9ba726x623d",
+    "2b8xtahst3n741l",
+    "orxbmbvum9kqhra",
+    "0de1mr1mg59gdae"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.558Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.558Z",
+      "agent": "joj1rtyh5pzrab4",
+      "source_id": "70sgh1o4pzcwmjf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.291Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.291Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "fwr6jbxa2cqn8ed"
+    }
+  ]
+}

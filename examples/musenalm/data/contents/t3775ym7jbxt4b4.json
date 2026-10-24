@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 88171, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88181,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kirche zu Ladenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schilbach del. Fr. Haldenwang sc.",
+  "scans": [
+    "alm_575_88181_lsyn357m8k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kirche zu Ladenburg",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.257Z",
+      "agent": "mdifn6ta9ogjkym",
+      "source_id": "q196pnqkhv5euqn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.257Z",
+      "agent": "wqze1ivkmgxwz33",
+      "source_id": "usexifykdstc391"
+    }
+  ]
+}

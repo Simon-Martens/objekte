@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Kaiser Julianus war im Perser-Kriege gefallen; das römische Heer zog sich nach schimpflichen Verträgen nach Kleinasien zurück,",
+  "language": [],
+  "musenalm_id": 34133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heidenbekehrung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heidenbekehrung",
+  "updated": "2003-05-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.619Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "1hsd37gnecy01i2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geist der Zeit (Sammlung INr 81881, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Die Musen flüchten sich in Länder gerne, / Wo Huldigung die Hohen schätzt und ehrt,",
+  "language": [],
+  "musenalm_id": 81886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freiherr v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musen",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.065Z",
+      "agent": "otquhrfmf15x6tw",
+      "source_id": "uzk8s460cxzyrla"
+    }
+  ]
+}

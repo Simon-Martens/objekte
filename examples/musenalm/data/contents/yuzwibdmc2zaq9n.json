@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderung (Sammlung INr 25890, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "In meinen ausgebreiteten Revieren / Bieth' ich Dir an den schönsten Ruheplatz;",
+  "language": [],
+  "musenalm_id": 25896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sumpf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sumpf",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.276Z",
+      "agent": "by4fxr8blp8xj25",
+      "source_id": "4jy8atmw2ov5rpr"
+    }
+  ]
+}

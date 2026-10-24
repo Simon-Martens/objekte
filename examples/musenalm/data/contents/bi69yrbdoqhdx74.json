@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Innig mit Blumen vertraut, genieß' und samml' / ich mir Schätze, / Selbst in dem bittersten Kelch find' ich ambrosi- / schen Tau.",
+  "language": [],
+  "musenalm_id": 33633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Bienen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie, Baronin v. Bechtolsheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Bienen",
+  "updated": "2003-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.724Z",
+      "agent": "7wewn5gfr0shp0v",
+      "source_id": "sd8abfifkiqyh6l"
+    }
+  ]
+}

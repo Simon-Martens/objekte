@@ -1,0 +1,94 @@
+{
+  "annotation": "# K gibt fälschlich »Poetisches Taschenbuch« an. ## 5 Graphiken auf den Außen- und Innenseiten des Deckels und dem Buchrücken.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG ##, VB, T, SS I-VI G-Verz, SS 1-383, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Politisches (Wit) 1831",
+    "norm": "~",
+    "biblio": 200166,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 406,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch, Politisches (Wit) 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 142, L/R 211",
+  "responsibility_statement": "Wit genannt von Dörring",
+  "subtitle_statement": "",
+  "title_statement": "Politisches / Taschenbuch / für das Jahr 1831. / Herausgegeben / von / Wit, genannt von Dörring. / Zweiter Jahrgang. / Hamburg 1831. / Bei Hoffmann und Campe #",
+  "updated": "2026-06-11 10:18:55.366Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "qtyyz1v0oa3ffw7"
+  ],
+  "contents": [
+    "64a26vec28befzy",
+    "haqxmysxsykj9xx",
+    "gsrw3lnpzkbyyjp",
+    "62l4rjtg7ihrk1b",
+    "12vl9vnool6r957",
+    "n33b4fu8o6ulcvp",
+    "atar8psmdeuvuxf",
+    "2js2xhk1zc2sg6r",
+    "ypu0bcqlmdwlp44",
+    "7qr030u1bh8rhih",
+    "45f0xfhmdkagvww",
+    "dqxm5d1qr2bhxgz",
+    "00joxn0ukpdwej8",
+    "fr9i4ih9qm9onqk",
+    "rjomv15rqzyg0ca"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.645Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.645Z",
+      "agent": "fargrml8asxp4c4",
+      "source_id": "b3tuywo7q0nq2vx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.042Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.042Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "z7ms68wtqxic3b5"
+    }
+  ]
+}

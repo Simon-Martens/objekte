@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Gedicht INr 111434, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111429,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gemalt v. Domenichino. Gestochen v. A. Weger, Leipzig)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Domenichino. Gestochen v. A. Weger, Leipzig",
+  "scans": [
+    "alm_3463_111429_jcydu97n0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.299Z",
+      "agent": "rikdy6r8rigq41t",
+      "source_id": "2n9xdkmpul1wc7h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.299Z",
+      "agent": "ke8b3zzq6e79hhk",
+      "source_id": "tb1bvsj24izllsi"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Bez. vom Titel /) kol. Graphik paginiert VIII. s. Textbezug INr 70726, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. P. Lyser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [
+    "alm_2248_70727_94ivrnnxg1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.412Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "jogwn9utsj99qyx"
+    }
+  ]
+}

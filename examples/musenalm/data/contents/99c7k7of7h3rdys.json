@@ -1,0 +1,48 @@
+{
+  "annotation": "auszufaltende Musikbeigabe, nummeriert  No. 2. /) Vertunung des Gedichts »Mahlers Liebchen« von V. Zusner /) Photos 114756,01; 114756,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Ihre reizende Gestalt hab' ich schlafend mir gemahlt, und die Züge, lieb und mild, legt' ich teu in's zarte Bild,",
+  "language": [],
+  "musenalm_id": 114756,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MAHLERS LIEBCHEN / Gedicht von V. Zusner / in Musik gesetzt von / ADOLF MÜLLER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Müller",
+  "scans": [
+    "alm_1304_114756_01_ov66ivy15n.jpg",
+    "alm_1304_114756_02_nnzpeytmrz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MAHLERS LIEBCHEN / Gedicht von V. Zusner / in Musik gesetzt von / ADOLF MÜLLER",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.254Z",
+      "agent": "1x3wweh7slzeyeq",
+      "source_id": "et4d146m3fmerj3"
+    }
+  ]
+}

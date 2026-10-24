@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Trennen wollten wir uns, wähnten es gut und klug, / Da wir's thaten, warum schrökt uns wie Mord die / That?",
+  "language": [],
+  "musenalm_id": 21774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebenden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hillmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebenden",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.998Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "trefv8z3vvd6wv0"
+    }
+  ]
+}

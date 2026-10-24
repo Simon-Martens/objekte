@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Bächlein, ich kannte dich, / Da du noch jugendlich, / Da du ein Mondenstrahl / Zogest im Schattenthal,",
+  "language": [],
+  "musenalm_id": 80344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bach und Ich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bach und Ich",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.727Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "drhk6gt0bxq2ukw"
+    }
+  ]
+}

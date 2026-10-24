@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am letzten Blatt der Suite /) Illustration zu »Anna von Östreich und Kardinal Mazarin« von Friedrich Buchholz INr 68935, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cardinal von Retz #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_839_68933_xno4gfkjih.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cardinal von Retz #",
+  "updated": "2008-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.529Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "ns1afo3p4o7xwfh"
+    }
+  ]
+}

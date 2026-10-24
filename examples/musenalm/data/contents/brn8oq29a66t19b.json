@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember paginiert 12. s. Textbezug INr 66294, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66280,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonaparte zu Leoben. / Es lebe der Kayser! Es lebe die fränckische Republick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66280_j6r9bcl5mw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bonaparte zu Leoben. / Es lebe der Kayser! Es lebe die fränckische Republick",
+  "updated": "2009-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.180Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "p320ax5tgxkjrck"
+    }
+  ]
+}

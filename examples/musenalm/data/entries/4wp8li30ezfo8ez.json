@@ -1,0 +1,55 @@
+{
+  "annotation": "<div>französische Ausgabe des Militärisch-Genealogischen Kalenders 1790 bei gleicher Ausstattung; § Karte fehlt<br>der Almanach ist nicht mit seinen Beiträgen aufgenommen; Umschlag , Titelportrait und Titel als Bild</div>",
+  "carrier_type": [],
+  "content_type": [],
+  "created": "2026-09-30 10:25:24.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG , verso G , T,  12 BB Kal darin 12 GG, BB G-Verz, B, C, BB Tabb, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "fre"
+  ],
+  "musenalm_deprecated": null,
+  "musenalm_id": 5024,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärisch-Genalogischer 1790 (franz.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 37, L/R 17",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "ALAMANAC / Militaire & Généalogique / por l'Année / 1790. / Avec l'approbation de l'Académie / Royale des Sciences et belles lettres / à Berlin",
+  "updated": "2026-09-30 10:45:04.690Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "vvczqy55ftqfqwn"
+  ],
+  "contents": [
+    "q6v4d1fix57p0ct",
+    "7tfr3eubni4nm1w",
+    "ymlu2d5fstzurgb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-30 10:28:55.592Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-30 10:45:04.691Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "93ccm4xb04iijwp"
+    }
+  ]
+}

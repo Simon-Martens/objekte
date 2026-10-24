@@ -1,0 +1,730 @@
+{
+  "annotation": "",
+  "biographical_data": "1758-1818",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.397Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1067062645",
+          "label": "Hagenow, Dorothea"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1143162595",
+          "label": "Academia Gryphiswaldensis"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. ev. Theologe u. Dichter, auch Amateurmusiker; 1792 Pastor in Altenkirchen (Rügen); ab 1808 Prof. für Geschichte u.d Theologie an der Univ. Greifswald"
+      ],
+      "dateOfBirth": [
+        "1758-02-01"
+      ],
+      "dateOfDeath": [
+        "1818-10-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Max Mendheim (Hrsg.): Lyriker und Epiker der klassischen Periode. Teil 3. Union, Stuttgart 1890."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Gotthard%20Kosegarten%20Stich.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Gotthard%20Kosegarten%20Stich.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig%20Gotthard%20Kosegarten%20Stich.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187607494",
+        "https://d-nb.info/gnd/103691092X"
+      ],
+      "describedBy": {
+        "dateModified": "2024-01-08T11:47:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11898618X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116342463",
+          "label": "Kosegarten, Johann Gottfried Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/142901539",
+          "label": "Baier, Alwine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13397717X",
+          "label": "Kosegarten, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104273046",
+          "label": "Kosegarten, Friedrich Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115756086",
+          "label": "Kosegarten, Bernhard Christian"
+        }
+      ],
+      "fieldOfStudy": [
+        {
+          "id": "https://d-nb.info/gnd/4015875-5",
+          "label": "Evangelische Theologie"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11898618X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/142901539",
+          "label": "Baier, Alwine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116342463",
+          "label": "Kosegarten, Johann Gottfried Ludwig"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/115756086",
+          "label": "Kosegarten, Bernhard Christian"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11898618X",
+      "oldAuthorityNumber": [
+        "(DE-588a)134934202",
+        "(DE-588)187607494",
+        "(DE-588a)11898618X",
+        "(DE-588)103691092X",
+        "(DE-588c)4263643-7",
+        "(DE-588a)187607494",
+        "(DE-101c)310624207"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021965-3",
+          "label": "Greifswald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4249382-1",
+          "label": "Altenkirchen (Landkreis Vorpommern-Rügen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4331164-7",
+          "label": "Grevesmühlen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021965-3",
+          "label": "Greifswald"
+        }
+      ],
+      "preferredName": "Kosegarten, Ludwig Gotthard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Gotthard"
+        ],
+        "surname": [
+          "Kosegarten"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig Theobald"
+          ],
+          "surname": [
+            "Tellow"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Poesien",
+        "Jucunde",
+        "Denkwürdigkeiten aus dem Leben und den Schriften der neuesten britischen Dicher",
+        "Zwo Predigten",
+        "Ida von Pleßen",
+        "Dichtungen",
+        "Ebba von Medem",
+        "Drey Gelegenheits-Predigten",
+        "Rhapsodien",
+        "Geschichte seines 50. Lebensjahres"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4063997-6",
+          "label": "Vorpommern"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no90008909"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7538056"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q71484"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103691092X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11898618X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187607494"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Gotthard_Kosegarten"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Gotthard_Kosegarten"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Gotthard_Kosegarten"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Gotthard_Kosegarten"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108673734"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11898618X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1776_kosegarten"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11898618X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11898618X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11898618X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11898618X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11898618X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Kosegarten, Theoboul",
+        "Tellow, Ludwig Theobald",
+        "Kosegarten",
+        "Kosegarten, Gotthart Ludwig Theobul",
+        "Kosegarten, Ludovicus Gotthardus",
+        "Kosegarten, Gotthard L.",
+        "Kosegarten, Ludewig Theobul",
+        "Kosegarten, Ludwig Theobald",
+        "Kosegarten, L. T.",
+        "Kosegarten, Gotthard Ludwig",
+        "Kosegarten, Gotthard Ludewig",
+        "K., L. T.",
+        "Kosegarten, Ludwig Theobul",
+        "Kosegarten, L.T.",
+        "Tellow",
+        "Kosegarten, Ludwig Gotthard Theobul",
+        "K., L.T.",
+        "Kosegarten, Ludovicus Theobul",
+        "L. T. K.",
+        "Kosegarten, Ludwig T.",
+        "L.T.K.",
+        "Kosegarten, Gotthard Ludwig Theobul",
+        "Kosegarten, Ludwig",
+        "Kosegarten, Ludwig Gotthardt",
+        "Kosegarten, Ludovicus Theobulus",
+        "Kosegarten, Ludwig Theobul Gotthard",
+        "Kosegarten, Ludwig G.",
+        "Rosegarten, Ludwig Theobul",
+        "Kosegarten, Ludw. Theobul.",
+        "Kosegarten, Ludwig Theoboul",
+        "Kosegarten, Theobul",
+        "Kosegarten, Gotthart L. Th."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "L. T."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gotthardt"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "L.T."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "personalName": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig G."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard Ludewig"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "L. T."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theobald"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gotthard Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Theoboul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard Ludwig"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthart Ludwig Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw. Theobul."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "personalName": [
+            "L. T. K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theoboul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "personalName": [
+            "Tellow"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theobald"
+          ],
+          "surname": [
+            "Tellow"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard L."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthart L. Th."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus Gotthardus"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus Theobulus"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theobul"
+          ],
+          "surname": [
+            "Rosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "L.T."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig T."
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Theobul Gotthard"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Gotthard Ludwig Theobul"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Kosegarten"
+          ]
+        },
+        {
+          "personalName": [
+            "L.T.K."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Gotthard_Kosegarten",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Gotthard_Kosegarten"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:59:12Z",
+    "gnd_query_biographical_data": "1758-1818",
+    "gnd_query_name": "kosegarten, gotthard ludwig theobul"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1464,
+  "name": "Kosegarten, Gotthard Ludwig Theobul",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 445; Goed VII, 354",
+  "updated": "2026-06-11 13:29:23.331Z",
+  "uri": "https://d-nb.info/gnd/11898618X",
+  "editor": ""
+}

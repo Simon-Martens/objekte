@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Müde zum Umfallen, und auch doch zu aufgeregt, um sogleich den Schlaf suchen zu können, lag Eugenia in ihrem Lehnstuhl nachläßig hingestreckt,",
+  "language": [],
+  "musenalm_id": 28025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensstellungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensstellungen",
+  "updated": "2002-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.225Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "5bmfig43mnedvpk"
+    }
+  ]
+}

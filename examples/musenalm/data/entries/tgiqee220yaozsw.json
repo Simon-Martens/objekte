@@ -1,0 +1,78 @@
+{
+  "annotation": "Kleinformat: 6,7x2,6 cm",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S, 8 SS Tabb, 24 SS Kal, 7 SS Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Wiener 1802",
+    "norm": "~",
+    "biblio": 411315,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2023-03-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4837,
+  "parallel_title": "",
+  "place_statement": "Wien (Hoffer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Kalender, Wiener 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Wiener- / Kalender / auf das Jahr / 1802, / welches ein Gemeinjahr / von 365 Tagen. / Wien zu finden / Bey Joh. Bapt. / Hoffer, bürgl. / Buchb. das Ge- / wölb im Cor- / rentgäßl",
+  "updated": "2026-06-11 10:18:55.897Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "um60x4sp8c1i1ne"
+  ],
+  "contents": [
+    "k90n67hid3030l9",
+    "m14ulfaa1menv3s",
+    "rzfjktnteo7ybz0",
+    "p7ccv7gsvrlih0g",
+    "9dkyr6f67sbu499",
+    "1zmt7x3zksz0dj9",
+    "a19j3g6zyqh9ogo",
+    "o47mxfx8621y7a8",
+    "ge8q7ao75a2h72f",
+    "wt34ng2w14h7nj1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.028Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.028Z",
+      "agent": "nlagnd72ge3g9e5",
+      "source_id": "ekfofmfu2frxug8"
+    }
+  ]
+}

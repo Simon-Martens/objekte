@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. /) Illustration zu »Die Kreuzfahrer in Litthauen.« Johann Ritter von Gallenstein INr 85620, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85602,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JAWINE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. I. Krepp sc.",
+  "scans": [
+    "alm_1586_85602_ai1rfq0yn5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JAWINE",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.167Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "bzjuilyiydpfzvk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.167Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "j9xd5zsloznr4sg"
+    }
+  ]
+}

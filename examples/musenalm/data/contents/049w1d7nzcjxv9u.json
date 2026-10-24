@@ -1,0 +1,46 @@
+{
+  "annotation": "Prosateil des Beitrags INr 85841, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Ihn drückte das Leben und die Gegenwart, und keine Hoffnung war für ihn in der Zukunft.",
+  "language": [],
+  "musenalm_id": 85842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Genebald]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Stosch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Genebald]",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.036Z",
+      "agent": "1n4essahwibwnld",
+      "source_id": "jftast8o6yz4b5u"
+    }
+  ]
+}

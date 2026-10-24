@@ -1,0 +1,35 @@
+{
+  "records": {
+    "series": 1202,
+    "entries": 4928,
+    "items": 4180,
+    "contents": 133948,
+    "agents": 4010,
+    "places": 210
+  },
+  "embedded_relations": {
+    "R_entries_series": 120,
+    "R_entries_agents": 6269,
+    "R_contents_agents": 78872
+  },
+  "parent_placements": {
+    "series.entries": 4908,
+    "entries.items": 4180,
+    "entries.contents": 133948
+  },
+  "external_source_references": {
+    "users": 964
+  },
+  "source_sha256": {
+    "R_contents_agents.xml": "9d88bfbe3b7f0466542e7b23a11e692a95db21f24c55cb34adac33c7ba2dd789",
+    "R_entries_agents.xml": "26aa147f863c3490cfc2bd1e96901942d7a49e71ebdac327e0693644ad1958ff",
+    "R_entries_series.xml": "cf30ab1f648a618efd89655441e1c0b937eec958f864e7b799aaca8d374abc8e",
+    "_collections.xml": "d777429caff376713e249870df56be75d0594334ee5f0f69ef0d3ad00c80dc7b",
+    "agents.xml": "b225331a6a2ee0ba59e0b7108aa73c111866ac3cda2fe0b1996979451a8cc282",
+    "contents.xml": "c6a0e6069adda6dfe477de5e64dbfe2e7e0bb6f333b9322c5859f00c0451654d",
+    "entries.xml": "0be188be3598a042af8edf754dcadd1a358f2622161f4b0dd4f3e904ba5e395b",
+    "items.xml": "ad4139c77509a1422c77518ef8b5cc5740db7f36fadd3de39a9ae3ff0facd265",
+    "places.xml": "c9a950e635e936fa5b5dcc306460fd56cd22575fd86e68bbd0b56260444eec99",
+    "series.xml": "f9860a59cfb26a0b13ca32b98321cd9592394c49666fbc8ab228e28da11eeecf"
+  }
+}

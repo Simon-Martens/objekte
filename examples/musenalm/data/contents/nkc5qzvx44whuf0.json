@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Unter dieser Eiche laßt euch nieder, / Brüder, seht, hier ist das Mahl bereitet,",
+  "language": [],
+  "musenalm_id": 84309,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Eiche",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.974Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "vikdmqqlqzwj5v8"
+    }
+  ]
+}

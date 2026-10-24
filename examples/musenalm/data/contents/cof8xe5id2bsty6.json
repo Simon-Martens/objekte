@@ -1,0 +1,45 @@
+{
+  "annotation": "Schlaf' ein! Ein Kranz von sieben Sonetten. Seitenstück zu Ernst von Houwalds: Wach auf! Im Taschenbuche Urania 1820. Seite 323 u. f. (Sammlung INr 14641, Obj 96) s. Urania 1820 INr 1586-1592",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Schlaf ein, du Armer! ob vom heut'gen Tage / Dir vielfach Sorge für den künft' gen blieb,",
+  "language": [],
+  "musenalm_id": 14647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Der Morgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Der Morgen",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.807Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "6w2kiur7hqad38k"
+    }
+  ]
+}

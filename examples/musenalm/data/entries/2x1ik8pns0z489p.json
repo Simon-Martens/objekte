@@ -1,0 +1,90 @@
+{
+  "annotation": "$ vermutl. fehlen BB (Tabellen)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, 17 SS Kal, $ , SS 1-360, SS 361-364 VrlgM; 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1865",
+    "norm": "~",
+    "biblio": 409436,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-07-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4446,
+  "parallel_title": "",
+  "place_statement": "Wien (Herzfeld u. Bauer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1865",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "S. Szántó",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Israeliten / 5625 / (1864-1865). / Mit Beiträgen von: / Dr. F. Bamberger, Ludw. Aug. Frankl in Wien, [...] Herausgegeben / von / Joseph Wertheimer und Dr. Leopold Kompert. / Neue Folge, elfter Jahrgang. / Wien, 1865. / Druck und Verlag von H. Engel & Sohn, Wollzeile Nr.1. / Debitirt durch F. Manz & Comp. in Wien / Kohlmarkt Nr. 7",
+  "updated": "2026-06-11 10:18:55.726Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "items": [
+    "e8wprm71qwm2q81"
+  ],
+  "contents": [
+    "ctzu5az571pi6ru",
+    "ybypeec6d0q6p97",
+    "wp997ofj8zeefnf",
+    "o9f21fvjnfxu21h",
+    "bduu8w9p65as19k",
+    "rdd7vd9873eaidz",
+    "3maw39xxkfv4ds6",
+    "r0r5iqve5i164np",
+    "qg3980840s45mut",
+    "nvg63kbdeyzyn77",
+    "c8mlgtb1k15x455",
+    "pgc8zw71g9853sk",
+    "wt3w55nb4pr02ox",
+    "y28il2dyygtnsve",
+    "in092lbs5yv8yvy",
+    "hsyfpw7b3moam4t",
+    "8y3or8mij95nmq3",
+    "uqv1roowtbaweyt",
+    "0h4vsmweqow6w5i",
+    "4yx7r9fmay43h43",
+    "d87iv6r5n80n0h8",
+    "3ht5hyd6pxrmqf6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.004Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.004Z",
+      "agent": "7upxgl9uokknpoa",
+      "source_id": "4dmwvxyai3ubj1q"
+    }
+  ]
+}

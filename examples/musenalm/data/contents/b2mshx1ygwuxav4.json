@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33661, Obj 16 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33662,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe und der Delphin zu Hippo #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent",
+  "scans": [
+    "alm_467_33662_2pnyeep76c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe und der Delphin zu Hippo #",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.703Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "68dc2x4hh99sx1j"
+    }
+  ]
+}

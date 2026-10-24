@@ -1,0 +1,45 @@
+{
+  "annotation": "Numerierung des Beitrags fälschlich: VI",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Der Maskenball war fast zu Ende, als die Aufmerksamkeit der Anwesenden noch einmal geweckt, das Fest durch ein neues Zwischenspiel erfrischt werden sollte.",
+  "language": [],
+  "musenalm_id": 75373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die graue Maske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline, Baronin de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die graue Maske",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.749Z",
+      "agent": "t59v9lajt8yljq5",
+      "source_id": "dw9faynj1t5q1yh"
+    }
+  ]
+}

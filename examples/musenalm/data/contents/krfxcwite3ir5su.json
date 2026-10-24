@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) §3§ Textbezug fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75368,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / III. Aufz. 6. Sc. / Oberon. Heil treues Paar!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.",
+  "scans": [
+    "alm_2372_75368_bydizovwhc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / III. Aufz. 6. Sc. / Oberon. Heil treues Paar!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.688Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7z4u646u5y9u5h4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.688Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "l32abo0m2iv711s"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 111160, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111161,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schelfhout del. D. J. Sluyter sculp.",
+  "scans": [
+    "alm_3485_111161_oqjm7yx2cu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Winter",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.248Z",
+      "agent": "715ejev12w0hnth",
+      "source_id": "8tky3x0zuj90t3o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.249Z",
+      "agent": "lxkw0pi082wa1ak",
+      "source_id": "cj0szalznw7gfpw"
+    }
+  ]
+}

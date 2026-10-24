@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed X. 428, 205; bes.: Goed X. 438, 205, 59",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Auf dem Gipfel des Heiligenberges stand eine uralte Kapelle, den Wallfahrern schon aus weiter Ferne sichtbar.",
+  "language": [],
+  "musenalm_id": 60832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Königstöchter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Königstöchter",
+  "updated": "2008-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.755Z",
+      "agent": "m9vss6nrjywnlrr",
+      "source_id": "8rkw4cny2qu45nl"
+    }
+  ]
+}

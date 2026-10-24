@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11823, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Ich denk' an euch, ihr himmlisch schönen Tage / Der seligen Vergangenheit!",
+  "language": [],
+  "musenalm_id": 11821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "42. / Sehnsucht. / Mit Compos. v. H. Capellmstr. Seydelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "42. / Sehnsucht. / Mit Compos. v. H. Capellmstr. Seydelmann",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.609Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "5o2p6d158wn0ies"
+    }
+  ]
+}

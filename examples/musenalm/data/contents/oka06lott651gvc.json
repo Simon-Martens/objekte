@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung an Graphiken im Kalendarium Mai und Juni /) Graphik im Kalendarium  /) Illustration zu »Die Fürstenbraut« von G. Carril d.i. L. Schlecht INr 125581, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125569,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fürstenbraut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. R. d. J. L. sc.",
+  "scans": [
+    "alm_1003_125569_l0dqh6dama.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Fürstenbraut",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.901Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "aay5zmm9qul1ws2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.901Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "mb7rdnoy4axjiar"
+    }
+  ]
+}

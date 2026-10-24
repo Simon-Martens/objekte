@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Almanach der deutschen Musen 1770 (1. Aufl.), S. 182; Alm-2200, INr 79128; und in: Almanach der deutschen Musen 1770 (2. Aufl.), S. 186; Alm-175, INr 8020",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Ein neuer Dionys rief von der Seine / Strande / Sophistenschwärme her zu seinem Unter- / richt.",
+  "language": [],
+  "musenalm_id": 38349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein neuer Dionys rief von der Seine / Strande / Sophistenschwärme her zu seinem Unter- / richt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.017Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "q8w1virlg45gr0e"
+    }
+  ]
+}

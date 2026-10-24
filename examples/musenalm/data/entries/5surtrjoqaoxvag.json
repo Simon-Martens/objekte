@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Sammlung auserlesener Stellen (Müchler) 1815 (2.)",
+    "norm": "",
+    "biblio": 408145,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-09-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4025,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker und Humblot)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Vergißmeinnicht, Sammlung auserlesener Stellen (Müchler) 1815 (2.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Sammlung / auserlesener Stellen / von / griechischen, römischen, italiänischen, spanischen, / portugiesischen, englischen, französischen und / deutschen Schriftstellern, / in der Originalsprache / mit deutscher Uebersetzung. / Ein Taschenbuch / vorzüglich zum Gebrauch für Stammbücher. / Herausgegeben / von / Karl Müchler. / Zweite verbesserte und vermehrte Auflage. / Berlin, 1815. / Im Verlag von Duncker und Humblot",
+  "updated": "2026-06-11 10:18:55.489Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "o38nkasimhuf91l"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.754Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.754Z",
+      "agent": "rgoxvg7uuoc3chb",
+      "source_id": "xesq6euey69021k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.325Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.325Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "ypism17lrt2t893"
+    }
+  ]
+}

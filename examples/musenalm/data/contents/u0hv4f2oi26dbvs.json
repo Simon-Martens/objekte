@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April; paginiert 3. # Bez. an Blatt 2 und 7 der Suite. Illustration zu »Der Abzug der Brautleute« von H. Kletke INr 59475, Obj 14 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abzug der Brautleute #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_897_59467_uws61nab0r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Abzug der Brautleute #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.999Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "x797qlerivulz9e"
+    }
+  ]
+}

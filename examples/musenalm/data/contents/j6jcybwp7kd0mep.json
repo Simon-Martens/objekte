@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Der Iltiß, dessen Dunstkreis, wie bekannt, / Nicht lieblich ist, ward einst deshalben / Vom Hof des Königs Leu verbannt.",
+  "language": [],
+  "musenalm_id": 33688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Iltiß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Iltiß",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.409Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "mr04ixr4nohdruf"
+    }
+  ]
+}

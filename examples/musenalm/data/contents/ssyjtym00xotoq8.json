@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 26759, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Saemundurs Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. A. W. Böhm sc.",
+  "scans": [
+    "alm_349_26760_38htzo1k9y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Saemundurs Sage",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "d7jqpw0wwza3ik5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.075Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "y8lkdwd83yivngk"
+    }
+  ]
+}

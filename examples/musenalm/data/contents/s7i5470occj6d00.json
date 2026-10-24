@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Richter und der Dieb« von J. G. Seidl INr 89502, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Richter und der Dieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_3352_89503_58gwe50nq8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Richter und der Dieb",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.360Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "x1xm6lyai2xyfp9"
+    }
+  ]
+}

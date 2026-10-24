@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.; mit Medaillon paginiert pag. 44.: IIllustration zu  »Die Obsterndte. Ländliche Scene« von Th. Hell d.i. K. G. Th. Winkler INr 95837, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95816,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Thoenert sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thoenert sc.",
+  "scans": [
+    "alm_2382_95816_zcs4pefhq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.799Z",
+      "agent": "knrhgn52aqjwh89",
+      "source_id": "v8z8dei3kvc8r2u"
+    }
+  ]
+}

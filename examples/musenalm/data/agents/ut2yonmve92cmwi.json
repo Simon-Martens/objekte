@@ -1,0 +1,246 @@
+{
+  "annotation": "",
+  "biographical_data": "1761-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.237Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1761"
+      ],
+      "dateOfDeath": [
+        "1822"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Pierre-Maximilien Delafontaine"
+          ],
+          "creditText": [
+            "Institutnationaldhistoiredelart‎ / https://www.flickr.com/photos/73632227@N02/7300815690/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Maximilien%20Delafontaine%20-%20Le%20Patineur%20%28portrait%20du%20graveur%20Jean%20Bertrand%20Andrieu%29%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pierre-Maximilien%20Delafontaine%20-%20Le%20Patineur%20%28portrait%20du%20graveur%20Jean%20Bertrand%20Andrieu%29%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Pierre-Maximilien%20Delafontaine%20-%20Le%20Patineur%20%28portrait%20du%20graveur%20Jean%20Bertrand%20Andrieu%29%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2013-07-31T08:32:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Y3",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Y3"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/143301632/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "143301632",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.6p",
+          "label": "Personen zu Kunsthandwerk"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/143301632",
+      "oldAuthorityNumber": [
+        "(DE-588a)143301632",
+        "(DE-588c)7731513-3"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4088072-2",
+          "label": "Bordeaux"
+        }
+      ],
+      "preferredName": "Andrieu, Bertrand Jean",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Bertrand Jean"
+        ],
+        "surname": [
+          "Andrieu"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4306105-9",
+          "label": "Medailleur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Stahlstecher"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71598612"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2073102"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143301632/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Bertrand_Andrieu"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109859282"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/143301632"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Andrieux, Bertrand Jean",
+        "Andrieu, Bertrand",
+        "Andrieux, Jean-Bertrand",
+        "Andrieu, Jean-Bertrand",
+        "Andrieux, Bertrand"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Bertrand"
+          ],
+          "surname": [
+            "Andrieu"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Bertrand"
+          ],
+          "surname": [
+            "Andrieux"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Bertrand"
+          ],
+          "surname": [
+            "Andrieu"
+          ]
+        },
+        {
+          "forename": [
+            "Bertrand"
+          ],
+          "surname": [
+            "Andrieux"
+          ]
+        },
+        {
+          "forename": [
+            "Bertrand Jean"
+          ],
+          "surname": [
+            "Andrieux"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:48:57Z",
+    "gnd_query_biographical_data": "1761-1822",
+    "gnd_query_name": "andrieu, bertrand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 45,
+  "name": "Andrieu, Bertrand",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B I, 485",
+  "updated": "2026-06-11 13:29:21.346Z",
+  "uri": "https://d-nb.info/gnd/143301632",
+  "editor": ""
+}

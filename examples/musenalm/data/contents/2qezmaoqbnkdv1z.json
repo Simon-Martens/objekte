@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 30126, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es ist nicht hinreichend, daß die schöne Kunst uns Theilnahme einflößt, indem sie einen Gegenstand unsern Neigungen nahe rückt,",
+  "language": [],
+  "musenalm_id": 30127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reisescene / von Johann Lingelbach. / 21½ Zoll hoch, 25½ Zoll breit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reisescene / von Johann Lingelbach. / 21½ Zoll hoch, 25½ Zoll breit",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.629Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "q3u2c3diyzz8qy6"
+    }
+  ]
+}

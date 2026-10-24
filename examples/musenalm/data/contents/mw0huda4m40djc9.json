@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32270,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doch fasst ihr heller beziehen- / der Sinn schnell die Hieroglÿphe / des lieblichen Geschenks. / I. B. S. 106",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_441_32270_49vxmr2ec4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Doch fasst ihr heller beziehen- / der Sinn schnell die Hieroglÿphe / des lieblichen Geschenks. / I. B. S. 106",
+  "updated": "2003-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.594Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "xbyduh0o3cuk57m"
+    }
+  ]
+}

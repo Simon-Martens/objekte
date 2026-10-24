@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehenden Text INr 80901, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80902,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig August Frankl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Grilhofer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1802_80902_lctdt2lq4g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig August Frankl",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.509Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "1582w0wfd7t7ktr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.509Z",
+      "agent": "grlysh1qup6bhvj",
+      "source_id": "ctc79ak4cdocn4r"
+    }
+  ]
+}

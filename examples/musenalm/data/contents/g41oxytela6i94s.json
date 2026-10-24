@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 86535, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86532,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Album",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Theer pinx. Jos. Axmann sc.",
+  "scans": [
+    "alm_1602_86532_7esw22uvgh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Album",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.338Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "0n99437exingq1i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.338Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "xc94wmmdrszefir"
+    }
+  ]
+}

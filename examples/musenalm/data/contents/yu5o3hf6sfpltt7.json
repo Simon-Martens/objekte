@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "O Aachen, schönes Aachen, / Auch dein gedenk' ich oft! / Ich hab' in dir das Schönste / Geglaubt, geliebt, gehofft.",
+  "language": [],
+  "musenalm_id": 123619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Lied von der schönen Stadt Aaachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Lied von der schönen Stadt Aaachen",
+  "updated": "2009-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.845Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "zcotrbxi3p77pxm"
+    }
+  ]
+}

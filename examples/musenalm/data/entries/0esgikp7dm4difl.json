@@ -1,0 +1,67 @@
+{
+  "annotation": "5 Jgg 1840-1844; 1840: Leitmeritz (Medau), 1841-1842: Prag und Gitschin, 1843-1844: Gitschin (Kastranek); die Jgg 1840-1843 als »aphoristisches Taschebuch«, die Jgg 1843-1844 als »etymologisches Taschenbuch«; Hrsg.: Anton Fähnrich /) Titel verso lautet: ANA / aus dem / Lehrgebiet der Wissenschaft. / Non cuncta singulis - sed singulis cuncta. / 1840",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pallas Athene 1840",
+    "norm": "",
+    "biblio": 200898,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2377,
+  "parallel_title": "",
+  "place_statement": "Leitmeritz (Medau)",
+  "places": [
+    "rzdmegqqaryod20"
+  ],
+  "preferred_title": "Pallas Athene 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Anton Fähnrich",
+  "subtitle_statement": "",
+  "title_statement": "Pallas Athene. / Ein / aphoristisches Taschenbuch / für / das Jahr 1840 / von Anton Fährich, / Doktor der Philosophie an der Karl-Ferdinand's Univer- / sität, k.k. Professor am Gymnasium zu Gittschin. / Der reine Ertrag ist zur Begründung eines Stiftungsplatzes für / einen armen Blinden in der Versorgungs- und Beschäftigungs- / anstalt in Böhmen bestimmt. / Gedruckt bei C. W. Medau in Leitmeritz",
+  "updated": "2026-06-11 10:18:55.325Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "5z8hclg3tqaa86r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.105Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.105Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "rq4qk40hrop0pyt"
+    }
+  ]
+}

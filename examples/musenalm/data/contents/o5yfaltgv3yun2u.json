@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Auch ein Blümchen Wunderhold« (INr 130529, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "es blüht ein Blümchen irgendwo / In einem stillen Thal. / Das schmeichelt Aug’ und Herz so froh, / Wie Abendsonnenstrahl",
+  "language": [],
+  "musenalm_id": 130528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Das Blümchen Wunderhold, / von / Bürger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Das Blümchen Wunderhold, / von / Bürger",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.073Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "xrhd5q8x8wumnjr"
+    }
+  ]
+}

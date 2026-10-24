@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, SS I–VI, T, Vrwt d Hrsg, I-Verz, SS 1–250",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Opern-Almanach 1817",
+    "norm": "~",
+    "biblio": 200435,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2366,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Opern-Almanach 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 126; Goed VIII. 114, 266",
+  "responsibility_statement": "August von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Opern-Almanach / für das Jahr / 1817. / Von / August von Kotzebue. / Zweiter Jahrgang. / Leipzig, / bei Paul Gotthelf Kummer. / 1817",
+  "updated": "2026-06-11 10:18:55.331Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "kgursj1x0396e52"
+  ],
+  "contents": [
+    "k2johsdhc1wl387",
+    "ksncxfyob7dn2i1",
+    "f774xn3b8azhte7",
+    "jmq0av6ui4mff1y",
+    "davvol4xxi9h7z0",
+    "wkgyya62ibhdbal",
+    "giumhip4y3ailc7",
+    "6gurn2mhxyo6hpz",
+    "dnn8bcg27us6j6k",
+    "eotaawaf8tywvke"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "9dlq6ep2bkxux3b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.053Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.053Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "ntztu72jr297tt3"
+    }
+  ]
+}

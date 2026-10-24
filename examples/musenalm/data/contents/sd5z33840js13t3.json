@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Im Wirtshaus geht es aus und ein; / Der Wirth der hat drei Töchterlein,",
+  "language": [],
+  "musenalm_id": 41983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 184,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wirtshaus zu -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph von Marées",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wirtshaus zu -",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.219Z",
+      "agent": "wqdwbeu0vqa4eh3",
+      "source_id": "5wonz7jqu0nuh3r"
+    }
+  ]
+}

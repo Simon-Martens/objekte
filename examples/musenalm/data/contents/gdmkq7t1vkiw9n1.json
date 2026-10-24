@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Es feget die Haide der heulende Wind / Verschwunden die Sterne die schimmernden sind,",
+  "language": [],
+  "musenalm_id": 26186,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Zigeunerlieder. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johnn N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Zigeunerlieder. / 1.",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.190Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "f16jo2ortqx2aam"
+    }
+  ]
+}

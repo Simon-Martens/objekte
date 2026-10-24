@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Wie singt die Lerche schön« von H. Hoffmann (von Fallersleben) Photos 100059,01; 100059,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 223,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie singt die Lerche schön! / Musik von Franz List, / Text von Heinrich Hoffmann von Fallersleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Liszt",
+  "scans": [
+    "alm_2303_100059_01_t0wgp073zl.jpg",
+    "alm_2303_100059_02_qgdepnikkt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie singt die Lerche schön! / Musik von Franz List, / Text von Heinrich Hoffmann von Fallersleben",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.998Z",
+      "agent": "ojbcxdwwhogyekf",
+      "source_id": "4u23xwtsme9yl3s"
+    }
+  ]
+}

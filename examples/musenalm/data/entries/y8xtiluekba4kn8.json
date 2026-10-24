@@ -1,0 +1,94 @@
+{
+  "annotation": "Bezeichnung F. Berger sc. an der 1. Graphik der Suite von 12 Graphiken im Kalendarium zu Werken von Voltaire wohl fälschlich für D. Berger. Die entsprechende Bezeichnung in einem 2. Exemplar dieses Kalenders: D. Berger sc.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 23 SS Kal darin 12 GG, 145 SS",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1782",
+    "norm": "~",
+    "biblio": 404183,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 793,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1782. / mit Kupfern gezieret / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.763Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "t9cs8vk9wnu2kve"
+  ],
+  "contents": [
+    "pwl9t9uqh8kpqp9",
+    "mil3qy0hxh4kiou",
+    "uhvisl8jp89r3cq",
+    "h4y7jdkwoi33y5q",
+    "skewcuizal12g2x",
+    "f81ufyf2lw8zy4y",
+    "bdznnlvcc4wmy32",
+    "o0wjp4iilypxkx3",
+    "jgvfad9g3k1c6hj",
+    "1cl5in0fi6ipmlf",
+    "xuv66u8e48ftl9h",
+    "hrh6kyux24yakqs",
+    "eebxx6ghww0aha8",
+    "b4kfxq6r5uxpfix",
+    "mr81et19ynwmxw0",
+    "rpvadnccrqtwvza",
+    "4lc6o7bdep4ukvf",
+    "f72cl7dee8ud2dj",
+    "2lpdociu7dh7opc",
+    "bj7grou6s9g2hzs",
+    "gxqo80869kh7erv",
+    "69yi3rp7jv3torg",
+    "ai4eeqlukihbqi1",
+    "9n81x8sko3j4bkr",
+    "a8ox1d1rny3ir6w",
+    "slr898dz6hsc1fs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "4ktn3lv2solqh0z"
+    }
+  ]
+}

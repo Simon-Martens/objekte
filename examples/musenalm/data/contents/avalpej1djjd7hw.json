@@ -1,0 +1,51 @@
+{
+  "annotation": "Photos 131057,001-131057,005",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In den bisher erschienenen Musenalmanachen, namentlich in denen zu Göttingen und Hamburg, ist das Publicum im Ganzen so treflich bewirthet worden,",
+  "language": [],
+  "musenalm_id": 131057,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_4650_131057_01_opas8m5mca.jpg",
+    "alm_4650_131057_02_buaxpcvgc2.jpg",
+    "alm_4650_131057_03_ichgk0an0k.jpg",
+    "alm_4650_131057_04_vectu467i9.jpg",
+    "alm_4650_131057_05_hrqffi3eud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2019-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.019Z",
+      "agent": "365fawpuuslnmhf",
+      "source_id": "z5mxnmx9htlz0fi"
+    }
+  ]
+}

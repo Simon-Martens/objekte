@@ -1,0 +1,45 @@
+{
+  "annotation": "XVIII. Jägerlieder (Sammlung INr 66525, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Wenn zum Schnepfenfest ein warmer Schauerregen / Mir den heitern Frühlingsabend weiht,",
+  "language": [],
+  "musenalm_id": 66528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Schnepfenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Regierungsrath Bunsen zu Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Schnepfenlied",
+  "updated": "2009-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.045Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "2wxw8db0hmybcqz"
+    }
+  ]
+}

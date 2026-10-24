@@ -1,0 +1,401 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.514Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dr. phil. h. c. Ludwig Karl Eberhard Heinrich Friedrich von Wildungen, Oberforstmeister der Provinz Oberhessen",
+        "Oberforstmeister der Provinz Oberhessen"
+      ],
+      "dateOfBirth": [
+        "1754-04-24"
+      ],
+      "dateOfDeath": [
+        "1822-07-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Stich"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Carl%20Eberhard%20Heinrich%20Friedrich%20von%20Wildungen.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Carl%20Eberhard%20Heinrich%20Friedrich%20von%20Wildungen.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig%20Carl%20Eberhard%20Heinrich%20Friedrich%20von%20Wildungen.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1127585460"
+      ],
+      "describedBy": {
+        "dateModified": "2022-11-16T00:33:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117380652/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117380652",
+      "id": "https://d-nb.info/gnd/117380652",
+      "oldAuthorityNumber": [
+        "(DE-588a)117380652",
+        "(DE-588)1127585460"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4037446-4",
+          "label": "Marburg"
+        }
+      ],
+      "preferredName": "Wildungen, Ludwig C. E. H. F. von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig C. E. H. F."
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Wildungen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4329718-3",
+          "label": "Förster"
+        }
+      ],
+      "publication": [
+        "Hombergk zu Vach, Emil L.: Dissertatio ivridica de vsvfrvctv materno in bonis liberorvm s*. - [1773?]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10621817"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1875362"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1127585460"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117380652/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_von_Wildungen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000071457068"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117380652"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117380652.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117380652"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/117380652"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117380652"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Wildungen, Ludwig Karl Eberhard Heinrich Friedrich von",
+        "Wildungen, Ludwig Karl Eberhard von",
+        "Wildungen, ... von",
+        "Wildungen, L. K. E. H. F. von",
+        "Wildungen, Ludovicus C. a",
+        "Wildungen, Ludwig C. von",
+        "Wildungen, Ludw. Karl Eberh. Heinr.",
+        "Wildungen, Ludwig Carolus Eberhard Heinrich Friedrich von",
+        "Wildungen, Ludwig von",
+        "Wildungen, Ludwig Carl Eberhard Heinrich Friedrich von",
+        "Wildungen, L. C. E. H. F. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Carl Eberhard Heinrich Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "L. C. E. H. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Karl Eberhard Heinrich Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw. Karl Eberh. Heinr."
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "L. K. E. H. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus C."
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Karl Eberhard Heinrich Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Carolus Eberhard Heinrich Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Karl Eberhard"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wildungen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_von_Wildungen",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_von_Wildungen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:22:18Z",
+    "gnd_query_biographical_data": "1754-1822",
+    "gnd_query_name": "wildungen, ludwig karl eberhard heinrich friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3139,
+  "name": "Wildungen, Ludwig Karl Eberhard Heinrich Friedrich von",
+  "profession": "Text u. Graphik u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XLII, 513",
+  "updated": "2026-06-11 13:29:25.756Z",
+  "uri": "https://d-nb.info/gnd/117380652",
+  "editor": ""
+}

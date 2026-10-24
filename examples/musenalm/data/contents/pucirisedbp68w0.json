@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Geliebtes Wesen, das ich meine, / Willst du dich ewig mir entziehn?",
+  "language": [],
+  "musenalm_id": 55664,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Sängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Sängerin",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.866Z",
+      "agent": "08be5slqlt4odk1",
+      "source_id": "u6kyq7afadjh9yz"
+    }
+  ]
+}

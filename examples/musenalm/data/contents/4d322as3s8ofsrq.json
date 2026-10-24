@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Es ist ein wunderliches Vorgehen, daß man die Wahrheit ganz uneigennützig suche.",
+  "language": [],
+  "musenalm_id": 39833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist ein wunderliches Vorgehen, daß man die Wahrheit ganz uneigennützig suche.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.882Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "6ygd8xzh5s41eye"
+    }
+  ]
+}

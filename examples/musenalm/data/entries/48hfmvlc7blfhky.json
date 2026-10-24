@@ -1,0 +1,115 @@
+{
+  "annotation": "2 Jgg 1803, 1804; Hannover (Hahn); Hrsg.: C. F. Pockels",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, SS III-XXVIII G-Verz, SS 1-190, 2 SS G-Verz I-Verz, C, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dem Edeln und Schönen gewidmet 1803",
+    "norm": "~+++407885 (Umschlag)",
+    "biblio": 100679,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2657,
+  "parallel_title": "",
+  "place_statement": "Hannover (Hahn)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Taschenbuch dem Edeln und Schönen gewidmet 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; nicht bei L/R; Goed VII. 318, 11; Goed VIII. 60, 60",
+  "responsibility_statement": "C. F. Pockels",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr / 1803. / Dem / Edeln und Schönen, / der frohen Laune und der Philosophie / des Lebens gewidmet. / von C. F. Pockels / Hofrath zu Braunschweig. / Hannover. / bey den Gebrüdern Hahn",
+  "updated": "2026-06-11 10:18:55.450Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "1oapg7s1hxp971x",
+    "zmugqpz6rxfj9y1"
+  ],
+  "contents": [
+    "i5zgzvs02wb8xk0",
+    "pcyic7z4u5z3ooe",
+    "5hjlqeorcw5dtkj",
+    "608uvjsq07vts04",
+    "lnebec7lw6aalkb",
+    "c37kzv15hfyvr47",
+    "3239ifjriz8hq2b",
+    "f29i58r1jmduob6",
+    "aqqe2f1gwq3yf6j",
+    "itr04itzusn057r",
+    "67vbb3lrzpfweo6",
+    "ssjj151xev5nwnk",
+    "p3474sngcpli8y7",
+    "kmmf10t49tvweg2",
+    "xrze1owdbuel88s",
+    "lgg8bqqyatb2flk",
+    "9z1om4ih96raxvy",
+    "fll63pvmwh5pzrh",
+    "39c4vufjqal3cv7",
+    "9yz975lyk1rup43",
+    "u6gzfas95kknjpf",
+    "m8ift663bnqr3ty",
+    "itufwqvn44xhu94",
+    "37e46idgu082c0c",
+    "rl5o6mnpw08ihld",
+    "sext4yhstmopvkk",
+    "1q4r5zdndep7dme",
+    "ddyaaap0y2j6i64",
+    "nsi3uw1ttwvc9mf",
+    "2jqbjq6zji4vppk",
+    "fvy4b2vtan87624",
+    "hfd87ng0a1cze37",
+    "96pzqfe3x8c7fpw",
+    "p49lqr865zyaz0d",
+    "vfvqua8vsgxd16n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.951Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.951Z",
+      "agent": "4vob6y8vk0x4foi",
+      "source_id": "6dtf0zhz52bbhhw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.117Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.117Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "n2h2bsm39nrpz1r"
+    }
+  ]
+}

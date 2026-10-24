@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 104582, Obj 25) Gedichte (Sammlung INr 104573, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Ich ehre, Hollbeck, Deinen Muth, / Für Deiner Eltern Wohl, Dein Blut,",
+  "language": [],
+  "musenalm_id": 104589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Hollbeck: / Als H. Ekhof und Mad. Starke die El- / tern im Deserteur aus Kindesliebe / spielten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sprickmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Hollbeck: / Als H. Ekhof und Mad. Starke die El- / tern im Deserteur aus Kindesliebe / spielten",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.020Z",
+      "agent": "9p4t51qtb5vwvkk",
+      "source_id": "ztwba66y398l0sg"
+    }
+  ]
+}

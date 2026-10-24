@@ -1,0 +1,61 @@
+{
+  "annotation": "fortgesetzt durch: Taschenbuch, Überflüssiges 1800 Alm-311; Taschenbuch (J. G. Jacobi) 1802 Alm-312; Iris 1803-1813, Alm- 25, 26, 28, 29 ,254, 255, 256, 258, 259, 260, 261",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch von J. G. Jacobi und seinen Freunden 1799",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2002-05-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 310,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch von J. G. Jacobi und seinen Freunden 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 55",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:54.746Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.591Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.591Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "tdrw7ihxctcfjdr"
+    }
+  ]
+}

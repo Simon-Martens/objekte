@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Von den mächtigsten Göttern, den ältesten rühmet / sich Amor: / Daß er der mächtigste doch, daß er der älteste sei.",
+  "language": [],
+  "musenalm_id": 12974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor und Saturn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor und Saturn",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.568Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "lpy2luax3t7vtlj"
+    }
+  ]
+}

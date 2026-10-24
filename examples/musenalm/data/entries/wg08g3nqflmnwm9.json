@@ -1,0 +1,93 @@
+{
+  "annotation": "KVK, Suchmaschine des Österreichischen Bibliothekenverbundes: Jgg 1837-1864 /) Das Taschenbuch ist nicht mit seinen Beiträgen aufgenommen: Titel und I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Lehrer, Eltern und Erzieher 1841",
+    "norm": "",
+    "biblio": 409668,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-10-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4599,
+  "parallel_title": "",
+  "place_statement": "Prag; Wien (Kronberger und Rziwnatz, und Ritter v. Mösle's Witwe und Braumüller)",
+  "places": [
+    "io20468di3l63af",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Lehrer, Eltern und Erzieher 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ignaz Jaksch",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Lehrer, Eltern und Erzieher. / (Fortsetzung des Schullehrerkalenders.) / Herausgegeben / von / Ignaz Jaksch, / Kapitular-Domherrn, wirklichem bischöfl. Consistorial-Rathe, Synodal- / Examinator und bischöflichem beeidetem Notar in Leimeritz. / [...] / Achter Jahrgang. / 1841. [...] Prag und Wien. / In Commission bei Kronberger und Rziwnatz, und Ritter / v. Mösle's Witwe und Braumüller",
+  "updated": "2026-06-11 10:18:55.726Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "okpzq9paebh077j"
+  ],
+  "contents": [
+    "okcgk0zm4k9dbkc",
+    "rx2wccndz7exn5a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "25k6sh6075oxmjj",
+      "source_id": "jngclkvgdapu4lk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.567Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.567Z",
+      "agent": "bx3jqm0gj1ud3cp",
+      "source_id": "nm9u14l9f5s44xg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "k6ubs1ho7hz80db",
+      "source_id": "oerp02lwhkqrmz1"
+    }
+  ]
+}

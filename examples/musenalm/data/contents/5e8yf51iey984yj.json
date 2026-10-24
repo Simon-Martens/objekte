@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Jenseits der Alpen, in den reinern Lüften, / Wo blühend die Orang' und Pinie stehen,",
+  "language": [],
+  "musenalm_id": 76757,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Gleich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Italien",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.791Z",
+      "agent": "0voj2kqu0am5322",
+      "source_id": "usyb2ygoe2jhsfm"
+    }
+  ]
+}

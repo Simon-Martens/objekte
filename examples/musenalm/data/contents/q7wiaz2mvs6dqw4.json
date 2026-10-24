@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Nun hab ich ihn! So dachte bey sich selbst / Von allen schönen Töchtern",
+  "language": [],
+  "musenalm_id": 5062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Medon. / Eine Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Medon. / Eine Idylle",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.247Z",
+      "agent": "quu68xfhyzxlogj",
+      "source_id": "omdt7u6ydp9ydli"
+    }
+  ]
+}

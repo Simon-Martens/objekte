@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 41. /) Vertonung des Gedichts »Schäferin Hannchen« von J. H. Voß INr 6259, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schäferin Hannchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_123_6269_blwsrjz11j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schäferin Hannchen",
+  "updated": "2000-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.252Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "9c8f8r7i7wt9oey"
+    }
+  ]
+}

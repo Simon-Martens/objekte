@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Als Rudolf aus dem Schweizerland / Den Zepter hielt in seiner Hand / Da gab es viel zu rügen:",
+  "language": [],
+  "musenalm_id": 133520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Rudolf's Nase. / (Ballade.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Scheyrer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Rudolf's Nase. / (Ballade.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.109Z",
+      "agent": "ffr90h140nkavcs",
+      "source_id": "r3mo2b42pdxsa9j"
+    }
+  ]
+}

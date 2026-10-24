@@ -1,0 +1,520 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.266Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/15514-7",
+          "label": "Königliche Akademie der Wissenschaften (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Altphilologe, Altertumsforscher; a.o. Professor in Heidelberg, Kontakt mit Brentano, Arnim, Görres und Tieck; 1809: Ordinarius in Heidelberg; ab 1811: Professor an der Universität Berlin, dort enge Zusammenarbeit mit W. von Humboldt; Amt des Dekans und des Rektors; Förderer der Akademie der Wissenschaften; enger Vertrauter von Mendelssohn; seit 1814: Mitglied der Königlich Preußischen Akademie der Wissenschaften"
+      ],
+      "dateOfBirth": [
+        "1785-11-24"
+      ],
+      "dateOfDeath": [
+        "1867-08-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Krüger"
+          ],
+          "creditText": [
+            "Alfred Gudeman: Imagines philologorum. Berlin/Leipzig: Teubner 1911, S. 21."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Philipp%20August%20B%C3%B6ckh%20-%20Imagines%20philologorum.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Philipp%20August%20B%C3%B6ckh%20-%20Imagines%20philologorum.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Philipp%20August%20B%C3%B6ckh%20-%20Imagines%20philologorum.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118808850/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Georg Matthäus"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/131457500",
+          "label": "Böckh, Christian Friedrich von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116216859",
+          "label": "Boeckh, Richard"
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Louisa"
+          ],
+          "surname": [
+            "Taube"
+          ]
+        },
+        {
+          "forename": [
+            "Dorothea"
+          ],
+          "surname": [
+            "Wagemann"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118808850",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116216859",
+          "label": "Boeckh, Richard"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/131457500",
+          "label": "Böckh, Christian Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118808850",
+      "oldAuthorityNumber": [
+        "(DE-588c)4119805-0",
+        "(DE-588a)118808850",
+        "(DE-588a)131003046",
+        "(DE-588a)131305913"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Böckh, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Böckh"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142067-6",
+          "label": "Althistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Altertumsforscher"
+      ],
+      "publication": [
+        "Specimen editionis Timaei Platonis Dialogi",
+        "Erklaerung einer Aegyptischen Urkunde auf Papyrus in Griechischer ...",
+        "D'Alembert und Friedrich der Große über das Verhältniß der Wissenschaft zum Staate",
+        "Graecae Tragoediae principes, Aeschylus",
+        "In Platonis qui vulgo fertur Minoem ejusdem libros priores de legibus ...",
+        "Die Staatshaushaltung der Athener",
+        "Corpus inscriptionum Graecarum",
+        "Commentatio de simultate, quae Platoni cum Xenophonte intercessisse fertur",
+        "Ueber die von Herrn von Prokesch in Thera entdeckten Inschriften",
+        "Philolaos des Pythagoreers Lehren nebst den Bruchstücken seines Werkes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb129576905"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86146783"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37048283"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q63183"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118808850/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Philipp_August_B%C3%B6ckh"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Boeckh"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_B%C3%B6ckh"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/August_B%C3%B6ckh"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000111143259"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118808850"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118808850"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118808850.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118808850.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118808850"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Böckh, Aug.",
+        "Boeckh, Augustus",
+        "Böckh",
+        "Boeckh, August",
+        "Boeeckhius, Augustus",
+        "Boeckh, A.",
+        "Boeck, August",
+        "Böckh, A.",
+        "Boeckhivs, Avgvstvs",
+        "Boeckhius, Augustus",
+        "Boeckhius",
+        "Boeckh, Philipp August",
+        "Boeckh",
+        "Boeckhius, August",
+        "Böckh, Philipp August"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus"
+          ],
+          "surname": [
+            "Boeeckhius"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Boeck"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Avgvstvs"
+          ],
+          "surname": [
+            "Boeckhivs"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "personalName": [
+            "Böckh"
+          ]
+        },
+        {
+          "forename": [
+            "Aug."
+          ],
+          "surname": [
+            "Böckh"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Boeckhius"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp August"
+          ],
+          "surname": [
+            "Böckh"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp August"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus"
+          ],
+          "surname": [
+            "Boeckh"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus"
+          ],
+          "surname": [
+            "Boeckhius"
+          ]
+        },
+        {
+          "personalName": [
+            "Boeckhius"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Böckh"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Boeckh",
+          "label": "https://de.wikipedia.org/wiki/August_Boeckh"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:58:12Z",
+    "gnd_query_biographical_data": "1785-1867",
+    "gnd_query_name": "böckh, august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 232,
+  "name": "Böckh, August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB II, 770",
+  "updated": "2026-06-11 13:29:21.637Z",
+  "uri": "https://d-nb.info/gnd/118808850",
+  "editor": ""
+}

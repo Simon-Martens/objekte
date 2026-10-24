@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Auf ewig dein! Wenn Berg und Meere / trennen, / Wenn Stürme dräun, / Wenn Weste säuseln oder Wüsten brennen: / Auf ewig dein!",
+  "language": [],
+  "musenalm_id": 48269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiederhall",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Matthison",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiederhall",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.589Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "ju04mkiwuhzl9k4"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, vT, VrlgM, G, SS I–XXIV, T, Vrwt, I-Verz, G-Verz, Text, SS1–280, darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1832",
+    "norm": "~",
+    "biblio": 200660,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1300,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 128",
+  "responsibility_statement": "Carl Lebrun",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Begründet / von / AUG. v. KOTZEBUE, / Dreißigster Jahrgang. / herausgegeben / von / CARL LEBRÜN / Sechste Fortsetzung. / Hamburg / bei Hoffmann und Campe. / 1832",
+  "updated": "2026-06-11 10:18:55.005Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "af5l0ju3somrxhn"
+  ],
+  "contents": [
+    "6qz3jkzwk5uoexz",
+    "uwom36iofzvdoiz",
+    "vgev7fot4ziuln5",
+    "rolowvg6tzj2azj",
+    "2z9yq56nfc326lk",
+    "nvvg12gp1ovb7b8",
+    "mu6bz2vfrb4pzno",
+    "cddnclcuvm0zgvz",
+    "58qq5f3562grehz",
+    "1ul9w5pn1rbadgr",
+    "taaa0q8c9hqvzbp",
+    "javba8oloyzddmg",
+    "y6j65duidvznmpa",
+    "39rdqzznvfarj53",
+    "qpcxii7d0gfucp1",
+    "l60iipqd60g1t8p",
+    "6ptkxcvn97dw95w"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.041Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.041Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "p6eygrie4dcgl4g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.877Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.877Z",
+      "agent": "dlpgk2os95jpmjk",
+      "source_id": "r6jfesn2lpar84r"
+    }
+  ]
+}

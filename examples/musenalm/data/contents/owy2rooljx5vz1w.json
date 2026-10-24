@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das Kriegsheer übte den Krieg; oben auf den Hügeln tobte der Scheinkampf der Batterieen, in den Bergschluchten knackerten die Einzelschüsse der Tirailleure;",
+  "language": [],
+  "musenalm_id": 106582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter und Tochter. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emerentius Scävola",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutter und Tochter. / Erzählung",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.137Z",
+      "agent": "9b0fkhld94kpyv9",
+      "source_id": "3fus0yc9svi1rzh"
+    }
+  ]
+}

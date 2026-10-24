@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Mein liebstes Lamm ist krank! das beste meiner / Heerde! / Dort liegt es matt,",
+  "language": [],
+  "musenalm_id": 8114,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Französischen",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.407Z",
+      "agent": "xpo363njgmsmovp",
+      "source_id": "2iuzmjcd1h1dyof"
+    }
+  ]
+}

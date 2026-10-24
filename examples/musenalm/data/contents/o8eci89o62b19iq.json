@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 125375, Obj 8); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Wie? Herr von Soligni ist nicht zu sprechen? / Nein, mein Herr. / sagt ihm doch, daß ein Seeoffizier ihm vorgestelltzu werden wünscht",
+  "language": [],
+  "musenalm_id": 125374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Qualen des Wahnes. / Schauspiel in zwei Akten / frei nach Scribe / von / C. W. Koch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Scribe # [bearb.] C. W. Koch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Qualen des Wahnes. / Schauspiel in zwei Akten / frei nach Scribe / von / C. W. Koch",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.890Z",
+      "agent": "snm7ivv5m1ogx5v",
+      "source_id": "ikwlw2081sxhyek"
+    }
+  ]
+}

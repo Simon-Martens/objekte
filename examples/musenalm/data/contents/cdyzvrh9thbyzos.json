@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1818 (Sammlung INr 19798, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19805,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seize I. I te. u. II te. Tour Rond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_266_19805_jcikkwhxnl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seize I. I te. u. II te. Tour Rond",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.824Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "6eqvm01u03r4agq"
+    }
+  ]
+}

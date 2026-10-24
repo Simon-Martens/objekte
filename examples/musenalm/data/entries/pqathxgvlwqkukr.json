@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Mythologisches 1813",
+    "norm": "",
+    "biblio": 404800,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3067,
+  "parallel_title": "",
+  "place_statement": "Weimar (Industrie-Comptoir)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch, Mythologisches 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 77; K 137; L/R 149",
+  "responsibility_statement": "Friedrich Majer",
+  "subtitle_statement": "",
+  "title_statement": "Mythologisches / Taschenbuch, / oder / Darstellung und Schilderung / der / Mythen, religiösen Ideen und Gebräuche / aller Völker. / Nach den besten Quellen für jede Classe von Lesern / entworfen / von / Friedrich Majer. / Zweiter Jahrgang / für das Jahr 1813. / Mit Kupfern / Weimar, / im Verlage des Landes-Industrie-Comptoirs",
+  "updated": "2026-06-11 10:18:55.387Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "g1fm15pjy3ok8ef"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.047Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.047Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "6te3ytxr328kbv9"
+    }
+  ]
+}

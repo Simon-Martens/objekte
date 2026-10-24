@@ -1,0 +1,120 @@
+{
+  "annotation": "vorhanden: Jgg 1830, 1833, 1835 /) Erscheinungsverlauf unklar: K 21 kennt nur Jg 1795; KVK, OBV: Jgg 1790, 1791,1795, 1796",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, ar: S 1 T, SS 3-12 Vrwrt d Hrsg, SS 13-19 Kal 25 SS Kal darin 12 GG, ar1: SS 1-104, 5 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach zum Vergnügen und zur Erbauung für Aufgeklärte und Unaufgeklärte 1790",
+    "norm": "~",
+    "biblio": 409103,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4209,
+  "parallel_title": "",
+  "place_statement": "Wien ( Ign. Grund)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach zum Vergnügen und zur Erbauung für Aufgeklärte und Unaufgeklärte 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 21; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / zum / Vergnügen und zur Erbauung / für Aufgeklärte und Unaufgeklärte / auf das Jahr / 1790. / Wien, / zu finden bey Ignaz Grund im Buchbinder- / gewölbe nächst dem St. Stephanshaupt- / thore",
+  "updated": "2026-06-11 10:18:54.807Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "jcfhzmbq9psnmvl"
+  ],
+  "contents": [
+    "up7546i1u718aoz",
+    "szn5ro7apx2r6qu",
+    "u7njjlusgg08del",
+    "wa2sr8zsugxwxyw",
+    "fobpww3mo1iq9fi",
+    "vef70k7l9bi00lv",
+    "1c1naiiqx15epyt",
+    "9iurwtnh18rzwjy",
+    "4iu9faf90ncwfsg",
+    "ww3csucflc0wzaf",
+    "jcg03rfp772oqv1",
+    "pfe3w7176m3lwad",
+    "2egtjk8bz9bsjww",
+    "tra5rss10nqt5vf",
+    "wh3qyuxoxelbx6o",
+    "ckxeno55atu7xdm",
+    "dldjh8j6jptqumq",
+    "cj1q4uubje6s2z8",
+    "mesvjgl7lmlq545",
+    "xh1wo67f35ez8rw",
+    "zafe15v0mgpvhd9",
+    "mei9xlnc7w2x8x4",
+    "mcdaqddocgy99w8",
+    "kpmirakgxan2pfx",
+    "wfqxusb9dlqkotm",
+    "h22xag2x6uzpsnx",
+    "qlji31114ilirx6",
+    "m4p07vnv9kgqea9",
+    "kup5173nrcllo0b",
+    "2ceg2tw02ot36o0",
+    "wfv31jlb7c3vtcx",
+    "nqulyyq2cgayona",
+    "omcez8cjkqrmomp",
+    "vtezes6161u5wtd",
+    "yhjrprpimi6n7j9",
+    "s3441rjiru1rxfv",
+    "dolowue5ly4a58q",
+    "mxef2qsy2c86a2f",
+    "putbxw2qqknejfp",
+    "2g8wkah4b5c3j5r",
+    "ua2tgz8p7q7bezf",
+    "cz3nmvvgc8qd0hq",
+    "t9p71ee5dcd64br",
+    "w5mrqxq8vw84iko",
+    "hzdud4qvkpmwrli",
+    "bhemwakkmnogjor",
+    "1uwvjsvbp056r2v",
+    "atj38cfv6w8ji37",
+    "9psd1ji1go53mpn",
+    "x46msd9pz7mbi39",
+    "4q8d4ylgl500vmc",
+    "th96k8fucb64won"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.046Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.046Z",
+      "agent": "b7yvcc55a1ihou9",
+      "source_id": "8wx3f2xnz0mf4mc"
+    }
+  ]
+}

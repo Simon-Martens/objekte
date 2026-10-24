@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Stax, der in seinem ganzen Leben / Nichts that, wodurch er Lob erwarb,",
+  "language": [],
+  "musenalm_id": 2388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / verdiente Lob",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / verdiente Lob",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.079Z",
+      "agent": "3m5nfg6fbusqjem",
+      "source_id": "4n7ugt9r1j6rkjf"
+    }
+  ]
+}

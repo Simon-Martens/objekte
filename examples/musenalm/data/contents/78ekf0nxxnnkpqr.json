@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Der Mensch hat ewige Begleiter, / Mit denen er durchs Leben wallt;",
+  "language": [],
+  "musenalm_id": 48051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Gubitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch",
+  "updated": "2007-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.566Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "ysqf3fd5qm50acq"
+    }
+  ]
+}

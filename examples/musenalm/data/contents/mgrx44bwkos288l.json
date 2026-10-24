@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Schön ist der Frühling der Liebe, der in den rosigen / Tagen / Des erwachten Gefühls selig den Jüngling ver- / rauscht;",
+  "language": [],
+  "musenalm_id": 23817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lippmann. / bei seinem Abschiede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schaller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lippmann. / bei seinem Abschiede",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.963Z",
+      "agent": "76znd1aywy8qgx0",
+      "source_id": "dhlf2b0czxok5vo"
+    }
+  ]
+}

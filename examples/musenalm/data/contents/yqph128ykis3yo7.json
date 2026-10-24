@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "War bunt der Frühling erschienen / Schien warm der Sonnenstrahl,",
+  "language": [],
+  "musenalm_id": 84221,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.040Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "i07funb1q045p29"
+    }
+  ]
+}

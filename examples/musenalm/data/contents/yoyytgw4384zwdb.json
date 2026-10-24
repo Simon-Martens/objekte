@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Lieber Gott, was ist für großes Wunder! / Kracht von Zara denn Kanonendonner?",
+  "language": [],
+  "musenalm_id": 86749,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heirat des Paul Pletikossa. / (Serbisches Heldenlied.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heirat des Paul Pletikossa. / (Serbisches Heldenlied.)",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "d2l2hohdjkjnm0r"
+    }
+  ]
+}

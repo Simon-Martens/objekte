@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Am Samstag schritt ich spät daher, / Im Feld mich umzuschauen,",
+  "language": [],
+  "musenalm_id": 46073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Samstag Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cäsar von Lengerke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Samstag Abend",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.390Z",
+      "agent": "bpu3kgvz2f2gjrs",
+      "source_id": "paxeuehnt59dfg8"
+    }
+  ]
+}

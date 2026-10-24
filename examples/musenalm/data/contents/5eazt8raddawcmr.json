@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Mädchen hast du Kummer oder Freude, / So verbirg sie sorgsam vor der Welt;",
+  "language": [],
+  "musenalm_id": 31012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment aus dem Buche der / Erfahrung. / In das Stammbuch einer Freundinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment aus dem Buche der / Erfahrung. / In das Stammbuch einer Freundinn",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.586Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "a1kuf90d59mldh1"
+    }
+  ]
+}

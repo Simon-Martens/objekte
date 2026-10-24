@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eunomia 1793",
+    "norm": "",
+    "biblio": 100207,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1756,
+  "parallel_title": "",
+  "place_statement": "Breslau (Korn)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Eunomia 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; nicht bei L/R; Goed IV. 369, 35",
+  "responsibility_statement": "Zerboni",
+  "subtitle_statement": "",
+  "title_statement": "Eunomia / 1793 / herausgegeben von Zerboni / Breslau in Comission / bey Wilhelm Gottlieb Korn",
+  "updated": "2026-06-11 10:18:55.622Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "lnn1r8y8l03v7uj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.079Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.079Z",
+      "agent": "k0fk4lrvgxeyjnw",
+      "source_id": "5qvvv99lo3jubpv"
+    }
+  ]
+}

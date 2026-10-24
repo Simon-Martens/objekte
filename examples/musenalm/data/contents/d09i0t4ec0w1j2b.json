@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117728, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Im fernen, fernen Meere, da segelt ein Schiff bei Nacht, / Der Schiffsherr in der Cajüte entschlief auf der Matte sacht.",
+  "language": [],
+  "musenalm_id": 117731,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / EinTraum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / EinTraum",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.618Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "eibyduil1w7zy2d"
+    }
+  ]
+}

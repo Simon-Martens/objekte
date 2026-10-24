@@ -1,0 +1,228 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.371Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Bürgermeister"
+      ],
+      "dateOfBirth": [
+        "1771"
+      ],
+      "dateOfDeath": [
+        "1848"
+      ],
+      "describedBy": {
+        "dateModified": "2021-10-22T19:16:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116898127/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116898127",
+      "id": "https://d-nb.info/gnd/116898127",
+      "oldAuthorityNumber": [
+        "(DE-588a)116898127"
+      ],
+      "preferredName": "Hinsche, Nikolaus Daniel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Nikolaus Daniel"
+        ],
+        "surname": [
+          "Hinsche"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter",
+        "Bürgermeister"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Winfried"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Winfried"
+          ],
+          "surname": [
+            "Theobald"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Winfried"
+          ],
+          "surname": [
+            "Theolbald"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69694193"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q41733841"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116898127/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Nikolaus_Daniel_Hinsche"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116898127"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116898127"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Winfried",
+        "Hinsche, Nicolaus Daniel",
+        "Theolbald, Winfried",
+        "Theobald, Winfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Winfried"
+          ],
+          "surname": [
+            "Theobald"
+          ]
+        },
+        {
+          "forename": [
+            "Nicolaus Daniel"
+          ],
+          "surname": [
+            "Hinsche"
+          ]
+        },
+        {
+          "forename": [
+            "Winfried"
+          ],
+          "surname": [
+            "Theolbald"
+          ]
+        },
+        {
+          "personalName": [
+            "Winfried"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Nikolaus_Daniel_Hinsche",
+          "label": "https://de.wikipedia.org/wiki/Nikolaus_Daniel_Hinsche"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:46:00Z",
+    "gnd_query_biographical_data": "1771-1844",
+    "gnd_query_name": "hinsche, nikolaus daniel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1199,
+  "name": "Hinsche, Nikolaus Daniel",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed VII, 388; X, 586",
+  "updated": "2026-06-11 13:29:22.942Z",
+  "uri": "https://d-nb.info/gnd/116898127",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 63816, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER THEATERPLATZ IN TRIEST",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. L. Hoffmeister Stahlst. v. Joh. Poppel",
+  "scans": [
+    "alm_1049_63823_a1ecsaj2zt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER THEATERPLATZ IN TRIEST",
+  "updated": "2009-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.169Z",
+      "agent": "09vqyzz1zzz8g9y",
+      "source_id": "x057r96ipxoxg3p"
+    }
+  ]
+}

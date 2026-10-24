@@ -1,0 +1,43 @@
+{
+  "annotation": "Text zu den Kupfern (Sammlung INr 28973, Obj 5) s. Graphik INr 29000, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ob wir's auch treu und redlich meinen, / Es sind der Tage viel' im Jahr,",
+  "language": [],
+  "musenalm_id": 28999,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "December",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "December",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.479Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "vtcghys5t08qr43"
+    }
+  ]
+}

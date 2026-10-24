@@ -1,0 +1,45 @@
+{
+  "annotation": "Zum Geburtstags-Feste eines Kapellmeisters (Sammlung INr 54902, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Mit den Flöten sind wir nah verschwistert, / Darum was sie Dir ins Ohr geflüstert,",
+  "language": [],
+  "musenalm_id": 54909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oboen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "X. Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Oboen",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.951Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "xwo48ws5zyon6v0"
+    }
+  ]
+}

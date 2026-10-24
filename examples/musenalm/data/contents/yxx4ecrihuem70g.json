@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 49 Gedichten INr 24988-25036, Obj 10-58",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neue Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neue Lieder",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.054Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "1d3l3zrk03pbad6"
+    }
+  ]
+}

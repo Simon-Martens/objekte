@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Zeichnungen (Sammlung INr 30658, Obj 4) s. Graphik INr 30673, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mehrere arme Scribenten angeln hier nach einem reichen Buchhändler. Bei zweien hat er angebissen, und diese sind bemüht, den Ducatentriefenden Fisch aus dem Geldmeere herauf zu ziehen.",
+  "language": [],
+  "musenalm_id": 30661,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Blatt / (Innere Seite)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser . Staatsgefangener Maler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Blatt / (Innere Seite)",
+  "updated": "2003-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.423Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "l95pu84v5hxqy6m"
+    }
+  ]
+}

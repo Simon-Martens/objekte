@@ -1,0 +1,139 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.499Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1770-11-28"
+      ],
+      "dateOfDeath": [
+        "1831-12-02"
+      ],
+      "describedBy": {
+        "dateModified": "2021-03-02T16:09:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-2813",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-2813"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/1196599610/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-188",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-188"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        }
+      ],
+      "gndIdentifier": "1196599610",
+      "id": "https://d-nb.info/gnd/1196599610",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4050042-1",
+          "label": "Riga"
+        }
+      ],
+      "preferredName": "Ulprecht, Ernst Markus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst Markus"
+        ],
+        "surname": [
+          "Ulprecht"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4329065-6",
+          "label": "Mineraloge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/589157100612672740009"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55105715"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1196599610/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1196599610"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:13:03Z",
+    "gnd_query_biographical_data": "1770-1831",
+    "gnd_query_name": "ulprecht, ernst markus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2953,
+  "name": "Ulprecht, Ernst Markus",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXIII, 558",
+  "updated": "2026-06-11 13:29:25.499Z",
+  "uri": "https://d-nb.info/gnd/1196599610",
+  "editor": ""
+}

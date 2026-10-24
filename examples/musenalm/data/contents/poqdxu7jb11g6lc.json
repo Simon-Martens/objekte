@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Amara (Sammlung INr 100262, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Arme Heimatlose, / Flüchtig und allein, / Soll denn keine Rose / Dir gewachsen sein?",
+  "language": [],
+  "musenalm_id": 100279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 219,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVII.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.856Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "z741hi0k0pzzelz"
+    }
+  ]
+}

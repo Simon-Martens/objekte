@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Nein, was zu viel ist, bleibt zu viel! / Legt sie denn nimmer aus den Händen / Den Strickstrumpf?",
+  "language": [],
+  "musenalm_id": 87791,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Strickstrumpf / und / die Tabakspfeife. / Eine häusliche Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Strickstrumpf / und / die Tabakspfeife. / Eine häusliche Scene",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.278Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "pe2dp5poy6k6e38"
+    }
+  ]
+}

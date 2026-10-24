@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Beiträgen, Übersetzung der hier nicht dargestellten griechischen Gedichte INr 131903-131908, Obj 44-49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131910,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Lieder von Korai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Korai",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Lieder von Korai",
+  "updated": "2013-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.044Z",
+      "agent": "0uhp7mhuqbxz74j",
+      "source_id": "leyj9zeozcw8y8l"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Nürnbergisches 1813",
+    "norm": "",
+    "biblio": 405994,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-04-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3553,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Schrag)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch, Nürnbergisches 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 139; L/R 149",
+  "responsibility_statement": "Ferdinand Roth",
+  "subtitle_statement": "",
+  "title_statement": "Nürnbergisches / Taschenbuch. / Herausgegeben / von / Ferdinand Roth. / Zweites Bändchen. / Nürnbergs Beschreibung und Verfassung. / Mit drey Kupfern. / Nürnberg, / Bey Johann Leonhard Schrag. / 1813",
+  "updated": "2026-06-11 10:18:55.378Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "p5unudsufelx8gy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "86iq2bt8qq3xx61",
+      "source_id": "0saqk2ccpasxxst"
+    }
+  ]
+}

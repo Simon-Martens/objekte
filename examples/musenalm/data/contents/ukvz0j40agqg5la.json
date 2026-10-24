@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Auf, mein Blick, von jenen grünen Auen, / Die des Rheines stolze Woge küßt,",
+  "language": [],
+  "musenalm_id": 62129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Trümmern von Kloster / Limburg in den Vogesen. / 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Trümmern von Kloster / Limburg in den Vogesen. / 1801",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.956Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "wq6qoniwz1ba16v"
+    }
+  ]
+}

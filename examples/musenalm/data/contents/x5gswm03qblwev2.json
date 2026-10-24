@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86211, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Im Saale rauschen lärmend frohe Weisen, / Von tausend Lichtern ist der Raum erhellt,",
+  "language": [],
+  "musenalm_id": 86217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bettler auf dem Balle. / (Ballade.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bettler auf dem Balle. / (Ballade.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.178Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "f425wy7m8c34wai"
+    }
+  ]
+}

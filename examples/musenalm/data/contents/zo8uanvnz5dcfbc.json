@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Gedicht INr 80511, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80507,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lord Byron",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Sanders pinx. C. Kotterba sc.",
+  "scans": [
+    "alm_1794_80507_tlkon42j3u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lord Byron",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.815Z",
+      "agent": "di9dux79v40ugav",
+      "source_id": "ie5zzk7i0gp7wg9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.815Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "sue9vufudnnt9wf"
+    }
+  ]
+}

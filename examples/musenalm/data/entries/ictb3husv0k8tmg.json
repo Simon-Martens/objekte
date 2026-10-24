@@ -1,0 +1,78 @@
+{
+  "annotation": "dieser Jg nicht bei K 23; nicht bei L/R 213; nicht bei Goed VIII. 66, 108",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Anekdotenalmanach (Müchler) 1839",
+    "norm": "",
+    "biblio": 100829,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1521,
+  "parallel_title": "",
+  "place_statement": "Berlin (Natorff & Comp.)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Anekdotenalmanach (Müchler) 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 23; L/R 213; Goed VIII. 66, 108",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Anekdotenalmanach / auf / das Jahr 1839. / Gesammelt und herausgegeben / von / Karl Müchler. / Mit einem Titelkupfer. / Berlin, / Druck und Verlag von W. Natorff & Comp.",
+  "updated": "2026-06-11 10:18:54.603Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "bhzmx45lhn11150"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.109Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.109Z",
+      "agent": "3sfze5gv40tpr85",
+      "source_id": "4v81wp04l0r01i6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.925Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.925Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "ohjzupuu186cwtb"
+    }
+  ]
+}

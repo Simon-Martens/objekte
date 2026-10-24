@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76959, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Seh' ich nicht Weißes dort schimmern? / Glänzt's nicht wie seidnes Gewand?",
+  "language": [],
+  "musenalm_id": 76960,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erwartung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.828Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "5kyhwxnq8zd6rbg"
+    }
+  ]
+}

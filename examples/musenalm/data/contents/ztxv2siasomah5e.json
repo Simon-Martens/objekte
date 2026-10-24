@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3) # Anm. am Gedicht mit Hinweis auf Goethes 2. röm. Elegie",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Römer sollten den Göthe doch ehren / Und verherrlichen immerdar,",
+  "language": [],
+  "musenalm_id": 23481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Der heilige Göthe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Der heilige Göthe #",
+  "updated": "2002-05-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.850Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "d59y4vsetx8brcf"
+    }
+  ]
+}

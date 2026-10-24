@@ -1,0 +1,505 @@
+{
+  "annotation": "",
+  "biographical_data": "1814-1896",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024315-7",
+          "label": "Georg-August-Universität Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10001498-7",
+          "label": "Königliche Museen zu Berlin. Antikensammlungen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1016783-3",
+          "label": "Friedrich-Wilhelms-Universität Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2003948-7",
+          "label": "Altes Museum (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Historiker, Archäologe, Philologe; 1837 Hauslehrer in Athen, 1844 Praeceptor (Hauslehrer) des Prinzen Friedrich Wilhelm (späterer Kaisers Friedrich III.) und Professor der Universität Berlin, 1855-1867 Professor für klassische Philologie an der Universität Göttingen, 1868 Professor für klassische Archäologie an der Universität Berlin und Leitung des Alten Museums, 1872 auch die des Antiquariums; Mitglied der Akademien der Wissenschaften in Berlin u. zu Göttingen"
+      ],
+      "dateOfBirth": [
+        "1814-09-02"
+      ],
+      "dateOfDeath": [
+        "1896-07-11"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Alfred Gudeman: Imagines philologorum, Berlin/Leipzig 1911, S. 28."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Curtius%20-%20Imagines%20philologorum.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Curtius%20-%20Imagines%20philologorum.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ernst%20Curtius%20-%20Imagines%20philologorum.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-13T15:32:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116766557/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11676662X",
+          "label": "Curtius, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116945737",
+          "label": "Lepsius, Dora"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118670743",
+          "label": "Curtius, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116766867",
+          "label": "Curtius, Carl Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11676645X",
+          "label": "Curtius, Auguste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118523058",
+          "label": "Curtius, Ernst Robert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116774584",
+          "label": "Curtius, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116766492",
+          "label": "Curtius, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116767103",
+          "label": "Curtius, Paul Werner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116766905",
+          "label": "Curtius, Clara"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116766557",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/118523058",
+          "label": "Curtius, Ernst Robert"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116766492",
+          "label": "Curtius, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116766867",
+          "label": "Curtius, Carl Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116767103",
+          "label": "Curtius, Paul Werner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118670743",
+          "label": "Curtius, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116774584",
+          "label": "Curtius, Theodor"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116766557",
+      "oldAuthorityNumber": [
+        "(DE-588a)116766557",
+        "(DE-588c)4508723-4"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4003366-1",
+          "label": "Athen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036483-5",
+          "label": "Lübeck"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Curtius, Ernst",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst"
+        ],
+        "surname": [
+          "Curtius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142067-6",
+          "label": "Althistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Die Akropolis von Athen",
+        "Herakles der Satyr und Dreifußräuber",
+        "Zur Geschichte des Wegebaus bei den Griechen",
+        "Ephesos",
+        "Olympia",
+        "Gefeiert in: Lampros, Kōnstantinos P.: Peri sikyōn kai sikyaseōs para tois archaiois",
+        "Die Kunst der Hellenen",
+        "Die knieenden Figuren der altgriechischen Kunst"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb120276962"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87120087"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34470733"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61407"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116766557/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ernst_Curtius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_Curtius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ernst_Curtius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_Curtius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120959014"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116766557"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1830_nn1r;1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116766557"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116766557.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116766557.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116766557"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kúrtios, Ernéstos",
+        "Kourtios, Ernestos",
+        "Kurtius, Ernestus",
+        "Curtius",
+        "Curtius, Ernestus",
+        "Curtino, Ernst",
+        "Curtius, E.",
+        "Curtii, Ernesti"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Curtius"
+          ]
+        },
+        {
+          "forename": [
+            "Ernestus"
+          ],
+          "surname": [
+            "Curtius"
+          ]
+        },
+        {
+          "forename": [
+            "Ernestus"
+          ],
+          "surname": [
+            "Kurtius"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Curtino"
+          ]
+        },
+        {
+          "forename": [
+            "Ernestos"
+          ],
+          "surname": [
+            "Kourtios"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Curtius"
+          ]
+        },
+        {
+          "forename": [
+            "Ernesti"
+          ],
+          "surname": [
+            "Curtii"
+          ]
+        },
+        {
+          "forename": [
+            "Ernéstos"
+          ],
+          "surname": [
+            "Kúrtios"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_Curtius",
+          "label": "https://de.wikipedia.org/wiki/Ernst_Curtius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:10:18Z",
+    "gnd_query_biographical_data": "1814-1896",
+    "gnd_query_name": "curtius, ernst"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 476,
+  "name": "Curtius, Ernst",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLVII, 580",
+  "updated": "2026-06-11 13:29:21.958Z",
+  "uri": "https://d-nb.info/gnd/116766557",
+  "editor": ""
+}

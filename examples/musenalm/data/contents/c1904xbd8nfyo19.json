@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März /) paginiert S. 50. /) Illustration zu »T. S. oder Lebenslauf in zwei Buchstaben. Skizze aus dem Leben« von J. G. Seidl INr 89393, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89383,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenslauf in zwei Buchstaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. I. Krepp sc.",
+  "scans": [
+    "alm_3342_89383_hvf6rlqghc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebenslauf in zwei Buchstaben",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "bwfbno25pdm0edb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.169Z",
+      "agent": "z64ev7tzpav4ds5",
+      "source_id": "y3trq25avs44vc2"
+    }
+  ]
+}

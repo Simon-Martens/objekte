@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7384,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nim Himmel mir das Kummervolle Leben. / Da du mir nimst was du mir Kaum gegeben. / O Damon! Damon! auf dein feuchtes Grab / Fließt stets ein tränen Strom herab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. sc.",
+  "scans": [
+    "alm_148_7384_09xjqu5nbf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nim Himmel mir das Kummervolle Leben. / Da du mir nimst was du mir Kaum gegeben. / O Damon! Damon! auf dein feuchtes Grab / Fließt stets ein tränen Strom herab",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.407Z",
+      "agent": "83bgj21cr6rcy33",
+      "source_id": "w6hndihw5a5rrh4"
+    }
+  ]
+}

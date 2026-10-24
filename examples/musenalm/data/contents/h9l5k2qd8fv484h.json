@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Noch hat in unseren Herzen nicht ausgetönt / das Melodien-Opfer des frommen Danks;",
+  "language": [],
+  "musenalm_id": 4269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode an Seine Königliche Hoheit, / Friedrich, Herzog von York und Fürst- / Bischof von Osnabrück u. w. / Bei Höchstdero Anwesenheit in Göt- / tingen am 18. Sept. 1786 übereicht / von den daselbst Studirenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode an Seine Königliche Hoheit, / Friedrich, Herzog von York und Fürst- / Bischof von Osnabrück u. w. / Bei Höchstdero Anwesenheit in Göt- / tingen am 18. Sept. 1786 übereicht / von den daselbst Studirenden",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.076Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "2aqvvfgm9949xys"
+    }
+  ]
+}

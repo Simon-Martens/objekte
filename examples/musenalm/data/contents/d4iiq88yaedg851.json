@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. doppelseitiges Uniformkupfer, nummeriert 6. /) lt. G-Verz: Englische Matrosen ; s. Textbezug INr 130313, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130328,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg inv. del. 1808. G. Geyssler. fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg inv. del. 1808. G. Geyssler. fec.",
+  "scans": [
+    "alm_2206_130328_95j6kycrio.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.065Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9sda3yb8yaw3fmi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.065Z",
+      "agent": "iojwntogak3m4db",
+      "source_id": "pcwkwwn67nlm2dk"
+    }
+  ]
+}

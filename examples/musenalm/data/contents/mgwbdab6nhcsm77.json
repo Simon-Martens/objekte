@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Großes Fest begieng der Kaiser / Friedrich mit dem rothen Bart:",
+  "language": [],
+  "musenalm_id": 55102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spielmannslohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spielmannslohn",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.786Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "w6ovvqosgwbxwh4"
+    }
+  ]
+}

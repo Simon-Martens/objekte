@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 2 und 7 der Suite; paginiert 5. Illustration zu »Das hessische Landmädchen« von E. Ferrand d.i. Ed. Schulz INr 59544, Obj 63 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59543,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Stelldichein #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59543_5hcn9a5jfr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Stelldichein #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.953Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "qg425op31jq61bj"
+    }
+  ]
+}

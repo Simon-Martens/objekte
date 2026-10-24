@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik in: Taschenbuch zum geselligen Vergnügen 1808 INr 13072",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Es leben die Weiber! es leb' ihr Genie! / Die Männer ei freilich! sind Herren der Erde;",
+  "language": [],
+  "musenalm_id": 12917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wette",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.604Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "sizm7ocl7ocgiuy"
+    }
+  ]
+}

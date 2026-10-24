@@ -1,0 +1,141 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.445Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1791-10-09"
+      ],
+      "dateOfDeath": [
+        "1826-05-31"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-22T08:09:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-35",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-35"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1035114305/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1035114305",
+      "id": "https://d-nb.info/gnd/1035114305",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4040608-8",
+          "label": "Münster (Westf)"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Rieste"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Oelde"
+      ],
+      "preferredName": "Piepmeyer, Heinrich Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Wilhelm"
+        ],
+        "surname": [
+          "Piepmeyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/302719200"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94915625"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1035114305/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000409208019"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:29:45Z",
+    "gnd_query_biographical_data": "1791-1826",
+    "gnd_query_name": "piepmeyer, heinrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2080,
+  "name": "Piepmeyer, Heinrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1558",
+  "updated": "2026-06-11 13:29:24.076Z",
+  "uri": "https://d-nb.info/gnd/1035114305",
+  "editor": ""
+}

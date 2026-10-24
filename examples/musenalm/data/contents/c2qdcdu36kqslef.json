@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Gedicht »Dem Genius des neunzehnten Jahrhunderts« INr 871975, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81963,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Thom. Weber del. P. J. Laminit sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sc.",
+  "scans": [
+    "alm_3830_81963_r77kn4p00a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "4ue7orcuu4bjzpf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "opcc5oi0fojgl4y"
+    }
+  ]
+}

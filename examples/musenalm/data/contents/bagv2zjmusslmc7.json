@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Der Fingerzeig« von Julie von Großmann INr 86083, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86072,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EUGENIE UND IHRE MUTTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeich. von C. Russ. Stahlst. von I. Krepp in Wien",
+  "scans": [
+    "alm_1595_86072_9htes68r2j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EUGENIE UND IHRE MUTTER",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "fqmqojy4k5ab21b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "ybu0wdauv2b35qt"
+    }
+  ]
+}

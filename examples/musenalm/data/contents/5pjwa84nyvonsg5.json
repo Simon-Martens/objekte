@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Heil dir, der Heimath Thal, / Wo uns der Freude Strahl / Jugendlich lacht!",
+  "language": [],
+  "musenalm_id": 53534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chorlied / am / Jugendfeste zu Lenzburg. / Nach allbekannter Melodie von God save the King",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. T. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chorlied / am / Jugendfeste zu Lenzburg. / Nach allbekannter Melodie von God save the King",
+  "updated": "2007-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.414Z",
+      "agent": "42yarzq0yz2e1hp",
+      "source_id": "0cg380q7fb4f3ii"
+    }
+  ]
+}

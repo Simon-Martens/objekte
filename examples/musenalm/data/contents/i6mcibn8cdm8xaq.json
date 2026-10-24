@@ -1,0 +1,45 @@
+{
+  "annotation": "Donnergerolle und Blitze aus der Ferne (Sammlung INr 46166, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Du heißest Gottes Ebenbild, / Ein Fünkchen aus dem Himmelslichte;",
+  "language": [],
+  "musenalm_id": 46173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.226Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "fx58qvp6hp87vbe"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Apophthegmen (Sammlung INr 11601, Obj 37) Prosaische Aufsätze (Sammlung INr 11583, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Die meisten bauen das Gebäude ihrer Kenntnisse wie schlechte Baumeister,",
+  "language": [],
+  "musenalm_id": 11611,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.377Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "r4ynq4ni5ybbycj"
+    }
+  ]
+}

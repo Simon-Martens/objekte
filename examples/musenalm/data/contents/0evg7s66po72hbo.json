@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Gott ist mit mir! / Weg Furcht und Grau'n, weg Kleinmuth, Angst und Schrecken! / Sein starker Schild wird meine Schwachheit decken;",
+  "language": [],
+  "musenalm_id": 101349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott ist mit mir",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gott ist mit mir",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.924Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "3e94zawvgp2khx7"
+    }
+  ]
+}

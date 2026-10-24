@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober/) # Bez. am ersten Blatt der Suite /) s. Textbezug INr 118655, Obj 79",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118590,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kaisers Zusammenkunft / mit dem König von Preußen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch inv. et sc. Wien",
+  "scans": [
+    "alm_3634_118590_9q80asxjv9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Kaisers Zusammenkunft / mit dem König von Preußen",
+  "updated": "2010-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.588Z",
+      "agent": "nhcnwrqiq042uja",
+      "source_id": "oo324rz7mdryor4"
+    }
+  ]
+}

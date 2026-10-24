@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123181, Obj 13; # Bezeichnung aus dem Vorwort (INr 123169, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Heraus, Faulpelz! / Aber, liebe Anne, Du treibst es doch auch zu arg mit mir. Der Herr Pfarrer hat gesagt: ich soll Dein Herr seyn.",
+  "language": [],
+  "musenalm_id": 123182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Trunkenbold. / Eine Schnurre in zwei Akten, nach Holberg / frei bearbeitet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Trunkenbold. / Eine Schnurre in zwei Akten, nach Holberg / frei bearbeitet",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.827Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "t6kpau34gqtwwni"
+    }
+  ]
+}

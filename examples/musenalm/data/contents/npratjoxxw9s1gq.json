@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Wohl umsonst in ferne Weiten / Schweift dein Auge, armes Kind!",
+  "language": [],
+  "musenalm_id": 55676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Der Knabe und das Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Der Knabe und das Mädchen",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.660Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "wd454p2zpx7g6ed"
+    }
+  ]
+}

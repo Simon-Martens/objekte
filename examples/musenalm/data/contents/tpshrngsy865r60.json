@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Von dem künstlichen Geweb' einer Kreuzspinne umstrickt, zitterte ein arbeitsames Bienchen vor der drohenden Kralle der Würgerinn.",
+  "language": [],
+  "musenalm_id": 83021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spinne und der Knabe. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Spinne und der Knabe. / Eine Fabel",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.897Z",
+      "agent": "n32rrka2qx8adlb",
+      "source_id": "f4j05tdds143dc4"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "mit einem Vorwort s. INr 73095, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich sing' die Kleine, die von unbekannten / Haupte, / Wo Pfleg' ihr und Geburt des Thrones / Näh' erlaubte,",
+  "language": [],
+  "musenalm_id": 73096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lausiade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Pindar # [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lausiade",
+  "updated": "2010-02-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.546Z",
+      "agent": "w3v9qhkkgi193zi",
+      "source_id": "4xhcg6y0953xfon"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.546Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "xr4r6we5c1dwcsp"
+    }
+  ]
+}

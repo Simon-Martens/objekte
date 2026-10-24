@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64673, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64679,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutterliebe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ary Scheffer pinx. D. J. Sluyter del & sculps.",
+  "scans": [
+    "alm_1081_64679_sgd00jizmt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutterliebe #",
+  "updated": "2009-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.237Z",
+      "agent": "vq2otivrrqio4m2",
+      "source_id": "ipkj8sk7emwairr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.237Z",
+      "agent": "lxkw0pi082wa1ak",
+      "source_id": "losi9s9da355b5c"
+    }
+  ]
+}

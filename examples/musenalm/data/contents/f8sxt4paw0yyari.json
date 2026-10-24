@@ -1,0 +1,58 @@
+{
+  "annotation": "s. »Die Blumenkönigin. Erzählung zur Erklärung der Stahlstiche. V. Des Seemanns erste Lection« von L. Schefer 106579, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106578,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE MARINER'S FIRST LESSON. / DES SEEMANN ERSTE LECTION. / PREMIÈRE LEÇON DU / MARINIER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by J. C. Timbrell Engraved by C. Rolls",
+  "scans": [
+    "alm_1833_106578_37mp8ueto7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE MARINER'S FIRST LESSON. / DES SEEMANN ERSTE LECTION. / PREMIÈRE LEÇON DU / MARINIER",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.137Z",
+      "agent": "yqozsyb5soh7ucc",
+      "source_id": "4mzu40kodv9se3w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.137Z",
+      "agent": "v9uxeb4p9b2c1mo",
+      "source_id": "8zt1jsooify5u3e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Hoch, im Hexameter pflanzt er das dreißig- / pfündige Stück auf;",
+  "language": [],
+  "musenalm_id": 16345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Distichenmacher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Distichenmacher",
+  "updated": "2001-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.631Z",
+      "agent": "q7zvyheam3iyblc",
+      "source_id": "hkpktzhsb80va34"
+    }
+  ]
+}

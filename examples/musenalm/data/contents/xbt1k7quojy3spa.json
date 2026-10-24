@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober s. Textbezug INr 72228, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72210,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nordwestliche Ansicht der Kathedrale zu York / nach John Buckler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "John Buckler. gez. von Mauch gest. v. J. G. Martini Rudolstadt 1829",
+  "scans": [
+    "alm_867_72210_yjnmhiwgy4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nordwestliche Ansicht der Kathedrale zu York / nach John Buckler",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.658Z",
+      "agent": "rvw5lmkfyfm128i",
+      "source_id": "evgo48o19bhxpzg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.658Z",
+      "agent": "yxu70p4laeh97im",
+      "source_id": "k2hl3y2jtd87xp0"
+    }
+  ]
+}

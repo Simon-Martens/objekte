@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Rheinland (Sammlung INr 99244, Obj 150)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Der Spanier Heer mit Spinola / War in die Pfalz gedrungen,",
+  "language": [],
+  "musenalm_id": 99290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das brave Weib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das brave Weib",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.870Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "egs1s41oz60zzhs"
+    }
+  ]
+}

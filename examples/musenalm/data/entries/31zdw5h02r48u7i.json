@@ -1,0 +1,106 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG VB, verso G, gT, S I T, S III nT, SS V-VII-Verz, S VII VrlgM, S VIII Anm d Hrsg, 6 GG, S 1-368, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zum geselligen Vergnügen 1828 (1: Göschen)",
+    "norm": "~",
+    "biblio": 101175,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 276,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zum geselligen Vergnügen 1828 (1: Göschen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; K 150; K 152; L/R 101; Goed VIII. 42, 3 a u. b",
+  "responsibility_statement": "Friedrich Kind",
+  "subtitle_statement": "",
+  "title_statement": "W. G. Becker's / Taschenbuch / zum / geselligen Vergnügen. / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1828. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig, / bei Georg Joachim Göschen. / Wien in der Carl Geroldschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.687Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "4y3ntvd1yblcemj"
+  ],
+  "contents": [
+    "xl8z047cnksjgnv",
+    "9hkuvld6zrl32x2",
+    "dheuj2jvpkhduh7",
+    "2in4autojbdg8lb",
+    "cxq9pxo6byfzmc4",
+    "zi0bxpnchvhw8co",
+    "usgjtotf96xadgj",
+    "afs71vk0m21ard5",
+    "r3gef4mgcrm8gvw",
+    "ywd4aglff4gx151",
+    "pjgikay81ecg0yi",
+    "45m4gf4e6daqcs7",
+    "d0p3eeutc634c3z",
+    "nwuhf5n1jxnw2vm",
+    "ni2cvk2y0wwvgx5",
+    "uqfrnwr7n3yqu8b",
+    "3e0b9cf3eq5i4j5",
+    "j7ntkc9w5c9xfyd",
+    "ju72ti3jzedgfzv",
+    "7wpoz4mou02otnb",
+    "2n66dzbwqyhk00r",
+    "vkw0uecqtsb1qtq",
+    "stm1tdzqlkidowm",
+    "90lg9iivmxomqa7",
+    "gr354ivm5n4i74t",
+    "8iwm27cjgwfj405",
+    "30uat02xhpvxhhh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.923Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.923Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "13f4joqf0xf15z6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.569Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.569Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "jev17j6i9besb04"
+    }
+  ]
+}

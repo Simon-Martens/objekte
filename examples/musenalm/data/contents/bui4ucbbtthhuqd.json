@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "O wär'st du heimgegangen / Da noch, ein Sternenring, / Die jugendliche Schläfe / Der Lorbeer dir umsing!",
+  "language": [],
+  "musenalm_id": 115922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einem Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einem Dichter",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.451Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "csvxjthrrdgnkzh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1825 gesammelt von Theodor Hell (Sammlung INr 40698, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "539",
+  "incipit_statement": "Wenn sich nach heißer Tagesschwüle / Ermüdet von dem langen Pfad",
+  "language": [],
+  "musenalm_id": 40713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.229Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "psuapo4aawj2fu5"
+    }
+  ]
+}

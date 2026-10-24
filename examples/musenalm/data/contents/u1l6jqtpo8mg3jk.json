@@ -1,0 +1,47 @@
+{
+  "annotation": "kleine Graphik über dem Gedicht »Wir und Sie« von Klopstock INr 38317, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. M.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. M.",
+  "scans": [
+    "alm_177_38316_hmlmrjjxsi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.692Z",
+      "agent": "tofq8m4srkv5wfy",
+      "source_id": "7hj2jxtcdo7l2pg"
+    }
+  ]
+}

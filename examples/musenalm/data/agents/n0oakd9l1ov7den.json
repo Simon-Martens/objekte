@@ -1,0 +1,476 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.465Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schüler von Tassaert, wurde 1788 nach Tassaerts Tod Leiter der Hofbildhauerwerkstatt in Berlin, ab 1815 Direktor der Akademie der Künste"
+      ],
+      "dateOfBirth": [
+        "1764-05-20"
+      ],
+      "dateOfDeath": [
+        "1850-01-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Bautsch"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/HermannBiow.JohannGottfriedSchadow.Daguerreotypie.1846.P1162289.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/HermannBiow.JohannGottfriedSchadow.Daguerreotypie.1846.P1162289.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:HermannBiow.JohannGottfriedSchadow.Daguerreotypie.1846.P1162289.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:30:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118606115/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/10223244X",
+          "label": "Bendemann, Eduard Julius Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139493700",
+          "label": "Schadow, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117094595",
+          "label": "Schadow, Felix"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117893",
+          "label": "Bendemann, Lida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1182281400",
+          "label": "Schadow, Richard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116511869",
+          "label": "Hasenclever, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1335214275",
+          "label": "Paulsdorff, Marianne von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118606115",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.2p",
+          "label": "Personen zu Plastik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1182281400",
+          "label": "Schadow, Richard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118748181",
+          "label": "Schadow, Wilhelm von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117893",
+          "label": "Bendemann, Lida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117094595",
+          "label": "Schadow, Felix"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116511869",
+          "label": "Hasenclever, Sophie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/139493700",
+          "label": "Schadow, Gottfried"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118606115",
+      "oldAuthorityNumber": [
+        "(DE-588a)118606115",
+        "(DE-588a)131018183",
+        "(DE-588c)4051932-6"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Schadow, Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried"
+        ],
+        "surname": [
+          "Schadow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4139550-5",
+          "label": "Bildhauer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Zeichner"
+      ],
+      "publication": [
+        "Schadow, Johann G.: Polyclet oder von den Maaßen des Menschen nach dem Geschlechte und Al*. - 1834 - 1835",
+        "Wittenbergs Denkmäler der Bildnerei, Baukunst und Malerei",
+        "Schadow, Johann G.: Fragment über Nationalphysiognomie und Ausartung menschlicher Bildung",
+        "Schadow, Johann G.: Wittenbergs Denkmäler der Bildnerei",
+        "Schadow, Johann G.: Lehre von den Knochen und Muskeln von den Verhältnissen des menschlic*",
+        "Schadow, Johann G.: Ueber das Denkmal des Fürsten Blücher von Wahlstatt, als es am 25. Au*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12498849g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83006938"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27170885"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q51989"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118606115/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottfried_Schadow"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schadow"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottfried_Schadow"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121253232"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118606115"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118606115"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118606115.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118606115.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118606115"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118606115"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118606115"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schado, Gottfried",
+        "Schadow, Johann G.",
+        "Schadow, Johann Gottfried",
+        "Schadow, G.",
+        "Schado, G.",
+        "Schadow, Gottfried von",
+        "Schadow, Johann Gottfried von",
+        "Schadow, Godefroy"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schado"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "surname": [
+            "Schado"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        },
+        {
+          "forename": [
+            "Godefroy"
+          ],
+          "surname": [
+            "Schadow"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schadow",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottfried_Schadow"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:45:24Z",
+    "gnd_query_biographical_data": "1764-1850",
+    "gnd_query_name": "schadow, gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2395,
+  "name": "Schadow, Gottfried",
+  "profession": "Graphik u. Sonst.",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 541",
+  "updated": "2026-06-11 13:29:24.531Z",
+  "uri": "https://d-nb.info/gnd/118606115",
+  "editor": ""
+}

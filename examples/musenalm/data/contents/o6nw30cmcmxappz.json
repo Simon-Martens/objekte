@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar; nummeriert 2.; s. Textbezug INr 133022, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132872,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LEOPOLD LUDWIG / GRAF ZU ANHALT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas sc.",
+  "scans": [
+    "alm_3960_132872_vxzhfsm9v9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LEOPOLD LUDWIG / GRAF ZU ANHALT",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.097Z",
+      "agent": "3mymtnunkvww3p2",
+      "source_id": "ej24pxsoq1rl8tm"
+    }
+  ]
+}

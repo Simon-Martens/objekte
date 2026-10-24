@@ -1,0 +1,481 @@
+{
+  "annotation": "",
+  "biographical_data": "1732-1795",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.243Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1069849073",
+          "label": "Bückeburger Hofkapelle"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "\"Bückeburger Bach\", seit 1750 Hofmusiker in Bückeburg"
+      ],
+      "dateOfBirth": [
+        "1732-06-21"
+      ],
+      "dateOfDeath": [
+        "1795-01-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Georg David Matthieu"
+          ],
+          "creditText": [
+            "1. haendel.it 2. kottanelkul.reblog.hu"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Friedrich%20Bach.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Christoph%20Friedrich%20Bach.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Christoph%20Friedrich%20Bach.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118651471/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116025360",
+          "label": "Bach, Wilhelm Friedrich Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505491",
+          "label": "Bach, Anna Magdalena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505521",
+          "label": "Bach, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11850553X",
+          "label": "Bach, Johann Sebastian"
+        },
+        {
+          "forename": [
+            "Lucia Elisabeth"
+          ],
+          "surname": [
+            "Münchhausen"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505505",
+          "label": "Bach, Carl Philipp Emanuel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505548",
+          "label": "Bach, Wilhelm Friedemann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1211615871",
+          "label": "Bach, Auguste Wilhelmine"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118651471",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116025360",
+          "label": "Bach, Wilhelm Friedrich Ernst"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1211615871",
+          "label": "Bach, Auguste Wilhelmine"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118505491",
+          "label": "Bach, Anna Magdalena"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11850553X",
+          "label": "Bach, Johann Sebastian"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118505521",
+          "label": "Bach, Johann Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505505",
+          "label": "Bach, Carl Philipp Emanuel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118505548",
+          "label": "Bach, Wilhelm Friedemann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118651471",
+      "oldAuthorityNumber": [
+        "(DE-588a)118651471",
+        "(DE-588a)134318838",
+        "(DE-588a)138996385",
+        "(DE-101c)310008832",
+        "(DE-588c)4086192-2"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008715-3",
+          "label": "Bückeburg"
+        }
+      ],
+      "preferredName": "Bach, Johann Christoph Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christoph Friedrich"
+        ],
+        "surname": [
+          "Bach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172793-9",
+          "label": "Organist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13891031b"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81032678"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12490784"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57225"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118651471"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118651471/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Christoph_Friedrich_Bach"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Friedrich_Bach"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Christoph_Friedrich_Bach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108710187"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118651471"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118651471.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118651471.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118651471"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Bückeburger Bach",
+        "Bach, Friedrich",
+        "Bach, Christoph Friedrich",
+        "Bückeburg Bach",
+        "Bach, Johann Christian Friedrich",
+        "Bach, Johann Christoph F.",
+        "Bach, Johann Christian Friederich",
+        "Bach, Johann C.",
+        "Bach, Joh. Chr. Friedrich",
+        "Bach, J. Chr. Fr.",
+        "Bach, Johann Cristoph Friedrich",
+        "Bach, Joh. Chr. Fr."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joh. Chr. Friedrich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Friedrich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "J. Chr. Fr."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Friederich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Bückeburger Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Friedrich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Bückeburger Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Chr. Fr."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "personalName": [
+            "Bückeburg Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoph F."
+          ],
+          "surname": [
+            "Bach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Cristoph Friedrich"
+          ],
+          "surname": [
+            "Bach"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Friedrich_Bach",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christoph_Friedrich_Bach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:51:06Z",
+    "gnd_query_biographical_data": "1732-1795",
+    "gnd_query_name": "bach, johann christoph friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 88,
+  "name": "Bach, Johann Christoph Friedrich",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB I, 746",
+  "updated": "2026-06-11 13:29:21.435Z",
+  "uri": "https://d-nb.info/gnd/118651471",
+  "editor": ""
+}

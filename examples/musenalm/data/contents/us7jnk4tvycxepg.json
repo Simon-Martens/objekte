@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Echo und Narcissus« von Calderon s. Textbezug INr 27854, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27855,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon's Echo und Narcissus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. Dalbon sc.",
+  "scans": [
+    "alm_357_27855_smc9ig6t6b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon's Echo und Narcissus",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "iunodrincx4btpf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "42w3wulg3fl03j4",
+      "source_id": "ycc8cnvvntyaybl"
+    }
+  ]
+}

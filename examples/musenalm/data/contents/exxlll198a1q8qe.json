@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Einst liebt' ich dich mehr als dies arme Leben, / Doch izt, o Falscher, haß' ich - haß' ich dich!",
+  "language": [],
+  "musenalm_id": 62006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Groll der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Groll der Liebe",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.871Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "k1cpgzprw5dt45t"
+    }
+  ]
+}

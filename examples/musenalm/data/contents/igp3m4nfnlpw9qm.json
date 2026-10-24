@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Einst lebt' ein Mönch zu Kölln am Rhein, / Der manches Wunder schuf,",
+  "language": [],
+  "musenalm_id": 90433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Das seltsame Gastmahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Egon Ebert. (Prag.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Das seltsame Gastmahl",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.273Z",
+      "agent": "8gvoxfhtianvore",
+      "source_id": "retkqggpqbf40tc"
+    }
+  ]
+}

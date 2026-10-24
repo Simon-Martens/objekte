@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Der unfruchtbare Feigenbaum wird ausgerottet und in's Feuer geworfen. Wenn aber der Gärtner mild und gütig ist, so sieht er jeden Frühling nach dem grünen Laube, und läßt es jeden Frühling grünen,",
+  "language": [],
+  "musenalm_id": 58028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hagestolz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hagestolz",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.745Z",
+      "agent": "gqt48yh8xk0p2zo",
+      "source_id": "lgwbgcwb8ovis6n"
+    }
+  ]
+}

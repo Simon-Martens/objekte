@@ -1,0 +1,45 @@
+{
+  "annotation": "Kinderlieder (Sammlung INr 100086, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Mir träumt', ich hätte Flügel / Und flöge durch die Welt",
+  "language": [],
+  "musenalm_id": 100088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Traum",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.780Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "1u3pw2wdqrowpk7"
+    }
+  ]
+}

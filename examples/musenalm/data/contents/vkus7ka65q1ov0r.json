@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Wenn junge Blumen blühen, / Im Thal und auf der Flur,",
+  "language": [],
+  "musenalm_id": 87405,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Lenzes Wiederkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Daeves",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Lenzes Wiederkehr",
+  "updated": "2009-07-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.287Z",
+      "agent": "ot198ldda79inhn",
+      "source_id": "ulg60kelgw2et2d"
+    }
+  ]
+}

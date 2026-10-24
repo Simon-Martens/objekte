@@ -1,0 +1,746 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.275Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118530186",
+          "label": "Emmerich, Anna Katharina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118626175",
+          "label": "Varnhagen, Rahel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118504177",
+          "label": "Arnim, Achim von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118626167",
+          "label": "Varnhagen von Ense, Karl August"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "bedeutender Vertreter der katholischen Spätromantik; Studium u.a. in Göttingen"
+      ],
+      "dateOfBirth": [
+        "1778-09-08"
+      ],
+      "dateOfDeath": [
+        "1842-07-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Clemens%20Brentano.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Clemens%20Brentano.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Clemens%20Brentano.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189465530",
+        "https://d-nb.info/gnd/1014927471",
+        "https://d-nb.info/gnd/174189036",
+        "https://d-nb.info/gnd/1014122627"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-01T11:35:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118515055/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116507160",
+          "label": "Brentano, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116507780",
+          "label": "Brentano, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117734861",
+          "label": "Brentano, Peter Anton"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11858104X",
+          "label": "Mereau, Sophie"
+        },
+        {
+          "forename": [
+            "Auguste [Magdalena Margaretha Auguste]"
+          ],
+          "surname": [
+            "Bußmann (wiederverh. Ehrmann)"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11851508X",
+          "label": "Brentano, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118605909",
+          "label": "Savigny, Friedrich Carl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118841734",
+          "label": "Bußmann, Auguste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117666424",
+          "label": "Brentano, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118673874",
+          "label": "Brentano, Lujo"
+        },
+        {
+          "forename": [
+            "Maximiliane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "LaRoche"
+          ]
+        },
+        {
+          "forename": [
+            "Peter [Pietro] Antonio"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118504185",
+          "label": "Arnim, Bettina von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116799889",
+          "label": "Brentano, Maximiliane"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118515055",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/118673874",
+          "label": "Brentano, Lujo"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116799889",
+          "label": "Brentano, Maximiliane"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117734861",
+          "label": "Brentano, Peter Anton"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118504185",
+          "label": "Arnim, Bettina von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116507780",
+          "label": "Brentano, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116507160",
+          "label": "Brentano, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11851508X",
+          "label": "Brentano, Sophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118515055",
+      "oldAuthorityNumber": [
+        "(DE-588a)174189036",
+        "(DE-588c)7803502-8",
+        "(DE-588a)189465530",
+        "(DE-588)189465530",
+        "(DE-588)1014122627",
+        "(DE-588a)118515055",
+        "(DE-588a)126327262",
+        "(DE-588a)1014122627",
+        "(DE-588a)134336615",
+        "(DE-588)1014927471",
+        "(DE-588a)1014927471",
+        "(DE-588)174189036"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/213794-X",
+          "label": "Ehrenbreitstein"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4003191-3",
+          "label": "Aschaffenburg"
+        }
+      ],
+      "preferredName": "Brentano, Clemens",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Clemens"
+        ],
+        "surname": [
+          "Brentano"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Bonaventura"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Maria"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Die Gründung Prags",
+        "Satiren und poetische Spiele, von Maria",
+        "Entweder wunderbare Geschichte von Bogs dem Uhrmacher",
+        "Viktoria und ihre Geschwister, mit fliegenden Fahnen und brennender Lunte",
+        "Legende von der heiligen Marina",
+        "Gockel, Hinkel, Gakeleia",
+        "Ponce de Leon",
+        "Godwi oder das steinerne Bild der Mutter",
+        "Der Goldfaden",
+        "Die Bamherzigen Schwestern in Bezug auf Armen- und Krankenpflege"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Clemens Wenzlaus"
+          ],
+          "surname": [
+            "Brentano de la Roche"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12013292d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80005077"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73863902"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57235"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118515055"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014122627"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014927471"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118515055/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174189036"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189465530"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118515055"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Clemens_Brentano"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Clemens_Brentano"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Clemens_Brentano"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Clemens_Brentano"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118515055"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121393622"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118515055"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118515055"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118515055.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118515055.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118515055"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/F3643742C38E42A082E76E29F19BD3D3"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118515055"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118515055"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118515055"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Brentano, Clemens W.",
+        "Clemens",
+        "Brentano, C.",
+        "Brentano, Clemens M.",
+        "Brentano, Clément",
+        "Von Brentano, Clemens",
+        "Bonaventura",
+        "Brentano, Clemens Wenzel Maria",
+        "Brentano de la Roche, Clemens Wenzlaus",
+        "Roche, Clemens Wenzlaus de la",
+        "Burentano",
+        "Maria",
+        "Brentano, Clemens von",
+        "Brentano, Clemens Maria Wenzeslaus",
+        "ブレンターノ, クレメンス",
+        "Brentano, Clemens Maria",
+        "Brentano, Klemens Maria",
+        "Brentano, Klemens"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Clemens Wenzlaus"
+          ],
+          "surname": [
+            "Brentano de la Roche"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens M."
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "personalName": [
+            "Clemens"
+          ]
+        },
+        {
+          "personalName": [
+            "Burentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens Wenzlaus"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Roche"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens W."
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clément"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens Maria Wenzeslaus"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Klemens Maria"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "personalName": [
+            "Maria"
+          ]
+        },
+        {
+          "personalName": [
+            "Bonaventura"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens Maria"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens"
+          ],
+          "surname": [
+            "Von Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens Wenzel Maria"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "クレメンス"
+          ],
+          "surname": [
+            "ブレンターノ"
+          ]
+        },
+        {
+          "forename": [
+            "Klemens"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        },
+        {
+          "forename": [
+            "Clemens"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brentano"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Clemens_Brentano",
+          "label": "https://de.wikipedia.org/wiki/Clemens_Brentano"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:01:42Z",
+    "gnd_query_biographical_data": "1778-1842",
+    "gnd_query_name": "brentano, clemens maria"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 302,
+  "name": "Brentano, Clemens Maria",
+  "profession": "Text",
+  "pseudonyms": "Maria",
+  "refs": "Goed VI, 52; XI/1, 256",
+  "updated": "2026-06-11 13:29:21.752Z",
+  "uri": "https://d-nb.info/gnd/118515055",
+  "editor": ""
+}

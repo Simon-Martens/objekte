@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Gedichten INr 99070-99082, Obj 96-108",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.933Z",
+      "agent": "m6v439nrgynzyi9",
+      "source_id": "4emyagkibbfwxgl"
+    }
+  ]
+}

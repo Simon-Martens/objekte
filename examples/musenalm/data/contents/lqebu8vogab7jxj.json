@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44066, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44065,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MÄDCHEN AUF DEM BERGE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Begas pinx. T. S. Engleheart sc.",
+  "scans": [
+    "alm_597_44065_rnww48xzxi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MÄDCHEN AUF DEM BERGE",
+  "updated": "2006-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.394Z",
+      "agent": "p2wbs7ivhx2i5bf",
+      "source_id": "as8w0iqiu7uy8ge"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.395Z",
+      "agent": "8w6n9g0x6dcpwhp",
+      "source_id": "ie63f60sue3ofuz"
+    }
+  ]
+}

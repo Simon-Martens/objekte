@@ -1,0 +1,45 @@
+{
+  "annotation": "Jupiter (Sammlung INr 91482, Obj 6) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Als die Schaar der der Giganten / Den Himmel zu stürmen drohte, / Da warfest du mit Löwenklauen",
+  "language": [],
+  "musenalm_id": 91492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Schaar der der Giganten / Den Himmel zu stürmen drohte, / Da warfest du mit Löwenklauen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.406Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "rwwssmweji4odqt"
+    }
+  ]
+}

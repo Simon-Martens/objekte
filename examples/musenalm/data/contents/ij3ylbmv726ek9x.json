@@ -1,0 +1,45 @@
+{
+  "annotation": "# Angabe aus dem G- Verz $ vielleicht: Zitterer, Johann",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelmine Maisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zitter #$ Gestochen in Heilbronn von Gebhard",
+  "scans": [
+    "alm_488_35480_rz06bnzta5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelmine Maisch",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.366Z",
+      "agent": "h5fcpinai3sjhlp",
+      "source_id": "uzl991gu7fnf7q6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Im einsamen Gebirge an der Gränze Lothringens ruhte Graf Armand, von Paris kommend, nach einem angestrengten Ritte.",
+  "language": [],
+  "musenalm_id": 29641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Das Nachtabentheuer. Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Löben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Das Nachtabentheuer. Novelle",
+  "updated": "2002-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.485Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "qdjce5c02tla9z5"
+    }
+  ]
+}

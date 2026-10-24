@@ -1,0 +1,207 @@
+{
+  "annotation": "",
+  "biographical_data": "1780 (auch 1776, 1788) -1825",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.453Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "verh. mit Ferdinand Reindahl"
+      ],
+      "dateOfBirth": [
+        "1780-03-26"
+      ],
+      "dateOfDeath": [
+        "1825-09-03"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-06T11:13:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1033376272/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Elise"
+          ],
+          "surname": [
+            "Rullmann"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1033376272",
+      "id": "https://d-nb.info/gnd/1033376272",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "preferredName": "Reindahl, Elise",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Elise"
+        ],
+        "surname": [
+          "Reindahl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Blüthen des Gefühls, gesprossen in meinen Erholungsstunden. - 1819"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/298947836"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q26203416"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1033376272/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Elise_Reindahl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000402915300"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Reindahl, Johanna",
+        "Rullmann, Elise",
+        "Reindahl, Anna Clara Elisabeth"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Reindahl"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Clara Elisabeth"
+          ],
+          "surname": [
+            "Reindahl"
+          ]
+        },
+        {
+          "forename": [
+            "Elise"
+          ],
+          "surname": [
+            "Rullmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Elise_Reindahl",
+          "label": "https://de.wikipedia.org/wiki/Elise_Reindahl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:36:33Z",
+    "gnd_query_biographical_data": "1780 (auch 1776, 1788) -1825",
+    "gnd_query_name": "reindahl, elise"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2217,
+  "name": "Reindahl, Elise",
+  "profession": "Text",
+  "pseudonyms": "auch: Johanna; geb. Kullmann, Rullmann, Rellmann",
+  "refs": "DBI 1645",
+  "updated": "2026-06-11 13:29:24.218Z",
+  "uri": "https://d-nb.info/gnd/1033376272",
+  "editor": ""
+}

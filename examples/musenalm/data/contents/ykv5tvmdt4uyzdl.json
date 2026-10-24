@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Der schwarze Hahn« von K. G. Prätzel INr 19541, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19479,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schwarze Hahn von Präzel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_264_19479_v3ktgopuaj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der schwarze Hahn von Präzel",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.907Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "s7nryx25hbmm3tl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.907Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "uid05z9rr0tjo51"
+    }
+  ]
+}

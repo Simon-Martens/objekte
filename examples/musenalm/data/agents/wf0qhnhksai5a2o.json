@@ -1,0 +1,387 @@
+{
+  "annotation": "",
+  "biographical_data": "1813-1879",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.439Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1813-02-08"
+      ],
+      "dateOfDeath": [
+        "1879-03-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Ludwig Adolf Staufe: Julie Gräfin Oldofredi-Hager. In: Oesterreichische Illustrirte Zeitung, vol. 2, No. 50 (7 June 1852), p. 395-397Portrait (p. 396): http://reader.digitale-sammlungen.de/de/fs1/object/display/bsb10498748_00200.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Julie%20Gr%C3%A4fin%20Oldofredi-Hager%201852%20%C3%96IZ.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Julie%20Gr%C3%A4fin%20Oldofredi-Hager%201852%20%C3%96IZ.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Julie%20Gr%C3%A4fin%20Oldofredi-Hager%201852%20%C3%96IZ.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1158736339"
+      ],
+      "describedBy": {
+        "dateModified": "2023-06-19T08:49:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117120480/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Julie Marie Christine Hager"
+          ],
+          "nameAddition": [
+            "Reichsgräfin"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Altensteig"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-HU",
+          "label": "Ungarn"
+        }
+      ],
+      "gndIdentifier": "117120480",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117120480",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)117120480",
+        "(DE-588)1158736339"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4090940-2",
+          "label": "Debrecen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Oldofredi-Hager, Julie Marie Christine von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julie Marie Christine"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Oldofredi-Hager"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52458870"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1712187"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1158736339"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117120480/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julie_Marie_Christine_von_Oldofredi-Hager"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117120480"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117120480.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117120480"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4770088-9",
+          "label": "Gräfin"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hager von und zu Altensteig, Julia",
+        "Hager, Julie Marie Christine von Oldofredi-",
+        "Altensteig, Julia Hager von und zu",
+        "Oldofredi-Hager, Julia",
+        "Oldofredi-Hager, Julie Marie Christine von, Gräfin",
+        "Hager von und zu Altensteig, Julie Marie Christine, Reichsgräfin",
+        "Altenstein, Julie Marie Christine Hager von und zu",
+        "Oldofredi-Hager, Julie",
+        "Hager, Julia Oldofredi-",
+        "Oldofredi Hager, Julia",
+        "Altensteig, Julie Marie Christine Hager von und zu, Reichsgräfin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julie Marie Christine von Oldofredi-"
+          ],
+          "surname": [
+            "Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julie Marie Christine"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Oldofredi-Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julie Marie Christine Hager"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Altenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Julia Hager"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Altensteig"
+          ]
+        },
+        {
+          "forename": [
+            "Julia"
+          ],
+          "surname": [
+            "Oldofredi-Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julia Oldofredi-"
+          ],
+          "surname": [
+            "Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "surname": [
+            "Oldofredi-Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julia"
+          ],
+          "surname": [
+            "Hager von und zu Altensteig"
+          ]
+        },
+        {
+          "forename": [
+            "Julia"
+          ],
+          "surname": [
+            "Oldofredi Hager"
+          ]
+        },
+        {
+          "forename": [
+            "Julie Marie Christine Hager"
+          ],
+          "nameAddition": [
+            "Reichsgräfin"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Altensteig"
+          ]
+        },
+        {
+          "forename": [
+            "Julie Marie Christine"
+          ],
+          "nameAddition": [
+            "Reichsgräfin"
+          ],
+          "surname": [
+            "Hager von und zu Altensteig"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julie_Marie_Christine_von_Oldofredi-Hager",
+          "label": "https://de.wikipedia.org/wiki/Julie_Marie_Christine_von_Oldofredi-Hager"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:25:21Z",
+    "gnd_query_biographical_data": "1813-1879",
+    "gnd_query_name": "oldofredi-hager, julie marie christine"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1992,
+  "name": "Oldofredi-Hager, Julie Marie Christine",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXIV, 268",
+  "updated": "2026-06-11 13:29:23.990Z",
+  "uri": "https://d-nb.info/gnd/117120480",
+  "editor": ""
+}

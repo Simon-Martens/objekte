@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu: »Der Singestein bei Postelwitz.« von Th. Hell d. i. K. G. Th. Winkler INr 76765, Obj 33 /) Erklärung der fünf Landschaften (Sammlung INr 76761, Obj 29) s.a. Graphik INr 76745, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Robert und Maria liebten / Sich mit treuer Liebesgluth, / Hirtin sie, und er ein Hirte / Trennte sie der Elbe Fluth",
+  "language": [],
+  "musenalm_id": 76766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robert und Maria liebten / Sich mit treuer Liebesgluth, / Hirtin sie, und er ein Hirte / Trennte sie der Elbe Fluth…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.730Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ea1ukafj8lusnu5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Zweite Lieferung. Gedichte (Sammlung INr 40356, Obj 6) mit einer Illustration s. Graphik INr 40366, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Von wem ich es habe, das sag' ich Euch nicht, / Das Kind in meinem Leib.",
+  "language": [],
+  "musenalm_id": 40365,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Vor Gericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Vor Gericht",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.321Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "x17a6r4j6mxtugo"
+    }
+  ]
+}

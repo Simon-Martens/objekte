@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Hier im Städtchen, wo in frohen Stunden / Hymnen mir den Scheitelkranz gewunden,",
+  "language": [],
+  "musenalm_id": 35348,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel an meinen Freund Hausleutner / bei Schubarts Hintritt 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eb. Fr. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel an meinen Freund Hausleutner / bei Schubarts Hintritt 1792",
+  "updated": "2003-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.656Z",
+      "agent": "0ootbto1f9k75z9",
+      "source_id": "ivlgcs0u1v2jtu0"
+    }
+  ]
+}

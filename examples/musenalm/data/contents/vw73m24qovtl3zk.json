@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Rätseln INr 22353-22362, Obj 97-106 /) Räthsel und Charaden (Sammlung INr 22351, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "444",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Räthsel",
+  "updated": "2002-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.097Z",
+      "agent": "u04oy46tu9dlk6x",
+      "source_id": "b9nj55730wyhyid"
+    }
+  ]
+}

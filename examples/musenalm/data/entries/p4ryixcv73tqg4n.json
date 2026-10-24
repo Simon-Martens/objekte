@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Militär-Almanach, Schweizerischer für Offiziere und Militärpersonen 1845",
+    "norm": "",
+    "biblio": 409565,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-04-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4524,
+  "parallel_title": "",
+  "place_statement": "Baden (Zehnder)",
+  "places": [
+    "jwu7vcqk0mvlpd7"
+  ],
+  "preferred_title": "Militär-Almanach, Schweizerischer für Offiziere und Militärpersonen 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 77; nicht bei L/R",
+  "responsibility_statement": "J. M. Rudolf, Major",
+  "subtitle_statement": "",
+  "title_statement": "Schweizerischer / Militär-Almanach / für / Offiziere und Militärpersonen. / Bearbeitet / von / J. M. Rudolf, Major. / Mit zwei Miltärgruppen und einem Plane von Hüningen. / Dritter Jahrgang. / Baden, 1845. / Druck und Verlag von J. Zehnder",
+  "updated": "2026-06-11 10:18:55.933Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "ropddjnrtdng58k"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.191Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.191Z",
+      "agent": "y051ebchcscfncr",
+      "source_id": "1712f0byc3gxar2"
+    }
+  ]
+}

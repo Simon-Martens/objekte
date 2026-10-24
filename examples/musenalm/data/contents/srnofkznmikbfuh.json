@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131847, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Wie lieblich ist's im grünen Wald! / Die Vöglein zwitschern, daß es schallt,",
+  "language": [],
+  "musenalm_id": 131856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Anna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Anna",
+  "updated": "2023-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.041Z",
+      "agent": "oxvlsvgq5f4m5gr",
+      "source_id": "znly78brmmo6g83"
+    }
+  ]
+}

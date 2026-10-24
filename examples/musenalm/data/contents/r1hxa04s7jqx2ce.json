@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; paginiert 12. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon überliefert sich den Engländern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_852_58480_exroasszhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon überliefert sich den Engländern",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.982Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "qzljz4zr9dplsjd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.982Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "xqwqy07u8v7akse"
+    }
+  ]
+}

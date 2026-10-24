@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Der matte Schein des sterbenden Tages bleicht; / Gleich Leichenfackeln streuet der Mond sein / Licht",
+  "language": [],
+  "musenalm_id": 42866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Naumanns Manen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Naumanns Manen",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.254Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "cz5yh8dt3t4uau2"
+    }
+  ]
+}

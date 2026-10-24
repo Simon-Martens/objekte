@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Ein Paar sonderbare Exemplare diese beiden Fremden! Man sagt doch: Gleich und Gleich gesellt sich gern",
+  "language": [],
+  "musenalm_id": 115729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schicksals-Pastete. / Lustspiel in einem Aufzuge, / nach einer Spindlerschen Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Bartsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schicksals-Pastete. / Lustspiel in einem Aufzuge, / nach einer Spindlerschen Erzählung",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.499Z",
+      "agent": "sp5lqflokonqbf3",
+      "source_id": "plm67j1eg8b35og"
+    }
+  ]
+}

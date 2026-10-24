@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 14174, Obj 121",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "In Sorgen schlief ich heute nacht / Und unter Leiden ein, / Und traurig bin ich aufgewacht",
+  "language": [],
+  "musenalm_id": 14144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung bis in denTod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung bis in denTod",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.575Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "2z4at3cctumdjb1"
+    }
+  ]
+}

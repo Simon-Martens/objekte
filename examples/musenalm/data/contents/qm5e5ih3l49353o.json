@@ -1,0 +1,45 @@
+{
+  "annotation": "Rückblicke (Sammlung INr 100371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Gedicht' oft nur ein Stückwerk sind, / Der Rest von einem Menschentreiben,",
+  "language": [],
+  "musenalm_id": 100373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.834Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "20x3o8tqy10fdh8"
+    }
+  ]
+}

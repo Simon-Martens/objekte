@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 29248, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Wirf doch belebende Natur / Auch einen Blick auf meine Flur!",
+  "language": [],
+  "musenalm_id": 29249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey dem ländlichen Besuch einer jungen Dame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey dem ländlichen Besuch einer jungen Dame",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.482Z",
+      "agent": "t5xduzz1g6d3iy5",
+      "source_id": "iidcrpxbe6h5pfi"
+    }
+  ]
+}

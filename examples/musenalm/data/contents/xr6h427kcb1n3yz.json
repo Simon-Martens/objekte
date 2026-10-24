@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Hier unter dieser Pracht / Von ausgehauner Mamorklippe / Liegt unverweset noch das scheusliche Gerippe",
+  "language": [],
+  "musenalm_id": 6053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf den Aberglauben. / Nach dem Englischen Watts in Jos. / Retzers Choice & c.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf den Aberglauben. / Nach dem Englischen Watts in Jos. / Retzers Choice & c.",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.005Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "y8h4uxh07yczajj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus der Kinderwelt (Sammlung INr 55278, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Munter, munter, / Berg hinunter / Gleitet schnell des Schlittens Lauf,",
+  "language": [],
+  "musenalm_id": 55281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Schlittenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Schlittenlied",
+  "updated": "2008-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.917Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "y323m598kyzwurf"
+    }
+  ]
+}

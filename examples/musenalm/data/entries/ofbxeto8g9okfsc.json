@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK mit Standorten für Jgg 1843, 1844",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch, Niederrheinisches für Geschichte, Kunst und Poesie 1843",
+    "norm": "",
+    "biblio": 408582,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4137,
+  "parallel_title": "",
+  "place_statement": "Bonn ( Henry und Cohen)",
+  "places": [
+    "na2v142tgy0mj3g"
+  ],
+  "preferred_title": "Jahrbuch, Niederrheinisches für Geschichte, Kunst und Poesie 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Laurenz Lersch",
+  "subtitle_statement": "",
+  "title_statement": "Niederrheinisches Jahrbuch / für / Geschichte, Kunst und Posie. / Zum Besten der Bonner Münsterkirche herausgegeben / von / Dr. Laurenz Lersch. / Mit vier architektonischen Abbildungen. / Bonn, / Henry und Cohen. / 1843",
+  "updated": "2026-06-11 10:18:55.730Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "hrniem4oegweemf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.990Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.990Z",
+      "agent": "jwt68byp0ebvmz5",
+      "source_id": "fcjufpimzk962ze"
+    }
+  ]
+}

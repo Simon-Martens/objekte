@@ -1,0 +1,88 @@
+{
+  "annotation": "Format 7,5 x 9. Mit Kalendarium, 8 Graphiken und 7 poetischen Beiträgen. Der Almanach ist  offenbar nicht Bestandteil der Reihe »Taschenkalender, Berlinischer (Berlin, Königl. Preuß. Kalender-Deputation)« 1816-1826 oder der Reihe »Kalender, Berliner (Berlin, Königl. Preuß. Kalender-Deputation« 1827-1850. s. Jg 1844 in gleicher Aufmachung mit Kompilation von 6 zusätzlichen Suiten aus 8 Graphiken mit 8 Gedichten: Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1841; Alm-898",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, verso G, 7 BB Kal darin 7 GG, SS 1-80, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1835",
+    "norm": "~",
+    "biblio": 411317,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-11-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4824,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königlich-Preußische Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1835, / mit / Gedichten und 8 dazu gehörigen Kupfern. / Für die Römisch-Katholischen bedeutet † einen gebotenen / Fasttag und * einen in den Preußischen Landen auf- / gehobenen Festtag. / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.270Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "h7mqkqb9kmjl2v2"
+  ],
+  "contents": [
+    "67ed3pwqcl7ciq4",
+    "7ul14uytjv3d3tk",
+    "qikecv1j7bxfqhk",
+    "xk8v0mfg6c3th6s",
+    "7nkndwxz3a3h4mv",
+    "w4bwwpl7bb5s8hq",
+    "91fm453s0m8m051",
+    "aids6y05d9zmcyn",
+    "f1sr5t366h07wmt",
+    "fav24l014ylso23",
+    "9jdmu113ro9mjgl",
+    "j4ty0utas9ubb4g",
+    "rg5gn3zubzg5sky",
+    "j9pilovrxcfbgkl",
+    "gluen120iw2boj5",
+    "a04anluinbwzwf3",
+    "gezc00pxkwo2jw2",
+    "ttq3bbqe5iorkpd",
+    "4xq5f3au34wiaxm",
+    "wkloi85q7orhau1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "3ljzwdyr5sa3ibd"
+    }
+  ]
+}

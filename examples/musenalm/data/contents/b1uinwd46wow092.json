@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Fischer« von L. Uhland; (Photos 41354, 01-41354,04)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41354,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fischer, von L. Uhland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kreutzer",
+  "scans": [
+    "alm_482_41354_01_b5n1xdi060.jpg",
+    "alm_482_41354_02_bnunlihcyn.jpg",
+    "alm_482_41354_03_q0qfcrjn0c.jpg",
+    "alm_482_41354_04_3v5l7avwap.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Fischer, von L. Uhland",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.155Z",
+      "agent": "n0y8m2wz5j1rywn",
+      "source_id": "dwobmdvqap2ebzw"
+    }
+  ]
+}

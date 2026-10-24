@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Wohl eilt des Stromes Welle / Hinab zur dunkeln See; / Wohl wechselt Aetherhelle / Mit Wolken auf der Höh'",
+  "language": [],
+  "musenalm_id": 63214,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Verschiebe nichts, mein säumig Herz, / Auf eine beß're Zeit! / Auf Zeitverlust folgt Reu' und Schmerz, / Auf Trägheit Traurigkeit. / Krug von  Nidda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Verschiebe nichts, mein säumig Herz, / Auf eine beß're Zeit! / Auf Zeitverlust folgt Reu' und Schmerz, / Auf Trägheit Traurigkeit. / Krug von  Nidda",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.063Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "9n3a41new04llsx"
+    }
+  ]
+}

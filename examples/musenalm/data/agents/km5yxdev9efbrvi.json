@@ -1,0 +1,472 @@
+{
+  "annotation": "",
+  "biographical_data": "1737-1820",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.437Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. jur."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2119625-4",
+          "label": "Imperatorskaja Akademija Chudožestv"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller/Lyriker, Präsident der russischen Akademie, Geheimrat, 1796  Freiherr"
+      ],
+      "dateOfBirth": [
+        "1737-12-27"
+      ],
+      "dateOfDeath": [
+        "1820-11-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Baptist von Lampi the Elder"
+          ],
+          "creditText": [
+            "http://www.ras.ru/win/db/show_per.asp?P=.id-51524.ln-ru This is an illustration from the book Russian portraits of the 18th and 19th centuries: Edition of Grand Duke Nicholas Mikhailovich of Russia, printed in 1905-1909 as a catalogue of a 1905 exhibition. All images are in the Public Domain due to age."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Heinrich%20von%20Nicolai.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig%20Heinrich%20von%20Nicolai.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig%20Heinrich%20von%20Nicolai.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T21:03:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118587722/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        }
+      ],
+      "gndIdentifier": "118587722",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118587722",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4042156-9",
+        "(DE-588a)118587722"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057878-1",
+          "label": "Straßburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4108785-9",
+          "label": "Wyborg"
+        }
+      ],
+      "preferredName": "Nicolay, Ludwig Heinrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Heinrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Nicolay"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Vermischte Gedichte und prosaische Schriften",
+        "Galwine",
+        "Racine, Jean: Athalia",
+        "Johanna die Erste",
+        "Theatralische Werke",
+        "Poetische Werke",
+        "Der Clubb oder die vorwitzigen Weiber",
+        "Die Familien-Neckereyen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81141779"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41855552"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q89709"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118587722/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Heinrich_von_Nicolai"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Heinrich_von_Nicolay"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Heinrich_von_Nicolay"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Heinrich_von_Nicolay"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000007100451X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118587722"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118587722"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118587722.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118587722.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118587722"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118587722"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Nicolai, Heinrich Ludwig von",
+        "Nicolay, Heinrich von",
+        "Nicolai, Ludwig Heinrich von",
+        "Nicolai, Ludwig H. von",
+        "Nicolay, Ludwig H. von",
+        "Nicolay, Heinrich von, Freiherr",
+        "Nicolay, Ludwig Heinrich",
+        "Nicolai, Ludwig Heinrich",
+        "Nicolay, Ludwig Heinrich von, Freiherr",
+        "Nicolay, Ludw. Heinr.",
+        "Nicolai, Heinrich L. von",
+        "Nicolay, Heinrich Ludwig von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw. Heinr."
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolai"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolai"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolai"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolai"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich"
+          ],
+          "surname": [
+            "Nicolai"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nicolay"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Heinrich_von_Nicolay",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Heinrich_von_Nicolay"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:23:39Z",
+    "gnd_query_biographical_data": "1737-1820",
+    "gnd_query_name": "nicolay, ludwig heinrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1957,
+  "name": "Nicolay, Ludwig Heinrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 628; Goed VII, 514",
+  "updated": "2026-06-11 13:29:23.956Z",
+  "uri": "https://d-nb.info/gnd/118587722",
+  "editor": ""
+}

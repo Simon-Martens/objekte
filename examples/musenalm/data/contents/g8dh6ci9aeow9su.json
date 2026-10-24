@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "Ein Neger, dessen Fleiß dem Geize nicht ent- / sprach, / Ward einst von seinem Herrn, bis das er starb, / geschlagen;",
+  "language": [],
+  "musenalm_id": 36335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zween Neger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zween Neger",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.618Z",
+      "agent": "x1mwystx1l16y0s",
+      "source_id": "e4r3ier4pdxwwza"
+    }
+  ]
+}

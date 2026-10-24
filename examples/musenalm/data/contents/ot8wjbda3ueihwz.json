@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Der uns angeborne Hang zum Wunderbaren zieht unsre Blicke schon in früher Jugend nach jenen unbekannten Ländern,",
+  "language": [],
+  "musenalm_id": 16354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemälde der Stadt Mexico / in Neuspanien. / Nach Malte-Brun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "X. Schnetzler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gemälde der Stadt Mexico / in Neuspanien. / Nach Malte-Brun",
+  "updated": "2001-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.632Z",
+      "agent": "qmbaw1mam941gsq",
+      "source_id": "b2v3pa75zacysw7"
+    }
+  ]
+}

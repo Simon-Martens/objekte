@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) nummeriert 2.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93820,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es war ein goldener Ring",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_989_93820_5adyexcv3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es war ein goldener Ring",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.235Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "lfdwl63it2poh09"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.235Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "m4se6qnzlmkz31y"
+    }
+  ]
+}

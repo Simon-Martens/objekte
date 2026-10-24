@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Fortsetzung der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14263, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "In jedem Augenblicke saugte der Neid aus jedem Gegenstande tausendfaches Gift,",
+  "language": [],
+  "musenalm_id": 14271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28. / Häßlichkeit des Neides",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28. / Häßlichkeit des Neides",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.582Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "6t4yvh2wrzdj8sg"
+    }
+  ]
+}

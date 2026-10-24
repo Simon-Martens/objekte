@@ -1,0 +1,934 @@
+{
+  "annotation": "",
+  "biographical_data": "1796-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.445Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Graf; Dt. Lyriker und Dramatiker"
+      ],
+      "dateOfBirth": [
+        "1796-10-24"
+      ],
+      "dateOfDeath": [
+        "1835-12-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Moritz Rugendas"
+          ],
+          "creditText": [
+            "http://www.dvdediciones.com/trad_varios2.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20von%20Platen%20by%20Moritz%20Rugendas.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20von%20Platen%20by%20Moritz%20Rugendas.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:August%20von%20Platen%20by%20Moritz%20Rugendas.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/14259766X",
+        "https://d-nb.info/gnd/157657310",
+        "https://d-nb.info/gnd/1244000264",
+        "https://d-nb.info/gnd/1052019986",
+        "https://d-nb.info/gnd/185694136",
+        "https://d-nb.info/gnd/101491535X",
+        "https://d-nb.info/gnd/143102753"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-21T10:21:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118594869/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Karl August Georg Maximilian"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen-Hallermund"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/130434086",
+          "label": "Platen, August Philipp von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116207612",
+          "label": "Platen-Hallermund, Christiane von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118594869",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/130434086",
+          "label": "Platen, August Philipp von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116207612",
+          "label": "Platen-Hallermund, Christiane von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118594869",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)185694136",
+        "(DE-588a)185694136",
+        "(DE-588a)126642575",
+        "(DE-588)1244000264",
+        "(DE-588)14259766X",
+        "(DE-588a)135149916",
+        "(DE-588)101491535X",
+        "(DE-588a)143102753",
+        "(DE-588a)118594869",
+        "(DE-588)157657310",
+        "(DE-588a)101491535X",
+        "(DE-588a)131094491",
+        "(DE-588)1052019986",
+        "(DE-588c)4046289-4",
+        "(DE-588a)14259766X",
+        "(DE-101c)310839912",
+        "(DE-588)143102753",
+        "(DE-588a)157657310"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002170-1",
+          "label": "Ansbach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4106466-5",
+          "label": "Syrakus"
+        }
+      ],
+      "preferredName": "Platen, August, Graf von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "nameAddition": [
+          "Graf von"
+        ],
+        "surname": [
+          "Platen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "publication": [
+        "Die Abbassiden",
+        "Gedichte",
+        "Vermischte Schriften",
+        "Ghaselen",
+        "Die verhängnisvolle Gabel",
+        "Schauspiele",
+        "Lyrische Blätter",
+        "Briefwechsel zwischen A. Gr. v. Platen u. Johannes Minckwitz",
+        "Sonette aus Venedig",
+        "Neue Ghaselen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84234365"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/19698931"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62432"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101491535X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1052019986"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118594869/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1244000264"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/14259766X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143102753"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157657310"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185694136"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118594869"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/August_von_Platen-Hallerm%C3%BCnde"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_von_Platen-Hallerm%C3%BCnde"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Graf_von_Platen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/August_von_Platen-Hallerm%C3%BCnde"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120957131"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118594869"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118594869"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118594869.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118594869.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118594869"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118594869"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Platon",
+        "Platen-Hallermünde, Karl August von",
+        "Platen, Karl August Georg Maximilian von",
+        "Hallermünde, August von Platen",
+        "Platen-Hallermünde, August von",
+        "Platen, August Graf",
+        "Platen, Augusto",
+        "Platen-Challermjunde, Avgust fon",
+        "Hallermunde, August von Platen-",
+        "Hallermunde, August von, Graf",
+        "Platen, August von",
+        "Platen",
+        "Platen-Hallermund, Karl August von",
+        "Platen-Hallermunde, August von",
+        "Platen-Hallermünde, August Graf von",
+        "Platen-Hallermund, Karl August Georg Maximilian Graf von",
+        "Hallermünde, August Platen von",
+        "Von Platen, August",
+        "Platen-Hallermünde, Karl August Georg Max von",
+        "Platen von",
+        "Hallermünde, Karl August",
+        "Platen Hallermünde, August von",
+        "Platen-Hallermunde, August von, Graf",
+        "Platen-Hallermund, August von",
+        "Platen, Karl August von",
+        "Platen von Hellermünde, August",
+        "Platen, August v.",
+        "Platen, August Graf von",
+        "Platen, August von, Graf",
+        "Challermjunde, Avgust Platen fon",
+        "Graf Platen",
+        "Hallermund, August von Platen",
+        "Hallermund, August von Platen-",
+        "Platen, August",
+        "Von Platen-Hallermünde, Karl August",
+        "Platen, L. von",
+        "Hallermünde, August von Platen-",
+        "Plathen",
+        "Platen-Hallermünde, August, Graf von",
+        "Platen, Karl A. von",
+        "Platen-Hallermünde, Karl August",
+        "Platen-Hallermünde, Karl August Georg Maximilian Graf von",
+        "Platen, A. v."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August von Platen"
+          ],
+          "surname": [
+            "Hallermund"
+          ]
+        },
+        {
+          "forename": [
+            "August Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermund"
+          ]
+        },
+        {
+          "forename": [
+            "Avgust Platen"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Challermjunde"
+          ]
+        },
+        {
+          "forename": [
+            "August von Platen"
+          ],
+          "surname": [
+            "Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August von Platen-"
+          ],
+          "surname": [
+            "Hallermund"
+          ]
+        },
+        {
+          "personalName": [
+            "Graf Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermunde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Von Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hallermunde"
+          ]
+        },
+        {
+          "personalName": [
+            "Platon"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Georg Maximilian"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Georg Maximilian"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen-Hallermund"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermund"
+          ]
+        },
+        {
+          "forename": [
+            "August von Platen-"
+          ],
+          "surname": [
+            "Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "Augusto"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August von"
+          ],
+          "surname": [
+            "Platen-Hallermunde"
+          ]
+        },
+        {
+          "forename": [
+            "Avgust"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Platen-Challermjunde"
+          ]
+        },
+        {
+          "personalName": [
+            "Plathen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Georg Max"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "personalName": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Platen von Hellermünde"
+          ]
+        },
+        {
+          "personalName": [
+            "Platen"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "Graf von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Platen-Hallermünde"
+          ]
+        },
+        {
+          "forename": [
+            "August Graf"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August von Platen-"
+          ],
+          "surname": [
+            "Hallermunde"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Georg Maximilian"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Von Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Platen"
+          ]
+        },
+        {
+          "forename": [
+            "August Platen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hallermünde"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_von_Platen-Hallerm%C3%BCnde",
+          "label": "https://de.wikipedia.org/wiki/August_von_Platen-Hallerm%C3%BCnde"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:30:06Z",
+    "gnd_query_biographical_data": "1796-1835",
+    "gnd_query_name": "platen-hallermünde, august von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2087,
+  "name": "Platen-Hallermünde, August von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VIII, 669; Goed XI/1, 179",
+  "updated": "2026-06-11 13:29:24.083Z",
+  "uri": "https://d-nb.info/gnd/118594869",
+  "editor": ""
+}

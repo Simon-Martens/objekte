@@ -1,0 +1,47 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36693,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALMANACH / DES / MUSES / AU / DIEU / DES SAISONS / ET DES VERS / A PARIS / Chez VALLAT LA CHAPELLE, Libraire, au Palais sur le Perron de la Sainte Chapelle. 1766",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Poisson sc. fc.",
+  "scans": [
+    "alm_496_36693_s0hdo4lstx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES / MUSES / AU / DIEU / DES SAISONS / ET DES VERS / A PARIS / Chez VALLAT LA CHAPELLE, Libraire, au Palais sur le Perron de la Sainte Chapelle. 1766",
+  "updated": "2004-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1766,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.977Z",
+      "agent": "3gvcwrgjrkx8jl0",
+      "source_id": "ogdh7sjzyowjnt5"
+    }
+  ]
+}

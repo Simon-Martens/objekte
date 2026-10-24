@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Noch kannt' ich nicht das Loos des Lebens, / als eine fremde Gottheit kam,",
+  "language": [],
+  "musenalm_id": 940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Biondina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "MEYER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Biondina",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.895Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "icmmca1op1txo8t"
+    }
+  ]
+}

@@ -1,0 +1,560 @@
+{
+  "annotation": "",
+  "biographical_data": "1808-1858",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.401Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35254-8",
+          "label": "Preußen. Ministerium der Geistlichen, Unterrichts- und Medizinalangelegenheiten"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2015876-2",
+          "label": "Akademie der Künste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/127590-2",
+          "label": "Literarischer Sonntags-Verein (Tunnel über der Spree) zu Berlin"
+        }
+      ],
+      "dateOfBirth": [
+        "1808-01-19"
+      ],
+      "dateOfDeath": [
+        "1858-03-18"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T15:08:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11877820X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/101422911",
+          "label": "Kugler, Bernhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116599812",
+          "label": "Kugler, Clara"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118550772",
+          "label": "Heyse, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116795840",
+          "label": "Heyse, Margarete"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116599944",
+          "label": "Kugler, Louise"
+        },
+        {
+          "forename": [
+            "Paul Johann Ludwig"
+          ],
+          "surname": [
+            "Heyse"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116599693",
+          "label": "Kugler, Hans"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11877820X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/101422911",
+          "label": "Kugler, Bernhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116795840",
+          "label": "Heyse, Margarete"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116599693",
+          "label": "Kugler, Hans"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116599944",
+          "label": "Kugler, Louise"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116599812",
+          "label": "Kugler, Clara"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11877820X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)11877820X",
+        "(DE-588c)4109781-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057392-8",
+          "label": "Stettin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Kugler, Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz"
+        ],
+        "surname": [
+          "Kugler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Franz Theodor"
+          ],
+          "surname": [
+            "Erwin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Lessing"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Franz T."
+          ],
+          "surname": [
+            "Erwin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "nameAddition": [
+            "Tunnelname"
+          ],
+          "surname": [
+            "Lessing"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Kugler, Franz: Handbuch der Geschichte der Malerei",
+        "Kugler, Franz: Liederbuch für deutsche Künstler",
+        "Kugler, Franz: Drei Schreiben über Angelegenheiten der Bühne",
+        "Kugler, Franz: Gedichte",
+        "Ranke, Carl F.: Beschreibung und Geschichte der Schloßkirche zu Quedlinburg und der in ih*",
+        "Kugler, Franz: Pommersche Kunstgeschichte",
+        "Kugler, Franz: Die Bilderhandschrift der Eneidt in der Königlichen Bibliothek zu Ber*",
+        "Kugler, Franz: Ueber die Polychromie der griechischen Architektur und Skulptur und ihre G*",
+        "Kugler, Franz: Beschreibung der Kunst-Schätze von Berlin und Potsdam",
+        "Kugler, Franz: Geschichte Friedrichs des Großen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149802234"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82220753"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/11144782944875817983"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q64509"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=11877820X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11877820X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Franz_Theodor_Kugler"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Kugler_%28Historiker%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Franz_Kugler"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Franz_Theodor_Kugler"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108936848"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11877820X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11877820X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11877820X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11877820X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11877820X"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/11877820X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11877820X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Kugler, Franciscus",
+        "Kugler, F.",
+        "Kugler, Francesco",
+        "Kugler, Franz Theodor",
+        "Lessing, ...",
+        "Kugler-Menzel, ...",
+        "Lessing, ..., Tunnelname",
+        "Erwin, Franz T.",
+        "Erwin, Franz Theodor",
+        "Kugler, Franciscus Theodorus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Kugler"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Kugler"
+          ]
+        },
+        {
+          "forename": [
+            "Franz T."
+          ],
+          "surname": [
+            "Erwin"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus Theodorus"
+          ],
+          "surname": [
+            "Kugler"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Kugler-Menzel"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Theodor"
+          ],
+          "surname": [
+            "Erwin"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "nameAddition": [
+            "Tunnelname"
+          ],
+          "surname": [
+            "Lessing"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Theodor"
+          ],
+          "surname": [
+            "Kugler"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Kugler"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Kugler_%28Historiker%29",
+          "label": "https://de.wikipedia.org/wiki/Franz_Kugler_%28Historiker%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:01:15Z",
+    "gnd_query_biographical_data": "1808-1858",
+    "gnd_query_name": "kugler, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1505,
+  "name": "Kugler, Franz",
+  "profession": "Text",
+  "pseudonyms": "F. Th. Erwin",
+  "refs": "ADB XVII, 307; Goed (H) 284; E 193",
+  "updated": "2026-06-11 13:29:23.397Z",
+  "uri": "https://d-nb.info/gnd/11877820X",
+  "editor": ""
+}

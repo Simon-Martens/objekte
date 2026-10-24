@@ -1,0 +1,45 @@
+{
+  "annotation": "Lehren aus Geometrie (Sammlung INr 96585, Obj 136)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Tretend vom Nichts ins Unendliche, scheid' ich's / in endliche Theile.",
+  "language": [],
+  "musenalm_id": 96587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Linie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Linie",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.401Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "kw0ij39ienlnvbq"
+    }
+  ]
+}

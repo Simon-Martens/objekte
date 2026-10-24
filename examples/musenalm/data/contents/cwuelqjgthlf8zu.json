@@ -1,0 +1,45 @@
+{
+  "annotation": "Shakepeare »Twelth Night or What you will«. Act. 2. Sc. 3 mit einer Übersetzung INr 42712, Obj 245; dem Beitrag »Kanon« von A. v. Chamisso INr 42713, Obj 246 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Shall we rouse the night-owl in a catch, that / will draw three souls out of one weaver?",
+  "language": [],
+  "musenalm_id": 42711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 244,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Shall we rouse the night-owl in a catch, that / will draw three souls out of one weaver?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.168Z",
+      "agent": "confomdodiakpla",
+      "source_id": "5xyjnn9o0np5u8n"
+    }
+  ]
+}

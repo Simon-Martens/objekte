@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; lt. G-Verz: nach [J. G.] Georgi",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41566,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Jakutinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_546_41566_8c325mzj6w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Jakutinn",
+  "updated": "2005-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.284Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "9bszscimenr7xyg"
+    }
+  ]
+}

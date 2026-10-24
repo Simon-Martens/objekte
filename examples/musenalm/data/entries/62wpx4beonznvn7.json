@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Ärzte und Nichtärzte 1783",
+    "norm": "",
+    "biblio": 100084,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1205,
+  "parallel_title": "",
+  "place_statement": "Jena (Cunos Erben)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Almanach für Ärzte und Nichtärzte 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 8; L/R 167",
+  "responsibility_statement": "D. Christian Gottfried Gruner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Aerzte und Nichtaerzte / auf das Jahr 1783. / herausgegeben / von / D. Christian Gottfried Gruner. / Jena / verlegens Christ. Heinr. Cuno's Erben. / 1783",
+  "updated": "2026-06-11 10:18:54.911Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "umekj3rtrhywto0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.852Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.852Z",
+      "agent": "w85itisd8ak8pv4",
+      "source_id": "ao78uir5l3wsv0e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.703Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.703Z",
+      "agent": "cgi3t07gfxqilhe",
+      "source_id": "wmua9pm9tumickz"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Vierter Streifzug nach Pötzelssdorf, dem Himmel, Cobenzelberg, Kahlenberg, Klosterneubeurg, Nußdorf, der Brigittenau und dem Prater INr 92725, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wasserfall im Park zu Pötzeldorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_4024_92726_72qsilf1j0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wasserfall im Park zu Pötzeldorf",
+  "updated": "2013-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.476Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "zz3y2ccr874zbkk"
+    }
+  ]
+}

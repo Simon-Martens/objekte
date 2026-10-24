@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Drey Frühlingsbilder (Sammlung INr 14190, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Kraus rollet sich der Horizont zusammen; / Die Sonn' erlischt, der Wind empört den Staub,",
+  "language": [],
+  "musenalm_id": 14192,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Das Gewitter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Das Gewitter",
+  "updated": "2001-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.457Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "smdcj2afc0pi79f"
+    }
+  ]
+}

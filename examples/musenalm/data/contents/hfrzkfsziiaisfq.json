@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 28733, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Es giebt eine Nützlichkeit, welche doch nicht so unbedingt zu verwerfen scheint,",
+  "language": [],
+  "musenalm_id": 28761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es giebt eine Nützlichkeit, welche doch nicht so unbedingt zu verwerfen scheint,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Wagener",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.572Z",
+      "agent": "x7c2pl3bvx7jtlf",
+      "source_id": "d30m0sa4yxrie2t"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der weiße und der grüne See in den Karpathen in Ungern« Von C. Genersich INr 92124, Obk 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der grüne See auf den Karpathen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Pfitzer sc.",
+  "scans": [
+    "alm_3059_92123_3ax801c0g8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der grüne See auf den Karpathen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.560Z",
+      "agent": "1px845aqci1g2n0",
+      "source_id": "llvtb363t3qkp4s"
+    }
+  ]
+}

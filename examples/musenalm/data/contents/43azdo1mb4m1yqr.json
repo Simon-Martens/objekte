@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131845, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Waldbächlein mit raschem Sinn / Gleitet auf weißem Sand dahin,",
+  "language": [],
+  "musenalm_id": 131854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die fischenden Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die fischenden Kinder",
+  "updated": "2023-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.041Z",
+      "agent": "oxvlsvgq5f4m5gr",
+      "source_id": "nv6986pqwb5jtwp"
+    }
+  ]
+}

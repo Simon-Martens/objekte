@@ -1,0 +1,250 @@
+{
+  "annotation": "",
+  "biographical_data": "1762-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.465Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Pfaffenhofen/Elsaß (Wirkungsort); Pfarrer"
+      ],
+      "dateOfBirth": [
+        "1762"
+      ],
+      "dateOfDeath": [
+        "1831"
+      ],
+      "describedBy": {
+        "dateModified": "2022-07-21T17:53:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117102350/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117102350",
+      "id": "https://d-nb.info/gnd/117102350",
+      "oldAuthorityNumber": [
+        "(DE-588a)117102350"
+      ],
+      "periodOfActivity": [
+        "1826-1831"
+      ],
+      "preferredName": "Schaller, Gottfried Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried Jakob"
+        ],
+        "surname": [
+          "Schaller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        }
+      ],
+      "publication": [
+        "Schaller, Gottfried J.: Hoche's Todesfeier",
+        "Schaller, Gottfried J.: Schauenburg",
+        "Schaller, Gottfried J.: Die Stuziade oder der Perüken-Krieg. - 1802 - 1808",
+        "Schaller, Gottfried J.: Gesänge auf alle Dekaden und Volksfeste der Franken",
+        "Schaller, Gottfried J.: Vermischte Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059207"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51358373"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q28237624"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117102350/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Jakob_Schaller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000078347355"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117102350"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117102350.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117102350"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schaller, Geoffroi Jacques",
+        "Schaller, Gottfried J.",
+        "Schaller, Gefr. Jac.",
+        "Schaller, Geoffroy Jacques",
+        "Schaller, Gottfried Jacob"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Geoffroi Jacques"
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried J."
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        },
+        {
+          "forename": [
+            "Gefr. Jac."
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Jacob"
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        },
+        {
+          "forename": [
+            "Geoffroy Jacques"
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Jakob_Schaller",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_Jakob_Schaller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:45:39Z",
+    "gnd_query_biographical_data": "1762-1831",
+    "gnd_query_name": "schaller, gottfried jakob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2400,
+  "name": "Schaller, Gottfried Jakob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 416; Goed VII, 516; Goed XIII, 50",
+  "updated": "2026-06-11 13:29:24.539Z",
+  "uri": "https://d-nb.info/gnd/117102350",
+  "editor": ""
+}

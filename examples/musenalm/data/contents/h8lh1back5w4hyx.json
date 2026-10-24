@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt der Suite /) Graphik im Kalendarium Oktober; paginiert 11. /) s. Textbezug INr 96901, Obj 20 /) Illustration zu »Der Feldzug der Deutschen, gegen die / Neufranken vom Jahr 1793« INr 96918, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96914,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von einem Henker wie du bist, / erwarte ich nichts als den Todt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96914_34jsgdfzj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Von einem Henker wie du bist, / erwarte ich nichts als den Todt",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.473Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "kc5gx9mtzsvg9bm"
+    }
+  ]
+}

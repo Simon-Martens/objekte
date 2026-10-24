@@ -1,0 +1,86 @@
+{
+  "annotation": "in roter Maroquin-Brieftasche",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 6 BB Kal dazu 12 GG, zT, SS 1-174",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (mit 12 Monatskupfern: bibliogr. bislang nicht erfasste Ausgabe)",
+    "norm": "~ Paginierung der 12 Graphiken im Kalendarium 1. 2. 3. 4. 5. 6. 7. 8. 9. 10. 11. 12; ohne Titelkupfer, ohne Modekupfer /) eine bislang bibliogr. nicht erfasste Erscheinungsform des Taschenbuchs",
+    "biblio": 408606,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4154,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vieweg)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1798 (Goethe: Herrmann und Dorothea) (mit 12 Monatskupfern: bibliogr. bislang nicht erfasste Ausgabe)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "so nicht bei K 52; K 106; L/R 49; Goed IV/3. 334, 68; Goed VIII. 49, 10; G 4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1798. / Herrmann und Dorothea / von / J. W. von Göthe. / Berlin / bey Friedrich Vieweg dem älteren",
+  "updated": "2026-06-11 10:18:55.445Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "m2v3g4xg1pknv7x"
+  ],
+  "contents": [
+    "ujw0czoauc4t5si",
+    "y1889dkhioo2t05",
+    "dvlzbh9t9uubyb1",
+    "zf6rog9co6t7lj2",
+    "rv91ieb6pxpu49g",
+    "b5rowrfad16t0gf",
+    "128ipb935959yoh",
+    "hq290mkb4iff67b",
+    "5teg2afz34zfbwk",
+    "4rypyli30lk1c7c",
+    "qowibem20op9836",
+    "m7hcxagob4szpk7",
+    "4wg9lnhjjysn2qk",
+    "eaea3ygt1wql6ah",
+    "lx4qwcar4tm6r40",
+    "18rc612ugrk4896",
+    "2k5hy8y5rcvelye",
+    "aiu81lps4r2vt5b"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "aejboidppqx6c49"
+    }
+  ]
+}

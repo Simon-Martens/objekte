@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 45199, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45198,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hohenstauffen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. C. Heideloff gest. v. Bauer",
+  "scans": [
+    "alm_617_45198_6lqhlt6uch.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hohenstauffen",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.340Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "2uamfjneyhsgd1x"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11/) s. Graphik im Kalendarium INr 95853, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Daß Länder in Schulden gerathen, ist nichts ungewöhnliches, und kann nicht immer verhüthet werden.",
+  "language": [],
+  "musenalm_id": 95860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sächsischen Steuerscheine werden, / gegen baares Geld, mit 3 pro Cent / Gewinn verkauft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sächsischen Steuerscheine werden, / gegen baares Geld, mit 3 pro Cent / Gewinn verkauft",
+  "updated": "2014-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.626Z",
+      "agent": "zta4jxuxzdm872n",
+      "source_id": "xfhnlwi35nami8z"
+    }
+  ]
+}

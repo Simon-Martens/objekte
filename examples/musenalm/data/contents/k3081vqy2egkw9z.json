@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9195,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Urania. / Taschenbuch für das Jahr 1810. / Amsterdam, / im Kunst- und Industrie-Comptoir",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Martin sc. Leipzig",
+  "scans": [
+    "alm_37_9195_yeybobey56.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch für das Jahr 1810. / Amsterdam, / im Kunst- und Industrie-Comptoir",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.429Z",
+      "agent": "u3ev7bjxvo21hzz",
+      "source_id": "2maryvdp4g7ko81"
+    }
+  ]
+}

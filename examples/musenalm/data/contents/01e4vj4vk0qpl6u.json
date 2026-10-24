@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. INr 4155, Obj 100",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ich bin ein Welscher Rittersmann, / So ritterlich und treu,",
+  "language": [],
+  "musenalm_id": 4154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädlein im Italischen Land",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Ch. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädlein im Italischen Land",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.813Z",
+      "agent": "2glx0j2o180tzfm",
+      "source_id": "q0epos3opzg32xz"
+    }
+  ]
+}

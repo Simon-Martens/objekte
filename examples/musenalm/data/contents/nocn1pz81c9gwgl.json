@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an einem Blatt der Suite (INr 124177, Obj 14); Illustration zu »Das Heiraths-Gesuch« von Krickeberg (INr 124170, Obj 7 /) $ Zeichner vermutlich: Christian Heinrich Schneider (T/B 30, 192)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124166,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frau v. Rosen. / Ja zu den Sternen hob Dich die Kamöne; / Du warst mein Paladin, ich deine Schöne! / 8tr Auftritt. Das Heyraths-Gesuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneider del. gest. bei Fleischmann # $",
+  "scans": [
+    "alm_1296_124166_88t1wvwhri.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frau v. Rosen. / Ja zu den Sternen hob Dich die Kamöne; / Du warst mein Paladin, ich deine Schöne! / 8tr Auftritt. Das Heyraths-Gesuch",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.858Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "gr5354siscz5112"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Frische Liedlein in gutem Tone (Sammlung INr 680329, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Es war am heil'gen Weihnacht, / Die Luft schneesilberhell, / Da schritt wohl aus dem Stadtthor / Ein rüstiger Junggesell.",
+  "language": [],
+  "musenalm_id": 68039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X.",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.037Z",
+      "agent": "xojpiwzkdga93tk",
+      "source_id": "m9polnzgjq8em7i"
+    }
+  ]
+}

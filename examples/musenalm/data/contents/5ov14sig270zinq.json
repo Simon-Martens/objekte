@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Die Frage: Soll das Alter unsrer Ahnen / Den Weg zum höchsten Ehrensessel bahnen?",
+  "language": [],
+  "musenalm_id": 41134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Don Magnastro",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bajocco Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Don Magnastro",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.876Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "tes7yupivh811d1"
+    }
+  ]
+}

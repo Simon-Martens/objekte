@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer # Bez. am ersten Blatt der Suite",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129028,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coeffures de Leipsic. / 1. a la Sultane. 2. Coeffure Ménager. 3. a la Casque / 4. Coeffures Bourrelet. 5. Chapeau plein de plis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del.",
+  "scans": [
+    "alm_157_129028_ir1kwexqoq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coeffures de Leipsic. / 1. a la Sultane. 2. Coeffure Ménager. 3. a la Casque / 4. Coeffures Bourrelet. 5. Chapeau plein de plis",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.999Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "jfpsg2uzusy3v7u"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Zu deinem Lob ist alle Welt bereit. / Wem sollte nicht des ersten Blicks Entzücken / Dein süßes Bild tief in die Seele drücken?",
+  "language": [],
+  "musenalm_id": 129923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Tadel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Em. Hilscher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Tadel",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.052Z",
+      "agent": "2rqw07czl4o2h4j",
+      "source_id": "bzjihocn2fg2e2z"
+    }
+  ]
+}

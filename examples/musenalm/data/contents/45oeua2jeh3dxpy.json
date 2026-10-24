@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64480, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Euch zu Lieb', Ihr schwarzglockten / Grazien; Ihr braunen, blonden, / Ging ich aus auf's Terminiren,",
+  "language": [],
+  "musenalm_id": 64481,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widmung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widmung",
+  "updated": "2009-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.100Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "959i3h84ra5op54"
+    }
+  ]
+}

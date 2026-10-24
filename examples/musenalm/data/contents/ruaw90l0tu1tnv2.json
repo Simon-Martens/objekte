@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium September /) Illustration zu »Geschichte des französischen Krieges in Schwaben« INr 121341, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Verbrennung der Friedberger Brücke / bey Moreaus Rückzug aus Bayern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sculps. Au.",
+  "scans": [
+    "alm_2009_121336_l2mhap12gs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "9. Verbrennung der Friedberger Brücke / bey Moreaus Rückzug aus Bayern",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.741Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "im9fh5txpb7tlm9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.741Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "m1xnri5b20bti35"
+    }
+  ]
+}

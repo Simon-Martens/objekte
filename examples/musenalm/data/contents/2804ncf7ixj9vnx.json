@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 297. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann« INr 47396, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jede neue Geschicklichkeit befestiget das Glück der / Jugend, und nützet zu seiner Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc.1796",
+  "scans": [
+    "alm_642_47398_h0d3mnca10.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jede neue Geschicklichkeit befestiget das Glück der / Jugend, und nützet zu seiner Zeit",
+  "updated": "2006-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.375Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "cgdvwmgjfrjmx7q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.375Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "y7h87p9o4dq2in6"
+    }
+  ]
+}

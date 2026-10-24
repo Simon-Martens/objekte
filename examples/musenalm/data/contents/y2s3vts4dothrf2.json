@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 6. /) Illustration zum Gedicht »Der Philosoph« von Conz INr 4387, Obj 176",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du liebst wie ich die Einsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Böttger sc.",
+  "scans": [
+    "alm_94_4401_www9ksgp9h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du liebst wie ich die Einsamkeit",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "ht8e72mip7d6m5t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "iypyb8g8bxed1eq",
+      "source_id": "jaaouoatc1wzsmd"
+    }
+  ]
+}

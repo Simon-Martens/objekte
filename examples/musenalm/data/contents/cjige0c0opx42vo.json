@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Ich saß - es war am letzten Jahresabend - In meiner Kammer, nicht wie sonst, mich labend, / An der Natur geheimnisvollen Bronnen,",
+  "language": [],
+  "musenalm_id": 88599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sylvesternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sylvesternacht",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "cr0uh3kmaadt1st",
+      "source_id": "tgfvta9nrtse0wc"
+    }
+  ]
+}

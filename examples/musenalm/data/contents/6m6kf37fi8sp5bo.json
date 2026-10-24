@@ -1,0 +1,45 @@
+{
+  "annotation": "Regner Lodbrog. Eine altdänische Sage in Balladen (Sammlung INr 26604, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Ich komme noch vor der Fahrt herein, / Du kluge Amme zu Dir.",
+  "language": [],
+  "musenalm_id": 26613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kluger Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kluger Rath",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.363Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "pbgxs7tjrnmxmcp"
+    }
+  ]
+}

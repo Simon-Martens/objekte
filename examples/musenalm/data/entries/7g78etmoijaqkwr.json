@@ -1,0 +1,103 @@
+{
+  "annotation": "Mit einzigem Beitrag »Vom Englisiren« in 42 Kapiteln; mit Inhaltsverzeichniß der 6 von v. Tennecker herausgegebenen Jahrgänge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-VI Vrwrt d Hrsg, SS VII-XX I-Verz, SS 1-166, SS 167-172 G-Verz, 8 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur belehrenden Unterhaltung für Liebhaber der Pferde 1803",
+    "norm": "~",
+    "biblio": 404937,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3803,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zur belehrenden Unterhaltung für Liebhaber der Pferde 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 135",
+  "responsibility_statement": "Seyffert von Tennecker",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / belehrenden Unterhaltung / für / Liebhaber der Pferde. / Herausgegeben / von / Seyffert von Tennecker. / Drittes und letztes Bändchen. / Mit 8 Kupfern. / Dieses Taschenbuch ist eine Fortsetzung des Meß- / geschenks für Liebhaber der Pferde etc / und macht für die Besitzer desselben das sechste / und letzte Bändchen aus. / Leipzig, 1803 / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.683Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "49lztmc8vm6v3ad"
+  ],
+  "contents": [
+    "b4ccv9g01285r1v",
+    "wpovfpzp4fp4yqw",
+    "d1dfp5dd97m0d2s",
+    "jnwjp4hglckzgvh",
+    "j57j75c0fshoscb",
+    "jphbezau66p2v6w",
+    "d8s0s26jkzganbh",
+    "sk0s7jp09410li3",
+    "mdfwoo0ulul4ioa",
+    "jkksotjpotiqneg",
+    "xbwc1p2l7f7767j",
+    "h6q0rtfb1k7td4c",
+    "sm5w8adhcxbdlq4",
+    "u4vz69yxsf0hyso",
+    "2id567fjsjgajzd",
+    "8cz4a0oekwoiyoh",
+    "xm6vyak8kubzb7s",
+    "wx2meemijayymlq",
+    "mjeviho38awww21",
+    "5ou900nkinjo6lk",
+    "f6n9xfamlnlsdph",
+    "x9p0wf54k03snpg",
+    "gt2a0kt6kxhzelj",
+    "cgvwjg7lflkbrtm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "jc6ixrzt1yd5rat"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.300Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.300Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "tzhibsownnt8d86"
+    }
+  ]
+}

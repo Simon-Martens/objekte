@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neusel (Sammlung INr 98898, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Mit dem Kirchhof auch vertraut / Hab ich mich gemacht,",
+  "language": [],
+  "musenalm_id": 98966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 168,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "55.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "55.",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.819Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "uzf72g3zlqhct2b"
+    }
+  ]
+}

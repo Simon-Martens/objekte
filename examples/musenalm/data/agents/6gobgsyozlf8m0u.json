@@ -1,0 +1,875 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1871",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.601Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Reiseschriftsteller und Landschaftsarchitekt (Park- und Gartengestalter)"
+      ],
+      "dateOfBirth": [
+        "1785-10-30"
+      ],
+      "dateOfDeath": [
+        "1871-02-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Jentzen / After Franz Krüger"
+          ],
+          "creditText": [
+            "Derived from Stiftung Preußische Schlösser und Gärten Berlin-Brandenburg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hermann%20von%20P%C3%BCckler-Muskau%2C%20by%20Friedrich%20Jentzen%20after%20Franz%20Kr%C3%BCger.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hermann%20von%20P%C3%BCckler-Muskau%2C%20by%20Friedrich%20Jentzen%20after%20Franz%20Kr%C3%BCger.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hermann%20von%20P%C3%BCckler-Muskau%2C%20by%20Friedrich%20Jentzen%20after%20Franz%20Kr%C3%BCger.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1276447205"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-06T10:24:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118597019/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/139238891",
+          "label": "Pückler-Muskau, Ludwig Karl Johann Erdmann von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116134127",
+          "label": "Petrick, Johann Gottfried"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118597019",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.7p",
+          "label": "Personen zu Umweltschutz, Raumordnung, Landschaftsgestaltung"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/116134127",
+          "label": "Petrick, Johann Gottfried"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/139238891",
+          "label": "Pückler-Muskau, Ludwig Karl Johann Erdmann von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118597019",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)131127411",
+        "(DE-588)1276447205",
+        "(DE-588a)160462800",
+        "(DE-588a)131127403",
+        "(DE-588a)160463467",
+        "(DE-588a)158346750",
+        "(DE-588c)4047794-0",
+        "(DE-588a)12780353X",
+        "(DE-588a)12583389X",
+        "(DE-588a)13112742X",
+        "(DE-588a)125833903",
+        "(DE-588a)160532612",
+        "(DE-588a)118597019"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4040893-0",
+          "label": "Bad Muskau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/5171956-3",
+          "label": "Branitz (Cottbus)"
+        }
+      ],
+      "preferredName": "Pückler-Muskau, Hermann von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hermann"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Pückler-Muskau"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4798807-1",
+          "label": "Reiseschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166630-6",
+          "label": "Landschaftsarchitekt"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Homogalakto"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Semilasso"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Tuttolasso"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Pückler-Muskau, Hermann von: Tutti Frutti",
+        "Pückler-Muskau, Hermann von: Südöstlicher Bildersaal. - 1840 - 1841",
+        "Pückler-Muskau, Hermann von: Briefe eines Verstorbenen. - 1830 - 1831",
+        "Pückler-Muskau, Hermann von: Andeutungen über Landschaftsgärtnerei",
+        "Pückler-Muskau, Hermann von: Briefe eines Verstorbenen. - 1836 - 1837",
+        "Pückler-Muskau, Hermann von: Jugend-Wanderungen",
+        "Pückler-Muskau, Hermann von: Semilasso in Afrika",
+        "Pückler-Muskau, Hermann von: Vorletzter Weltgang von Semilasso. - 1835 - 1836",
+        "Pückler-Muskau, Hermann von: Reminiscenzen für Semilasso",
+        "Pückler-Muskau, Hermann von: Der Vorläufer"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82017580"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/puckler-muskau-hermann-furst-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/68973825"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61797"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118597019/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1276447205"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Hermann,_F%C3%BCrst_von_P%C3%BCckler-Muskau"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Hermann_von_P%C3%BCckler-Muskau"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Hermann_von_P%C3%BCckler-Muskau"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Hermann%2C_F%C3%BCrst_von_P%C3%BCckler-Muskau"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109120875"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118597019"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118597019"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118597019.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118597019.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118597019"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/44A04E90767B477F8A3D50EC540B8D99"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118597019"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4155603-3",
+          "label": "Fürst"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Pückler-Muskau, Hermann Ludwig Heinrich",
+        "Pückler-Mußkau, Hermann L. von",
+        "Muskau, Hermann L. von M.-",
+        "Muskau, Hermann P.",
+        "Pukler-Muskau de",
+        "Pückler-Muskau, Hermann, Fürst von",
+        "Pückler, Prince, Ecrivain, Architecte paysagiste",
+        "Muskau, Ludwig Heinrich Hermann von",
+        "Pückler Muskau, Hermann von",
+        "Pückler-Muskau, Hermann zu",
+        "Pückler Muskau, Hermann L. von",
+        "Semilasso, Fürst, Schriftsteller, Landschaftsarchitekt",
+        "Pückler-Muskau, Hermann Ludwig Heinrich von",
+        "Pückler-Muskau, Hermann Ludwig Heinrich von, Prince, Ecrivain, Architecte paysagiste",
+        "Muskau, Hermann Ludwig Heinrich von Pückler-",
+        "Pückler-Muskau, Hermann von, Fürst, Schriftsteller, Landschaftsarchitekt",
+        "Semilasso, Prince, Writer, Landscape architect",
+        "Homogalakto, Prince, Ecrivain, Architecte paysagiste",
+        "Būklı̄r Mūskāw",
+        "Muskau, Hermann L. von",
+        "Puckler-Muskau, Hermann",
+        "Pückler, Prince, Writer, Landscape architect",
+        "Homogalakto, Prince, Writer, Landscape architect",
+        "Pückler, Fürst, Schriftsteller, Landschaftsarchitekt",
+        "Homogalakto",
+        "Pückler von Mußkau",
+        "Semilasso, Prince, Ecrivain, Architecte paysagiste",
+        "Pückler-Muskau, Hermann, Graf von",
+        "Pückler-Muskau, Hermann von, Prince, Ecrivain, Architecte paysagiste",
+        "Būklı̄r-Mūskāw, Lūdfı̄g Hārman Fūn",
+        "Pückler-Muskau, Hermann L. von",
+        "Pückler von Mußkau, Hermann L.",
+        "Pückler, Hermann von",
+        "Pückler-Muskau, Hermann Ludwig Heinrich von, Prince, Writer, Landscape architect",
+        "Pückler-Muskau, Hermann von, Prince, Writer, Landscape architect",
+        "Pückler-Muskau, Hermann Ludwig Heinrich von, Fürst, Schriftsteller, Landschaftsarchitekt",
+        "Pückler-Mußkau von",
+        "Homogalakto, Fürst, Schriftsteller, Landschaftsarchitekt",
+        "Semilasso",
+        "Tuttolasso",
+        "Pückler Muskau, Hermann",
+        "Muskau, Hermann von Pückler-",
+        "Pückler Mußkau, Hermann L.",
+        "Mūskāw, Būklı̄r"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Hermann P."
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fürst, Schriftsteller, Landschaftsarchitekt"
+          ],
+          "personalName": [
+            "Semilasso"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fürst, Schriftsteller, Landschaftsarchitekt"
+          ],
+          "personalName": [
+            "Pückler"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Writer, Landscape architect"
+          ],
+          "personalName": [
+            "Pückler"
+          ]
+        },
+        {
+          "personalName": [
+            "Būklı̄r Mūskāw"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "nameAddition": [
+            "Prince, Ecrivain, Architecte paysagiste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich"
+          ],
+          "nameAddition": [
+            "Prince, Ecrivain, Architecte paysagiste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "nameAddition": [
+            "Fürst von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "surname": [
+            "Pückler Mußkau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "surname": [
+            "Pückler von Mußkau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Writer, Landscape architect"
+          ],
+          "personalName": [
+            "Homogalakto"
+          ]
+        },
+        {
+          "personalName": [
+            "Tuttolasso"
+          ]
+        },
+        {
+          "personalName": [
+            "Pückler-Mußkau"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann von Pückler-"
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich"
+          ],
+          "nameAddition": [
+            "Fürst, Schriftsteller, Landschaftsarchitekt"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler"
+          ]
+        },
+        {
+          "forename": [
+            "Lūdfı̄g Hārman Fūn"
+          ],
+          "surname": [
+            "Būklı̄r-Mūskāw"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Ecrivain, Architecte paysagiste"
+          ],
+          "personalName": [
+            "Pückler"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich"
+          ],
+          "nameAddition": [
+            "Prince, Writer, Landscape architect"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "personalName": [
+            "Pukler-Muskau"
+          ],
+          "prefix": [
+            "de"
+          ]
+        },
+        {
+          "forename": [
+            "Būklı̄r"
+          ],
+          "surname": [
+            "Mūskāw"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "nameAddition": [
+            "Fürst, Schriftsteller, Landschaftsarchitekt"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "nameAddition": [
+            "Prince, Writer, Landscape architect"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L. von M.-"
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        },
+        {
+          "personalName": [
+            "Pückler von Mußkau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Mußkau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fürst, Schriftsteller, Landschaftsarchitekt"
+          ],
+          "personalName": [
+            "Homogalakto"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pückler-Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "surname": [
+            "Puckler-Muskau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Writer, Landscape architect"
+          ],
+          "personalName": [
+            "Semilasso"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Ecrivain, Architecte paysagiste"
+          ],
+          "personalName": [
+            "Homogalakto"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Heinrich Hermann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        },
+        {
+          "personalName": [
+            "Semilasso"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Prince, Ecrivain, Architecte paysagiste"
+          ],
+          "personalName": [
+            "Semilasso"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann"
+          ],
+          "surname": [
+            "Pückler Muskau"
+          ]
+        },
+        {
+          "personalName": [
+            "Homogalakto"
+          ]
+        },
+        {
+          "forename": [
+            "Hermann Ludwig Heinrich von Pückler-"
+          ],
+          "surname": [
+            "Muskau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Hermann_von_P%C3%BCckler-Muskau",
+          "label": "https://de.wikipedia.org/wiki/Hermann_von_P%C3%BCckler-Muskau"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:28:15Z",
+    "gnd_query_biographical_data": "1785-1871",
+    "gnd_query_name": "pückler-muskau, hermann von"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4017,
+  "name": "Pückler-Muskau, Hermann von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIV, 691, 1019",
+  "updated": "2026-06-11 13:29:25.943Z",
+  "uri": "https://d-nb.info/gnd/118597019",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen und einer Sammlung mit 4 Beiträgen INr 114137-114149, Obj 61-73",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bunterlei von Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bunterlei von Wien",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.496Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "w2nfqq7vqnm0p8o"
+    }
+  ]
+}

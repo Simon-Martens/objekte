@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 79066, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79067,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Alpenjäger von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Brückner sc.",
+  "scans": [
+    "alm_2395_79067_pom5c91dar.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Alpenjäger von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "lv9cbeoccxhxtzv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.876Z",
+      "agent": "55cqr78phstoqzu",
+      "source_id": "pillz312lpulu8h"
+    }
+  ]
+}

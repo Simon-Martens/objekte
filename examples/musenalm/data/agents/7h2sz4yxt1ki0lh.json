@@ -1,0 +1,417 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1870",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.458Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "verbrachte ihre Jugend in verschiedenen russischen Universitätsstädten, heiratete den amerikanischen Gelehrten Edward Robinson, beschäftigte sich mit serbischer Volkspoesie, übersetzte serbische Literatur, lebte seit 1840 in New York, nach dem Tod ihres Ehemanns kehrte sie nach Deutschland zurück"
+      ],
+      "dateOfBirth": [
+        "1797-01-26"
+      ],
+      "dateOfDeath": [
+        "1870-04-13"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-01T08:59:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1323449647/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Therese Albertine Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jacob"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1323449647",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1323449647",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4042011-5",
+          "label": "New York, NY"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Robinson, Therese Albertine Luise",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Therese Albertine Luise"
+        ],
+        "surname": [
+          "Robinson"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4362368-2",
+          "label": "Linguistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4372438-3",
+          "label": "Übersetzerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4362368-2",
+          "label": "Linguistin"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1323451919",
+          "label": "Ernst Berthold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118620614",
+          "label": "Talvj"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2009071133"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/180790058"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q136863985"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1323449647/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1323449647"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Jacob, Therese Albertine Louise von",
+        "Jakob Robinson, Therese Albertine Luise von",
+        "Robinson, Therese A. von",
+        "Robinson, Therese von Jakob-",
+        "Robinson, Therese Adelgunde Luise",
+        "Robinson, Therese",
+        "Robinson, Thérèse Albertine von",
+        "Jakob, Therese A. von",
+        "Jacob, Theresa A. von",
+        "Jacob, Therese Albertine Luise von",
+        "Jakob, Therese Albertine Luise von",
+        "Jakob, Therese Albertine Louise von",
+        "Robinson, Thérèse Albertine Louise",
+        "Robinson, Therese Albertine Louise",
+        "Jakob-Robinson, Therese von",
+        "Robinson, Therese A.",
+        "Jakob, Therese von",
+        "Robinson, Therese Albertine Louise von Jakob",
+        "Robinson, Therese Adelgunde Louise"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Therese Albertine Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Adelgunde Louise"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Thérèse Albertine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Theresa A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jacob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob-Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Louise"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese A."
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Louise von Jakob"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jakob Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Thérèse Albertine Louise"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese von Jakob-"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Adelgunde Luise"
+          ],
+          "surname": [
+            "Robinson"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jacob"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Albertine Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Jacob"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:40:15Z",
+    "gnd_query_biographical_data": "1797-1870",
+    "gnd_query_name": "robinson, therese albertine louise"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2291,
+  "name": "Robinson, Therese Albertine Louise",
+  "profession": "Text",
+  "pseudonyms": "Talvi, Talvj",
+  "refs": "Goed XIII, 141; E 289",
+  "updated": "2026-06-11 13:29:24.359Z",
+  "uri": "https://d-nb.info/gnd/1323449647",
+  "editor": ""
+}

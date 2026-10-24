@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Du sprachst voll Huld das Zauberwort der Treue, / Stets hör' ich noch der Stimme Melodie,",
+  "language": [],
+  "musenalm_id": 97141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sie. / Sonnett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. J. F. Kinderling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sie. / Sonnett",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.653Z",
+      "agent": "mwzrgbhkb92s8o7",
+      "source_id": "g1crlghg016bf2d"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Im Dichter lebt das Licht der Ideale, / Das Ahnen, der Gefühle dunkles Weben,",
+  "language": [],
+  "musenalm_id": 20113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Graf Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musik",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.688Z",
+      "agent": "7s14awjauhcdi1w",
+      "source_id": "0kq9ul6h5yq0xva"
+    }
+  ]
+}

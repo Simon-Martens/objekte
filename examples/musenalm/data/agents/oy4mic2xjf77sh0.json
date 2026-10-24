@@ -1,0 +1,383 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1809",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.347Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/117638765",
+          "label": "Bucholtz, Wilhelm Heinrich Sebastian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118540238",
+          "label": "Goethe, Johann Wolfgang von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2174952-8",
+          "label": "Universität zu Jena"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Pharmazeut und Chemiker; 1788-1809 Professor für Chemie in Jena (als erster in Deutschland überhaupt)"
+      ],
+      "dateOfBirth": [
+        "1753-06-05"
+      ],
+      "dateOfDeath": [
+        "1809-09-01"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/120009269"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T14:50:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116737166/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1027810942",
+          "label": "Göttling, Johann Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116737166",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#22.5p",
+          "label": "Personen zu Chemie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1027810942",
+          "label": "Göttling, Johann Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116737166",
+      "oldAuthorityNumber": [
+        "(DE-588)120009269",
+        "(DE-588a)100151531",
+        "(DE-588c)7577182-2",
+        "(DE-588a)116737166",
+        "(DE-588a)120009269"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4452770-6",
+          "label": "Blankenburg-Derenburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "preferredName": "Göttling, Johann Friedrich August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich August"
+        ],
+        "surname": [
+          "Göttling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4009836-9",
+          "label": "Chemiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002475-1",
+          "label": "Apotheker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117361259",
+          "label": "Wiegleb, Johann Christian"
+        }
+      ],
+      "publication": [
+        "Chemische Bemerkungen über das phosphorsaure Quecksilber",
+        "Handbuch der theoretischen und praktischen Chemie",
+        "Chemische Versuche über eine verbesserte Methode den Salmiak ..",
+        "Practische Anleitung zur prüfenden und zerlegenden Chemie - 1802",
+        "Physisch chemische Encyklopädie",
+        "Vollständiges chemisches Probir-Cabinet",
+        "Versuch einer phys. Chemie",
+        "Chemische Versuche über eine verbesserte Methode, den Salmiak ..",
+        "Beschreibung verschiedener Blasemaschinen",
+        "Beytrag zur Berichtigung der antiphlogistischen Chemie. - 1794 - 1798",
+        "Praktische Vortheile und Verbesserungen .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr93017646"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37675114"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q107655"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116737166/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/120009269"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Friedrich_August_G%C3%B6ttling"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_August_G%C3%B6ttling"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Friedrich_August_G%C3%B6ttling"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Friedrich_August_G%C3%B6ttling"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116226571"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116737166"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116737166.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116737166"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Göttling, J. Fr. A.",
+        "Goettling, I. F. A.",
+        "Göttling, Friedrich August",
+        "Göttling, J. F. A.",
+        "Göttling, J. F.",
+        "Goettling, Johann Friedrich August"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Göttling"
+          ]
+        },
+        {
+          "forename": [
+            "I. F. A."
+          ],
+          "surname": [
+            "Goettling"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich August"
+          ],
+          "surname": [
+            "Goettling"
+          ]
+        },
+        {
+          "forename": [
+            "J. F. A."
+          ],
+          "surname": [
+            "Göttling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "surname": [
+            "Göttling"
+          ]
+        },
+        {
+          "forename": [
+            "J. Fr. A."
+          ],
+          "surname": [
+            "Göttling"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_August_G%C3%B6ttling",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_August_G%C3%B6ttling"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:32:51Z",
+    "gnd_query_biographical_data": "1755-1809",
+    "gnd_query_name": "göttling, johann friedrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 933,
+  "name": "Göttling, Johann Friedrich August",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 683",
+  "updated": "2026-06-11 13:29:22.595Z",
+  "uri": "https://d-nb.info/gnd/116737166",
+  "editor": ""
+}

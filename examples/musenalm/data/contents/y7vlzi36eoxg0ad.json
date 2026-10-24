@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Ein Jüngling kömmt aus fernem Land herbei, / Um auf der Wartburg waldgekränzten Höhen / Das heil'ge Fest der Deutschen zu begehen,",
+  "language": [],
+  "musenalm_id": 65705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 274,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelaide / I. / 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelaide / I. / 1815",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.048Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "ncywt9iiahv0642"
+    }
+  ]
+}

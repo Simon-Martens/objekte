@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 12 graph. Tanzanleitungen INr 19799-19806, Obj 94-101",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19798,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TANZTOUREN / zu Beckers Taschenbuch 1818. / von Roller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "TANZTOUREN / zu Beckers Taschenbuch 1818. / von Roller",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.677Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "o397vky7iz3g2l4"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "annotation": "Kupfer zu König Lear, zum Kaufmann von Venedig, zu Othello und zu Macbeth. Erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß, H. Voß und Schiller (Sammlung INr 9328, Obj 7) s. Graphik INr 9327, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sie ist gethan, die That; vernahmst du kein / Geräusch?",
+  "language": [],
+  "musenalm_id": 19111,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macbeth, / Zweiter Aufzug, zweite Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] Fr. Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Macbeth, / Zweiter Aufzug, zweite Scene",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.875Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "ftceyfdie3c0or5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.875Z",
+      "agent": "confomdodiakpla",
+      "source_id": "rc7h9ijisqhwpls"
+    }
+  ]
+}

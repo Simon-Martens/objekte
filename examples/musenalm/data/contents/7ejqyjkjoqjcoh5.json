@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Die Wunder des Doms« von Fr. Kind INr 13643, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13581,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wunder des Doms. von Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_218_13581_3dj02pw1np.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wunder des Doms. von Fr. Kind",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.655Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7c5zbm4k12rkztr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.655Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "88l3qw3bne3n0ui"
+    }
+  ]
+}

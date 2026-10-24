@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Erinnerung« von Goethe INr 1239, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8692,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zumsteeg",
+  "scans": [
+    "alm_33_8692_e53sll42yh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.303Z",
+      "agent": "hbhvbvw4lv57yvj",
+      "source_id": "x4vigto8mv2vsbb"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 21 SS Kal darin 12 GG, 142 SS, 5 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1771",
+    "norm": "~",
+    "biblio": 404173,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 782,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1771",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "Königl. Academie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1771; / mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin herausgeben",
+  "updated": "2026-06-11 10:18:55.759Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "items": [
+    "w903e253lbpeo8w"
+  ],
+  "contents": [
+    "jarjlrzi83beulo",
+    "g9524wqwann5xim",
+    "li62up38803bgue",
+    "ingfwjrnv1spu4w",
+    "p2qyds0xrosxucg",
+    "m8fgcaeybj7mbmx",
+    "rx3kyhc5ejcmokt",
+    "ivvbmesxg5zg98o",
+    "35v871fjmppvlfg",
+    "xikypwzhuxv2402",
+    "d7btoj86murixr2",
+    "j02ru4db0a08h0h",
+    "fi2djrsvar3huah",
+    "qnhvupom7virgls",
+    "00celmw213ptd5w",
+    "zvzeqm76mdxgh0m",
+    "22sjzjxyldr1grd",
+    "exl38d47ov69mel",
+    "2tyylqotkee3od7",
+    "i9ze5u8m52j97w4",
+    "ozikjy2ntg1gew5",
+    "j0ubybokavxv0fw",
+    "g94e773y225ev0p",
+    "x5r18qi1s8vpqx6",
+    "8cvvcrfcf0m8338",
+    "1pvhth7p4umcnyi",
+    "prcblamtch9p9qe",
+    "n8w0nu4qef2cocg",
+    "0auvcsoh0o6ei49",
+    "zozgd7agnj5rwyk",
+    "pqju1bqys2f03t6",
+    "vvxnvjc13vqimqk",
+    "049ehrkrlj1poij",
+    "ndgkv2nlgknfbep",
+    "3e8wcyweqw3jeee"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "6tek017e2is00qm"
+    }
+  ]
+}

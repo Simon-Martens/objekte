@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 11 BB Kal darin 9 GG, ar: SS 1-251, ar1: SS 1-105, 37 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1808",
+    "norm": "~",
+    "biblio": 404137,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 843,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf das Jahr 1808. / Kaiser Friedrich der Zweite. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.875Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "4lhm65o530as4tn"
+  ],
+  "contents": [
+    "hd0jjbm48pt8bes",
+    "5tc6hjz1yu5mxa0",
+    "hfkx6s63bxxoncs",
+    "ygufmoph7sksmmh",
+    "ixmx0s1yvaglxyx",
+    "94rlmuhhl7a5dk3",
+    "yqxwzk5hlyjopu5",
+    "c8f8fo9gto0tqz6",
+    "fwiilj8b76rrqu4",
+    "shals6ta9nkxnxx",
+    "yrjpq9zyir5zfmq",
+    "lwo6d0em2jk44h8",
+    "4z2x30b19asn6t2",
+    "x3ie24x8r1vum6u",
+    "gcyaz73zvdku8nf",
+    "6ha7ro5x2vmqttl"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "687sp9umectmi2d"
+    }
+  ]
+}

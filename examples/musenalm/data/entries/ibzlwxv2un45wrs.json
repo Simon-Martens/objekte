@@ -1,0 +1,93 @@
+{
+  "annotation": "so nicht bei Goed V. 451, 19, 6. Goed gibt an: Wilhelm und Luise, oder die Kunst in der Ehe glücklich zu seyn, ein goldner Spiegel für Eltern und Ehelustige. Reutlingen 1812 /) außerdem vorhanden: als Wilhelm und Luise. Herausgegeben von Gessner. Als Taschenbuch für das Jahr 1813. Tübingen, bei C. S. Blifers",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-VI BB W, SS VII-XVI Vrwrt d Hrsg, SS 1-140 darin 6 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wilhelm und Luise 1811",
+    "norm": "~",
+    "biblio": 411370,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2023-07-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4849,
+  "parallel_title": "",
+  "place_statement": "Wien und Triest (Geistinger)",
+  "places": [
+    "31n865keags4n1n",
+    "dp43n1va7to3kqu"
+  ],
+  "preferred_title": "Wilhelm und Luise 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; nicht bei Goed V. 451, 19, 6",
+  "responsibility_statement": "Johannn Georg Geßner",
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm und Luise. / Ein / Taschenbuch für das Jahr 1811. / Herausgegeben / von / Geßner. / Wien und Triest / verlegt von Geistinger",
+  "updated": "2026-06-11 10:18:54.495Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "inr64ivl8ksnk7x"
+  ],
+  "contents": [
+    "heidodi6iyqqf3f",
+    "77j0090qpt8winn",
+    "u7qz0nydm1oy292",
+    "f60dq5k8fctxrun",
+    "c6ggp3mpovmosip",
+    "hikzqs04f1yy6ew",
+    "fw6kydrejv4imm7",
+    "giohce58u0735am",
+    "pxjmtowwvzl5kqn",
+    "mn7rgf9re1ggjvg",
+    "vd103gttj12xdnw",
+    "tis0j5qpig3b22u",
+    "7ku51mdydhhs18q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.891Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.891Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "cn9jtwqf1lyy8jq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.455Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.455Z",
+      "agent": "9n43egon6ewzq3c",
+      "source_id": "hx9s3wksb4zifft"
+    }
+  ]
+}

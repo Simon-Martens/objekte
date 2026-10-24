@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Sei mir gegrüßt im frühen Morgenstrahle, / Du, die uns neues Leben bringt;",
+  "language": [],
+  "musenalm_id": 96879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Thätigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Thätigkeit",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.361Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "634vvn6s83tmkxw"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 71236-71238, Obj 23-25 /) PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MADRIGALE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "MADRIGALE",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.554Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "3jwdsifo68ppotm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.555Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "bdmjtyelue0v8b2"
+    }
+  ]
+}

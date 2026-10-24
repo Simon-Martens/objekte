@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Beitrag INr 36408, Obj 72 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Herrn / Friedrich Schneider, / Herzoglich Dessauischem Capellmeister, / ist dieser Versuch zur Begründung eines freien / Oratoriums in freudigster Anerkennung und Ver- / ehrung gewidmet.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Herrn / Friedrich Schneider, / Herzoglich Dessauischem Capellmeister, / ist dieser Versuch zur Begründung eines freien / Oratoriums in freudigster Anerkennung und Ver- / ehrung gewidmet.",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.817Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "r7grqo53ex2t04o"
+    }
+  ]
+}

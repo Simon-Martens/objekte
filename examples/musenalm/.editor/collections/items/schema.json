@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Original",
+          "Reproduktion",
+          "Mikrofiche",
+          "Digitalisat",
+          "URL",
+          ""
+        ]
+      },
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "condition": {
+      "type": "string"
+    },
+    "scans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "maxItems": 1000,
+      "uniqueItems": true,
+      "description": "Original scan filenames. Binary files were not included in the export."
+    },
+    "uri": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "readOnly": true
+    },
+    "updated": {
+      "type": "string",
+      "readOnly": true
+    },
+    "annotation": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "edit_comment": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "edit_state": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "ToDo",
+        "Seen",
+        "Partially Edited",
+        "Waiting",
+        "Review",
+        "Edited",
+        ""
+      ]
+    },
+    "public": {
+      "type": "boolean"
+    },
+    "basis": {
+      "type": "boolean"
+    },
+    "editor": {
+      "type": "string",
+      "description": "Source users ID; that collection was not included in the export.",
+      "readOnly": true
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

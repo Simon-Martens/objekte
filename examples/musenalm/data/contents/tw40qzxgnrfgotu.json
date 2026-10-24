@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Tochter« von Kästner INr 4871, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benda",
+  "scans": [
+    "alm_102_4872_r2y6640lkd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.009Z",
+      "agent": "sn75dvdam4298qi",
+      "source_id": "n3kb6i8zsosegc1"
+    }
+  ]
+}

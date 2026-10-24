@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus Joh. Mayhofers Nachlasse (Sammlung INr 114254, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Einst schwärmt, ich trunken / Im Auge des Freundes, / Und schwelgte nach Lust;",
+  "language": [],
+  "musenalm_id": 114255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Erhebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Mayrhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Erhebung",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.286Z",
+      "agent": "z2a77hujndvxeug",
+      "source_id": "cpvfatlvrg3g068"
+    }
+  ]
+}

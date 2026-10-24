@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Ich ging durch's dunkle Waldesgrün / Und dachte an mein Lieb;",
+  "language": [],
+  "musenalm_id": 19978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtschatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr von der Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtschatten",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.886Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "3xgsko5vk6hpeao"
+    }
+  ]
+}

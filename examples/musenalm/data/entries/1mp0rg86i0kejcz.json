@@ -1,0 +1,117 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S G-Verz I-Verz, 7 BB recto G-Verz, 6 GG, SS 1-319",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1846",
+    "norm": "~",
+    "biblio": 100192,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-05-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1054,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Walter Tesche",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1846 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Walter Tesche / 31. JAHRGANG / DARMSTADT / Druck & Verlag v. Gustav Georg Lange",
+  "updated": "2026-06-11 10:18:55.589Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "07te67f3wv6d14s"
+  ],
+  "contents": [
+    "s07918v7a59sq44",
+    "bvn7y4va5n9twz4",
+    "setps52eum019k6",
+    "khke8g3kaq5e1rt",
+    "xhgmi5z6qi64fi1",
+    "3o0u723ex76a151",
+    "e5rnxx9gujpl19o",
+    "94ypqwzazw8jznd",
+    "kytvzxj2dt8eeqb",
+    "2loirj696bu0ggk",
+    "wr69j416nds0c2g",
+    "cycza66fjpj1efp",
+    "ig7qg3yz7hkikeq",
+    "vrwh3fsuwvp2tnl",
+    "1mobxw5w0txgzxn",
+    "rot10jdzrqs5ekp",
+    "0ok24qgpe86olf4",
+    "8kjxap4l7dbwq2s",
+    "ny48dhvvzx12smo",
+    "gppx5hg22obil8a",
+    "1otyzglnikisco0",
+    "dzcr6bb0tdvi413",
+    "8nahbhzqs6oorbe",
+    "ukegl2nfa316udj",
+    "5lbnc138k6lmzr3",
+    "mofiz56clla3ww1",
+    "1rl78915xv6wwu0",
+    "by6oth3tbs8hytd",
+    "bfp5z3oonkpgvrj",
+    "yce35ln16barskl",
+    "7pd0xyqfrkzletc",
+    "sgmzzoma2v341ks",
+    "hcapnmapgk0jh1z",
+    "s9m35ew2d1hrumv",
+    "71cxv54qz6xuuvo",
+    "by7gp59wv8a193f",
+    "1sexnnec9qui4xm",
+    "wo05rw5k9alb6lu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.810Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.810Z",
+      "agent": "ayxe6k12ru1cyko",
+      "source_id": "h6hbf4rmllzehro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.088Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.088Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "vnxub9gmu5ozstc"
+    }
+  ]
+}

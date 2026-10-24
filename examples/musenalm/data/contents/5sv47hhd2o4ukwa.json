@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Leb wohl mein Spanien, süsses Vaterland, / Nie werd ich deine Fluren wiedersehen,",
+  "language": [],
+  "musenalm_id": 38001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Exil. / Aus der noch ungedruckten Uebersetzung des Mönchs / a. d. E.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Exil. / Aus der noch ungedruckten Uebersetzung des Mönchs / a. d. E.",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.028Z",
+      "agent": "u657j3m1foor2a9",
+      "source_id": "ktwtie0sonwi50n"
+    }
+  ]
+}

@@ -1,0 +1,508 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.472Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Deutsche Schriftstellerin"
+      ],
+      "dateOfBirth": [
+        "1797-07-12"
+      ],
+      "dateOfDeath": [
+        "1849-08-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Alexander von Sternberg (1806–1868)"
+          ],
+          "creditText": [
+            "Scanned from a reproduction, located between p. 208 and 209 out of Adele Schopenhauer: Tagebuch einer Einsamen, edited by Prof. Dr. H. H. Houben, Verlag von Klinkhardt &amp; Biermann, Leipzig 1921."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adele%20Schopenhauer%201841.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adele%20Schopenhauer%201841.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adele%20Schopenhauer%201841.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/101491552X",
+        "https://d-nb.info/gnd/1135171262"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-14T21:16:15.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11880510X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Luise Adelaide Lavinia"
+          ],
+          "surname": [
+            "Schopenhauer"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118610473",
+          "label": "Schopenhauer, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139575863",
+          "label": "Schopenhauer, Heinrich Floris"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118610465",
+          "label": "Schopenhauer, Arthur"
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Saville"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11880510X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118610473",
+          "label": "Schopenhauer, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/139575863",
+          "label": "Schopenhauer, Heinrich Floris"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118610465",
+          "label": "Schopenhauer, Arthur"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11880510X",
+      "oldAuthorityNumber": [
+        "(DE-588)101491552X",
+        "(DE-588a)101491552X",
+        "(DE-588c)4116417-9",
+        "(DE-588)1135171262",
+        "(DE-588a)11880510X"
+      ],
+      "periodOfActivity": [
+        "1858-1863"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "preferredName": "Schopenhauer, Adele",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adele"
+        ],
+        "surname": [
+          "Schopenhauer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Adrian"
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Venne"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Henriette"
+          ],
+          "surname": [
+            "Sommer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "8 Tagebücher",
+        "Haus- Wald- und Feldmärchen",
+        "Anna",
+        "Tagebücher",
+        "Eine dänische Geschichte"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1205349405",
+          "label": "Exlibris (Schopenhauer, Adele), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb121440999"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87901281"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51726332"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q75090"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101491552X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1135171262"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11880510X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adele_Schopenhauer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adele_Schopenhauer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adele_Schopenhauer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081299219"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11880510X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1817_mendelssohn;25"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1818_schopenhauer"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11880510X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11880510X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11880510X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11880510X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sommer, Henriette",
+        "Schopenhauer, Luise Adelaide Lavinia",
+        "Schopenhauer, Louise Adele",
+        "Venne, Adrian van der",
+        "Schoppenhauer, Adele",
+        "Schopenhauer, Luise Adele",
+        "Schoppenhauer, A.",
+        "Saville, Adele"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Luise Adele"
+          ],
+          "surname": [
+            "Schopenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "Adele"
+          ],
+          "surname": [
+            "Saville"
+          ]
+        },
+        {
+          "forename": [
+            "Louise Adele"
+          ],
+          "surname": [
+            "Schopenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Schoppenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "Luise Adelaide Lavinia"
+          ],
+          "surname": [
+            "Schopenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "Luise Adelaide Lavinia"
+          ],
+          "surname": [
+            "Schopenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette"
+          ],
+          "surname": [
+            "Sommer"
+          ]
+        },
+        {
+          "forename": [
+            "Adele"
+          ],
+          "surname": [
+            "Schoppenhauer"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian"
+          ],
+          "prefix": [
+            "van der"
+          ],
+          "surname": [
+            "Venne"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adele_Schopenhauer",
+          "label": "https://de.wikipedia.org/wiki/Adele_Schopenhauer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:52:00Z",
+    "gnd_query_biographical_data": "1797-1849",
+    "gnd_query_name": "schopenhauer, adele"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2527,
+  "name": "Schopenhauer, Adele",
+  "profession": "Text u. Graphik",
+  "pseudonyms": "",
+  "refs": "Goed (H) 458; T/B XXX, 258",
+  "updated": "2026-06-11 13:29:24.784Z",
+  "uri": "https://d-nb.info/gnd/11880510X",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Mai",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stift Göltweih",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schindler del. Langer sc.",
+  "scans": [
+    "alm_3723_90180_i2ottw6cni.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stift Göltweih",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.420Z",
+      "agent": "b015htf5wn6svli",
+      "source_id": "0ng38ppql3x7qu6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.420Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "sskr4my57qwm13l"
+    }
+  ]
+}

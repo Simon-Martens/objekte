@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Olga, Fürstin von Kiev« von J. N. Vogl INr 85703, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85686,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Olga, Fürstin von Kiew",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Russ inv. I. Krepp sculp.",
+  "scans": [
+    "alm_1594_85686_87s1hxivy7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Olga, Fürstin von Kiew",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.079Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "jmp5cdcslix2qo6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.079Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "w6z2dlu5fupz0cx"
+    }
+  ]
+}

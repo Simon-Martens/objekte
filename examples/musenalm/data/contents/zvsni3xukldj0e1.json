@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; /) Graphik im Kalendarium paginiert 7. /) Illustration zu »Die lustigen Weiber von Windsor« von W. Shakespeare s. Textbezug INr 6926, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6887,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Himmel leite ihn zu deines / Mannes Prügel, und der Teufel / leite seinen Prügel hernach. / IV. Aufz. 3. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_139_6887_0ocnge3ep1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Himmel leite ihn zu deines / Mannes Prügel, und der Teufel / leite seinen Prügel hernach. / IV. Aufz. 3. Auftr.",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.091Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "96i5o1vep78yere"
+    }
+  ]
+}

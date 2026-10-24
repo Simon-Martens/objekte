@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember. Illustration zu »Das Verbrechen aus Irrthum. « von Leopold Schefer INr 59029, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59025,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Euphrosyne spendet mit ihren Töchtern an / die flüchtigen Griechen Gaben aus. / Verbrechen aus Irrthum S. 10",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Holbein gez. E. Eichens gest.",
+  "scans": [
+    "alm_871_59025_lufoqafp3h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Euphrosyne spendet mit ihren Töchtern an / die flüchtigen Griechen Gaben aus. / Verbrechen aus Irrthum S. 10",
+  "updated": "2008-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.627Z",
+      "agent": "knbo7jjf5xxcvwi",
+      "source_id": "3viizlw3btr69xt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.627Z",
+      "agent": "08mp0at2gr8kp3n",
+      "source_id": "rmagvowyjegq3wt"
+    }
+  ]
+}

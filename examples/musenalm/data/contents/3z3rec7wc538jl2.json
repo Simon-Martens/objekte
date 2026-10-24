@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 69026, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das heutige Ostia #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schilbach del. W. Noack sc.",
+  "scans": [
+    "alm_2654_69025_3gzzx8bb5b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das heutige Ostia #",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.462Z",
+      "agent": "wqze1ivkmgxwz33",
+      "source_id": "3j4z9b8osh9ph7g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.462Z",
+      "agent": "zhk2clvyes44lz9",
+      "source_id": "4g5tzqr2gi988fp"
+    }
+  ]
+}

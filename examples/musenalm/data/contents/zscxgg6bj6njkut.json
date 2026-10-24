@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Erste Lieferung. Irving's Erzählungen eines Reisenden. - Skizzenbuch. - Eingemachtes. - Cooper's Spion. - Der Lootse. - Der Letzte Mohikaner (Sammlung INr 43787, Obj 5) s. Graphik INr 43799, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Die Insel Neu-York war im Besitz der Engländer und die Grafschaft West-Chester der Tummelplatz, wo die Anhänger des neuen Systems und die Freunde der Engländer ihr Wesen trieben.",
+  "language": [],
+  "musenalm_id": 43798,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Cooper's Spion. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Cooper's Spion. / 1.",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.283Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "jm5cqwib3ulq4l0"
+    }
+  ]
+}

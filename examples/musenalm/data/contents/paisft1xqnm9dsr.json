@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Noch einen Gruß, du wunderbarer Greis, / Ruf' ich Dir zu in Deine Sternennächte,",
+  "language": [],
+  "musenalm_id": 111724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Alexander von Humboldt. / 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Alexander von Humboldt. / 1858",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.305Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "kk4m78qnss83g5t"
+    }
+  ]
+}

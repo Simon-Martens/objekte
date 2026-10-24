@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63401, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63408,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margarethe von Oestreich II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geißler, Peter Carl u. Fleischmann, Friedrich",
+  "scans": [
+    "alm_1040_63408_322npjv0kd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Margarethe von Oestreich II.",
+  "updated": "2009-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.092Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "fqviw135yma6dtj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.091Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "ricr4q6k8fyvvdz"
+    }
+  ]
+}

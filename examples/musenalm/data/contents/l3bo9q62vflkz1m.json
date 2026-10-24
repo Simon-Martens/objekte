@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Ein schweres Wetter zog über den Höhen von Kynau empor. Furchtbar wühlte der Sturm in den Häupten der Tannen, und jagte Staub und Kiesel in wilden Wirbeln den Bergpfad hinab,",
+  "language": [],
+  "musenalm_id": 76976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen aus dem Schlesier-Thal. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen aus dem Schlesier-Thal. / Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.506Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "glo1z4adhhfrcfp"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "Gedruckt in Basel, bei Wilhelm Haas, dem Sohne /) mit Kal., mit dem Gedicht SS 277/278: »Rundgesang« von Gerner: Titel, I-Verz, Gedicht als Vollbild /) § Umschlag, Kr fehlt, 6 MusBB fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, S, 8 BB Kal darin 7 GG, T, B Vrwrt d Hrsg, 2 BB I-Verz, SS 1-278 darin 6 MusBB, S VrlgM §",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach und Taschenbuch für häusliche und gesellschaftliche Freuden 1797 [var.1]",
+    "norm": "~",
+    "biblio": 410923,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4772,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Guilhauman), Heilbronn (Hrsg)",
+  "places": [
+    "inpa0koig1pzpcp",
+    "a518s47qiaq9s47"
+  ],
+  "preferred_title": "Almanach und Taschenbuch für häusliche und gesellschaftliche Freuden 1797 [var.1]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 117; L/R 105; Goed VIII. 48, 6",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / und / Taschenbuch / für / HAEUSLICHE / u. GESELLSCHAFTL. / FREUDEN. / 1797. / von / Carl Lang. / mit Kupfern / von D. Chodowiecki, H. Guttenberg & / FRANKFURT am MAYN bei GUILHAUMANN / HEILBRONN am NEKAR bei dem HERAUSGEBER",
+  "updated": "2026-06-11 10:18:54.803Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "d0sk8ss6yfzztny"
+  ],
+  "contents": [
+    "uqxq4n7lz22whud",
+    "ze8jij7o3qebog6",
+    "6g0z3muacpz2x13"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.936Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.936Z",
+      "agent": "fao1gdwq2he58u0",
+      "source_id": "3jja6bpgn5radm5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.421Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.421Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "jqmsagg9ntrmecj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.154Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.154Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "zrkzmnbzlrk8g5p"
+    }
+  ]
+}

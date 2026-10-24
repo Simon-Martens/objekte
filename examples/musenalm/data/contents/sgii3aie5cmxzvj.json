@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: O wer ein Stündchen weilt auf jenen Höhen, / Ob blauer Wog', in sanfter Lüfte Wehen, ]...] Byron",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Wenn unser wackerer Moritz, dessen Erscheinung als Fußreisender in England zu einer Zeit, wo sich Reisene von Stand nur zu Wagen oder zu Pferd auf der Heerstraße sehen ließen,",
+  "language": [],
+  "musenalm_id": 43918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Seeküste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Seeküste",
+  "updated": "2006-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.116Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "41wn1yehu8rsmu0"
+    }
+  ]
+}

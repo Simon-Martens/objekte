@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an allen folgenden Graphiken der Suite; Graphik im Kalendarium paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32267,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So jung er ist, versteht er sich auf / den Dienst der Damen. / Romanen journal / 1er B. Gräfin Pauline / I. B. S. 38",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & sc.",
+  "scans": [
+    "alm_441_32267_p9f97gfsvf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So jung er ist, versteht er sich auf / den Dienst der Damen. / Romanen journal / 1er B. Gräfin Pauline / I. B. S. 38",
+  "updated": "2003-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.427Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "arjmacb14ifj82u"
+    }
+  ]
+}

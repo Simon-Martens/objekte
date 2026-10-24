@@ -1,0 +1,504 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.364Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024343-1",
+          "label": "Universität Leipzig"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor der psychischen Heilkunde an der Universität zu Leipzig und Arzt am Waisen-, Zucht- und Versorgungshause zu St. Georgen"
+      ],
+      "dateOfBirth": [
+        "1773-01-17"
+      ],
+      "dateOfDeath": [
+        "1843-10-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Lutherer"
+          ],
+          "creditText": [
+            "cropped from photo by H.-P.Haack, uploaded 15 Feb 2012 as File:J.C.A.Heinroth (um1811).jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/J%20C%20A%20Heinroth%20%28um%201811%29%20ohne%20Rahmen.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/J%20C%20A%20Heinroth%20%28um%201811%29%20ohne%20Rahmen.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:J%20C%20A%20Heinroth%20%28um%201811%29%20ohne%20Rahmen.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/186348681"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:56:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118548549/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118548549",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118548549",
+      "oldAuthorityNumber": [
+        "(DE-588a)186348681",
+        "(DE-588a)118548549",
+        "(DE-588)186348681",
+        "(DE-588c)4024223-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Heinroth, Johann Christian August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christian August"
+        ],
+        "surname": [
+          "Heinroth"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4047701-0",
+          "label": "Psychologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4402543-9",
+          "label": "Physiotherapeut"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Professor der psychischen Therapie",
+        "Militärarzt"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Treumund-Wellentreter"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Treumund"
+          ],
+          "surname": [
+            "Wellentreter"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Heinroth, Johann C.: System der psychisch gerichtlichen Medizin",
+        "Heinroth, Johann C.: Ueber die Hypothese der Materie und ihren Einfluß auf Wissenschaft ..",
+        "Heinroth, Johann C.: Lehrbuch der Störungen des Seelenlebens",
+        "Heinroth, Johann C.: Unterricht in zweckmäßiger Selbstbehandlung ..",
+        "Heinroth, Johann C.: Von den Grundfehlern der Erziehung und ihren Folgen",
+        "Heinroth, Johann C.: Lehre der Seelengesundheitskunde. - 1823 - 1824",
+        "Heinroth, Johann C.: Die Psychologie als Selbsterkenntnißlehre",
+        "Heinroth, Johann C.: Anti-Organon",
+        "Heinroth, Johann C.: Geschichte und Kritik des Mysticismus aller bekannten Völker ..",
+        "Heinroth, Johann C.: Ueber die Wahrheit"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82044777"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/62306190"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q84449"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118548549/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186348681"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Christian_August_Heinroth"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_August_Heinroth"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Christian_August_Heinroth"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Christian_August_Heinroth"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110661863"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118548549"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118548549"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118548549.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118548549.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118548549"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118548549"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Heinroth, Johann Christian Friedrich August",
+        "Heinroth, Johann August",
+        "Heinroth, Johann Christian",
+        "Heinroth, Joh. Christian August",
+        "Heinroth, C. A.",
+        "Heinroth, Ioannes Christianus Augustus",
+        "Heinroth, Johann A.",
+        "Wellentreter, Treumund",
+        "Heinroth, J. C. A.",
+        "Heinroth, Johannes Christian August",
+        "Heinroth, F.C.A.",
+        "Heinroth, Johannes Christianus Augustus",
+        "Treumund-Wellentreter",
+        "Heinroth, F. C. A.",
+        "Geinrot, I. Kh. A.",
+        "Heinroth, Johannes Christian Friedrich August",
+        "Heinroth, Joannes Christianus Augustus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ioannes Christianus Augustus"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "F.C.A."
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Christian August"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christian August"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Treumund"
+          ],
+          "surname": [
+            "Wellentreter"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Friedrich August"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christian Friedrich August"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christianus Augustus"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "C. A."
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann A."
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "personalName": [
+            "Treumund-Wellentreter"
+          ]
+        },
+        {
+          "forename": [
+            "I. Kh. A."
+          ],
+          "surname": [
+            "Geinrot"
+          ]
+        },
+        {
+          "forename": [
+            "F. C. A."
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. A."
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Christianus Augustus"
+          ],
+          "surname": [
+            "Heinroth"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_August_Heinroth",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christian_August_Heinroth"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:42:36Z",
+    "gnd_query_biographical_data": "1773-1843",
+    "gnd_query_name": "heinroth, johann christian august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1130,
+  "name": "Heinroth, Johann Christian August",
+  "profession": "Text",
+  "pseudonyms": "Treumund Wellentreter",
+  "refs": "Goed X, 115",
+  "updated": "2026-06-11 13:29:22.867Z",
+  "uri": "https://d-nb.info/gnd/118548549",
+  "editor": ""
+}

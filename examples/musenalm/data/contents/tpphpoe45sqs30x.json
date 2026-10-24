@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 68125-68133, Obj 142-150",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Nibelungen Stimmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Waldeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Nibelungen Stimmen",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.195Z",
+      "agent": "6j1axvcf9v8yiru",
+      "source_id": "r3mz2ieq5srft3o"
+    }
+  ]
+}

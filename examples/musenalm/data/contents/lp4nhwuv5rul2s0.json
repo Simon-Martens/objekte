@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Als ich noch ein Knabe war, / Liebt' ich schon die Dirnen / Mit dem weißen Ringelhaar / Und den glatten Stirnen;",
+  "language": [],
+  "musenalm_id": 94176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huldigung den Frauen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Barbarina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Huldigung den Frauen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.538Z",
+      "agent": "kzden0pkha3xf40",
+      "source_id": "54i4l8lfuklow5w"
+    }
+  ]
+}

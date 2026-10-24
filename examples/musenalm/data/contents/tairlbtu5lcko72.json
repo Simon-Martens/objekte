@@ -1,0 +1,45 @@
+{
+  "annotation": "Viertes Jahr (Sammlung INr 48699, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Sieh da! sieh da! trompetend zieht / Her über Feld die Gans. / Der überwundne Winter flieht,",
+  "language": [],
+  "musenalm_id": 48703,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vorboten des Frühlings, / an Henrietten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vorboten des Frühlings, / an Henrietten",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.222Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "lj2xp3plwtny8hz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 82973, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.444Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Sieh! mit sanftem Lächeln gleitet / Feierlich die Sonn' in's Meer,",
+  "language": [],
+  "musenalm_id": 82974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abenddämmerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Abenddämmerung",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.060Z",
+      "agent": "n32rrka2qx8adlb",
+      "source_id": "7reqjzo0xg462gh"
+    }
+  ]
+}

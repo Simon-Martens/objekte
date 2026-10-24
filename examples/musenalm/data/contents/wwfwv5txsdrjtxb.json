@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 27432-27436, Obj 159-163",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.373Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "3pmn7u7luhyoef8"
+    }
+  ]
+}

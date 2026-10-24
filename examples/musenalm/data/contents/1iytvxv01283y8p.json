@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: nach [J. G.] Georgi",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Tunguse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frosch sc.",
+  "scans": [
+    "alm_546_41581_jyffai79dr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Tunguse",
+  "updated": "2005-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.930Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "mihuc94ou2byyjj"
+    }
+  ]
+}

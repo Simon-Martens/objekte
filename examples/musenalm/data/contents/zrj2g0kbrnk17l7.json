@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Der Frühling war wie ein Kaiser in's Land gezogen. Feld und Wiese hatten ihre Prachtteppiche ausgeschlagen; die Lerchen sangen ihre Canzonen und die Amseln ihre Cantilenen.",
+  "language": [],
+  "musenalm_id": 64517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Sommerfrische. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Sommerfrische. / Erzählung",
+  "updated": "2009-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.340Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "53c4qutn03r9v7y"
+    }
+  ]
+}

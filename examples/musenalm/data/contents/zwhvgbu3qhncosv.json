@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 5  Illustrationen s. Graphiken im Kalendarium INr 58736, Obj 7; INr 58739, Obj 10; INr 58742, Obj 13; INr 58744, Obj 15, INr 58745, Obj 16 und einer Karte INr 58743, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das Indische Ländergebiet nimmt einen sehr großen Raum und eine so wichtige Stellung in der südlichen Mitte Asiens des größten der drei Erdtheile der welt ein,",
+  "language": [],
+  "musenalm_id": 58746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landeskunde von Indien ( Zur Erklärung der Karte.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Ritter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Landeskunde von Indien ( Zur Erklärung der Karte.)",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.992Z",
+      "agent": "wdbytwydwlmkyu9",
+      "source_id": "822n4nbyjfxoj3n"
+    }
+  ]
+}

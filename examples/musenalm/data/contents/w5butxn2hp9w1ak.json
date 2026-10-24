@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. d. Hrsg. am Objekt: Aus des Dichters Nachlasse mitgetheilt von Ignaz Hub.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Wo ist das Herz, / Das meinige zu fassen, / Und es im Schmerz / Nicht feige zu verlassen?",
+  "language": [],
+  "musenalm_id": 99781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 185,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O wer rettet den Dichter! / (Juli 1851.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnezler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "O wer rettet den Dichter! / (Juli 1851.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.888Z",
+      "agent": "dz5hqr7uvnamp20",
+      "source_id": "r74ndokkpbnb8j4"
+    }
+  ]
+}

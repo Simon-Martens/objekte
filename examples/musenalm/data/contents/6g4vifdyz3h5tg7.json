@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Wie verwandelt sich das Herz! / O wie wechselt auf der Stelle / Und oft aus derselben Quelle / Das Gefühl von Lust und Schmerz!",
+  "language": [],
+  "musenalm_id": 90573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geheimnivolle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Reil. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geheimnivolle",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.306Z",
+      "agent": "iy0f9gplf8lpfrd",
+      "source_id": "s7xb2itemjuqfz8"
+    }
+  ]
+}

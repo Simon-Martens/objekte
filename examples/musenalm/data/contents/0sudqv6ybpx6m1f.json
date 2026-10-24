@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 48994, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Graf Eberhard im Bart / Vom Würtemberger Land, / Er kam auf frommer Fahrt / Zu Palästinas Strand.",
+  "language": [],
+  "musenalm_id": 48997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Eberhards Weißdorn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Eberhards Weißdorn",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.621Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "n3nqrme6k00wf8f"
+    }
+  ]
+}

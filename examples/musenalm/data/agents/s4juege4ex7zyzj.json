@@ -1,0 +1,449 @@
+{
+  "annotation": "",
+  "biographical_data": "1740-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.507Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Erzählerin, Dramatikerin, Romanautorin"
+      ],
+      "dateOfBirth": [
+        "1748"
+      ],
+      "dateOfDeath": [
+        "1819"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "C. F. Wiegand"
+          ],
+          "creditText": [
+            "Johanna Isabella von Wallenrodt: Das Leben der Frau Wallenrodt in Briefen an einen Freund. Band 2. Leipzig 1791."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johanna%20Isabella%20von%20Wallenrodt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johanna%20Isabella%20von%20Wallenrodt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johanna%20Isabella%20von%20Wallenrodt.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/161020526",
+        "https://d-nb.info/gnd/172441145"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-25T07:47:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119496690/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Johanne Isabelle Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Isabella Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna Isabella"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanne Isabella Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johanna I."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119496690",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119496690",
+      "oldAuthorityNumber": [
+        "(DE-588)161020526",
+        "(DE-588a)161020526",
+        "(DE-588a)172441145",
+        "(DE-588)172441145",
+        "(DE-588c)4469403-9",
+        "(DE-588a)119496690"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1201917832",
+          "label": "Uhlstädt"
+        }
+      ],
+      "preferredName": "Wallenrodt, Johanna Isabella Eleonore von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johanna Isabella Eleonore"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Wallenrodt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Emma von Ruppin",
+        "Erzählungen und Anmerkungen, gesammelt auf Reisen",
+        "Heinrich Roberts Begebenheiten aus d. Jahren 1740 bis 80",
+        "Prinz Hassan der Hochherzige bestraft durch Rache und glück*",
+        "Was fordert Pflicht und Vortheil der Deutschen?",
+        "Der kleine Ritter",
+        "Adolph und Sidonie von Wappenkron"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb151271143"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/69230897"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1530955"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119496690/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/161020526"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172441145"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johanna_Isabella_Eleonore_von_Wallenrodt"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119496690"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119496690.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119496690"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Wallenrodt, Isabella von",
+        "Koppy, Johanna Isabella Eleonore von",
+        "Koppy, Johanna I. von",
+        "Wallenrodt, J. I. E. von",
+        "Koppy, Johanne Isabelle Eleonore von",
+        "Wallenrodt, Johanna I. von",
+        "Koppy, Johanna Isabella von",
+        "Wallenrodt, Isabelle von",
+        "Wallenrodt, Johanne Isabelle Eleonore von",
+        "Wallenrodt, Johanna I. E. von",
+        "Koppy, Johanne Isabella Eleonore von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. I. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Isabella"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna I."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna Isabella Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Isabelle Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ]
+        },
+        {
+          "forename": [
+            "Isabelle"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna I."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ]
+        },
+        {
+          "forename": [
+            "Johanna I. E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Isabelle Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne Isabella Eleonore"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Koppy"
+          ]
+        },
+        {
+          "forename": [
+            "Isabella"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wallenrodt"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:17:54Z",
+    "gnd_query_biographical_data": "1740-1819",
+    "gnd_query_name": "wallenrodt, johanna isabella eleonore von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3051,
+  "name": "Wallenrodt, Johanna Isabella Eleonore von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 401, 476; Goed VI, 436",
+  "updated": "2026-06-11 13:29:25.620Z",
+  "uri": "https://d-nb.info/gnd/119496690",
+  "editor": ""
+}

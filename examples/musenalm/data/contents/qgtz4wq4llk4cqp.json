@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Du guter Mond da oben, / Wie wandelst du so still,",
+  "language": [],
+  "musenalm_id": 81399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schuld und Sühne. / Ein Bild aus dem Kerker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schuld und Sühne. / Ein Bild aus dem Kerker",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.085Z",
+      "agent": "ett5544anganpff",
+      "source_id": "8dh0d3tni127syv"
+    }
+  ]
+}

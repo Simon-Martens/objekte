@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert I. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13381,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PALLAS von VELLETRI",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick sc.",
+  "scans": [
+    "alm_217_13381_v0v2vqap5v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PALLAS von VELLETRI",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.642Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "987z4aftjuy9jpc"
+    }
+  ]
+}

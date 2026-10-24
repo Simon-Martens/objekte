@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Der eine sog voll Gier mein Blut, / Der andrer sprach: Gieb mir nur wenig / Für deine Schuld.",
+  "language": [],
+  "musenalm_id": 16823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der eine und der andre",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der eine und der andre",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.838Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "dp72mbtd0skmuoq"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "annotation": "mit kolorierten Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, T, 1–380 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1810",
+    "norm": "~",
+    "biblio": 100101,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1278,
+  "parallel_title": "",
+  "place_statement": "Riga (Hartmann)",
+  "places": [
+    "i42ezbvbrf2494d"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Achter Jahrgang / Riga / bei C. J. G. Hartmann, / 1810",
+  "updated": "2026-06-11 10:18:54.997Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "ugztn5ybypq0d2n"
+  ],
+  "contents": [
+    "d1wie73yu6dosys",
+    "tj5os4l6q6mec3j",
+    "nubm56kgesuwm3s",
+    "ztmyz4qy285fvdt",
+    "47oz2fa3mblgsuq",
+    "4rsernb1bgstrup",
+    "3rq2ngmq5r6y1hx",
+    "e4uz60xmxz5wtgl",
+    "oioshnz2j7xxnjw",
+    "v08fcylo0l8otbf",
+    "wgdirpii6cu7g4q",
+    "vrc5zims9as0b57",
+    "dbi247yyhoh1tmp",
+    "uxs8zwkw7muaidd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.871Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.871Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "4h0hi1qsvolcqg5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.963Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.963Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "9jy2leoep00gkzj"
+    }
+  ]
+}

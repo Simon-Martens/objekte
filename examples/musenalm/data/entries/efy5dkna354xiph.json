@@ -1,0 +1,67 @@
+{
+  "annotation": "Fortsetzung von: »Taschenbuch, Ostfriesisches zur Belehrung und Unterhaltung« 1813-1833 unter verändertem Titel, mit neuen Herausgebern /)  unklar, ob Jg 1835, Jgg 1837 ff erschienen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Ostfriesisches vermischten Inhalts 1836",
+    "norm": "",
+    "biblio": 410881,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-12-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4765,
+  "parallel_title": "",
+  "place_statement": "Norden (J. F. Schmidt)",
+  "places": [
+    "gmz7x1bidfoik0z"
+  ],
+  "preferred_title": "Taschenbuch, Ostfriesisches vermischten Inhalts 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 141; nicht bei L/R; nicht bei Goed VIII. 80, 155",
+  "responsibility_statement": "verschiedene vaterländische Freunde der Litteratur",
+  "subtitle_statement": "",
+  "title_statement": "Ostfriesisches / Taschenbuch / vermischten Inhalts. / Auf das Jahr / 1836. / Herausgegeben / von / verschiedenen vaterländischen Freunden / der Litteratur. / Norden, / bei Johann Friedrich Schmidt",
+  "updated": "2026-06-11 10:18:55.377Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "iy955ockqfmybnc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.069Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.069Z",
+      "agent": "329f7zhnhejch5u",
+      "source_id": "rdzss9ch9i4wy77"
+    }
+  ]
+}

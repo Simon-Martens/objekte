@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 63242-63244, Obj 6-8 als Textbezüge zur Titelgraphik , den Umschlaggraphiken, Graphiken auf dem Schuber",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63241,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Titelkupfer, zur Umschlag- und / Futteral-Vignette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Titelkupfer, zur Umschlag- und / Futteral-Vignette",
+  "updated": "2009-04-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.215Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "k3qahca13py96bn"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geselligkeit gewidmete Lieder. (Sammlung INr 50243, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Du prophet'scher Vogel du, / Blütenfänger, o! Coucou!",
+  "language": [],
+  "musenalm_id": 50265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsorakel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsorakel",
+  "updated": "2007-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.720Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "kwzg4dr3wj4b477"
+    }
+  ]
+}

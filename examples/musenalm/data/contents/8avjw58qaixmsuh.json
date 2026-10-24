@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an Blatt 7. der Suite /) Graphik im Kalendarium Dezember; paginiert 12. Illustration zu »Gegenwärtiger Zustand von Ostindien« von M. C. Sprengel INr 59784, Obj 20 s.a. Textbezug INr 59788, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59779,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hyder Aly, dem ein Bramin entdeckt, dass die / von ihm überwundene Königin von Canara eine / Verschwörung gemacht, ihn in ihrem Pallast / durch Pulver in die Luft zu sprengen, befiehlt / die Schuldigen in Verhafft zu nehmen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1785",
+  "scans": [
+    "alm_926_59779_w1paksdyk4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hyder Aly, dem ein Bramin entdeckt, dass die / von ihm überwundene Königin von Canara eine / Verschwörung gemacht, ihn in ihrem Pallast / durch Pulver in die Luft zu sprengen, befiehlt / die Schuldigen in Verhafft zu nehmen",
+  "updated": "2008-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.074Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "3wo15cr1dqiricq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.075Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "c9xibk6xzsknzwk"
+    }
+  ]
+}

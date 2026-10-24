@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 248 /) # Bezeichnung vom Titel s. Textbezug INr 18678, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brücke von Arcole / (15. Nov.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_195_9137_4qbyu3basr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Brücke von Arcole / (15. Nov.)",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.024Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "6nwefftkusofg51"
+    }
+  ]
+}

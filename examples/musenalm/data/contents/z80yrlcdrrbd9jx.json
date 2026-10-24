@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92118,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / wohlgebornen / Herrn Franz Schams / in Peterwardein, / meinem  verehrtesten Freunde, / zum / öffentlichen Beweise / herzlicher Hochachtung, / zum Danke / so vieler in seiner geistreichen und höchst angenehmen Ge- / sellschaft verlebten Stunden, / und zur gerechten Würdigung seiner / schriftstellerischen Verdienste, / widmet / dieses Werkchen / der Herausgeber / Dr. Franz Sartori",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / wohlgebornen / Herrn Franz Schams / in Peterwardein, / meinem  verehrtesten Freunde, / zum / öffentlichen Beweise / herzlicher Hochachtung, / zum Danke / so vieler in seiner geistreichen und höchst angenehmen Ge- / sellschaft verlebten Stunden, / und zur gerechten Würdigung seiner / schriftstellerischen Verdienste, / widmet / dieses Werkchen / der Herausgeber / Dr. Franz Sartori",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.560Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "uzxg6fsrmgf4u5z"
+    }
+  ]
+}

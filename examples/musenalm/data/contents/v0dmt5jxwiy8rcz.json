@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Ihr Herrn, und Damen, bunt und zart, / Kommt wohlgemuth herbey,",
+  "language": [],
+  "musenalm_id": 95782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Caspar Gottvertrau. / Ein altdeutsches Märchen. / In der Melodie: Auf, auf, ihr Brüder, und seyd / stark u.s.w.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Caspar Gottvertrau. / Ein altdeutsches Märchen. / In der Melodie: Auf, auf, ihr Brüder, und seyd / stark u.s.w.",
+  "updated": "2012-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.674Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "ikud7d1rsiq0l10"
+    }
+  ]
+}

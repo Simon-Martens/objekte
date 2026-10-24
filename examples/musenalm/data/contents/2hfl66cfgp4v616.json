@@ -1,0 +1,45 @@
+{
+  "annotation": "Vaterländische Gedichte (Sammlung INr 99713, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Gen Osten kommt gezogen / Auf seiner Kreuzesfahrt / Und furcht verstummende Wogen / Der Kaiser im rothen Bart.",
+  "language": [],
+  "musenalm_id": 99716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Friedrich von Hausen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Krais",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Friedrich von Hausen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.909Z",
+      "agent": "22cv6r139qaf9gy",
+      "source_id": "l4h8w8ttl6ipi8d"
+    }
+  ]
+}

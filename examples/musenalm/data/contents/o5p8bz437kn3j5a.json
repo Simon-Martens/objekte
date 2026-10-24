@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Neunzehn ungedruckte Epigramme (Sammlung INr 39645, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Nun, so führt denn auf immer der Krieg den eisernen / Zepter, / Und die Vernunft entscheidet umsonst.",
+  "language": [],
+  "musenalm_id": 39660,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Neuer Beweis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Neuer Beweis",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.929Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "2k7xrj8b2sby5w9"
+    }
+  ]
+}

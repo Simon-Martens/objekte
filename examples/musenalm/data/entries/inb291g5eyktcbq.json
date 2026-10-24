@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Liederkranz, Rheinischer 1847",
+    "norm": "",
+    "biblio": 409206,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4284,
+  "parallel_title": "",
+  "place_statement": "Bonn (Henry & Cohen)",
+  "places": [
+    "na2v142tgy0mj3g"
+  ],
+  "preferred_title": "Liederkranz, Rheinischer 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; nicht bei L/R",
+  "responsibility_statement": "B. Brach und W. Stens",
+  "subtitle_statement": "",
+  "title_statement": "Rheinischer Liederkranz / auf das Jahr 1847. / Herausgegeben / von B. Brach und W. Stens. / Mit Beiträgen / von / [...] / Zum Besten der Armen. / Bonn 1847. / Im Commissions-Verlag bei Henry & Cohen. / Druck von F. P. Lechner in Bonn",
+  "updated": "2026-06-11 10:18:55.918Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "gre4tsdx6f6vvta"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.990Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.990Z",
+      "agent": "jwt68byp0ebvmz5",
+      "source_id": "f25gwlumk7pxz78"
+    }
+  ]
+}

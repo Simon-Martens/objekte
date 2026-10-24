@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Ehrenheim und Auguste. Eine romantische Skizze« INr 81977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich gehorche deinem Vater! (S. 156)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. J. Laminit inv. et sculps. 1801 Augs.",
+  "scans": [
+    "alm_3830_81979_piyn1ql4gx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich gehorche deinem Vater! (S. 156)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.803Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "y900o6z2xbeugtu"
+    }
+  ]
+}

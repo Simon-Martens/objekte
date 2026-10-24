@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebens-Lieder und Bilder (Sammlung INr 24447, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Mutter, Mutter meine Puppe / Hab' ich in den Schlaf gewiegt,",
+  "language": [],
+  "musenalm_id": 24449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Mädchen",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.155Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "4osmnrx1tr76slg"
+    }
+  ]
+}

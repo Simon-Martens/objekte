@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Du bist gekommen, neuer Lenz! gekommen / Mit deiner Wälder Kranz von hellem Grün,",
+  "language": [],
+  "musenalm_id": 14631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied 1820",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.783Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "rwp79mvuf6ujyea"
+    }
+  ]
+}

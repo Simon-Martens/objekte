@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an den übrigen Graphiken der Suite /) Graphik im Kalendarium Dezember; paginiert 12.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97057,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen von Kynast in Schlesien. / Ruines du Kynast en Schlésie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_3987_97057_i05isibuk1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen von Kynast in Schlesien. / Ruines du Kynast en Schlésie",
+  "updated": "2013-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.578Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "lvil4vtr242kgax"
+    }
+  ]
+}

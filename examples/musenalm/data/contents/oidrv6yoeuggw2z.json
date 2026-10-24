@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Botschaft« von Fr. Kind INr 19428, Obj 44 /) Anhang zu Beckers Taschenbuch 1815 enthaltend: Composition und Tänze, von Dotzauer, Marschner, und Methfessel (Sammlung INr 61731, Obj 83) /) (Photos 61737,01; 61737,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61737,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Botschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Methfessel",
+  "scans": [
+    "alm_263_61737_01_49p0yyjd3w.jpg",
+    "alm_263_61737_02_ppx0f4j8hl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Botschaft",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.985Z",
+      "agent": "b0s74m54xi13z2z",
+      "source_id": "9o8ons6cqjvnf0u"
+    }
+  ]
+}

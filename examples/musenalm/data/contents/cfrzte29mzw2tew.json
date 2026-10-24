@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24731, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Wie ihr zu dem Wahn gekommen, / Deutsche, daß für euern Baum",
+  "language": [],
+  "musenalm_id": 24737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.076Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "81dmuoac5uxnfzg"
+    }
+  ]
+}

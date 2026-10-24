@@ -1,0 +1,45 @@
+{
+  "annotation": "Toiletten-Blätter für Clothilde (Sammlung INr 115227, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Gib deine Liebe Tausenden; / Wohl hundert gebe sie dir wieder.",
+  "language": [],
+  "musenalm_id": 115241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Viele und Eine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Viele und Eine",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.477Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "mqpgl24ll8u6g1v"
+    }
+  ]
+}

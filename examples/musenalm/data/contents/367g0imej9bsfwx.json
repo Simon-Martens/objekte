@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert II. s. Textbezug INr 43324, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43309,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Otzberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. Haldenwang sc.",
+  "scans": [
+    "alm_568_43309_jruwhx6sky.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Otzberg",
+  "updated": "2006-04-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.141Z",
+      "agent": "mwin9klvyol78mm",
+      "source_id": "7f3o5y98jjffwm5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.141Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "eh3wvc26l7eejlh"
+    }
+  ]
+}

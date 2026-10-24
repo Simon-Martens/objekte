@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert LIIII /) »Welsche Oper« (Sammlung INr 48185, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48195,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosalina Molinelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48195_dcv9ty39s4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosalina Molinelli",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.558Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "ieanit58jl1xqk0"
+    }
+  ]
+}

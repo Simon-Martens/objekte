@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111163, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Fürwahr! Althollands Reinlichkeit und Ordnungsliebe wird / gerühmt, / Und kommt der Deutsche in das Land, so zeigt man ihm / erst, was sich ziemt.",
+  "language": [],
+  "musenalm_id": 111162,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altholländischer Haushalt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Altholländischer Haushalt",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.363Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "3anb9j3rp3x9t24"
+    }
+  ]
+}

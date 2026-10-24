@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "So nimm es hin, das Opfer meiner Thrä- / nen, / Daß dir der bittre Schmerz betrogner Liebe / bringt,",
+  "language": [],
+  "musenalm_id": 48262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied an Selmar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Susanne v. Bandemer, geb Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied an Selmar",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.401Z",
+      "agent": "63e8s8hkpbnksyg",
+      "source_id": "w3c64r8xp0inm99"
+    }
+  ]
+}

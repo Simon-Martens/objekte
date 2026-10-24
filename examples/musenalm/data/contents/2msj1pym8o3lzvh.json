@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Dutzend (Sammlung INr 57626, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Es soll der Mensch, um einst vollendet abzutreten, / Mit Worten nicht allein, nein auch durch Thaten beten.",
+  "language": [],
+  "musenalm_id": 57630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2008-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.725Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "ml8pp0hezf2gvmw"
+    }
+  ]
+}

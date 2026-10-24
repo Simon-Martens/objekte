@@ -1,0 +1,78 @@
+{
+  "annotation": "3 Jgg 1839-1841; Meißen (Goedsche); Hrsg. Caroline Leonhardt-Lyser",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Herbstgabe (Lyser ) 1839",
+    "norm": "",
+    "biblio": 106566,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1836,
+  "parallel_title": "",
+  "place_statement": "Meißen (Goedsche)",
+  "places": [
+    "ig7dwbi8oeatj90"
+  ],
+  "preferred_title": "Herbstgabe (Lyser) 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 56; nicht bei L/R",
+  "responsibility_statement": "Caroline Leonhardt-Lyser",
+  "subtitle_statement": "",
+  "title_statement": "Herbstgabe / Taschenbuch auf das Jahr / 1839 / Caroline Leonhardt-Lyser / I. Jahrgang / Meissen, bei F. W. Goedsche",
+  "updated": "2026-06-11 10:18:55.651Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "pm1qyz8tlhrrxe2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.913Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.913Z",
+      "agent": "qeiajwzpusbc92o",
+      "source_id": "59nror6olrsk3y3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.977Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.977Z",
+      "agent": "3tut4t2f7uno1ba",
+      "source_id": "kjak64r7vyveofn"
+    }
+  ]
+}

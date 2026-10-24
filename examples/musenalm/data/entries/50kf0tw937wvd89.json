@@ -1,0 +1,49 @@
+{
+  "annotation": "3 Jgg 1780, 1781, 1787; Wien",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Grabennymphen 1780",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2001-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 241,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch für Grabennymphen 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 124; L/R 185",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:54.737Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

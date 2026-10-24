@@ -1,0 +1,246 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1865",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.493Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1791"
+      ],
+      "dateOfDeath": [
+        "1865-03-26"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/117278920"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T17:37:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-27",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-27"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1049767470/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1049767470",
+      "id": "https://d-nb.info/gnd/1049767470",
+      "oldAuthorityNumber": [
+        "(DE-588a)117278920",
+        "(DE-588)117278920"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4546114-4",
+          "label": "Blankenhain (Landkreis Weimarer Land)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4321726-6",
+          "label": "Buttstädt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011376-0",
+          "label": "Delitzsch"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4812985-9",
+          "label": "Mellingen"
+        }
+      ],
+      "preferredName": "Teuscher, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Teuscher"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4175743-9",
+          "label": "Privatlehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398130-6",
+          "label": "Kirchenrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4184110-4",
+          "label": "Superintendent"
+        }
+      ],
+      "publication": [
+        "Teuscher, Friedrich: Saladdin",
+        "Teuscher, Friedrich: Zusammenstellung der kirchlichen Gesetze in dem Großherzogthum Sachs*",
+        "Teuscher, Friedrich: Handbuch des evangelischen Kirchenrechts im Großherz. Sachsen-Weimar*",
+        "Handbuch des evangelischen Kirchenrechts im Grossherzogthume Sachsen-Weimar-Eisenach",
+        "Die Geschichte der Stadtschule zu Buttstädt, vom sechzehnten Jahrhunderte an bis auf die neuesten Zeiten : Nebst Beilagen und Anmerkungen, die Geschichte der hiesigen Stadt betreffend ; bei Gelegenheit der Einweihung des neuen Schulgebäudes am 25. August 1828"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/307321668"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15445663"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1049767470/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117278920"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Teuscher"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1049767470"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Teuscher, Christian Friedrich",
+        "Teuscher, Christian F.",
+        "Teuscher, Christian Friedrich Gottfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Friedrich Gottfried"
+          ],
+          "surname": [
+            "Teuscher"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Teuscher"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "surname": [
+            "Teuscher"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Teuscher",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Teuscher"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:09:06Z",
+    "gnd_query_biographical_data": "1791-1865",
+    "gnd_query_name": "teuscher, christian friedrich gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2873,
+  "name": "Teuscher, Christian Friedrich Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 571",
+  "updated": "2026-06-11 13:29:25.370Z",
+  "uri": "https://d-nb.info/gnd/1049767470",
+  "editor": ""
+}

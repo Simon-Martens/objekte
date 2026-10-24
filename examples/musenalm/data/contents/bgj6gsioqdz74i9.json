@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55025, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Pilze liegen da wie Kuchen / In dem Mooße weiß und roth;",
+  "language": [],
+  "musenalm_id": 55048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. Bereites Mahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. Bereites Mahl",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.878Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "iz3yxlz0pe4hr7n"
+    }
+  ]
+}

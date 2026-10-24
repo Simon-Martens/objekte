@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Alle Schönen, holder Künstler mahle, / Und geneuß, auf Beifall kühn,",
+  "language": [],
+  "musenalm_id": 4358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An H. / Nach Boufflers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lep.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An H. / Nach Boufflers",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.311Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "5z8kl1bfv5soqm0"
+    }
+  ]
+}

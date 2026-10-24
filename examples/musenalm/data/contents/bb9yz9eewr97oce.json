@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33654, Obj 9 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33655,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Astyanax #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Delécluse pint. Lambert sculpt.",
+  "scans": [
+    "alm_467_33655_kwdmz74puq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Astyanax #",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.467Z",
+      "agent": "nbpq12i97xrn3ud",
+      "source_id": "h3ijilt0vy4g6o1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.467Z",
+      "agent": "9lwet5ce7lt672a",
+      "source_id": "je9897iryqp3but"
+    }
+  ]
+}

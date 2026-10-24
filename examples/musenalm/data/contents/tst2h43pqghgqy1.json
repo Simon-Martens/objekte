@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Hinter jenen Fensterscheiben / Sah ich oft ein holdes Bild,",
+  "language": [],
+  "musenalm_id": 67990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Myrthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Myrthe",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.343Z",
+      "agent": "prvw4acsenveets",
+      "source_id": "p48yme9iepdhwj4"
+    }
+  ]
+}

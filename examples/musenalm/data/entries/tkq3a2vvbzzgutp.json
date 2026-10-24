@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Witz- und Lach- Almanach, Humoristisch-jocoser 1851",
+    "norm": "",
+    "biblio": 406476,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-12-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3641,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Witz- und Lach- Almanach, Humoristisch-jocoser 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Gustav Schönstein",
+  "subtitle_statement": "",
+  "title_statement": "Humoristisch-jocoser / Witz- und Lach-Almanach / besonders / theatralisch-satyrischen Inhalts. / Mit Beiträgen von: / Bauernfeld, Saphir, A. Glasbrenner, Friedr. Hebbel, Deinhardstein, / C. Gutzkow, Anastasius Grün, […] / Herausgegeben / von / Gustav Schönstein. / Neue, wohlfeilere Ausgabe von Satans Theater- / Perspectiv. / Wien, 1851. / Verlag- und Druck von J. B. Wallishausser",
+  "updated": "2026-06-11 10:18:55.025Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "ydaod1jl0pfmmyu"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "z3x3qltdyj88y71"
+    }
+  ]
+}

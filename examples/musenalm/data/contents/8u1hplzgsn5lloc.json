@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Wege der Nemesis« von J. N. Vogl; INr 80178, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80122,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freyherr von Sternau. / Zur Novelle von J. N. Vogl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. Dav. Weiss sc.",
+  "scans": [
+    "alm_1696_80122_hpf4z2tk2c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Freyherr von Sternau. / Zur Novelle von J. N. Vogl",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.873Z",
+      "agent": "yf7uqcfkp0nwlnb",
+      "source_id": "1b6dbbp9assj34c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.873Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "48achagajmfgnkh"
+    }
+  ]
+}

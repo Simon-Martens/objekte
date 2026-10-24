@@ -1,0 +1,79 @@
+{
+  "annotation": "# K und L/R geben Jg 1804 an: Berliner Almanach für Karten-  Schach- und Pharospieler (Oehmigke) 1805; so nicht bei Köhr. 9, Lanck./R. 169; wohl Titelauflage von 1804: lt. Auktionskatalogen gleiche Seitenzahl u. Ausstattung /) Versteigerungen: Jg. 1804: 2 x; Jg. 1805: 1 x /) Der Almanach bietet 8 Spielanleitungen, die 8. Anleitung (bei falscher röm. Zählung) nur hier. 7 Anleitungen sind (mit Änderungen, zus. Beigaben, aber auch häufigen Textübereinstimmungen) übernommen aus den  bereits erschienenen: Spiel-Almanach 1797, Hg. Julius Cäsar; Neuer Spiel-Almanach 1798, Hg.  Cäsar Neuester Spielalmanach 1800, Hg. Julius Cäsar; Neuester Spielamanach 1801, Hg. Julius Cäsar (TA von 1798)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz, SS 1-339",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Berliner für Karten- Schach- und Pharospieler (Berlin) 1805",
+    "norm": "~",
+    "biblio": 407882,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-11-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3734,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Berliner für Karten- Schach- und Pharospieler (Berlin) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 9; L/R 196 #",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Almanach / für / Karten- Schach- und Pharospieler / auf das Jahr 1805 / nach den / neuesten, gründlichsten Regeln und Gesetzen / bearbeitet. / Berlin, 1805. / Bei Wilhelm Oehmigke, dem Jüngern. / (Preis, 1 Thaler 8 Gr.)",
+  "updated": "2026-06-11 10:18:54.812Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "11617wngqwawnxs"
+  ],
+  "contents": [
+    "uveh6mr32ylu0x1",
+    "qiamw6p54y0afob",
+    "ybsqqavjrjtql7c",
+    "q29cfav8aqwor0n",
+    "nowgjri0qd6k987",
+    "bzgokj1keeov8zx",
+    "6wmd8coqmio0aw5",
+    "n3x7dl8odxlgys0",
+    "vj4vyn4y8o89omc",
+    "fv5la8lkgzzhekl",
+    "2u6k9zh7u7wc6sk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "tdq7cwe45a5oemh"
+    }
+  ]
+}

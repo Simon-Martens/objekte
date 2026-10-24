@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) kol. Graphik /) s. Textbezug (Gedicht) INr 110118, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. Weber sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weber sc.",
+  "scans": [
+    "alm_4296_110119_ut4sacyss9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.270Z",
+      "agent": "nr66064hkr5h3qt",
+      "source_id": "fm6p45vbw6kftnt"
+    }
+  ]
+}

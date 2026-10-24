@@ -1,0 +1,399 @@
+{
+  "annotation": "",
+  "biographical_data": "1506-1582",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.608Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/100248896",
+          "label": "Osius, Hieronymus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118662864",
+          "label": "Bèze, Théodore de"
+        },
+        {
+          "forename": [
+            "Marc Antoine"
+          ],
+          "surname": [
+            "Muret"
+          ]
+        },
+        {
+          "personalName": [
+            "Theognis"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118632043",
+          "label": "Wier, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124263488",
+          "label": "Lobwasser, Ambrosius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119620219",
+          "label": "Beurer, Johannes Jakob, der Ältere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119658674",
+          "label": "Duncker, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11643340X",
+          "label": "Camerarius, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100791816",
+          "label": "Colli, Hippolyt von"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schott. humanist. Philosoph, Dichter und Historiker, 1520-1522 Studium in Paris und 1524 in St. Andrews; 1526 Lehrer in Paris, dann Erzieher eines schott. Grafen; mußte 1539 aus Schottland fliehen, Lehrer in Bordeaux; 1544-1547 in Paris; 1547-1551 Lehrer an der Univ. Coimbra in Portugal; kehrte 1560 nach Schottland zurück, Hauslehrer von Königin Maria Stuart und später ihres Sohnes Jacob VI. (später König Jacob I. von England)"
+      ],
+      "dateOfBirth": [
+        "1506-02-01"
+      ],
+      "dateOfDeath": [
+        "1582-09-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Attributed to Arnold Bronckorst"
+          ],
+          "creditText": [
+            "National Galleries Scotland&nbsp;"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20George%20Buchanan%20%28Se%C3%B2ras%20Bochanan%29%2C%201506%20-%201582.%20Historian%2C%20poet%20and%20reformer%20-%20PG%202678%20-%20National%20Galleries%20of%20Scotland.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Anonymous%20-%20George%20Buchanan%20%28Se%C3%B2ras%20Bochanan%29%2C%201506%20-%201582.%20Historian%2C%20poet%20and%20reformer%20-%20PG%202678%20-%20National%20Galleries%20of%20Scotland.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Anonymous%20-%20George%20Buchanan%20%28Se%C3%B2ras%20Bochanan%29%2C%201506%20-%201582.%20Historian%2C%20poet%20and%20reformer%20-%20PG%202678%20-%20National%20Galleries%20of%20Scotland.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1158975260"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T22:47:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117638498/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PT",
+          "label": "Portugal"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "117638498",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117638498",
+      "oldAuthorityNumber": [
+        "(DE-588)1158975260",
+        "(DE-588c)4636436-5",
+        "(DE-588a)117638498"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Killearn (Stirlingshire)"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4013557-3",
+          "label": "Edinburgh"
+        }
+      ],
+      "preferredName": "Buchanan, George",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "George"
+        ],
+        "surname": [
+          "Buchanan"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160777-6",
+          "label": "Humanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160414-3",
+          "label": "Hofmeister"
+        }
+      ],
+      "publication": [
+        "Buchanan, George: History of Scotland",
+        "Rerum Scoticarum historia",
+        "Buchanan, George: Baptistes",
+        "Psalmi. 1568. (VD16 B 3125)",
+        "Buchanan, George: History of Scotland. - 1828 - 1830",
+        "Buchanan, George: Psalmorum Davidis paraphrasis poetica ...",
+        "De jure regni apud Scotos",
+        "Psalmi. 1572. (VD16 B 3126)",
+        "Buchanan, George: Davidis Psalmi aliquot latino Carmine expressi",
+        "Psalmi. 1588. (VD16 B 3253)",
+        "Buchanan, George: Paraphrasis psalmorum Davidis poetica",
+        "Latin Paraphrase of the psalms",
+        "Buchanan, George: Baptistes sive calumnia. 1585. (VD16 ZV 2633)",
+        "Buchanan, George: Xenia seu ad illustrium Europae hominum nomina allusionum ... liber. 1568. (VD16 B 8977)",
+        "Buchanan, George: Baptistes ...",
+        "Paraphrasis psalmorum Davidis poetica. 1572. (VD16 ZV 1705)",
+        "Psalmorum Davidis paraphrasis poetica. 1597. (VD16 ZV 1733)",
+        "Rerum Scoticorum historia",
+        "Corner, Christoph: Cantica selecta Veteris Novique Testamenti cum hymnis et collectis. 1581. (VD16 B 3247)",
+        "Buchanan, George: Satira. 1588. (VD16 ZV 2636)",
+        "Buchanan, George: De iure regni apud Scotos dialogus. 1584. (VD16 B 8988)",
+        "De Maria Scotorum regina eiusque conspiratione"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50041144"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/105874857"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q715169"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1158975260"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117638498/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/George_Buchanan"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/George_Buchanan"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/George_Buchanan"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121463184"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117638498"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117638498"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117638498"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Buchanan, Georgius",
+        "Buchanan, Georg",
+        "Bochanan, Seòras",
+        "Buchananus, Georgius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Buchanan"
+          ]
+        },
+        {
+          "forename": [
+            "Georgius"
+          ],
+          "surname": [
+            "Buchananus"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Buchanan"
+          ]
+        },
+        {
+          "forename": [
+            "Seòras"
+          ],
+          "surname": [
+            "Bochanan"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/George_Buchanan",
+          "label": "https://de.wikipedia.org/wiki/George_Buchanan"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:28:24Z",
+    "gnd_query_biographical_data": "1506-1582",
+    "gnd_query_name": "buchanan, george"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4020,
+  "name": "Buchanan, George",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) III, 649",
+  "updated": "2026-06-11 13:29:25.949Z",
+  "uri": "https://d-nb.info/gnd/117638498",
+  "editor": ""
+}

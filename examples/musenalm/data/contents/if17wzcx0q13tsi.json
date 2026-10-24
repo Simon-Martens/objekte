@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Auf und nieder , auf und nieder! / Gleiten wir durch Busch und Flieder,",
+  "language": [],
+  "musenalm_id": 1521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blume. / Ein Märchen in vier Bildern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinriette Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blume. / Ein Märchen in vier Bildern",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.739Z",
+      "agent": "od6meihhmql1c8r",
+      "source_id": "i1v6vjjfzdzwl04"
+    }
+  ]
+}

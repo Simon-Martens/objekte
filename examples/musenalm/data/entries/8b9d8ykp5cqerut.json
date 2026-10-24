@@ -1,0 +1,79 @@
+{
+  "annotation": "<div>Erscheinungsverlauf unklar.<br>JG 1823: 223 x120 mm<br>SS 1-49 mit einigen Tabellen und Rechenbeispielen<br><br></div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Forstmänner 1823",
+    "norm": "",
+    "biblio": 411576,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4888,
+  "parallel_title": "",
+  "place_statement": "Augsburg und Leipzig (A. Bäumer)",
+  "places": [
+    "lrzo2mh9qtb8qr8",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Forstmänner 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K, nicht bei L/R",
+  "responsibility_statement": "Hohenadel, W.",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Forstmänner / von / W. HOHENADEL / Königl. Baier. Forstmeister / und ordentliches Mitglied der allgemeinen / kameralistisch-öconomischen Societät / in Erlangen. / Augsburg & Leipzig / bei August Bäumer / 1823",
+  "updated": "2026-06-30 09:49:44.503Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "9smhlvhgiogwbj8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-30 09:49:44.505Z",
+      "agent": "0121vnqfl2lwd95",
+      "source_id": "3ymy527r8xwb0mp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-30 09:49:44.504Z",
+      "agent": "jux2icrtmiyaglr",
+      "source_id": "ijwj24oz4m6aaqb"
+    }
+  ]
+}

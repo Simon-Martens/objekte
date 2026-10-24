@@ -1,0 +1,103 @@
+{
+  "annotation": "1803–1834; 1803–1807: bei LaGarde, Berlin; 1808–1816: bei C. J. G. Hartmann, Riga und Leipzig; 1817–1826: P. G. Kummer, Leipzig; 1827–1834: Hoffmann und Campe, Hamburg /) VB verso: handschriftliches I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S1 T, SS 3–6 Vrwt d Hrsg, SS 7–192 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1803",
+    "norm": "~ +++ 410770 (UG recto u verso, INr 125383, 125384, Obj 1 u 21)",
+    "biblio": 100111,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1271,
+  "parallel_title": "",
+  "place_statement": "Berlin (de la Garde)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung auf dem Lande / von / A. von Kotzebue. / Erster Jahrgang / Berlin / bei F. J. de La Garde / 1803",
+  "updated": "2026-06-11 10:18:54.992Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "0ye8an8h4rsfk4o",
+    "36ghjrgwt27qzk6",
+    "o0gt9mj8cms9yfi",
+    "s0s8ihwahnl4q0p"
+  ],
+  "contents": [
+    "soh6t2gcnwbxpog",
+    "f2udvys5x8iq26l",
+    "42vv0qxu985d1cn",
+    "gdfu4jeusbhr7va",
+    "rv6ypceho63u76q",
+    "zle7nou5kk9tr8s",
+    "7s2vnrsibirv1f7",
+    "5hhl0y2drwgzy9m",
+    "k8icdcqhvo684ax",
+    "3d6dcr3s7acaut9",
+    "rnbb9wgo12fiba5",
+    "d9wz04pkafjcyc5",
+    "b6cf81drzdolrki",
+    "ndqi7v020vjoa77",
+    "6w1f7vj4nlxsitg",
+    "o8lj6e53xkem1v2",
+    "671qznf9z5ouajm",
+    "8rhe4qjr1e0ecb4",
+    "1ll62gsx3zk6jhs",
+    "dhc6537ty1dwi3t",
+    "sqq538xia8rkcjm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.712Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.712Z",
+      "agent": "yg492s8okv0njn9",
+      "source_id": "0n60akoosm87fyt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.868Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.868Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "aooqfvk83lc48rm"
+    }
+  ]
+}

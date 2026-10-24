@@ -1,0 +1,81 @@
+{
+  "annotation": "zusammengebunden mit Gaben der Milde 1818 (4) alm-3714",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS 1-224",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gaben der Milde 1818 (3)",
+    "norm": "~",
+    "biblio": 406771,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3713,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Gaben der Milde 1818 (3)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 97, 193",
+  "responsibility_statement": "F. W. Gubitz",
+  "subtitle_statement": "",
+  "title_statement": "Gaben der Milde / Drittes Bändchen. / Mit Beiträgen / von / L. M. Büschenthal, F. W. Gubitz, / L. S. Günsburg, Haug, Ludwig / Purgold und L. Velhar. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1818",
+  "updated": "2026-06-11 10:18:54.689Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "h0k9fb38sdhq3jz"
+  ],
+  "contents": [
+    "cu5ipnenv6blmtk",
+    "1s8np9s3stcgxww",
+    "73vzimpb9enfx9r",
+    "2senfdxnc2rscs0",
+    "se3nduq7q158d0c",
+    "ft09r4vp9rbp71f",
+    "ut6fkyioogy97ny",
+    "peheswfupcjbgi2",
+    "dpxidnqkvf3dh14",
+    "bx66rs3u1rmsfkr",
+    "tj558xicat53k28",
+    "r3trkiv1fdchzah",
+    "0j8vwpdx03wfes5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.285Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.285Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "ns51jy0agw5bps2"
+    }
+  ]
+}

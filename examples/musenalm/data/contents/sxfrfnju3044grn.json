@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte (Sammlung INr 29004, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Sankt Petrus ging, nach alter Sage, / An einem schwülen Sommertage",
+  "language": [],
+  "musenalm_id": 29005,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Sankt Petrus und die Geiß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Sankt Petrus und die Geiß",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.439Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "thw719pw320kz8o"
+    }
+  ]
+}

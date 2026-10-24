@@ -1,0 +1,109 @@
+{
+  "annotation": "§§ 4 GG fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, 7 BB Kal, S I T, S III-VI W, SS VII-VIII Vrwrt d Hrsg, SS IX-XIV G-Verz,  SS XV-XVI I-Verz, SS 1-192",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Leipziger für Liebhaber des Schönen und Guten 1802",
+    "norm": "~",
+    "biblio": 106405,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3054,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weigel)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Leipziger für Liebhaber des Schönen und Guten 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; K 157; nicht bei L/R; Goed VIII. 57, 33",
+  "responsibility_statement": "J. G. D. Schmiedtgen",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für / Liebhaber / des / Schönen und Guten. / Auf das Jahr 1802. / Von / J. G. D. Schmiedtgen. / Leipzig / bei C. G. Weigel",
+  "updated": "2026-06-11 10:18:55.398Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "c34tfykz88s5vzs"
+  ],
+  "contents": [
+    "ih86ak8qh5eygtq",
+    "4wdl6s08ih4apu0",
+    "vykljccy8f3c98n",
+    "cz6sv59ggcolt7m",
+    "lq2zmexk3f6gw81",
+    "we4drb7mgdp980a",
+    "zqbihd9cg2m8f4d",
+    "qac56oie95ogh0e",
+    "vpzxcl5h57hoa4x",
+    "yqc7yy9jdn7rew7",
+    "mjccs1a16lghhtx",
+    "6qkk6xbvtrqph0r",
+    "40z4w4re3s0zzro",
+    "iiylxvzduv9xfl5",
+    "yk39995scs4i29w",
+    "i51jaektnv18yrs",
+    "x5618fx5gexnyq8",
+    "7x8gyzko7yuylso",
+    "k7inh0bhuuhfyv4",
+    "btitexwt7c8ug5e",
+    "hcp9348klyadbmv",
+    "5712y2hit6hrpae",
+    "dct1a8pixhma1k0",
+    "e928qbbkkwwlwhk",
+    "28s1jglub69he2t",
+    "3c3cx69006wp5pf",
+    "3accrervc4hck7t",
+    "gnkq5kg2g0qfh67",
+    "c6jbm27nq8t9ita",
+    "bsc6v26tif25lph"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.183Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.183Z",
+      "agent": "mawx9so82lzv5uf",
+      "source_id": "1dj6eebp89dpq11"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.177Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.177Z",
+      "agent": "b6kcmfff33vx9hs",
+      "source_id": "gbg9sx6jqz75g38"
+    }
+  ]
+}

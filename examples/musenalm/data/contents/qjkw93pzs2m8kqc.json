@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "In hellem Lustgesange kam / Der heitre Beli mit gefülltem Korbe",
+  "language": [],
+  "musenalm_id": 5200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beli und Sinna. / Idylle aus der Unschuldswelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beli und Sinna. / Idylle aus der Unschuldswelt",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.082Z",
+      "agent": "ewuwl9lvke5jtiz",
+      "source_id": "mcq9op1ndp6pg7q"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Auf Blumenauen spielt das Kind / Im Morgensonneschein;",
+  "language": [],
+  "musenalm_id": 52825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensstufen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hottinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensstufen",
+  "updated": "2007-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.805Z",
+      "agent": "9dyqyb46cpqyd97",
+      "source_id": "ixbwe7e0g8yucfl"
+    }
+  ]
+}

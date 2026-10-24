@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosa Siciliana (Sammlung INr 2755, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Komm aus der Stadt, komm aus der Stadt Palerm! / Der Frühling hat für dich geschmückt die Fülle.",
+  "language": [],
+  "musenalm_id": 27508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.285Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "vvxhv9egv0c3uiz"
+    }
+  ]
+}

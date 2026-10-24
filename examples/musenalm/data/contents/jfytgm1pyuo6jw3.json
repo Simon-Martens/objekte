@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Wählt Nideck, das Schloß, an hohem Berg / Beym Wasserfalle, zum Augenmerk!",
+  "language": [],
+  "musenalm_id": 118337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Riesenspielzeug. / (S. deutsche Sagen von den Brüdern Grimm, S. 24.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Riesenspielzeug. / (S. deutsche Sagen von den Brüdern Grimm, S. 24.)",
+  "updated": "2017-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.594Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "9y1zwf0rk2fdo2n"
+    }
+  ]
+}

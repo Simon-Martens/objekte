@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) nummeriert 3. /) Illustration zu »Admiral Ruiter« INr 90251, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Blaschke sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_1306_90252_066y8u3ib3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.007Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "88elgg3ste5c03x"
+    }
+  ]
+}

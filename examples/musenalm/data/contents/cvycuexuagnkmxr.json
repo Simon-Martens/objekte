@@ -1,0 +1,56 @@
+{
+  "annotation": "Tabulae votivae (Sammlung INr 38033, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Frey von Tadel zu seyn, ist der niedrigste / Grad und der höchste,",
+  "language": [],
+  "musenalm_id": 38107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Korrektheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Korrektheit",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.770Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "0i2kbj502lteog1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.770Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "2n81zzilvo6uoqo"
+    }
+  ]
+}

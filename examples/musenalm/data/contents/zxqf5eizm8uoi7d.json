@@ -1,0 +1,45 @@
+{
+  "annotation": "Venezianische Epigramme (Sammlung INr 967, Obj 103) # s. Anmerkung dort",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Schläfst du noch immer? Nur still und lass mich / ruhen;",
+  "language": [],
+  "musenalm_id": 18455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "26.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "26.",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.703Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "tm8fzmi5jq3v05w"
+    }
+  ]
+}

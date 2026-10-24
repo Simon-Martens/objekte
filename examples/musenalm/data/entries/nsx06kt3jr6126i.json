@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, SS1–612 darin T, Vrwrt, C, I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1844",
+    "norm": "~",
+    "biblio": 200312,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1318,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst / auf / das Jahr 1844. / Herausgegeben / von / L. Wolff, / Souffleur des Königl. Theaters. / Neunter Jahrgang. / Berlin, / den 1. Januar 1845",
+  "updated": "2026-06-11 10:18:54.922Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "5aozjg11jxzvenz"
+  ],
+  "contents": [
+    "mefg81wrgxbrsb3",
+    "0465s1xgw4t6973",
+    "zg6dvfvsziuwu6z",
+    "rc33chqlql30zi4",
+    "djwf5xfup4cuwt1",
+    "cqrpc0fyc05ulck",
+    "owh0brij992788u",
+    "av3j3f2mat1iszf",
+    "geib8h3ut1atvn2",
+    "sz1njhd1p0ml5xc",
+    "s5llk9epznd9we0",
+    "y7emnx9bed3lyko",
+    "cdr33de4eoj61xk",
+    "btatvggesbqnhef",
+    "56ya1fa66itl1af",
+    "x7bihu7i57pnsv8",
+    "vezs7ierzfbwtmu",
+    "4i8zw04ya1bho2j",
+    "og9z61f4usqmqxa",
+    "vf59w91e8467ni4",
+    "kq5izvah6bvwp0m",
+    "z7wytilbualme4b",
+    "1599qz101l16614",
+    "q5ap5p2xmkxgve4",
+    "kmp5zv9n3bv3ket",
+    "dm0lu52nwd96jmi",
+    "ksm0o6yu8n23g50",
+    "lj6zq8k9wyttzw0",
+    "q6dwn0t7odbfrhy",
+    "2gzdwksafn0tqxw",
+    "8pogy1qor96dqul",
+    "99omsmyzi8iz8ll"
+  ],
+  "agents": []
+}

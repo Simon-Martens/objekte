@@ -1,0 +1,377 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.364Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "von 1803 bis 1813 Laienmitglied des Konsistoriums der Israeliten in Kassel und Direktor der Schulen und Erziehungsanstalten in Westfalen; seit 1816 Lehrer der Religion und Vorsteher einer Erziehungseinrichtung für jüdische Kinder in Berlin; Verfasser pädagogischer Schriften und Herausgeber von Gebetbüchern mit deutscher Übersetzung; von 1817 bis 1831 Herausgeber der Halbjahresschrift \"Jedidja\""
+      ],
+      "dateOfBirth": [
+        "1778-07-20"
+      ],
+      "dateOfDeath": [
+        "1855-10-16"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T21:07:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116660147/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120596857",
+          "label": "Heinemann, Moses"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XY",
+          "label": "Juden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116660147",
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/120596857",
+          "label": "Heinemann, Moses"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116660147",
+      "oldAuthorityNumber": [
+        "(DE-588a)116660147",
+        "(DE-588a)139819401"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "הינמן, ירמיהו בן מינשטר"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029869-3",
+          "label": "Kassel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Sandersleben"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Heinemann, Jeremias",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jeremias"
+        ],
+        "surname": [
+          "Heinemann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        }
+      ],
+      "publication": [
+        "Tefilot ʿal bet ha-ḥayim = Gebete auf dem Friedhofe",
+        "Gold- und Silber-Fein-Gehalts-Tabellen für Bank-, Münz- und Bergbau-Beamte, Bankiers, Gold- und Silber-Händler und Arbeiter, so wie für Jeden, der mit der Mischeung von Gold und Silber beschäftigt ist",
+        "Sammlung der die religiöse und bürgerliche Verfassung der Juden in den Königlich Preußisc*",
+        "Mendelssohn, Moses: Moses Mendelsohn",
+        "Wörterbuch zu Friedrich von Schillers Gedichten",
+        "Organisation der doppelten Buchhaltung Oder: Nachweis eines von vielen Handlungen übersehenen wesentlichen Fehlers bei ihrer Buchhaltung",
+        "Mendelssohn, Moses: Sammlung theils noch ungedruckter, theils in anderen Schriften zerstr*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2003046500"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/42594659"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1687560"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116660147/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116660147"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jeremias_Heinemann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066769008"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116660147"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116660147.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116660147"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Heinemann, I.",
+        "Hayneman, Yirmeyahu ben Minshṭer",
+        "Heinemann, Jeremiah",
+        "Haineman, Yirmeyahu",
+        "Heinemann, Jer.",
+        "Heinemann, Jeremias H.",
+        "Heinemann, Jeremia Ben Meinster, ha-Levi",
+        "Heinemann, J.",
+        "Haynemann, Yeremiyahu",
+        "Hayneman, Yirmeyahu ben Maynshṭer",
+        "ירמיהו בן מיינשטר סגʺל",
+        "היינעמאן, ירמיהו",
+        "Yirmeyahu ben Maynshṭer Segal"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        },
+        {
+          "personalName": [
+            "Yirmeyahu ben Maynshṭer Segal"
+          ]
+        },
+        {
+          "forename": [
+            "Yirmeyahu ben Maynshṭer"
+          ],
+          "surname": [
+            "Hayneman"
+          ]
+        },
+        {
+          "forename": [
+            "Yirmeyahu"
+          ],
+          "surname": [
+            "Haineman"
+          ]
+        },
+        {
+          "forename": [
+            "Jeremiah"
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        },
+        {
+          "forename": [
+            "Jeremias H."
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        },
+        {
+          "forename": [
+            "Yirmeyahu ben Minshṭer"
+          ],
+          "surname": [
+            "Hayneman"
+          ]
+        },
+        {
+          "personalName": [
+            "ירמיהו בן מיינשטר סגʺל"
+          ]
+        },
+        {
+          "forename": [
+            "ירמיהו"
+          ],
+          "surname": [
+            "היינעמאן"
+          ]
+        },
+        {
+          "forename": [
+            "Yeremiyahu"
+          ],
+          "surname": [
+            "Haynemann"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        },
+        {
+          "forename": [
+            "Jeremia Ben Meinster"
+          ],
+          "nameAddition": [
+            "ha-Levi"
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        },
+        {
+          "forename": [
+            "Jer."
+          ],
+          "surname": [
+            "Heinemann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jeremias_Heinemann",
+          "label": "https://de.wikipedia.org/wiki/Jeremias_Heinemann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:42:33Z",
+    "gnd_query_biographical_data": "1778-1855",
+    "gnd_query_name": "heinemann, jeremias"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1129,
+  "name": "Heinemann, Jeremias",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XI, 366",
+  "updated": "2026-06-11 13:29:22.866Z",
+  "uri": "https://d-nb.info/gnd/116660147",
+  "editor": ""
+}

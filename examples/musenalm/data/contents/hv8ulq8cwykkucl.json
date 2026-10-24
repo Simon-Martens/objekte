@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Freund! dein Blick, so lachend sonst und heiter, / Was umwölkte diesen schönen Blick?",
+  "language": [],
+  "musenalm_id": 35625,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Selmar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Selmar",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.854Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "qqsgaitieiiylvd"
+    }
+  ]
+}

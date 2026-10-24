@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai; Illustration zu »Landeskunde von Indien  von C. Ritter INr 58746, Obj 17,01 s.a. Textbezug INr 58757, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58739,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Quelle des Ganges",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Mauch gest. v. G. Cooke",
+  "scans": [
+    "alm_864_58739_8birl4dxuo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Quelle des Ganges",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.659Z",
+      "agent": "a7m5750fz1o3qqp",
+      "source_id": "dlegya2dt4nv56b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.659Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "nnzkpvb042ooukk"
+    }
+  ]
+}

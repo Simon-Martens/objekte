@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Die Nacht der Angst war vorüber; mattathmend lag die Wöchnerin in ihrem Bette; der Vater hielt sein Kind in den Armen,",
+  "language": [],
+  "musenalm_id": 2020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Alles wiederholt sich nicht im / Leben. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emerentius Scävola",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Alles wiederholt sich nicht im / Leben. / Novelle",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.698Z",
+      "agent": "9b0fkhld94kpyv9",
+      "source_id": "9fydcnkui7gww38"
+    }
+  ]
+}

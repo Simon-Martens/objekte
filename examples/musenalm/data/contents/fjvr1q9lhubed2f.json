@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Rausche durch den Wald, rausche durch das Herz, / Thränenzorn, du frischer Lebenswind!",
+  "language": [],
+  "musenalm_id": 46165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rausche, brause!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rausche, brause!",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.441Z",
+      "agent": "qab571spaxuq9fk",
+      "source_id": "4rcfkmnyn2a4n70"
+    }
+  ]
+}

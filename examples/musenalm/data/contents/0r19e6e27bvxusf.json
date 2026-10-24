@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung des Beitrags aus: Frauenzimmer-Almanach 1799, INr 47509",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "In meiner vorletzten Unterhaltung sprach ich mit ihnen, meine Freundinnen, von der ersten Nahrung der Kinder.",
+  "language": [],
+  "musenalm_id": 73751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Ehrenbergs Reden / über die körperliche Erziehung. / Siebenzehnte Rede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz Ehrenbergs Reden / über die körperliche Erziehung. / Siebenzehnte Rede",
+  "updated": "2007-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.808Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "hklcd00ln3hwhmt"
+    }
+  ]
+}

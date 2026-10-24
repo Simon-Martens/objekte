@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63450, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63458,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Burgfrau von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Geisler Gest. v. Fleischmann",
+  "scans": [
+    "alm_1041_63458_twl2aasb0x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Burgfrau von Baden",
+  "updated": "2009-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "d96xgn9l7v9sa1n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "ntkdqz8m6ef0jb6"
+    }
+  ]
+}

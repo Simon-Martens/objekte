@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Ivanhoe« von Walter Sccott",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IVANHOE No III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Westall del. L. Gruner sc",
+  "scans": [
+    "alm_303_22766_i0nwwwim10.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IVANHOE No III.",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.120Z",
+      "agent": "aojzejymdgem420",
+      "source_id": "9qgircvuwyryeqr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.120Z",
+      "agent": "uq6rhrihzl9bx5q",
+      "source_id": "fjo3cgwviikg3p2"
+    }
+  ]
+}

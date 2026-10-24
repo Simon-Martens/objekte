@@ -1,0 +1,125 @@
+{
+  "annotation": "§ Schuber fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-XXXVI, 6 GG, SS 1-283, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1826",
+    "norm": "~",
+    "biblio": 100524,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1034,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / Taschenbuch / für / DEUTSCHE FRAUEN / auf das Jahr 1826. / Herausgegeben / von / ALOYS SCHREIBER. / Eilfter Jahrgang. Neue Folge. Dritter Jahrgang. / Mit Kupfern / HEIDELBERG, / im Verlag von J. Engelmann",
+  "updated": "2026-06-11 10:18:55.584Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "uapu8g4c1maj67s"
+  ],
+  "contents": [
+    "p0h2xte25n3pq5f",
+    "a2zrfz1wyosh61v",
+    "qe53uc7e3l6jaru",
+    "72w9tnwshqzk4bp",
+    "mbs0awkyrkoqsx2",
+    "m5v4h24r0h3myou",
+    "v2g98uod9y59qxk",
+    "wxjzg99udgla2fy",
+    "6tnzqag9621v7q6",
+    "zehkb6d30f62gc7",
+    "hf5ik281p4ilsf8",
+    "96km68j1wh9v0kh",
+    "qkfkbrpxs8lu62b",
+    "qm08wvbgprccbrg",
+    "5qrqr4kkspv7nm3",
+    "kjjdsm0fkolgcw3",
+    "f4g5b15q4sg5ho2",
+    "gcgutwvmqy515xx",
+    "18wsa24tx0mjvx9",
+    "h2ldblbnraw3n23",
+    "0b6xq674dgoc34x",
+    "whaqop1ihfh1jz1",
+    "hdf5apmsb95ozyh",
+    "q5rck2m91nkekhd",
+    "49sem1pj27v40di",
+    "dtlu08ppnm64b87",
+    "f1ydni5ufusvitu",
+    "18g03tuhv0yjmxp",
+    "3dq7t5ubw1a8osu",
+    "kknaqrkyljeu7gp",
+    "o212uzwgxgh1gzi",
+    "hk6e73593rqb2d0",
+    "vjgb9jm0y29k3nj",
+    "trzzq6vjtpf1hp3",
+    "c4p9eyo40s0gfzz",
+    "8ke4ijyfx9pxh82",
+    "pw1ppelsezer8hr",
+    "r57x2kyls3mjqhb",
+    "wg6zu0o2za4f7gz",
+    "ty2futown1qt3bo",
+    "wahxw7ni7u2ksv2",
+    "dot8ga99salam88",
+    "oqbja1sy0j1il6i",
+    "s32px2dibs2h1jv",
+    "h4a1jingwyvv6ga",
+    "xhehgr59j9ehd1o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.800Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.800Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "qcalr0rtde2b3pz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.776Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.776Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "udtokpkesdh9jxy"
+    }
+  ]
+}

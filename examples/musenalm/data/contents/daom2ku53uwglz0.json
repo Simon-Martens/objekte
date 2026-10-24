@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64675, Obj 10 /) Unter der Graphik: Darmstadt G. G. Lange",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64681,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf hoher See #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Pleysier pinx. J. W. Kaiser sculps.",
+  "scans": [
+    "alm_1081_64681_59j6git9ue.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf hoher See #",
+  "updated": "2009-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.349Z",
+      "agent": "p3hijooo9pslzw2",
+      "source_id": "ld0gsbjw436auy8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.348Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.348Z",
+      "agent": "0d54c16ercujlyv",
+      "source_id": "o6vw6v9g880idu4"
+    }
+  ]
+}

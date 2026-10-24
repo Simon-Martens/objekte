@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Rätseln INr 41416-41418, Obj 47-49",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anagramme",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anagramme",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.948Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "jlqrn7uvggfabr2"
+    }
+  ]
+}

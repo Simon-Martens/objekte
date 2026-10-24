@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselschnur (Sammlung INr 90676, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Ach! dürft' ich's, holdes Mädchen, wagen, / Nicht mehr ein Wort zu dir zu sagen,",
+  "language": [],
+  "musenalm_id": 90684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Palindrom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Palindrom",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.271Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "qqirlqc5i0j0v2u"
+    }
+  ]
+}

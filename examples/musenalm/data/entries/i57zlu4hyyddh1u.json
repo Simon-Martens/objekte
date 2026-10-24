@@ -1,0 +1,92 @@
+{
+  "annotation": "ohne Kalendarium s. Anm INr 135775: Dieser Almanach wird auch ohne die den astronomischen Kalender enthaltenden Bogen A, B, C, unter dem Titel: Gothaisches Taschenbuch u.s.w. für diejenigen Länder angeboten, wo fremde Kalender verboten oder hoher Stempelsteuer unterworfen sind.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S III T, SS IV-VI Vrwrt d Hrsg, SS VII-XVI C, 5 GG, SS 1-678, S I-Verz, S Anm d Hrsg, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1846",
+    "norm": "",
+    "biblio": 405076,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2098,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Hof-Kalender / auf das Jahr / 1846. / Drei und Achtzigster Jahrgang. / Gotha, / bei Justus Perthes",
+  "updated": "2026-06-11 10:18:55.801Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "jh4255zyyyvv21i"
+  ],
+  "contents": [
+    "c4zle3c6qv1nngm",
+    "4fp84q89lipf2n8",
+    "501dids4qi7ykg8",
+    "1adsh57f93xyvnz",
+    "0tbs672t8f8n69y",
+    "289blmkk5e7tjkh",
+    "gro87569383x9a2",
+    "duohs2cod36mzn2",
+    "tcla687xe4gvily",
+    "13kify9wjudw3qw",
+    "ucr6b5bfxbzp8bo",
+    "a3bptdf2y1p5a7a",
+    "ghesj813aj7jhyp",
+    "4zsaifs1bkh74rs",
+    "w2trzzazk4gw11v",
+    "3lzqxxomhmhaf1r",
+    "ahfc7v4ul4vcbcb",
+    "q7csbjwh3qxwpke",
+    "e2m4wj7gkfm9ekz",
+    "7kehzsyy3lyv5ln",
+    "4k9wsli4c33iby3",
+    "z7wg7fs33xh1oqw",
+    "84wz131v4sn9bu9",
+    "p4n6sego72cvpsf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.123Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.123Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "vuf1ijhw4myo74g"
+    }
+  ]
+}

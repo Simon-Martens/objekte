@@ -1,0 +1,322 @@
+{
+  "annotation": "",
+  "biographical_data": "1788-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.369Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Liederdichter",
+        "Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1786-01-31"
+      ],
+      "dateOfDeath": [
+        "1867-03"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089752210",
+        "https://d-nb.info/gnd/1157459374"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:21:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115342060/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115342060",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115342060",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)1157459374",
+        "(DE-588a)115342060",
+        "(DE-588)1089752210"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/10344561-4",
+          "label": "Mölschow"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Melochwitz (Schlesien)"
+      ],
+      "preferredName": "Heyden, Julius von der",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius"
+        ],
+        "prefix": [
+          "von der"
+        ],
+        "surname": [
+          "Heyden"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Emerentius"
+          ],
+          "surname": [
+            "Scävola"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emerentius"
+          ],
+          "surname": [
+            "Scaevola"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Scaevola, Emerentius [Pseud.]: Learosa, die Männerfeindin",
+        "Scaevola, Emerentius [Pseud.]: Andronika",
+        "Heyden, ... von der: Leonide",
+        "Scaevola, Emerentius [Pseud.]: Leonide",
+        "Heyden, ... von der: Briefe eines Flüchtlings",
+        "Scaevola, Emerentius [Pseud.]: Adolar, der Weiberverächter",
+        "Heyden, ... von der: Die Kreolin und der Neger",
+        "Heyden, ... von der: Learosa, die Männerfeindin",
+        "Heyden, ... von der: Cameraobscura-Bilder",
+        "Heyden, ... von der: Genossen der Mitternacht"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9466160668218503560003"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19214621"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089752210"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115342060/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157459374"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Julius_von_der_Heyden"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000021370693"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115342060"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115342060"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Heyden, Julius A. von der",
+        "Heyden, Julius von",
+        "Heyden, Julius August Leopold Friedrich von der",
+        "Scävola, Emerentius",
+        "Heyden, ... von der",
+        "Scaevola, Emerentius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Emerentius"
+          ],
+          "surname": [
+            "Scaevola"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Heyden"
+          ]
+        },
+        {
+          "forename": [
+            "Emerentius"
+          ],
+          "surname": [
+            "Scävola"
+          ]
+        },
+        {
+          "forename": [
+            "Julius A."
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Heyden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Heyden"
+          ]
+        },
+        {
+          "forename": [
+            "Julius August Leopold Friedrich"
+          ],
+          "prefix": [
+            "von der"
+          ],
+          "surname": [
+            "Heyden"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:45:06Z",
+    "gnd_query_biographical_data": "1788-1867",
+    "gnd_query_name": "heyden, julius von der"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1180,
+  "name": "Heyden, Julius von der",
+  "profession": "Text",
+  "pseudonyms": "Emerentius Scävola",
+  "refs": "Goed VII, 847; Goed X, 609; Goed XI/1, 503; Goed XIV, 346; E 142",
+  "updated": "2026-06-11 13:29:22.924Z",
+  "uri": "https://d-nb.info/gnd/115342060",
+  "editor": ""
+}

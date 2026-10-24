@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gegenstände (Sammlung INr 67078, Obj 27) mit zahlreichen Anmerkungen /) s. gest. Titel INr 67054, Obj 3 /) mit zahlreichen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Die Titel-Vignette des Jahrbuchs ist eine getreue Abbildung eines römischen Monuments im Schwarzwalde, welches der, vom abnobischen Gebirge zubenannten, Göttin Diana geweiht war.",
+  "language": [],
+  "musenalm_id": 67086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Verehrung Dianens auf dem Schwarz- / walde in der grauen Vorzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Kanzler Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Verehrung Dianens auf dem Schwarz- / walde in der grauen Vorzeit",
+  "updated": "2009-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.365Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "rx9p5r70hbymxua"
+    }
+  ]
+}

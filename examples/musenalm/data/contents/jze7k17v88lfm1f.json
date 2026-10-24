@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124078, Obj 2); Illustration zu »Simon Kemény« von Gaal (INr 124086, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Simon. / Gesegnet sey des Himmels Fügung, die zu / edler That sich meinen Arm ersah! / Simon Kemény. 4ter Auftritt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Böttger senior sc.",
+  "scans": [
+    "alm_1292_124087_9hrlhnh9ng.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V. / Simon. / Gesegnet sey des Himmels Fügung, die zu / edler That sich meinen Arm ersah! / Simon Kemény. 4ter Auftritt",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.787Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "sw6bjz7y3f0d5nj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.787Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "ymhj0r768ilhhn1"
+    }
+  ]
+}

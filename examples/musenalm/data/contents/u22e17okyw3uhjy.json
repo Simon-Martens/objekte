@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juli /) Illustration zu »Die Rache« von L. Schlecht INr 121005, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die blasse Jungfrau / Rheinische Sage, Pag. 35",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. Kotterba sc.",
+  "scans": [
+    "alm_1902_120996_0q23tv46rz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die blasse Jungfrau / Rheinische Sage, Pag. 35",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.769Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "2zsuwr5a6e0erne"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.769Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "m93pgwwy64935l2"
+    }
+  ]
+}

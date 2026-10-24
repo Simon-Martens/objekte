@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 65117-65119, Obj 177-179 /) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Russische Nüsse",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Russische Nüsse",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.257Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "401t0rig56qcoc8"
+    }
+  ]
+}

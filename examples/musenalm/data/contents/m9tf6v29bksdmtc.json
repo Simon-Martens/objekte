@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Anekdoten (Sammlung INr 67552, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "In einem bekannten Intelligenzblatte liest man die Anzeige: Der Forstgehülfe N. N. hat am vorigen Sonntag bei der Tanzpartie in N. N. seine Augengläser liegen lassen",
+  "language": [],
+  "musenalm_id": 67567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freih. v. d. Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.437Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "ss2wo1m4e7gd5h2"
+    }
+  ]
+}

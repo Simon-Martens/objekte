@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 28928, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "In meines Mädchens Pulte fand / Verborgen unter Zwirn und Band",
+  "language": [],
+  "musenalm_id": 28933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der eifersüchtige Liebhaber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der eifersüchtige Liebhaber",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.442Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "ukoadh946uk54id"
+    }
+  ]
+}

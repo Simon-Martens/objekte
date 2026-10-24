@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Welcher Anblick? Welches erhabne Schauspiel. / Rüstet heut Osthimmel und Morgensonne?",
+  "language": [],
+  "musenalm_id": 99509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Märzerscheinung. / 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Minckwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Märzerscheinung. / 1848",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.869Z",
+      "agent": "dpkh7u6gok5xlc0",
+      "source_id": "2eb0uz4v6easlwi"
+    }
+  ]
+}

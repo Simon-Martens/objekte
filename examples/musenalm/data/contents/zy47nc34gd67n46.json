@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Wenn gleich die Literatur in Oestreich im Allgemeinen nicht zu der Höhe gestiegen ist, welche sie im nördlichen Deutschlande durch mehrere Umstände begünstigt erreichte,",
+  "language": [],
+  "musenalm_id": 91040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Literatur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Literatur",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.360Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "wk090im4w9f9ic8"
+    }
+  ]
+}

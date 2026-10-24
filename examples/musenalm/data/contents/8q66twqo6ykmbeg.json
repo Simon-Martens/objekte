@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 63941, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63947,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HAUSFRAU UND MUTTER / AUS SCHILLER'S GLOCKE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Nilson del. Aug. Spieß sc.",
+  "scans": [
+    "alm_1053_63947_g6uaavo81s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HAUSFRAU UND MUTTER / AUS SCHILLER'S GLOCKE",
+  "updated": "2009-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.875Z",
+      "agent": "jvt2kfjjwcuz8go",
+      "source_id": "6a80619xdmf1ddh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.875Z",
+      "agent": "8bb100zizr2ji3a",
+      "source_id": "j8h7ndnj58u396o"
+    }
+  ]
+}

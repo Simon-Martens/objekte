@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 71327-71329 Obj 114-116 /) CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUS DER GALATEA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cervantes; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AUS DER GALATEA",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.559Z",
+      "agent": "weyfjsfook5ewzx",
+      "source_id": "9x0nmxkh0o53kyv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.559Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "ir3jeqnfu4pa07g"
+    }
+  ]
+}

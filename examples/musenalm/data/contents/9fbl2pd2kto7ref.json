@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 77502, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Das Leben der edlen Frau, deren Andenken diese Blätter geweiht sind, ist nach seinen äußern Hergängen und seiner literarischen Wirksamkeit so vielfach beschrieben,",
+  "language": [],
+  "musenalm_id": 77508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisa von der Recke. / geb. am 20. Mai 1754; gest. am 13. April 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elisa von der Recke. / geb. am 20. Mai 1754; gest. am 13. April 1833",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.862Z",
+      "agent": "lov7zjtttdvp66e",
+      "source_id": "rrgg79j6nodqblx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Die Decke schmücken dicke Amoretten / Und appetitlich-runde Schäferdirnen",
+  "language": [],
+  "musenalm_id": 46418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leontine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "George Hesekiel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leontine",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.595Z",
+      "agent": "v3swaugl78suots",
+      "source_id": "nx7eizbwxmngrty"
+    }
+  ]
+}

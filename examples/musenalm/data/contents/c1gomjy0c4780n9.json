@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Lootse« von J. F. Cooper ; am oberen rechten Rand: Cooper's Werke B. 23. S. 134 s. Textbezug in 43804, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.965Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43805,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lootse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler fecit 1829",
+  "scans": [
+    "alm_585_43805_g4aunbvqh2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Lootse",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.267Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "48z5kcjkr6f2zwy"
+    }
+  ]
+}

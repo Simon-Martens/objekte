@@ -1,0 +1,488 @@
+{
+  "annotation": "",
+  "biographical_data": "1769-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.426Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1769-10-19"
+      ],
+      "dateOfDeath": [
+        "1850-05-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "lv.wikipedia, Garlībs Merķelis.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Garl%C4%ABbs%20Mer%C4%B7elis.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Garl%C4%ABbs%20Mer%C4%B7elis.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Garl%C4%ABbs%20Mer%C4%B7elis.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187603510",
+        "https://d-nb.info/gnd/186419430"
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-30T21:23:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118581147/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/13709700X",
+          "label": "Merkel, Daniel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/12081739X",
+          "label": "Merkel, Albrecht Ernst Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136985998",
+          "label": "Germann, Albrecht"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-LV",
+          "label": "Lettland"
+        }
+      ],
+      "gndIdentifier": "118581147",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/12081739X",
+          "label": "Merkel, Albrecht Ernst Emil"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/13709700X",
+          "label": "Merkel, Daniel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118581147",
+      "oldAuthorityNumber": [
+        "(DE-588a)186419430",
+        "(DE-588)186419430",
+        "(DE-588)187603510",
+        "(DE-588c)4038726-4",
+        "(DE-588a)118581147",
+        "(DE-588a)187603510"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4050042-1",
+          "label": "Riga"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Merkel, Garlieb Helwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Garlieb Helwig"
+        ],
+        "surname": [
+          "Merkel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        }
+      ],
+      "publication": [
+        "Über Deutschland, wie ich es nach einer zehnjährigen Entfernung wiede*",
+        "Merkel, Garlieb H.: Briefe an ein Frauenzimmer über die neuesten Produkte der schönen Lit*",
+        "Eine Reisegeschichte",
+        "Merkel, Garlieb H.: Bruder Anton",
+        "Kritsche Antiken",
+        "Merkel, Garlieb H.: Die freyen Letten und Esthen",
+        "Merkel, Garlieb H.: Kritsche Antiken",
+        "Merkel, Garlieb H.: Darstellungen und Charakteristiken aus meinem Leben",
+        "Merkel, Garlieb H.: Briefe über Hamburg und Lübeck",
+        "Briefe an ein Frauenzimmer über die neuesten Produkte der schönen Lit*",
+        "Darstellungen und Charakteristiken aus meinem Leben",
+        "Ist das feste Fortschreiten der Menschheit ein Wahn?",
+        "Die freyen Letten und Esthen",
+        "Merkel, Garlieb H.: Über Deutschland, wie ich es nach einer zehnjährigen Entfernung wiede*",
+        "Die Letten vorzüglich in Liefland",
+        "Merkel, Garlieb H.: Die Letten vorzüglich in Liefland",
+        "Merkel, Garlieb H.: Ist das feste Fortschreiten der Menschheit ein Wahn?",
+        "Bruder Anton",
+        "Merkel, Garlieb H.: Eine Reisegeschichte",
+        "Briefe über Hamburg und Lübeck"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84237369"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/merkel-garlieb/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54373362"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q539977"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118581147/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186419430"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187603510"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Garlieb_Merkel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Garlieb_Helwig_Merkel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Garlieb_Merkel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110271080"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118581147"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118581147"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118581147.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118581147.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118581147"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118581147"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Merkel, Garlieb H.",
+        "Merkel, B. Helwig",
+        "Merķelis, Garlībs",
+        "Merkel, B.",
+        "Merkelis, Garlībs",
+        "Merķelis, Garlı̄bs",
+        "Merkel, Garlieb Helvig",
+        "Merkel, Garlieb",
+        "Merkelis, Garlibs",
+        "Merkelis, Garlībs Helvigs",
+        "Merkel', Gotlib",
+        "Merkel, G.",
+        "Merkel, B. H."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Garlieb H."
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "Garlieb"
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "B. H."
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "Garlībs Helvigs"
+          ],
+          "surname": [
+            "Merkelis"
+          ]
+        },
+        {
+          "forename": [
+            "Garlibs"
+          ],
+          "surname": [
+            "Merkelis"
+          ]
+        },
+        {
+          "forename": [
+            "Garlībs"
+          ],
+          "surname": [
+            "Merkelis"
+          ]
+        },
+        {
+          "forename": [
+            "B. Helwig"
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "Gotlib"
+          ],
+          "surname": [
+            "Merkel'"
+          ]
+        },
+        {
+          "forename": [
+            "Garlieb Helvig"
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "Garlībs"
+          ],
+          "surname": [
+            "Merķelis"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Merkel"
+          ]
+        },
+        {
+          "forename": [
+            "Garlı̄bs"
+          ],
+          "surname": [
+            "Merķelis"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Garlieb_Helwig_Merkel",
+          "label": "https://de.wikipedia.org/wiki/Garlieb_Helwig_Merkel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:15:42Z",
+    "gnd_query_biographical_data": "1769-1850",
+    "gnd_query_name": "merkel, garlieb helwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1796,
+  "name": "Merkel, Garlieb Helwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 381",
+  "updated": "2026-06-11 13:29:23.789Z",
+  "uri": "https://d-nb.info/gnd/118581147",
+  "editor": ""
+}

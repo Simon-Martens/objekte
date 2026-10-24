@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Auf dem stillen Meere wiegt, / Sich die Nacht verschleiert;",
+  "language": [],
+  "musenalm_id": 87094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Auswandererschiff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pauline Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Auswandererschiff",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.371Z",
+      "agent": "a9ocixlq34hpcgc",
+      "source_id": "q136hhbwb86dubv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Ich kam vor Liebchens Fensterlein; / Thät viele Stunden stehen;",
+  "language": [],
+  "musenalm_id": 88691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Täuschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Täuschung",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.164Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "d849bue3v91u7j7"
+    }
+  ]
+}

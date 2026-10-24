@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Rundgesang« von Mahlmann INr 10931, Obj 75 (Photos 10932,01; 10932,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_204_10932_01_cpnv8hps7p.jpg",
+    "alm_204_10932_02_gi8r7s12jz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.479Z",
+      "agent": "u644r69fyeumay0",
+      "source_id": "hf0hr07rrp1gibe"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ansichten (Sammlung INr 91846, Obj 114)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "Ich liebe zwar die Kühnheit, lieb' es, wenn man den Schurken mit derben Fäusten an der Kehle greift, daß ihnen die Stockzähne wackeln.",
+  "language": [],
+  "musenalm_id": 91847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich liebe zwar die Kühnheit, lieb' es, wenn man den Schurken mit derben Fäusten an der Kehle greift, daß ihnen die Stockzähne wackeln.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.277Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "51d0enfojdh5zfy"
+    }
+  ]
+}

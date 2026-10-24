@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24987, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Handle mit Bedacht und sprich! / Weniger beladen / Mag versäumtes Nützen dich, / Als gethaner Schaden.",
+  "language": [],
+  "musenalm_id": 24998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Versäumniß und Uebereilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Versäumniß und Uebereilung",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.259Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "5szfswhdvsrh6oh"
+    }
+  ]
+}

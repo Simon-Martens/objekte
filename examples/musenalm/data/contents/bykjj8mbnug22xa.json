@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) nummeriert 5. /) Illustration zu »Aimar von Kastellane« INr 90255, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aimar von Kastellane",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_1306_90256_ni686jbvye.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aimar von Kastellane",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.037Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "mjv8db3locw58x3"
+    }
+  ]
+}

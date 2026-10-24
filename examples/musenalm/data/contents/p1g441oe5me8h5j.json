@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "All mein Dienen, All mein Lieben, / Was ich laut und still gefleht, / Ist nur in den Sand gesät,",
+  "language": [],
+  "musenalm_id": 34251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / aus dem Spanischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / aus dem Spanischen",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.649Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "unr2n0dl41sta9h"
+    }
+  ]
+}

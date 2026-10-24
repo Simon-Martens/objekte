@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Im Oktober des Jahres 1845, an einem Tage, wo die brennende Sonnenhitze den kühlenden Herbstlüften gewichen war und das bis dahin in dunklem Grün strotzende Land eine sanfte, roth und gelb schimmernde Färbung angenommen hatte,",
+  "language": [],
+  "musenalm_id": 59183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rom und Berlin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Therese, Verfasserin der Briefe aus dem Süden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rom und Berlin",
+  "updated": "2008-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.988Z",
+      "agent": "un665fta9qpg6db",
+      "source_id": "8ujwbvdabwh5lmy"
+    }
+  ]
+}

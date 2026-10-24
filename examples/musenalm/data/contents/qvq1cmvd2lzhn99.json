@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Beiträgen INr 37318, 37319; Obj 45, 46 /) Intelligenz-Blatt. Nro. I (Sammlung INr 37316, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Capitalia, die verliehen werden / sollen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Capitalia, die verliehen werden / sollen",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.146Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "gd04hnd926n7g06"
+    }
+  ]
+}

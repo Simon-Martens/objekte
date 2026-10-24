@@ -1,0 +1,99 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S V-VI Vrwrt d Hrsg, S VII G-Verz, S VIII I-Verz, 6 GG, SS VIII-XIV, SS 1-324",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1843",
+    "norm": "~",
+    "biblio": 100535,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-05-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1051,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Amalia Schoppe",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / AUF DAS / JAHR / 1843 / BEGRÜNDET / von / ALOYS SCHREIBER / fortgesetzt / von Amalia Schoppe / 28r Jahrgang ZWEITE FOLGE 2r Jahrgang / HEIDELBERG / bei Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.589Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "3b531g1x21ogd8c"
+  ],
+  "contents": [
+    "sxbo0pvyegymr4m",
+    "msujnus8j8vwkvs",
+    "cujga8qsmr3y207",
+    "5v1kv4boh7hhbyo",
+    "61hmn3gjgqqep4i",
+    "urs1ci7gj6gifbe",
+    "7plomyx7phhv55m",
+    "reol9fcitr1mgkl",
+    "j2p4ijfgm2hk0mv",
+    "oq9bi3xsueeimzq",
+    "ojhotssuhxwvk6n",
+    "05z4wmk4t8xln5z",
+    "60i2ok813w3j3kw",
+    "hra1s1vq7v72jpo",
+    "rnnsgp0qflz374g",
+    "hq7cpo8nj9iww7a",
+    "nrk9fy3o97acb2f",
+    "12gk21zspr6yn1f",
+    "mu9w7hnmy86twgv",
+    "mmdpqcm2f3jw2ef"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.772Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.772Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "8bjpkuxtgnieyic"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.809Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.809Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "fadqfvoosaedcxz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Am Waldessaume steht ein Schloß im Brand, / Die Flamme zuckt aus allen Fensterblinden,",
+  "language": [],
+  "musenalm_id": 27929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walamir. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Walamir. / Romanze",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.297Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "3dx1pxq21wr784x"
+    }
+  ]
+}

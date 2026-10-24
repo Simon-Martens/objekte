@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Freiwerber wider Willen. Ein Lustspiel in zwölf Scenen (INr 29862, Obj 5) s. Graphik INr 29868, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Da - da läuft ein Has', ein Hase! / Herr Gott! gemach! Was gibt's?",
+  "language": [],
+  "musenalm_id": 29867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritte Scene",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.372Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "irrxlok0yynv68d"
+    }
+  ]
+}

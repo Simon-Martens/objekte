@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Erzählungen (Sammlung INr 38320, Obj 27) mit kleiner Graphik unter dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Zu Carpzovs frommer Zeit, die Hexen / noch verbrannte, / Eh sie Thomasius, der Atheist! verbann- / te,",
+  "language": [],
+  "musenalm_id": 38322,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Aus unsrer Welt. / Der gebannte Kobolt. / Eine Geschichte, / die sich zwischen 1759-1762. mehr als einmahl zugetragen hat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Aus unsrer Welt. / Der gebannte Kobolt. / Eine Geschichte, / die sich zwischen 1759-1762. mehr als einmahl zugetragen hat",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.899Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "p7ve1stm32l5jzs"
+    }
+  ]
+}

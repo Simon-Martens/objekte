@@ -1,0 +1,45 @@
+{
+  "annotation": "Thomas Moore (Sammlung INr 64597, Obj 52) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Lebewohl! auf Erden hoffnungslos / Muß uns're Liebe sein ...",
+  "language": [],
+  "musenalm_id": 64599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Lebewohl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Lebewohl",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.190Z",
+      "agent": "87b0ropx1b7ybuw",
+      "source_id": "k4hpux7rdifrd1s"
+    }
+  ]
+}

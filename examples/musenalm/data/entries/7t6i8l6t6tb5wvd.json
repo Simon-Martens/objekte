@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 16 BB Kal, S I T, SS III-IV Vrwrt d Hrsg, SS V-VI I-Verz, SS 1-275 darin 5 GG, S 275 C, 2 BB Nwrt d Vrlgr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1800",
+    "norm": "~",
+    "biblio": 106721,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 620,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Romanen-Kalender 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 82; Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für das Jahr 1800. / Von / August Lafontaine, Sophie Mereau, Karl / August Ragotzky, Karl Reinhard, und / einem Ungenannten. / Mit Kupferstichen. / Göttingen, / bei Johann Christian Dieterich",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "jahypv4f5kpvmmh"
+  ],
+  "contents": [
+    "1k1f1eu8jadl35p",
+    "wui4e31pjjg7wb2",
+    "u4kdnf1i6jc416k",
+    "tf97g4hehncmee7",
+    "7g115vq0ur7d063",
+    "8s0ty16noixjc93",
+    "zbhwr2hllztzu9m",
+    "grbx80009ilt51z",
+    "dijtm6vp3g1niwn",
+    "az7zd79ijkqzmhg",
+    "kgg1a84l1mqu6v8",
+    "mmp4n4u0eww2z1d",
+    "5uw8207ggw2bi39",
+    "4bxf35cwg9haymt",
+    "l7s5j2ghjt8k7y6",
+    "ifuc87r4bteiaqf",
+    "h58w18ovsqqvb5f",
+    "xlis9uac2108mat",
+    "cqgacb3pxdvblbv",
+    "go8s79btwhic4yk",
+    "j8ekw75cgz2mz3r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.719Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.719Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "mhj9yvuxwu1ujnk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.065Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.065Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "okk2njiq5adffj8"
+    }
+  ]
+}

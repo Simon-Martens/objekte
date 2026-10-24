@@ -1,0 +1,107 @@
+{
+  "annotation": "8,4 x 5,6 cm. /) weitere Jgg nicht ermittelt /) Der Almanach enthält 12 Graphiken mit 12 Textbezügen zur schweizer Geschichte und einige Gedichte",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG verso G, T, 14 BB Kal, SS 1-48 darin 11 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Neuer (Mannheim) 1800",
+    "norm": "~",
+    "biblio": 406845,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-11-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3727,
+  "parallel_title": "",
+  "place_statement": "Mannheim (Schmidt)",
+  "places": [
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Almanach, Neuer (Mannheim) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neuer / Allmanach / auf das Jahr / 1800. / Mit 12 Kupfer. / Mannheim, / bei J. Ph. Schmidt",
+  "updated": "2026-06-11 10:18:55.178Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "6cwxivq9cu30r4c"
+  ],
+  "contents": [
+    "7nv2h5glkm789as",
+    "pcrfck24v8v785l",
+    "yybz1ulepdygah1",
+    "b6k6camuj7cc1h8",
+    "anj0c7m1jn9ttyn",
+    "8p4j325zq8vbe6t",
+    "thvgz3bdjbvwsbd",
+    "rrm1s2u61zkm2ef",
+    "k9scvjancm4jpyp",
+    "cgjwf75nevizpb7",
+    "sosf7pxhqtlu51h",
+    "k5pmikzr69ah4x0",
+    "41elo6wlywtefjp",
+    "ucgdje358cbu0mg",
+    "4ceba6zc2askjvu",
+    "zsjka6o5gdpj9fs",
+    "v7lxu3l2mc4hkoe",
+    "oy207fgkh9d5imc",
+    "ebku1gonl5p02gh",
+    "8684mvtocu4tlsr",
+    "o5rlbsqsvvmhfwa",
+    "b4idxdsrrkukm0u",
+    "40z4n9ktbd3y8l5",
+    "3rm8sz3csa6s2if",
+    "63kga7afcb6mevb",
+    "w215jnrya3qicie",
+    "w5oq3yz4rm9dm4r",
+    "ua3l3nxf619ebj5",
+    "4vu6xowawxkdu2o",
+    "ak7we958psltooh",
+    "me2rnmq05sq86ni",
+    "v8w4rlxbnm53vl4",
+    "r0rwm0gx3i4gq7w",
+    "1bqxxxid52fg4ht",
+    "rbpgoy4oj5unytd",
+    "0f1jewyspetpvkn",
+    "asji5uv89xd10we",
+    "1uw0slox99r71zr",
+    "nyjnq6xj0shxpeu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "is9nc7qv76i3cjj",
+      "source_id": "74xsv0x7cwxkifl"
+    }
+  ]
+}

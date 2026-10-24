@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Isabellchen ergiebt sich - Ihr übertreibt!- / Nicht dem Ersten, der kommt, nur dem Letzten, / der bleibt.",
+  "language": [],
+  "musenalm_id": 3946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berichtigung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-au-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berichtigung",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.679Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "4hpheig2zxdj7qt"
+    }
+  ]
+}

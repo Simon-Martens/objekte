@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Ritornelle (Sammlung INr 1636, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Der Neid, der lauscht, wo ich mir Rosen breche, / Blind werd' er nicht, daß sich zum Leid er schaue,",
+  "language": [],
+  "musenalm_id": 19208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Neid, der lauscht, wo ich mir Rosen breche, / Blind werd' er nicht, daß sich zum Leid er schaue,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.843Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "7bi0h4djdc5vygn"
+    }
+  ]
+}

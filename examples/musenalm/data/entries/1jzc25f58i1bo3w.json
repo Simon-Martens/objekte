@@ -1,0 +1,102 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, SS 1-283, Kr, 7 GG, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Reisen (Zimmermann) 1805",
+    "norm": "~",
+    "biblio": 200614,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-11-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 541,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch der Reisen (Zimmermann) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143; L/R 141",
+  "responsibility_statement": "E. A. W.  Zimmerman",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / DER / REISEN / oder / unterhaltende Darstellung der / Entdeckungen des 18ten Jahrhunderts, / in Rücksicht der Länder Menschen / und Productenkunde. / Für jede Klasse von Lesern. / von / E. A. W. von ZIMMERMANN. / Vierter Jahrgang / für das Jahr / 1805. / Mit 9 Kupfern und 1r  Karte. / Leipzig, bei Gerhard Fleischer d. Jüng.",
+  "updated": "2026-06-11 10:18:55.834Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "mk6x9729hkdg5oe"
+  ],
+  "contents": [
+    "28xa619vaq207mg",
+    "obrk5j38fvk35c8",
+    "7ngkoeo8gensyn0",
+    "7rdr7iij4whlgz1",
+    "xbd37ivdc8rzgcx",
+    "zl4rmts08tak6f4",
+    "mru7q3hh63ovc45",
+    "zcj1syic9t5tqf0",
+    "55hwllr7noich1n",
+    "42sh7qfjic3nr4z",
+    "et5txlnh1mvw8ps",
+    "8xyvjwuc647f61t",
+    "8yar558pr7wmro0",
+    "b8aasyd5clofwec",
+    "idicjfydc8cjqqp",
+    "yvvvb1zncf56njs",
+    "lu2q4nbmjbyuaxs",
+    "ious5k780jkvs0q",
+    "xpxv7p5hhthksrf",
+    "wnwqm5nasakmm5a",
+    "tqymftaonujuama",
+    "t6wom67bvde8ssy",
+    "nyqqqg5tc6843kn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.694Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.694Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "fv48pr2421thip6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.854Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.854Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "yjfkbyzhy5liuyp"
+    }
+  ]
+}

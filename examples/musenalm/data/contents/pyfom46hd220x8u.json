@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Elegien (Sammlung INr 39667, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "433",
+  "incipit_statement": "Einsam, o Mally, ergrünt auf Sandgefilden ein / Oelbaum, / Den ein zürnend Geschick weit von den Brüdern / getrennt.",
+  "language": [],
+  "musenalm_id": 39670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritte Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Carl August Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritte Elegie",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.117Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "nu1tz60n1er1wl8"
+    }
+  ]
+}

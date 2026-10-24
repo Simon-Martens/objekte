@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt mit Hinweis auf Melodie aus Westgotland /) mit einer Musikbeigabe s. INr 21240, Obj 134",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "Die kleine Karin diente / an jungen Königs Hof; / Sie glänzte wie ein Sternlein",
+  "language": [],
+  "musenalm_id": 21184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die kleine Karin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Helwig, geb. v. Imhof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die kleine Karin #",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.922Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "76t9qd3kw1yz81j"
+    }
+  ]
+}

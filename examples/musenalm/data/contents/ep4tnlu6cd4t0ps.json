@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69908,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ELISABETH CHRISTINE, / von Braunschweig-Wolffenbüttel / Königin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berger sc.",
+  "scans": [
+    "alm_785_69908_b0g7oly2xz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ELISABETH CHRISTINE, / von Braunschweig-Wolffenbüttel / Königin von Preussen",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.332Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "a698gs1tdzvy1pm"
+    }
+  ]
+}

@@ -1,0 +1,606 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.373Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/4431977-0",
+          "label": "Hoftheater Hannover"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122950-3",
+          "label": "Kaiserlich-Königliches Hof-Burgtheater"
+        }
+      ],
+      "dateOfBirth": [
+        "1779-08-27"
+      ],
+      "dateOfDeath": [
+        "1854-09-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie aus eigenem Besitz"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Ignaz%20Holbein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Franz%20Ignaz%20Holbein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Franz%20Ignaz%20Holbein.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-24T14:07:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100844901/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/129461288",
+          "label": "Renner, Marie Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1124945962",
+          "label": "Holbein, Johanna von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137603126",
+          "label": "Holbein von Holbeinsberg, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137113943",
+          "label": "Holbein von Holbeinsberg, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118926217",
+          "label": "Lichtenau, Wilhelmine von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100844901",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137603126",
+          "label": "Holbein von Holbeinsberg, Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137113943",
+          "label": "Holbein von Holbeinsberg, Franz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100844901",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4751014-6",
+        "(DE-588a)100844901",
+        "(DE-101c)310582156",
+        "(DE-588a)130982008",
+        "(DE-588a)134892151"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4109039-1",
+          "label": "Zistersdorf"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Holbein, Franz Ignaz von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz Ignaz"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Holbein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Fontano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Fontano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der Doppelgänger",
+        "Neuestes Theater. - 1822 - 1860",
+        "Der Wunderschrank",
+        "Die Waffenbrüder",
+        "Das Turnier zu Kronstein oder die drey Wahrzeichen",
+        "Der Verstorbene. - [ca. 1814]",
+        "Der Verräther",
+        "Die f",
+        "Theater",
+        "Der Vorsatz",
+        "Die Witwe und der Witwer, oder Treue - bis - in den Tod. - 1826",
+        "Der Brautschmuck"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85034614"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/93990741"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1447416"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=100844901"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100844901/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Franz_Ignaz_von_Holbein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Franz_Ignaz_von_Holbein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109990766"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100844901"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100844901"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_H/Holbein-Holbeinsberg_Franz-Ignaz_1779_1855.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100844901.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100844901.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100844901"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Holbein, Franz I. von",
+        "Holbein, Franz von",
+        "Holbein von Holbeinsberg, Franz Ignatz",
+        "Holbeinsberg, Franz Ignaz Holbein von",
+        "Holbeinsberg, Franz Ignaz von",
+        "Fontano, Franz",
+        "Hollbein, Franz Ignaz von",
+        "Holbein, Franz",
+        "Holbein",
+        "Holbein, F. v.",
+        "Franz, Ignaz",
+        "Holbein, Franz v.",
+        "Von Holbein, Franz",
+        "Hollbein, Franz",
+        "Holbein, Franz Ignaz",
+        "Von Holbein, Franz Ignaz",
+        "Holbein von Holbeinsberg, Franz Ignaz von",
+        "Holbein von Holbeinsberg, Franz Ignaz von, Edler",
+        "Holbein von Holbeinsberg, Franz Ignaz",
+        "Fontano"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbein von Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Franz I."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "surname": [
+            "Holbein von Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignatz"
+          ],
+          "surname": [
+            "Holbein von Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz"
+          ],
+          "surname": [
+            "Franz"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz Holbein"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "nameAddition": [
+            "Edler"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbein von Holbeinsberg"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hollbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "surname": [
+            "Von Holbein"
+          ]
+        },
+        {
+          "personalName": [
+            "Fontano"
+          ]
+        },
+        {
+          "personalName": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Von Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ignaz"
+          ],
+          "surname": [
+            "Holbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Hollbein"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Fontano"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Franz_Ignaz_von_Holbein",
+          "label": "https://de.wikipedia.org/wiki/Franz_Ignaz_von_Holbein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T11:47:15Z",
+    "gnd_query_biographical_data": "1779-1855",
+    "gnd_query_name": "holbein von holbeinsberg, franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1224,
+  "name": "Holbein von Holbeinsberg, Franz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB II, 725",
+  "updated": "2026-06-11 13:29:22.966Z",
+  "uri": "https://d-nb.info/gnd/100844901",
+  "editor": ""
+}

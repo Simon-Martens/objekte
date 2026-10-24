@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Im Zwielichte eines rauhen trüben Novembertages saßen, noch vor dem Ausbruch der Französischen Revolution, vier Jünglinge in gleich trüber Stimmung,",
+  "language": [],
+  "musenalm_id": 63010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verhängniß. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verhängniß. / Erzählung",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.338Z",
+      "agent": "jfhywk4cbxcodws",
+      "source_id": "hq7ujqax3g6v6g2"
+    }
+  ]
+}

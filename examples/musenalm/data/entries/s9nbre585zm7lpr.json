@@ -1,0 +1,115 @@
+{
+  "annotation": "10 Jgg 1795-1804; Jg 1795: Leipzig (Graff); Jg 1796: Leipzig (Rabenhorst), Jgg 1800, 1804 Leipzig (Seeger); Hrsg: J. J. Ebert /) die Jgg 1803 u. 1804 nicht bei Goed; nicht bei L/R, nicht bei K",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 8 BB Kal, S I T, SS III-X Vrwrt d Hrsg, SS XI-XII I-Verz, S 1- 334, 2  MusBB GG, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1795",
+    "norm": "~",
+    "biblio": 100543,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1946,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Graff)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; nicht bei L/R; Goed VIII. 48, 4",
+  "responsibility_statement": "J. J. Ebert",
+  "subtitle_statement": "",
+  "title_statement": "JAHRBUCH / zur / belehrenden Unterhaltung / für junge / DAMEN / von / J. J. Ebert / Profeßor zu Wittenberg. / Erstes Jahr / 1795. / Leipzig / in Commiss. bei den Gebr. Graff",
+  "updated": "2026-06-11 10:18:55.726Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "319445epm51cshs"
+  ],
+  "contents": [
+    "te1534uywxwaul1",
+    "rdr86ut60lgqthd",
+    "uivww1v3tx38t0f",
+    "62wsui2nylx8pcr",
+    "jtzee3geslcdf1a",
+    "v995jegebhhnvb4",
+    "d74wfd4ergci34p",
+    "lcn5a3pdh3lgp8n",
+    "gdbddb99vmcq5c2",
+    "0d43kenficmtrbe",
+    "y0sw6f5jnyfks8a",
+    "029u16tk54ooc4j",
+    "mzxxvwja1tfh43j",
+    "xy1a4dabast9nbr",
+    "ouv8mgpiofzakfq",
+    "y5wtyftn8e2xem6",
+    "2hdr505drbm9xzq",
+    "by1zgyv1nutg3ba",
+    "9hh2yapvnn37wq2",
+    "9utuhixrdt4rjbe",
+    "zwwvy6kruy3kjhl",
+    "l8vjiavs8jxcv7l",
+    "9yq6qj3lc56am02",
+    "5pkhyewcgk12a4v",
+    "wng2cdam3t3kzds",
+    "3zm1evsb9v99v59",
+    "v5q6lleq40k1wp8",
+    "g8v1hei9udshf2l",
+    "3iknbv36nd1c4vy",
+    "ki8vdskdtoh6zde",
+    "cwueep9hxgo1p9j",
+    "rloo5t8tqjwgu92",
+    "0itesvjgb1l3tle",
+    "jehmdpc8hqlmj4w",
+    "60rdxt53q9y0yzo",
+    "9dnahymf24j0tc2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.989Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.989Z",
+      "agent": "pt1hiqrxpeom0l4",
+      "source_id": "5hdvo2blmoomu9g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.925Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.925Z",
+      "agent": "vzeibdcmd7xmhbm",
+      "source_id": "83nz165zh5cdyi1"
+    }
+  ]
+}

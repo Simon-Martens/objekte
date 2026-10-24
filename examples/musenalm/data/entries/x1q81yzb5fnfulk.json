@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, verso G, S 1 T, S 3 nT, S 5 I-Verz, 4 GG, SS 7-152",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Krönungs-Almanach 1830",
+    "norm": "~",
+    "biblio": 409439,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-07-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4447,
+  "parallel_title": "",
+  "place_statement": "Wien (Haykul)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Krönungs-Almanach 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Benedict Freyherr v. Püchler",
+  "subtitle_statement": "",
+  "title_statement": "Krönungs-Almanach / zur / Erinnerung / an das / Krönungs-Jahr / 1830. / Herausgegeben / von / Benedict Freyherrn v. Püchler. / Wien, 1831. / Gedruckt bei Anton v. Haykul",
+  "updated": "2026-06-11 10:18:55.911Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "qbpclwncafjrvgb"
+  ],
+  "contents": [
+    "g22iytmypm3iscr",
+    "6xu8iq1efa8c973",
+    "e11nl1ygvvg827x",
+    "sndz8cz3qcba1jf",
+    "22vvfryh0d7ah3h",
+    "d452qu4f0dxa6k6",
+    "cvhaihft8z83rol",
+    "7iihvy3td5lhpr0",
+    "tom9lngsr2bhqq3",
+    "k3i5grdhdry9zdd",
+    "f3vfvfyr5chu6qk",
+    "mwhotiavrp1r3cd",
+    "my5c8ul5vbgh2pt",
+    "vuktr40t1l458v8",
+    "90jwkc3g4qbnyyl",
+    "p9734lp4069jrfh",
+    "xdryhda2gs850l7",
+    "f7n5u4xqb3h9o30",
+    "71gjr4thawubo9v",
+    "u86st10578hcn5q",
+    "uts7p37zo5ykr56",
+    "b6f6puch9ttqptd",
+    "ixcp6zqs5w5oqm5",
+    "inuymuzkhf682tj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.975Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.975Z",
+      "agent": "n9qzyyjzynr4we5",
+      "source_id": "oh9d1syghvwn17l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.381Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.381Z",
+      "agent": "dpehzj7q4mv45vc",
+      "source_id": "ufm3v2mnca5ktji"
+    }
+  ]
+}

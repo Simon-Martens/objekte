@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlr. Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Weh' Granada! Weh', Granada! / Warum herrscht in Deinen Mauern / Also bange Stille?",
+  "language": [],
+  "musenalm_id": 75402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Esperanza de Hita. / In vier und zwanzig Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Esperanza de Hita. / In vier und zwanzig Romanzen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.749Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "p2z3hpi80h1jsqr"
+    }
+  ]
+}

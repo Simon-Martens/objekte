@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf der Reise (Sammlung INr 45400, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Heut da ich ging das Dorf hinab, / Die Buben und Mädchen gafften mich an,",
+  "language": [],
+  "musenalm_id": 45408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.522Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "o9p0qnpfgy1ay54"
+    }
+  ]
+}

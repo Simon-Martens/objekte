@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Kann der Baum von der Wurzel lassen, / Die ihn trägt? / Muß nicht der Epheu den Stamm umfassen, / Der ihn hegt?",
+  "language": [],
+  "musenalm_id": 46461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kann der Baum von der Wurzel lassen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emmy Freiin von Dincklage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kann der Baum von der Wurzel lassen",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.527Z",
+      "agent": "wv0ljb4mcunvv0n",
+      "source_id": "85m7u4gj5xmuu0q"
+    }
+  ]
+}

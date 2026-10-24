@@ -1,0 +1,262 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.496Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1783-11-05"
+      ],
+      "dateOfDeath": [
+        "1843-04-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Friedrich August Tischbein"
+          ],
+          "creditText": [
+            "https://www.karlundfaber.de/produkt/brustbild-der-caroline-tischbein/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Brustbild%20der%20Caroline%20Tischbein%20by%20Johann%20Friedrich%20August%20Tischbein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Brustbild%20der%20Caroline%20Tischbein%20by%20Johann%20Friedrich%20August%20Tischbein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Brustbild%20der%20Caroline%20Tischbein%20by%20Johann%20Friedrich%20August%20Tischbein.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1159357226"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-09T18:10:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb107",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb107"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/103405063X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb107",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb107"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Tischbein"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119010186",
+          "label": "Tischbein, Johann Friedrich August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117384259",
+          "label": "Wilken, Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "103405063X",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/119010186",
+          "label": "Tischbein, Johann Friedrich August"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117384259",
+          "label": "Wilken, Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/103405063X",
+      "oldAuthorityNumber": [
+        "(DE-588)1159357226"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003019-2",
+          "label": "Bad Arolsen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Wilken, Caroline",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Caroline"
+        ],
+        "surname": [
+          "Wilken"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037223-6",
+          "label": "Malerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4394819-4",
+          "label": "Zeichnerin"
+        }
+      ],
+      "publication": [
+        "Der Geschichtschreiber Friedrich Wilken. - 1896"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/299590624"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q63485894"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103405063X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1159357226"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/103405063X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/103405063X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/103405063X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Tischbein, Caroline",
+        "Wilken, Karoline"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Tischbein"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Wilken"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:11:00Z",
+    "gnd_query_biographical_data": "1783-1843",
+    "gnd_query_name": "tischbein, caroline"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2911,
+  "name": "Tischbein, Caroline",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXIII, 206",
+  "updated": "2026-06-11 13:29:25.427Z",
+  "uri": "https://d-nb.info/gnd/103405063X",
+  "editor": ""
+}

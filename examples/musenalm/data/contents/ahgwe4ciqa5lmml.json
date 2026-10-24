@@ -1,0 +1,45 @@
+{
+  "annotation": "; Gedicht in drei Theilen; Anm. am Objekt: Siehe das Lied auf Josephs zweyte Reise, gesungen 1769 in Sineds Liedern S. 153",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Blick aus zur Halle, Knabe! Sineds Brust / Beginnet schwer zu athmen. Daß vielleicht / Ein Wetter sich an fernen Bergen hebt.",
+  "language": [],
+  "musenalm_id": 135690,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zwist der Fürsten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sined",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zwist der Fürsten",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.153Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "37z32y71h0ydtsm"
+    }
+  ]
+}

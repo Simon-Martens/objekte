@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Seht, wie in buntgemischten Haufen / Die Menschen hin und wieder laufen!",
+  "language": [],
+  "musenalm_id": 128732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey / Eröffnung eines Liebhaber-Concerts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey / Eröffnung eines Liebhaber-Concerts",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.961Z",
+      "agent": "cxnpeuic3nrym95",
+      "source_id": "txtgo6b9dxkqs8t"
+    }
+  ]
+}

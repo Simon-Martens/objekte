@@ -1,0 +1,83 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Wallis",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 4 BB Kal, SS 1-386 darin 7 GG, 4 SS I-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1820",
+    "norm": "~",
+    "biblio": 200430,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 720,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1820. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.165Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "x2e4zrxdqnel92f"
+  ],
+  "contents": [
+    "4fz2rq7ggt4beuz",
+    "g66122cy1yc0qev",
+    "ckzkzqwv5r98x93",
+    "surqghqv9uqeatf",
+    "7dbmbrqoy4392v0",
+    "es2rpyyr2uvjf8d",
+    "k46dmzp3llrjg4c",
+    "eapk9131i72i2a7",
+    "oz9e0td5ggerv18",
+    "v8o39o8ykw4wy4l",
+    "pm964c3aqzvj9r2",
+    "rjt0z91sijip3ha",
+    "lo8y0v0pfch1dme",
+    "i72hifp736n2f58",
+    "exw24csnr9dfns6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.118Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.118Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "xgj4ekg4ku82w59"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen-Kranz (Sammlung INr 63753, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Es steht im wilden Forste / Ein einsam Jägerhaus;",
+  "language": [],
+  "musenalm_id": 63756,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Das Todtenbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Ed.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Das Todtenbild",
+  "updated": "2009-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.053Z",
+      "agent": "2k8x09vp5cub27j",
+      "source_id": "l1cvc16209kt4zh"
+    }
+  ]
+}

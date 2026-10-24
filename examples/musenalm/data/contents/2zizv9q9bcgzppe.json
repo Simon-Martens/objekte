@@ -1,0 +1,56 @@
+{
+  "annotation": "2 Sammlungen mit 11 Beiträgen INr 28288-28298, Obj 20-30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apologen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streithorst und Nachtigal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Apologen",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.423Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "8t9u1tcu9dezfqo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.423Z",
+      "agent": "8ory2boej7zqotd",
+      "source_id": "thl8uqrp909miud"
+    }
+  ]
+}

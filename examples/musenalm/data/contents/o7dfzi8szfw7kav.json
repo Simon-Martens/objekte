@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51962, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gegend von Näfels und Mollis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Keller del. ad nat. J. H. Meyer sc.",
+  "scans": [
+    "alm_709_51950_6g6m176kfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gegend von Näfels und Mollis",
+  "updated": "2007-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.320Z",
+      "agent": "hp3ztaqa2ipzjih",
+      "source_id": "axvckx5xiv1g49q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.320Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "qn3fhu4k1bged3i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 131163, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Die Sonne sinkt, der Tag geht hin in Frieden / Und von den Sternen wehen leise Lüfte,",
+  "language": [],
+  "musenalm_id": 131165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sonne sinkt, der Tag geht hin in Frieden / Und von den Sternen wehen leise Lüfte,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.023Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "03ve7ewp714bsz5"
+    }
+  ]
+}

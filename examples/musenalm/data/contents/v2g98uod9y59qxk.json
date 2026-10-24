@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 63132-63137, Obj 8-13 als Textbezüge zu den Graphiken INr 63138-63143, Obj 14-19 /) Fortsetzung der Sammlungen INr 62941 ff aus: Cornelia 1824; INr 62973 ff  aus: Cornelia 1825",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63131,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / (Dichtungen von Karl Geib)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / (Dichtungen von Karl Geib)",
+  "updated": "2009-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.113Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "1ud48423rmtgfcy"
+    }
+  ]
+}

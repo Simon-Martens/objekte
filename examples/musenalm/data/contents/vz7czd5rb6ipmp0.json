@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Nicht freudig ist der Ton der Leier, / Wie sonst zu heitrer Festesfeier;",
+  "language": [],
+  "musenalm_id": 65714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 283,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In ein Stammbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In ein Stammbuch",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.273Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "ycmmgvhh0cfm12k"
+    }
+  ]
+}

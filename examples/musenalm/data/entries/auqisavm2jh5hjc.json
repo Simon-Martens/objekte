@@ -1,0 +1,115 @@
+{
+  "annotation": "K 79 gibt lediglich Jg 1818 an /) KVK, Landesbibliothekenverbund Österreich Südtirol: Jgg 1803, 1805, 1813, 1814, 1816, 1818, 1820, 1823, 1824, 1826, 1829, 1830 /) Der Almanach ähnelt in Format und Ausstattung dem Jg 1820 von: Der Freund des schönen Geschlechts 1820; alm-984 /) für: Der Freund des schönen Geschlechts: K 48; L/R 64; Goed VIII. 61, 68a",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 5 GG, 17 SS Kal darin 6 GG, 7 SS, S 1 nT, SS 1-120",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Modealmanach für Damen 1819",
+    "norm": "~",
+    "biblio": 407876,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3952,
+  "parallel_title": "",
+  "place_statement": "Wien (Müllner)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Modealmanach für Damen 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 79, nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "MODE / ALMANACH für / DAMEN / auf das Jahr / 1819. / Wien, / bey Georg Müllner, bürgerlicher / Buchbinder in der Singerstrasse / im Curhaus",
+  "updated": "2026-06-11 10:18:56.020Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "9lcoqq1clf6fb2j"
+  ],
+  "contents": [
+    "3qmnadw2kc7k9au",
+    "ivt49qvjsj6vslk",
+    "zeunows3syvknfa",
+    "wx2grj5t9v3b0df",
+    "9jxjurf5p9vnco1",
+    "unc8ftfv2k2z8ib",
+    "1b7xgecddg32r13",
+    "m4zi6b9jfu6xr23",
+    "y84vezs356d7vsg",
+    "0lfsmkjorc4htlt",
+    "g2wdetzvvuf3cfm",
+    "59nr5xzdyuvwqg4",
+    "fgjldjgrq48sbvl",
+    "rw60kzcs1eyh9cl",
+    "mjjghdmc9d7mohn",
+    "um9myvs7s269ele",
+    "eatfe4rjym1ufrw",
+    "8p1xb9ewzkhbsbj",
+    "9kanp7o6o6ls7kl",
+    "0zchq7bcl20a8tg",
+    "97608axbuccqw7m",
+    "kqbcbgjgd76fx3e",
+    "5mwzeq5o2fbzxaz",
+    "btb0ift7tft3w98",
+    "r1j38hatsjm21p2",
+    "p3bo9jogavukyfl",
+    "82ubt3jxwi1i64j",
+    "y0u7syz86m8qlq8",
+    "dwscelpi1lprrky",
+    "ditqqsj3d7podgh",
+    "2i9uylqp3yhvl7h",
+    "0q26wzbc36z5yip",
+    "sa9zuiy1rnkj57e",
+    "vi4srnqvypmdw4x",
+    "rwsxw1z4an47uds",
+    "lqyeu73hs1vfzce",
+    "ecoeywh81sr1ixh",
+    "3ampsph78r2z2oe",
+    "rdzsmmf7dkl0zhe",
+    "hwkkao8r9c3087h",
+    "99cvkr2qxwynylg",
+    "vbps9et61ip77wj",
+    "hicrslv4p7y1nns",
+    "vszatmufrrdef8d",
+    "dfxj7cgp3grqprg",
+    "ls3e0bskeib4e01",
+    "ox4zr9pg0zdqeru"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.109Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.109Z",
+      "agent": "z3th13h6qnjn069",
+      "source_id": "0xf5bpg4rm8bybe"
+    }
+  ]
+}

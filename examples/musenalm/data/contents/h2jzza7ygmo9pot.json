@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7215,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANECDOTEN / Peter des Großen / CXVI Anecd.: einer Weissagung seiner Geburth. / p. 31",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7215_qnmlnun9g7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANECDOTEN / Peter des Großen / CXVI Anecd.: einer Weissagung seiner Geburth. / p. 31",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.204Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "evq1qw4z7cwl6ik"
+    }
+  ]
+}

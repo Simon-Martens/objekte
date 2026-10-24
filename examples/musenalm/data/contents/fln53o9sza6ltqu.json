@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 130352, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130351,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon und Wieland #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. V. Schnorr fec. 1809. die Aqua Tinta v. J. B. Hössel",
+  "scans": [
+    "alm_2207_130351_uv20ftptsh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon und Wieland #",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.067Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "vw75pfx4pitupfa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.067Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "xo9bqtz4mvdnsfe"
+    }
+  ]
+}

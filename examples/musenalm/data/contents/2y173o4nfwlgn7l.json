@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Krieg war am Fuldastrohm, gebracht ihm von dem / Rhein, / Das feste Kaßel schloß in Maur, und Wall ihn ein.",
+  "language": [],
+  "musenalm_id": 93226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Niederreißung der Festungswerke / von Kassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Casparson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Niederreißung der Festungswerke / von Kassel",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.391Z",
+      "agent": "xjgdi1e39al6bmi",
+      "source_id": "1xwgh1s3qipotr0"
+    }
+  ]
+}

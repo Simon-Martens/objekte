@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86357, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Was kümmert mich das Gewimmel / Der funkelnden Sterne am Himmel?",
+  "language": [],
+  "musenalm_id": 86358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Astronomie und Gastronomie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Astronomie und Gastronomie",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.193Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "4mqd0qg8on2h8q1"
+    }
+  ]
+}

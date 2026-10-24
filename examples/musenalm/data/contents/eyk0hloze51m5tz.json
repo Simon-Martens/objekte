@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Ausgabe des Allmanachs ist nach meiner Zurückkehr von einer Reise geschehen; aber ich bin zu voll von den glorreichen Begebenheiten der neuern Zeitgeschichte,",
+  "language": [],
+  "musenalm_id": 60160,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beylage zum Revolutions-Almanach / von 1797. / Vom Herausgeber desselben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beylage zum Revolutions-Almanach / von 1797. / Vom Herausgeber desselben",
+  "updated": "2008-09-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.038Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "289khr66b669jma"
+    }
+  ]
+}

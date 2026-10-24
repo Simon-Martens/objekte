@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Fünf Tage unter den Waldensern des westlichen Piemonts« von S. Brunner INr 54217, Obj 39 /) unter der Graphik: Alpenrosen 1827",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Latour. Hauptort der Waldenser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. B. del. Juillerat exec. D. Burgdorfer sculp.",
+  "scans": [
+    "alm_739_54218_i64dzje00f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Latour. Hauptort der Waldenser",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "xh6k6nw5l5dihva",
+      "source_id": "4gl5mzd2c13swzq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "hcnxo5n6sx3vi6r"
+    }
+  ]
+}

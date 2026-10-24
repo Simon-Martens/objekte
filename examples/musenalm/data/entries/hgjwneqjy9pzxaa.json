@@ -1,0 +1,93 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S Vrwrt d Hrsg, SS 1-390, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bilder, Politische aus der Zeit 1847",
+    "norm": "~",
+    "biblio": 408374,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4084,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Verlagsbureau)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Bilder, Politische aus der Zeit 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Arnold Ruge",
+  "subtitle_statement": "",
+  "title_statement": "Politische Bilder / aus der Zeit / Herausgegeben / von / Arnold Ruge. / Erster Band. / Leipzig. / VERLAGSBUREAU. / 1847",
+  "updated": "2026-06-11 10:18:55.541Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "h9bic2x7hd6hl4t"
+  ],
+  "contents": [
+    "m4mf6gcf84zo7ti",
+    "d6nxqq6kximzz6s",
+    "cjx8zzm1l8z76bp",
+    "fy03tginyrk1vvg",
+    "3gc3v0bax7q42fl",
+    "a1309ub6ta60e1e",
+    "fz4p78vzbeb55hf",
+    "b7up2v6lgnagdsa",
+    "giewj2mmrfdskiy",
+    "ev00esbp40fzvkn",
+    "7jcbae5gjfmi6fx",
+    "hyf5eo8tf0m6x4t",
+    "u6cfam1n7n70v8k",
+    "kxsoz96uxexjktq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "7qbkkz8j89sikwy",
+      "source_id": "nzcmoqmhcw33n2q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.330Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.330Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "ss3u57pezxju9ri"
+    }
+  ]
+}

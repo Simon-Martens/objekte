@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel (Sammlung INr 22901, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Wer nennt mir den Phönix, der Asche ent- / sprossen, / der Mutter in glühende Thränen zerflossen?",
+  "language": [],
+  "musenalm_id": 22903,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Phönix",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Phönix",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.005Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "448n8fsrf9sguru"
+    }
+  ]
+}

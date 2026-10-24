@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 31880, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Ich lag am Baum des Glücks mit heißem / Sehnen, / Und blickt' empor nach seiner schönsten Blüthe,",
+  "language": [],
+  "musenalm_id": 31883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.393Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "if04tnrap3mkato"
+    }
+  ]
+}

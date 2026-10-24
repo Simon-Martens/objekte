@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: HeBis weist Jgg 1808-1817 nach",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, St. Petersburger 1812",
+    "norm": "",
+    "biblio": 100475,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3190,
+  "parallel_title": "",
+  "place_statement": "St. Petersburg (Kaiserl. Akademie der Wissenschaften)",
+  "places": [
+    "isncrim54ia4qr9"
+  ],
+  "preferred_title": "Taschenkalender, St. Petersburger 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K ; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "St. Petersburger / Taschen-Kalender / auf das Jahr / nach Christi Geburt / 1812, / welches ein Schalt-Jahr ist / von 366 Tagen. / St. Petersburg, / bei der Kaiserl. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.201Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "h1xtb8xgsguskxs"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "xjqo0inad6piuda",
+      "source_id": "dsrkkoabrp0tbdf"
+    }
+  ]
+}

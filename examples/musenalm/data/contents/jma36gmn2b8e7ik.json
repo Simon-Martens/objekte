@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Umsonst, so klagte Thrysis seine Quaal, für mich umsonst, ihr gütigen Nymphen, schwebt angenehme Kühlung in diesem Schatten,",
+  "language": [],
+  "musenalm_id": 92465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tharsis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geßner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tharsis",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.439Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "befajdm3o2g7xx1"
+    }
+  ]
+}

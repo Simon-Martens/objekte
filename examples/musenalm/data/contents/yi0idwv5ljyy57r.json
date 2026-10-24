@@ -1,0 +1,45 @@
+{
+  "annotation": "Reliquien aus dem Stammbuche eines Dichters (Sammlung INr 54337, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Wunderbar durch Glanz und Trübe / Wird der Geist uns angefacht.",
+  "language": [],
+  "musenalm_id": 54345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.541Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "t4th0mnjvrwkma0"
+    }
+  ]
+}

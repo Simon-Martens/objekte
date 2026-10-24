@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich glaube, daß es einem gutgearteten und tugendhaften Frauenzimmer kein unangenehmes Geschenk seyn wird, wenn demselben ein Buch in die Hände geliefert wird, das solche Wahrheiten enthält, die dessen Karakter angemessen sind.",
+  "language": [],
+  "musenalm_id": 87598,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.186Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "brhz9k50jh22aks"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 100017, 100018; Obj 181, 182 /) Anm. an der Sammlung: Siehe des Verfassers frühere »Federzeichnungen nach der Natur« in seiner Schrift: »Im Grünen. Naturbilder, Märchen und Arabesken« Berlin, Fr. Duncker 1853",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 180,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neue Bilder aus der Pflanzenwelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Osterwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neue Bilder aus der Pflanzenwelt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.894Z",
+      "agent": "srb5p67tufd1pp2",
+      "source_id": "nktzoxw4rjnq5mu"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) kol. Illustration zu »Anekdoten zu Friedrich der Sechste, König von Dänemark und Norwegen, Anekdote INr 130413, Obj 35  « lt. G-Verz: Friedrich VI., König von Dänemark belohnt den tapfern Seekapitain Krieger",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg. die Aqua Tinta von J. B. Hoessel in Altenburg 1809)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg. die Aqua Tinta von J. B. Hoessel in Altenburg 1809",
+  "scans": [
+    "alm_2207_130415_140vteoxeo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.070Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "92gj6808evwhjp8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.070Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "tlsvuvhz5jm12n1"
+    }
+  ]
+}

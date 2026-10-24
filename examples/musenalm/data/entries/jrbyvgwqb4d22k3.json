@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelauflage von 1795; erweitert um die Tabelle »Einige der vorzüglichsten Postrouten durch Deutschland wozu die vornehmsten Städte Deutschlands als Mittelpunct angenommen sind«; mit beigegebener Karte",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 13 SS Kal dazu 12 SS Tab, S I-Verz u C, Kr, ar: SS 1-88, ar1: SS 1-208, SS 209-264 Tabb, SS 265-266 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1798",
+    "norm": "",
+    "biblio": 407210,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2023-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4843,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Walther)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Taschenbuch für Reisende jeder Gattung durch Deutschland 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 143 #; L/R 145 #",
+  "responsibility_statement": "Joh. Chr. Fick",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Reisende jeder Gattung / durch Deutschland / auf das Jahr / 1798. / von / Joh. Chr. Fick / Lehrer am illust. Gymn. zu Erlangen. / Erlangen / zweyte veränderte und vermehrte Auflage. / Erlangen / in der Waltherschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.062Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "ifkodd69fwcynon"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "hgipdt1djucx1dr",
+      "source_id": "59t6sd04486ygsa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.432Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.432Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "sl0815jma06pfpc"
+    }
+  ]
+}

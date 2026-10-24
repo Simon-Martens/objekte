@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Gedicht: Hastings 1855",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "O Erde, geliebte Mutter, / Wie lockst du alle Lebendigen / An deinen Busen zurück zum Genuß,",
+  "language": [],
+  "musenalm_id": 100073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die große Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Kinkel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die große Mutter",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.879Z",
+      "agent": "xohpn56jqt8nmfq",
+      "source_id": "mvy91w3vxkijlaa"
+    }
+  ]
+}

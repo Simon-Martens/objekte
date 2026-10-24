@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Lorbeer und Myrthe. Künstler-Novelle« von M. Niesner INr 112546, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie und Anna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_2474_112548_x3etayy3wx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie und Anna",
+  "updated": "2010-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.468Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "kooqmx5inmcpciu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.468Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "twn4rsottrtspd3"
+    }
+  ]
+}

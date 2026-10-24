@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 58752, Obj 23) s. Karte im Kalendarium INr 58743, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Die Karte von Vorder-Indien, welche zugleich die nächsten Nachbarländer von Persien, Turkestan, Tibet, China und Hinter-Indien umfaßt,",
+  "language": [],
+  "musenalm_id": 58763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII.",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.943Z",
+      "agent": "wdbytwydwlmkyu9",
+      "source_id": "9ey0gzair7o0hhj"
+    }
+  ]
+}

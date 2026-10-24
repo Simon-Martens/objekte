@@ -1,0 +1,474 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-1807",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1073062147",
+          "label": "A. G. Meißner (Prag)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1772 Studium der Rechtswissenschaften Universität Wittenberg; 1774-1776 Universität Leipzig; 1776-1785 Geheimer Archivs-Registrator in Dresden; Dt. Philosoph und Schriftsteller; Professor; nassauischer Konsistorialrat in Fulda"
+      ],
+      "dateOfBirth": [
+        "1753-11-03"
+      ],
+      "dateOfDeath": [
+        "1907-02-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "undiscernible from the scan"
+          ],
+          "creditText": [
+            "A. G. Meißners sämmtliche Werke, Bd. 1, 1813; via http://www.google.de/books?id=nityOeAAvm8C&amp;pg=PT10"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Gottlieb%20Mei%C3%9Fner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Gottlieb%20Mei%C3%9Fner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:August%20Gottlieb%20Mei%C3%9Fner.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:46:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100308023/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna Cristiana Elisabeth"
+          ],
+          "surname": [
+            "Becker"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118580310",
+          "label": "Meißner, Alfred von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136781055",
+          "label": "Meißner, Abraham Gottlieb"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100308023",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/118580310",
+          "label": "Meißner, Alfred von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136781055",
+          "label": "Meißner, Abraham Gottlieb"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100308023",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)100308023",
+        "(DE-588c)7563308-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4018859-0",
+          "label": "Fulda"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4004968-1",
+          "label": "Bautzen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4018859-0",
+          "label": "Fulda"
+        }
+      ],
+      "preferredName": "Meißner, August Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August Gottlieb"
+        ],
+        "surname": [
+          "Meißner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "publication": [
+        "Meißner, August G.: Der Schachspieler",
+        "Meißner, August G.: Bianca Capello",
+        "Meißner, August G.: Anekdoten zu Nushirwans Leben",
+        "Meißner, August G.: Epaminondas. - 1798 - 1801",
+        "Meißner, August G.: Alcibiades. - 1781 - 1788",
+        "Meißner, August G.: Der unsichtbare Kundschafter",
+        "Meißner, August G.: Criminalgeschichten",
+        "Meißner, August G.: Fabeln",
+        "Meißner, August G.: Johann von Schwaben"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11994048p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83041691"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44308263"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214593"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100308023/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Gottlieb_Mei%C3%9Fner"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Gottlieb_Mei%C3%9Fner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/August_Gottlieb_Mei%C3%9Fner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011025781X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100308023"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100308023"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100308023.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100308023.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100308023"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/100308023"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Mesner",
+        "Meissner, A. G.",
+        "Mßnr.",
+        "Meisner, A. G.",
+        "Meisnerus, Augustus Gottlieb",
+        "Meissner",
+        "Meisner, August Gottlieb",
+        "Meißner, A. G.",
+        "Maizner",
+        "Mr.",
+        "Meissner, August Gottlieb"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Mr."
+          ]
+        },
+        {
+          "forename": [
+            "August Gottlieb"
+          ],
+          "surname": [
+            "Meissner"
+          ]
+        },
+        {
+          "forename": [
+            "August Gottlieb"
+          ],
+          "surname": [
+            "Meisner"
+          ]
+        },
+        {
+          "personalName": [
+            "Mßnr."
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Meissner"
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Meißner"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Gottlieb"
+          ],
+          "surname": [
+            "Meisnerus"
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Meisner"
+          ]
+        },
+        {
+          "personalName": [
+            "Maizner"
+          ]
+        },
+        {
+          "personalName": [
+            "Mesner"
+          ]
+        },
+        {
+          "personalName": [
+            "Meissner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Gottlieb_Mei%C3%9Fner",
+          "label": "https://de.wikipedia.org/wiki/August_Gottlieb_Mei%C3%9Fner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:14:36Z",
+    "gnd_query_biographical_data": "1753-1807",
+    "gnd_query_name": "meißner, august gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1774,
+  "name": "Meißner, August Gottlieb",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 600; Goed VI, 733",
+  "updated": "2026-06-11 13:29:23.763Z",
+  "uri": "https://d-nb.info/gnd/100308023",
+  "editor": ""
+}

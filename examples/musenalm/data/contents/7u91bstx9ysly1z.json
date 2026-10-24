@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium. # Bezeichnung am letzten Blatt der Suite; s. Textbezüge INr 34968-34971, 34973-34978; Obj 15-24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34963,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margaretha von Valois / Gemahlin Heinrichs IV.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_443_34963_oiizus9slv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Margaretha von Valois / Gemahlin Heinrichs IV.",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.682Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "3haet7nb10kajj0"
+    }
+  ]
+}

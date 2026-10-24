@@ -1,0 +1,46 @@
+{
+  "annotation": "Dem Text vorangestellt: Hoch preis' ich deine Freuden, / Natur, so lang ich bin! [...] /) mit einigen poetischen Beigaben und Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Jeder spielet seine Rolle in diesem Leben, selbst aufschreiben aber kann sie keiner bis zum Ende - aus der natürlichsten aller Ursachen.",
+  "language": [],
+  "musenalm_id": 66990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Selbstbiographie / des hoffentlich noch nicht ganz vergessenen er- / sten Herausgebers eines Taschenbuches für / Forst- und Jagdfreunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. C. E. H. F. v. Wildungen, Kurfürstlich Hessischer Oberforstmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Selbstbiographie / des hoffentlich noch nicht ganz vergessenen er- / sten Herausgebers eines Taschenbuches für / Forst- und Jagdfreunde",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.144Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "cbevqqbwdfljtv3"
+    }
+  ]
+}

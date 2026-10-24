@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, T, 6 GG, S VrlgM, 16 SS Kal darin 6 GG, 7 SS Tabb, S 1 nT, SS 3-119, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1826",
+    "norm": "~",
+    "biblio": 411202,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 990,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "Dr. Franz Rittler",
+  "subtitle_statement": "",
+  "title_statement": "DER / FREUND / DES / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1826. / Verfasst von / Dr. FRANZ RITTLER. / WIEN / bey Jos. Riedls sel. Wittwe, / im Schottenhofe No.136",
+  "updated": "2026-06-11 10:18:54.674Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "r7ybsp3l03kz1ew"
+  ],
+  "contents": [
+    "ebm6yugoggoi0sj",
+    "k6t3yw43lje6u2k",
+    "3sqcecebqwnh02d",
+    "592p89s6xq4j7kc",
+    "ay646j2js4ygb4e",
+    "scwf54scxchjss5",
+    "miso6xi20r8fcnb",
+    "xpr9o6ebky43quz",
+    "4e68wu1d7fos2f9",
+    "j55eimcsngfrorh",
+    "vf9pg1c0i4loi06",
+    "pbszjh8kw5xw8nj",
+    "3lvj7r9qjvnvq30",
+    "oxqttdbygmq8u15",
+    "0pym9dx436dj422",
+    "px7vpcudvw4bnqi",
+    "ot2v97bd34s8ufs",
+    "hzw6fv9p3hnpy03",
+    "9s5upo9pdaz5vio",
+    "0i2eupi270xhyah",
+    "j4aii9wa55i4ro1",
+    "chn7ab8j690omhg",
+    "0zrt7ig4yyiwje3",
+    "pempt468b4wsm44",
+    "7z36u22fqiwgp1j",
+    "2egm1w3azyxtp8h",
+    "gg0lkv4mp6lufja",
+    "m4e4uuwdq4ktz8i",
+    "twigykb6lbr3k1d",
+    "go7b1bfu2kd5f9t",
+    "ymctwm4y1fxr268",
+    "s9hyzu0ddbzr5g4",
+    "ny0kg6z06wnh4jz",
+    "1pgr00v22antbzm",
+    "znnqzvooncow0l7",
+    "i8rkd6c8jlub44f"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.787Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.787Z",
+      "agent": "9ln1r7p8kwjoxp7",
+      "source_id": "054xjmnu7zjt2wv"
+    }
+  ]
+}

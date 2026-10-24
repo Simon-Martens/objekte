@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Als Unschuld, Redlichkeit und unbe- / fang'ne Sitten / Weit von der über feinen Menschenclasse",
+  "language": [],
+  "musenalm_id": 31588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GENESIS DER WÜNSCHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GENESIS DER WÜNSCHE",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.116Z",
+      "agent": "h2r7vychlnktmwb",
+      "source_id": "jznch1arxt0sl9p"
+    }
+  ]
+}

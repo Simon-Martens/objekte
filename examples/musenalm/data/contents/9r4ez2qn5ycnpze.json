@@ -1,0 +1,45 @@
+{
+  "annotation": "Salomonische Lieder (Sammlung INr 18044, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Töchter, ich beschwör' euch, sucht den Lieb- / ling mir! / Sagt, wenn ihr ihn seht,",
+  "language": [],
+  "musenalm_id": 18049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Sulamith",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Sulamith",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.779Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "8h58bh5p1oajvyj"
+    }
+  ]
+}

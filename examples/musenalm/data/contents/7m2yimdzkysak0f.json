@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz. s. Textbezug INr 51709, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51711,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Canton Luzern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Keller; Senn",
+  "scans": [
+    "alm_704_51711_pfg22bpghv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Canton Luzern",
+  "updated": "2007-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.625Z",
+      "agent": "hp3ztaqa2ipzjih",
+      "source_id": "04qlm33ppmntpxm"
+    }
+  ]
+}

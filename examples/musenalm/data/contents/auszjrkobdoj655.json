@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 6. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79993,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König unterschreibt der Nat. Vers. / die neue Constitution der Franken. / Den 14ten Sept. 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau inventit 1792 J. B. M. Dupreel sculp.",
+  "scans": [
+    "alm_3775_79993_6o2gzcr7yn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der König unterschreibt der Nat. Vers. / die neue Constitution der Franken. / Den 14ten Sept. 1791",
+  "updated": "2012-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.922Z",
+      "agent": "e31tdrv7ukpd3de",
+      "source_id": "tizqhbtgppjxlda"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.922Z",
+      "agent": "6v2mea0laepybs2",
+      "source_id": "zhezidnaukdglc3"
+    }
+  ]
+}

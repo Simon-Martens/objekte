@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten mit einer Illustration INr 28929-28933, Obj 32-36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Gedichte",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.197Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "evpmiox0dvahu5s"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Felseninsel aus Granit, / Mitten hoch im Länder-Meer / Das sich brausend um dich her / Mit den blut'gen Wogen zieht,",
+  "language": [],
+  "musenalm_id": 52954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Schweiz. / Im Jahr 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Schweiz. / Im Jahr 1813",
+  "updated": "2007-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.769Z",
+      "agent": "v63rmmxw84k8ut2",
+      "source_id": "mynxv3pk5heqsqc"
+    }
+  ]
+}

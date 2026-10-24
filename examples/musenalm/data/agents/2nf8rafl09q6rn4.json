@@ -1,0 +1,1052 @@
+{
+  "annotation": "",
+  "biographical_data": "1775-1854",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.466Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1775-01-27"
+      ],
+      "dateOfDeath": [
+        "1854-08-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Hermann Biow (1804–1850), Berlin"
+          ],
+          "creditText": [
+            "https://www.europeana.eu/en/item/2064137/Museu_ProvidedCHO_Bildarchiv_Foto_Marburg_obj00075987"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Wilhelm%20Joseph%20Schelling%2C%201848%20daguerreotype%20-%20cropped.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Wilhelm%20Joseph%20Schelling%2C%201848%20daguerreotype%20-%20cropped.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Wilhelm%20Joseph%20Schelling%2C%201848%20daguerreotype%20-%20cropped.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-24T10:14:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118607057/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10057181",
+          "label": "http://lod.gesis.org/thesoz/concept_10057181"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117216909",
+          "label": "Schelling, Gottliebin Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117217050",
+          "label": "Schelling, Paul Heinrich Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117216631",
+          "label": "Schelling, Carl Friedrich August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117216941",
+          "label": "Schelling, Hermann von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11721695X",
+          "label": "Schelling, Joseph Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607049",
+          "label": "Schelling, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123905877",
+          "label": "Cless, Wilhelm Jeremias Jakob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119059142",
+          "label": "Waitz, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116417234",
+          "label": "Eichhorn, Hermann von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122857526",
+          "label": "Schelling, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1343130352",
+          "label": "Schelling, Gottlieb Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10220022X",
+          "label": "Schelling, August Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11929026X",
+          "label": "Schelling, Karl Eberhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607065",
+          "label": "Schelling, Pauline von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "118607057",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117216631",
+          "label": "Schelling, Carl Friedrich August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117217050",
+          "label": "Schelling, Paul Heinrich Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117216941",
+          "label": "Schelling, Hermann von"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/122857526",
+          "label": "Schelling, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123905877",
+          "label": "Cless, Wilhelm Jeremias Jakob"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/11721695X",
+          "label": "Schelling, Joseph Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117216909",
+          "label": "Schelling, Gottliebin Maria"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/10220022X",
+          "label": "Schelling, August Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1343130352",
+          "label": "Schelling, Gottlieb Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11929026X",
+          "label": "Schelling, Karl Eberhard"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118607057",
+      "oldAuthorityNumber": [
+        "(DE-588a)131236938",
+        "(DE-588a)118607057",
+        "(DE-588c)4052231-3",
+        "(DE-588a)126779120",
+        "(DE-588a)160479533",
+        "(DE-588a)127158022"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Шеллинг, Фридрих Вильгельм Йозеф фон"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035369-2",
+          "label": "Leonberg (Landkreis Böblingen)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4103547-1",
+          "label": "Bad Ragaz"
+        }
+      ],
+      "preferredName": "Schelling, Friedrich Wilhelm Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Wilhelm Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schelling"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Bonaventura"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schnurrer, Christian Friedrich von: Antiquissimi de prima malorum humanor. origine philosophematis Genes. III. explicandi tentamen crit. et philos",
+        "Bruno, oder über göttliche und natürliche Prinzipien ...",
+        "Über die Gottheiten von Samothrace",
+        "Rede zum zwei und siebzigsten in der öff. Sitzung ...",
+        "Darlegung des wahren Verhältnisses der Naturphilolosophie zu der verbesserten Fichte'schen Lehre",
+        "Vom Ich als Princip der Philosophie ...",
+        "Philosophie und Religion",
+        "System des transcendentalen Idealismus",
+        "Erster Entwurf eines Systems der Naturphilosophie",
+        "Ideen zu einer Philosophie der Natur"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb123008512"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79003281"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/88933257"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D48385.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60070"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118607057"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118607057/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Wilhelm_Joseph_Schelling"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Joseph_Schelling"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Wilhelm_Joseph_Schelling"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Wilhelm_Joseph_Schelling"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122827680"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118607057"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118607057"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607057.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607057.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118607057"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118607057"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schelling, Friedrich Wilhelm",
+        "Schelling, Friedrich-Wilhelm Joseph",
+        "Šeling, Fridrih V. J.",
+        "Schelling, Friedrich W. v.",
+        "Sheringu",
+        "Seling, F. V. J.",
+        "Šilīng, Frīdrīš Wīlhilm Yūzif",
+        "Schelling, Friedrich Wilhelm von",
+        "Schelling, Friedrich Wilhelm Josef",
+        "Schelling, Friedrich",
+        "Schelling, Friedrich W.J.",
+        "Šeling, Fridirich Vilchelm Jozef",
+        "Šeling, Fridrich",
+        "Šelling, F. V. I.",
+        "Šelling, F.V.I.",
+        "Schelling, Friedrich Wilhelm Josef von",
+        "Schelling, F. W. J.",
+        "Šelling",
+        "שלינג, י.פ.וו.",
+        "Schelling, S. W. J.",
+        "Шеллинг, Ф. В.",
+        "Šeling, Fridrih Vilhelm Jozef",
+        "Sheling, Y.F.Ṿ.",
+        "Schelling, Friedrich W. J.",
+        "Schelling, Friedrich Joseph Wilhelm",
+        "Šelling, Fridrich Vilʹgel'm Jozefa",
+        "Schelling, F. W. J. v.",
+        "Šėling, Frydrych Vilʹhelʹm Ëezėf",
+        "Schelling, Fridericus Guilelmus Josephus",
+        "Šelling, Fridrich Vilʹgelʹm Iozef",
+        "Шелинг, Фридрих Вилхелм Јозеф",
+        "Šelling, F.V.",
+        "シェリング, F. W. J.",
+        "Šelling, F. V.",
+        "Schelling, Federico Guglielmo Giuseppe",
+        "Fichte-Schelling",
+        "Schelling, Friedrich Wilhelm J.",
+        "Šelling, Fridrich Vilʹgelʹm Jozef von",
+        "Schelling, Friedrich W. von",
+        "Schelling, F.W.J. v.",
+        "Šelling, Fridrich Vilʹgelʹm",
+        "Schelling, S.W.J.",
+        "Schelling, Friedr. Wilh. Joseph",
+        "Schelling, Friedrich Wilhelm Joseph",
+        "Scheling, Federico Guillermo José",
+        "Schelling",
+        "Schelling, Friedrich von",
+        "Šeling, F. V. J.",
+        "Šelling, Fridrich Vil'gel'm Jozef",
+        "Šelling, Fridrich Vilʹgelʹm Jozef fon",
+        "Shelling, Fridrikh Vilʹgelʹm",
+        "Schelling, Federico Guillermo Josév",
+        "Šellings, Frīdrihs",
+        "Schelling, Frideric. Guil. Joseph",
+        "Schelling, Friedrich W.",
+        "Bonaventura",
+        "Šeling, Fridrich V.",
+        "Sellinnk, Phrintrich",
+        "Schelling, J. Friedrich Joseph von",
+        "Schelling, F.W.J.",
+        "Syelling, F. W. J.",
+        "Sheling, Y. F. Ṿ.",
+        "Schelling, Fridericus G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F. W. J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Frideric. Guil. Joseph"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih V. J."
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vilʹgelʹm Iozef"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "F.W.J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vilʹgelʹm"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Y. F. Ṿ."
+          ],
+          "surname": [
+            "Sheling"
+          ]
+        },
+        {
+          "personalName": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Frīdrihs"
+          ],
+          "surname": [
+            "Šellings"
+          ]
+        },
+        {
+          "personalName": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W.J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Ф. В."
+          ],
+          "surname": [
+            "Шеллинг"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh Vilʹgelʹm"
+          ],
+          "surname": [
+            "Shelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "personalName": [
+            "Sheringu"
+          ]
+        },
+        {
+          "forename": [
+            "F. W. J."
+          ],
+          "surname": [
+            "シェリング"
+          ]
+        },
+        {
+          "forename": [
+            "Фридрих Вилхелм Јозеф"
+          ],
+          "surname": [
+            "Шелинг"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vilʹgel'm Jozefa"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F. V. I."
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrych Vilʹhelʹm Ëezėf"
+          ],
+          "surname": [
+            "Šėling"
+          ]
+        },
+        {
+          "forename": [
+            "Frīdrīš Wīlhilm Yūzif"
+          ],
+          "surname": [
+            "Šilīng"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vilʹgelʹm Jozef"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich V."
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W. J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridirich Vilchelm Jozef"
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "forename": [
+            "F. W. J."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Joseph Wilhelm"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Federico Guillermo José"
+          ],
+          "surname": [
+            "Scheling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Federico Guglielmo Giuseppe"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "S.W.J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Josef"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich-Wilhelm Joseph"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "personalName": [
+            "Fichte-Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W. v."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F.V."
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Wilh. Joseph"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "forename": [
+            "F.W.J."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F.V.I."
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "F. V."
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "J. Friedrich Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F. V. J."
+          ],
+          "surname": [
+            "Seling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus Guilelmus Josephus"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F. V. J."
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "personalName": [
+            "Bonaventura"
+          ]
+        },
+        {
+          "forename": [
+            "Phrintrich"
+          ],
+          "surname": [
+            "Sellinnk"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih Vilhelm Jozef"
+          ],
+          "surname": [
+            "Šeling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus G."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Y.F.Ṿ."
+          ],
+          "surname": [
+            "Sheling"
+          ]
+        },
+        {
+          "forename": [
+            "Federico Guillermo Josév"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vil'gel'm Jozef"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm Joseph"
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        },
+        {
+          "forename": [
+            "F. W. J."
+          ],
+          "surname": [
+            "Syelling"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Vilʹgelʹm Jozef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Šelling"
+          ]
+        },
+        {
+          "forename": [
+            "י.פ.וו."
+          ],
+          "surname": [
+            "שלינג"
+          ]
+        },
+        {
+          "forename": [
+            "S. W. J."
+          ],
+          "surname": [
+            "Schelling"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Joseph_Schelling",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Wilhelm_Joseph_Schelling"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:46:27Z",
+    "gnd_query_biographical_data": "1775-1854",
+    "gnd_query_name": "schelling, friedrich wilhelm joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2416,
+  "name": "Schelling, Friedrich Wilhelm Joseph von",
+  "profession": "Text",
+  "pseudonyms": "Bonaventura",
+  "refs": "Goed V, 11; E 428",
+  "updated": "2026-06-11 13:29:24.578Z",
+  "uri": "https://d-nb.info/gnd/118607057",
+  "editor": ""
+}

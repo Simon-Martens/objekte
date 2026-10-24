@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 3 BB Vrwrt d Hrsg, B I-Verz, 7 BB Kal, S 1 nT, SS 3-288 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1797",
+    "norm": "~",
+    "biblio": 404847,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1111,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / CALENDER / FÜR DAS JAHR / 1797. / MIT KUPFERN. / LEIPZIG / BEY J. B. FLEISCHER",
+  "updated": "2026-06-11 10:18:55.630Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "g3m09mbb8vt6iih"
+  ],
+  "contents": [
+    "xo22edxp38zihhg",
+    "fxhuynxhfth6plp",
+    "6yenv037ml1w43r",
+    "9aovsgp6djo0m56",
+    "qxt26ehz4ct8y5n",
+    "blwojaczvl7peh5",
+    "08kq5sv5mhc24hs",
+    "2hhdol1rq57w2rm",
+    "7yt4ffe4phgv0ye",
+    "qhh8at5gugfe0pd",
+    "fwa27ddv50yfxvw",
+    "wn7cf7dlf2f5ik0",
+    "5m9n5q8z3hix6ck",
+    "479gk05jtgdue8i",
+    "vojqx1tb0zlox8l",
+    "l5upcwtwzb6zmds",
+    "n2ea5wwqho50q6i",
+    "d418j1b3f5xxp7e",
+    "ntv2ukbts5s9x2p",
+    "hlvr1r1cobqj545",
+    "l39xdma6hcmmvb9",
+    "dcd6l2qqm939ds2",
+    "rdsnof1dimi4vac",
+    "lacjmtuxjaxx0tg",
+    "3dr5g6j67eldfua",
+    "nhs0iwldjapje97",
+    "wpsigrqeqheiofc",
+    "a2lxbyt6zx7vgkn",
+    "eip1dw59neaw3ju",
+    "cbnct4l62etgole",
+    "o95mptdrt2f17el",
+    "m8hy9l1fdhfvz0v",
+    "66zybq7gz9zgly2",
+    "h5zvpic1y0ns9fr",
+    "bwz0jo94d4tqnze"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.844Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.844Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "p5ejmess5p0f12i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.826Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.826Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "xt9rxn4jb7fzu6b"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) # Titel s. Textbezug INr 61006, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61018,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pausanias #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae",
+  "scans": [
+    "alm_951_61018_v9q7teces5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pausanias #",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.008Z",
+      "agent": "60p50kezhrh7h42",
+      "source_id": "atyjg26fl6jgaut"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.009Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "prcqgzhb7kc6525"
+    }
+  ]
+}

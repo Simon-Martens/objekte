@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3 /) kol. Graphik im Kalendarium Mai /) Illustration zum unbetitetelten, unbezeichneten Beitrag INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81968,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scene aus dem Übergang über / den Inn bey Neupeurn (S. 95.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber inv. P. J. Lamint sc.",
+  "scans": [
+    "alm_3830_81968_d78xt9tyr3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scene aus dem Übergang über / den Inn bey Neupeurn (S. 95.)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "tyhv2eh7jz1xmxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "yjus0emphh5nmv7"
+    }
+  ]
+}

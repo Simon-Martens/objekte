@@ -1,0 +1,828 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.357Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil. h.c."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/110494894X",
+          "label": "Kaiserliche Akademie der Wissenschaften in Wien"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Österr. Orientalist, Diplomat, Historiker, Literaturhistoriker, Dolmetscher; Sohn des Gubernialrates Joseph (Edler von) Hammer (1791 geadelt), 11.5.1836 Erhebung in den Freiherrenstand"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1774-06-09"
+      ],
+      "dateOfDeath": [
+        "1856-11-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Hammer%20Purgstall.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hammer%20Purgstall.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Hammer%20Purgstall.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188024557",
+        "https://d-nb.info/gnd/188335951",
+        "https://d-nb.info/gnd/158624122",
+        "https://d-nb.info/gnd/186204221",
+        "https://d-nb.info/gnd/1014916097",
+        "https://d-nb.info/gnd/15916267X",
+        "https://d-nb.info/gnd/130940607"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T16:04:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118545426/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/130174270",
+          "label": "Hammer-Purgstall, Karoline von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XB-TR",
+          "label": "Türkei"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118545426",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118545426",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/1019272562",
+          "label": "Hammer-Purgstall, Familie"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)186204221",
+        "(DE-588)130940607",
+        "(DE-588)1014916097",
+        "(DE-588a)130940615",
+        "(DE-588)158624122",
+        "(DE-588a)1014916097",
+        "(DE-588a)158624122",
+        "(DE-588a)188024557",
+        "(DE-588a)127698485",
+        "(DE-588a)186204221",
+        "(DE-588)15916267X",
+        "(DE-588a)188335951",
+        "(DE-588)188024557",
+        "(DE-588a)118545426",
+        "(DE-588c)4023179-3",
+        "(DE-588)188335951",
+        "(DE-588a)125841353",
+        "(DE-588a)15916267X",
+        "(DE-588a)130940607"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4073697-0",
+          "label": "Konstantinopel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021912-4",
+          "label": "Graz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Hammer-Purgstall, Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Hammer-Purgstall"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Hrsg von: Hellert, J. J.: Nouvel atlas physique, politique et historique de l'Empire Ottoman et de ses états limitrophes en Europe, en Asie et en Afrique, en quarante feuilles",
+        "Geschichte des osmanischen Reiches",
+        "Topographische Ansichten. Gesammelt auf einer Reise in die Levante",
+        "Geschichte der osmanischen Dichtkunst",
+        "Übers. von: Bāqī: [Dīwān]",
+        "Die Geschichte der Assassinen",
+        "Mohammed oder Die Eroberung von Mekka",
+        "Memnons Dreiklang",
+        "Morgenlaendisches Kleeblatt",
+        "Constantinopolis und der Bosporos",
+        "Carte Générale De L'Empire Ottoman En Europe, En Asie, Et En Afrique Et d'une partie des Pays Limitrophes",
+        "Sur les origines russes",
+        "Gemäldesaal der Lebensbeschreibungen großer moslimischer Herrscher der ersten sieben Jahrhunderte der Hidschret",
+        "Wiens erste aufgehobene Belagerung zur dreyhundertjährigen Jubelfeyer derselben zum Theil aus bisher unbekannten christlichen und türkischen Quellen",
+        "Porträtgalerie des Steiermärkischen Adels",
+        "Berichtigung der orientalischen Namen Schiltbergers"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12568890g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80103858"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95183401"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q89546"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014916097"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118545426/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/130940607"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158624122"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/15916267X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186204221"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188024557"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188335951"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_von_Hammer-Purgstall"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Hammer-Purgstall"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Joseph_von_Hammer-Purgstall"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_von_Hammer-Purgstall"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118545426"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118545426"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_H/Hammer-Purgstall_Joseph_1774_1856.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118545426.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118545426.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118545426"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118545426"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hāmir, Yūzif du",
+        "Purgstall, Joseph H.",
+        "Hammer-Purgstall, Joseph von, österreichischer Diplomat und Orientalist",
+        "Hammer, Josef von",
+        "Hammer, Joseph",
+        "Purgstall, Joseph von Hammer-",
+        "Hammer-Purgstall",
+        "Purgstall, Joseph",
+        "Hammer, Josef von, österreichischer Diplomat und Orientalist",
+        "Hammer-Purgstall, Joseph von, Freiherr",
+        "Hammer, J. de",
+        "Hammer-Purgstall, Josef von, österreichischer Diplomat und Orientalist",
+        "Hammer, Joseph von, österreichischer Diplomat und Orientalist",
+        "Purgstall, Joseph Hammer",
+        "Hammer-Purgstall, Josef von",
+        "Hammer, Giuseppe de",
+        "Purgstall, Joseph von Hammer",
+        "Hammer, Joseph von",
+        "Hammer-Pfurgstall, Joseph von",
+        "Hammer, Jos. von",
+        "Hammer-Purgstall, Jos.",
+        "Hammer, Joseph de",
+        "Purgstall, Josef von",
+        "Purgstall, Joseph von",
+        "Pfurgstall, Joseph von Hammer-",
+        "Hammer Purgstall, Joseph von",
+        "Hammer von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Hammer"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "österreichischer Diplomat und Orientalist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von Hammer-"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Yūzif"
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Hāmir"
+          ]
+        },
+        {
+          "forename": [
+            "Giuseppe"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von Hammer-"
+          ],
+          "surname": [
+            "Pfurgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "österreichischer Diplomat und Orientalist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "personalName": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Jos."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Jos."
+          ],
+          "surname": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer-Pfurgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "nameAddition": [
+            "österreichischer Diplomat und Orientalist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "österreichischer Diplomat und Orientalist"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Hammer"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph H."
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        },
+        {
+          "personalName": [
+            "Hammer-Purgstall"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von Hammer"
+          ],
+          "surname": [
+            "Purgstall"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Hammer-Purgstall",
+          "label": "https://de.wikipedia.org/wiki/Joseph_von_Hammer-Purgstall"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:38:51Z",
+    "gnd_query_biographical_data": "1774-1856",
+    "gnd_query_name": "hammer-purgstall, joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1055,
+  "name": "Hammer-Purgstall, Joseph von",
+  "profession": "Text",
+  "pseudonyms": "Said",
+  "refs": "Goed VII, 747",
+  "updated": "2026-06-11 13:29:22.789Z",
+  "uri": "https://d-nb.info/gnd/118545426",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Oktober, paginiert 10 /) Illustration zu »Der rasende Roland« von L. Ariosto",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58259,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roland will sein todes Pferd / gegen ein lebendiges vertauschen. / Cant XXX.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. D. Chki. fec.",
+  "scans": [
+    "alm_783_58259_z8g5b94qv7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Roland will sein todes Pferd / gegen ein lebendiges vertauschen. / Cant XXX.",
+  "updated": "2008-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.894Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "c8rsuo4ujg1vg66"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 131175, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Aus öder Ferne schreib' ich, wo am Aether / Mir kein lebendig Himmelsbild mehr lacht,",
+  "language": [],
+  "musenalm_id": 131178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus öder Ferne schreib' ich, wo am Aether / Mir kein lebendig Himmelsbild mehr lacht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.024Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "53e9lk65km2c7qa"
+    }
+  ]
+}

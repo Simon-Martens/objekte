@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Den ganzen Tag seh ich umher dich schleichen / In grübelnder Melancholie",
+  "language": [],
+  "musenalm_id": 83411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Damon. / Nach le Brüne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Damon. / Nach le Brüne",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.960Z",
+      "agent": "t6wjjpa90xmd7r2",
+      "source_id": "idsfb9iin32xuvk"
+    }
+  ]
+}

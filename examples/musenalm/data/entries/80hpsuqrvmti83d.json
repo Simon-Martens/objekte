@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wintergarten, Der 1821",
+    "norm": "",
+    "biblio": 108691,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3536,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Wintergarten, Der 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 175; L/R 91; Goed VIII. 94, 186 a",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Fünfter Band. / Frankfurt am Main / bei den Gebrüdern Wilmans. / 1821",
+  "updated": "2026-06-11 10:18:54.493Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "ugatkm5d3g63uda"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "90yxe02x78isztj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.257Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.257Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "gc8d9a1rxtytudi"
+    }
+  ]
+}

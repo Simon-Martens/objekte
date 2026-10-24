@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Du kleine Mükke, du / Störst mich in meiner süssen Ruh,",
+  "language": [],
+  "musenalm_id": 17596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Mükke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Mükke",
+  "updated": "2001-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.749Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "tvh7ecop2qm3kuy"
+    }
+  ]
+}

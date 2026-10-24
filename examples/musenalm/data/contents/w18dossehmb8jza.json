@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Salomo, der weise König, war, wie alle Menschenkinder: heute klug und morgen schwach, und in einem Puncte, ach! half ihm seine Weisheit wenig.",
+  "language": [],
+  "musenalm_id": 89730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Morgengabe. / Orientalisches Mährchen. / (In Trochäen-Prosa.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Morgengabe. / Orientalisches Mährchen. / (In Trochäen-Prosa.)",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.282Z",
+      "agent": "1gx7z956tuv7ghs",
+      "source_id": "1zj65an38ffbzdb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "400",
+  "incipit_statement": "Wie verändert erscheinst du, wie sprichst du so anders! Und dennoch / Forderst du Glauben?",
+  "language": [],
+  "musenalm_id": 41313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widersprechendes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widersprechendes",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.890Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "3ng7derb5f1kbai"
+    }
+  ]
+}

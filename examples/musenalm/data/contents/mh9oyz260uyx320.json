@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Ich bin das Licht, / Erde der Stoff, / Seele der Kampf, / Geist der Sieg.",
+  "language": [],
+  "musenalm_id": 42515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brama spricht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brama spricht",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.961Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "bi9xhdg4peixkvk"
+    }
+  ]
+}

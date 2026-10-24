@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Es ist gewiß ein frommer Mann, / Der sich um ein Weib nimmet an. / Es ist gewiß ein frommes Weib, / Wo sie bey einem Manne bleibt.",
+  "language": [],
+  "musenalm_id": 134078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hausregiment Dokt. Mart. Luthers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dokt. Martin Luther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hausregiment Dokt. Mart. Luthers",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.121Z",
+      "agent": "60x0fj7vzerrc38",
+      "source_id": "rgi23rv9ae5uf29"
+    }
+  ]
+}

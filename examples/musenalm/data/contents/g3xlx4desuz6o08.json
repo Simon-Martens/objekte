@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Giebt's unter jenen Sternenwelten / Nicht eine, wo, noch ungekränkt, / Die Hochgefühle Plato's gelten?",
+  "language": [],
+  "musenalm_id": 31473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / in einer sternheitern Frühlingsnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / in einer sternheitern Frühlingsnacht",
+  "updated": "2003-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.713Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "mueyicml4tnr750"
+    }
+  ]
+}

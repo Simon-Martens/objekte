@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61899, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hm! Sie machen mir warm. / pag. 175",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61901_89wsresk1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hm! Sie machen mir warm. / pag. 175",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.758Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "se5s4hk0bac0izi"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Einundzwanzig Liebeslieder (Sammlung INr 23589, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Ich ging am grünen Berge hin, / wo sich der Weih im Aether wiegt",
+  "language": [],
+  "musenalm_id": 23599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX.",
+  "updated": "2002-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.939Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "vo7or461zk80r3i"
+    }
+  ]
+}

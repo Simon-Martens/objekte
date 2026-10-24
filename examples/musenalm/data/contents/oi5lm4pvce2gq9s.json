@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5 /) kol. Graphik im Kalendarium September /) Illustration zum unbetitetelten, unbezeichneten Beitrag INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81970,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schöner Zug der Menschlichkeit / des Erzherzog Karl's ( S. 106)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber inv. P. J. Lamint sc.",
+  "scans": [
+    "alm_3830_81970_749ryvyc07.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schöner Zug der Menschlichkeit / des Erzherzog Karl's ( S. 106)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "0ygmro64v7121oo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "htrcybevbnezj7a"
+    }
+  ]
+}

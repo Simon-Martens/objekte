@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, B I-Verz, B G-Verz, 5 GG dazu 6 BB, SS 1-395, S, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1859",
+    "norm": "~",
+    "biblio": 108661,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3461,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 167; L/R 99",
+  "responsibility_statement": "Theodor Mügge",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Ein Taschenbuch für / 1859. / Neue Folge, zehnter Jahrgang. / Von / Theodor Mügge. / Mit 6 Stahlstichen. / Leipzig, / Baumgärtner's Buchhandlung",
+  "updated": "2026-06-11 10:18:54.507Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "items": [
+    "n5825bsln9w44iq"
+  ],
+  "contents": [
+    "hffwnnkvpx44842",
+    "xaeowkvpdyth8dd",
+    "hqstl8am3jum4yp",
+    "p8calwq12ns41au",
+    "nfvxkgm19bivn4c",
+    "17uwrz0ljt7n2l1",
+    "y9nyswuqhtnkhc6",
+    "hl2eufb2zqhmj65",
+    "ngmz2m95x48xk55",
+    "bivx5s72v6ycvah",
+    "dzmywpbx7hts00t",
+    "334zdz2oomsxbcn",
+    "27fcyjeh9qmdqza",
+    "refv7tzl7cmvwyn",
+    "0t0pr2h3onod1mh",
+    "8m17upkhsnbt72b",
+    "7rrsqh1vbw0xdtq",
+    "no2nl0t42yrgy20",
+    "hc5ubfdl42s0v1m",
+    "ilantrnatvl5vb8",
+    "uumsrumb80iofrk",
+    "za0d0pphapqswig"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.225Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.225Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "nzfctbdqhasgfnn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.516Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.516Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "qc1nj5stauu58lr"
+    }
+  ]
+}

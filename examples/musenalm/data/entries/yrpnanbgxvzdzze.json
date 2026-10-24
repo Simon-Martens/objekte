@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 8 BB Kal, 5 GG, 3 BB G-Verz, SS 1-195",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für die Geschichte der Menschheit (Schlenkert) 1798",
+    "norm": "~",
+    "biblio": 100875,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 952,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für die Geschichte der Menschheit (Schlenkert) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 21",
+  "responsibility_statement": "F. C. Schlenkert",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für die / GESCHICHTE der MENSCHHEIT / auf das Jahr / 1798. / von / F. C. Schlenkert / mit Kupfern / Leipzig / bey Fried. August Leo",
+  "updated": "2026-06-11 10:18:54.916Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "reuktrtndk9k5sh"
+  ],
+  "contents": [
+    "lq3b2gk319zvtsn",
+    "6f1co7w30yq8lxd",
+    "h0cjfda2itk67zh",
+    "z35czygr6l5yad7",
+    "03568wkz7kjb9gp",
+    "ldokbbs40e7wvhe",
+    "hmzmnkafzxawf2h",
+    "vlfrvdgpylt5k6v",
+    "h3pv6fz4hi88g03",
+    "7dn31hh5u2hm5or",
+    "2cvm648db6lac98",
+    "wrh5gwpxwpemfn7",
+    "16jobt33jy8msob",
+    "7s885c56kj4xz6v",
+    "diz1ml7f8ijoyqt",
+    "sghesfj79635rko",
+    "jd4pghwvfx3i2oe",
+    "cc1s6hyt0m82edd",
+    "1in8wp6q0h2gzar",
+    "tmudxula2t4rjfn",
+    "46y0gbohih8p4jv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.091Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.091Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "dx4cjgzvj9mcz3b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.784Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.784Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "xzxxcfzisjyuku9"
+    }
+  ]
+}

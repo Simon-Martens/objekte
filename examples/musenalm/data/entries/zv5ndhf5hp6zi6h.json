@@ -1,0 +1,57 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Fantasten- und Predigeralmanach, Katholischer 1785",
+    "norm": "",
+    "biblio": 200839,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1762,
+  "parallel_title": "",
+  "place_statement": "Rom, Madrit, Lisabon",
+  "places": [
+    "s812dn6gu4d1m2e",
+    "11dklgwemkdlz56",
+    "81anw8y01wiey0k"
+  ],
+  "preferred_title": "Fantasten- und Predigeralmanach, Katholischer 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; L/R 200; H.-G. II, 233; H.-G.- VIII, 437",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Katholischer / Fantasten- / und / Predigeralmanach / auf das Jahr 1785. / Rom, Madrit, und Lisabon, / auf Kosten der heiligen Inquisition",
+  "updated": "2026-06-11 10:18:55.625Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "dfoolhmnu5lc7u2"
+  ],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Vergessen können? Niemals wieder! / Was einst verklärt durch's Leben zog,",
+  "language": [],
+  "musenalm_id": 86652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Vergessen können",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emma Niendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Vergessen können",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.190Z",
+      "agent": "3zbwz871k6v40en",
+      "source_id": "bvd23rm57y1ozq3"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, 8 BB Kal darin 6 GG, 4 BB Tabb, nT, B, SS 1-187, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1849",
+    "norm": "~",
+    "biblio": 411038,
+    "status": null,
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-03-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4614,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / VEILCHEN. / Ein / Taschenbuch / für / FREUNDE / einer gemüthlichen und erheiternden / LECTÜRE. / Neun und dreißigster Jahrgang. / 1849. / Wien / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No 136",
+  "updated": "2026-06-11 10:18:54.870Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "mmckcdzjsmhp4mq"
+  ],
+  "contents": [
+    "ufiva2abjrmwskt",
+    "6pwjv30az6dllgm",
+    "j64zp4dqc03srp0",
+    "ur1y02awqgsypto",
+    "3lwghabgio2gtdo",
+    "n51223n0flxve70",
+    "mpqd36gcpv8r9br",
+    "sltonszj2m1yjhg",
+    "vt3ua388o2focao",
+    "7w87b61zz467cl3",
+    "ng6fuvznarmlnia",
+    "tcl0ejnurdi1x1l",
+    "9v8nmgapyxk71as",
+    "ld2m91ev0ujt89u",
+    "rq3thtz2wsofpiu",
+    "sgim6cl9zgffujn",
+    "uanr9g7humrsqwl",
+    "9i1g2kpekltzyv7",
+    "wxftufxbac9ggvs",
+    "wpsvzg91fd3xt8d",
+    "88ezh9eugr43z93",
+    "wwu4evs7moh08y9",
+    "07th2u6e0u0anzq",
+    "0b3jcs3rw8mxlm3",
+    "3os9akk3ct0kfb6",
+    "vj246b48t6ynk3a",
+    "a2m0akw03rst5su",
+    "4tchws9ppxttixq",
+    "j3zvz4wttp6gonh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.140Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.140Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "qhuts66kl4a5an9"
+    }
+  ]
+}

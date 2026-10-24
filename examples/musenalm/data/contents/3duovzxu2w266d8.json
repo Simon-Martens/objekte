@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik mit Zueignungsblatt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92977,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon",
+  "scans": [
+    "alm_1633_92977_hodupom8k1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.077Z",
+      "agent": "ri9esj8u5z0036e",
+      "source_id": "zdk1661lc1qbw0c"
+    }
+  ]
+}

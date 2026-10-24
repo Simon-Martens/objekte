@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Amors Triumph«  von H-n. INr 76202, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Schule fec. et sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Schule fec. et sc.",
+  "scans": [
+    "alm_3283_76201_wps46t3gl7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.769Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "jcqeenqwot1ula3"
+    }
+  ]
+}

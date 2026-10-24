@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel österreichischer Juden (Sammlung INr 119062, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Von der Kolliner Gemeinde weiter ausgehend, bemerken wir, daß diese Gemeinde durch den ihr innewohnenden wissenschaftlchen Sinn überhaupt sich auszeichnet.",
+  "language": [],
+  "musenalm_id": 119067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wissenschaftliche Bildung im Allgemeinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wissenschaftliche Bildung im Allgemeinen",
+  "updated": "2017-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.663Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "xkhnl442dsmq1zf"
+    }
+  ]
+}

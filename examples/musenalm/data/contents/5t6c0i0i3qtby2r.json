@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 9657, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Freyheit! / Dein Harfenton wird nicht gehört / Unter dem Geklirr der Fesseln hienieden?",
+  "language": [],
+  "musenalm_id": 9741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freyheit! / Dein Harfenton wird nicht gehört / Unter dem Geklirr der Fesseln hienieden?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.438Z",
+      "agent": "fby2gdha04397wg",
+      "source_id": "mxklw7m2gc85o7v"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Hahnenschlag« (INr 123060, Obj 15) /) $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Fritz / Meinen Hahn will niemand kaufen, und ist doch so ein prächtiges Thier. / Der Hahnenschlag, erste Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. C. Müller sc. $",
+  "scans": [
+    "alm_1271_123061_fshevc0iiv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "5. / Fritz / Meinen Hahn will niemand kaufen, und ist doch so ein prächtiges Thier. / Der Hahnenschlag, erste Scene",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.782Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "61ikeqj092crbfs"
+    }
+  ]
+}

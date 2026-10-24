@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: 1839-1898 nachgewiesen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Frankfurter 1841",
+    "norm": "",
+    "biblio": 407280,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4492,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Weil)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Theater-Almanach, Frankfurter 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Carl Oettinger",
+  "subtitle_statement": "",
+  "title_statement": "Frankfurter / Theater-Almanach / für / das Jahr 1841. / Herausgegeben / von / Carl Oettinger. / Opern-Souffleur des National-Theaters. / Gedruckt bei G. Weil",
+  "updated": "2026-06-11 10:18:54.814Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "dkhlauuayogjyam"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.184Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.184Z",
+      "agent": "tqm005mo9gueu8m",
+      "source_id": "hb82ex6xl27fhug"
+    }
+  ]
+}

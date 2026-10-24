@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Was treibt ihr dort in ferner Höh', / Am blauen Himmelsbogen,",
+  "language": [],
+  "musenalm_id": 54285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himmelsschäfchen. / Hirtenlied.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakob Schnerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Himmelsschäfchen. / Hirtenlied.",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.877Z",
+      "agent": "cec33a809o0wki1",
+      "source_id": "o1dehhedcphl5qx"
+    }
+  ]
+}

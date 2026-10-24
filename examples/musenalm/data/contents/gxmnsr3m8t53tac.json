@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Der kleinen artigen Aline, / Die noch mit unentschlossner Miene",
+  "language": [],
+  "musenalm_id": 5753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Demoiselle R***. / Nebst einer Abschrift des vorstehen- / den Liedes. / Den 1sten Januar 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Demoiselle R***. / Nebst einer Abschrift des vorstehen- / den Liedes. / Den 1sten Januar 1783",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.054Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "t2eu32k3iw57me4"
+    }
+  ]
+}

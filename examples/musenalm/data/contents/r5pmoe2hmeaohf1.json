@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Zu stolz, durch Flehn und Klaggeschrey / Geschick und Fürsten zu ermüden,",
+  "language": [],
+  "musenalm_id": 8315,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Maynard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Maynard",
+  "updated": "2000-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.428Z",
+      "agent": "zjm0wp8bizr6m9i",
+      "source_id": "q2aq39neubx9h9y"
+    }
+  ]
+}

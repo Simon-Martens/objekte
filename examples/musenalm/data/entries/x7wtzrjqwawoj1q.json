@@ -1,0 +1,67 @@
+{
+  "annotation": "12 Jgg 1805-1816; Nürnberg, 1805, 1806: Nürnberg (Raw), 1813: Nürnberg (Raw); Hrsg.: H. Jung-Stilling",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Christenthums 1805",
+    "norm": "",
+    "biblio": 405663,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2811,
+  "parallel_title": "",
+  "place_statement": "Nünberg (Raw)",
+  "places": [
+    "zyw0odvdfnb4vyj"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Christenthums 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 118; L/R 177, Goed IV/1. 690, 4, 16",
+  "responsibility_statement": "Dr. Heinrich Jung Stilling",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Christenthums. / Auf das Jahr nach Christi Geburt / 1805. / Von / Dr. Johann Heinrich Jung / Stilling / Kurbadenscher Hofrath zu Heydelberg. / Nürnberg / im Verlag der Raw'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.715Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "zmorn8l7xtay8pq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.133Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.133Z",
+      "agent": "695vs8iz9x8sp3z",
+      "source_id": "pxbxl4z7pzd8eu1"
+    }
+  ]
+}

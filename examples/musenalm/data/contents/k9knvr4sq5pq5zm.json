@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Stolbergs Gedicht im Hamburger Musenalmanach 1779, INr 5346",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Dem Büchlein dein bin ich so hold / Sang Stollberg vor gar langer Zeit.",
+  "language": [],
+  "musenalm_id": 34208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Vater Stillings Geburtstag / den 12ten September 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Vater Stillings Geburtstag / den 12ten September 1814",
+  "updated": "2003-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.649Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "97b9wqxauax3noo"
+    }
+  ]
+}

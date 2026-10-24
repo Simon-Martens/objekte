@@ -1,0 +1,1013 @@
+{
+  "annotation": "",
+  "biographical_data": "1803-1870",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.283Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler, Schriftsteller u. Musiker; Graphiker"
+      ],
+      "dateOfBirth": [
+        "1803-10-04"
+      ],
+      "dateOfDeath": [
+        "1870-01-27"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:18:51.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/110562399/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Luise Catharina Maria"
+          ],
+          "surname": [
+            "Janßen"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116184833",
+          "label": "Pierson, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1209333287",
+          "label": "Lyser, Gustav"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/120933061X",
+          "label": "Lyser, Dorothea"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Pierson"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "110562399",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1209333287",
+          "label": "Lyser, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/120933061X",
+          "label": "Lyser, Dorothea"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116184833",
+          "label": "Pierson, Caroline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/110562399",
+      "oldAuthorityNumber": [
+        "(DE-588a)110562399",
+        "(DE-588c)4715874-8"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4017506-6",
+          "label": "Flensburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4085080-8",
+          "label": "Altona"
+        }
+      ],
+      "preferredName": "Lyser, Johann Peter",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Peter"
+        ],
+        "surname": [
+          "Lyser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4302182-7",
+          "label": "Kunsterzieher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Musiker",
+        "Schriftsteller",
+        "Zeichenlehrer"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "J. P. T."
+          ],
+          "surname": [
+            "Lyser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "surname": [
+            "Schütz"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hilarius"
+          ],
+          "surname": [
+            "Paukenschläger"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hieronymus"
+          ],
+          "surname": [
+            "Paukenwirbel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Salvator"
+          ],
+          "surname": [
+            "Rosa"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Isidorus"
+          ],
+          "surname": [
+            "Paukenwirbel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Vetter"
+          ],
+          "personalName": [
+            "Paukenschläger"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jean Pierre"
+          ],
+          "surname": [
+            "Lysèr"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Leser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bierglas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Victor"
+          ],
+          "surname": [
+            "Savello"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "fa presto"
+          ],
+          "personalName": [
+            "Luca"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Beck"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Otto"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Kapellmeister"
+          ],
+          "personalName": [
+            "Wahrlieb"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Gemütliche"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Lyser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brandt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Salvatorelli"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Albau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wahrhold"
+          ],
+          "surname": [
+            "Wahrlieb"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Vetter"
+          ],
+          "personalName": [
+            "Paukenwirbel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Bernhard"
+          ],
+          "surname": [
+            "Müller"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Lyser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "E. W."
+          ],
+          "surname": [
+            "Hoffmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johann Peter Theodor"
+          ],
+          "surname": [
+            "Lyser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Lyser"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Luca"
+          ],
+          "nameAddition": [
+            "fa"
+          ],
+          "surname": [
+            "Presto"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Lichtenberg, Georg C.: Ausführliche Erklärung der Hogarthischen Kupferstiche",
+        "Lyser, Johann P.: De dree Jungfern un de dree Rahtsherren oder datt groote Karkthorn-Knop*",
+        "Lyser, Johann P.: Novellen",
+        "Lyser, Johann P.: Neue Kunst-Novellen",
+        "Lyser, Johann P.: Einhundert und eine Nacht",
+        "Herloßsohn, Karl: Mephistopheles",
+        "Lyser, Johann P.: Kunstnovellen",
+        "Lyser, Johann P.: Giacomo Meyerbeer"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ludewig Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludwig P."
+          ],
+          "surname": [
+            "Burmeister"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ludwig Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb106430431"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88646749"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/13889530"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1695795"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/110562399/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Peter_Lyser"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Peter_Lyser"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115979440"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/110562399"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/110562399"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/110562399"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Burmeister, Johann Peter Theodor",
+        "Lyser, J. P. T.",
+        "Burmeister, Ludewig Peter August",
+        "Wahrlieb, Kapellmeister",
+        "Burmeister-Lyser, Ludewig Peter August",
+        "Leser, J.",
+        "Burmeister-Lysèr, J. P.",
+        "Müller, Bernhard",
+        "Hoffmann, E. W.",
+        "Albau, Karl von",
+        "Lyser, Johann P.",
+        "Savello, Victor",
+        "Lyser, Joh. P. T.",
+        "Paukenwirbel, Isidorus",
+        "Burmeister, Ludwig Peter August",
+        "Lyser, Johann Peter Theodor",
+        "Paukenwirbel, Hieronymus",
+        "Paukenschläger, Hilarius",
+        "Lÿser",
+        "Otto, Wilhelm",
+        "Rosa, Salvator",
+        "Presto, Luca, fa",
+        "Gemütliche, Der",
+        "Lyser, J. P.",
+        "Salvatorelli",
+        "Burmeister, Peter August",
+        "Bierglas, A.",
+        "Lyser",
+        "Luca, fa presto",
+        "Lysèr, Jean Pierre",
+        "Schütz, Oskar",
+        "Lyser-Burmeister, Johann Peter Theodor",
+        "Lyser, J.",
+        "Burmeister, Ludwig P.",
+        "Brandt, Karl von",
+        "Paukenwirbel, Vetter",
+        "Wahrlieb, Wahrhold",
+        "Paukenschläger, Vetter",
+        "Beck, Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "E. W."
+          ],
+          "surname": [
+            "Hoffmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Wahrhold"
+          ],
+          "surname": [
+            "Wahrlieb"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Theodor"
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Theodor"
+          ],
+          "surname": [
+            "Lyser-Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brandt"
+          ]
+        },
+        {
+          "nameAddition": [
+            "fa presto"
+          ],
+          "personalName": [
+            "Luca"
+          ]
+        },
+        {
+          "forename": [
+            "Victor"
+          ],
+          "surname": [
+            "Savello"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Peter August"
+          ],
+          "surname": [
+            "Burmeister-Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Bierglas"
+          ]
+        },
+        {
+          "forename": [
+            "Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Theodor"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "surname": [
+            "Schütz"
+          ]
+        },
+        {
+          "forename": [
+            "Isidorus"
+          ],
+          "surname": [
+            "Paukenwirbel"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Vetter"
+          ],
+          "personalName": [
+            "Paukenschläger"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Leser"
+          ]
+        },
+        {
+          "personalName": [
+            "Salvatorelli"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Vetter"
+          ],
+          "personalName": [
+            "Paukenwirbel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter Theodor"
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Gemütliche"
+          ]
+        },
+        {
+          "forename": [
+            "J. P. T."
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. P. T."
+          ],
+          "surname": [
+            "Lyser"
+          ]
+        },
+        {
+          "forename": [
+            "Hieronymus"
+          ],
+          "surname": [
+            "Paukenwirbel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Pierre"
+          ],
+          "surname": [
+            "Lysèr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Albau"
+          ]
+        },
+        {
+          "personalName": [
+            "Lÿser"
+          ]
+        },
+        {
+          "forename": [
+            "Luca"
+          ],
+          "nameAddition": [
+            "fa"
+          ],
+          "surname": [
+            "Presto"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig P."
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Otto"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Kapellmeister"
+          ],
+          "personalName": [
+            "Wahrlieb"
+          ]
+        },
+        {
+          "forename": [
+            "Salvator"
+          ],
+          "surname": [
+            "Rosa"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Peter August"
+          ],
+          "surname": [
+            "Burmeister"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Beck"
+          ]
+        },
+        {
+          "forename": [
+            "Hilarius"
+          ],
+          "surname": [
+            "Paukenschläger"
+          ]
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Burmeister-Lysèr"
+          ]
+        },
+        {
+          "personalName": [
+            "Lyser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Peter_Lyser",
+          "label": "https://de.wikipedia.org/wiki/Johann_Peter_Lyser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:04:18Z",
+    "gnd_query_biographical_data": "1803-1870",
+    "gnd_query_name": "burmeister, johann peter theodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 354,
+  "name": "Burmeister, Johann Peter Theodor",
+  "profession": "Text u. Graphik u. Musik",
+  "pseudonyms": "J. P. Th. Lyser; Luca fa presto",
+  "refs": "T/B XXIII, 495; Goed (H) 75; E 50",
+  "updated": "2026-06-11 13:29:21.810Z",
+  "uri": "https://d-nb.info/gnd/110562399",
+  "editor": ""
+}

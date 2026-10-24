@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Noch seh ich sie im Tanze leicht sich drehen, / Sie schweben, daß sie mit den Zehen",
+  "language": [],
+  "musenalm_id": 17817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach eine Balle, auf dem Nantchen gewesen war",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amarant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach eine Balle, auf dem Nantchen gewesen war",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.649Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "xrzm51ezl22p0pr"
+    }
+  ]
+}

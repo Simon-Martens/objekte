@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Fortsetzung der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14263, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Nach der Zucht der Kinder sey einem guten Fürsten nichts wichtiger, als eine weise Wahl der Heerführer,",
+  "language": [],
+  "musenalm_id": 14267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. / Kluge Wahl der Heerführer und Gesandten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24. / Kluge Wahl der Heerführer und Gesandten",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.594Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "8j12vr6oejj9q13"
+    }
+  ]
+}

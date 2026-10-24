@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Nacht im Walde« INr 72884, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Cornelius del. Rist sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cornelius del. Rist sc.",
+  "scans": [
+    "alm_2692_72883_ng1myntuzz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.678Z",
+      "agent": "b508kdfhrvb4cbp",
+      "source_id": "mx2rur5y46cxh0h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.678Z",
+      "agent": "ns8syak978vfvbp",
+      "source_id": "tle0z975w48cr02"
+    }
+  ]
+}

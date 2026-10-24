@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Sechste Lieferung (Sammlung INr 40641, Obj 7) s. Graphik INr 42395, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Ha, Ha, Ha! Nehmt von den Pfefferkuchen da;",
+  "language": [],
+  "musenalm_id": 42396,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Das Jahrmarktsfest zu Plundersweilern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Das Jahrmarktsfest zu Plundersweilern",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.157Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "zpqpebl5ec8l8e3"
+    }
+  ]
+}

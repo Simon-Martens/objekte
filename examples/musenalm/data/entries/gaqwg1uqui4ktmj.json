@@ -1,0 +1,91 @@
+{
+  "annotation": "Titel als Photokopie eingeklebt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eidora 1825",
+    "norm": "",
+    "biblio": 200527,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1733,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Cnobloch); Altona (Busch); Kopenhagen (Brummer)",
+  "places": [
+    "snvlmxpira867wf",
+    "z57jq2zyzc7rzkq",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Eidora 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 43; L/R 95; Goed VIII. 106, 251",
+  "responsibility_statement": "H. Gardthausen",
+  "subtitle_statement": "",
+  "title_statement": "Eidora. / TASCHENBUCH / auf / das Jahr / 1825. / Dritter Jahrgang. / Herausgegeben / von / H. Gardthausen. / In Commission / bey / Carl Cnobloch in Leipzig. Carl Busch und Altona. / Fr. Brummer in Copenhagen",
+  "updated": "2026-06-11 10:18:55.614Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "tw4eq1gvtrbg2cr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.654Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.654Z",
+      "agent": "wnmfzev1v8wi2px",
+      "source_id": "2xgzwlktl7g57ie"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.613Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.613Z",
+      "agent": "k60dklcv5yfwwv3",
+      "source_id": "kbfu7st8s1mlrla"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.630Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.630Z",
+      "agent": "kfsbcrxhzr5o66o",
+      "source_id": "zngnhb19l0g6rao"
+    }
+  ]
+}

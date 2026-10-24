@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Beranger! ich beschwöre Dich, was hältst Du von jenen grellen, entsetzlichen Bildern, die sich in uns bilden",
+  "language": [],
+  "musenalm_id": 21097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß L***. / erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Baron von Ungern-Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß L***. / erzählung",
+  "updated": "2002-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.933Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "eb991qg33lj1ofa"
+    }
+  ]
+}

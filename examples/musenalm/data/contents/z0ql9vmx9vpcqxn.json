@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Die Sonn' ist unter; Schwüle des Tages lag / Schwer auf der Erde;",
+  "language": [],
+  "musenalm_id": 890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendphantasie / nach einem schwülen Sommertage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "CONZ",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendphantasie / nach einem schwülen Sommertage",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.924Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "pwffjb5p4p8s4hq"
+    }
+  ]
+}

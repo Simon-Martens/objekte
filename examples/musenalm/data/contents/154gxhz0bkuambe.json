@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Illustration zu <em>Frau Holla's Gaben</em> INr 140770</div>",
+  "content_type": [],
+  "created": "2026-10-21 10:01:14.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frau Holla's Gaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steindr. v. C. W. Medau in Leitmeritz Langhans grav.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frau Holla's Gaben",
+  "updated": "2026-10-22 09:33:43.496Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22 09:33:43.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22 09:33:43.498Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "yoex5ga1pvj5r27"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 6 BB W, SS 1-210",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Teutonia (Wien) 1815",
+    "norm": "~",
+    "biblio": 405053,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3206,
+  "parallel_title": "",
+  "place_statement": "Wien (Strauß)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Teutonia (Wien) 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed VI. 662, 21",
+  "responsibility_statement": "Prof. Aloys Weißenbach",
+  "subtitle_statement": "",
+  "title_statement": "Teutonia. / Ein / Denkmahl / der vergangenen / und / Taschenbuch / der neueren Zeit. / Von / Prof. Aloys Weißenbach. / Wien, 1815, / gedruckt bey Anton Strauß",
+  "updated": "2026-06-11 10:18:55.160Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "f7exo3cxuenxs2k"
+  ],
+  "contents": [
+    "d6fxad5tzwxwk2r",
+    "azmkhb9pd88zj9a",
+    "b82568kqbyenyei",
+    "sa7jsvtidhwlyxp",
+    "m40rdt5ziildh27",
+    "2vm25xjbtdwehxc",
+    "v2q49n27ysd9zob",
+    "np0xq37mkny0qf2",
+    "b3s68jqc3pktm7v",
+    "vrypb0knunqfvpn",
+    "g7tfv3gfbyc2x7e"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "syu5031reurgvmm",
+      "source_id": "6h881vlagz9p256"
+    }
+  ]
+}

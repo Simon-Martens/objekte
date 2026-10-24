@@ -1,0 +1,100 @@
+{
+  "annotation": "10 Jgg 1820-1828, 1838; Marburg und Kassel (Krieger); Hrsg.: K. W. Justi",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I gT, SS III-IV Vrwrt d Hrsg, SV I-Verz, S VI G-Verz, SS 1-276 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorzeit, Die 1820",
+    "norm": "~",
+    "biblio": 108676,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3494,
+  "parallel_title": "",
+  "place_statement": "Marburg und Kassel (Krieger)",
+  "places": [
+    "apkqc58a7boazsc",
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Vorzeit, Die 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "K. W. Justi",
+  "subtitle_statement": "",
+  "title_statement": "Die / VORZEIT. / Ein Taschenbuch / für das / Jahr 1820. / Marburg und Cassel / bei Krieger",
+  "updated": "2026-06-11 10:18:54.518Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "9lqdq40xc8tjtdr"
+  ],
+  "contents": [
+    "uhscqcwsnllru1q",
+    "vz5icrcoly18vfq",
+    "y8asevj5p3c58kj",
+    "09gptkxte6tw62f",
+    "wmv09mox21rq3v6",
+    "c0d83axkstbrnh0",
+    "ojby3oeb3xgtg69",
+    "oglv3xjgaf1vx3g",
+    "hwcg04wbeeg1m2l",
+    "w415px5cep8ynq6",
+    "744szsbj5o77oe8",
+    "x9ra6noubprgk3l",
+    "xegbpv54sww7gtf",
+    "spc93zdrf6rmhj1",
+    "ggufi3ncyvha6vy",
+    "49758a0sods7ymi",
+    "c190tbah11sbdzx",
+    "j2d2znynxv0thum",
+    "c8ypki879288v4g",
+    "6v1wr217aoqe1v3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.241Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.241Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "n7dlivfx1a8yz55"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.081Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.081Z",
+      "agent": "9v69tnrkt52hdxy",
+      "source_id": "rdlsagr05rnhjc2"
+    }
+  ]
+}

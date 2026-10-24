@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Als Semler aus der Welt den Satanas / vertrieb,",
+  "language": [],
+  "musenalm_id": 2743,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Satan, / beym Abschied' aus der Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Satan, / beym Abschied' aus der Welt",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.948Z",
+      "agent": "9ffesqccgj8nyl5",
+      "source_id": "f1o4408hla7kafl"
+    }
+  ]
+}

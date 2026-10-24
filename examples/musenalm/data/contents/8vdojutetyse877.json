@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Sprache Heil hat allem Gott gegeben / Was er geschaffen in der Wesen Chor.",
+  "language": [],
+  "musenalm_id": 102804,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widmung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widmung",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.938Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "5fpfsh080waon73"
+    }
+  ]
+}

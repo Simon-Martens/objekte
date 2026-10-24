@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Im Leben war ich arm, Noth, Mangel rings / umher.",
+  "language": [],
+  "musenalm_id": 54038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift des armen Theodor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift des armen Theodor",
+  "updated": "2008-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.900Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "zd2ytwl4lofz3q7"
+    }
+  ]
+}

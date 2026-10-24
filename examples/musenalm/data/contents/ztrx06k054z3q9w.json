@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; paginiert pag. p. 360 /) s. Textbezüge INr 87533, Obj 29 und 87548, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87518,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albert der Sohn Marggraf Otto des / Reichen gebietet seinen Leuten den / Schatz aus dem Kloster zu tragen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elsaser del. J. J. Wagner sc.",
+  "scans": [
+    "alm_3929_87518_w8q6iv6bdg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Albert der Sohn Marggraf Otto des / Reichen gebietet seinen Leuten den / Schatz aus dem Kloster zu tragen",
+  "updated": "2013-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.380Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "0jz176inx71e410"
+    }
+  ]
+}

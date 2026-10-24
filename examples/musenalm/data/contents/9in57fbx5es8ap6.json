@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz. s. Textbezug INr 43015, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43017,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unglückliche Mutter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mlle. Mayer pinxt. Forsell sculpt.",
+  "scans": [
+    "alm_469_43017_zlfk6vnnvl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die unglückliche Mutter #",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.136Z",
+      "agent": "vn5l930p5j41o40",
+      "source_id": "6bdq8ejkhi47arn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.136Z",
+      "agent": "airdjlvrfrn9sa9",
+      "source_id": "6how5quq6ursjtb"
+    }
+  ]
+}

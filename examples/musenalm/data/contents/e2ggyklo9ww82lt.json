@@ -1,0 +1,45 @@
+{
+  "annotation": "Denkmäler der Vorzeit (Sammlung INr 45195, Obj 8) s. Graphik INr 45200, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Die ganze nördliche Seite der Alp liegt im Angesicht des Schlosses Wirtemberg, ausgenommen das östliche Ende mit Hohenstaufen.",
+  "language": [],
+  "musenalm_id": 45201,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Pfister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Teck",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.563Z",
+      "agent": "hrkytlpebpsdn8x",
+      "source_id": "ltmh504loh0saal"
+    }
+  ]
+}

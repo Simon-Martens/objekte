@@ -1,0 +1,45 @@
+{
+  "annotation": "Nummeriert VIII. /) Graphik (Silhouette) zum Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104569,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madam Reineke / geb. Wenzieg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner fec.",
+  "scans": [
+    "alm_3249_104569_3lc9yi3q60.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madam Reineke / geb. Wenzieg",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.798Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "m7s49s6uhy3w6xz"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "annotation": "8 Jgg 1786-1793; Weißenfels und Leipzig, 1786: Weißenfels und Leipzig (Ifens Erben) 1787, 1788: Weißenfels und Leipzig (Severin)-vermutl 1793; Hrsgg.: 1786-1788: Georg Adam Horrer /)  1794 erschien: Neuer Almanach für Prediger welche lesen, forschen und denken. Auf das Jahr 1794. Herausgegeben von M. Johann Georg Schellenberg, Sonnabends-Prediger an der Kirche zu St. Nikolai in Leipzig. Weißenfels und Leipzig, bey Friedrich Severin; Alm-2325",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Prediger, die lesen, forschen und denken 1786",
+    "norm": "",
+    "biblio": 100804,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1329,
+  "parallel_title": "",
+  "place_statement": "Weißenfels und Leipzig (Ifens Erben)",
+  "places": [
+    "d7kbujq7399g22j",
+    "hjh7xg66f4oi4f0"
+  ],
+  "preferred_title": "Almanach für Prediger, die lesen, forschen und denken 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; nicht bei L/R",
+  "responsibility_statement": "Georg Adam Horrer",
+  "subtitle_statement": "",
+  "title_statement": "Almanach für Prediger / die / lesen, forschen und denken. / Auf das Jahr 1786. / Weißenfels und Leipzig, / bey Caspar Simon Ifens seel. Erben. 1785",
+  "updated": "2026-06-11 10:18:54.906Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "9y9ijjtxz482h72"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.045Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.045Z",
+      "agent": "8ntu4qsd5h7uxlg",
+      "source_id": "y7t42v8p2r9pqfr"
+    }
+  ]
+}

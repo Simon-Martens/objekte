@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Nimm in deinen Schoß den Gärtner Da- / mon, o Erde!",
+  "language": [],
+  "musenalm_id": 17877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Damon",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.874Z",
+      "agent": "fu6aysv76d2t1pi",
+      "source_id": "p6ttce2cudfe5qp"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS 1-178, SS 179-180 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater-Taschenbuch, Wiener 1816",
+    "norm": "~",
+    "biblio": 404008,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1856,
+  "parallel_title": "",
+  "place_statement": "Wien (Geistinger)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater-Taschenbuch, Wiener 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 119",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Hof-Theater / TASCHENBUCH / auf das Jahr / 1816 / 13ter Jahrgang / Wien / bey Geistinger / in Commission",
+  "updated": "2026-06-11 10:18:55.670Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "5cqcceavj1rob2h"
+  ],
+  "contents": [
+    "vhvrxx0yxbk7952",
+    "vh19i9lxddo6enb",
+    "3ubgvwu4ulmscgf",
+    "qmqjk0941hxcv2e",
+    "84ul7s76mkkjnrc",
+    "260xs7i4ypldmqf",
+    "nxlo4tji1u2f3gz",
+    "ucqkmv3q2dexstq",
+    "rome3le2ut9ii5o",
+    "0ho34pzy0on9z18",
+    "3hz0xd87liqksxb",
+    "y0m5r571y5deeh4",
+    "neeybpknc92gshj",
+    "evl97f3539ltco3",
+    "hikvz27sx071pkd",
+    "0ambbhlkv7t8v3u",
+    "027q1mm7wyo4tda",
+    "gv507jgf3pkixot",
+    "bmsjqqlzgjs7mqu",
+    "9kfgueyc2il525t",
+    "fm66d6p39qewr9f",
+    "bmw2xy88p5ly61h",
+    "0ucwlrow7ngk4vt",
+    "jl07fd28kftxuye",
+    "lh1cfx5tjc4a0u7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.890Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.890Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "sknibskecp31j52"
+    }
+  ]
+}

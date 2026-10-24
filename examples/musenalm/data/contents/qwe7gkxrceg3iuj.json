@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Emmerich saß, auf den Ellenbogen gestützt, im Winkel der hütte und schaute durch das Fenster sehnsüchtig hinaus.",
+  "language": [],
+  "musenalm_id": 112476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Emmerich. / Mährchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Emmerich. / Mährchen",
+  "updated": "2010-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.361Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "6jxnnvc5fj8s10j"
+    }
+  ]
+}

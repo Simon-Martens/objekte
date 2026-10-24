@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Die Lieb' ist eine Krankheit wie die / Pocken! / Denn jeder steht sie einmal aus!",
+  "language": [],
+  "musenalm_id": 2404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Nettchen, / Als Doctor Fritze ihr die Pocken / einimpfte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Nettchen, / Als Doctor Fritze ihr die Pocken / einimpfte",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.135Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "abrarpemqe4zfly"
+    }
+  ]
+}

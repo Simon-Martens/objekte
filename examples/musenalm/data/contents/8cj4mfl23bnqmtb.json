@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Herr Momus gab bei frohen Götterfesten / Den Ton zum Scherzen Jahre lang",
+  "language": [],
+  "musenalm_id": 10173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Momus gab bei frohen Götterfesten / Den Ton zum Scherzen Jahre lang…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. W. geb. Fr. v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.572Z",
+      "agent": "s4juege4ex7zyzj",
+      "source_id": "ej78xgji7mcii86"
+    }
+  ]
+}

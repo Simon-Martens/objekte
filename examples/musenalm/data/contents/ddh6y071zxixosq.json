@@ -1,0 +1,45 @@
+{
+  "annotation": "Gaben der flüchtigen Muse (Sammlung INr 56097, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Nur woran sich Herzen laben, / Das allein ist ein Gedicht;",
+  "language": [],
+  "musenalm_id": 56127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rezension",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rezension",
+  "updated": "2008-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.798Z",
+      "agent": "shwrrrsohbx2ih5",
+      "source_id": "9ojd3oobqfc8wh5"
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-284",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Abendstunden 1823",
+    "norm": "~",
+    "biblio": 406323,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-10-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3622,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Abendstunden 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5; nicht bei L/R; Goed VIII. 101, 225",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Abendstunden / der geselligen Unterhaltung geweiht. / Drittes Bändchen./ Inhalt: […] / Ausgabe ohne Kupfer. / Leipzig, / bei Joh. Fr. Gleditsch. 1823",
+  "updated": "2026-06-11 10:18:55.489Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "bewdz2ijkmxhida"
+  ],
+  "contents": [
+    "pww2fj06hg9sfw1",
+    "sevs84nncuxe7oy",
+    "18u3wanuhz0b4fd",
+    "kul7q2d9utbnrd3",
+    "4osuh25pzjvnbf5",
+    "ds75o5j6awhhd1w",
+    "4iat51ssqf36am1",
+    "ln5pdi6qj2ifbh2",
+    "0y4vu8wzq57ubpu",
+    "3b5o8ip05972pzw",
+    "jvvra9evv2jzp5d",
+    "g9npivhlw5jkid9",
+    "m6zp5482v29w3te",
+    "q6xo3vlrbpllpwz",
+    "8epyk5tt963iqie",
+    "z1oihhpu15spv3z",
+    "txxu4n9a7wtnrqz",
+    "vwwp67sa3a463d0",
+    "tasfdmwdwwvgcdl",
+    "sco2fuhn59244l3",
+    "iwyuk2uybgvqbg0",
+    "cr3981l8uwx105i",
+    "97r4d2cw1n6fgx4",
+    "f2im0875vshf8m2",
+    "9lqft2iyyhlfuwu",
+    "pwl5ntjvcn963fc",
+    "ediwz8kvl4g6osh",
+    "lyzdaeh97ynm9dq",
+    "u011x35fe4eu4bk",
+    "1a34xrgjiu7d7wz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.435Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.435Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "3wfyvvg0urxjzms"
+    }
+  ]
+}

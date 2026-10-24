@@ -1,0 +1,88 @@
+{
+  "annotation": "Einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, SS III-VI G-Verz, SS VII-VIII I-Verz, SS 1-8 Vrwrt d Hrsg, SS 9-120",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Komus. Ein Taschenbuch für Freunde der Laune, des Witzes und der Satire. 1801",
+    "norm": "~",
+    "biblio": 200553,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-04-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 506,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Komus. Ein Taschenbuch für Freunde der Laune, des Witzes und der Satire. 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 73; nicht bei L/R; Goed VIII. 58, 39",
+  "responsibility_statement": "X. Y. Z. aber nicht der Verfasser der Fortsetzung des Schillerschen Geistersehers",
+  "subtitle_statement": "",
+  "title_statement": "Komus. / Ein / Taschenbuch / für / Freunde der Laune, des Witzes und der / Satire. / Herausgegeben / von / X. Y. Z. / aber nicht dem Verfasser der Fortsetzung des / Schillerschen Geistersehers. / Mit einem Titelkupfer. / 1801",
+  "updated": "2026-06-11 10:18:55.908Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "frjcmmrhu0fydw4"
+  ],
+  "contents": [
+    "krbs2o4ypp9mxgr",
+    "hfgx1afdcte7hyi",
+    "hq7p4v1fqk2tfn4",
+    "08f1x866qffgsa3",
+    "fdgetyarh3fhx3y",
+    "maclrwaw90ar6ml",
+    "5uw2vwn2bqi6bla",
+    "yk64f7lm4kxbwtz",
+    "w979wx2p0sqkm3q",
+    "91exrxsp3a6vk9g",
+    "6yk41xzmzxzvcuq",
+    "8o35g2cfmuyceeg",
+    "1pso5i92rw63by9",
+    "xuv876eztakwtfo",
+    "rnf9nmytoa1u9d6",
+    "sh2lfljx66i8s8u",
+    "g0frze0dr9f35zz",
+    "i3lmkcw2z4dxcjv",
+    "2s1am87bh61cycw",
+    "hj7vse2iftvvlvj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "vd9fy6tkz345bb9"
+    }
+  ]
+}

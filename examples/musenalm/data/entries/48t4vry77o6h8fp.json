@@ -1,0 +1,52 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.421Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4854,
+  "parallel_title": "",
+  "place_statement": "Wien (Kürzböck)",
+  "places": [],
+  "preferred_title": "Almanach von Wien zum Dienste der Fremden 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht ebi L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / von / Wien / zum Dienste der Fremden, / oder / historischer Begriff / der anmerkungswürdigsten Gegenstände / dieser Hauptstadt. / Samt dem richtigen Verzeichnisse der / Gässen, numerirten Häuser, ihrer / Inhaber, und Schilde. / Mit vielen Kupfern. / WIEN, / gedruckt bey Joseph Kurzböcken, K. K. / illirisch- und orientalischen Hofbuch- / drucker und Buchhändler. / 1774",
+  "updated": "2026-06-11 10:18:56.025Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "items": [
+    "8utvh3gnl7jjzfo",
+    "fr87qz9abhmrnxk"
+  ],
+  "contents": [],
+  "agents": []
+}

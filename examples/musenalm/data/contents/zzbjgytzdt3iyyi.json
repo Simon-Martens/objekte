@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Noch zermalmt der Schrecken unsre Glieder - / Rieger todt! / Noch in unsern Ohren heult der Donner wieder - / Rieger todt!",
+  "language": [],
+  "musenalm_id": 33444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenfeyer am Grabe Phil. Fridr. / Rieger's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenfeyer am Grabe Phil. Fridr. / Rieger's",
+  "updated": "2003-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.391Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "fsc0ae7qj0cfu3t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration (INr 125760, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Steht es hier nicht abermals, / Und mit welchen schönen Worten, / Wie der Vetter wiederum / Gar so herrlich, zum Entzücken / In der Residenz gespielt / Und von allen allen Leuten / Ist herausgerufen worden / Und beklatscht und applaudirt.",
+  "language": [],
+  "musenalm_id": 125759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Leibrente. / Schwank in zwei Akten / von / G. A. von Maltitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. von Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Leibrente. / Schwank in zwei Akten / von / G. A. von Maltitz",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.913Z",
+      "agent": "enmi0t9mog462m5",
+      "source_id": "4yn1idy6z90o23k"
+    }
+  ]
+}

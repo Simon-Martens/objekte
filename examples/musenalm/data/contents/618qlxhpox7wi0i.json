@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 19831, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Hör' Alter, eine Frage! doch treu thu' mir / Bescheid: / Was soll'n die sieben Kreuze, im Tiefweg hier zer- / streut?",
+  "language": [],
+  "musenalm_id": 19851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brautfahrt. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Brautfahrt. / Ballade",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.811Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "crh7ipzz71ttqli"
+    }
+  ]
+}

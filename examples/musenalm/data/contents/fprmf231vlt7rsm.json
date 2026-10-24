@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Herbstlied« von A. Mahlmann. INr 12340, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_210_12339_1emudutoyl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herbstlied",
+  "updated": "2001-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.566Z",
+      "agent": "25ubfkw7g6ebn5g",
+      "source_id": "puu3tizj8jtkn8e"
+    }
+  ]
+}

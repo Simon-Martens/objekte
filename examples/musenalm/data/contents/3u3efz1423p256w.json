@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 6. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65770, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der in der Schlacht bey Zorndorf gefangenen Russischen / Generalität werden, wegen Einäscherung der Stadt Cüs- / trin, auf des Königs Befehl die Casematten der Festung / zum Quartier angewiesen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. E. Henne sculp.",
+  "scans": [
+    "alm_1105_65772_dpxawbuepx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der in der Schlacht bey Zorndorf gefangenen Russischen / Generalität werden, wegen Einäscherung der Stadt Cüs- / trin, auf des Königs Befehl die Casematten der Festung / zum Quartier angewiesen",
+  "updated": "2009-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "m7n9auecng19vjj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "x423403lhognbo9"
+    }
+  ]
+}

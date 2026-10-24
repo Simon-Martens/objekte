@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Gern gönn' ich euch, so Grafenhut, als Kronen, / Den Ahnensaal, den Thron im Purpurkleide,",
+  "language": [],
+  "musenalm_id": 13235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gärten. / An die Großen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gärten. / An die Großen",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.609Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "v8gs4wlyahp8jp9"
+    }
+  ]
+}

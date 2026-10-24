@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 143. /) Illustration zu »Amalie. Oder: Die Unglücklichen durch Selbstschuld« INr 47485, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und ihr wolltet euch noch scheiden lassen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1798",
+  "scans": [
+    "alm_644_47489_k8zhv98l03.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und ihr wolltet euch noch scheiden lassen?",
+  "updated": "2007-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.532Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "giqj2vt46vkvx7k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.531Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "ppwp6oxe7irni99"
+    }
+  ]
+}

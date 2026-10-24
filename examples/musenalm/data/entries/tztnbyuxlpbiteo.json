@@ -1,0 +1,67 @@
+{
+  "annotation": "3 Jgg 1842, 1844, 1845; Leipzig (Böhme); Hrsg.: E. G. A Böckel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für evangelische Prediger 1842",
+    "norm": "",
+    "biblio": 103278,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1307,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für evangelische Prediger 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "E. G. A. Böckel",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / evangelische Prediger / auf das Jahr 1842 / herausgegeben / von / Dr. E. G. A. Böckel. / Leipzig / A. F. Böhme. / 1842",
+  "updated": "2026-06-11 10:18:54.918Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "f31jccs6i7anxfs"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.546Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.546Z",
+      "agent": "rirlg4hvaa32he9",
+      "source_id": "m3ece6s8jqi2e1q"
+    }
+  ]
+}

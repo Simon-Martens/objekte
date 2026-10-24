@@ -1,0 +1,143 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.270Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1798 Forstmeister beim Grafen Droste-Vischering"
+      ],
+      "dateOfBirth": [
+        "1777-11-24"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-01T16:39:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-39",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-39"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/106314468X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-39",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-39"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "106314468X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#32.10p",
+          "label": "Personen zu Landwirtschaft, Garten"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/106314468X",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/1246091887",
+          "label": "Darfeld"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/2060942-5",
+          "label": "Schloss Neuhaus"
+        }
+      ],
+      "preferredName": "Borchmeyer, Wilhelm Anton",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm Anton"
+        ],
+        "surname": [
+          "Borchmeyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4329718-3",
+          "label": "Förster"
+        }
+      ],
+      "publication": [
+        "Deutschlands Baumzucht oder kurze Beschreibung aller in Deutschland einheimischen und im Freien ausdauernden fremden Holzarten"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/311738617"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/106314468X/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Borchmeyer, W. A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "W. A."
+          ],
+          "surname": [
+            "Borchmeyer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:59:48Z",
+    "gnd_query_biographical_data": "1777-?",
+    "gnd_query_name": "borchmeyer, wilhelm anton"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 264,
+  "name": "Borchmeyer, Wilhelm Anton",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 225",
+  "updated": "2026-06-11 13:29:21.680Z",
+  "uri": "https://d-nb.info/gnd/106314468X",
+  "editor": ""
+}

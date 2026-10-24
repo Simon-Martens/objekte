@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Sie starb bejahrt, doch immer noch zu früh / Für unsre deutsche Poesie.",
+  "language": [],
+  "musenalm_id": 3862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Henriette G*. / Inschrift in die Gedichte der Karschinn, / welche ich Henrietten zu ihrem Geburts- / tage gab",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Xz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Henriette G*. / Inschrift in die Gedichte der Karschinn, / welche ich Henrietten zu ihrem Geburts- / tage gab",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.067Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "upb5fvfoibflsrl"
+    }
+  ]
+}

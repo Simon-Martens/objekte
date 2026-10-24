@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32980,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Kaiserlichen Majestät / der regierenden Kaiserin von Rußland / Elisabethe Alexejewne / der geliebten Gattin / der Freude dessen / der die Freude des Menschen Geschlechts ist / in tiefster Verehrung geweiht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Kaiserlichen Majestät / der regierenden Kaiserin von Rußland / Elisabethe Alexejewne / der geliebten Gattin / der Freude dessen / der die Freude des Menschen Geschlechts ist / in tiefster Verehrung geweiht",
+  "updated": "2003-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.658Z",
+      "agent": "0rnyqiybfu5n3e2",
+      "source_id": "4vsfovgx2shjsm9"
+    }
+  ]
+}

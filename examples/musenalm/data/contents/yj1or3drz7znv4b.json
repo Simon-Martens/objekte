@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Der thätige, vielumfassende Geschäftsmann, dem das allgemeine Beste am Herzen liegt - er bedarf eines einsamen Ruheplätzchens, wo er sich zuweilen erholt, und neue Kräfte zum Wirken sammelt.",
+  "language": [],
+  "musenalm_id": 62150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mineralogen. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mineralogen. / Eine Erzählung",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.807Z",
+      "agent": "a22nkw5sbrlw9i8",
+      "source_id": "suejmv8s98nnr2i"
+    }
+  ]
+}

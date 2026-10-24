@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der neuesten Geschichte (Cotta) 1835-2",
+    "norm": "",
+    "biblio": 406319,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-10-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3618,
+  "parallel_title": "",
+  "place_statement": "Stuttgart u. Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch der neuesten Geschichte (Cotta) 1835-2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 22",
+  "responsibility_statement": "D. Wolfgang Menzel",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / neuesten Geschichte. / Herausgegeben / von / D. Wolfgang Menzel. / Fünfter Jahrgang. / Geschichte des Jahres 1833. / Zweiter Theil. / Mit 12 Portraits. / Stuttgart und Tübingen, / in der J. G. Cotta'schen Buchhandlung. / 1835",
+  "updated": "2026-06-11 10:18:55.839Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "shxmc76ego1268g"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.271Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.271Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "909x74zfe6ydpab"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.681Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.681Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "jb3gcjc948nezwx"
+    }
+  ]
+}

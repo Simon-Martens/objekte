@@ -1,0 +1,67 @@
+{
+  "annotation": "die beschädigte Jahresangabe auf dem Titel läßt als letzte Ziffer '3' erkennen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach. (Darmstadt) Eine Neujahrsgabe für [unleserlich] 1833",
+    "norm": "",
+    "biblio": 409383,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4623,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Musenalmanach. (Darmstadt) Eine Neujahrsgabe für [unleserlich] 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 87; nicht bei L/R",
+  "responsibility_statement": "Heinrich Küntzel und Friedrich Metz",
+  "subtitle_statement": "",
+  "title_statement": "Musenalmanach. / Eine Neujahrsgabe / für / [unleserlich] / Herausgegeben / von / Heinrich Küntzel und Friedrich Metz. / Darmstadt, / bei Johann Wilhelm Heyer",
+  "updated": "2026-06-11 10:18:55.967Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "yllu4pz21bxamlz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.005Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.005Z",
+      "agent": "eym80jqbzyrn9uv",
+      "source_id": "4qn5qxj48d0l6h9"
+    }
+  ]
+}

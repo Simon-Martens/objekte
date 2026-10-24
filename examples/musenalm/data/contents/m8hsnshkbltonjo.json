@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 86297-86302, Obj 60-65 /) Gedichte (Sammlung INr 86293, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Letzte Liebe. / Kanzonen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freihr. v. Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Letzte Liebe. / Kanzonen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.091Z",
+      "agent": "9hjrqh1l94hv21m",
+      "source_id": "ncvg2zij52t027z"
+    }
+  ]
+}

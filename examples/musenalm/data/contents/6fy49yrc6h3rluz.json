@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachrichten von deutschen gesellschaftlichen Bühnen. Zehnte Fortsetzung (Sammlung INr 105598, Obj 42) Abhandlungen und vermischte Aufsätze (Sammlung INr 105583, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Langsam und feierlich, - wie über Lora's / Haiden / die blassen Helden jener Vorzeit gleiten,",
+  "language": [],
+  "musenalm_id": 105602,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Prolog, / gehalten im Junius 1789 auf dem / Privattheater zu Eg-st-n im / Karakter eines Ritters der Vor- / zeit und Ahnherrn des Herrn v. E.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Vulpius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Prolog, / gehalten im Junius 1789 auf dem / Privattheater zu Eg-st-n im / Karakter eines Ritters der Vor- / zeit und Ahnherrn des Herrn v. E.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.166Z",
+      "agent": "allpiu4vpyku74f",
+      "source_id": "1t8q5f9pxrdsgrs"
+    }
+  ]
+}

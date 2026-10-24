@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. Graphik im Kalendarium Juli /) Illustration zu »Die beiden Hauptleute« von Fouqué s. Textbezug INr 69004, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68985,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimbert's Worte senkten sich / in Zelinda's Geist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. M. H.",
+  "scans": [
+    "alm_851_68985_ctjtc0vx14.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heimbert's Worte senkten sich / in Zelinda's Geist",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.965Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "c4e2qxknwavu4qx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.964Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "t7sxaeykhtq77ga"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 151. /) Illustration zu »Adelheid von Thurn. Das Beyspiel ehelicher Tugend und weiblicher Tapferkeit. Eine Geschichte aus dem dreyzehnten Jahrhunderte« INr 47435, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seht hier, Adelheit; Sie selbst war die Vertheidigerin / ihrer Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1797",
+  "scans": [
+    "alm_643_47438_yr27x58ykn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seht hier, Adelheit; Sie selbst war die Vertheidigerin / ihrer Unschuld",
+  "updated": "2007-01-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.669Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "hmgz0bupfpavznv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.669Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "s6wirtn5hpuk011"
+    }
+  ]
+}

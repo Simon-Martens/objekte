@@ -1,0 +1,85 @@
+{
+  "annotation": "einziger Jg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Momus. Taschenbuch für Freunde des Scherzes und der Satire",
+    "norm": "",
+    "biblio": 412423,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-12-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4908,
+  "parallel_title": "",
+  "place_statement": "Graudenz, Berlin",
+  "places": [],
+  "preferred_title": "Momus. Taschenbuch für Freunde des Scherzes und der Satire. 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 79; Gooed. VIII, 121, 309",
+  "responsibility_statement": "Wilhelm Schumacher",
+  "subtitle_statement": "",
+  "title_statement": "Momus. / Taschenbuch für Freunde des Scherzes und der Satire. / Von / Wilhelm Schumacher. / Probe-Jahrgang. / 1828. / Graudenz, bei C. G. Röthe. / Berlin, / in Kommission der Enslinschen Buchhandlung. / (Breite Straße No. 23.)",
+  "updated": "2026-06-11 10:18:56.030Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "ykrbuolqiphks58",
+      "source_id": "wguzrs73rao7vnu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "ju53rkosyp7slob",
+      "source_id": "y1sphah4ol6tg00"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "20ckz1zwn0swzty",
+      "source_id": "zk50y336r3656yd"
+    }
+  ]
+}

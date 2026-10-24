@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Ich sterbe aus Sehnsucht / Nach lebendigem Leben.",
+  "language": [],
+  "musenalm_id": 99783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 187,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich sterbe. / (September 1852.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnezler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ich sterbe. / (September 1852.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.888Z",
+      "agent": "dz5hqr7uvnamp20",
+      "source_id": "j7woub5z9mc51po"
+    }
+  ]
+}

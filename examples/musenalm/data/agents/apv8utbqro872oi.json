@@ -1,0 +1,209 @@
+{
+  "annotation": "",
+  "biographical_data": "1749-1808",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.450Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1749"
+      ],
+      "dateOfDeath": [
+        "1808"
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-19T09:35:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-14",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-14"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/143150138/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "143150138",
+      "id": "https://d-nb.info/gnd/143150138",
+      "oldAuthorityNumber": [
+        "(DE-588a)100321070",
+        "(DE-588a)143150138"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Rheinfeld in Pommern"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Schmiedeberg in Schlesien"
+      ],
+      "preferredName": "Rahmel, August Wilhelm Leopold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August Wilhelm Leopold"
+        ],
+        "surname": [
+          "Rahmel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4416871-8",
+          "label": "Leutnant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4136676-1",
+          "label": "Bürgermeister"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Gelegenheitsschriftsteller"
+      ],
+      "publication": [
+        "Ueber das Point d'Honneur",
+        "Ueber die Schwärmerey unserer Zeiten",
+        "Ueber den Dienst",
+        "August Wilhelm Leopold von Rahmels sämtliche Gedichte",
+        "Prosaische Schriften",
+        "Salz und Laune unter mancherley Gestalt",
+        "Salz und Laune unter mancherlei Gestalt",
+        "Winterzeitvertreib eines königlichen preußischen Offiziers"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2001001780"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/24525125"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94896976"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143150138/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010798037X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/143150138"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Rahmel, August Wilhelm Leopold von",
+        "Rahmel, August W.",
+        "Rahmel, A. W. L. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "August Wilhelm Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rahmel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W. L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rahmel"
+          ]
+        },
+        {
+          "forename": [
+            "August W."
+          ],
+          "surname": [
+            "Rahmel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:34:09Z",
+    "gnd_query_biographical_data": "1749-1808",
+    "gnd_query_name": "rahmel, august wilhelm leopold von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2168,
+  "name": "Rahmel, August Wilhelm Leopold von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 427",
+  "updated": "2026-06-11 13:29:24.162Z",
+  "uri": "https://d-nb.info/gnd/143150138",
+  "editor": ""
+}

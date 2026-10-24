@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Minna sey glücklich! Du bist es durch Tugend; / Die Schönheit ist süchtig!",
+  "language": [],
+  "musenalm_id": 75817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Minna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Burmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Minna",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.464Z",
+      "agent": "bzzrah5fx2452jq",
+      "source_id": "l618j86odgetpqj"
+    }
+  ]
+}

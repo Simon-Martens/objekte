@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 2.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107548,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schätze doch, Unglücklicher, / Deiner rauhen bittern Zeit / Grossen zugestandnen Werth: [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sculpsit",
+  "scans": [
+    "alm_2158_107548_aesxzn52rk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schätze doch, Unglücklicher, / Deiner rauhen bittern Zeit / Grossen zugestandnen Werth: [...]",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.202Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "kf9o7frck9uj2xb"
+    }
+  ]
+}

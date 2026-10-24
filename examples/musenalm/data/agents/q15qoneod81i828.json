@@ -1,0 +1,544 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1797",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.243Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1760"
+      ],
+      "dateOfDeath": [
+        "1797"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "François Bonneville"
+          ],
+          "creditText": [
+            "This file comes from Gallica Digital Library and is available under the digital ID btv1b84127115"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois-No%C3%ABl%20Babeuf.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fran%C3%A7ois-No%C3%ABl%20Babeuf.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fran%C3%A7ois-No%C3%ABl%20Babeuf.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160299829",
+        "https://d-nb.info/gnd/1087777836",
+        "https://d-nb.info/gnd/18757877X",
+        "https://d-nb.info/gnd/158274091"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-27T15:24:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118505467/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118505467",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118505467",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)160299829",
+        "(DE-588)18757877X",
+        "(DE-588)158274091",
+        "(DE-588a)158274091",
+        "(DE-588a)118505467",
+        "(DE-588)1087777836",
+        "(DE-588)160299829",
+        "(DE-588c)4004099-9",
+        "(DE-588a)18757877X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4051316-6",
+          "label": "Saint-Quentin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4119393-3",
+          "label": "Vendôme"
+        }
+      ],
+      "preferredName": "Babeuf, Gracchus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gracchus"
+        ],
+        "surname": [
+          "Babeuf"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4177943-5",
+          "label": "Revolutionär"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Sébastien"
+          ],
+          "surname": [
+            "Lalande"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Caius"
+          ],
+          "surname": [
+            "Gracchus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Gracchus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Les battus payent l'amende. - [ca. 1795]",
+        "Journal de la confédération Appel au peuple",
+        "Du système de dépopulation ou la vie et les crimes de Carrier ...",
+        "À Messieurs du Comité des recherches de l'Assemblée nationale",
+        "Dernière lettre de Gracchus Babeuf, assassiné par la prétendue H*",
+        "Péroraison de la défense de Gracchus Babeuf",
+        "Du système de dépopulation,",
+        "Un manifeste de Gracchus Babeuf"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "François Noël"
+          ],
+          "surname": [
+            "Babeuf"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedTerm": [
+        {
+          "id": "https://d-nb.info/gnd/4313756-8",
+          "label": "Babouvismus"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11889769d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79084453"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59078391"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q189714"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1087777836"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118505467/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/158274091"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160299829"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18757877X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fran%C3%A7ois-No%C3%ABl_Babeuf"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_No%C3%ABl_Babeuf"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Fran%C3%A7ois_No%C3%ABl_Babeuf"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fran%C3%A7ois-No%C3%ABl_Babeuf"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121347618"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118505467"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118505467"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118505467"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118505467"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Babeuf, C.",
+        "Babœuf, François Noël",
+        "Lalande, Sébastien",
+        "Camille",
+        "Gracchus",
+        "Babeuf, François N.",
+        "Babeuf, Graccus",
+        "Gracchus Babeuf",
+        "Gracchus, Caius",
+        "Babeuf, G.",
+        "Babeuf, F.-N.-C.",
+        "Baboeuf, François Noel",
+        "Baboeuf, François-Noël",
+        "Babeuf, Camille",
+        "Babeuf, François-Noël",
+        "Babeuf, François Noël",
+        "Babef, Grakch"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "François-Noël"
+          ],
+          "surname": [
+            "Baboeuf"
+          ]
+        },
+        {
+          "personalName": [
+            "Camille"
+          ]
+        },
+        {
+          "forename": [
+            "François N."
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "François-Noël"
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "personalName": [
+            "Gracchus Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "Caius"
+          ],
+          "surname": [
+            "Gracchus"
+          ]
+        },
+        {
+          "forename": [
+            "Graccus"
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "Grakch"
+          ],
+          "surname": [
+            "Babef"
+          ]
+        },
+        {
+          "forename": [
+            "François Noël"
+          ],
+          "surname": [
+            "Babœuf"
+          ]
+        },
+        {
+          "forename": [
+            "Camille"
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "F.-N.-C."
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "Sébastien"
+          ],
+          "surname": [
+            "Lalande"
+          ]
+        },
+        {
+          "personalName": [
+            "Gracchus"
+          ]
+        },
+        {
+          "forename": [
+            "François Noël"
+          ],
+          "surname": [
+            "Babeuf"
+          ]
+        },
+        {
+          "forename": [
+            "François Noel"
+          ],
+          "surname": [
+            "Baboeuf"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_No%C3%ABl_Babeuf",
+          "label": "https://de.wikipedia.org/wiki/Fran%C3%A7ois_No%C3%ABl_Babeuf"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "ascii_name",
+    "gnd_matched_at": "2026-06-11T10:50:57Z",
+    "gnd_query_biographical_data": "1764-1797",
+    "gnd_query_name": "babeuf, francois noel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 85,
+  "name": "Babeuf, Francois Noel",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Brockh (13.) II, 313",
+  "updated": "2026-06-11 13:29:21.427Z",
+  "uri": "https://d-nb.info/gnd/118505467",
+  "editor": ""
+}

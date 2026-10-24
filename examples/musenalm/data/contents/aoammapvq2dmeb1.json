@@ -1,0 +1,58 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. III. (Sammlung INr 76915, Obj 5) 1. Illustration zu »Der Taucher« INr 76954, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76953,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers Taucher 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_2394_76953_e5nigcaiou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schillers Taucher 1.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.506Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "ok5d00hcq654d7x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.506Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "s91jyj4l8yhi0zf"
+    }
+  ]
+}

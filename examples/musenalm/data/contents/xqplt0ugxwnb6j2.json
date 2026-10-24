@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen INr 15845-15848, Obj 56-59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Denksprüche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Denksprüche",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.643Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "3wzzlop7n4eo9fq"
+    }
+  ]
+}

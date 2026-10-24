@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Der Weichling sucht den Muth, daß er sein / Leben lasse,",
+  "language": [],
+  "musenalm_id": 3290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Führer zu den Bechern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Führer zu den Bechern",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "yg4dc3q454lij63"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Was wallt mir so zur Seite / Und gibt mir bei Nacht das Geleite",
+  "language": [],
+  "musenalm_id": 26396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtbegleitung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottwalt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtbegleitung",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.277Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "p8h74nshpx0kb23"
+    }
+  ]
+}

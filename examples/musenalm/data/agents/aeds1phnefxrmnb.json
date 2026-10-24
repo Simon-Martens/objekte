@@ -1,0 +1,460 @@
+{
+  "annotation": "",
+  "biographical_data": "1742-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.371Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024175-6",
+          "label": "Christian-Albrechts-Universität zu Kiel"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Gartenbautheoretiker und -schriftsteller, Professor der Philosophie und der schönen Wissenschaften an der Universität Kiel, Königl. Dänischer wirklicher Justizrat seit 1777"
+      ],
+      "dateOfBirth": [
+        "1742-02-16"
+      ],
+      "dateOfDeath": [
+        "1792-02-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "J. D. Heidenreich"
+          ],
+          "creditText": [
+            "http://www.plattpartu.de/kuenst/hirschfeld.htm"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Cay%20Lorenz%20Hirschfeld.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Cay%20Lorenz%20Hirschfeld.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Cay%20Lorenz%20Hirschfeld.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T16:52:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119066327/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119066327",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#32.10p",
+          "label": "Personen zu Landwirtschaft, Garten"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#10.7p",
+          "label": "Personen zu Umweltschutz, Raumordnung, Landschaftsgestaltung"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119066327",
+      "oldAuthorityNumber": [
+        "(DE-588c)4300025-3",
+        "(DE-588a)119066327"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/10033873-2",
+          "label": "Kirchnüchel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        }
+      ],
+      "preferredName": "Hirschfeld, Christian Cay Lorenz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Cay Lorenz"
+        ],
+        "surname": [
+          "Hirschfeld"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller",
+        "Justizrath"
+      ],
+      "publication": [
+        "Neue Briefe über die Schweiz",
+        "Gartenkalender",
+        "Theorie der Gartenkunst",
+        "Kleine Gartenbibliothek",
+        "Romanzen der Deutschen",
+        "Vom guten Geschmack in der Philosophie",
+        "Sammlung einiger Abhandlungen aus der Philosophie",
+        "Briefe, die Schweitz betreffend",
+        "Von der Gastfreundschaft"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb131772175"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85385286"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56749807"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41772.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q321679"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119066327/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Cay_Lorenz_Hirschfeld"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_Cay_Lorenz_Hirschfeld"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Cay_Lorenz_Hirschfeld"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115713036"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119066327"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119066327.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119066327.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119066327"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119066327"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hirschfeld, Christian Cajus Laurenz",
+        "Hirschfeld, Christian Cay Lorenz H.",
+        "Hirschfeld, Ch. C. L.",
+        "Hirschfeld, Christian C.",
+        "Hirschfeld, Christian Cay Laurenz",
+        "Hirschfeldt, Christian Cai Laurenz",
+        "Hirschfeld, C.C.L.",
+        "Hirschfeld, Christian Kai Lorenz",
+        "Hirschfeld, Ley Laurids Christian",
+        "Hirschfeld, C. C. L.",
+        "Hirschfeld, Christian",
+        "Hirschfeld, Christian Cai Lorenz",
+        "Hirschfeld, Christian Cajus Lorenz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian C."
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cay Laurenz"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "C. C. L."
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cajus Lorenz"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ley Laurids Christian"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "C.C.L."
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Kai Lorenz"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cai Lorenz"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cai Laurenz"
+          ],
+          "surname": [
+            "Hirschfeldt"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cay Lorenz H."
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Cajus Laurenz"
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. C. L."
+          ],
+          "surname": [
+            "Hirschfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Cay_Lorenz_Hirschfeld",
+          "label": "https://de.wikipedia.org/wiki/Christian_Cay_Lorenz_Hirschfeld"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:46:12Z",
+    "gnd_query_biographical_data": "1742-1792",
+    "gnd_query_name": "hirschfeld, christian cay lorenz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1203,
+  "name": "Hirschfeld, Christian Cay Lorenz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 103",
+  "updated": "2026-06-11 13:29:22.946Z",
+  "uri": "https://d-nb.info/gnd/119066327",
+  "editor": ""
+}

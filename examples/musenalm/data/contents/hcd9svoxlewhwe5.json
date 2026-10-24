@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstlieder (Sammlung INr 86871, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Der Winter naht, die Berge blinken, / Von Schneee bedeckt, im Sonnenstrahl,",
+  "language": [],
+  "musenalm_id": 86872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.144Z",
+      "agent": "xgh72r9y3fxa6u5",
+      "source_id": "fcnjg8wf2zqye68"
+    }
+  ]
+}

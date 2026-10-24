@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Kalte Spötter, ihr wähnt die Lehre des / Menschenbeglückers / Witzig zu tadeln,",
+  "language": [],
+  "musenalm_id": 78771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort. / (Siehe J. G. Müllers schönes Werk: Denk- / würdigkeiten aus der Geschichte des Chri- / stenthums. 1r. Band.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort. / (Siehe J. G. Müllers schönes Werk: Denk- / würdigkeiten aus der Geschichte des Chri- / stenthums. 1r. Band.)",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.456Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "rgc17dynbtyhs83"
+    }
+  ]
+}

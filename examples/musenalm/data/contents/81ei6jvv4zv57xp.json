@@ -1,0 +1,45 @@
+{
+  "annotation": "Seebilder (Sammlung INr 94478, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Mein Herz ist voll, die Börs' ist voll, / Was will ein Mensch noch mehr!",
+  "language": [],
+  "musenalm_id": 94486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Der Matrose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Der Matrose",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.712Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "lz1mjj2h0o3regs"
+    }
+  ]
+}

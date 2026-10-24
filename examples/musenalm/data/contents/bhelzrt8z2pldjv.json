@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37721, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Ich seh' dich wohl, du rosiglichtes Bild, / Durch meines öden Schlummers Träume wallen,",
+  "language": [],
+  "musenalm_id": 37724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das Idol",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das Idol",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.929Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "iaxbtrh76go0ya9"
+    }
+  ]
+}

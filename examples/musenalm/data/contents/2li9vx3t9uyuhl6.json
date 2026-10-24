@@ -1,0 +1,45 @@
+{
+  "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Du hast den Becher mir zu voll gegossen, / Und auf die Hand ist Dir der Wein geflossen.",
+  "language": [],
+  "musenalm_id": 27895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Uebergegossen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Uebergegossen",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.374Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "xpr25e04es46rzu"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "annotation": "mit einer Sammlung von 9 lipogrammatischen Beiträgen von Karoline W-lich INr 48365-48374; Obj 33-42.  /) Der Herausgeber G. K. Claudius starb 20.11.1815. Das fehlende Kalendarium für 1814 und das Datum an den Bezeichnungen von 3 Graphiken: Schnorr d. Fr. Bolt sc. 1814 und  Schubert d. Fr. Bolt sc. 1814 legen nahe, daß der Almanach 1814 (wohl wegen Krankheit des Herausgebers) nicht erschienen ist; das Kalendarium 1815 ist gefaltet beigegeben. /) Der vorliegende Jg 1814/1815 wurde 1816 als »LEIPZIGER Taschenbuch zum NUTZEN UND VERGNÜGEN für das Jahr 1816, zugleich als Folge für die Jahre 1814 u. 1815. Bei Adam Friedrich Böhme« bei gleicher Ausstattung herausgegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I T, SS III-IV I-Verz, S IV G-Verz, 8 GG, SS 1-284, Kal 1815",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1814/1815",
+    "norm": "~",
+    "biblio": 100234,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 659,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1814/1815",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / ALMANACH / zum / Nutzen und Vergnügen. / für die Jahre / 1814 & 1815. / Leipzig / bey Adam Friedrich Böhme",
+  "updated": "2026-06-11 10:18:54.657Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "6j0cob4xw85bfc1"
+  ],
+  "contents": [
+    "2tqlxkohh1xzmmd",
+    "rl2z7a4cfm79z6w",
+    "9gqmxrpof14pfyo",
+    "xcb1cnpto8j4tyv",
+    "exrfi2uwkv7kojk",
+    "1t3xobw8fsdd8mq",
+    "3alulz94hfsyq2w",
+    "bm0uke1agc9r7kr",
+    "5o8r1aa44nx803t",
+    "77lgul9bld6n8nl",
+    "zuiuyqsyzk4jyz1",
+    "17l7d2sft6es4zi",
+    "9w1xg66tdupuju4",
+    "8nyb4a71al7pdao",
+    "xloxpzyxau1zehn",
+    "xpg77e2lk2i7aeh",
+    "lftvht01uglo1ro",
+    "5txbh2p68hsnrq1",
+    "vworyp28izt0b4s",
+    "k6bt7nyobblj4cx",
+    "ak3w3in1axz9z43",
+    "lz7aq4oy42li454",
+    "2s217bgtu8r8fht",
+    "sp8obuzonh1uhgb",
+    "qso1tdeff48lyxh",
+    "lqi5vbhl0ber1y6",
+    "5upcdpawjpssxlv",
+    "qh0h92rmkc99a5i",
+    "2xilbuip5ozzg0q",
+    "3r5ffyeaj2kabix",
+    "xyi3bzom3pen1p3",
+    "74ldcy2pr9bmrec",
+    "2gzl2mif1qb67ry",
+    "nyto3wjr65kgbgi",
+    "xy35zoht2obo8o4",
+    "ccnfy4rurkheppp",
+    "d6x6c8607h44xa8",
+    "hvfae8kq4ke9h9g",
+    "9uxaxt29szur8pt",
+    "e17j47haou3gwg8",
+    "zquih32nsvuti7l",
+    "a6phudgqj27g686",
+    "57avysyody0hlzm",
+    "gmmtkfazv36zwy9",
+    "wevq18fmyu7k9qq",
+    "k1odyfb4925zabm",
+    "u1upbinzzejiaqe",
+    "8d9d3sb5kdtkkhf",
+    "66haygdlhgl2qbx",
+    "ru13x8decpmpbjl",
+    "7sf08mpqbrkczme",
+    "46a9y3q2dveg555",
+    "vj1zyobz2aziw2k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.555Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.555Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "3g6vxyadj1ozbgd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.731Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.731Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "s4yx64sfaqw4ge0"
+    }
+  ]
+}

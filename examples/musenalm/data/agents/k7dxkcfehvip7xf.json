@@ -1,0 +1,737 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1801",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.358Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller der Frühromantik"
+      ],
+      "dateOfBirth": [
+        "1772-05-02"
+      ],
+      "dateOfDeath": [
+        "1801-03-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Gareis"
+          ],
+          "creditText": [
+            "http://novalis.autorenverzeichnis.de/portraets/port_2_gareis_novalis_1800.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Novalis-1.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Novalis-1.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Novalis-1.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1089928033",
+        "https://d-nb.info/gnd/1015113850"
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-02T15:23:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118588893/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/124159117",
+          "label": "Hardenberg, Heinrich Ulrich Erasmus von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121252574",
+          "label": "Hardenberg, Georg Anton von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/109475860",
+          "label": "Hardenberg, Karl von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118588893",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/124159117",
+          "label": "Hardenberg, Heinrich Ulrich Erasmus von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/109475860",
+          "label": "Hardenberg, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121252574",
+          "label": "Hardenberg, Georg Anton von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118588893",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)158278941",
+        "(DE-588a)118588893",
+        "(DE-588a)158263499",
+        "(DE-101c)31099599X",
+        "(DE-588a)1015113850",
+        "(DE-588a)135305993",
+        "(DE-588)1015113850",
+        "(DE-588)1089928033",
+        "(DE-588c)4042705-5"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4289490-6",
+          "label": "Wiederstedt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065247-6",
+          "label": "Weißenfels"
+        }
+      ],
+      "preferredName": "Novalis",
+      "preferredNameEntityForThePerson": {
+        "personalName": [
+          "Novalis"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4548714-5",
+          "label": "Bergingenieur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020226-4",
+          "label": "Geologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "publication": [
+        "In stiller Treue sieht man gern ihn walten",
+        "Samuel, Richard H.: Novalis <Friedrich Frhr. v. Hardenberg>",
+        "Kamla, Henry: Novalis' Hymnen an die Nacht",
+        "Becker, Günther: Fragmente aus \"Hymnen an die Nacht\"",
+        "Schriften",
+        "Hymnen an die Nacht",
+        "Heinrich von Ofterdingen",
+        "Briefwechsel mit Friedrich und August Wilhelm, Charlotte und Caroline S*"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11917917z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78096916"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95155102"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60684"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015113850"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089928033"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118588893/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Novalis"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Novalis"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Novalis"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Novalis"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441284"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118588893"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1791_hardenberg;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1791_hardenberg"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118588893"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118588893.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118588893.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118588893"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118588893"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hardenberg, Friedrich Leopold",
+        "Nuo wa li si",
+        "Hardenberg, Friedrich von",
+        "노발리스",
+        "Hardenberg, Georg Philipp Friedrich von",
+        "Hardenberg, Georg Friedrich Philipp von",
+        "Hardenberg, Friedrich, Freiherr von",
+        "Hardenberg, Georg Philipp Friedrich Leopold von",
+        "Chardenberg, Fridrich Leopold fon",
+        "Novalis, Friedrich",
+        "Hardenberg, Georg F. von",
+        "Charntenmpernk, Phrintrich phon",
+        "Hardenberg, Frederico Leopoldo de",
+        "Hardenberg, F.",
+        "Novārisu",
+        "Hardenberg, Friedrich Leopold, Frhr von",
+        "Novalis, F.",
+        "No bal li seu",
+        "Novalisi",
+        "Hardenberg, Friedrich Leopold von",
+        "Hardenberg, Georg Friedrich Philipp, Freiherr von",
+        "Hardenberg, Friedrich, Frh. v.",
+        "Nobalis",
+        "Hardenberg, G. P. Friedrich von",
+        "Hardenberg, Friedrich L. von",
+        "Hardenberg, Friedrich Ludwig von",
+        "Nūvālis",
+        "Nuowalisi"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Friedrich Philipp"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Novārisu"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Philipp Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Nuo wa li si"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Novalisi"
+          ]
+        },
+        {
+          "personalName": [
+            "No bal li seu"
+          ]
+        },
+        {
+          "personalName": [
+            "노발리스"
+          ]
+        },
+        {
+          "forename": [
+            "Georg F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Novalis"
+          ]
+        },
+        {
+          "personalName": [
+            "Nuowalisi"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Philipp Friedrich Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "nameAddition": [
+            "Frhr von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Phrintrich"
+          ],
+          "prefix": [
+            "phon"
+          ],
+          "surname": [
+            "Charntenmpernk"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Leopold"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Chardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "nameAddition": [
+            "Frh. v."
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Friedrich Philipp"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Frederico Leopoldo"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "personalName": [
+            "Nobalis"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Novalis"
+          ]
+        },
+        {
+          "personalName": [
+            "Nūvālis"
+          ]
+        },
+        {
+          "forename": [
+            "G. P. Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Leopold von"
+          ],
+          "surname": [
+            "Hardenberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Novalis",
+          "label": "https://de.wikipedia.org/wiki/Novalis"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:39:24Z",
+    "gnd_query_biographical_data": "1772-1801",
+    "gnd_query_name": "hardenberg, friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1066,
+  "name": "Hardenberg, Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "Novalis",
+  "refs": "Goed VI, 48",
+  "updated": "2026-06-11 13:29:22.799Z",
+  "uri": "https://d-nb.info/gnd/118588893",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Apologen I. (Sammlung INr 28287, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Durch ihren lieblichen Duft und ihr schönes Blau kündigten sich die ersten Veilchen einem Freunde der Natur an.",
+  "language": [],
+  "musenalm_id": 28293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Veilchen im Dornstrauch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Veilchen im Dornstrauch",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.355Z",
+      "agent": "8ory2boej7zqotd",
+      "source_id": "tu9u3v3ahzm5a3m"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 80196, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Der junge Ritter Albrecht von Rheinfels hatte sich von seinem Jagdgefolge verirrt. Vergebens stieß er in sein blankes Hüfthorn",
+  "language": [],
+  "musenalm_id": 80244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lorelei. / Rhein-Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lorelei. / Rhein-Sage",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.988Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "bxgse1f8lxb7ncq"
+    }
+  ]
+}

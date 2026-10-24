@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 2 Gedichten mit Erläuterungen und Anmerkungen INr 25808-25812, Obj 93-97. /)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der todte Adonis, / nach der 30. Idylle des Theokrit / und Balders Leichen-Feyer, / nach der 43. Fabel der jüngern Edda, / Eine Parallele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi; Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der todte Adonis, / nach der 30. Idylle des Theokrit / und Balders Leichen-Feyer, / nach der 43. Fabel der jüngern Edda, / Eine Parallele",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.359Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "hnov5jznhdddn8m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.359Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "ytlkq0uc9xnwz3j"
+    }
+  ]
+}

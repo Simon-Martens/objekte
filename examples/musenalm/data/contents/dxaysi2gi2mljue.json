@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Bilder aus der Krimm (Sammlung INr 25078, Obj 100) Gedichte (Sammlung INr 25046, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Von seinen Schläfen lüftet schon der Berg den Nebel- / schleier",
+  "language": [],
+  "musenalm_id": 25089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Aluszta. / Bei Tage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Aluszta. / Bei Tage",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.001Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "cilve5ohrocqpi8"
+    }
+  ]
+}

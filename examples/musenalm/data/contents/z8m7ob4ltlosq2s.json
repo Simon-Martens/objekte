@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Wer ist von gutem Geblüt? So sagt man mir: / Einer von Adel.",
+  "language": [],
+  "musenalm_id": 91911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gutes Geblüt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gutes Geblüt",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.554Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "51c6fr959lxudhv"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Erinnerung« von J. D. Gries INr 12503, Obj 25 (Photos 12504,01-12504,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mascheck",
+  "scans": [
+    "alm_212_12504_01_oo2wnenoyq.jpg",
+    "alm_212_12504_02_fhnxocrtp9.jpg",
+    "alm_212_12504_03_hyoc3m8rwl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.516Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "1pgvg8z7bcqh5t6"
+    }
+  ]
+}

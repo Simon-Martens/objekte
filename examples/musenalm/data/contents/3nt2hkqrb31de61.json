@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lebensgenuß« von K. Maisch INr 35908, Obj 114",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebens Genuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amon",
+  "scans": [
+    "alm_490_35909_9p85uuxg2b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebens Genuß",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.279Z",
+      "agent": "qqt6rtvr4y2rv42",
+      "source_id": "xk32ktlrdmbuw2p"
+    }
+  ]
+}

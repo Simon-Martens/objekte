@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Der König Karl saß einst zu Tisch / Zu Aachen mit den Fürsten,",
+  "language": [],
+  "musenalm_id": 71090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roland Schildträger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roland Schildträger",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.456Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "kmgpqzdjstayqn8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 62987, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Jo, i hannes mir versproche, / Nümme wotti zu Der goh.",
+  "language": [],
+  "musenalm_id": 62990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Heute gewiß!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hoffmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Heute gewiß!",
+  "updated": "2009-03-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.337Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "wns10nit0nb0fmm"
+    }
+  ]
+}

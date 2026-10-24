@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ueber den Erdkrais ergoß sich der Nebelschleyer des / Abends, / Hüllt' in dämmerndes Grau deine Gefilde, Natur!",
+  "language": [],
+  "musenalm_id": 67688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie. / Das Mädchen am Grabhügel ihres Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie. / Das Mädchen am Grabhügel ihres Geliebten",
+  "updated": "2009-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.354Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "mmavhea01zp8ktf"
+    }
+  ]
+}

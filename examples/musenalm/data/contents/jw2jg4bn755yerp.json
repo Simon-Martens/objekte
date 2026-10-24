@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Die Mädchen in Deutschland sind blühend und schön, / Zu Küssen laden sie ein,",
+  "language": [],
+  "musenalm_id": 94005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hannchen vor Allen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hannchen vor Allen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.336Z",
+      "agent": "c4v9nl7ztvkf3sf",
+      "source_id": "in0agtu09ilcp40"
+    }
+  ]
+}

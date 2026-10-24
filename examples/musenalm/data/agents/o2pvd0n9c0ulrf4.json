@@ -1,0 +1,289 @@
+{
+  "annotation": "",
+  "biographical_data": "1763-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.374Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Pastor und Begründer eines Stenografiesystems"
+      ],
+      "dateOfBirth": [
+        "1763-06-03"
+      ],
+      "dateOfDeath": [
+        "1835-01-21"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T15:04:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118707175/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118707175",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118707175",
+      "oldAuthorityNumber": [
+        "(DE-588a)118707175",
+        "(DE-588c)4095656-8"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008715-3",
+          "label": "Bückeburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/64338-5",
+          "label": "Sorau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4039383-5",
+          "label": "Miltenberg"
+        }
+      ],
+      "preferredName": "Horstig, Carl Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Gottlieb"
+        ],
+        "surname": [
+          "Horstig"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4183105-6",
+          "label": "Stenograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Superintendent",
+        "Gestalter der deutschen Stenographie",
+        "Theologe"
+      ],
+      "publication": [
+        "Born, Friedrich G.: De natura fortuiti cum necessario comparata dissertatio philosophica",
+        "Horstig, Carl G.: Briefe über die mahlerische Perspektive",
+        "Wester, Hendrik: Prijsverhandelingen over de gebreken in de burgerschoolen",
+        "Horstig, Carl G.: Reise nach Frankreich, England und Holland zu Anfange des Jahres 1803",
+        "Horstig, Carl G.: Beyspiele, wie Eltern und Erzieher ihre Kleinen angenehm und nützlich u*",
+        "Horstig, Carl G.: Tageblätter unserer Reise in und um den Harz",
+        "Horstig, C. G.: [Taschen-Choralbuch]",
+        "Horstig, Carl G.: Reise nach Frankreich, England ... 1806",
+        "Horstig, Carl G.: Tageblätter unsrer Reise in und um den Harz"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35251089"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18708603"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118707175/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Gottlieb_Horstig"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000063182391"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118707175"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118707175.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118707175"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118707175"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Horstig, ...",
+        "Horstig, Karl Gottlieb",
+        "Horstig, Carl Gottlob",
+        "Horstig, Carl G.",
+        "Horstig, C. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Horstig"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gottlieb"
+          ],
+          "surname": [
+            "Horstig"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gottlob"
+          ],
+          "surname": [
+            "Horstig"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Horstig"
+          ]
+        },
+        {
+          "forename": [
+            "Carl G."
+          ],
+          "surname": [
+            "Horstig"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Gottlieb_Horstig",
+          "label": "https://de.wikipedia.org/wiki/Karl_Gottlieb_Horstig"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:48:06Z",
+    "gnd_query_biographical_data": "1763-1835",
+    "gnd_query_name": "horstig, karl gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1241,
+  "name": "Horstig, Karl Gottlieb",
+  "profession": "Text u. Graphik u. Musik u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XIII, 791",
+  "updated": "2026-06-11 13:29:22.990Z",
+  "uri": "https://d-nb.info/gnd/118707175",
+  "editor": ""
+}

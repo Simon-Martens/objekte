@@ -1,0 +1,485 @@
+{
+  "annotation": "",
+  "biographical_data": "1815-1894",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.345Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/117719412",
+          "label": "Fleischl-Marxow, Ida von"
+        }
+      ],
+      "dateOfBirth": [
+        "1814-12-30"
+      ],
+      "dateOfDeath": [
+        "1894-07-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Prinzhofer"
+          ],
+          "creditText": [
+            "Foto einer Originallithographie der Albertina (Wien); Foto Peter Geymayer"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Betty%20Paoli%20Litho.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Betty%20Paoli%20Litho.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Betty%20Paoli%20Litho.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T13:16:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10692981X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10692981X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/117719412",
+          "label": "Fleischl-Marxow, Ida von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10692981X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10692981X",
+        "(DE-588c)4510176-0"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4004168-2",
+          "label": "Baden (Niederösterreich)"
+        }
+      ],
+      "preferredName": "Paoli, Betty",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Betty"
+        ],
+        "surname": [
+          "Paoli"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028786-5",
+          "label": "Journalistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035097-6",
+          "label": "Lehrerin"
+        }
+      ],
+      "publication": [
+        "Die Welt und mein Auge",
+        "Gesammelte Aufsätze. - 1908"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Barbara Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr96022550"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37420524"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q88749"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10692981X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Betty_Paoli"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Betty_Paoli"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Betty_Paoli"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083733154"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10692981X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;18"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=183x_paoli"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1868_paoli"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10692981X"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_G/Glueck_Babette-Elisabeth_1814_1894.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10692981X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd10692981X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10692981X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Glück, Babette",
+        "Glück, Barbara Elisabeth",
+        "Glueck, Babette Elisabeth",
+        "Paoli, Betti",
+        "Glück, Babette Elisabeth",
+        "Glück, Babette E.",
+        "Glück, Elisabeth B.",
+        "Glueck, Barbara Elisabeth Babette",
+        "Glück, Barbara E.",
+        "Glueck, Barbara Elisabeth",
+        "Glück, Elisabeth",
+        "Glück, Barbara"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Barbara E."
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Babette"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Babette E."
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Barbara Elisabeth"
+          ],
+          "surname": [
+            "Glueck"
+          ]
+        },
+        {
+          "forename": [
+            "Barbara"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabeth B."
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Betti"
+          ],
+          "surname": [
+            "Paoli"
+          ]
+        },
+        {
+          "forename": [
+            "Barbara Elisabeth Babette"
+          ],
+          "surname": [
+            "Glueck"
+          ]
+        },
+        {
+          "forename": [
+            "Barbara Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Babette Elisabeth"
+          ],
+          "surname": [
+            "Glueck"
+          ]
+        },
+        {
+          "forename": [
+            "Babette Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        },
+        {
+          "forename": [
+            "Babette Elisabeth"
+          ],
+          "surname": [
+            "Glück"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Betty_Paoli",
+          "label": "https://de.wikipedia.org/wiki/Betty_Paoli"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:31:39Z",
+    "gnd_query_biographical_data": "1815-1894",
+    "gnd_query_name": "glück, babette elisabeth"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 909,
+  "name": "Glück, Babette Elisabeth",
+  "profession": "Text",
+  "pseudonyms": "Betty Paoli",
+  "refs": "ADB LIII, 167; Goed (H) 372",
+  "updated": "2026-06-11 13:29:22.552Z",
+  "uri": "https://d-nb.info/gnd/10692981X",
+  "editor": ""
+}

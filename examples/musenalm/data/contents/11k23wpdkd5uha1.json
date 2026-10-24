@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Willst Du die Ruhe finden; / So flieh' der Städte Glanz; / Auf ländlich stillen Gründen / Blüh't nur des Friedens Kranz.",
+  "language": [],
+  "musenalm_id": 93780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Susan, geb. Salzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Landleben",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.676Z",
+      "agent": "3f48m7dc4honoam",
+      "source_id": "bwo680whrlbnq5c"
+    }
+  ]
+}

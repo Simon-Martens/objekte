@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 57928, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Du schöne Haiderose, / Gar lieblich blühest Du! / Noch trübte der Welt Getose / Nicht Deine tiefe Ruh'.",
+  "language": [],
+  "musenalm_id": 57929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter der Haide. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Köffinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter der Haide. / Gedicht",
+  "updated": "2008-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.816Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "vvk75jarf10l3b6"
+    }
+  ]
+}

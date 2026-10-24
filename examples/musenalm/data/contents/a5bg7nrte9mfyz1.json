@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titelgraphik; lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41543,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Mann von Unalaschka",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_545_41543_a9621hnz6u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Mann von Unalaschka",
+  "updated": "2005-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.206Z",
+      "agent": "c9lbuy81jn5wuz9",
+      "source_id": "6hzt7yd7gjw5bt5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.206Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "tmkgjf9m9090p82"
+    }
+  ]
+}

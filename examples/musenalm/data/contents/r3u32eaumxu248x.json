@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Leise segelte mein Nachen / Bey des Morgensterns Erwachen / Auf des Lebens Strom dahin:",
+  "language": [],
+  "musenalm_id": 31610,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RETTUNG IM STURM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristtoff Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "RETTUNG IM STURM",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.289Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "zm52jclbclaqpni"
+    }
+  ]
+}

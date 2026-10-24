@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64246, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64254,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Friedhof #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rohbock delt. G. M. Kurz sculpt.",
+  "scans": [
+    "alm_1064_64254_lypgw3oqrw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Friedhof #",
+  "updated": "2009-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.094Z",
+      "agent": "s6x2mf7qulf094x",
+      "source_id": "3nnt6mpha67tmg6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.094Z",
+      "agent": "8s55wr0epunphdd",
+      "source_id": "gtd9931dl9sydf6"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90948,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O grosses Wesen! ewiges Wesen! --- Ich weiss es und / Freue mich darüber, das ich nun vor deinem / Thron erscheinen werde. / 6. Th. 11. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki F. Berger sculpsit",
+  "scans": [
+    "alm_794_90948_ssngibznt4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O grosses Wesen! ewiges Wesen! --- Ich weiss es und / Freue mich darüber, das ich nun vor deinem / Thron erscheinen werde. / 6. Th. 11. B.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.261Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "elmjp9cqxpdoxxj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.261Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "mid9fpcsg1eldyd"
+    }
+  ]
+}

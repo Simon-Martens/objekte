@@ -1,0 +1,45 @@
+{
+  "annotation": "Erinnerungen an Adria (Sammlung INr 25118, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Einsam liegt ein Häuschen, abgelegen / Hart am Meer, das an die Wände braust,",
+  "language": [],
+  "musenalm_id": 25122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Sünderin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Sünderin",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.229Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "k3g97phznrdh2bh"
+    }
+  ]
+}

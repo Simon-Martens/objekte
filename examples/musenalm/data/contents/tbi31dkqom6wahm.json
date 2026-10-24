@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Um die Zeit, wenn graß und wild / Geister machen ihre Runde,",
+  "language": [],
+  "musenalm_id": 5703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blutverschreibung. / (Wechselgesang aus einem noch unvollen- / deten Drama. Das Stück spielt in einem / vom Mond erleuchtetem Kreuzgange, / Nachts zwischen 11 und 12 Uhr)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blutverschreibung. / (Wechselgesang aus einem noch unvollen- / deten Drama. Das Stück spielt in einem / vom Mond erleuchtetem Kreuzgange, / Nachts zwischen 11 und 12 Uhr)",
+  "updated": "2000-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.124Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "4kqvmizayuek2ko"
+    }
+  ]
+}

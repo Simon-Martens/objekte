@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Einige Vorschläge von Herrn Hofarchitect Thouret. 1) Der Eingang zu einem Park. 2.) Bekleidung einer Wasserpumpe« INr 74476, Obj 44 /) # Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Eingang zu einem Park #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Thouret 1799 Klinsky a. q. cl.",
+  "scans": [
+    "alm_3114_74477_29nvpvz3yc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Eingang zu einem Park #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "jluxmeayxx3ga35",
+      "source_id": "h0kh9d4tsp6mtrk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.303Z",
+      "agent": "zrmsqolvt94ydaa",
+      "source_id": "snocnxf5vgoljar"
+    }
+  ]
+}

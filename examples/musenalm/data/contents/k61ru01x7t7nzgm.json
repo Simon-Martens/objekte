@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Ach wohin, wohin, o Erde, / Setz' ich meinen Wanderstab,",
+  "language": [],
+  "musenalm_id": 22895,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Irrenden Bekehrung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Irrenden Bekehrung",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.095Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "khwrga4lfwicchb"
+    }
+  ]
+}

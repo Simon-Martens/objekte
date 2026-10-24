@@ -1,0 +1,78 @@
+{
+  "annotation": "# K 161 gibt Jg 1821 an. Im Vorwort des Herausgebers: Das ist nun der fünfte Almanach den ich herauszugeben das Glück habe, /) weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach (Wien: Bäuerle) 1813",
+    "norm": "",
+    "biblio": 409934,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-07-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4659,
+  "parallel_title": "",
+  "place_statement": "Wien (Selbstverlag)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Theater-Almanach (Wien: Bäuerle) 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 161 #; nicht bei L/R; Goed VIII.132, 35",
+  "responsibility_statement": "Adolf Bäuerle",
+  "subtitle_statement": "",
+  "title_statement": "Theater- Almanach / für das / Jahr 1813. / Herausgegeben / von / Adolf Bäuerle. / Mit den Bildnissen der Demoiselle Buchwieser / und des Herrn Grüner. / Wien, / zu haben, in des Verfassers Wohnung, Seilerstätte / Nro. 1018, zur ebnen Erde im Bureau der / Theaterzeitung",
+  "updated": "2026-06-11 10:18:54.811Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "sengho1ve993z8o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.448Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.448Z",
+      "agent": "1lkxjega66pfmft",
+      "source_id": "a7a5y4cp5eri6vc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.155Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.155Z",
+      "agent": "1lkxjega66pfmft",
+      "source_id": "mmqwoktf2kv17uq"
+    }
+  ]
+}

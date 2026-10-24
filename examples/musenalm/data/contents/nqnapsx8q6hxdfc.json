@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Lieds der Hedewig »Beschattet von der Pappelweide« aus der Idylle »Die Kirschenpflückerin« von J. H. Voß INr 5446, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. A. P. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_113_5447_1hou5990k9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.293Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "83lel39czh453w7"
+    }
+  ]
+}

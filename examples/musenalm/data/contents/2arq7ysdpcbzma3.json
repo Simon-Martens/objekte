@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte von Friedrich Koelle (Sammlung INr 49117, Obj 145)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Hier in diesen milden Räumen / Hab' ich einmal schon gelebt.",
+  "language": [],
+  "musenalm_id": 49126,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frage ohne Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Koelle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frage ohne Antwort",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.578Z",
+      "agent": "c98kgeq0jg98qoh",
+      "source_id": "w3gvmvbbz8yfu2c"
+    }
+  ]
+}

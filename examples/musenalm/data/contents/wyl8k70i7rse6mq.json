@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Den Kuckuk fragte die Lerche: / Wie kommt es, sage mir, / Daß die gereisten Störche / Nicht schlauer sind, als wir?",
+  "language": [],
+  "musenalm_id": 92378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kuckuk und die Lerche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kuckuk und die Lerche",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.591Z",
+      "agent": "b9k8fa9bjxcqs84",
+      "source_id": "0l0gs4iver5423l"
+    }
+  ]
+}

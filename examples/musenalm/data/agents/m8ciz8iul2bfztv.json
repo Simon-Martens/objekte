@@ -1,0 +1,424 @@
+{
+  "annotation": "",
+  "biographical_data": "1793-1861",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.435Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Komponist, Dirigent, Militärmusiker, Musikdirektor, Gründer des Berliner Domchors"
+      ],
+      "dateOfBirth": [
+        "1793-08-10"
+      ],
+      "dateOfDeath": [
+        "1861-04-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian August Oelkers C. Fischer"
+          ],
+          "creditText": [
+            "This file comes from Gallica Digital Library and is available under the digital ID btv1b84231123"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Neithardt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Neithardt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:August%20Neithardt.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-24T10:20:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116909161/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1079329269",
+          "label": "Neithardt, Gottlieb"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116909161",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1079329269",
+          "label": "Neithardt, Gottlieb"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116909161",
+      "oldAuthorityNumber": [
+        "(DE-588a)103831290",
+        "(DE-101c)310398541",
+        "(DE-588c)7589210-8",
+        "(DE-588a)116909161",
+        "(DE-588a)160869617",
+        "(DE-588a)174047355",
+        "(DE-588a)134708547"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4325125-0",
+          "label": "Schleiz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Neithardt, August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August"
+        ],
+        "surname": [
+          "Neithardt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "6 Duos für zwei Hörner. - 2001",
+        "Den Schönen Heil. - 1903"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb148020775"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no92018857"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/42601199"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q216391"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116909161"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116909161/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Neithardt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109666341"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116909161"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116909161"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116909161.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116909161"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Neithart, August Heinrich",
+        "Neithardt, Heinrich August",
+        "Neithard, ...",
+        "Neithardt, Heinrich A.",
+        "Neithard, Heinrich August",
+        "Neithardt, ...",
+        "Neithardt, A.",
+        "Neithardt, August H.",
+        "Neidhardt, August Heinrich",
+        "Neithart, Aug.",
+        "Neithard, August",
+        "Neithardt, August Heinrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Neithard"
+          ]
+        },
+        {
+          "forename": [
+            "August H."
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "August Heinrich"
+          ],
+          "surname": [
+            "Neithart"
+          ]
+        },
+        {
+          "forename": [
+            "August Heinrich"
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich A."
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "August Heinrich"
+          ],
+          "surname": [
+            "Neidhardt"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "August H."
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Neithard"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Neithardt"
+          ]
+        },
+        {
+          "forename": [
+            "Aug."
+          ],
+          "surname": [
+            "Neithart"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Neithard"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Neithardt",
+          "label": "https://de.wikipedia.org/wiki/August_Neithardt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:22:21Z",
+    "gnd_query_biographical_data": "1793-1861",
+    "gnd_query_name": "neithard, heinrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1930,
+  "name": "Neithard, Heinrich August",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXIII, 414",
+  "updated": "2026-06-11 13:29:23.931Z",
+  "uri": "https://d-nb.info/gnd/116909161",
+  "editor": ""
+}

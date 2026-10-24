@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27401, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Maria vor der Hütte spinnt / So leise, leise, leise,",
+  "language": [],
+  "musenalm_id": 27404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Maria vor der Hütte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Maria vor der Hütte",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.444Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "ipmf7wzofhmljph"
+    }
+  ]
+}

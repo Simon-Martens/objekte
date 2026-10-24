@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen (Sammlung INr 56024, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ich zählte mich einst unter die Guten;",
+  "language": [],
+  "musenalm_id": 56021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich zählte mich einst unter die Guten;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.828Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "0e2o59decoyoooq"
+    }
+  ]
+}

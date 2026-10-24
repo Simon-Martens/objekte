@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63683, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Einzig der Wille nur ist's, auf welchem Gesinnung und That ruht, / Und durch welchen der Mensch selbst sich zur Gottheit erhebt;",
+  "language": [],
+  "musenalm_id": 63688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wille und Gesetz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wille und Gesetz",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.214Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "1s3vqbb4qyxxrdq"
+    }
+  ]
+}

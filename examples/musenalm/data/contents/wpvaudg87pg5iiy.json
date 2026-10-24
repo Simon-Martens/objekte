@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Sammlung von 8 Graphiken mit 8 Textbezügen INr 20926, 20928-20942, Obj 6, 8-22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Europa ruht gegenwärtig noch aus von den gewaltigen Anstrengungen, die es gemacht hat; und die Ruhe thut wohl.",
+  "language": [],
+  "musenalm_id": 20943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der österreichische Erbfolge-Krieg / in Deutschland und Belgien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Heinr. Gottlieb Heusinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der österreichische Erbfolge-Krieg / in Deutschland und Belgien",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.958Z",
+      "agent": "bnhkyng1ef2zior",
+      "source_id": "y0yv71w8tifghyt"
+    }
+  ]
+}

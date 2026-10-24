@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Kuno von Plattenberg hatte all seine Güter an den Abt von Quedlingburg verpfändet, damit er ziehen könne mit einer zahlreichen Knechtschaft nach dem gelobten Lande,",
+  "language": [],
+  "musenalm_id": 93699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die goldenen Kohlen. / Volkssage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die goldenen Kohlen. / Volkssage",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.522Z",
+      "agent": "ngj52d5tua136em",
+      "source_id": "chfv7ofoamatmx0"
+    }
+  ]
+}

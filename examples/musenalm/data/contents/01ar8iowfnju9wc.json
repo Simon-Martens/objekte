@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Beitrag INr 83091, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bethlehemitischer Kindermord #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hannibal Caraccio",
+  "scans": [
+    "alm_3074_83092_gz1arb8fax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bethlehemitischer Kindermord #",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.977Z",
+      "agent": "bqfhzpplxu9hy7t",
+      "source_id": "f4hva31v8lnvkg9"
+    }
+  ]
+}

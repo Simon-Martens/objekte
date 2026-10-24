@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Wo sich in einem Keller, / Dess schaurige Gewölbe / Schwarz auf die Gassen blicken,",
+  "language": [],
+  "musenalm_id": 123296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schatz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schatz",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.676Z",
+      "agent": "nvdnek6niibgjex",
+      "source_id": "pkdkzr3xtr4kiq8"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Du wirst es vielleicht schon wissen, vielleicht auch noch nicht wissen, daß nackte Wahrheit als Ehrenkränkung betrachtet, und daß ein Mensch, der die Wahrheit gesagt, injuriarum belangt wird.",
+  "language": [],
+  "musenalm_id": 44937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich und Mein Zimmer. / (Ein Pasquill auf mich selbst.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ich und Mein Zimmer. / (Ein Pasquill auf mich selbst.)",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.521Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "o1twvinn6wo75h3"
+    }
+  ]
+}

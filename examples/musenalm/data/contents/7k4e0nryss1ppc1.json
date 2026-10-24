@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Ezzelin von Romano« von G. Pfitzer INr 99083; Obj 109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98979,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CUNIZZA UND SORDELLO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fellner del. A. Gnauth sc.",
+  "scans": [
+    "alm_1785_98979_z2ryl1kaso.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CUNIZZA UND SORDELLO",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.886Z",
+      "agent": "msrf0wfavicqjbz",
+      "source_id": "ai1uv5to7e7e05c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.886Z",
+      "agent": "9z4h7ka6ovxy0ac",
+      "source_id": "wv4n6gggfgdv83e"
+    }
+  ]
+}

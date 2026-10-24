@@ -1,0 +1,268 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.438Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Lebte als Hofdame in Corvey und Athen, gehörte zu den 13 Übersetzerinnen und Übersetzern, die die Poesien Byrons ins Deutsche übertrugen, Großnichte von Hedwig Charlotte von Nordenflycht"
+      ],
+      "dateOfBirth": [
+        "1786"
+      ],
+      "dateOfDeath": [
+        "1842"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-29T18:20:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/14163670X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Julia"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beck"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beck"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#ZZ",
+          "label": "Land unbekannt"
+        }
+      ],
+      "gndIdentifier": "14163670X",
+      "id": "https://d-nb.info/gnd/14163670X",
+      "oldAuthorityNumber": [
+        "(DE-588a)14163670X",
+        "(DE-588a)102079900"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4039406-2",
+          "label": "Minden (Westf)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4039406-2",
+          "label": "Minden (Westf)"
+        }
+      ],
+      "preferredName": "Nordenflycht, Julie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Nordenflycht"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "J."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Julie"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Nordenflycht, Julia von: Briefe einer Hofdame in Athen [Julia von Nordenflycht] an eine*. - 1845"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/121579893"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55889226"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/14163670X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/14163670X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/14163670X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Beck, Julie von",
+        "Beck, Julia von",
+        "Nordenflycht, Julia von",
+        "Julie",
+        "N., Julie von",
+        "J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beck"
+          ]
+        },
+        {
+          "personalName": [
+            "J."
+          ]
+        },
+        {
+          "forename": [
+            "Julia"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nordenflycht"
+          ]
+        },
+        {
+          "forename": [
+            "Julia"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beck"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "N."
+          ]
+        },
+        {
+          "personalName": [
+            "Julie"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:24:30Z",
+    "gnd_query_biographical_data": "1786-?",
+    "gnd_query_name": "nordenflycht, julie von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1975,
+  "name": "Nordenflycht, Julie von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1472",
+  "updated": "2026-06-11 13:29:23.973Z",
+  "uri": "https://d-nb.info/gnd/14163670X",
+  "editor": ""
+}

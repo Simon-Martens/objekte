@@ -1,0 +1,71 @@
+{
+  "annotation": "KVK. Hebis: &nbsp;Frankfurt am Main : Universitätsbibliothek; weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S 1 T, SS 33-4 Vrwrt d Hrsg, SS 5-148",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der merkwürdigsten Städte der Welt (Wien)",
+    "norm": "",
+    "biblio": 411482,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2024-09-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4874,
+  "parallel_title": "",
+  "place_statement": "Wien (M. Chr. Adolph)",
+  "places": [],
+  "preferred_title": "Taschenbuch der merkwürdigsten Städte der Welt (Wien) 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ferdinand Ley",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / merkwürdigsten Städte der Welt. / In alphabetischer Reihenfolge / nach den neuesten Quellen eines Cannabich, Stein u.s.w. / Von / Ferdinand Ley. / Wien, 1829. / Gedruckt und im Verlage bei M. Chr. Adolph",
+  "updated": "2026-06-11 10:18:56.035Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "z0ic2brlrdgbqhj"
+  ],
+  "contents": [
+    "n0btzkwqoeruju9",
+    "6abiuaplqvjgeuq",
+    "azl5idvlsoe19p5",
+    "fiwincbz9kn7tg9",
+    "dq55bud1bq2lkih"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "b154bont556n7ub",
+      "source_id": "zd9q3zcrtc9349z"
+    }
+  ]
+}

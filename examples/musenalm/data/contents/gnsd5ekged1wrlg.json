@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 17355, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Heut morgen, als ich lauschend schlich / Durch Busch und Blüthen Thau,",
+  "language": [],
+  "musenalm_id": 17356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtigallen-Lied. / An Betty, den 22 April",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bertuch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtigallen-Lied. / An Betty, den 22 April",
+  "updated": "2001-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.905Z",
+      "agent": "1j2glyr4uzfohrn",
+      "source_id": "lz249l5g63ey0ld"
+    }
+  ]
+}

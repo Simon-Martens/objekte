@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Textbezug INr 83329, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landschaft #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kaspar Düghet",
+  "scans": [
+    "alm_3076_83330_40wqq3em46.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landschaft #",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.027Z",
+      "agent": "egd4a3n8ew8gkv1",
+      "source_id": "r051gnt4f23dkzm"
+    }
+  ]
+}

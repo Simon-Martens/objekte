@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Ernst sitzt der König auf dem Thron, / Auf seinem Haupt die Herrscherkron;",
+  "language": [],
+  "musenalm_id": 90851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König und der Sänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der König und der Sänger",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.397Z",
+      "agent": "rpi79icfm69ol8h",
+      "source_id": "bft1v0aslheap32"
+    }
+  ]
+}

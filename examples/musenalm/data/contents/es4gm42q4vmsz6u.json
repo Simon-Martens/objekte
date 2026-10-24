@@ -1,0 +1,45 @@
+{
+  "annotation": "Dramatische Dichtungen (Sammlung INr 49138, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Dort liegt das Jagdschloß, so man Schildeis nennt, / Ganz in des Böhmerwaldes Innerstem. / Das ist das Schloß, von dem ich Euch gesagt, / Daß es die beste Zuflicht bieten mag.",
+  "language": [],
+  "musenalm_id": 49139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schildeis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Volker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schildeis",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.306Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "i77bc1az1hizzkl"
+    }
+  ]
+}

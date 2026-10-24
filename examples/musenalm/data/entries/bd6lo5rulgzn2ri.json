@@ -1,0 +1,76 @@
+{
+  "annotation": "<div>erschienen 1839 als Achter Jahrgang 1838 u. 1839</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Asträa, Taschenbuch für Freimaurer 1839",
+    "norm": "",
+    "biblio": 0,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1545,
+  "parallel_title": "",
+  "place_statement": "Sondershausen (Eupel)",
+  "places": [
+    "3ea08kyhd5t093j"
+  ],
+  "preferred_title": "Asträa, Taschenbuch für Freimaurer 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 24, L/R 179",
+  "responsibility_statement": "Friedrich von Sydow",
+  "subtitle_statement": "",
+  "title_statement": "Asträa. / Taschenbuch für Freymaurer / auf / die Jahre / 1838 und 1839. / Herausgegeben / von / Friedrich von Sydow. / Achter Jahrgang. / Mit dem Portrait des Herausgebers. / Sondershausen,1839 / Verlag von Fr. Aug. Eupel",
+  "updated": "2026-06-30 09:52:42.298Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.218Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-30 09:52:42.298Z",
+      "agent": "6xjnjk3hecydoti",
+      "source_id": "fb6xj97ngpbk3lr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.218Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-30 09:52:42.298Z",
+      "agent": "onouii6ba06g0p9",
+      "source_id": "u5q6c6elp52yldq"
+    }
+  ]
+}

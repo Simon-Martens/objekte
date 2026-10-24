@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Es ist so leicht ein Urtheil sprechen / Wo unser Herz Partei schon nahm;",
+  "language": [],
+  "musenalm_id": 45864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 271,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Brunold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergebung",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.514Z",
+      "agent": "5m7tegabhm1qw46",
+      "source_id": "wz80rbgsy4eazrj"
+    }
+  ]
+}

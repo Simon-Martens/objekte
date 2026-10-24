@@ -1,0 +1,45 @@
+{
+  "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Der Lenz verblüht, der Sommer glüht, / Hinrollen Tag' auf schnellen Achsen;",
+  "language": [],
+  "musenalm_id": 1570,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterm Erwachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unterm Erwachen",
+  "updated": "2000-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.967Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "hyjdeplyh7m4ku1"
+    }
+  ]
+}

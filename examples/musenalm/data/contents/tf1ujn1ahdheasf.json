@@ -1,0 +1,45 @@
+{
+  "annotation": "Evangelische Gedichte (Sammlung INr 38891, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Und Jesus rief. Wer an mich gläub't, der gläubet / An mich nicht, nein! an den, der mich gesendet.",
+  "language": [],
+  "musenalm_id": 38896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Wer an mich gläubet, der gläubet nicht an / mich, sondern an den, der mich gesandt hat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Sallet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Wer an mich gläubet, der gläubet nicht an / mich, sondern an den, der mich gesandt hat",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.249Z",
+      "agent": "paudfbsdce3dysa",
+      "source_id": "d7he1cx4kkulj3e"
+    }
+  ]
+}

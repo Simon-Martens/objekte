@@ -1,0 +1,45 @@
+{
+  "annotation": "nach dem Reprint Hildesheim, New York (Olms)1979 autopsiert",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Wir sind aus Amors Binde; / Dem zarten Götterkinde / Nahm jüngst der Musen Eine / Sie spottend vom Gesicht.",
+  "language": [],
+  "musenalm_id": 7725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein paar Strumpfbänder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiebeler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein paar Strumpfbänder",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.278Z",
+      "agent": "xnvl0kz2eadysbj",
+      "source_id": "gxyozm7vmf9u4b4"
+    }
+  ]
+}

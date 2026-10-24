@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Holde, selige Schöpferinn, / Die du mit mütterlicher Zärtlichkeit / Der Erde Güter uns öffnest, und mit Milde / Uns mit deinen Gaben erfüllst.",
+  "language": [],
+  "musenalm_id": 128178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. An die Natur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Genersich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. An die Natur",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.979Z",
+      "agent": "gtqx9e08ugzg95x",
+      "source_id": "j0eey2uocfguadl"
+    }
+  ]
+}

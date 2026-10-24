@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Du reichest mir, obgleich im Scherze, / Den Nesselkranz, und fragest: Ob er / schmerze?",
+  "language": [],
+  "musenalm_id": 17990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An **",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An **",
+  "updated": "2001-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.838Z",
+      "agent": "vurjmtt5tprr0cw",
+      "source_id": "qqlmdrq994jaim4"
+    }
+  ]
+}

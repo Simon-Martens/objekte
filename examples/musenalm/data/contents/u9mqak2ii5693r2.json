@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli /) über der Graphik: P. 67. /) Illustration zu »Elfriede« INr 126043, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126034,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfriede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del.",
+  "scans": [
+    "alm_3963_126034_77zbzvg12f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elfriede",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.918Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "cjwqq3id5wfc02j"
+    }
+  ]
+}

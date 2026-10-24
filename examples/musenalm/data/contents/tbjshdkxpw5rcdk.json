@@ -1,0 +1,43 @@
+{
+  "annotation": "I- Verz zu: Anhang (Sammlung INr 52129, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52130,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis (F. W. A. Schmidt)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.713Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "a1cvr2tila88s72"
+    }
+  ]
+}

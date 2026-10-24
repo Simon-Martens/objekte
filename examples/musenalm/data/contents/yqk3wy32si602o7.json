@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Auf! Nimm von eigner Hand den Tod! / Zerreiße, was dich bindet!",
+  "language": [],
+  "musenalm_id": 3147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entschluß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Entschluß",
+  "updated": "2000-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.757Z",
+      "agent": "fby2gdha04397wg",
+      "source_id": "v415rbrasa264cg"
+    }
+  ]
+}

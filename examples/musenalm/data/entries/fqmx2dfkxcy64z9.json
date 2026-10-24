@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 11 BB Kal darin 11 GG, SS 1-162, 93 SS Tab, 2 SS Tab, 33 SS Tab, S VrlgM, 36 SS Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1807",
+    "norm": "~",
+    "biblio": 100171,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 446,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berlinischer / Damen-Kalender / auf / das Gemein-Jahr 1807. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.605Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "bb64k5ej1ajess2"
+  ],
+  "contents": [
+    "ry3q9o7huzseehy",
+    "n2a8kwklc463w2r",
+    "qqqu215590l4yhu",
+    "vmwss6zihhwegga",
+    "5r3a9p8ds8s2ei1",
+    "nhjhy4u3sg1tbpu",
+    "6r4u0jka7j8i3w8",
+    "po6mbkn5lkul0q7",
+    "0t67g77w0etknzy",
+    "nkpjq3mg1exnmjq",
+    "rrrt1ezxrnrj9ye",
+    "4k02pz6rrjk0q5q",
+    "kwpogsgi5592rhk",
+    "q89hjwgv3of0ezj",
+    "kw1e0668nwgw0oa",
+    "myz8g9ko73oafs9",
+    "5j76ftxltqp9rel",
+    "t0g76298p9d4l7p",
+    "7p9pe02unlqzej2",
+    "25jraa8hjsldq3l",
+    "smyxh8k4ix7j1a9",
+    "9jjqi4v4xupyoli",
+    "otxlcbl1u5mbnxr",
+    "z21bcf60hstsggn",
+    "gpie1vrwbsx41mf",
+    "0xkuovl1pz2g70j"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.668Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.668Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "ftzmj2fl2zuui6q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "quier4v79aqbrox"
+    }
+  ]
+}

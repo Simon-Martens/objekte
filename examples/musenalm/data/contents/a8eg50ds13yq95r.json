@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Lob der schwarzen Farbe« (INr 130374, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Zartes Weiß, die Feier meiner Lieder / Will ich Dir aus voller Seele weih’n / Möchten sie so unschuldvoll und rein, / Wie des königlichen Schwan’s Gefieder, / Wie der Schnee auf hohen Alpen seyn.",
+  "language": [],
+  "musenalm_id": 130373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Lob der weißen Farbe, / von / Carl Müchler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Lob der weißen Farbe, / von / Carl Müchler",
+  "updated": "2009-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.068Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "0pmsmzowwm5lvo6"
+    }
+  ]
+}

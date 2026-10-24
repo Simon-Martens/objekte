@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Zwey Jahre schon ruhte mein Vater in unserer Familiengruft zu Ottershain. Ich hatte ihm meinen Thränenzoll gebracht, obgleich er sich unmittelbar wenig im Leben um mich gekümmert,",
+  "language": [],
+  "musenalm_id": 63386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Heilquelle. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Heilquelle. / Novelle",
+  "updated": "2009-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.965Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "61awmuhzifopcix"
+    }
+  ]
+}

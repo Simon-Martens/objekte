@@ -1,0 +1,86 @@
+{
+  "annotation": "Format: 4,5 x 7,7 /) KVK, Hebis: Kompendiöser Sackkalender für das Jahr nach Jesu Christi Geburt [...]: 1815-1890 /) mit Vorläuferreihe: Augsburgischer compendiöser Hand- Schreib- und Sack-Calender auf das Heil-Jahr unsers Herrn Jesu Christi [...]: 1745-1790",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, 31 SS Kal, 15 BB darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Sackkalender, Kompendiöser (Augsburg) 1843",
+    "norm": "~",
+    "biblio": 409119,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-10-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4229,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Bloßfeld)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Sackkalender, Kompendiöser (Augsburg) 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kompendiöser / Sackkalender / für das Jahr / nach / Jesu Christi / Geburt / 1843. / Ist ein Gemein-Jahr von / 365 Tagen. / Augsburg, / bei J. Bloßfeld, Buchbinder / und Verleger in der Ludwigstraße",
+  "updated": "2026-06-11 10:18:55.465Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "ku2j7tujmnwul6d"
+  ],
+  "contents": [
+    "h9ynyqb58tfov68",
+    "3ac8pfb8n27nttc",
+    "rhpp76ka0fqrb01",
+    "3zsa59mmpte6meu",
+    "23o4no554h30w6t",
+    "skjeonra1ie6bpk",
+    "x04qitz8cts7xby",
+    "gudmejyw4hrcxbl",
+    "7lzju4z6usge37l",
+    "mc3yzwppbjkrjui",
+    "h4wtoal69z4160i",
+    "rel7gt8wwfu9uew",
+    "opomf382ds24xyq",
+    "0khovy3hvzh4gs1",
+    "1vmu9ndz8tudwdo",
+    "qz7tqbr8r8j805m",
+    "v5vncu7de2ensll",
+    "y4kvty2nq6t2t15"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.546Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.546Z",
+      "agent": "qryj0w4tq07nzt1",
+      "source_id": "8h6ecxn4sjidfqu"
+    }
+  ]
+}

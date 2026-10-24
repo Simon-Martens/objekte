@@ -1,0 +1,45 @@
+{
+  "annotation": "auszufaltende kolorierte Karte",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KARTE vom TEMESCHWARER BANAT nach den Trigonometrisch- und Astronomischen Berichtigungen des Herrn J. Barzelline entworfen von D. F. Sotzmann Geogr. d. K. A. d. Wiss. zu Berlin 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Sotzmann Carl Jäck sculp. Berlin",
+  "scans": [
+    "alm_3962_102091_oebbxczeex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KARTE vom TEMESCHWARER BANAT nach den Trigonometrisch- und Astronomischen Berichtigungen des Herrn J. Barzelline entworfen von D. F. Sotzmann Geogr. d. K. A. d. Wiss. zu Berlin 1790",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.095Z",
+      "agent": "llfbsdoltk6o89d",
+      "source_id": "0axvj2dm54izvim"
+    }
+  ]
+}

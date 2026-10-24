@@ -1,0 +1,170 @@
+{
+  "annotation": "",
+  "biographical_data": "1. Hälfte 19. Jh.",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.258Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "describedBy": {
+        "dateModified": "2019-11-22T18:03:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOELB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOELB"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1036754367/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-NOeLB"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1036754367",
+      "id": "https://d-nb.info/gnd/1036754367",
+      "periodOfActivity": [
+        "1817-1839"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Berkowetz, J.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "J."
+        ],
+        "surname": [
+          "Berkowetz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Stahlstecher"
+      ],
+      "publication": [
+        "Fräulein Heinefetter. - [1. Hälfte 19. Jh.]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/304800008"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036754367/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Berkovetz, Joseph",
+        "Berkowitz, Joseph",
+        "Berkowitz",
+        "Berkowetz",
+        "Berkowetz, Joseph",
+        "Berkowitz, J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Berkowetz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Berkovetz"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Berkowitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Berkowitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Berkowetz"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Berkowitz"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T10:55:30Z",
+    "gnd_query_biographical_data": "1. Hälfte 19. Jh.",
+    "gnd_query_name": "berkowetz, joseph"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 178,
+  "name": "Berkowetz, Joseph",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B III, 420",
+  "updated": "2026-06-11 13:29:21.540Z",
+  "uri": "https://d-nb.info/gnd/1036754367",
+  "editor": ""
+}

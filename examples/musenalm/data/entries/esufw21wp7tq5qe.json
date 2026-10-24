@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1863",
+    "norm": "",
+    "biblio": 407699,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-02-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3930,
+  "parallel_title": "",
+  "place_statement": "Wien (Verlag der typogr.-literar.-artist. Anstalt Zamarski und Ditmarsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1863",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter Kalender / und / Novellen-Almanach / für 1863. / Mit Originalbeiträgen von Baronin Grabenreuth, A. Schirmer, Aug. Schrader. / Herausgegeben / von / F. Menk-Dittmarsch. / Wien und Leipzig. / Druck und Verlag der typogr.-literar.-artistischen Anstalt / L. C. Damarski & C. Dittmarsch",
+  "updated": "2026-06-11 10:18:55.346Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "items": [
+    "lhc1kltu314ncbo"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.311Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.311Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "4fpgxtii8y97zi2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.173Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.173Z",
+      "agent": "ssh5pq0q5l95r1n",
+      "source_id": "lyb36cn5rdbd8xi"
+    }
+  ]
+}

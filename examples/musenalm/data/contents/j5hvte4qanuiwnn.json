@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Michaelis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Sturm fec. Nürnb.",
+  "scans": [
+    "alm_77_2377_omwi837b1q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Michaelis",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.875Z",
+      "agent": "83bgj21cr6rcy33",
+      "source_id": "iet91u6mwnfa72k"
+    }
+  ]
+}

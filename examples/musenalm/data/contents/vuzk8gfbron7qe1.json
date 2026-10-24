@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Wer will vom alte Schwytzergeist / Es lebigs Muster gseh;",
+  "language": [],
+  "musenalm_id": 52948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es Schwytzer-Müsterli. / Uf'd Wyß: Auf! auf! ihr Brüder und seyd stark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Häfliger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Es Schwytzer-Müsterli. / Uf'd Wyß: Auf! auf! ihr Brüder und seyd stark",
+  "updated": "2007-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.703Z",
+      "agent": "7xo2ew2y9bv15pw",
+      "source_id": "x1py0a6hl9515qu"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert S. 318 /) Illustration zu »Herzog Maximilian Julius Leopold von Braunschweig, oder der Heldentod der Menschenliebe« INr 46821, Obj 73",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau delin. Grusius sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau delin. Grusius sculp.",
+  "scans": [
+    "alm_631_46822_4bvrflujml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.519Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "lo07nvvdo7u14yv"
+    }
+  ]
+}

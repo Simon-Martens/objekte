@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Mit Billigkeit verrückte man / Dir hier den Kopf, du schlauer Scharlatan;",
+  "language": [],
+  "musenalm_id": 76366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein schlechtes Gemälde des / Grafen Cagliostro, / dessen Kopf sich in einer widernatürli- / chen Wendung zu weit rückwärts / drehte. / Straßburg im Heumond 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein schlechtes Gemälde des / Grafen Cagliostro, / dessen Kopf sich in einer widernatürli- / chen Wendung zu weit rückwärts / drehte. / Straßburg im Heumond 1786",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.893Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "u2lxnm7jdill4ii"
+    }
+  ]
+}

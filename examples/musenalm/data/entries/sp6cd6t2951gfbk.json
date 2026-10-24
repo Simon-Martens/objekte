@@ -1,0 +1,82 @@
+{
+  "annotation": "Die Graphik im Kalendarium im Doppelformat INr 102674 wohl Titelgraphik: hier fälschlich eingeklebt; $§ die an dieser Stelle zu erwartenden Graphiken Nr 3. und Nr 4. fehlen vermutlich",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 51 SS Kal darin 5 GG, 6 BB, S 1 zT, SS 2-16",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1830",
+    "norm": "~",
+    "biblio": 408881,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4170,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "J. C. Köster",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Jahr 1830. / Von / J. C. Köster, / Geometer. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.211Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "2sw9eptieqwtnhf"
+  ],
+  "contents": [
+    "pu5epo3brxc9uo4",
+    "l3ewj86pwekucsf",
+    "a0h5k1rv4eijro9",
+    "dykbub6ix2i8vti",
+    "jqr4k6olcjfod2v",
+    "p6yp02wv3gex2qh",
+    "4tnijhlzghs9ba9",
+    "ri0riu2enofwaqz",
+    "39dtrdv8oybh4im",
+    "h54m3w7u6eyjd9n",
+    "9sgvx1fphx87rq8",
+    "1zhjupcj5vmf191",
+    "3dbzgl403yz54kg",
+    "j0exq9yca5s105y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "a212m559czg0krt"
+    }
+  ]
+}

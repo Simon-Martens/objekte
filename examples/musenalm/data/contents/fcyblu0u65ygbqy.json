@@ -1,0 +1,45 @@
+{
+  "annotation": "Lied aus  »Die weiße und die rote Rose« von Fr. Kind INr 19403 /) mit einer Musikbeigabe s. INr 61734",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Wenn Dein süßer Athem wehet / Wenn Dein Mund Entzücken haucht",
+  "language": [],
+  "musenalm_id": 61734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn Dein süßer Athem wehet / Wenn Dein Mund Entzücken haucht…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.985Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "yd4zsbup4i0r2h6"
+    }
+  ]
+}

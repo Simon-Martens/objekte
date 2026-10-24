@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrisches (Sammlung INr 86138, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Willst durch's Leben wandern / Froh und leicht an's Ziel?",
+  "language": [],
+  "musenalm_id": 86141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reisegeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reisegeld",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.098Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "2o6a9yu3c89g3cv"
+    }
+  ]
+}

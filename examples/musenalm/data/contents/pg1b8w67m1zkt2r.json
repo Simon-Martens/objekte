@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an den übrigen Graphiken der Suite /) Historisch-mahlerische Reise durch Griechenland (Sammlung INr 89944, Obj 9) s. Textbezug INr 89958, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eingang der Grotte auf Antiparos",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hilair del. J. Blaschke sc.",
+  "scans": [
+    "alm_3104_89959_b1ylqqknjz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eingang der Grotte auf Antiparos",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.449Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "avatusbixwk88zf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.449Z",
+      "agent": "a0ldppgdsdbno74",
+      "source_id": "tvccirfa1fzxvec"
+    }
+  ]
+}

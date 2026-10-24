@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten mit einem einleitenden Gedicht INr 129859-129963, 129898-129900, Obj 37-43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erotische Tändeleien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erotische Tändeleien",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.049Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "kyn53aoznypy69y"
+    }
+  ]
+}

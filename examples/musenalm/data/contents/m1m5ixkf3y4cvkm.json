@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 31133, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Den Fabeln, die Aesop erfand, / Geb' ich ein dichtrisches Gewand;",
+  "language": [],
+  "musenalm_id": 31132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / zu des Phädrus erstem Buche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / zu des Phädrus erstem Buche",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.016Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "9ea6is2f1l7cof3"
+    }
+  ]
+}

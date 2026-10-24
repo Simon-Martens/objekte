@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 5838, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Dein Leben, Beste, das bisher so heiter dir verfloß. / War wie ein reiner Quell,",
+  "language": [],
+  "musenalm_id": 5837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verse aus einem Stammbuche, / welche zu denen untenstehenden / Gelegenheit gegeben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verse aus einem Stammbuche, / welche zu denen untenstehenden / Gelegenheit gegeben",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.336Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "3ishpewlfwrjb2w"
+    }
+  ]
+}

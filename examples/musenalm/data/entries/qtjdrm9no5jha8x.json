@@ -1,0 +1,80 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT; 11 GG, SS III-LVI G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bout-Rimés pittoresques [oJ]",
+    "norm": "~",
+    "biblio": 408579,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-07-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4135,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Bout-Rimés pittoresques [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "BOUT-RIMÉS / PITTORESQUES",
+  "updated": "2026-06-11 10:18:55.551Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "cvobktia4rylc8c"
+  ],
+  "contents": [
+    "088ajtp1fmvvnd0",
+    "p6qv0fsheycgjr5",
+    "kri9robhl1ru0z2",
+    "iybn5kfkzahsuil",
+    "zrz8qa15ts22hwh",
+    "6boahy7lvha10y5",
+    "gx9n1id6uuq6s1m",
+    "c80ggm3oaxso9an",
+    "sy8kqst92dii6qt",
+    "3nm07bqsr8xtcww",
+    "03xvtce8eln2qd4",
+    "77u8cofkbq7wr7n",
+    "x4f1cxkcn6ev1hw",
+    "esbv9x27h7ukr94",
+    "y7uhvqg5qgp6xx8",
+    "dnk1uas5w8vtik3",
+    "lkuod9y4pfj3ycq",
+    "er4eh58re0e151u",
+    "0altpxpnaozw20h",
+    "wgo7866wjd9h0pj",
+    "7ek2budyzad7m9a",
+    "dc1ortgqt7cz92h",
+    "9ujrhjbdq1i9fde",
+    "70cz0yxtkayu34p",
+    "9z0zimfdiiiacke",
+    "z4y76itxtsml823"
+  ],
+  "agents": []
+}

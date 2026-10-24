@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Amor, dienend bei den Musen, / Sagte: Kinder, gebt mir meine / Freiheit wieder!",
+  "language": [],
+  "musenalm_id": 4392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor, / von den Musen in Freiheit gesetzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor, / von den Musen in Freiheit gesetzt",
+  "updated": "2000-09-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.217Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "k0w672twtf2gb0i"
+    }
+  ]
+}

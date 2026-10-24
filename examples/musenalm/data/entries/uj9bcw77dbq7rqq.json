@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Heimgarten deutscher Dichtung [oJ]",
+    "norm": "",
+    "biblio": 106673,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1831,
+  "parallel_title": "",
+  "place_statement": "Lahr (Schömperlen)",
+  "places": [
+    "sdsrhilnd1yaye8"
+  ],
+  "preferred_title": "Heimgarten deutscher Dichtung [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Heimgarten / deutscher Dichtung. / Ein Almanach vom Oberrhein. / Herausgeber Friedrich Geßler, Ludwig Auerbach / 1. Jahrgang. / Lahr i. B. / Verlag von Chr. Schömperlen",
+  "updated": "2026-06-11 10:18:55.648Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "fo106oyb17f7wll"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "im46uogs5z1w5q1",
+      "source_id": "l7yxwkv5fmlm5bm"
+    }
+  ]
+}

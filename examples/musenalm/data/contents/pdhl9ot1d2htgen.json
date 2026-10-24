@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 8.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54686,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Fröhlich",
+  "scans": [
+    "alm_743_54686_onj5bpfrcn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ländler",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.659Z",
+      "agent": "2zdwvvsdgu1m59h",
+      "source_id": "3dgbirt1senuhcu"
+    }
+  ]
+}

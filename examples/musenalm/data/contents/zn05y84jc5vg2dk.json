@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehende Graphik INr 80254, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Sinnend steht ein junges Mädchen, / Auf den Krug gelehnt am Brunnen, / Eine Rose in der Rechten.",
+  "language": [],
+  "musenalm_id": 80255,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädchen und Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mädchen und Rose",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.833Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "by9xhd1ynaukjen"
+    }
+  ]
+}

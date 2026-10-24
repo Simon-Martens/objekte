@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Nur des Gewissens Spruch lohnt dei- / ne Ruhmbegier; / Wohl denen, die nach gleichem Lohne / streben!",
+  "language": [],
+  "musenalm_id": 38412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.857Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "9h4wtrsugiyn8dl"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80715, Obj 7 /) Illustration zu » Die Troubadours« von Friedrich Wagner INr 80730, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.507Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80714,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Yolanda Borély",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Grevedon del. C. Kotterba sc.",
+  "scans": [
+    "alm_1798_80714_txwgibxztr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Yolanda Borély",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.934Z",
+      "agent": "fnowuly66bkynwc",
+      "source_id": "g9i1twi9jlypzw8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.934Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "xpcryz6a9k4hqqw"
+    }
+  ]
+}

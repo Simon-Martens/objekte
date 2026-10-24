@@ -1,0 +1,91 @@
+{
+  "annotation": "§ Almanach unvollständig: einige Seiten, UG verso fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS 3–180, SS1–360",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1842",
+    "norm": "~",
+    "biblio": 405183,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1316,
+  "parallel_title": "",
+  "place_statement": "Berlin (Steinfeld)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst / auf / das Jahr 1842. / Herausgegeben / von / L. Wolff, / Soufleur des Königl. Theaters. / Siebenter Jahrgang. / Berlin, / den 1. Januar 1843. / Gedruckt bei Julius Steinfeld",
+  "updated": "2026-06-11 10:18:54.922Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "w9evc390bt051lb"
+  ],
+  "contents": [
+    "it2n8mekciqnneb",
+    "bo1ge39q7j2031e",
+    "ew4xkay7v65wh4s",
+    "ehzfvx3kn2o5chb",
+    "yz4gq8guff584bu",
+    "k3s2v4kqkjwcv0j",
+    "s7ugae7nb1qyfaf",
+    "n0m0jn2eijydvya",
+    "5lhlt76n548iptj",
+    "sr7ylmc6x0bu85w",
+    "2udup7pedwhqbsh",
+    "x3xtbqqv6uazhmh",
+    "bqmbigvfpvpkx55",
+    "9lcbn1b7pzakv74",
+    "vc9fki2aa515n1n",
+    "qjrgns6xfbyj5lu",
+    "b340iydrac3neao",
+    "h5u10lsnqir8i3u",
+    "uu0t8rw2hjxyscf",
+    "186nbyim1s5bqp5",
+    "jtgg8bawvuwheqj",
+    "hdunceou75f2s9n",
+    "owwmnreyfw4bsu2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "0fl3j839fz9v5ab",
+      "source_id": "ax7v5ckmlclq2we"
+    }
+  ]
+}

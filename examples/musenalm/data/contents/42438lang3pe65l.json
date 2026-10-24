@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Das ist ein Rennen und ein Treiben, / Ein Mühen und Geschäftigthun,",
+  "language": [],
+  "musenalm_id": 99529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Leipziger Messe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Semmig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Leipziger Messe",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.805Z",
+      "agent": "e0mj2bip0zllpes",
+      "source_id": "7vz2mprqvg3t0jw"
+    }
+  ]
+}

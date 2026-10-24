@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Was kaum mein Mund und schüchtern wagt, / Ein zärtliches Geständnis, kann dich kränken?",
+  "language": [],
+  "musenalm_id": 6344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Doris",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Doris",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.118Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "kb1h8wkjmkca0gm"
+    }
+  ]
+}

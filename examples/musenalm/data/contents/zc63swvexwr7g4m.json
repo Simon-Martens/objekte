@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ständchen« von Bürger INr 2500, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (D. Weiß)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Weiß",
+  "scans": [
+    "alm_77_17320_4kztj6d1p3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.686Z",
+      "agent": "x1lckegivk1oedd",
+      "source_id": "hugi3zszdfifejk"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphik im Kalendarium INr 75669, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dreyßig schreckliche Jahre hatten Deutschland verwüstet und in Barbarey gestürzt. Das Schwert und die Flamme des Kriegs hatte die Frucht der Erde verzehrt,",
+  "language": [],
+  "musenalm_id": 75685,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 12.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.309Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "fibz3pejvvdqju6"
+    }
+  ]
+}

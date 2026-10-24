@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Glorreiche Säul', auf die sich unsre Plane / Und der Lateiner große Name bauen,",
+  "language": [],
+  "musenalm_id": 71227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / V.",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.446Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "kryy8wcfd56sjda"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.446Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "vg8wour3gg0h251"
+    }
+  ]
+}

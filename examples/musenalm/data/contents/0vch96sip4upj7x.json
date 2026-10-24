@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Es hol der Fuchs die Reimerey! / Man schwizt und martert sich dabey,",
+  "language": [],
+  "musenalm_id": 35025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nothgedrungene Klage eines / Dichters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Hegrad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nothgedrungene Klage eines / Dichters",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.787Z",
+      "agent": "74pcpa7ejqsofji",
+      "source_id": "ssbqshpjcy5shep"
+    }
+  ]
+}

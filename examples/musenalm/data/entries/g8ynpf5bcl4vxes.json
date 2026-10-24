@@ -1,0 +1,67 @@
+{
+  "annotation": "1813 (1. Teil), 1815 (2.) (2. Teil) hier zusammengebunden; 1829 (3.) (Neue Auflage: beide Teile in einem Band); Pesth (Hartleben) /) §§ einige Seiten fehlen, einige Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Physiognomisches 1815",
+    "norm": "",
+    "biblio": 407311,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3819,
+  "parallel_title": "",
+  "place_statement": "Pesth (Hartleben)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Taschenbuch, Physiognomisches 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Die Kunst / die Frauenzimmer / aus ihren Gesichtszügen / zu erkennen. / Ein / physiognomisches Taschenbuch / nach / Lavater's Grundsätzen. / Aus dem Französischen übersetzt. / Mit dreyßig illuminirten Kupfern. / Zweyte verbesserte Auflage. / Pesth, 1815. / Bey Conrad Adolf Hartleben",
+  "updated": "2026-06-11 10:18:55.367Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "nek2xdafdzs3099"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.963Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.963Z",
+      "agent": "wqmhjsk6o4thtdt",
+      "source_id": "9dhshiisyav4zdx"
+    }
+  ]
+}

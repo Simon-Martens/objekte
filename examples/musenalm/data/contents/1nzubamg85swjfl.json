@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 27431, Obj 158)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Wie mag es zugehn, daß aus Winternacht, / Wo kalter Schnee vom Himmel auf die Wiesen",
+  "language": [],
+  "musenalm_id": 27432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 159,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Amalia's Geburtstagsfeier. / 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Amalia's Geburtstagsfeier. / 1816",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.373Z",
+      "agent": "ep2ivkqi4f7w9jh",
+      "source_id": "k8r7yp9v370qtz5"
+    }
+  ]
+}

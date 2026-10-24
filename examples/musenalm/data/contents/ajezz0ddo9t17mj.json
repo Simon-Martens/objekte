@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien (Sammlung INr 46388, Obj 232)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "Alles was Heimat heißt, in deinen Armen erfind' / ich's / Liebchen, was einst mich beglückt, tritt vor die / Seele mir her.",
+  "language": [],
+  "musenalm_id": 46389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 233,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Heimat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Heimat",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.247Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "1x91hsc7cr4v7wl"
+    }
+  ]
+}

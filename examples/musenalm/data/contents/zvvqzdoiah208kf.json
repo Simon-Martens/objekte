@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht der Suite, INr 122209, Obj 285",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "»Ist Euch, so sprach der Alte, des Mährchens / wirrer Sohn, / Der seinen Schatten füttert, ein Sinnbild der / Nation, / Die fern dem frischen Leben und seiner ew’gen / Kraft / Nach Schatten jagt, für Schatten sich abquält, / müht und schafft?«",
+  "language": [],
+  "musenalm_id": 122211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 287,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allzufrieden und Unzufrieden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allzufrieden und Unzufrieden",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.701Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "bon4of7d4y38hju"
+    }
+  ]
+}

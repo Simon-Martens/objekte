@@ -1,0 +1,277 @@
+{
+  "annotation": "",
+  "biographical_data": "1779–1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.246Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1779-02-10"
+      ],
+      "dateOfDeath": [
+        "1838-03-07"
+      ],
+      "describedBy": {
+        "dateModified": "2016-09-13T11:54:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1036273024/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Ulrike Anna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Usedom"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette Friederike Albertine"
+          ],
+          "surname": [
+            "Cornberg"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Karl Theodor Bogislav"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm Arthur Friedrich Gottlob Xaver"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        },
+        {
+          "forename": [
+            "Helene Charlotte Adolfine"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        },
+        {
+          "forename": [
+            "Marie Henriette Ulrike Alexandrine"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Gottlieb Bogislav"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1036273024",
+      "id": "https://d-nb.info/gnd/1036273024",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4270132-6",
+          "label": "Bergen auf Rügen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Barnekow, Gustav Friedrich Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav Friedrich Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Barnekow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4664235-3",
+          "label": "Generalmajor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/304077973"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q28652145"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036273024/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gustav_von_Barnekow_%28Generalmajor%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000409983146"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1036273024"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/1036273024"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1036273024"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Barnekow, G. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Barnekow"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gustav_von_Barnekow_%28Generalmajor%29",
+          "label": "https://de.wikipedia.org/wiki/Gustav_von_Barnekow_%28Generalmajor%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:52:06Z",
+    "gnd_query_biographical_data": "1779–1838",
+    "gnd_query_name": "barnekow, gustav friedrich wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 108,
+  "name": "Barnekow, Gustav Friedrich Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 101",
+  "updated": "2026-06-11 13:29:21.462Z",
+  "uri": "https://d-nb.info/gnd/1036273024",
+  "editor": ""
+}

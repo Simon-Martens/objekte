@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Geschichte und Alterthum in Süddeutschland 1840",
+    "norm": "",
+    "biblio": 101333,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2846,
+  "parallel_title": "",
+  "place_statement": "Freiburg (Emmerling)",
+  "places": [
+    "nmnwnqcyxaqev1h"
+  ],
+  "preferred_title": "Taschenbuch für Geschichte und Alterthum in Süddeutschland 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Diesch 3995",
+  "responsibility_statement": "Dr. Heinrich Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Geschichte und Alterthum / in / Süddeutschland. / Herausgegeben / von / Dr. Heinrich Schreiber. / Mit drei Tafeln Abbildungen. / Freiburg im Breisgau. / Druck und Verlag von Adolph Emmerling. / 1840",
+  "updated": "2026-06-11 10:18:54.737Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "8ag4b7v5ru7r3ve"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.770Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.770Z",
+      "agent": "4wtyaw8whjyal3d",
+      "source_id": "e4up4yb3xghp6qk"
+    }
+  ]
+}

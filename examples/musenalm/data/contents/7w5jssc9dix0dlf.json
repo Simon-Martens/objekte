@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Das Veilchen im Thale« von F. Kind INr 19773, Obj 68. /) Anhang zu Beckers Taschenbuch 1818 enthaltend: Compositionen und Tänze von Blüher, Dotzauer, Ehrhardt, Methfessel, Minna Schütze, C. M. v. Weber (Sammlung INr 19807, Obj 100) (Photos 19812,01-19812,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19812,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Veilchen im Thale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Maria von Weber",
+  "scans": [
+    "alm_266_19812_01_l602bjd4xj.jpg",
+    "alm_266_19812_02_lhfgut4wfe.jpg",
+    "alm_266_19812_03_0vqnu4ondc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Veilchen im Thale",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.825Z",
+      "agent": "l82vh8em5pfss9x",
+      "source_id": "8v9wtsw3uje7ywl"
+    }
+  ]
+}

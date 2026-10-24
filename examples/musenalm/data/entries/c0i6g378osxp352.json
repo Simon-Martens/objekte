@@ -1,0 +1,74 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG , VB , S 1 T , S 3 T , SS 5-6 I-Verz , SS 7-243, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1838",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1622,
+  "parallel_title": "",
+  "place_statement": "Cöslin ( Hendeß)",
+  "places": [],
+  "preferred_title": "Bettlers Gabe, Des 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Müller, Wilhelm",
+  "subtitle_statement": "",
+  "title_statement": "Des / Bettlers Gabe. / Taschenbuch für 1838 / von / Wilhelm Müller. / Vierter Jahrgang. / Cöslin. / Druck und Verlag von C. G. Hendeß",
+  "updated": "2026-09-16 10:12:28.574Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "q18e7w1f1iyqjy0",
+    "cc1vsi4g66p0stf",
+    "1irukwfri5xsu10",
+    "42p0h4axuc8qskh",
+    "d99rwxnqaknnf5h",
+    "90og3lcl9d0776q",
+    "q88fed4eoapl34k",
+    "rg76lcs1gzjubrm",
+    "snvn7b0759f2khk",
+    "9f8ffyee8iwoj5q",
+    "h8y1a0q65tgip62",
+    "i6le2iezvkd2nbv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-07 09:28:09.636Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-16 10:12:28.575Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "a53bclbzym6eisw"
+    }
+  ]
+}

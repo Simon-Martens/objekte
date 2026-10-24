@@ -1,0 +1,93 @@
+{
+  "annotation": "Titelblatt hat fälschlicherweise: fünfter Jahrgang, 1807",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–2 Vrwt d Hrsg, SS 3–298 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1806",
+    "norm": "~",
+    "biblio": 100097,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1274,
+  "parallel_title": "",
+  "place_statement": "Berlin (de la Garde)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Vierter Jahrgang / Berlin / bei F. J. de La Garde / 1806",
+  "updated": "2026-06-11 10:18:54.995Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "w57fnhozu7tpssv"
+  ],
+  "contents": [
+    "fiavqo1lycpvka9",
+    "6e0r4as5iybd5rx",
+    "f9s5zahxwf76med",
+    "a1k42oiite5x2jd",
+    "lhszn24doib94ju",
+    "nlr42hb36dl4s6y",
+    "3285huoga9a4lvl",
+    "te8whqy047j2il7",
+    "rosfh680jww191u",
+    "2ycviy0a0gspy6k",
+    "3smb9tahw0xif1v",
+    "emiox0ks2ztsj79",
+    "aefvkflz8cpriif",
+    "sp2g14q1fcl8vsy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.712Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.712Z",
+      "agent": "yg492s8okv0njn9",
+      "source_id": "hkov62nbiqwmjb1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.870Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.870Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "siuaez6xsv15a3f"
+    }
+  ]
+}

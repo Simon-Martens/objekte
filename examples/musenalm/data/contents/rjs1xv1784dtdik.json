@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Geburtsfeyer« von D. Tomichich INr 90072, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90053,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "von Nelken. / zur Erzählung: Die Geburtsfeyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. Kotterba sc",
+  "scans": [
+    "alm_1648_90053_azscf4iut0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "von Nelken. / zur Erzählung: Die Geburtsfeyer",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.112Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "9v6mjo3b4j2rxnz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.112Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "j6qjkzulc9qk6au"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Freiwerber wider Willen. Ein Lustspiel in zwölf Scenen (INr 29862, Obj 5) s. Graphik INr 29885, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Er ist hereingelumpt! / Ist glücklich eingegangen!",
+  "language": [],
+  "musenalm_id": 29883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elfte Scene",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.324Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "7qa2yc5t6kseft7"
+    }
+  ]
+}

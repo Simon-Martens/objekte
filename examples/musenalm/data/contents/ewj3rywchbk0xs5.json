@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Was die Geschichte reicht, das Leben gibt, / Sein Busen nimmt es gleich und willig auf; [...] Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Die Geschichte eines edlen  Menschen bildet zugleich eine Abschnitt der Geschichte der Menschheit, der Völkergeschichte.",
+  "language": [],
+  "musenalm_id": 119095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Salomo L. Rapoport / (Oberrabiner in Prag.) / Eine culturhistorische Skizze, mit besonderem Hinblick auf galizische / Zustände",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Max Letteris",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Salomo L. Rapoport / (Oberrabiner in Prag.) / Eine culturhistorische Skizze, mit besonderem Hinblick auf galizische / Zustände",
+  "updated": "2017-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.670Z",
+      "agent": "v43lpj89r1ku9fz",
+      "source_id": "x0lvvb3o9u4jf2j"
+    }
+  ]
+}

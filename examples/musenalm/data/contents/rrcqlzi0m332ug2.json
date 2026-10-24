@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers: Ein Preis wird nicht vergeben, eine weitere Preisaufgabe wird nicht veranstaltet. s. Vorwort des Herausgebers »Preisaufgabe für das Jahr 1832« in: Urania 1831, INr 9374",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Als die unterzeichnete Verlagshandlung der Urania unterm 15. Juli 1830 einen Preis auf die beste Erzählung oder Novelle setzte,",
+  "language": [],
+  "musenalm_id": 1968,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bericht / über / die Preisaufgabe für die Novelle / oder Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bericht / über / die Preisaufgabe für die Novelle / oder Erzählung",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.042Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "sp3nflrjocbd9ne"
+    }
+  ]
+}

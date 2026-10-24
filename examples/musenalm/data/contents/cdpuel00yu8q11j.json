@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Der Verfasser jener Beschreibung, im Taschenbuche für Gartenfreunde auf das Jahr 1797 entdeckte nach einiger Zeit, daß die von ihm beschriebene Pflanze keine andere sei, als Gronovia scandens",
+  "language": [],
+  "musenalm_id": 79887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. / Von der / im vorigen Taschenbuche beschriebenen / Pflanze / aus der Familie / der kürbisartigen Gewächse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. / Von der / im vorigen Taschenbuche beschriebenen / Pflanze / aus der Familie / der kürbisartigen Gewächse",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.974Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "c32hlo1g2puf2gi"
+    }
+  ]
+}

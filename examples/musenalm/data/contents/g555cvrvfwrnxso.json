@@ -1,0 +1,45 @@
+{
+  "annotation": "Neunzehn Lyrische Gedichte (Sammlung INr 50315, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Brüder, hört, wie Eurus brauset, / Wie der Schnee am Fenster schwirrt,",
+  "language": [],
+  "musenalm_id": 50329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Das Herbstgelag. / 1770",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Das Herbstgelag. / 1770",
+  "updated": "2007-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.319Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "8a2ii6wz811g4ub"
+    }
+  ]
+}

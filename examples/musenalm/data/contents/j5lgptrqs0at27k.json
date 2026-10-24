@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24077, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Es kam der Tag, da stürzte Priams Thron, Der König selbst, sein Volk und seine Söhne,",
+  "language": [],
+  "musenalm_id": 24080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Troas Ebne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Troas Ebne",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.963Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "i7hand9gfylsr9k"
+    }
+  ]
+}

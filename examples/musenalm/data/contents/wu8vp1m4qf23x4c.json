@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die alte Schlange« von F. A. E. Langbein INr 30145, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30146,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die alte Schlange. Ein Schwanck / von A. F. E. Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec",
+  "scans": [
+    "alm_391_30146_9qjoj2ue3e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die alte Schlange. Ein Schwanck / von A. F. E. Langbein",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.410Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "4g78l15t45hfndf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.410Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "u2wz8bxt41srpet"
+    }
+  ]
+}

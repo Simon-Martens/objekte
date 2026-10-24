@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S 1 T, SS 3-339, S I-Verz, S, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bilder, Poetische aus der Zeit 1848",
+    "norm": "~",
+    "biblio": 407925,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-06-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3982,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Verlagsbureau)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Bilder, Poetische aus der Zeit 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 28; nicht bei L/R",
+  "responsibility_statement": "Arnold Ruge",
+  "subtitle_statement": "",
+  "title_statement": "Poetische Bilder / aus der Zeit. / Ein Taschenbuch / herausgegeben / von / Arnold Ruge. / II. / Leipzig. / Verlagsbureau. / 1848",
+  "updated": "2026-06-11 10:18:55.541Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "o7wkdi32i6ve40v"
+  ],
+  "contents": [
+    "5d8tu5cluo4b0v8",
+    "f99soiphz7g25og",
+    "sqf8rt8ms4bifhe",
+    "aodnbkhj41femsm",
+    "nwlntbiwil6egw8",
+    "r6ehscm7kkrkxfa",
+    "fjpxt28m9n16m5c",
+    "1x3yak4mpnqwlx4",
+    "2cnd901s3fvhlhw",
+    "jy8hrmg17djrrno",
+    "2otimvx92kr8zyu",
+    "56w956gf3y3eegw",
+    "d7ckhb73h1a5yae",
+    "wdv8se4yrpnlboe",
+    "brizxyrb6b7ldiw",
+    "7q7ns87ztwa0lj0",
+    "t9twjvf6c4ocvde",
+    "wtdhn54d24o1m7g",
+    "3vxe08ebg3h0tep",
+    "x44ol2ihifyndo1",
+    "dtsr3rkgr62vq22",
+    "r2h0tz3awxe56wf",
+    "o247mueiz6riwyy",
+    "xfmarzlzcxe8yqd",
+    "nhnj1k3mn8749wg",
+    "awrbhch0gt9llze",
+    "ld61uops91dfobn",
+    "p85y2hp3f5hgm0x",
+    "5ccehznitkk59ku"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "7qbkkz8j89sikwy",
+      "source_id": "0067kagguhbpxnk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.319Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.319Z",
+      "agent": "2dj29f5bkwyeiuj",
+      "source_id": "eqan8974jsn2k0f"
+    }
+  ]
+}

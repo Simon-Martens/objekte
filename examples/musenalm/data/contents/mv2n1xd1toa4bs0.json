@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Was hilft alles Ueberlegen, habe ich nicht bereits entschieden? Und bin ich nicht so vernünftig zu Werke gegangen, daß, wenn das Glück jetzt nicht kommen will, es wahrlich nicht meine Schuld ist.",
+  "language": [],
+  "musenalm_id": 115722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier und Zwanzig Stunden / Bedenkzeit. / Lustspiel in einem Aufzuge, / nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Cosmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier und Zwanzig Stunden / Bedenkzeit. / Lustspiel in einem Aufzuge, / nach dem Französischen",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.540Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "e1ll45djcymkuh6"
+    }
+  ]
+}

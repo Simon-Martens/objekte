@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Ich tauchte meinen Kiel in Leila's Wangenroth, / Ein blühendes Ghasel entfloß auf mein Gebot,",
+  "language": [],
+  "musenalm_id": 57718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Leila] Von Esaad",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Leila] Von Esaad",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.921Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "uqptieu0mpwtcx7"
+    }
+  ]
+}

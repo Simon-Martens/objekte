@@ -1,0 +1,45 @@
+{
+  "annotation": "Volkslieder aus dem Kuhländchen in Mähren (Sammlung INr 78439, Obj 94) mit »Glossen«",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "714",
+  "incipit_statement": "Ein Knäblein gung spazieren / Als Rusengoitelein / Der Goitel war gezieret / Mit schöner Blumerei.",
+  "language": [],
+  "musenalm_id": 78441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Verabredung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Verabredung",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.864Z",
+      "agent": "6g8r11hxaocz3tf",
+      "source_id": "hjqkfakeaypeq6p"
+    }
+  ]
+}

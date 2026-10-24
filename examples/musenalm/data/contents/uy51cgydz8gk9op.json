@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Bruchstücke (Sammlung INr 42052, Obj 252) Scherzhafte Gedichte (Sammlung INr 42051, Obj 251)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "Auf der Kühruh schlaft der Kuhhirt / Mittags, weil er Nachts gewacht,",
+  "language": [],
+  "musenalm_id": 42060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 260,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Romanze vom Kuhhirten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Romanze vom Kuhhirten",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.076Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "t8b1l83dqnbgr17"
+    }
+  ]
+}

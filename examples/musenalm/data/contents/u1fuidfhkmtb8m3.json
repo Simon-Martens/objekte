@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Sagt, was brüsten wir uns, wenn ein lobendes / Blatt uns erhebet?",
+  "language": [],
+  "musenalm_id": 11712,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "79. / Schriftsteller-Verdienst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "79. / Schriftsteller-Verdienst",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.511Z",
+      "agent": "z30t9keae9ak7mu",
+      "source_id": "dp5auf1924ncad5"
+    }
+  ]
+}

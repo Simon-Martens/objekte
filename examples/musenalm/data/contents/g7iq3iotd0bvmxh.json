@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 21135, Obj 29) Liebesgesänge (Sammlung INr 21125, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Schöner Jüngling jagt zu Rosse / Durch die Nacht zur Liebsten hin,",
+  "language": [],
+  "musenalm_id": 21136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scheintod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scheintod",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.087Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "inq7zlp4nw79yzq"
+    }
+  ]
+}

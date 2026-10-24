@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. am 8. Blatt der Suite /) kol. Graphik im Kalendarium - Januar; s. Gedicht INr 56643, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56642,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_32_56642_yt4qyvifv6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgen",
+  "updated": "2008-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.020Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "dyftmtzoqsk6t0p"
+    }
+  ]
+}

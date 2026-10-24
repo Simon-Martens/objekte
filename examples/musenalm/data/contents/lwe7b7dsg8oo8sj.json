@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einlietung s. INr 85831, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Was haben Sie mir so dringend zu sagen, daß Sie mich nöthigen, die Ges- / sellschaft zu verlassen.",
+  "language": [],
+  "musenalm_id": 85832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Ein weiblicher Charakter unsrer Zeit. / Scenen]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iffland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Ein weiblicher Charakter unsrer Zeit. / Scenen]",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.071Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "4ohvd6307ef9jy1"
+    }
+  ]
+}

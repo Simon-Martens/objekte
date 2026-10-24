@@ -1,0 +1,467 @@
+{
+  "annotation": "",
+  "biographical_data": "1803-1884",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.456Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1803-09-28"
+      ],
+      "dateOfDeath": [
+        "1884-06-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Wilhelm von Kügelgen"
+          ],
+          "creditText": [
+            "Spitzer, Bischoff (Hrsg.): Ludwig Richter. Der Maler. Deutscher Kunstverlag, München 2003"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20von%20K%C3%BCgelgen%20-%20Bildnis%20Ludwig%20Richter%2C%201836.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Wilhelm%20von%20K%C3%BCgelgen%20-%20Bildnis%20Ludwig%20Richter%2C%201836.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Wilhelm%20von%20K%C3%BCgelgen%20-%20Bildnis%20Ludwig%20Richter%2C%201836.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-02T09:42:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118600486/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/122432479",
+          "label": "Richter, Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118600486",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/122432479",
+          "label": "Richter, Heinrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118600486",
+      "oldAuthorityNumber": [
+        "(DE-588c)4049914-5",
+        "(DE-588a)118600486",
+        "(DE-588a)13102356X",
+        "(DE-588a)131023543",
+        "(DE-588a)135131855",
+        "(DE-588a)131162780",
+        "(DE-101c)310821851"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Richter, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Richter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        }
+      ],
+      "publication": [
+        "Alte und neue Studenten- Soldaten- und Volkslieder",
+        "Alte und neue Jägerlieder mit Bildern und Singweisen",
+        "Alte und neue Jäger-, Soldaten- und Volkslieder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12000765z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50045834"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100213038"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q551896"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118600486/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adrian_Ludwig_Richter"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Richter"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Richter"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Richter"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121451853"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118600486"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118600486"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118600486.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118600486.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118600486"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118600486"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118600486"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Richter, Adrian Louis",
+        "Richter, Louis",
+        "Richter, Arnold L.",
+        "Richter, Adrian Ludwig",
+        "Richter, Adrian",
+        "Richter, Ludvig",
+        "Richter, Adrian L.",
+        "Richter, L.",
+        "Richter, Georg Ludwig",
+        "Richter, A. L.",
+        "Richter",
+        "Richter, A. Louis",
+        "Richter, Ludw.",
+        "Richter, A.L."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Ludwig"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "personalName": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "A. Louis"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian Ludwig"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian Louis"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "A. L."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Arnold L."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian"
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "A.L."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian L."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Richter"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Richter",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Richter"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:38:36Z",
+    "gnd_query_biographical_data": "1803-1884",
+    "gnd_query_name": "richter, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2258,
+  "name": "Richter, Ludwig",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVIII, 298",
+  "updated": "2026-06-11 13:29:24.300Z",
+  "uri": "https://d-nb.info/gnd/118600486",
+  "editor": ""
+}

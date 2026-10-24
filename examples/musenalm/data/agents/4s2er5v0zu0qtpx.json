@@ -1,0 +1,520 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.432Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schweiz. Staatsmann und Schriftsteller, Landammann Kanton St. Gallen"
+      ],
+      "dateOfBirth": [
+        "1755-02-24"
+      ],
+      "dateOfDeath": [
+        "1836-07-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Felix Maria Diogg"
+          ],
+          "creditText": [
+            "Glaus, Beat. Der Kanton Linth der Helvetik. Schwyz, 2005."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Mueller%20Friedberg.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Mueller%20Friedberg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Mueller%20Friedberg.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172581400"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:03:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118785257/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anna Dorothea"
+          ],
+          "surname": [
+            "Bachmann"
+          ]
+        },
+        {
+          "forename": [
+            "Francisca Josepha"
+          ],
+          "surname": [
+            "Suter"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Sinz"
+          ]
+        },
+        {
+          "forename": [
+            "Mathilde"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chrismar"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/121573516",
+          "label": "Müller von Friedberg, Karl"
+        },
+        {
+          "forename": [
+            "Karl Joseph"
+          ],
+          "surname": [
+            "Bachmann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137766734",
+          "label": "Müller von Friedberg, Franz Joseph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118785257",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/121573516",
+          "label": "Müller von Friedberg, Karl"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/137766734",
+          "label": "Müller von Friedberg, Franz Joseph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118785257",
+      "oldAuthorityNumber": [
+        "(DE-588a)172581400",
+        "(DE-588a)118785257",
+        "(DE-588c)4110913-2",
+        "(DE-588)172581400"
+      ],
+      "periodOfActivity": [
+        "1788-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4102336-5",
+          "label": "Näfels"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032215-4",
+          "label": "Konstanz"
+        }
+      ],
+      "preferredName": "Müller von Friedberg, Karl Franz Alois Matthias",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Franz Alois Matthias"
+        ],
+        "surname": [
+          "Müller von Friedberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Müller von Friedberg, Carl J.: Philosophie der Staatswissenschaft",
+        "Müller von Friedberg, Carl: Chronologische Darstellung der eidgenössischen Truppenüberlas*",
+        "Müller von Friedberg, Carl J.: Kundmachung, wodurch Karl Müller von Friedberg, bis anhier*",
+        "Müller von Friedberg, Carl J.: Philosophischer Versuch über die Geschichte der drey erste*",
+        "Müller von Friedberg, Carl J.: Schweizerische Annalen. - 1832 - 1842",
+        "Müller von Friedberg, Carl J.: Réflexions d'un democrate de Helvétie sur la France",
+        "Müller von Friedberg, Karl: Philosophie der Staatswissenschaft in Grundsätzen zur gesells*",
+        "Müller von Friedberg, Carl J.: Rede des Bürger Müller Friedberg, Präsidenten der Regierun*",
+        "Müller von Friedberg, Carl: Das gerettete Helvetien oder Orgetorix. -1799"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10688385t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no91018217"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15565818"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D5353.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1230748"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118785257/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172581400"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_von_M%C3%BCller-Friedberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080954912"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118785257"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118785257.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118785257.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118785257"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118785257"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Müller von Friedberg, Carl Franz",
+        "Müller-Friedberg, Karl",
+        "Friedberg, Carl Müller von",
+        "Müller von Friedberg, Carl",
+        "Friedberg, Karl Müller-",
+        "Müller, Karl",
+        "Friedberg, Karl von",
+        "Müller Friedberg, ...",
+        "Müller von Friedberg, Karl",
+        "Friedberg, Karl Müller von",
+        "Müller von Friedberg, Karl Franz",
+        "Müller-Friedberg, Carl",
+        "Friedberg, Karl M. von",
+        "Müller von Friedberg, Karl von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Müller"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Franz"
+          ],
+          "surname": [
+            "Müller von Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Müller von Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Müller-"
+          ],
+          "surname": [
+            "Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Müller von Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Müller"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Müller Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Müller-Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Franz"
+          ],
+          "surname": [
+            "Müller von Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Müller von Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Müller-Friedberg"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_von_M%C3%BCller-Friedberg",
+          "label": "https://de.wikipedia.org/wiki/Karl_von_M%C3%BCller-Friedberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:19:39Z",
+    "gnd_query_biographical_data": "1755-1836",
+    "gnd_query_name": "müller von friedberg, karl franz alois matthias"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1876,
+  "name": "Müller von Friedberg, Karl Franz Alois Matthias",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXII, 694",
+  "updated": "2026-06-11 13:29:23.869Z",
+  "uri": "https://d-nb.info/gnd/118785257",
+  "editor": ""
+}

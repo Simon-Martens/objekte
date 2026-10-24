@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Wenn das Seyn nur Kummer zeuget, / Wenn kein Labsal uns erfrischt;",
+  "language": [],
+  "musenalm_id": 53678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied / von / meinem unvergeßlichen Freunde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eilsa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied / von / meinem unvergeßlichen Freunde",
+  "updated": "2007-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.535Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "ethsv0inzhug5o4"
+    }
+  ]
+}

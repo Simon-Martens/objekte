@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Was willst du meinen Wahn mir rauben? / Bin ich doch überzeugt, sie liebet mich allein.",
+  "language": [],
+  "musenalm_id": 5504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen weisen Freund",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen weisen Freund",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.128Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "yibj57ne8trjdem"
+    }
+  ]
+}

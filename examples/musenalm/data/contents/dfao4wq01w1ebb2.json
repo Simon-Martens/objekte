@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36746,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er faßt den Becher, er starrt hinein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling del. Clar sc.1800",
+  "scans": [
+    "alm_499_36746_8377vjg934.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er faßt den Becher, er starrt hinein",
+  "updated": "2004-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.675Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "ktxy22e221ggd7p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.675Z",
+      "agent": "cj6pzq84zp925pc",
+      "source_id": "zj557wovhzo566n"
+    }
+  ]
+}

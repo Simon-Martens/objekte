@@ -1,0 +1,89 @@
+{
+  "annotation": "s.a. Jg 1836",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Odeon, Rheinisches 1840",
+    "norm": "",
+    "biblio": 100424,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2364,
+  "parallel_title": "",
+  "place_statement": "Düsseldorf (Wolf) (Schreiner)",
+  "places": [
+    "b2xy9eljcrkiwuh"
+  ],
+  "preferred_title": "Odeon, Rheinisches 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Hub und A. Schnezler",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / ODEON. / Herausgegeben / von / I. Hub und A. Schnezler. / Dritter Jahrgang. / Düsseldorf, / Verlag von J. Wolf, / in Commission bei J. H. C. Schreiner. / 1840",
+  "updated": "2026-06-11 10:18:55.333Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "l587z647vv1g9mz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "3wjy72aekvzvykh",
+      "source_id": "kwcaa7ly5jfwzn1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "o7nh489ih6y6t4l",
+      "source_id": "qa9szjkaju675ly"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "3wjy72aekvzvykh",
+      "source_id": "ut7msx7kc7kupw2"
+    }
+  ]
+}

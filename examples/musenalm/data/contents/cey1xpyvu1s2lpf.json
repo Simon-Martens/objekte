@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Pferdearzneikunst« INr 92875, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92851,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Königl. Thieranatomie in Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_3123_92851_rrj8w51bme.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Königl. Thieranatomie in Berlin",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.415Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "cp9cvb5x1j2t1aa"
+    }
+  ]
+}

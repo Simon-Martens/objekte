@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44466, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44467,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ERSTEN SPIELKARTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. J. Lunteschütz Gest. v. A. Rordorf",
+  "scans": [
+    "alm_605_44467_h66yv9s9ie.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ERSTEN SPIELKARTEN",
+  "updated": "2006-07-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.235Z",
+      "agent": "q9hf9lofgjx9rvu",
+      "source_id": "7flk2tj1lxwvv8q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.235Z",
+      "agent": "yyjxmf6pf9lptxp",
+      "source_id": "wolpob5qvtsnnz8"
+    }
+  ]
+}

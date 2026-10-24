@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121710, Obj. 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Was braucht er noch zu seinem Glücke / Seitdem er weiß, daß sie ihn liebt? / Er hat’s gemerkt am sanften Blicke / Den sie ihm halbverstohlen gibt.",
+  "language": [],
+  "musenalm_id": 121713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Dandy im Hydepark",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alfred Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Dandy im Hydepark",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.798Z",
+      "agent": "u04485bs7e2mwe0",
+      "source_id": "bnxnqu3zq4fyedp"
+    }
+  ]
+}

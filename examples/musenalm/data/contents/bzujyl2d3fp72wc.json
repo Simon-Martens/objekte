@@ -1,0 +1,45 @@
+{
+  "annotation": "von G.Leon als Beispiel zur Verwendung des Verbs »zweyen« seinem Gedicht »Maylied« INr 31059, Obj 29 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "In dem lufte suesse meien / So der walt gekleidet stat / So sieht man sich schone zweien / Alles das iht liebes hat",
+  "language": [],
+  "musenalm_id": 31060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In dem lufte suesse meien / So der walt gekleidet stat / So sieht man sich schone zweien / Alles das iht liebes hat…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich von Lichtenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.565Z",
+      "agent": "fnu5uwg0aapa9hv",
+      "source_id": "ol7gxuadhfkxi2r"
+    }
+  ]
+}

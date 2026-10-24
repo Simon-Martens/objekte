@@ -1,0 +1,45 @@
+{
+  "annotation": "Apologen II. (Sammlung INr 28287, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Ein Knabe hatte sich im Garten die Hände mit halbtrockner Erde beschmutzt.",
+  "language": [],
+  "musenalm_id": 28297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Bleiben wir, wie wir sind?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Bleiben wir, wie wir sind?",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.996Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "wkzkm4dnrn6zfyf"
+    }
+  ]
+}

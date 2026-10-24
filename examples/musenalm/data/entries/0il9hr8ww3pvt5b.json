@@ -1,0 +1,94 @@
+{
+  "annotation": "Jgg 1838-1845; Leipzig (Leo) /) Fortsetzung von: Vergißmeinnicht (Clauren) 1818-1837 und Rosen 1827-1837 /) Herausgeber vielleicht Wilhelm Robert Heller",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 BB darin 4 GG, 3 GG, nT, S I-Verz, SS 1-502",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1838",
+    "norm": "~",
+    "biblio": 106734,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2480,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1838. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.471Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "myokgb8t3k1peig"
+  ],
+  "contents": [
+    "zdewf2wtg3wzxa7",
+    "st4evbk8pg0v3mz",
+    "dzygl11wa5rfhlu",
+    "oakkaqg7gfqemwt",
+    "d85agxn68owrilv",
+    "3gywyjd3hlpjbfn",
+    "0tqjyn12ysbl44n",
+    "801034mq71xcrk7",
+    "tm7m50dby27vs2z",
+    "f5zekk3lh6xsrfk",
+    "5yvh1fdi42a14gy",
+    "ydf9csgolnq31vj",
+    "3qwbdwhids36kcp",
+    "bt50bof0g1ic0vk",
+    "qsjl3zt8uwps6an",
+    "qn2htvybf8dsyud",
+    "82ucp5p7noj8rvc",
+    "xc42skw5hl7za48",
+    "kktf0dqr5fl48yy",
+    "uifdqjgf13syeb8",
+    "qqeb2549jtb9h9t",
+    "bomhip3oc12sul9",
+    "9lu8qes20swaync",
+    "2fc11p2tjisjjuz",
+    "h14l9h5zyd1lrnr",
+    "4hlzsyuahc56auw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "o1htvz475218ija"
+    }
+  ]
+}

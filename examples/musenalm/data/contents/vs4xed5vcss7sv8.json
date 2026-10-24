@@ -1,0 +1,45 @@
+{
+  "annotation": "An Elisabeth's Namenstage (Sammlung INr 65868, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Bescheiden steh' ich an des Gartens Hecken, / Nicht seltenen Wuchs, noch seltne Frucht zu zeigen:",
+  "language": [],
+  "musenalm_id": 65878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Holunder:",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Holunder:",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.226Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "ygwvcsrtwmdaqze"
+    }
+  ]
+}

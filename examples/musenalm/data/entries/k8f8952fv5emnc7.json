@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Militär-Almanach, Würtembergischer 1825",
+    "norm": "",
+    "biblio": 410776,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-07-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4744,
+  "parallel_title": "",
+  "place_statement": "Ulm (Stettin)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Militär-Almanach, Würtembergischer 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. v. Fromm",
+  "subtitle_statement": "",
+  "title_statement": "Würtembergischer / Militär-Almanach. / Herausgegeben / von / F. v. Fromm, / Ober-Lieutenant und Brigade-Adjutant. / Erster Jahrgang. / Mit Abbildungen. / Ulm, 1825. / Im Verlage der Stettin'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.933Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "e301eiouj8f9qr2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.416Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.416Z",
+      "agent": "k621luutnmt6u0a",
+      "source_id": "3nehmdeto7nrubj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.159Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.159Z",
+      "agent": "uc3mc2xfjaiifd3",
+      "source_id": "il6a3mmfx7q1a7j"
+    }
+  ]
+}

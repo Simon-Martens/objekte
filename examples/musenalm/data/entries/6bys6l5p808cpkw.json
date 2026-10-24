@@ -1,0 +1,90 @@
+{
+  "annotation": "weitere Jgg nicht ermittlelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Paulmanns Venusisches für Damen 1802",
+    "norm": "",
+    "biblio": 404961,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3079,
+  "parallel_title": "",
+  "place_statement": "Halberstadt (Heinrich Matthias und Delius Erben); Leipzig (Rein)",
+  "places": [
+    "mdhj603ygs24e0m",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Paulmanns Venusisches für Damen 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. E. L. Paulmann",
+  "subtitle_statement": "",
+  "title_statement": "PAULMANNs / J. W. L. Herzogl. Braunschw. Commiss. Rath, und Vicar, / St. Cyr. zu Braunschweig; - - u. Königl. Preuss. / Dom-Vicar zu Halberstadt / Venusisches / Taschenbuch. / für / Damen. - / Die / ODEN, u. / LIEDER, / u. DER SEKULARI- / SCHE GESANG. / des / Horatz; / ungebunden. ein ächt  - treu - deutscher Versuch / im Saec XIX. / IIte Auslese. / MIT ABBILDUNG DES VERFASSERS / del. et sc. v. Closter; Officier Halberstad. / HALBERSTADT. / GEDRUCKT BEY HEINRICH MATTHIAS UND DELIUS ERBEN; / In Commission bey Wilhelm Rein. / LEIPZIG, 1802",
+  "updated": "2026-06-11 10:18:55.370Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "9tzaekaqwll65h6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.180Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.180Z",
+      "agent": "gnwi5mqzplvrhwn",
+      "source_id": "im6255mtlf6ipds"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "azmtiacooehopli",
+      "source_id": "yg6cthyeuf8c7rq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.982Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.982Z",
+      "agent": "eio0tp1jzwysuvy",
+      "source_id": "zcrwwa75rt08znq"
+    }
+  ]
+}

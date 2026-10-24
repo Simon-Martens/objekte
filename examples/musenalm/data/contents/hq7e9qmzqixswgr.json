@@ -1,0 +1,45 @@
+{
+  "annotation": "Toskanische Lieder (Sammlung INr 95417, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Schön bist Du! - Dich schuf der gott der Liebe, / Und ließ Dich auferzieh'n von Amoretten,",
+  "language": [],
+  "musenalm_id": 95419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Wie schön Du bist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfried Kapper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Wie schön Du bist",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.423Z",
+      "agent": "gy712kukgmbne1v",
+      "source_id": "iqi8bidl58dbdid"
+    }
+  ]
+}

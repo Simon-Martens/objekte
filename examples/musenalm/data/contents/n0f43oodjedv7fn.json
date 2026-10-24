@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz und den Beiträgen INr 82913, 82924; Obj 4, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82925,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Familie #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Andreas del Sarto. Prof. Heß",
+  "scans": [
+    "alm_3072_82925_2c4kjwswa0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Familie #",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.955Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "a20t68cqfh2f5s6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.955Z",
+      "agent": "qisfg152dqlm7s2",
+      "source_id": "vewtf78j59x9pjs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Teinach 1824 (Sammlung INr 54183, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "König des Landes bin ich, zwar unbekannt, bis / ich die Krone, / Die mir der Zauber geraubt, wie- / der gefunden im Hayn;",
+  "language": [],
+  "musenalm_id": 54195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. Die Verlorenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. Die Verlorenen",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.736Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "d66bcrscpmbc2qo"
+    }
+  ]
+}

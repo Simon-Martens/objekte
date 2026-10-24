@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kameel-Ziege Guanaco",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Capiex sc. 1805",
+  "scans": [
+    "alm_542_41487_8u60xd8ox1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kameel-Ziege Guanaco",
+  "updated": "2005-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.358Z",
+      "agent": "7hrej40ja61vll9",
+      "source_id": "qkg73otcpwir7h8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Den Galliern, die ihn gekrönet hatten, / Rief mit umwölkten Blick Leibnitzens gros- / ser Schatten:",
+  "language": [],
+  "musenalm_id": 38406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber / Hrn. Kästners Lobrede / auf Leibnitzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber / Hrn. Kästners Lobrede / auf Leibnitzen",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.959Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "opvp0oiyvn773ow"
+    }
+  ]
+}

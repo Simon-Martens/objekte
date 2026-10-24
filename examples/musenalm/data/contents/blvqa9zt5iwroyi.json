@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Wenn ich nur in meinem Leben einmal da drüben in dem schönen Saale meinen Kaffee trinken sollte, sagte die verwittwete Rendantin Brandt zu ihrem Sohne, dem Rathsaktuar Brandt,",
+  "language": [],
+  "musenalm_id": 76891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was seyn soll, fügt sich wohl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Methus. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was seyn soll, fügt sich wohl",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "9g2bjngyi7jp8ga",
+      "source_id": "pbn1w4o7xd0as3h"
+    }
+  ]
+}

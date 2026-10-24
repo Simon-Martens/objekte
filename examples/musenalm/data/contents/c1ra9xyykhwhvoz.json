@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zur folgenden Sammlung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Diese Fabeln sind die Erstlinge der Gellert'schen Muse, und, die letzte ausgenommen, ehemals in den Belustigungen des Verstandes und Witzes, die in den vierziger Jahren bei Breitkopf in Leipzig erschienen, gestanden.",
+  "language": [],
+  "musenalm_id": 91619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.421Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "elbro8xe0g3yz7q"
+    }
+  ]
+}

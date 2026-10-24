@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) es folgen: 2 Kapitel INr 70526, 70537; Obj 18, 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Schon vor zwölf Jahren bei seinem schüchternen Eintritt in die Lesezirkel der Waidmänner zeigte der Sylvan auf die Seetaucher hin,",
+  "language": [],
+  "musenalm_id": 70525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Seetaucher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Seetaucher",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.391Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "mdxpklxuqhubbh1"
+    }
+  ]
+}

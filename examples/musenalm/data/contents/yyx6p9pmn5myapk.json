@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Gartenunhold« von Calderon s. Textbezug INr 27859, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27861,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon's Gartenunhold",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. J. Axmann sc.",
+  "scans": [
+    "alm_357_27861_02eoysjnfa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon's Gartenunhold",
+  "updated": "2002-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "io3xhjty7zveu2l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.267Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "pi0k5jhl17t2ub2"
+    }
+  ]
+}

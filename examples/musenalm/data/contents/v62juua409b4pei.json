@@ -1,0 +1,45 @@
+{
+  "annotation": "Erstes Jahr (Sammlung 48661, Obj 8) mit einer Musikbeigabe s. INr 48665, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "So manchen Abend traur' ich hier / In stummer Liebe Leid,",
+  "language": [],
+  "musenalm_id": 48664,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond, / Abends um elf Uhr im Fenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond, / Abends um elf Uhr im Fenster",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.626Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "jzu9nhndz17lsfs"
+    }
+  ]
+}

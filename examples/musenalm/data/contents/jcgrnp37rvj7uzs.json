@@ -1,0 +1,45 @@
+{
+  "annotation": "Spiele (Sammlung INr 49247, Obj 18) s. Graphik INr 49290, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ich trat in Waldmanns Zimmer. Die erwachsenere Jugend saß mit dem würdigen Prediger Müller und Herrn Walter um den Tisch.",
+  "language": [],
+  "musenalm_id": 49289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Die Redner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Die Redner",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.602Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "xvp82nyk85pr1zu"
+    }
+  ]
+}

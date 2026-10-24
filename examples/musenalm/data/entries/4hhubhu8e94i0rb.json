@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, S I T, S III G-Verz u. I-Verz, SS V-XVI darin 4 GG, SS 1-376",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1857",
+    "norm": "~",
+    "biblio": 100612,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-08-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 610,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1857",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1857. / Mit Beiträgen / von / A. Schloenbach, P. Heyse, E. Willkomm und / W. Müller. / Mit 6 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+  "updated": "2026-06-11 10:18:55.289Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "items": [
+    "3i62inqrxnothj8"
+  ],
+  "contents": [
+    "g47i697kwsn29bx",
+    "xgkzenfbmikfq6j",
+    "veei1e9x0btydbc",
+    "ij8dibew3gjdwys",
+    "b7jmgcs3hj8dl77",
+    "jci5r1e2ppjqg3p",
+    "9dd1qv0p3bxdajc",
+    "agi51oywhqf1ygp",
+    "71fqni3zsxvb9st",
+    "uef9uidrb2g9xfo",
+    "hgva8t8avkah1om",
+    "93g5995p0e2bj2i",
+    "8jvlfxz7iebfny2",
+    "03qhc2nxuh5vwx2",
+    "nv0gkricps4gs19",
+    "ws4m446bb7jlojd",
+    "w7ene6coiaqrngm",
+    "9rtq299giuurhmx",
+    "2tz611omjj3vzzl",
+    "66zpolp3i4azquj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.068Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.068Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "i3s580bs9okn09y"
+    }
+  ]
+}

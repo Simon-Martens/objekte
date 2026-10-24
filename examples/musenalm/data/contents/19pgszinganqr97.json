@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder. Den heiligen Schatten meines verklärten Freundes! (Sammlung INr 129930, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Schon im zarten Lenze deiner Jugend / Rief der Weltenlenker dich zu sich;",
+  "language": [],
+  "musenalm_id": 129933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Bei der Leichenfeier",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hugo vom Schwarzthale",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Bei der Leichenfeier",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.026Z",
+      "agent": "wgv00y69o1rn8le",
+      "source_id": "g75ngrpnx5jfsnd"
+    }
+  ]
+}

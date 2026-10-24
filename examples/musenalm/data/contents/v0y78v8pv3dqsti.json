@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) nummeriert 4. /) Illustration zu »Blanka« INr 90253, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich komme zu dir lispelte sie mit bebender / Lippe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_1306_90254_77xcoualfy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich komme zu dir lispelte sie mit bebender / Lippe",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.204Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "jpbxi1oq1nqaycp"
+    }
+  ]
+}

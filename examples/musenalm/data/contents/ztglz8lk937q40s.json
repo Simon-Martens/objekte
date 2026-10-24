@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Oster-Sonntags-Spaziergang. Die Landleute« von J. M. U. d.i.: J. M. Usteri INr 54119, Obj 30 /) unter der Graphik: Alpenrosen 1826",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oster-Sonntags-Spatziergang. / Die Landleute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del. F. Hegi sc.",
+  "scans": [
+    "alm_738_54120_zqpjaxwomc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oster-Sonntags-Spatziergang. / Die Landleute",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.635Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "rytnwt2vae0ymdz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.634Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "zk5trf97p17t1k0"
+    }
+  ]
+}

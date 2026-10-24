@@ -1,0 +1,70 @@
+{
+  "annotation": "Kurzaufnahme: Titel u. Inhaltsverzeichnis als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS I-IV Vrwrt d Hrsg, SS V-VIII I-Verz, SS 1-189, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde und Verehrer des Tabakes 1828",
+    "norm": "",
+    "biblio": 409233,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-11-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4352,
+  "parallel_title": "",
+  "place_statement": "Brünn (Traßler)",
+  "places": [
+    "mlac40mytl30b3z"
+  ],
+  "preferred_title": "Taschenbuch für Freunde und Verehrer des Tabakes 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Anton Hornstein",
+  "subtitle_statement": "",
+  "title_statement": "Der Tabak / in  historischer, finanzieller und diätetischer / Beziehung, / mit einer / Blumenlese; / als ein Taschenbuch / für Freunde und Verehrer desselben,/ von / Anton Hornstein. / Brünn 1828, / gedruckt bei Joseph Georg Traßler",
+  "updated": "2026-06-11 10:18:54.726Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "hhpf1aa63o53wzu"
+  ],
+  "contents": [
+    "ewzrhbg9f0yhkry",
+    "2nnycqk066oag2a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "w5h9y9l3v23rdps",
+      "source_id": "v9zxcl8tawvc500"
+    }
+  ]
+}

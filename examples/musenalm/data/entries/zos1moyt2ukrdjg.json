@@ -1,0 +1,133 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, SS III-XX G-Verz darin 6 GG, SS 1-427 darin Tab, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die neuste Geschichte (Posselt) 1802",
+    "norm": "~ ++++ 106805",
+    "biblio": 200649,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 196,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Bauer und Mannische Buchhandlung)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch für die neuste Geschichte (Posselt) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 20; Goed VI. 309, 13",
+  "responsibility_statement": "D. Ernst Ludwig Posselt",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von / D. Ernst Ludwig Posselt. / Achter und lezter Jahrgang. / Mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung. / 1802",
+  "updated": "2026-06-11 10:18:55.803Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "8fpqjaojkyiqebk",
+    "yl55507784avjea"
+  ],
+  "contents": [
+    "d5w0a0izcjh665x",
+    "1hyccch3jzwsz9w",
+    "d6q1qrmx6pyh843",
+    "jr15dv45lmqyj0p",
+    "0vinu0md9yfuv2b",
+    "0492xlnx0hwyclw",
+    "ctimvsistix99qm",
+    "ykji0ci55a7dscm",
+    "2aez0dvcupgyjsx",
+    "cnw2y8shk5lknzs",
+    "dae6tyhly5ryc56",
+    "60g1eq1syt9rgn7",
+    "j873zjk11pkr95g",
+    "jo8slwg1umhrhdb",
+    "ztz0nh740791kfg",
+    "p19mn3insdvvgny",
+    "iltfavkf4x71m5l",
+    "l8q4nfmjk7gqsk5",
+    "w4pvlw67jpb80tu",
+    "z78de3t67n4xj4l",
+    "6qgy8875qo3gqdx",
+    "ysyg2b8fnqhj1za",
+    "khclfyfqcw03t2f",
+    "xtsk8r7j227hbq8",
+    "xfpy321k545n1wp",
+    "ztsesqnyk5s8chx",
+    "drojov27q5nhpml",
+    "0k5tauobjq6bxt6",
+    "ds8doqw5pbxn51d",
+    "7nr1ae34624ekyq",
+    "i3ora30v3azj319",
+    "o11hkimge5e33bk",
+    "f4w2jsvi1rn6dt2",
+    "zoan6pky8vbbrdv",
+    "h17pnnw1fdgtw0c",
+    "vtye340e7cnxi97",
+    "5eq24bzb9j4ygog",
+    "frww4nvmfmyam8l",
+    "igacrzmdelx4hcl",
+    "6rsewx8etk3qc2k",
+    "odmpn26nzarmuuz",
+    "wqhwbjqe05h83y2",
+    "ywb2t8pkrn9da3p",
+    "kvdsv43lh66pq37",
+    "jc33qgayzbs6fn3",
+    "5kh3cqcfljc59ga",
+    "mvme6wfir90fg0c",
+    "ri61ciful6dzeja",
+    "15jiw3fkheau2to",
+    "uidtu84nyhrbd6h",
+    "ejhwr52mhraw7h1",
+    "fredkyxsphvszzh",
+    "mw5i38p3xs1a30c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.518Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.518Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "r3szgk5d77i82xt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.496Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.496Z",
+      "agent": "vlu1loei07juwaw",
+      "source_id": "xo11ar44a3qjykv"
+    }
+  ]
+}

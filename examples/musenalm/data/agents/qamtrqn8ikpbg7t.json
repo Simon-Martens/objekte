@@ -1,0 +1,520 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1879",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.459Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024276-1",
+          "label": "Martin-Luther-Universität Halle-Wittenberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2024311-X",
+          "label": "Albertus-Universität zu Königsberg i. Pr."
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Philosoph u. Philosophiehistoriker; ab 1833 Prof. an der Univ. Königsberg (zwischen 1845 und 1863 mehrfach Rektor)."
+      ],
+      "dateOfBirth": [
+        "1805-04-23"
+      ],
+      "dateOfDeath": [
+        "1879-06-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://kulturportal-west-ost.eu/biographies/rosenkranz-karl-2/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Karl%20Friedrich%20Rosenkranz.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Karl%20Friedrich%20Rosenkranz.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Karl%20Friedrich%20Rosenkranz.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174169914"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:28:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118602721/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118602721",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118602721",
+      "oldAuthorityNumber": [
+        "(DE-588a)174169914",
+        "(DE-588)174169914",
+        "(DE-588a)118602721",
+        "(DE-588c)4050562-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4036934-1",
+          "label": "Magdeburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "preferredName": "Rosenkranz, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Rosenkranz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Philosophiehistoriker"
+      ],
+      "publication": [
+        "Hegel",
+        "Handbuch einer allgemeinen Geschichte der Poesie. - 1832 - 1833",
+        "Kritik der Schleiermacher'schen Glaubenslehre",
+        "Ueber den Titurel und Dante's Komödie",
+        "Zur Geschichte der Deutschen Literatur",
+        "Das Verdienst der Deutschen um die Philosophie der Geschichte",
+        "Encyklopädie der Theologischen Wissenschaften",
+        "Geschichte der deutschen Poesie im Mittelalter",
+        "Erinnerungen an Karl Daub",
+        "Kritische Erläuterungen des Hegel'schen Systems"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb121490160"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86112423"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/rosenkranz-karl/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22178678"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62315"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118602721/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174169914"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118602721"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Karl_Friedrich_Rosenkranz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Rosenkranz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Rosenkranz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Rosenkranz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108779416"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118602721"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118602721"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118602721.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118602721.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118602721"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Rosenkranz, Joannes Carolus Fridericus",
+        "Rosenkranz, Johann Karl Friedrich",
+        "Rosenkrantz, Karl",
+        "Rosenkranz, Johann K.",
+        "Rōzenkurantsu, Kāru",
+        "Rosenkrantz, Carolus",
+        "Rosenkranz, Carl",
+        "Rosenkranz, Johann Carl Friedrich",
+        "Rosenkranz, Carol",
+        "Rosenkrantz, Carol",
+        "Rosenkranz, K.",
+        "Rosenkranz, C.",
+        "Rosenkranz, J. C. F.",
+        "Rosenkrantz, Carl",
+        "Rosenkranz, Carolus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carol"
+          ],
+          "surname": [
+            "Rosenkrantz"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Carolus Fridericus"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "surname": [
+            "Rosenkrantz"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Rosenkrantz"
+          ]
+        },
+        {
+          "forename": [
+            "K."
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Carol"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. F."
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl Friedrich"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Kāru"
+          ],
+          "surname": [
+            "Rōzenkurantsu"
+          ]
+        },
+        {
+          "forename": [
+            "Johann K."
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl Friedrich"
+          ],
+          "surname": [
+            "Rosenkranz"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Rosenkrantz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Rosenkranz",
+          "label": "https://de.wikipedia.org/wiki/Karl_Rosenkranz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:41:24Z",
+    "gnd_query_biographical_data": "1805-1879",
+    "gnd_query_name": "rosenkranz, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2315,
+  "name": "Rosenkranz, Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIV, 909, 1023",
+  "updated": "2026-06-11 13:29:24.393Z",
+  "uri": "https://d-nb.info/gnd/118602721",
+  "editor": ""
+}

@@ -1,0 +1,201 @@
+{
+  "annotation": "",
+  "biographical_data": "1749-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.478Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1782 Lehrer, 1784 u. 1786 Subrektor, 1796 Konrektor am Berlinischen Gymnasium zum Grauen Kloster; 1822 pensioniert"
+      ],
+      "dateOfBirth": [
+        "1749-07-05"
+      ],
+      "dateOfDeath": [
+        "1836-07-06"
+      ],
+      "describedBy": {
+        "dateModified": "2015-07-22T16:57:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/120057557/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "120057557",
+      "id": "https://d-nb.info/gnd/120057557",
+      "oldAuthorityNumber": [
+        "(DE-588a)120057557"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4298959-0",
+          "label": "Treuenbrietzen"
+        }
+      ],
+      "preferredName": "Seidel, Johann Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich"
+        ],
+        "surname": [
+          "Seidel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/47582845"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55126660"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/120057557/about"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd120057557.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/120057557"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Seidel, Joannes Fridericus",
+        "Seidel, Johann F.",
+        "Seidel, Johannes Friedrich",
+        "Seidel, J. F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joannes Fridericus"
+          ],
+          "surname": [
+            "Seidel"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Seidel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Seidel"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Friedrich"
+          ],
+          "surname": [
+            "Seidel"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:56:39Z",
+    "gnd_query_biographical_data": "1749-1836",
+    "gnd_query_name": "seidel, johann friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2621,
+  "name": "Seidel, Johann Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXIII, 620",
+  "updated": "2026-06-11 13:29:24.957Z",
+  "uri": "https://d-nb.info/gnd/120057557",
+  "editor": ""
+}

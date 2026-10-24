@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das öde Schloß« von K. Leonhardt-Lyser INr 80603, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80578,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Armida. / Zur Erzählung von K. Leonhardt-Lyser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Chalon pinx. C. Kotterba sc.",
+  "scans": [
+    "alm_1796_80578_7nrh2uyyvz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Armida. / Zur Erzählung von K. Leonhardt-Lyser",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.682Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "o1nq0kvk19jb8ea"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.682Z",
+      "agent": "ofmlr5ax2rwl9dz",
+      "source_id": "thj537ls6suic20"
+    }
+  ]
+}

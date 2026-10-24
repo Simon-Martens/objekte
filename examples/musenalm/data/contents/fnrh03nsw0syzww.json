@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Zauberflöte« von W. A. Mozart s.a. Textbezug INr 75093, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ZAUBERFLÖTE. / I. Act / Papageno. Der Vogelfänger bin ich ja, / Stets lustig heysa hopsasa!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Fr. W. Meyer senior Berol.",
+  "scans": [
+    "alm_2369_75096_3g5axldhrz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ZAUBERFLÖTE. / I. Act / Papageno. Der Vogelfänger bin ich ja, / Stets lustig heysa hopsasa!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.652Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "b8ps05rjac4p03w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.652Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "wjmgme7bp89d64y"
+    }
+  ]
+}

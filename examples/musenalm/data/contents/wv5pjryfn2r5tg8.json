@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 110974, 119975; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ist mir denn keine Ruhe auf dieser Erde gegönnt? sprach Kaiser Friedrich II. das Fenster aufreißend und über das herrliche Palermo hinüber nach dem brausenden Meere schauend.",
+  "language": [],
+  "musenalm_id": 110973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rechberge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rechberge",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.271Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "8j0tyk1bkm8mdrw"
+    }
+  ]
+}

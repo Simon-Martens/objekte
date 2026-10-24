@@ -1,0 +1,45 @@
+{
+  "annotation": "Aprilflocken (Sammlung INr 26711, Obj 135)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "454",
+  "incipit_statement": "Solch einen Wandel wünscht' ich euch, / Wie ich hab' umgeschlagen,",
+  "language": [],
+  "musenalm_id": 26733,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXII.",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.323Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "k3ihh0cw3rg910t"
+    }
+  ]
+}

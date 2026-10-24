@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Ein König ließ den Erben seines Throns / Mit großem Fleiß erziehn. Man sucht in den / Provinzen / Zum Unterrichte seines Sohns / Die ersten großen Meister auf.",
+  "language": [],
+  "musenalm_id": 127589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fehler / der fürstlichen Erziehung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susanne von Bandemer, geb. von Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fehler / der fürstlichen Erziehung",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.946Z",
+      "agent": "63e8s8hkpbnksyg",
+      "source_id": "hhff7tzhv6mf2gf"
+    }
+  ]
+}

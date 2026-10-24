@@ -1,0 +1,99 @@
+{
+  "annotation": "19 Jgg 1780-1798 Zürich (Geßner); Hrsg: unbezeichnet,  lt. Historisches Lexikon der Schweiz, Artikel Almanache: »Ebenfalls von 1780 an erschien Salomon Gessners »Helvet. Calender«, der bis 1798 das literar. Leben der Deutschschweiz mitprägte.« s. http://hls-dhs-dss.ch/index.php (12.07.07) /) Jedem Monat des Kalendariums 1780 ist je eine Seite Politischer Kalender (Untertitel: Politische Feste und Jahrmärkte), Natur-Calender, Historischer Calender in Tabellenform beigegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT, 26 BB Kal darin 4 gTab, SS 1- 88, G, SS 89-193 darin G 2 MusBB, 3 GG, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1780",
+    "norm": "~",
+    "biblio": 200395,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 680,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / fürs Jahr 1780 / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.856Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "items": [
+    "bkssnpdvt2rkr7u"
+  ],
+  "contents": [
+    "lo15jecsibku84v",
+    "mbmdd8bx6xiwu9n",
+    "jace5govni0lug0",
+    "dpzvjhb8yip741k",
+    "bbgwum5hph1g0wr",
+    "eabybqygp2pagfg",
+    "ix3qd7tf2h79x3o",
+    "c1cwaqvnxf59b31",
+    "w2ls7ozlwh09gno",
+    "mgrby5cgnrxk8cq",
+    "1xop56fcjw6opqp",
+    "1zw30zmr6n687r6",
+    "937xqn0c517rqak",
+    "4ghw59sqo3tda61",
+    "7n3k4o3u5uc8sws",
+    "eyceqhgfawnrdg4",
+    "led6yaij3gzqhnj",
+    "z6xemrf8l7saeed",
+    "thc3i21u1xn48ig",
+    "w7k9cdl08n4rw7u",
+    "fgb2gxbwoim1jyi",
+    "2i0zn8k24u95bk2",
+    "b6vklgu190vkn7w",
+    "ngps38mpog4h6xz",
+    "hs7ouv5krgd6acj",
+    "0jngih987n4j1in",
+    "4n82iih7ur7xjsq",
+    "a0w2ua7skj9zsnc",
+    "i2o1g5kixq6w2h8",
+    "9tolvpf6qatfi8h",
+    "06yowz3exfo3t4n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.903Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.903Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "9n1dx7w5f9w9d6m"
+    }
+  ]
+}

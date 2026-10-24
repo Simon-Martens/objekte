@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Post-und Reise-Taschenbuch, Neues 1803",
+    "norm": "",
+    "biblio": 100703,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2459,
+  "parallel_title": "",
+  "place_statement": "Jena (Stahl)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Post-und Reise-Taschenbuch, Neues 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Carl August Becker",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Post- und Reise- / TASCHENBUCH / Von / Carl August Becker / F. S. Postmeister in Jena. / Mit einem Kupfer. / Jena / bey Wolfgang Stahl 1803",
+  "updated": "2026-06-11 10:18:55.945Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "bb6tqnl5rihuzkt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "sa5qmnzpsgz121e",
+      "source_id": "ojzn41vxsmgsm5j"
+    }
+  ]
+}

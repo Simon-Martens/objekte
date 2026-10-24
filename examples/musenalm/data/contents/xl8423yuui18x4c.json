@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung zum vorstehenden Gedicht INr 33050, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Tschudi, der uns diese Anekdote überliefert hat, erzählt auch, daß der Priester, dem dieses mit dem Grafen von Habsburg begegnet, nachher Kaplan bei dem Churfürsten von Mainz geworden,",
+  "language": [],
+  "musenalm_id": 33051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tschudi, der uns diese Anekdote überliefert hat, erzählt auch, daß der Priester, dem dieses mit dem Grafen von Habsburg begegnet, nachher Kaplan bei dem Churfürsten von Mainz geworden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.688Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "6q5adtqsiym9ivq"
+    }
+  ]
+}

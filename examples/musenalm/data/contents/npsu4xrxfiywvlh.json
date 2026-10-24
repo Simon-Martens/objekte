@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag aus: Taschenbuch zum geselligen Vergnügen 1828 (2: Gleditsch)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Lose Rose an dem Stocke / Rings von Düften reich umringt, / Gleicht sie nicht der Purpuglocke, / Die von stiller Lust erklingt,",
+  "language": [],
+  "musenalm_id": 126015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädchenzauber",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mädchenzauber",
+  "updated": "2019-05-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.871Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "o998bse1wbre3vl"
+    }
+  ]
+}

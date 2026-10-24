@@ -1,0 +1,66 @@
+{
+  "annotation": "<div>var. Veröffentlichung des Historischen Kalenders (Göschen) 1794 ohne Kalendarium /) Göschens Historisches Taschenbuch für Damen 1790, 1792 sind unter dem Titel Historischer Kalender 1790, 1792 wohl ebenfalls erschienen</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Göschen) 1794 s. u. Kalender, Historischer (Göschen) 1794",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-08-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4212,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Göschen) 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / TASCHENBUCH / für / das Jahr 1794. / Geschichte / des / achtzehnten Jahrhunderts. / Leipzig, / bey G. J. Göschen",
+  "updated": "2026-07-23 10:19:05.518Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "w3cmpt7k1s19iu8",
+    "giumeazruyne9zq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.918Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-23 10:19:05.518Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "0enk4aojjx3wvne"
+    }
+  ]
+}

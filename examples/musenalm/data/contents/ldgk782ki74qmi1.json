@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite. Modekupfer paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habillemens a la Mode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen",
+  "scans": [
+    "alm_151_7924_i9kugxyhld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Habillemens a la Mode",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.303Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "795alkktf894cnz"
+    }
+  ]
+}

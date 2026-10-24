@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Neue Freuden blüh'n auf Erden / Unter rauhen Stürmen noch, / Muß auch Staub die Blume werden,",
+  "language": [],
+  "musenalm_id": 62700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Licht und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Licht und Liebe",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.254Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "ntp4qx4z99jb5gp"
+    }
+  ]
+}

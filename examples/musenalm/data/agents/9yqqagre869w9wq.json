@@ -1,0 +1,545 @@
+{
+  "annotation": "",
+  "biographical_data": "1813-1892",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.502Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116350660",
+          "label": "Putlitz, Gustav Heinrich Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118599976",
+          "label": "Reuter, Fritz"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/37097-6",
+          "label": "Deutsche Shakespeare-Gesellschaft"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1846-1860 Regierungsrat der Westfälischen Provinzialverwaltung in Münster; Dichterjurist und Shakespeare-Forscher"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1813-09-06"
+      ],
+      "dateOfDeath": [
+        "1892-02-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Atelier C. Ruf &amp; Cie., Freiburg i. B."
+          ],
+          "creditText": [
+            "http://www.shakespearealbum.de/biographien/gisbert-von-vincke.html"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Vincke%2C%20Gisbert.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Vincke%2C%20Gisbert.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Vincke%2C%20Gisbert.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189412461",
+        "https://d-nb.info/gnd/127992596",
+        "https://d-nb.info/gnd/177848758",
+        "https://d-nb.info/gnd/101198965"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:16:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117429589/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118627112",
+          "label": "Vincke, Georg Ernst Friedrich von"
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118627120",
+          "label": "Vincke, Ludwig von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117429589",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118627120",
+          "label": "Vincke, Ludwig von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118627112",
+          "label": "Vincke, Georg Ernst Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117429589",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)127992596",
+        "(DE-588a)134696980",
+        "(DE-588a)101198965",
+        "(DE-588)101198965",
+        "(DE-588)189412461",
+        "(DE-588c)7797528-5",
+        "(DE-588a)177848758",
+        "(DE-588a)189412461",
+        "(DE-101c)310386985",
+        "(DE-588a)117429589",
+        "(DE-588)127992596",
+        "(DE-588)177848758"
+      ],
+      "periodOfActivity": [
+        "1876-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040608-8",
+          "label": "Münster (Westf)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1047830825",
+          "label": "Ickern"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4018272-1",
+          "label": "Freiburg im Breisgau"
+        }
+      ],
+      "preferredName": "Vincke, Gisbert von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gisbert"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Vincke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398825-8",
+          "label": "Regierungsrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Vincke, Gisbert von: Dramatische Versuche",
+        "Vincke, Gisbert von: Kleine Geschichten",
+        "Vincke, Gisbert von: Im Bann der Jungfrau",
+        "Vincke, Gisbert von: Lustspiele",
+        "Vincke, Gisbert von: Gesammelte Aufsätze zur Bühnengeschichte",
+        "Vincke, Gisbert von: Bilder aus Italien",
+        "Vincke, Gisbert von: Anno 1870",
+        "Rose und Distel",
+        "Gisbert Freiherr von Vincke"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Karl Friedrich Gisbert"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10739398j"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2010183686"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/13084688"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1527213"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101198965"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117429589/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127992596"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/177848758"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189412461"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gisbert_von_Vincke"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gisbert_von_Vincke"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000106531118"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117429589"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117429589"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117429589.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117429589"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Vincke, Gisbert von, Freiherr",
+        "Vincke, Gisbert Frhr von",
+        "Vincke, Gisbert Freiherr von",
+        "Vincke, Karl Friedrich Gisbert von, Freiherr",
+        "Vincke, Gisbert v.",
+        "Vincke, Gisbert",
+        "Vincke, Karl Friedrich Giesbert von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gisbert"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Gisbert"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Gisbert Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Giesbert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Gisbert Frhr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Gisbert"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        },
+        {
+          "forename": [
+            "Gisbert"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Vincke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gisbert_von_Vincke",
+          "label": "https://de.wikipedia.org/wiki/Gisbert_von_Vincke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:14:54Z",
+    "gnd_query_biographical_data": "1813-1892",
+    "gnd_query_name": "vincke, karl friedrich gisbert"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2991,
+  "name": "Vincke, Karl Friedrich Gisbert",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXIX, 752",
+  "updated": "2026-06-11 13:29:25.553Z",
+  "uri": "https://d-nb.info/gnd/117429589",
+  "editor": ""
+}

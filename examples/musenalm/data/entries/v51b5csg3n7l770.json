@@ -1,0 +1,85 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, 11 BB Kal darin 9 GG, SS 1-198, 98 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1807",
+    "norm": "~ K gibt 8 GG an",
+    "biblio": 100222,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 842,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf das Jahr 1807. / Margaretha von Anjou / Mit Kupfern. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.875Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "iqrjz9d3zsikz0j"
+  ],
+  "contents": [
+    "cj8oqaamq241cma",
+    "3d210q94n5zq1fo",
+    "1rdik2ik8th99wt",
+    "b9u6ors0qwmg766",
+    "q7k2aprskkax99g",
+    "vx243xtos26inxr",
+    "guu937u91dhhy8l",
+    "alovkzb5zbtffma",
+    "vt0ub4ws2eo6w1b",
+    "qkryj6u2it1g5re",
+    "7dfurnmncxivjyu",
+    "301nt9dwl970ryx",
+    "qoarck0hnog15cl",
+    "if99tv2jnzip259",
+    "t9dkjy4yq9el49g",
+    "1i9tb0hprxj2o3o",
+    "ui4h77gl8mwwygs"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "5yscv9ane9wuz8g"
+    }
+  ]
+}

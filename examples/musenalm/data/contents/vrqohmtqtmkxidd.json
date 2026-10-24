@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Liebchen, komm auf meinen Schooss / Unter Herzen unter Küssen,",
+  "language": [],
+  "musenalm_id": 42879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.255Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "r0fw9jk6bfd8e2f"
+    }
+  ]
+}

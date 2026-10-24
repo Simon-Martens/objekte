@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Drei Wandrer schritten über'n Moor; / Ein Dörfchen wahrten sie.",
+  "language": [],
+  "musenalm_id": 2964,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bote und die Wandrer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gallisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bote und die Wandrer",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.043Z",
+      "agent": "rokicgeuwmlq2s3",
+      "source_id": "rwjgj2ta5qztiss"
+    }
+  ]
+}

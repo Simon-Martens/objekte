@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Karlsbad und seine Umgebungen« von Joh. Jos. Polt INr 92083, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Hier im waldbewachs'nen Thale, / Das so mancher Fremde segnet, / Weil mit heilsamer heißer Schale, / Die Genesung ihm begegnet,",
+  "language": [],
+  "musenalm_id": 92085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier im waldbewachs'nen Thale, / Das so mancher Fremde segnet, / Weil mit heilsamer heißer Schale, / Die Genesung ihm begegnet,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.465Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "iw8wfzs4b7pwww9"
+    }
+  ]
+}

@@ -1,0 +1,158 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.364Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Eintritt in den hannoverschen Militärdienst; verließ die Armee als Major und ging 1795 an den oldenburgischen Hof; 1799 Übernahme in den oldenburgischen Forstdienst, zum Forstmeister bestallt; während der Franzosenzeit Landwirt auf seinem Gut in Mecklenburg; 1814 Rückkehr nach Oldenburg auf seinen alten Posten; 1814 Jägermeister; seit 1828 in Westerstede; 1838 pensioniert; Veröffentlichungen über Forstkultur in Zeitschriften; schrieb auch Gedichte; Herausgeber des \"Romantischen Taschenbuchs auf das Jahr 1810\" (Bremen, Aurich 1809)"
+      ],
+      "dateOfBirth": [
+        "1766-01-11"
+      ],
+      "dateOfDeath": [
+        "1839-03-03"
+      ],
+      "describedBy": {
+        "dateModified": "2024-04-04T21:58:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-35",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-35"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#4",
+          "label": "Katalogisierungslevel 4"
+        },
+        "id": "https://d-nb.info/gnd/1034897365/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#ZZ",
+          "label": "Land unbekannt"
+        }
+      ],
+      "gndIdentifier": "1034897365",
+      "id": "https://d-nb.info/gnd/1034897365",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4043457-6",
+          "label": "Oldenburg (Oldenburg)"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Baden <Achim, Verden>"
+      ],
+      "placeOfDeathAsLiteral": [
+        "Westerstede"
+      ],
+      "preferredName": "Heimburg, Heino Ernst von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heino Ernst"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Heimburg"
+        ]
+      },
+      "professionOrOccupationAsLiteral": [
+        "Forstmeister",
+        "Offizier",
+        "Oberlandjägermeister"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/301869356"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q105604992"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1034897365/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heino_Ernst_von_Heimburg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000408827395"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heino_Ernst_von_Heimburg",
+          "label": "https://de.wikipedia.org/wiki/Heino_Ernst_von_Heimburg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:42:24Z",
+    "gnd_query_biographical_data": "1764-1839",
+    "gnd_query_name": "heimburg, heino ernst von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1126,
+  "name": "Heimburg, Heino Ernst von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 204",
+  "updated": "2026-06-11 13:29:22.861Z",
+  "uri": "https://d-nb.info/gnd/1034897365",
+  "editor": ""
+}

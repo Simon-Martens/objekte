@@ -1,0 +1,63 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Christliches (Döring) 1834",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-04-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4785,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch, Christliches (Döring) 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 111; nicht bei L/R",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:54.561Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "39qm7436zbxjqtu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.424Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.424Z",
+      "agent": "350iidik1x26l6n",
+      "source_id": "r1jf7tswjsibnt4"
+    }
+  ]
+}

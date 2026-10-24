@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29247, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "In Venedig lebten vor Zeiten zwei reiche Edelleute, die am großen Kanal einander gegenüber wohnten.",
+  "language": [],
+  "musenalm_id": 29246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die schöne Helena. / Eine Erzählung nach Bandello",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die schöne Helena. / Eine Erzählung nach Bandello",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.482Z",
+      "agent": "9mav4omm7dqt3ib",
+      "source_id": "1c8tziz4riq0b3u"
+    }
+  ]
+}

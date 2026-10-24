@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Reiß dich hinaus aus deinen hundert Gassen, / Dein Ruhm, dein Glück, dein Kaiser naht!",
+  "language": [],
+  "musenalm_id": 79147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Wiederkunft des Kaisers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mastalier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Wiederkunft des Kaisers",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.823Z",
+      "agent": "f2jay1ec3g5rdgn",
+      "source_id": "ezx191lkcgrvqt9"
+    }
+  ]
+}

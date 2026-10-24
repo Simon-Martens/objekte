@@ -1,0 +1,391 @@
+{
+  "annotation": "",
+  "biographical_data": "1754-1793",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Jurist, Advokat und Schriftsteller, Dichter"
+      ],
+      "dateOfBirth": [
+        "1754-07-20"
+      ],
+      "dateOfDeath": [
+        "1793-02-14"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-22T21:46:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/127806679/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "127806679",
+      "id": "https://d-nb.info/gnd/127806679",
+      "oldAuthorityNumber": [
+        "(DE-588a)128100214",
+        "(DE-588a)100219969",
+        "(DE-588a)127806679"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Arien, Bernhard Christoph d'",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Bernhard Christoph"
+        ],
+        "prefix": [
+          "d'"
+        ],
+        "surname": [
+          "Arien"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Natur und Liebe im Streit",
+        "Zoller, Friedrich Gottlieb: Dissertatio iuridica observationes practicas continens",
+        "Claus Storzenbecher",
+        "Der Blinde und der Taube"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb106489771"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n89615322"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25636716"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q25991406"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127806679/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Bernhard_Christoph_d%E2%80%99Arien"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055410569"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/127806679"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/127806679"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/127806679"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Arien, B.C. d'",
+        "Arien, Bernhardus Christianus d'",
+        "Arien, Bernhard Christoph",
+        "Arien, Bernhard Christ. d'",
+        "Arien, Bernhard Christ.",
+        "Darien, Bernhard Christian",
+        "Arien, B. C. d'",
+        "Arien, Bernhardvs Christianvs d'",
+        "D'Arien, Bernhard Christoph",
+        "Arien, Bernhard Christian d'",
+        "Arien d'",
+        "Darien, Bernhard Christoph",
+        "D'Arien, Bernhard Christian",
+        "Arien, Bernard Christoph d’"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Bernhard Christoph"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christ."
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christian"
+          ],
+          "surname": [
+            "D'Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhardus Christianus"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "B.C."
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "B. C."
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christoph"
+          ],
+          "surname": [
+            "Darien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christian"
+          ],
+          "surname": [
+            "Darien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernard Christoph"
+          ],
+          "prefix": [
+            "d’"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christoph"
+          ],
+          "surname": [
+            "D'Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christ."
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christoph"
+          ],
+          "surname": [
+            "D'Arien"
+          ]
+        },
+        {
+          "personalName": [
+            "Arien"
+          ],
+          "prefix": [
+            "d'"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhardvs Christianvs"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        },
+        {
+          "forename": [
+            "Bernhard Christian"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Arien"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Bernhard_Christoph_d%E2%80%99Arien",
+          "label": "https://de.wikipedia.org/wiki/Bernhard_Christoph_d%E2%80%99Arien"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:10:30Z",
+    "gnd_query_biographical_data": "1754-1793",
+    "gnd_query_name": "d'arien, bernhard christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 480,
+  "name": "d'Arien, Bernhard Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 13",
+  "updated": "2026-06-11 13:29:21.964Z",
+  "uri": "https://d-nb.info/gnd/127806679",
+  "editor": ""
+}

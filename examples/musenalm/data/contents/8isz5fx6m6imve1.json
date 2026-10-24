@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Zum Herzog Carl, kam jüngst Matz Dunkel hin- / geritten / Und sprach: Er hat es selbst erzählt! / Herr! weil es deinem Land an weisen Männern / fehlt, / So könntest du wohl mich, um da zu lehren, bitten!",
+  "language": [],
+  "musenalm_id": 79373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Matz Dunkels Reise. / Aus A. G. Kästner's Nachlasse. / Mitgetheilt von Herrn Oberforstrath Gatterer in Heidelberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästners Nachlass",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Matz Dunkels Reise. / Aus A. G. Kästner's Nachlasse. / Mitgetheilt von Herrn Oberforstrath Gatterer in Heidelberg",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.919Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "5lhct7ct19ss3xx"
+    }
+  ]
+}

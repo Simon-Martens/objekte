@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 5. /) Graphik im Kalendarium Mai /) Illustration zu »Abriß einer Geschichte der Preußisch-Rheinischen Provinzen« von C. F. Klöden INr 85760, Obj 16 /) s. a. G-Verz INr 85761, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85752,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nonnenwerth und die Trümmer von Rolandseck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Jügel fec.",
+  "scans": [
+    "alm_854_85752_ga4azoizox.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nonnenwerth und die Trümmer von Rolandseck",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.048Z",
+      "agent": "flivu8hnh9tq1va",
+      "source_id": "10aerlkjn1flao3"
+    }
+  ]
+}

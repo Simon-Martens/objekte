@@ -1,0 +1,56 @@
+{
+  "annotation": "Textbezug unklar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94826,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Rieder del. C. Kotterba sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Rieder del. C. Kotterba sc.",
+  "scans": [
+    "alm_1875_94826_r6fc16t48p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.744Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "hadk9qtwtelf2or"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.744Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "m39o1fli7rqmnc7"
+    }
+  ]
+}

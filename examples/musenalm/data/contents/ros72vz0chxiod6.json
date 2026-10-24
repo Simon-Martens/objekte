@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz /) Sammlung von 12 Gedichten INr 62606-62617, Obj 62-73",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wetterlaunen. / (Erzeugnisse eines regnichten Sommertages.) / 1816.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wetterlaunen. / (Erzeugnisse eines regnichten Sommertages.) / 1816.",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.265Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "jse5vby0w0m1l0d"
+    }
+  ]
+}

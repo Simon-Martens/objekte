@@ -1,0 +1,58 @@
+{
+  "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34618, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34619,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trostlose #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Corbould delt. C. Rolls sculpt.",
+  "scans": [
+    "alm_481_34619_2d1iavo2ls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Trostlose #",
+  "updated": "2003-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.492Z",
+      "agent": "7oo8ds87peq2fag",
+      "source_id": "ag4dl0mug2f5di9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.492Z",
+      "agent": "v9uxeb4p9b2c1mo",
+      "source_id": "zb2ao1wquy4mjc2"
+    }
+  ]
+}

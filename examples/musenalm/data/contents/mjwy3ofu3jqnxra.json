@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Das war ein tüchtig Streiten / Zu Ronceval im Thal; / Es troff auf beiden Seiten / Von Blut der scharfe Stahl!",
+  "language": [],
+  "musenalm_id": 44411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Feodor Löwe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roland",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.386Z",
+      "agent": "ocqzje5pkxep4v8",
+      "source_id": "682tgbx2oc6qmur"
+    }
+  ]
+}

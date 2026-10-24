@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Auf dem Wege von Carlsruhe bis hier dachte ich hin und her über die gar zu große Bevölkerung Europas, hauptsächlich Deutschlands.",
+  "language": [],
+  "musenalm_id": 23338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Abentheuer in Rastadt. / Bruchstück / aus / meinem ungedruckten Tagebuche. / Geschrieben an Ort und Stelle / den 8. August 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Abentheuer in Rastadt. / Bruchstück / aus / meinem ungedruckten Tagebuche. / Geschrieben an Ort und Stelle / den 8. August 1797",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.034Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "582aqdv194o9gmm"
+    }
+  ]
+}

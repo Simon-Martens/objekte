@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "So weit die Geschichte reicht,war die Erde stets der unruhige Tummelplatz feindseliger Leidenschaften.",
+  "language": [],
+  "musenalm_id": 25843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neue Aussicht / zur / Erweiterung der Him- / melskunde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Professor Ritter Gauß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neue Aussicht / zur / Erweiterung der Him- / melskunde",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.315Z",
+      "agent": "6sk47zddph2tduh",
+      "source_id": "0d1wy24t4j7rhsb"
+    }
+  ]
+}

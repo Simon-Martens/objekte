@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 24890, Obj 175)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Horch! wie der Finke schlägt! / Wie sich die Knospe regt!",
+  "language": [],
+  "musenalm_id": 24896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Frühlings-Ruf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Frühlings-Ruf",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.918Z",
+      "agent": "23ylvw2tykdsah6",
+      "source_id": "tbq9izaxym5obyo"
+    }
+  ]
+}

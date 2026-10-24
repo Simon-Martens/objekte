@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Kommt Schäfchen, kommt, der Abend winkt / Euch nun zur süßen Ruh,",
+  "language": [],
+  "musenalm_id": 61375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied eines Hirtenmädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geborne v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied eines Hirtenmädchens",
+  "updated": "2009-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.921Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "lmzs0vewmceg5dy"
+    }
+  ]
+}

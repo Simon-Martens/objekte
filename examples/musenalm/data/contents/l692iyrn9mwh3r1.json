@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturstimmen (Sammlung INr 19863, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Von Blum' und Stern , von Farb' und Duft / umfangen, / umfluthet rings von goldner Strahlen Flimmen,",
+  "language": [],
+  "musenalm_id": 19864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.857Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "5cpns5p43tc11t9"
+    }
+  ]
+}

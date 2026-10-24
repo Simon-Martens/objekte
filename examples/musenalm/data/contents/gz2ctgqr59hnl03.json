@@ -1,0 +1,58 @@
+{
+  "annotation": "an der Graphik: zu Pag 124. /) Illustration zu »Ermahnung. An Selma« INr 97266, Obj 100",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. Catel del. Meno Haas sc. 1812)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel del. Meno Haas sc. 1812",
+  "scans": [
+    "alm_1925_97267_zfutjpnwel.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.640Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "l96q9ptoa9qpk74"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.640Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "urzas48pncll21f"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 11 Gedichten INr 21126-21137, Obj 20-31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesgesänge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesgesänge",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.120Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "priov8n5irc2vy0"
+    }
+  ]
+}

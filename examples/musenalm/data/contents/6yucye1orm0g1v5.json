@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Im tiefen kühligen Bronnen / Quell' ich hervor; / Schaue nach Luft und Sonnen / Sehnlich empor.",
+  "language": [],
+  "musenalm_id": 93558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bronnenquell",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bronnenquell",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.037Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "msjchsjnk1uzv3n"
+    }
+  ]
+}

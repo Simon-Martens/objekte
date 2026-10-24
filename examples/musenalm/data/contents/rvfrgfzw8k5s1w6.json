@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Data zu einer Lebensgeschichte des Lord Cornwallis jetzigen Generalgouverneur von Bengalen« INr 80764, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CARL LORD CORNWALLIS / Zum General-Gouverneur von Bengalen ernannt / am 24. Febr. 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hamilton del. D. Berger sculps. 1787",
+  "scans": [
+    "alm_927_80763_658ddmeiws.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CARL LORD CORNWALLIS / Zum General-Gouverneur von Bengalen ernannt / am 24. Febr. 1786",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.957Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "nrf8ydbrcm0gxzg"
+    }
+  ]
+}

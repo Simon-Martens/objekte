@@ -1,0 +1,113 @@
+{
+  "annotation": "ohne Kalendarium, das G-Verz weist drei Kostümkupfern einen Platz im Kalendarium zu, die Graphiken sind jedoch im G-Verz eingebunden. Thematischer Schwerpunkt des Almanachs: Kanton Bern",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S 1 T, SS 3-198 darin 3 GG, SS 199-214 G-Verz darin 6 GG, Kr, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1802",
+    "norm": "~",
+    "biblio": 200412,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-09-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 702,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / für das Jahr / 1802 / Zürich / bey Orell, Füssli & Comp.",
+  "updated": "2026-06-11 10:18:54.839Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "za1jv1qwvcenoef"
+  ],
+  "contents": [
+    "zerk8krc7mncdoh",
+    "3alxcmfft0lsmsx",
+    "8wn4gr7iwcgypfi",
+    "yhl0of03hw0ga18",
+    "5au00ep1agddlwr",
+    "foe1t2v5jppvct8",
+    "kn9tgqp2uuhkp49",
+    "g2b30kiihnzodyy",
+    "83ek9hup4rqz9du",
+    "a895az39c9h8kmo",
+    "yv3n0bin7uvooui",
+    "by6vvn2s8cv8klb",
+    "uxw23avk1klvg7c",
+    "xum0gn3hpkfybpk",
+    "qljbyws7idk8soi",
+    "tzuhllf9cbea4xf",
+    "r5203qso9o82268",
+    "w4ehjjb3frapwgz",
+    "pipa8gkdve1df0g",
+    "lmhgcgn4dqu3o4d",
+    "i7svp1v9jxgd8x1",
+    "x2hn1fp4m42c9bm",
+    "vmankynmvj2qp5p",
+    "nbilktu4iscech2",
+    "bdy0gxn3xbg9gp2",
+    "2991eyvnnpcq52r",
+    "wgmqaeyal3r8kvy",
+    "n6fjfzysa4w13c8",
+    "0aw210fppxk14vl",
+    "fpi7r7z2ud7dzdl",
+    "96udwjaboex63le",
+    "tu4x5g1abzpt13r",
+    "662oru95u1sc132",
+    "ievifwme2d26lu6",
+    "ijxhof4ewr8vjy8",
+    "xu6rpbznrnpdzte",
+    "mhkwu4uvcg0taev",
+    "jk1ik38zvuv2mtz",
+    "qvm2jdsdrg0opk1",
+    "we3xouwp15pvfp1",
+    "xrwartwv0iqqx12",
+    "bsfpr9yjx98zgvy",
+    "vgg0vect32jqrjt",
+    "i120jqy1muzf8rq",
+    "86ogk0736adlnzv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.116Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.116Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "bn5zk4zm8th64du"
+    }
+  ]
+}

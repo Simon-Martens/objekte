@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Sie nennt mich ihres Lebens Freude; / Welch seligmachender Beruf!",
+  "language": [],
+  "musenalm_id": 93206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.366Z",
+      "agent": "wyoix05eehnfe9p",
+      "source_id": "krfrsqi9fmnohtz"
+    }
+  ]
+}

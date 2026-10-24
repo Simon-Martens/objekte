@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Ihr Könige! Der König Adler, traun! / Hat starke Klaun!",
+  "language": [],
+  "musenalm_id": 2262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würgen und Wahrheit sehn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Würgen und Wahrheit sehn",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.087Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "hvu7rks2xws1dac"
+    }
+  ]
+}

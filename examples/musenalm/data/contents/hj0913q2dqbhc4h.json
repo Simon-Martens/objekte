@@ -1,0 +1,46 @@
+{
+  "annotation": "Rheinische Literaturbriefe (Sammlung INr 44199, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Zur Eisenbahn trägt uns nach Heidelberg, wo Freunde der deutschen Poesie sich an gar Manches zu erinnern haben.",
+  "language": [],
+  "musenalm_id": 44203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Creizenach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.311Z",
+      "agent": "lphx13gbei42kps",
+      "source_id": "2utw6ahe4idy029"
+    }
+  ]
+}

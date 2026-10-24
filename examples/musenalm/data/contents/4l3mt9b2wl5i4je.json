@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71368, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Jedes Zeitalter hat seine Zauberer und Hexen gehabt. Die Hebräer hatten trotz des göttlichen, von Mose bekannt gemachten Verbots, ihre Hexen, unter welchen die zu Endor, die den Schatten Samuels vom Grabe heraufforderte, am berüchtigsten ist.",
+  "language": [],
+  "musenalm_id": 71367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 8ten Kupfertafel. / Die Hexen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 8ten Kupfertafel. / Die Hexen",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.396Z",
+      "agent": "a1tvqjbk8115iq7",
+      "source_id": "ly2i74n0kxmxf1z"
+    }
+  ]
+}

@@ -1,0 +1,618 @@
+{
+  "annotation": "",
+  "biographical_data": "1813-1863",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.362Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118943774",
+          "label": "Kuh, Emil"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dramatiker, Dichter"
+      ],
+      "dateOfBirth": [
+        "1813-03-25"
+      ],
+      "dateOfDeath": [
+        "1863-12-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Thomas Ledl"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bezirksmuseum%20Josefstadt%2C%20Friedrich%20Hebbel.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bezirksmuseum%20Josefstadt%2C%20Friedrich%20Hebbel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bezirksmuseum%20Josefstadt%2C%20Friedrich%20Hebbel.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174167261"
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-05T15:45:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118547445/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Elise"
+          ],
+          "surname": [
+            "Lensing"
+          ]
+        },
+        {
+          "forename": [
+            "Antja Margaretha"
+          ],
+          "surname": [
+            "Schubart"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Kaizl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130246980",
+          "label": "Kaizl, Alfred"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135932335",
+          "label": "Hebbel, Christine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118684876",
+          "label": "Enghaus, Christine"
+        },
+        {
+          "forename": [
+            "Emil"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "surname": [
+            "Kaizl"
+          ]
+        },
+        {
+          "forename": [
+            "Claus Friedrich"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118547445",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/135932335",
+          "label": "Hebbel, Christine"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118684876",
+          "label": "Enghaus, Christine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118547445",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)134640721",
+        "(DE-588)174167261",
+        "(DE-101c)310330726",
+        "(DE-588a)118547445",
+        "(DE-588a)130945285",
+        "(DE-588a)174167261",
+        "(DE-588c)4023914-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065727-9",
+          "label": "Wesselburen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Hebbel, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Hebbel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Franz"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Erzählungen und Novellen",
+        "Gedichte",
+        "Mutter und Kind",
+        "Genoveva",
+        "Neue Gedichte",
+        "Maria Magdalene",
+        "Aus den Epigrammen",
+        "Schnock"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "surname": [
+            "Hebbel"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50025657"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9861617"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57182"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118547445/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174167261"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_Friedrich_Hebbel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Hebbel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Hebbel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Friedrich_Hebbel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115929662"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118547445"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;60"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118547445"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_H/Hebbel_Christian-Friedrich_1813_1863.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118547445.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118547445.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118547445"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/133BE340E3954AD7B8379CDE8D9794A1"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118547445"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "ჰებბელი, ქრისტიან ფრიდრიხ",
+        "Hebbeli, K̕ristian P̕ridrix",
+        "Gebbelʹ, Fridrich",
+        "Gebbel', F.",
+        "Chebel, Fridrich",
+        "Hebbel, Christian Friedrich",
+        "Hebbel, Fr.",
+        "헤벨, 프리드리히",
+        "Hebbel, Fridrik",
+        "Hebbel, Fryderyk Chrystian",
+        "Franz, J. F.",
+        "Hebbel",
+        "Hebbel, F.",
+        "Hebbel, Federico",
+        "Hebbel, Friedrich Christian"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Franz"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Christian"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Federico"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "K̕ristian P̕ridrix"
+          ],
+          "surname": [
+            "Hebbeli"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Gebbel'"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Gebbelʹ"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrik"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "Fryderyk Chrystian"
+          ],
+          "surname": [
+            "Hebbel"
+          ]
+        },
+        {
+          "forename": [
+            "ქრისტიან ფრიდრიხ"
+          ],
+          "surname": [
+            "ჰებბელი"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Chebel"
+          ]
+        },
+        {
+          "forename": [
+            "프리드리히"
+          ],
+          "surname": [
+            "헤벨"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Hebbel",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Hebbel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:41:24Z",
+    "gnd_query_biographical_data": "1813-1863",
+    "gnd_query_name": "hebbel, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1106,
+  "name": "Hebbel, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 202",
+  "updated": "2026-06-11 13:29:22.836Z",
+  "uri": "https://d-nb.info/gnd/118547445",
+  "editor": ""
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) s. Graphik INr 72273, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Herrlich kleidet sie euch, des Kreuzes furchtbare Rüstung, / Wenn ihr, Löwen der Schlacht, Akkon und Rhodus / beschützt",
+  "language": [],
+  "musenalm_id": 77271,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Johanniter. / Erstes und zweites Blatt. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Johanniter. / Erstes und zweites Blatt. / 1.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.751Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "uc02fgy5ilk378u"
+    }
+  ]
+}

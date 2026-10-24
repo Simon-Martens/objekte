@@ -1,0 +1,774 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1858",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.500Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1785-02-21"
+      ],
+      "dateOfDeath": [
+        "1858-10-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl-Varnhagen-von-Ense-1839-Zeichnung-von-Samuel-Friedrich-Diez.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl-Varnhagen-von-Ense-1839-Zeichnung-von-Samuel-Friedrich-Diez.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl-Varnhagen-von-Ense-1839-Zeichnung-von-Samuel-Friedrich-Diez.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/127148027"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T15:21:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118626167/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Rahel"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118626175",
+          "label": "Varnhagen, Rahel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116371641",
+          "label": "Assing, Rosa Maria"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118626167",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116371641",
+          "label": "Assing, Rosa Maria"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118626175",
+          "label": "Varnhagen, Rahel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118626167",
+      "oldAuthorityNumber": [
+        "(DE-588c)4062364-6",
+        "(DE-588)127148027",
+        "(DE-588a)118626167",
+        "(DE-588a)127148027"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Varnhagen von Ense, Karl August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl August"
+        ],
+        "surname": [
+          "Varnhagen von Ense"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4175743-9",
+          "label": "Privatlehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167874-6",
+          "label": "Literaturkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4277852-9",
+          "label": "Biograf"
+        }
+      ],
+      "publication": [
+        "Leben des Grafen von Zinzendorf",
+        "Geschichte der Kriegszüge des Generals Tettenborn 1813 und 1814",
+        "Galerie von Bildnissen aus Rahel's Umgang und Briefwechsel",
+        "Deutsche Erzählungen",
+        "Zur Geschichtschreibung und Litteratur",
+        "Goethe in den Zeugnissen der Mitlebenden",
+        "Leben des Generals Freiherrn von Seydlitz",
+        "Denkwürdigkeiten und vermischte Schriften",
+        "Rosenkranz, Karl: Briefwechsel",
+        "Leben der Königin von Preußen Sophie Charlotte",
+        "Vermischte Gedichte"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1199585637",
+          "label": "Autogramm (Varnhagen von Ense, Karl August), 02"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1136499105",
+          "label": "Autogramm (Varnhagen von Ense, Karl August), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81020246"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59091773"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215691"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118626167/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/127148027"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118626167"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_August_Varnhagen_von_Ense"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Varnhagen_von_Ense"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_August_Varnhagen_von_Ense"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_August_Varnhagen_von_Ense"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081376675"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118626167"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;10"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;8"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_hemsen;9"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1803_varnhagen"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118626167"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118626167.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118626167.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118626167"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118626167"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Varnhagen, Karl A. von",
+        "Ense, Karl A. von",
+        "Varnhagen von Ense, Carl August",
+        "Ense, Karl August Varnhagen von",
+        "Ense, Karl August von",
+        "Varnhagen von Ense, Karl A.",
+        "Ense, Karl A.",
+        "Varnhagen von Ense, K. A.",
+        "Ense, Varnhagen von",
+        "Varnhagen, Karl A.",
+        "Varnhagen, Carl August",
+        "Varnhagen von Ense, Carl A.",
+        "Ense, Carl A. von",
+        "V. v. E.",
+        "Varnhagen, Carolus",
+        "Varnhagen von Ense, Karl A. von",
+        "Varnhagen, Karl August von",
+        "Ense, Karl A. Varnhagen von",
+        "Ense, Karl August Ludwig Philipp von",
+        "Varnhagen von Ense, Carl August Ludwig Philipp",
+        "Varnhagen von Ense, Karl August Ludwig Philipp",
+        "Varnhagen von Ense",
+        "Varnhagen von Ense, Carl August Ludwig Philipp von",
+        "Varnhagen von Ense, August",
+        "Varnhagen von Ense, K.A.",
+        "Varnhagen, Karl August Ludwig Philipp",
+        "Varnhagen von Ense, K.A. von",
+        "Varnhagen, Carl A.",
+        "Varnhagen, Karl August",
+        "Varnhagen von Ense, K. A. von",
+        "Ense, Carl August Ludwig Philipp Varnhagen von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Ludwig Philipp"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Ludwig Philipp"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "K. A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A. Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "personalName": [
+            "V. v. E."
+          ]
+        },
+        {
+          "forename": [
+            "K.A."
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "personalName": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Ludwig Philipp"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August Ludwig Philipp"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "K.A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August Ludwig Philipp Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl A."
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August Ludwig Philipp"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Varnhagen"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Carl August"
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Karl A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        },
+        {
+          "forename": [
+            "K. A."
+          ],
+          "surname": [
+            "Varnhagen von Ense"
+          ]
+        },
+        {
+          "forename": [
+            "Varnhagen"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ense"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_August_Varnhagen_von_Ense",
+          "label": "https://de.wikipedia.org/wiki/Karl_August_Varnhagen_von_Ense"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:13:45Z",
+    "gnd_query_biographical_data": "1785-1858",
+    "gnd_query_name": "varnhagen von ense, karl august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2967,
+  "name": "Varnhagen von Ense, Karl August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 176; Goed XIV, 793, 1022",
+  "updated": "2026-06-11 13:29:25.521Z",
+  "uri": "https://d-nb.info/gnd/118626167",
+  "editor": ""
+}

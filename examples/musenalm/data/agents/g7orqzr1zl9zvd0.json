@@ -1,0 +1,159 @@
+{
+  "annotation": "",
+  "biographical_data": "um 1750-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.493Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Kupferstecher, Frankreich"
+      ],
+      "dateOfBirth": [
+        "1750"
+      ],
+      "dateOfDeath": [
+        "1792"
+      ],
+      "describedBy": {
+        "dateModified": "2018-11-14T17:10:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/132399903/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "132399903",
+      "id": "https://d-nb.info/gnd/132399903",
+      "oldAuthorityNumber": [
+        "(DE-588a)132399903"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Texier, G.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "G."
+        ],
+        "surname": [
+          "Texier"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/55306605"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132399903/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Tissier",
+        "Texier, Gabriel",
+        "Tessier",
+        "Tessier, Gabriel"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gabriel"
+          ],
+          "surname": [
+            "Texier"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel"
+          ],
+          "surname": [
+            "Tessier"
+          ]
+        },
+        {
+          "personalName": [
+            "Tessier"
+          ]
+        },
+        {
+          "personalName": [
+            "Tissier"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:09:09Z",
+    "gnd_query_biographical_data": "um 1750-?",
+    "gnd_query_name": "texier, g."
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2874,
+  "name": "Texier, G.",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXII, 571",
+  "updated": "2026-06-11 13:29:25.371Z",
+  "uri": "https://d-nb.info/gnd/132399903",
+  "editor": ""
+}

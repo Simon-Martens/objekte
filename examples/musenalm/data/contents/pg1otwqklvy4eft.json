@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38989, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Warm dringt die Sonne durch das durft'ge Moos / Und rüttelt tausend Lebensfüllen wach,",
+  "language": [],
+  "musenalm_id": 38991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 179,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Des Schmetterlings früher Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Niclas Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Des Schmetterlings früher Tod",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.179Z",
+      "agent": "0pitstdcilzvx9e",
+      "source_id": "c56gotn1wy8ha28"
+    }
+  ]
+}

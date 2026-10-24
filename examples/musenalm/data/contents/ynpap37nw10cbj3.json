@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Träumer. Liederkranz (Sammlung INr 68014, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Ach, der Traum ist bald verschwunden, / Und auf Erden steh' ich trüb,",
+  "language": [],
+  "musenalm_id": 68016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kreuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.246Z",
+      "agent": "nwzqfwyixmokyap",
+      "source_id": "6smism855mf4fhv"
+    }
+  ]
+}

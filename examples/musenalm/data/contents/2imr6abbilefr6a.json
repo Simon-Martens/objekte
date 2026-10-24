@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Mailied eines Mädchens« von J. H. Voß INr 5562, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. A. P. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_114_5563_zoe6tthkdr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.280Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "lfn8dmaztz71vhg"
+    }
+  ]
+}

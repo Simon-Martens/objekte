@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt 3 der Suite /) paginiert 2. s. Textbezug INr 60088, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der preussische Husaren-Junker und / sein Vater",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen sculps.",
+  "scans": [
+    "alm_937_60089_bycjvjx61g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der preussische Husaren-Junker und / sein Vater",
+  "updated": "2008-09-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.993Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "r61as2px5m6pvxr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.993Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "yvzsuhhf6l40ou2"
+    }
+  ]
+}

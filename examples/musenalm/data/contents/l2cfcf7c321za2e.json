@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24904, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Hoffnung schlummert tief im Herzen, wie im Lilienkelch / der Thau;",
+  "language": [],
+  "musenalm_id": 24907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 192,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Hoffnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Hoffnung",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.996Z",
+      "agent": "snnpz92vgxnioxl",
+      "source_id": "y2k1z2cb953mgc5"
+    }
+  ]
+}

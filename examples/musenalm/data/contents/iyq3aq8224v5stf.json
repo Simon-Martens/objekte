@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Die du Blumen, bunt und golden / Aus des Herzens Grund gebierst,",
+  "language": [],
+  "musenalm_id": 90826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Wenzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen",
+  "updated": "2013-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.958Z",
+      "agent": "vus37dvhecsoaq7",
+      "source_id": "nzbt0idwjcoaz9o"
+    }
+  ]
+}

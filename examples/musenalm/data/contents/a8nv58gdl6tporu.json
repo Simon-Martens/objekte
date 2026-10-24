@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122303, Obj 327)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Zerrißne Sommerfäden schweben / Hin über erstorb’ne Flur, / Und herbstlich graue Nebel weben / Den Wittwenschleier der Natur.",
+  "language": [],
+  "musenalm_id": 122304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 328,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grille",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scherer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Grille",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.688Z",
+      "agent": "ksktvxfvp5rsora",
+      "source_id": "p25r6jlxk1zg778"
+    }
+  ]
+}

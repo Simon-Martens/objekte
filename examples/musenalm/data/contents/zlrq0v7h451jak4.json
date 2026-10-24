@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Ruhensburg« von Fr. Laun INr 19781, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19716,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruhensburg v. Fr. Laun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; H. C. Müller",
+  "scans": [
+    "alm_266_19716_2u3ef4l9yt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruhensburg v. Fr. Laun",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.053Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "6si6gg24eg34mjo"
+    }
+  ]
+}

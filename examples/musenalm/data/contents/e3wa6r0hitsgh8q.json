@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81382, Obj 9 /) Illustration zu »Schicksalwechsel« von Klara von Massow INr 81388, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81381,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nürnberg",
+  "scans": [
+    "alm_1811_81381_drzu6tx1q9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wanda",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.966Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "3hu46iyobx8anco"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.966Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "ooewe1kyx9jsuch"
+    }
+  ]
+}

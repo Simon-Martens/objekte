@@ -1,0 +1,45 @@
+{
+  "annotation": "Teinach 1824 (Sammlung INr 54183, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Sey auch das Forschen umsonst nach glücklichen / Menschen, man findet / immer doch die vergnügt,",
+  "language": [],
+  "musenalm_id": 54197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. Die Vergnügten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. Die Vergnügten",
+  "updated": "2008-01-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.778Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "acvpiizk8zyc0vt"
+    }
+  ]
+}

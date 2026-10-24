@@ -1,0 +1,54 @@
+{
+  "annotation": "im Folgenden werden lediglich die Teile des Gedichts oder die Zusammenfassungen wiedergegeben, die als Vorlage für die Graphiken dienen",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Als vormals Groll und Bürgerkrieg, / man weiß nicht wie, aufs höchste stieg; / als Wortschwall, Eifersucht, Verdacht, / und Furcht´die Leute aufgebracht,",
+  "language": [],
+  "musenalm_id": 50339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Hudibras] Erstes Buch / Erster Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Samuel Butler; [übers.] Dietrich Wilhelm Soltau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Hudibras] Erstes Buch / Erster Gesang",
+  "updated": "2007-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.715Z",
+      "agent": "7lk9j4ojxjg5hf8",
+      "source_id": "y8zdtowfj1b1qg6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.715Z",
+      "agent": "i2xso6w3k57v5qz",
+      "source_id": "ycoww83gc5aagum"
+    }
+  ]
+}

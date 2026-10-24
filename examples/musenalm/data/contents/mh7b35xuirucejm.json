@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. von V[oß] am Objekt: Dies Hagedornsche Gedicht in der mahlerischen Manier des weiland berühmten Brockes blieb ungedruckt, aus Ursachen, die jezo wegfallen, [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "An einem hellen kalten Tage vom winderfüll- / ten rauhen Merzen / Lag oder saß ich in dem Bette,",
+  "language": [],
+  "musenalm_id": 6138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Versuch einer Nachahmung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Versuch einer Nachahmung #",
+  "updated": "2000-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.114Z",
+      "agent": "b9k8fa9bjxcqs84",
+      "source_id": "asl074ejiarmw5d"
+    }
+  ]
+}

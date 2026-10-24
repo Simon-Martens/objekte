@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik nach dem Monatskonto Juli /) paginiert pag. 151. /) Illustration zu »Albrecht von Lorri.« von D. Brede INr 95833, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erkennet an diesen Streichen Franckreichs König!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. C. T. Riedel sc. Lip.",
+  "scans": [
+    "alm_2382_95823_qp8p8nk4v4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erkennet an diesen Streichen Franckreichs König!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.842Z",
+      "agent": "69t1km5kfklijqt",
+      "source_id": "33m5ms3bags3puf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.842Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "epaiinoyqzoa6be"
+    }
+  ]
+}

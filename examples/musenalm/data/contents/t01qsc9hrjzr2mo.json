@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Ist die edle Zeit verflossen, / Wo ein treuer Schlag der Hand / Die Gemüther der Genossen / Ewig an einander band,",
+  "language": [],
+  "musenalm_id": 135369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ritterzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Hentl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ritterzeit",
+  "updated": "2025-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.147Z",
+      "agent": "15ch4q36f8n1et3",
+      "source_id": "tz84ufd5xtilz2z"
+    }
+  ]
+}

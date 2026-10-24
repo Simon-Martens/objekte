@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zum Beitrag",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Besitznehmung der Britten von der Insel Pulo Pinang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Hammer sculp. Dresde",
+  "scans": [
+    "alm_555_42217_5pn5s1fwdw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Besitznehmung der Britten von der Insel Pulo Pinang",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.299Z",
+      "agent": "6oi6sms2fozu3mk",
+      "source_id": "pofbq5se5nt84r8"
+    }
+  ]
+}

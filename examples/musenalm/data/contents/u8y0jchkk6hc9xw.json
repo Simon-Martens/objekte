@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123670,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Victor Hugo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. Th. Langer",
+  "scans": [
+    "alm_68_123670_sve5fqgu6r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Victor Hugo",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.846Z",
+      "agent": "t6lc63s8wzkilt0",
+      "source_id": "w36iipfs3jz4mz4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Auf dem Steine in der Grotte / Ruht die Königskron' aus Gold,",
+  "language": [],
+  "musenalm_id": 95224,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Wasserkunst zu Hellbrunn bei Salzburg, / die auf einem Wasserstrahle eine Krone emporhebt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Wasserkunst zu Hellbrunn bei Salzburg, / die auf einem Wasserstrahle eine Krone emporhebt",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.455Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "owzfm26xiq2mjmk"
+    }
+  ]
+}

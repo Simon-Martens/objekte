@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Orden der Liebe« von F. Fitzinger INr 113910, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ORDEN DER LIEBE / GEDICHT VON FRANZ FITZINGER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grutsch",
+  "scans": [
+    "alm_2715_113911_6w4y2kp9zb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER ORDEN DER LIEBE / GEDICHT VON FRANZ FITZINGER",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.549Z",
+      "agent": "np1s07ii6m6m62s",
+      "source_id": "5zpjij2obrew76h"
+    }
+  ]
+}

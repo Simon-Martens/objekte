@@ -1,0 +1,45 @@
+{
+  "annotation": "XVII. Agrionien (Sammlung INr 75028, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Wenn glühend fällt der Sonnenstral / Ins stille Thal / Und auf die Matten,",
+  "language": [],
+  "musenalm_id": 75034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Zweysilbige Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Zweysilbige Charade",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.818Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "uwc4ykf8yo1f51d"
+    }
+  ]
+}

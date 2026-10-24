@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu « Natur« von F. W. A. Schmidt INr 48658",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4.06,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohl mir Natur, dass ich mich dein / mehr als über Ball und Maske freue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lütke del. Veith sc.",
+  "scans": [
+    "alm_665_91604_fo0ahvj1cq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wohl mir Natur, dass ich mich dein / mehr als über Ball und Maske freue",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.286Z",
+      "agent": "w0g8dccilfko0t3",
+      "source_id": "hbmjqq49gdywsg4"
+    }
+  ]
+}

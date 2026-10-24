@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Zuerst male ich Euch ein Bildchen von dem Dorf und Pfarrhause. Halt! ich muß erst eine Einleitung machen.",
+  "language": [],
+  "musenalm_id": 64316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonst und Jetzt auf Reisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonst und Jetzt auf Reisen",
+  "updated": "2009-05-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.054Z",
+      "agent": "zi8zh5xhvi7k26j",
+      "source_id": "vnqyq7g41gbhsa3"
+    }
+  ]
+}

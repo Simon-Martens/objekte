@@ -1,0 +1,97 @@
+{
+  "annotation": "K und L/R geben Jgg 1798-1802 an. Vorliegender Jg 1803 (Leipzig) scheint ein (letzter?) Versuch Karl Reinhards gewesen zu sein, den von 1798-1802 in Göttingen erschienenen Romanen-Kalender fortzusetzen; /) s. a. Polyanthea. Ein Taschenbuch für das Jahr 1807. Herausgegeben  von  Karl Reinhard; alm-2447",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I nT, SS III-IV, 9 BB Kal darin 2 GG, SS 1-324, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1803",
+    "norm": "~",
+    "biblio": 404018,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2469,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Wolf u. Comp.)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Romanen-Kalender 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 98; nicht bei L/R 82; nicht bei Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "August Lafontaine, August Gottlieb Meißner, Karl Reinhard, Johann Friedrich Schink, Gotthelf Wilhelm Christoph Starke, und Andere",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für das Jahr 1803. / Von / August Lafontaine, August Gottlieb Meiß- / ner, Karl Reinhard, Johann Friedrich / Schink, Gotthelf Wilhelm Christoph / Starke, und Andern. / Mit drei Kupferstichen. / Leipzig. / Bei Peter Philipp Wolf und Comp.",
+  "updated": "2026-06-11 10:18:55.463Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "0qe2zi4jnk92pu1"
+  ],
+  "contents": [
+    "myv5te6nkfl58qz",
+    "wgaksro1v33i9eb",
+    "9vjz6p6t673dhml",
+    "p5rjvm6dpdxxx5w",
+    "lh1o5txnqehzou1",
+    "m2od4as5ag5mfe7",
+    "qy1guuynpofv9tz",
+    "glz7rhdcmjuv7yh",
+    "0zq7p1hvohr454u",
+    "ajypu84f8fj7o15",
+    "yiyyx4mvxjuq153",
+    "pqbazxn892urueg",
+    "a0pzoxec0fok3z1",
+    "xu270sghypfyq6n",
+    "1oag83l7b493cdi",
+    "gqnuzdyecernh02",
+    "g34ndqst9uhoy0d",
+    "3vfjk437ippnk0n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.190Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.190Z",
+      "agent": "djfwbygvt3405wl",
+      "source_id": "3cials6g5lz8zfq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.098Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.098Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "vjdz9xbrde9j2kh"
+    }
+  ]
+}

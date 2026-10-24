@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Krieg ist die Losung unsrer Zeit, / In Paraguay ums Recht der Logolisten!",
+  "language": [],
+  "musenalm_id": 79167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hinc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hinc",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.845Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "erd8xuubjz8zsgt"
+    }
+  ]
+}

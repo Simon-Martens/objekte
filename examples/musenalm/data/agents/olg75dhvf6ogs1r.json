@@ -1,0 +1,228 @@
+{
+  "annotation": "",
+  "biographical_data": "1810-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1841: Diss. in Bonn; 1847: praktischer, homöopatischer (Wund-)Arzt u. Geburtshelfer in Bonn; schrieb auch epische Gedichte und Dramen; 1871: Sanitätsrath in Bonn"
+      ],
+      "dateOfBirth": [
+        "1810-08-01"
+      ],
+      "dateOfDeath": [
+        "1878-02-09"
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-14T16:53:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117271942/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/131843583",
+          "label": "Stens, Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117271942",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/131843583",
+          "label": "Stens, Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117271942",
+      "oldAuthorityNumber": [
+        "(DE-588a)101453957",
+        "(DE-588a)117271942"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4015557-2",
+          "label": "Essen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "preferredName": "Stens, Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelm"
+        ],
+        "surname": [
+          "Stens"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Vincentius von Paulus",
+        "Dem sieg- und ruhmgekrönten Kaiser von Deutschland, Wilhelm, König von Preußen",
+        "Die Gleichstellung der Homöopathie mit der Allopathie",
+        "Die Therapie unserer Zeit in Briefen",
+        "Hrsg. von:  Rheinischer Liederkranz auf das Jahr 1847",
+        "Die Homöopathie in ihrem Wesen, ihrem Verhältnisse zur Allopathie, zum Staate und den Angriffen ihrer Gegner gegenüber",
+        "Vinzenz von Paul, Lehrgedicht",
+        "Offenes Sendschreiben an Seine Excellenz den Geheimen Staatsminister und Minister der geistlichen Unterrichts- und Medizinal-Angelegenheiten, Herrn Dr. von Bethmann-Hollweg in Berlin",
+        "Die Homöopathie und der Privatdocent Hoppe",
+        "Ione, eine lyrische Tragödie in 4 Akten",
+        "Die Gleichstellung der Homöopathie mit der Allöopathie beantragt in einer Adresse an die hohe National-Versammlung in Frankfurt von einer Versammlung homöopathischer Aerzte Rheinlands und Westphalens",
+        "De Oleo iecoris aselli"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/13080744"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94903697"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117271942/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117271942"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117271942"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Stens, W.",
+        "Stens, Wilh.",
+        "Stens, Guilelmus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Stens"
+          ]
+        },
+        {
+          "forename": [
+            "Wilh."
+          ],
+          "surname": [
+            "Stens"
+          ]
+        },
+        {
+          "forename": [
+            "Guilelmus"
+          ],
+          "surname": [
+            "Stens"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:48Z",
+    "gnd_query_biographical_data": "1810-1878",
+    "gnd_query_name": "stens, wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2766,
+  "name": "Stens, Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1973",
+  "updated": "2026-06-11 13:29:25.200Z",
+  "uri": "https://d-nb.info/gnd/117271942",
+  "editor": ""
+}

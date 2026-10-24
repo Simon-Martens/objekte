@@ -1,0 +1,45 @@
+{
+  "annotation": "Zeitbetrachtungen im Wonnemonat Europas, im Mai 1814 (Sammlung INr 33929, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "Die Tyrannen wollen gegen den Druck durch größern abstumpfen und Thränen durch Thränen wegschwemmen.",
+  "language": [],
+  "musenalm_id": 33940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Volk als Selberretter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Volk als Selberretter",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.593Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "ggriid7p5u777e4"
+    }
+  ]
+}

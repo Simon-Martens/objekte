@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Seht nur umher die Gegend an, / Wie schön sie ist, wie schön!",
+  "language": [],
+  "musenalm_id": 17021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die schöne Gegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die schöne Gegend",
+  "updated": "2001-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.870Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "2odp67rqgf86wgi"
+    }
+  ]
+}

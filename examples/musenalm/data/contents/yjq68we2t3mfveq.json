@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Ja! die Sängerin, die, unter den Gestalten / Deiner Griechenwelt, so lieblich sang,",
+  "language": [],
+  "musenalm_id": 47909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Gerning. / (Nach dem Hinscheiden seines Blutfinkchens.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Gerning. / (Nach dem Hinscheiden seines Blutfinkchens.)",
+  "updated": "2007-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.473Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "4gzi7f90j5zw0g6"
+    }
+  ]
+}

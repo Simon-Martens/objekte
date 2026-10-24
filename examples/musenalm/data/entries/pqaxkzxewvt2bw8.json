@@ -1,0 +1,98 @@
+{
+  "annotation": "ab diesem Jg. bis 1820 ohne Vorwort",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 1–270 darin 6 GG, I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1807",
+    "norm": "~ +++ 410767 (UG recto u verso, INr 125387, 125388, Obj 1, 16)",
+    "biblio": 100098,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1275,
+  "parallel_title": "",
+  "place_statement": "Berlin (de la Garde)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Fünfter Jahrgang / Berlin / bei F. J. de La Garde / 1807",
+  "updated": "2026-06-11 10:18:54.995Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "2odyydt6pmgv5gb",
+    "7dggv0r0np5q1m2",
+    "d4k4h02et1qse7s",
+    "txxqkut0snug8or"
+  ],
+  "contents": [
+    "1zveidd1f2qoni1",
+    "exyx9fj8akw5ve5",
+    "tyzypfilw5lfk7w",
+    "toy1t96bn4kwgje",
+    "qf04s8itadvhflk",
+    "fbj2taauhol9v5n",
+    "2ceoaa2cxbpcm37",
+    "wa9qu89e5kpxo64",
+    "erjhw66jf5ypasp",
+    "67vmt5lplnfwq3k",
+    "gjf4ks0vpx6qzod",
+    "vx7qlzn69mccgi2",
+    "m6fpwrt4ytcdsfx",
+    "ufno9u45e97dzpw",
+    "jjx6x0xdfrtslaf",
+    "sxsudix1qtldc86"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.711Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.711Z",
+      "agent": "yg492s8okv0njn9",
+      "source_id": "kgubk4z50xzwi9d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.870Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.870Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "vyr8efqs8636eeo"
+    }
+  ]
+}

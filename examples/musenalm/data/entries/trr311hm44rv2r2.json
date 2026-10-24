@@ -1,0 +1,103 @@
+{
+  "annotation": "9 Jgg 1794-1796, 1797 nicht erschienen, 1798-1803 (Bauer- und Mannische Buchhandlung); Hrsg: E. L. Posselt. Fortgesetzt durch: Jg 1804 (Nürnberg, Hrsg anonym s. Goed VI, 309, 13) und: Staatsgeschichte Europas (Posselt), Jgg 1805, 1806 (erschienen bei Cotta) Alm-131, Alm-297 /) $ vermutl. fehlt UG",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, gT, 6 GG, S 1 T, SS 3-141",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die neuste Geschichte (Posselt) 1794",
+    "norm": "~",
+    "biblio": 100495,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-12-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 176,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Bauer und Mannische Buchhandlung)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch für die neuste Geschichte (Posselt) 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 20; Goed VI. 309, 13",
+  "responsibility_statement": "D. Ernst Ludwig Posselt",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die neuste Geschichte. / Herausgegeben / von / D. Ernst Ludwig Posselt. / Erster Jahrgang. / Mit Küffnerischen Kupfern. / Nürnberg, / in der Bauer- und Mannischen Buchhandlung, / 1794",
+  "updated": "2026-06-11 10:18:55.804Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "cdx89cqx4t6abfx"
+  ],
+  "contents": [
+    "3wlryxm8gctuk7d",
+    "83p7kjthctxavci",
+    "8g6crc8dl3xjoi1",
+    "w47ivpchqfz790i",
+    "zsl4efsao0ebti3",
+    "kv0irxqh03cxu8p",
+    "nt4ocpy7zacas11",
+    "ggzk9s7uoen3alu",
+    "9pi2n63punizavi",
+    "i9dyki9p1zq4vvi",
+    "mbmik45hz8h496u",
+    "m1g4n2oy0uyv50x",
+    "tbbixzwjd86ajnx",
+    "m4n5qou9qooghh5",
+    "kb4gqrmnas6610c",
+    "f579e0gdpo7mtch",
+    "9z78e4506ti7avo",
+    "6goykmh8tmayknx",
+    "4jjjlejlvn80ap4",
+    "3ds9e7ygj8xvgoz",
+    "glh79uu67aczkhc",
+    "qmg2broeq8e7qnf",
+    "1dsb2ichnewj552",
+    "7t4ht9blkniw3jq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.496Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.496Z",
+      "agent": "vlu1loei07juwaw",
+      "source_id": "6abeqvpivwwtene"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.203Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.203Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "7tc2t3kjjgcvkna"
+    }
+  ]
+}

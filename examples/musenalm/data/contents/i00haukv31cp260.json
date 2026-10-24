@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus Obersteiermark (Sammlung INr 89737, Obj 23) mit einer Illustration s. Graphik im Kalendarium INr 89725, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Auf dem Schlosse zu Röthelstein in der oberen Steiermark zeigte man ehedem ein Bild von grausamen Anblicke; dasselbe stellte nämlich einen grinsenden Todtenschädel vor,",
+  "language": [],
+  "musenalm_id": 89742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Das Burgfräulein von Strechau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Das Burgfräulein von Strechau",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.291Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "n5yk0zoo0eou8q2"
+    }
+  ]
+}

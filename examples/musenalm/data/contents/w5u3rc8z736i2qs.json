@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember nummeriert 12; # Bez. am ersten Blatt der Suite /) s. Textbezug INr 135021, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135036,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siehst du den Kopf nicht? Nimm ihn weg sah ich dir / Ne vois tu pas la tête? ote la te dis-je.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2047_135036_ynxjkr8qiz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Siehst du den Kopf nicht? Nimm ihn weg sah ich dir / Ne vois tu pas la tête? ote la te dis-je.",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.133Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "pde6nx6zgi4tc7u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.134Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "z02ikuw6sf415sd"
+    }
+  ]
+}

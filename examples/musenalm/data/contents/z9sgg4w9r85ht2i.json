@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 99753, 99754; Obj 157, 158",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Altarabische Lieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Minneburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Altarabische Lieder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.812Z",
+      "agent": "ucy5ztqyrt5gvq8",
+      "source_id": "df81c0lv2y1k57h"
+    }
+  ]
+}

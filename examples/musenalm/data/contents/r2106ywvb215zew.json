@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Fürwahr ich wünsche nimmer / Des falschen Goldes Licht,",
+  "language": [],
+  "musenalm_id": 94003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunsch",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.419Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "qyvbktwysvh3yql"
+    }
+  ]
+}

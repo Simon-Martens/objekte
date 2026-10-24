@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen des alten Cantors (Sammlung INr 66406, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Ich vertrieb mir [...] namentlich die ersten traurigen Jahre meines jungen Wittwerstandes mit mancherlei Studien, die mir nahcfgerade wohl zu Statten kamen.",
+  "language": [],
+  "musenalm_id": 64695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Geschichte vom] Rhöner Hozschnitzer und seinem Kinde [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Geschichte vom] Rhöner Hozschnitzer und seinem Kinde [...]",
+  "updated": "2009-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.079Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "skzpixkdx514m60"
+    }
+  ]
+}

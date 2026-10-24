@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Tagesberichte an Haug von Matthisson. 1826 (Sammlung INr 40921, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Die Hülle des Winters bedeckte wieder das Land. Welch' ein ganz anderer Ostermorgen, als der im Faust geschilderte",
+  "language": [],
+  "musenalm_id": 40928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weimar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weimar",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.754Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "2yjorggjox8p8nx"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Lebensklugheit und ihrer Geheimnisse 1806",
+    "norm": "",
+    "biblio": 409578,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4533,
+  "parallel_title": "",
+  "place_statement": "Rastatt (Sprinzing)",
+  "places": [
+    "jwglkpivflgjt6w"
+  ],
+  "preferred_title": "Taschenbuch der Lebensklugheit und ihrer Geheimnisse 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Lebensklugheit / und ihrer Geheimnisse. / Nicht etwa blos für 1807, / sondern / für die Jahre 1807, 1808, 1809, / 1810, 1811 und 1812. / Nebst einer kurzen  Uebersicht der Tage, auf welche / das Osterfest von 1807 bis 1900 fällt. / Preis 48 kr. / Rastatt, / bey dem Hofbuchdrucker Sprinzing und in / allen christlichen Buchhandlungen",
+  "updated": "2026-06-11 10:18:55.855Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "inz7plfgvqf0sf8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "5canabava44wp9b",
+      "source_id": "xxruqj7v8nd5dqi"
+    }
+  ]
+}

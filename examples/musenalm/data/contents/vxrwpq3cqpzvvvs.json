@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Der Abend graut - und wie die Maienrose / Am üpp'gen Strauch auf bunter Blütenau / Den Kelch verschließt mit Duft und Perlenthau,",
+  "language": [],
+  "musenalm_id": 95191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Nächte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. A. Moshamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier Nächte",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.347Z",
+      "agent": "hsujjp5smywjyiq",
+      "source_id": "sn5cctvj35f76fp"
+    }
+  ]
+}

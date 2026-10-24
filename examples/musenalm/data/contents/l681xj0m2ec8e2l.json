@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Noch immer, sehr oft und mit wahrer Freude denk' ich an die Jugendzeit zurück, da ich bei meinem Großoheim lebte.",
+  "language": [],
+  "musenalm_id": 62149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Großoheim und seine / Erzählungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Bothe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Großoheim und seine / Erzählungen",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.614Z",
+      "agent": "naz7pgrgy8ee7vq",
+      "source_id": "uq9sx00coeaf8lq"
+    }
+  ]
+}

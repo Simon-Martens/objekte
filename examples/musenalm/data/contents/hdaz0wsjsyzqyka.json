@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der oft wiederholte Wunsch, daß die Sammlung des Leipziger Taschenbuchs für Frauenzimmer, welches sich seit 1784 eines ununterbrochenen Beyfalls erfreut, wieder vollständig beysammen seyn möchte, bestimmte mich, einige fehlende Jahrgänge neu aufzulegen.",
+  "language": [],
+  "musenalm_id": 47812,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige",
+  "updated": "2007-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.469Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "58fnzt8o22l4nry"
+    }
+  ]
+}

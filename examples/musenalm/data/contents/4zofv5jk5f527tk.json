@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Vampyr« von H. Marschner / W. A. Wohlbrück s. Textbezug INr 75445, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75446,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VAMPYR. / I. Aufz. 6. Sc. / Berkley. Frecher Räuber meines Kindes! / Hier nimm Deiner Thaten Lohn.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc. 1830",
+  "scans": [
+    "alm_2375_75446_lskk1jzcnc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VAMPYR. / I. Aufz. 6. Sc. / Berkley. Frecher Räuber meines Kindes! / Hier nimm Deiner Thaten Lohn.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.552Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "28sgp56jdju6wwx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.552Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "kilk4vqt88h8drz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der ersten Graphik der Suite /) Graphik im Kalendarium Oktober; paginiert 10. /) Illustration zu »Adelheid von Veltheim« von G. F. W. Grossmann",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107829,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Vater! / IVr. Aufz. 4r. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_2162_107829_uilrn6ppb3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Vater! / IVr. Aufz. 4r. Auftr.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.307Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ui4su6mh9r63ps3"
+    }
+  ]
+}

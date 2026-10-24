@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 55814, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55813,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eingang in das alte Schloß zu Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kunz del. Haldenwang sc.",
+  "scans": [
+    "alm_753_55813_fb7y897ypk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eingang in das alte Schloß zu Baden",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.958Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "3q84rlgnh3eg6z6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.958Z",
+      "agent": "ziafym76n6gr1cm",
+      "source_id": "k3zwt6l44krs95g"
+    }
+  ]
+}

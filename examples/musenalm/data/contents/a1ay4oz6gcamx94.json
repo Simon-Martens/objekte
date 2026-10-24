@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # s. Vorwort des Herausgebers INr 50094, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alruna #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. W. Böhm sc.",
+  "scans": [
+    "alm_1_50091_bom6hhw7ur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alruna #",
+  "updated": "2007-06-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.654Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "hbxazrmnyj8i0sq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.654Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "syqd9i2bda85zb9"
+    }
+  ]
+}

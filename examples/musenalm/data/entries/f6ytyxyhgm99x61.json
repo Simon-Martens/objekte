@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, SS I-VIII G-Verz, 6 GG, SS 1-312",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1831",
+    "norm": "~",
+    "biblio": 100188,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-04-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1039,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / AUF DAS JAHR / 1831. / Herausgegeben / von / Aloys Schreiber. / 16. Jahrgang. Neue Folge. 8. Jahrgang. / HEIDELBERG, / im Verlag bei Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.586Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "tsnxq58dr7tzlp0"
+  ],
+  "contents": [
+    "7hin62njnnvymn6",
+    "iw5ww6sqc15x2ki",
+    "68kioflpfztp0gc",
+    "4yvdmes1603my0b",
+    "bsa9a9z2xroodiz",
+    "kwz6p92ph6ibhoo",
+    "xwgtb8iufmx8xku",
+    "w114ssxeu8ndsm3",
+    "6lja3ejupc68na7",
+    "2v35mo238ovcjpa",
+    "7reun9td5itmk2z",
+    "jrn8ql6qkly84ak",
+    "zxvjl3gvydpia8f",
+    "6d9bb3qhos0z25u",
+    "w6rifgqxm110115",
+    "b08v0fh0dp99dh3",
+    "j6ecidu4h2qh663",
+    "fq1di6s2etfun6x",
+    "k8pvgxuw60lg4dq",
+    "sl21v7mfgx3d8yr",
+    "j0lnkxh8k6k57bw",
+    "anftet7m5a70b60",
+    "ucu235dgnq011qs",
+    "uqlkpj3at5kw42u",
+    "qq39809340l0ae8",
+    "zcz46mhpkly845i",
+    "i25hwq8x6hgngbx",
+    "ehznk5svnjf2zmv",
+    "fotk8eoj219j27y",
+    "hhhulhaw8imyrz9",
+    "tmytglo39fgybm9",
+    "lwk6aunv2ditu1x",
+    "nfzhuc5382im9hw",
+    "tr6wub4qcwbf4v0",
+    "8kgurtzvyjj1n21",
+    "s5mzsm4z9q1gsrs",
+    "iwd5nsrzxi3fl63",
+    "7hj325jsx64o41j",
+    "wr94kji2exbeb4c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.802Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.802Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "txrgr1chej6b9r7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.773Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.773Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "vhmc1o057l498gm"
+    }
+  ]
+}

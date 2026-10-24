@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Den stolzen Krieger flohn die Nymphen / dieser Wellen, / Und eilten bleich und zitternd hin ins Meer:",
+  "language": [],
+  "musenalm_id": 17878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der große Conde, in Chantilly",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der große Conde, in Chantilly",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.874Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "ylvwxdr5f9orsgn"
+    }
+  ]
+}

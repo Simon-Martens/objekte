@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Gedichte (Sammlung INr 56800, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Auf eines Lüftchens leichten Schwin- / gen / Sey, Holde, dir mein Kuß gesandt.",
+  "language": [],
+  "musenalm_id": 56807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sendung. / Triolett.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sendung. / Triolett.",
+  "updated": "2008-04-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.078Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "qls3klj1vzius97"
+    }
+  ]
+}

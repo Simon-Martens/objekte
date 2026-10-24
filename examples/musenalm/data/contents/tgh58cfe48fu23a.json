@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1810 (Sammlung INr 13547, Obj 181)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20729,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seize II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_217_20729_nbsthe2l59.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seize II.",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.912Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "vl1bb7iiozqb41l"
+    }
+  ]
+}

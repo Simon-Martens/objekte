@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zwölf himmlischen Götter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zwölf himmlischen Götter",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.625Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "kbzosdchrrnz0iq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Wer ist ein echter ganzer Mann? / Ist's Jener, welcher kraftbewußt / Zu Streit und Fehde zeiget Lust?",
+  "language": [],
+  "musenalm_id": 86676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer ist ein Mann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wer ist ein Mann",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.168Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "aaq0qs2mcjvvto2"
+    }
+  ]
+}

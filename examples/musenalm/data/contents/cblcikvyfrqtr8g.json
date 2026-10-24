@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Im ganzen Römisch-Deutschen Reich / War an Gestalt und Sitten / Kein Fräulein Yolanden gleich,",
+  "language": [],
+  "musenalm_id": 6603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans von Passau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans von Passau",
+  "updated": "2000-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.938Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "x2wttr4stxha62g"
+    }
+  ]
+}

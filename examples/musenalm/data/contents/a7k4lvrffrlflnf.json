@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Fabeln (INr 93355, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Einst gab den Thieren Großfürst Leu, / Ein seltsam Ritterspiel, wobey / Vom Colibri, bis zu den Aaren, / Sie allesamt geladen waren.",
+  "language": [],
+  "musenalm_id": 93360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fleiß und Talent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fleiß und Talent",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.459Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "8qkyyct2z8f2pfv"
+    }
+  ]
+}

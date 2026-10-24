@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Mädchen, willst du mir gehören, / So sprich ja und schlag nur ein!",
+  "language": [],
+  "musenalm_id": 55874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werbung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Werbung",
+  "updated": "2008-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.855Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "lmonno1l0zyufrh"
+    }
+  ]
+}

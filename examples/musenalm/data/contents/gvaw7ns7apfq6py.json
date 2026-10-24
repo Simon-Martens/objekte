@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "Was ist es, das wir an einem Bayard, Montrose, Ruyter, Douglas, an den Freunden Cimons, die sich bei Tanagra opferten, bewundern?",
+  "language": [],
+  "musenalm_id": 39761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ist es, das wir an einem Bayard, Montrose, Ruyter, Douglas, an den Freunden Cimons, die sich bei Tanagra opferten, bewundern?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.833Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "db1acjja2gay7vf"
+    }
+  ]
+}

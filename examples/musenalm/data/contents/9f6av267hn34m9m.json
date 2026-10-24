@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 62354, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63661,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minna und Brenda #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannot gemalt Rosmäsler in Berlin 1835",
+  "scans": [
+    "alm_1045_63661_lkbtdznd3m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Minna und Brenda #",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.218Z",
+      "agent": "7l4t6qszfsoa60s",
+      "source_id": "j5b61kixiw6nnmh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.218Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "o09r0tvsly32adz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus der Schweiz (Sammlung INr 41829, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "An der Capelle, die hoch ins Thal Obwalden hinabschaut, / Schlummert' ich, müde des Tags, lechzend und son- / nenverbrannt.",
+  "language": [],
+  "musenalm_id": 41834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Auf dem Brünig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Auf dem Brünig",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.211Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "nw7xf6vbs4mylm5"
+    }
+  ]
+}

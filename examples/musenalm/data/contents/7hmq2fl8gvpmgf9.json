@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Tänze (Sammlung INr 20590, Obj 129)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Tempête",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "La Tempête",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.733Z",
+      "agent": "czigb25jnrfsy98",
+      "source_id": "5o7zqdvlxdb7sdo"
+    }
+  ]
+}

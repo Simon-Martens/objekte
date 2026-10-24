@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Man hat wohl in Vorschlag gebracht, ein Journal zu begründen, welches nicht vorwärts, sondern rückwärts ginge.",
+  "language": [],
+  "musenalm_id": 77851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brandes' Jugendgeschichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brandes' Jugendgeschichte",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.764Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "8c39pdtvvcy8mty"
+    }
+  ]
+}

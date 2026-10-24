@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof- und Staatskalender, Badenscher gemeinnütziger 1786",
+    "norm": "",
+    "biblio": 410479,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4688,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe und Kehl",
+  "places": [
+    "ouysrvcrf9nrnri",
+    "bwolm6idx3euwnr"
+  ],
+  "preferred_title": "Hof- und Staatskalender, Badenscher gemeinnütziger 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Badenscher / gemeinnütziger / Hof- und Staats- / Kalender / für das Jahr / 1786. / Carlsruhe und Kehl, / bei J. G. Müller, ältern, Hochfürstlich- / Markgräflich-Badenscher Hof- und Kanzlei- / Buchdrucker",
+  "updated": "2026-06-11 10:18:55.653Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "27hopfwd1luqij0"
+  ],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Einen erwählt ich mir nur, hohnlachend entführte / ihn Amor",
+  "language": [],
+  "musenalm_id": 91873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachhall",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bellvoglio",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachhall",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.234Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "89943vjiizskwlr"
+    }
+  ]
+}

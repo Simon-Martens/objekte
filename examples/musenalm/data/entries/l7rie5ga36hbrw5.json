@@ -1,0 +1,78 @@
+{
+  "annotation": "im Sammelband",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Schenkl) 1832",
+    "norm": "",
+    "biblio": 103886,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2650,
+  "parallel_title": "",
+  "place_statement": "Amberg (Im Verlage des Verfassers)",
+  "places": [
+    "vderfrfqqb1dxnf"
+  ],
+  "preferred_title": "Taschenbuch (Schenkl) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed. VII, 174, 5",
+  "responsibility_statement": "J. B. Schenkl",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf / das Jahr 1832 / mit dem / Verzeichnisse / der / im Königreich Bayern lebenden / Schriftsteller. / Herausgegeben / von / Dr. J. B. Schenkl, / in Amberg. / *) In diesem Taschenbuch sind auch die in frü- / her erschienenen Taschenbüchern enthaltenen / Schriftsteller angeführt / Amberg, / im Verlage des Verfassers",
+  "updated": "2026-06-11 10:18:55.443Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "fmmvtgu71ywzrr2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.155Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.155Z",
+      "agent": "xcav675ae6tttd8",
+      "source_id": "qv9jbmlxsbdc9m7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.114Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.114Z",
+      "agent": "xcav675ae6tttd8",
+      "source_id": "zjyp1snxa1ice5t"
+    }
+  ]
+}

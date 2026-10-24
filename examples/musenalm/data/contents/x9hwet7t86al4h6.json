@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Am Himmel, durch grauer Wogen Schwall, / Fährt des Abends Blutstrahl / Ueber des Tempels Kuppeln hin",
+  "language": [],
+  "musenalm_id": 44384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Wallfahrt zum Grabe des Vaters. / (Prenzlau in der Uckermark. 1789.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Wallfahrt zum Grabe des Vaters. / (Prenzlau in der Uckermark. 1789.)",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.878Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "7wtvue0m6yne2p6"
+    }
+  ]
+}

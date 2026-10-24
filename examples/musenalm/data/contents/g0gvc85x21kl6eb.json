@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Es ängstigt sich und härmet / So Mancher um mich her,",
+  "language": [],
+  "musenalm_id": 87107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zufriedene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. H. v. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zufriedene",
+  "updated": "2013-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.978Z",
+      "agent": "8jkm2mpf22llpf2",
+      "source_id": "4zqk31xvay6a3mq"
+    }
+  ]
+}

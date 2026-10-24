@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Statistischer Umriß des Kantons Bern. (Fortsetzung und Beschluß.)« INr 52475, Obj 16 /) s.a. Textbezug INr 52470, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52469,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tracht am Brienzer-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Wetzel del. F. Hegi sc.",
+  "scans": [
+    "alm_722_52469_m83oyay2e8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tracht am Brienzer-See",
+  "updated": "2007-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.895Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "spr2c1y8lth65kp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.894Z",
+      "agent": "l2xzujzn2ajajwc",
+      "source_id": "yqz3oj647fffo4e"
+    }
+  ]
+}

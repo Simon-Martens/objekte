@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65325,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes von Ebersdorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hasslwander del. G. Leybold sc.",
+  "scans": [
+    "alm_1093_65325_ah4dkhsm3i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agnes von Ebersdorf",
+  "updated": "2009-07-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.998Z",
+      "agent": "zefb5ir07ld7tkj",
+      "source_id": "mpbefrf5azbmpyk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.998Z",
+      "agent": "rb0is2za5c4lggc",
+      "source_id": "zztm7babo9hme75"
+    }
+  ]
+}

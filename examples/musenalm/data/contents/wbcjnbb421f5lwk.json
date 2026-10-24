@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "An König Artus Hof zu Cardigan / Trat einst in einer Morgenstunde",
+  "language": [],
+  "musenalm_id": 41124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zauberdegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Fried. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zauberdegen",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.036Z",
+      "agent": "80b27bgjy2gbn1m",
+      "source_id": "4mw6i9g71jttiy9"
+    }
+  ]
+}

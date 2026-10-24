@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75648, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75649,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHRISTINA / Königin von Schweden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bourdon pinx. G. G. Endner sc.",
+  "scans": [
+    "alm_2142_75649_4gxklxymfl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHRISTINA / Königin von Schweden",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.720Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "dgdyim5l38j8pxi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.720Z",
+      "agent": "rjw5bn70y4f4cn1",
+      "source_id": "kdoenlhx0ukms96"
+    }
+  ]
+}

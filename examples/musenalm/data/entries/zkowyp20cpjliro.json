@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, gT, 5 BB G-Verz darin 4 GG, 8 BB Kal darin 3 Tabb, SS 1-190, S I-Verz, S, 7 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1852",
+    "norm": "~",
+    "biblio": 405437,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1918,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl) Leipzig (Liebeskind)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch / für das / Jahr 1852. / Zwei und dreißigster Jahrgang. / WIEN. / Bei Fr. Riedl's sel. Witwe & Sohn. / Leipzig, bei G. A. Liebeskind",
+  "updated": "2026-06-11 10:18:55.708Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "aimwpuw9asncl7m"
+  ],
+  "contents": [
+    "kaiy86t6yrvcw9i",
+    "0bka9ieizkqxr8o",
+    "hnknweyqcv119av",
+    "0lojhyeflajhq1h",
+    "kqrrf5pdszw5y61",
+    "hqxtcnqi8ryzwij",
+    "w78710sfs8t87n6",
+    "enp0aei585b1aye",
+    "wq4gz7xly5cym1b",
+    "gxtt9mbs4l3lj3w",
+    "zno1hkfvhutsxa6",
+    "zcy73wewzhd4y9n",
+    "7req1q54hg5pvlg",
+    "t0mek3h4x26p12k",
+    "iwptxvrcbp2axnv",
+    "vgo0h5qc3wjrjv5",
+    "kkqrb3v0kkd8c9d",
+    "tcq9nrzh8qrp07z",
+    "yn1m2tkxvkecvtw",
+    "6ye49m9x69hvlcu",
+    "ld7dd1vsg7yz7xd",
+    "ks5p2iefzd6xk2z",
+    "zkv9vjgwsnu1r9y",
+    "phzmpcbg3340u9o",
+    "gy2kvw3theyzpl5",
+    "gecurb1qctn3lan",
+    "g6cpi2mum4di66e",
+    "533hsdaorweer28",
+    "46xrbh6gl5wphxw",
+    "gnxfb14ddaw1xch"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "l8n21uptlbzltkl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.097Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.097Z",
+      "agent": "2gh9s9bmjxl8x1h",
+      "source_id": "z435eusgcvgpq1w"
+    }
+  ]
+}

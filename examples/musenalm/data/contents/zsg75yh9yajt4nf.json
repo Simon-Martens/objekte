@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64560, Obj 5) s. Graphik INr 64570, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ach Du mein Gott! Laß die Zeiten / Vorwärts gehen, rückwärts schreiten,",
+  "language": [],
+  "musenalm_id": 64564,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Der Philister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Der Philister",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.276Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "wxd0biyzyyqolgh"
+    }
+  ]
+}

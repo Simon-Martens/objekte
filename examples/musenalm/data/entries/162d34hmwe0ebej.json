@@ -1,0 +1,104 @@
+{
+  "annotation": "s. Vorwort des Herausgebers INr 66157 mit Reaktion auf das in der Erlanger Literaturzeitung besprochene von L. C  E. H. F. von Wildungen herausgegebene »Taschenbuch für Forst und Jagdfreunde«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso B, T, 4 BB Vrwrt d Hrsg, S1 nT, SS 3-344 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1802",
+    "norm": "~",
+    "biblio": 404852,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1116,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Küchler)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / TASCHENBUCH / für das Jahr / 1802. / Neunter Jahrgang. / Mit Kupfern. / LEIPZIG, / bey Carl Wilhelm Küchler",
+  "updated": "2026-06-11 10:18:54.627Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "8u4ib78naa79j0z"
+  ],
+  "contents": [
+    "ugg25h2zvw82tlf",
+    "li8c1lngs70ysw9",
+    "dnwd2uccthh14vu",
+    "jo4s4jsn6cngqx5",
+    "j4tll6zrgb75vi7",
+    "becuf4anzxttnex",
+    "v72m8ho9utyeu8k",
+    "68hnervqj8xvw6s",
+    "pbisl7vntqu82wd",
+    "jjex9tscfvy1er6",
+    "fd4ibehansl9pe8",
+    "l1lhqhveds35mkn",
+    "psijpjha4gm0v1i",
+    "3vuatymwhmoi80e",
+    "7c9kvrx9lhg1qhk",
+    "b56qqyiq3tmd854",
+    "eavujzorbnefmbz",
+    "7pjizp5k0jv2lt5",
+    "gb81ztq2e9mokr6",
+    "4pmhk1z9ecjywiw",
+    "jmvfhzk1nojjtg0",
+    "1wr70kllzuif1kr",
+    "q6zyxo8vbohgdh8",
+    "5mc3v2j9mzz0suq",
+    "sdt0lfxdfu0wzlw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "i9davz1vy72p8ib",
+      "source_id": "6e6evelpvoj29ha"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.828Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.828Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "zvpbvreyi38s3nm"
+    }
+  ]
+}

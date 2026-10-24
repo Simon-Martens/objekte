@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Welch süßer Schauer bebt durch meine Glieder / Bey deiner Dichtung einfach frommem Klang!",
+  "language": [],
+  "musenalm_id": 114635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / meinen Freund Reil. / Nach / einer Vorstellung seiner Oper: / Der Bergsturz. / (Am 6. März 1814.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Weidmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / meinen Freund Reil. / Nach / einer Vorstellung seiner Oper: / Der Bergsturz. / (Am 6. März 1814.)",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.478Z",
+      "agent": "e499h9zfmuf983p",
+      "source_id": "2abd0idl71hlbqd"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-09 10:46:40.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "Fünf Zeichen, Kind, sollst du mit Ehfurcht nen- / nen, / Sie sind ein hehres Mahl der grau'sten Zeit",
+  "language": [],
+  "musenalm_id": 140548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Logogryph",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Logogryph",
+  "updated": "2026-09-09 10:48:13.157Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-09 10:48:13.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-09 10:48:13.159Z",
+      "agent": "nz03xhzpzbg7xlq",
+      "source_id": "axeug7u1wzksimu"
+    }
+  ]
+}

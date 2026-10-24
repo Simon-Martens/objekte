@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert IV. /) Illustration zu »Gustav III. König von Schweden« INr 59831, Obj 33 s.a. Textbezug INr 59812, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59817,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gustavs III. väterliche Ermahnungen an seinen / Sohn den Kronprinzen auf seinem Sterbelager",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59817_ft36jhmdwo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gustavs III. väterliche Ermahnungen an seinen / Sohn den Kronprinzen auf seinem Sterbelager",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.083Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "7gqv1wttgezssn5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.083Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "hnf5zopwwkctfbq"
+    }
+  ]
+}

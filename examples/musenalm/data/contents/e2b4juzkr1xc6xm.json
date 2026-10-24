@@ -1,0 +1,45 @@
+{
+  "annotation": "Doppelblüten (Sammlung INr 89441, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Ein närr'scher Kauz, der Ritter von der / Posen! / Der Bald nach Lorbeer geizt und bald nach / Hosen.",
+  "language": [],
+  "musenalm_id": 89445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Dichterleben / (Ghasel.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Dichterleben / (Ghasel.)",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.915Z",
+      "agent": "xy1xe258ffgo9ok",
+      "source_id": "kmbupfxdnxffxxo"
+    }
+  ]
+}

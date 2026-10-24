@@ -1,0 +1,103 @@
+{
+  "annotation": "Der Almanach bringt vier Beiträge aus: Taschenbuch zum geselligen Vergnügen 1828 (2: Gleditsch) s. Anmerkungen an den Objekten",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, S, VB, verso G, T, 6 GG, 17 SS Kal darin 6 GG, 7 SS Tabb, S 1 zT, SS 3-107, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Liebe und Freundschaft (Wien) 1830",
+    "norm": "~",
+    "biblio": 409856,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-05-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4627,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach der Liebe und Freundschaft (Wien) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / der / Liebe und Freundschaft / für 1830. / Edlen Frauen und Mädchen gewidmet. / WIEN / Pfautsch's Verlag, Kurrentgasse No. 414",
+  "updated": "2026-06-11 10:18:55.092Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "zw6bn5wlgora1mf"
+  ],
+  "contents": [
+    "7hq79w9ojnd0gq8",
+    "rxzmm5ginqdy8zi",
+    "kg0plbaz260o2fz",
+    "dlpyzznz2tyg87r",
+    "0780estlqoazuiw",
+    "r936p8rhi47h9w2",
+    "3sbdgdreub4mz7y",
+    "aijyik2xdnou95n",
+    "7jnueescunutj38",
+    "7er0s1d0fwhx0eh",
+    "rm0z8highuioek8",
+    "4r0dahn1folyjip",
+    "ppuly5jle0s6gwi",
+    "0uuiyro43bh6xyy",
+    "596bg0qe0tkf9k1",
+    "uz2nlzdd286vvul",
+    "iseixqonewxropc",
+    "lgbcc2y093zsnhy",
+    "lusiw6gf9z653aq",
+    "kj949pehgfcf16c",
+    "rpj99h9qmjbxy0h",
+    "r53rwjch6cahaua",
+    "njzvpy1y20z12aq",
+    "7uymysobyxgqz0b",
+    "phq3rn69tx6wj3h",
+    "hjutsujb26tdqoy",
+    "2v5mvgiijndd8sv",
+    "u5ocp1yrcmn6qvj",
+    "8xpfhitpf0lkcgx",
+    "dhpd8hrc906cbhv",
+    "75959m0sx1jeym8",
+    "npsu4xrxfiywvlh",
+    "bnwpspv3d06p31m",
+    "vsqbsuy309qw0wl",
+    "5my6cefwaqiq37k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.128Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.128Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "zxf4dv4twfslvqb"
+    }
+  ]
+}

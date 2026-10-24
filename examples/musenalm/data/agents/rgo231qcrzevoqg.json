@@ -1,0 +1,399 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.426Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1072979292",
+          "label": "Typographisch-Literarisch-Artistische Anstalt (L. C. Zamarski & C. Dittmarsch)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072972417",
+          "label": "C. Dittmarsch (Stuttgart)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/107294023X",
+          "label": "Literarisch-Artistische Anstalt (C. Dittmarsch)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072939657",
+          "label": "Sortiments-Buchhandlung von Zamarski & Dittmarsch (Wien)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072949571",
+          "label": "Typographisch-Literarisch-Artistische Anstalt (L. C. Zamarski, C. Dittmarsch & Comp.)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10120025-0",
+          "label": "Österreichischer Lloyd. Literarisch-Artistische Abteilung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10154649-X",
+          "label": "C. Dittmarsch & Comp. (Stuttgart)"
+        }
+      ],
+      "dateOfBirth": [
+        "1819-05-27"
+      ],
+      "dateOfDeath": [
+        "1893-01-30"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1073452301"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:50:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116143835/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116143835",
+      "id": "https://d-nb.info/gnd/116143835",
+      "oldAuthorityNumber": [
+        "(DE-588)1073452301",
+        "(DE-588a)116143835"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Dittmarsch, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Dittmarsch"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Menk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Menk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Menk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Dittmarsch, Karl: Morondanga. - 1838",
+        "Dittmarsch, Karl: Des Moselthales Sagen, Legenden und Geschichten. - 1840"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77059674"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q53499925"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073452301"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116143835/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000010665525"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116143835"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116143835"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_D/Dittmarsch_Karl_1819_1893.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116143835"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Dittmarsch, C.",
+        "Dittmarsch, F",
+        "Dittmarsch, Karl Menk-",
+        "Menk, Friedrich",
+        "Dittmarsch, Carl",
+        "Dittmarsch, Friedrich Menk-",
+        "Menk-Dittmarsch, Friedrich",
+        "Menk, Fr.",
+        "Menk-Dittmarsch, Karl",
+        "Menk-Dittmarsch, F.",
+        "Menk, F.",
+        "Menk, F"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Menk"
+          ]
+        },
+        {
+          "forename": [
+            "F"
+          ],
+          "surname": [
+            "Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Menk-"
+          ],
+          "surname": [
+            "Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "F"
+          ],
+          "surname": [
+            "Menk"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Menk-"
+          ],
+          "surname": [
+            "Dittmarsch"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "surname": [
+            "Menk"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Menk"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Menk-Dittmarsch"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:15:12Z",
+    "gnd_query_biographical_data": "1819-?",
+    "gnd_query_name": "menk-dittmarsch, f."
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1786,
+  "name": "Menk-Dittmarsch, F.",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1355",
+  "updated": "2026-06-11 13:29:23.778Z",
+  "uri": "https://d-nb.info/gnd/116143835",
+  "editor": ""
+}

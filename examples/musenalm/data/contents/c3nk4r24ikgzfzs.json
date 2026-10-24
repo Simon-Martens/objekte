@@ -1,0 +1,45 @@
+{
+  "annotation": "Vom Kölner Dom. Sonettenkranz (Sammlung INr 65979, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Es mocht' in dir ein Engel mich begrüßen, / Und schöne Englein zu mir niedersteigen,",
+  "language": [],
+  "musenalm_id": 65984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Auf dem Domhofe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Auf dem Domhofe",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.228Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "18xn991oy3xtkmb"
+    }
+  ]
+}

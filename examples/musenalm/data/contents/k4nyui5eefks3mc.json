@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Felix Mendelssohn-Bartholdy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Passini sculp.",
+  "scans": [
+    "alm_759_56487_t8qxobt5ex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Felix Mendelssohn-Bartholdy",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.804Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "fsx9f5rtx6yhx38"
+    }
+  ]
+}

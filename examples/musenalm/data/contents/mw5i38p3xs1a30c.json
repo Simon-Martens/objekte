@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v. # s. Textbezug 42148, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42193,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NAP. AL. BONAPARTE P. P. CONSUL PRIMUS //  MARENGO.  HOHENLINDEN.  ABOUKIRA. // MENTE ET ARMIS. PAX. ALMA / LUNAEUSLLAE. I. PLUV. / A. 9. REIP. 9. FEBR. / 1801",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bückle",
+  "scans": [
+    "alm_196_42193_ljx9ulj6a2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NAP. AL. BONAPARTE P. P. CONSUL PRIMUS //  MARENGO.  HOHENLINDEN.  ABOUKIRA. // MENTE ET ARMIS. PAX. ALMA / LUNAEUSLLAE. I. PLUV. / A. 9. REIP. 9. FEBR. / 1801",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.030Z",
+      "agent": "44x5qy9fqayn2x3",
+      "source_id": "fss8ebb02we5hxu"
+    }
+  ]
+}

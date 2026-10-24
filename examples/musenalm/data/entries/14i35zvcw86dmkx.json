@@ -1,0 +1,133 @@
+{
+  "annotation": "Privateinband, Rückenprägung fäschlich: Huldigung den Frauen 1827",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS 1-406 darin 5 GG, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Fortuna 1827",
+    "norm": "~",
+    "biblio": 408001,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-08-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4011,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler u. von Manstein)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Fortuna 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 96; Goed VIII. 113, 265",
+  "responsibility_statement": "Franz Xaver Told",
+  "subtitle_statement": "",
+  "title_statement": "Fortuna. / Ein Taschenbuch / für / das Jahr 1827. / Herausgegeben / von / Franz Xav. Told. / Vierter Jahrgang / WIEN. / Bei Tendler und von Manstein",
+  "updated": "2026-06-11 10:18:54.630Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "lv8o4gct916ihx1"
+  ],
+  "contents": [
+    "oet5n0l9g2zm1ws",
+    "rytge846kpbvhye",
+    "y5m6lihjfaxcgu6",
+    "vlqcnkhbavsnulk",
+    "t4exmznob14ng7s",
+    "lsier5yec7kin1p",
+    "e5nmlaty6gi1q45",
+    "kc04b6av18ag0sg",
+    "6fegt5wgg1oz3nx",
+    "vq14k5ibk0s1qc1",
+    "hptjdkjha14zbfy",
+    "ht3z4s2ulsudjvn",
+    "sulfgaphwht25hj",
+    "95j93yy9be05s3t",
+    "928att0pcrdv9os",
+    "8ub8o4kut2pby1o",
+    "njnstbc221ef1ru",
+    "6s93b9lnazy0cxm",
+    "unlegrn6jqvzk1k",
+    "aqqmuzdkcm6yth0",
+    "6i2dtdpd4pm29f1",
+    "b72ekwafcn2etvo",
+    "ddfyisvyahgsajk",
+    "yh4wapv545wss89",
+    "6q19ysa8nndqixn",
+    "0ua4tui49fieeoz",
+    "wdg1u91scfbxh5q",
+    "4bynmcgnzot602z",
+    "0i5i6533kwz9m6b",
+    "ce6be5at8h5etl2",
+    "c3mb6ealuaeeznk",
+    "c7556hax78v6h83",
+    "0cphetyxds2lgp1",
+    "1llhz2fj44g2k1o",
+    "fcl40npb882yzdt",
+    "pgyx0l33kn7ppo7",
+    "5hpmlgye85syi2p",
+    "4qtlfwhuug99pc1",
+    "xgfw9406tic1scn",
+    "laqaxu5f3prdzek",
+    "cq14p5qqj1x384t",
+    "x3q082zwey22lhl",
+    "gql1eoa8zu4l3y4",
+    "hg23bo7gwd3b4ad",
+    "iyq3aq8224v5stf",
+    "81a1dpur2ybwlpg",
+    "2ukif6fl3gf5t90",
+    "htrc0sieeoikfu2",
+    "592wzpn9y8z0tiy",
+    "jj2ecewvs6slvny",
+    "mhsfk941oiv2bsw",
+    "787ono4iv55bfw2",
+    "z5yg7zfitmqqdh9",
+    "yhnjkjuay6ysnft"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "lxngazxhjdim5r0",
+      "source_id": "01o7t0s60xxz8t3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.320Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.320Z",
+      "agent": "tglq0d4pyb420do",
+      "source_id": "h9tvf9f4np9ov8h"
+    }
+  ]
+}

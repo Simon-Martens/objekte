@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldina, Sage in acht Bildern (Sammlung INr 26561, Obj 89)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Willkomm, zur Vortragsfeier / Von Hugo's Ehgelag,",
+  "language": [],
+  "musenalm_id": 36439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89.05,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.922Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "hp1gda478qufv2u"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "Fortsetzung: Taschenkalender für die Jugend 1802, Zürich (von Leer), Taschen-Kalenderchen für die Jugend, Zürich (von Leer) versch. Jgg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender für die helvetische Jugend 1801",
+    "norm": "",
+    "biblio": 410106,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4677,
+  "parallel_title": "",
+  "place_statement": "Zürich (von Leer)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Taschenkalender für die helvetische Jugend 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschencalender / für die / helvetische Jugend / auf das Jahr 1801. / Mit Kupfern. / Zürich, bey Leonhard von Leer",
+  "updated": "2026-06-11 10:18:55.261Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "xhf6f807hhfel6s"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "m2x8u2igact6taw",
+      "source_id": "eufl02dz5n18tqc"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "annotation": "# Der Jahrgang 1809 erschien in Leipzig bei Kummer und in Riga bei Hartmann. Titel handschriftlich verbessert. In der Rigaer Ausgabe Jahreszahl und Jahrgang korrekt.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1809",
+    "norm": "~",
+    "biblio": 100100,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4482,
+  "parallel_title": "",
+  "place_statement": "Riga (Hartmann)",
+  "places": [
+    "i42ezbvbrf2494d"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / von / A. von KOTZEBUE. / Funfzehnter Jahrgang. / Riga / bei C. J. G. Hartmann, / 1819 #",
+  "updated": "2026-06-11 10:18:54.997Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "swunq8tye1as0jv"
+  ],
+  "contents": [
+    "yurm2dwdbwjhf3g",
+    "mpyelj1iahwlzo0",
+    "hk8t6bhtzgswqzc",
+    "i0zrdq3cod7vjgq",
+    "ywd41io6fg75p6x",
+    "0hvkm72j8tycbkg",
+    "axcnzoxo55szf0r",
+    "2abyuyn8r28u655",
+    "olnj0u9rukiy4aj",
+    "b0iju5l3s7100tc",
+    "g8lhbhkktvp3liy",
+    "5i9ga8bg8kitrnx",
+    "o4tzxvafittprcf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.967Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.967Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "0h7jxcd066v4tuj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.386Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.386Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "uzbs9zueo15ymuw"
+    }
+  ]
+}

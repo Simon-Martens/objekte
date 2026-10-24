@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Zwiefacher Sieg« von St. Schütze; INr 19391, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83178,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwiefacher Sieg, von St. Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_263_83178_ovab80ycur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwiefacher Sieg, von St. Schütze",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.959Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "jyhufyh0fo8y8kw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.959Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "nee5fvnk5ju59tl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Mildes warmes Frühlingswetter! / Weh' mich an, du laue Luft!",
+  "language": [],
+  "musenalm_id": 26541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Palmsonntag 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max v. Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Palmsonntag 1816",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.303Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "gv5w0l4v17nkgsy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Als ich gewandelt hier in jenen Tagen, / Wo sie, die Engelgleiche, noch hienieden, / Da war's um mich, wie Paradiesesfrieden,",
+  "language": [],
+  "musenalm_id": 67852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "nerf0a2weu88pwn"
+    }
+  ]
+}

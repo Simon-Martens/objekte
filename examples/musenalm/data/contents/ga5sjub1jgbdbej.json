@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue sur le Doubs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory fils del. F. Hegi sc.",
+  "scans": [
+    "alm_718_52434_n1zsx7sakn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue sur le Doubs",
+  "updated": "2007-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.601Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "udz670tl24jbphy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.601Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "vy34eg5nodrzl98"
+    }
+  ]
+}

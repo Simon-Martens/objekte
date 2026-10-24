@@ -1,0 +1,119 @@
+{
+  "annotation": "47 Jgg 1810-1858, Jgg 1849, 1854 nicht erschienen;  1810, 1811 Darmstadt (Leske); 1812-1821 Darmstadt (Heyer und Leske); 1822-1858 Frankfurt (J. D. Sauerländer). Hrsgg: 1824-1844 Dr. Adrian, 1845-1856: C. Dräxler-Manfred. /) Das Taschenbuch erschien 1810-1822  auch unter dem Titel: Großherzoglich Hessischer Hofkalender (davon sind vorhanden die Jgg 1810-1813, 1815, 1817-1819, 1821, 1822) s.d.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, gT, W, B I-Verz, SS I- IV G-Verz, 2 GG, 29 SS Kal darin 8 GG, 3 SS, S 1 zT, SS 3 -1-58, S 59 zT, SS 61-188, Tab, S 189 zT, SS 191-356",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1810; s. a. Hofkalender, Großherzoglich Hessischer 1810",
+    "norm": "~ +++ 200200",
+    "biblio": 106538,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 565,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1810; s. a. Hofkalender, Großherzoglich Hessischer 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / für das Jahr 1810. / Darmstadt / bei Carl Wilhelm Leske",
+  "updated": "2026-06-11 10:18:55.364Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "032sy8ja05lmxni",
+    "ozm7ndcolw701bg"
+  ],
+  "contents": [
+    "shnxu30bxyk3igd",
+    "r6h3vyaj5gcj1jf",
+    "1cqkps5167bl4ws",
+    "ylsxngpmrvuv8t5",
+    "fdy5iel3gvjq0c6",
+    "58yy2kq3ytftuwl",
+    "asgeahpib3r22v2",
+    "ra6dw667kjneh8u",
+    "pri1e7d67v0agvo",
+    "aubi4ltskbv4ucp",
+    "dhlcsl4el947ed4",
+    "48nu828khxixrhl",
+    "c87zkkxifxfbymr",
+    "7d86o3v916onpz1",
+    "ks94bgcrc5up079",
+    "s1xecxdnntbdga9",
+    "rq5140p9dprxbiz",
+    "9s7kzn7jelnrwdf",
+    "6rbmd4zauo6w3th",
+    "jix86ogxcp6t0lx",
+    "21nlzut4gceli0u",
+    "pn3mffd2wdu5gip",
+    "ejsbfsrnqzb3j0l",
+    "j6ygw65gqqragdy",
+    "rkghdfo8hw05th5",
+    "uu86nbb00v1ge4l",
+    "quzt9f4xzyh046t",
+    "takdidetpekpv3y",
+    "6qzno4uagydtkkz",
+    "nns8yfp3ovcmgmg",
+    "g2vjshman9eg21w",
+    "nimnr5hvbcajt3k",
+    "daxkuod3tm0v6v0",
+    "heoingkhjmo848h",
+    "wjp14hpijw4bfp9",
+    "xsyhrmavvcvdp3r",
+    "adoe5h9g3ztbu08",
+    "ih7j9zum717fuxg",
+    "cjwmec2onfkdw80"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.094Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.094Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "177u9459gxkg5z5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.448Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.448Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "bi1yql93mc0nqom"
+    }
+  ]
+}

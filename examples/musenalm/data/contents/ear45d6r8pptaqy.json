@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13076,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Weissenfels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_215_13076_nbwqhqyazv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Weissenfels",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.653Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "dhlqduv2ganbc7y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.653Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "p1tedy92ek372of"
+    }
+  ]
+}

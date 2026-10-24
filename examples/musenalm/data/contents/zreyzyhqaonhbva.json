@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 109496, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.507Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Justizrath von Rothenheim hatte in einem halben Jahre zwei Todesfälle erlebt, die ihn äußerst niederdrückten.",
+  "language": [],
+  "musenalm_id": 109507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der seltene Wahlspruch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Lauhn [sic]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der seltene Wahlspruch",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.216Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "f30kooup1srdkk6"
+    }
+  ]
+}

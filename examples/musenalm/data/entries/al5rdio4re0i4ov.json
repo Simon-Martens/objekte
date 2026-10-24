@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, B VrlgM, 5 GG, SS I-CCXL, ar: SS 1-44, SS 45-51 G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kronos 1818",
+    "norm": "~",
+    "biblio": 106606,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2212,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kronos 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 74; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kronos / genealogisch-historisches / Taschenbuch / auf das Jahr / 1818. / Inhalt. / [...] / Mit Kupfern. / Leipzig / bey Joh. Friedr. Gleditsch",
+  "updated": "2026-06-11 10:18:55.910Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "y3dw9ij4wy69xe1"
+  ],
+  "contents": [
+    "7sfkvescozzd7me",
+    "zhrhhibtc4r6y9h",
+    "ccvlmf720tvnwnf",
+    "2i2a42obeefzxda",
+    "go6atfkji59bxwi",
+    "5zynlvwkpy72q3z",
+    "zvhmd19msjjx2og",
+    "t335audnk7yx2n5",
+    "g9y58yy5epueav6",
+    "jldf44nth4a19ds",
+    "ofpwxpapk6m2a4y",
+    "m5s2bk8020h54k5",
+    "6g5mm61r0xufy7t",
+    "epy1b4xtm0zajgf",
+    "1tmt1f6ni5bfxed",
+    "syttwtx7bjscpxm",
+    "ikcbfrci6pu78mu",
+    "6ou67jaqe2twki6",
+    "spd15rfun9e677a",
+    "c00deue5hbvr2vf",
+    "927wmsppjt071dq",
+    "pc8exqsf9ghz946",
+    "3hu1beyh2ne21br",
+    "3slyrlhwoub346t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.905Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.905Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "8fg5j5w3iqw99tb"
+    }
+  ]
+}

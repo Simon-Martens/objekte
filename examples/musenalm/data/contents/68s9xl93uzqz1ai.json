@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Du stiller Zeuge meiner besten Freuden, / So halt' ich dich denn wieder in der Hand;",
+  "language": [],
+  "musenalm_id": 14366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An mein Stammbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An mein Stammbuch",
+  "updated": "2001-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.558Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "klmov6gtzyrkv98"
+    }
+  ]
+}

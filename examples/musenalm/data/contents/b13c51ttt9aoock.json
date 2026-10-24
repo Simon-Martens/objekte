@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 11. # Titel aus dem G-Verz INr 15658, Obj 84",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15588,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gartenscenen von Brandt, die beyden / ersten mit Tempeln, die letzte mit einem / Landhause #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Brandt",
+  "scans": [
+    "alm_247_15588_lz88bbpssr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gartenscenen von Brandt, die beyden / ersten mit Tempeln, die letzte mit einem / Landhause #",
+  "updated": "2001-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.574Z",
+      "agent": "8rv1oo9bmtatyb4",
+      "source_id": "ft7pfn6pnai06e5"
+    }
+  ]
+}

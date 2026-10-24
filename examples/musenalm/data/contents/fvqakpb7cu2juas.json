@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende Graphik (Portrait) INr 81508, Ob 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "geboren zu Wien am 21. Juni 1794, ist der Sohn eines k.k. Hof- und Gerichts-Advocaten und Notars. Er machte seine Studien an der hiesigen Hochsschule und begann seine öffentliche Laufbahn als Actuar beim Crimanalsenate zu Wien,",
+  "language": [],
+  "musenalm_id": 81507,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Ludwig Deinhardstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann Ludwig Deinhardstein",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.870Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "19wabam7p07npzf"
+    }
+  ]
+}

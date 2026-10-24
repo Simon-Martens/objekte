@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Von allem, was dir je Vergnügen machte, bewahre dir ein Zeichen der Erinnerung, so hast du immer etwas, wovon sich deine Seele aufrichten kann,",
+  "language": [],
+  "musenalm_id": 71863,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Federproben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Federproben",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.433Z",
+      "agent": "o2pvd0n9c0ulrf4",
+      "source_id": "eqvta0hobirt6ax"
+    }
+  ]
+}

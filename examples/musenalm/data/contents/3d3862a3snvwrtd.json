@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüten aus dem Reiche der Flora (Sammlung INr 82451, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Kühlung such' ich in dir vor der Gluth des Tages, o Laube;",
+  "language": [],
+  "musenalm_id": 84261,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geißblatt (Lonicera caprifolium)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Geißblatt (Lonicera caprifolium)",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.058Z",
+      "agent": "cuv25mgj45dpxdp",
+      "source_id": "esa6jvpets6z4js"
+    }
+  ]
+}

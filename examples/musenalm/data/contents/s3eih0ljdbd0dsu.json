@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragment eines Göttergesprächs (Sammlung INr 4192, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Und - daß ich weiter frage - / Was danket dir mein Held?",
+  "language": [],
+  "musenalm_id": 41193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mars",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mars",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.229Z",
+      "agent": "l446jiuqx4rmxf3",
+      "source_id": "l686kzhl2pmbffi"
+    }
+  ]
+}

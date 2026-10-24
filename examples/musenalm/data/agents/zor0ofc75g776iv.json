@@ -1,0 +1,138 @@
+{
+  "annotation": "",
+  "biographical_data": "1629-~1700",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.354Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler, Niederlande, Schweiz"
+      ],
+      "dateOfBirth": [
+        "1629"
+      ],
+      "dateOfDeath": [
+        "1699"
+      ],
+      "describedBy": {
+        "dateModified": "2016-03-11T16:48:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/108920227X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-ZuETHN"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#ZZ",
+          "label": "Land unbekannt"
+        }
+      ],
+      "gndIdentifier": "108920227X",
+      "id": "https://d-nb.info/gnd/108920227X",
+      "preferredName": "Hackaert, Jan",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jan"
+        ],
+        "surname": [
+          "Hackaert"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149658587"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/289044481"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/108920227X/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055299821"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/108920227X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T11:37:09Z",
+    "gnd_query_biographical_data": "1629-~1700",
+    "gnd_query_name": "hackaert, jan"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1020,
+  "name": "Hackaert, Jan",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "ADB XV, 407",
+  "updated": "2026-06-11 13:29:22.740Z",
+  "uri": "https://d-nb.info/gnd/108920227X",
+  "editor": ""
+}

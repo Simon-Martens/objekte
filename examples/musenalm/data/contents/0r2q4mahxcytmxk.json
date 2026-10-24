@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Titelgraphik INr 27942, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es ist den Müttern für dies Leben / Ein Himmelsenglein beigegeben",
+  "language": [],
+  "musenalm_id": 27944,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Titelkupfer / Der Mütter Engel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Titelkupfer / Der Mütter Engel",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.224Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "dv7zl1o51n13v2l"
+    }
+  ]
+}

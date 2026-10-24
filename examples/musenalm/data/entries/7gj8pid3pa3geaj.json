@@ -1,0 +1,107 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt /) der 2. Titel lautet: Niedersächsisches Taschenbuch auf das Jahr 1801. Hamburg, bey A. Campe in Commission",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I-Verz-, 26 BB Kal darin 4 GG, 13 BB Tab, T, SS 1-188",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gesellschafter, Der tägliche 1801; Taschenbuch, Niedersächsisches 1801",
+    "norm": "~",
+    "biblio": 407501,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-09-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3881,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Gesellschafter, Der tägliche 1801; Taschenbuch, Niedersächsisches 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 51, 139; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der tägliche Gesellschafter / Ein Taschenbuch / zum / Nutzen und Vergnügen / auf / das Jahr 1801. / Hamburg / in Commisssion bey A. Campe",
+  "updated": "2026-06-11 10:18:55.645Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "r6e7r57zsmtn5iv"
+  ],
+  "contents": [
+    "5lnng2t1zu6vie6",
+    "ov6nsp4nq267axl",
+    "svh1ydrl1ezcn8z",
+    "tzzstd66bx0kao2",
+    "c54l6ojduvtgdp7",
+    "ysin2on4cwm9a71",
+    "apmswpkp3jv4ozu",
+    "37fmysu2nrei1d9",
+    "2niuk9ryflhv2ry",
+    "r0j9vbgkeut8lxc",
+    "aymki0110iz3tfn",
+    "u6gci1cdy21gpwt",
+    "79dcdq5shoju26o",
+    "s9bk5y70lkpdnkn",
+    "k1mv9436brsqyeg",
+    "yjchq6m1sn3evmc",
+    "rnptrxj0j0j08p1",
+    "79tbevfvgyijr4y",
+    "gcodky0qlict17x",
+    "vqqi7kicbw2ymvt",
+    "li6jlzyvcey2d03",
+    "ffebb27nx72kxvu",
+    "zeamcrscyjm0dbq",
+    "vh85yeb7pr4l3a7",
+    "g1ozalyob0fxn5u",
+    "o74tzlz0urvgcmu",
+    "oz37llb4zzz6m7e",
+    "clnjj6ibhs75zl6",
+    "ccj0rgft6emifco",
+    "n0twvt54xpentgd",
+    "6xh3iyd5hc0hwns",
+    "1eap0wmmcxej5ap",
+    "6s6xvw595deo990",
+    "agto91ruy8dyk4t",
+    "mbl8b4kd6ptzda0",
+    "pzp85jfd7kc282f",
+    "9x537ar6jymm2de",
+    "pmapnayarhx1v56",
+    "o19ly3vem7lms53"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.649Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.649Z",
+      "agent": "so2stw3lsgpp43x",
+      "source_id": "8lotgohpi3kv9uc"
+    }
+  ]
+}

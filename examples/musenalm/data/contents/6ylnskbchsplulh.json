@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Der glänzende Saal und die dunkle Grotte« von A. G. Eberhard in: Taschenbuch zum geselligen Vergnügen 1806 INr 12497",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12903,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der glänzende Saal und die dunkle Grotte v. A. G. Eberhard. / Taschenbuch zum geselligen Vergnügen für 1806. / S. 11",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. Cl. Kohl sc.",
+  "scans": [
+    "alm_214_12903_5ph4vglydo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der glänzende Saal und die dunkle Grotte v. A. G. Eberhard. / Taschenbuch zum geselligen Vergnügen für 1806. / S. 11",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.473Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "on5c70ga5ssqkgn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.473Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "tscxbggd2ct1gwx"
+    }
+  ]
+}

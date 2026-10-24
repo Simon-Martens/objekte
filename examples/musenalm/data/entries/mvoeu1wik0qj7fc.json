@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1803",
+    "norm": "",
+    "biblio": 200029,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1201,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Almanach der neuesten Fortschritte, Erfindungen und Entdeckungen 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "J. J. Bellermann",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / neuesten Fortschritte, Erfindungen / und Entdeckungen / in den / spekulativen und positiven / Wissenschaften / von Ostern 1801. bis Ostern 1802. / herausgegeben von / J. J. Bellermann / ordentl. Professor der Theologie und Philo- / sophie, Direktor des Gymnasiums, beständ Sekretär der / Akademie nützl. Wissensch. etc / in Erfurt. / Zweiter Jahrgang. / Erfurt 1803 / bei Georg Adam Keyser",
+  "updated": "2026-06-11 10:18:55.096Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "0x9lqz2evof5xzc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "731srqenrmv9l9n"
+    }
+  ]
+}

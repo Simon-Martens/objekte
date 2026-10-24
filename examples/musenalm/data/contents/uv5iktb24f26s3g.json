@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80065, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80064,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blick der Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[unleserlich] del. C. Kotterba sc.",
+  "scans": [
+    "alm_1695_80064_c036fi3pvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blick der Unschuld",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.773Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.773Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "ssrjzg9yajry4pg"
+    }
+  ]
+}

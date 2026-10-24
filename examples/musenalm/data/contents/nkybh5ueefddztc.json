@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71) Anm. am Objekt: Das Schloß Arnsberg oder Arnsperg genannt, liegt im Unterelsasse, unweit dem Bärenthale, […]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Ein Köhlersmann, im Walde, geht noch, zu später / Nacht; / Die Luft ist schwül und stille, im Laub kein Vogel wacht.",
+  "language": [],
+  "musenalm_id": 75023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kellermeister auf Arnsburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kellermeister auf Arnsburg",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.776Z",
+      "agent": "knoskc7ee942ezb",
+      "source_id": "bak71qikuio7mwy"
+    }
+  ]
+}

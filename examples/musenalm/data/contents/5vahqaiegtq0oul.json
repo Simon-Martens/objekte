@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Blätter aus Agathens Papieren (Sammlung INr 39552, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "So sey's denn - ich scheide von dir, geliebtes Bild! Ja, ich reiße mein Herz los von dir!",
+  "language": [],
+  "musenalm_id": 39558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Resignation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Resignation",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.798Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "m8s8e2scolof3je"
+    }
+  ]
+}

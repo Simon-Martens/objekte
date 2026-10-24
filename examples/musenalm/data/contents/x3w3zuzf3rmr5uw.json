@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) Illustration zu »Bergfei und Alpenhirt« von J. G. Seidl  INr 120476, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120465,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bergfei und Alpenhirt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_1009_120465_rnq3ydkffz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bergfei und Alpenhirt",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.730Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "tb97i8w9jrk6v2x"
+    }
+  ]
+}

@@ -1,0 +1,391 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.586Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dän. Schriftsteller",
+        "Verleger, Schriftsteller, Journalist"
+      ],
+      "dateOfBirth": [
+        "1819-10-26"
+      ],
+      "dateOfDeath": [
+        "1887-08-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Elisabeth Jerichau Baumann"
+          ],
+          "creditText": [
+            "https://app.smartify.org/da-DK/objects/meir-aron-goldschmidt-1819-1887-forfatter-mm"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Me%C3%AFr%20Aron%20Goldschmidt%20by%20Elisabeth%20Jerichau%20Baumann.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Me%C3%AFr%20Aron%20Goldschmidt%20by%20Elisabeth%20Jerichau%20Baumann.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Me%C3%AFr%20Aron%20Goldschmidt%20by%20Elisabeth%20Jerichau%20Baumann.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T13:48:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118718002/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "118718002",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118718002",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/dan",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/dan"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4097300-1",
+        "(DE-588a)130960330",
+        "(DE-588a)118718002"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4425137-3",
+          "label": "Vordingborg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Goldschmidt, Meïr",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Meïr"
+        ],
+        "surname": [
+          "Goldschmidt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Goldschmidt, Mei͏̈r A.: The Society of Virtue at Rome. - 1868"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80050197"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/100207407"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1926505"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118718002/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118718002"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Me%C3%AFr_Aron_Goldschmidt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Me%C3%AFr_Aron_Goldschmidt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000118391554"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118718002"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118718002"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Goldschmidt, Meïr Aaron",
+        "Godshmidt, Mei̕r",
+        "Goldschmidt, Meyer A.",
+        "Goldschmidt, M.",
+        "Meyer, Adolph",
+        "Goldschmidt, Meïr A.",
+        "Goldschmidt, Meïr Aron",
+        "Goldschmidt, M. A.",
+        "Goldschmidt, Mayer Adolf",
+        "Goldschmidt, Meyer Aron",
+        "Godshmidṭ, Meʾir",
+        "Goldschmidt, Meier Aaron",
+        "Goldschmidt, Meyer Aaron"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Meyer"
+          ]
+        },
+        {
+          "forename": [
+            "Mayer Adolf"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Mei̕r"
+          ],
+          "surname": [
+            "Godshmidt"
+          ]
+        },
+        {
+          "forename": [
+            "M. A."
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meïr A."
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meïr Aaron"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meïr Aron"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meyer Aron"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meʾir"
+          ],
+          "surname": [
+            "Godshmidṭ"
+          ]
+        },
+        {
+          "forename": [
+            "Meier Aaron"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meyer A."
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "Meyer Aaron"
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Goldschmidt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Me%C3%AFr_Aron_Goldschmidt",
+          "label": "https://de.wikipedia.org/wiki/Me%C3%AFr_Aron_Goldschmidt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:27:57Z",
+    "gnd_query_biographical_data": "1819-1847",
+    "gnd_query_name": "goldschmidt, meïr aaron"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 4007,
+  "name": "Goldschmidt, Meïr Aaron",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "Herausgeber des Corsaren",
+  "refs": "Wkipedia",
+  "updated": "2026-06-11 13:29:25.934Z",
+  "uri": "https://d-nb.info/gnd/118718002",
+  "editor": ""
+}

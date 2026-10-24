@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 34378-34985, Obj 101-108",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "poetische[s] Allerlei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "poetische[s] Allerlei",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.789Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "bdkwf999cktxg35"
+    }
+  ]
+}

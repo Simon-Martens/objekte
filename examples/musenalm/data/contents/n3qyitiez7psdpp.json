@@ -1,0 +1,47 @@
+{
+  "annotation": "Bez. vom Titel /) kol. Graphik paginiert V. s. Textbezug INr 70714, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. P. Lyser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [
+    "alm_2248_70715_b1xeoepobb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.608Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "fppajfozc0utyi8"
+    }
+  ]
+}

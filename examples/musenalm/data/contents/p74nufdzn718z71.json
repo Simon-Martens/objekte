@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Als Faon spröd' sich Saffo's Arm entwandt, / Der hohen Jungfrau Lorbeer welkend schwand,",
+  "language": [],
+  "musenalm_id": 97295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schöllkraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schöllkraut",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.689Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "j4g7s2j2nirelrf"
+    }
+  ]
+}

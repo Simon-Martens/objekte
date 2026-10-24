@@ -1,0 +1,67 @@
+{
+  "annotation": "franz. Ausgabe des Jg 1787 der Pandora; Alm-450",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, T, 16 BB Kal darin 12 GG, SS 1-208 darin 2 GG, SS 209-210 I-Verz, K",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pandora (Bertuch, Kraus) 1788 (franz. Ausgabe: Pandore Almanac du Luxe et des Modes 1788)",
+    "norm": "",
+    "biblio": 407285,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3810,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Pandora (Bertuch, Kraus) 1788 (franz. Ausgabe: Pandore Almanac du Luxe et des Modes 1788)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 93; L/R 59",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "PANDORE / ou / Almanac / du Luxe / et / des Modes / pour l'Année / 1788. / par / Bertuch & Kraus / A Leipzig / chez G. J. Göschen",
+  "updated": "2026-06-11 10:18:55.322Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "eg3s82x8q4tjqap"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.921Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.921Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "67xyg8pizak7dz1"
+    }
+  ]
+}

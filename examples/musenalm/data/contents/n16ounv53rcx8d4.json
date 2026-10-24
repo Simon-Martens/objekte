@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Einsam saß ich, die Zither im Arm, auf bemoo- / setem Grabstein, / Und der silberne Mond schaut' auf die Gräber / herab.",
+  "language": [],
+  "musenalm_id": 83839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendphantasie. / An Samuel Christian Pape",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. H. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendphantasie. / An Samuel Christian Pape",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.090Z",
+      "agent": "8jkm2mpf22llpf2",
+      "source_id": "a20gt3ru0pr0kog"
+    }
+  ]
+}

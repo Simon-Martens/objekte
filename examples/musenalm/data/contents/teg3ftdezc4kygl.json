@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Beitrag in: Alpenrosen, ein Schweizer Almanach 1815 INr 53065",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Unsrer Uebung gemäß, alle zwey Jahre den Lesern der Alpenrosen eine gedrängte Uebersicht der schweizerischen Litteratur zu geben, unternehmen wir's, dasjenige wieder herauszuheben, was uns einer allgemeinen Unterhaltung,",
+  "language": [],
+  "musenalm_id": 53236,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schweizerische Litteratur. / (S. Alpenrosen für das Jahr 1815. S. 301.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schweizerische Litteratur. / (S. Alpenrosen für das Jahr 1815. S. 301.)",
+  "updated": "2007-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "8oc6dkl6w9n36l1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.537Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "8v4mw4w4bstbq0s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.538Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "vx2o7bx4ypzfxws"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Oden (INr 93514, Obj 23) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Immer nahen wir dir mit dem Gruße der Liebe, Constanza; / Heute beflügeln ihn noch Wünsche der kindlichen Brust.",
+  "language": [],
+  "musenalm_id": 93518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Constantia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Julius Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Constantia",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.590Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "3xccfsnorjvcspi"
+    }
+  ]
+}

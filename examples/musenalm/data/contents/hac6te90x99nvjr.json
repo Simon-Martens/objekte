@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Liebe denkt in süßen Tönen, / Denn Gedanken stehn zu fern,",
+  "language": [],
+  "musenalm_id": 26520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Variation / Auf Dählings Bild: / Der Wettgesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottwalt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Variation / Auf Dählings Bild: / Der Wettgesang",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.272Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "la9fqakmdodbizq"
+    }
+  ]
+}

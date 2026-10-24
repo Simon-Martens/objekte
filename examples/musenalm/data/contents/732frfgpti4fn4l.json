@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "Vor dem Waldschlosse des Baron von Cordes hielt ein stattlicher Jagdwagen mit vier Mohrenköpfen bespannt, und mehrere Reuter kamen nachgesprengt.",
+  "language": [],
+  "musenalm_id": 27437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.283Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "u33chs3ziiluc6t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Seitdem du Lisen hast, bist du Cornelius; / Erst, als du schwiegest, Tacitus;",
+  "language": [],
+  "musenalm_id": 6513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die lateinischen Namen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die lateinischen Namen",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.155Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "41tr0l0ad0340x6"
+    }
+  ]
+}

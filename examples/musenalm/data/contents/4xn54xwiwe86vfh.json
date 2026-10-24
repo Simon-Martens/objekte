@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111251, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der zarte Hauch des Frühlings ist verschwunden / Die Blüthe abgestreift,",
+  "language": [],
+  "musenalm_id": 111252,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensreise",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.406Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "8sbkieduxitn1v1"
+    }
+  ]
+}

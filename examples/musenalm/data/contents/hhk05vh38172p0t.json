@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug  INr 127846, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127816,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OKTOBER 31 Tage. / Schloß Ballenstaedt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_3652_127816_dixlopoupu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OKTOBER 31 Tage. / Schloß Ballenstaedt",
+  "updated": "2011-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.959Z",
+      "agent": "o3ct6ijrde3gzy6",
+      "source_id": "5vd7tfy2baccffy"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, 2 BB G-Verz, nT, SS 1-364, S 365 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vesta 1834",
+    "norm": "~+++409314 (var. Umschlagprägung)",
+    "biblio": 100954,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-07-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 341,
+  "parallel_title": "",
+  "place_statement": "Wien (F. Ludwig)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Vesta 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; L/R 99; Goed VIII. 127, 343",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "VESTA / Taschenbuch für das Jahr 1834. / Auf Kosten des Herausgebers. / IV. Jahrgang. / Gedruckt von Franz Ludwig / WIEN",
+  "updated": "2026-06-11 10:18:54.497Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "grwet9yatrh6unc",
+    "h41zjwk748gypea"
+  ],
+  "contents": [
+    "6uj054v4f2p0yys",
+    "chc38c14iieegzq",
+    "dqu29eueb4nd08r",
+    "3efevrw6d56xbit",
+    "6y3cood3g4jd8rr",
+    "55ie7cwm7w9xvcf",
+    "hgde8j19ejgm2p0",
+    "scucob7rtqev5c0",
+    "caixnww6hfo38db",
+    "cw24gtbsgnicw75",
+    "w09i59z0vj4hk01",
+    "kbe07edqsbmunvr",
+    "a0cutl2i6h4x305",
+    "6hsmt5barzasuzr",
+    "vvb0unctpn4210l",
+    "sc27yj0jfpz7o1k",
+    "m6mfjus7e64oyex",
+    "r2k9pkaxswcs2qx",
+    "6x0tf51gazqaqpt",
+    "6tmjdfjtkjjqwhv",
+    "zeiel6kin8nhv7w",
+    "l57py4ifvr2n6co",
+    "3viz208tcxgqxn7",
+    "y30ubtcgmitl3va",
+    "u5jqoh8zm5ymtu3",
+    "wl5aw5x5ezwwnoa",
+    "dntkcuymihu22hl",
+    "mdp7xylizxtqe84",
+    "4w49e4yw0s5ot8l",
+    "odo3m2t13c9w8r9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.825Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.825Z",
+      "agent": "iv736zv501v5sxx",
+      "source_id": "t3nero7dfbwwxb9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.613Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.613Z",
+      "agent": "3n3zxa07vk2vm3e",
+      "source_id": "u3rw4wnnz79qb7c"
+    }
+  ]
+}

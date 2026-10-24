@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Raumer) 1856-2",
+    "norm": "",
+    "biblio": 200957,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3012,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Raumer) 1856-2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 125; nicht bei L/R",
+  "responsibility_statement": "Friedrich von Raumer",
+  "subtitle_statement": "",
+  "title_statement": "Historisches / Taschenbuch. / Herausgegeben / von / Friedrich von Raumer. / Dritte Folge. / Siebenter Jahrgang. / Leipzig. / F. A. Brockhaus. / 1856",
+  "updated": "2026-06-11 10:18:54.766Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "items": [
+    "wk4kgdaonbwj1pa"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.584Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.584Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "b21r7ks1qxlpkb2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.174Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.174Z",
+      "agent": "gjmd3adkws0h0dh",
+      "source_id": "n3n00y57dlw1e7o"
+    }
+  ]
+}

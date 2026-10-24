@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Hätt' ich nur einen Abend, wie ich mit dem Liebchen im Hader / Viele verdorben, o wie nützt' ich so friedlich ihn jetzt!",
+  "language": [],
+  "musenalm_id": 69120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "50.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "50.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.315Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "zeypmr78pgiavv6"
+    }
+  ]
+}

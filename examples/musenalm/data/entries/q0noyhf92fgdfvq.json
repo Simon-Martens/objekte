@@ -1,0 +1,73 @@
+{
+  "annotation": "var. Exemplar in Seidenschuber und Seideneinband: Schuber, Deckel u. Titel als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, gT, T, S W, 5 GG, T, SS 1-308, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1835 [var.]",
+    "norm": "~",
+    "biblio": 409895,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-07-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4655,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Pfautsch)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1835 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke Mein! / Taschenbuch / für / 1835. / Vierter Jahrgang. / Mit Beiträgen / von / Bauernfeld, Carlopago, Castelli, Enk, Fels, Dr. Fleckles, / Frankl, Regina Frohberg, von Hammer, von Körber, Kuffner, / Manfred, Neumayer, Renn, Schilling, Schnaase, Schu- / macher, Seidl, Straube, von Tschabuschnigg, Vogl, / Waldow, Weigl, etc. / Wien und Leipzig. / Verlag von Friedrich Wilhelm Pfautsch. / Zu beziehen von allen Buch - und Kunsthandlungen des In - und Auslandes",
+  "updated": "2026-06-11 10:18:55.634Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "xq6h52kpdy9h9a4"
+  ],
+  "contents": [
+    "m6i2oog0q037ybw",
+    "9wxi0owcbddspze",
+    "q69a7dl8vctkpvq",
+    "69anhzrb9ivkszp"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.128Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.128Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "adz2un5skf3hryq"
+    }
+  ]
+}

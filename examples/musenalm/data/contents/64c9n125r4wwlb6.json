@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64710, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64716,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor der Schule #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. de Vletter del. J. B. Tétar van Elven sc.",
+  "scans": [
+    "alm_1083_64716_otnzajel6i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vor der Schule #",
+  "updated": "2009-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.028Z",
+      "agent": "4w3yxor1j78jvd9",
+      "source_id": "9agi7ar3i0mh84i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.028Z",
+      "agent": "7l66ckmup6wdhiw",
+      "source_id": "ohw1upltqz07r11"
+    }
+  ]
+}

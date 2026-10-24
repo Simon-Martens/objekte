@@ -1,0 +1,98 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, B G-Verz, B I-Verz, G, B, G, B, SS 1-390 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1849",
+    "norm": "~",
+    "biblio": 404532,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3485,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1849",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "Bernd von Guseck",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-romantisches Taschenbuch / für / 1849. / Von / Bernd von Guseck. / Zweiunzwanzigster Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.504Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "ps0qzftgjh8bj5h"
+  ],
+  "contents": [
+    "d7366n00wpqnr3s",
+    "6jwv0m955wvvbrq",
+    "q1o5tq3sstya9so",
+    "tbgntonhb1mhkij",
+    "0f5iknyuwbl7h5b",
+    "boqjoxvah6a48tf",
+    "cmz5u3c2qn5zczu",
+    "i72xqtnhb21fkko",
+    "1t2gyyqsv1w2wcp",
+    "qmeuf95r3wb2yad",
+    "zvhg8f4vtu1har8",
+    "q8181lk96xyrnm7",
+    "uu4bmkrxqd83g34",
+    "gyhue5j9t14xk5b",
+    "3pxbkkj6ajx667d",
+    "fehc5rfwgi8pyyb",
+    "n8d7nxsztjfa5ky",
+    "sy32sov2so4o5e9",
+    "my7qhagt63k2ks3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.237Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.237Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "8jypb44exrdasqt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.520Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.520Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "ytb81d1oayf7jn6"
+    }
+  ]
+}

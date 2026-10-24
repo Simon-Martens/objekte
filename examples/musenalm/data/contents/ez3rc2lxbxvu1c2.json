@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Lupin wird heut getraut mit Dorimenen, / Der häßlichsten von allen Schönen.",
+  "language": [],
+  "musenalm_id": 12742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eigennützige Heyrath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eigennützige Heyrath",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.497Z",
+      "agent": "tvrder99cpa3fos",
+      "source_id": "hz43k93yonfz4p0"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 56094, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BEI TRYBERG IM SCHWARZWALD",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fritz Haldenwang del. L. Schnell sculp.",
+  "scans": [
+    "alm_756_56095_b0ul2m2zdq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BEI TRYBERG IM SCHWARZWALD",
+  "updated": "2008-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.488Z",
+      "agent": "vbyfdjf3wft42hq",
+      "source_id": "cz1wukurva8c2ja"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.488Z",
+      "agent": "mdifn6ta9ogjkym",
+      "source_id": "s2yjnuotsfdg5iq"
+    }
+  ]
+}

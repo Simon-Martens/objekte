@@ -1,0 +1,91 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, ST, S I-Verz, SS I-XXXI, 3 GG, SS 1-328, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1853",
+    "norm": "~",
+    "biblio": 108645,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3388,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Thomas)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1853",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 165; nicht bei L/R",
+  "responsibility_statement": "Jeanne Marie",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch für 1853. / Siebenter Jahrgang. / Herausgegeben / von / Jeanne Marie. / Mit Beiträgen von Adolf Böttger, Bernd v. Guseck, Ludewike / Wallenheim, Adolf Görling und der Herausgeberin etc / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+  "updated": "2026-06-11 10:18:54.860Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "cbjtbq7im919fba"
+  ],
+  "contents": [
+    "3xqfdrz14anzvo8",
+    "lnajtw95jbxyfnq",
+    "co0y6grvj78rgru",
+    "tnqigate7wsdho5",
+    "eab0mfo2t418z21",
+    "twmmtrvahbcfs2a",
+    "f1of6occqpt1r2m",
+    "kwao795v1i8jdir",
+    "we85xdchbnnc82b",
+    "f0q0paqce57r9vp",
+    "n4vvr1f0b4qij24",
+    "c3uep6ajcfc3pu9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "wm3zyw8rnaueef5",
+      "source_id": "4ag8lphj53priy7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.212Z",
+      "agent": "3wuzr6tb9xdgoey",
+      "source_id": "8u71yat4hepu6gt"
+    }
+  ]
+}

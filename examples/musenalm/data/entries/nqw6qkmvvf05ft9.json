@@ -1,0 +1,111 @@
+{
+  "annotation": "Erscheinungsweise unklar: KVK, GVB: 13 Jgg erschienen zwischen 1836-1853 /) §1§,§3§: Umschlag fehlt, §2§ Titelgraphik fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "§1§ §3§ UG, VB, §2§ verso G, S I T, SS III-IV G-Verz, SS V-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, G, 6 BB dazu 6 GG, SS 1-288",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues für Natur-, Forst- und Jagdfreunde 1840 u. 1841",
+    "norm": "~",
+    "biblio": 407385,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-09-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3602,
+  "parallel_title": "",
+  "place_statement": "Weimar (Voigt)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch, Neues für Natur-, Forst- und Jagdfreunde 1840 u. 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "G. von Schultes",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / für / Natur-, Forst- und Jagdfreunde / auf die Jahre 1840 u. 1841. / Herausgegeben / von / G. von Schultes, / Herzogl. Sächs. / Regierungsrath und Forstmeister zu Coburg. / Dritter Jahrgang. / Mit Kupfern und Vignetten. / Weimar. / Druck u. Verlag von Bernhard Friedrich Voigt",
+  "updated": "2026-06-11 10:18:55.383Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "gzeukz4ujo4llax"
+  ],
+  "contents": [
+    "626ymz91xv7ucr2",
+    "5ebvlahw65o5w6n",
+    "qvjit2hvaqyabp0",
+    "mz0zsbixxydbyiz",
+    "aspu2n0kvvq2fss",
+    "gqizothf4b8wjxi",
+    "00yqlno30i54dr9",
+    "259xbxc2wx1hwqf",
+    "05fnfjtf0393sc5",
+    "on9t8r3io85y77u",
+    "xnvg4dfidtgvoyl",
+    "p81t1i3jwi5lbmo",
+    "sieey559oliwhr9",
+    "l3m3unnk1nc4qsv",
+    "9kp3j3mgo1lte1e",
+    "4ac5g1lrp7jc9d1",
+    "nbrb83105sse23f",
+    "6wnxpc1ymuif38u",
+    "v6kke8cfhswlatr",
+    "t3xdoemjms7m6oo",
+    "5hdult0a19ckxd6",
+    "sic4dkk0yeu3eka",
+    "2b677xlytnw6rcp",
+    "cqnq61ozs6c25oh",
+    "hpekjn6y3ff6ydw",
+    "csxqeq92jmqaet7",
+    "90pqnzdxhzuo6u4",
+    "1b8jzm3tdg0rfxf",
+    "hz6gi70wv973ezu",
+    "z3jewycl1sx9rw9",
+    "oi4vhr2hchk1fo3",
+    "0zejtee9zgjhisy",
+    "fa548zeyr6um3c9",
+    "qwuxp1bl083vovj",
+    "9vjdvj5r2le0iz8",
+    "96raqczmf4jimjm",
+    "mwverghxg7qtjuv",
+    "unuounczmnp9kng",
+    "dmpbjc6w8wivucf",
+    "0pniymwut8zt3m1",
+    "jv2p2we1y9lm25i",
+    "x4d0fjt240695ba",
+    "h523mfx64cyhzuj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "z6w968jiv2453au"
+    }
+  ]
+}

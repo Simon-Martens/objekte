@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Wir alle gehn zum Stillen hin, / Grabhügel! wohlbegrast, / O selig, selig! wenn ich bin,",
+  "language": [],
+  "musenalm_id": 12665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Lesen in Girtanners / Geschichte der französischen Revolution, / Als ich im Traume die Worte: / Wir alle gehn zum Stillen hin; / singen hörte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Lesen in Girtanners / Geschichte der französischen Revolution, / Als ich im Traume die Worte: / Wir alle gehn zum Stillen hin; / singen hörte",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.540Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "l9mhgwfbz7t2og8"
+    }
+  ]
+}

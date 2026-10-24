@@ -1,0 +1,88 @@
+{
+  "annotation": "Format 7,5 x 9",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, G, 7 BB Kal darin 7 GG, SS 1-31",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1838",
+    "norm": "~",
+    "biblio": 411061,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-06-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4788,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königlich-Preußische Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1838, / mit / Gedichten und 8 dazu gehörigen Kupfern. / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.269Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "n58v6lhontaeuj8"
+  ],
+  "contents": [
+    "x2yo7vbchk4rmld",
+    "y4msjpjlcfe9zus",
+    "pjd0gv9mkwdj5yj",
+    "izxi4hv7l8cd0pj",
+    "kwcz6ck0icvudnu",
+    "h4mz5vsgvcep75j",
+    "ucouzbvb8zrduuj",
+    "jrvftxp69vb2okl",
+    "sghwoy2833f9mne",
+    "u5c2p0z7me8fl3f",
+    "1f0pih82s0tbt92",
+    "vsx9gw8y25bs4qj",
+    "czydtwwkn9u8sxx",
+    "7kwmtvpjynf9n3h",
+    "hulgwsxqbr0r7hw",
+    "mn23hmucu5q4cxz",
+    "3gy5re9gx9dzhad",
+    "qdwmh995b8uxf5t",
+    "lbnlrhmidu5003l",
+    "nz77sjyp3lw6ym4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "el799n8q0c8ypdh"
+    }
+  ]
+}

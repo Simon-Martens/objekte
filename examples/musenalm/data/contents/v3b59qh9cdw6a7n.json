@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Laß uns Lieb' um Liebe tauschen, / Laß uns Arm im Arme gehn, / Und in der Vereinung stärker",
+  "language": [],
+  "musenalm_id": 10988,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "75. / Bundeslied. / An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "75. / Bundeslied. / An Sie",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.534Z",
+      "agent": "6g8r11hxaocz3tf",
+      "source_id": "9gkzmq5o5x6l5z8"
+    }
+  ]
+}

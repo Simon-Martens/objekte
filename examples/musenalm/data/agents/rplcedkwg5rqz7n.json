@@ -1,0 +1,310 @@
+{
+  "annotation": "",
+  "biographical_data": "1775-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.384Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Theologe, Pfarrer in Cottbus, später in Königsberg, Prof. der Theologie u. preuß. Konsistorialrat in Königsberg"
+      ],
+      "dateOfBirth": [
+        "1775"
+      ],
+      "dateOfDeath": [
+        "1855"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:14:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116013311/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116013311",
+      "id": "https://d-nb.info/gnd/116013311",
+      "oldAuthorityNumber": [
+        "(DE-588a)116013311"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4070126-8",
+          "label": "Cottbus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "preferredName": "Kähler, Ludwig August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig August"
+        ],
+        "surname": [
+          "Kähler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398099-5",
+          "label": "Konsistorialrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "A. K. Z. K."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Filibert"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Betrachtungen über die doppelte Ansicht ob Jesus bloß ein jüdischer ...",
+        "Sonnenklarer Beweis, daß ein christlicher Regent stets der oberste ...",
+        "Herrmann von Löbeneck oder Geständnisse eines Mannes",
+        "Sendschreiben an H. Pr. D. Han in Leipzig",
+        "Schutzrede für das auf Vernunft gegründete Christenthum",
+        "Beitrag zu den Versuchen neuerer Zeit den Katholizismus zu idealisiren",
+        "Glossa perpetua zu Herrn Harms Uebersetzung der 95 Theses Luthers für ...",
+        "Geschichte von Kottbuß 1813 - 1814",
+        "Dissertatio de accomodatione legitima, a Jesu, cum diaboli mentionem ...",
+        "Wissenschaftlicher Abriß der christlichen Sittenlehre nach Johanneisch-apostolischen Prinzipien"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr99040551"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64747101"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1581085"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116013311/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_August_K%C3%A4hler"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081448122"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116013311"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116013311.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116013311"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Kaehler, Ludwig August",
+        "A.K.Z.K.",
+        "Kaehler, August Ludwig",
+        "A. K. Z. K.",
+        "Kaehler, August L.",
+        "Filibert",
+        "Kaehler, L. A.",
+        "Kaehler, L.A.",
+        "Kaehler, Ludwig A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        },
+        {
+          "forename": [
+            "L. A."
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        },
+        {
+          "personalName": [
+            "Filibert"
+          ]
+        },
+        {
+          "personalName": [
+            "A. K. Z. K."
+          ]
+        },
+        {
+          "forename": [
+            "August Ludwig"
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        },
+        {
+          "forename": [
+            "L.A."
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        },
+        {
+          "personalName": [
+            "A.K.Z.K."
+          ]
+        },
+        {
+          "forename": [
+            "August L."
+          ],
+          "surname": [
+            "Kaehler"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_August_K%C3%A4hler",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_August_K%C3%A4hler"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:52:42Z",
+    "gnd_query_biographical_data": "1775-1855",
+    "gnd_query_name": "kähler, ludwig august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1333,
+  "name": "Kähler, Ludwig August",
+  "profession": "Text",
+  "pseudonyms": "Filibert; Verfasser des Herrmann von Loebeneck",
+  "refs": "Goed VI, 389; Goed XIV, 891",
+  "updated": "2026-06-11 13:29:23.104Z",
+  "uri": "https://d-nb.info/gnd/116013311",
+  "editor": ""
+}

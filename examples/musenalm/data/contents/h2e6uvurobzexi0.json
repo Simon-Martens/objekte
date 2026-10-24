@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 87052, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87051,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Laufberger del. C. F. Merckel sc. Lpzg.",
+  "scans": [
+    "alm_1611_87051_rnxl304etu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.296Z",
+      "agent": "pp02s3wj2qujsyg",
+      "source_id": "51x50cb7bkig0d0"
+    }
+  ]
+}

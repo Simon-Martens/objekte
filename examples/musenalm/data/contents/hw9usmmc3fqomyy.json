@@ -1,0 +1,43 @@
+{
+  "annotation": "Erkärung der Kupfertafeln (Sammung INr 75883, Obj 4) s. Graphik zum Kalendarium INr 75892, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Auf der zweiten Kupfertafel erscheinen mehrere Teutsche in ihren Waffen, zum Kampf und Kriege bereit. Dieses war ihre Lieblingsbeschäftigung, eine natürliche Folge ihrer unbegränzten Liebe zur Unabhängkeit und Freyheit.",
+  "language": [],
+  "musenalm_id": 75885,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der zweiten Kupfertafel erscheinen mehrere Teutsche in ihren Waffen, zum Kampf und Kriege bereit. Dieses war ihre Lieblingsbeschäftigung, eine natürliche Folge ihrer unbegränzten Liebe zur Unabhängkeit und Freyheit.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.058Z",
+      "agent": "i1y44hlx8jbhczd",
+      "source_id": "zgz5dorscccjxfc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "unter dem Gedicht: Hierbei eine Musikbeilage.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Täglich, hold Liebchen mein, / Möchte' ich was Andres seyn, / Pour te servir;",
+  "language": [],
+  "musenalm_id": 44933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe fromme Wünsche./ An Elise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebe fromme Wünsche./ An Elise",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.520Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "wgg2gskommlfjd7"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS 1–100, SS 1–82",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1825",
+    "norm": "~",
+    "biblio": 405927,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3426,
+  "parallel_title": "",
+  "place_statement": "Dresden",
+  "places": [
+    "rwbojfo6ivkzocy"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Hell, Theodor",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / für das Jahr 1825 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Zweites Bändchen. / Enthält: / Die beiden Galeerensclaven, oder die Mühle von St. Altervon. / Melodrama in drei Aufzügen, und / Der Hofmeister in tausend Aengsten, / Lustspiel in einem Aufzuge. / Dresden, / in der Arnoldischen Buchhandlung. / 1824",
+  "updated": "2026-06-11 10:18:54.851Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "lpebap42b657w2t"
+  ],
+  "contents": [
+    "bijks5v3957ju7l",
+    "c2wl7hj251kwfj6",
+    "90sqawpywjduas7",
+    "9hu4x3tbc605ceg",
+    "0f0y5m4qwuevra9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.219Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.219Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "sn8vrensaijubtj"
+    }
+  ]
+}

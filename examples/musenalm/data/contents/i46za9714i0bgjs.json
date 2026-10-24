@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 10 Kapiteln mit Tabellen und einer ausfaltbaren Tabelle INr 70281, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Was ist Deutschland, wie ist dies Reich organisiert? Der größte bekannte Staaten-Verein; ein Aggregat von mehr als 300 großen und kleinen freyen Territorien, jeder fast nur denkbaren Regierungsform",
+  "language": [],
+  "musenalm_id": 70280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurzer / statistischer Abriß / des deutschen Reichs / der Oesterreichischen und / Preußischen Staaten / und / Einiger der vornehmsten deutschen / Reichsstände / nach den neuesten und besten Quellen / entworfen / von dem / verstorbenen Hrn. Kriegsrath Randel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kriegsrath Randel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurzer / statistischer Abriß / des deutschen Reichs / der Oesterreichischen und / Preußischen Staaten / und / Einiger der vornehmsten deutschen / Reichsstände / nach den neuesten und besten Quellen / entworfen / von dem / verstorbenen Hrn. Kriegsrath Randel",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.583Z",
+      "agent": "3frd0rk989x9fsq",
+      "source_id": "kpr3iv6fyb7yni7"
+    }
+  ]
+}

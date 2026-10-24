@@ -1,0 +1,56 @@
+{
+  "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Was du begangen, das beklage nicht. / Schlamm trübt den Quell. die Ros' auf Dornen thront.",
+  "language": [],
+  "musenalm_id": 77110,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[35ste]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakspear [übers.] L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[35ste]",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.597Z",
+      "agent": "confomdodiakpla",
+      "source_id": "1b2ko7wramhk8s8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.597Z",
+      "agent": "ajsovud6xavcdfb",
+      "source_id": "cpkp9b89jktogn0"
+    }
+  ]
+}

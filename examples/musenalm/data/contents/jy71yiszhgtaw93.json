@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Tändeleyen (Sammlung INr 29305, Obj 91)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Lieben und vom Liebchen singen, / Ist des Lebens klügster Plan;",
+  "language": [],
+  "musenalm_id": 29313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe und die Leyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe und die Leyer",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.320Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "y591ksesw5tayrf"
+    }
+  ]
+}

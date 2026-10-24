@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Strahlen steigen auf und nieder, / Süße Kinder, froh und frei,",
+  "language": [],
+  "musenalm_id": 55661,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.731Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "9zg3ye0yyziufrn"
+    }
+  ]
+}

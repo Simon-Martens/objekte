@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Und als der Meister sterben wollte, / Da knieten sie alle um ihn her,",
+  "language": [],
+  "musenalm_id": 26219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Sachsens Feyerabend und Tod",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Sachsens Feyerabend und Tod",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.057Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "4d5xuuv6hd3sk2i"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Am besten wird das Haus vom strengen Mann regiert?",
+  "language": [],
+  "musenalm_id": 65699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 268,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das beste Hausregiment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das beste Hausregiment",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.405Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "6n7pr26mpd7g2x8"
+    }
+  ]
+}

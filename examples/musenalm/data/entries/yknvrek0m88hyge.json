@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Terpsichore 1840",
+    "norm": "",
+    "biblio": 407508,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3882,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Ludewig)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Terpsichore 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R",
+  "responsibility_statement": "Karl v. Frankenstein",
+  "subtitle_statement": "",
+  "title_statement": "TERPSICHORE. / Neuer BALL u. MASKEN-ALMANACH / für Freunde des geselligen Vergnügens / und der heiteren Conversation. / von / Karl v. Frankenstein / Mit 7 artistischen Beilagen / und 12 Alpen Quadrillen, nebst Musik / von / Eduard Eichler / steirmärkisch ständischen Lehrer der Tanzkunst. / Leipzig 1840 / Magazin für Industrie und Literatur. / (Ludewig's Verlag in Grätz.)",
+  "updated": "2026-06-11 10:18:55.161Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "ft5n7rjrrd2kg8y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.101Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.101Z",
+      "agent": "mg9r86pew0cq29o",
+      "source_id": "1yh276np0hy9vib"
+    }
+  ]
+}

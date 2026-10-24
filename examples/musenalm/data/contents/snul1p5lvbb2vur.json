@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Hin leitet dieser Pfad zu ihm, dem Trauten, / Der sonst fast täglich kam, mit Flügelschnelle,",
+  "language": [],
+  "musenalm_id": 65845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.283Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "x022hskqz4jy41n"
+    }
+  ]
+}

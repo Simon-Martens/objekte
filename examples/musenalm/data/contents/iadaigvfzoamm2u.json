@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) Graphik im Kalendarium Januar /) Illustration zu »Glycere, die Kranzwinderin« INr 118930, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118923,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glycere",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke",
+  "scans": [
+    "alm_3402_118923_q3a6nzsa1n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Glycere",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.600Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "ao3oyo7ec4owc5a"
+    }
+  ]
+}

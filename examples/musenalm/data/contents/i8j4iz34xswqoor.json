@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen für 1833 (Sammlung INr 77402, Obj 9) Illustration zu »Der Bauer als Millionair« von F. Raimund s. Textbezug INr 77407, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77408,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauer als Millionair. / Zauberposse von F. Raimund. / Act III. Scene 14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. M. Retsch gest. v. Blas. Höfel",
+  "scans": [
+    "alm_2404_77408_bjarvkdqgw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauer als Millionair. / Zauberposse von F. Raimund. / Act III. Scene 14.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.841Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "cwwt8t3ijw82wt9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.841Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "w6l734i83yirhk5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "## Anm. am Objekt: Ein Gemälde von Tizian, unter dem Namen der schönen Venezianerin bekannt, […]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Pfeilgeschwiind die Silberwellen flogen, / an dem steinmoosgrauen Brückenbogen / bricht lauttosend sich der Flut Gewalt.",
+  "language": [],
+  "musenalm_id": 76908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zenaide ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zenaide ##",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.684Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "o390yimfub25tko"
+    }
+  ]
+}

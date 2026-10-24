@@ -1,0 +1,120 @@
+{
+  "annotation": "Ebenso: Titelauflage ohne Nachtitel, Vorwort und Kalendarium: Darstellung aus der GESCHICHTE der MENSCHHEIT von F. C. Schlenkert mit 13 Kupfern Leipzig bey Friedr. August Leo. (Alm 1090)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "Doppelte Relation Band–Reihe entfernt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, nT, B Vrwrt d Hrsg, 14 BB Kal, 5 BB G-Verz, 12 GG, SS 1-340",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für die Geschichte der Menschheit (Schlenkert) 1796",
+    "norm": "~",
+    "biblio": 201008,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 951,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für die Geschichte der Menschheit (Schlenkert) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 21",
+  "responsibility_statement": "F. C. Schlenkert",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / für die / GESCHICHTE der MENSCHHEIT / auf das Jahr / 1796. / von / F. C. SCHLENKERT / mit 13 Kupfern / Leipzig / bey Fried. August Leo",
+  "updated": "2026-06-11 10:18:55.017Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "xlasvdiagtl43xg"
+  ],
+  "contents": [
+    "71xg893b6cqucjh",
+    "4gs605y8z108f3q",
+    "95ti2judzwysd5s",
+    "z1fn4zvzlwek742",
+    "83yz0jp6f3h4zsa",
+    "3gh7rq3j8r1qoga",
+    "xib5vdqr4mul6bg",
+    "xqohfsbwf9z33e6",
+    "imjcwqpdq4f9sgo",
+    "b112rtva006l1l9",
+    "fbsot9w6ebjq40d",
+    "a8wt7kk8lf0b334",
+    "hbox7nzx4fe5gc9",
+    "o86u81vx4la89i1",
+    "ijslfwsgot76n0i",
+    "2utxonspelksunj",
+    "1kdoj04sjhkal24",
+    "0su50pxkgt0ahp5",
+    "m2j3nr8h2brl0vf",
+    "gk9kxa1fm40g4o9",
+    "1ghzxlah7k9vj0c",
+    "2jv57oqb853r44i",
+    "8cbr09ibpwssgz3",
+    "ezylv08hluuaveb",
+    "9l1je7wrp3k3bub",
+    "5dvuabhymhqalpy",
+    "3wh8mvfcgtb81wb",
+    "u1hfwub3bq74nl9",
+    "avvybylxvuwy4dk",
+    "rbifqqaf9yygdo1",
+    "yaro8qthco3oz0x",
+    "3m7pndj2in2divp",
+    "uszxtopaklg80ua",
+    "xnylq466shc1dzz",
+    "cgfqj39a5ygxadp",
+    "slb7423bn2d9xnl",
+    "mdoi1xqqsfnka0l",
+    "f3u9dz2m0qzy1cm",
+    "eprqgbr3qjasfpo",
+    "0d4z87vzn6w1lym",
+    "exeydl3x8b7c21n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.784Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.784Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "kywn0o1laz28z8m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.091Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.091Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "n1prrv2jhhebozo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: In qual parte del ciel', in quale idea / Era l'esempio, onde natura tolse / Quel bel viso leggiadro, in ch'ella volse / Mostrar quaggiù, quanto lassù potea? Petrarca",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Festlich duften Cypriens Altäre, / Von Gesang ertönet Paphos Hain.",
+  "language": [],
+  "musenalm_id": 38028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pygmalion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pygmalion",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.967Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "t64sjztq1h6wa9a"
+    }
+  ]
+}

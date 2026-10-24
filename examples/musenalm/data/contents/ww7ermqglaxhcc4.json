@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette der Liebe (Sammlung INr 71199, Obj 97)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Wer in des Lebens frischer Jugend Blüte / Zuerst der Liebe süssen Gruss vernommen,",
+  "language": [],
+  "musenalm_id": 71201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.528Z",
+      "agent": "ift6i2oy1gozbs3",
+      "source_id": "hgxs501e85hyo5k"
+    }
+  ]
+}

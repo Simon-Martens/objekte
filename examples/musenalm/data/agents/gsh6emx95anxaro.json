@@ -1,0 +1,191 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1863",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.422Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1791-12-10"
+      ],
+      "dateOfDeath": [
+        "1863-07-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-21T14:26:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeNB",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeNB"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1339694069/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Klara"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kamecke"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1339694069",
+      "id": "https://d-nb.info/gnd/1339694069",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4046948-7",
+          "label": "Potsdam"
+        }
+      ],
+      "preferredName": "Massow, Klara von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Klara"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Massow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Martha von der Höhe"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Dichterlohn"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1339694069/about"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Massow, Clara von",
+        "Kamecke, Klara von",
+        "Massow, Klara Ulrike Charlotte von",
+        "Martha von der Höhe"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Clara"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Massow"
+          ]
+        },
+        {
+          "forename": [
+            "Klara"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kamecke"
+          ]
+        },
+        {
+          "personalName": [
+            "Martha von der Höhe"
+          ]
+        },
+        {
+          "forename": [
+            "Klara Ulrike Charlotte"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Massow"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:12:48Z",
+    "gnd_query_biographical_data": "1791-1863",
+    "gnd_query_name": "massow, klara von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1738,
+  "name": "Massow, Klara von",
+  "profession": "Text",
+  "pseudonyms": "Martha von der Höhe",
+  "refs": "E 222",
+  "updated": "2026-06-11 13:29:23.738Z",
+  "uri": "https://d-nb.info/gnd/1339694069",
+  "editor": ""
+}

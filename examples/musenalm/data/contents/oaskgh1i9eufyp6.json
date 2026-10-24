@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3); mit einer Musikbeilage (INr 127519, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Weit her sind wir gezogen, / Fern liegt der Heimath Land! / Gar manche Stadt durchflogen, / Gar manches Thal verschwand.",
+  "language": [],
+  "musenalm_id": 127518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wunderthier",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wunderthier",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.943Z",
+      "agent": "lonqcs6pn486ebs",
+      "source_id": "4pame26b4a5xy6l"
+    }
+  ]
+}

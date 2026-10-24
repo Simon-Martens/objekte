@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60920, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Obgleich Kaiser Konrad IV. einen Sohn hinterließ; so bot doch der Papst dessen Erbreich Neapel mehrern Fürsten, als ein Geschenk des heil. Stuhls an.",
+  "language": [],
+  "musenalm_id": 60935,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.730Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "g3suhmp28ffvavq"
+    }
+  ]
+}

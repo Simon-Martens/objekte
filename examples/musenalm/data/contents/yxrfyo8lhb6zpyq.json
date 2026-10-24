@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. mit Quellenangaben",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Im Jahre 1526 am 29. August Nachmittags lagen 20,000 magyarische Leichen auf dem Schlachtfelde von Mohács, der König war im Bach Sellye ertrunken; 24 Stunden nachher war die Trauerkunde noch nicht nach Ofen gedrungen,",
+  "language": [],
+  "musenalm_id": 58104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Zápolya's / Königswahl und Krönung. / Zeitraum 30. August - 11. November 1526",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann Zápolya's / Königswahl und Krönung. / Zeitraum 30. August - 11. November 1526",
+  "updated": "2008-06-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.631Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "1lxjzca5qtjmz4n"
+    }
+  ]
+}

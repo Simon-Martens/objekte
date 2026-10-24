@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Der Herr von Klock / Kann mit dem Stock / Soldaten als Hunde dressiren,",
+  "language": [],
+  "musenalm_id": 2435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr von Klock",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr von Klock",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.959Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "pphst29w9zmv04d"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz; Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19245, Obj 7 /)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9280,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Aufzug, zweite Scene #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz de; Villerey sc.",
+  "scans": [
+    "alm_43_9280_tha5lpu0x9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erster Aufzug, zweite Scene #",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.177Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "7o6g1oe8niu81et"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.177Z",
+      "agent": "ma3za88jxdb73s7",
+      "source_id": "w3er3e049h606ud"
+    }
+  ]
+}

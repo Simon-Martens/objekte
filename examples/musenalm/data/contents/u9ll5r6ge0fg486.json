@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert III. /) s. Textbezug INr 76726, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76709,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klein Zschocher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1813",
+  "scans": [
+    "alm_2385_76709_3ypb852f19.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klein Zschocher",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "komc1zsij9ndqjb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "r8veruugjgyawql"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Spuk im Vorstadthause« von Weingarten INr 94092, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung Der Spuk im Vorstadthause. / von Weingarten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. Bl. Höfel sc.",
+  "scans": [
+    "alm_1866_94093_h6y993at6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung Der Spuk im Vorstadthause. / von Weingarten",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.447Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "e9q3houjpaktl59"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.447Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "qz9f1kz8wz15jsv"
+    }
+  ]
+}

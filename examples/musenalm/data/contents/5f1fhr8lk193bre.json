@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. vom Titel /) Illustration zu »Der Fischer« INr 112306, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fischer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Blaschke",
+  "scans": [
+    "alm_4327_112305_c9cme0geh8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Fischer",
+  "updated": "2016-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.273Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "c7sy33lg4ufzkkt"
+    }
+  ]
+}

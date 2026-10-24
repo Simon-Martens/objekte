@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Noch war ich unerfahren / Im süßen Dienst der Liebe, / Und stand doch schon in Jahren",
+  "language": [],
+  "musenalm_id": 1627,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Reise mit Amor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Reise mit Amor",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.755Z",
+      "agent": "j5e1jto7rj2ibw3",
+      "source_id": "njrq2d03uc9wj6v"
+    }
+  ]
+}

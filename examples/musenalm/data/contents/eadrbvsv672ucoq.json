@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86267, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Daß ungenützt und ungenossen dir kein Tag / Vergehe, sprich zu jedem Tag: Du noch bist mein!",
+  "language": [],
+  "musenalm_id": 86290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daß ungenützt und ungenossen dir kein Tag / Vergehe, sprich zu jedem Tag: Du noch bist mein!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.192Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "u8c5dx94lnhw7h0"
+    }
+  ]
+}

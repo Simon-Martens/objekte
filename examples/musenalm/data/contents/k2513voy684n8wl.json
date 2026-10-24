@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: gedr. v. E. Münch; Verl. v.Sauerländer; ] s. Textbezug INr 44468, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44471,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER GROSSVATER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. Herrlich gest. v. W. Otto",
+  "scans": [
+    "alm_605_44471_0g09wwz331.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER GROSSVATER",
+  "updated": "2006-07-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.375Z",
+      "agent": "e2mwn7tfqz58e94",
+      "source_id": "hbzd0o44hhrr7b9"
+    }
+  ]
+}

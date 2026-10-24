@@ -1,0 +1,45 @@
+{
+  "annotation": "Traumlieder (Sammlung INr 86382, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "O Wonne zu träumen / Und wach zu sein / Zu dichten zu trachten / Für sich allein.",
+  "language": [],
+  "musenalm_id": 86384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Waches Träumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Waches Träumen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.117Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "svg0mzpb1ngttns"
+    }
+  ]
+}

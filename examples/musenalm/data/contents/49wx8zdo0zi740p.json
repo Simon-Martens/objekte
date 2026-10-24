@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait r.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58280,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friderike Caroline Sophie / Alexandrine, / Prinzessin von Mecklenburg Streliz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. del. F. C. scp.",
+  "scans": [
+    "alm_829_58280_21cppe45rs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friderike Caroline Sophie / Alexandrine, / Prinzessin von Mecklenburg Streliz",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.832Z",
+      "agent": "pxcq3jg95iqk4au",
+      "source_id": "wfnyqxfwc5rt23e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.832Z",
+      "agent": "njdsmsz44222zv2",
+      "source_id": "zph3keh2zb80p4y"
+    }
+  ]
+}

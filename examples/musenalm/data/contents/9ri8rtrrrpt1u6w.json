@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Schmachtend und mit bleichen Lilien- / schwingen / Reiß' ich mich aus trunkner Seele los,",
+  "language": [],
+  "musenalm_id": 31708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE KÜSSE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max. Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE KÜSSE",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.646Z",
+      "agent": "9fm6ody20z4gtke",
+      "source_id": "iiasks9m5lqhq1x"
+    }
+  ]
+}

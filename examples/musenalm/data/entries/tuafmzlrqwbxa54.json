@@ -1,0 +1,109 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, SSI–VIII, darin T, Vrwrt, I-Verz, SS1–482, darin 4 GG, C, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der deutschen Bühne 1835",
+    "norm": "~",
+    "biblio": 200384,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-21T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1228,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach der deutschen Bühne 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. E. Deurmann",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / deutschen Bühne / auf das Jahr 1835. / Herausgegeben / von / Dr. E. Deurmann. / Mit fünf Portraits. / Frankfurt am Main. / Druck und Verlag von J. G. Sauerländer",
+  "updated": "2026-06-11 10:18:55.513Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "n06f9dlmvqeymjv"
+  ],
+  "contents": [
+    "wqx1y8g6c2t2yd6",
+    "b4xpw5v5ug5vhwy",
+    "7sa909gzjjhb75a",
+    "lushb8mh1ppbuus",
+    "9azbhjix1t83efh",
+    "y1bwp8rurq88poc",
+    "0affjyf7kz8ovgt",
+    "r4g917jpbpdmjpv",
+    "d0gslyoq9or9p48",
+    "clnhbht3do0pgkv",
+    "8dzge669979k33c",
+    "a2x6sbodnw4wwb9",
+    "9u6cu949pjzt7j9",
+    "37801rpcepkc2pl",
+    "sqbwqjvey7xhh2y",
+    "fcwag820rgurth4",
+    "8mexawkszccop9u",
+    "ipdjsoirs4rayko",
+    "c9ssgvkefkc6xhu",
+    "tw28ceqk2y7mo2l",
+    "vfgw5400n5ag1ai",
+    "465k5nebv83kknl",
+    "z2tiz3jh836g33k",
+    "onl3i7jbn0mugpg",
+    "f99nifj6p7sarwm",
+    "841wufcs0niqeeb",
+    "lgefdw1pr48kjh0",
+    "jou0jj8844fovz1",
+    "k4ta21izlk6vj7j",
+    "57su76bs1z5qogy",
+    "nipgckpx36skhla",
+    "wolbkml79px3dbs",
+    "ye72b9vikrasoh6",
+    "1arc5gjzj5yksrm",
+    "kkgh1yqtcwzdc59",
+    "a29uduz5wf00qyk",
+    "r5t663u1tuh7kbj",
+    "bu5784sgtnpk2ii",
+    "79awrdhe3strw7i",
+    "qav4lwzv9da9rn5",
+    "vja3chu95g4g18y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.065Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.065Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "lw7kvmz51rq4og3"
+    }
+  ]
+}

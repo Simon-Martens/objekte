@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 11. s. Textbezug INr 59991, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59988,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dumouriez vergilt den Commissarien des Natio- / nal-Convents, Gleiches mit Gleichem",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59988_rr2kcgwcuu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dumouriez vergilt den Commissarien des Natio- / nal-Convents, Gleiches mit Gleichem",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.681Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "8uw818yelul1ckg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.681Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "e3qew5x18mec1y1"
+    }
+  ]
+}

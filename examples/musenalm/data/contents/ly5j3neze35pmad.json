@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter der Liebe (Sammlung INr 92971, Obj 54) Gedichte (Sammlung INr 92963, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Goldne Rosenwolken schweben / Droben auf der Himmelshöh,",
+  "language": [],
+  "musenalm_id": 92974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Die Wolken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Die Wolken",
+  "updated": "2013-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.077Z",
+      "agent": "wvzx8yp0t9tqzmo",
+      "source_id": "uugxz17dzfb1zdl"
+    }
+  ]
+}

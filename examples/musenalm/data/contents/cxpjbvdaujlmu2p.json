@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Ach! laß der Augen Schimmer, / Mein Kind, verbleichen nicht!",
+  "language": [],
+  "musenalm_id": 19534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter und Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutter und Kind",
+  "updated": "2001-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.906Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "ht0ci8zesrx4mz2"
+    }
+  ]
+}

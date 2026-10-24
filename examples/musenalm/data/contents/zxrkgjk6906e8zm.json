@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 39006, Obj 194)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Vorüber, wo die lichte Rose / In süßen Düften träumt und glüht,",
+  "language": [],
+  "musenalm_id": 39010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Vorüber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Vorüber",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.878Z",
+      "agent": "oxvlsvgq5f4m5gr",
+      "source_id": "x2re9fwd12a2uoy"
+    }
+  ]
+}

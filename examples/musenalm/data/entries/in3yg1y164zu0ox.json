@@ -1,0 +1,53 @@
+{
+  "annotation": "Titelauflage von 1812",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.736Z",
+  "dimensions": "",
+  "edit_comment": "Band ist als vorhanden markiert aber nicht autospiert.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1813",
+    "norm": "",
+    "biblio": 0,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2000-11-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Urania 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.500Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "h7b21xl50drsvh8"
+  ],
+  "agents": []
+}

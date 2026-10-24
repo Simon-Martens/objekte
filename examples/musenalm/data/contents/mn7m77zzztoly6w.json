@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 50971, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50954,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Murg gegen Quinten, am Wallenstatter-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Hess del. Joh. Heinr. Meyer sc.",
+  "scans": [
+    "alm_694_50954_7wkesw8v7p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Murg gegen Quinten, am Wallenstatter-See",
+  "updated": "2007-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.933Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "lavw5hnfvpeovvi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.933Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "soyn0t01xudcxy0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35249,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "M. A. von Thümmel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Ketterlinus sculp.",
+  "scans": [
+    "alm_486_35249_z5jh1ltnl6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "M. A. von Thümmel",
+  "updated": "2003-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.784Z",
+      "agent": "nosdr0xhdl5gm9i",
+      "source_id": "ei052v9fdoh7ehp"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Ruf in die Stadt« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1799 INr 11124",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er war mir werth darum hob ich ihn auf. / p. 151",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. W. Böhm sc.",
+  "scans": [
+    "alm_205_11575_k09zzbdkzp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er war mir werth darum hob ich ihn auf. / p. 151",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.380Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "du9mutv4lxgil54"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.380Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "iuq4nzd31scizgv"
+    }
+  ]
+}

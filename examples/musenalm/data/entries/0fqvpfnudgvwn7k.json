@@ -1,0 +1,104 @@
+{
+  "annotation": "unter dem I-Verz: Gedruckt von J. P. Sollinger's Wittwe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 8 BB Kal darin 6 GG, 4 BB, S nT, B, SS 1-190, SS 191-192 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1851",
+    "norm": "~",
+    "biblio": 200565,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3362,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 164; L/R 94; nicht bei Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / VEILCHEN. / Ein Taschenbuch / für / FREUNDE / einer gemüthlichen und erheiternden / LECTÜRE. / Vier und Dreysigster Jahrgang. / 1851. / Wien / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:54.869Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "8wcv785hglhukob"
+  ],
+  "contents": [
+    "d61kfnrx60ph6f4",
+    "slnknf8qjityrld",
+    "i9y3d7k0ioor7gp",
+    "v1aan0a4vn4ajoo",
+    "jq7yxxztkvgdq24",
+    "h03ju55a4g8chum",
+    "7xxxgqaw1nel8jh",
+    "begmdm8zjngs9n7",
+    "0qf6m02n25unna6",
+    "jogx8ogixgy8zgy",
+    "r9s2pa13y5ontgz",
+    "6tl3ov6mpogk4k6",
+    "mgg4zjpmwfkxo6t",
+    "bazfcwyuqqu0go0",
+    "t98haj7f7o59r9i",
+    "w18dossehmb8jza",
+    "pwvh7phu4y1tg47",
+    "lsp11e94eiszdnl",
+    "6w19fnsdt99w9an",
+    "c6z68p8ibht0fs5",
+    "tts1kq8mx4xolsn",
+    "peb87idnlk6r2ln",
+    "qcn6mc2lq014vac",
+    "1l8zb7jnsycx8pk",
+    "bm1868pymcj4204",
+    "o53qvr9nmy3rbvq",
+    "6en6dqgiocd2cm0",
+    "i00haukv31cp260",
+    "ppxd953khf49dw4",
+    "r1zwqmtxb62ogn3",
+    "s8qxo54u29kg0r7",
+    "tafk1mon7p132xt",
+    "hbsz0reob5j25bl",
+    "8rp6t67wisjzwuf",
+    "rp4r435ylh1heat",
+    "b3ldoz724jimlo7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.140Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.140Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "6kem5xb7bn92jnl"
+    }
+  ]
+}

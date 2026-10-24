@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der Himmel war heiter, kein Regen oder Sturm verkündendes Wölkchen trübte seinen blauen Aether",
+  "language": [],
+  "musenalm_id": 43837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schwan. / Norwegische Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schwan. / Norwegische Sage",
+  "updated": "2006-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.117Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "xzgv2rvsm88llg2"
+    }
+  ]
+}

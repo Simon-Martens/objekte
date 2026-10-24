@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium März; paginiert 3. /) Illustration zu »Der Sturm« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70431,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O mein theurer Vater, verfahrt nicht so / rasch und strenge mit ihm. / I. Aufz. 6. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_147_70431_r0jobff9dj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O mein theurer Vater, verfahrt nicht so / rasch und strenge mit ihm. / I. Aufz. 6. Auftr.",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.411Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "d9wot71jb81tbd2"
+    }
+  ]
+}

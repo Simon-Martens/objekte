@@ -1,0 +1,45 @@
+{
+  "annotation": "§4§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Bleibt noch in der Mutter Haus, Veilchen! Krokusglöckchen!",
+  "language": [],
+  "musenalm_id": 20279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Märzschnee. / Mit Melodie für Flöte und Guitarre von / A. B. Fürstenau §4§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Märzschnee. / Mit Melodie für Flöte und Guitarre von / A. B. Fürstenau §4§",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.934Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "u12y4c3ohg06bfj"
+    }
+  ]
+}

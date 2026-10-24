@@ -1,0 +1,45 @@
+{
+  "annotation": "Merkur (Sammlung INr 91587, Obj 111) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Apollo schenkte nachher dem Merkur den goldenen Stab, der alle Zwiste schlichtet; - unwiderstehlich ist seine Macht,",
+  "language": [],
+  "musenalm_id": 91592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Friedensstab des Merkur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Friedensstab des Merkur",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.211Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "lncpwaag9i73qi0"
+    }
+  ]
+}

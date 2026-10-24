@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Wie schön umfloß mich einst ein heitres Leben! / Wie glücklich hüllte mich der Dichtung Schleier!",
+  "language": [],
+  "musenalm_id": 24008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leztes Lied. / An Jeanette F.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. VARNHAGEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leztes Lied. / An Jeanette F.",
+  "updated": "2002-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.102Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "leb4leqvcer317h"
+    }
+  ]
+}

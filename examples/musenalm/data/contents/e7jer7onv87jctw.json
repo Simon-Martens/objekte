@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 33113, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Waechter del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Waechter del. H. Lips sculp.",
+  "scans": [
+    "alm_460_33136_ltxdec3nip.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.419Z",
+      "agent": "jgp8dgth3q9useg",
+      "source_id": "3brq4lfpo2u8hsr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.419Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "xv7o768g1tu45qt"
+    }
+  ]
+}

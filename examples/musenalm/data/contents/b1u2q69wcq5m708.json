@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 121757, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Schon bin ich vierzehn Tage wieder hier. Vierzehn Tage, Leopold! was dachte ich nicht alles in dieser Zeit auszurichten, wie viel glaubte ich abzumachen,",
+  "language": [],
+  "musenalm_id": 121767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wiedersehen an der / Luisenklippe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Gleich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wiedersehen an der / Luisenklippe",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.793Z",
+      "agent": "0voj2kqu0am5322",
+      "source_id": "0f8tum9ihx7kwsy"
+    }
+  ]
+}

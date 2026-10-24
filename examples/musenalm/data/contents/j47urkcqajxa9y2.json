@@ -1,0 +1,56 @@
+{
+  "annotation": "VII. Anekdoten (Sammlung INr 67021, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Der berühmte Professor Taubmann zu Wittenberg war einmal mit dem Kurfürsten von Sachsen, dem Mäcen seiner immer muntern Laune auf der Jagd,",
+  "language": [],
+  "musenalm_id": 67030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9.",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.458Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "m49qmtpmaq19y0f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.459Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "m5pgr9js106fyon"
+    }
+  ]
+}

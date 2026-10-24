@@ -1,0 +1,45 @@
+{
+  "annotation": "Wir danken Hern Dr. Peter Rastl (Wien) für die Auflösung des Pseudonyms A. A. Nomis = Anton Simon; 1760-1810 (geb. in Reichenberg) und weisen hin auf seine Recherche nach unbekannten Textdichtern von Schubertliedern in »Die Musikforschung«, 71. Jahrgang 2018, Heft 2, S. 166 ff.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "O du, zum Schmucke deiner Throne / So hold von Antlitz, holder noch von Sinn,",
+  "language": [],
+  "musenalm_id": 31291,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Kaiserinn-Königinn. / Nach ihrer Krönung zur Königinn von / Böhmen. Prag den 11. Aug. 1792",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. A. Nomis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Kaiserinn-Königinn. / Nach ihrer Krönung zur Königinn von / Böhmen. Prag den 11. Aug. 1792",
+  "updated": "2003-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.524Z",
+      "agent": "bqsgwi9w7kt5uq1",
+      "source_id": "6p226p1cqkjykld"
+    }
+  ]
+}

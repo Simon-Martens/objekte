@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die Gesundheit (Erlangen) 1801",
+    "norm": "",
+    "biblio": 405059,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2757,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Walther)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Taschenbuch für die Gesundheit (Erlangen) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 124; L/R 170",
+  "responsibility_statement": "Friedrich Hildebrandt",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / Gesundheit / auf das Jahr 1801 / herausgegeben / von / Friedrich Hildebrandt / der Physik, Chemie und Arzneikunde ordentlichem / Professor zu Erlangen. / Erlangen / in der Waltherschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.805Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "dlfxln1pvzo6rtg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "hgipdt1djucx1dr",
+      "source_id": "p06tg385iqkmq6s"
+    }
+  ]
+}

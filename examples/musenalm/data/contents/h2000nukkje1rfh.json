@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen aus dem Leben (Sammlung INr 48609, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Man sollte sich lange besinnen, ehe man etwas, das man bisher für sich oder unter guten Freunden hethan, öffentlich thäte.",
+  "language": [],
+  "musenalm_id": 48610,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Man sollte sich lange besinnen, ehe man etwas, das man bisher für sich oder unter guten Freunden hethan, öffentlich thäte.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.345Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "id0nzd082sfh8rc"
+    }
+  ]
+}

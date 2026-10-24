@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Mich berührte die Lippe des blühenden Mädchens am / Abend. / Nektar war sein Kuß;",
+  "language": [],
+  "musenalm_id": 78425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kuß. / Aus dem Griechischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Erichson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kuß. / Aus dem Griechischen",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.766Z",
+      "agent": "f1ndpqwlkilrcgf",
+      "source_id": "m2hmt0v824s501f"
+    }
+  ]
+}

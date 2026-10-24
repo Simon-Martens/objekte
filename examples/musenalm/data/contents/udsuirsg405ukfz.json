@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 100639, 100640; Obj 302, 303 /) Fortsetzung aus: Musenalmanach, Deutscher (Schad) 1857, alm-2304; INr 100324-100328",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "394",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100638,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 301,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Aus dem Schenkenbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Aus dem Schenkenbuch",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.710Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "ttxny10x6mcjbke"
+    }
+  ]
+}

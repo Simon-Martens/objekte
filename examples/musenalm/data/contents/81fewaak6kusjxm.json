@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Vor fünfzig Jahren war der Harthäuser Wald noch einer der dicken undurchdringlichen Eichenwälder,",
+  "language": [],
+  "musenalm_id": 23651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muth und Geistesgegenwart eines / 16jährigen Mädchens. / Eine wahre Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muth und Geistesgegenwart eines / 16jährigen Mädchens. / Eine wahre Geschichte",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.082Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "1f4iirnazdsumdr"
+    }
+  ]
+}

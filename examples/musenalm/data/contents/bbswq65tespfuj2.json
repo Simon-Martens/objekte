@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Datura fastuosa« von E. T. A. Hofmann INr 29887, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29888,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Datura fastuosa / Erzählung von E. T. A. Hofmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_386_29888_scf0mdceq7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Datura fastuosa / Erzählung von E. T. A. Hofmann",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.582Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "mehzgk54btjt6g0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.582Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "unnq6wqaof9vmyb"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach der Ostseeprovinzen 1854",
+    "norm": "",
+    "biblio": 410865,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4758,
+  "parallel_title": "",
+  "place_statement": "Mitau und Leipzig (Reyher)",
+  "places": [
+    "d7kbujq7399g22j",
+    "k2g10axhas6rd1h"
+  ],
+  "preferred_title": "Musenalmanach der Ostseeprovinzen 1854",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "N. Graf Rehbinder",
+  "subtitle_statement": "",
+  "title_statement": "Musenalmanach / der / Ostseeprovinzen Rußland's / für das Jahr / 1854. / Herausgegeben / von / R. Graf Rehbinder. / Mitau und Leipzig, / G. A. Reyhers Verlagsbuchhandlung. / 1854",
+  "updated": "2026-06-11 10:18:55.996Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "items": [
+    "4297077pccmoncr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "cswj1lvinsqc1rw",
+      "source_id": "9lfmtw2fe19cpgr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.418Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.418Z",
+      "agent": "cps3h4d485yb0f9",
+      "source_id": "a9c1zb1tqrcnlml"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "$ vermutl. einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (v. Bilderbeck) 1805",
+    "norm": "",
+    "biblio": 200657,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2652,
+  "parallel_title": "",
+  "place_statement": "Leipzig und Mannheim (Götz)",
+  "places": [
+    "d7kbujq7399g22j",
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Taschenbuch (v. Bilderbeck) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "L. F. v. Bilderbeck",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1805. / Spanien / nach Langle / von / L. F. Freiherrn von Bilderbeck. / Leipzig und Mannheim / in der Götzischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.444Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "nhf06anc9n00bp7"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.924Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.924Z",
+      "agent": "tpib2cka2rndlj9",
+      "source_id": "iwtotqalks6q1z0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.116Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.116Z",
+      "agent": "6uafst5wqynh78g",
+      "source_id": "ldjri8znblz5zhm"
+    }
+  ]
+}

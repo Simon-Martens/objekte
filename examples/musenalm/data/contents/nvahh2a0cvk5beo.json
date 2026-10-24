@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 64347, Obj 5) s. Graphik INr 64362, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Was sitzt da so trüb das holdselige Kind, / Das Jugend und Blumen noch schmücken?",
+  "language": [],
+  "musenalm_id": 64355,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. Die Sternblume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Henninger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. Die Sternblume",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.070Z",
+      "agent": "6fj9ilu2sqskj9p",
+      "source_id": "8qsr9ojh6cvh533"
+    }
+  ]
+}

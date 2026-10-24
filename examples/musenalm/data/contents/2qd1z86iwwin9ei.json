@@ -1,0 +1,45 @@
+{
+  "annotation": "Buntes aus einem Tagebuche (Sammlung INr 9247, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "415",
+  "incipit_statement": "Es ist ein undankbares Geschäft, / Den Leuten einen Spaß zu machen;",
+  "language": [],
+  "musenalm_id": 1536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Theater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Theater",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.864Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "n0l05ws1nmzhv8c"
+    }
+  ]
+}

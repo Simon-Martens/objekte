@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Wer trabt in feurig wildem Trab / Den Burggekrönten Berg herab?",
+  "language": [],
+  "musenalm_id": 88680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schäferinn Raub",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schäferinn Raub",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.008Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "3srwdkq26woxw85"
+    }
+  ]
+}

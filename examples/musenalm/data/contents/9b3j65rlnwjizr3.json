@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 85836, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Hebt ihr schon, in junges Grün gekleidet, / Eure Knospen jugendlich empor?",
+  "language": [],
+  "musenalm_id": 85837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pflanzenleben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Natalie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pflanzenleben",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.071Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "c193ipmt6kbquzw"
+    }
+  ]
+}

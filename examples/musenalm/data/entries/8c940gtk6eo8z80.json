@@ -1,0 +1,102 @@
+{
+  "annotation": "Neue Folge, erster Jahrgang; ohne Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, B I-Verz, BB G-Verz darin 7 GG, ar: SS 1-48, ar1: S 1 zT, SS 3-308, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1822; s. a. Hofkalender, Großherzoglich Hessischer 1822",
+    "norm": "~ +++ 101290 /) K gibt 9 GG an",
+    "biblio": 100586,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 577,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1822; s. a. Hofkalender, Großherzoglich Hessischer 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / TASCHENBUCH / auf das Jahr 1822 / Frankfurt a/M / bei Joh. David Sauerländer",
+  "updated": "2026-06-11 10:18:55.361Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "bmp6i72fl8g2qq7",
+    "y6fwh0edyxmgli9"
+  ],
+  "contents": [
+    "vt8p3q2vv5d7hta",
+    "4z26tvvy9lswo7v",
+    "25j444zo3evi1fe",
+    "ifcill7w7qxbr1t",
+    "0nkhygsli784les",
+    "vy7m9vjrp1ail0g",
+    "q02i540q5tve21i",
+    "cwxjl7vj2jvawi4",
+    "3t23gouqbqc2has",
+    "a1vvpqzccoscgfs",
+    "p34w8jdoqeyd6x0",
+    "uhc2m1tgmc1n4xk",
+    "15gxmginn2jnsw7",
+    "v65ew6n0syjk3yz",
+    "b47u7ocghj6og60",
+    "4e8td3fdcn37pzt",
+    "1wmu24mvwwmr7f6",
+    "03543rpztnjpav3",
+    "sp58hearmb6j19x",
+    "odn30z17uvbscuj",
+    "xirxvxku509j7h3",
+    "x6m0hpvaz8qg8m2",
+    "z7ajv1gmn0yrhin",
+    "n3pjlt4hkw4ylsx",
+    "9gl6vbwmct8ymvc",
+    "rawmjusfm461diz",
+    "k1cbmy1v866r8pc",
+    "6a8rlqqor99afit",
+    "4l2pc2avymi5jtu",
+    "ao6o4tl658ts3lp",
+    "agpnmg98mbvwo1s",
+    "nuasxmd7bltus0j",
+    "vmkgvu24n816w6a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.066Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.066Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "uytjy638j8hjar0"
+    }
+  ]
+}

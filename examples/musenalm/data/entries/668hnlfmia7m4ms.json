@@ -1,0 +1,94 @@
+{
+  "annotation": "Nachträge zum Jg 1786, alm-926",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS 1-2 I-Verz, SS 3-9 Vrwrt d Hrsg, SS 10-13 Nwrt d Vrlgr, S 14, SS 15-34, SS I-LIV",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1787 (Anhang zum TB 1786)",
+    "norm": "~",
+    "biblio": 106627,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 927,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1787 (Anhang zum TB 1786)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 16",
+  "responsibility_statement": "M. C. Sprengel",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeines historisches / Taschenbuch / oder / Abriß / der merkwürdigsten neuen / Welt-Begebenheiten, / für 1787 / enthaltend / Zusätze / zu der für das Jahr 1786 herausgegebenen / Geschichte / der wichtigsten / Staats- und Handelsveränderungen / von / Ostindien / von / M. C. Sprengel / Professor der Geschichte auf der Universität / zu Halle. / Mit dem Bildnis des Lord Cornwallis. / Berlin, / bei Haude und Spener",
+  "updated": "2026-06-11 10:18:55.884Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "urli7btuo5qf2j6"
+  ],
+  "contents": [
+    "j5uavxpyc4w87yw",
+    "65la4dpqz986ohj",
+    "8fqy2hkbhvvyhde",
+    "5dpul9a0cvcdfnu",
+    "70k8xxrlsqxcjbp",
+    "v3tw1zuqdtcc4hg",
+    "jzpy5tc8syblhe5",
+    "rvfrgfzw8k5s1w6",
+    "2w93aylrpdcltv5",
+    "f77j26lx4cijipr",
+    "su8twmlddzv2tn2",
+    "d68f7d9c332iya2",
+    "j1t0h4lkpgyvslb",
+    "q125i2xn7w5dkpr",
+    "10xliqezo2pqaqz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.972Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.972Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "20fypipaj7kwcxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.779Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.779Z",
+      "agent": "1eqjoxnybezb6wq",
+      "source_id": "236wyubevyt6e0z"
+    }
+  ]
+}

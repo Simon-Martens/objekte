@@ -1,0 +1,72 @@
+{
+  "annotation": "Für die französische Ausgabe gibt  KVK-GBV Jgg 1771-1775 an /) Kurzaufnahme: Umschlag, Titel, I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 15 BB Kal darin 12 GG, B, ar: SS 1-78, G, ar1: SS 1-181, SS 181-182 I-Verz, S VrlgM, 24 SS Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1774 (franz. Ausgabe: Almanac genealogique de Brunsvick Lunebourg 1774)",
+    "norm": "~",
+    "biblio": 409174,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2016-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4260,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1774 (franz. Ausgabe: Almanac genealogique de Brunsvick Lunebourg 1774)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / GENEALOGIQUE / de / Brunsvick Lunebourg / pour l'année / MDCCLXXIV / contenant des connoissances utiles / et agreables / LAUENBOURG / chez / Jean George Berenberg",
+  "updated": "2026-06-11 10:18:55.887Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "items": [
+    "nn00nwqqcm1zi6b"
+  ],
+  "contents": [
+    "hwi8699qam131h8",
+    "yuz1gmpdgdimf3i",
+    "2uz9po0hmh8wszx",
+    "2x0ao2u1pq41ygr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.531Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.531Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "ddsup7vfeix0tke"
+    }
+  ]
+}

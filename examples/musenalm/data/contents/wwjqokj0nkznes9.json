@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Epigramme (Sammlung, INr 121721, Obj. 26); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Hast du begriffen, warum die Wanzen und Flöhe / entstehen, / Fluchst du nicht mehr der Natur, daß sie sie / schafft, wie dich selbst",
+  "language": [],
+  "musenalm_id": 121791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Devise für Kunst und Leben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Devise für Kunst und Leben",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.608Z",
+      "agent": "slo2tnoqzd1g9wn",
+      "source_id": "dh1vw2mfwv6qun5"
+    }
+  ]
+}

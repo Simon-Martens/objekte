@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Zu tiefes Glück, zu schwere Pein, / Und meine Muse schweigt.",
+  "language": [],
+  "musenalm_id": 42585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Comment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Comment",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.257Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "1esliugb87zqqg7"
+    }
+  ]
+}

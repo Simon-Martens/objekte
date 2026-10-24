@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 11340, Obj 23) Prosaische Aufsätze (Sammlung INr 11335, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Als Georg der Erste, Churfürst von Hannover, nach dem Tode der Königin Anna die englische Krone erhielt,",
+  "language": [],
+  "musenalm_id": 11365,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. / Georg der Erste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24. / Georg der Erste",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.470Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "xva1zk923zyg81i"
+    }
+  ]
+}

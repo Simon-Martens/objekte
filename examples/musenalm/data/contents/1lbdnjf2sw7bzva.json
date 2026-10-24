@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert pag. 22. /) Illustration zu »Die Kunst glücklich zu heirathen« von F. Laun d.i. F. A. Schulze INr 87793, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87773,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. L. Lehmann del. J. C. Böhme sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. J. C. Böhme sc.",
+  "scans": [
+    "alm_2384_87773_mcruitdufd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.042Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "8ehqgt24rzr9rdy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.042Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "v7chznyfx06up5h"
+    }
+  ]
+}

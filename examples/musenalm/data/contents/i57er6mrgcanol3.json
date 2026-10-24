@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Fortsetzung (Sammlung INr 74159, Obj 9) mit einer Illustration s. Graphik INr 74170, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Unter diesem eigensinnig-scheinenden Namen zeigt man in den neuesten Anlagen des Gartens ein Gebäude, das durch seine Form eben so sehr als durch seine Benennung auffällt;",
+  "language": [],
+  "musenalm_id": 74169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Boudoir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Boudoir",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.810Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "xehju5hggkm2jr0"
+    }
+  ]
+}

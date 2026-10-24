@@ -1,0 +1,526 @@
+{
+  "annotation": "",
+  "biographical_data": "1472-1517",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.249Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1472-03-28"
+      ],
+      "dateOfDeath": [
+        "1517-10-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "http://www.artrenewal.org/asp/database/art.asp?aid=2757 2007-04-30"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fra%20bartolomeo.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fra%20bartolomeo.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fra%20bartolomeo.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174180624",
+        "https://d-nb.info/gnd/153442301",
+        "https://d-nb.info/gnd/185883222"
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-18T18:22:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118968580/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118968580",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118968580",
+      "oldAuthorityNumber": [
+        "(DE-588a)153442301",
+        "(DE-588)174180624",
+        "(DE-588a)185883222",
+        "(DE-588)153442301",
+        "(DE-588)185883222",
+        "(DE-588a)174180624",
+        "(DE-588c)4256747-6",
+        "(DE-588a)118968580"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4017581-9",
+          "label": "Florenz"
+        }
+      ],
+      "preferredName": "Bartolomeo, della Porta",
+      "preferredNameEntityForThePerson": {
+        "nameAddition": [
+          "della Porta"
+        ],
+        "personalName": [
+          "Bartolomeo"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4039902-3",
+          "label": "Mönch"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12184654t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85042709"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/89128949"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q7780"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118968580/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/153442301"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174180624"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185883222"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Fra_Bartolomeo"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Fra_Bartolommeo"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Fra_Bartolomeo"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000107854437"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118968580"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118968580"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118968580"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bartolomeo, di Paolo",
+        "Porta, Baccio della, Maler, Dominikaner",
+        "Bartolommeo, Fra, Maler, Dominikaner",
+        "Della Porta, Baccio, Painter, Dominican",
+        "Bartolomeo, fra",
+        "Bartolommeo, fra",
+        "Fra Bartolommeo, Painter, Dominican",
+        "Baccio, della Porta",
+        "Bartolommeo, Fra, Peintre, Dominicain",
+        "Bartolommeo, Fra",
+        "Fra Bartolommeo, Peintre, Dominicain",
+        "Bartolommeo, Fra, Painter, Dominican",
+        "Porta, Baccio della, Painter, Dominican",
+        "Bartolommeo, della Porta",
+        "Della Porta, Baccio, Maler, Dominikaner",
+        "Porta, Baccio della",
+        "Della Porta, Baccio, Peintre, Dominicain",
+        "Fra Bartolommeo, Maler, Dominikaner",
+        "Bartolomeo, Fra",
+        "Della Porta, Baccio",
+        "Porta, Baccio della, Peintre, Dominicain"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Peintre, Dominicain"
+          ],
+          "personalName": [
+            "Fra Bartolommeo"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "surname": [
+            "Della Porta"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Painter, Dominican"
+          ],
+          "personalName": [
+            "Fra Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fra, Peintre, Dominicain"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "fra"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "fra"
+          ],
+          "personalName": [
+            "Bartolomeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "della Porta"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fra, Maler, Dominikaner"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "di Paolo"
+          ],
+          "personalName": [
+            "Bartolomeo"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Peintre, Dominicain"
+          ],
+          "prefix": [
+            "della"
+          ],
+          "surname": [
+            "Porta"
+          ]
+        },
+        {
+          "nameAddition": [
+            "della Porta"
+          ],
+          "personalName": [
+            "Baccio"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Maler, Dominikaner"
+          ],
+          "personalName": [
+            "Fra Bartolommeo"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Peintre, Dominicain"
+          ],
+          "surname": [
+            "Della Porta"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Maler, Dominikaner"
+          ],
+          "prefix": [
+            "della"
+          ],
+          "surname": [
+            "Porta"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fra"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Maler, Dominikaner"
+          ],
+          "surname": [
+            "Della Porta"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fra, Painter, Dominican"
+          ],
+          "personalName": [
+            "Bartolommeo"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Fra"
+          ],
+          "personalName": [
+            "Bartolomeo"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Painter, Dominican"
+          ],
+          "prefix": [
+            "della"
+          ],
+          "surname": [
+            "Porta"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "nameAddition": [
+            "Painter, Dominican"
+          ],
+          "surname": [
+            "Della Porta"
+          ]
+        },
+        {
+          "forename": [
+            "Baccio"
+          ],
+          "prefix": [
+            "della"
+          ],
+          "surname": [
+            "Porta"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Fra_Bartolommeo",
+          "label": "https://de.wikipedia.org/wiki/Fra_Bartolommeo"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:52:33Z",
+    "gnd_query_biographical_data": "1472-1517",
+    "gnd_query_name": "bartolommeo, fra"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 117,
+  "name": "Bartolommeo, Fra",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B II, 561",
+  "updated": "2026-06-11 13:29:21.489Z",
+  "uri": "https://d-nb.info/gnd/118968580",
+  "editor": ""
+}

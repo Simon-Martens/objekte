@@ -1,0 +1,108 @@
+{
+  "annotation": "ohne Kalendarium; $ vermutl. fehlt letztes Blatt der Tabelle (Genealogie)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS 1-176, 65 BB, 12 GG, 6 BB G-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Braunschweig) 1796",
+    "norm": "~",
+    "biblio": 200820,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 949,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Schulbuchhandlung)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Braunschweig) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 125; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch genealogisches / TASCHENBUCH / Enthaltend / die Geschichte / der / Deutschen / in / einem fortlaufenden / Geschichts-gemälde. / Braunschweig, 1796. / im Verlage der Schul-buchhandlung",
+  "updated": "2026-06-11 10:18:55.882Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "pwrw87534jcfs5z"
+  ],
+  "contents": [
+    "imqbsive6ae4hbp",
+    "f08rj28x03p06ec",
+    "u3zbb050f6rjj7o",
+    "k4lszxirx7eg8u4",
+    "h12b8gnhfcvi9k4",
+    "j1f18c0jii0bqn0",
+    "5d3zi0eljy819k1",
+    "lta2wjeyvsr579j",
+    "khc3rc3n1989t8o",
+    "6sk0ix5bdxexfhj",
+    "jak58raz4gbhxbs",
+    "5zraw66lot4j06x",
+    "3y5r8kvauw5w7ys",
+    "276i0i64d1nalmi",
+    "5grgzpnclhhu9g1",
+    "hx844t4pzf22kuy",
+    "3s921if9aepsqb5",
+    "poznbddugsgmcfl",
+    "l0mscajvcv1vwc0",
+    "ngjlwapy12m7zgf",
+    "df4sc0ikdganlmb",
+    "u8b6ayhcsrcbis2",
+    "0wr8y3feneuiy4l",
+    "fnr5on4iwqa1fqd",
+    "q1ek6shlmebj53j",
+    "qo8v43kshoum69s",
+    "syp9850mxnzy6j2",
+    "gksavee244cneeb",
+    "ya5oamouint1v6g",
+    "28rg57n6oztbcki",
+    "k2nymzxhaf9c5es",
+    "lva36mj2d1334sc",
+    "jdb5yzc14e53lr2",
+    "gjvn3q6reihjlj8",
+    "s31d7eglvqjxvol",
+    "egw42pjxhn3elw4",
+    "1j73o7mko9yjxul",
+    "y8wky8784bvq12z",
+    "dzsvhostr8wyih7",
+    "kqk820f0p4x7u4a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.149Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.149Z",
+      "agent": "fq6kcjn590kyggj",
+      "source_id": "l8l219fcw9ejwbm"
+    }
+  ]
+}

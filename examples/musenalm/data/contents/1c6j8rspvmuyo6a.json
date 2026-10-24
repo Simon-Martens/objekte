@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "407",
+  "incipit_statement": "Ein schöner Tag ist aufgegangen / und groß hat sich die Alpenwelt, / noch eben rings von Schlaf umfangen,",
+  "language": [],
+  "musenalm_id": 54678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gemsjäger. / Begebenheit aus dem wirklichen Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gemsjäger. / Begebenheit aus dem wirklichen Leben",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.712Z",
+      "agent": "biljcxuc46g2kmt",
+      "source_id": "ol8vd0aa0pob2to"
+    }
+  ]
+}

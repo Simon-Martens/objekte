@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Vollendet! / Heil dir! Vollendet! / Majestätischer Sünder! / Deine furchtbare Rolle vollbracht.",
+  "language": [],
+  "musenalm_id": 41728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Monument / Moors des Räubers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vom Verfasser der Räuber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Monument / Moors des Räubers",
+  "updated": "2005-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.942Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "of2riin4p6i564n"
+    }
+  ]
+}

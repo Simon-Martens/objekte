@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "S, verso G, T, W, B I-Verz, 8 BB Tab darin 6 GG, SS 1-252, S I VrlgM S IV VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Liebe und Freundschaft gewidmet 1804",
+    "norm": "~",
+    "biblio": 101081,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 367,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (F. Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch der Liebe und Freundschaft gewidmet 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; L/R 71; Goed VIII. 51, 16a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1804. / Der / Liebe und Freundschaft / gewidmet. / Frankfurt am Mayn, / bey Friedrich Wilmans",
+  "updated": "2026-06-11 10:18:55.853Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "ri64rlw0v17oq3c"
+  ],
+  "contents": [
+    "1favl4nwsalz0dk",
+    "e097ojmfg0lzx1p",
+    "d7tk6q4qctjtey5",
+    "a8v8170y5msfdtn",
+    "vv0aeavcv701s05",
+    "bxn5etbtmjsqfi0",
+    "pxy3kxrs5jekwen",
+    "jtl3blr7z69ncej",
+    "xmhebymhyqef6em",
+    "fzcritk5psjrlfe",
+    "90y94ykmtigm8he",
+    "h74dpzr3f6h1q5w",
+    "fftgh6pa18omqjb",
+    "35vh3h0xg0y50ai",
+    "lkerjly6osq7993",
+    "onox45mp69flr4j",
+    "f4967fpyx9tpvaj",
+    "3keb8lq5ehihvyh",
+    "w7zqqeylba5tljc",
+    "h8quvvpplvet6el",
+    "gvsqbyy58hry59f",
+    "xe4f5dwxc6uxlom",
+    "qqwyh90wuh1h2aq",
+    "hn6uawdek7rf9ra",
+    "5dqmk85tdqtivn5",
+    "rczu538q6c2d56t",
+    "d67ra0tlhqy6ftn",
+    "r3qrk249vcuw7o0",
+    "7uftb5jtsi5gvcu",
+    "ijbllyolfrd7ob7",
+    "ktnzqw3e2tm0rzg",
+    "moile0nfaxede3i",
+    "ssk5impxclvo2c6",
+    "eca11rd0zxprzus",
+    "muh9t8gyxdywoek",
+    "cb6u96vb5vggtek",
+    "bjxx4vkre9o8dag",
+    "2xleng8j83plu6w",
+    "rh7p70ianek2clz",
+    "w2orgd5tdunhtf3",
+    "a62c2u1lu049ll0",
+    "xhx2hlu67fn4c0n",
+    "0y5v4t0p6frkt30",
+    "rcly5hjseaajg28",
+    "my1vseu3msj3i1p",
+    "zwrn1hthmo50ptn",
+    "diusp0wl5k61uyc",
+    "ixqhuwdrgybbm88",
+    "wbcamonz80j8kok",
+    "bs3uuzpjosjx1hq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.628Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.628Z",
+      "agent": "6bba95qi5qffiw1",
+      "source_id": "q7aakgpfoxwhfdq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.829Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.829Z",
+      "agent": "0qaz8c0e7e434j0",
+      "source_id": "yy2ditdl4wuvci3"
+    }
+  ]
+}

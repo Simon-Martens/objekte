@@ -1,0 +1,45 @@
+{
+  "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Was, Brüder, hälf' uns Geld und Gut, / Die Welt mit allen Schätzen, / Könnt' uns kein heit'rer, froher Muth, / Kein traulich Mahl ergötzen.",
+  "language": [],
+  "musenalm_id": 122240,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / zur silbernen Stiftungsfeier der Erholung zu Weimar, / den 16. December 1824. / (Componirt von Herrn Musicdirector Carl Eberwein)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / zur silbernen Stiftungsfeier der Erholung zu Weimar, / den 16. December 1824. / (Componirt von Herrn Musicdirector Carl Eberwein)",
+  "updated": "2011-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.702Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "6lifk46pt4wmftf"
+    }
+  ]
+}

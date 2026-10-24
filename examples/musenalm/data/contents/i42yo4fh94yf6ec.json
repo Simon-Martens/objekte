@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80776, Obj 6 /)  Illustration zu »Schloß Stammbruch« von J. von Großmann INr 80800, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80775,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guichard del.C. Kotterba sc.",
+  "scans": [
+    "alm_1799_80775_uafwphhc8a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Helene",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "pi4oxjwuvc3e8ho"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "np5yamd62n06ynt",
+      "source_id": "sj3zj684r23isma"
+    }
+  ]
+}

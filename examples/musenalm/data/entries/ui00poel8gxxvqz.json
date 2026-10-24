@@ -1,0 +1,89 @@
+{
+  "annotation": "mit kol. Illustrationen /) einziger Jahrgang /) mit einer Tabelle: Wurf-Tabelle zu den neunhundert neun und neunzig und noch etlichen Almanachs-Lustspielen; anhand der Tabelle lassen sich aus den 1200 dramatischen Versatzstücken, aus denen der Almanach besteht, durch Würfeln besagte »neunhundert neun und neunzig und noch etliche« Lustspiele generieren.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, T, SS I–XXXII darin Vrwrt, Vrwrt, Vrwrt, SS1–270 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Neunhundert neun und neunzig und noch etliche Almanachs-Lustspiele durch den Würfel (Bärmann) 1829",
+    "norm": "~",
+    "biblio": 404563,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2363,
+  "parallel_title": "",
+  "place_statement": "Zwickau (Schumann)",
+  "places": [
+    "8t55m8lp8c0e4j6"
+  ],
+  "preferred_title": "Neunhundert neun und neunzig und noch etliche Almanachs-Lustspiele durch den Würfel (Bärmann) 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 91; L/R 127; Goed VIII. 132, 40; Goed IX. 401, 27",
+  "responsibility_statement": "Georg Nikolaus Bärmann",
+  "subtitle_statement": "",
+  "title_statement": "Neunhundert neun und neunzig / und noch etliche / Almanachs-Lustspiele / durch den Würfel. / Das ist: / Almanach Dramatischer Spiele / für die Jahre / 1829 bis 1961. / Ein Noth- und Hülfs-Büchlein / für alle / stehenden, gehenden und verwehenden Bühnen, / so wie für alle / Liebhabertheater und Theaterliebhaber Deutschlands, / von / SIMPLICIUS / der freien Künste Magister. / »Travaillez pour la gloire« Boileau. / ZWICKAU / im Verlage der Gebrüder Schumann / 1829",
+  "updated": "2026-06-11 10:18:55.349Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "0t01rje9yynmmfj"
+  ],
+  "contents": [
+    "m3c9zpd0bvi94sj",
+    "o3rqm15gyj3hb9n",
+    "6ehbrk4q3eiut3s",
+    "6mnvkvcuebe9xrg",
+    "gr1mbmg6w6uha1n",
+    "tj9bys3jec2if88",
+    "49fyh7v96c63mhb",
+    "v314salqm0jkxf8",
+    "tpmna9vucpeejo4",
+    "winvbwckdgehcul"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.150Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.150Z",
+      "agent": "wsmg28lzei5s0kd",
+      "source_id": "56t9ngrle40as9l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.053Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.053Z",
+      "agent": "os8vs1573yz6a9b",
+      "source_id": "s84d9enpy5ii12q"
+    }
+  ]
+}

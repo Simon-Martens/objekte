@@ -1,0 +1,68 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alpenrosen, Neue 1849",
+    "norm": "",
+    "biblio": 404978,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1491,
+  "parallel_title": "",
+  "place_statement": "Zürich und Frauenfeld (Beyel)",
+  "places": [
+    "pba2n1ldbytlx8t",
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Alpenrosen, Neue 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 22; nicht bei L/R",
+  "responsibility_statement": "J. J. Reithard",
+  "subtitle_statement": "",
+  "title_statement": "Neue / Alpenrosen / Eine Gabe / Schweizerischer Dichter / Herausgegeben / von / J. J. Reithard. / Zweiter Jahrgang. / Zürich und Frauenfeld / Druck und Verlag von Ch. Beyel. / 1849",
+  "updated": "2026-06-11 10:18:55.194Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "7xdydrjryxwved6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.545Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.545Z",
+      "agent": "3n0z85rt2v6zwy1",
+      "source_id": "dma0tn7ijb4k432"
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "annotation": "Der Almanach ist nicht mit allen Beiträgen auf genommen, Variante kol. Graphiken als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S1: T, SS 3–6: Vwrt d. Hrsg., SS 7–216 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1803 [var.]",
+    "norm": "~",
+    "biblio": 407917,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-09-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4670,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1803 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Dramatische Spiele / zur geselligen Unterhaltung / von / A. von Kotzebue. Berlin. 1803",
+  "updated": "2026-06-11 10:18:54.993Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "zvpcd2kmxe2wn4d"
+  ],
+  "contents": [
+    "bc3t0jmpmfvymvs",
+    "32cn4zgca4fe8ch",
+    "yb2e57cl4slsjqq",
+    "3v6cf4f6oncg5gx",
+    "3ptckauzv1q852x",
+    "nl668gju29uhuoy",
+    "8a5h03cer3pleo8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.405Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.405Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "5j1rpb86d7wx28o"
+    }
+  ]
+}

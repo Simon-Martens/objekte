@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93810,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / FREUND / DES / schönen Geschlechtes / Taschenbuch / für das Jahr / 1825. / Verfasst / von / DR. FRANZ RITTLER. / WIEN. / bey Jos. Riedl's bürgerl. Buchbinder im Schottenhof, / sel. Wittwe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Junker",
+  "scans": [
+    "alm_989_93810_5des5h6orf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER / FREUND / DES / schönen Geschlechtes / Taschenbuch / für das Jahr / 1825. / Verfasst / von / DR. FRANZ RITTLER. / WIEN. / bey Jos. Riedl's bürgerl. Buchbinder im Schottenhof, / sel. Wittwe",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.235Z",
+      "agent": "zuzc1anf4hbbexc",
+      "source_id": "uc9q8dxwtya5bm3"
+    }
+  ]
+}

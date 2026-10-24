@@ -1,0 +1,130 @@
+{
+  "annotation": "Jgg 1790-1793: Leipzig (Göschen); Hrsgg.: 1790: C. M. Wieland und J. W. von Archenholz; 1791-1793 Fr. Schiller. Der Jg 1790 auch als: Historisches Taschenbuch für Damen auf das Jahr 1790 [...] s. alm-4679 /) mit einer Fortsetzung: Kalender, Historischer 1794; Leipzig (Göschen): alm-2140",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 14 BB Kal darin 12 GG, 2 BB G-Verz, SS 1-350, S I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer für Damen 1790 (Archenholz, Wieland)",
+    "norm": "~ zweites Exemplar ohne Graphiken im Kalendarium mit varianter Titelgraphik s. Photo INr 75615",
+    "biblio": 100173,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2141,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender, Historischer für Damen 1790 (Archenholz, Wieland)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 35; L/R 18",
+  "responsibility_statement": "Archenholtz und Wieland",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / Damen / für das Jahr 1790 / von / Archenholtz und Wieland / Leipzig / bey G. J. Göschen",
+  "updated": "2026-06-11 10:18:55.867Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "946fs7rbbpbwr9l"
+  ],
+  "contents": [
+    "b5yjbf0fu9dihu4",
+    "gtm12qidbk8j7bz",
+    "42gs2s4g40lhmwu",
+    "kpur8zmc2wmrnix",
+    "huzd84h3fy1mqt2",
+    "m9xaomckwl47bq0",
+    "hrkhu1zg519iewy",
+    "jdwnhgcvvf283um",
+    "4juc8y4j4vos0bc",
+    "lrfc6xa1xujdu46",
+    "tukdhnygvrpt1j5",
+    "tbzyhh0e5vxqc41",
+    "w52apxyx945bz6a",
+    "xe69g6oqnwwk6vg",
+    "t7d8x9tpud3qq7y",
+    "bcqvh12osyp6qqb",
+    "zztqaqcvi56oe2o",
+    "q5tuibysd7hqfzm",
+    "keehe694iht5d2b",
+    "8mkvnnnadhhpu5y",
+    "ya2t1oe6f6r5xrj",
+    "ughqx9eyi1371m5",
+    "4hqq5tunjdg0cap",
+    "a66oxi82hw400fb",
+    "v8rl91c8bgs9m6f",
+    "ek772izcld0e3vd",
+    "jerot36k2uf08b3",
+    "a96d1s7ibd7l7t9",
+    "3wm0ibk4j32g9v4",
+    "x4ixh229tr8zkzw",
+    "a7vn09jwkn6hz9y",
+    "cnlybyg4t8cduqk",
+    "ttwrbrf0ktna5ad",
+    "nabjb5ziits4t4k",
+    "02cg84bz84ehxvv",
+    "fsuqcr72m5fw5mf",
+    "psnvk92y4l9w2ce",
+    "6ozdj54r2gzu9z5",
+    "4akpwd4rjxjtmd9",
+    "0hx7q4ztfwo7yni"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.003Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.003Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "0i32iiomiaxbth1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.916Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.916Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "o3i771b1xmm7qgn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.003Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.003Z",
+      "agent": "5t8j3g93hqkrq0k",
+      "source_id": "utjmp4iyry6qdo6"
+    }
+  ]
+}

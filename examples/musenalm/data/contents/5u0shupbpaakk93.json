@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Der Mond schien so hell in das Fenster herein; der würzige Duft der Weinblüthe wiegte sich auf den silbernen Strahlen.",
+  "language": [],
+  "musenalm_id": 103166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abt und Lehensleute / in der / Reichenau. / (Anfang des 15ten Jahrhunderts)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abt und Lehensleute / in der / Reichenau. / (Anfang des 15ten Jahrhunderts)",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.776Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "9u82ppdgd83aiuj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Zwar schildert der Schwärmer, der Menschenfeind, / Als schaurige Wüste das Leben:",
+  "language": [],
+  "musenalm_id": 84219,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen im Garten des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen im Garten des Lebens",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.040Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "zrx2trb63v84lkf"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 180 /) # Bez. aus dem I-Verz /)  Illustration zu »Der Freund« von A. Lafontaine INr 45281, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rathe, wer das ist? Pah!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_621_45282_9bhjuvh7s6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rathe, wer das ist? Pah!",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.247Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "3qxgtoduqmhonbz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.247Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "uh2e9urwva6fo4z"
+    }
+  ]
+}

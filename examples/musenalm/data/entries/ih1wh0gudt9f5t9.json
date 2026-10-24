@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S 1 nT, SS 3-165 darin 2 GG, S I-Verz, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Mahlerisches für Freunde interessanter Gegenden 1814",
+    "norm": "~",
+    "biblio": 106669,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3058,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Mahlerisches für Freunde interessanter Gegenden 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 148",
+  "responsibility_statement": "Dr. Fr. Sartori",
+  "subtitle_statement": "",
+  "title_statement": "Mahlerisches / Taschenbuch / für / Freunde interessanter Gegenden / Natur- und Kunst-Merkwürdigkeiten / der Österreichischen Monarchie. / Dritter Jahrgang. / Wien, 1814. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:55.395Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "lxzg6o183ofjipx"
+  ],
+  "contents": [
+    "jstq9iicv3zdif0",
+    "b4rdaspynpiqahj",
+    "bbgk76l6ctcvm27",
+    "kh8hrqffps0z02y",
+    "ldwg4f64s5lgsu5",
+    "il0vju8w00et7fl",
+    "s4jgfpj4qnl6bps",
+    "yjyk6l48sqbz38r",
+    "93ey9mf6ryztx3s",
+    "ol0vgb0yylw24oo",
+    "kczjt6wxub7fcy1",
+    "rdfl9hzzrad444l",
+    "tb2x32t2v08xkpt",
+    "3qjdhr110clmpmd",
+    "uczrb7t4q842npu",
+    "knz30thowf9rqkh",
+    "529wsc1x1zfzo08",
+    "6pn6pun5cct3gyx",
+    "2muzxb11xypkm5i",
+    "iaj4qwf7xnr5pgk",
+    "rva1fcu7cz6v43w",
+    "7jg6wx8m9ah7wqc",
+    "3apnj2ej1yaszfg",
+    "9d997t0jp3ptlq3",
+    "xno5kodh8tivjls",
+    "qq5nv75onzsjjg5",
+    "chxet4oqxy6h0ym",
+    "9cuyuwp14n8g0fk",
+    "ocru9xyhyxiragc",
+    "9p1eau2tepznbpn",
+    "c0vcr62qg7couat",
+    "q6mfua2cq3ogy7t",
+    "bn1tv8ckdjr55mp",
+    "uwrxqpuzjpatwzo",
+    "5k0f9tyx9op24rf",
+    "1k312vhdszwowal",
+    "zbnpn0ne90ijii9",
+    "j8bbeixcwlgs625",
+    "a487zv4oa5grbqb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.178Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.178Z",
+      "agent": "swlf1imgk3sevcl",
+      "source_id": "bi439elwjffdbh2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.734Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.734Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "v0a09imipe66lkb"
+    }
+  ]
+}

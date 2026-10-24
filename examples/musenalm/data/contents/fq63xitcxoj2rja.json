@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Spiele (Sammlung INr 65436, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Vom durchwanderten Berggeländ' ermüdet, / Trat ich ein in die Schenk' am späten Abend.",
+  "language": [],
+  "musenalm_id": 65445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9.",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.217Z",
+      "agent": "e0tovmmp7jpcteo",
+      "source_id": "6vo1llo1d14b6p7"
+    }
+  ]
+}

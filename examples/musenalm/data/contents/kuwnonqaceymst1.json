@@ -1,0 +1,45 @@
+{
+  "annotation": "Steppenlieder (Sammlung INr 104159, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Und müßt' ich wie ein Falter / Am ersten Ausflug sterben,",
+  "language": [],
+  "musenalm_id": 104170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.083Z",
+      "agent": "j7plmb89f8s4m2q",
+      "source_id": "3inuh3o7235qu99"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Tugend ist es, dankend zu Gott zu blicken, / Reines Herzens jeglichem Trug' erröthen,",
+  "language": [],
+  "musenalm_id": 127573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ist die Tugend? / 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Chph. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was ist die Tugend? / 1786",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.945Z",
+      "agent": "maje80twv7ynq1d",
+      "source_id": "r7hb9wu8tpizdbb"
+    }
+  ]
+}

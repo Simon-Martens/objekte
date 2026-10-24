@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Erste Lieferung. Irving's Erzählungen eines Reisenden. - Skizzenbuch. - Eingemachtes. - Cooper's Spion. - Der Lootse. - Der Letzte Mohikaner (Sammlung INr 43787, Obj 5) s. Graphik INr 43807, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Die Szene dieses kräftigen Gemäldes, das sich uns unter dem Titel »Der letzte Mohikaner« bietet, spielt zwischen dem Hudson und den benachbarten Seen;",
+  "language": [],
+  "musenalm_id": 43806,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Cooper's Letztem Mohikaner. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Cooper's Letztem Mohikaner. / 1.",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.634Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "27p3f28nv0f5fxx"
+    }
+  ]
+}

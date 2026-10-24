@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober. Illustration zu »Orestes. Heroische Oper in drei Abtheilungen« von G. v. Reinbeck INr 59285, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orestes. Abth. I. Auftr. 6. S. 167",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stürmer del. F. C. F. Thiele sc",
+  "scans": [
+    "alm_892_59276_do1e6xanl8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Orestes. Abth. I. Auftr. 6. S. 167",
+  "updated": "2008-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.043Z",
+      "agent": "xsc8m0e0lt02y28",
+      "source_id": "gg3ljja5r80hx09"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.043Z",
+      "agent": "y8hiacmturjds2x",
+      "source_id": "nqhitk9c4kb5eyl"
+    }
+  ]
+}

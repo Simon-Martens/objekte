@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;Die Monate. An die Frauen (Sammlung INr 140542)&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-09-02 09:54:27.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Auf Matrosen! die Anker gelichtet, / Segel gespannt und Kompaß gerichtet!",
+  "language": [],
+  "musenalm_id": 140456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "April. / (Stier.) / Matrosenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "April. / (Stier.) / Matrosenlied",
+  "updated": "2026-09-02 10:34:29.886Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-02 10:01:50.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-02 10:34:29.887Z",
+      "agent": "c4v9nl7ztvkf3sf",
+      "source_id": "so40l850sbx6sw8"
+    }
+  ]
+}

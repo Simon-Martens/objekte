@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar paginiert 1. /) Illustration zu »Theseus« von W. G. Becker INr 10372, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62163,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theseus findet ein Schwert und andere Waffen unter einem ungeheuren Stein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. Cl. Kohl V.",
+  "scans": [
+    "alm_133_62163_j3y61hfvwu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theseus findet ein Schwert und andere Waffen unter einem ungeheuren Stein",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.844Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "h4xjk6ps83rdsv5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.844Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "zzf6zam9z2d8ii3"
+    }
+  ]
+}

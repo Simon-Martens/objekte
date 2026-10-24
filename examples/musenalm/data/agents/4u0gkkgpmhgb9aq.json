@@ -1,0 +1,278 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.315Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5150769-9",
+          "label": "Herzogliches Lyceum (Meiningen)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. ev. Theologe, Pädagoge, Historiker und Poet; Schüler in Meiningen; Student in Göttingen; 1795 Hauslehrer in Langen (Hessen); 1796 Lehrer (Tertius), 1797 Kollaborator und 1799 Konrektor am Lyzeum in Meiningen; 1802 Hofkollaborator und Prinzessinnenerzieher; 1804 Hofkaplan, 1816 Hofprediger, 1827 Konsistorialrat und 1830 Oberhofprediger in Meiningen"
+      ],
+      "dateOfBirth": [
+        "1773-01-25"
+      ],
+      "dateOfDeath": [
+        "1837-05-10"
+      ],
+      "describedBy": {
+        "dateModified": "2017-04-21T09:43:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/102463514/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117500259",
+          "label": "Emmrich, Hermann Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123089956",
+          "label": "Emmrich, Johann Adam"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102741236X",
+          "label": "Emmrich, Anton"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "102463514",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117500259",
+          "label": "Emmrich, Hermann Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/102741236X",
+          "label": "Emmrich, Anton"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/123089956",
+          "label": "Emmrich, Johann Adam"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/102463514",
+      "oldAuthorityNumber": [
+        "(DE-588a)102463514"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        }
+      ],
+      "preferredName": "Emmrich, Georg Karl Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Karl Friedrich"
+        ],
+        "surname": [
+          "Emmrich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4210801-9",
+          "label": "Hofprediger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Auswahl christlicher Predigten auf alle Sonn- und Festtage des Jahres. - 1839"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66857449"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122538"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/102463514/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Karl_Friedrich_Emmrich"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/102463514"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd102463514.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/102463514"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Emmrich, Georg Carl Friedrich",
+        "Emmerich, Georg Karl Friedrich",
+        "Emmerich, Georg Carl Friedrich",
+        "Emmrich, Georg"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Carl Friedrich"
+          ],
+          "surname": [
+            "Emmrich"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Carl Friedrich"
+          ],
+          "surname": [
+            "Emmerich"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Karl Friedrich"
+          ],
+          "surname": [
+            "Emmerich"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Emmrich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Karl_Friedrich_Emmrich",
+          "label": "https://de.wikipedia.org/wiki/Georg_Karl_Friedrich_Emmrich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:18:45Z",
+    "gnd_query_biographical_data": "1773-1837",
+    "gnd_query_name": "emmrich, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 647,
+  "name": "Emmrich, Georg",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB VI, 90",
+  "updated": "2026-06-11 13:29:22.154Z",
+  "uri": "https://d-nb.info/gnd/102463514",
+  "editor": ""
+}

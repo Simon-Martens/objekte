@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "425",
+  "incipit_statement": "Hurrah! der Feind kommt! schrie ein Bauer, der mit fliegenden Haaren, ohne Hut, auf einem ungesattelten Pferde durch die Stadt sprengte.",
+  "language": [],
+  "musenalm_id": 39575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Der Landsturm in Taubenfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Der Landsturm in Taubenfeld",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.203Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "e4rjxd1nvl2t6fr"
+    }
+  ]
+}

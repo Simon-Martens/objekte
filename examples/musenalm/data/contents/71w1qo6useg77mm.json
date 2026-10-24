@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 62771, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Alphons studierte in Göttingen, ausgezeichnet als fleißiger Schüler und liebenswürdiger Mensch. Bey mehreren Gelegenheiten warfen ihm seine fröhlichen Gefährten den Weiberhaß vor,",
+  "language": [],
+  "musenalm_id": 62770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Häßliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Häßliche",
+  "updated": "2009-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.947Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "06enluz1jfdmtgj"
+    }
+  ]
+}

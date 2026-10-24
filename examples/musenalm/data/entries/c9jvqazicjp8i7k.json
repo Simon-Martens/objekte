@@ -1,0 +1,60 @@
+{
+  "annotation": "<div>Erscheinungsverlauf unklar</div>",
+  "carrier_type": [],
+  "content_type": [],
+  "created": "2026-06-24 10:07:25.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": null,
+  "musenalm_id": 5004,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für deutsche Schaubühnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 146; Goed VIII. 129, 12; nicht bei L/R",
+  "responsibility_statement": "Joseph Sonnleitner",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für deutsche Schaubühnen, / und Liebhabertheater. / Von Joseph Sonnleithner, / k.k. Hoftheater-Secretär. / Erster Jahrgang. / Wien, 1815. / Gedruckt und im Verlag bey Joh. Bapt. Wallishausser",
+  "updated": "2026-09-24 10:27:21.354Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-24 09:55:10.319Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-09-24 10:27:21.355Z",
+      "agent": "i5hrikz4qdzavwx",
+      "source_id": "6ctcuia0nw7q6kw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-24 09:52:37.141Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-24 10:27:21.355Z",
+      "agent": "v2707y6y5mu8c55",
+      "source_id": "td4kp83suc91qke"
+    }
+  ]
+}

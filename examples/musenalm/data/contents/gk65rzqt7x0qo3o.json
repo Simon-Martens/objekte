@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Schön! das wäre der Muth, mein Freund, wenn entsetz- / licher Unmuth",
+  "language": [],
+  "musenalm_id": 28869,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Varnhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.208Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "zzljjzw1v1uouva"
+    }
+  ]
+}

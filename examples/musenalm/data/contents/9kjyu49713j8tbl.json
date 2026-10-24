@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64698,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NEUE / THALIA / MORITZ PERLES / Buch- und Kunsthandlung. / WIEN 1871 / Spiegelgasse No. 12",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haselwander del. Zastiera sc.",
+  "scans": [
+    "alm_1082_64698_4khr5wwcw8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NEUE / THALIA / MORITZ PERLES / Buch- und Kunsthandlung. / WIEN 1871 / Spiegelgasse No. 12",
+  "updated": "2009-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.945Z",
+      "agent": "rb0is2za5c4lggc",
+      "source_id": "c396ru12g6oka4k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.945Z",
+      "agent": "ocng47uzapri3n3",
+      "source_id": "t9ux5x881uwcfjz"
+    }
+  ]
+}

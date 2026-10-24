@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 9840, Obj 247) Gesänge vermischten Inhalts 1792 (Sammlung INr 9918, Obj 224,01)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Auf ihr wackern Herzensbrüder! / Feyern wollen wir die Nacht! / Schallen sollen frohe Lieder,",
+  "language": [],
+  "musenalm_id": 9842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 249,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIV. / Deutsches Trinklied. / In bekannter Melodie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Miller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIV. / Deutsches Trinklied. / In bekannter Melodie",
+  "updated": "2001-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.536Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "qr0ixlgbc4xa1ut"
+    }
+  ]
+}

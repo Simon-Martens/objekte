@@ -1,0 +1,82 @@
+{
+  "annotation": "die varianten Umschlaggraphiken und Titel als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 16 BB Kal darin 12 GG, 32 BB G-Verz, SS 1-32, SS 389-472, zT, 21 BB darin 2 GG, SS I-LXIV darin 2 GG, B I-Verz, 7 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer für Damen 1792 (Schiller) [var.]",
+    "norm": "~",
+    "biblio": 411028,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-03-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4781,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender, Historischer für Damen 1792 (Schiller) [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 18; Goed V. 187, 27",
+  "responsibility_statement": "Friedrich Schiller",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / Damen / für das Jahr 1792. / von / Friedrich Schiller / Leipzig / bey G. J. Göschen",
+  "updated": "2026-06-11 10:18:55.867Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "h33wtrh8k6vbrsy"
+  ],
+  "contents": [
+    "jd7104b5z1g9hyq",
+    "42wxec69bjgq992",
+    "q2x53qeh68g4x57"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.917Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.917Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "3rc4dg6tr4yz6lm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.422Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.422Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "wm80mbm701t7f3l"
+    }
+  ]
+}

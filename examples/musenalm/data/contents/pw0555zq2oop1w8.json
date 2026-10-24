@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Frauenwerth« von B. v. Guseck d.i. C. G. v. Berneck INr 123272, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113262,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KLARA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mezler delt. Leop. Beyer sc.",
+  "scans": [
+    "alm_1783_113262_esv8tdgpmy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KLARA",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.439Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "63904er95zl7qyj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.439Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "iesxjir1p9jrfj4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) Illustration zu »Heimath in der Fremde« von Heinrich Schmidt; INr 83931, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83929,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEIMATH IN DER FREMDE. SEITE 302",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_878_83929_sr00tqbd6v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEIMATH IN DER FREMDE. SEITE 302",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.147Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "x5tf4n1vo654zsh"
+    }
+  ]
+}

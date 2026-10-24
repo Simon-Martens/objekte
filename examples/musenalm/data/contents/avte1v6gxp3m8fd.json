@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Armes Herz, warum in Aengsten? / Was dir fehlt, ist lange da;",
+  "language": [],
+  "musenalm_id": 13500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trostlieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trostlieb",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.418Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "yaah4mtlx5iqdiw"
+    }
+  ]
+}

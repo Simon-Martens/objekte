@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Titelgraphik INr 88197, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "O lacht nicht über mich, / Aber so war als ich ein Mann bin, mich dünkt / Die Dame hier sei mein Kind Cordelia.",
+  "language": [],
+  "musenalm_id": 88200,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cordelia. / König Lear. Akt IV. Scene 7",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cordelia. / König Lear. Akt IV. Scene 7",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "confomdodiakpla",
+      "source_id": "jo6bfpfcjo0y5jt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "xbxowle0vqb0e5z"
+    }
+  ]
+}

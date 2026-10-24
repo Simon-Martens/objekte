@@ -1,0 +1,45 @@
+{
+  "annotation": "Trutznachtigall. Eine Auswahl geistlicher Lieder (Sammlung INr 91289, Obj 5) # Bez. aus dem Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Da zu Grabe Jesus lage, / Jesus, du geliebtes Kind, / Hört man seiner Mutter Klage,",
+  "language": [],
+  "musenalm_id": 91310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Klagen der Maria",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Spee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Klagen der Maria",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.112Z",
+      "agent": "x4foo3ypaa4r4o4",
+      "source_id": "bh1u4puaf7y2ikt"
+    }
+  ]
+}

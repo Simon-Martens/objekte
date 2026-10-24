@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die liebenswürdige Verfasserin, eine  Verwandtin des großen Franklin, nicht minder achtungswerth von Seiten ihres Geistes [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Sie blüthe einst an Deinem lieben Herzen / So schön, und welkte schnell dahin:",
+  "language": [],
+  "musenalm_id": 121498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose an der Brust des Geliebten./ An einem Abschiedstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Bandemer, geb. v. Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose an der Brust des Geliebten./ An einem Abschiedstage",
+  "updated": "2018-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.621Z",
+      "agent": "63e8s8hkpbnksyg",
+      "source_id": "yb5zap4y2kj5gde"
+    }
+  ]
+}

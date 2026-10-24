@@ -1,0 +1,380 @@
+{
+  "annotation": "",
+  "biographical_data": "1763-1819",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.459Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1763-01-08"
+      ],
+      "dateOfDeath": [
+        "1819-01-15"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "https://wellcomeimages.org/indexplus/obf_images/51/e3/d56456e758e74da545720fc2e5bc.jpg Gallery: https://wellcomeimages.org/indexplus/image/V0005057.html Wellcome Collection gallery (2018-03-30): https://wellcomecollection.org/works/xnfxs6n9 CC-BY-4.0"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/J.J.%20Roemer%2C%20director%20of%20the%20botanic%20garden%20at%20Zurich.%20Engra%20Wellcome%20V0005057.jpg",
+          "license": [
+            {
+              "abbr": "CC BY 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/4.0",
+              "name": "Creative Commons Attribution 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/J.J.%20Roemer%2C%20director%20of%20the%20botanic%20garden%20at%20Zurich.%20Engra%20Wellcome%20V0005057.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:J.J.%20Roemer%2C%20director%20of%20the%20botanic%20garden%20at%20Zurich.%20Engra%20Wellcome%20V0005057.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-11-30T05:37:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104182156/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "104182156",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104182156",
+      "oldAuthorityNumber": [
+        "(DE-588a)104182156"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "preferredName": "Römer, Johann Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Jakob"
+        ],
+        "surname": [
+          "Römer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        }
+      ],
+      "publication": [
+        "Versuch eines Wörterbuchs der botanischen Terminologie",
+        "Annalen der Geburtshülfe, Frauenzimmer- und Kinderkrankheiten",
+        "Scriptores de plantis hispanicis Lusitanicis Brasiliensibus",
+        "Anleitung aller Arten natürlicher Cörper ... zu sammeln und aufzubewahr*",
+        "Delectus opusculorum ad omnem rem medicam spectantium",
+        "Ueber den Nutzen und Gebrauch der Eidechsen in Krebsschäden der Lustseuche und in verschi*",
+        "Encyclopädie für Gärtner und Liebhaber der Gärtnerei",
+        "Flora Europaea",
+        "Naturgeschichte der in der Schweitz einheimischen Säugethiere",
+        "Genera Insectorum"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr00026399"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32428121"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D26127.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q115659"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104182156/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Jacob_Roemer"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Jacob_R%C3%B6mer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Jacob_Roemer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000063180441"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104182156"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104182156"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104182156.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104182156"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104182156"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Römer, J. J.",
+        "Römer, Johannes Jacobus",
+        "Römer, Johann Jacob",
+        "Römer, Joh. Jak.",
+        "Römer, Johannes Jacob",
+        "Römer, Joannes Jacobus",
+        "Römer, Joh. Jacob",
+        "Römer, Johannes Jakob",
+        "Roemer, Johannes Jacobus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joannes Jacobus"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Jak."
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Jacobus"
+          ],
+          "surname": [
+            "Roemer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Jacob"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Jakob"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Jacob"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Jacobus"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Jacob"
+          ],
+          "surname": [
+            "Römer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Jacob_R%C3%B6mer",
+          "label": "https://de.wikipedia.org/wiki/Johann_Jacob_R%C3%B6mer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:41:00Z",
+    "gnd_query_biographical_data": "1763-1819",
+    "gnd_query_name": "römer, johann jacob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2307,
+  "name": "Römer, Johann Jacob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXIX, 122",
+  "updated": "2026-06-11 13:29:24.379Z",
+  "uri": "https://d-nb.info/gnd/104182156",
+  "editor": ""
+}

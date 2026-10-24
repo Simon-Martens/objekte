@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Fräulein von Bodmann« von J. Mailáth INr 94115, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fräulein v. Bodmann / zur Erzählung gleiches Namens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Decker del. Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1866_94113_mnoeqv8bpr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fräulein v. Bodmann / zur Erzählung gleiches Namens",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "y1qct7tl0hidcy2",
+      "source_id": "5mti83txbwiv88w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.680Z",
+      "agent": "80ynrlk6xwlunry",
+      "source_id": "ahf0wzpw3m1hhex"
+    }
+  ]
+}

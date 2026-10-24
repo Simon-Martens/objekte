@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember paginiert 12. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg und der damit verbundenen Staaten vom Jahre 1688 bis zum Jahr 1740. Friedrich Wilhelm I.« INr 72346, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Wilhelm I. ordnet kurz vor seinem To- / de sein Leichenbegängniß selbst an. / Friedrich Wilhelm I.: In diesem Bette werde ich / recht ruhig schlafen! / S. 151",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki & sculp",
+  "scans": [
+    "alm_828_72337_mm892c6g97.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Wilhelm I. ordnet kurz vor seinem To- / de sein Leichenbegängniß selbst an. / Friedrich Wilhelm I.: In diesem Bette werde ich / recht ruhig schlafen! / S. 151",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.611Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "roq3ci250y8ukoe"
+    }
+  ]
+}

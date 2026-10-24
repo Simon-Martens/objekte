@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82666,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FÜR DIE / NACHWELT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc.",
+  "scans": [
+    "alm_3716_82666_fo79lb64ku.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FÜR DIE / NACHWELT",
+  "updated": "2011-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.061Z",
+      "agent": "nroqcxxwwrnp5ol",
+      "source_id": "ks0i4ql4wonyp9k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.061Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "p3p1h2fod6izy89"
+    }
+  ]
+}

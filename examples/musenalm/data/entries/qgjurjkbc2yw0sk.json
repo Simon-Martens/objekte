@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK: swissbib, ZHB Luzern: Jgg 1818-1821",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Europa. Ein statistisch-heraldisch-genealogisches TB 1818",
+    "norm": "",
+    "biblio": 409172,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4257,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Europa. Ein statistisch-heraldisch-genealogisches TB 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ludwig Lüders",
+  "subtitle_statement": "",
+  "title_statement": "Europa. / Ein statistisch-heraldisch-genealogisches / Taschenbuch / auf / 1818 / von / Ludwig Lüders / [...] Dritter Jahrgang. / Leipzig, in der Baumgärtnerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.623Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "hsfy8x3iqgv3s48"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.501Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.501Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "eazgveirmorote1"
+    }
+  ]
+}

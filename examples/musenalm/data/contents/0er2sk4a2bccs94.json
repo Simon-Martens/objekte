@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Tolle, verkehrte, unsinnige Gedanken. Man kann sich toll, man kann sich wahnwitzig und unsinnig denken,",
+  "language": [],
+  "musenalm_id": 39840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tolle, verkehrte, unsinnige Gedanken. Man kann sich toll, man kann sich wahnwitzig und unsinnig denken,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.883Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "fa2ekrsubrpija7"
+    }
+  ]
+}

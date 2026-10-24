@@ -1,0 +1,71 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "weitere Jgg nicht ermittelt",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender zur Belehrung und Unterhaltung 1813",
+    "norm": "",
+    "biblio": 106675,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1982,
+  "parallel_title": "",
+  "place_statement": "Emden [?] (Wenthin)",
+  "places": [
+    "ps4axcazhxum1hi"
+  ],
+  "preferred_title": "Kalender zur Belehrung und Unterhaltung 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Ch. H. Gittermann",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / zur / Belehrung und Unterhaltung / auf das Jahr / 1813. / Für das Departement Ost-Ems. / Herausgegeben / von / J. Ch. H. Gittermann / Prediger zu Emden. / Emden, 1813. / Gedruckt und zu haben bei C. Wenthin, jun.",
+  "updated": "2026-06-11 10:18:55.749Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "usdngwoonlm003l"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "qp7y0qmw4hr32rc",
+      "source_id": "x6weq2pfc16e4tm"
+    }
+  ]
+}

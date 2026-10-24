@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Dürft' ich die Zeit zum Sterben / Nach Wunsch erwählen frei,",
+  "language": [],
+  "musenalm_id": 94644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sterbezeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sterbezeit",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.383Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "pbx2565pfi8za5o"
+    }
+  ]
+}

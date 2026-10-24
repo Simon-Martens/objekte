@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. 1. Der Fürstenbrunnen bei Jena. 2. Haß und Liebe (Sammlung INr 32004, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Eine Wüste scheint die ganze Erde, / eine Wüste, wo nur Schrecken thronet,",
+  "language": [],
+  "musenalm_id": 32006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Haß und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Haß und Liebe",
+  "updated": "2002-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "doq8yvdck3tj911"
+    }
+  ]
+}

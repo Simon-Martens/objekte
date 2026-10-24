@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS 1–20, SS1–112, SS1–184",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1838",
+    "norm": "~",
+    "biblio": 106655,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1312,
+  "parallel_title": "",
+  "place_statement": "Berlin (Sittenfeld)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst / auf / das Jahr 1838. / Herausgegeben / von / L. Wolff, / Soufleur des Königl. Theaters. / Berlin, den 1. Januar 1839. / Gedruckt bei Julius Sittenfeld, / Burg-Straße Nr. 25",
+  "updated": "2026-06-11 10:18:54.919Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "9fra25jod78bckl"
+  ],
+  "contents": [
+    "m8j6ii0ass4f10a",
+    "td8shgeb3oqii1g",
+    "w9m8w1427lp7hca",
+    "2ixfe8r1rqr6bs2",
+    "wswkgxbdrmvsosu",
+    "xztlgsvt0z0fys0",
+    "dez8m88k6i5ksi2",
+    "tmpvwkw5chirbf9",
+    "9iae1oq9uqqnmck",
+    "q8uegdzyg5170lo",
+    "q2s30g114uaswf6",
+    "afmggdhady1v8ej",
+    "2xsovgpqo34ux8z",
+    "f49cnbkneeh5yi0",
+    "qp60ygzvbsy104t",
+    "rucvzgu99tu97dz",
+    "zea2ecg99qe9jsz",
+    "zzkq9u3srizj6h3",
+    "jq12ubetpkxwpqd",
+    "9z8otmwf2zt25u0",
+    "9io12096w9vgbmt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "bnt3c72j2gl4qv4",
+      "source_id": "hhpth9vf5x2anbe"
+    }
+  ]
+}

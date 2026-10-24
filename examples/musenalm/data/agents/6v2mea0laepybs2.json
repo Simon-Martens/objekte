@@ -1,0 +1,583 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1814",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.430Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1741-03-26"
+      ],
+      "dateOfDeath": [
+        "1814-11-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "François-Louis Gounod"
+          ],
+          "creditText": [
+            "Moreau le Jeune, 1915"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Michel%20Moreau%20le%20Jeune%2C%20peinture%20de%20Fran%C3%A7ois%20Gounod.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Michel%20Moreau%20le%20Jeune%2C%20peinture%20de%20Fran%C3%A7ois%20Gounod.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jean-Michel%20Moreau%20le%20Jeune%2C%20peinture%20de%20Fran%C3%A7ois%20Gounod.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174324227",
+        "https://d-nb.info/gnd/160858410",
+        "https://d-nb.info/gnd/1072834847"
+      ],
+      "describedBy": {
+        "dateModified": "2018-10-10T00:33:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118784803/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/138156352",
+          "label": "Moreau, Louis Gabriel"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118784803",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/138156352",
+          "label": "Moreau, Louis Gabriel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118784803",
+      "oldAuthorityNumber": [
+        "(DE-588)174324227",
+        "(DE-588a)100312039",
+        "(DE-588a)174324227",
+        "(DE-588a)105573167",
+        "(DE-588a)160858410",
+        "(DE-588a)118784803",
+        "(DE-588c)4110863-2",
+        "(DE-588)1072834847",
+        "(DE-588)160858410"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Moreau, Jean Michel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jean Michel"
+        ],
+        "surname": [
+          "Moreau"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        }
+      ],
+      "publication": [
+        "Monument du Costume physique et moral de la fin du XVIII. Siècle .... - 1789"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80166950"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56619800"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q321972"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1072834847"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118784803/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160858410"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174324227"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jean-Michel_Moreau"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jean-Michel_Moreau"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jean-Michel_Moreau"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122803793"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118784803"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118784803"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118784803"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118784803"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Moreau, J. M., Jun.",
+        "Moreau, J. M.",
+        "Moreau, M., le jeune",
+        "Moreau, der Jüngere",
+        "Moreau, Jean M.",
+        "Moreau, J. M., le j.",
+        "Moreau, Jean Michel, le jeune",
+        "Moreau, J., le jeune",
+        "Moreau, M., le j.",
+        "Moreau, J. M., le je.",
+        "Moreau, Jean Michel, der Jüngere",
+        "Moreau, J. M., le jeune",
+        "J. M. M...",
+        "Moreau, J.",
+        "Moreau, Jean-Michel",
+        "Moreau, J. M., le jne.",
+        "Moreau, le jeune",
+        "Moreau, Jun.",
+        "Moreau, J. M., Junior",
+        "M., J. M.",
+        "Moreau, Junior",
+        "Moreau",
+        "Moreau, Je.",
+        "Moreau, J.M.",
+        "Moreau, M."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "nameAddition": [
+            "le jeune"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Junior"
+          ],
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "le je."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J.M."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Michel"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Michel"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "le jeune"
+          ],
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "Jean M."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "nameAddition": [
+            "le jeune"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Jun."
+          ],
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "nameAddition": [
+            "M."
+          ],
+          "personalName": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "Junior"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "Jun."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "le jne."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "le jeune"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "surname": [
+            "M."
+          ]
+        },
+        {
+          "personalName": [
+            "J. M. M..."
+          ]
+        },
+        {
+          "forename": [
+            "Jean Michel"
+          ],
+          "nameAddition": [
+            "le jeune"
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "Je."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "J. M."
+          ],
+          "nameAddition": [
+            "le j."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "nameAddition": [
+            "le j."
+          ],
+          "surname": [
+            "Moreau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jean-Michel_Moreau",
+          "label": "https://de.wikipedia.org/wiki/Jean-Michel_Moreau"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:18:27Z",
+    "gnd_query_biographical_data": "1741-1814",
+    "gnd_query_name": "moreau, jean michel (le jeune)"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1852,
+  "name": "Moreau, Jean Michel (le jeune)",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 128",
+  "updated": "2026-06-11 13:29:23.843Z",
+  "uri": "https://d-nb.info/gnd/118784803",
+  "editor": ""
+}

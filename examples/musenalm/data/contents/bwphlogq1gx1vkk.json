@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Welch ein Tyrann! So soll dein Pätus sterben? / So donnert er den Tod von seinem Thron?",
+  "language": [],
+  "musenalm_id": 8474,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pätus und Arria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pätus und Arria",
+  "updated": "2026-06-23 09:01:04.890Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.249Z",
+      "agent": "x1mwystx1l16y0s",
+      "source_id": "tfo0iejs2mzm3qg"
+    }
+  ]
+}

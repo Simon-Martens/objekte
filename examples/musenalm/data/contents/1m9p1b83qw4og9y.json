@@ -1,0 +1,67 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz aus: Kalender, Berliner 1830; INr 58874 /) Graphik im Kalendarium Dezember; Illustration zu »Landeskunde von Indien  von C. Ritter INr 58746, Obj 17,01 s.a. Textbezug INr 58760, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58745,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sternwarte bei Delhi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Daniell # gez. v. Mauch gest. v. G. Cooke",
+  "scans": [
+    "alm_864_58745_dsngaduzth.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sternwarte bei Delhi",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.992Z",
+      "agent": "a7m5750fz1o3qqp",
+      "source_id": "9leym2yuzorjrx4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.992Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "lzgldrlo4tkajzp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.992Z",
+      "agent": "qvi69ismyu8brau",
+      "source_id": "p50xss92y4q0k9y"
+    }
+  ]
+}

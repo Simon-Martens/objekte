@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Agrionien für das Jahr 1822. gesammelt von Theodor Hell (Sammlung INr 40440, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "513",
+  "incipit_statement": "Sanfte Ruhe deckt mit breitem Schwingen / Meine Ersten, die dem Schlaf sich weih'n,",
+  "language": [],
+  "musenalm_id": 40457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.256Z",
+      "agent": "mkd957rgkmp3pvz",
+      "source_id": "j59cyam564bcy6l"
+    }
+  ]
+}

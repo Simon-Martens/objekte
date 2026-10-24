@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Die fremde Wohlgestalt betrachtest Du mit Neid, / Und gern, wär' Dir's gegönnt, wärst Du zum Tausch / bereit,",
+  "language": [],
+  "musenalm_id": 45459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 168,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tausch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tausch",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.403Z",
+      "agent": "43zf9fb3jx70ouy",
+      "source_id": "cpwoews2tjc0wte"
+    }
+  ]
+}

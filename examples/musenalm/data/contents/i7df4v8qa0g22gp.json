@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92420,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mariane, / vermählte Prinzessin Wilhelm v. Preußen / geb. Prinzessin von Hessen Homburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Schadow pinx. F. Bolt sc. 1816",
+  "scans": [
+    "alm_2283_92420_yqetogtkig.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mariane, / vermählte Prinzessin Wilhelm v. Preußen / geb. Prinzessin von Hessen Homburg",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.202Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "aaq98vpjfd22r4b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.202Z",
+      "agent": "26vitnec2l92noy",
+      "source_id": "oddea7qidv0mvr3"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Via Mala in Bündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. Darnstedt sc.",
+  "scans": [
+    "alm_221_14059_5gdc7vosk9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Via Mala in Bündten",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.618Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "aq0e6n9bvepcj3n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.618Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "i524t0gwl84edzz"
+    }
+  ]
+}

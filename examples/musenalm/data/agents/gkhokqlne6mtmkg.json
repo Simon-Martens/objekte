@@ -1,0 +1,368 @@
+{
+  "annotation": "",
+  "biographical_data": "1822-1904",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.475Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118535455",
+          "label": "Freytag, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118597442",
+          "label": "Raabe, Wilhelm"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10107009-3",
+          "label": "Herzoglich Nassauische Bühne (Wiesbaden)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2011852-1",
+          "label": "Herzogliches Hoftheater (Braunschweig)"
+        }
+      ],
+      "dateOfBirth": [
+        "1822-07-09"
+      ],
+      "dateOfDeath": [
+        "1904-07-09"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-25T22:20:11.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/101154216/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "101154216",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/101154216",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)101154216",
+        "(DE-588c)4650712-7"
+      ],
+      "periodOfActivity": [
+        "1854-1889"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066043-6",
+          "label": "Wiesbaden"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Schloss Triesdorf bei Ansbach"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "preferredName": "Schultes, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Schultes"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118570080",
+          "label": "Laube, Heinrich"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Der alte Landsknecht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Der Alte Landsknecht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "der alte"
+          ],
+          "surname": [
+            "Landsknecht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Onoldino"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "nameAddition": [
+            "der alte Landsknecht"
+          ],
+          "surname": [
+            "Onoldino"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schultes, Karl: Liebesprobe"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/103750160"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1732938"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101154216/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Schultes"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000368216994"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101154216"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101154216"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Der alte Landsknecht",
+        "Schultes, Carl",
+        "Onoldino, Carlo",
+        "Onoldino, Carlo, der alte Landsknecht",
+        "Der Alte Landsknecht",
+        "Landsknecht, der alte",
+        "Schultes, C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "nameAddition": [
+            "der alte Landsknecht"
+          ],
+          "surname": [
+            "Onoldino"
+          ]
+        },
+        {
+          "personalName": [
+            "Der alte Landsknecht"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "personalName": [
+            "Der Alte Landsknecht"
+          ]
+        },
+        {
+          "forename": [
+            "der alte"
+          ],
+          "surname": [
+            "Landsknecht"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Onoldino"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Schultes",
+          "label": "https://de.wikipedia.org/wiki/Carl_Schultes"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:54:00Z",
+    "gnd_query_biographical_data": "1822-1904",
+    "gnd_query_name": "schultes, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2567,
+  "name": "Schultes, Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1862",
+  "updated": "2026-06-11 13:29:24.859Z",
+  "uri": "https://d-nb.info/gnd/101154216",
+  "editor": ""
+}

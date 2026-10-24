@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5) mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Da giebt ers hin, was Ströme Blut / Gekostet hat! Der Helden-Muth / Der tapfern Deutschen war vergebens;",
+  "language": [],
+  "musenalm_id": 66237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Kaiser Leopolds Frieden mit den / Türken im Jahr 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Kaiser Leopolds Frieden mit den / Türken im Jahr 1791",
+  "updated": "2009-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.099Z",
+      "agent": "n5liie3i2dvrx17",
+      "source_id": "du28mllmvfdqs03"
+    }
+  ]
+}

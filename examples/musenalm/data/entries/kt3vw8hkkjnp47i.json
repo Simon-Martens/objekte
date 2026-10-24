@@ -1,0 +1,67 @@
+{
+  "annotation": "Erscheinungsweise unklar: K 121 gibt Jgg 1829-1833, 1838 an; vorhanden ist außerdem 1842 dort im Titel: 12. Jahrgang /)  Die Jgg 1828-1854: Standort: Bad. Landesbibliothek Karlsruhe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Genealogisches (Gottschalck) 1829",
+    "norm": "",
+    "biblio": 404394,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2933,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hoffmann)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenbuch, Genealogisches (Gottschalck) 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 121; nicht bei L/R",
+  "responsibility_statement": "Friedrich Gottschalck",
+  "subtitle_statement": "",
+  "title_statement": "GENEALOGISCHES TASCHENBUCH / für das Jahr / 1829. / herausgegeben / von / Friedrich Gottschalck. / STUTTGART. / bei Carl Hoffmann",
+  "updated": "2026-06-11 10:18:54.793Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "xs5960x34fz4s0x"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.038Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.038Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "8upzx1h7py40d95"
+    }
+  ]
+}

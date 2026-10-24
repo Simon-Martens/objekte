@@ -1,0 +1,45 @@
+{
+  "annotation": "Vierzeilen (Sammlung INr 46626, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Im Traum erschien mir Liebchens Angesicht - o welche / Lust! / Verheißung war ihr Lächeln und Erfüllung;",
+  "language": [],
+  "musenalm_id": 46629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 172,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Traum erschien mir Liebchens Angesicht - o welche / Lust! / Verheißung war ihr Lächeln und Erfüllung;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Victor Precht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.187Z",
+      "agent": "pbmqtudxmyu5ypb",
+      "source_id": "karrgnm0zbp48eq"
+    }
+  ]
+}

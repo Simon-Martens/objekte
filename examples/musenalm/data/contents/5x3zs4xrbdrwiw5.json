@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Lasse dich hier, vor zwey gleich großen Fehlern warnen, die beyde nur dem Pöbel verziehen werden können.",
+  "language": [],
+  "musenalm_id": 73462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "39. / In Ansehung deiner Sprache lasse / dir Richtigkeit empfohlen seyn; in dei- / ner Aussprache aber Deutlichkeit, Ver- / nehmlichkeit und gehörigen Nachdruck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "39. / In Ansehung deiner Sprache lasse / dir Richtigkeit empfohlen seyn; in dei- / ner Aussprache aber Deutlichkeit, Ver- / nehmlichkeit und gehörigen Nachdruck",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.579Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "blg3873jlzaiqdj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Forse sia, che'l mio core infra quets' ombre / Del suo peso mortal parte disgombre. / TASSO",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Umfange mich in ahnungsvoller Stille, / Geliebter Ort, der sanfte Trauer weckt!",
+  "language": [],
+  "musenalm_id": 37540,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Die Karthause",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie von Imhof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Die Karthause",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.787Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "19z3qi6a7kzdev6"
+    }
+  ]
+}

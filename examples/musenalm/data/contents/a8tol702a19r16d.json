@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Vier Bräute und ein Bräutigam« von A. Schreiber INr 62591, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Braeute und ein Braeutigam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Portmann sc.",
+  "scans": [
+    "alm_1026_62590_47atlt4vu7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Braeute und ein Braeutigam",
+  "updated": "2009-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.053Z",
+      "agent": "dtwggxcbl5w7fng",
+      "source_id": "hqy2hmj0iwd41s9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.053Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "i7cq8rqv8fd4y0e"
+    }
+  ]
+}

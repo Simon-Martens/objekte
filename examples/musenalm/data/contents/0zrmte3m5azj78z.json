@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August; paginiert VIII /) Illustration zu »Deutschland, ein historisches Gemälde« von F. C. Schlenkert INr 73851, Obj 31 /) s. Textbezug INr 73845, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73832,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. D. Berger sc. 1793)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1793",
+  "scans": [
+    "alm_3648_73832_1tat11qpi6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "3ffyoa6jtdcwsul"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.428Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "kbd14wo63ewz0e6"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9284, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Da ist Vergißmeinnicht, das ist zum Andenken: ich / bitte euch, liebes Herz, gedenkt meiner!",
+  "language": [],
+  "musenalm_id": 19249,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vierter Aufzug, fünfte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vierter Aufzug, fünfte Scene",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.820Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "3ikuudbr8v830m0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.820Z",
+      "agent": "confomdodiakpla",
+      "source_id": "7ce7zaf365kaf23"
+    }
+  ]
+}

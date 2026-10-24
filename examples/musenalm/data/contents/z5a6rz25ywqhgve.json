@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Was erfleht nur ein Blick! - ewige Liebe! wie bringt er / Segnungen Gottes herab!",
+  "language": [],
+  "musenalm_id": 101407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Blick des Glaubens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Blick des Glaubens",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.990Z",
+      "agent": "adxjhf2nm1jjsuh",
+      "source_id": "gf79cfz5o18he44"
+    }
+  ]
+}

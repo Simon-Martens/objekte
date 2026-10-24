@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1827-1832: Hrsg: Lic. Simon Ratzeberger der jüngste, d.i. C. J. Wagenseil; 1827-1830: Leipzig (Glück), 1831-1832: München (Lindauer); Leipzig (Glück) /) s.a. Jahrbuch der Literatur 1839; Hamburg (Hoffmann und Campe); alm-1941; in ähnlicher Aufmachung",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Literarischer 1827",
+    "norm": "",
+    "biblio": 100247,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1454,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Glück)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach, Literarischer 1827",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 13; nicht bei L/R",
+  "responsibility_statement": "Lic. Simon Ratzeberger der Jüngste",
+  "subtitle_statement": "",
+  "title_statement": "LITERARISCHER / ALMANACH für / 1827. / So nützlich und angenehm, als unterhaltend und / lustig zu lesen. / Von / Lic. Simon Ratzeberger / dem Jüngsten. / Ohne Kupfer, Karten, Musik und Tanz - Touren, jedoch / mit einem Vorbericht, der nicht das Schlechteste an / dem Büchlein seyn sollte. / Erster Jahrgang. / Leipzig, / Johann Friedrich Glück.",
+  "updated": "2026-06-11 10:18:55.170Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "m186gwwa8ltxdi3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.912Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.912Z",
+      "agent": "g3gaoet7dc8k1bx",
+      "source_id": "5yfqdyyv8koqdug"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.907Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.907Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "9q1wy9390suai9c"
+    }
+  ]
+}

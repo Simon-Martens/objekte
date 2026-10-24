@@ -1,0 +1,56 @@
+{
+  "annotation": "DANTE (s. Zwischentitel INr 71217, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ein liebreich Mädchen und von jungen Jahren, / Geziert mit aller Anmut, war mir nahe,",
+  "language": [],
+  "musenalm_id": 71219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CANZONE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dante; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "CANZONE",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.412Z",
+      "agent": "4kx0nhbz4zjda3r",
+      "source_id": "2cza4co0s6wekip"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.412Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "p25gee72ckx3snv"
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "annotation": "",
+  "biographical_data": "1808-1887",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.455Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. iur. et phil."
+      ],
+      "dateOfBirth": [
+        "1808-08-15"
+      ],
+      "dateOfDeath": [
+        "1887-04-27"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Archiv Aachener Geschichtsverein"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Alfred%20von%20reumont.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Alfred%20von%20reumont.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Alfred%20von%20reumont.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-12T13:05:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116450932/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116450940",
+          "label": "Reumont, Elvire"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116450932",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116450940",
+          "label": "Reumont, Elvire"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116450932",
+      "oldAuthorityNumber": [
+        "(DE-588c)4751784-0",
+        "(DE-588a)116450932"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4000003-5",
+          "label": "Aachen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4211208-4",
+          "label": "Burtscheid (Kreis Aachen)"
+        }
+      ],
+      "preferredName": "Reumont, Alfred von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alfred"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Reumont"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Itasius"
+          ],
+          "surname": [
+            "Lemniacus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Lemniacus"
+          ],
+          "surname": [
+            "Itasius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Itatius"
+          ],
+          "surname": [
+            "Lemniacus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Albano"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Andrea del Sarto",
+        "Aachens Liederkranz und Sagenwelt",
+        "Geographisch-statistische Nachrichten von den russischen Häfen am Schwarzen Meere",
+        "Bibliografia dei lavori publicati in Germania sulla storia d'Italia",
+        "Übers. von: Gråberg, Jakob: Das Sultanat Mogh'rib-ul-Aksa', oder Kaiserreich Marokko",
+        "Römische Briefe",
+        "Ein Beitrag zum Leben Michel Angelo Buonaroti's",
+        "Vittoria Colonna",
+        "Rheinlands Sagen, Geschichten und Legenden"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86809566"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64131095"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76150"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116450932/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Alfred_von_Reumont"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Alfred_von_Reumont_%28Historiker%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Alfred_von_Reumont"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alfred_von_Reumont"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083441952"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116450932"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116450932"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116450932.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116450932.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116450932"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Albano",
+        "Reumont, A. v.",
+        "Itasius, Lemniacus",
+        "Reumont, Alfred",
+        "Reumont, Alfred de",
+        "Lemniacus, Itasius",
+        "Lemniacus, Itatius",
+        "Reumont, Alfredo von",
+        "Reumont, Alfredo"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alfred"
+          ],
+          "surname": [
+            "Reumont"
+          ]
+        },
+        {
+          "forename": [
+            "Itasius"
+          ],
+          "surname": [
+            "Lemniacus"
+          ]
+        },
+        {
+          "forename": [
+            "Itatius"
+          ],
+          "surname": [
+            "Lemniacus"
+          ]
+        },
+        {
+          "forename": [
+            "Alfredo"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reumont"
+          ]
+        },
+        {
+          "forename": [
+            "Alfredo"
+          ],
+          "surname": [
+            "Reumont"
+          ]
+        },
+        {
+          "forename": [
+            "Alfred"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Reumont"
+          ]
+        },
+        {
+          "personalName": [
+            "Albano"
+          ]
+        },
+        {
+          "forename": [
+            "Lemniacus"
+          ],
+          "surname": [
+            "Itasius"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Reumont"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Alfred_von_Reumont_%28Historiker%29",
+          "label": "https://de.wikipedia.org/wiki/Alfred_von_Reumont_%28Historiker%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:38:03Z",
+    "gnd_query_biographical_data": "1808-1887",
+    "gnd_query_name": "reumont, alfred von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2247,
+  "name": "Reumont, Alfred von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 407; ADB XXVIII, 284",
+  "updated": "2026-06-11 13:29:24.278Z",
+  "uri": "https://d-nb.info/gnd/116450932",
+  "editor": ""
+}

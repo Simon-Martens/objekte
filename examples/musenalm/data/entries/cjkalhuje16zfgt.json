@@ -1,0 +1,85 @@
+{
+  "annotation": "Hrsg.: K. H. Heydenreich; dieser wohl Autor der unbezeichneten Beiträge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S W, röm: SS I-XLII Vrwrt d Hrsg, ar: SS 43-88, röm1: SS I-LIV, ar1: SS 1-166, 2 BB I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1797",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3082,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Martini)",
+  "places": [],
+  "preferred_title": "Taschenbuch, Philosophisches für denkende Gottesverehrer 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; L/R 177; Goed VII, 274",
+  "responsibility_statement": "K. H. Heydenreich",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.368Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "36zznju7xse519i",
+    "5mfr4rnlv5r3cac",
+    "uo91eyi90zmsjln",
+    "z391xj77247rlp0",
+    "clsga46tm052oag",
+    "v7oua7fol7po6iz",
+    "8vw09cknjak3st5",
+    "0m71xd602yi3ds4",
+    "69e2d6tsb9dzmtw",
+    "fkc3leunjfzrud6",
+    "4z3ylnz0atlpyng",
+    "bntc6nrkporzs2z",
+    "knu9nt9eqrp6q8n",
+    "lruxw9l0f5vkcms",
+    "vpymj4ml6h28i9u",
+    "7u8muogrdlta1v9",
+    "kxtxg7oq6jmqcs7",
+    "llvcw93txg5vhf8",
+    "bt2t1eywoxvzwio",
+    "lunbnj2ojhtvx57",
+    "rgd6vh99f4lapt9",
+    "9qhvj927c9kzz5w",
+    "9o85n2yp2kw1e4t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.456Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.456Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "jxamwpo6b75au5s"
+    }
+  ]
+}

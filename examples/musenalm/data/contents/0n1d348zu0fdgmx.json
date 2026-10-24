@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Du bist heute gar sehr vergnügt, sagte Freund Albert zu seinem alten Lebens- und Handelsgenossen Willibald, indem er das Glas mit dem goldenen Rheinweine zum Anstoß erhob,",
+  "language": [],
+  "musenalm_id": 91843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Feste. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Weichselbaumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Feste. / Erzählung",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.276Z",
+      "agent": "youdizb7xdzn3qv",
+      "source_id": "s5t94ybauus7fe6"
+    }
+  ]
+}

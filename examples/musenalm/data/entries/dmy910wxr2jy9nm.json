@@ -1,0 +1,67 @@
+{
+  "annotation": "# K 30 nennt nur Jg 1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch für Winterabende, Das 1844",
+    "norm": "",
+    "biblio": 405515,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1651,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (Gutsch u. Rupp)",
+  "places": [
+    "ouysrvcrf9nrnri"
+  ],
+  "preferred_title": "Buch für Winterabende, Das 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30 #; nicht bei L/R",
+  "responsibility_statement": "M. Honek",
+  "subtitle_statement": "",
+  "title_statement": "Das / Buch für Winterabende. / Volksbuch und Volkskalender / auf / 1844. / Von M. Honek. / Mit Beiträgen von Karl Andree, Bertold Auerbach, Ao. Bs., / Karl Buchner, A. Lewald, H. B. Oppenheim, Fr. Otte. / Mit Stahlstichen, Lithographien und Holzschnitten. / Karlsruhe. / Druck und Verlag des Artistischen Instituts. / F. Gutsch & Rupp",
+  "updated": "2026-06-11 10:18:55.552Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "cabjyab8k7bcxoa"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.940Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.940Z",
+      "agent": "u6anivo6933cor6",
+      "source_id": "dp5lne6ewsnqb0y"
+    }
+  ]
+}

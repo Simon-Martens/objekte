@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Daß die Welt nicht sei vollkommen, / Wollte nicht mir in den Sinn;",
+  "language": [],
+  "musenalm_id": 100712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Unvollkommenheit der Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Unvollkommenheit der Welt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.820Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "0pc7exwqb94kufs"
+    }
+  ]
+}

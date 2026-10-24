@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung der Canton Uri und Unterwalden« INr 51793, Obj 9 /) s.a. Textbezug Nr 51809, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bürglen / im Canton Uri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König ft.",
+  "scans": [
+    "alm_705_51797_e203un8phv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bürglen / im Canton Uri",
+  "updated": "2007-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.606Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "7n2mpv6brl7bank"
+    }
+  ]
+}

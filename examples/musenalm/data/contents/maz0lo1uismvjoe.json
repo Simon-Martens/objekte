@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Ihr zürnet, weil der heisere Neran / Nicht reden kann:",
+  "language": [],
+  "musenalm_id": 36064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von einem schlechten Redner, / nach dem Martial",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von einem schlechten Redner, / nach dem Martial",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.571Z",
+      "agent": "tvrder99cpa3fos",
+      "source_id": "lkmlolaieerrk9p"
+    }
+  ]
+}

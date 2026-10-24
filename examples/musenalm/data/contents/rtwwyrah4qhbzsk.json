@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus dem Süden von Irland (Sammlung INr 43989, Obj 16) Dem Text vorangestellt: Schönheit lockt Diebe schneller noch als Gold. / Shakspeare",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "In der ersten frischen Kühle eines schönen Juny-Sonntagmorgens verließ Shoresha Hewer (Gevry Howard), schmuck herausgeputzt, seines Vaters kleine Hütte.",
+  "language": [],
+  "musenalm_id": 43991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unbegrabenen Beine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die unbegrabenen Beine",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.750Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "kunomb5dthp1o8n"
+    }
+  ]
+}

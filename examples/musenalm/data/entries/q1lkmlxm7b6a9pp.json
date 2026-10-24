@@ -1,0 +1,80 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS 1-208",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (A. v. Helvig: Die Tageszeiten) 1812",
+    "norm": "~",
+    "biblio": 409223,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4295,
+  "parallel_title": "",
+  "place_statement": "Amsterdam u. Leipzig",
+  "places": [
+    "84fokpvl9sftctt",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch (A. v. Helvig: Die Tageszeiten) 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 107; nicht bei L/R; Goed V, 452, 22, 2",
+  "responsibility_statement": "Amalie von Hellwig",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1812. / Die / Tageszeiten. / Ein Cyklus griechischer Zeit / und Sitte. / In / vier Idyllen. / Von / Amalie von Hellwig, / gebohrne von Imhoff. / Amsterdam und Leipzig, / Kunst und Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:55.436Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "utaxeb1wjek1h0m"
+  ],
+  "contents": [
+    "k364uvwy7q2nsux",
+    "2biuvkccsqjy53q",
+    "ahh2k8v76kidgpf",
+    "41fjv2102tkvesn",
+    "fc96qkxk381ff9i",
+    "4o1tt3f1ppijtcg",
+    "fezunbfr8n1n9jt",
+    "h6nrai9su3xp670",
+    "e5v40vldpb6jd24",
+    "1fk39g8c6g36asq",
+    "4i39qcyptzejhde"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.362Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.362Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "xhmrdleeqbih17a"
+    }
+  ]
+}

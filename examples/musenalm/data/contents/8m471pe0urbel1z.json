@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder vom Meere (Sammlung INr 22771, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Es schwankt ein Kahn am Ufer hin, / Mein Herz wiegt träumend sich darin,",
+  "language": [],
+  "musenalm_id": 22776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Die Insel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Die Insel",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.122Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "mt7t7wc8f61t23d"
+    }
+  ]
+}

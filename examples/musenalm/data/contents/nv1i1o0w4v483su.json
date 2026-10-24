@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Gang in's Irrenhaus« von Moritz Markbreiter; INr 86129, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110298,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gast des Irrenhauses",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hasslwander del. A. Seipp. sc.",
+  "scans": [
+    "alm_1596_110298_ap5cw51sa0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gast des Irrenhauses",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.244Z",
+      "agent": "vllgarlnpg4orfd",
+      "source_id": "dd55qngd8g1cvj4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.244Z",
+      "agent": "rb0is2za5c4lggc",
+      "source_id": "su1bzlewowtnde2"
+    }
+  ]
+}

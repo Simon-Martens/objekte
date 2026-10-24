@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 95130, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Ich hoffte einst auf schöne Tage / Und lauschte mit erschloss'ner Brust",
+  "language": [],
+  "musenalm_id": 95131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbei",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbei",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.547Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.547Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "7mf3v59kl5tqiwb"
+    }
+  ]
+}

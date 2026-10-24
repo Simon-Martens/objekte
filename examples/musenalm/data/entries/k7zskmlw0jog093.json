@@ -1,0 +1,61 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach (Seckendorf) 1808",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-12-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4769,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Musenalmanach (Seckendorf) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 81; L/R 39; Goed IV. 370, 49; Goed VIII. 65, 102",
+  "responsibility_statement": "Seckendorf",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.999Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.420Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.420Z",
+      "agent": "snjzg3ez48mced1",
+      "source_id": "eh0z4xln10fcgub"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Auswahl aus Luthers freundschaftlichen Briefen, von den Jahren 1517-1546 (Sammlung INr 48445, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Unserm günstigen Herrn, Doctori Martino Luthern, Predigern zu Witternberg. Wir Droßeln, Amseln, Finken, Hänflinge, Stieglitzen, sammt andern frommen, ehrbaren Vögeln, die diesen Herbst über Wittenberg reisen sollen,",
+  "language": [],
+  "musenalm_id": 48462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scherzhafte Klage der Gesangvögel an Luther, / Wolfgang Siebergern's wegen. / (Vom Jahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scherzhafte Klage der Gesangvögel an Luther, / Wolfgang Siebergern's wegen. / (Vom Jahr",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.288Z",
+      "agent": "60x0fj7vzerrc38",
+      "source_id": "9pw1l9nb7ub9ikp"
+    }
+  ]
+}

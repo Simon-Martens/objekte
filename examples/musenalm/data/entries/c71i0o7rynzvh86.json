@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1-404",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1839",
+    "norm": "~",
+    "biblio": 101008,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 65,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1839. / Neue Folge. / Erster Jahrgang. / Mit dem Bildnisse Lamartine's. / Leipzig: / F. A. Brockhaus. / 1839",
+  "updated": "2026-06-11 10:18:54.888Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "s7m19k3edlhfa28"
+  ],
+  "contents": [
+    "cpn0kt8na8z6ug4",
+    "tib4r84f24f5g82",
+    "4525ga70humnuno",
+    "1okkk34zi5317fa",
+    "osq1oqx8t2atbyt",
+    "6dsxme37jkbllix",
+    "2bbljy3hv84kbzn",
+    "ndblpm1c0ml5tfq",
+    "50a6zydy9keer8e",
+    "jcv91xevr7auwk1",
+    "0i199j2nqsjo6u4",
+    "0od3tdafb86hr19",
+    "63h177ijcsrs1gw",
+    "0hhnwgotfs3tsf1",
+    "zcns4pmhjgf349v",
+    "9mzt4nh363m3eoo",
+    "q32vbcgk7hjprm8",
+    "1aj7rkdcjby9nxx",
+    "vrvqeb0c7o2v5pe",
+    "2kssiysodcdxy9v",
+    "auryct8mpl5cas1",
+    "qtecpw420ia4l00",
+    "5kwiu0190k8vcny",
+    "dx70nnds5ip2tl1",
+    "s71yc2bhx31fai9",
+    "tse3vdwbyb21unk",
+    "nkggn4u8lbq9jyi",
+    "b6645hn7yvmgd4d",
+    "ayuitvwbkcz8ozo",
+    "vptns6k0nh93ig5",
+    "50pl54e3gk9zwre",
+    "t3axzzskl9vwdic",
+    "tq6t3jpd3rpn0na",
+    "lz59hg2n5rb65im",
+    "6m00hlw0hitgdce",
+    "7pbvjl4r32j289h"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.603Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.603Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "9x415hxsreqabyd"
+    }
+  ]
+}

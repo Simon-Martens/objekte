@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Von reiner Lieb' erfüllet, / Erschein ich, Gott, vor dir.",
+  "language": [],
+  "musenalm_id": 88873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedanken am Morgen. / Nach der Melodie: Hier schlummern / meine Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Bramigk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedanken am Morgen. / Nach der Melodie: Hier schlummern / meine Kinder",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.028Z",
+      "agent": "9kyh61jrfw5dhw4",
+      "source_id": "s6p59s0cyf7qwh6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem einleitenden Gedicht INr 86731, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Dieses Liedchen, nach einer einfachen, aber liedlichen Melodie Adolf Müller's vor mich hintrillernd, wanderte ich in Sonnenschein und Morgenluft lustig feldein.",
+  "language": [],
+  "musenalm_id": 86732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der bezauberte Baum. Novellette]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der bezauberte Baum. Novellette]",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.192Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "wjvvieetrqwweyf"
+    }
+  ]
+}

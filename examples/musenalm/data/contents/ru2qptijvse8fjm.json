@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.152Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Komm, Freund! der junge Lenz belebt, / Was schwimmt und was in Lüften schwebt!",
+  "language": [],
+  "musenalm_id": 35651,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 170,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung / auf das Land",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung / auf das Land",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "fisklvtyridxom7"
+    }
+  ]
+}

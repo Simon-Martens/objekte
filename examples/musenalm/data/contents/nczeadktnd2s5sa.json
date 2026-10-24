@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Mai, nummeriert 8; Illustration zu »Gegenstücke aus dem menschlichen Leben« s.Textbezug INr 130759, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130743,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschäftszimmer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & fec.",
+  "scans": [
+    "alm_444_130743_aej9bq2njr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geschäftszimmer",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.076Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "df9t5uijgoi74ts"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Mädchen in der Waldhütte« in: Taschenbuch für häusliche und gesellschaftliche Freuden 1799, INr 35497",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "er blieb stehen, keine Silbe entgieng seinem lauschenden / Ohre / S. Langs Almanach 99",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 1799",
+  "scans": [
+    "alm_489_35696_kd66sg27up.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "er blieb stehen, keine Silbe entgieng seinem lauschenden / Ohre / S. Langs Almanach 99",
+  "updated": "2003-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.756Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "wspjhh2n26063k1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tirol (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Hei, nur frisch den Wanderstab genommen / Und mit Einem Ruck aus Hof und Haus!",
+  "language": [],
+  "musenalm_id": 99567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Amerika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Gigl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Amerika",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.853Z",
+      "agent": "a4c7kvlookqn9md",
+      "source_id": "emcwi659xi4s9md"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Auszüge aus dem Achlak al-mohseni (Sammlung INr 128791, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Ein gerechter Fürst ist der Schatten Gottes auf Erden, in welchem die vom Sonnenstrahle der Ungerechtigkeit gesengten Menschen Kühlung und Ruhe finden.",
+  "language": [],
+  "musenalm_id": 128792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gerechtigkeit und Völkerliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gerechtigkeit und Völkerliebe",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.964Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "uytqneqhk8owyu4"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert I. Illustration zu »Scenen aus der Familie Ehrenberg. 1. Charlotte Waller« INr 48331, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48295,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott weiß es, wie lieb mir meine Kinder sind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. D. Schubert del. Meno Haas sc. Berlin 1812",
+  "scans": [
+    "alm_658_48295_ph2gkpijui.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott weiß es, wie lieb mir meine Kinder sind",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.646Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "iaa05uzqem3t90h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.646Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "icv1czfogu3c7vi"
+    }
+  ]
+}

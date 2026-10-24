@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisklänge. An J. W. v. Göthe und Fr. Rückert (Sammlung INr 68056, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "In dem schönsten Mai, als mich zwar flüchtige, / Aber heil'ge Liebesgluth beseelt,",
+  "language": [],
+  "musenalm_id": 68058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In dem schönsten Mai, als mich zwar flüchtige, / Aber heil'ge Liebesgluth beseelt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.225Z",
+      "agent": "xojpiwzkdga93tk",
+      "source_id": "99ezwgfv38glmox"
+    }
+  ]
+}

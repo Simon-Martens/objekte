@@ -1,0 +1,131 @@
+{
+  "annotation": "",
+  "biographical_data": "",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.518Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Gründete 1949 in Delmenhorst-Adelheide die Firma L. Wolff Maschinenbau"
+      ],
+      "dateOfBirth": [
+        "1913-05-25"
+      ],
+      "dateOfDeath": [
+        "1998-02"
+      ],
+      "describedBy": {
+        "dateModified": "2024-06-16T16:07:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-35",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-35"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#4",
+          "label": "Katalogisierungslevel 4"
+        },
+        "id": "https://d-nb.info/gnd/1035168111/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1035168111",
+      "id": "https://d-nb.info/gnd/1035168111",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011382-6",
+          "label": "Delmenhorst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Schevenhütte"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011382-6",
+          "label": "Delmenhorst"
+        }
+      ],
+      "preferredName": "Wolff, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Wolff"
+        ]
+      },
+      "professionOrOccupationAsLiteral": [
+        "Unternehmer",
+        "Maschinenbaumeister",
+        "Flugzeugmechaniker",
+        "Schmied"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/302923959"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1035168111/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ]
+    },
+    "gnd_candidate_count": 10,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T13:24:30Z",
+    "gnd_query_biographical_data": "",
+    "gnd_query_name": "wolff, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3185,
+  "name": "Wolff, Ludwig",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "https://www.deutsche-biographie.de/pnd1144395402.html [30.09.2020]",
+  "updated": "2026-06-11 13:29:25.843Z",
+  "uri": "https://d-nb.info/gnd/1035168111",
+  "editor": ""
+}

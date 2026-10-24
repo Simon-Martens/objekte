@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Es lebe Karl der Große, / Ein ächter deutscher Mann! / Und jeder Deutsche stoße / Mit seinem Becher an!",
+  "language": [],
+  "musenalm_id": 42487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied / am Namenstag Karls des Großen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied / am Namenstag Karls des Großen",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.958Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "tf07w61tcoqtgf2"
+    }
+  ]
+}

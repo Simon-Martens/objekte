@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117141, Ob 41",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ludwig der Eilfte von Frankreich / Liebte Gesellschaft bei Tische,",
+  "language": [],
+  "musenalm_id": 117143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Neugeadelte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Neugeadelte",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.599Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.599Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "d1ci5pyqtgi9u6r"
+    }
+  ]
+}

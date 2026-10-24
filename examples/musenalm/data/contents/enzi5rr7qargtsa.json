@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 123457, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Der Körper schliesst dich ein in enge Schranken, / Dem mächt'gen Zwange muss der Geist sich / fügen,",
+  "language": [],
+  "musenalm_id": 123461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IIII. / Elysium",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IIII. / Elysium",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.770Z",
+      "agent": "nvdnek6niibgjex",
+      "source_id": "i6a04f6dm3hx1ee"
+    }
+  ]
+}

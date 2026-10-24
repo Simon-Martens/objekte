@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Gang nach dem Eisenhammer« von Fr. Schiller s. Textbezug INr 39112, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39111,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang nach dem Eisenhammer. / So gehe denn mein Kind und sprich / In Andacht ein Gebet für mich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+  "scans": [
+    "alm_513_39111_rxfty1skvy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang nach dem Eisenhammer. / So gehe denn mein Kind und sprich / In Andacht ein Gebet für mich",
+  "updated": "2005-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.007Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "4xbz88v1mv4j15u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.007Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "pnf8ly7afzyxto9"
+    }
+  ]
+}

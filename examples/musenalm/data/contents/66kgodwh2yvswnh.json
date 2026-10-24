@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 42116-42124, Obj 26-34 /) II. Gedichte (Sammlung INr 42113, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42115,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder der Liebe / (nachträgliche Blüthen aus der Jugendzeit.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder der Liebe / (nachträgliche Blüthen aus der Jugendzeit.)",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.908Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "br6diwtcybz7b8m"
+    }
+  ]
+}

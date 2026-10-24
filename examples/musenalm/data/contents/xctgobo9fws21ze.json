@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Lehrlings Lieder, dem verehrten Meister Ludwig Uhland geweiht (Sammlung INr 75015, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "Was ich von süßer Liebe euch gesungen / Sind Träume nur und heißes Dichtersehnen;",
+  "language": [],
+  "musenalm_id": 75020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekenntniß",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.818Z",
+      "agent": "knoskc7ee942ezb",
+      "source_id": "nx6pdo3kf39leqh"
+    }
+  ]
+}

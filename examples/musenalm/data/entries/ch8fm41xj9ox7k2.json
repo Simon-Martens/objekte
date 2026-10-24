@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Weihnachtsblüthen 1860",
+    "norm": "",
+    "biblio": 405963,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3526,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hallberger)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Weihnachtsblüthen 1860",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 174; nicht bei L/R",
+  "responsibility_statement": "Dr. Gustav Plieninger",
+  "subtitle_statement": "",
+  "title_statement": "Weihnachtsblüthen. / Ein / Taschenbuch / für / die Jugend / auf das Jahr / In Verbindung mit Andern / herausgegeben / von / Dr. Gustav Plieninger. / Dreiundzwanzigster Jahrgang. / Mit acht Bildern. / Stuttgart. / Druck und Verlag Eduard Hallberger. / 1860",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "items": [
+    "siifol5xeheapo4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.956Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.956Z",
+      "agent": "d5fnfuwmwqfsxjp",
+      "source_id": "h17lludo03wjfo5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.447Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.447Z",
+      "agent": "biz64svfje4o2xo",
+      "source_id": "zjko9f1v8zi9juz"
+    }
+  ]
+}

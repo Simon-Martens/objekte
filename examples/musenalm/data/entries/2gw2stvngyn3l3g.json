@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Erfahrung für gebildete Leser 1805",
+    "norm": "",
+    "biblio": 200095,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2659,
+  "parallel_title": "",
+  "place_statement": "Schwerin",
+  "places": [
+    "yoialihr88jp8sh"
+  ],
+  "preferred_title": "Taschenbuch der Erfahrung für gebildete Leser 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 115; nicht bei L/R; Goed VIII. 62, 73",
+  "responsibility_statement": "Ehrenhaus",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / der / Erfahrung / für gebildete Leser. / Jahr 1805. / Mit einem Anhange vermischten / Inhalts / von / EHRENHAUS / SCHWERIN / gedruckt mit Bärensprungschen Schriften",
+  "updated": "2026-06-11 10:18:55.452Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "142a6iyolgqdyes"
+  ],
+  "contents": [],
+  "agents": []
+}

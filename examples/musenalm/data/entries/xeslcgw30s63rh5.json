@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Delphin, Der (Mundt) 1838",
+    "norm": "",
+    "biblio": 106509,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1706,
+  "parallel_title": "",
+  "place_statement": "Altona (Hammerich)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Delphin, Der (Mundt) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 42; nicht bei L/R",
+  "responsibility_statement": "Theodor Mundt",
+  "subtitle_statement": "",
+  "title_statement": "Der Delphin. / 1838. / Ein Almanach, / von / Theodor Mundt. / Mit einem Stahlstich. / Altona, / J. Fr. Hammerich.",
+  "updated": "2026-06-11 10:18:55.606Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "0yoasy4mrh6g0q2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.959Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.959Z",
+      "agent": "51oritw9akg1ukj",
+      "source_id": "bcsztatp3c29gsa"
+    }
+  ]
+}

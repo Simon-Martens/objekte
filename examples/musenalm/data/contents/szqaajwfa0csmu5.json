@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Das beste Bier im ganzen Nest, / Das schenkt Margreth am Thore,",
+  "language": [],
+  "musenalm_id": 45381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margreth am Thore",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Roquette",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Margreth am Thore",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.459Z",
+      "agent": "3dic1qz3r9hhz39",
+      "source_id": "u5b4s3io39zj34n"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Ihr Knaben, rosig wie der Mai, / Der Tag ist schwül, herbei! herbei! / Flink tummelt euch zum Bade!",
+  "language": [],
+  "musenalm_id": 1307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied der Nixen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "MATTHISSON",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied der Nixen",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.893Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "pvft8zqj1a1rgz1"
+    }
+  ]
+}

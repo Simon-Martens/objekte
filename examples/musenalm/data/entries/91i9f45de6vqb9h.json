@@ -1,0 +1,101 @@
+{
+  "annotation": "Jedem Monat des Kalendariums 1783 ist je eine Seite Politischer Kalender (in Tabellenform, Untertitel: Politische Feste und Jahrmärkte),  je 2 Seiten Historischer Calender (fortlaufender Text: Denkwürdigste Begebenheiten aus der Helvetischen Geschichte) beigegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT, 26 BB Kal darin 6 GG, 3BB gTab, SS 1-263 darin G, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1783",
+    "norm": "~",
+    "biblio": 200398,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 683,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / für das Jahr / 1783. / Zürich, / bey Geßner",
+  "updated": "2026-06-11 10:18:55.857Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "35h363vrpsfzvzf"
+  ],
+  "contents": [
+    "6zp6a80gfprvm9d",
+    "f54iz2ovzzd48it",
+    "puwyctxa1wmgrf7",
+    "w5dzo00probcn6w",
+    "wc3n8bum9a9o17c",
+    "yuggkaah0z1k6vj",
+    "67t7axptbwdeu5m",
+    "l9pwrra3l87ppmv",
+    "rw0k0l8lrodry10",
+    "uhcmovshq5b60fs",
+    "6x2pxv3zadhlbmh",
+    "ksltd1anaom14r4",
+    "g5m662nqmbal6m0",
+    "x3aqlop6c7m1ph2",
+    "i7dweqgtdehv2wa",
+    "4das86bfazhz53y",
+    "4rsftlte9x9a1bp",
+    "dksjx7q1bxofvj6",
+    "gs15q1qjlqkiswr",
+    "r9hstq61gmlny9u",
+    "wuxhgynun76vq76",
+    "guckx74sb6povf9",
+    "gftw5ej0y2oxfuo",
+    "9udrrzf83nooc0o",
+    "8pi4v9gbtfnnfak",
+    "uim5pqwwo16avvm",
+    "ds9g3cyr2fa98ps",
+    "xrgef9geztgbo7z",
+    "f2lrc3wfp9q7dcc",
+    "ap1l0t7loxljqx7",
+    "dy8k1cbqbaoor8c",
+    "9o8uv0lwf949q3m",
+    "w3537znze5fbhsw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.898Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.898Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "74ovo1a6kqhi4gy"
+    }
+  ]
+}

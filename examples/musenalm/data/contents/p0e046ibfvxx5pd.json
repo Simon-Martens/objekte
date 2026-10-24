@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75123,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FIGARO'S HOCHZEIT / III. Act. / Chor. Ihr treuen Geliebten, / Mit Kränzen geschmückt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_2370_75123_q6itp6113d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FIGARO'S HOCHZEIT / III. Act. / Chor. Ihr treuen Geliebten, / Mit Kränzen geschmückt",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "o3nnv66we9fzy7x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "yxhyn6abszzxn10"
+    }
+  ]
+}

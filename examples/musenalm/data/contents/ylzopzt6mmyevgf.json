@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem I-Verz im Titelblatt /) mit einer Illustration s. Graphik INr 72121, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Wintermond hatte seinen weißen Flockenmantel über Bäume und Pfade des fürstlichen Schloßgartens geworfen und droben funkelten die Sterne des Himmels in wundervoller Pracht.",
+  "language": [],
+  "musenalm_id": 72120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Büßenden #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Büßenden #",
+  "updated": "2010-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.703Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "tsqfi3fxnouj2ti"
+    }
+  ]
+}

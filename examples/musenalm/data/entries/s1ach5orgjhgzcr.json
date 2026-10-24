@@ -1,0 +1,95 @@
+{
+  "annotation": "einziger Jahrgang /) # lt. Goed VII. 199, 14 ist als Herausgeber und Autor der 5 Prosabeiträge Friedrich Karl Lang anzunehmen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, W, 6 GG, SS 1-136",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für romantische Lektüre 1798",
+    "norm": "~",
+    "biblio": 112714,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2857,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Guilhaumann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch für romantische Lektüre 1798",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 132; nicht bei L/R, Goed VII. 199, 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / ROMANTISCHE / LECKTÜRE / 1798. / mit / Nachbildungen merkwürdiger / Natur Scenen / Heilbronn am Neckar im Industrie Comtoir / und Frankfurt am Main bei Guilhaumann",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "90g4ro7mrfwfnjh"
+  ],
+  "contents": [
+    "f0wzeswij1e0vox",
+    "zdo1tqzkqiwj382",
+    "0d9ijn98rv7zvlh",
+    "x3z4x8klg9og75e",
+    "hoc8f7axye5y58s",
+    "r9pl85t333mcnpa",
+    "nmfqe6g57dqe663",
+    "ik0ed34wmjtd3rc",
+    "xsks18bluqigsi4",
+    "g43w0f4jfhey3r7",
+    "ytlzla5kvh1pxg0",
+    "ix2qu2gmfh8237k",
+    "mlt1ymutr3qtgiz",
+    "6cltofke9tbqit3",
+    "5wlf7gbkujj6o7p",
+    "vknkm44frbjcdt0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.938Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.938Z",
+      "agent": "fao1gdwq2he58u0",
+      "source_id": "ygfrz98ittclg6k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.154Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.154Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "ypofzih2mkiiyno"
+    }
+  ]
+}

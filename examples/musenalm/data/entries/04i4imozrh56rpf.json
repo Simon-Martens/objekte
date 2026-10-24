@@ -1,0 +1,56 @@
+{
+  "annotation": "Titel verso lautet: ANA / aus dem / Lehrgebiet der Wissenschaft. / Non cuncta singulis - sed singula cunctis. / 1841",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pallas Athene 1841",
+    "norm": "",
+    "biblio": 200899,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2378,
+  "parallel_title": "",
+  "place_statement": "Prag und Gitschin",
+  "places": [
+    "41u981h5h6qevlu",
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Pallas Athene 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Anton Fähnrich",
+  "subtitle_statement": "",
+  "title_statement": "PALLAS ATHENE / Ein / aphoristisches / Taschenbuch / für das Jahr / 1841. / Von / Anton Fähnrich, / Doctor der Philosophie an der Karl Fer- / dinands Universität, k.k. Professor am Gym- / nasium zu Gitschin. / Der reine Ertrag ist zur Begründung eines / Stiftungsplatzes in der Versorgungs und Be- / schäftigungsanstalt für erwachsene Blinde / in Böhmen bestimmt. / 2r. Jahrgang. / PRAG U. GITSCHIN",
+  "updated": "2026-06-11 10:18:55.325Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "hzs5srckyqlsjta"
+  ],
+  "contents": [],
+  "agents": []
+}

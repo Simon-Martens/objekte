@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober /) Nummeriert VI. /) IIllustration zu »Scenen aus der Familie Ehrenberg 2.« INr 47933, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120500,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vertrauen Sie dem Freund, was Ihnen / so schwer auf dem Herzen liegt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert d. 1807 Fr. Bolt sc.",
+  "scans": [
+    "alm_653_120500_pzs7b4myk7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vertrauen Sie dem Freund, was Ihnen / so schwer auf dem Herzen liegt",
+  "updated": "2007-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.626Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "160ufoj9dae8os9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.626Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "tf533q2e32k1sqc"
+    }
+  ]
+}

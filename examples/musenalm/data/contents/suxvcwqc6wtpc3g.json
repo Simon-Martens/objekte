@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Ritornelle (Sammlung INr 1636, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Der Liebe Rausch verstehn nur trunkne Sinne /Stets unergründlich bleibet dem Verstande",
+  "language": [],
+  "musenalm_id": 19216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe Rausch verstehn nur trunkne Sinne /Stets unergründlich bleibet dem Verstande…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.081Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "mgn6wmqqpvlgsuz"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Bayerns Landwehr 1842",
+    "norm": "",
+    "biblio": 407249,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-04-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4841,
+  "parallel_title": "",
+  "place_statement": "Nürnberg ( Bäumler)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch für Bayerns Landwehr 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 182",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Bayerns Landwehr / enthaltend / eine kurze pragmatische Geschichte der / Bürgerbewaffnung und ihrer Entstehung / an bis auf unsre Zeit. / Mit collorirten Abbildungen und dem Bildniße / Seiner Majestät Ludwig I. / Königs von Bayern. / Nürnberg, / in Commission bei Gottlieb Bäumler",
+  "updated": "2026-06-11 10:18:55.822Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "6swviyur42y2xb1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.521Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.521Z",
+      "agent": "ms1981ng27n9bci",
+      "source_id": "gqicbpr2lv4z5t8"
+    }
+  ]
+}

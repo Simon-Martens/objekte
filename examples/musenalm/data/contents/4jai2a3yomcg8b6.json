@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Wo ist die Zeit, da leicht und unbefangen / Das freye Herz im jungen Busen schlug,",
+  "language": [],
+  "musenalm_id": 1191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnet",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.711Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "6fdqk7nwbx66z2b"
+    }
+  ]
+}

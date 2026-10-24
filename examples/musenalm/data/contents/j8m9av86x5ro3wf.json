@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration zur Strophe s. Graphik INr 64401, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Seht da die Verse, die er schrieb / Und seine Gluth gesteht!",
+  "language": [],
+  "musenalm_id": 64395,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang nach dem Eisenhammer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang nach dem Eisenhammer",
+  "updated": "2009-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.050Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "g1i8jfld6y0x3hh"
+    }
+  ]
+}

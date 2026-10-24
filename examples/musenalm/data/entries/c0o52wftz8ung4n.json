@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T u I-Verz, SS 1-287 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Abendstunden 1820-1",
+    "norm": "~",
+    "biblio": 406321,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2010-10-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3620,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Abendstunden 1820-1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5; nicht bei L/R; Goed VIII. 101, 225",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Abendstunden. / Erste Sammlung. / Inhalt: […] / Mit vier Kupfern nach Zeichnungen von / J. H. Ramberg. / Leipzig, / bei Joh. Fr. Gleditsch, 1820",
+  "updated": "2026-06-11 10:18:54.693Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "87z4zh5b8bmuuko"
+  ],
+  "contents": [
+    "hsqj008323tcc21",
+    "7q8ytmroigrevt7",
+    "q7hhw3hhoy215qi",
+    "mtsspi4zdaggmw6",
+    "j7eqzoaktmf05qb",
+    "64a2kydjc73tikp",
+    "qmlukzpwwevl9h6",
+    "37r4wxit3mpsao8",
+    "kg5ua7ufto7sfj0",
+    "hf1xmzrhc24kolg",
+    "t1mblecgey0bw1j",
+    "ma9ayfx0hi7bx4u",
+    "csf3y4vrqysj5gj",
+    "a1lx6cbu209k6if",
+    "m4w1b5xyxslpuou",
+    "et9m1b9zt3u0518",
+    "lozx682ez8p35e5",
+    "13v7ffkaify1ge5",
+    "kkchkttgl5zd6ds",
+    "bj3r47hv0w916sx",
+    "a5sgs94ffyqqxlr",
+    "8l1qbt9i6akmsw6",
+    "q2gww53xammuqz0",
+    "j8a5kkcepww40j0",
+    "bxgygbmag8d88qs",
+    "kww0tzii8detsmg",
+    "tr1ed4f13m1k5q1",
+    "e9h64aoe8dn3xr2",
+    "b2fmt7wslkzg808",
+    "8y9ii5rymjs3ou4",
+    "37clmkfm95vrysc",
+    "lwvtq7nxg3p3z4q",
+    "e0k99697ex5vhol",
+    "mx05oaxvh45j6sj",
+    "i1ovwq4f9u3syv5",
+    "xw60uzmkmjpteql",
+    "hl41tvrvk61ujwc",
+    "qdj67pbxwdy37c3",
+    "czia93ahey67d12",
+    "sk2ubaipljwaf78",
+    "bs1lm88p53ezf9a"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.434Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.434Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "p68dig550ss6crk"
+    }
+  ]
+}

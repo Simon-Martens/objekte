@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz. Holzschnitt s. Textbezug INr 33157, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenlandschaft #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Repton; Gubitz",
+  "scans": [
+    "alm_461_33173_9kqbne6a3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Morgenlandschaft #",
+  "updated": "2003-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.700Z",
+      "agent": "ig29hg029ql4kvx",
+      "source_id": "maazrsqxgog5kih"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.700Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "xzeaknwnzq25piz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Die Aufnahme des vorigen Jahrgangs war so beschaffen, daß es Unbescheidenheit seyn würde, diesem eine noch bessere zu wünschen.",
+  "language": [],
+  "musenalm_id": 61915,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Aufnahme des vorigen Jahrgangs war so beschaffen, daß es Unbescheidenheit seyn würde, diesem eine noch bessere zu wünschen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.062Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "m4f2bm4o9w417aq"
+    }
+  ]
+}

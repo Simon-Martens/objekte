@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Soll ich von deinem Tode singen, / O Marianne, welch ein Lied!",
+  "language": [],
+  "musenalm_id": 15107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenklage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenklage",
+  "updated": "2001-05-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.651Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "5luhvy647nibl3k"
+    }
+  ]
+}

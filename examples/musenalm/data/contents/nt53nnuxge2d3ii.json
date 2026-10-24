@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Treu dir selber erzeihst du, mein Vaterland! ähnlich / dir selbst auch / Einen gepriesenen Schmuck, Sänger von edlem / Gemüth.",
+  "language": [],
+  "musenalm_id": 53037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schweizerdichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schweizerdichter",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.574Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "l5s5go67fuhb144"
+    }
+  ]
+}

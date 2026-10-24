@@ -1,0 +1,45 @@
+{
+  "annotation": "Prolog zu »Albrecht Dürer in Venedig« INr 34493, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es zieht ein Name durch die deutschen Gauen, / Dem höher jedes Herz entgegenschwillt;",
+  "language": [],
+  "musenalm_id": 34494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog",
+  "updated": "2003-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.816Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "9fs2e0436ig8m16"
+    }
+  ]
+}

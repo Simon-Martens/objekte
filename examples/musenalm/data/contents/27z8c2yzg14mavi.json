@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116860, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Das Veilchen haucht in Nordes Weh'n / Zum Wandrer auf ein banges Fleh'n.",
+  "language": [],
+  "musenalm_id": 116862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Vom sterbenden Veilchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Vom sterbenden Veilchen",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.542Z",
+      "agent": "em3dkpa48ys3kzf",
+      "source_id": "99ftgnvqxvn35dt"
+    }
+  ]
+}

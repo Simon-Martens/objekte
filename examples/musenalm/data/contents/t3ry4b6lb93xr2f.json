@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechstes Jahr (Sammlung INr 48723, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Du, der werth mir ewig bleibt, / Und nicht Einmahl kommt, nicht Einmahl schreibt,",
+  "language": [],
+  "musenalm_id": 48726,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel, / an Herrn Prediger C. H. Schultze in Döbritz. / (Sonntags den 6. März.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel, / an Herrn Prediger C. H. Schultze in Döbritz. / (Sonntags den 6. März.)",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.002Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "e5a163va359p7ik"
+    }
+  ]
+}

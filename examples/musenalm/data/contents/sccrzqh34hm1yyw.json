@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 26785, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Thu' auf die Pforte Deine, / Du Liebster, den ich meine, / Ein Sünder klopfet an.",
+  "language": [],
+  "musenalm_id": 26789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heimkehr",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.277Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "lb5fkxsmoskttrk"
+    }
+  ]
+}

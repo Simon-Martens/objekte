@@ -1,0 +1,263 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1820",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.520Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Herausgeber von Theateralmanachen und -taschenbüchern in Wien."
+      ],
+      "dateOfBirth": [
+        "1770-12-05"
+      ],
+      "dateOfDeath": [
+        "1820-06-15"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T20:53:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/138515352/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Ziegelhauser"
+          ]
+        },
+        {
+          "forename": [
+            "Josepha"
+          ],
+          "surname": [
+            "Ziegelhauser"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "138515352",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/138515352",
+      "oldAuthorityNumber": [
+        "(DE-588a)138515352"
+      ],
+      "periodOfActivity": [
+        "1811-1847"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Ziegelhauser, Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried"
+        ],
+        "surname": [
+          "Ziegelhauser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4164760-9",
+          "label": "Komiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/90800591"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55127380"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/138515352/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000065009410"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd138515352.html#adbcontent"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Ziegelhauser, Gottfried Julius",
+        "Ziegelhauser, Georg Julius",
+        "Zigelhauser, Gottfried Julius",
+        "Ziglhauser, Gottfried Julius",
+        "Ziegelhauser, Julius Gottfried"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gottfried Julius"
+          ],
+          "surname": [
+            "Ziglhauser"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Julius"
+          ],
+          "surname": [
+            "Zigelhauser"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Gottfried"
+          ],
+          "surname": [
+            "Ziegelhauser"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Julius"
+          ],
+          "surname": [
+            "Ziegelhauser"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Julius"
+          ],
+          "surname": [
+            "Ziegelhauser"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:26:36Z",
+    "gnd_query_biographical_data": "1770-1820",
+    "gnd_query_name": "ziegelhauser, georg julius"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3227,
+  "name": "Ziegelhauser, Georg Julius",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XLV, 155",
+  "updated": "2026-06-11 13:29:25.892Z",
+  "uri": "https://d-nb.info/gnd/138515352",
+  "editor": ""
+}

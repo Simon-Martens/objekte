@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 77780, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77779,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. Haering",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Korneck fec. G. Alboth sc.",
+  "scans": [
+    "alm_2413_77779_eo5e2484f8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. Haering",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.696Z",
+      "agent": "e06f0hbf7l2b6rs",
+      "source_id": "rq34ctxrilo8wa1"
+    }
+  ]
+}

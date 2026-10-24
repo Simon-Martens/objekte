@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 5 /) Détail aus »Leben des Liederlichen« von Hogarth s. Textbezug INr 79743, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "E",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Hogarth von Riepenhausen gest.",
+  "scans": [
+    "alm_158_79744_l335nxnrdx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "E",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.010Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "amy49s8ild72gc3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.010Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "sv33g5906cv2xse"
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1871",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.412Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Staatsangehörigkeit unklar; wirkte überwiegend in Wien"
+      ],
+      "dateOfBirth": [
+        "1800-08-30"
+      ],
+      "dateOfDeath": [
+        "1871-05-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "הספר&nbsp;: המקהלה או גלריה של שָׁרי ישראל, לונדון [1903]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Max%20Letteris.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Max%20Letteris.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Max%20Letteris.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-09T08:54:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116956267/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1151956910",
+          "label": "Letteris, Gershon ben Zeʾev"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-UA",
+          "label": "Ukraine"
+        }
+      ],
+      "gndIdentifier": "116956267",
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1151956910",
+          "label": "Letteris, Gershon ben Zeʾev"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116956267",
+      "oldAuthorityNumber": [
+        "(DE-588a)116956267",
+        "(DE-588a)131130285",
+        "(DE-588a)125830300"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "לעטעריס, מאיר הלוי"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4355028-9",
+          "label": "Zhovkva"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Letteris, Meir",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Meir"
+        ],
+        "surname": [
+          "Letteris"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb169637353"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83158372"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/3235628"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1912967"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116956267/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116956267"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Max_Letteris"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Max_Letteris"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Max_Letteris"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121182278"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116956267"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_L/Letteris_Meirha-Levi_1800_1871.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116956267.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116956267"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Leṭeris, Meʾir, ha-Leṿi",
+        "Lettris, Meir ha-Levi",
+        "Letteris",
+        "Lēṭērīs, Mēʾîr hal-Lēwî",
+        "Letteris, Max",
+        "Lēttērîs, Mēîr ha-Lēwi",
+        "לטריס, מאיר",
+        "Letteris, M.",
+        "Leṭeris, Mēʾīr",
+        "לעטעריס, מאיר הלוי",
+        "Letteris, Max, Halevy",
+        "Letteris, Meir Halevi",
+        "Leteris, Meir ha-Levi",
+        "Le'te'ris, Me'ir Halewi",
+        "Leṭeris, Meʾir ha-Leṿi",
+        "Le-terîs, Mē-îr hal-Lēwî",
+        "לעטריס, מאיר",
+        "Halewi Leṭeris, Mēir",
+        "Letteris, M. H.",
+        "לעטטעריס, מאיר"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Max"
+          ],
+          "nameAddition": [
+            "Halevy"
+          ],
+          "surname": [
+            "Letteris"
+          ]
+        },
+        {
+          "forename": [
+            "Meir ha-Levi"
+          ],
+          "surname": [
+            "Lettris"
+          ]
+        },
+        {
+          "forename": [
+            "Meir ha-Levi"
+          ],
+          "surname": [
+            "Leteris"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "surname": [
+            "Letteris"
+          ]
+        },
+        {
+          "personalName": [
+            "Letteris"
+          ]
+        },
+        {
+          "forename": [
+            "מאיר"
+          ],
+          "surname": [
+            "לטריס"
+          ]
+        },
+        {
+          "forename": [
+            "Mē-îr hal-Lēwî"
+          ],
+          "surname": [
+            "Le-terîs"
+          ]
+        },
+        {
+          "forename": [
+            "Meʾir"
+          ],
+          "nameAddition": [
+            "ha-Leṿi"
+          ],
+          "surname": [
+            "Leṭeris"
+          ]
+        },
+        {
+          "forename": [
+            "Mēʾīr"
+          ],
+          "surname": [
+            "Leṭeris"
+          ]
+        },
+        {
+          "forename": [
+            "Mēʾîr hal-Lēwî"
+          ],
+          "surname": [
+            "Lēṭērīs"
+          ]
+        },
+        {
+          "forename": [
+            "Mēîr ha-Lēwi"
+          ],
+          "surname": [
+            "Lēttērîs"
+          ]
+        },
+        {
+          "forename": [
+            "Me'ir Halewi"
+          ],
+          "surname": [
+            "Le'te'ris"
+          ]
+        },
+        {
+          "forename": [
+            "מאיר"
+          ],
+          "surname": [
+            "לעטריס"
+          ]
+        },
+        {
+          "forename": [
+            "מאיר"
+          ],
+          "surname": [
+            "לעטטעריס"
+          ]
+        },
+        {
+          "forename": [
+            "מאיר הלוי"
+          ],
+          "surname": [
+            "לעטעריס"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Letteris"
+          ]
+        },
+        {
+          "forename": [
+            "Mēir"
+          ],
+          "surname": [
+            "Halewi Leṭeris"
+          ]
+        },
+        {
+          "forename": [
+            "M. H."
+          ],
+          "surname": [
+            "Letteris"
+          ]
+        },
+        {
+          "forename": [
+            "Meir Halevi"
+          ],
+          "surname": [
+            "Letteris"
+          ]
+        },
+        {
+          "forename": [
+            "Meʾir ha-Leṿi"
+          ],
+          "surname": [
+            "Leṭeris"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Max_Letteris",
+          "label": "https://de.wikipedia.org/wiki/Max_Letteris"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:06:54Z",
+    "gnd_query_biographical_data": "1804-1871",
+    "gnd_query_name": "letteris, max"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1618,
+  "name": "Letteris, Max",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XVIII, 461",
+  "updated": "2026-06-11 13:29:23.562Z",
+  "uri": "https://d-nb.info/gnd/116956267",
+  "editor": ""
+}

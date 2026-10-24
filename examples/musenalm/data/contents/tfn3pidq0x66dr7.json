@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39910, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Wohlauf! Laßt uns die Gläser leeren! / Der Wein erfüllt den Augenblick,",
+  "language": [],
+  "musenalm_id": 39924,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ernstes Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ernstes Trinklied",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.173Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "3pm5x4s9s3v5out"
+    }
+  ]
+}

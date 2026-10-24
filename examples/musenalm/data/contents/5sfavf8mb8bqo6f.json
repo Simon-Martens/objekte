@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. # vollst. Bezeichnung s. Textbezug INr 55811, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55806,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Kuntz.  K. Müller fec. auf Stein v. K. Müller der Wagn. Steindruck)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuntz. # K. Müller fec. auf Stein v. K. Müller der Wagn. Steindruck",
+  "scans": [
+    "alm_753_55806_3k8yvem5bj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.585Z",
+      "agent": "ziafym76n6gr1cm",
+      "source_id": "ezw59koaxnzklr5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.585Z",
+      "agent": "rpwztxof37gz7i4",
+      "source_id": "wvqyc0c19hopg4p"
+    }
+  ]
+}

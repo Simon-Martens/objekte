@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert VI. /) kol. Illustration zu »Weißer Isländischer Falke«  von v. Wildungen INr 69689, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Isländischer weißer Falke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen pinx G. B. fec.",
+  "scans": [
+    "alm_1134_69688_6vkrw6y0ix.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Isländischer weißer Falke",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.261Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "siz6pfovlm86gzj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.261Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "y14lej48doxrrly"
+    }
+  ]
+}

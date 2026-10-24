@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Aus Magdeburg gebürtig, privatisirt jezt in Dresden. Hat eigentlich Theologie studirt, wolte aber nie von etwas reden, wovon er nicht selbst überzeugt war, legte also dieTheologie bei Seite und sprang zu uns herüber.",
+  "language": [],
+  "musenalm_id": 98758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joachim Christian Friedrich / Schulz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Joachim Christian Friedrich / Schulz",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.698Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "5kt6oxz24yy242j"
+    }
+  ]
+}

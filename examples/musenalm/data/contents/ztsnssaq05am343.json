@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Herrlich ruhst auf deinem Felsensitze, / Jungfrau, du in stiller Majestät. / Rosenschimmer färben deine Spitze, / Wenn im Thal der Dämm'rung Schleyer weht.",
+  "language": [],
+  "musenalm_id": 52640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode / an die Jungfrau; / ein Eisberg im Bernerschen Oberlande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hünerwadel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode / an die Jungfrau; / ein Eisberg im Bernerschen Oberlande",
+  "updated": "2007-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.629Z",
+      "agent": "pyh2lmbifvilpio",
+      "source_id": "n9fh5te59hkpjsm"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollst. Bez. an der 1. Illustration /) paginiert 4 /) kol. Illustration zu »Naturgeschichte der gemeinen Kröte« INr 66143, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. f.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. f.",
+  "scans": [
+    "alm_1114_66144_vh5yx7cuct.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.044Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "a6ka9w2zt1hiyqd"
+    }
+  ]
+}

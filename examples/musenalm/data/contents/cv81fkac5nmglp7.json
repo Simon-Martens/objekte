@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Nachtviolen! Liebesklagen! / Oeffnet euch dem Abendhauch.",
+  "language": [],
+  "musenalm_id": 26443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minneboten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottwalt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minneboten",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.447Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "bw787kn39ljk07h"
+    }
+  ]
+}

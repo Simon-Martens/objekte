@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54868, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Was rühmt ihr euch, daß zu ganzen Haufen, / Eure Schüler durch die Lande laufen?",
+  "language": [],
+  "musenalm_id": 54889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schulmeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schulmeister",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.736Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "6qus3z6i3k4b3hw"
+    }
+  ]
+}

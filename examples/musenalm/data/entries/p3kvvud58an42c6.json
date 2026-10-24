@@ -1,0 +1,103 @@
+{
+  "annotation": "§ Monatskupfer Juni fehlt, $ vermutl fehlt Blatt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 15 BB Kal darin § 11 GG, 82 BB, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1771",
+    "norm": "~",
+    "biblio": 405002,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2149,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1771",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Großbrit. / und Churf. Braunschw. Lüneb. / Genealogie- / Calender, / auf / das 1771. Jahr. / Lauenburg, / bey Joh. Georg Berenberg",
+  "updated": "2026-06-11 10:18:55.885Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "items": [
+    "gjv1yu3ptvbwoab"
+  ],
+  "contents": [
+    "xiyoy10jjletpmp",
+    "h3xoc53ofwl8u12",
+    "fvhe56yy3yi5dqo",
+    "4o23674yu1fr7qs",
+    "evtd9zumy69ra5k",
+    "yznx29j0si6ku3g",
+    "zooju9v2j5eiznp",
+    "mwprgna71dnwp2s",
+    "zf25ojlq6k9vlta",
+    "lzss5fcafve84ty",
+    "6lr9qjnv1pd514c",
+    "ju19vpry1frcrns",
+    "udwj3lnxx30myu1",
+    "onud1wb5oxs9k08",
+    "jbfx2uxmwzofn7u",
+    "4rgmlzciig6mj82",
+    "idf3mjvtbgf7jn0",
+    "femer5yci04yrhp",
+    "zm443sd2bjohgx6",
+    "1qt8f8rqi9hoff1",
+    "ema3tuyjtktpesq",
+    "wvfo8wa20naal76",
+    "tb2i9wfhqq4sacq",
+    "czeo9ximy6041fv",
+    "60opiv2f1nevsb5",
+    "p4dgez317i7ubq9",
+    "egb5wy0gmos2ih8",
+    "l5eedmvrpfhjbfe",
+    "k2jk3nq9x2sgb4c",
+    "sq1c43qpp0nncin",
+    "hqpofwx64563rue",
+    "yqhlcr8wfgovur8",
+    "tplm984g8byed0d",
+    "pe5ay8681y11k7z",
+    "9hu19oycaproc78"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.539Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.539Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "15fwggagaj3ewml"
+    }
+  ]
+}

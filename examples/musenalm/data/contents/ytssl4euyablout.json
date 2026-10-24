@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Da kommen Seine Durchlaucht! / Paßt auf ihr Herren! Seht da!",
+  "language": [],
+  "musenalm_id": 2531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Parforce-Jagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gökingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Parforce-Jagd",
+  "updated": "2000-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.977Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "we79of9czr6bw77"
+    }
+  ]
+}

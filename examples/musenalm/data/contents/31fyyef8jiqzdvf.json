@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 29011, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Winter war es, als ich Liebeswonne / Mit der schönen Manon umgetauscht.",
+  "language": [],
+  "musenalm_id": 29013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Männliche Rechtfertigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Männliche Rechtfertigung",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.182Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "fvfnpi0m1w9dk91"
+    }
+  ]
+}

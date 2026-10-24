@@ -1,0 +1,174 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1871",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.506Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1804"
+      ],
+      "dateOfDeath": [
+        "1878"
+      ],
+      "describedBy": {
+        "dateModified": "2014-08-14T21:48:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#6",
+          "label": "Katalogisierungslevel 6"
+        },
+        "id": "https://d-nb.info/gnd/1055213864/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "gndIdentifier": "1055213864",
+      "id": "https://d-nb.info/gnd/1055213864",
+      "preferredName": "Wailly, Gustave de",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustave"
+        ],
+        "prefix": [
+          "de"
+        ],
+        "surname": [
+          "Wailly"
+        ]
+      },
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb124595837"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83045232"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37940022"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q17154242"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055213864/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gustave_de_Wailly"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080451274"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Wailly, Gabriel Gustave de",
+        "Vailly, Gabriel Gustave de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gabriel Gustave"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Vailly"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel Gustave"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Wailly"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T13:17:21Z",
+    "gnd_query_biographical_data": "1804-1871",
+    "gnd_query_name": "wailly, gabriel-gustave de"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3040,
+  "name": "Wailly, Gabriel-Gustave de",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "NBG XLVI, 490",
+  "updated": "2026-06-11 13:29:25.608Z",
+  "uri": "https://d-nb.info/gnd/1055213864",
+  "editor": ""
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 2.  Pag. 85 /) Illustration zu »Précis de l'histoire de la révolution francoise« von J. R. Rabaut INr 79452, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Serment du Jeu de Paume. / Le 20 Juin 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau le Jne. del. V. Langlois Jne. sculp.",
+  "scans": [
+    "alm_3776_79453_7t8fdii9sx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Serment du Jeu de Paume. / Le 20 Juin 1789",
+  "updated": "2012-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.938Z",
+      "agent": "6v2mea0laepybs2",
+      "source_id": "6oxy4hlgt60diw4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.938Z",
+      "agent": "0kgtc47uj17t7xy",
+      "source_id": "kfxznnl8pvk2fb0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "/ VI. Agrionien für das Jahr 1831 (Sammlung INr 75472, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Kannst Du mir wohl den Namen sagen, / Den viele Herrscher schon geführt?",
+  "language": [],
+  "musenalm_id": 75492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Worträthsel von vier Worten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arminia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Worträthsel von vier Worten",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.686Z",
+      "agent": "hv5374zqqlpg3dx",
+      "source_id": "gb8kif7ugmjo8x6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Reliquien aus dem Stammbuche eines Dichters (Sammlung INr 54337, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Viele Bande fesselten stets uns, Freund! anein- / ander; / Eins nur fehlte;",
+  "language": [],
+  "musenalm_id": 54346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.542Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "y8lfh736985bk15"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Welleda und Ganna« von Fouqué s. Textbezug INr 26985, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26982,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welleda und Ganna. / S. 480",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. Fr. Geißler",
+  "scans": [
+    "alm_350_26982_rkdsqhyzgu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Welleda und Ganna. / S. 480",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.212Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "f9mjdlfmxfma8e2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.211Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "v2q8wzqmw79abto"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Woher nahm Liebe Adern Golds, zu weben / Zwey blonde Flechten? Und von welchen Büschen / Die Rosen?",
+  "language": [],
+  "musenalm_id": 71257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / XXVI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / XXVI.",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.204Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "hq4qn8civvux3ci"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.204Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "ni61q4pppgepzfy"
+    }
+  ]
+}

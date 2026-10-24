@@ -1,0 +1,481 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1811",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.291Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/122950-3",
+          "label": "Kaiserlich-Königliches Hof-Burgtheater"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10129551-0",
+          "label": "Königliches Nationaltheater (Berlin)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Pseudonym angegeben nach Hall"
+      ],
+      "dateOfBirth": [
+        "1771-12-26"
+      ],
+      "dateOfDeath": [
+        "1811-07-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Joseph Lange"
+          ],
+          "creditText": [
+            "Wien Museum: https://sammlung.wienmuseum.at/objekt/43976-heinrich-josef-collin-dichter/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Joseph%20Collin.jpg",
+          "license": [
+            {
+              "abbr": "CC BY 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/4.0",
+              "name": "Creative Commons Attribution 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Joseph%20Collin.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heinrich%20Joseph%20Collin.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T08:58:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11852156X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Heinrich Joseph"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119298406",
+          "label": "Collin, Matthäus von"
+        },
+        {
+          "forename": [
+            "Rosalie"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11852156X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/119298406",
+          "label": "Collin, Matthäus von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11852156X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4010393-6",
+        "(DE-588a)138751277",
+        "(DE-588a)11852156X"
+      ],
+      "periodOfActivity": [
+        "1804-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Collin, Heinrich Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Collin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Gayn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Collin, Heinrich Joseph von: Balboa",
+        "Collin, Heinrich Joseph von: Coriolan",
+        "Collin, Heinrich Joseph von: Gedichte",
+        "Collin, Heinrich Joseph von: Kaiser Max auf der Martinswand in Tirol, 1493",
+        "Collin, Heinrich Joseph von: Mäon",
+        "Collin, Heinrich Joseph von: Bianca della Porta",
+        "Collin, Heinrich Joseph von: Regulus",
+        "Collin, Heinrich Joseph von: Lieder österreichischer Wehrmänner",
+        "Collin, Heinrich Joseph von: Polixena"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb105224330"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89007803"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95173519"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q84824"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11852156X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Heinrich_Joseph_von_Collin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Joseph_von_Collin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Heinrich_Joseph_von_Collin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011690052X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11852156X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11852156X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11852156X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11852156X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11852156X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11852156X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Collin, Heinrich J. von",
+        "Collin, ...",
+        "Collin, Heinrich Joseph",
+        "Collin, Heinrich von",
+        "Gayn, V.",
+        "Collin, H. J. von",
+        "Collin, Heinrich Josef von",
+        "Collin, Heinrich Joseph Edler von",
+        "Collin, J. H. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Gayn"
+          ]
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "H. J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Joseph Edler"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Joseph"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Collin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Joseph_von_Collin",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Joseph_von_Collin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:08:00Z",
+    "gnd_query_biographical_data": "1771-1811",
+    "gnd_query_name": "collin, heinrich joseph von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 428,
+  "name": "Collin, Heinrich Joseph von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 105",
+  "updated": "2026-06-11 13:29:21.902Z",
+  "uri": "https://d-nb.info/gnd/11852156X",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Das Getümmel des Kriegs umwogte das sonst so friedliche Dörfchen, wo der Freyherr von Ehrenstein seine liebsten Güter, seine Gemahlin und deren Schwester geborgen hatte,",
+  "language": [],
+  "musenalm_id": 62927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild",
+  "updated": "2009-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.230Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "qfhsh79pu2okn0a"
+    }
+  ]
+}

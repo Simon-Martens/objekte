@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 20810, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65170,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht von der Villa Sr. K. H. des Prinzen Friedrichs / von Sachsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. A. Frenzel n. d. Natur gez. u. gest. Dresden",
+  "scans": [
+    "alm_275_65170_mw437nxe1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht von der Villa Sr. K. H. des Prinzen Friedrichs / von Sachsen",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.910Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "n49pnuj3y1fs2hg"
+    }
+  ]
+}

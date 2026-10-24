@@ -1,0 +1,45 @@
+{
+  "annotation": "s. a. vorstehende INr 43282, 43283; Obj 30, 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Zieh, holde Braut, mit unserm Seegen, / Zieh hin auf Hymens Blumenwegen! / Wir sehen mit entzücktem Blick / Der Seele Anmuth sich entfalten.",
+  "language": [],
+  "musenalm_id": 43284,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brautlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brautlied",
+  "updated": "2006-04-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.945Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "3l45jzbaowp2lb2"
+    }
+  ]
+}

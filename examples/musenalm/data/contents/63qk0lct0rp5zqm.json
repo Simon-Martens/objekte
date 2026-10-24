@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ein Triolettchen will Elise. / Ja leider! stünd' es doch schon hier!",
+  "language": [],
+  "musenalm_id": 17157,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Triolett. / An Elise Recke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dt.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Triolett. / An Elise Recke",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.698Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "aedih7fx50y1tcb"
+    }
+  ]
+}

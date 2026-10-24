@@ -1,0 +1,94 @@
+{
+  "annotation": "Die Beiträge vermutlich vom Herausgeber Johann Friedrich Wilhelm Pustkuchen-Glanzow",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, T, S, B Vrwrt d Hrsg, S I-Verz, SS 1-268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Viola (Pustkuchen-Glanzow) 1833",
+    "norm": "~",
+    "biblio": 410927,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-02-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4774,
+  "parallel_title": "",
+  "place_statement": "Wesel (Becker)",
+  "places": [
+    "4vqapwth4vnvlko"
+  ],
+  "preferred_title": "Viola (Pustkuchen-Glanzow) 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed X. 328, 26",
+  "responsibility_statement": "Dr. Pustkuchen-Glanzow",
+  "subtitle_statement": "",
+  "title_statement": "VIOLA / Taschenbuch / für / 1833. / Herausgegeben / VON / Dr. Pustkuchen-Glanzow. / WESEL / Beckersche Buchhandlung. / Lith. b. / Becker & Stelderen",
+  "updated": "2026-06-11 10:18:54.507Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "5q57gbbooj0bdgy"
+  ],
+  "contents": [
+    "gp0ly7knaj43jki",
+    "u3oz33ac8sfccjp",
+    "0d9rwemav5m3qfl",
+    "a58ufkn5k2hi1ex",
+    "1z5arxlmdt5gj61",
+    "m8mj8pz0o4pkpoa",
+    "wsvvufqjxh81gsv",
+    "6g3q86v9s36zlww",
+    "ejfh2ufjlgaqxbs",
+    "y41wslxfm9avtjr",
+    "ic1v3jaedtnduxm",
+    "rb7d4kafun3fqxi",
+    "r1nqwrawo3wj6mq",
+    "te222mp3jfajped",
+    "m60e4rcpj9ytfdx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.422Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.422Z",
+      "agent": "byx9v0k40wsil7f",
+      "source_id": "16o792yujkx9txa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.522Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.522Z",
+      "agent": "8f7j20r08orqqxh",
+      "source_id": "chsrhiiyotdqmpx"
+    }
+  ]
+}

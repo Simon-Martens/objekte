@@ -1,0 +1,45 @@
+{
+  "annotation": "Funken (Sammlung INr 91961, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Der charakteristische Unterschied zwischen einem Romane und einem Gebetbuche ist, den ersten liest man, aber kauft ihn nicht, das zweite kauft man, aber liest es nicht.",
+  "language": [],
+  "musenalm_id": 91977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ig. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18.",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.303Z",
+      "agent": "ink6oi00gx0e0hw",
+      "source_id": "7mz67tj0uesvlm8"
+    }
+  ]
+}

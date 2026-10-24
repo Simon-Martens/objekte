@@ -1,0 +1,196 @@
+{
+  "annotation": "",
+  "biographical_data": "um 1785-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.422Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Geb. in Rudolstadt; Landschaftszeichner u. Kupferstecher"
+      ],
+      "dateOfBirth": [
+        "1785"
+      ],
+      "dateOfDeath": [
+        "1853"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T19:29:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/121202518/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "121202518",
+      "id": "https://d-nb.info/gnd/121202518",
+      "oldAuthorityNumber": [
+        "(DE-588a)121202518"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4105066-6",
+          "label": "Rudolstadt"
+        }
+      ],
+      "preferredName": "Martini, Johann Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Georg"
+        ],
+        "surname": [
+          "Martini"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "publication": [
+        "Hesse, Ludwig Friedrich: Paulinzelle und Schwarzburg. - 1840",
+        "Martini, Johann G.: Die Ruinen thüringischer Klöster und Burgen. - 1815"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7567160606877516300003"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q27507384"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/121202518/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/121202518"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/121202518"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Martini, J. G.",
+        "Martini, Johann G.",
+        "Martini, Joh. Georg",
+        "Martini"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Martini"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Georg"
+          ],
+          "surname": [
+            "Martini"
+          ]
+        },
+        {
+          "personalName": [
+            "Martini"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Martini"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:12:39Z",
+    "gnd_query_biographical_data": "um 1785-?",
+    "gnd_query_name": "martini, johann georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1735,
+  "name": "Martini, Johann Georg",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIV, 177",
+  "updated": "2026-06-11 13:29:23.735Z",
+  "uri": "https://d-nb.info/gnd/121202518",
+  "editor": ""
+}

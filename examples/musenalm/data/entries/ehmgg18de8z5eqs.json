@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS 1-13 Kal, SS 15-100 darin    GG, S Anm d Hrsg, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Spaziergänger um Regensburg 1809",
+    "norm": "~",
+    "biblio": 411154,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2021-11-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4799,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Augustin)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Almanach für Spaziergänger um Regensburg 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Spaziergänger um Regensburg / auf / das Jahr 1809. / Erstes Jahr. / Regensburg, / im Verlage bei Heinrich Augustin, Buchdrucker",
+  "updated": "2026-06-11 10:18:54.929Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "rmyxq50tkggeo9h"
+  ],
+  "contents": [
+    "5av6z2822tnpx1l",
+    "dfacqnteio64mip",
+    "r57i2ekmpt55a4h",
+    "jgnltxfce8dp6n8",
+    "wy4xo1m617wtwxv",
+    "6lm6ufr82otds5l",
+    "vrb679xixsbmgxo",
+    "n94apgo3bei9rg7",
+    "d77k61cw0160whu",
+    "930495udoa31ygs",
+    "d1jbt8k4sjq9h64",
+    "tlwyuxfvhjc3y3k",
+    "oa6k28cd5szdi8y",
+    "s2ux66n56r5cpfy",
+    "an5jeybif95nec4",
+    "1ev6l2ik2vfjcrn",
+    "tfwvq3p118m8pgf",
+    "io26r0twfvkqen6",
+    "egcqj4mnaq73zem",
+    "qs5897krxpgq0xh",
+    "bpc4sy0euuskp82",
+    "fdapte7oawsoug1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.489Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.489Z",
+      "agent": "ccnp5rk6qbt6eej",
+      "source_id": "mzmd9zsj8ay5xz8"
+    }
+  ]
+}

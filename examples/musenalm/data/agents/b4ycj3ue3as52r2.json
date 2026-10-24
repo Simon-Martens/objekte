@@ -1,0 +1,619 @@
+{
+  "annotation": "",
+  "biographical_data": "1726-1804",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.510Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1726-01-28"
+      ],
+      "dateOfDeath": [
+        "1804-12-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "from the book Zweihundert deutsche Männer in Bildnissen und Lebensbeschreibungen (Two hundred German men in portraits and biographies), Leipzig 1854, edited by Ludwig Bechstein, compare Zweihundert deutsche Männer in Bildnissen und Lebensbeschreibungen (Visual Library); photograph from portrait.kaar.at"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20felix%20weisse.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20felix%20weisse.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20felix%20weisse.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-27T14:34:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118630563/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Christiane"
+          ],
+          "surname": [
+            "Platner"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/104203277",
+          "label": "Weiße, Christian Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1113310731",
+          "label": "Albrecht, Johanna Christiana"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1356740146",
+          "label": "Weiße, Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1113310685",
+          "label": "Weiße, Christian Florenus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1113310634",
+          "label": "Weiße, Christiana Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117299545",
+          "label": "Weisse, Christian Ernst"
+        },
+        {
+          "forename": [
+            "Christian Hermann"
+          ],
+          "surname": [
+            "Weiße"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118630563",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117299545",
+          "label": "Weisse, Christian Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1356740146",
+          "label": "Weiße, Dorothea"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1113310634",
+          "label": "Weiße, Christiana Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104203277",
+          "label": "Weiße, Christian Heinrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1113310731",
+          "label": "Albrecht, Johanna Christiana"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1113310685",
+          "label": "Weiße, Christian Florenus"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118630563",
+      "oldAuthorityNumber": [
+        "(DE-588a)118630563",
+        "(DE-588c)4065231-2"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002113-0",
+          "label": "Annaberg (Erzgebirge)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4452196-0",
+          "label": "Stötteritz"
+        }
+      ],
+      "preferredName": "Weiße, Christian Felix",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Felix"
+        ],
+        "surname": [
+          "Weiße"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4236342-1",
+          "label": "Jugendbuchautor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246787-1",
+          "label": "Steuereinnehmer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "publication": [
+        "Der ungezogne Knabe",
+        "Briefwechsel der Familie des Kinderfreundes",
+        "Kleine Lyrische Gedichte",
+        "Christian Felix Weißen's Lieder und Fabeln für Kinder ..",
+        "Amazonen-Lieder",
+        "Die Jubelhochzeit",
+        "Beyträge zum deutschen Theater",
+        "Der Fanatismus, oder: Jean Calas",
+        "Scherzhafte Lieder"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11997083x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83066940"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49234688"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q68815"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118630563/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_Felix_Wei%C3%9Fe"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Felix_Wei%C3%9Fe"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christian_Felix_Wei%C3%9Fe"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Felix_Wei%C3%9Fe"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121318681"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118630563"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_cropp;32"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118630563"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118630563.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118630563"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118630563"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Weise, F. C.",
+        "Weiße",
+        "Weiß, Christian Felix",
+        "C. F. W.",
+        "Weise, Christian Felix",
+        "Weiße, Christian F.",
+        "Weisse, Ch. F.",
+        "Weisse, Christiaan Felix",
+        "Weisse, Christian Felix",
+        "Weisse, C.F.",
+        "Weisz, Christian F.",
+        "Weisse, C. F.",
+        "Weissius, Christianus F.",
+        "Weisz, Christian Felix",
+        "Weiß, Christian F.",
+        "Weisse, Christiaan F.",
+        "Weiss, Christian Felix",
+        "Weiße, C. F.",
+        "Weise",
+        "Weisse, Christian F.",
+        "Weise, Chr. Felix",
+        "Weißius, Chr. Fel.",
+        "W., C. F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Weise"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Felix"
+          ],
+          "surname": [
+            "Weisz"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "W."
+          ]
+        },
+        {
+          "forename": [
+            "Christian Felix"
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Weiß"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Felix"
+          ],
+          "surname": [
+            "Weiss"
+          ]
+        },
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Weise"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Weiße"
+          ]
+        },
+        {
+          "forename": [
+            "Christiaan Felix"
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Christiaan F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "personalName": [
+            "Weiße"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Felix"
+          ],
+          "surname": [
+            "Weise"
+          ]
+        },
+        {
+          "personalName": [
+            "C. F. W."
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus F."
+          ],
+          "surname": [
+            "Weissius"
+          ]
+        },
+        {
+          "forename": [
+            "C.F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Felix"
+          ],
+          "surname": [
+            "Weiß"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. F."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Fel."
+          ],
+          "surname": [
+            "Weißius"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Weisz"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Felix"
+          ],
+          "surname": [
+            "Weise"
+          ]
+        },
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Weiße"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Felix_Wei%C3%9Fe",
+          "label": "https://de.wikipedia.org/wiki/Christian_Felix_Wei%C3%9Fe"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:19:57Z",
+    "gnd_query_biographical_data": "1726-1804",
+    "gnd_query_name": "weisse, christian felix"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3092,
+  "name": "Weisse, Christian Felix",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 137",
+  "updated": "2026-06-11 13:29:25.669Z",
+  "uri": "https://d-nb.info/gnd/118630563",
+  "editor": ""
+}

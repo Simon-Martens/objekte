@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Hermine war die Tochter eines Mannes, der vom Glück begünstigt ward, wie nur wenige es sind.",
+  "language": [],
+  "musenalm_id": 102063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das wahre Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernestine v. Krosigk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das wahre Glück",
+  "updated": "2014-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.879Z",
+      "agent": "7l6lnr4uxnh3d2o",
+      "source_id": "2owyxaj3btl7870"
+    }
+  ]
+}

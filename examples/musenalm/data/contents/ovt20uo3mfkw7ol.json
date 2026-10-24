@@ -1,0 +1,56 @@
+{
+  "annotation": "VII. Anekdoten (Sammlung INr 67021, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Der Fürst von Lobkowitz besaß in Böhmen einen ungeheuern Waldreichthum. Der Ruf davon kam einst selbst zu den Ohren des unvergeßlichen Kaisers Joseph des Zweiten",
+  "language": [],
+  "musenalm_id": 67029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.458Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "6iw8m8w6s7j9dqh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.458Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "ithyrw3v5ie3hwj"
+    }
+  ]
+}

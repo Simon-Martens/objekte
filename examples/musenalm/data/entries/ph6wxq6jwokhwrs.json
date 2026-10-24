@@ -1,0 +1,117 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, gT, 6 GG, 15 BB Kal darin 12 GG, ar: S 1 T, SS 3-91, SS 92-96 G-Verz, ar1: SS 1-158 darin G, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1791",
+    "norm": "~",
+    "biblio": 106618,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2169,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg); Frankfurt (Jaeger)",
+  "places": [
+    "inpa0koig1pzpcp",
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1791. / mit Kupfern von Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg im Lauenburg / und / der Jägerische Buchhandlung / in Frankfurt a/m",
+  "updated": "2026-06-11 10:18:55.891Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "rv6zni7b4l9sydi"
+  ],
+  "contents": [
+    "i0q52frlqyptnz1",
+    "a5nlorlt9xp0a73",
+    "bdg106leuhns3z2",
+    "44n4pz5hx5e7raj",
+    "tu6xio8ud0rpnui",
+    "dygsph7plxbsjst",
+    "w4rozvu4pi874mf",
+    "fe7wdrlf2x4qu8r",
+    "5lvsdmopdoc3308",
+    "1krl5euaieq61h4",
+    "115tou4ok5ymv5p",
+    "na8jfco94odlsl9",
+    "cp8jzctgeyxzw7r",
+    "v6dmijnbgx20d0m",
+    "2qytdu2iolz97df",
+    "m5e0tnb16yzd5dm",
+    "5ak16pz5p0egya3",
+    "q0zvbe7ppr86glm",
+    "ziscpa7zqm7g0k6",
+    "rtu4nnwblbc8os4",
+    "l0pjtz6vfjxwmv0",
+    "vecoevme16vo2b5",
+    "kzohmydyll5llq6",
+    "rgj783tb67al8p9",
+    "lxs7tm4lny07x7m",
+    "rqzlnh8hiixqhgk",
+    "de1is7qcpyei5wo",
+    "v6wpgmhwgem0flv",
+    "qhoy9t6y1s6bijj",
+    "s2ohbgy86l2d3e4",
+    "7es7fsoqfav2v1r",
+    "le31a0qhdbj9aie",
+    "jhw11hqwmrnbw2c",
+    "sopuivg61yfwcrz",
+    "yuyzqiebsx52ppq",
+    "5tziazqsbpelu61",
+    "b1cs5q30jbosszy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.536Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.536Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "2iv7sa793wq9md1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "4j77zu0wqeyq61v"
+    }
+  ]
+}

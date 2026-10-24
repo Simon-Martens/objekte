@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1791 (Sammlung INr 9401, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Wohl, wohl dem Manne für und für, / Der bald sein Liebchen findet!",
+  "language": [],
+  "musenalm_id": 9437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 225,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXXVI. / Hochzeitslied. / Mel. steht in Schulzens Liedern im Volkston im / 2ten Th. Berlin 1788. S. 36",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXXVI. / Hochzeitslied. / Mel. steht in Schulzens Liedern im Volkston im / 2ten Th. Berlin 1788. S. 36",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.508Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "diqwg3h8cba3m6a"
+    }
+  ]
+}

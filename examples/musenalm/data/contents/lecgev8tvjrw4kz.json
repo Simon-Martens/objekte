@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. L. D. Sauerländer. Druck v. W. Maas] s. Textbezug INr 44253, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44254,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE RUHESTUNDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riedel pinx. Engelhart sc.",
+  "scans": [
+    "alm_601_44254_2gvudnoum9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE RUHESTUNDE",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.458Z",
+      "agent": "kmgjs8katc6rqpu",
+      "source_id": "n403vzfyfdkbc1y"
+    }
+  ]
+}

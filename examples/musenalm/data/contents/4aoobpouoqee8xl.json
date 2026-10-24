@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104183, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104182,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMOR",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Corregio pinx. S. v. Perger del. I. Krepp sc.",
+  "scans": [
+    "alm_1932_104182_ozc79cxjbe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMOR",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.954Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "35ssdlag2vkjx8p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.954Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "591pjk9to16h3an"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.954Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "fzbkxvn209r5uvx"
+    }
+  ]
+}

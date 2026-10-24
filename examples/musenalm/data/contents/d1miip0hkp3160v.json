@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44355,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Zwecker gez.W. J. Cooke gest.",
+  "scans": [
+    "alm_603_44355_choudbi59t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1848",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.905Z",
+      "agent": "uohs1l6y8ng1p96",
+      "source_id": "ox37ataptxivdk3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "usgtr6dipvre26m",
+      "source_id": "z4dl58r7janpx2h"
+    }
+  ]
+}

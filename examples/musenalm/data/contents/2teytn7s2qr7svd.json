@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Im Schooße träger Weichlichkeit / Verträumst du deine Lebenszeit?",
+  "language": [],
+  "musenalm_id": 112127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arbeitsscheu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Burdach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arbeitsscheu",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.375Z",
+      "agent": "dn5dhh6simigjuj",
+      "source_id": "ro8ner35f2b12tg"
+    }
+  ]
+}

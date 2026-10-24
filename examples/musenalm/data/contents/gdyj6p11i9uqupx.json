@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Linda und Laura« von L. Brachmann INr 29686, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus Lindor und Laura, von Sophie / Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_384_29685_h8o539vybd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus Lindor und Laura, von Sophie / Brachmann",
+  "updated": "2002-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.316Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "a5a2765mryc83lk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.316Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "uh03buwdgqv5f7l"
+    }
+  ]
+}

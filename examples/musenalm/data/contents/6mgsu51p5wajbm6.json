@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Bezeichnung spiegelverkehrt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (nach F. Catels Zeichnung gestochen von F. W. Bollinger Berlin 1803)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach F. Catels Zeichnung gestochen von F. W. Bollinger Berlin 1803",
+  "scans": [
+    "alm_6_50227_ok6gfpasie.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.301Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "ehbe3oh2ovwv2qr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.301Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "wyorienovc99589"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107540,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habillemens de Leipsic / 1. 2. 3. 4. Frack 5. Surtout",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del. et sc.",
+  "scans": [
+    "alm_2158_107540_xkarkqdo9t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Habillemens de Leipsic / 1. 2. 3. 4. Frack 5. Surtout",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.994Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "np8jy6k3gy7ecfa"
+    }
+  ]
+}

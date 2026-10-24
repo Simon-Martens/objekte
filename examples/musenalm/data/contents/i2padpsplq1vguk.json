@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Bianca« von C. Streckfuß INr 13945, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13904,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bianca. von C. Streckfuß. / S. 190",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_220_13904_iftdksjwqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bianca. von C. Streckfuß. / S. 190",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.533Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "5c6it17o3dczpq2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.533Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "b7c02wck7rtkmy6"
+    }
+  ]
+}

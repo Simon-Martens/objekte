@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Edler Sänger, dessen Zähren / den Erhabenen Todten ehren,",
+  "language": [],
+  "musenalm_id": 31160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Joseph des Zweyten Tod. / An Eulogius Schneider. / - - melioribus utere fatis. / Virgilius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Joseph des Zweyten Tod. / An Eulogius Schneider. / - - melioribus utere fatis. / Virgilius",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.432Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "y7s22nsuilygdv1"
+    }
+  ]
+}

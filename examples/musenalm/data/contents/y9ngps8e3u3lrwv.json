@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 2.; Graphik im Kalendarium Januar /)  Illustration zu »Geschichte der Bartholomäusnacht oder der Bluthochzeit zu Paris« INr 68912, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anton von Navarra und Guise. / Le roi de Navarre debout devant / Guise",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec. 1797",
+  "scans": [
+    "alm_834_68899_ufu1kzzdzh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anton von Navarra und Guise. / Le roi de Navarre debout devant / Guise",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.341Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "5gis541zc72e7nn"
+    }
+  ]
+}

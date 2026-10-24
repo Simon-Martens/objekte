@@ -1,0 +1,667 @@
+{
+  "annotation": "",
+  "biographical_data": "1721-1795 (1799)",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.254Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Böhmischer Komponist, Geiger, Pianist und Kapellmeister"
+      ],
+      "dateOfBirth": [
+        "1722-06-30"
+      ],
+      "dateOfDeath": [
+        "1795-11-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "After Jacob Wilhelm Mechau"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/documents/obj/34804693"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Benda.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Georg%20Benda.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Georg%20Benda.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118655329/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anna Franziska"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130607959",
+          "label": "Hattasch, Anna Franziska"
+        },
+        {
+          "id": "https://d-nb.info/gnd/132173794",
+          "label": "Benda, Hans Georg"
+        },
+        {
+          "forename": [
+            "Susanna Maria"
+          ],
+          "surname": [
+            "Neefe"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1057764787",
+          "label": "Benda, Justina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117710",
+          "label": "Benda, Friedrich Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119326728",
+          "label": "Benda, Franz"
+        },
+        {
+          "forename": [
+            "Anna Franziska"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Dorothea (Dorota)"
+          ],
+          "surname": [
+            "Brixi"
+          ]
+        },
+        {
+          "forename": [
+            "Eleonora"
+          ],
+          "surname": [
+            "Leichner"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/124524540",
+          "label": "Benda, Johann"
+        },
+        {
+          "forename": [
+            "Augusta"
+          ],
+          "surname": [
+            "Scholz"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/132173921",
+          "label": "Benda, Joseph"
+        },
+        {
+          "forename": [
+            "Hans (Johann) Georg"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ernst Eberhard"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "118655329",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1057764787",
+          "label": "Benda, Justina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116117710",
+          "label": "Benda, Friedrich Ludwig"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/132173794",
+          "label": "Benda, Hans Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/130607959",
+          "label": "Hattasch, Anna Franziska"
+        },
+        {
+          "id": "https://d-nb.info/gnd/132173921",
+          "label": "Benda, Joseph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124524540",
+          "label": "Benda, Johann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119326728",
+          "label": "Benda, Franz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118655329",
+      "oldAuthorityNumber": [
+        "(DE-588a)118655329",
+        "(DE-101c)310256828",
+        "(DE-588a)127411186",
+        "(DE-588a)134566823",
+        "(DE-588c)4087157-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4726345-3",
+          "label": "Benátky nad Jizerou"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4320217-2",
+          "label": "Bad Köstritz"
+        }
+      ],
+      "preferredName": "Benda, Georg",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg"
+        ],
+        "surname": [
+          "Benda"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156342-6",
+          "label": "Geiger"
+        }
+      ],
+      "publication": [
+        "Médée",
+        "Der Jahrmarkt",
+        "Medea",
+        "Ariadne auf Naxos",
+        "Arien aus der von dem sächsisch-gothaischen Herrn Kapell-Direktor Benda in *. - [ca. 1780]",
+        "Walder",
+        "Rousseau, Jean-Jacques: Pygmalion"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81126825"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/benda-georg-anton/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76499419"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213535"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118655329"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118655329/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ji%C5%99%C3%AD_Anton%C3%ADn_Benda"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Anton_Benda"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Benda"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010858749X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118655329"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118655329"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118655329.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118655329"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118655329"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Benda, Jiří Antonín",
+        "Benda, Heinrich Georg",
+        "Benda, Jiri Antonin",
+        "Benda, George",
+        "Benda, Jiří",
+        "Benda, Georg Antonin",
+        "Benda, Jiri A.",
+        "Benda, Jirí A.",
+        "Benda, Jiři Antonín",
+        "Benda, Jiri Antonín",
+        "Benda, Jiri",
+        "Benda, G.",
+        "Benda, Jiři",
+        "Benda, Jiří A.",
+        "Benda, I. A.",
+        "Benda, Ǐirzhi A.",
+        "Benda, Jirí Antonín",
+        "Benda, Georg A.",
+        "Benda, Jiři A.",
+        "Benda, Giorgio",
+        "Benda, Georg Anton"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jirí Antonín"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Ǐirzhi A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Giorgio"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Anton"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiří Antonín"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiři Antonín"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiri"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiří"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiří A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiri Antonin"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Georg"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiři A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "I. A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jirí A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "George"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiri A."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Antonin"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiři"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        },
+        {
+          "forename": [
+            "Jiri Antonín"
+          ],
+          "surname": [
+            "Benda"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Anton_Benda",
+          "label": "https://de.wikipedia.org/wiki/Georg_Anton_Benda"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:27Z",
+    "gnd_query_biographical_data": "1721-1795 (1799)",
+    "gnd_query_name": "benda, georg"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 156,
+  "name": "Benda, Georg",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB II, 316",
+  "updated": "2026-06-11 13:29:21.524Z",
+  "uri": "https://d-nb.info/gnd/118655329",
+  "editor": ""
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September; paginiert Pag 117. /) Illustration zu »Der Mann nach der Mode« von A. Schmid von Pihl INr 69437, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69426,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Corancy gab nun dem Paare seinen Seegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. G. Leybold sc.",
+  "scans": [
+    "alm_994_69426_qct479h929.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Corancy gab nun dem Paare seinen Seegen",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.471Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "qx6llomsaza2iz8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.471Z",
+      "agent": "zefb5ir07ld7tkj",
+      "source_id": "uyk7gt9q55977ef"
+    }
+  ]
+}

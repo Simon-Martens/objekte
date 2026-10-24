@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Wo eilst du hin - / Im Flattersinn? / Wo eilst du Jüngling so munter? - / Ins Städtchen!",
+  "language": [],
+  "musenalm_id": 97221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.716Z",
+      "agent": "3gtxsu95wib1zui",
+      "source_id": "h6vce2uvt5ta5dh"
+    }
+  ]
+}

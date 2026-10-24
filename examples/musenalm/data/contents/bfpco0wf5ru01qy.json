@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Diese Blume - ach sie kam von Ihr, / Auch verwelkt noch ist sie heilig mir,",
+  "language": [],
+  "musenalm_id": 129283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebende an eine verwelkte Blume",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Natalie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebende an eine verwelkte Blume",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.008Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "6r2gr8t20fyu4y7"
+    }
+  ]
+}

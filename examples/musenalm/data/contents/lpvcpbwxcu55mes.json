@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Feuerfarb« von Sophie INr 46533, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feuerfarbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Chr. Fr. Bach",
+  "scans": [
+    "alm_630_46532_49ry0xhor3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Feuerfarbe",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.399Z",
+      "agent": "u5ldyb1vr0qz98f",
+      "source_id": "rxyyi636vrzuo4p"
+    }
+  ]
+}

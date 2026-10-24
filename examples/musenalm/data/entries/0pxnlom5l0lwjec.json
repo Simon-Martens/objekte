@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, verso G, gT, S I-Verz, 3 SS I-Verz zu Tab, SS I-XIV darin 8 GG, ar: S 1-336, ar1: 1- 52 Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1828",
+    "norm": "~ +++ 100509",
+    "biblio": 101326,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 583,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / TASCHENBUCH / auf das Jahr 1828. / Herausgegeben / von / Dr. ADRIAN / FRANKFURT a/M / bei Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.359Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "9e5yib0kz5iazzw",
+    "ryaz5gef2x6yuq7"
+  ],
+  "contents": [
+    "z8l9n7hwtszhvdz",
+    "etfnpwt9p8zavbr",
+    "b9ghftunvjdmm6s",
+    "hj4sg4xhml53pmv",
+    "balee8hmrw7e6uq",
+    "i9oeo0nz4kejr2z",
+    "7albqj3xm2hcv7v",
+    "xyypntg3fpi93bk",
+    "44rx01e9ezk8a1v",
+    "y1m9am5o1gq8cjh",
+    "7zn0iwfrmusvsgx",
+    "k98a623mdzohscr",
+    "xa37ah1nn29qd29",
+    "w592ugutotw0xsw",
+    "p22zh4pnfwg3ixb",
+    "6ar8l650bv3j5ok",
+    "aem3a3eyalcyt8o",
+    "qvygbioayrovt9g",
+    "qikjrm9k4tcbcqg",
+    "2dkepxywu5xgz0c",
+    "4rp9vb48bkyrp4d",
+    "t9hk2mnxiof3v67",
+    "hvkwfondphn3gzm",
+    "glefu1wm561ypu5",
+    "yraend2heqf1qtq",
+    "4s5cffujeoc6t71",
+    "u26f6g4194gb15e",
+    "q1pnthtdurdi3z7",
+    "qjmt79cqivkhx8a",
+    "0bkd6i4qzfcv95x",
+    "mtsz846gvdualga",
+    "eugual0fz1jv86l",
+    "uuedmwxh6ef8ft3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.708Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.708Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "nhtx0o4kf5fssxj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "r7fpv2l1mol6e40"
+    }
+  ]
+}

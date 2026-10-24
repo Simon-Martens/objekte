@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29981, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fr. Stöber sc. Viennae. Klomp pinx.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Stöber sc. Viennae. Klomp pinx.",
+  "scans": [
+    "alm_388_29980_vqjll1o60l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.377Z",
+      "agent": "t67dr5evejqw83o",
+      "source_id": "i8xi45xlw00hq30"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.377Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "osjsdljxo9yj40h"
+    }
+  ]
+}

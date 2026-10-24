@@ -1,0 +1,45 @@
+{
+  "annotation": "einleitendes Gedicht zum Beitrag INr 27368, Obj 95",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Du schöne Rose, kaum dem Tag' erschlossen / Wie hold erscheinst du mir im Morgenlicht;",
+  "language": [],
+  "musenalm_id": 27367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glaube. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glaube. / Eine Erzählung",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.371Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "amza9npeznket2p"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 4 /) Graphik im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69914,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Universitäts Studien",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_785_69914_lt1pqrc6qd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Universitäts Studien",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.490Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "50vl08x7fg3fhmy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.491Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "q2btswqbem9ip0k"
+    }
+  ]
+}

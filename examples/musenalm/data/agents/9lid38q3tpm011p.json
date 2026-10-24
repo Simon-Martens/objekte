@@ -1,0 +1,543 @@
+{
+  "annotation": "",
+  "biographical_data": "1800-1883",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.516Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Jurist und Dante-Forscher und Mitbegründer der Deutschen Dante-Gesellschaft. - Buchbesitz: SLUB Dresden",
+        "Jurist, Philologe"
+      ],
+      "dateOfBirth": [
+        "1800-07-01"
+      ],
+      "dateOfDeath": [
+        "1883-03-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "http://sundoc.bibliothek.uni-halle.de/nachlaesse/witte/witte1.htm"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Witte%20%28Old%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Witte%20%28Old%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Witte%20%28Old%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/183328507"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:56:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118769596/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1124182357",
+          "label": "Witte, Hermann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11755944X",
+          "label": "Meyer, Hugo"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117420638",
+          "label": "Witte, Karl Heinrich Gottfried"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        }
+      ],
+      "gndIdentifier": "118769596",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1124182357",
+          "label": "Witte, Hermann"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117420638",
+          "label": "Witte, Karl Heinrich Gottfried"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118769596",
+      "oldAuthorityNumber": [
+        "(DE-588a)118769596",
+        "(DE-588)183328507",
+        "(DE-588a)183328507",
+        "(DE-588c)4108454-8"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1053696248",
+          "label": "Lochau (Saalkreis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Witte, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Witte"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "nameAddition": [
+            "Filedemo"
+          ],
+          "personalName": [
+            "Licio"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Filodemo"
+          ],
+          "surname": [
+            "Licio"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ebene Trigonometrie",
+        "Die Leges restitutae des Iustinianeischen Codex",
+        "Das Preußische Intestat Erbrecht, aus dem gemeinen deutschen Rechte entwickelt",
+        "Über Dante",
+        "De Guilelmi Malmesburiensis codice Legis Romanae Wisigothorum dissertatio",
+        "Abhandlungen aus dem Gebiete des römischen Rechts",
+        "Über Anschaulichkeit in den Sinnen und Anschaulichkeit im Denken",
+        "Das Wesen der Seele und die Natur der geistigen Vorgänge",
+        "Die Philosophie unserer Dichterherren",
+        "Beiträge zum Verständniß Kants"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1213063728",
+          "label": "Stempel (Witte, Karl), 02"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1213063167",
+          "label": "Stempel (Witte, Karl), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10723451h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86054414"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17213936"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q215735"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118769596/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183328507"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Witte"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Witte_%28Dichterjurist%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Witte"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Witte"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010874343X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118769596"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118769596"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118769596.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118769596"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Witte, Johann Heinrich Friedrich Karl",
+        "Lochau, Carl Witte von",
+        "Witte, Carlo",
+        "Witte, Carl, der Jüngere",
+        "Witte, K.",
+        "Licio, Filodemo",
+        "Lochau, Carl W. von",
+        "Witte, Johannes",
+        "Witte, Carl",
+        "Witte, Karl, der Jüngere",
+        "Witte von Lochau, Carl",
+        "Witte, Carolus",
+        "Witte von Lochau, Karl",
+        "Licio, Filedemo",
+        "Witte, Johann Heinrich Friedrich Carl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Filedemo"
+          ],
+          "personalName": [
+            "Licio"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Friedrich Karl"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Witte von Lochau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Filodemo"
+          ],
+          "surname": [
+            "Licio"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Witte"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Lochau"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Witte von Lochau"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich Friedrich Carl"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "Carl W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Lochau"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus"
+          ],
+          "surname": [
+            "Witte"
+          ]
+        },
+        {
+          "forename": [
+            "K."
+          ],
+          "surname": [
+            "Witte"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Witte_%28Dichterjurist%29",
+          "label": "https://de.wikipedia.org/wiki/Karl_Witte_%28Dichterjurist%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:23:48Z",
+    "gnd_query_biographical_data": "1800-1883",
+    "gnd_query_name": "witte, johann heinrich friedrich karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3169,
+  "name": "Witte, Johann Heinrich Friedrich Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLIII, 595",
+  "updated": "2026-06-11 13:29:25.809Z",
+  "uri": "https://d-nb.info/gnd/118769596",
+  "editor": ""
+}

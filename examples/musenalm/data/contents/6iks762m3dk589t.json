@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldlieder (Sammlung INr 27774, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Waldeshaus, / Stilles Haus, / Trieb die Welt mich nie hinaus!",
+  "language": [],
+  "musenalm_id": 27773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) Sehnsucht nach dem Walde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1) Sehnsucht nach dem Walde",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.284Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "65bq45ici0clkn6"
+    }
+  ]
+}

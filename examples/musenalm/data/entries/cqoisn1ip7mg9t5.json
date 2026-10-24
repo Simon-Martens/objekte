@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T u I-Verz, S G-Verz, SS 1-436 darin 5 GG, G, 2 BB, S I-Verz, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1833",
+    "norm": "~",
+    "biblio": 108666,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3469,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1833",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. v. Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1833. / Von / A. v. Tromlitz",
+  "updated": "2026-06-11 10:18:54.500Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "gyc5zp6r23x17r5"
+  ],
+  "contents": [
+    "fss39cyrj6ex540",
+    "qe3yr0cl1tbof9v",
+    "1vj6va6zapcjjv2",
+    "gh9re0mvmygejh7",
+    "9zqerpjnxnqjfub",
+    "pe09mktpxj7p9yw",
+    "pha3qmzygokj5zu",
+    "xkgb9mwl3x3dtev",
+    "umq26lykyw5r03p",
+    "2szxjdkyj1f77ap",
+    "1kbqxhidt2mi4sk",
+    "568jckn5h2nzeit",
+    "b32c6yyi4ky0qk8",
+    "j2vn1wgmuvuvrf3",
+    "gf81lr0amoxr8p0",
+    "ku4it7uk1jlu6hy",
+    "aow5wzfcvw78wk6",
+    "knb4zbfregg85yt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.048Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.048Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "61o7ydtebay2lae"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.229Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.229Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "cxb9ubog8mv4976"
+    }
+  ]
+}

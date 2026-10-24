@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Du meine Mutter einst und Mutter auch noch drüben, / Dort wo kein Tod mehr ist",
+  "language": [],
+  "musenalm_id": 24354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am dreißigsten Jahrestage nach dem / Tode meiner Mutter / am 18ten des Christmonds 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am dreißigsten Jahrestage nach dem / Tode meiner Mutter / am 18ten des Christmonds 1821",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.796Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "hf95h5fsvobp0so"
+    }
+  ]
+}

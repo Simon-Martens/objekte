@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Germania. Jahrbuch deutscher Belletristik 1851",
+    "norm": "",
+    "biblio": 409205,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4283,
+  "parallel_title": "",
+  "place_statement": "Bremen (Schlodtmann)",
+  "places": [
+    "vicuz8irdyy1b34"
+  ],
+  "preferred_title": "Germania. Jahrbuch deutscher Belletristik 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 50; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Germania. / Jahrbuch deutscher Belletristik. / Erster Jahrgang / 1851. / Mit dem Portrait von Dr. G. Spiller von Hauenschild, / (Max Waldau). / Bremen, / Verlag von Franz Schlodtmann. / 1851",
+  "updated": "2026-06-11 10:18:55.641Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "594v19bgqtu7ck3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.146Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.146Z",
+      "agent": "voak12f8r35lymj",
+      "source_id": "9ezeiaoi83cpo1n"
+    }
+  ]
+}

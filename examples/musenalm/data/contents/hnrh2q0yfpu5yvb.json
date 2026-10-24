@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende Gedichte INr 28964, 28965; Obj 67, 68",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Du ernster Mann! trat'st jüngst in unsre Mitte, / Da schallt' es jubelnd schnell durch unsre Hütte:",
+  "language": [],
+  "musenalm_id": 28963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Seume / nach gemachter persönlicher Bekanntschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnoldine Wolff, geb. Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Seume / nach gemachter persönlicher Bekanntschaft",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.453Z",
+      "agent": "k4l0etwctfexyyx",
+      "source_id": "gox6358jk1dzsrm"
+    }
+  ]
+}

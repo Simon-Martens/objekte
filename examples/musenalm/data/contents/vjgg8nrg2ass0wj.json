@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Auf der Höhe eines fichtenbewachsenen Hügels am Rande einer großen Haide in Norddeutschland steht ein kleines Zollhäuschen,",
+  "language": [],
+  "musenalm_id": 64108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Legionär. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Legionär. / Novelle",
+  "updated": "2009-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.079Z",
+      "agent": "n93zvl8q72c04nh",
+      "source_id": "34rz6uk4f6mb7dh"
+    }
+  ]
+}

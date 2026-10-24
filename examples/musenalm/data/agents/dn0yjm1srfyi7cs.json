@@ -1,0 +1,1052 @@
+{
+  "annotation": "",
+  "biographical_data": "1733-1813",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.513Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1733-09-05"
+      ],
+      "dateOfDeath": [
+        "1813-01-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ferdinand Jagemann"
+          ],
+          "creditText": [
+            "Schloss Weimar"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Weimar%20Anna%20Amalia%20Bibliothek%40C.M.%20Wieland.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Weimar%20Anna%20Amalia%20Bibliothek%40C.M.%20Wieland.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Weimar%20Anna%20Amalia%20Bibliothek%40C.M.%20Wieland.JPG?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325004529",
+        "https://d-nb.info/gnd/1235988406",
+        "https://d-nb.info/gnd/1021835544",
+        "https://d-nb.info/gnd/1014850460",
+        "https://d-nb.info/gnd/186110448"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118632477/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johann Wilhelm"
+          ],
+          "surname": [
+            "Baumer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117244163",
+          "label": "Stichling, Carl Wilhelm Constantin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11691940X",
+          "label": "Schorcht, Caroline"
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Hübsch"
+          ]
+        },
+        {
+          "forename": [
+            "Regina Katharina"
+          ],
+          "surname": [
+            "Kick"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Dorothea"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hillenbrand"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/121093107",
+          "label": "Wieland, Thomas Adam"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116423293",
+          "label": "Reinhold, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117361828",
+          "label": "Wieland, Karl Friedrich"
+        },
+        {
+          "forename": [
+            "Ludwig Friedrich August"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/129733946",
+          "label": "Wieland, Anna Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118807218",
+          "label": "Wieland, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/103068112",
+          "label": "Wieland, Thomas Adam"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1254004807",
+          "label": "Wieland, Thomas Adam"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118632477",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117361828",
+          "label": "Wieland, Karl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118807218",
+          "label": "Wieland, Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116423293",
+          "label": "Reinhold, Sophie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11691940X",
+          "label": "Schorcht, Caroline"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/103068112",
+          "label": "Wieland, Thomas Adam"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/121093107",
+          "label": "Wieland, Thomas Adam"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1254004807",
+          "label": "Wieland, Thomas Adam"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/129733946",
+          "label": "Wieland, Anna Dorothea"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118632477",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/grc",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/grc"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/lat",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/lat"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)186110448",
+        "(DE-588a)118632477",
+        "(DE-588)186110448",
+        "(DE-588a)1014850460",
+        "(DE-588)1021835544",
+        "(DE-588)1325004529",
+        "(DE-588)1014850460",
+        "(DE-588a)135057779",
+        "(DE-588a)127323643",
+        "(DE-588)1235988406",
+        "(DE-101c)310747775",
+        "(DE-588a)12706088X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1203836368",
+          "label": "Oßmannstedt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4006424-4",
+          "label": "Biberach an der Riß"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4716023-8",
+          "label": "Oberholzheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Wieland, Christoph Martin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christoph Martin"
+        ],
+        "surname": [
+          "Wieland"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Der goldene Spiegel oder die Könige von Scheschian",
+        "Der Sieg der Natur über die Schwärmerey, oder Abentheuer des Don Sylvio von Rosalva",
+        "Der Neue Amadis",
+        "Geschichte des Agathon",
+        "Auch ein Nonakzeßit zu der Berlinischen Preisaufgabe aufs Jahr 1780 ..",
+        "Agathon",
+        "Geschichte der Abderiten",
+        "Taschenbuch auf das Jahr 1804",
+        "Übers. von: Shakespeare, William: Othello. - Online-Ressource",
+        "Übers. von: Briefe einer antiken Philosophin : Griechisch/Deutsch"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1245974297",
+          "label": "Privatbibliothek Christoph Martin Wieland"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119971282"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50016222"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9856912"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q154010"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1014850460"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1021835544"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118632477/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1235988406"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325004529"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186110448"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118632477"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christoph_Martin_Wieland"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christoph_Martin_Wieland"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Christoph_Martin_Wieland"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christoph_Martin_Wieland"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000120990142"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118632477"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1764_eck1;19"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1774_nn1;25"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_cropp;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_michaelis;23"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1778_iffland;28"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_beck;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_hersleb;27"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1780_schroeder;53"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_scherbius;38"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_zellmann;46"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_brak;30"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_matthisson;142"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1783_rinck;5"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1784_berzeviczy1;79"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1784_teleki;59"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1784_teleki;60"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1786_solms;9"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1789_prahmer;59"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1790_gross;12"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1795_arvelius;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1795_duvau;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1797_kaufmann;24"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1800_goethe2;159"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118632477"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118632477.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118632477"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/C166E380DBAA4E04A7A7905B8D3DD2F0"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118632477"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118632477"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Vīranto, Kurisutofu Marutin",
+        "Wieland, Monsieur",
+        "A. W.",
+        "Wieland, Kristoóf Márton",
+        "Wieland, Christof Martin",
+        "Viland, Kristof Martin",
+        "Viland",
+        "Wielland, Christoph Martin",
+        "Veilandos",
+        "Vīrando, Kurisutōfu Marutin",
+        "Wieland, Kristóf Márton",
+        "Vieland",
+        "Wieland, C. M.",
+        "A.W.",
+        "Wieland, Christophorus Martinus",
+        "Wieland, Christovao Martinho",
+        "Wieland, Herr Hofrath",
+        "Viland, K.M.",
+        "Viland, K. M.",
+        "Wieland, C.M.",
+        "Wieland, Christian M.",
+        "Wielland",
+        "Vieland, Christoph Martin",
+        "Wieland",
+        "Wieland, Christian Martin",
+        "Wieland, Christoph M.",
+        "Wieland, Cristoph Martin",
+        "Wieland, Christoph-Martin",
+        "Wieland, Kristoóf M.",
+        "Beilandos"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian Martin"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Kurisutofu Marutin"
+          ],
+          "surname": [
+            "Vīranto"
+          ]
+        },
+        {
+          "personalName": [
+            "Veilandos"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Monsieur"
+          ],
+          "personalName": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Martin"
+          ],
+          "surname": [
+            "Wielland"
+          ]
+        },
+        {
+          "personalName": [
+            "Wielland"
+          ]
+        },
+        {
+          "forename": [
+            "Kristóf Márton"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "C.M."
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "K. M."
+          ],
+          "surname": [
+            "Viland"
+          ]
+        },
+        {
+          "personalName": [
+            "Vieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph M."
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Martin"
+          ],
+          "surname": [
+            "Vieland"
+          ]
+        },
+        {
+          "personalName": [
+            "A.W."
+          ]
+        },
+        {
+          "nameAddition": [
+            "Herr Hofrath"
+          ],
+          "personalName": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Kristoóf Márton"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christian M."
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "personalName": [
+            "Viland"
+          ]
+        },
+        {
+          "forename": [
+            "Christophorus Martinus"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Kristof Martin"
+          ],
+          "surname": [
+            "Viland"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christof Martin"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "personalName": [
+            "Beilandos"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph-Martin"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Christovao Martinho"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Cristoph Martin"
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Kristoóf M."
+          ],
+          "surname": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "Kurisutōfu Marutin"
+          ],
+          "surname": [
+            "Vīrando"
+          ]
+        },
+        {
+          "personalName": [
+            "Wieland"
+          ]
+        },
+        {
+          "forename": [
+            "K.M."
+          ],
+          "surname": [
+            "Viland"
+          ]
+        },
+        {
+          "personalName": [
+            "A. W."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christoph_Martin_Wieland",
+          "label": "https://de.wikipedia.org/wiki/Christoph_Martin_Wieland"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:21:51Z",
+    "gnd_query_biographical_data": "1733-1813",
+    "gnd_query_name": "wieland, christoph martin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3130,
+  "name": "Wieland, Christoph Martin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 527",
+  "updated": "2026-06-11 13:29:25.739Z",
+  "uri": "https://d-nb.info/gnd/118632477",
+  "editor": ""
+}

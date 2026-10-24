@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Henriette, wollst des alten / Oheims Liebe nicht verschmähn,",
+  "language": [],
+  "musenalm_id": 6196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die junge Gräfin Henriette / von Baudissin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die junge Gräfin Henriette / von Baudissin",
+  "updated": "2000-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.027Z",
+      "agent": "gtq8zou6jpsfpy4",
+      "source_id": "hxsuwjmznaooer0"
+    }
+  ]
+}

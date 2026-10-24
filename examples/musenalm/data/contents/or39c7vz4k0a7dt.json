@@ -1,0 +1,47 @@
+{
+  "annotation": "über der Graphik: Ottokar; III. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »König Ottokars Glück und Ende« von Grillparzer /) s. Textbezug INr 85612, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85611,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emerberg. Was thust du? das Gebot verletzt des Kaisers?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kienring [?] del. S. Langer sc.",
+  "scans": [
+    "alm_1586_85611_bqxxydv59c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emerberg. Was thust du? das Gebot verletzt des Kaisers?",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.269Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "qvw38c6vts9usxs"
+    }
+  ]
+}

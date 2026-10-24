@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "431",
+  "incipit_statement": "Ich wüßte nicht, wem ich noch Blumen sollte bringen, / Dürft' ich sie nicht ums Grab geliebter Kinder schlingen.",
+  "language": [],
+  "musenalm_id": 37180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 305,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich wüßte nicht, wem ich noch Blumen sollte bringen, / Dürft' ich sie nicht ums Grab geliebter Kinder schlingen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.840Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "xysk4s4fia3y19o"
+    }
+  ]
+}

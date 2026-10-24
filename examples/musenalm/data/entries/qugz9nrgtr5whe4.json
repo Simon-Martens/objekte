@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Kleines der Freude oder frohe Erholungsstunden für gesellschaftliche Cirkel 1805",
+    "norm": "",
+    "biblio": 408799,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4157,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Kratzsch und Wettach)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch, Kleines der Freude oder frohe Erholungsstunden für gesellschaftliche Cirkel 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 129; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kleines / Taschenbuch der Freude / oder / frohe Erhlungsstunden / für / gesellschaftliche Cirkel. / Enthält: / Gesänge, Räthsel, Charaden, Sprüchwörter, / Pfänder- und Gesellschaftsspiele, Aufsätze / in Stammbücher und Gesundheiten. / Hamburg, / bey Kratzsch und Wettach / 1805",
+  "updated": "2026-06-11 10:18:54.752Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "rfw37ct8lzs8owp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.080Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.080Z",
+      "agent": "p1ez57d17gaft9f",
+      "source_id": "v4uj6u5snqgo7hz"
+    }
+  ]
+}

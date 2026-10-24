@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Biblischer für Kinder 1781",
+    "norm": "",
+    "biblio": 408528,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-11-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3728,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Grattenauer)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Almanach, Biblischer für Kinder 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 9; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Biblischer / Almanach / für / Kinder / zum / täglichen Gebrauch. / Nürnberg, / bey Ernst Christoph Grattenauer 1781",
+  "updated": "2026-06-11 10:18:54.816Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "9gqzdhlr4ocx03c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.933Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.933Z",
+      "agent": "xy87odre01udm2g",
+      "source_id": "a5nygmt0llds36w"
+    }
+  ]
+}

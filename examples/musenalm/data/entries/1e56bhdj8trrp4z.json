@@ -1,0 +1,122 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, G, SS 1-327, darin    GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Märchenalmanach für Jung und Alt aus allen Ständen",
+    "norm": "",
+    "biblio": 411572,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-06-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4887,
+  "parallel_title": "",
+  "place_statement": "Prag (Leitmeritz); Teplitz (Medau)",
+  "places": [
+    "rzdmegqqaryod20",
+    "io20468di3l63af",
+    "ot31zvyx8zx34q2"
+  ],
+  "preferred_title": "Märchenalmanach für Jung und Alt aus allen Ständen 1841",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Legis-Glückselig",
+  "subtitle_statement": "",
+  "title_statement": "MÄRCHEN- / ALMANACH / für / Jung und Alt / aus allen Ständen. / Herausgegeben / durch / Dr: LEGIS-GLÜCKSELIG. / Mit 20 Bildern. / Prag, Leimeritz und Teplitz. / Bei C. W. Medau",
+  "updated": "2026-10-23 10:26:58.022Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "j82bz4v6rhaux58"
+  ],
+  "contents": [
+    "g14gacdl2703azr",
+    "41i68g0gc5sf7ak",
+    "0xr56duydwroknz",
+    "f9oeivz85ldmf30",
+    "17095ztc6rm8xn6",
+    "iwmikhz0c7hab9w",
+    "na9ku6hoq8kgz2t",
+    "pd4neue8cgly9f9",
+    "tbh5mdc1yi7nzx4",
+    "6qkdx0vgkx8nlrz",
+    "voqgz52kgjlbh9d",
+    "38kclz57gw56yia",
+    "qewuyb6if2xdya6",
+    "skrm41rql1vuxyh",
+    "7l30bn6ztq52ilp",
+    "6s9umnzumcb0ynt",
+    "qij5r8qqoho0imi",
+    "mbi79024btbl92n",
+    "zbm4jensj96nt26",
+    "154gxhz0bkuambe",
+    "ngio5bdq0442nyo",
+    "tnwb92rehyz2nno",
+    "qskxd4ca6l9cld5",
+    "e0xgy1z177t4x71",
+    "0ba58xzl7iwrljm",
+    "gzsjal8ed85zz05",
+    "f4giopanljvyjku",
+    "ruji6q45bagic4z",
+    "1xylrgbqhb57k0j",
+    "el7k7vnwtx08kcd",
+    "ius0xyr5lkuowtp",
+    "jkq6ryhk6k27ogx",
+    "q0nhmfmoipmmzet",
+    "9ue8zky7ykefhmt",
+    "cpdr5hmhe8x9ri7",
+    "kxdfe4sm3zilbv1",
+    "fvolmfortsl9y1b",
+    "ulvdn72w1umskph",
+    "49rk7iq2r03ux7j",
+    "7wbkwew9fcdhrxo",
+    "fq1jozoxh7pkha5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.218Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-10-23 10:26:58.024Z",
+      "agent": "1k9wqtqdatu7v5n",
+      "source_id": "tbvbmp29ukl2tbt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.218Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-10-23 10:26:58.023Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "z1ozfaykl473b69"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, B, verso G, S I T, 8 BB darin 7 GG, SS III-IV I-Verz, G, SS V-XVI, S XVII-XVIII, SS 1-374",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1821",
+    "norm": "~",
+    "biblio": 100436,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2392,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1821",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1821. / Herausgegeben / von / Theodor Hell. / 10r. Jahrgang. / Mit 9 Kupfern. / Leipzig, / J. C. Hinrichssche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.316Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "o7817lnwmr83i92"
+  ],
+  "contents": [
+    "np0kv8u0yrf16a4",
+    "dxs4g9ddrk68tei",
+    "3hsamdtdze3o5h1",
+    "s5ucp23lay8052j",
+    "rzd1nm1a0pbg3zo",
+    "xq9s4fw0jku6bxm",
+    "pl4rp522s5djjp0",
+    "jwk3ll2prwo6s5w",
+    "vkmwaotwy9tqr5e",
+    "w8qpqps13o3ez9c",
+    "cw282yma4qwv8r7",
+    "qvgo7btko9ktwym",
+    "evv60bz67iybcev",
+    "664izeh99tpyaok",
+    "splu09a7cfcyqq4",
+    "1lu89xwraf6nv2q",
+    "dw05aqbe9lwahbi",
+    "2uxz2drf50wmshp",
+    "ee48e27eq31yy0g",
+    "tuu8z7ce5ox1ydw",
+    "sd52hzdr9rlc2p9",
+    "2lz2kqghzaic8de",
+    "my5qeaop8zj4m8b",
+    "7zqf2ujmdztn1t2",
+    "gsid59vfpzboz6x",
+    "rewza90m1dir19x",
+    "blvqa9zt5iwroyi",
+    "3lxdgh43x1uzdsm",
+    "xg0xfh8u6mba3c9",
+    "ui6hgaq3ba9q8ac",
+    "5x0r2fywrrmihk5",
+    "dy66x1cbcu67p3f",
+    "xxnzmx2sfkjk6yp",
+    "rup1uw7ljowotqe",
+    "hr9prjm52xmt73d",
+    "lsde9b6a9kqlp0i",
+    "xfth6x51leigkbq",
+    "uq77g9ig05ygzyt",
+    "ghmvmhizevun301",
+    "3mdfp0qq806hcki",
+    "0d2cabp5g5wwmx8",
+    "kyipsmenw6kom0b",
+    "w4cp7zcurkbcg8z",
+    "8gch4evvlwqugd3",
+    "o2h56djog6pp7k0",
+    "yd4k188nzr0z6e2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.066Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.066Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "t3k8exl8gfux9ji"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.017Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.017Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "u483m58ug35bkgc"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) s. Textbezug INr 58130, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sulburg oder Sulzburg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc. Stoll del.",
+  "scans": [
+    "alm_776_58129_kkkrxmricg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sulburg oder Sulzburg",
+  "updated": "2008-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.936Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "1vp22qt4xqh8aoc"
+    }
+  ]
+}

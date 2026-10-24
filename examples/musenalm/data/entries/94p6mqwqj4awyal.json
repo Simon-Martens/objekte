@@ -1,0 +1,107 @@
+{
+  "annotation": "4 Jgg 1792-1795. Frankfurt, Fleischerische Buchhandlung (1792, 1793), P. H. Guilhauman (1794,1795); Hrsg: Friedrich Karl Lang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B W, 2 BB Vrwrt d Hrsg, 8 BB Kal darin 12 GG, SS 1-124",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für den deutschen Adel 1792",
+    "norm": "~",
+    "biblio": 106630,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 291,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Fleischerische Buchhandlung)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach, Historischer für den deutschen Adel 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; L/R 21; Goed V. 449, 11; Goed VII. 200, 11",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1792. / Ritter / Franz von Sickingen. / von / Carl Lang. / mit / Kupfern von Küffner. / Frankfurt am Main, / in Commißion der Fleischerischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.167Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "pbk79giuk5irphd"
+  ],
+  "contents": [
+    "egrexj59n95ddoj",
+    "1u9yp93v508pqu6",
+    "g55t1kgf6fz0nn1",
+    "ooen9v03wm6nxuc",
+    "jusgf9c6223r3vx",
+    "a41njj3cj2rbz6g",
+    "n2cruxd63qryr0u",
+    "vpr08eryn5cquy0",
+    "kyfjc6kfn84sp6y",
+    "ria7s2kerk27kv8",
+    "9oe50bxukca0cqd",
+    "pkis2wb6vpgd4ae",
+    "6azaymakot6yb21",
+    "bmucmrv7tlff44g",
+    "o9kgperhis4nv7i",
+    "4mquask699b76cq",
+    "h6i3z1jv9d35y2r",
+    "g69awow6g5ddrd3",
+    "hj2ez2qvtp3mkdk",
+    "dguj446w7c2beez",
+    "44wbxv11w4r0htt",
+    "4whe8eep8dccxjm",
+    "5jlyb1jdo81iapf",
+    "pvr2boyxrqppgmi",
+    "i9hv3ywrac0br99",
+    "kjp8g1l5wj0ituw",
+    "2ormhnqyubgb6fb",
+    "t7doio94n4lt49d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.581Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.581Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "g3pfkihufiflehx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.857Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.857Z",
+      "agent": "ltf47ubwk2x3cog",
+      "source_id": "u0pm6zzkrawcu5b"
+    }
+  ]
+}

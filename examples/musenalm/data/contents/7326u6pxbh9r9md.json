@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 77349, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Lieblich senkte sich der Abend / Auf die heit're Meeresfläche, / Daß der Schein der Abendröthe / Sich im sanften Kräuseln breche,",
+  "language": [],
+  "musenalm_id": 77353,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Raphaela. / (Zur Erklärung des Titelkupfers.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Raphaela. / (Zur Erklärung des Titelkupfers.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.837Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "41l51oxfax47tf3"
+    }
+  ]
+}

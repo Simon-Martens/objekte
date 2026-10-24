@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Willkommen unter Jubel, Tanz und / Scherzen, / Im Freudenreich, wo schalkhaft dich die / Täuschung neckt.",
+  "language": [],
+  "musenalm_id": 132772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Freudenjäger / Zwey Masken, welche reitzende Sirenen / vorstellten, vertheilten in der Redoute zu / Wien folgendes Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Freudenjäger / Zwey Masken, welche reitzende Sirenen / vorstellten, vertheilten in der Redoute zu / Wien folgendes Gedicht",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.095Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "s3z2oafktlgx9d3"
+    }
+  ]
+}

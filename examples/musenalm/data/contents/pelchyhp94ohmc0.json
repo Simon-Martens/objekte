@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Ganz den Göttern gleich an Glück und Freuden / Schätz' ich den, der würdig zum Beneiden,",
+  "language": [],
+  "musenalm_id": 8379,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho an Phaon, / (nach dem Griechischen,)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mad. Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sappho an Phaon, / (nach dem Griechischen,)",
+  "updated": "2000-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.240Z",
+      "agent": "acb1mm3415v67ho",
+      "source_id": "iv3tkmkpmoxbtdt"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Ich bin der Leib nicht, der euch vor den Augen steht, / Ich bin des Liedes Ton, der euch zu Herzen geht.",
+  "language": [],
+  "musenalm_id": 37141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 265,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin der Leib nicht, der euch vor den Augen steht, / Ich bin des Liedes Ton, der euch zu Herzen geht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.741Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "ivx28szr8hwvfp5"
+    }
+  ]
+}

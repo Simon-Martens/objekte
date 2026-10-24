@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Geschenk für Liebende [oJ]",
+    "norm": "",
+    "biblio": 101260,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1821,
+  "parallel_title": "",
+  "place_statement": "Bautzen (Reichel)",
+  "places": [
+    "67topoyplosy9un"
+  ],
+  "preferred_title": "Geschenk für Liebende [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Ernst Müller",
+  "subtitle_statement": "",
+  "title_statement": "Geschenk / für / Liebende / oder Amors / Geburt und Laufbahn zum Siege. / Dargestellt in 25 feinen Kupfern mit erklären- / dem Text und einigen Abhandlungen über / die Liebe. / Herausgegeben / von / Ernst Müller. / Verlag von F. A. Reichel in Bautzen.",
+  "updated": "2026-06-11 10:18:55.642Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "sazfxtiniq2kx0p"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "cj3zxnqr04uwrl6",
+      "source_id": "rq03agvhe53wubo"
+    }
+  ]
+}

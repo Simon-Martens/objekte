@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 63442, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Wohl uns, daß wir uns gefunden / In der trüben, bangen Zeit!",
+  "language": [],
+  "musenalm_id": 63415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied für einen Musikverein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied für einen Musikverein",
+  "updated": "2009-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.271Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "gbnvkwak0p6ob1v"
+    }
+  ]
+}

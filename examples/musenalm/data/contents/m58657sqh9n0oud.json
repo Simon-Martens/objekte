@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen und einem Beitrag mit 3 Kapiteln INr 75155-75162, Obj 22-29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Gottgefällige Sorge für / sich selbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Gottgefällige Sorge für / sich selbst",
+  "updated": "2011-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.748Z",
+      "agent": "58byfz890fzelu8",
+      "source_id": "yhe5t4rfn3gwvds"
+    }
+  ]
+}

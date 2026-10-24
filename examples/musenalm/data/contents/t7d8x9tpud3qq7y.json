@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November. /) Illustration zu »Einige Denkmahle des Edelmuths und der Tapferkeit aus dem jetzigen Kriege wider die Türken / 5. Edles Betragen der Türken bey der Veteranischen Höhle.« INr 75610, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75590,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abzug der Kays. Trouppen aus der Veteranischen / Höhle über den Gaysweg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kininger inv. & del. Malvieux sc",
+  "scans": [
+    "alm_2141_75590_fmnt7e62js.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abzug der Kays. Trouppen aus der Veteranischen / Höhle über den Gaysweg",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.747Z",
+      "agent": "60p50kezhrh7h42",
+      "source_id": "17oiu7bhopwnroa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.747Z",
+      "agent": "rpm3jfs7o8do52j",
+      "source_id": "9xy13qprk0knb4h"
+    }
+  ]
+}

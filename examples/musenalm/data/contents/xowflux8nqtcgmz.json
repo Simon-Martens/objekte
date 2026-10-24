@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Liebe fliehe nur mit deiner Schmeicheley! / Mein Herz bleibt stets von Banden frey.",
+  "language": [],
+  "musenalm_id": 8491,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Möser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Liebe",
+  "updated": "2026-06-23 09:01:04.886Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.140Z",
+      "agent": "w7ddo8pyc98nhyh",
+      "source_id": "mtgplyy2ciys0qn"
+    }
+  ]
+}

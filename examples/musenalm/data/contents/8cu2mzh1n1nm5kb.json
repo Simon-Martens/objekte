@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus dem Aargau (Sammlung INr 54766, Obj 79) Gedichte (Sammlung INr 54763, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Gleich einem lieben Sterne, / zu dem ich immer sah,",
+  "language": [],
+  "musenalm_id": 54770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habsburg. / (Von Windisch aus.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Habsburg. / (Von Windisch aus.)",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.476Z",
+      "agent": "biljcxuc46g2kmt",
+      "source_id": "ix2ds99bioigzjb"
+    }
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.475Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024335-2",
+          "label": "Ludwig-Maximilians-Universität Landshut"
+        }
+      ],
+      "dateOfBirth": [
+        "1773-04-15"
+      ],
+      "dateOfDeath": [
+        "1831-04-21"
+      ],
+      "describedBy": {
+        "dateModified": "2022-06-04T18:15:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104365838/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117182567",
+          "label": "Schultes, Julius Hermann"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104365838",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.16p",
+          "label": "Personen zu Technik (ohne Architektur, Bautechnik)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117182567",
+          "label": "Schultes, Julius Hermann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104365838",
+      "oldAuthorityNumber": [
+        "(DE-588c)4526992-0",
+        "(DE-588a)104365838"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4034367-4",
+          "label": "Landshut"
+        }
+      ],
+      "preferredName": "Schultes, Joseph August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph August"
+        ],
+        "surname": [
+          "Schultes"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4009836-9",
+          "label": "Chemiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398977-9",
+          "label": "Zoologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4329065-6",
+          "label": "Mineraloge"
+        }
+      ],
+      "publication": [
+        "Schultes, Joseph A.: Versuch eines Handbuches der Naturgeschichte des Menschen",
+        "Schultes, Joseph A.: Donau-Fahrten. - 1819 - 1827",
+        "Schultes, Joseph A.: Anleitung zum gründlichen Studium der Botanik zum Gebrauche bei Vorl*",
+        "Schultes, Joseph A.: Briefe über Frankreich",
+        "Schultes, Joseph A.: Reise auf den Glockner",
+        "Schultes, Joseph A.: Östreichs Flora",
+        "Schultes, Joseph A.: Österreichs Flora",
+        "Schultes, Joseph A.: Reisen durch Oberösterreich",
+        "Schultes, Joseph A.: Baiern's Flora",
+        "Schultes, Joseph A.: Ausflüge nach dem Schneeberge in Unterösterreich"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89016513"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29967555"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q78881"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104365838/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Josef_August_Schultes"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_August_Schultes"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Josef_August_Schultes"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109625937"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104365838"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/104365838"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schultes_Joseph-August_1773_1831.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104365838.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd104365838.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104365838"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schultes, Josef August",
+        "Schultes, Joseph Aug.",
+        "Schultes, J. A.",
+        "Schultes, I. A.",
+        "Schultes, August",
+        "Schultes, Joseph A.",
+        "Schultes, Jos. Aug.",
+        "Schultes, Josephus Augustus",
+        "Schultes, Ios. Aug.",
+        "Schultes, Iosephus Augustus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Josephus Augustus"
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Iosephus Augustus"
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "I. A."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Aug."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Ios. Aug."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph A."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. Aug."
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        },
+        {
+          "forename": [
+            "Josef August"
+          ],
+          "surname": [
+            "Schultes"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_August_Schultes",
+          "label": "https://de.wikipedia.org/wiki/Joseph_August_Schultes"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:53:57Z",
+    "gnd_query_biographical_data": "1773-1831",
+    "gnd_query_name": "schultes, joseph august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2566,
+  "name": "Schultes, Joseph August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 693",
+  "updated": "2026-06-11 13:29:24.856Z",
+  "uri": "https://d-nb.info/gnd/104365838",
+  "editor": ""
+}

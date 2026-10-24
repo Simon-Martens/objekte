@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Resti-Thurm im Hasli-Thale und die ersten Schweizer« von J. R. Wysz d.J. INr 54488, Obj 59 / unter der Graphik: Alpenr. 1829",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruine des Schlosses Resti. / im Oberhaslithal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dl. Burgdorfer ad Nat. del. & sculp.",
+  "scans": [
+    "alm_741_54489_xqq5b3ji7m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruine des Schlosses Resti. / im Oberhaslithal",
+  "updated": "2008-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.542Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "oo5mcaa4h070wkv"
+    }
+  ]
+}

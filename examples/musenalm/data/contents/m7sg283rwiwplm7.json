@@ -1,0 +1,45 @@
+{
+  "annotation": "Anagramme (Sammlung INr 41415, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Manch' Gutes wird durch das Wörtchen vollbracht; / Zwei Zeichen sez' um, thu's, und Dein Sarg wird / gemacht.",
+  "language": [],
+  "musenalm_id": 41416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.948Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "av6zmqr4a0qmjg5"
+    }
+  ]
+}

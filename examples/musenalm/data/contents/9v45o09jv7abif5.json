@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Pastourelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_270_20304_m2njwlg9f5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Pastourelle",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.866Z",
+      "agent": "czigb25jnrfsy98",
+      "source_id": "8chbewcpa2mr25y"
+    }
+  ]
+}

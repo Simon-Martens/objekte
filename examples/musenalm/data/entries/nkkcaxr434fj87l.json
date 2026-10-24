@@ -1,0 +1,99 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-VIII G-Verz dazu 6 GG, SS 1-512",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellenkranz (Tieck) 1832",
+    "norm": "~",
+    "biblio": 106672,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1100,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Novellenkranz (Tieck) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 91; L/R 99; Goed VIII. 127, 341",
+  "responsibility_statement": "Ludwig Tieck",
+  "subtitle_statement": "",
+  "title_statement": "Novellenkranz. / Ein Almanach / auf das Jahr 1832. / Von / Ludwig Tieck. / Zweiter Jahrgang. / Mit sieben Kupfern. / Berlin, / bei G. Reimer",
+  "updated": "2026-06-11 10:18:55.337Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "frk0p5j83fez7aw"
+  ],
+  "contents": [
+    "zwzua99k27lqhmo",
+    "kupq3djiv2w1pew",
+    "i8dcinubi7hitd3",
+    "1bb4mypbxwa9z69",
+    "uhe19qbvuxlf387",
+    "jqyvu68l92gfnx4",
+    "kjkawc5fnz8xtmw",
+    "1m30v3gnydu1t8d",
+    "302khylez9dh7yz",
+    "gajo917ng3bb1wd",
+    "2tb1q4170qkyhd6",
+    "jfdo2q2ggdhkr85",
+    "z6ryj9q39jhnek1",
+    "xkmed8j9n4m3j52",
+    "cipiylbn8q0glsp",
+    "xb6fs8c7a7qfr1y",
+    "s00wqtcls2t4bps",
+    "bjq1cj4y4i2p8un",
+    "j95rbmj6w4xk97z",
+    "2kevcm1c8jg7vlz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "qtba1dg2hv0ov1a",
+      "source_id": "bg6g7beuhs7q31s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.822Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.822Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "x1as4523s2txrzk"
+    }
+  ]
+}

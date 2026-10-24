@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38969, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "So sei's denn Krieg! Nicht zwischen mir und ihnen / Soll Friede sein, die abgehärmt und bleich,",
+  "language": [],
+  "musenalm_id": 38970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Ausforderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Ausforderung",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.865Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "ogb88hx60183ox7"
+    }
+  ]
+}

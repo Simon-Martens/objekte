@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 16 Beiträgen INr 22932-22947, Obj 79-94",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22931,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bunte Steine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bunte Steine",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.808Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "bre4tj9hk3bfp56"
+    }
+  ]
+}

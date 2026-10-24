@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1791. / mit Kupfern von Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg im Lauenburg / und / der Jägerische Buchhandlung / in Frankfurt a/m",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Neubauer inv. et sculp. in Francfurt a/m",
+  "scans": [
+    "alm_2169_110655_kh7bs2zps5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1791. / mit Kupfern von Chodowiecki / in gemeinschaftlichem Verlag / von Berenberg im Lauenburg / und / der Jägerische Buchhandlung / in Frankfurt a/m",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.177Z",
+      "agent": "rznkc2ozl1kw6jh",
+      "source_id": "aekvn1843e90a3t"
+    }
+  ]
+}

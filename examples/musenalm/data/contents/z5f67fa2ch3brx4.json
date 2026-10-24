@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Vom Himmel ward zur Erd der Mensch getragen, / In ihn verpflanzt zum Ewigen die Keime;",
+  "language": [],
+  "musenalm_id": 56365,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Mozarts Requiem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Th. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Mozarts Requiem",
+  "updated": "2008-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.971Z",
+      "agent": "nlhzvqpr8pan6w2",
+      "source_id": "ukcvs1p1c2leqab"
+    }
+  ]
+}

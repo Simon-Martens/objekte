@@ -1,0 +1,70 @@
+{
+  "annotation": "Velin. mit koloriertem Umschlag; so nicht bei B. Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832. Marbach u. München 2003 &nbsp;(Nr. 240)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG , verso G , T , 7 BB Kal , SS 1-247, S VrlgM , 2 BB I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach (Schiller) 1799",
+    "norm": "",
+    "biblio": 412488,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2025-06-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4889,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [],
+  "preferred_title": "Musenalmanach (Schiller) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 80; L/R 32; Goed V. 207, 5",
+  "responsibility_statement": "Schiller, Friedrich",
+  "subtitle_statement": "",
+  "title_statement": "Musen-Almanach / für / das Jahr 1799. / herausgegeben / von / SCHILLER. / Tübingen, / in der J. G. Cottaischen Buchhandlung",
+  "updated": "2025-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "k1hcuqt9tzuwpfk",
+    "ll1gxle02l0u8mz"
+  ],
+  "contents": [
+    "o033vbbyo763qkj",
+    "q5rx6obs3ic641p",
+    "zz9g8ibz5uwx6es"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.185Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.185Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "pvu1b0aacjic2fm"
+    }
+  ]
+}

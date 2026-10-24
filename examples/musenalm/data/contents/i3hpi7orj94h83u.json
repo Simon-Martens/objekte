@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Es ist unmöglich! sagte Malchen mit einem tiefen Seufzer und sah Eduard mit Augen voll Thränen an, niemals kann ich Ihre Gattin werden!",
+  "language": [],
+  "musenalm_id": 80673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arm und reich. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Leonhardt-Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arm und reich. / Erzählung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.962Z",
+      "agent": "3tut4t2f7uno1ba",
+      "source_id": "rzt6e02mc38ckv9"
+    }
+  ]
+}

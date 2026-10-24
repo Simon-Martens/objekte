@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Karte INr 85745, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Zu den schwierigsten und undankbarsten Aufgaben, die dem Geographen werden konnte, gehörte bis hierher unstreitig die Zeichnung einer brauchbaren Karte von denjenigen Gegenden Deutschlands, welche jetzt die Königl. Preuß. Rheinprovinzen bilden.",
+  "language": [],
+  "musenalm_id": 85768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einige Worte über die zu diesem Kalender / gehörige Karte der Preußischen / Rheinprovinzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Klöden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einige Worte über die zu diesem Kalender / gehörige Karte der Preußischen / Rheinprovinzen",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "hz21g4l8g56zfei",
+      "source_id": "0tlzmyeruqs6u9t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anhang (Sammlung INr 48748, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "O! daß ich dich, o! so geschwind / Verloren, ja! verloren! / Gott hat dich, o mein liebes Kind! / Zum Engel früh erkoren.",
+  "language": [],
+  "musenalm_id": 48750,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied einer jungen Mutter, / beim Leichnahm ihres ersten halbjährigen Sohnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied einer jungen Mutter, / beim Leichnahm ihres ersten halbjährigen Sohnes",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.593Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "i8lcyab85nm5mj8"
+    }
+  ]
+}

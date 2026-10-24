@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25457, Obj 232)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Und nun fürcht' ich nicht mehr / Donner und Seesturm!",
+  "language": [],
+  "musenalm_id": 25461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 236,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Reue des Wandrers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Reue des Wandrers",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.808Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "65lc3u0l0ltr6b5"
+    }
+  ]
+}

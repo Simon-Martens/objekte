@@ -1,0 +1,515 @@
+{
+  "annotation": "",
+  "biographical_data": "1816-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt.-jüd. Orientalist; Begründer der hebräischen Bibliographie"
+      ],
+      "dateOfBirth": [
+        "1816-03-30"
+      ],
+      "dateOfDeath": [
+        "1907-01-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "This image has been extracted from another file"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Moritz%20Steinschneider.II.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Moritz%20Steinschneider.II.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Moritz%20Steinschneider.II.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174171439"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T14:35:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118753355/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1018935630",
+          "label": "Steinschneider, Gustav"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13757052X",
+          "label": "Steinschneider, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122308077",
+          "label": "Steinschneider, Adolf Moritz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118753355",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/13757052X",
+          "label": "Steinschneider, Jacob"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118753355",
+      "oldAuthorityNumber": [
+        "(DE-588a)118753355",
+        "(DE-588c)4105681-4",
+        "(DE-588a)174171439",
+        "(DE-588)174171439"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "שטינשנידר, משה"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4240635-3",
+          "label": "Proßnitz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Steinschneider, Moritz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Moritz"
+        ],
+        "surname": [
+          "Steinschneider"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4525103-4",
+          "label": "Hebraist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4349925-9",
+          "label": "Bibliograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Catalogus codicum hebraeorum bibliothecae academiae Lugduno-Batav*",
+        "Bibliotheca arabico judaica...",
+        "Vorlesungen über die Kunde hebräischer Handschriften, deren Samml*",
+        "Die arabischen Uebersetzungen aus dem Griechischen",
+        "Manuale bibliographicum opera recensens tum theoretica tum practi*",
+        "Catalogus librorum Hebraeorum in bibliotheca Bodleiana",
+        "Die hebraeischen Uebersetzungen des Mittelalters und die Juden als Dolmetscher",
+        "Allgemeine Einleitung in die jüdische Literatur des Mittelalters"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb124767468"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50054097"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22242243"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q78906"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118753355/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174171439"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118753355"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Moritz_Steinschneider"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Moritz_Steinschneider"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Moritz_Steinschneider"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122773803"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118753355"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Steinschneider_Moritz_1816_1907.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118753355.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118753355"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Šteynšneydeʿr, M.",
+        "Shtainshnaider, Moses",
+        "Shṭainshnaider, Mosheh",
+        "Steinschneider, Mor.",
+        "שטיינשניידר, משה",
+        "שטיינשניידער, משה",
+        "Šṭeinšneider, Mōšä",
+        "Šṭainšnaidir, Mūrīts",
+        "Steinschneider, M.",
+        "Šṭejnšnejder, Mōšä",
+        "Steinschneider, Mauritio",
+        "Steinschneider, Maur.",
+        "Steinschneider, Moriz",
+        "Steinschneider, Mauritius",
+        "Steinschneider, Maurice",
+        "Shṭaynshnaydʿer, Mosheh",
+        "Steinschneider, Maurizio",
+        "Steinschneider, Moses"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Mauritius"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Mor."
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Maur."
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Maurizio"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Maurice"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Mauritio"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "Mōšä"
+          ],
+          "surname": [
+            "Šṭejnšnejder"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh"
+          ],
+          "surname": [
+            "Shṭaynshnaydʿer"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Šteynšneydeʿr"
+          ]
+        },
+        {
+          "forename": [
+            "Mōšä"
+          ],
+          "surname": [
+            "Šṭeinšneider"
+          ]
+        },
+        {
+          "forename": [
+            "Moriz"
+          ],
+          "surname": [
+            "Steinschneider"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "שטיינשניידער"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Shtainshnaider"
+          ]
+        },
+        {
+          "forename": [
+            "Mūrīts"
+          ],
+          "surname": [
+            "Šṭainšnaidir"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh"
+          ],
+          "surname": [
+            "Shṭainshnaider"
+          ]
+        },
+        {
+          "forename": [
+            "משה"
+          ],
+          "surname": [
+            "שטיינשניידר"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Moritz_Steinschneider",
+          "label": "https://de.wikipedia.org/wiki/Moritz_Steinschneider"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:03:42Z",
+    "gnd_query_biographical_data": "1816-?",
+    "gnd_query_name": "steinschneider, moritz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2764,
+  "name": "Steinschneider, Moritz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1970",
+  "updated": "2026-06-11 13:29:25.196Z",
+  "uri": "https://d-nb.info/gnd/118753355",
+  "editor": ""
+}

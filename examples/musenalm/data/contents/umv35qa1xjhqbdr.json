@@ -1,0 +1,45 @@
+{
+  "annotation": "Glaukopis (Sammlung INr 24916, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Warum erröthest du, da mein Blick den deinen getroffen,",
+  "language": [],
+  "musenalm_id": 24927,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warum erröthest du, da mein Blick den deinen getroffen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.119Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "u6k5u795payzt7p"
+    }
+  ]
+}

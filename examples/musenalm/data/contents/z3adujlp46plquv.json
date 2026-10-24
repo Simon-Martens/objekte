@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 104259, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104259,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE JUNGE HAUSHÄLTERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schalken pinx. S. v. Perger del. Neidl. sculp.",
+  "scans": [
+    "alm_1933_104259_dswbbf10gz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE JUNGE HAUSHÄLTERIN",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.078Z",
+      "agent": "kkm6bmre6m6218d",
+      "source_id": "itqw3pn41v34e1o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.078Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "xopswywh2up1pkg"
+    }
+  ]
+}

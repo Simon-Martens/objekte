@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 21859, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Heil dem glücklichen Mann, dem ein edles Weib / das Geschick gab! / Klüglich leitet sie ihn",
+  "language": [],
+  "musenalm_id": 21858,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gattinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gattinn",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.024Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "bzbcpypzdc4xxaa"
+    }
+  ]
+}

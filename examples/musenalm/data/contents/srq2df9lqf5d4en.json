@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Gedicht INr 111088, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111089,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor Anker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Schotel pinx. J. Hilverdink del. J. B. Tétar v. Elven sculp.",
+  "scans": [
+    "alm_3481_111089_ph3tzicpnl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vor Anker",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.385Z",
+      "agent": "uibouy4s1vjlo4p",
+      "source_id": "0cdrigeuvbud11s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.385Z",
+      "agent": "thevo83emnn352q",
+      "source_id": "o8r532lv6oibf6p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.385Z",
+      "agent": "7l66ckmup6wdhiw",
+      "source_id": "y0piubckfkrokfk"
+    }
+  ]
+}

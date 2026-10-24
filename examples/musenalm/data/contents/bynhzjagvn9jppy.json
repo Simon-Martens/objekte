@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1805 INr 12283, 12284",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Lahoros, der König von Pera, hatte schon dreisig Jahre regiert. Er hatte keine Kriege geführt, keine Schulden gemacht,",
+  "language": [],
+  "musenalm_id": 12105,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Almanzina. / Erstes Capitel. / Das alte Gebäude und die neuen Philosophen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Almanzina. / Erstes Capitel. / Das alte Gebäude und die neuen Philosophen",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.270Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "611xfss5td3qm67"
+    }
+  ]
+}

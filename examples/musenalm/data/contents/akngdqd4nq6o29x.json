@@ -1,0 +1,45 @@
+{
+  "annotation": "Ernste Gedanken und Dichtungen (Sammlung INr 33823, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Leichter lernt ein Mensch, als ein Staat, sich selber kennen;",
+  "language": [],
+  "musenalm_id": 33834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Staatenprobe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Staatenprobe",
+  "updated": "2003-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.772Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "cghrqu1bs403o10"
+    }
+  ]
+}

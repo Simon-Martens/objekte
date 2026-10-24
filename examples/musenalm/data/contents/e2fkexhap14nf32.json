@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80485, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.152Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Menschenherz ist unergründlich, / Wie das Walten der Natur,",
+  "language": [],
+  "musenalm_id": 80505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Menschenherz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Menschenherz",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.850Z",
+      "agent": "qnb96innln6psir",
+      "source_id": "mu984s8blks2log"
+    }
+  ]
+}

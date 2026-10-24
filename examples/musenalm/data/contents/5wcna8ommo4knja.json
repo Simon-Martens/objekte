@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Guckuck ruft vom Tannenast: / Grüner Jäger, schöner Gast, / Frühe schon im Wald?",
+  "language": [],
+  "musenalm_id": 93877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guckuck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mayrhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Guckuck",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.612Z",
+      "agent": "z2a77hujndvxeug",
+      "source_id": "mfraguzgby4cbm6"
+    }
+  ]
+}

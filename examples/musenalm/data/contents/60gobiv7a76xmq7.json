@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1812 (Sammlung INr 39347, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Die Erste ist der Frauen zarte Lust, / Ein stiller Schmuck zum festlich schönen Kleide.",
+  "language": [],
+  "musenalm_id": 39359,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Homonyme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Homonyme",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.183Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "yxvikbcn5vlmatb"
+    }
+  ]
+}

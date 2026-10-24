@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67697, Obj 1,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67696,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SEY GEGRÜSSET KÖNIG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pt. F. John sc.",
+  "scans": [
+    "alm_233_67696_jb9928fy8h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SEY GEGRÜSSET KÖNIG",
+  "updated": "2001-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.081Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "lv3jk1mrc8rf2ro"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.081Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "y0s3rmloqw3f623"
+    }
+  ]
+}

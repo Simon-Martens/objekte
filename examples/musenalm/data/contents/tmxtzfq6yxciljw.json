@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Der Morgen tagt. Wie? träum' ich oder wache? / Wer klärte diesen trüben Himmel aus?",
+  "language": [],
+  "musenalm_id": 11987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "72. / Der schöne Herbstmorgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "72. / Der schöne Herbstmorgen",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.433Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "x2vyf96a135uwf4"
+    }
+  ]
+}

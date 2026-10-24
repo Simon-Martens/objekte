@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung des Gedichts INr 66012 aus: Musenalmanach, Rheinisch-westfälischer 1822",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Sehet in der dunkeln Stille, / In des stillen Dunkels Schleiern / Ruhn der Stadt tief-ernste Massen,",
+  "language": [],
+  "musenalm_id": 67881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlußbruchstück aus einem idyllischen Gedicht: Die / Blumenlese vor dem Frohnleichnahmsfeste zu / Aachen. / (S. Rhein-westf. Musen-Almanach s. 1822, S. 129",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leonh. Lauffs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schlußbruchstück aus einem idyllischen Gedicht: Die / Blumenlese vor dem Frohnleichnahmsfeste zu / Aachen. / (S. Rhein-westf. Musen-Almanach s. 1822, S. 129",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.495Z",
+      "agent": "psuy4hua61ncqyq",
+      "source_id": "zcztmzn1c5jpx2e"
+    }
+  ]
+}

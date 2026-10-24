@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 44080- 44088, Obj 26-34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alpenlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelheid von Stolterfoth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alpenlieder",
+  "updated": "2006-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.344Z",
+      "agent": "3jhgiv1hh1vm2en",
+      "source_id": "tj0apfmzaybuirg"
+    }
+  ]
+}

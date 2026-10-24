@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Wie lieblich ruht, beglänzt vom Abendschein / Die Gegend rund um mich in stiller Feier!",
+  "language": [],
+  "musenalm_id": 11684,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "52. / Phantasie am Schleusenbau zu Weißenfels, / im Weinmonat 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "52. / Phantasie am Schleusenbau zu Weißenfels, / im Weinmonat 1797",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.242Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "rv34txy5zbhdza9"
+    }
+  ]
+}

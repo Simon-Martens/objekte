@@ -1,0 +1,45 @@
+{
+  "annotation": "Frauenspiegel (Sammlung INr 94517, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Gar viele schöne Frauen verkünden / Laut ihre Betrübniß, um Tröster zu finden.",
+  "language": [],
+  "musenalm_id": 94564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "48.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "48.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.672Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "kczafuqdu24ctsb"
+    }
+  ]
+}

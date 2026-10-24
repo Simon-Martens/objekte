@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43361, Obj 23) mit einer Illustration s. Graphik INr 43349, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Unter den edlen und hochherzigen Frauen des Mittelalters, die duch Geist, Kühnheit und Beharrlichkeit über ihr Geschlecht hervorragten,",
+  "language": [],
+  "musenalm_id": 43363,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sophie, / Herzogin von Brabant und Landgräfin / von / Hessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sophie, / Herzogin von Brabant und Landgräfin / von / Hessen",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.988Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "psdtrs6p9npu6jr"
+    }
+  ]
+}

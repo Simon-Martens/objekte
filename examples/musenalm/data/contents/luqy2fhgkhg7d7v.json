@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter. Der Weihnachtsabend. Drei kleine Dialogen (Sammlung INr 95938, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Ich wollte, es war das ganze Jahr Winter, denn es geht doch nichts darüber, so auf dem spiegelglatten Eise fort zu schlüpfen, man weiß nicht wie.",
+  "language": [],
+  "musenalm_id": 95839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Wilhelm und Fritz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Wilhelm und Fritz",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.764Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "e5h8igejqheh4lw"
+    }
+  ]
+}

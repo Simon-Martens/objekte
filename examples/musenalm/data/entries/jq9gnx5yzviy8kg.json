@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 3 BB gT, ar: SS 1-134, ar1: SS 1-119 darin MusB, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1789",
+    "norm": "~",
+    "biblio": 100851,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 689,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / für das Jahr / 1789. / Zürich, / bey Geßner",
+  "updated": "2026-06-11 10:18:55.858Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "crt9bkanhp9avh4"
+  ],
+  "contents": [
+    "vfyevld68n2wlca",
+    "8by0cbem9nu6b73",
+    "99q16gnsdsh72lz",
+    "tgaerz7c4w6waqj",
+    "zlgmm7h9vk218ae",
+    "inbxpwa98z71yth",
+    "wmc4rlrhz7ss0me",
+    "6lfx91blyszhmgj",
+    "rqgimjagmb29cwh",
+    "zimwuolfpwf1vx9",
+    "94f78l8ppo9w1bh",
+    "fhed1h4zorhi8t6",
+    "01q3yfliah6tayi",
+    "47ywm8duuqw0cpq",
+    "bc4e07wffq7e0dl",
+    "4s5vjta8u3t7c85",
+    "etqmxa8vxhewxn5",
+    "e6am1u1766s69zf",
+    "a4mwxj2bk659nx2",
+    "57p11rnefycehq0",
+    "hqd0ym0frs24onm",
+    "iole1ijxmsbiyeu",
+    "6z4omzu52dpuw6d",
+    "au5j6f9nungwfqz",
+    "8wvpsk3pz1g09io",
+    "b2nkwyv9qncxe1h",
+    "4vmpiiqq336li9c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.899Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.899Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "158r8pz9lwo823r"
+    }
+  ]
+}

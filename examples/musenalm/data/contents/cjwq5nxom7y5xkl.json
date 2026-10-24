@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Nie hab' ich es versucht in zarten Weisen, / Was mein Gemüth bewegte, still zu sagen;",
+  "language": [],
+  "musenalm_id": 1437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein erstes Sonett. / Zum Abschied an einen Freund. / Im April 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein erstes Sonett. / Zum Abschied an einen Freund. / Im April 1806",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.732Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "82q7evycnrzidzs"
+    }
+  ]
+}

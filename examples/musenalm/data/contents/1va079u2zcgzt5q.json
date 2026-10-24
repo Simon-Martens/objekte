@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Entzückt von deinen Tönen / Auch auf dem Helikon / Entsenden die Kamönen / Dir ächten Föbussohn, / Den Griffel hier zu schreiben",
+  "language": [],
+  "musenalm_id": 62693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Max von Schenkendorf. / Mit einer goldnen Feder. / Zu seinem Geburtstage. / Koblenz, den 11. Dezember 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Meusebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Max von Schenkendorf. / Mit einer goldnen Feder. / Zu seinem Geburtstage. / Koblenz, den 11. Dezember 1816",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.224Z",
+      "agent": "kv04w8skk4ws4zw",
+      "source_id": "e2btst6cbuo006v"
+    }
+  ]
+}

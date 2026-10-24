@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts von Blumauer INr 101146, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Hört Brüder die Zeit ist ein Becher, drum giesset das Schicksal dem Zecher",
+  "language": [],
+  "musenalm_id": 101188,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "N. 29.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuster",
+  "scans": [
+    "alm_1824_101188_mx82amvadg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "N. 29.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.864Z",
+      "agent": "jmqij5epj0ygg47",
+      "source_id": "s8g3kfjzwgohqiy"
+    }
+  ]
+}

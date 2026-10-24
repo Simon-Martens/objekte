@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1–56, SS1–100, SS1–96",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1846",
+    "norm": "~",
+    "biblio": 200867,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3447,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1846",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / auf das Jahr 1846 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Dreiundzwanzigstes Bändchen. / Enthält: / Ein guter Ruf. / Lustspiel in einem Aufzug. / Der Wirrkopf oder der Unglücksvogel. / Lustspiel in 3 Aufzügen. / Die Vormünderin. / Lustspiel in 3 Aufzügen. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1846",
+  "updated": "2026-06-11 10:18:54.843Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "fq87rg9zfn84ge2"
+  ],
+  "contents": [
+    "3acet1zex97m04y",
+    "mcjydx7rc584hmi",
+    "357ye4ej4h72pvt",
+    "dimym9j4t3y6cak"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.220Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.220Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "agazo9ixn2n4ub5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.480Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.480Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "xdlbqyyopkapafb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Verschwörung des Fiesco zu Genua« von Fr. Schiller s. Textbezug INr 39732, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39733,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiesko. Vr. Act. 14te Scene. / A. Doria. Nimm diese eisgraue Haarlocke. / Sie war die letzte auf meinem Haupt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt. sc.",
+  "scans": [
+    "alm_521_39733_32p0jvbueq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fiesko. Vr. Act. 14te Scene. / A. Doria. Nimm diese eisgraue Haarlocke. / Sie war die letzte auf meinem Haupt",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.924Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "x168dcsa05ydm0y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.924Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "z7elzcpshlguqua"
+    }
+  ]
+}

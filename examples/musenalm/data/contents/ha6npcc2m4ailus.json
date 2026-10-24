@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Rätseln INr 22010-22014, Obj 174-178",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charaden",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.850Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "ttn7my3lk2ldlhy"
+    }
+  ]
+}

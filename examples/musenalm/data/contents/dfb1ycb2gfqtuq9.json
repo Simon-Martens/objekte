@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) s. Graphik INr 72266, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Karthago's Königin! Du Stolze, deren Throne / Der Ruhm umrauscht, die höchste Pracht umstrahlt,",
+  "language": [],
+  "musenalm_id": 77265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Treubruch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Treubruch",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.750Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "95e02jb4fm7o7kn"
+    }
+  ]
+}

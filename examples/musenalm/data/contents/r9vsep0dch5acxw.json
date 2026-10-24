@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "O stieg' ich mit dem Abenddunkel / Zu dir in's stumme Kämmerlein;",
+  "language": [],
+  "musenalm_id": 100001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vollmondnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vollmondnacht",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.857Z",
+      "agent": "gpow9s19ygz3th4",
+      "source_id": "ifj187bbkk2g26f"
+    }
+  ]
+}

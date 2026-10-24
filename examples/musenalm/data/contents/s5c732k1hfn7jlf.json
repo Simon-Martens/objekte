@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Was geht doch heute mit Dir vor, mein Tasso? Du schreitest wohl sinnend auf und ab,",
+  "language": [],
+  "musenalm_id": 26426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Dichter und sein Freund. / Ein Gespräch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Dichter und sein Freund. / Ein Gespräch",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.062Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "cr7xzdd1sfb6boi"
+    }
+  ]
+}

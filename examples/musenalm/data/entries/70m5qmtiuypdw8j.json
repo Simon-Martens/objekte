@@ -1,0 +1,83 @@
+{
+  "annotation": "Titelauflage von: Musenalmanach (Vermehren) 1803",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS 1-298, SS 299-305 I-Verz, S C, B",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Poesien 1809. Titelauflage von: Musenalmanach (Vermehren) 1803",
+    "norm": "~",
+    "biblio": 200662,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-08-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4451,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Hahn)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Poesien 1809. Titelauflage von: Musenalmanach (Vermehren) 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 95; nicht bei L/R; Goed. VIII. 68, 116",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "POESIEN / von / Louise Brachmann, Conz, Haug, Kuhn, / Spohie Mereau, Friedr. Schlegel etc. / Ein / MUSEN-ALMANACH / für / 1809. / Frankfurt / bei Friedrich Wilhelm Hahn",
+  "updated": "2026-06-11 10:18:55.297Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "xbrqcrxokz8zhy4"
+  ],
+  "contents": [
+    "2m6545eirv6d73o",
+    "wz6eeio2i0ree00",
+    "4l5sivr2vsvpo7p",
+    "v7v2u6kbcot63w4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.383Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.383Z",
+      "agent": "nvdnek6niibgjex",
+      "source_id": "jgeyr2q869eliuw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.867Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.867Z",
+      "agent": "g7oxpsqn6nvyohn",
+      "source_id": "q9zjdn5tlo7ps8f"
+    }
+  ]
+}

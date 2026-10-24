@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer für die Schweizerische Jugend 1826",
+    "norm": "",
+    "biblio": 101311,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2146,
+  "parallel_title": "",
+  "place_statement": "Bern (Jenni)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Kalender, Historischer für die Schweizerische Jugend 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "E. Stierlin",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Kalender / für die / Schweizerische Jugend, / für 1826. / Herausgegeben von E. Stierlin, / Pfarrer am Münster. / Sechster Jahrgang. / Bern , bey C. A. Jenni, Buchhändler.",
+  "updated": "2026-06-11 10:18:55.869Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "3pblxhrq13i9xhz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.073Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.073Z",
+      "agent": "29k52bnv6igjhjc",
+      "source_id": "61r8c7ntx6ygyrm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.004Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.004Z",
+      "agent": "cnlkd07v6a6w54w",
+      "source_id": "cjuq8wfhlghfyi0"
+    }
+  ]
+}

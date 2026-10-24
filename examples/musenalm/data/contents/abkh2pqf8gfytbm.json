@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41358,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PULCRA ES, ET DECORA, VIRGO, ET MATER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael Sanzio pinx. Fr. Wagner sc.",
+  "scans": [
+    "alm_483_41358_ayes1wk2l2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PULCRA ES, ET DECORA, VIRGO, ET MATER",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.737Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "0y8ousyl1w0favi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.738Z",
+      "agent": "zcahh3ez21pnltp",
+      "source_id": "nrb1ck85zw4thsh"
+    }
+  ]
+}

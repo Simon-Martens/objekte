@@ -1,0 +1,364 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.435Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1772-09-05"
+      ],
+      "dateOfDeath": [
+        "1855-06-25"
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-31T16:48:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104133465/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116900962",
+          "label": "Nauwerck, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116900970",
+          "label": "Nauwerck, Carl Albert"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104133465",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.15p",
+          "label": "Personen zu öffentlicher Verwaltung"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116900962",
+          "label": "Nauwerck, Karl"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116900970",
+          "label": "Nauwerck, Carl Albert"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/104133465",
+      "oldAuthorityNumber": [
+        "(DE-588a)104133465"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4048525-0",
+          "label": "Ratzeburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4101150-8",
+          "label": "Neustrelitz"
+        }
+      ],
+      "preferredName": "Nauwerk, Ludwig Gottlieb Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Gottlieb Carl"
+        ],
+        "surname": [
+          "Nauwerk"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125173-8",
+          "label": "Grafiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4460674-6",
+          "label": "Hofbeamter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Nauwerck"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15200296"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18024348"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104133465/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Nauwerk"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000006823842"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104133465"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104133465"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/104133465"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Nauwerck, Ludwig",
+        "Nauwerck, Ludwig Gottlieb Carl",
+        "Nauwerck, Ludwig Gottlieb Karl",
+        "Nauwerk, L.",
+        "Nauwerck, Ludwig G.",
+        "Nauwerck, Ludwig Gottl. Carl",
+        "Nauwerk, Ludwig",
+        "Nauwerk, Ludwig Gottlieb Karl",
+        "Nauwerk, L. G. K.",
+        "Nauwerck, Ludw."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Gottlieb Karl"
+          ],
+          "surname": [
+            "Nauwerk"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gottl. Carl"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "L. G. K."
+          ],
+          "surname": [
+            "Nauwerk"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig G."
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Nauwerk"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gottlieb Carl"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Nauwerk"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gottl. Carl"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Gottlieb Karl"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Nauwerck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Nauwerk",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Nauwerk"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:22:09Z",
+    "gnd_query_biographical_data": "1772-1855",
+    "gnd_query_name": "nauwerck, ludwig gottlieb carl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1926,
+  "name": "Nauwerck, Ludwig Gottlieb Carl",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 363",
+  "updated": "2026-06-11 13:29:23.929Z",
+  "uri": "https://d-nb.info/gnd/104133465",
+  "editor": ""
+}

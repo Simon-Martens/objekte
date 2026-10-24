@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, Kr, 12 BB Kal darin 12 GG, 30 BB, 141 SS Tabb, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer-Militärischer 1786",
+    "norm": "~",
+    "biblio": 407896,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3958,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer-Militärischer 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33, L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Militairischer / CALENDER / auf das Jahr / 1786 / mit Kupfern gezieret / und mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin herausgegeben",
+  "updated": "2026-06-11 10:18:55.775Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "ruoknwyxomhbn3r"
+  ],
+  "contents": [
+    "lkz6ylz98j6t2vi",
+    "opcoip6ed0lugfa",
+    "m22uui1x1n4tmjk",
+    "agt92h1gi6m0mzf",
+    "9m4mkc13louf8nn",
+    "386dmz60el28f94",
+    "1j8iq0he6rh9m5g",
+    "wv1ay4o5h8n0ovu",
+    "6rsir55impxc0xv",
+    "r29ui63je7frzwv",
+    "0lu1rklzczc56bk",
+    "cw2r4vx78kcqjfg",
+    "i3phc1sa10cqwc9",
+    "927bnd7qphsrgvb",
+    "g6plyvat7ma9038",
+    "3d3jqdhp9h4d031",
+    "x3q7154x0y36qjq",
+    "eas8n89d3gg8k7i",
+    "gf1j82q9v1vm63n",
+    "q4w11kjrkl5coon",
+    "gqi50yvy7hhj90b",
+    "slgazd958kznl5e",
+    "25hr4bk1nnhudff",
+    "q0d61grafguov12",
+    "p9oxnys1kyf2vge",
+    "y9sdm370ykdcao9",
+    "w2sd7fskk75g3f6",
+    "7gzne5ip14jgp4f",
+    "lktnz6xhd26yrdg",
+    "1fregobbdkv895o",
+    "6qs2rpbp0bkd5sp",
+    "ljoc5ynggt3ho11",
+    "hkudd7tn2f83u3i",
+    "yi81um91qj0z6pr",
+    "jy35sx5j5zqnw6e",
+    "62d9hb8xh3hkdjx",
+    "v5jnirurq4ohcce"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "jb116ir5l2o269x"
+    }
+  ]
+}

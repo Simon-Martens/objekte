@@ -1,0 +1,45 @@
+{
+  "annotation": "Grabschriften (Sammlung INr 90492, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Hier ist das erste Grab, und einen Guten deckt es, / Doch erste Opfer hier, und ach, ein Edler fiel!",
+  "language": [],
+  "musenalm_id": 90493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Abel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal. (Laibach.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Abel",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.318Z",
+      "agent": "rxn9x0k5ac10jd7",
+      "source_id": "nc7jd24riysbvtg"
+    }
+  ]
+}

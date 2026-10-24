@@ -1,0 +1,1354 @@
+{
+  "annotation": "",
+  "biographical_data": "1752-1796",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.393Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5077537-6",
+          "label": "Illuminaten-Orden"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Kammerherr, Oberhauptmann; Mitglied des Illuminatenordens"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1752-10-16"
+      ],
+      "dateOfDeath": [
+        "1796-05-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "Users Webmaster@sgovd.org, AxelHH on de.wikipedia"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Knigge%20Freiherr.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Knigge%20Freiherr.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Knigge%20Freiherr.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1031914722",
+        "https://d-nb.info/gnd/1031317589",
+        "https://d-nb.info/gnd/1037562054",
+        "https://d-nb.info/gnd/186322003",
+        "https://d-nb.info/gnd/1042320713",
+        "https://d-nb.info/gnd/1090751001"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:05:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11856370X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Louise Wilhelmine"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Philipp"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Philippine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Reden"
+          ]
+        },
+        {
+          "forename": [
+            "Henriette"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Baumbach"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/104238798",
+          "label": "Knigge, Philippine Eregine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116374276",
+          "label": "Reden, Friedrich Wilhelm von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11856370X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#9.5p",
+          "label": "Personen zu Soziologie, Gesellschaft, Arbeit, Sozialgeschichte"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/104238798",
+          "label": "Knigge, Philippine Eregine"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116374276",
+          "label": "Reden, Friedrich Wilhelm von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11856370X",
+      "oldAuthorityNumber": [
+        "(DE-588a)188305572",
+        "(DE-588a)187226873",
+        "(DE-588a)134931386",
+        "(DE-588)1037562054",
+        "(DE-588)1090751001",
+        "(DE-588)1031914722",
+        "(DE-588a)186027060",
+        "(DE-588a)186322003",
+        "(DE-588)186322003",
+        "(DE-588a)172190746",
+        "(DE-588)1042320713",
+        "(DE-588a)11856370X",
+        "(DE-588a)131002244",
+        "(DE-588a)1014122546",
+        "(DE-588)1031317589"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/10069103-1",
+          "label": "Wennigsen- Bredenbeck am Deister"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "preferredName": "Knigge, Adolph, Freiherr",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adolph"
+        ],
+        "nameAddition": [
+          "Freiherr"
+        ],
+        "surname": [
+          "Knigge"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4333843-4",
+          "label": "Satiriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1059870649",
+          "label": "Philo"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870886",
+          "label": "Schaafskopf, Samuel Conrad von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870444",
+          "label": "Meywerk, J. C."
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870789",
+          "label": "Wurmbrand, Joseph von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870541",
+          "label": "Maier, Joseph Aloisius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870622",
+          "label": "Noldmann, Benjamin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870835",
+          "label": "Ehrenfels, Victor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1059870754",
+          "label": "Spießglas, Joachim Melchior"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Samuel C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schaafskopf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joachim Mekchior"
+          ],
+          "surname": [
+            "Spießglas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Samuel Conrad"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schaafskopf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph Aloisius"
+          ],
+          "surname": [
+            "Maier"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joachim M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spießglas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Noldmann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Philo!1059870649!"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Victor"
+          ],
+          "surname": [
+            "Ehrenfels"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Josef A."
+          ],
+          "surname": [
+            "Maier"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joachim Melchior"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spießglas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Melchior"
+          ],
+          "surname": [
+            "Spießglas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Meywerk"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurmbrand"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Ueber Eigennutz und Undank",
+        "Gesammelte poetische und prosaische Schriften",
+        "Weishaupt, Adam: Die neuesten Arbeiten des Spartakus und Philo in dem Illuminaten-Orden",
+        "Über Umgang mit Menschen",
+        "Practical philosophy of social life or, the art of conversing with men",
+        "Ueber Friederich Wilhelm dem Liebreichen",
+        "Sechs Predigten gegen Despotismus, Dummheit, Aberglauben",
+        "Briefe auf einer Reise aus Lothringen nach Niedersachsen geschrieben",
+        "Philos endliche Erklärung und Antwort, auf verschiedene Anforderungen und Fragen, die an ihn ergangen, seine Verbindung mit dem Orden der Illuminaten betreffend",
+        "Konzert für Fagott, Streichorchester und Continuo. Nach den autographen Stimmen von 1775 (im Stadtarchiv Hannover, Autographensammlung, Nr. 3832)",
+        "Dramaturgische Blätter"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Adolf Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12141985c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80098732"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32032862"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213681"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1031317589"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1031914722"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037562054"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1042320713"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090751001"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11856370X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186322003"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adolph_Freiherr_Knigge"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adolph_Knigge"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adolph_Freiherr_Knigge"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adolph_Freiherr_Knigge"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?11856370X"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108848338"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11856370X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1773_campen;90"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11856370X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856370X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856370X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11856370X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/11856370X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11856370X"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Knigge, Adolph Franz Friedrich Ludwig, Freiherr von, Schriftsteller",
+        "Knigge, Adolph, Freiherr von, Ecrivain",
+        "Knigge-Vulpius",
+        "Freiherr von Knigge, Adolph",
+        "Knigge, August von, Freiherr",
+        "Knigge, Adolph, Freyherr",
+        "Spießglas, Melchior",
+        "Spießglas, Joachim Mekchior",
+        "Knigge, Adolph Franz Friedrich von",
+        "Knigge, Adolf von",
+        "Knigge, Adolf Franz Friedrich von, Freiherr",
+        "Knigge, Adol'f",
+        "Noldmann, Benjamin",
+        "Knigge, Adolf Franz Friedrich Ludwig von",
+        "Knigge, Adolph, Freiherr von",
+        "Knigge, Adolf, Freiherr von, Writer",
+        "Knigge, Adolph Franz Friedrich, Freiherr von",
+        "Knigge, Adolph Franz Friedrich Ludwig, Freiherr von, Writer",
+        "Spießglas, Joachim Melchior von",
+        "Knigge, Adolf, Freiherr von, Schriftsteller",
+        "Meywerk, J. C.",
+        "Knigge, Adolph Franz Friedrich, Freiherr",
+        "Knigge, Adolph, Ecrivain",
+        "Knigge",
+        "Maier, Josef A.",
+        "Kunigge fuon",
+        "Knigge, Adolph von",
+        "Wurmbrand, Joseph von",
+        "A. v. K., Freiherr",
+        "Knigge, Adolf",
+        "Schaafskopf, Samuel Conrad von",
+        "Knigge, Adol'f, Freiherr",
+        "Schaafskopf, Samuel C. von",
+        "Knigge, Adolf Franz Friedrich, Freiherr von",
+        "Spießglas, Joachim M. von",
+        "Knigge, Adolf, Freiherr",
+        "Knigge, Adolph, Freiherr von, Writer",
+        "Knigge, Adolph, Writer",
+        "Adolph, Ritter vom Schwan, Schriftsteller",
+        "Knigge, Adolph",
+        "A. v. K.",
+        "Knigge, Adolph, Freiherr von, Schriftsteller",
+        "Knigge, Adolf, Freiherr von, Ecrivain",
+        "R.v.S., Schriftsteller",
+        "Knigge, Adolf Franz Friedrich Ludwig, Freiherr von",
+        "Philo, Schriftsteller",
+        "Ehrenfels, Victor",
+        "Knigge, Adolf Franz Friedrich, Freiherr",
+        "Knigge, A.",
+        "Maier, Joseph Aloisius",
+        "Knigge, A., Freiherr",
+        "Knigge, Adolph Franz Friedrich Ludwig, Freiherr von, Ecrivain",
+        "Knigge, Adolf Franz Friedrich von",
+        "Knigge, Adolph, Schriftsteller",
+        "Knigge, Adolph v.",
+        "Knigge, Adolf, Freiherr von",
+        "Philo!1059870649!",
+        "Knigge, Adolf Franz Friedrich Ludwig, Freiherr"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Freiherr von, Writer"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Joachim M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spießglas"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "nameAddition": [
+            "Freiherr von, Writer"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Freyherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Freiherr von, Writer"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Victor"
+          ],
+          "surname": [
+            "Ehrenfels"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Schriftsteller"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Joachim Melchior"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spießglas"
+          ]
+        },
+        {
+          "forename": [
+            "Adol'f"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "nameAddition": [
+            "Freiherr von, Ecrivain"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Melchior"
+          ],
+          "surname": [
+            "Spießglas"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Ecrivain"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "personalName": [
+            "A. v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Noldmann"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Meywerk"
+          ]
+        },
+        {
+          "personalName": [
+            "Philo!1059870649!"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel Conrad"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schaafskopf"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Schriftsteller"
+          ],
+          "personalName": [
+            "R.v.S."
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "personalName": [
+            "Knigge-Vulpius"
+          ]
+        },
+        {
+          "personalName": [
+            "A. v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "personalName": [
+            "Kunigge"
+          ],
+          "prefix": [
+            "fuon"
+          ]
+        },
+        {
+          "forename": [
+            "Joachim Mekchior"
+          ],
+          "surname": [
+            "Spießglas"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Freiherr von, Schriftsteller"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Aloisius"
+          ],
+          "surname": [
+            "Maier"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Freiherr von, Ecrivain"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wurmbrand"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Ritter vom Schwan, Schriftsteller"
+          ],
+          "personalName": [
+            "Adolph"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich Ludwig"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Freiherr von Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Freiherr von, Ecrivain"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Schriftsteller"
+          ],
+          "personalName": [
+            "Philo"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "nameAddition": [
+            "Writer"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adol'f"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Samuel C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schaafskopf"
+          ]
+        },
+        {
+          "forename": [
+            "Josef A."
+          ],
+          "surname": [
+            "Maier"
+          ]
+        },
+        {
+          "personalName": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Franz Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Franz Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "surname": [
+            "Knigge"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adolph_Knigge",
+          "label": "https://de.wikipedia.org/wiki/Adolph_Knigge"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:57:24Z",
+    "gnd_query_biographical_data": "1752-1796",
+    "gnd_query_name": "knigge, adolf franz friedrich ludwig von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1428,
+  "name": "Knigge, Adolf Franz Friedrich Ludwig von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 614",
+  "updated": "2026-06-11 13:29:23.273Z",
+  "uri": "https://d-nb.info/gnd/11856370X",
+  "editor": ""
+}

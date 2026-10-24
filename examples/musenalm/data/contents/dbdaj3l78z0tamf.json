@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 63817, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63824,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE K.K. HOFBURG IN WIEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. L. Hoffmeister Stahlst. v. Joh. Poppel",
+  "scans": [
+    "alm_1049_63824_7jvunlptax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE K.K. HOFBURG IN WIEN",
+  "updated": "2009-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.170Z",
+      "agent": "09vqyzz1zzz8g9y",
+      "source_id": "ezwz3edaq6p5qr9"
+    }
+  ]
+}

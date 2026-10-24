@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, S I T, SS III-IV Vrwrt d Hrsg, SS V-VI I-Verz SS VII-XIV G-Verz darin 11 GG, ar: SS 1-170, ar1: SS 1-46, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1813",
+    "norm": "~",
+    "biblio": 106548,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-12-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 174,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Göttingisches / Taschenbuch / zum / Nutzen und Vergnügen / für / das Jahr 1813. / Mit Kupfern. / Göttingen / bei Heinrich Dieterich",
+  "updated": "2026-06-11 10:18:55.214Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "ewfdxxg81ebd427"
+  ],
+  "contents": [
+    "lvrx11cg8bp9346",
+    "7ddi8zn4awubdqw",
+    "fj9conu5nbjebqq",
+    "2m1hdtc9f6rq9ka",
+    "et4s18q2lzydd3b",
+    "uq8cc3zt7qawvba",
+    "0tk3lskldz6gmta",
+    "tzhnwm4qz3t3x5i",
+    "20a3aipaxg302j4",
+    "ii5jltwwkg6c2uz",
+    "r005lt0unek752b",
+    "47bnf97e4zsm6nq",
+    "kp6ga0ygw2e0522",
+    "lvtw24aj1c7ul4p",
+    "3u82n18v6gsbgbn",
+    "0ilplfufrfhe1rz",
+    "yyd78kd0e9aimcg",
+    "t8ugled52emh8rk",
+    "8i2ybjy2v2dr1jn",
+    "vzvg4uf8ssn6f49",
+    "ux66uw3zl1giex7",
+    "n0lkvhtlgjq420l",
+    "0u9xwoz65ny0tik",
+    "f7m43v7ib3cfqob",
+    "7jpwcxuggrlj7a1",
+    "pewywz7fk37ydi1",
+    "d8j7h36hxlmkwtp",
+    "roz3q8zx1s1drdw",
+    "lrosgg2pnqg4efd",
+    "turpr0apsj67q0l",
+    "mv9sldybi0rsuo2",
+    "h3raaqh90kd8t25",
+    "5ii96pbbsxcrgzb",
+    "1uptm1mthfn62nf",
+    "h8seomh3h80w6qa",
+    "l32bunz1pdeqa25"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.947Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.947Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "ett7knr9ocnplpa"
+    }
+  ]
+}

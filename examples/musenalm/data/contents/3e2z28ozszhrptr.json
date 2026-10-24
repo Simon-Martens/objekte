@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Hoch von des Felsens höchster Spitze / Erhob ein Adler seinen Flug, / Der ihn zum Sitz der Götter trug.",
+  "language": [],
+  "musenalm_id": 42751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Adler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Adler",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.203Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "cuqkx2vtyro72ra"
+    }
+  ]
+}

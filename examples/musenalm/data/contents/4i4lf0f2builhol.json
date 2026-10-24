@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Ich grüß' Euch, ihr Schwarzäugigen / Am rebenvollen Strande / Des Neckars",
+  "language": [],
+  "musenalm_id": 33441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rhingulf der Barde, / an Würtembergs Schönen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Fr. Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rhingulf der Barde, / an Würtembergs Schönen",
+  "updated": "2003-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.391Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "xnlmwnp6vr4qij9"
+    }
+  ]
+}

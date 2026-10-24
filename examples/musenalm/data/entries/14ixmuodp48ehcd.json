@@ -1,0 +1,63 @@
+{
+  "annotation": "# K 30 nennt nur Jg 1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch für Winterabende, Das 1847",
+    "norm": "",
+    "biblio": 0,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1654,
+  "parallel_title": "",
+  "place_statement": "Hannover (Kius)",
+  "places": [],
+  "preferred_title": "Buch für Winterabende, Das 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30 #; nicht bei L/R",
+  "responsibility_statement": "M. Honek",
+  "subtitle_statement": "",
+  "title_statement": "Das / Buch für Winterabende. / Volkskalender und Volksbuch / für / 1847 / Sechster Jahrgang. / Von M. Honek. / Mit Beiträgen von K. Andree, K. Buchner, M. H. Geldern, Herman / Harrys, Moritz Hartmann, Günther Nicol und Andern. / Mit Lithographien und Holzschnitten. / &nbsp;Hannover. / Verlag von C. F. Kius",
+  "updated": "2026-06-11 10:18:55.552Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "pv5ihd9yunnycqy",
+      "source_id": "twjo5izwl1h12jw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 61639, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Ein reicher Bauer lag auf dem Sterbebette, und wollte gern noch etwas anordnen, wodurch seiner armen Seele könnte zu Hülfe gekommen werden.",
+  "language": [],
+  "musenalm_id": 61643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der letzte Wille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der letzte Wille",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.922Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "b31zr4dszf880dq"
+    }
+  ]
+}

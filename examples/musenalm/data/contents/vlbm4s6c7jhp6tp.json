@@ -1,0 +1,45 @@
+{
+  "annotation": "Münster, am 30. Januar 1806",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Ja, es umsäuselten mich schon / Des Gefieders Wallung, da verschwand / Der Adler des Gesangs,",
+  "language": [],
+  "musenalm_id": 51426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spätere Zueignung des Ossian an / meinen Bruder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Leopold Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spätere Zueignung des Ossian an / meinen Bruder",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.487Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "4rglhmwvezvm7k4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Eins trübt mir, ach! die Friedensfeier: / Ich wittre stets noch unter Asche Feuer,",
+  "language": [],
+  "musenalm_id": 56847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwarze Ahnung. / 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwarze Ahnung. / 1816",
+  "updated": "2008-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.078Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "g88xp437nsxhuvg"
+    }
+  ]
+}

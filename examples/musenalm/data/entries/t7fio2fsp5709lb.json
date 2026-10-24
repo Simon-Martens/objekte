@@ -1,0 +1,76 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Anthologie, Schlesische",
+    "norm": "",
+    "biblio": 411554,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-04-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4884,
+  "parallel_title": "",
+  "place_statement": "Breslau, Leipzig",
+  "places": [],
+  "preferred_title": "Anthologie, Schlesische 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 21; L/R 30",
+  "responsibility_statement": "Carl Friedrich Lentner",
+  "subtitle_statement": "",
+  "title_statement": "Schlesische / Anthologie / herausgegeben / von / Carl Friedrich Lentner / der Arzneywissenschaft Doctor. / Zweite Sammlung. / Breßlau und Leipzig, / bey Christian Friedrich Gutsch, 1774",
+  "updated": "2026-06-18 10:37:35.327Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "81bodgtpugoaqyx"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.204Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-18 10:37:35.328Z",
+      "agent": "oc40xg0pb3l0q1s",
+      "source_id": "8ow60251kpwuys1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.204Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-18 10:37:35.328Z",
+      "agent": "yn98h7dib6h4433",
+      "source_id": "khf9gi05to0i2vs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 121945, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Vor'm Spiegel steht sie, die schöne Maid, / Bei nächtlicher Zeit, / Und spricht in magdlichem Scherze,",
+  "language": [],
+  "musenalm_id": 121946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Mädchen Nachts vor'm Spiegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Mädchen Nachts vor'm Spiegel",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.801Z",
+      "agent": "slo2tnoqzd1g9wn",
+      "source_id": "8i6nk7grkny6u8e"
+    }
+  ]
+}

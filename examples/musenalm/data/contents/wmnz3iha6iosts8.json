@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) s. Textbezug INr 81551, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81544,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freue dich am Morgen deines Lebens!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HR. Grape sc.",
+  "scans": [
+    "alm_3834_81544_8txepvzubi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Freue dich am Morgen deines Lebens!",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "t2z8lq4qwm3oov7",
+      "source_id": "f1mamifizga6glz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "pc6tagghhw4kssn"
+    }
+  ]
+}

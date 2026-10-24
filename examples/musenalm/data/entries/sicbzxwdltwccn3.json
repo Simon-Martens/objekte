@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Maiblumen (Novis) 1836",
+    "norm": "",
+    "biblio": 406066,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3852,
+  "parallel_title": "",
+  "place_statement": "Berlin (Plahn)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Maiblumen (Novis) 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 77; nicht bei L/R",
+  "responsibility_statement": "C. Novis",
+  "subtitle_statement": "",
+  "title_statement": "MAIBLUMEN. / Taschenbuch / für / das Jahr 1836. / Herausgegeben / von C. Novis. / Berlin, 1836. / Im Verlage der Plahn'schen Buchhandlung. / (L. NITZE.)",
+  "updated": "2026-06-11 10:18:55.927Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "hoft42igcvv4hvm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.132Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.132Z",
+      "agent": "5qfhmclymbuxkia",
+      "source_id": "0bkcb1356r4010w"
+    }
+  ]
+}

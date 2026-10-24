@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Beneidenswerthe Welle, / Die nach dem Land sich lenkt, / Wo eine treue Seele / In Sehnsucht meiner denkt!",
+  "language": [],
+  "musenalm_id": 116108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Bache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Zusner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Bache",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.452Z",
+      "agent": "bl67sc1w31pzw0u",
+      "source_id": "qpayqmrjos1ezbn"
+    }
+  ]
+}

@@ -1,0 +1,766 @@
+{
+  "annotation": "",
+  "biographical_data": "1304-1374",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.443Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118516345",
+          "label": "Brusch, Kaspar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119746247",
+          "label": "Lombardus, Sirichius"
+        },
+        {
+          "forename": [
+            "Stephan"
+          ],
+          "surname": [
+            "Wacker"
+          ]
+        },
+        {
+          "personalName": [
+            "Aeschines"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118524658",
+          "label": "Demosthenes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119667355",
+          "label": "Faber, Ulrich Rhaetus"
+        },
+        {
+          "forename": [
+            "Pietro Paolo"
+          ],
+          "surname": [
+            "Vergerio"
+          ]
+        },
+        {
+          "forename": [
+            "Adam"
+          ],
+          "surname": [
+            "Werner"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119617706",
+          "label": "Benvenutus Rambaldi"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119857804",
+          "label": "Vergerio, Lodovico"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ein fiktiver Iulius Celsus ist angebl. Verf. von Petrarcas \"De viris illustribus\""
+      ],
+      "dateOfBirth": [
+        "1304-07-20"
+      ],
+      "dateOfDeath": [
+        "1374-07-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Altichiero"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Altichiero%2C%20ritratto%20di%20Francesco%20Petrarca.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Altichiero%2C%20ritratto%20di%20Francesco%20Petrarca.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Altichiero%2C%20ritratto%20di%20Francesco%20Petrarca.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174256973"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:30.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118593234/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1089545770",
+          "label": "Garzo, dall'Incisa"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118593234",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118593234",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ita",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ita"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)139944109",
+        "(DE-588a)118593234",
+        "(DE-101c)310396743",
+        "(DE-588a)174256973",
+        "(DE-588)174256973",
+        "(DE-588a)141676558",
+        "(DE-588c)4045380-7",
+        "(DE-588a)134706749"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4002888-4",
+          "label": "Arezzo"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4262469-1",
+          "label": "Arquà Petrarca"
+        }
+      ],
+      "preferredName": "Petrarca, Francesco",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Francesco"
+        ],
+        "surname": [
+          "Petrarca"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4155430-9",
+          "label": "Geschichtsschreiber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160777-6",
+          "label": "Humanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "publication": [
+        "Data in arqua, per memoria di M. Fr. Petrarcha",
+        "Eyn Neüwe Geteütscht Bücchlein/Jnhaltende Grosse Erbermliche Clagen/der Synlichkeit vñ ...",
+        "Ludus septem sapientum",
+        "Carmen Bucolicum",
+        "FRANCISCI PETRARCHAE, DE REMEDIIS vtriusque Fortunae, LIBRI DVO. Editio secunda, priore ...",
+        "Il Petrarcha",
+        "Opera",
+        "Il Petrarca",
+        "Ludolphus <de Saxonia>: In Psalterium Davidis enarratio",
+        "De remediis utriusque fortunae",
+        "Sonetti, canzoni e triomphi di Messer Francesco Petracha",
+        "De vitis Caesarum",
+        "FRanciscus Petrarcha.Von der Artzney bayder Glück des gůten vnd widerwertigen. Vnnd weß sich ...",
+        "Librorum Francisci Petrarche impressorum annotatio",
+        "Vergerio, Pietro Paolo: Della camera e statua della madonna chiamata di Loreto",
+        "De rebus memorandis",
+        "De Rebus Memorandis. GEdenckbůch Aller der Handlungen die sich fürtreffenlich vonn ...",
+        "Carmen bucolicum",
+        "Trostspiegel in Glueck vnd Vnglueck. Francisci Petrarche des Hochberuempten ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79092622"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39382430"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41573.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1401"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118593234/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174256973"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118593234"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Petrarch"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Francesco_Petrarca"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Francesco_Petrarca"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Petrarch"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121287790"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118593234"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118593234"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118593234"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118593234"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Petrarka",
+        "Petrarca, Francisco",
+        "Pétrarque, Francesco",
+        "Petrarcha, Franciscus",
+        "Petrarch, Francesco",
+        "Petrarka, Frančesko",
+        "Pétrarque, François",
+        "Petrarche, Franciscus",
+        "Pétrarque",
+        "Petrarcha, Francisco",
+        "Petrarcque, Francoys",
+        "Petrarch, Franz",
+        "Petrarcha, Francescho",
+        "Franciscus, Petrarcha",
+        "Petrarche, Francesco",
+        "Petracco, Francesco",
+        "Pseudo-Petrarca",
+        "Petrarce, Francisci",
+        "Petrarca, Franz",
+        "Petrarcke, Fraunces",
+        "Petarcha, Franciscus",
+        "Petrarche, Francisco",
+        "Petrarcha, Francesco",
+        "Petrarcha, Franczyssek",
+        "Franciscus, Petrarca",
+        "Petrarca, Pseudo-",
+        "Petrarca, Francoys",
+        "Petrarch",
+        "Francesco, Petrarca",
+        "Petraca",
+        "P., F.",
+        "Petracha, Franciscus",
+        "Petrarch, Francis",
+        "Petrarchus, Franciscus",
+        "Petrarque, Francoys",
+        "Petrarka, Francesco",
+        "Petrarka, France",
+        "Petrarca, Franciscus",
+        "Petracca",
+        "Pétracque, Françoys"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Petrarca"
+          ],
+          "personalName": [
+            "Francesco"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petracha"
+          ]
+        },
+        {
+          "forename": [
+            "Francisci"
+          ],
+          "surname": [
+            "Petrarce"
+          ]
+        },
+        {
+          "forename": [
+            "Francisco"
+          ],
+          "surname": [
+            "Petrarcha"
+          ]
+        },
+        {
+          "forename": [
+            "Francoys"
+          ],
+          "surname": [
+            "Petrarque"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petrarche"
+          ]
+        },
+        {
+          "personalName": [
+            "Petracca"
+          ]
+        },
+        {
+          "personalName": [
+            "Petrarka"
+          ]
+        },
+        {
+          "personalName": [
+            "Pétrarque"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Petracco"
+          ]
+        },
+        {
+          "forename": [
+            "Fraunces"
+          ],
+          "surname": [
+            "Petrarcke"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petrarca"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Petrarche"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Petrarch"
+          ]
+        },
+        {
+          "forename": [
+            "France"
+          ],
+          "surname": [
+            "Petrarka"
+          ]
+        },
+        {
+          "forename": [
+            "Francoys"
+          ],
+          "surname": [
+            "Petrarcque"
+          ]
+        },
+        {
+          "forename": [
+            "Francis"
+          ],
+          "surname": [
+            "Petrarch"
+          ]
+        },
+        {
+          "forename": [
+            "Francisco"
+          ],
+          "surname": [
+            "Petrarche"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Petrarcha"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Pétrarque"
+          ]
+        },
+        {
+          "personalName": [
+            "Petraca"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "P."
+          ]
+        },
+        {
+          "forename": [
+            "Francoys"
+          ],
+          "surname": [
+            "Petrarca"
+          ]
+        },
+        {
+          "forename": [
+            "François"
+          ],
+          "surname": [
+            "Pétrarque"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Pseudo-"
+          ],
+          "personalName": [
+            "Petrarca"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Petrarca"
+          ],
+          "personalName": [
+            "Franciscus"
+          ]
+        },
+        {
+          "forename": [
+            "Francescho"
+          ],
+          "surname": [
+            "Petrarcha"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petrarcha"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Petrarca"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Petrarcha"
+          ],
+          "personalName": [
+            "Franciscus"
+          ]
+        },
+        {
+          "forename": [
+            "Francisco"
+          ],
+          "surname": [
+            "Petrarca"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Petrarka"
+          ]
+        },
+        {
+          "personalName": [
+            "Petrarch"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petarcha"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "surname": [
+            "Petrarca"
+          ]
+        },
+        {
+          "forename": [
+            "Frančesko"
+          ],
+          "surname": [
+            "Petrarka"
+          ]
+        },
+        {
+          "forename": [
+            "Françoys"
+          ],
+          "surname": [
+            "Pétracque"
+          ]
+        },
+        {
+          "forename": [
+            "Franciscus"
+          ],
+          "surname": [
+            "Petrarchus"
+          ]
+        },
+        {
+          "forename": [
+            "Francesco"
+          ],
+          "surname": [
+            "Petrarch"
+          ]
+        },
+        {
+          "forename": [
+            "Franczyssek"
+          ],
+          "surname": [
+            "Petrarcha"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Francesco_Petrarca",
+          "label": "https://de.wikipedia.org/wiki/Francesco_Petrarca"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:28:27Z",
+    "gnd_query_biographical_data": "1304-1374",
+    "gnd_query_name": "petrarca, francesco"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2054,
+  "name": "Petrarca, Francesco",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 375",
+  "updated": "2026-06-11 13:29:24.052Z",
+  "uri": "https://d-nb.info/gnd/118593234",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Venus (Sammlung INr 91544, Obj 68) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Die Göttin will ich singen, / Welche süßen Gaben / Den Sterblichen verleiht,",
+  "language": [],
+  "musenalm_id": 91556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.022Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "myohezbeds48bt7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 62696, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Einsam trauert die Kapelle / Hildegards im Mondenschein,",
+  "language": [],
+  "musenalm_id": 62695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Erscheinung auf dem Rupertsberge / bey Bingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Erscheinung auf dem Rupertsberge / bey Bingen",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.224Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "waqxrb4qwwx1oxn"
+    }
+  ]
+}

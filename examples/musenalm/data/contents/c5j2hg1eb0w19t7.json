@@ -1,0 +1,56 @@
+{
+  "annotation": "an der Graphik p. 226 /) Illustration zu »Die junge Eiche an der königl. Meierei« von Emil, d.i. J. Fr. E. Trimmel INr 129956, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129831,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eiche an der k. Mayerey",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. B.",
+  "scans": [
+    "alm_4809_129831_28weieltmf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Eiche an der k. Mayerey",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.049Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "9p2kte95o9v5r58"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.049Z",
+      "agent": "o70q3vimhwk7cqf",
+      "source_id": "q7o0jxconrtsluh"
+    }
+  ]
+}

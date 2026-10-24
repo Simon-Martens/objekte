@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Also der Kunst nur weihst du die Zeit, die / ganze des Lebens?",
+  "language": [],
+  "musenalm_id": 19854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kunst",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.917Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "xkckgfy3nsh72y1"
+    }
+  ]
+}

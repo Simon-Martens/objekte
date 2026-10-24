@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 49251, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kegelspiel mit schwebender Kugel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. Schule sc.",
+  "scans": [
+    "alm_675_49252_hp8n4nce3n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kegelspiel mit schwebender Kugel",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.471Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "kgbkk9k6izcjao2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.471Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "v0uqtyehevgf22k"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Umrißgraphik nach einer Skulptur von Canova; s. Textbezug INr 19060, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9348,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Concordia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Schröter jun. sc.",
+  "scans": [
+    "alm_49_9348_yfux6lwxq2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Concordia",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.421Z",
+      "agent": "nks9aoyh19lpabu",
+      "source_id": "76pw65q7zdpvlkk"
+    }
+  ]
+}

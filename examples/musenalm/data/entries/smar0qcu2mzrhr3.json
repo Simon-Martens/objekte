@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbüchlein Deutscher Gedichte 1815",
+    "norm": "",
+    "biblio": 411249,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-03-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4810,
+  "parallel_title": "",
+  "place_statement": "Stettin (Struck)",
+  "places": [
+    "w5i2z90esk40gff"
+  ],
+  "preferred_title": "Jahrbüchlein Deutscher Gedichte 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 42",
+  "responsibility_statement": "Löst, Friedr. Baron de la Motte Fouqué, Ludwig Giesebrecht",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbüchlein / Deutscher Gedichte / auf 1815 / von / Heinr. Löst, Friedr. Baron de la Motte Fouqué, / Ludwig Giesebrecht u. a. / Stettin, gedruckt bei Carl Wilhelm Struck, 1815",
+  "updated": "2026-06-11 10:18:55.732Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "hkx2muumpgf5x4e"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "dtim58j5m4962yi",
+      "source_id": "5q1x769zl0qmsse"
+    }
+  ]
+}

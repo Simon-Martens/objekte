@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kleiner Graphik unter dem Gedicht s. INr 38313, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Auf jenem Felsen, weit und breit / Des blauen Ufers Schutz; / Ein Muster der Beständigkeit, / Der milden Wellen Trutz,",
+  "language": [],
+  "musenalm_id": 38312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Fischer. / Dem Hochgeb. Grafen, Herrn Christian / Friedrich Reichsgrafen zu Stolberg- / Wernigerode, bey seiner Vermählung / gesungen von einem ehmaligen / Fischer. / Am 12. Dec. 1768",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Fischer. / Dem Hochgeb. Grafen, Herrn Christian / Friedrich Reichsgrafen zu Stolberg- / Wernigerode, bey seiner Vermählung / gesungen von einem ehmaligen / Fischer. / Am 12. Dec. 1768",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.712Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "bc6ovveq0w3e1my"
+    }
+  ]
+}

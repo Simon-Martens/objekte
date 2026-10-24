@@ -1,0 +1,131 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 8 BB Kal, S 5 zT, SS 7-185, SS 186- 201, S 202, B I-Verz C, S 203 zT, SS 205-284",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der deutschen Musen 1779",
+    "norm": "~",
+    "biblio": 106354,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 188,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weygand)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der deutschen Musen 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 14; L/R 28; Goed IV/1. 944, 1",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der deutschen Musen / auf / das Jahr 1779. / Leipzig, / in der Weygandschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.516Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "bqlydgbz3kvlypk"
+  ],
+  "contents": [
+    "5q51f12myqzw5lg",
+    "02b97wurjjmee2o",
+    "4xdioinytxezqcc",
+    "oonk4kmdokqg89x",
+    "kao727kgj1cs7yu",
+    "tjnddcxbkmiehar",
+    "aq2xt7wf6qcj3wv",
+    "m8es793ptn8rimx",
+    "ae1tg8rhozavov9",
+    "0kr1f0b2kceevrr",
+    "39t9mxs9bn2mev7",
+    "w6rup4ln33v3vzv",
+    "q35noe04kfmim3s",
+    "y3f1lvibdrr7pj8",
+    "qlrw5zk3x767clw",
+    "lz3wulua1007vx4",
+    "e77y0l8wnq927ht",
+    "r0je0epoehn5tni",
+    "acps1k3czpj00xm",
+    "fz5d817c6hnphv8",
+    "9khq549xnx31znr",
+    "u6rlbviukmbk6o8",
+    "lqed5tuka9nc4aw",
+    "mvadveh69308qif",
+    "n03712ds3es82gz",
+    "llonatmx6udb2pf",
+    "7e1ctj2v7hglk3f",
+    "jtb60154tinaw01",
+    "b1epgwlg8vuvjnw",
+    "buqyvq6wrp3ho3x",
+    "0zu31blewtdp7wz",
+    "cqwyccohe8xbvq9",
+    "henxgb7s8cvnuwv",
+    "ur7mozqgkrzfzn5",
+    "fpny01d57sr6u3r",
+    "sfyqmw2vo6ll1cj",
+    "ii9z6pzr1bdjil4",
+    "xstn0nxmyfg8arz",
+    "c645uyy1v8qtg3e",
+    "20zdkv6lgnd6kig",
+    "jc3mgt073dud9lk",
+    "ru6uljw7oi4neyy",
+    "6r1nym5khrskvv7",
+    "7qngegoeqft9bbw",
+    "col3gspjup8jx0w",
+    "866lbdi53ciz1n0",
+    "fx4bm2xebwrk67c",
+    "kao5rp5y9hkjo5k",
+    "6euwxkuooveutdj",
+    "b65frmqmnwixc86",
+    "2dsrb2k7oijjfxy",
+    "euj5uhjxkptbqgb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "99i2vg2qluqxmv6",
+      "source_id": "f72pvqogkqe9csj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.514Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.514Z",
+      "agent": "fnudzska0mwt3r3",
+      "source_id": "fpfz43fe5wwgbbt"
+    }
+  ]
+}

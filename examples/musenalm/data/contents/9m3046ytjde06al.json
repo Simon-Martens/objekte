@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127855,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maerz. 31 Tage. / BELLE-VUE BEY BERLIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas f.",
+  "scans": [
+    "alm_3651_127855_k71nyhgy3w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maerz. 31 Tage. / BELLE-VUE BEY BERLIN",
+  "updated": "2011-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.835Z",
+      "agent": "3mymtnunkvww3p2",
+      "source_id": "gye8pspdyl738gp"
+    }
+  ]
+}

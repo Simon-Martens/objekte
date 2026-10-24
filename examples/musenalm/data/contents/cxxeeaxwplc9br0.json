@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Ihr sagt: die Zeit vergeht, / Weil ihr das schlecht versteht; / Die Zeit ist ewig, ihr vergeht. / I. F. Castelli",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Wie der blaue Himmel fern / Um die Welt gegossen, / Hält auch unsre Brust als Kern / Eine Welt umschlossen.",
+  "language": [],
+  "musenalm_id": 46107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 211,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Welten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Welten",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.454Z",
+      "agent": "gpow9s19ygz3th4",
+      "source_id": "27h71rjdathyaif"
+    }
+  ]
+}

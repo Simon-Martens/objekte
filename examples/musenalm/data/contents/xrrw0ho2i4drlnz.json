@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "So oft dein Pinsel, Graf, kühn der / Natur gebeut, / So oft vermählt sich Reitz mit sichrer Aen- / lich keit;",
+  "language": [],
+  "musenalm_id": 38441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den / Herrn Hofmaler Graf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Clodius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den / Herrn Hofmaler Graf",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.697Z",
+      "agent": "7qisyncyozjhj09",
+      "source_id": "jwqezz4rq0suz9n"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "annotation": "§ Kal unvollständig; § G fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, S W, 3 BB Kal §, 2 BB G G§, SS 1-163, S I-Verz, UG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kinder-Kalender (Wien, Riedl) 1848",
+    "norm": "",
+    "biblio": 411407,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2023-12-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4857,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [],
+  "preferred_title": "Kinder-Kalender (Wien, Riedl) 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kinder-Kalender / ein nützliches und unterhaltendes Jahrbuch / für / Knaben und Mädchen. / Dritter Jahrgang. / 1848. / Wien. / Bey Franz Riedl's sel. Witwe &amp; Sohn",
+  "updated": "2026-06-11 10:18:56.035Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "6kpi84yxgrzvsku",
+    "gwps3oe0bklkr73",
+    "hj854khso9vb4oj",
+    "4vw0ueqbnlglwue",
+    "lk9dxcqojeq9onn",
+    "dfvkeg2rb3v8d8j",
+    "iwx8ojp5urlyl2c",
+    "xwss2vsiric7e2v",
+    "qpbtiowg03ttzn2",
+    "6fw65gbkg3b0aih",
+    "e4s8czpf5n05mf6",
+    "4f99zcg2uc8eps8",
+    "uq40wjia2o48wjy",
+    "swr71qxoxvi14nx",
+    "k1meivz36fn2vp4",
+    "789cklooozr3mgb",
+    "mois8hbn42jbwp4",
+    "u8bnag4jxumguuk",
+    "qkf6fzceh6cpmy2",
+    "84bouq9i630g43v",
+    "5z6f08qz67s5wve",
+    "xb2kcxdq0e1cvg2",
+    "q62c1b8zvht8eal",
+    "hovmj7bcmzwjgbf",
+    "cal9vj039kutkre",
+    "9m3iz8utnpp05dc",
+    "71esytflqhxxv87",
+    "vjdma8auexmhwu6",
+    "kvkzkwq9wveqovl",
+    "0dzzuwr05ob3wsn",
+    "awjirrn2hd8azw1",
+    "74tiyy7peqsisnx",
+    "h6smqt5bukeg307",
+    "5q3siuj6na0ogk8",
+    "l9qble6abza6134",
+    "9hh91ahp436ixn1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "lkev7sgnile6yrx"
+    }
+  ]
+}

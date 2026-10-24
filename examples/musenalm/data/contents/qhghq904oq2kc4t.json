@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Der Liebe Ueberraschung« von Reinbeck INr  43369, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43353,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe Ueberraschung / von Reinbeck. / S. 229",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schwerdgeburth del et sc.",
+  "scans": [
+    "alm_569_43353_zb1rm9gqec.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebe Ueberraschung / von Reinbeck. / S. 229",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.332Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "xws1jhrl58g254g"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 20 Gedichten INr 65571-65590, Obj 139-158 /) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65570,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwanzig Sonette. / (Als Probe aus 300 ungedruckten.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwanzig Sonette. / (Als Probe aus 300 ungedruckten.)",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.091Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "zmwtxb01u1xh8fi"
+    }
+  ]
+}

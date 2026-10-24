@@ -1,0 +1,562 @@
+{
+  "annotation": "",
+  "biographical_data": "1815-1882",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.390Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Archäologe, Kunsthistoriker, Dichter, Deutschland, Schweiz",
+        "Dt. Dichter, Kunsthistoriker, Politiker, Schriftsteller aus Oberkassel (heute Bonn-Beul, Rheinland); Professor für Archäologie und Kunstgeschichte der ETH Zürich"
+      ],
+      "dateOfBirth": [
+        "1815-08-11"
+      ],
+      "dateOfDeath": [
+        "1882-11-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "E. Gafsler"
+          ],
+          "creditText": [
+            "This image is from the collection of the ETH-Bibliothek and has been published on Wikimedia Commons as part of a cooperation with Wikimedia CH. Corrections and additional information are welcome."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/ETH-BIB-Kinkel%2C%20Gottfried%20%281815-1882%29-Portrait-Portr%2000159.tif%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/ETH-BIB-Kinkel%2C%20Gottfried%20%281815-1882%29-Portrait-Portr%2000159.tif%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:ETH-BIB-Kinkel%2C%20Gottfried%20%281815-1882%29-Portrait-Portr%2000159.tif%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-22T11:00:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11856224X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116744413",
+          "label": "Herminghaus, Elise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118562258",
+          "label": "Kinkel, Johanna"
+        },
+        {
+          "forename": [
+            "Adelheid"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116175311",
+          "label": "Kinkel, Johann Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116175338",
+          "label": "Kinkel, Conrad"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1261809726",
+          "label": "Herminghaus, Johanna Wilhelmina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121114201",
+          "label": "Kinkel, Johanna"
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Matthieux"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1044951702",
+          "label": "Kinkel, Manfred"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1336040742",
+          "label": "Kinkel, Carl"
+        },
+        {
+          "forename": [
+            "Herrmann"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/12111418X",
+          "label": "Kinkel, Gottfried"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116175354",
+          "label": "Kinkel, Minna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116175346",
+          "label": "Kinkel, Maria"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "11856224X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/1261809726",
+          "label": "Herminghaus, Johanna Wilhelmina"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116175346",
+          "label": "Kinkel, Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116175311",
+          "label": "Kinkel, Johann Gottfried"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11856224X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)11856224X",
+        "(DE-588c)4030679-3"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4105431-3",
+          "label": "Spandau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4105025-3",
+          "label": "Rostock-Warnemünde"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4282681-0",
+          "label": "Oberkassel (Siegkreis)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "preferredName": "Kinkel, Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried"
+        ],
+        "surname": [
+          "Kinkel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller"
+      ],
+      "publication": [
+        "Nimrod",
+        "Die Gemälde-Gallerie in Darmstadt",
+        "Stark, Karl B.: Vorträge und Aufsätze aus dem Gebiete der Archaeologie und Kunstgeschichte",
+        "Gedichte",
+        "Klage der gefangenen Sclavin aus dem Trauerspiel \"Nimrod\"",
+        "Vertheidigungs-Rede vor den Kölner Assisen",
+        "Theses theologicae ..",
+        "Tanagra",
+        "Der Grobschmied von Antwerpen in sieben Historien",
+        "Erzählungen von Gottfried u. Johanna Kinkel",
+        "Otto der Schütz"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12459752h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83135731"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/46857658"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D28078.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q68325"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11856224X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottfried_Kinkel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Kinkel_%28Schriftsteller%29"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gottfried_Kinkel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_Kinkel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121311447"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11856224X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1834_kinkel"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11856224X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856224X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856224X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11856224X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/11856224X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11856224X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kinkel, Ioannes Godofredus",
+        "Kinkel, Joannes Godofredus",
+        "Kinkel, Godofredus",
+        "Kinkel, G.",
+        "Kinkel, Joh. Gottfried",
+        "Kinkel, Johann Gottfried",
+        "Kinkel, Gottfried, der Ältere"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Gottfried"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Godofredus"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Godofredus"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Godofredus"
+          ],
+          "surname": [
+            "Kinkel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Kinkel_%28Schriftsteller%29",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_Kinkel_%28Schriftsteller%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:55:39Z",
+    "gnd_query_biographical_data": "1815-1882",
+    "gnd_query_name": "kinkel, gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1392,
+  "name": "Kinkel, Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB LV, 515",
+  "updated": "2026-06-11 13:29:23.205Z",
+  "uri": "https://d-nb.info/gnd/11856224X",
+  "editor": ""
+}

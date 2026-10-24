@@ -1,0 +1,45 @@
+{
+  "annotation": "Englische Nüsse (Sammlung INr 65045, Obj 105) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Glück auf, ihr edlen Herren! fegt aus das Cabinet! / Von dipolmat'schem Unrath hat's ... / Zu lange schon: verjagt vom Lotterbett",
+  "language": [],
+  "musenalm_id": 65051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das neue englische Ministrium",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das neue englische Ministrium",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.278Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "9ul8r0e25kk5daa"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Kupfer zu Hamlet, erläutert durch Beifügung der dargestellten Scenen nach der Üebersetzung von A. W. Schlegel (Sammlung INr 9279, Obj 6) s. Graphik INr 9280, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Wirf, guter Hamlet, ab die nächtge Farbe, / Und laß dein Aug' als Freund auf Dänmark sehn.",
+  "language": [],
+  "musenalm_id": 19245,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hamlet. Erster Aufzug, zweite Scene. / Ein Staatszimmer im Schlosse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hamlet. Erster Aufzug, zweite Scene. / Ein Staatszimmer im Schlosse",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.766Z",
+      "agent": "confomdodiakpla",
+      "source_id": "otf9k0sy2bql4qz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.766Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "y7abs1cyjsj53kt"
+    }
+  ]
+}

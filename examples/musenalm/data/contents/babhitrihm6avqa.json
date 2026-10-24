@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: ... Wenn auch entweder der Undank des ganzen Volks, oder vieler Neider, oder mächtige Feinde, die Tugend des ihr gebührenden Lohnes berauben: [...] Cicero",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "In einem Saale des Schlosses von Beauvais saßen der junge Graf von Noailles und der Ritter Armand von Beauvais, letzter Besitzer einer der reichsten Baronien Frankreichs, beim edlen Schachspiel.",
+  "language": [],
+  "musenalm_id": 63431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chandenier. / Historische Novelle aus den Zeiten der Fronde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia Schoppe, geb. Weise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chandenier. / Historische Novelle aus den Zeiten der Fronde",
+  "updated": "2009-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.286Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "1cityfgip4tkle3"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt 1-3 der Suite. paginiert 9. s. Textbezug INr 29879, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. Rmbg. inv. del. W. J. fec.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Rmbg. inv. del. W. J. fec.",
+  "scans": [
+    "alm_386_29880_xuq91xirqg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.323Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "nbvgenzqi9osj6d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.323Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "zuc1acy2kkbx5mp"
+    }
+  ]
+}

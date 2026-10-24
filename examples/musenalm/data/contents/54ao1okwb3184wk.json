@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Auch im Elend frei und groß zu bleiben, ist nur das Erbtheil seltener, erhabener Seelen. Steiger",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Die Schweizergeschichte hat wol auf ihren hellen und dunkeln Blättern keine Namen aufzuweisen, der in solchem Maße die Herzen aller Eidsgenossen in Lust und Leid bewegte,",
+  "language": [],
+  "musenalm_id": 88218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dr. Jakob Steiger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Staub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dr. Jakob Steiger",
+  "updated": "2013-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.182Z",
+      "agent": "51bbzv9i5oo6wa1",
+      "source_id": "rlmjhwbu6i7kdgq"
+    }
+  ]
+}

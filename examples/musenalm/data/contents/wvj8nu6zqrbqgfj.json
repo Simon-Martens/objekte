@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Beschützer der Ismene, / Wachsamer Ariel, / Erschein auf diese Töne,",
+  "language": [],
+  "musenalm_id": 92371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Sylphen Ariel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Sylphen Ariel",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.427Z",
+      "agent": "wj40krq87n1bwgw",
+      "source_id": "wgk51vgnf03ogod"
+    }
+  ]
+}

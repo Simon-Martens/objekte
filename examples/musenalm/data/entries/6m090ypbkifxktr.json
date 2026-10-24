@@ -1,0 +1,78 @@
+{
+  "annotation": "hier 5 statt 6 Modekupfer wie im deutschen Exemplar /) die Modekupfer und Graphiken im Kalendarium hier koloriert",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, gT, 5 GG, 29 BB Kal darin 12 GG, S 1 T, SS 3-220 darin G, 2 SS -Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1796 (franz. Ausg.: Almanac de Goettingue 1796)",
+    "norm": "~",
+    "biblio": 409211,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4289,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1796 (franz. Ausg.: Almanac de Goettingue 1796)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de / Göttingue / pour l'année / 1796. / chez J. C. Dieterich",
+  "updated": "2026-06-11 10:18:55.224Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "zn5xjicd7a0sxoe"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.052Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.052Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "ae37psnbrqbr5tx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.360Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.360Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "jwv7fska24oux0c"
+    }
+  ]
+}

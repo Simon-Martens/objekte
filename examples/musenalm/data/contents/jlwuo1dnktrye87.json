@@ -1,0 +1,47 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 10731, 10732; Obj 86, 87. /) Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "38. / Zwei Fabeln von Lessing. / In Verse gebracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [
+    "alm_4221_10730_eeev1w1jcd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "38. / Zwei Fabeln von Lessing. / In Verse gebracht",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.406Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "ui1ic1qpikqswda"
+    }
+  ]
+}

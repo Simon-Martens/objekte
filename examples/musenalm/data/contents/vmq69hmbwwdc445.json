@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Zu meiner Zeit / Bestand noch Recht und Billigkeit. / Da wurden auch aus Kindern Leute;",
+  "language": [],
+  "musenalm_id": 92396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Alte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Alte",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.595Z",
+      "agent": "b9k8fa9bjxcqs84",
+      "source_id": "vh4r9zqsteqq8x1"
+    }
+  ]
+}

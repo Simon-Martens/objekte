@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Kunst und Gefühl sind auf kein Land und keine Zeit eingeschränkt, wie einst die Götter Thuiskons in keine Tempel.",
+  "language": [],
+  "musenalm_id": 25818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachrede",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.357Z",
+      "agent": "6b95o6o4p7mql27",
+      "source_id": "x6xcl8k0x6sxf4a"
+    }
+  ]
+}

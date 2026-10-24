@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Schlafend geräth man in's Leben hinein und entkommt / ihm auch schlafend;",
+  "language": [],
+  "musenalm_id": 24054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben ein Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben ein Traum",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.191Z",
+      "agent": "rw4d1lc8bcz0sk7",
+      "source_id": "3bgltfkpt97ddjx"
+    }
+  ]
+}

@@ -1,0 +1,1565 @@
+{
+  "annotation": "",
+  "biographical_data": "1497-1560",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.425Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2106458-1",
+          "label": "Melanchthonhaus Bretten"
+        }
+      ],
+      "dateOfBirth": [
+        "1497-02-16"
+      ],
+      "dateOfDeath": [
+        "1560-04-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Lucas Cranach the Elder and workshop"
+          ],
+          "creditText": [
+            "1. Originally uploaded to en.wikipedia2. Bridgeman Art Library: Object 228519"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/PhilippMelanchthon.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/PhilippMelanchthon.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:PhilippMelanchthon.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-11T20:24:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118580485/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/122235363",
+          "label": "Schwarzerdt, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130475483",
+          "label": "Melanchthon, Katharina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136860184",
+          "label": "Schwarzerdt, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130464708",
+          "label": "Sabinus, Anna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/131835688",
+          "label": "Melanchthon, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1013094298",
+          "label": "Reuter, Johann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116713550",
+          "label": "Sabinus, Georg"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118580485",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.1p",
+          "label": "Personen zu Kultur und Künsten, Geistes- und Kulturgeschichte"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/131835688",
+          "label": "Melanchthon, Philipp"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130464708",
+          "label": "Sabinus, Anna"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/1013094298",
+          "label": "Reuter, Johann"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/136860184",
+          "label": "Schwarzerdt, Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/122235363",
+          "label": "Schwarzerdt, Georg"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/130475483",
+          "label": "Melanchthon, Katharina"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118580485",
+      "oldAuthorityNumber": [
+        "(DE-588a)139918426",
+        "(DE-588a)140949461",
+        "(DE-588c)4038516-4",
+        "(DE-588a)131020358",
+        "(DE-588a)118580485",
+        "(DE-588a)139692134"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008223-4",
+          "label": "Bretten"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066640-2",
+          "label": "Wittenberg"
+        }
+      ],
+      "preferredName": "Melanchthon, Philipp",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Philipp"
+        ],
+        "surname": [
+          "Melanchthon"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4317125-4",
+          "label": "Gräzist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160777-6",
+          "label": "Humanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177347-0",
+          "label": "Reformator"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119545950",
+          "label": "Reineck, Reiner"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/11968490X",
+          "label": "Germanus, Otho"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11964455X",
+          "label": "Commodus, Paulus"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Theophilus Neocomensis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Didymus"
+          ],
+          "surname": [
+            "Faventinus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Didymus Faventinus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Faventinus"
+          ],
+          "personalName": [
+            "Didymus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Didymus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Acta in conventu Ratisbonensi ...",
+        "Lucianus: LVCIANI SAMOSATENSIS OPERA, QVAE QVIDEM EXTANT, OMNIA, E GRAECO SERMONE IN LATINVM, PARtim ... 1543. (VD16 L 2927)",
+        "Erotemata dialectices. 1548. (VD16 ZV 25185)",
+        "Recusations-Schrift in welcher alle protestirende Religions- und Ey*",
+        "Eine christliche Predigt über der Leiche ... D. Martini Luthers. 1557. (VD16 M 3429)",
+        "Philippi MelanCHTHONIS GRAMMATICA LATINA, IAM DENVO` RECOGNIta, & pleris\\[que] in locis ... 1555. (VD16 ZV 10729)",
+        "Von des Bapsts gewalt welches er sich anmasset wider die Gottlichen Schrifft vnd der ... 1541. (VD16 M 3284)",
+        "Erudita et elegans descriptio electionis et coronationis Caroli V. *",
+        "De rhetorica",
+        "Causae quare et amplexae sint, et retinendam, ducunt doctrinam, qua*",
+        "INITIA DOCTRINAE PHYSICAE, Dictata in Academia VVitebergensi A PHILIP. MELANTH. ... 1578. (VD16 M 3482)",
+        "Elementorum rhetorices libri due diligenter recogniti",
+        "Terentius Afer, Publius: P.TERENTII COMOEDIAE SEX, IAM DENVO SCHOLIIS ILLVSTRATAE, ATQVE CAETERIS, multò ... 1594. (VD16 T 496)",
+        "ORATIO FVNEBRIS DICTA DIVO MAXIMILIANO Caes. Vuittẽbergae à Philippo Melanch. ... 1519. (VD16 M 3839)",
+        "Flacius Illyricus, Matthias <der Ältere>: Argumenta psalmorum sexaginta distributis ordine versuum sententiis. 1550. (VD16 ZV 5900)",
+        "GRAMMATICES LATINA ELEMENTA PHILIPPI Melanchthonis, recognita et locupleta. Syntaxis ... 1551. (VD16 ZV 10720)",
+        "Testimonia ex Scriptis Ph. Melanchthonis collecta, in quibus appare*",
+        "Confessio exhibita Caesari in Comitiis Augustae anno 1530",
+        "De electione et coronatione Caroli V.",
+        "Initia doctrinae physicae"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzerd"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzert"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwartzerd"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzerdt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79121330"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76319978"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D21574.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76325"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118580485"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118580485/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118580485"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Philipp_Melanchthon"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Philipp_Melanchthon"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Philipp_Melanchthon"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Philip_Melanchthon"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118580485"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121400378"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118580485"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1535_beskendorf;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1537_gengenbach;6"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1541_zeitlos;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_furtenagel;5"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_furtenagel;7"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_lasan;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nna;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnb;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnc;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnd;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nne;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_nnf;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_reinhold;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_wesener;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1542_zeitlos;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_crodel;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nna;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nna;5"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnb;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnc;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1543_nnd;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1544_nna;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1544_nnb;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1544_perckheimer;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_even;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_flock;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_hertwigk;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nna;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nna;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_nnc;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_reiffenstein;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1545_senarclens;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1546_nna;7"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1546_nnb;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1549_ulrich;214"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1549_ulrich;92"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1550_ruprecht;2"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1551_nn;1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1551_stetner;1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118580485"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580485.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118580485.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118580485"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118580485"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118580485"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118580485"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Melantone, Filippo",
+        "Malanth., Philippus",
+        "Didymus Faventinus",
+        "Melanthon, Philippus",
+        "Mela., Philippus",
+        "Melanth., Philippus",
+        "Melanchthon, Philippus",
+        "Melanchus, Philippus",
+        "Schwartzerd, Philipp",
+        "Melanchton, Phillip",
+        "Melancthon, Philippe",
+        "Melanthon, Philipp",
+        "Melancthon, Philippus",
+        "Melanchto., Philipp",
+        "Melanchthon, Filipp",
+        "Melancton, Philipp",
+        "Mel., Philip.",
+        "Melanch., Philippus",
+        "Melanthonus, Philippus",
+        "Melanthon, Philip",
+        "Malanthon, Philipp",
+        "Melanthon, Philippe",
+        "Melanchthonius, Philippus",
+        "Melan., Philippus",
+        "Melanthone, Philipp",
+        "Didymus, Faventinus",
+        "Mel., Phil.",
+        "Melanthon",
+        "Melantonis, Philipp",
+        "Didymus",
+        "Melant., Philippus",
+        "Melancthon, Philipp",
+        "Melanthone, Philippo",
+        "Melanchton, Philip",
+        "Melanc., Philippus",
+        "Melanchton, Phil.",
+        "Melancton, Philip",
+        "Brettanus, Philippus",
+        "Melanton, Philippus",
+        "Schwarzert, Philipp",
+        "Melanchton, Philipp",
+        "Melancthon",
+        "Melancthon, Philip",
+        "P.M.",
+        "Faventinus, Didymus",
+        "Pullisolus, Philippus",
+        "Philippus Bretanus",
+        "Schwarzerd, Philipp",
+        "Melanchthon, Philip",
+        "Schwarzerdt, Philipp",
+        "Melanchton, Philippus",
+        "Melantho, Philippus",
+        "Melanchthon, Philippe",
+        "M., Philippus",
+        "Melanchnecnon, Philippi",
+        "Melanchthon",
+        "Melan, Philippus",
+        "Theophilus Neocomensis",
+        "Philippus",
+        "Mel., Philippus",
+        "Melantho, Philip",
+        "Melanchthonus, Philippus",
+        "Melancthonus, Philippus",
+        "Melanton, Philipp",
+        "Melankhton, Filipp",
+        "Melanth, Philippus",
+        "Melanthus, Philippus",
+        "Germanus",
+        "Melancht., Philippus",
+        "Melanthone, Philip."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanthonus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanc."
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melan."
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzerd"
+          ]
+        },
+        {
+          "personalName": [
+            "Melanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Filippo"
+          ],
+          "surname": [
+            "Melantone"
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melancton"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzerdt"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melancthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melanchton"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melant."
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melanchton"
+          ]
+        },
+        {
+          "forename": [
+            "Philippo"
+          ],
+          "surname": [
+            "Melanthone"
+          ]
+        },
+        {
+          "forename": [
+            "Philippe"
+          ],
+          "surname": [
+            "Melanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Phillip"
+          ],
+          "surname": [
+            "Melanchton"
+          ]
+        },
+        {
+          "personalName": [
+            "Melanchthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanton"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melancthonus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanch."
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Brettanus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanthus"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melanton"
+          ]
+        },
+        {
+          "forename": [
+            "Didymus"
+          ],
+          "surname": [
+            "Faventinus"
+          ]
+        },
+        {
+          "forename": [
+            "Philip."
+          ],
+          "surname": [
+            "Mel."
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melantho"
+          ]
+        },
+        {
+          "personalName": [
+            "P.M."
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwarzert"
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melancthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanchthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Malanthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Mel."
+          ]
+        },
+        {
+          "forename": [
+            "Philippe"
+          ],
+          "surname": [
+            "Melancthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melantho"
+          ]
+        },
+        {
+          "forename": [
+            "Phil."
+          ],
+          "surname": [
+            "Mel."
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Malanth."
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melanthone"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melancht."
+          ]
+        },
+        {
+          "forename": [
+            "Philippi"
+          ],
+          "surname": [
+            "Melanchnecnon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanchthonius"
+          ]
+        },
+        {
+          "personalName": [
+            "Melancthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philip"
+          ],
+          "surname": [
+            "Melanchthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melantonis"
+          ]
+        },
+        {
+          "forename": [
+            "Phil."
+          ],
+          "surname": [
+            "Melanchton"
+          ]
+        },
+        {
+          "personalName": [
+            "Germanus"
+          ]
+        },
+        {
+          "personalName": [
+            "Philippus Bretanus"
+          ]
+        },
+        {
+          "forename": [
+            "Filipp"
+          ],
+          "surname": [
+            "Melanchthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanth."
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanchton"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanth"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Schwartzerd"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanchthonus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Pullisolus"
+          ]
+        },
+        {
+          "personalName": [
+            "Philippus"
+          ]
+        },
+        {
+          "forename": [
+            "Philip."
+          ],
+          "surname": [
+            "Melanthone"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Mela."
+          ]
+        },
+        {
+          "personalName": [
+            "Theophilus Neocomensis"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Faventinus"
+          ],
+          "personalName": [
+            "Didymus"
+          ]
+        },
+        {
+          "personalName": [
+            "Didymus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "M."
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melancton"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melan"
+          ]
+        },
+        {
+          "personalName": [
+            "Didymus Faventinus"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus"
+          ],
+          "surname": [
+            "Melanchus"
+          ]
+        },
+        {
+          "forename": [
+            "Filipp"
+          ],
+          "surname": [
+            "Melankhton"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melancthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philippe"
+          ],
+          "surname": [
+            "Melanchthon"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp"
+          ],
+          "surname": [
+            "Melanchto."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Philipp_Melanchthon",
+          "label": "https://de.wikipedia.org/wiki/Philipp_Melanchthon"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:14:42Z",
+    "gnd_query_biographical_data": "1497-1560",
+    "gnd_query_name": "melanchton, philipp"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1776,
+  "name": "Melanchton, Philipp",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 328",
+  "updated": "2026-06-11 13:29:23.766Z",
+  "uri": "https://d-nb.info/gnd/118580485",
+  "editor": ""
+}

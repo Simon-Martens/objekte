@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 28061, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28060,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Burg zu Nürnberg von der Südwest- / seite an Dr. Rupprechts Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klein; Stahlstich v. F. Rosmäsler",
+  "scans": [
+    "alm_361_28060_tk314cv6j1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Burg zu Nürnberg von der Südwest- / seite an Dr. Rupprechts Garten",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.513Z",
+      "agent": "0ub57ews0fgevuy",
+      "source_id": "ajkywrb67te9rgk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.513Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "wnuyw9dut5n3k3b"
+    }
+  ]
+}

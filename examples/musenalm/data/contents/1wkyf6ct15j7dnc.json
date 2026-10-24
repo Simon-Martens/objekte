@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 17.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76406,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue de la seconde cascade de Kirnitzschthale. / Vor dem hintern Wasserfalle im Kirnitzschthale. S. 76",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther del. et sculp.",
+  "scans": [
+    "alm_3699_76406_quxpqmonkk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue de la seconde cascade de Kirnitzschthale. / Vor dem hintern Wasserfalle im Kirnitzschthale. S. 76",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.751Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "xce981p2aaimcbf"
+    }
+  ]
+}

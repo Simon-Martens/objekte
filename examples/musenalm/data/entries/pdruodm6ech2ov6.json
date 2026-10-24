@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1847-1853; Leipzig (Thomas); Hrsgg: 1847-1851: Herloßsohn; 1852, 1853: Jeanne Marie d.i. Jeanne Marie von Gayette-Georgens",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1847",
+    "norm": "",
+    "biblio": 108643,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3382,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Thomas)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; nicht bei L/R",
+  "responsibility_statement": "Dr. C. Herloßsohn",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch / für / 1847. / Erster Jahrgang. / Mit Beiträgen von Th. Drobisch, C. Herloßsohn, / E. M. Oettinger und Andern. / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+  "updated": "2026-06-11 10:18:54.862Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "ie4hcoxga80dy4d"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.211Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "8gli6dkswbrtn2y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "wm3zyw8rnaueef5",
+      "source_id": "ihj3fjfviol2ggb"
+    }
+  ]
+}

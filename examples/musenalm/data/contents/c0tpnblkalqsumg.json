@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 54842, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Overbeck pinx. 1815. H. Meyr sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Overbeck pinx. 1815. H. Meyr sculp.",
+  "scans": [
+    "alm_745_54848_0weuoaoswf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.903Z",
+      "agent": "pklgpi3o0ul4b99",
+      "source_id": "jl24wpw53m4mprs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.903Z",
+      "agent": "udaftmlzn899hya",
+      "source_id": "tofvbwtprw696p1"
+    }
+  ]
+}

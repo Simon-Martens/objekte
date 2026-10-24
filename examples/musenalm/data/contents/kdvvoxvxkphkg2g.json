@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November. Illustration zu »Die Dorfkirche« von S. H. Spiker INr 59289, Obj 26 aus »Bruchstücke aus Gottfrieds Crayon's Skizzenbuche« (Sammlung INr 59287, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59277,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Dorfkirche. / Blatt I. zu S. 252",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. del. C. F. T. sc.",
+  "scans": [
+    "alm_892_59277_r2pu2npk46.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Dorfkirche. / Blatt I. zu S. 252",
+  "updated": "2008-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.043Z",
+      "agent": "xsc8m0e0lt02y28",
+      "source_id": "2alaoi9lihtf7ic"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.043Z",
+      "agent": "y8hiacmturjds2x",
+      "source_id": "mf681hjoncwjf93"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Heda! Eisenhart! Eisenhart! Nun! wo steckst du mein Haushofmeister? / Hier! Herr Rittmeister.",
+  "language": [],
+  "musenalm_id": 130827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pulvertonne / Lustspiel mit Gesang / in einem Act, / von / Georg Harrys / Zum ersten Male aufgeführt auf dem Königlichen / Hoftheater zu Hannover am 25sten Januar 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Harrys",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Pulvertonne / Lustspiel mit Gesang / in einem Act, / von / Georg Harrys / Zum ersten Male aufgeführt auf dem Königlichen / Hoftheater zu Hannover am 25sten Januar 1824",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.053Z",
+      "agent": "qca9htaeoraxkt9",
+      "source_id": "ty90c4u0bo43ha9"
+    }
+  ]
+}

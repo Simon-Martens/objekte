@@ -1,0 +1,78 @@
+{
+  "annotation": "$ vermutl Jgg 1823 [2 Teile] -1833; 1823-1825: Frankfurt (Hermann); Hrsg.: G. C. W. A. Döring",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Phantasiegemälde (Döring) 1823-1",
+    "norm": "",
+    "biblio": 100618,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2429,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Hermann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Phantasiegemälde (Döring) 1823-1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 94; nicht bei L/R; Goed VIII. 105, 240",
+  "responsibility_statement": "Dr. Georg Doering",
+  "subtitle_statement": "",
+  "title_statement": "Phantasiegemälde / von / Dr. Georg Doering. / Erster Theil / mit zwölf Kupfern. / Frankfurt am Main / Verlag der Hermannschen Buchhandlung / 1822",
+  "updated": "2026-06-11 10:18:55.959Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "jpvbzrobk1a2qy2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.091Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.091Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "4bkkajl87kkpio6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.993Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.993Z",
+      "agent": "w3vdcm9ewwhgul8",
+      "source_id": "vb5u9t6zv7lv3sh"
+    }
+  ]
+}

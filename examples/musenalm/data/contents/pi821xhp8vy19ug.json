@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Noch schwebt des Mondes blasses Silber- / horn / Auf dunkler Fluth; / Noch frischer rauscht die dunkle Fluth;",
+  "language": [],
+  "musenalm_id": 31633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER TRIUMF DES TAGES",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christoph Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER TRIUMF DES TAGES",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.661Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "l18w6jvntfuf5f9"
+    }
+  ]
+}

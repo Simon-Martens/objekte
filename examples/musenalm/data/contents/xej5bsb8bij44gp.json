@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 41866-41877, Obj 68-79",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.530Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schweizerreise. / 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schweizerreise. / 1833",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.911Z",
+      "agent": "dgebk50hujqbvc5",
+      "source_id": "a9y8ckip0zjy0ct"
+    }
+  ]
+}

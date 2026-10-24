@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) XIV. Jagdgedichte (Sammlung INr 82165, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Wohl mir, daß ich Förster bin! / Hochbeglückt nach meinem Sinn / Ist das Försterleben",
+  "language": [],
+  "musenalm_id": 82166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lied des braven Försters",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber und Hr. Cramer in Naumburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lied des braven Försters",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.817Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "83ew28r60vanhtk"
+    }
+  ]
+}

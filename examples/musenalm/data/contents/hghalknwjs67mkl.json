@@ -1,0 +1,45 @@
+{
+  "annotation": "Reiseblätter (Sammlung INr 41899, Obj 101)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "O Schmetterling, hinaus dem Wind / Folgst du in's blaue Meer;",
+  "language": [],
+  "musenalm_id": 41904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Ufer des Sees",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Ufer des Sees",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.114Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "y8teif0yakd5vrl"
+    }
+  ]
+}

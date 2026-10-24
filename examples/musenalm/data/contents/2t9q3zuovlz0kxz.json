@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24061, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Wenn sonst mich wer gekränket hat, / Hab ich's behalten im Gedächtniß;",
+  "language": [],
+  "musenalm_id": 24062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Allgemeine Vergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Allgemeine Vergebung",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.234Z",
+      "agent": "47huvmykx9z6337",
+      "source_id": "ab9of1vxbw6n8i3"
+    }
+  ]
+}

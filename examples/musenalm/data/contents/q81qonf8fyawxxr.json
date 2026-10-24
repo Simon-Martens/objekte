@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr13187, Obj 120)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Ich brauch' aus meinem alte Bette / Den ganzen Tag nicht aufzustehn,",
+  "language": [],
+  "musenalm_id": 13195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.322Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "6igk4beaa5w53wm"
+    }
+  ]
+}

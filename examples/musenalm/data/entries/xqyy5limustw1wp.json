@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Taschenkalender 1812",
+    "norm": "",
+    "biblio": 407003,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-12-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3720,
+  "parallel_title": "",
+  "place_statement": "Köln (Mathieux)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Frauenzimmer-Taschenkalender 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / Taschenkalender / auf das / Jahr 1812. / So ein Schalt Jahr von 366 Täge. / Köln, gedruckt und zu haben / bei J. Mathieux am Hof N. 2123",
+  "updated": "2026-06-11 10:18:54.661Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "k4kih0ma5no9rqz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "o86va6q9ksjoof2",
+      "source_id": "cvljo1310z01trs"
+    }
+  ]
+}

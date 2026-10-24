@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 12539, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Umflogen von dir, o ätherischer Traum! / In schönen rosigen Tagen,",
+  "language": [],
+  "musenalm_id": 12538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Schaalen. / Mit Musik von Herrn Zelter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie v. Bechtolsheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Schaalen. / Mit Musik von Herrn Zelter",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.383Z",
+      "agent": "7wewn5gfr0shp0v",
+      "source_id": "bbiypvmakwwzkgq"
+    }
+  ]
+}

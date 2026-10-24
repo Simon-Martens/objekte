@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 31170, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Du rühmst dich, einen Schatz an ihr zu he- / ben? / Im Sinn der Schrift, scheint's, daß sie's wirk- / lich ist",
+  "language": [],
+  "musenalm_id": 31175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / An Till, der eine Schauspierinn zur Frau nahm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / An Till, der eine Schauspierinn zur Frau nahm",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.537Z",
+      "agent": "t3zz4r3fvdi80ts",
+      "source_id": "n15tguq5ocwad07"
+    }
+  ]
+}

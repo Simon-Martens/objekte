@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Auf des Herault Grunde / Wohnt ein Fürst der Geister, / Drak, nach alter Kunde / Böser Tücke Meister;",
+  "language": [],
+  "musenalm_id": 81633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Drak. / Sage aus Languedoc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Drak. / Sage aus Languedoc",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.776Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "hz965rlz5leg5ul"
+    }
+  ]
+}

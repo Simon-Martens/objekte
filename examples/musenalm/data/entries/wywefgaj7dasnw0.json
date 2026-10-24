@@ -1,0 +1,67 @@
+{
+  "annotation": "s. u.: Cornelia 1870 var.; dort die abweichenden Titel etc. als Vollbilder /) Jgg 1871-1874; Wien (Perles)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S III G-Verz I-Verz, SS V-VI W, SS VII-XVI G-Verz, 6 GG, SS 1-311",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia, Neue 1870; id. mit Cornelia 1870",
+    "norm": "~",
+    "biblio": 404549,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2012-10-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3884,
+  "parallel_title": "",
+  "place_statement": "Wien (Perles)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia, Neue 1870; id. mit Cornelia 1870",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 160; L/R 93; Goed VIII. 90, 177; Goed VIII. 92",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neue / Thalia. / Taschenbuch für 1870. / Ausgabe der Cornelia für Oesterreich. / Mit sieben Stahlstichen. / Wien. / Verlag von Moritz Perles, / Stadt, Steindelgasse Nr. 2.",
+  "updated": "2026-06-11 10:18:55.149Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "items": [
+    "c29nypplok13m11"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "zy7hqi3kx8xuocu",
+      "source_id": "8rqtyavfccz63o3"
+    }
+  ]
+}

@@ -1,0 +1,396 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.402Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Ratssekretär; Dt. Dramatiker und Übersetzer"
+      ],
+      "dateOfBirth": [
+        "1777-11-26"
+      ],
+      "dateOfDeath": [
+        "1836-09-04"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-17T17:58:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116616261/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Pichler"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118742361",
+          "label": "Pichler, Caroline"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116616261",
+      "id": "https://d-nb.info/gnd/116616261",
+      "oldAuthorityNumber": [
+        "(DE-588a)116616261"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Kurländer, Franz August von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz August"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Kurländer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Ratssekretär",
+        "Übersetzer"
+      ],
+      "publication": [
+        "Lustspiele oder dramatischer Almanach für das Jahr ...",
+        "Das Portrait der Erbinn, oder Die zerbrochene Brille. - [ca. 1816]",
+        "Dichterfreundschaft. - [ca. 1814]",
+        "Zufall und List. - [ca. 1816]",
+        "Die Schmähschrift. - [ca. 1816]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/72149971"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55122987"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116616261/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066786625"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116616261"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116616261"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Kurlaender-Kornfeld_Franz-August_1777_1836.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116616261.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116616261"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kurländer, F. A.",
+        "Kurländer, Franz von",
+        "Kurländer, Friedrich August von",
+        "Curländer, Franz August von",
+        "Curländer, Franz von",
+        "Kurländer, August von",
+        "Kurländer, F. A. von",
+        "Kurländer, Fr. von",
+        "Kurländer, F. von",
+        "Kurländer, A. von",
+        "Kurländer, Franz August",
+        "Kurländer, Franz A. von",
+        "K., F. v.",
+        "Kurländer, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Curländer"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz August"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Franz August von"
+          ],
+          "surname": [
+            "Curländer"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich August"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        },
+        {
+          "forename": [
+            "Franz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kurländer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:01:57Z",
+    "gnd_query_biographical_data": "1777-1836",
+    "gnd_query_name": "kurländer, franz august von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1519,
+  "name": "Kurländer, Franz August von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XVII, 411",
+  "updated": "2026-06-11 13:29:23.419Z",
+  "uri": "https://d-nb.info/gnd/116616261",
+  "editor": ""
+}

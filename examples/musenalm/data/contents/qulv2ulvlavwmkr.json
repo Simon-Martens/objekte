@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 16867, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Gottlob, daß keine Kette mehr / An diesem Arme klirrt,",
+  "language": [],
+  "musenalm_id": 16868,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der befreyte Sklave",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der befreyte Sklave",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.783Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "dk4p4fxshqqsylm"
+    }
+  ]
+}

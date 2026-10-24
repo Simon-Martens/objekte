@@ -1,0 +1,410 @@
+{
+  "annotation": "",
+  "biographical_data": "1746-1805",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.277Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10159669-8",
+          "label": "Göttinger Hain"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "seit 1772 im Göttinger Hainbund; Verf. von Mecklenburgica"
+      ],
+      "dateOfBirth": [
+        "1746-09-13"
+      ],
+      "dateOfDeath": [
+        "1805-05-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Caspar David Friedrich"
+          ],
+          "creditText": [
+            "https://recherche.smb.museum/detail/782477"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%2C%20Caspar%20David%20Friedrich%20-%20Pastor%20Ernst%20Theodor%20Johann%20Br%C3%BCckner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%2C%20Caspar%20David%20Friedrich%20-%20Pastor%20Ernst%20Theodor%20Johann%20Br%C3%BCckner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%2C%20Caspar%20David%20Friedrich%20-%20Pastor%20Ernst%20Theodor%20Johann%20Br%C3%BCckner.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-04T19:40:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/103145931/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1364534029",
+          "label": "Brückner, Ernst"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135895669",
+          "label": "Brückner, Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135895448",
+          "label": "Brückner, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/103145958",
+          "label": "Brückner, Adolf"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "103145931",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1364534029",
+          "label": "Brückner, Ernst"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/135895669",
+          "label": "Brückner, Christoph"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/103145958",
+          "label": "Brückner, Adolf"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/103145931",
+      "oldAuthorityNumber": [
+        "(DE-588a)103145931"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4041712-8",
+          "label": "Neubrandenburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/5180122-X",
+          "label": "Neetzka"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4041712-8",
+          "label": "Neubrandenburg"
+        }
+      ],
+      "preferredName": "Brückner, Ernst Theodor Johann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst Theodor Johann"
+        ],
+        "surname": [
+          "Brückner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118627910",
+          "label": "Voß, Johann Heinrich"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Brückner"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002031783"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/57019088"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1360359"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103145931/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_Theodor_Johann_Br%C3%BCckner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_Theodor_Johann_Br%C3%BCckner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000053365813"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/103145931"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd103145931.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd103145931.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/103145931"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Brueckner, Ernst T. J.",
+        "Brückner, Ernst Theodor",
+        "Brueckner, Ernst Theodor Johann",
+        "Brückner, Ernst",
+        "Brückner, E. T. J.",
+        "Brückner, Ernst T.",
+        "Brückner, E.",
+        "Brueckner, E. T. J.",
+        "Brückner, Ernst T. J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ernst Theodor Johann"
+          ],
+          "surname": [
+            "Brueckner"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst T."
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst Theodor"
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst T. J."
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst T. J."
+          ],
+          "surname": [
+            "Brueckner"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. J."
+          ],
+          "surname": [
+            "Brückner"
+          ]
+        },
+        {
+          "forename": [
+            "E. T. J."
+          ],
+          "surname": [
+            "Brueckner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_Theodor_Johann_Br%C3%BCckner",
+          "label": "https://de.wikipedia.org/wiki/Ernst_Theodor_Johann_Br%C3%BCckner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:24Z",
+    "gnd_query_biographical_data": "1746-1805",
+    "gnd_query_name": "brückner, ernst theodor johann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 316,
+  "name": "Brückner, Ernst Theodor Johann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 987",
+  "updated": "2026-06-11 13:29:21.770Z",
+  "uri": "https://d-nb.info/gnd/103145931",
+  "editor": ""
+}

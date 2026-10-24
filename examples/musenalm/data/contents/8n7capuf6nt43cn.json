@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Blumen (Sammlung INr 84228, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Nicht das Wort spricht aus die Gewalt, mit der du uns / rührest, / Wie die heil'ge Musik sich nicht der Sprache vertraut.",
+  "language": [],
+  "musenalm_id": 84230,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lilie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lilie",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.131Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "5d5vvta7ulk3w0k"
+    }
+  ]
+}

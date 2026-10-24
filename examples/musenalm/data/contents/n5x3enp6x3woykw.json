@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Warum die Götter selig leben? / Sie brauchen nicht, und können geben!",
+  "language": [],
+  "musenalm_id": 2296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben der Götter und Weisen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben der Götter und Weisen",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.886Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "xw4yh4bp2skjsr4"
+    }
+  ]
+}

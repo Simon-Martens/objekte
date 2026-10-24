@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Sey gegrüßet, kleine Blume, / Blume der Vollkommenheit,",
+  "language": [],
+  "musenalm_id": 84552,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 374,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Vergißmeinnicht meine Blume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Vergißmeinnicht meine Blume",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.125Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "6rpgqpslqmto14g"
+    }
+  ]
+}

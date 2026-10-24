@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64650, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64656,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kleine Trotzkopf #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. A. van Trigt pinx. D. J. Sluyter sculps.",
+  "scans": [
+    "alm_1079_64656_1kiqdn7mgb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der kleine Trotzkopf #",
+  "updated": "2009-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "476f745a62uynep",
+      "source_id": "4cmlfp24pqzyw3s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.305Z",
+      "agent": "lxkw0pi082wa1ak",
+      "source_id": "q5ziae5ldxicucp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Brief vom 27. 10. 1802. Anhang zum Beitrag »Gleim« von J. G. Jacobi INr 140, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Ein Gruß von meinem ewig geliebten Jacobi war der Gruß von einem Engel.",
+  "language": [],
+  "musenalm_id": 16009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Gruß von meinem ewig geliebten Jacobi war der Gruß von einem Engel.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GLEIM",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.777Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "vmgz877yk5nrt5e"
+    }
+  ]
+}

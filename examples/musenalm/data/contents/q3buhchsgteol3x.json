@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 77051, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Wenn der Himmel offen steht, / Sehn wir alle Sterne,",
+  "language": [],
+  "musenalm_id": 77053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stern und Wolke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freyherr von der Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stern und Wolke",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.686Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "76gfo3mbi07odu0"
+    }
+  ]
+}

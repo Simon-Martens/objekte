@@ -1,0 +1,45 @@
+{
+  "annotation": "Harmonien (Sammlung INr 34639, Obj 47) mit einer Übersetzung INr 34641, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Pàle lampe du sanctuaire, / Pourquoi, dans l'ombre du saint lieu,",
+  "language": [],
+  "musenalm_id": 34640,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Lampe du Temple, / ou / l'Ame présente à Dieu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lamartine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "La Lampe du Temple, / ou / l'Ame présente à Dieu",
+  "updated": "2003-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.977Z",
+      "agent": "ulcx8pbhohvsju3",
+      "source_id": "ndxfvct8t5sjfaj"
+    }
+  ]
+}

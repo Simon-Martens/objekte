@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Herrenburg des Fürstenthums **** leuchtete wie ein Feyenschloß durch die laue Herbstnacht. Rauschende Festmusik tönte droben,",
+  "language": [],
+  "musenalm_id": 75076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Vertraute. / Eine / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Vertraute. / Eine / Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.726Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "uyy5fo4e8oc09lb"
+    }
+  ]
+}

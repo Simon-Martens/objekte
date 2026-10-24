@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Fünfte Lieferung. Quentin Durward. - Waverley. - Nigel's Schicksale. - Rokeby (Sammlung INr 43722, Obj 6) s. Graphik INr 43733, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Lord Glenvarloch war durch seine Feinde, die ihm auf jede Weise zu schaden strebten, dahin gekommen, daß er im königlichen Park zu London den Degen gegen einen mächtigen Gegner zog",
+  "language": [],
+  "musenalm_id": 43734,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nigel's Schicksale / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nigel's Schicksale / 1.",
+  "updated": "2006-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.222Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "24b1peqo5r97c4o"
+    }
+  ]
+}

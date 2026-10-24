@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichtbeigabe zu »Liebe und Haß« von Koch (INr 125327, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Es folgt der Tod dem Leben auf dem Fuße, / Die Nacht dem Tag dem drückend heiß und schwülen, / Es folgt, wenn gelb vom Baum die Blätter fielen, / Dem Herbst der Winter dann, mit eis’gem Gruße. –",
+  "language": [],
+  "musenalm_id": 125328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uffo Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.879Z",
+      "agent": "ja02qj8y3dsur69",
+      "source_id": "k7xfjri8i6s01rp"
+    }
+  ]
+}

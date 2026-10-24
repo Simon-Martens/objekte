@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4403,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN / ALMANACH / 1798. / Goettingen, / bei J. Ch. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buchhorn del. et sc.",
+  "scans": [
+    "alm_95_4403_fmo1jfzx33.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN / ALMANACH / 1798. / Goettingen, / bei J. Ch. Dieterich",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.180Z",
+      "agent": "z3xj5kkwhch6rva",
+      "source_id": "a1o6rjcxio3pcem"
+    }
+  ]
+}

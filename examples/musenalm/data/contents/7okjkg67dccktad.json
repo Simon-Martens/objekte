@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Kränzt die Rose den Knaben? wie, kränzt der Knabe die / Rose? / Herrliche Rose, dir raubt, acht' ich, Bathyllos den / Preis.",
+  "language": [],
+  "musenalm_id": 78367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gekränzte Knabe. / Aus dem Griechischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Erichson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gekränzte Knabe. / Aus dem Griechischen",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.795Z",
+      "agent": "f1ndpqwlkilrcgf",
+      "source_id": "lx6toml4q5n142w"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Ein gewisser poetischer Ernst, eine philosophische Melancholie der Lebensübersicht thut den Jünglingen gegen die Blendungen des ersten Welt- und Städteglanzes jene Dienste der Milderung,",
+  "language": [],
+  "musenalm_id": 34265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Melancholie der Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Melancholie der Jugend",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.684Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "vx65g5doxkhx11q"
+    }
+  ]
+}

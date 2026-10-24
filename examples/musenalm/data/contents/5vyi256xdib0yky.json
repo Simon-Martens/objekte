@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Wir befinden uns im Winter auf einem weiten Blachfelde; der Himmel ist sonnenklar und die Atmosphäre durch den Hauch frischer Kälte gereinigt.",
+  "language": [],
+  "musenalm_id": 80884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schach der Liebe. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schach der Liebe. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.796Z",
+      "agent": "ayxe6k12ru1cyko",
+      "source_id": "orbobyccxbwca26"
+    }
+  ]
+}

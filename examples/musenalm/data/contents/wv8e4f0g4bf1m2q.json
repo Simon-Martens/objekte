@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Trinklied« von Fr. Laun d.i. F. A. Schulze INr 84805, Obj 76 /) Photos 84804,01-84804,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 84804,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied / von / Friedrich Laun / komponirt / mit Begleitung der Guitarre oder des Fortepiano / von / Albert Methfessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Methfessel",
+  "scans": [
+    "alm_1345_84804_01_vqs71wxe22.jpg",
+    "alm_1345_84804_02_nqd396c1q7.jpg",
+    "alm_1345_84804_03_qxfppnag75.jpg",
+    "alm_1345_84804_04_9svgn4lf3v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied / von / Friedrich Laun / komponirt / mit Begleitung der Guitarre oder des Fortepiano / von / Albert Methfessel",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.103Z",
+      "agent": "b0s74m54xi13z2z",
+      "source_id": "1ag3pt1oy8plkz5"
+    }
+  ]
+}

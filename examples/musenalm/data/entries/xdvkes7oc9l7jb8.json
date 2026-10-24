@@ -1,0 +1,113 @@
+{
+  "annotation": "2. Titel lautet: Taschenbuch für die schwäbische Geschichte von G. A. Neuhofer. Zweyter Jahrgang enthaltend Schwabens Schicksale im spanischen Erbfolgekriege. Augsburg, bey Johann Georg Rollwagen unter der Barfüsser Kirche",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T,14 BB Kal darin 12 GG, T, S, SS 1-9 G-Verz, SS 10-3 Vrwrt d Hrsg, SS 14-184",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Deutsch und französischer (Neuhofer) 1799",
+    "norm": "~+++ fremde Herkunft (12 Monatskupfer)",
+    "biblio": 100204,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2010,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Kalender, Deutsch und französischer (Neuhofer) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; nicht bei L/R; ADB XXIII, 509",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Deutsch und französischer / CALENDER / für / das Jahr 1799 / Nebst / einer Darstellung der Schicksale / Schwabens im spanischen / Erbfolgekriege. / Augsburg / bey John. Georg Rollwagen / unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:55.757Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "eerdztnfl8mzmkb"
+  ],
+  "contents": [
+    "qpgqzw8b9ctufaf",
+    "pejvxr4sx9lxdiv",
+    "ge44o2tfa6qoh4l",
+    "ztnbudmnsvbr9mw",
+    "xt1qi3mhsoawszh",
+    "0f8n9l6uc594ojl",
+    "4sikokox4nh4y6e",
+    "qldbdcrc5g9qkck",
+    "ks5umc87ewawubp",
+    "j599t4vb774w3vq",
+    "34mvp3yqcqfzqpm",
+    "cfag71v4eesen8d",
+    "dpolpmzz9yd03dj",
+    "37g5bfiw83k8ylb",
+    "1214ren4k6n65dr",
+    "i7n8yibho9yth1x",
+    "f7fbsnxh999rof9",
+    "7c479ko2embemks",
+    "4610hc38dlz8c04",
+    "q386yxtnbq774yf",
+    "6aungoze04toonp",
+    "t6u958wylfiy9e2",
+    "qse5t2wb0sf6fjx",
+    "zfus3urqf7l2oss",
+    "a5rb0fa016gi0kc",
+    "dagsqvsb5fdys97",
+    "tqgqc1xkthns5js",
+    "kopaewmdm2zy0ps",
+    "pep224mtk9wl3ih",
+    "wi37vsk4nc1pgck",
+    "xa9bxbr6qif9uqq",
+    "4cih6k75mcuqxe3",
+    "5rxvqwmz5n68jld",
+    "c0y6s7mxjjhg4ey"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "8045np37p0bkphj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.002Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.002Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "xdcjn567kow2urg"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "annotation": "$1$ vermutl. falsche Karte: lt. G-Verz müßte Landkarte von Polen beigeben sein; mit deutschen u. französischen Bildunterschriften",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, Kal darin 6 GG, Kr, SS 1-134 darin 6 GG 3 Tab, SS 135-142 G-Verz C, $1$Kr, 154 BB, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1796",
+    "norm": "~",
+    "biblio": 200913,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 831,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Schalt-Jahr 1796. / Enthält / die Geschichte von Polen. / Mit 2 Karten, 7 Bildnissen, / und 6 histor. Vorstellungen von D. Chodowiecki. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.872Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "6z7j8et11ztw8z6"
+  ],
+  "contents": [
+    "0794xwvwdrtf4rt",
+    "8s9mdxb73dobomx",
+    "6zd2rj7w0srkbix",
+    "q1rmd3fubqxgjqr",
+    "jptpbdldxvdntsk",
+    "lsptwo9vqefvemb",
+    "mkkemeeqsh4l07l",
+    "75vbpjv5mvawiw9",
+    "ufz2ix5gxf6sqfn",
+    "xwrk272igenx2fj",
+    "bgud78iplzc7i0z",
+    "fk0mftx4fjc1z42",
+    "sygxgqeff1qy706",
+    "x000gl9g1m936vl",
+    "y12j0fscp462y4m",
+    "uo9zq01rdeoadto",
+    "k9ywvgtumra4dkx",
+    "49a9021bv429nni",
+    "3798pewlcglrbak",
+    "76z4tk1uz6tqwqi",
+    "766arfcdcexuspa",
+    "gvq9zrdawuiobhl",
+    "7a6bgrul9h4ah3x",
+    "szbwx87vkthtb2o",
+    "kmia2vj8zggucmf",
+    "x365cl2mxlnzt88",
+    "pof64q3e778fhu3",
+    "mtlfgs2de3nylp5",
+    "gwo2y1f2hw7ol77",
+    "icrasf2649qcq46",
+    "rmicjr1a4vamd0r",
+    "36w2axvo88xqov9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "3s35f1qscffbxt8"
+    }
+  ]
+}

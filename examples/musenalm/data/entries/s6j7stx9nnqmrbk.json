@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof- und Staats-Kalender, Kurmainzischer 1797",
+    "norm": "",
+    "biblio": 101298,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4369,
+  "parallel_title": "",
+  "place_statement": "Mainz (Buchdruckerei des St . Rochushospitals)",
+  "places": [
+    "884lron7ayuezbp"
+  ],
+  "preferred_title": "Hof- und Staats-Kalender, Kurmainzischer 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kurmainzischer / Hof- und Staats- / Kalender / auf das Jahr / 1797. / Mit einem Verzeichniß / des erzhohen / Domkapitels, / auch aller / zum kurf. Hof- und Kurstaate gehörigen / Stellen Aemter. / Mainz, / im Druck und Verlage der kurfürstl. gnädigst privilegirten / Buchdruckerei des St. Rochushospitals",
+  "updated": "2026-06-11 10:18:55.653Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "rzondbzakmekanp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.613Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.613Z",
+      "agent": "vp6isutefpk1ivh",
+      "source_id": "ykn92zwozw2ljee"
+    }
+  ]
+}

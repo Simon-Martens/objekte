@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Endlich rauscht des Stromes Welle, / Die so fremd mir klang, vertraut",
+  "language": [],
+  "musenalm_id": 70968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe in der Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe in der Fremde",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.543Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "w3pe32taprd0tdh"
+    }
+  ]
+}

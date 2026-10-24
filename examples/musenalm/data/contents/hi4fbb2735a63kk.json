@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August (zus. Bezeichnung: Gedr. v. Altmayer)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73403,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LANGENAU AN DER LAHN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann Gest. v. H. Fincke",
+  "scans": [
+    "alm_879_73403_o7l825tg40.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LANGENAU AN DER LAHN",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.768Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "lp4i425rb98mm1l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.768Z",
+      "agent": "ulca7kvs9vkm8e6",
+      "source_id": "ycbixfd8pihe3nj"
+    }
+  ]
+}

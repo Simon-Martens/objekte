@@ -1,0 +1,78 @@
+{
+  "annotation": "weiter Jahrgänge nicht ermittelt /) L/R 173 schreiben zu dieser »Spaltung«: Im vierundzwanzigsten Jahrgang wechselt der Verlag, statt der Hoffmannschen Buchhandlung zu Weimar bringt es die Akademische Buchhandlung  in Jena heraus. Der Grund lag in Unstimmigkeiten des Herausgebers mit dem Hoffmannschen Verlag. Mit der Verlagsänderung erhielt das Taschenbuch den Nebentitel »Chemisches Taschenbuch für Aerzte, Chemiker und Pharmazeuten«. Es scheint jedoch von Göttling, der 1809 verstarb, nach diesem Jahresband nicht weitergeführt worden zu sein. /) s. Vorwort des Herausgebers Göttling",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach oder Taschenbuch für Scheidekünstler und Apotheker 1803; Taschenbuch, Göttling’s chemisches für Ärzte, Chemiker und Pharmazeuten 1803",
+    "norm": "",
+    "biblio": 405225,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1387,
+  "parallel_title": "",
+  "place_statement": "Jena (Akad. Buchhandlung)",
+  "places": [
+    "3g3d69drahuwsbt"
+  ],
+  "preferred_title": "Almanach oder Taschenbuch für Scheidekünstler und Apotheker 1803; Taschenbuch, Göttling’s chemisches für Ärzte, Chemiker und Pharmazeuten 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 173",
+  "responsibility_statement": "Göttling",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Scheidekünstler und Apotheker / auf / das Jahr 1803 / Herausgegeben / von / Göttling. / Mit Kupfern. / Vier und zwanzigstes Jahr. / Jena, / in der akademischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.944Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "7d5g6jxiirg9qfq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.468Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.468Z",
+      "agent": "87bjsxw7ff02pni",
+      "source_id": "47plq77fq3ib1gz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.892Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.892Z",
+      "agent": "oy4mic2xjf77sh0",
+      "source_id": "m3o18353lrw93fe"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht INr 43144, Obj 82 als Widmung vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Getroffen in der Sagen Schacht / Warst du auf dieses Gold; / Gestalt und Glanz von deiner Kunst / Es einst empfangen sollt'.",
+  "language": [],
+  "musenalm_id": 43143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Romanzen von Robert dem Teufel. / Nach der alt-französischen Sage] / An Ludwig Uhland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Romanzen von Robert dem Teufel. / Nach der alt-französischen Sage] / An Ludwig Uhland",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.263Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "v9lx8i42g63qp92"
+    }
+  ]
+}

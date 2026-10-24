@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei rabbinische Erzählungen (Sammlung 3983, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Der König Löwe, der von schwerer Krankheit / Genesen war, berief die Thiere zu sich,",
+  "language": [],
+  "musenalm_id": 3986,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Athem des Königs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Athem des Königs",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.021Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "xwrv5m4yr7zaq1q"
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 3 BB gT, ar: SS 1-134, ar1: SS 1-119, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1796",
+    "norm": "~",
+    "biblio": 200407,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-08-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 696,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / fürs Jahr / 1796. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.860Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "3defbwbesl068nc"
+  ],
+  "contents": [
+    "cqfj8k2tjdun0s9",
+    "6va4yal7e35zei3",
+    "b1hpclu5qmjhjvu",
+    "0z1s8s4ggj2bu3v",
+    "x7b35kaxzxhlh7t",
+    "whmbz1wday40txn",
+    "o520dhnnb1pzbb4",
+    "s6eh2hodosgrux1",
+    "4mikl2t15bdt52o",
+    "8huf5mvk66kr8va",
+    "o4wintgs5ih36d3",
+    "0uobxg552l101lp",
+    "z2cyhrvvcrrmhn4",
+    "4xle0d47uv00n7m",
+    "pls60mvm2ndoiyj",
+    "n9haardjidhkbtu",
+    "i323od6g3el4n5v",
+    "fwdinrdnprzs6fi",
+    "luzhdbj68lbp5qx",
+    "5ag35djmfi9ogwi",
+    "eumtq2kejpj0i0y",
+    "z0snkxvuadnyftd",
+    "bioq0mq16o2jqxu",
+    "dacfverkzjb8rjd",
+    "ovdzl84kgic25l4",
+    "h67ln1tpxs1uy1d",
+    "qhcnettbg2yuvt1",
+    "zn0okhw44y6tx9r",
+    "rh82j5cl713xw28",
+    "zhwql7o0rffzznu",
+    "52j1isdqzfr2ua5",
+    "5dam7noay5xmaly",
+    "f38ptxwj5hk6dnl",
+    "km7cypz0eernwbl",
+    "mahooil8hpb18iz",
+    "2r7oxvufxglh5gi",
+    "6zmgcpt9x8vzg5j",
+    "859fc5k6jzy2jnf",
+    "2emp7mazp087s4x",
+    "6gyeg50vo2s064u",
+    "0mq0sb0zbf56tj2",
+    "d88uq82shlue7le",
+    "toj9mnh0fdxq93x",
+    "hkj7nphxt14lqs2",
+    "wwzzzp6lu4dy9yk",
+    "f6qx5worh0nr01k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.902Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.902Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "8vz062ytuni3v9l"
+    }
+  ]
+}

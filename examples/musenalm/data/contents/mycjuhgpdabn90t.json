@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 53249, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53260,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italienische Schule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludovico Carraccio. J. Lips sculp.",
+  "scans": [
+    "alm_576_53260_wb7zxang4q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Italienische Schule",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.627Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "6eiihe4xkyblsw7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.627Z",
+      "agent": "el5barrnwb9etou",
+      "source_id": "f4zakudvlr08w2r"
+    }
+  ]
+}

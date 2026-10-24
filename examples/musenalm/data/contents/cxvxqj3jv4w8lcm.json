@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Einleitendes Gedicht zum Beitrag INr 82147, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Dein ehrwürdiger Nahme, du Lieblingsvogel / Dianens, / Ruft mir den Wonnegenuß so manches festlichen / Morgens,",
+  "language": [],
+  "musenalm_id": 82146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Auerhahn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Auerhahn",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.914Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "mktt6bll2nyf3s6"
+    }
+  ]
+}

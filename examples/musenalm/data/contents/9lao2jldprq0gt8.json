@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Riesenhaus! seit Drusus Römerzügen / Jedem Sturm des Schicksals hingestellt!",
+  "language": [],
+  "musenalm_id": 13820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß zu Querfurth / in Thüringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß zu Querfurth / in Thüringen",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.404Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "hhgsfhc86r5qr2q"
+    }
+  ]
+}

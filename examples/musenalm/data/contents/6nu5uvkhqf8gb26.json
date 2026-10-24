@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 6 /) Graphik im Kalendarium Juni /) Illustration zu einer Andekdote aus: Die interessantesten Züge und Anekdoten aus der Geschichte alter und neuer Zeiten: ein Lesebuch für die Jugend zum Vergnügen und Unterricht nach dem Franz. des Herrn Fillassier ... mit Anm. und Zusätzen des Hrsg. [F. L. Brunn]. - Berlin: Königl. Preuß. Akadem. Kunst- und Buchh. Th. 1. - 1788 /) s. Textbezug INr 70288, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alfons V.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_805_70272_r7stzh1wyt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alfons V.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.581Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ek96ve0w618p4f2"
+    }
+  ]
+}

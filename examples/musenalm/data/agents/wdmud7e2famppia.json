@@ -1,0 +1,610 @@
+{
+  "annotation": "",
+  "biographical_data": "1616-1664",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.353Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1074273028",
+          "label": "Sack, Johann Friedrich von"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2011193-9",
+          "label": "Fruchtbringende Gesellschaft"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Barockdichter; Landschaftssyndikus in Glogau"
+      ],
+      "dateOfBirth": [
+        "1616-10-11"
+      ],
+      "dateOfDeath": [
+        "1664-07-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Philipp Kilian"
+          ],
+          "creditText": [
+            "Bibliothek des allgemeinen und praktischen Wissens. Bd. 5\" (1905), Deutsche Literaturgeschichte, Seite 67 Scan by User:Gabor"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Andreas%20Gryphius.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Andreas%20Gryphius.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Andreas%20Gryphius.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174167733"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:51:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118543032/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anna Maria"
+          ],
+          "surname": [
+            "Greif"
+          ]
+        },
+        {
+          "forename": [
+            "Michael"
+          ],
+          "surname": [
+            "Eder"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Greif"
+          ]
+        },
+        {
+          "forename": [
+            "Rosina"
+          ],
+          "surname": [
+            "Deutschländer"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Gryphius"
+          ]
+        },
+        {
+          "forename": [
+            "Anna"
+          ],
+          "surname": [
+            "Eder"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/128792698",
+          "label": "Gryphius, Paul"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119209322",
+          "label": "Gryphius, Christian"
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Greif"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118543032",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119209322",
+          "label": "Gryphius, Christian"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/1074273028",
+          "label": "Sack, Johann Friedrich von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/128792698",
+          "label": "Gryphius, Paul"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118543032",
+      "oldAuthorityNumber": [
+        "(DE-588a)118543032",
+        "(DE-588a)134598601",
+        "(DE-101c)310288606",
+        "(DE-588)174167733",
+        "(DE-588a)174167733",
+        "(DE-588c)4022411-9"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4093614-4",
+          "label": "Glogau"
+        }
+      ],
+      "preferredName": "Gryphius, Andreas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Andreas"
+        ],
+        "surname": [
+          "Gryphius"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Unsterbliche"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Der Unsterbliche"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Glogauisches Fürstenthumbs Landes Privilegia",
+        "Epigrammata Oder Bey-Schrifften",
+        "Der Schwermende Schäffer",
+        "Verlibtes Gespenste",
+        "Horribilicribifax",
+        "Großmüttiger Rechts-Gelehrter oder Sterbender Aemilius Paulus Papinian*",
+        "Freuden- und Trauer-Spiele auch Oden und Sonnette",
+        "Teutsche Gedichte"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Greif"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12029754w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50032998"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/gryphius-andreas/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49240166"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77214"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118543032/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174167733"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Andreas_Gryphius"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Andreas_Gryphius"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Andreas_Gryphius"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Andreas_Gryphius"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121318868"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118543032"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118543032"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118543032.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118543032.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118543032"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118543032"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118543032"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Grifius, Andreas",
+        "Riesentod, Philius Gregorius",
+        "Der Unsterbliche",
+        "Gryph, Andreas",
+        "Riesentod, Philip-Gregorius",
+        "Unsterbliche, Der",
+        "Gripʹiusi, Andreas",
+        "Risentodt, Philipp Gregorius",
+        "Greif, Andreas",
+        "Griph, Andreas",
+        "Gryplius, A.",
+        "Gryphivs, Andreas",
+        "Gryphius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Unsterbliche"
+          ]
+        },
+        {
+          "forename": [
+            "Philip-Gregorius"
+          ],
+          "surname": [
+            "Riesentod"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Gryph"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Grifius"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Gryphivs"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Greif"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Gripʹiusi"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Griph"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp Gregorius"
+          ],
+          "surname": [
+            "Risentodt"
+          ]
+        },
+        {
+          "personalName": [
+            "Gryphius"
+          ]
+        },
+        {
+          "personalName": [
+            "Der Unsterbliche"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Gryplius"
+          ]
+        },
+        {
+          "forename": [
+            "Andreas"
+          ],
+          "surname": [
+            "Greif"
+          ]
+        },
+        {
+          "forename": [
+            "Philius Gregorius"
+          ],
+          "surname": [
+            "Riesentod"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Andreas_Gryphius",
+          "label": "https://de.wikipedia.org/wiki/Andreas_Gryphius"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:36:03Z",
+    "gnd_query_biographical_data": "1616-1664",
+    "gnd_query_name": "gryphius, andreas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 998,
+  "name": "Gryphius, Andreas",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 215",
+  "updated": "2026-06-11 13:29:22.703Z",
+  "uri": "https://d-nb.info/gnd/118543032",
+  "editor": ""
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 181 /) Illustration zu »Auguste oder: der höchste Triumph des Weibes« INr 73721, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie entflieht? Auguste, das war grausam!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1799",
+  "scans": [
+    "alm_645_73726_q9d3paars3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie entflieht? Auguste, das war grausam!",
+  "updated": "2007-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.714Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "7v0ri1816sdpxyc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.714Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "94ulmot3md7bycl"
+    }
+  ]
+}

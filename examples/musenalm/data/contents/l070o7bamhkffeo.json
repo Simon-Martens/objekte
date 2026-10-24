@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwo Grabschriften. (Sammlung INr 17738)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Statt unschuldsvollen Jugendfreuden / War nur ihr Looß: Geduld im Leiden",
+  "language": [],
+  "musenalm_id": 17740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einer Tochter des Hrn. Hofr. Gatterer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einer Tochter des Hrn. Hofr. Gatterer",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.784Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "14wslmv3bs3zexw"
+    }
+  ]
+}

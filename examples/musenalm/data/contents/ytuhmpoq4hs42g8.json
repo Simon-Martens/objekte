@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Es glänzt das grüne Neckarthal / Von Lanzenblitz und Schwerterstrahl",
+  "language": [],
+  "musenalm_id": 100181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Handschuchsheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Handschuchsheim",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.849Z",
+      "agent": "q3hkrc4mbx3ugx0",
+      "source_id": "4cbopl13ln0a5fx"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103999, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103998,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RITTER J. GLUCK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. S. Duplessis pinx. S. v. Perger del. Kovatsch sc.",
+  "scans": [
+    "alm_1930_103998_xvvnh6afcd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RITTER J. GLUCK",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.904Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "6b1w2z8nwg185a4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.903Z",
+      "agent": "5cxjt6zrjv95gm1",
+      "source_id": "p6c16q5oelodl1e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.904Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "pqoq9bmlw7suoy1"
+    }
+  ]
+}

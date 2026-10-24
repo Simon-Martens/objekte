@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75124,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FIGARO'S HOCHZEIT / IV. Act. / Susanne. Das Alles that die Liebe / Durch meine Schwanenhand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Han. Meyer sc. Ber.",
+  "scans": [
+    "alm_2370_75124_0fbg27t7ch.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FIGARO'S HOCHZEIT / IV. Act. / Susanne. Das Alles that die Liebe / Durch meine Schwanenhand",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "dkyesxclxeey7df"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "nxgbjh6apzy8y75"
+    }
+  ]
+}

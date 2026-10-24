@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Was rauscht die graue Weide? / Was flüstert im Strauch?",
+  "language": [],
+  "musenalm_id": 27631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstruf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstruf",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.298Z",
+      "agent": "0o91z9eq6iw8en8",
+      "source_id": "rz2wfuvy8jz30fu"
+    }
+  ]
+}

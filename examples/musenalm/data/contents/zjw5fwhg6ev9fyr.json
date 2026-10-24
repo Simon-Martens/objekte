@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Es schwieg des Tages summendes Getose, / Und still verglomm der Abendröthe Feuer,",
+  "language": [],
+  "musenalm_id": 13998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strafe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Strafe",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.584Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "c4askmgbvbufztz"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländers Verlag] s. Textbezug INr 44370, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44371,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ELISABETH'S ABSCHIED VON SIR WALTER RALEIGH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. E. Leutze. gest. v. W. Otto",
+  "scans": [
+    "alm_603_44371_wuthh0icdb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ELISABETH'S ABSCHIED VON SIR WALTER RALEIGH",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.266Z",
+      "agent": "te1nugk337y3xur",
+      "source_id": "8swnnc45d7k91xa"
+    }
+  ]
+}

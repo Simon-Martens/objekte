@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Da droben am dämmernden Himmel, / Da segelt im bläulichen Meer",
+  "language": [],
+  "musenalm_id": 57032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wolke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wolke",
+  "updated": "2008-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.962Z",
+      "agent": "vu7ttfxkyf2jxat",
+      "source_id": "lgwtsx6j6xplmet"
+    }
+  ]
+}

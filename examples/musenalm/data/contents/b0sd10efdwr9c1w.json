@@ -1,0 +1,47 @@
+{
+  "annotation": "Variationen (Sammlung INr 36351, Obj 15) mit viertaktigem Notensystem (Allegro) über dem Beitrag",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Und so ist es denn eingetroffen, armer Johannes! das entsetzliche Geschick, was du immer ahndetest,",
+  "language": [],
+  "musenalm_id": 36364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Luca fa presto",
+  "scans": [
+    "alm_492_36364_3bnmcpmm6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "XIII.",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.922Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "8klhhkonvfjbmil"
+    }
+  ]
+}

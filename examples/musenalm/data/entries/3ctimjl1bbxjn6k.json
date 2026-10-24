@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I I-Verz C, SS III-XII, SS 1-230 darin 7 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Sagen und Legenden 1817",
+    "norm": "~",
+    "biblio": 200561,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2693,
+  "parallel_title": "",
+  "place_statement": "Berlin (Realschulbuchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch der Sagen und Legenden 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 145; L/R 88; Goed VIII. 80, 153",
+  "responsibility_statement": "Amalie v. Helwig geb. v. Imhof und Fr. Baron de la Motte",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / der / Sagen u. Legenden / herausgegeben / von / Amalie v. Helwig / geb. v. Imhof / und / Fr. Baron de la Motte / Fouqué / Zweiter - Jahrgang / BERLIN / in der Realschulbuchhandlung. / 1817",
+  "updated": "2026-06-11 10:18:55.830Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "y39ii6pikk5grox"
+  ],
+  "contents": [
+    "ehcmbhj1xv1x9ao",
+    "2v4edcv909rc95s",
+    "qn5ocgha4d5kvh9",
+    "204p1e663yxrrsm",
+    "ekxx7g45h7bfd5r",
+    "dixwf5xwksia72h",
+    "xla7sj5z9q4ej64",
+    "yhuep3jtnqqlimo",
+    "xhxpb80h4p226dl",
+    "c8ja8mcjieb6bo0",
+    "8bxdkewx6gvfa3k",
+    "kxoelm6dhkfc57q",
+    "190aoixr8legrtk",
+    "a01j86wwa0mrnz8",
+    "flgpjr36ei73h4n",
+    "aw5plq94k1n6wd8",
+    "ks0mo2u9m1dyp7z",
+    "f652j8gfasc4vte",
+    "j8wadzgt9q8orwm",
+    "44qlzuhiiy774a8",
+    "flks4qktpqcweqf",
+    "lo6wi18m60amu12",
+    "zcazkjjvx8b4nsv",
+    "3fjjxllbwa9uo62"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "rrt538j05f2ghgk",
+      "source_id": "6v03tzwxa0yuk3l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.121Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.121Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "n2z22lcjc4ayfv0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.122Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.122Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "sbdxtp1eccmvhur"
+    }
+  ]
+}

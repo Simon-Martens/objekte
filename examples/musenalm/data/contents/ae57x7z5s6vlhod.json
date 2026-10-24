@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik im Kalendarium Juni; nummeriert 4. /) Illustration zu »Das Wunder« von Mne Centtiver",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wunder v. Mne. Centtiver: / Hr. King als Lissardo. / Ein Brilliantener Ring, dünckt mich, hebt doch / eines jungen Herrn Finger gar gewaltig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen",
+  "scans": [
+    "alm_3256_105007_zti0vxz8x8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wunder v. Mne. Centtiver: / Hr. King als Lissardo. / Ein Brilliantener Ring, dünckt mich, hebt doch / eines jungen Herrn Finger gar gewaltig",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.042Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "rzqxcwxo2kjdisx"
+    }
+  ]
+}

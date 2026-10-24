@@ -1,0 +1,140 @@
+{
+  "annotation": "Leipzig: Göschen; Hrsgg: Friedrich Karl Ludwig Sickler und Johann Christian Reinhart",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 2 SS I-Verz, S G-Verz, zT, 33 BB Kal, SS I-IV Anm, SS 1-306 darin 12 GG 2 Krr, MusB, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach aus Rom 1810",
+    "norm": "~ +++ 100029",
+    "biblio": 100075,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1187,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach aus Rom 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; L/R 191",
+  "responsibility_statement": "F. Sickler; C. Reinhart",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH AUS ROM / FÜR / KÜNSTLER UND FREUNDE / DER / BILDENDEN KUNST. / ERSTER JAHRGANG. / HERAUSGEGEBEN / VON / F. SICKLER UND C. REINHART / IN ROM. / Mit Kupfern und Charten. / LEIPZIG BEI G. J. GÖSCHEN. 1810. / Preis 4 Rthlr.",
+  "updated": "2026-06-11 10:18:55.508Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "qih2p55kjhnjgl4",
+    "wjoavpubozk0ezj"
+  ],
+  "contents": [
+    "k5fpg7fpl1clktr",
+    "8wn2i682z315q3z",
+    "z96vo0re2ezhudj",
+    "3aaqbgekpw1ljmd",
+    "cw5pmlhcu555td2",
+    "n18is8ba6uzsk7w",
+    "ll6owowpfov0hrn",
+    "5bzheqstaj8ffo1",
+    "rjirouwcmwbkwzp",
+    "syo6l124jr5elwx",
+    "pcxrqgfum323k2i",
+    "g5lmvg4i31u7amr",
+    "cnbhsob7857c7nf",
+    "8wrx8mobhw2my4a",
+    "lg7ce9liub7y2t2",
+    "v3l4yju84vg2kgg",
+    "ca3y4v5n4l7r4z0",
+    "x407llha11tue3k",
+    "00b57o7lymc2ra8",
+    "v6ugq1l88n52bah",
+    "hanryvvy3xcp9sp",
+    "9veem5c2qcacdwq",
+    "58qmbfl36yklx1n",
+    "cbalvdt1hcxbgin",
+    "lmrs6gdi5py631y",
+    "1muu9rqyvsfd90u",
+    "f5diso1zwbzueo2",
+    "jscftk1ehiq6s64",
+    "ju5yiehz3uba95x",
+    "1xhfkdtaob9apee",
+    "3d195t1bo9tpfef",
+    "o1q0awlqgfzvu19",
+    "z3zfjw60pyev0rl",
+    "q0nfwp40wubd1t8",
+    "u8s4p00vfhsvrbm",
+    "n4clphb3tpft5g5",
+    "ked12qhkcyrm2lm",
+    "oes4u6tqwityx5q",
+    "tgte1k62814b8am",
+    "21ho6x9hv0hzwf7",
+    "gcdz16k1h9kb9dd",
+    "ce1pr822tkgdult",
+    "nhu2y276ykhmynm",
+    "4vstckaku78gxu5",
+    "jwii0yktrmspt9g",
+    "whve9fg67r9z6a8",
+    "gcqgp4chmevmhia",
+    "cjvg4i8zwde9nq4",
+    "cy7gkwdvjhzvrtb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.847Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.847Z",
+      "agent": "xeh43apdx4986px",
+      "source_id": "6vcmcg7frizbczy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.848Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.848Z",
+      "agent": "5bnzjhrj2xdhtqy",
+      "source_id": "idtw4oorwjiwgmb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.915Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.915Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "sr2or38y7cnbmnn"
+    }
+  ]
+}

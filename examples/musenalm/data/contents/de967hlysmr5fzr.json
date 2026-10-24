@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Auswahl aus Luthers freundschaftlichen Briefen, von den Jahren 1517-1546 (Sammlung INr 48445, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Gnade und Friede in Christo, mein herzliebes Söhnchen! Ich sehe gerne, daß du wohl lernest, und fleißig betest.",
+  "language": [],
+  "musenalm_id": 48456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[An seine Frau, Catharine, und sein ältestes / Söhnchen, Hans. / (Von demselben Jahre und Orte.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dein lieber Vater, Martinus Luther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[An seine Frau, Catharine, und sein ältestes / Söhnchen, Hans. / (Von demselben Jahre und Orte.)]",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.282Z",
+      "agent": "60x0fj7vzerrc38",
+      "source_id": "3y3jwtepr5ygurf"
+    }
+  ]
+}

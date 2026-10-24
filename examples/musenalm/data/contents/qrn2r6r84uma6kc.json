@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Mählig sinket hinab dort hinter den Bergen die Sonne, / Lang und länger stets, fallen die Schatten ins Thal.",
+  "language": [],
+  "musenalm_id": 94493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abend nach morgenländischen / Dichtern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abend nach morgenländischen / Dichtern",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.712Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "94pb4fmuob2heru"
+    }
+  ]
+}

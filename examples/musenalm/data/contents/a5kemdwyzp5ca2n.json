@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24852, Obj 133)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Du warst meinen Blicken entschwunden, / Die Monde schnell kommen und gehn,",
+  "language": [],
+  "musenalm_id": 24855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Wiedersehen. / 1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosa Maria",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Wiedersehen. / 1.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.997Z",
+      "agent": "7qd9korfk9bcwc9",
+      "source_id": "vc8ral2yqj7pn1r"
+    }
+  ]
+}

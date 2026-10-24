@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Titel, Motto, Widmung und Einleitung INr 50095-50098, Obj 5-8 /) mit 9 Illustrationen in je 3 Varianten s. Graphiken INr 61051-61077",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Unter den lieblichen Töchtern der vormaligen freyen Reichsstadt Augsburg wurde zu Anfange der großen Reformation Mathilde Werner fast immer ganz zuerst genannt; denn sie war eine Schönheit sonder Gleichen,",
+  "language": [],
+  "musenalm_id": 50099,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts]",
+  "updated": "2007-06-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.394Z",
+      "agent": "v1mpxx0n8e76xaz",
+      "source_id": "7a515i4rm0xodth"
+    }
+  ]
+}

@@ -1,0 +1,830 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1845",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/36150-1",
+          "label": "Rheinische Friedrich-Wilhelms-Universität Bonn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2174952-8",
+          "label": "Universität zu Jena"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Berühmte Übersetzung der Werke Shakespeares, zusammen mit Ludwig Tieck, Dorothea Tieck und Wolf Heinrich von Baudissin"
+      ],
+      "dateOfBirth": [
+        "1767-09-08"
+      ],
+      "dateOfDeath": [
+        "1845-05-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Adolf Hohneck"
+          ],
+          "creditText": [
+            "Buchmuseum Der Sächsischen Landesbibliothek"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Wilhelm%20von%20Schlegel.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/August%20Wilhelm%20von%20Schlegel.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:August%20Wilhelm%20von%20Schlegel.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189495839",
+        "https://d-nb.info/gnd/160480353",
+        "https://d-nb.info/gnd/131145169",
+        "https://d-nb.info/gnd/131145150",
+        "https://d-nb.info/gnd/160941938",
+        "https://d-nb.info/gnd/160941946",
+        "https://d-nb.info/gnd/160480361",
+        "https://d-nb.info/gnd/186818505"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-05T14:28:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118607960/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118607049",
+          "label": "Schelling, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607995",
+          "label": "Schlegel, Johann Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117320536",
+          "label": "Schlegel, Karl August Moritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115368361",
+          "label": "Paulus, Heinrich Eberhard Gottlob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607987",
+          "label": "Schlegel, Friedrich von"
+        },
+        {
+          "forename": [
+            "Johann Elias"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117321435",
+          "label": "Schlegel, Sophie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118607960",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/118607995",
+          "label": "Schlegel, Johann Adolf"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117320536",
+          "label": "Schlegel, Karl August Moritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118607987",
+          "label": "Schlegel, Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118607960",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)135494796",
+        "(DE-588c)4052641-0",
+        "(DE-588)131145150",
+        "(DE-588a)160480361",
+        "(DE-588a)118607960",
+        "(DE-588)160941938",
+        "(DE-588a)189495839",
+        "(DE-588)131145169",
+        "(DE-588c)7806911-7",
+        "(DE-588a)160480353",
+        "(DE-588)160480353",
+        "(DE-588a)186818505",
+        "(DE-588a)160941938",
+        "(DE-588a)160941946",
+        "(DE-588a)131145150",
+        "(DE-101c)311184790",
+        "(DE-588)160480361",
+        "(DE-588a)131018396",
+        "(DE-588a)131145169",
+        "(DE-588)160941946",
+        "(DE-588)186818505",
+        "(DE-588)189495839"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "preferredName": "Schlegel, August Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "August Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schlegel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185045-2",
+          "label": "Theaterkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167889-8",
+          "label": "Literaturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1028510764",
+          "label": "Löbel, Maria"
+        }
+      ],
+      "publication": [
+        "Observations sur la langue et la littèrature provençales",
+        "Charakteristiken und Kritiken",
+        "Sur le système continental, et sur ses rapports avec la Suède",
+        "Berichtigung einiger Mißdeutungen",
+        "Blumensträuße",
+        "Tacitus, Cornelius: Lebensbeschreibung des Julius Agricola",
+        "Betrachtungen über die Politik der Dänischen Regierung",
+        "Reflexions sur l'étude des langues asiatiques, adressées à *"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1084238071",
+          "label": "Exlibris (Schlegel, August Wilhelm von), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50004731"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59123443"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41468.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57281"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118607960/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131145150"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131145169"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160480353"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160480361"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160941938"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160941946"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186818505"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189495839"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/August_Wilhelm_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Wilhelm_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Wilhelm_Schlegel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/August_Wilhelm_Schlegel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110276033"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118607960"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118607960"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607960.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118607960.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118607960"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118607960"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Schlegel, A.W. von",
+        "Schlegel, A. W. de",
+        "A. W. S.",
+        "Schlegel",
+        "Schlegel, Augustus Guilelmus",
+        "Schlegel, A. W. v.",
+        "A. W. v. S.",
+        "Schlegel, W. v.",
+        "Schlegel, August",
+        "Schlegel, Auguste-Guillaume",
+        "Schlegel, A. W.",
+        "Schlegel, August W. von",
+        "Schlegel, Auguste-Guillaume de",
+        "Schlegelius, Augustus Guilielmus",
+        "Schlegel, Augustus G.",
+        "Von Schlegel, August Wilhelm",
+        "Schlegel, Augustus Guilielmus",
+        "Schlegel, August Wilhelm",
+        "Schlegel, Wilhelm",
+        "Schlegel, A. W. von",
+        "Schlegel, Augustus Guilielmus a",
+        "Schlegel, August Wilhelm de",
+        "Schlegel, Augustus Guilelmus a",
+        "S., A. W.",
+        "S., A. W. v.",
+        "Schlegel, Aug. Wilh. von",
+        "Schlegel, A.W.",
+        "Schlegel, Augustus G. a"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A.W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "personalName": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Guilielmus"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A.W."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "personalName": [
+            "A. W. v. S."
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Guilielmus"
+          ],
+          "surname": [
+            "Schlegelius"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Guilelmus"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Aug. Wilh."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus G."
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus G."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "personalName": [
+            "A. W. S."
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Guillaume"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "August Wilhelm"
+          ],
+          "surname": [
+            "Von Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "August W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "August Wilhelm"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Guilelmus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "August Wilhelm"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "Augustus Guilielmus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schlegel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Wilhelm_Schlegel",
+          "label": "https://de.wikipedia.org/wiki/August_Wilhelm_Schlegel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:48:27Z",
+    "gnd_query_biographical_data": "1767-1845",
+    "gnd_query_name": "schlegel, august wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2456,
+  "name": "Schlegel, August Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "Inhumanus",
+  "refs": "Goed VI, 5",
+  "updated": "2026-06-11 13:29:24.651Z",
+  "uri": "https://d-nb.info/gnd/118607960",
+  "editor": ""
+}

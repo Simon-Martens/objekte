@@ -1,0 +1,95 @@
+{
+  "annotation": "Die Graphik »Zug nach dem Reichstagspallaste in Worms« ist nicht beigegeben /) s. Anm auf dem Schuber der französischen Ausgabe des Almanachs : alm-4245; INr 110783",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 GG, ar: SS 1-316, ar1: SS 1-16 VrlgM, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach fürs Theater (Iffland) 1809",
+    "norm": "~",
+    "biblio": 200637,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1342,
+  "parallel_title": "",
+  "place_statement": "Berlin (Braunes)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach fürs Theater (Iffland) 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 117; Goed VIII. 128, 2",
+  "responsibility_statement": "August Wilhelm Iffland",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / fürs Theater / 1809 / von / Aug. Wilh. Iffland / mit 3 Portraits, und dem Zuge nach / dem Reichstagspallaste in Worms. / aus Martin Luther, oder der Weihe der Kraft. / Berlin 1809. / bei Friedr. Braunes & Co.",
+  "updated": "2026-06-11 10:18:54.932Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "vwafu4iixlmaee5"
+  ],
+  "contents": [
+    "dfmre8313ypnetc",
+    "3msyjmbgwikwxi9",
+    "qin1clt30jd37a8",
+    "5jkxkc3eeyf2azp",
+    "eifjuus2as6j6xm",
+    "2reu3fkw8zol1lq",
+    "xgdkvmmoepllpot",
+    "0g2t1fa65pan99d",
+    "hw0bvgkkwnlamhp",
+    "am28cjp15ipo4ge",
+    "ezn26tlvvnmapda",
+    "ccm2dus8204qt4e",
+    "45xw46bjasl579a",
+    "z6xk9hkomnigmlt",
+    "biz33drhcqmor1m",
+    "j334p0x2qr69bb4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.880Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.880Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "0q58dfgxti0uraq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.569Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.569Z",
+      "agent": "hnw9mmujaqrvfh8",
+      "source_id": "2h2hnrx6aj0p591"
+    }
+  ]
+}

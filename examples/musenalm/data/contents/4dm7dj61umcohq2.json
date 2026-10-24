@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Wie gern gedenk' ich jetzt der Jünglingstage, / Wo ein Moment, in Glück und Gunst genossen, / Die lebensfrohe Lippe mir erschlossen",
+  "language": [],
+  "musenalm_id": 111711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonst und jetzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kalr Ferdinand Dräxler (= Manfred.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonst und jetzt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.402Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "1n9alevocwzi1s6"
+    }
+  ]
+}

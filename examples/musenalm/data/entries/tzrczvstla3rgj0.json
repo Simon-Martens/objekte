@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Almanach der Belletristen und Belletristinnen 1782",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Dichter und schöne Geister 1785",
+    "norm": "",
+    "biblio": 100108,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1305,
+  "parallel_title": "",
+  "place_statement": "Augsburg",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Almanach für Dichter und schöne Geister 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 10; L/R 203",
+  "responsibility_statement": "Christian Jacob Wagenseil",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Dichter und schöne Geister. / Auf das Jahr / 1785. / Ich bin auch ein Maler ! / Correggio. / Gedruckt / am Fuß des Parnasse",
+  "updated": "2026-06-11 10:18:54.896Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "9g3rnctwe6ko2ev"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.878Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.878Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "cbr7lo56y4gv9aq"
+    }
+  ]
+}

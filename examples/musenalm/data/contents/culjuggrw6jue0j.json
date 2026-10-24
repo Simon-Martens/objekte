@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Gemsenjäger« von L. Rellstab INr 60574, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60575,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die Gemsenjäger, von L. Rellstab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_393_60575_e7qvoca8rg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die Gemsenjäger, von L. Rellstab",
+  "updated": "2002-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.034Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "121xavblj091g6i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.034Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "qvqk7t5ggw90vsk"
+    }
+  ]
+}

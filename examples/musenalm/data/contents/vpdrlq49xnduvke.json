@@ -1,0 +1,45 @@
+{
+  "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Reich ist das Land an Luft, an Bergen und heiterer / Frische, / Und der Erze Gestein lacht aus den Gruben herauf.",
+  "language": [],
+  "musenalm_id": 77001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Harz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Harz",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.641Z",
+      "agent": "gvrm573djft0g9v",
+      "source_id": "g8rxk2nxgbixby0"
+    }
+  ]
+}

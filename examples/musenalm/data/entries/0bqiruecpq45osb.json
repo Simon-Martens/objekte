@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelauflage: K 150 gibt einen Band mit falschem Jg 1810 an; Goed VIII, 75, (131) gibt zwei Bände mit falschem Jg 1810 an und fragt »Vermutl. Anthologie«. Beide geben eine Wiederholung der Auflage 1814 an.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I- XXX, G, SS XXXI-XXXVI G-Verz, G, SS XLI-XLII I-Verz, SS 1-391, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaia (Frankfurt) 1802 (Titelauflage)",
+    "norm": "~",
+    "biblio": 200510,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3593,
+  "parallel_title": "",
+  "place_statement": "Frankfurt",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Aglaia (Frankfurt) 1802 (Titelauflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5, 150; L/R 71; Goed VIII. 55, 20; Goed VIII. 75,131",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / Verehrer der schönen Literatur / und einer / ausgewählten edlen Lectüre. / Herausgegeben / von / den geschätztesten Schriftstellern / der / Deutschen. / Zweiter Theil. / mit sieben Kupfern von Jury / Frankfurt am Mayn / bei Bernhard Körner 1811",
+  "updated": "2026-06-11 10:18:56.027Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "rvxrsh3xe1rfsm7"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.437Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.437Z",
+      "agent": "h0siijp048vuz94",
+      "source_id": "refn232k8w486e7"
+    }
+  ]
+}

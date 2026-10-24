@@ -1,0 +1,56 @@
+{
+  "annotation": "KVK, Österreichischer Bibliothekenverbund: 1839-1948",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Österreichischer 1839",
+    "norm": "",
+    "biblio": 408960,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-04-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4190,
+  "parallel_title": "",
+  "place_statement": "Prag und Wien",
+  "places": [
+    "io20468di3l63af",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Theater-Almanach, Österreichischer 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Oesterreichischer / THEATER-ALMANACH / für das Theaterjahr / 1839, / 1ter Jahrgang / herausgegeben von / Franz. A. Werner u. J. H. Grim. / Prag und Wien. / 1839",
+  "updated": "2026-06-11 10:18:54.991Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "zrr8j2s0pthlgv9"
+  ],
+  "contents": [],
+  "agents": []
+}

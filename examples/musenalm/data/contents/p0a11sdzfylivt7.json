@@ -1,0 +1,45 @@
+{
+  "annotation": "Scenen aus dem Volksleben (Sammlung INr 43880, Obj 26) Dem Text vorangestellt: Der Bergweg öffnet sich, nur frisch mir nach, / Den Fels erkenn' ich und das Kreuzlein drauf, / Wir sind am Ziel. / Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Wenn man auf der großen Straße, welche von Frankfurt am Main über Seligenstadt und Miltenberg nach Würzburg führt, sich dem Städtchen Obernburg nähert,",
+  "language": [],
+  "musenalm_id": 43881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Abend",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "2a7cqjmpkobnan0"
+    }
+  ]
+}

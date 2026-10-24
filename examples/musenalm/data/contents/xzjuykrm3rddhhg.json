@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20620, Obj 18) s. Graphik INr 20625, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Das herrliche Original, 9 Palmen breit und 6 Palmen hoch, befindet sich zu Rom im Pallast Doria,",
+  "language": [],
+  "musenalm_id": 20621,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Mühle des Claude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. A. Frenzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Mühle des Claude",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.306Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "y9xr9k9b4ebvnqu"
+    }
+  ]
+}

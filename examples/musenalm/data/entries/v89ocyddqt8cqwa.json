@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Reformations-Almanach 1821",
+    "norm": "",
+    "biblio": 100453,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2464,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Keyser)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Reformations-Almanach 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 97; nicht bei L/R; Goed VIII. 96, 189",
+  "responsibility_statement": "Friedrich Keyser",
+  "subtitle_statement": "",
+  "title_statement": "Reformations Almanach / auf / das Jahr / 1821. / herausgegeben / von / Friedrich Keyser / und Joh. Fr. Möller. / Dritter Jahrgang / Erfurt / G. A. Keysers Buchhandlung",
+  "updated": "2026-06-11 10:18:55.947Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "wcaa51mxalumelv"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.077Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.077Z",
+      "agent": "3afr79ntyk3ash4",
+      "source_id": "r2mi3cumzxsszzf"
+    }
+  ]
+}

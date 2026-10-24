@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Graphik im Kalendarium Februar /) Illustration zu »Geschichte der Stadt Breslau« von Karl Adolf Menzel INr 72534, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72523,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Breslauer Rath weist die Anträge / des Königs von Polen zurück. / Seite 37",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. W. Jury sc.",
+  "scans": [
+    "alm_859_72523_tm6p93rl8j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Breslauer Rath weist die Anträge / des Königs von Polen zurück. / Seite 37",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.714Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "jmf37q9drqjq6bj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.714Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "v7fq59ks4lpbpfq"
+    }
+  ]
+}

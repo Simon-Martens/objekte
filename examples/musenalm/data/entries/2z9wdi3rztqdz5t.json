@@ -1,0 +1,95 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Glarus",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 4 BB Kal, SS 1-195 darin 10 GG, SS 196-206 G-Verz, S 207 I-Verz, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1809",
+    "norm": "~",
+    "biblio": 200419,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-10-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 709,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1809. / Zürich / bey Orell Füßli & Comp.",
+  "updated": "2026-06-11 10:18:55.162Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "olq5337k4dv8pnn"
+  ],
+  "contents": [
+    "z8sxom7nb9elcdx",
+    "ee0a1za3e6cvn7o",
+    "mg2hi78k9n8y1lm",
+    "khancjwe6kujnte",
+    "i4wys552s8z4nzi",
+    "pkf10rq1dz6g13y",
+    "mafnbev2c4pe7ix",
+    "sh6dpn1cba70cpm",
+    "3l4lwj3cezxjl0d",
+    "6izvrjzf521j6wf",
+    "o7dfzi8szfw7kav",
+    "8tatqbhloyc0enn",
+    "6djl6azqxuyzvu2",
+    "9njzyjje5tfmvfb",
+    "5z18v7jsz1tsi6n",
+    "v3d8vb8fztn9g5f",
+    "lt4xllrk2mokqpn",
+    "mdhja16b9rzdrtg",
+    "l4xdy76hdxmmldl",
+    "z976pavp2je5el4",
+    "h8vrtxin2nx5lzj",
+    "tgz4w56osyd6sht",
+    "7mvlcyn0w68twnc",
+    "3oq5iflsiyhkeqk",
+    "rwg86td339p2pdc",
+    "pbph20rscmr8y19",
+    "7heueu8z6agd55p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "eaad1h8zqrilu7g"
+    }
+  ]
+}

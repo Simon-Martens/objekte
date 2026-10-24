@@ -1,0 +1,45 @@
+{
+  "annotation": "Walgerß und Hildegunde (Sammlung INr 26347, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Polenritter, Polenfrauen, / Kommt hervor zum Tanze!",
+  "language": [],
+  "musenalm_id": 26357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Verliebten Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Verliebten Heimkehr",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.357Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "stewnzq4uuo587w"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. Re 23 fast ganz von Bürger",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Mein Dorchen ist ein reizend Kind. / Ihr Athem ist so rein, wie Frühlingsdüfte / sind.",
+  "language": [],
+  "musenalm_id": 2838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dorchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rf.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dorchen",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.976Z",
+      "agent": "noa9jfrtzw7c8o4",
+      "source_id": "iikqub1w6xu1gqi"
+    }
+  ]
+}

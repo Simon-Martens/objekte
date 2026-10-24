@@ -1,0 +1,45 @@
+{
+  "annotation": "Abgerissene Gedanken vor dem Frühstücke und dem Nachtstücke in Löbichau (Sammlung INr 43146, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "Der eine sucht nur die Mängel des Nächsten auf, der andere nur dessen Tugenden,",
+  "language": [],
+  "musenalm_id": 43150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Fremde Fehler und Tugenden auf- / spüren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Fremde Fehler und Tugenden auf- / spüren",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.393Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "8ddocv3rq30gxt7"
+    }
+  ]
+}

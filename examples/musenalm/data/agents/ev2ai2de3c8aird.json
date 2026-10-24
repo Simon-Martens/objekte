@@ -1,0 +1,454 @@
+{
+  "annotation": "",
+  "biographical_data": "1748-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.507Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof. Dr. phil. Dr. med."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/40600-4",
+          "label": "Universitäts- und Stadtbibliothek Köln"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2026220-6",
+          "label": "Wallraf-Richartz-Museum"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Professor für Botanik und Naturgeschichte an der Medizinischen Fakultät und Professor der schönen Wissenschaften in Köln. Seine Kunstsammlung bildete den Grundstock für das Wallraf-Richartz-Museum, seine Büchersammlung zusammen mit der Syndikatsbibliothek des Kölner Rates den Grundstock für die ehemalige Stadtbibliothek Köln, die 1920 Teil der neuen Universitäts- und Stadtbibliothek wurde."
+      ],
+      "dateOfBirth": [
+        "1748-07-20"
+      ],
+      "dateOfDeath": [
+        "1824-03-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Anton de Peters"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Museum%20der%20Museen.%20Eine%20Zeitreise%20durch%20die%20Kunst%20des%20Ausstellens%20und%20Sehens%20-%20Bildnis%20des%20Ferdinand%20Franz%20Wallraf%20-%20Johann%20Anton%20de%20Peters-0113%20%28without%20frame%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Museum%20der%20Museen.%20Eine%20Zeitreise%20durch%20die%20Kunst%20des%20Ausstellens%20und%20Sehens%20-%20Bildnis%20des%20Ferdinand%20Franz%20Wallraf%20-%20Johann%20Anton%20de%20Peters-0113%20%28without%20frame%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Museum%20der%20Museen.%20Eine%20Zeitreise%20durch%20die%20Kunst%20des%20Ausstellens%20und%20Sehens%20-%20Bildnis%20des%20Ferdinand%20Franz%20Wallraf%20-%20Johann%20Anton%20de%20Peters-0113%20%28without%20frame%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189503025"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-20T15:09:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118831429/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118831429",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#28p",
+          "label": "Personen zu Mathematik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#24.3p",
+          "label": "Personen zu Botanik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118831429",
+      "oldAuthorityNumber": [
+        "(DE-588a)189503025",
+        "(DE-588a)118831429",
+        "(DE-588c)4195995-4",
+        "(DE-588)189503025",
+        "(DE-588c)7807720-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "preferredName": "Wallraf, Ferdinand Franz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ferdinand Franz"
+        ],
+        "surname": [
+          "Wallraf"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166042-0",
+          "label": "Kunstsammler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037945-0",
+          "label": "Mathematiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4163199-7",
+          "label": "Kanoniker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Gamander"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Casparsohn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Casparson"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Beschreibung der Köllnischen Münzsammlung des Domherrn und kurfürs*",
+        "Beschreibung der Köllnischen Münzsammlung des Domherrn von Merle",
+        "Poetische Epistel an Herrn J. M. Du-Mont, neuernannten Hauptpastor*",
+        "Gamander, ...: Epistola poetica",
+        "Beiträge zur Geschichte von Cöln und dessen Umgebung",
+        "Tituli et inscriptiones ad funus eminentissimi et celsissimi princ*"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/113628804X",
+          "label": "Bibliothek Ferdinand Franz Wallraf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr88006068"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/18019213"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q101463"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118831429/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189503025"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ferdinand_Franz_Wallraf"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ferdinand_Franz_Wallraf"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061459457"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118831429"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118831429"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118831429.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118831429"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Wallraf, Ferd. Fr.",
+        "Casparsohn",
+        "Wallraf, Franz Ferdinand",
+        "Wallraf, F.",
+        "Wallraf, Ferdinand F.",
+        "Wallraf, Ferdinand",
+        "Casparson",
+        "Wallraf, Ferdinandus Franciscus",
+        "Vallrafius, Ferdus",
+        "Gamander, M.",
+        "Wallraf, Ferd. Franc."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "forename": [
+            "Ferd. Franc."
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdus"
+          ],
+          "surname": [
+            "Vallrafius"
+          ]
+        },
+        {
+          "personalName": [
+            "Casparson"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand F."
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinandus Franciscus"
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "forename": [
+            "Ferd. Fr."
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "personalName": [
+            "Casparsohn"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Gamander"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Ferdinand"
+          ],
+          "surname": [
+            "Wallraf"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ferdinand_Franz_Wallraf",
+          "label": "https://de.wikipedia.org/wiki/Ferdinand_Franz_Wallraf"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:18:06Z",
+    "gnd_query_biographical_data": "1748-1824",
+    "gnd_query_name": "wallraf, ferdinand franz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3055,
+  "name": "Wallraf, Ferdinand Franz",
+  "profession": "Text",
+  "pseudonyms": "Casparson; Casparsssohn; W. Casparssohn; Juvenal",
+  "refs": "E 373; ADB XXXX, 764",
+  "updated": "2026-06-11 13:29:25.625Z",
+  "uri": "https://d-nb.info/gnd/118831429",
+  "editor": ""
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 39303, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau von Orleans. IIIr. Aufz. I. Auftr. / Dieses Schwert zum Pfande, dass ich / Dich wiedersehe! - Rasender du wagst es?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Schenk sc.",
+  "scans": [
+    "alm_516_39302_qq64fj2nvs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau von Orleans. IIIr. Aufz. I. Auftr. / Dieses Schwert zum Pfande, dass ich / Dich wiedersehe! - Rasender du wagst es?",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.075Z",
+      "agent": "voq5dlml9870uhq",
+      "source_id": "8escl82i7hp8pl1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.075Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "u2h9yozjjjqm8wk"
+    }
+  ]
+}

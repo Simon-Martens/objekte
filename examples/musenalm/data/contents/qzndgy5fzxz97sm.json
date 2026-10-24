@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Erlauben Euer Exzellenz, Ihnen diesen kleinen Beweis tiefer Verehrung ehrfurchtsvoll zu überreichen.",
+  "language": [],
+  "musenalm_id": 91054,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Euer Exzellenz!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Euer Exzellenz!",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.319Z",
+      "agent": "lgm7bery1pehuzm",
+      "source_id": "0ypxjkkkvl2qhvr"
+    }
+  ]
+}

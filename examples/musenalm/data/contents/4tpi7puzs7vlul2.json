@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67135, Obj 9) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67143, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Von den Abweichungen unserer deutschen Eichenarten, die in den frühern Jahrgängen des Sylvans abgebildet und beschrieben worden sind, muß ich noch die Bastard- und täuschende Eiche angeben.",
+  "language": [],
+  "musenalm_id": 67142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Bastardeiche. Quercus hybrida",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Bastardeiche. Quercus hybrida",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.929Z",
+      "agent": "kq4g56g38zxvy1z",
+      "source_id": "p9s30qy2eyqosnj"
+    }
+  ]
+}

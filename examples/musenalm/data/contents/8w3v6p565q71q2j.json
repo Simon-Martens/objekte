@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 11. /) Graphik im Kalendarium November /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75687, Obj 34 /) s.a. Textbezug INr 75684, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75668,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königsmark hat Prag erobert. / Er und seine Gemahlin sehen den Zug der / gefangenen Mönche und Nonnen zu.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec.",
+  "scans": [
+    "alm_2143_75668_od0e57aqua.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königsmark hat Prag erobert. / Er und seine Gemahlin sehen den Zug der / gefangenen Mönche und Nonnen zu.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.728Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "nvenmykrb7vsftn"
+    }
+  ]
+}

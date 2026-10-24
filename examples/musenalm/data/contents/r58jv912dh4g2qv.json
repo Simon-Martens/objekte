@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Bereit stehn meine Krieger schon, / Und heute noch zieh' ich davon,",
+  "language": [],
+  "musenalm_id": 12703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bankban",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bankban",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.430Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "i8il7el15nj5hns"
+    }
+  ]
+}

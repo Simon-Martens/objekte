@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Verse! Wer schmiedet die nicht? Sie sind / des Dichterlings erstes, / Letztes Verdienst des Dichters.",
+  "language": [],
+  "musenalm_id": 31580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER DICHTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER DICHTER",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.289Z",
+      "agent": "h2r7vychlnktmwb",
+      "source_id": "hqi2c78v57k396e"
+    }
+  ]
+}

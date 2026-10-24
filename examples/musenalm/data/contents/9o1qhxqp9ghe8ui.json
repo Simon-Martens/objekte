@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "In süßer Abendruhe winket / Die weite Flur mir still und mild,",
+  "language": [],
+  "musenalm_id": 29017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied an den Ufern der Ostsee",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeldt, geb. von Seebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied an den Ufern der Ostsee",
+  "updated": "2002-10-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.183Z",
+      "agent": "l4enih6aag2oyqg",
+      "source_id": "ne84zvxfniondf5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113656,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PESSINA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Lips sculp. München",
+  "scans": [
+    "alm_2687_113656_q5e33yg983.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PESSINA",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.379Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "ugp9zst80y57wiy"
+    }
+  ]
+}

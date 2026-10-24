@@ -1,0 +1,45 @@
+{
+  "annotation": "Dichter-Reliquien (Sammlung INr 20871, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Holde Blume - mir unvertauscht um schön're / Jüng're Schwestern, wie sehr am Stock sie buhlten",
+  "language": [],
+  "musenalm_id": 20876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. An eine gepflückte Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. An eine gepflückte Rose",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.947Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "x8w84beztvy9d46"
+    }
+  ]
+}

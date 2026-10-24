@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Ah, es ist ja verwelkt! - Heilig mir doch das Blatt, / Das Dein theuerster Sohn mir aus dem Eichenkranz / Darbot",
+  "language": [],
+  "musenalm_id": 15992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Eichenblatt. / An J. M. die Königin von Preußen, / Tauerlauken, den 9. August 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Morgenstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Eichenblatt. / An J. M. die Königin von Preußen, / Tauerlauken, den 9. August 1807",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.587Z",
+      "agent": "9hensmccxc9b4rz",
+      "source_id": "82rybaixnw6djnv"
+    }
+  ]
+}

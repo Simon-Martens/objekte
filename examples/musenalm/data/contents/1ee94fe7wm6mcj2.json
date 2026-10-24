@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 29104, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Schön Liebchen, sieh freundlich herab auf mich, / Und höre, was ich dir bringe!",
+  "language": [],
+  "musenalm_id": 29107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen eines Geizigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen eines Geizigen",
+  "updated": "2002-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.402Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "pzcd7p5i4eiby5q"
+    }
+  ]
+}

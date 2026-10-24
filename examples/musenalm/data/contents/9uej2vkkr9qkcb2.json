@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "So lange du noch liebst was sterblich ist, / So lang' heischt Zins auf Zins von dir die Sorge",
+  "language": [],
+  "musenalm_id": 45325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nothwendigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nothwendigkeit",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.619Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "cgcx3cobk8r4vxl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90017,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba del. sc.",
+  "scans": [
+    "alm_3107_90017_idxqnr8c8a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hebe",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.280Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "omybr1rb7vueiqf"
+    }
+  ]
+}

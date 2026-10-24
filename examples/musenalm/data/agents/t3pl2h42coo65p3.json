@@ -1,0 +1,625 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.461Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Kunsthistoriker, Schriftsteller, Zeichner und Maler, Agrarhistoriker, Gastrosoph, Kunstsammler und Mäzen"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1785-01-06"
+      ],
+      "dateOfDeath": [
+        "1843-07-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Nerly"
+          ],
+          "creditText": [
+            "Nationalgalerie Berlin"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Friedrich%20von%20Rumohr%20by%20Friedrich%20Nerly.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Friedrich%20von%20Rumohr%20by%20Friedrich%20Nerly.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Friedrich%20von%20Rumohr%20by%20Friedrich%20Nerly.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187976058"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-17T21:21:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118987224/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118987224",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118987224",
+      "oldAuthorityNumber": [
+        "(DE-588a)187976058",
+        "(DE-588c)4264452-5",
+        "(DE-588)187976058",
+        "(DE-588a)118987224"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4620178-6",
+          "label": "Reinhardtsgrimma"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Rumohr, Carl Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Rumohr"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4384026-7",
+          "label": "Gourmet"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunsttheoretiker"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "König"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "König"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "König"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Rumohr, Carl F. von: Italienische Forschungen. - 1827 - 1831",
+        "Rumohr, Carl F. von: Novellen. - 1833 - 1835",
+        "Rumohr, Carl F. von: Ueber Raphael und sein Verhältniß zu den Zeitgenossen",
+        "Rumohr, Carl F. von: Denkwürdigkeiten der Kunstausstellung des Jahres 1814",
+        "Rumohr, Carl F. von: Hans Holbein, der jüngere, in seinem Verhältnisse zum deutschen Fo*",
+        "Rumohr, Carl F. von: Ueber die antike Gruppe Castor und Pollux",
+        "Rumohr, Carl F. von: Italienische Novellen von historischem Interesse",
+        "Rumohr, Carl F. von: Reise durch die östlichen Bundesstaaten in die Lombardey und zurüc*",
+        "Rumohr, Carl F. von: Zur Geschichte und Theorie der Formschneidekunst",
+        "Rumohr, Carl F. von: Drey Reisen nach Italien",
+        "König, Joseph: Geist der Kochkunst"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83219694"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9906328"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q646032"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118987224/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187976058"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Friedrich_von_Rumohr"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_von_Rumohr"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Friedrich_von_Rumohr"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Friedrich_von_Rumohr"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108688266"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118987224"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118987224"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118987224.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118987224.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118987224"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118987224"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Rumohr, Carl F. von",
+        "Rumohr, K. F. von",
+        "König, Josef",
+        "Rūmōru, C. F. v.",
+        "Rumohr, Karl Friedrich",
+        "Rumohr, C. Fr. von",
+        "Rumohr, Karl Friedrich von",
+        "Rumohr, Karl Ludwig Felix von",
+        "Rumohr, Karl F. von",
+        "Rumohr, C. F. L. F. von",
+        "König, Joseph",
+        "Rumohr, Friedrich C.",
+        "Rumohr, Carl F.",
+        "Rumohr, Carl Friedrich",
+        "Rumohr, C. F. von",
+        "Rumohr, Carl Friedrich Ludwig Felix von",
+        "Rumohr, Karl Friedrich Ludwig Felix von",
+        "Rumohr, Carl von",
+        "Rumohr, Friedrich Carl",
+        "Rumohr, C. F.",
+        "König, Joseph, Kunsttheoretiker",
+        "Von Rumohr, Carl Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Carl"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "K. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "surname": [
+            "König"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Kunsttheoretiker"
+          ],
+          "surname": [
+            "König"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "König"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich Ludwig Felix"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig Felix"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "König"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich Ludwig Felix"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "C. Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. L. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Von Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich C."
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Rūmōru"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rumohr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_von_Rumohr",
+          "label": "https://de.wikipedia.org/wiki/Carl_Friedrich_von_Rumohr"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:42:57Z",
+    "gnd_query_biographical_data": "1785-1843",
+    "gnd_query_name": "rumohr, karl friedrich ludwig felix von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2346,
+  "name": "Rumohr, Karl Friedrich Ludwig Felix von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXIX, 657",
+  "updated": "2026-06-11 13:29:24.442Z",
+  "uri": "https://d-nb.info/gnd/118987224",
+  "editor": ""
+}

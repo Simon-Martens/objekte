@@ -1,0 +1,122 @@
+{
+  "annotation": "# Hrsg 1826-1830 lt. Goed IX, 33: Wenzel Tremler; Pseud.: Lembert",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 5 GG dazu 6 BB G-Verz, S 1 nT, SS 3-280, S 281 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaja (Wien) 1829",
+    "norm": "~ +++ 404971: AGLAJA. Taschenbuch. V. Neue wohlfeilere Ausgabe. Mit 6 Kupfertafeln v. F. John, nach Original-Gemälden. Wien. Gedruckt und im Verlage bei J. B. Wallishausser",
+    "biblio": 100130,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-05-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 236,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aglaja (Wien) 1829",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 6; L/R 91; Goed IX. 33, 23; Goed VIII. 84,163",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1829. / Fünfzehnter Jahrgang. / WIEN / gedruckt und im Verlage / bey Joh. B. Wallishausser",
+  "updated": "2026-06-11 10:18:54.841Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "avji03qwevvkboy",
+    "ddcgh33varf5z8w"
+  ],
+  "contents": [
+    "1lhi3ypiwl94zcd",
+    "lomxy2g3hzj0jb9",
+    "9g1xnkcyn302a8d",
+    "cr3qucplnzzj76k",
+    "cwtfjxyjzocwxo6",
+    "tr1kwedq9h384xt",
+    "22u0sdz2dele983",
+    "6dkd7ylhzyy63qp",
+    "r7ndrfr31kyfwas",
+    "ibb3wpbjekcl99z",
+    "stfqsz3269qzqyr",
+    "77y4o7jaaf94y1a",
+    "bjnl9763yc31u9a",
+    "xstkxuvppzcs49o",
+    "1o83r9otdmfk9nv",
+    "qewshtpxpfxmusv",
+    "s5d1jjajnw0vvls",
+    "l84hhyz8egcedag",
+    "3n9xdj2h9d7n3wk",
+    "wrn11kr27rt93t4",
+    "zh6cgx9lvmutdn9",
+    "o7aa4xch109wevb",
+    "1d9j26ahxg4pk7x",
+    "n80bdn78f7q9p73",
+    "zwbcji2dvym5o29",
+    "10rj7quqf5kzzkg",
+    "hvvhlsrlbnydqsd",
+    "0dhlbzx4rtu9g1e",
+    "e4ycj90lr6dl0fz",
+    "ac4x3plgemsctbn",
+    "l6yb5zvj1kyq6dt",
+    "8y9fhgjql9eg0vx",
+    "zn36a98i7qwkjw0",
+    "pba0m2av3oif51g",
+    "sb8sy48fsw01yca",
+    "819zurnuda5b526",
+    "lmlk3yx7jqo6jwr",
+    "oc3df9tpgth2e10",
+    "kg2cffc6vte5xk1",
+    "p3fv23ndt2gl8i6",
+    "b3o7859dr1cukej",
+    "8qbgeyixg9mrb11"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.442Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.442Z",
+      "agent": "1ernx4twed64bul",
+      "source_id": "mhg0d49prsj9gi1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.540Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.540Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "ql4lzr08hmkmqi0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte und Epigramme (Sammlung INr 28432, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Schöpft' ich aus dem Silberborn des Schönen, / Glückt' es meiner Harf', erlauschten Ton",
+  "language": [],
+  "musenalm_id": 28446,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Das Seligste. / (Sonnett.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Das Seligste. / (Sonnett.)",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.642Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "3gipf20dvtoyro5"
+    }
+  ]
+}

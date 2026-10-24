@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August /) s. Textbezug INr 71792, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71737,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kannst du, blühendes Mädchen, / diese Blume verschmähen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg delin.",
+  "scans": [
+    "alm_2670_71737_ilno2ct4kg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kannst du, blühendes Mädchen, / diese Blume verschmähen?",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.467Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "f5kgp20n2xnyfx6"
+    }
+  ]
+}

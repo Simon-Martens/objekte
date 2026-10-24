@@ -1,0 +1,81 @@
+{
+  "annotation": "# K gibt fälschlich 1819 an /) Zweiter Titel lautet: Schnecken-Almanach. Ein scherzhaftes Taschenbuch auf das Jahr 1810. Von J. L Stoll. Schneckenheim, bey Hörner und Compagnie",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S 1 T, ar: SS 3-88 darin 4 GG, ar1: S 1 zT, SS 3-16",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Neoterpe 1810 (Schneckenalmanach)",
+    "norm": "~",
+    "biblio": 409115,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-10-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4226,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Neoterpe 1810 (Schneckenalmanach)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 90 #; L/R 210; Goed VI. 114, 7; Goed XI. 2, 411",
+  "responsibility_statement": "J. L. Stoll",
+  "subtitle_statement": "",
+  "title_statement": "Neoterpe. / Auf / das Jahr 1810. / Von / J. L. Stoll. / Leipzig",
+  "updated": "2026-06-11 10:18:55.961Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "hbmudl74p7gct2j"
+  ],
+  "contents": [
+    "ji8usyva3wirivo",
+    "5a6372ltz6i7ybp",
+    "m0lo4vw8nwrrt6i",
+    "a597n8qjvuthk2g",
+    "j0x9fsdl964hml7",
+    "ci4ycc74myjcxz1",
+    "d48gmto4g0zsb6p",
+    "raip4r3z1w7wmlj",
+    "h4pcgwv6e55ur8c",
+    "bnm3fwfrzdobgj5",
+    "8iek17xwjtlfduk",
+    "joyurs4jhhz908i",
+    "pe8975ih2igwz2y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.346Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.346Z",
+      "agent": "3csio4i9ab77igj",
+      "source_id": "yhf7kqnjovnshhy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gemüthserheben aus Stellen der Schrift (Sammlung INr 79370, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Richte nicht! Am eignen Herzen / Uebe nur Dein Richter-Recht.",
+  "language": [],
+  "musenalm_id": 79372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du aber, was richtest Du Deinen Bruder? Oder Du and'- / rer, was verachtest Du Deinen Bruder? Wir werden / Alle vor dem Richterstuhl Christi dargestellt werden! / Römer 14, 10",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Du aber, was richtest Du Deinen Bruder? Oder Du and'- / rer, was verachtest Du Deinen Bruder? Wir werden / Alle vor dem Richterstuhl Christi dargestellt werden! / Römer 14, 10",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.919Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "57knio8k5mfn5lj"
+    }
+  ]
+}

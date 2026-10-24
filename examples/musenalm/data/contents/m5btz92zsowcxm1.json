@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Da ich ein Kind war, / Nicht wußte wo aus noch ein, / Kehrt' ich mein verirrtes Auge / Zur Sonne, [...] Goethe",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Allmächtiger Weltgeist, der Du das unermeßliche All mit Deinem schöpferischen Hauche schufest und lenkest,",
+  "language": [],
+  "musenalm_id": 57362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Große Variationen / aus D dur / über Leben und Tod, mit obligaten Thränen. / Freie Phantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Große Variationen / aus D dur / über Leben und Tod, mit obligaten Thränen. / Freie Phantasie",
+  "updated": "2008-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.709Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "yd8bipffb61mur7"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Zwischentitel zu INr 61182, 61183; Obj 33, 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61181,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich und Marie. / Eine Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina v. Chézy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich und Marie. / Eine Geschichte",
+  "updated": "2008-12-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.882Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "ox0z0pfnkzlbfsm"
+    }
+  ]
+}

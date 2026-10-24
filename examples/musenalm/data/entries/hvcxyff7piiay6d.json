@@ -1,0 +1,106 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 GG, 4 BB G-Verz darin 3 GG, SS 9-191 darin 2 GG, S I-Verz, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hof-Theater-Taschenbuch, Wiener 1807",
+    "norm": "~",
+    "biblio": 101360,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1847,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishausser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Hof-Theater-Taschenbuch, Wiener 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 119",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Hof - Theater / TASCHENBUCH / auf das Jahr / 1807 / Vierter Jahrgang / Wien, / Bey Joh. Bapt. Wallishausser",
+  "updated": "2026-06-11 10:18:55.668Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "9nmb00jzzabtgr1"
+  ],
+  "contents": [
+    "hiycswmvmw4rzji",
+    "53t4fgvgo2ryoun",
+    "zayj4hfuvczwsf9",
+    "djmt96lfh9lpp1a",
+    "000zg9pdd6xfzm1",
+    "841d7ki8wwox18k",
+    "6n77fesi9x75oj5",
+    "vfpt5al3w1do3ol",
+    "qpi1mlwq0mz1n8d",
+    "iw0l5btmrztzxwg",
+    "x0qqylu7oieb555",
+    "xyokqpnzd66wt24",
+    "7rb12dzrqqvw2fd",
+    "oxi23rwmye05kih",
+    "lu2r0jcsgly5v34",
+    "bh2devi50sdz8y1",
+    "cxcrqab9kyg2btz",
+    "q3jrw65vigfpkd3",
+    "rivdg4zv4c57sri",
+    "z8auizyc4lawa73",
+    "x9v9a162lvgcmv8",
+    "u2ffsfksq7l9fyw",
+    "yoh8d9t9y2ctlha",
+    "qfrtsetmh9udgp5",
+    "5bvtaia8pcfhpr2",
+    "bdqzrvwaf6u1gx0",
+    "iu0riaatddyw642",
+    "4b1u6ybt37pigwh",
+    "1ioojewm9ybhjeq",
+    "929pask3vj2ldzw",
+    "87vuy0mxt6hkmkv",
+    "p4lfwj4eeez6n2z",
+    "uyf0l7kp3vz6vy0",
+    "npoqf49i9g0ae2p",
+    "aib0kswb5193klr",
+    "h8wyblqn7qqkuvk",
+    "m5o2mtvz279ikg9",
+    "fq44ubj2xyc0375"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.182Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.182Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "ct9f3r00g6r9f0o"
+    }
+  ]
+}

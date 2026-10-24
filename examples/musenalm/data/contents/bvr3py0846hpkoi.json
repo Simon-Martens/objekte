@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Amara (Sammlung INr 100262, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Schon manchen Schmerz hast du mir angethan, / O nein, nicht du - es war nur dein Geschick,",
+  "language": [],
+  "musenalm_id": 100280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 220,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.856Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "gwp8wshgq8qfnwm"
+    }
+  ]
+}

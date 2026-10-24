@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Juli /) s. Textbezug INr 92559, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92536,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die untreue Gattin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_448_92536_ydvler6wl2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die untreue Gattin",
+  "updated": "2003-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.339Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "8yveghgzlcr2rav"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.339Z",
+      "agent": "rcmptupq08d0ih1",
+      "source_id": "xiujt4g52ocmy2k"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik zum Kalendarium; nummeriert 10.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108555,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philip Egalité, ehemaliger Herzog von Or- / leans auf den Karren des Henkers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1794",
+  "scans": [
+    "alm_2173_108555_pbrw8jzyer.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philip Egalité, ehemaliger Herzog von Or- / leans auf den Karren des Henkers",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.311Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "0a6ji0n7kf2253c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.311Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "msc75yn6vsbozhy"
+    }
+  ]
+}

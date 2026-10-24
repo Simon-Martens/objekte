@@ -1,0 +1,584 @@
+{
+  "annotation": "",
+  "biographical_data": "1749-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.446Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Namensänderung auf Lorenzo da Ponte (Name des Bischofs von Ceneda) 1763, anlässlich der Konversion seines Vaters, eines jüdischen Gerbers, zum Christentum; Textverfasser für Opern"
+      ],
+      "dateOfBirth": [
+        "1743-03-10"
+      ],
+      "dateOfDeath": [
+        "1838-08-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Michele Pekenino (engraver, 19th century) after Nathaniel Rogers (American, 1788-1844)"
+          ],
+          "creditText": [
+            "http://www.mozart.mediathek.at/htdocs/resources/img/Popup_Da_Ponte_Buch_223_KLEINER_1003732.jpg[dead link]See: A Taste for Poetry: R. &amp; W. A. Bartow, Asher B. Durand, Mozart’s Librettist, and British Verse. Mansion Musings (April 22, 2018). Archived from the original on June 22, 2020. Retrieved on December 26, 2020. Url-status: live."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Lorenzo%20da%20Ponte.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lorenzo%20da%20Ponte.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Lorenzo%20da%20Ponte.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T20:49:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118678841/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "surname": [
+            "Conegliano"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Conegliano"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Nancy"
+          ],
+          "surname": [
+            "Grahl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1302843079",
+          "label": "Da Ponte, Paolo"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118678841",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118678841",
+      "oldAuthorityNumber": [
+        "(DE-588c)4090898-7",
+        "(DE-588a)131201654",
+        "(DE-588a)118678841",
+        "(DE-588a)126658617",
+        "(DE-101c)310044782",
+        "(DE-588a)126658609",
+        "(DE-588a)131216864",
+        "(DE-588a)134354788",
+        "(DE-588a)126658625"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4375799-6",
+          "label": "Ceneda"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042011-5",
+          "label": "New York, NY"
+        }
+      ],
+      "preferredName": "Da Ponte, Lorenzo",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Lorenzo"
+        ],
+        "surname": [
+          "Da Ponte"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398215-3",
+          "label": "Liederdichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Emanuele"
+          ],
+          "surname": [
+            "Conegliano"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80057191"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41838569"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q268166"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118678841"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118678841/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Lorenzo_Da_Ponte"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Lorenzo_Da_Ponte"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Lorenzo_Da_Ponte"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000439590386"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118678841"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118678841"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_C/Conegliano_Emanuele_1749_1838.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118678841.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118678841.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118678841"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/026C60BC2C0D40B8B1BB8F2DE24FE564"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "D'Aponte, Laurenzo",
+        "Da Pónte, Lorenzo",
+        "Pónte, Lorenzo da",
+        "Conegliano, Emmanuele",
+        "D’Aponte, Laurenzo",
+        "Ponte, Lotentzo nta",
+        "Nta Ponte, Lorentzo",
+        "Conegliano, Emmanuele da",
+        "Da Ponto, Lorenzo",
+        "DaPonto, Lorenzo",
+        "Conegliano, Emanuele",
+        "Da Ponte, L.",
+        "DaPonte, Lorenzo",
+        "Aponte, Laurenzo d'",
+        "Aponte, Laurenzo d’",
+        "Ponte, Lorenzo da",
+        "Ponte, Abbate Lorenzo da",
+        "Abbe dal Ponte",
+        "Canegliano, Emmanuele",
+        "Ponto, Lorenzo da"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Abbate Lorenzo"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "surname": [
+            "DaPonto"
+          ]
+        },
+        {
+          "forename": [
+            "Laurenzo"
+          ],
+          "surname": [
+            "D’Aponte"
+          ]
+        },
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "surname": [
+            "Conegliano"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "surname": [
+            "Da Pónte"
+          ]
+        },
+        {
+          "personalName": [
+            "Abbe dal Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "Laurenzo"
+          ],
+          "prefix": [
+            "d’"
+          ],
+          "surname": [
+            "Aponte"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuele"
+          ],
+          "surname": [
+            "Conegliano"
+          ]
+        },
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "surname": [
+            "Canegliano"
+          ]
+        },
+        {
+          "forename": [
+            "Laurenzo"
+          ],
+          "prefix": [
+            "d'"
+          ],
+          "surname": [
+            "Aponte"
+          ]
+        },
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Conegliano"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "surname": [
+            "DaPonte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Pónte"
+          ]
+        },
+        {
+          "forename": [
+            "Lotentzo"
+          ],
+          "prefix": [
+            "nta"
+          ],
+          "surname": [
+            "Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "surname": [
+            "Da Ponto"
+          ]
+        },
+        {
+          "forename": [
+            "Laurenzo"
+          ],
+          "surname": [
+            "D'Aponte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorentzo"
+          ],
+          "surname": [
+            "Nta Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Da Ponte"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Ponto"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Lorenzo_Da_Ponte",
+          "label": "https://de.wikipedia.org/wiki/Lorenzo_Da_Ponte"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:31:06Z",
+    "gnd_query_biographical_data": "1749-1838",
+    "gnd_query_name": "ponte, lorenzo da"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2107,
+  "name": "Ponte, Lorenzo da",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 385",
+  "updated": "2026-06-11 13:29:24.099Z",
+  "uri": "https://d-nb.info/gnd/118678841",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73324,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1786. No 16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. Riepenhausen",
+  "scans": [
+    "alm_159_73324_op3m2opeg7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1786. No 16.",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.708Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "plca3virzwloful"
+    }
+  ]
+}

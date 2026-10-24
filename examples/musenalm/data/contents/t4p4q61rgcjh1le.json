@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Taschenbuch für Liebe und Freundschaft. Eine Historie in 8 Kapiteln, mit 8 Bildern (Sammlung INr 30155, Obj 5) s. Graphik INr 30169, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "An dem Präsidenten fand ich meinen gütigen Patron, an seiner Gattin meine freundliche Wohlthäterin wieder,",
+  "language": [],
+  "musenalm_id": 30170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achtes Kapitel. / Hymens Schutzengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achtes Kapitel. / Hymens Schutzengel",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.632Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "hbdlnsxg8bm406f"
+    }
+  ]
+}

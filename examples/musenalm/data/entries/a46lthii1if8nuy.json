@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Christoterpe 1837",
+    "norm": "",
+    "biblio": 405353,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1674,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Osiander)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Christoterpe 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; nicht bei L/R",
+  "responsibility_statement": "Albert Knapp",
+  "subtitle_statement": "",
+  "title_statement": "Christoterpe. / Ein Taschenbuch / für / christliche Leser / auf das Jahr 1837. / Herausgegeben / in Verbindung mit mehreren Andern / von / Albert Knapp. / Mit Kupfern. / Tübingen. / C. F. Osiander",
+  "updated": "2026-06-11 10:18:55.574Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "g4xhlxq97tlgsf1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.119Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.119Z",
+      "agent": "t8ioujaesyqxzn9",
+      "source_id": "tkman0537fa1je6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.952Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.952Z",
+      "agent": "uz72vpkdh9al15l",
+      "source_id": "wp15g2l56mwuq9h"
+    }
+  ]
+}

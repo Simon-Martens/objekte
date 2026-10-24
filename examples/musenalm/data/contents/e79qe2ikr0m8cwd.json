@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 7. s. Textbezug INr 600001, Obj 48,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schöne That eines Französischen Grenadiers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schub. del. Riepenhausen",
+  "scans": [
+    "alm_935_59983_dmyczmoyhs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schöne That eines Französischen Grenadiers",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.071Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "p0dcgnp1wrpaefq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.071Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "vo45p727wtiyzh3"
+    }
+  ]
+}

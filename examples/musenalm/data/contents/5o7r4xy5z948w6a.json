@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait. # Titel s. Textbezug (Gedicht) INr 64061, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64056,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Washington #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sct. Mchn.",
+  "scans": [
+    "alm_1057_64056_rqkjzc2rkz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Washington #",
+  "updated": "2009-05-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.275Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "ekdwy2je0y9avu7"
+    }
+  ]
+}

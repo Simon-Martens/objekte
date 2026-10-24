@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Dies Röschen in der Knospe noch ver- / hüllt, / Der Unschuld deines Alters Bild,",
+  "language": [],
+  "musenalm_id": 38331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amalchen. / Bey Ueberreichung einer Rosen- / Knospe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amalchen. / Bey Ueberreichung einer Rosen- / Knospe",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.491Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "owev7es3rwa6lxs"
+    }
+  ]
+}

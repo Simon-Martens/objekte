@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Der Milchbahn gleich zieht um die blaue Weite / Der Apeninus seinen Hügelkranz,",
+  "language": [],
+  "musenalm_id": 12542,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Schwester zu ihrem Geburtstage. / Rom, den 3. Februar 1805",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Schwester zu ihrem Geburtstage. / Rom, den 3. Februar 1805",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.287Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "lsk9t4zrvygu0vb"
+    }
+  ]
+}

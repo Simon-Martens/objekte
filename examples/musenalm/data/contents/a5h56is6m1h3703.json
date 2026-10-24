@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 55613, Obj 2 /) s. folgendes Gedicht INr 55616, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wie fern und fremd verschieden auch die Männer und Frauen uns scheinen, die auf dem grünumlaubten Schiffe sich zusammenfanden, sie mögen wohl zueinander gehören.",
+  "language": [],
+  "musenalm_id": 55615,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelkupfer, / Die Sängerfahrt, gezeichnet von Kolbe, gestochen von Meyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titelkupfer, / Die Sängerfahrt, gezeichnet von Kolbe, gestochen von Meyer",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.707Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "hlw0mpewwwzc8ic"
+    }
+  ]
+}

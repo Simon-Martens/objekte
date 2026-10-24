@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35793,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 5. Angloise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Kunze",
+  "scans": [
+    "alm_489_35793_o2vlzkj5t1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 5. Angloise",
+  "updated": "2003-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.719Z",
+      "agent": "fwuqoacyjd1urf1",
+      "source_id": "wwc50ahtwh18adq"
+    }
+  ]
+}

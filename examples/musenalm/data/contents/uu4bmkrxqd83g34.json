@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Kind des Dauphins« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111164, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. F. C. ten Kate del. J. P. Lange sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. F. C. ten Kate del. J. P. Lange sculp.",
+  "scans": [
+    "alm_3485_111166_k4ijjatf4v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.364Z",
+      "agent": "zlblv6jx9edmuqx",
+      "source_id": "fws4d668o7ptgk9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.364Z",
+      "agent": "ueyslu5v7u98n57",
+      "source_id": "jc3yaicphiqzd9o"
+    }
+  ]
+}

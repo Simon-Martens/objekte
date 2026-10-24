@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Sieh! der Bock dort watet in den Sumpf, und die Schafe folgen ihm.",
+  "language": [],
+  "musenalm_id": 92448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Denkmahl. / Daphnis und Mikon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geßner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Denkmahl. / Daphnis und Mikon",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.388Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "3udltg1vj6eogxa"
+    }
+  ]
+}

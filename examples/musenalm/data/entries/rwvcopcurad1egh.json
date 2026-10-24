@@ -1,0 +1,67 @@
+{
+  "annotation": "Die im Titel vorkommende Zeile: »Dies Buch verfolgt den König« vielleicht Anspielung auf: »Dies Buch gehört dem König« von Bettina von Arnim (erschienen: Berlin,1843). Als Erscheinungsjahr des Almanachs ist zu vermuten: 1844 oder später",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde vom Schachspiel [oJ]",
+    "norm": "",
+    "biblio": 406702,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-06-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3671,
+  "parallel_title": "",
+  "place_statement": "Altona (Hammerich)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Almanach für Freunde vom Schachspiel [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Brede",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / für Freunde / vom Schachspiel / von / J. Brede. / (Dies Buch verfolgt den König.) Altona, / bei Joh. Friedr. Hammerich",
+  "updated": "2026-06-11 10:18:54.897Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "5w92vawszylap18"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.958Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.958Z",
+      "agent": "51oritw9akg1ukj",
+      "source_id": "g1b1czug7yn6s3i"
+    }
+  ]
+}

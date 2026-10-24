@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Was rauschest du ewig mit junger Fluth / von blühenden Ufern umzogen?",
+  "language": [],
+  "musenalm_id": 420,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schreckenstein und der / Elbstrom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schreckenstein und der / Elbstrom",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.632Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "yv6jani1pel1u1k"
+    }
+  ]
+}

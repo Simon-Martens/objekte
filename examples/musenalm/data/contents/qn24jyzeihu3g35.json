@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Lieber Sohn, sagte meine Mutter, gestern warst du drey und zwanzig. Es ist Zeit, an eine anständige Heirath zu denken.",
+  "language": [],
+  "musenalm_id": 62812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bekanntschaft auf der Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bekanntschaft auf der Reise",
+  "updated": "2009-03-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.255Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "9aiapnnisezx1ey"
+    }
+  ]
+}

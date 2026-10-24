@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am Titelportrait /) Graphik (Portrait) im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72454,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolph Brunn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Diogg pinx. M. Haas sc.",
+  "scans": [
+    "alm_841_72454_fdzq8pylkr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rudolph Brunn",
+  "updated": "2008-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.669Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "ehskh7oxe3qd7kf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.669Z",
+      "agent": "io5x7lvcmmezwyj",
+      "source_id": "lgqe7hdmkaun5i7"
+    }
+  ]
+}

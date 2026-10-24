@@ -1,0 +1,45 @@
+{
+  "annotation": "s. gest. Titel INr 67448, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Sie ist die verjüngte Copie einer Gemalten Fensterscheibe, welche sich in dem bekannten Rittersaale zu Erbach befindet, und von welcher wir das Seitenstück in dem Jahrgang 1819 des Sylvans vorgezeigt haben. Der mannhafte Ritter Theuerdank,",
+  "language": [],
+  "musenalm_id": 67450,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Titelvignette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Titelvignette",
+  "updated": "2009-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.275Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "za23wleq9mlx8hs"
+    }
+  ]
+}

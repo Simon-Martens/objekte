@@ -1,0 +1,49 @@
+{
+  "annotation": "Dieser Jahrgang wird in der Verlagsmitteilung des Jahrgangs 1804 angegeben als: Mit Kupfern von Jury u. a. Künstlern für das Jahr 1803. broschirt 1thlr. 8 gr.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1803",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-12-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4071,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 66; nicht bei L/R; nicht bei Goed VIII. 48, 4",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.728Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,973 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.288Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/17434-8",
+          "label": "Botanischer Garten zu Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Lothringisches Adelsgeschlecht; Buchbesitz: Überließ der Königlichen Bibliothek zu Berlin zwischen August 1822 und 1823 einige sprachwissenschaftliche und historische Bücher und Handschriften sowie anderen preußischen Institutionen verschiedene naturwissenschaftliche Präparate, wofür er mit einem Geldgeschenk bedacht wurde",
+        "1815-1818 Teilnahme als Botaniker an einer Expedition in den Pazifik und die Arktis. Unter der Führung des russischen Kapitäns Otto von Kotzebue erstellt er Karten, nimmt die Flora Alaskas auf und schildert die Lebensgewohnheiten der Eskimos und Aleuten. 1819 zum Ehrendoktor der Berliner Universität ernannt. Außerdem wird er Zweiter Kustos am am Botanischen Garten des Königlichen Herbariums."
+      ],
+      "dateOfBirth": [
+        "1781-01-30"
+      ],
+      "dateOfDeath": [
+        "1838-08-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Chamisso%20Adelbert%20von%201781-1838.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chamisso%20Adelbert%20von%201781-1838.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Chamisso%20Adelbert%20von%201781-1838.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1015300812",
+        "https://d-nb.info/gnd/101287186X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T10:55:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118520040/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1051926998",
+          "label": "Chamisso, Hermann Freimund von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1020220821",
+          "label": "Chamisso, Antonie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1050535731",
+          "label": "Chamisso, Hippolyte de"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118520040",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#24.3p",
+          "label": "Personen zu Botanik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1051926998",
+          "label": "Chamisso, Hermann Freimund von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1050535731",
+          "label": "Chamisso, Hippolyte de"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1020220821",
+          "label": "Chamisso, Antonie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118520040",
+      "oldAuthorityNumber": [
+        "(DE-588)101287186X",
+        "(DE-588a)130977284",
+        "(DE-588a)118520040",
+        "(DE-588)1015300812",
+        "(DE-588a)101287186X",
+        "(DE-588c)4009726-2",
+        "(DE-588a)134640934",
+        "(DE-588a)127128689",
+        "(DE-588a)1015300812",
+        "(DE-101c)310330939"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1145049478",
+          "label": "Schloss Boncourt (Ante)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Chamisso, Adelbert von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adelbert"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Chamisso"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        }
+      ],
+      "publication": [
+        "Merveilleuse histoire de Pierre Schlémihl",
+        "Text zu: Schumann, Robert: Frauenliebe und Leben",
+        "Bemerkungen und Ansichten auf einer Entdeckungs-Reise",
+        "Gedichte",
+        "Peter Schlemihl's wundersame Geschichte",
+        "Peters Schlemiehls wundersame Geschichte ..",
+        "Ueber die Hawaiische Sprache",
+        "Kaulfuß, Georg F.: Enumeratio filicum, quas in itinere circa terram legit Adalbertus de Chamisso"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Louis Charles Adélaïde"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamissot de Boncourt"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Louis Charles Adélaïde"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso de Boncourt"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb118959665"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80049626"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/4927907"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q154782"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101287186X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015300812"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118520040/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118520040"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adelbert_von_Chamisso"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adelbert_von_Chamisso"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adelbert_von_Chamisso"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adelbert_von_Chamisso"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121184513"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118520040"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1804_chamisso"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118520040"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118520040.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118520040.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118520040"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/065486D7CEEC43E29E9CB4D0480A6C4B"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118520040"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Chamisso, Adelbert v.",
+        "Samiso, Antalmper phon",
+        "Ch., A. v.",
+        "Chamisso de Boncourt, Louis Charles Adélaïde de",
+        "シャミッソー",
+        "Chamisso, A. de",
+        "Chamisso, Louis Charles Adélaide de",
+        "Chamisso, Adalb. v.",
+        "שאמיסו, אדלברט פון",
+        "Chamisso de Boncourt, Louis Charles Adélaide de",
+        "Шамиссо, Адельберт фон",
+        "Chamisso de Boncourt, Ludwig C. A.",
+        "Chamisso, A. v.",
+        "Chamisso, Adelbert",
+        "Chamisso, Adelberto de",
+        "Shamisso, Adal'bert fon",
+        "Von Chamisso, Adelbert",
+        "Šamiso, Adelbert fon",
+        "Šamiso",
+        "Chamisso",
+        "Boncourt, Louis Charles Ade´laide de Chamisso de",
+        "Chamisso, Adalbert von",
+        "샤미소, 아델베르트 폰",
+        "Chamisso, Adalbert",
+        "Chamisso, Adalbert v.",
+        "Chamisso, L. A. von",
+        "שמיסו, אדלברט פון",
+        "Šamisso, Adelʹbert",
+        "Chamisso, Adelbert di",
+        "Chamisso, Adelbertus de",
+        "Chamisso de Boncourt, Louis C. de",
+        "Chamissot de Boncourt, Louis Charles Adélaïde de",
+        "Von Shamisso, Adal'bert",
+        "Chamisso, Louis C.",
+        "Šāmīsū, Adilbirt fun",
+        "Šamiso, Adelbert",
+        "Chamisso, Louis Charles Adelaide de",
+        "Шамисо, Аделберт фон",
+        "Shamiso, Adelbert",
+        "Šamisso, Adelʹbert fon",
+        "Shamissô",
+        "Chamisso, Adalbert de",
+        "Шаміса, Адэльберт фон",
+        "Chamisso, Adelbert de",
+        "Chamisso, Louis Charles Adelaide von",
+        "Шаміссо, Адельберт фон"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adalbert"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adelaide"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Antalmper"
+          ],
+          "prefix": [
+            "phon"
+          ],
+          "surname": [
+            "Samiso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Аделберт"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Шамисо"
+          ]
+        },
+        {
+          "forename": [
+            "Аделберт"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Шамисо"
+          ]
+        },
+        {
+          "personalName": [
+            "Šamiso"
+          ]
+        },
+        {
+          "personalName": [
+            "シャミッソー"
+          ]
+        },
+        {
+          "forename": [
+            "אדלברט פון"
+          ],
+          "surname": [
+            "שאמיסו"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "surname": [
+            "Šamiso"
+          ]
+        },
+        {
+          "forename": [
+            "Adalbert"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "אדלברט פון"
+          ],
+          "surname": [
+            "שמיסו"
+          ]
+        },
+        {
+          "forename": [
+            "Adal'bert fon"
+          ],
+          "surname": [
+            "Shamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adilbirt"
+          ],
+          "prefix": [
+            "fun"
+          ],
+          "surname": [
+            "Šāmīsū"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Ade´laide de Chamisso de"
+          ],
+          "surname": [
+            "Boncourt"
+          ]
+        },
+        {
+          "forename": [
+            "Louis C."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso de Boncourt"
+          ]
+        },
+        {
+          "forename": [
+            "Adalbert"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "surname": [
+            "Shamiso"
+          ]
+        },
+        {
+          "personalName": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adal'bert"
+          ],
+          "surname": [
+            "Von Shamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adélaide"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso de Boncourt"
+          ]
+        },
+        {
+          "personalName": [
+            "Shamissô"
+          ]
+        },
+        {
+          "forename": [
+            "아델베르트 폰"
+          ],
+          "surname": [
+            "샤미소"
+          ]
+        },
+        {
+          "forename": [
+            "Адэльберт"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Шаміса"
+          ]
+        },
+        {
+          "forename": [
+            "Адельберт"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Шамиссо"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "L. A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Šamiso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adalb."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Ch."
+          ]
+        },
+        {
+          "forename": [
+            "Adelbertus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adélaide"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adélaïde"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso de Boncourt"
+          ]
+        },
+        {
+          "forename": [
+            "Адельберт"
+          ],
+          "prefix": [
+            "фон"
+          ],
+          "surname": [
+            "Шаміссо"
+          ]
+        },
+        {
+          "forename": [
+            "Adelberto"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelʹbert"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Šamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adelaide"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig C. A."
+          ],
+          "surname": [
+            "Chamisso de Boncourt"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "surname": [
+            "Von Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adalbert"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis C."
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamisso"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Charles Adélaïde"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chamissot de Boncourt"
+          ]
+        },
+        {
+          "forename": [
+            "Adelʹbert"
+          ],
+          "surname": [
+            "Šamisso"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adelbert_von_Chamisso",
+          "label": "https://de.wikipedia.org/wiki/Adelbert_von_Chamisso"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:06:39Z",
+    "gnd_query_biographical_data": "1781-1838",
+    "gnd_query_name": "chamisso, adalbert von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 401,
+  "name": "Chamisso, Adalbert von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 138; Goed XI/1, 478; Goed XIV, 144, 988",
+  "updated": "2026-06-11 13:29:21.874Z",
+  "uri": "https://d-nb.info/gnd/118520040",
+  "editor": ""
+}

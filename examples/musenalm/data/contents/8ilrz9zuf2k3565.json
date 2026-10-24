@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Wehet der Herbst des Alters sie ab, / die / Blüthe des Lebens; / reif erglänzet und schön dann die liebliche / Frucht,",
+  "language": [],
+  "musenalm_id": 87760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blüthe des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blüthe des Lebens",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.155Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "ioa2nml7pdbcwag"
+    }
+  ]
+}

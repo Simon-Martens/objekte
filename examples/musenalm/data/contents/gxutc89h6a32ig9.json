@@ -1,0 +1,46 @@
+{
+  "annotation": "Rheinische Literaturbriefe (Sammlung INr 44199, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "402",
+  "incipit_statement": "Das goldene Mainz führt ein Rad im Wappen, und Gerning behauptet, dasselbe bedeute eigentlich ein doppeltes Bischofskreuz, von einem Nimbus umgeben.",
+  "language": [],
+  "musenalm_id": 44205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Creizenach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.397Z",
+      "agent": "lphx13gbei42kps",
+      "source_id": "lswh73gcev2y0y4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Der kürzeste Tag« von J. G. Jacobi INr 133, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kürzeste Tag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips del. et sculp.",
+  "scans": [
+    "alm_26_132_7wyxcvyo8q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der kürzeste Tag",
+  "updated": "2001-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.998Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "vlbfx76063dtmzu"
+    }
+  ]
+}

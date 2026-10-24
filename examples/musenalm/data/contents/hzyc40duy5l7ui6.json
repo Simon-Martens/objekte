@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127854,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Februar. 28 Tage. / DAS NEUE PALAIS BEY POTSDAM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas f.",
+  "scans": [
+    "alm_3651_127854_oj3mxcbi3v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Februar. 28 Tage. / DAS NEUE PALAIS BEY POTSDAM",
+  "updated": "2011-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.835Z",
+      "agent": "3mymtnunkvww3p2",
+      "source_id": "hqbxvad53242kag"
+    }
+  ]
+}

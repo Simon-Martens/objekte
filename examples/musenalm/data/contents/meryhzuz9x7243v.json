@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. Graphiken INr 80009, 80011, 80013; Obj 5, 7, 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich saß zu Prieuré im Hôtel de l'Angleterre. Vor Jahren hatte ich einmal ein krankes Herz in das Chamounythal mitgebracht; als ich es verließ, konnt' es ohne Krücken gehen;",
+  "language": [],
+  "musenalm_id": 80020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pforte zur Glückseligkeit. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Pforte zur Glückseligkeit. / Novelle",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.683Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "nczdc8zlglng8k1"
+    }
+  ]
+}

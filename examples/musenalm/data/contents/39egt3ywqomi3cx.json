@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Unsere Zeit (Sammlung INr 55186, Obj 196) Epigramme (Sammlung INr 55162, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "382",
+  "incipit_statement": "Zwar Spinner sind wir auch mit Gunst, / Ihr selber nennt ja unsre Kunst,",
+  "language": [],
+  "musenalm_id": 55187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spinnereien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spinnereien",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.797Z",
+      "agent": "0nqqxalglgwp4fv",
+      "source_id": "4uw8m9xs2f9dw0l"
+    }
+  ]
+}

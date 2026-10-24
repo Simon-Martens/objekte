@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 1. /) Verirrungen der Liebe in acht Bildern (Sammlung INr 30332, Obj 3) s. Textbezug (Gedicht) INr 30334, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106380,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg del.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del.",
+  "scans": [
+    "alm_397_106380_t8ikl733rp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.302Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "e6je3qilr6nn5l4"
+    }
+  ]
+}

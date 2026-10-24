@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Wanderlieder eines Mannes (Sammlung INr 25069, Obj 89) Gedichte (Sammlung INr 25046, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "O blau Gebirg, dort winkst du ja / Mit frischer Jünglingsmahnung",
+  "language": [],
+  "musenalm_id": 25069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Alb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Alb",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.031Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "5g2xm4emqgsuxxj"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der neuesten Geschichte (Cotta) 1839-1",
+    "norm": "",
+    "biblio": 405971,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1859,
+  "parallel_title": "",
+  "place_statement": "Stuttgart u. Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch der neuesten Geschichte (Cotta) 1839-1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 22",
+  "responsibility_statement": "Friedrich Thiersch",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / neuesten Geschichte. / Siebenter Jahrgang. / Geschichte des Jahres 1837. / Von / Friedrich Thiersch. / Erste Abtheilung. / Mit acht Portraiten. / Stuttgart und Tübingen, / Druck und Verlag der J. G. Cotta'schen Buchhandlung. / 1839",
+  "updated": "2026-06-11 10:18:55.838Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "vzwtc5rs0h36qco"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.979Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.979Z",
+      "agent": "00fumpslx0ratzd",
+      "source_id": "n5z36vlf9xs8d71"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.684Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.684Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "xrz6dgjiowe5s9f"
+    }
+  ]
+}

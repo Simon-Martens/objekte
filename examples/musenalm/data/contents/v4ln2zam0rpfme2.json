@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Die Kriegstrompete hör' ich wieder fallen, / Und meine Wangen färbt ein höh'res Roth, / Befreier Deutschlands, eure Fahnen wallen,",
+  "language": [],
+  "musenalm_id": 70628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / die verbündeten Heere / nach / Aufhebung des Waffenstillstandes. / (Im August 1813.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / die verbündeten Heere / nach / Aufhebung des Waffenstillstandes. / (Im August 1813.)",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.430Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "txwwto1oxv4qtup"
+    }
+  ]
+}

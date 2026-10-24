@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rose, Die weiße. Taschenbuch 1845",
+    "norm": "",
+    "biblio": 411305,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4643,
+  "parallel_title": "",
+  "place_statement": "Guben (Fechner)",
+  "places": [
+    "xr5vislxr7nk0ub"
+  ],
+  "preferred_title": "Taschenbuch von Königsberg 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R",
+  "responsibility_statement": "Theodor Mügge",
+  "subtitle_statement": "",
+  "title_statement": "Die weiße Rose. / Taschenbuch / für / 1845. / redigirt / von / Theodor Mügge. / Mit sechs colorirten Bildern. / Erster Jahrgang. / Guben, / Druck und Verlag von F. Fechner. / In Commission bei Ed. Berger daselbst",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "u6fun0jiqty7ste"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.399Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.399Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "0qplwko3gemvogs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.839Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.839Z",
+      "agent": "8t3sa18z0wjpa0e",
+      "source_id": "sslmwoyyrnedksk"
+    }
+  ]
+}

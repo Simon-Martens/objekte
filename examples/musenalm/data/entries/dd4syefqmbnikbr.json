@@ -1,0 +1,96 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, SS I–X, darin T, Vrwrt, I-Verz, G, SS1–495, darin C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Alllgemeiner deutscher 1822",
+    "norm": "~",
+    "biblio": 100760,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3237,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Meyer)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Theater-Almanach, Alllgemeiner deutscher 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 160; L/R 120; Goed VIII. 131, 21",
+  "responsibility_statement": "Aug. Klingemann",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeiner deutscher / Theater- Almanach / für das Jahr 1822. / Herausgegeben / von / Aug. Klingemann. / Braunschweig 1822. / Bey G. C. E. Meyer",
+  "updated": "2026-06-11 10:18:54.832Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "7x9u5s3oup2x5tf"
+  ],
+  "contents": [
+    "vz2l3n45f4svh30",
+    "bhz0vn5ylstapli",
+    "hsipzc8y7h1foup",
+    "jxypqc6tdwdjtxn",
+    "zr19a5pdn7r2sp8",
+    "g2navylz0ecphov",
+    "zv60q54rvkh7yt9",
+    "l3os4ow3inehiyv",
+    "n9lcwjgnkmqcdpc",
+    "ib0z72g051nk48m",
+    "46wa4m706ns1x5c",
+    "nk7t0o3zw1y8lpc",
+    "14valldkegxr5eu",
+    "bkiz5ghe7x0inpl",
+    "t682kjaetzg7q36",
+    "9zoicyao76cmc9u",
+    "1nl2mdll3cu4c41",
+    "x8ck14zs2gimrvw",
+    "ih8p07e0fp00zuj",
+    "udsc8hrr3ose3t9",
+    "5wte72i1mqyv9fm",
+    "wbnatxi703lwwci",
+    "o1vifau0fubp88p",
+    "j7n00kdad3pcjxr",
+    "g1wzdf2o43ucivc",
+    "qn7u15w2p9mpcxn",
+    "s965ew1e57f8n44",
+    "q2d1fm9db6pf6db"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.106Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.106Z",
+      "agent": "qpluhkbrxz8mfjj",
+      "source_id": "rwh0v49hc4vq98k"
+    }
+  ]
+}

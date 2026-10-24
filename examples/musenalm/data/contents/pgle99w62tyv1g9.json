@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Ha, ha! Herr Wasserschenk, bereut Er / seine Sünden? / Nun wird sein Wein bald wieder Käufer / finden:",
+  "language": [],
+  "musenalm_id": 12772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als der Wirth zum goldnen Fisch / zum Schild einen Regenbogen / wählte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als der Wirth zum goldnen Fisch / zum Schild einen Regenbogen / wählte",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.595Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "5k772yrgdm6c9q1"
+    }
+  ]
+}

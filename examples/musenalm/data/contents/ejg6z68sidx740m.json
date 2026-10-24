@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 114255-114257, Obj 37-59",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Joh. Mayhofers Nachlasse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Mayrhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Joh. Mayhofers Nachlasse",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.285Z",
+      "agent": "z2a77hujndvxeug",
+      "source_id": "3u6cff6d6aqdazu"
+    }
+  ]
+}

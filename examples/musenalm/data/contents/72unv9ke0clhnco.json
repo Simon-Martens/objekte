@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht »Die drei weißen Rosen. Rittergedicht in drei Gesängen« vorangestellt /) Die drei weißen Rosen. Rittergedicht in drei Gesängen (Sammlung 19239, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "O süße Lieb' in reinem Herzensbronnen, / O Kraft der Treu, der keine andre gleicht,",
+  "language": [],
+  "musenalm_id": 1600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weihe / zum / Johannisabend 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weihe / zum / Johannisabend 1818",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.881Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "ng610wd16i89afr"
+    }
+  ]
+}

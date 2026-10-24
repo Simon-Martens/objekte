@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Am obern Ende eines Tisches, auf welchem das Früstück geordnet stand, saß Herr Steffano, einer der angesehensten Kaufleute in Frankfurt.",
+  "language": [],
+  "musenalm_id": 78124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemüth und Selbstsucht. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. W. mitgetheilt von Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gemüth und Selbstsucht. / Novelle",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.944Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "09y108mk97xxtvh"
+    }
+  ]
+}

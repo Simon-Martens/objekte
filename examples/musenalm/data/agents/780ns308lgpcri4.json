@@ -1,0 +1,397 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1830",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.450Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Autor",
+        "Dänischer Schriftsteller, Dichter, Professor der Ästhetik, Lyriker, Erzähler, Dramatiker"
+      ],
+      "dateOfBirth": [
+        "1760-12-18"
+      ],
+      "dateOfDeath": [
+        "1830-04-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Horneman"
+          ],
+          "creditText": [
+            "https://odensebysmuseer.dk/artikler/et-trin-opad-til-det-bedre/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Knud%20Lyne%20Rahbek%2C%201815.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Knud%20Lyne%20Rahbek%2C%201815.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Knud%20Lyne%20Rahbek%2C%201815.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T19:29:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118748866/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Jacob"
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118920855",
+          "label": "Rahbek, Kamma"
+        },
+        {
+          "forename": [
+            "Karen Magareta"
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        },
+        {
+          "forename": [
+            "Johanne"
+          ],
+          "surname": [
+            "Riis"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "118748866",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118920855",
+          "label": "Rahbek, Kamma"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118748866",
+      "oldAuthorityNumber": [
+        "(DE-588c)4104835-0",
+        "(DE-588a)118748866"
+      ],
+      "periodOfActivity": [
+        "1821-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Rahbek, Knud Lyne",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Knud Lyne"
+        ],
+        "surname": [
+          "Rahbek"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Erzähler",
+        "Dramatiker",
+        "Theaterkomitemitglied",
+        "Professor der Ästhetik",
+        "Dichter",
+        "Lyriker"
+      ],
+      "publication": [
+        "Rahbek, Knud L.: Erinnerungen aus meinem Leben. - 1829 - 1830",
+        "Thaarup, Thomas: Efterladte poetiske Skrifter",
+        "Rahbek, Knud L.: Udsigt over den danske digtekunst under Kong Frederik den Femte",
+        "Rahbek, Knud L.: Om Ludwig Holberg fom Bystspildigter og om sans Bystspil. - 1815 - 1816",
+        "Rahbek, Knud L.: Bidrag til den danske Skuepladses Historie i dens forste Aarhundrede, fr*",
+        "Tullin, Christian B.: C. B. Tullin's udvalgte digte",
+        "Rahbek, Knud L.: Dansk Laesebog og Exempel-samling. - 1804 - 1805",
+        "Samsøe, Ole J.: Efterladte digteriske Skrivter",
+        "Samsøe, Ole J.: Efterladte digteriske Skrifter",
+        "Rahbek, Knud L.: Samlede Skuespil. - 1809 - 1813"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10449856p"
+        },
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14520431c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85260191"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71380729"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1357343"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118748866/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Knud_Lyne_Rahbek"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Knud_Lyne_Rahbek"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Knud_Lyne_Rahbek"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081506564"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118748866"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1782_rahbek1"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1782_rahbek2"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118748866"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Rahbek, ...",
+        "Rahbek, C. L.",
+        "Rahbeck, K. L.",
+        "Rahbek, Knud Lyne",
+        "Rahbek, K. L.",
+        "Rahbeck, Knud Lyne"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        },
+        {
+          "forename": [
+            "K. L."
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        },
+        {
+          "forename": [
+            "Knud Lyne"
+          ],
+          "surname": [
+            "Rahbeck"
+          ]
+        },
+        {
+          "forename": [
+            "C. L."
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        },
+        {
+          "forename": [
+            "K. L."
+          ],
+          "surname": [
+            "Rahbeck"
+          ]
+        },
+        {
+          "forename": [
+            "Knud Lyne"
+          ],
+          "surname": [
+            "Rahbek"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Knud_Lyne_Rahbek",
+          "label": "https://de.wikipedia.org/wiki/Knud_Lyne_Rahbek"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:33:57Z",
+    "gnd_query_biographical_data": "1760-1830",
+    "gnd_query_name": "rahbeck, knud lyne"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2164,
+  "name": "Rahbeck, Knud Lyne",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 694",
+  "updated": "2026-06-11 13:29:24.157Z",
+  "uri": "https://d-nb.info/gnd/118748866",
+  "editor": ""
+}

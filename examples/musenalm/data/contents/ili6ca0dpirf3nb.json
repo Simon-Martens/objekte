@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 44527, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44526,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE UEBERSCHWEMMUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer v. Bremen del. C. Hoffmeister sc.",
+  "scans": [
+    "alm_607_44526_dtsr20cbsf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE UEBERSCHWEMMUNG",
+  "updated": "2006-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.465Z",
+      "agent": "4u3j1ioal3zhmii",
+      "source_id": "exx9vmrs9cnt4z8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.465Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "ifm7hpei3o79swr"
+    }
+  ]
+}

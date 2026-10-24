@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühling (Sammlung INr 36748, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Von neuem wird's so herrlich grün / Auf Ackerland und Triften.",
+  "language": [],
+  "musenalm_id": 36762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländliche Frühlings- / scenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ländliche Frühlings- / scenen",
+  "updated": "2004-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.740Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "yxjxdph09iwk0xh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Wie heißt die Feentafel, wie das Zauberblatt, / Gleich Silber-Wellen klar, gleich Elfenbein so glatt?",
+  "language": [],
+  "musenalm_id": 54082,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Aspasia. / (Ein Räthsel.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müller-Friedberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Aspasia. / (Ein Räthsel.)",
+  "updated": "2008-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.770Z",
+      "agent": "4s2er5v0zu0qtpx",
+      "source_id": "dzzx5g2myuimadm"
+    }
+  ]
+}

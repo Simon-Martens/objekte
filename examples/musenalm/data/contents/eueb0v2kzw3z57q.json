@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25465, Obj 236)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Der Unhold, der im Schlaf mich überfallen, / brach meine Kraft ohn' allen Widerstreit;",
+  "language": [],
+  "musenalm_id": 25468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 243,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sonett. / Zur Antwort an Trinius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sonett. / Zur Antwort an Trinius",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.901Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "2t1qh52rlo0ha7c"
+    }
+  ]
+}

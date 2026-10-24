@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80516, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der letzte Kuss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ingres. C. Kotterba sc.",
+  "scans": [
+    "alm_1794_80517_330p04uzbo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der letzte Kuss",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.873Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "v9p71xwyn8v94ot"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.873Z",
+      "agent": "xtpyju0lub97hel",
+      "source_id": "xqcg56kz6ipd27j"
+    }
+  ]
+}

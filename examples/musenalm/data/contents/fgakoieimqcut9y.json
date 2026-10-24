@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Es rinnt, als auf der Reise, / Im Lande wohl bekannt, / Geheimnißvoller Weise, / So schnell und doch so leise, / Das Bächlein Zeit genannt.",
+  "language": [],
+  "musenalm_id": 101593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt v. Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Zeit",
+  "updated": "2013-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.065Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "h3uv5iau3b6gxyg"
+    }
+  ]
+}

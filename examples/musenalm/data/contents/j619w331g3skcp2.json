@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Verschwörung des Fiesco zu Genua« von Fr. Schiller s. Textbezug INr 39720, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39721,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiesko Ir. Act. 1te Scene. / Leonore. - Weinet um mich -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_521_39721_8g4k2gorty.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fiesko Ir. Act. 1te Scene. / Leonore. - Weinet um mich -",
+  "updated": "2005-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.192Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "4cnr5dkbi34woj6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.192Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "8a9i0563j3t6g99"
+    }
+  ]
+}

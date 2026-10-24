@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zur szenischen Darstellung INr 116455, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Die Fabel eines Lustspiels, selbst die eines Trauerspiels, wenn sie für eine private Anecdote ist, kann einen häuslichen Zusammenhang haben,",
+  "language": [],
+  "musenalm_id": 116454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Karl der Große. / Tragödie / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oehlenschläger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Karl der Große. / Tragödie / Vorwort",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.450Z",
+      "agent": "1g34ln4fr2bstzc",
+      "source_id": "x4495ijo53vxeon"
+    }
+  ]
+}

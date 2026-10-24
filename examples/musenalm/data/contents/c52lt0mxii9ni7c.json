@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23406,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schleswig-Holsteinischer Canal. / Schleuse in Knoop bey Kiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Strack del. P. L. Lütke fec.",
+  "scans": [
+    "alm_312_23406_x1eabppgy1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schleswig-Holsteinischer Canal. / Schleuse in Knoop bey Kiel",
+  "updated": "2002-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "w7gyb4f5e9renta",
+      "source_id": "j80r17kggb4gdvd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "1y6xbfxhnpqc2nc",
+      "source_id": "xjel7fa8flslvsq"
+    }
+  ]
+}

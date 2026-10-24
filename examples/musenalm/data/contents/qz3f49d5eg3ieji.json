@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien vom Verfasser des Hans von Katzenfingen (Sammlung INr 23615, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Wenn ihr es seid vom alten Helikon, / Die meinen trägen Mund zum Liede zwingen,",
+  "language": [],
+  "musenalm_id": 23618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Der Untergang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Apelles Storchschnabel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Der Untergang",
+  "updated": "2002-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.203Z",
+      "agent": "i8agbijlcc6ijdm",
+      "source_id": "bm2hbcqq7bsvqgi"
+    }
+  ]
+}

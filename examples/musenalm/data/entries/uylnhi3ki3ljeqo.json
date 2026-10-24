@@ -1,0 +1,133 @@
+{
+  "annotation": "$ Bezeichnung C.: wohl  J. H. Campe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S 3 T, SS 5-7 Vrwrt d Hrsg, SS 7-174 darin 3 MusBB, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kinderalmanach, Hamburger 1783",
+    "norm": "~",
+    "biblio": 404250,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2190,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Herold)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Kinderalmanach, Hamburger 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 157",
+  "responsibility_statement": "J. H. Campe",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgscher / Kinderalmanach / auf das Jahr / 1783, / oder / Weihnachtsgeschenk / für Kinder, / in angenehmen und lehrreichen / Unterhaltungen, / Die ihrer Fähigkeit angemessen sind, / von / J. H. Campe. / Hamburg, / in der Heroldschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.901Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "xsgy165usegh2og"
+  ],
+  "contents": [
+    "zza35568ptw0945",
+    "kktoqeexx7p6z1t",
+    "u3553e98sdfal71",
+    "zk8il0ltfosliw8",
+    "9rltx8r3s8v32ki",
+    "oo8u05e8c7lw9wi",
+    "amav0g6q7lf78na",
+    "mkqjiwb4l4n6vnc",
+    "xjzor05m5awo00k",
+    "htcrw46dxam6ht8",
+    "as6z06rwvm9qly1",
+    "fygwjkge3dphygz",
+    "5fraz1tuxck4975",
+    "n8n2qwtvsw8vcfa",
+    "2vln1pyza6odb57",
+    "dezl1rogw1x0fwy",
+    "vu6zypd181m1497",
+    "m28xn7abbjo113g",
+    "k5eqg4ub29hkebq",
+    "4o9dgzzv1i23pjy",
+    "usahmeqkfpetrua",
+    "yxzcfaq66rd0db3",
+    "cutw37vj23ygjcj",
+    "ogpapt8iy627yzj",
+    "yrkhk17954mqwxp",
+    "3h2qxwfe1pjn8jg",
+    "tz9xztqbg18wy8b",
+    "cesg3cizvqxcqvy",
+    "gvhm84ig1oq7hfv",
+    "06j141jrp7c3nex",
+    "61brvoih04k6zp3",
+    "hta3jrq1zdasmtw",
+    "uwxe8d61glnal1f",
+    "c2ll27hhyhq9k64",
+    "dsm2qh4205ti55u",
+    "fyufig8rz9pnfyz",
+    "n3k4srbaf22ftq3",
+    "95jl1m4abk9x7jh",
+    "jt2gtglzryucrng",
+    "bo3hngjdunytxll",
+    "ypal1o0nylxkthe",
+    "ivwarajlxczyalv",
+    "dgpkhge848bt31p",
+    "pfqov4haad41hum",
+    "78zlpg9yrxv2kwq",
+    "0ejl9z02u6xlbad",
+    "k489ygbk7sgbplo",
+    "sb916rr24ixsz7s",
+    "e0jc5dp90weyrw0",
+    "5emphtypn3ujxzn",
+    "ta1z5oqmy3d9457",
+    "960zk4o2ctiqi2u",
+    "7iunnx07rwv8wcz",
+    "e7rdghqsiu6zlti"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.995Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.995Z",
+      "agent": "p61edzq4yde43sv",
+      "source_id": "smh7xb0vubczhei"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.005Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.005Z",
+      "agent": "nuls4hlyk7nfgd0",
+      "source_id": "ybkzj4nz1txfq35"
+    }
+  ]
+}

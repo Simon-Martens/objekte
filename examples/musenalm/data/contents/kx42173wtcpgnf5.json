@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Ausflug in die nordöstliche Schweiz, und nach Konstanz« von J. R. Wysz d. J. INr 53657, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rapperschwyl am Zürichsee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Maurer del. F. Hegi sc.",
+  "scans": [
+    "alm_733_53671_9woe6j5ahk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rapperschwyl am Zürichsee",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.658Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "9ae5b7ycki8aps3"
+    }
+  ]
+}

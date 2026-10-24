@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Ihr, die bey'm Lustspiel uns zu Gast müßt laden, / Schreibt's nur zu lustig nicht, damit sich's schicke:",
+  "language": [],
+  "musenalm_id": 14823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lustspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lustspiel",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.615Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "be1tboqnx2ofhgy"
+    }
+  ]
+}

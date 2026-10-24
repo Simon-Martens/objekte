@@ -1,0 +1,739 @@
+{
+  "annotation": "",
+  "biographical_data": "1524-1580",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.284Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Portugiesischer Schriftsteller und Nationaldichter; Geburtsort Coimbra oder Lissabon"
+      ],
+      "dateOfBirth": [
+        "1524"
+      ],
+      "dateOfDeath": [
+        "1580-05-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Fernão Gomes"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Cam%C3%B5es%2C%20por%20Fern%C3%A3o%20Gomes.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cam%C3%B5es%2C%20por%20Fern%C3%A3o%20Gomes.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Cam%C3%B5es%2C%20por%20Fern%C3%A3o%20Gomes.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090742789"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-06T10:07:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118518585/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1056280131",
+          "label": "Camões, Simão Vaz de"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PT",
+          "label": "Portugal"
+        }
+      ],
+      "gndIdentifier": "118518585",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1056280131",
+          "label": "Camões, Simão Vaz de"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118518585",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/por",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/por"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4009359-1",
+        "(DE-588)1090742789",
+        "(DE-588a)118518585"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035919-0",
+          "label": "Lissabon"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035919-0",
+          "label": "Lissabon"
+        }
+      ],
+      "preferredName": "Camões, Luiz de",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Luiz"
+        ],
+        "prefix": [
+          "de"
+        ],
+        "surname": [
+          "Camões"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Lusiadas",
+        "Os Lusiadas",
+        "Obras",
+        "Bibliographia Camoniana",
+        "Lusiada",
+        "Obras completas"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79027139"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34454091"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q590"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090742789"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118518585/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Lu%C3%ADs_de_Cam%C3%B5es"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Lu%C3%ADs_de_Cam%C3%B5es"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Cam%C3%B5es"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Lu%C3%ADs_de_Cam%C3%B5es"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121005159"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118518585"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118518585"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118518585"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Camões, Luys de",
+        "Camonii, Ludovici",
+        "Camões",
+        "Camonius, Ludovicus",
+        "Camoes, Luys de",
+        "Camoens, Luigi",
+        "Camoes, Luís Vaz de",
+        "Vaz de Camões, Luis",
+        "Camões, Luis Vaz de",
+        "Camoens, Luis de",
+        "Camo︢es, Luiz de",
+        "Camoes, Luiz",
+        "Camőens, Luis de",
+        "Camoe̋ns, Luis de",
+        "Kamoėns, Luis",
+        "Camoes, Luís de",
+        "Camoens, Luíz de",
+        "Camoes, Louis de",
+        "Camoëns, Luis de",
+        "Camoens",
+        "Camöens, Luis de",
+        "Kamoens, L.",
+        "Camões, Luiz Vaz de",
+        "De Camões, Luiz",
+        "Camoens, Ludovicus",
+        "De Camões, Luis",
+        "Camoes, Lvis de",
+        "Kamoens, Luis de",
+        "Vaz de Camões, Luiz",
+        "Vaz de Camoes, Luís",
+        "Kamoens",
+        "Camões, Luís de",
+        "Camões, Ludovicus de",
+        "Camones, Luis de",
+        "Camões, Luís V. de",
+        "Camões, Luis de",
+        "Camões, L.",
+        "Camoëns, Louis de",
+        "Camoens, Louis de",
+        "De Camões, Luis Vaz",
+        "Camoes"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Luiz"
+          ],
+          "surname": [
+            "Vaz de Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luís Vaz"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luiz"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camo︢es"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "surname": [
+            "De Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Kamoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luiz Vaz"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoëns"
+          ]
+        },
+        {
+          "personalName": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camőens"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luiz"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camones"
+          ]
+        },
+        {
+          "forename": [
+            "Luis Vaz"
+          ],
+          "surname": [
+            "De Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luís V."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "surname": [
+            "Camoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "surname": [
+            "Vaz de Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis Vaz"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luís"
+          ],
+          "surname": [
+            "Vaz de Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luís"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoe̋ns"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luís"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luiz"
+          ],
+          "surname": [
+            "De Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "surname": [
+            "Camonius"
+          ]
+        },
+        {
+          "forename": [
+            "Luys"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luíz"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoens"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Lvis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "personalName": [
+            "Kamoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luys"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "surname": [
+            "Kamoėns"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Camões"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Kamoens"
+          ]
+        },
+        {
+          "personalName": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Luis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camöens"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovici"
+          ],
+          "surname": [
+            "Camonii"
+          ]
+        },
+        {
+          "forename": [
+            "Luigi"
+          ],
+          "surname": [
+            "Camoens"
+          ]
+        },
+        {
+          "forename": [
+            "Luys"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoes"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Camoëns"
+          ]
+        },
+        {
+          "personalName": [
+            "Camoens"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Lu%C3%ADs_de_Cam%C3%B5es",
+          "label": "https://de.wikipedia.org/wiki/Lu%C3%ADs_de_Cam%C3%B5es"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:05:03Z",
+    "gnd_query_biographical_data": "1524-1580",
+    "gnd_query_name": "camoens, luis de"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 369,
+  "name": "Camoens, Luis de",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 79",
+  "updated": "2026-06-11 13:29:21.823Z",
+  "uri": "https://d-nb.info/gnd/118518585",
+  "editor": ""
+}

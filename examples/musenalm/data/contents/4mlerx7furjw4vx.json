@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Amtsrichter Reck ward, von dem Dorf, welches er bis jetzt mit seiner Familie bewohnt hatte in eine ansehnliche Provinzial-Stadt, dem Sitz des Landes-Collegiums versezt.",
+  "language": [],
+  "musenalm_id": 34397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Abschnitte im Leben eines guten / Weibes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Therese Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drey Abschnitte im Leben eines guten / Weibes",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.661Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "n3kg9nzqr35zp2y"
+    }
+  ]
+}

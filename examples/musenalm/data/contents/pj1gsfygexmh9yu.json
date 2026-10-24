@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 79068, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79069,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Führer des Lebens von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. Frosch sculp.",
+  "scans": [
+    "alm_2395_79069_i9i9ubp8ry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Führer des Lebens von Schiller",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.975Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "5g9654o1w62vpq3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.975Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "zy9a2pbmyzdd134"
+    }
+  ]
+}

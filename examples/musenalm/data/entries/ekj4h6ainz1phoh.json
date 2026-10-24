@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, B, zT, 9 BB, 8 GG, S I-Verz, S 1 nT, SS 3-469",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauentaschenbuch 1831",
+    "norm": "~",
+    "biblio": 100167,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-08-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 361,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (J. L. Schrag)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Frauentaschenbuch 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 47; L/R 75; Goed VIII. 86, 165",
+  "responsibility_statement": "Georg Döring",
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1831, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "updated": "2026-06-11 10:18:54.644Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "k7yvo3gul1fny1w"
+  ],
+  "contents": [
+    "9vz72udjvr7e909",
+    "2ocajeagkaayiv5",
+    "zsy7uwfuy2umtvs",
+    "lf52nqvyiwbdd88",
+    "wf4o7txx61coz6o",
+    "lkmdekh3ncot7ti",
+    "iyi49laasb1uvln",
+    "uflotlpnvqz0coo",
+    "dlap6jxg9efzejx",
+    "5e0jjrr00qd9nuh",
+    "z3vm21iaa3q6v4s",
+    "bjd69hvuazzu9rp",
+    "ljzdfn7f39cqi5s",
+    "b7qwx6j3ljd27ib",
+    "a9hoq9exau7jgof",
+    "z71dp2ccdqsuw0b",
+    "hu4piv2iv3myveq",
+    "n3qq2pb4hyzwycs",
+    "00rwwd1hswhodle",
+    "7x4ss9uk5r5eeud",
+    "k8x6vh7g3jzhpdb",
+    "nidxh3ebxt43h0p",
+    "13uo5h02sru5pkw",
+    "yh18vzxa0ou0tbh",
+    "ufuhcigsd47fhwa",
+    "8xl3mep854xplj0",
+    "zyvky9zmxqcwi4u",
+    "lrc5z1btl39gsyq",
+    "yuskf6s1ijveftx",
+    "xz62fvddj92jhc6",
+    "3duftns6yedtmw0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.627Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.627Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "cpkt988bkdvneq4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.070Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.070Z",
+      "agent": "spbxl251etd1dvt",
+      "source_id": "dh64s0d4x5p0ee1"
+    }
+  ]
+}

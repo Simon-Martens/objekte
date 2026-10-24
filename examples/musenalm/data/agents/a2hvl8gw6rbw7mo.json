@@ -1,0 +1,180 @@
+{
+  "annotation": "",
+  "biographical_data": "1779-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.452Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Kupferstecher und Lithograph, fürstlich Esterházyscher Baubeamter"
+      ],
+      "dateOfBirth": [
+        "1779"
+      ],
+      "dateOfDeath": [
+        "1841-08-21"
+      ],
+      "describedBy": {
+        "dateModified": "2016-11-16T17:01:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/12445951X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "12445951X",
+      "id": "https://d-nb.info/gnd/12445951X",
+      "oldAuthorityNumber": [
+        "(DE-588a)12445951X"
+      ],
+      "preferredName": "Rauschenfels von Steinberg, Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jakob"
+        ],
+        "surname": [
+          "Rauschenfels von Steinberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5866417"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55892387"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12445951X/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000511002017"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/12445951X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/12445951X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Steinberg, Jakob Rauschenfels von",
+        "Rauschenfels v. Steinberg, J."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Rauschenfels v. Steinberg"
+          ]
+        },
+        {
+          "forename": [
+            "Jakob Rauschenfels"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Steinberg"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:35:30Z",
+    "gnd_query_biographical_data": "1779-1841",
+    "gnd_query_name": "rauschenfels von steinberg, jakob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2196,
+  "name": "Rauschenfels von Steinberg, Jakob",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVIII, 44",
+  "updated": "2026-06-11 13:29:24.194Z",
+  "uri": "https://d-nb.info/gnd/12445951X",
+  "editor": ""
+}

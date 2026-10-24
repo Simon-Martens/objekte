@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Salon, Dramatischer 1841",
+    "norm": "",
+    "biblio": 407277,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3808,
+  "parallel_title": "",
+  "place_statement": "Berlin (Klemann)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Salon, Dramatischer 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Alexander Cosmar",
+  "subtitle_statement": "",
+  "title_statement": "Dramatischer Salon. / 1841. / Von / Alexander Cosmar. / Mit dem colorirten Kostümbilde Seydelmanns als Molière, / gezeichnet von Hosemann. / Berlin. / Verlag von Carl J. Klemann",
+  "updated": "2026-06-11 10:18:55.465Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "gchn84bic4ivvay"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.301Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.301Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "ety8mqmmwzgei4r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.078Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.078Z",
+      "agent": "8ozhgququyaqzfq",
+      "source_id": "piq7uqa365cqed4"
+    }
+  ]
+}

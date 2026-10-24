@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf der Reise (Sammlung INr 45400, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "O du holdseliger Sonnenschein, / Wie spielst du über den Schlüften!",
+  "language": [],
+  "musenalm_id": 45403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.521Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "wz6xw16vp1vfz33"
+    }
+  ]
+}

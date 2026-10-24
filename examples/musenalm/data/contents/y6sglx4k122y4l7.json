@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64353, Obj 11 /) Stich nach Götzenbergers Fresko in der Trinkhalle in Baden Baden",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64360,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rettung des Klosters Lichtenthal #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+  "scans": [
+    "alm_1069_64360_rpg8385l6l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rettung des Klosters Lichtenthal #",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.070Z",
+      "agent": "k52j0ci4hisa6dc",
+      "source_id": "m2a0usngcd9a6zx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37246,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coeffures de Leipsic",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner sc. del.",
+  "scans": [
+    "alm_155_37246_00ayx2ap3b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coeffures de Leipsic",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "rsxqz65nu0p0zr3"
+    }
+  ]
+}

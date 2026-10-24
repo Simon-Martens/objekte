@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer (Westenrieder) 1788 /) Kalender, Baierisch-historischer 1788",
+    "norm": "",
+    "biblio": 404842,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1984,
+  "parallel_title": "",
+  "place_statement": "München (Strobl)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Kalender, Historischer (Westenrieder) 1788 [Kalender, Baierisch-historischer 1788]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 31; K 174; L/R 20",
+  "responsibility_statement": "L. Westenrieder",
+  "subtitle_statement": "",
+  "title_statement": "Baierisch-historischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten baierischen / Begebenheiten / alt- und neuer Zeiten / für / 1788. / v. L. Westenrieder. / München bey J. B. Strobl",
+  "updated": "2026-06-11 10:18:55.862Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "l08q8eoy4za5mou"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.993Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.993Z",
+      "agent": "nx4goeqb48r7zw8",
+      "source_id": "0zlergbol5ycpgp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "8sud91r8p4zuza5",
+      "source_id": "tssx5wvvjtyg1ib"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Das wandernde Lied« von St. Schütze. s. INr 13408, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13557,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das wandernde Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_217_13557_01_t1ln2o6f9o.jpg",
+    "alm_217_13557_02_uy2h6deydn.jpg",
+    "alm_217_13557_03_cejz227fe3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das wandernde Lied",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.324Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "wd1teko6d5f3kea"
+    }
+  ]
+}

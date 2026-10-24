@@ -1,0 +1,45 @@
+{
+  "annotation": "Toiletten-Blätter für Clothilde (Sammlung INr 115227, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Es gibt zwey Stimmen, die jeder Mensch, er sey noch so physisch- und moralisch-taub, früher oder später doch hören muß:",
+  "language": [],
+  "musenalm_id": 115239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Die zwey Hauptstimmen im Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Die zwey Hauptstimmen im Leben",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.477Z",
+      "agent": "6sneav5elo06of1",
+      "source_id": "k01xh69l8ibgwms"
+    }
+  ]
+}

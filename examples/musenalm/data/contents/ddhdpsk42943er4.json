@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 94960, Obj 70) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94959, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "Das Erste treibt eine schwarze Kunst, / Es steht mit dem Teufel im Bunde,",
+  "language": [],
+  "musenalm_id": 94962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Logogryph",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Logogryph",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.646Z",
+      "agent": "h1jhs52naysyy4l",
+      "source_id": "aipf5sts5fsz1dc"
+    }
+  ]
+}

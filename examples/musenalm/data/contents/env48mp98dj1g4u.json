@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wilhelm Tell« von Fr. Schiller s. Textbezug INr 39536, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39537,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell 5r. Aufzug 2te. Szene. / Tell zu Johannes Parricida: / Zum Himmel heb' ich meine reinen Hände, / Verfluche Dich und deine That",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_519_39537_kgqy618x6s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell 5r. Aufzug 2te. Szene. / Tell zu Johannes Parricida: / Zum Himmel heb' ich meine reinen Hände, / Verfluche Dich und deine That",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.172Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "pyxr012cyscjtio"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.172Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "yqheufxz7sw6t7l"
+    }
+  ]
+}

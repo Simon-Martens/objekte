@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Zu Rheinsburg thront der König / Der Baiern, Garibald,",
+  "language": [],
+  "musenalm_id": 100174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Autharis und Theudelinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Krais",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Autharis und Theudelinde",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.848Z",
+      "agent": "22cv6r139qaf9gy",
+      "source_id": "v8x9djlxn217z27"
+    }
+  ]
+}

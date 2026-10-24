@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "O guter Gott! Wie deine Sonn' im Sinken / So herrlich stralt! / Rund um sie her muß Gold und Silber blinken, / Auf Roth gemalt.",
+  "language": [],
+  "musenalm_id": 93169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied. / Nach einem Spaziergang aufs Land. / Im Frühling 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied. / Nach einem Spaziergang aufs Land. / Im Frühling 1782",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.558Z",
+      "agent": "e50fn3dat2tsaev",
+      "source_id": "6khyqht4k104e9w"
+    }
+  ]
+}

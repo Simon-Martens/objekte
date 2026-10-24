@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Fock in Leipzig /) Illustration zu »Das Wahrzeichen« von C. v. Wachsmann INr 110018, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elena",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Carl Mayer in Nürnberg",
+  "scans": [
+    "alm_2240_110014_rzwfnzqn9b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elena",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.232Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "aejuwzwbtu41ggn"
+    }
+  ]
+}

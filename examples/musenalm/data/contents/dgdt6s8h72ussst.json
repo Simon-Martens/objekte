@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Es gab unlängst eine Zeit, wo alles, was mir lieb und werth war, sich auf Reisen befand,",
+  "language": [],
+  "musenalm_id": 1409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment einer Reise um den Tisch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Spiritus Asper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment einer Reise um den Tisch",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.005Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "mn9wuo5s4vz1ah7"
+    }
+  ]
+}

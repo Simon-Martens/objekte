@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Die Trennungsstunde schlug! Ich stand auf Kohlen, / Und hätte gern, der eignen Regung nach, / Ganz kurz und bündig mich empfohlen;",
+  "language": [],
+  "musenalm_id": 30102,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hinklieschen. / Poetische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hinklieschen. / Poetische Erzählung",
+  "updated": "2002-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.535Z",
+      "agent": "ufh0csiazwb0bf6",
+      "source_id": "vbtoz383vmathub"
+    }
+  ]
+}

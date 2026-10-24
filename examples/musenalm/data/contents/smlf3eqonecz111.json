@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsblätter (Sammlung INr 26147, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Schon kommt der Lenz gezogen / herein durch Wald und Haid,",
+  "language": [],
+  "musenalm_id": 26149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlings-Einzug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlings-Einzug",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.243Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "yz33lsrhdcdaxnf"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für die Schweizerische Jugend 1830",
+    "norm": "",
+    "biblio": 200921,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2147,
+  "parallel_title": "",
+  "place_statement": "Bern (Jenni)",
+  "places": [
+    "mcsw28bfpni5k8t"
+  ],
+  "preferred_title": "Almanach, Historischer für die Schweizerische Jugend 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "E. Stierlin",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für die / Schweizerische Jugend, / für 1830. / Herausgegeben von E. Stierlin, / Pfarrer am Münster. / Zweyter Jahrgang. / Bern, bey C. A. Jenni, Buchhändler",
+  "updated": "2026-06-11 10:18:55.168Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "fme9juq3i1szgoz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.005Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.005Z",
+      "agent": "cnlkd07v6a6w54w",
+      "source_id": "3sa7o9lkwwu319u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.072Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.072Z",
+      "agent": "29k52bnv6igjhjc",
+      "source_id": "k62gpj2gops3u8g"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. des Herausgebers: Aus des Dichters Nachlasse mitgetheilt durch Henri Julia",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "394",
+  "incipit_statement": "Am Himmel Sonn' und Mond und Stern / Sie zeugen von der Macht des Herrn;",
+  "language": [],
+  "musenalm_id": 100306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 246,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Halleluja",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Halleluja",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.844Z",
+      "agent": "1z1aqho0pmi2dwm",
+      "source_id": "ph7vv37uuju1sse"
+    }
+  ]
+}

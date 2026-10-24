@@ -1,0 +1,294 @@
+{
+  "annotation": "",
+  "biographical_data": "1717-1780",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.410Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Jurist und Poet (geistlicher Dichter), Hymnologe; sächs.-altenburgischer Hofrat und Amtmann zu Altenburg, fürstlich sächsischer Rat"
+      ],
+      "dateOfBirth": [
+        "1717"
+      ],
+      "dateOfDeath": [
+        "1780-07-03"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T16:52:38.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119422921/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119422921",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119422921",
+      "oldAuthorityNumber": [
+        "(DE-588c)4440411-6",
+        "(DE-588a)119422921"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "preferredName": "Lenz, Ludwig Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig Friedrich"
+        ],
+        "surname": [
+          "Lenz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142294-6",
+          "label": "Amtmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1035243849",
+          "label": "Hymnologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        }
+      ],
+      "publication": [
+        "Hertel, Johann F.: Diss. iur. de iure studiosorum",
+        "Gedichte vermischten Inhalts"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058911"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37726298"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55125032"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119422921/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Friedrich_Lenz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000046342066"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119422921"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119422921.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119422921"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Lenz, Ludewig Friederich",
+        "Lenz, Ludovicus Fridericus",
+        "Lentz, Friedrich Ludwig",
+        "Lenz, Friedrich Ludwig",
+        "Lenz, Lvdovicvs Fridericvs",
+        "Lentz, Ludwig Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lvdovicvs Fridericvs"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Friedrich"
+          ],
+          "surname": [
+            "Lentz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludewig Friederich"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig"
+          ],
+          "surname": [
+            "Lentz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Ludwig"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus Fridericus"
+          ],
+          "surname": [
+            "Lenz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Friedrich_Lenz",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Friedrich_Lenz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:06:03Z",
+    "gnd_query_biographical_data": "1717-1780",
+    "gnd_query_name": "lenz, ludwig friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1601,
+  "name": "Lenz, Ludwig Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 117",
+  "updated": "2026-06-11 13:29:23.542Z",
+  "uri": "https://d-nb.info/gnd/119422921",
+  "editor": ""
+}

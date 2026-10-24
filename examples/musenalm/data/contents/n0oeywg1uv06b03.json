@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Der Mond ist trüb: mein Mädchen weint! / Denn scheidend rief sie mir:",
+  "language": [],
+  "musenalm_id": 86554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der trübe Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vincenz Zusner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der trübe Mond",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.310Z",
+      "agent": "bl67sc1w31pzw0u",
+      "source_id": "fgzo3d309a1imb2"
+    }
+  ]
+}

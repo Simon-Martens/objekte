@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Mit gefalteten Händen, den thränenschweren Blick zu ihm, dem Herrn, emporgerichtet, von dem allein sie Trost erhoffen konnte, stand Elisabeth, des Stadtschultheißen von Solothurns Hugos von Bucheggs einzige Tochter in der Wölbung eines Fensters",
+  "language": [],
+  "musenalm_id": 77086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Belagerung von Solothurn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Satori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Belagerung von Solothurn",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.688Z",
+      "agent": "2egg2jsoqsham3c",
+      "source_id": "qe8qc67y2m71zrk"
+    }
+  ]
+}

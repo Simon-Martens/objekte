@@ -1,0 +1,45 @@
+{
+  "annotation": "Zur Verständlichkeit der Kupfer (Sammlung INr 101824, Obj 104) s. Graphik im Kalendarium INr 101734, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Dies Sujet giebt das Verzeichniß der Sammlung an",
+  "language": [],
+  "musenalm_id": 101831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Rinaldo und Armide; gestochen von Thelott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Rinaldo und Armide; gestochen von Thelott",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.863Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "a1mns6tfh6szhjn"
+    }
+  ]
+}

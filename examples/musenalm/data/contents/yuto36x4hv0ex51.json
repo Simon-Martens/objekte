@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit einer Illustration s. Graphik INr 21280; Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Es war eine schöne Sommernacht. Der Mond schien hell und ein warmer Lufthauch wehte und schaukelte das Laub der hohen Bäume im Mondenstrahle hin und her,",
+  "language": [],
+  "musenalm_id": 41290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Asyl am Kynast. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Asyl am Kynast. / Erzählung",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.738Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "j2rwe8ep469hjmy"
+    }
+  ]
+}

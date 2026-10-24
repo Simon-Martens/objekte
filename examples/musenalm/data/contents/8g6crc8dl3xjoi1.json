@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1 /) s. INr 18582, Obj 12 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robespierre unter den Jakobinern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_176_7991_po8gyt27f8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Robespierre unter den Jakobinern",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.115Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "a47is8h8rhl6lvz"
+    }
+  ]
+}

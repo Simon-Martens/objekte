@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Gute nennt ein andrer mit Lob, ein andrer / mit Tadel;",
+  "language": [],
+  "musenalm_id": 6542,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sittenspruch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sittenspruch",
+  "updated": "2000-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.225Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "hobaeu2nqtnps8r"
+    }
+  ]
+}

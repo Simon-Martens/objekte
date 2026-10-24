@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VI. 147, 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Die Welt kann uns nicht gröss're Güter geben, / Drum lasst mich kühn die schwere That vollbringen",
+  "language": [],
+  "musenalm_id": 51376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Herkules. / Sonett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Herkules. / Sonett",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.681Z",
+      "agent": "gm8e9zpz8ta1e13",
+      "source_id": "mywijrg5cwwaltd"
+    }
+  ]
+}

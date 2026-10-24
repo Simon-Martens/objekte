@@ -1,0 +1,43 @@
+{
+  "annotation": "Erkärung der Kupfertafeln (Sammung INr 75883, Obj 4) s. Graphik zum Kalendarium INr 75894, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die vierte Kupfertafel stellt die bey den frühesten Teutschen gewöhnliche Art der Gottesverehrung vor.",
+  "language": [],
+  "musenalm_id": 75887,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vierte Kupfertafel stellt die bey den frühesten Teutschen gewöhnliche Art der Gottesverehrung vor.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.391Z",
+      "agent": "i1y44hlx8jbhczd",
+      "source_id": "0qutccmglwobj1g"
+    }
+  ]
+}

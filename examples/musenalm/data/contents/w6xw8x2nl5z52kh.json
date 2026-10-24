@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Elegien (INr 93525, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Wo bist du, die ich immer seh', / Und die ich niemahls sah;",
+  "language": [],
+  "musenalm_id": 93530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.460Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "4yg2zutkchocyuc"
+    }
+  ]
+}

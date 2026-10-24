@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121716, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Nun geht in grauer Frühe / Der scharfe Märzenwind, / Und meiner Qual und Mühe / Ein neuer Tag beginnt.",
+  "language": [],
+  "musenalm_id": 121717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gudruns Klage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gudruns Klage",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.798Z",
+      "agent": "h8j0pzrwje92vvq",
+      "source_id": "slszyp6ypo3i9jx"
+    }
+  ]
+}

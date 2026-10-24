@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Im J. 1639 hatte Irland nur etwa eine Million Einwohner. Im J. 1827 lebten daselbst in 2, 278 Kirchsprengeln mit 1,142,602 Häusern, und in 1,312,032 Familien vertheilt, 3,341,900 Individuen männlichen und 3,459,900 weiblichen Geschlechts.",
+  "language": [],
+  "musenalm_id": 45008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Großbritannien und Irland.] Irland und die Emancipation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Großbritannien und Irland.] Irland und die Emancipation",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.330Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "8xhkz70i2fvb77d"
+    }
+  ]
+}

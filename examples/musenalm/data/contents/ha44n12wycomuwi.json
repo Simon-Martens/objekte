@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 9170 Obj 5) s. Karte INr 9192, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Der Plan von der Gegend von Zürich erfüllt in Rüksicht auf Richtigkeit, Ausführlichkeit und Nettigkeit des Stichs gewiß alle Forderungen in hohem Grade.",
+  "language": [],
+  "musenalm_id": 18729,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Plan von der Gegend von Zürich erfüllt in Rüksicht auf Richtigkeit, Ausführlichkeit und Nettigkeit des Stichs gewiß alle Forderungen in hohem Grade.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.921Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "nywmz36b2i801vv"
+    }
+  ]
+}

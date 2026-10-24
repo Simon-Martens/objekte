@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 92562, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92524,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Sophia v. Laroche / Gemalt in ihrem 48ten Jahre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger 1808",
+  "scans": [
+    "alm_448_92524_15z36lr1m2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Sophia v. Laroche / Gemalt in ihrem 48ten Jahre",
+  "updated": "2003-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.314Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "1qrav2urfmrdhlm"
+    }
+  ]
+}

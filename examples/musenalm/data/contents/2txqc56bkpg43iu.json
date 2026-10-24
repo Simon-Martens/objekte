@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Großmutter, bin ich heut artig gewesen? / Ja wohl mein Kind; / Nun magst du auch spielen gehn,",
+  "language": [],
+  "musenalm_id": 37857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grossmutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Grossmutter",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.438Z",
+      "agent": "d5l254jtrkm9aci",
+      "source_id": "wrra15ado0rnr1x"
+    }
+  ]
+}

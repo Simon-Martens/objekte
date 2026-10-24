@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Mir gefällt ein blondes Haar, / Dessen Locken zierlich fallen, / Mir zwei Augen hell und klar, / Blaue Gluten aus Kristallen,",
+  "language": [],
+  "musenalm_id": 51272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minnelied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "PELLEGRIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minnelied",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.642Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "tsfzqf0cy7rn417"
+    }
+  ]
+}

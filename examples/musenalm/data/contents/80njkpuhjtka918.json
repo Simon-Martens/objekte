@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Ihr arglosen Wesen - Holdselig Schönen! O leget doch endlich den Taubensinn ab,",
+  "language": [],
+  "musenalm_id": 114108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doppelsinnige Vergleichung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doppelsinnige Vergleichung",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.446Z",
+      "agent": "5dlgex4wmvni1qx",
+      "source_id": "f2h699e3x0iflhg"
+    }
+  ]
+}

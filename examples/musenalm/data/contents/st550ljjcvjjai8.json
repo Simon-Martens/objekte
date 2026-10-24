@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Zur Zeit als der Blumenhandel in Holland noch sehr im Schwunge war, lebte zu Harlem ein Kaufmann, in dessen großer Schreibstube es sich fast einzig und allein um Tulpenzwiebel, Tuberosen, Ranunkeln und anderes Gesäme und Blumenwerk handelte.",
+  "language": [],
+  "musenalm_id": 80912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Holländische Gespenster. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Holländische Gespenster. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.995Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "slkognjng3bslf0"
+    }
+  ]
+}

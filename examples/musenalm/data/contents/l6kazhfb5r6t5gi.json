@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Vom Doppeladler soll ich euch erzählen, / Den sich erwählt der Eichenwald am Rheine,",
+  "language": [],
+  "musenalm_id": 67864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Adler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr Wilh. von Blomberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Adler",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.347Z",
+      "agent": "fdfc4bqyqsoaxaf",
+      "source_id": "qv0rjkgbldsg9ho"
+    }
+  ]
+}

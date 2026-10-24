@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 99714-99720, Obj 118-124 /) Anm. am Objekt: Aus einer größeren Sammlung: Gesänge unter den Eichen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vaterländische Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Krais",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vaterländische Gedichte",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.908Z",
+      "agent": "22cv6r139qaf9gy",
+      "source_id": "bp6tfligsi55pf1"
+    }
+  ]
+}

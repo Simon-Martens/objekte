@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "In China, hier zu Lande nicht, / Wo mein Geschichtchen eine Mähre / Troz der vom Junker Blaubart wäre,",
+  "language": [],
+  "musenalm_id": 63036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Holien",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X *****",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Holien",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.143Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "eibje4rw6gipf96"
+    }
+  ]
+}

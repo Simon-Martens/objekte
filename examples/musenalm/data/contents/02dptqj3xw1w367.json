@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Ein Jäger und ein Fischer ging / Zur Nacht hinaus auf Beute.",
+  "language": [],
+  "musenalm_id": 57938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jäger und Fischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jäger und Fischer",
+  "updated": "2008-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.752Z",
+      "agent": "ayxe6k12ru1cyko",
+      "source_id": "lq4ktfrud9ckw3j"
+    }
+  ]
+}

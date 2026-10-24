@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Bald, bald ist sie nun vollendet / Meine lange Wanderschaft,",
+  "language": [],
+  "musenalm_id": 67286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Der Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Der Wanderer",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.168Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "zqmml6kru2awn2p"
+    }
+  ]
+}

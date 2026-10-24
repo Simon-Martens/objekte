@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August /) nummeriert 8. /) Illustration zu »Die Indianer in England« von Kotzebue /) s. G-Verz INr 110678, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110664,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieber Bruder Robert, willst du / wohl so gut sein Gurli zu heurathen? / III. Aufz. 7. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_2169_110664_piw1p2aqwi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lieber Bruder Robert, willst du / wohl so gut sein Gurli zu heurathen? / III. Aufz. 7. Auftr.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.232Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "dfwbty5sbnsgd3h"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Jeder Lenz ist mir so neu, / Als ob er der erste sey, / Den ich eingesogen,",
+  "language": [],
+  "musenalm_id": 112201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Frühling",
+  "updated": "2016-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.144Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "tz4aufau8re48ne"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Widmung s. INr 36581, Obj 64,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Wo das Gebüsch geweihte Schatten streut, / Am Rasensitz, von Weiden überhüllet,",
+  "language": [],
+  "musenalm_id": 16199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die stillende Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die stillende Mutter",
+  "updated": "2001-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.697Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "3vg64j77yypv0uc"
+    }
+  ]
+}

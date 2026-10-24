@@ -1,0 +1,47 @@
+{
+  "annotation": "auszufaltende Illustration zu »Rumelien« von Doctor Maximilian Heine INr 92996, Obj 20 /) $ Graphik knapp beschnitten, Bezeichnung unvollständig",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Selims Moschee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon $",
+  "scans": [
+    "alm_1633_92997_5l5vamh6kv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Selims Moschee",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.211Z",
+      "agent": "ri9esj8u5z0036e",
+      "source_id": "qdiac24falq9sp8"
+    }
+  ]
+}

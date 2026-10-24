@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Weile noch, o Lied! / Weile noch, bis über jene Zelle, / Wo sie ruhen wird, ein Chot von Sternen zieht,",
+  "language": [],
+  "musenalm_id": 5807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendgesang, / am Geburtstage der Demoiselle / Eleonore von **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendgesang, / am Geburtstage der Demoiselle / Eleonore von **",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.996Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "4wlq0mbwb3idk8q"
+    }
+  ]
+}

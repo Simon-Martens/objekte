@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten V. Die Bürgschaft (Sammlung INr 77032, Obj 4) mit 6 Illustrationen. Graphiken INr 77033, 77035-77039, Obj 5, 7-11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zu Dionys, dem Tyrannen schlich / Möros, den Dolch im Gewande! / Ihn schlugen die Häscher in Bande.",
+  "language": [],
+  "musenalm_id": 77034,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bürgschaft Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bürgschaft Ballade",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.599Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.599Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "5082mpxbniw465v"
+    }
+  ]
+}

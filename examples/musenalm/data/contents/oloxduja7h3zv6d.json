@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Wie ich am Arm dich durch die Gassen führte / Der Stadt und über'n Markt, fühlt' ich mit Beben:",
+  "language": [],
+  "musenalm_id": 45690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang durch die Stadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang durch die Stadt",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.501Z",
+      "agent": "qwtd1omxjc7b309",
+      "source_id": "cobg2nnus1mjc0f"
+    }
+  ]
+}

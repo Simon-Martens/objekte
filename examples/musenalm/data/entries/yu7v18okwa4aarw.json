@@ -1,0 +1,94 @@
+{
+  "annotation": "Titelauflage: Nachtitel lautet: Iduna [o.J.]",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG,  VB, verso G, T, 8 BB Kal darin 6 GG, 4 BB Tabb, nT, SS 1-187, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Wien, Riedl) 1850 /) Titelauflage von Iduna 1849",
+    "norm": "",
+    "biblio": 405021,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1916,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch (Wien, Riedl) 1850 [Titelauflage von Iduna 1849]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / das Jahr / 1850 / WIEN, / bei Franz Riedls sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No.136",
+  "updated": "2026-06-11 10:18:55.449Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "ihtha0u4gvarlzy"
+  ],
+  "contents": [
+    "3ckl88cb5p1adr1",
+    "qgre3lyamy9tixd",
+    "92pu906vk4bxwgs",
+    "ciodrevf93zl9gq",
+    "b5b3l17jmplr119",
+    "6od7ot5bylr4ap8",
+    "go3ju3uas017oyl",
+    "2y9rwy3l8qysjap",
+    "0x4i2fgerx4ngxe",
+    "bzzyb7o91vyfdty",
+    "5hrpnhe4m2r2mwz",
+    "v95srkg7pewhd46",
+    "wc5iy92sl4ff0v9",
+    "7qpnmx5sdseso2f",
+    "8s8ffs8e2galim6",
+    "mk301v0awvn6t1q",
+    "c8mpxce3vztvoz3",
+    "soe4orx29l37p6l",
+    "d6xo9ogl0ao1mwj",
+    "2d4ljm61d3q5bg7",
+    "alkz0ycxz3uvf6r",
+    "tvtribruonyc2wm",
+    "xk7n1gjpnkyi7y6",
+    "xz6frpac1cc1sqb",
+    "am19aa99yg5xnsn",
+    "iub6m5yxquxz51k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.142Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.142Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "jhqt80h49se9qp8"
+    }
+  ]
+}

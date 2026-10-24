@@ -1,0 +1,113 @@
+{
+  "annotation": "Jgg 1782-1784, 1789; Leipzig (Schwickert); Hrsg: J. N. Forkel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 2 BB Vrwrt d Hrsg, B I-Verz, SS 1-206, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Musikalischer für Deutschland (Forkel) 1782",
+    "norm": "~",
+    "biblio": 409953,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-03-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 749,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Schwickert)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach, Musikalischer für Deutschland (Forkel) 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 15; L/R 188",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Musikalischer / Almanach / für / Deutschland / auf das Jahr / 1782. / Uno omnes ordine habebo. / Leipzig, / im Schwickertschen Verlag",
+  "updated": "2026-06-11 10:18:55.176Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "suplh8up5p9bsym"
+  ],
+  "contents": [
+    "gjrx40jdaol089q",
+    "i21b8elvq2qusft",
+    "wkuirqw6a48jimt",
+    "zh4ucisosybtps3",
+    "mq9797nqp2ugvgu",
+    "7xz3hcpstclxibp",
+    "1d4ris1c8ws08mt",
+    "bhqxe6v8on5acph",
+    "m6f3dbofeb70p9y",
+    "5jver6glxsmkyni",
+    "94v7cxbe7rplfhy",
+    "ba12605onllj28x",
+    "kyb663sy3jh7xf0",
+    "jl9j9ns1tbfpdui",
+    "v4dq6x0jnjw5tns",
+    "yhxkzkw4fnbtqoi",
+    "q8aqwink65ah8oy",
+    "ep7hywmrlnu8gj6",
+    "y5qoheje7064bxw",
+    "zagr0ewjew4iiql",
+    "y87nyybsqdto4d0",
+    "p8xyn26pgwnlglm",
+    "aeyhoweccr99xmt",
+    "5exes4plh8tplzy",
+    "298r4z5dr24bog2",
+    "0n3viy6dc7kg308",
+    "91dnp3d9xi5gkzz",
+    "drhxx5x4tcle2bn",
+    "wd6y9vgjn4cwqw8",
+    "saqbd9fvdvkjb6x",
+    "chdfk888vqagcdv",
+    "z08v370cfa2abq5",
+    "2cjjhdof482qast",
+    "xbo91jajorxwtt7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.152Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.152Z",
+      "agent": "z46fpt3pssi6nti",
+      "source_id": "b3ouzm8y9ecust5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.765Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.765Z",
+      "agent": "xzypb9tyvvvrc9s",
+      "source_id": "v5zhieh3ottg17u"
+    }
+  ]
+}

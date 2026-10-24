@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 25375-25378, Obj 146-149",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.256Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "yb98kskos338p0w"
+    }
+  ]
+}

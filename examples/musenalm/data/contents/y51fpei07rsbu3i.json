@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Mag Herrscherzwang von Deutschen Deutsche trennen / Wir harren im Verein",
+  "language": [],
+  "musenalm_id": 71990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parenthese / zu Claudius Rheinweinlied, / nach der Strophe: / »Ihn bringt das Vaterland aus seiner Fülle« etc / Gesungen am Sylvesterabend 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Friederich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parenthese / zu Claudius Rheinweinlied, / nach der Strophe: / »Ihn bringt das Vaterland aus seiner Fülle« etc / Gesungen am Sylvesterabend 1803",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.415Z",
+      "agent": "likurdqpdc08ms9",
+      "source_id": "p45q0g4ja94r90l"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Es regt in mir sich quellend großes Leben; / Und vieles seh' ich zwischen Traum und Wachen.",
+  "language": [],
+  "musenalm_id": 15885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des sinnreichen himmlischen Boten / Phosphorus Carfunculus Solaris / jüngste Comödie, / von ihm selbst geboren, gegeben und geschaut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. von Blomberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des sinnreichen himmlischen Boten / Phosphorus Carfunculus Solaris / jüngste Comödie, / von ihm selbst geboren, gegeben und geschaut",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.693Z",
+      "agent": "fdfc4bqyqsoaxaf",
+      "source_id": "0u5ao8g7yhi3f9y"
+    }
+  ]
+}

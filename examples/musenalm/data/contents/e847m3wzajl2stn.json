@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Der Dichter Gottwald hatte gestern einen sehr betrübten, und heute sehr vergnügten Tag gehabt.",
+  "language": [],
+  "musenalm_id": 26003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied der alten Muhme. / Ein Bild aus dem Dichterleben. / Ich hab' eine alte Muhme, / Die ein altes Büchlein hat [...] / Anastasius Grün",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied der alten Muhme. / Ein Bild aus dem Dichterleben. / Ich hab' eine alte Muhme, / Die ein altes Büchlein hat [...] / Anastasius Grün",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.108Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "hrge8w2dy3x9t4h"
+    }
+  ]
+}

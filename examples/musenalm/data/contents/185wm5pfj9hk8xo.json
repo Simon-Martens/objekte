@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Laßt jubelnd mich den Herbst begrüßen, / Des schönen Jahres schönste Zeit.",
+  "language": [],
+  "musenalm_id": 14294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herbst. / (Meinem theuren Freunde, Herrn S. A. Steiner.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Herbst. / (Meinem theuren Freunde, Herrn S. A. Steiner.)",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.297Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "q8inlfmal77u0zo"
+    }
+  ]
+}

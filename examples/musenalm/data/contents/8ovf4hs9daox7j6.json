@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Heiduck, mein Roß! / Und sattl' es mir mit Purpur fein,",
+  "language": [],
+  "musenalm_id": 45504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 213,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ungar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. O. Sternau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ungar",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.867Z",
+      "agent": "phkzsbojlf7jna1",
+      "source_id": "h70cnn0dn203jyw"
+    }
+  ]
+}

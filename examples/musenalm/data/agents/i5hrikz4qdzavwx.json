@@ -1,0 +1,251 @@
+{
+  "annotation": "",
+  "biographical_data": "",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.507Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "J. B. Wallishausser <I.> stammt aus Hohenzollern-Hechingen und hat auch den Ort Hohenzollern als Erscheinungsort angegeben. Nach dem Tod von J. B. Wallishausser <I.> führten seine Witwe Theresia und der Vormund der Kinder Cajetan Schöller das Unternehmen  unter demselben Namen, bis sie 1819 zugunsten des ältesten Sohnes Johann Baptist <II.> der Privilegien entsagten"
+      ],
+      "dateOfBirth": [
+        "1758-07-09"
+      ],
+      "dateOfDeath": [
+        "1810-02-22"
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-07T15:44:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/103749993X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1208662511",
+          "label": "Wallishausser, Theresia"
+        },
+        {
+          "id": "https://d-nb.info/gnd/103755132X",
+          "label": "Wallishausser, Johann Baptist II."
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "103749993X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/103755132X",
+          "label": "Wallishausser, Johann Baptist II."
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1208662511",
+          "label": "Wallishausser, Theresia"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/103749993X",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023927-5",
+          "label": "Hechingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Wallishausser, Johann Baptist I.",
+      "preferredNameEntityForThePerson": {
+        "counting": [
+          "I."
+        ],
+        "forename": [
+          "Johann Baptist"
+        ],
+        "surname": [
+          "Wallishausser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628946-1",
+          "label": "Musikdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/1069657727",
+          "label": "Johann Baptist Wallishausser I. Erben"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/250586388"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94992434"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/103749993X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/103749993X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Wallishausser, J. B. I.",
+        "Wallishauser, Johann Baptist",
+        "Wallishauser, Joh. Baptist",
+        "Wallishauser, Johann Baptist W.",
+        "Wallishauser, Joh. Bapt."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "counting": [
+            "I."
+          ],
+          "forename": [
+            "J. B."
+          ],
+          "surname": [
+            "Wallishausser"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Bapt."
+          ],
+          "surname": [
+            "Wallishauser"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Baptist"
+          ],
+          "surname": [
+            "Wallishauser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist"
+          ],
+          "surname": [
+            "Wallishauser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Baptist W."
+          ],
+          "surname": [
+            "Wallishauser"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "variant_name",
+    "gnd_matched_at": "2026-06-11T13:18:00Z",
+    "gnd_query_biographical_data": "",
+    "gnd_query_name": "wallishauser, johann baptist"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 3053,
+  "name": "Wallishauser, Johann Baptist",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 2142",
+  "updated": "2026-06-11 13:29:25.623Z",
+  "uri": "https://d-nb.info/gnd/103749993X",
+  "editor": ""
+}

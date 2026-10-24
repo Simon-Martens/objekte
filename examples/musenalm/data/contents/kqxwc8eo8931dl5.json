@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Sey doch vernünftig, liebes Barthelchen!",
+  "language": [],
+  "musenalm_id": 129891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Onkel Adam und Nichte Eva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lembert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Onkel Adam und Nichte Eva",
+  "updated": "2022-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.050Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "42xajz84zh8veoh"
+    }
+  ]
+}

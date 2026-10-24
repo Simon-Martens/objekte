@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Einer fesselt mein Herz, in ihm erkenn' ich die Menschheit, / Und das Opfer gilt ihr, das ich dem Einzigen weih',",
+  "language": [],
+  "musenalm_id": 84697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. An Theon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. An Theon",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.101Z",
+      "agent": "qxcj6iktsu2xp76",
+      "source_id": "vawaicjamlb7smj"
+    }
+  ]
+}

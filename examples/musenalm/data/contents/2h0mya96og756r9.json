@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Warum, mein Schwesterchen, gepriesne Nach- / tigall / Rief eine Schwalbe,",
+  "language": [],
+  "musenalm_id": 11425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "44. / Die Nachtigall und die Schwalbe. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "44. / Die Nachtigall und die Schwalbe. / Eine Fabel",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.141Z",
+      "agent": "b4ycj3ue3as52r2",
+      "source_id": "y7o8a41zjam4lc6"
+    }
+  ]
+}

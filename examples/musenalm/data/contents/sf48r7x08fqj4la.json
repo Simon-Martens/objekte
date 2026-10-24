@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt : The best in theyr kind are but shadows, and the /  worst are no worst, if imagination amend them. / Shakspeare",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Eine der schlechtesten Künstlergesellschaften, die jemals auf dem gebrechlichen Thespis-Karren die Landstädtchen des lustigen Alt-Englands befahren,",
+  "language": [],
+  "musenalm_id": 56397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fluch und Segen der Kunst. / Vier Akte nach dem Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fluch und Segen der Kunst. / Vier Akte nach dem Leben",
+  "updated": "2008-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.637Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "xuxc5c8lhodunyc"
+    }
+  ]
+}

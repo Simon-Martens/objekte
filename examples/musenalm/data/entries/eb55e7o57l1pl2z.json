@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, Kr, T, Kr, 8 BB Kal, 51BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreib- und Postkalender, Genealogischer (Berlin) 1739",
+    "norm": "~",
+    "biblio": 405493,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2495,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schreib- und Postkalender, Genealogischer (Berlin) 1739",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Schreib- und Post- / Calender, / auf das gemeine Jahr /MDCCXXXIX. / Welcher vorstellet / die Genealogie der itztlebenden / Hohen Häupter in Europa, / verschiedene / Historische Merkwürdigkeiten / und einige sehr bequeme und nützliche / Verzeichnisse der Posten, [...] / Mit Approbation der Königl. Preuß. / Societät der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.458Z",
+  "variant_title": "",
+  "year": 1739,
+  "editor": "",
+  "items": [
+    "ostjtqsnjx4b7zj"
+  ],
+  "contents": [
+    "5kcaxu1zuxfv5nu",
+    "a43wsvgsgweu6ek",
+    "1pnonkk29q5seck",
+    "n6hjfdvjfs11qre",
+    "46sbra6es1g083r",
+    "hrxtdq3hi6adylt",
+    "wyh9ixvt4nc5kbf",
+    "qsb5a6zbb5tu9br",
+    "hqe1rsh9gx55828",
+    "cz0yfe8cxcjo2ay",
+    "9rexocyxuav477v",
+    "4kbc8o9xi39kc23",
+    "byp8ykjngdylqob",
+    "96pz6pr6tm8ydig",
+    "rsy6xfk9pso98nd",
+    "55n02amv6eb7whz",
+    "wiz0fujs2jv8nao",
+    "r3hhdg9o4hd8j4v",
+    "2xj62wxssohkly1",
+    "3kn0ezglj5zn2ae",
+    "oc7lreccftsjyk7",
+    "gainkk8hzdrgkgr"
+  ],
+  "agents": []
+}

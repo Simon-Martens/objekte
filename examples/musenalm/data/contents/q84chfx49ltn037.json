@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 71180, 71181; Obj 78, 79",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnette",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnette",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.969Z",
+      "agent": "ift6i2oy1gozbs3",
+      "source_id": "wqtv689hj8wm22o"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Tochter Edens, o Ruh, die du die Finsterniß / Stiller Haine bewohnst, unter der Dämmerung / Mondversilberter Pappeln",
+  "language": [],
+  "musenalm_id": 16859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Ruhe",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.783Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "nwxlf86ijpphkyq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Es blüht ein Land im Morgenscheine, / Ein gold'nes, wunderschönes Land,",
+  "language": [],
+  "musenalm_id": 29429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ehe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ehe",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.463Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "iih7gfyvlh8p7wt"
+    }
+  ]
+}

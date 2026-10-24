@@ -1,0 +1,58 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 77855, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77842,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nenella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Perger fec. J. Axmann sc. Viennae",
+  "scans": [
+    "alm_2418_77842_c5ujzoxzdz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nenella",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.764Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "3mkey0ap0nagxsk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.764Z",
+      "agent": "k1vb2ltzit1pkxn",
+      "source_id": "pf6qdvlndyed72f"
+    }
+  ]
+}

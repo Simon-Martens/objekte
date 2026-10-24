@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "In den ersten Revolutionskriegen verlor der Herr von Lawis sein ganzes Vermögen.",
+  "language": [],
+  "musenalm_id": 39548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Die Alpenreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Die Alpenreise",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.178Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "az4uybw8eaket5l"
+    }
+  ]
+}

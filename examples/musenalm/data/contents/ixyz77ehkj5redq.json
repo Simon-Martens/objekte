@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Ach, ohne Sorgen kommt / Kein heitrer Sinn,",
+  "language": [],
+  "musenalm_id": 45567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 276,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.281Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "kv9z86vig296uni"
+    }
+  ]
+}

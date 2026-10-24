@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. lt. G-Verz: Illustration zu »Fanny Macbeth« von ungenannt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28280,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich habe keine Mutter, keinen Vater mehr, ich / habe nur dich!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thursten del. Ridley sculp.",
+  "scans": [
+    "alm_362_28280_07fy21j3jk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich habe keine Mutter, keinen Vater mehr, ich / habe nur dich!",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.487Z",
+      "agent": "01vck2fus4d9d65",
+      "source_id": "3ri85jycq4tecwn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.487Z",
+      "agent": "ugmifjvouem3pfh",
+      "source_id": "6pm6wukcaahjqam"
+    }
+  ]
+}

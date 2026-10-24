@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24831, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Durch das enge Thor des Städtchens / Zieht ein alter Bettler fort,",
+  "language": [],
+  "musenalm_id": 24835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Unbekannte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Unbekannte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.343Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "3sx7tb7s4j72w98"
+    }
+  ]
+}

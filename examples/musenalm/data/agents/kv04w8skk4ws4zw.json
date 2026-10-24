@@ -1,0 +1,521 @@
+{
+  "annotation": "",
+  "biographical_data": "1781-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.427Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Jurist und Literaturhistoriker; Sammler und Kenner der älteren dt. Literatur; seine Bibliothek wurde 1850 an die Königliche Bibliothek zu Berlin verkauft"
+      ],
+      "dateOfBirth": [
+        "1781-06-06"
+      ],
+      "dateOfDeath": [
+        "1847-08-22"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Herman Grimm, †1901"
+          ],
+          "creditText": [
+            "Karl Theodor Gaedertz: Was ich am Wege fand, Leipzig 1902"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Hartwig%20Gregor%20von%20Meusebach.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Hartwig%20Gregor%20von%20Meusebach.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Hartwig%20Gregor%20von%20Meusebach.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/176764615",
+        "https://d-nb.info/gnd/182146081",
+        "https://d-nb.info/gnd/182146073",
+        "https://d-nb.info/gnd/17862084X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:14:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118733230/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116960523",
+          "label": "Meusebach, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13834146X",
+          "label": "Meusebach, Christian Karl von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118733230",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#7.14p",
+          "label": "Personen zu Recht"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116960523",
+          "label": "Meusebach, Karl von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/13834146X",
+          "label": "Meusebach, Christian Karl von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118733230",
+      "oldAuthorityNumber": [
+        "(DE-588a)182146073",
+        "(DE-588a)118733230",
+        "(DE-588)182146081",
+        "(DE-588)182146073",
+        "(DE-588a)176764615",
+        "(DE-588a)17862084X",
+        "(DE-588c)4100885-6",
+        "(DE-588)17862084X",
+        "(DE-588)176764615",
+        "(DE-588a)182146081"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012326-1",
+          "label": "Dillenburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4041712-8",
+          "label": "Neubrandenburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4638701-8",
+          "label": "Geltow"
+        }
+      ],
+      "preferredName": "Meusebach, Karl Hartwig Gregor von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Hartwig Gregor"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Meusebach"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156858-8",
+          "label": "Germanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145245-8",
+          "label": "Bibliophiler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Alban"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Markus"
+          ],
+          "surname": [
+            "Hüpfinsholz"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Tugendhaffter Jungfrauen und Jungengesellen Zeit-Vertreiber",
+        "Briefwechsel",
+        "Geist aus meinen Schriften"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/18017442"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q108492"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118733230/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/176764615"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/17862084X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182146073"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182146081"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Hartwig_Gregor_von_Meusebach"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Hartwig_Gregor_von_Meusebach"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Hartwig_Gregor_von_Meusebach"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061354356"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118733230"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118733230"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118733230.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118733230.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118733230"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Meusebach, Carl Hartwig Gregor von",
+        "Alban",
+        "Meusebach, Karl Hartwig von",
+        "Meusebach, Karl von",
+        "Meusebach, Karl H. von",
+        "Meusebach, Carl H. von",
+        "Hüpfinsholz, Markus",
+        "Meusebach, Carl von",
+        "Meusebach, Karolus Hartwicus Gregorius de",
+        "Meusebach, K. H. G. von",
+        "Meusebach, Kar. Hartw. Gregorius de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "K. H. G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Hartwig Gregor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Hartwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Markus"
+          ],
+          "surname": [
+            "Hüpfinsholz"
+          ]
+        },
+        {
+          "forename": [
+            "Karolus Hartwicus Gregorius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "personalName": [
+            "Alban"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        },
+        {
+          "forename": [
+            "Kar. Hartw. Gregorius"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Meusebach"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Hartwig_Gregor_von_Meusebach",
+          "label": "https://de.wikipedia.org/wiki/Karl_Hartwig_Gregor_von_Meusebach"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:16:15Z",
+    "gnd_query_biographical_data": "1781-1847",
+    "gnd_query_name": "meusebach, karl hartwig gregor von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1807,
+  "name": "Meusebach, Karl Hartwig Gregor von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1365; E 228",
+  "updated": "2026-06-11 13:29:23.801Z",
+  "uri": "https://d-nb.info/gnd/118733230",
+  "editor": ""
+}

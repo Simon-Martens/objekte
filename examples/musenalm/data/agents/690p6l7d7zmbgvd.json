@@ -1,0 +1,189 @@
+{
+  "annotation": "",
+  "biographical_data": "1818-1863",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.357Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1818"
+      ],
+      "dateOfDeath": [
+        "1863-05-11"
+      ],
+      "describedBy": {
+        "dateModified": "2022-02-21T15:48:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-WBR",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-WBR"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1252284365/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "1252284365",
+      "id": "https://d-nb.info/gnd/1252284365",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Hamböck, J. Alphons",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "J. Alphons"
+        ],
+        "surname": [
+          "Hamböck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/1921164604089437910006"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94578956"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1252284365/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hamböck, Jos. Alphons",
+        "Hamböck, Josef Alfons",
+        "Hamböck, J. Alfons",
+        "Hamböck, Joseph Alphons",
+        "Hamböck, Alfons",
+        "Hamböck, Alphons"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph Alphons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        },
+        {
+          "forename": [
+            "Jos. Alphons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        },
+        {
+          "forename": [
+            "Alphons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        },
+        {
+          "forename": [
+            "Alfons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        },
+        {
+          "forename": [
+            "Josef Alfons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        },
+        {
+          "forename": [
+            "J. Alfons"
+          ],
+          "surname": [
+            "Hamböck"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:38:33Z",
+    "gnd_query_biographical_data": "1818-1863",
+    "gnd_query_name": "hamböck, alphons"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1049,
+  "name": "Hamböck, Alphons",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 776",
+  "updated": "2026-06-11 13:29:22.782Z",
+  "uri": "https://d-nb.info/gnd/1252284365",
+  "editor": ""
+}

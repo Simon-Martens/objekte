@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Laune und des Scherzes 1806",
+    "norm": "",
+    "biblio": 100707,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2675,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gräff)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch der Laune und des Scherzes 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 130; L/R 214; Goed VIII. 65, 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Laune und des Scherzes / Dreihundert Nummern / aus / dem Raritäten-Kabinette eines / Einsiedlers. / Leipzig, 1806. / bey Heinrich Gräff",
+  "updated": "2026-06-11 10:18:55.457Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "9bt19uieosqk0hs"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.925Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.925Z",
+      "agent": "rtqiw9wehi8dz1n",
+      "source_id": "jzvq9aaouwo4k9p"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Beitrag wird fortgesetzt in: Minerva 1815, INr 39549",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "Die tiefsinnigsten Wissenschaften haben zuweilen ihre pedantischen Masken abgelegt, um in geselligen Zirkeln einiges Vergnügen zu verbreiten.",
+  "language": [],
+  "musenalm_id": 39421,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Ueber den Ursprung und die Schicksale / der griechischen Mythen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. H. Clodius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Ueber den Ursprung und die Schicksale / der griechischen Mythen",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.178Z",
+      "agent": "y9foh5fiai75ps8",
+      "source_id": "ms6ieedzwc99h8p"
+    }
+  ]
+}

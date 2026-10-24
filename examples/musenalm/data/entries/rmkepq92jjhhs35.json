@@ -1,0 +1,109 @@
+{
+  "annotation": "mit Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I–XIII: T, Vrwrt, I-Verz, SS1–360, darin 4 GG, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Privatbühnen (Müllner) 1818",
+    "norm": "~",
+    "biblio": 106358,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1338,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach für Privatbühnen (Müllner) 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 16; L/R 125; Goed VIII. 130, 17",
+  "responsibility_statement": "Amandus Gottfried Adolph Müllner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Privatbühnen. / Zweites Bändchen / auf / das Jahr 1818. / Herausgegeben / von / Adolph Müllner. / Leipzig / bei Georg Joachim Göschen",
+  "updated": "2026-06-11 10:18:54.929Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "cywjs989c86c6e1"
+  ],
+  "contents": [
+    "ehcnme7dilbp8ed",
+    "llybnukstor9jxt",
+    "b5qlk94czlqs4yo",
+    "t6gh5btmlwezi18",
+    "huen1mjv537raij",
+    "e7ymqnv9rx8iov2",
+    "aroxcn46i022oin",
+    "u0rj0pjs7qb3eub",
+    "u72n69yeg02yenl",
+    "xd02d6d2px5ov1d",
+    "pdp1dbcpbsjarci",
+    "tcvz1k7iv98gruj",
+    "6odq8gcdqz4l2ml",
+    "23uhc5jse5v7l8g",
+    "dermnvxcxz29ieo",
+    "7rlohbwu0uf7g5h",
+    "j9jtz6wzmmfivms",
+    "9nfcj6avjl212ry",
+    "y4yujx9kngz5t7t",
+    "gs635riokxaneb0",
+    "oncod17bm7fpi7s",
+    "upkkrmh0e92xony",
+    "uli78fman4wu3fi",
+    "vky3561miv8qdfs",
+    "p4faf332ykpmzws",
+    "acgydgh24e0egou",
+    "vwx84uucp8e7d8n",
+    "0oowbgokxgu6i86",
+    "zzuxzhwzzdv47db",
+    "1un9lflrrzjl8cx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.879Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.879Z",
+      "agent": "fy9yit4uuer2yhm",
+      "source_id": "8geak77gl3sdub3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.915Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.915Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "y67e1o50jss1xwb"
+    }
+  ]
+}

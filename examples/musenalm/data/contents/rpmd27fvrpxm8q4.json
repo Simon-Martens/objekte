@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus K. G. Wetzels Nachlasse (Sammlung INr 22274, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Auf nie gewohntem, mächtigen Fittig schwebt / In neuer Form der heilige Sänger bald",
+  "language": [],
+  "musenalm_id": 22279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängers Schwanenlied. / (Horaz Buch 32. Od. 20)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängers Schwanenlied. / (Horaz Buch 32. Od. 20)",
+  "updated": "2002-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.877Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "geqdptge0uy20md"
+    }
+  ]
+}

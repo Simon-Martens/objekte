@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124453, Obj 1); # Benoît Pelletier-Volméranges (vgl. Nouvelle biographie générale XXXIX, Sp. 502)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124455,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jenny. / Ein / Schauspiel in vier Aufzügen, / nach / Pelletier Volmeranges frey bearbeitet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pelletier Volmerange # [bearb.] Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jenny. / Ein / Schauspiel in vier Aufzügen, / nach / Pelletier Volmeranges frey bearbeitet",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.802Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "u1gr8d1onety0oa"
+    }
+  ]
+}

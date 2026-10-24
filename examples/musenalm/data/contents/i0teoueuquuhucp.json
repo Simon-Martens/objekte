@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Schöner Mai, du kommst im Jugend-Glanze / Lieblich, wie ein Bräutigam hernieder,",
+  "language": [],
+  "musenalm_id": 123385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blume",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.808Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "9z7gtce17wpod2v"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Wiegenlied« von Luise, Fürstin von Neuwied INr 18218, Obj 13 (Photos 18219,01; 18219,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Fleischmann",
+  "scans": [
+    "alm_100_18219_01_p8q7d25vc6.jpg",
+    "alm_100_18219_02_vxb4v174bd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2001-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.904Z",
+      "agent": "pkfbc939lebcr82",
+      "source_id": "o0jzk0ywgudmlas"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "annotation": "s.: J. G. Pahl: Verzeichnis meiner Schriften, S. 812 in: Denkwürdigkeiten aus meinem Leben, Tübingen 1840 und: Oberdeutsche Allgemeine Literaturzeitung 1796, 1. Hbd. S. 1206",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Schwäbisches zur Beförderung der Kunde des Vaterlands 1796",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-07-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4443,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch, Schwäbisches zur Beförderung der Kunde des Vaterlands 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "Oberdeutsche Allgemeine Literaturzeitung 1796, 1 Hbd. S. 1206",
+  "responsibility_statement": "J. G. Pahl",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.283Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.379Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.379Z",
+      "agent": "etqejiaylmw3zf0",
+      "source_id": "48qihufyfeopk0x"
+    }
+  ]
+}

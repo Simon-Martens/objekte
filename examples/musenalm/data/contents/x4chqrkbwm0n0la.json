@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. und Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Von allen Inseln des indischen Archipels ist keine ihren natürlichen Erzeugnissen nach, vollständiger beschrieben, als Amboina,",
+  "language": [],
+  "musenalm_id": 42361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Amboina-Gruppe] Naturgeschichte #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Amboina-Gruppe] Naturgeschichte #",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.287Z",
+      "agent": "wa9sa5vspt41k6t",
+      "source_id": "dtufsvudd48ys1w"
+    }
+  ]
+}

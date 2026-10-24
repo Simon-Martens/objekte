@@ -1,0 +1,98 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, G, SS 1-228 darin 11 GG, 3 BB Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für edle Herzen 1804",
+    "norm": "~",
+    "biblio": 408297,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-12-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4082,
+  "parallel_title": "",
+  "place_statement": "Pesth (Leyer)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Taschenbuch für edle Herzen 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / edle Herzen / auf / das Jahr 1804, / mit zwölf Scenen / aus der Geschichte / der Welt / Pest / im Verlage bey Jos. Leyer",
+  "updated": "2026-06-11 10:18:54.698Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "neokpgdn9cjdhj9"
+  ],
+  "contents": [
+    "m1xim3dux8js4l4",
+    "xftwy1b6y6y51ma",
+    "b38nyfrmo0oy5pl",
+    "gajln1x2lvb3515",
+    "rkvmp75tbzp73ac",
+    "ltv39ecoeyn1rwk",
+    "hzfmrn8ue41hs4w",
+    "pi7s9w89x5xer3d",
+    "8em5fj7tvbkhwlv",
+    "jmk2pk20wkq91b3",
+    "hkvt22tn9uef2z4",
+    "fdha0gwzy5qz0f3",
+    "svwdg2o8hp3820t",
+    "xa4c5253aljs3un",
+    "k6v8zr49bx77v4s",
+    "ol5qtylw2dt2ful",
+    "uilue1kfarwd1qi",
+    "q1lev8ahciguakb",
+    "r7leamqtjhl44da",
+    "c48wtehqvz1sjje",
+    "dbvj45hsj0vj7bv",
+    "iaqpfmjpfu2dbqh",
+    "wba56a104hyjmyz",
+    "w6gg2yw983abbkq",
+    "63gq8j5ghh5o58z",
+    "9kau3a2tz313uhv",
+    "g8oenmxil200evc",
+    "11p6e3wsrhqcagu",
+    "oxcnj8ip2syp112",
+    "nsd52vkbllfpo9c"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "rn088dvx9e5f7mb",
+      "source_id": "7aedz9fwnknxarf"
+    }
+  ]
+}

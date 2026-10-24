@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu den Gedichten des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich würde es nie gewagt haben, diese wenigen Bogen, von deren Inhalt manches schon in einigen periodischen Schriften gestanden hat, abdrucken zu lassen, wenn ich nicht darin etwas zu liefern glaubte, das wohl von billigen Leuten neu genannt zu werden",
+  "language": [],
+  "musenalm_id": 52023,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt. Feldprediger des Königl. Invalidenhauses bei Berlin, und berufener Prediger zu Werneuchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2007-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.650Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "edblrsq68gpr1rz"
+    }
+  ]
+}

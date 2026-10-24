@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 11 GG, S I-II Vrwrt d Hrsg, SS III-LVI G-Verz, SS 1-512",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde des Scherzes und der Satire (Falk, Gretscher) 1804",
+    "norm": "~+++ Separatdruck Bout rimés pittoresques (2. Graphik der Suite)",
+    "biblio": 409411,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-09-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4337,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde des Scherzes und der Satire (Falk, Gretscher) 1804",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K 119; L/R 205, Goed VIII, 48, 7a; ADB VI, 549",
+  "responsibility_statement": "Janus Eremita",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde des Scherzes / und / der Satire. / Angefangen von / J. D. Falk, / fortgesezt / von / Janus Eremita. / Mit 12 satirischen Kupfern. / Leipzig, / in der Sommerschen Buchhandlung. / 1804",
+  "updated": "2026-06-11 10:18:54.720Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "uh1zkif9zssjmkq"
+  ],
+  "contents": [
+    "j4qkp1amxc091bu",
+    "9otucckbeek9zo6",
+    "5g2w6zyp1q4iwov",
+    "ml3ecnhkpq1bjfj",
+    "k6ess0c6fsz30bz",
+    "colb3eznpl3ndrj",
+    "tic3ctoq13cg66v",
+    "1k94f866p42f91e",
+    "w2dnky6xdc3twl5",
+    "qug7w9xa1yvn8ej",
+    "5qnzzh06qffs7nu",
+    "cp7ncvoybql731b",
+    "1neue766z1den2u",
+    "yadnxjwry8ouxhv",
+    "53c6rmgqhhcrft3",
+    "0ddqu0ts3tkh4fi",
+    "q43owc30dbostxu",
+    "ho9hbqp6xnovas9",
+    "tt8nqelkpkkg665",
+    "ijw25opdtkup1ff",
+    "weikb7w8gd3dghu",
+    "5zp29x4ot7uztzi",
+    "ikgnhxv76b4sr0h",
+    "jtwutaihduzyima",
+    "qaqnz3qfc7p5evp",
+    "swd8gpm0jkopzm0",
+    "zotl1jw8x3zgxos",
+    "abclvao9qecgza0",
+    "v9ifsmvro8b3ge3",
+    "4qjv8rbw0p75dr4",
+    "7ct2l04umkzxv53",
+    "f4rjyjmz7wvdrad",
+    "emea57kmqjwn0ut",
+    "tz6e9ok8hhsd1o0",
+    "5b81zppuvrh5taf",
+    "ro0o9grxpaftcy0",
+    "nbzubx4ga2i8zvb",
+    "y68odgnsnjgm3rv",
+    "eecrd0q7zkf4u2p",
+    "tuz24ob4r91hujy",
+    "acbf0k4qs7q2m7q",
+    "t9ksm92zw2gyhng",
+    "12cb1fy2qovzlwa",
+    "57witbq7aeqth99",
+    "0o79yx13ffj3uu2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.367Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.367Z",
+      "agent": "769r8tmydq2o7xf",
+      "source_id": "9xdgodk1093h2cq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "h7fk9hbzosc1ziw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 68219, Obj 236)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "In meine Erste komm so oft du willst, / Als zweite bist du herzlich mir willkommen;",
+  "language": [],
+  "musenalm_id": 68221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 238,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Zweisylbig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rautert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Zweisylbig",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.262Z",
+      "agent": "rfgzar1lasfs7j7",
+      "source_id": "1m0kab82wgkwb4z"
+    }
+  ]
+}

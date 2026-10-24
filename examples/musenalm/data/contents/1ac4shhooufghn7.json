@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-10-01 08:59:54.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140670,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik] Unterzeichnet: G. P. Zwinger del. J. Nußbiegel sc.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Zwinger del. J. Nußbiegel sc.",
+  "scans": [
+    "alm_5005_140670_68mhd7i2rb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-10-01 10:34:57.233Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-01 09:00:52.935Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-10-01 10:34:57.232Z",
+      "agent": "g5lsgtr0b0pk1h3",
+      "source_id": "0ilanvod7zo623c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-01 09:01:07.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-01 10:34:57.233Z",
+      "agent": "1cxxm0968owp2z9",
+      "source_id": "12s9bubxbtkcv33"
+    }
+  ]
+}

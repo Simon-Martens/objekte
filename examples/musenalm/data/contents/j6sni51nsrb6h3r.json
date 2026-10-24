@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Landes- und Regentengeschichte (Sammlung INr 119621, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Wir verließen im vorletztern Taschenbuch den Schauplatz der Begebenheiten und Schicksale unserer Vaterstadt gerade in dem mOment, als sie von ihrem Landesherrn an einen benachbarten Fürsten verpfädnet wurde.",
+  "language": [],
+  "musenalm_id": 119654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Geschichte der Stadt Meiningen / unter würzburgischer / Hoheit / (1350 bis 1495.) / Fortsetzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Emmrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Geschichte der Stadt Meiningen / unter würzburgischer / Hoheit / (1350 bis 1495.) / Fortsetzung",
+  "updated": "2012-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.721Z",
+      "agent": "4u0gkkgpmhgb9aq",
+      "source_id": "lwf8segpyseupw2"
+    }
+  ]
+}

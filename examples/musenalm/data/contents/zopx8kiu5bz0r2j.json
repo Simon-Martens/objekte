@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Siegerkranz« INr 72821, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Cornelius del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cornelius del. H. Lips sculp.",
+  "scans": [
+    "alm_2692_72880_q16qy1ufyo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "rpaa721tugmmh0s",
+      "source_id": "dnbhse7l5ru2opr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.677Z",
+      "agent": "ns8syak978vfvbp",
+      "source_id": "pxrn8ddw7ef1z87"
+    }
+  ]
+}

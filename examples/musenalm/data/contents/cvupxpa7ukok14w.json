@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 9840, Obj 247) Gesänge vermischten Inhalts 1792 (Sammlung INr 9918, Obj 224,01) mit einer Musikbeigabe s. INr 9900, Obj 270",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Auf! hascht am Rosensaume / Den Lenz, eh' er verblüht,",
+  "language": [],
+  "musenalm_id": 9847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 278,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIX. / Trinklied. / Mel. steht am Ende der Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIX. / Trinklied. / Mel. steht am Ende der Lieder",
+  "updated": "2001-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.536Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "7lg00un0aswuy8y"
+    }
+  ]
+}

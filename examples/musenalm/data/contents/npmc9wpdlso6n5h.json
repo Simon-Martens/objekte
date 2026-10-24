@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 1438, 1439, Obj 39, 40 Sechs ungedruckte Gedichte (Sammlung INr 9220, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Sonette",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.912Z",
+      "agent": "epma680nee4q5et",
+      "source_id": "4q82cufka3228qu"
+    }
+  ]
+}

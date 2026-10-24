@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Ein heilig Dunkel füllet den ernsten Hain: / Voll Andacht schweige, wer sich dem Haine naht,",
+  "language": [],
+  "musenalm_id": 963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hain der Eumeniden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "CONZ",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hain der Eumeniden",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.684Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "obihbdpng762jvv"
+    }
+  ]
+}

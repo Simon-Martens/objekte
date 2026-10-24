@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanzlieder (Sammlung INr 82276, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Singt der Wonn- und Blüthen-Zeit, / Pflanzt die grünen Mayen!",
+  "language": [],
+  "musenalm_id": 82281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mayreigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mayreigen",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.067Z",
+      "agent": "ftlu3x5ip5cgcvs",
+      "source_id": "x2ut5vmag8e9544"
+    }
+  ]
+}

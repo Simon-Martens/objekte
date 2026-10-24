@@ -1,0 +1,45 @@
+{
+  "annotation": "11. Blatt der Suite »Die Durchlauchtigsten Marggrafen zu Brandenburg aus dem Hohenzollerischen Hause Von Friderich I. bis auf Sr. jetztregierenden Maj. König Friderichs. In 14 Kupfern vorgestellet von J. G. Wolfgang Königl. Hof-Kupferstecher in Berlin« INr 126433, Obj 36; s. Anm. dort /) s. Textbezug INr 126490, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126475,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friderich Wihelm, / Marggr. zu Brand. d. H. Röm. / Reichs-Erz. Cämmerer u. Churf.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Wolfgang",
+  "scans": [
+    "alm_777_126475_1zlfd2kp30.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friderich Wihelm, / Marggr. zu Brand. d. H. Röm. / Reichs-Erz. Cämmerer u. Churf.",
+  "updated": "2008-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1766,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.872Z",
+      "agent": "jtt8oz47bap7ejp",
+      "source_id": "lpd9syhjw07slqy"
+    }
+  ]
+}

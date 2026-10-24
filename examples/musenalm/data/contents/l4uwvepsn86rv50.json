@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Schloss Rödelheim« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110893, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110894,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marches Spinola",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichnung M. Retzsch Stahlstich v. Leop. Beyer in Wien",
+  "scans": [
+    "alm_3470_110894_8xwfvbqtnj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marches Spinola",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.438Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "7sanpa3ybbsmb7p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.438Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "qopl3ul7nlzjbi7"
+    }
+  ]
+}

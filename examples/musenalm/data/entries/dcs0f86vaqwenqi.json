@@ -1,0 +1,91 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 29 SS Kal darin 6 GG, gTab, 5 SS gT, ar: SS 1-134, ar1: SS 1-119, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1787",
+    "norm": "~",
+    "biblio": 105943,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 687,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / fürs Jahr / 1787. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.857Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "e1gnh5fq48mgvnf"
+  ],
+  "contents": [
+    "wzw32hhykoza9k2",
+    "d423d42ndbit1re",
+    "kinw4ybwq6482ec",
+    "f15xw75hen8v2bs",
+    "mlu6jd3lao8bbxw",
+    "3lros9hb1upkbic",
+    "ijqufpoxmxdsws0",
+    "4lwnx46zmfwzjoz",
+    "qxvlame8fcapvj1",
+    "kyx9uzi8fvbl0uq",
+    "2jious0jbhx2474",
+    "40k3vbqn1ewgkl9",
+    "ndb1ii9rulnn80x",
+    "m8ndxzcbp3hsajd",
+    "t95oob7m62ihxme",
+    "oac7phs4iposooc",
+    "vjunawgeo7ga0mg",
+    "ipjbl4i4i23uvr2",
+    "idk9twuphwyzk17",
+    "cwwwz7yhiyf3xqy",
+    "plh541dv03ewadk",
+    "6verznt2bz6r6la",
+    "rfhy3pdfb6hnxpv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.901Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.901Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "fulio0w6yf8h9rh"
+    }
+  ]
+}

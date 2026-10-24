@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Lina! wie's zu dir mich ziehet, / Mit der Sehnsucht süßen Qualen,",
+  "language": [],
+  "musenalm_id": 85442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wär' ich Dieses! Wär' ich Jenes!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Gräffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wär' ich Dieses! Wär' ich Jenes!",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.051Z",
+      "agent": "cjjmyv8q19tuj7i",
+      "source_id": "diq3fabdo6nohej"
+    }
+  ]
+}

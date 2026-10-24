@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64268, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwesterliebe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Hoffmeister dirxt.",
+  "scans": [
+    "alm_1065_64276_34vup3xjen.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schwesterliebe #",
+  "updated": "2009-05-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.214Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "4tfehpm5fc0bfys"
+    }
+  ]
+}

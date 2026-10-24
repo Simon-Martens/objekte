@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Weder die glücklichen äusseren Lebensverhältnisse, noch auch der höchste Adel der Seele schützen auf dieser Erde vor herbem Seelenleiden,",
+  "language": [],
+  "musenalm_id": 43588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adelheid von Burgund",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adelheid von Burgund",
+  "updated": "2006-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.368Z",
+      "agent": "e2rrjjwetvb2bmn",
+      "source_id": "vcg7whve90pxwu1"
+    }
+  ]
+}

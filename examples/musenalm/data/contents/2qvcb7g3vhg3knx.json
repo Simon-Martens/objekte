@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Fabelbilder, erfunden und entworfen von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54700, Obj 13) s. Graphik INr 54704, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Angekommen im heimischen Pfuhl, / waren Studenten ab hoher Schul.",
+  "language": [],
+  "musenalm_id": 54703,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Fröschenkampf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Fröschenkampf",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.783Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "jhk9t6e5jpzzzux"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelportrait INr 97825, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Unter den weisen und guten Fürsten der Vorzeit, über deren Charakter und Verdienste die unparteiische Nachwelt bereits entschieden hat, nimmt Philipp's des Großmüthigen erstgeborner Sohn, Landgraf Wilhelm IV.,",
+  "language": [],
+  "musenalm_id": 97831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm der Weise, / Landgraf von Hessen-Kassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm der Weise, / Landgraf von Hessen-Kassel",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.795Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "lvxvyhj7esyeg82"
+    }
+  ]
+}

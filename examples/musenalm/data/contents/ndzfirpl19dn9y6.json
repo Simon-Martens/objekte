@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollständige Bez. am 1. Blatt der Suite /) paginiert: pag. 118;  III. /) lllustration zu »Johann Fridrichs des Großmüthigen, des letzten Churfürsten zu Sachsen, Ernestische Linie, Niederlage und Gefangenschaft bei Mühlberg« von K. G. Cramer INr 79280, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glücklich ist der der im Schweisse / seines Angesichts sein Brod isst!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dornheim",
+  "scans": [
+    "alm_3767_79283_boie9frlca.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Glücklich ist der der im Schweisse / seines Angesichts sein Brod isst!",
+  "updated": "2012-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.972Z",
+      "agent": "praird5i9f22ccy",
+      "source_id": "ora3pzrccifrumo"
+    }
+  ]
+}

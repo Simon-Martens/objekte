@@ -1,0 +1,683 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1898",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.326Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil. h.c."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/127590-2",
+          "label": "Literarischer Sonntags-Verein (Tunnel über der Spree) zu Berlin"
+        }
+      ],
+      "dateOfBirth": [
+        "1819-12-30"
+      ],
+      "dateOfDeath": [
+        "1898-09-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Breitbach"
+          ],
+          "creditText": [
+            "zeno.org"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Theodor%20Fontane.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Theodor%20Fontane.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Theodor%20Fontane.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-11T13:19:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118534262/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116647701",
+          "label": "Fontane, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118692178",
+          "label": "Fontane, Martha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1221219863",
+          "label": "Koepper-Fontane, Grete"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1124492976",
+          "label": "Sommerfeldt, Carl Hermann Robert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116647884",
+          "label": "Fontane, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116291307X",
+          "label": "Sommerfeldt, Jenny Eveline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1049616626",
+          "label": "Fontane, George"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119295210",
+          "label": "Fontane, Emilie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116647558",
+          "label": "Fontane, Elise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1151642665",
+          "label": "Fontane, Emilie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1021091693",
+          "label": "Fontane, Louis Henri"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118534262",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118692178",
+          "label": "Fontane, Martha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116647701",
+          "label": "Fontane, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116647884",
+          "label": "Fontane, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1049616626",
+          "label": "Fontane, George"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1221219863",
+          "label": "Koepper-Fontane, Grete"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1021091693",
+          "label": "Fontane, Louis Henri"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1151642665",
+          "label": "Fontane, Emilie"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116291307X",
+          "label": "Sommerfeldt, Jenny Eveline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116647558",
+          "label": "Fontane, Elise"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/119295210",
+          "label": "Fontane, Emilie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118534262",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)134585836",
+        "(DE-588a)130927457",
+        "(DE-588c)4017811-0",
+        "(DE-588a)127538828",
+        "(DE-588a)127214429",
+        "(DE-588a)118534262",
+        "(DE-588a)130927449",
+        "(DE-101c)310275830"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4041908-3",
+          "label": "Neuruppin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Fontane, Theodor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Theodor"
+        ],
+        "surname": [
+          "Fontane"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123477-7",
+          "label": "Kabarettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185045-2",
+          "label": "Theaterkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4279444-4",
+          "label": "Kriegsberichterstatter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002475-1",
+          "label": "Apotheker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124076-5",
+          "label": "Romancier"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Lafontaine"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Grete Minde",
+        "Graf Petöfy",
+        "Wanderungen durch die Mark Brandenburg",
+        "Theodor Fontane's Gesammelte Romane und Novellen",
+        "Irrungen, Wirrungen",
+        "Schach von Wuthenow",
+        "Stine",
+        "Vor dem Sturm",
+        "L'Adultera",
+        "Ellernklipp",
+        "Cécile"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79018924"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41840061"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76632"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118534262/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118534262"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Theodor_Fontane"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Theodor_Fontane"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Theodor_Fontane"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Theodor_Fontane"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121296195"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118534262"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118534262"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118534262.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118534262.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118534262"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/48D04A5155ED431CA3E5A73DD24428FB"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Fūntāna, Tiʾūdūr",
+        "Fontane, Teodor",
+        "Fontane, Henri Théodore",
+        "Fontane, Heinrich Theodor",
+        "Fonṭaneh, Teʾodor",
+        "Lafontaine",
+        "フォンターネ, テーオドア",
+        "フォンターネ, テオドア",
+        "Fontanė, Teodoras",
+        "Fontāne, Tēodoa",
+        "Fontāne, Teodors",
+        "Fūntāna, Tīyūdūr",
+        "P̕ontane, T̕eodor",
+        "フォンターネ, テオドール",
+        "Fontane-Heyse",
+        "フォンターネ, テーオドル",
+        "Fengtana, Taiaoduoer",
+        "폰타네, 테오도르",
+        "Fontāne, Teodōru",
+        "Fontane, Theodore",
+        "폰타네, 테오도어",
+        "Fontane, Th.",
+        "פונטאנה, תיאודור"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Tēodoa"
+          ],
+          "surname": [
+            "Fontāne"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Theodor"
+          ],
+          "surname": [
+            "Fontane"
+          ]
+        },
+        {
+          "forename": [
+            "תיאודור"
+          ],
+          "surname": [
+            "פונטאנה"
+          ]
+        },
+        {
+          "forename": [
+            "Henri Théodore"
+          ],
+          "surname": [
+            "Fontane"
+          ]
+        },
+        {
+          "forename": [
+            "テオドール"
+          ],
+          "surname": [
+            "フォンターネ"
+          ]
+        },
+        {
+          "forename": [
+            "Teodōru"
+          ],
+          "surname": [
+            "Fontāne"
+          ]
+        },
+        {
+          "forename": [
+            "Tīyūdūr"
+          ],
+          "surname": [
+            "Fūntāna"
+          ]
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "surname": [
+            "Fontane"
+          ]
+        },
+        {
+          "forename": [
+            "Teodor"
+          ],
+          "surname": [
+            "Fontane"
+          ]
+        },
+        {
+          "forename": [
+            "Tiʾūdūr"
+          ],
+          "surname": [
+            "Fūntāna"
+          ]
+        },
+        {
+          "forename": [
+            "Teʾodor"
+          ],
+          "surname": [
+            "Fonṭaneh"
+          ]
+        },
+        {
+          "forename": [
+            "T̕eodor"
+          ],
+          "surname": [
+            "P̕ontane"
+          ]
+        },
+        {
+          "forename": [
+            "Theodore"
+          ],
+          "surname": [
+            "Fontane"
+          ]
+        },
+        {
+          "personalName": [
+            "Fontane-Heyse"
+          ]
+        },
+        {
+          "forename": [
+            "테오도어"
+          ],
+          "surname": [
+            "폰타네"
+          ]
+        },
+        {
+          "forename": [
+            "Teodors"
+          ],
+          "surname": [
+            "Fontāne"
+          ]
+        },
+        {
+          "forename": [
+            "テーオドア"
+          ],
+          "surname": [
+            "フォンターネ"
+          ]
+        },
+        {
+          "forename": [
+            "Taiaoduoer"
+          ],
+          "surname": [
+            "Fengtana"
+          ]
+        },
+        {
+          "forename": [
+            "테오도르"
+          ],
+          "surname": [
+            "폰타네"
+          ]
+        },
+        {
+          "forename": [
+            "テオドア"
+          ],
+          "surname": [
+            "フォンターネ"
+          ]
+        },
+        {
+          "forename": [
+            "Teodoras"
+          ],
+          "surname": [
+            "Fontanė"
+          ]
+        },
+        {
+          "forename": [
+            "テーオドル"
+          ],
+          "surname": [
+            "フォンターネ"
+          ]
+        },
+        {
+          "personalName": [
+            "Lafontaine"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Theodor_Fontane",
+          "label": "https://de.wikipedia.org/wiki/Theodor_Fontane"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:23:48Z",
+    "gnd_query_biographical_data": "1819-1898",
+    "gnd_query_name": "fontane, theodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 749,
+  "name": "Fontane, Theodor",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 130; ADB XLVIII, 617",
+  "updated": "2026-06-11 13:29:22.301Z",
+  "uri": "https://d-nb.info/gnd/118534262",
+  "editor": ""
+}

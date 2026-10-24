@@ -1,0 +1,45 @@
+{
+  "annotation": "Stunden des Friedens (Sammlung INr 80981, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Man liebt ein gutes Gedicht, / Den Dichter aber - nicht;",
+  "language": [],
+  "musenalm_id": 80990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Wohlthätige Ferne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Wohlthätige Ferne",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.910Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "wk43t75pdact5ew"
+    }
+  ]
+}

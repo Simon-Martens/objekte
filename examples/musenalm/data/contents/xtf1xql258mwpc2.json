@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Ein holdes Zauberreich ist rings umgeben / Von hohen Bergen, die es hütend steh'n,",
+  "language": [],
+  "musenalm_id": 100459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hohenschwangau. / (Bairisches Königsschloß.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hohenschwangau. / (Bairisches Königsschloß.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.982Z",
+      "agent": "wdljo1hy3zp7qgu",
+      "source_id": "p9ldwlkpw7nwt74"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Die Mutter ruft um Hülfe, / Die Kinder schrey'n um Brot, / Der Mann verwünscht die Ehe, / Und fluchet ihrer Noth;",
+  "language": [],
+  "musenalm_id": 90080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Todeslämmlein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Todeslämmlein",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.274Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "mxdcqhdloh1wrb9"
+    }
+  ]
+}

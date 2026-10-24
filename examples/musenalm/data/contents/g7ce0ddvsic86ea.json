@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "War ein Strom, ein ferner, kleiner, / Bleichen Licht's, doch still und klar,",
+  "language": [],
+  "musenalm_id": 98218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Komet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter v. Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Komet",
+  "updated": "2014-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.623Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "g2jfqdaf2yb3xdj"
+    }
+  ]
+}

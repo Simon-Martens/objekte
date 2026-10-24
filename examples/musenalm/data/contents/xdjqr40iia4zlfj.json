@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz. s. Textbezug INr 33378, Obj 21; /) Illustration zu »Wallenstein« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Scenen aus Schillers Wallenstein. 2. Der muß baumeln #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wächter",
+  "scans": [
+    "alm_463_33398_e10pcqzmr3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Scenen aus Schillers Wallenstein. 2. Der muß baumeln #",
+  "updated": "2003-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.354Z",
+      "agent": "jgp8dgth3q9useg",
+      "source_id": "y9qk8av2t5wvatf"
+    }
+  ]
+}

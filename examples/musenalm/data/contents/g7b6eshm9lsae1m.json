@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64151, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64155,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest im Süden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Colin pxt. J. H. Kernot sculpt.",
+  "scans": [
+    "alm_1060_64155_bna8zgswwz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest im Süden #",
+  "updated": "2009-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.319Z",
+      "agent": "273ux5kpgi3bs7e",
+      "source_id": "6i63gtpnopzroez"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.319Z",
+      "agent": "62c687wwfmhr6i3",
+      "source_id": "cw0qa9tdjo9wqse"
+    }
+  ]
+}

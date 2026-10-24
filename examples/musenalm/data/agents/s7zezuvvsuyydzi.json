@@ -1,0 +1,489 @@
+{
+  "annotation": "",
+  "biographical_data": "1752-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.347Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5332732-9",
+          "label": "G. J. Göschen'sche Verlagsbuchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/17239-X",
+          "label": "Allgemeine Buchhandlung der Gelehrten"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072907259",
+          "label": "Georg Joachim Göschen (Leipzig)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Verlagsbuchhändler; 1784 Eröffnung der Buchhandlung in Leipzig; 1793 der Druckerei in Grimma"
+      ],
+      "dateOfBirth": [
+        "1752-04-22"
+      ],
+      "dateOfDeath": [
+        "1828-04-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Samuel Gránicher"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/documents/obj/34803887"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Goeschen%20by%20Graenicher.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Goeschen%20by%20Graenicher.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Goeschen%20by%20Graenicher.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1073504824"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-18T10:47:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118695916/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11739355X",
+          "label": "Susemihl, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136044573",
+          "label": "Göschen, Hermann Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1154507491",
+          "label": "Göschen, Johanna Henriette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136044700",
+          "label": "Göschen, Wilhelm Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119487551",
+          "label": "Goschen, George Joachim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/107344788X",
+          "label": "Göschen, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117550116",
+          "label": "Goschen, William Edward"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118695916",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.16p",
+          "label": "Personen zu Technik (ohne Architektur, Bautechnik)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/136044573",
+          "label": "Göschen, Hermann Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/107344788X",
+          "label": "Göschen, Carl Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136044700",
+          "label": "Göschen, Wilhelm Heinrich"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/117550116",
+          "label": "Goschen, William Edward"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119487551",
+          "label": "Goschen, George Joachim"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1154507491",
+          "label": "Göschen, Johanna Henriette"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118695916",
+      "oldAuthorityNumber": [
+        "(DE-588)1073504824",
+        "(DE-588a)126353840",
+        "(DE-588a)118695916",
+        "(DE-588c)4093688-0"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011536-7",
+          "label": "Dessau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4022085-0",
+          "label": "Grimma"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008135-7",
+          "label": "Bremen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4022085-0",
+          "label": "Grimma"
+        }
+      ],
+      "preferredName": "Göschen, Georg Joachim",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Joachim"
+        ],
+        "surname": [
+          "Göschen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Johann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "The life and times of Georg Joachim Go(e)schen ..",
+        "Lorenz, Christian G.: Zur Erinnerung an Georg Joachim Göschen",
+        "Die Halbinsel Italien vom Po-Fluß bis zur Straße von Messina. - [vor 1830]",
+        "Das Land zwischen der Seine der Saone und dem Rhein. - [vor 1830]",
+        "Böttiger, Carl A.: Schriftsteller u. Buchhändler vor 100 Jahren",
+        "Reise von Johann",
+        "Das Land westlich der Pyrenaeen. - [vor 1830]",
+        "Das Land zwischen dem Rheine und Po. - [vor 1830]",
+        "Die Inseln westlich von Italien. - [vor 1830]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88668402"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95294338"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q97527"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1073504824"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118695916/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Joachim_G%C3%B6schen"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Joachim_G%C3%B6schen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080556922"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118695916"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118695916"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118695916.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118695916.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118695916"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118695916"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Göschen, G. J.",
+        "Johann",
+        "Göschen, George Joachim",
+        "Goeschen, G. J.",
+        "Goschen, George Joachim",
+        "Goschen, Georg Joachim",
+        "Goeschen, Georg Joachim",
+        "Göschen, Georg",
+        "Göschen, Georg Jürgen Joachim"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Georg Jürgen Joachim"
+          ],
+          "surname": [
+            "Göschen"
+          ]
+        },
+        {
+          "forename": [
+            "G. J."
+          ],
+          "surname": [
+            "Göschen"
+          ]
+        },
+        {
+          "forename": [
+            "George Joachim"
+          ],
+          "surname": [
+            "Göschen"
+          ]
+        },
+        {
+          "forename": [
+            "George Joachim"
+          ],
+          "surname": [
+            "Goschen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg"
+          ],
+          "surname": [
+            "Göschen"
+          ]
+        },
+        {
+          "forename": [
+            "G. J."
+          ],
+          "surname": [
+            "Goeschen"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Joachim"
+          ],
+          "surname": [
+            "Goschen"
+          ]
+        },
+        {
+          "personalName": [
+            "Johann"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Joachim"
+          ],
+          "surname": [
+            "Goeschen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Joachim_G%C3%B6schen",
+          "label": "https://de.wikipedia.org/wiki/Georg_Joachim_G%C3%B6schen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:32:45Z",
+    "gnd_query_biographical_data": "1752-1828",
+    "gnd_query_name": "göschen, georg joachim"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 931,
+  "name": "Göschen, Georg Joachim",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed V, 498",
+  "updated": "2026-06-11 13:29:22.579Z",
+  "uri": "https://d-nb.info/gnd/118695916",
+  "editor": ""
+}

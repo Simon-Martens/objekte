@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 106403, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Zwei mächtige Magier, Jüngling und Mann, / Siedelten in einem Wald' sich an;",
+  "language": [],
+  "musenalm_id": 106452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Magier. / Romantische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. J. Ritter von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Magier. / Romantische Erzählung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.997Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "u87qiiacsclmqq6"
+    }
+  ]
+}

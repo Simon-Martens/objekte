@@ -1,0 +1,94 @@
+{
+  "annotation": "s.a Titelauflage: Taschenbuch für Frauenzimmer edlerer Bildung Mit Kupfern. Leipzig, in der Sommerschen Buchhandlung (Alm-2796 /) Bei Sommer erschien 1801 außerdem: Panorama. Ein Taschenbuch auf das erste Jahr des neunzehnten Jahrhunderts. Von Friedrich Schlenkert. Mit Kupfern. Leipzig, in der Sommerschen Buchhandlung. 1801 (Alm-953); die dem einzigen Beitrag &nbsp;»Die Thäler von Hohenbergen oder die Menschen wie sie sind, nach dem Leben gezeichnet. Erster Theil« von Fr. Schlenkert beigegebenen 4 Illustrationen sind hier ebenfalls beigegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-IV Vrwrt d Hrsg, 6 GG, B G-Verz, ar: SS 1-292, ar1: SS 1-16 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neuestes für Frauenzimmer edlerer Bildung 1801",
+    "norm": "~",
+    "biblio": 101358,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-07-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1103,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Sommer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Neuestes für Frauenzimmer edlerer Bildung 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 139; nicht bei L/R; Goed VII. 57, 37",
+  "responsibility_statement": "Eulalia Gutwil",
+  "subtitle_statement": "",
+  "title_statement": "Neuestes / Taschenbuch / für / Frauenzimmer / edlerer Bildung. / Von / Eulalia Gutwill. / Erster Jahrgang. / Mit Kupfern. / Leipzig, / in der Sommerschen Buchhandlung. / 1801",
+  "updated": "2026-06-11 10:18:55.381Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "0vefadpbf7bfycy"
+  ],
+  "contents": [
+    "1csx8csb1tqyf0b",
+    "ov6r6r15znhwx5o",
+    "jbusw15189p5lj4",
+    "a7m4q2tpamsfqvc",
+    "5g65u57ehzsszto",
+    "gioz8ooixu9ix02",
+    "v8gfd9jqzlml1y3",
+    "s9ujcbcjjts2tst",
+    "n31hc469qk2ii78",
+    "e2vysoxngo44iyh",
+    "rfeoxnoqmtk1wkp",
+    "w57cl15plit4jgu",
+    "8hjwktgntt2frn1",
+    "jyrnxaqtkb8hfbk",
+    "vkliepmbrwvq328",
+    "rqd8ruy1k9d0j07",
+    "u4s73nyqjrzcpl0",
+    "oqkssyvf4zncyql",
+    "90zlfo77kt7zdqf",
+    "wsxh35me2rfepd3",
+    "bh1e184k5d6ddz9",
+    "e1jf27mw3kxj1sq",
+    "uoes6ckclmw1a55",
+    "wpeglngxypl9iwm",
+    "tyntwtkodq4v8ik",
+    "ujl0ddw1t4wcl1t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "6rmzsvbwuijenn9",
+      "source_id": "fc2q895voevm55t"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43429, Obj 26) mit 2 Illustrationen s. Graphiken INr 43416, 43417; 13, 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Auf einer kleinen Insel des Rheinstromes, saß in eben heraufgestiegener Mondnacht ein deutscher Jüngling, edlen Geschlechts, voll tiefer Gedanken.",
+  "language": [],
+  "musenalm_id": 43430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Valeria / und die zwei Brüder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Valeria / und die zwei Brüder",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.225Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "omhgut4c272go8y"
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "annotation": "",
+  "biographical_data": "1723-1799",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.422Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1723-07-11"
+      ],
+      "dateOfDeath": [
+        "1799-12-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Alexander Roslin"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Fran%C3%A7ois%20Marmontel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jean-Fran%C3%A7ois%20Marmontel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jean-Fran%C3%A7ois%20Marmontel.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/182244237",
+        "https://d-nb.info/gnd/186213298",
+        "https://d-nb.info/gnd/187588694"
+      ],
+      "describedBy": {
+        "dateModified": "2026-04-10T15:51:36.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118578073/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118578073",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118578073",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)186213298",
+        "(DE-588a)118578073",
+        "(DE-588c)4037669-2",
+        "(DE-588a)187588694",
+        "(DE-588)187588694",
+        "(DE-588)182244237",
+        "(DE-588a)15789469X",
+        "(DE-101c)310913195",
+        "(DE-588a)135223199",
+        "(DE-588)186213298",
+        "(DE-588a)182244237"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4209473-2",
+          "label": "Bort-les-Orgues"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Saint-Aubin-sur-Gaillon"
+      ],
+      "preferredName": "Marmontel, Jean-François",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jean-François"
+        ],
+        "surname": [
+          "Marmontel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Contes moraux et pièces choisies",
+        "Belisaire",
+        "Les Déjeunés du village",
+        "Censure de la faculté de Théologie de Paris contre le livre qui a p*",
+        "Velizer",
+        "Pieces relatives à Bélisaire",
+        "Velizarïi",
+        "Poetique francoise",
+        "Oeuvres complètes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50040754"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7393886"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q379923"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118578073/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182244237"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186213298"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187588694"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Jean-Fran%C3%A7ois_Marmontel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jean-Fran%C3%A7ois_Marmontel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jean-Fran%C3%A7ois_Marmontel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121192513"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118578073"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118578073"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118578073"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118578073"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Montmartel, Jean-François",
+        "Marmontel, Jean-François du",
+        "Du Marmontel, Jean-François",
+        "Marmontel, Jean François",
+        "Marontel, Jean-François",
+        "Marmontel, Johann Franz",
+        "Marmontel",
+        "Marmontell, Jean-François",
+        "Marmontel, G.",
+        "M***",
+        "Marmontel, Monsieur",
+        "Marmontel, JeanFrançois de",
+        "Marmontel, M."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jean-François"
+          ],
+          "surname": [
+            "Marmontell"
+          ]
+        },
+        {
+          "personalName": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Franz"
+          ],
+          "surname": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "JeanFrançois"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Marmontel"
+          ]
+        },
+        {
+          "nameAddition": [
+            "M."
+          ],
+          "personalName": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-François"
+          ],
+          "surname": [
+            "Du Marmontel"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Monsieur"
+          ],
+          "personalName": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-François"
+          ],
+          "surname": [
+            "Marontel"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean François"
+          ],
+          "surname": [
+            "Marmontel"
+          ]
+        },
+        {
+          "personalName": [
+            "M***"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-François"
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Marmontel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-François"
+          ],
+          "surname": [
+            "Montmartel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jean-Fran%C3%A7ois_Marmontel",
+          "label": "https://de.wikipedia.org/wiki/Jean-Fran%C3%A7ois_Marmontel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:12:12Z",
+    "gnd_query_biographical_data": "1723-1799",
+    "gnd_query_name": "marmontel, jean francois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1726,
+  "name": "Marmontel, Jean Francois",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 320",
+  "updated": "2026-06-11 13:29:23.723Z",
+  "uri": "https://d-nb.info/gnd/118578073",
+  "editor": ""
+}

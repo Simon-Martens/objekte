@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 117183, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117184,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Russ Leander del. 1850 K. Frombeck sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Russ Leander del. 1850 K. Frombeck sc.",
+  "scans": [
+    "alm_3224_117184_7railshgsw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.358Z",
+      "agent": "lxermqe8s0e7u3t",
+      "source_id": "4mygxqxie3bqgax"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.358Z",
+      "agent": "zfp106phbb7kc52",
+      "source_id": "qu1wmz3utpyllht"
+    }
+  ]
+}

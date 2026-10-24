@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 115862, Obj 108)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Du machst dir mit dem Lorber viel zu thun', / O, möchtest du schon auf den Lorbern - ruh'n!",
+  "language": [],
+  "musenalm_id": 115865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lorbersammler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Lorbersammler",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.593Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "v819hmt3721e904"
+    }
+  ]
+}

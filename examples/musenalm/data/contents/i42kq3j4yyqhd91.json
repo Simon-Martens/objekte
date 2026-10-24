@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Muse, pflücke Lilien, / Pflücke junge Rosen, / Amorn und den Grazien",
+  "language": [],
+  "musenalm_id": 8881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Muse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werthes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Muse",
+  "updated": "2001-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.193Z",
+      "agent": "2dkhavramcy8bv0",
+      "source_id": "4veg51y6qqdffpe"
+    }
+  ]
+}

@@ -1,0 +1,466 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1882",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.472Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1805-09-02"
+      ],
+      "dateOfDeath": [
+        "1882-05-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Shakespeare Album"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Scholl.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Adolf%20Scholl.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Adolf%20Scholl.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-09T05:43:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116857374/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116857455",
+          "label": "Schöll, Luise"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116857374",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.1p",
+          "label": "Personen zu Literaturwissenschaft (Literaturwissenschaftler)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116857455",
+          "label": "Schöll, Luise"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116857374",
+      "oldAuthorityNumber": [
+        "(DE-588c)7626889-5",
+        "(DE-588a)116857374"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061529-7",
+          "label": "Ulm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "preferredName": "Schöll, Adolf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adolf"
+        ],
+        "surname": [
+          "Schöll"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4258832-7",
+          "label": "Altertumswissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398836-2",
+          "label": "Museumsdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Goethe-Forscher"
+      ],
+      "publication": [
+        "Schöll, Adolf: Weimars Merkwürdigkeiten einst und Jetzt",
+        "Schöll, Adolf: Weimar's Merkwürdigkeiten einst und jetzt",
+        "Schöll, Adolf: Gedichte aus den Jahren 1823-1839",
+        "Schöll, Adolf: Gründlicher Unterricht über die Tetralogie des attischen Theaters und die *",
+        "Schöll, Adolf: Beiträge zur Geschichte der griechischen Poesie",
+        "Schöll, Adolf: Reden bei Enthüllung der Dichter-Denkmäler in Weimar am 4. Sept. 1857",
+        "Schöll, Rudolf: De synegoris Atticis commentatio",
+        "Schöll, Adolf: De origine Graeci dramatis dissertatio",
+        "Schöll, Adolf: De origine graeci dramatis dissertatio",
+        "Schöll, Adolf: Carl-August-Büchlein"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Gustav Adolf"
+          ],
+          "surname": [
+            "Schöll"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no00044055"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "https://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr99035460"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/30298343"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q85303"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116857374/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adolf_Sch%C3%B6ll"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adolf_Sch%C3%B6ll"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108140962"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116857374"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116857374"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schoell_Adolf_1805_1882.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116857374.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116857374"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schöll, Adolf",
+        "Schöll, Gustav Adolf",
+        "Schöll, Adolph",
+        "Schöll, Gustav Adolph",
+        "Schöllius, Adolfus",
+        "Schoell, Gustav Adolph",
+        "Schöll, Gustavus A.",
+        "Schoell, Gustav A.",
+        "Schöll, Gustavus Adolphus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gustavus Adolphus"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Adolph"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Adolf"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Adolf"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Adolph"
+          ],
+          "surname": [
+            "Schoell"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav A."
+          ],
+          "surname": [
+            "Schoell"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Adolf"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Adolfus"
+          ],
+          "surname": [
+            "Schöllius"
+          ]
+        },
+        {
+          "forename": [
+            "Gustavus A."
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Schöll"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adolf_Sch%C3%B6ll",
+          "label": "https://de.wikipedia.org/wiki/Adolf_Sch%C3%B6ll"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:51:36Z",
+    "gnd_query_biographical_data": "1805-1882",
+    "gnd_query_name": "schöll, gustav adolf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2519,
+  "name": "Schöll, Gustav Adolf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 218",
+  "updated": "2026-06-11 13:29:24.770Z",
+  "uri": "https://d-nb.info/gnd/116857374",
+  "editor": ""
+}

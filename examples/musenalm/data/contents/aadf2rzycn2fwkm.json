@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das verlorne Kind« von L. Brachmann INr 29570, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29571,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Das verlorne Kind. / Von Louise Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury sculp",
+  "scans": [
+    "alm_382_29571_ufczd0e5m8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Das verlorne Kind. / Von Louise Brachmann",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.383Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "gn4ck14xsz62yk4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.383Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "wy3kchqiq4bv1lo"
+    }
+  ]
+}

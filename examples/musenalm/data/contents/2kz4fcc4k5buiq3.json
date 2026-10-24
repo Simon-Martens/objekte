@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Rom (Sammlung INr 37084, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Du jagst den Schlummer mir vom Auge / Daß nimmer ihm der Nerv' erschlafft;",
+  "language": [],
+  "musenalm_id": 37088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du jagst den Schlummer mir vom Auge / Daß nimmer ihm der Nerv' erschlafft;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.842Z",
+      "agent": "sv92qni765t0f64",
+      "source_id": "m5i86yqt3fv3uti"
+    }
+  ]
+}

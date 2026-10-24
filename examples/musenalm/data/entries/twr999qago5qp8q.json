@@ -1,0 +1,95 @@
+{
+  "annotation": "Auch als: Berliner Taschenbuch für 1848. Zweiundzwanzigster Jahrgang. Mit sieben Stahlstichen. Berlin, Verlag von Karl Reimarus. (Gropius'sche Buch- und Kunsthandlung.) Königliche Bauschule",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz,12 BB Kal, ar: SS 1-20 darin 6 GG, ar1: SS 1-216, ar2: SS 1-72",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1848",
+    "norm": "~ +++ 200799 (Titel)",
+    "biblio": 200861,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 883,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimarus)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Kalender / für / 1848. / Zweiundzwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / (Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+  "updated": "2026-06-11 10:18:55.756Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "eb693bixuqhq04b",
+    "ep385p7adksrr8c"
+  ],
+  "contents": [
+    "f6pp5ogq2xmcioo",
+    "z5l1butyb77c9pj",
+    "3sqf7hizhvbdmce",
+    "yir07y0upx7z3s6",
+    "4q7rs7ubk1xhrfw",
+    "1gewqqvb46mpgdr",
+    "a55w6uh6t5n988v",
+    "cgn4fkdqejhxodz",
+    "zebo36xjgjptwry",
+    "fuq15m55brt794k",
+    "2ucp6mxftpibtr4",
+    "q7t6hmvs2ep8qd0",
+    "7onnt6e46iqrl9z",
+    "zu9y4hmsjeqi4a0",
+    "zu5d6nm52suo38z",
+    "i1w6tuh2lvwkxfp",
+    "rlwr272kwyrxa4v",
+    "r87i2dhlwym4vxz",
+    "gbmt41tzz0ln9l6",
+    "w5a5klzd4ahzscb",
+    "fku4kh3xqrbt93j",
+    "3v2eooui2fot7cl",
+    "3hdgmnmorloxj1m",
+    "yeayjsxsldd2gd5",
+    "r3wuk3753fyexxr",
+    "9lr71mnpscvzmkd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "1b5noioln9ih9oy",
+      "source_id": "i07jcn772leegh2"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An die Nachtigall« von Fr. Schmitt. INr 750, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiß",
+  "scans": [
+    "alm_60_784_e1mzrvw4b1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An die Nachtigall",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.847Z",
+      "agent": "x1lckegivk1oedd",
+      "source_id": "uvsmwvpdgyjoy94"
+    }
+  ]
+}

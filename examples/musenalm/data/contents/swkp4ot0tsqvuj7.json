@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Viel, was ins Menschenherz ist eingegraben / Steht fester, denn in Erz und Stein geschrieben -",
+  "language": [],
+  "musenalm_id": 114010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erhebung / II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erhebung / II.",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.551Z",
+      "agent": "w54qzevkgviemdi",
+      "source_id": "o1obobb4a8ie5wc"
+    }
+  ]
+}

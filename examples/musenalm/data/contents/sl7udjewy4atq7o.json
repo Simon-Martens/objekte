@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 23547, Obj 72) Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Schäum brausend auf! Wir haben lang gedürstet, / Du Goldpokal, nach einem jungen Wein!",
+  "language": [],
+  "musenalm_id": 23552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Herwegh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Herwegh",
+  "updated": "2002-05-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.181Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "bv4qygf7yl3oso1"
+    }
+  ]
+}

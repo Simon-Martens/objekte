@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Nie war ich Liebling in dem Hause, / Nie lächelte die Mutter mir / Mit jener Huld, die meiner Schwester, / Der schönen, ward zu Theil von ihr.",
+  "language": [],
+  "musenalm_id": 133594,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das vernachlässigte Kind. / Nach dem englische des Bayly",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das vernachlässigte Kind. / Nach dem englische des Bayly",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.112Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "cqtpp1y5rof4q1x"
+    }
+  ]
+}

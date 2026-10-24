@@ -1,0 +1,45 @@
+{
+  "annotation": "/ mit einer Illustration s. Graphik INr 63907, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Der schönste Augustabend dämmerte leise heran; er glich, in erhöheter Färbung, einem zweiten, doch milderen Tage, als der verglühete gewesen.",
+  "language": [],
+  "musenalm_id": 63914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die griechische Mutter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lina Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die griechische Mutter",
+  "updated": "2009-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.023Z",
+      "agent": "mkz3b0l4gdht2nh",
+      "source_id": "erdp9ogmvlc7pn8"
+    }
+  ]
+}

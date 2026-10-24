@@ -1,0 +1,785 @@
+{
+  "annotation": "",
+  "biographical_data": "1751-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.504Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024349-2",
+          "label": "Universität Heidelberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10159669-8",
+          "label": "Göttinger Hain"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter u. bedeutender Übers. der Epen Homers (Ilias u. Odyssee) sowie der griechischen und römischen Klassiker"
+      ],
+      "correspondent": [
+        {
+          "id": "https://d-nb.info/gnd/103145931",
+          "label": "Brückner, Ernst Theodor Johann"
+        }
+      ],
+      "dateOfBirth": [
+        "1751-02-20"
+      ],
+      "dateOfDeath": [
+        "1826-03-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Georg Friedrich Adolph Schöner"
+          ],
+          "creditText": [
+            "Das Jahrhundert der Freundschaft. Johann Wilhelm Ludwig Gleim und seine Zeitgenossen, ed. Ute Pott (Göttingen: Wallstein, 2004), p. 104. (James Steakley)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Heinrich%20Voss%20%28Sch%C3%B6ner%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Heinrich%20Voss%20%28Sch%C3%B6ner%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Heinrich%20Voss%20%28Sch%C3%B6ner%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/159221676",
+        "https://d-nb.info/gnd/1015114180"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-25T18:12:57.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118627910/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117495093",
+          "label": "Voß, Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117495360",
+          "label": "Voß, Dorothea Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100689590",
+          "label": "Voß, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11623346X",
+          "label": "Voß, Ernestine"
+        },
+        {
+          "forename": [
+            "Katharina Dorothea"
+          ],
+          "surname": [
+            "Karsten"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117450537",
+          "label": "Voss, Johann Heinrich, der Ältere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117450995",
+          "label": "Voß, Wilhelm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117450421",
+          "label": "Voß, Hans"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118627910",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117495093",
+          "label": "Voß, Abraham"
+        },
+        {
+          "id": "https://d-nb.info/gnd/100689590",
+          "label": "Voß, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117450421",
+          "label": "Voß, Hans"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117450995",
+          "label": "Voß, Wilhelm"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117450537",
+          "label": "Voss, Johann Heinrich, der Ältere"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117495360",
+          "label": "Voß, Dorothea Elisabeth"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/11623346X",
+          "label": "Voß, Ernestine"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118627910",
+      "oldAuthorityNumber": [
+        "(DE-588a)127783482",
+        "(DE-588a)135395100",
+        "(DE-588)1015114180",
+        "(DE-588a)1015114180",
+        "(DE-588a)130983357",
+        "(DE-588a)126434298",
+        "(DE-588)159221676",
+        "(DE-588a)1014915600",
+        "(DE-588c)4064049-8",
+        "(DE-101c)311085105",
+        "(DE-588a)118627910",
+        "(DE-588a)159221676"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4041712-8",
+          "label": "Neubrandenburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4431513-2",
+          "label": "Penzlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4226950-7",
+          "label": "Ankershagen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044167-2",
+          "label": "Otterndorf"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Sommerstorf <Grabowhöfe>"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        }
+      ],
+      "preferredName": "Voß, Johann Heinrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Heinrich"
+        ],
+        "surname": [
+          "Voß"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165775-5",
+          "label": "Kritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199252-0",
+          "label": "Rektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Balthasar Caspar"
+          ],
+          "surname": [
+            "Ahorn"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Zeitmessung der deutschen Sprache",
+        "Briefe",
+        "Antisymbolik",
+        "Sämmtliche Gedichte",
+        "Anmerkungen und Randglossen zu Griechen und Römern",
+        "Kritische Blätter",
+        "Über Gleim's Briefsammlung und lezten Willen",
+        "Beurtheilung des neuen Lehrplans für die kurpfalzbairischen Mittelschulen",
+        "Luise",
+        "Mythologische Briefe"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb124498846"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50024505"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/61642982"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62188"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015114180"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118627910/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159221676"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Heinrich_Voss"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_Vo%C3%9F"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Heinrich_Vo%C3%9F"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Heinrich_Voss"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011027947X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118627910"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1772_voss"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1788_voss"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118627910"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118627910.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118627910"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118627910"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Voß",
+        "Voß, Johann H.",
+        "Voss, J.H.",
+        "Ahorn, Balthasar Kaspar",
+        "Voß, Joh. Henr.",
+        "Voss, Iohann Heinrich",
+        "Ahorn, Balthasar K.",
+        "Vossius, Johannes Henricus",
+        "Vôs, Yôhan Haynrîÿök",
+        "Voss, Johann H.",
+        "Voss, J. H.",
+        "Vossius, Johann Heinrich",
+        "Voss, Iohann H.",
+        "Voss, Johann Heinrich",
+        "Voß, Johannes Heinrich",
+        "Vossius, Johannes H.",
+        "Vossius, Johann H.",
+        "Voss",
+        "Voß, J. H.",
+        "Voß, Joh. H.",
+        "Voß, Johann Hinrich",
+        "Ahorn, Balthasar Caspar",
+        "Vossius, Joannes Henricus",
+        "Voß, J.H.",
+        "Voss, Joh. Henr.",
+        "Foss, Ivan Genrich",
+        "Voß, Joh. Heinrich",
+        "V., Johann Heinrich",
+        "Voss, Joh. Heinr.",
+        "Voss, Johann Hinrich",
+        "Voss, Johannes Heinrich",
+        "Voss, Johann Heinrich, der Jüngere"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Iohann Heinrich"
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "personalName": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich"
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Henr."
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Heinrich"
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Balthasar Caspar"
+          ],
+          "surname": [
+            "Ahorn"
+          ]
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann H."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "V."
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Henr."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes H."
+          ],
+          "surname": [
+            "Vossius"
+          ]
+        },
+        {
+          "forename": [
+            "J.H."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Heinr."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Vossius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Heinrich"
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Balthasar Kaspar"
+          ],
+          "surname": [
+            "Ahorn"
+          ]
+        },
+        {
+          "personalName": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Henricus"
+          ],
+          "surname": [
+            "Vossius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann H."
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Henricus"
+          ],
+          "surname": [
+            "Vossius"
+          ]
+        },
+        {
+          "forename": [
+            "Yôhan Haynrîÿök"
+          ],
+          "surname": [
+            "Vôs"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "J.H."
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Hinrich"
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Heinrich"
+          ],
+          "surname": [
+            "Vossius"
+          ]
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Ivan Genrich"
+          ],
+          "surname": [
+            "Foss"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. H."
+          ],
+          "surname": [
+            "Voß"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Hinrich"
+          ],
+          "surname": [
+            "Voss"
+          ]
+        },
+        {
+          "forename": [
+            "Balthasar K."
+          ],
+          "surname": [
+            "Ahorn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Heinrich_Vo%C3%9F",
+          "label": "https://de.wikipedia.org/wiki/Johann_Heinrich_Vo%C3%9F"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:16:18Z",
+    "gnd_query_biographical_data": "1751-1826",
+    "gnd_query_name": "voß, johann heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3019,
+  "name": "Voß, Johann Heinrich",
+  "profession": "Text",
+  "pseudonyms": "[Balthasar Kaspar] Ahorn; Der Barde Hölegast",
+  "refs": "Goed IV/1, 1056; ADB XL, 334; E 370",
+  "updated": "2026-06-11 13:29:25.586Z",
+  "uri": "https://d-nb.info/gnd/118627910",
+  "editor": ""
+}

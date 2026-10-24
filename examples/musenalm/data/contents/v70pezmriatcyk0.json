@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Gevatter, höret! Hier steht im Zeitungsblatt, / Daß in Amerika, wo England Händel hat, / Ein Völklein Quaker sey.",
+  "language": [],
+  "musenalm_id": 5122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Quaker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Quaker",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.139Z",
+      "agent": "ssz57bubxm06v2p",
+      "source_id": "qlcteske7olwnpm"
+    }
+  ]
+}

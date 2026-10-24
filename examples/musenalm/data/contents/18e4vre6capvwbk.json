@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "In den Neunziger-Jahren des fünfzehnten Jahrhundertes saß in Gedanken versunken zu Nürnberg der ehrsame Bildhauer und Baumeister Adam Kraft vor dem Modell einer Marienstatue,",
+  "language": [],
+  "musenalm_id": 117566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Steinguß. / Künstler-Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Steinguß. / Künstler-Novelle",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.476Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "xst0g9sqtrahugz"
+    }
+  ]
+}

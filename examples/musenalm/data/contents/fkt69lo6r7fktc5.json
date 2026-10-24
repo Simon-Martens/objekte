@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80856, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80857,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Landseer pt. C. Kotterba sc.",
+  "scans": [
+    "alm_1801_80857_eczts5lxd1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.000Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "6tb9k4qkd3c7dm9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.000Z",
+      "agent": "9b2uxqkf8x5d4i0",
+      "source_id": "j4iyjzy0d3h8vk7"
+    }
+  ]
+}

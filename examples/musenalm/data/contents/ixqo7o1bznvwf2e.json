@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Was bringt die Zeit? / Dir bald dein Grab. / Der Menschheit ihren / Spiegel,",
+  "language": [],
+  "musenalm_id": 36012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orakel. / 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lohbauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Orakel. / 1801",
+  "updated": "2003-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.969Z",
+      "agent": "69k49eskiwmqj57",
+      "source_id": "g0crqln3pxslfxe"
+    }
+  ]
+}

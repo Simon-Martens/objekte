@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Fräulein Antonette von Gaugreben war Stiftsdame des adlichen Stiftes zu S. Marien in Kölln, [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Schwestern! Eur Auge hüllt sich in Nacht, / Und mit Thränen der Sehnsucht / Klagt ihr's dem Himmel",
+  "language": [],
+  "musenalm_id": 83034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Antonettens Todesfeyer. / An die Priesterinnen des Kapi- / tols in Kölln. 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Walraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Antonettens Todesfeyer. / An die Priesterinnen des Kapi- / tols in Kölln. 1794",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.061Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "3vf1hyt7orswmy0"
+    }
+  ]
+}

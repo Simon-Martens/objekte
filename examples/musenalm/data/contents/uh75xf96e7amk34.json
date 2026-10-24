@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "In dieser Zeit vor einem Jahr, / Da stand am Uferrand / Ein stillbeglücktes Weidenpaar,",
+  "language": [],
+  "musenalm_id": 86723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die zwei Weiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vincenz Zusner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die zwei Weiden",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.036Z",
+      "agent": "bl67sc1w31pzw0u",
+      "source_id": "3l1ef99mgffvkr0"
+    }
+  ]
+}

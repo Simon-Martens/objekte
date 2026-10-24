@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Preciosa« von K. M. v. Weber / P. A. Wolff; s. Textbezug INr 75328, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75329,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PRECIOSA. / II. Aufz. 4. Sc. / Wiarda. Ueberlegt's Euch! Tausend Scudi, / Wollt Ihr nicht mein Vetter heißen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. J. Axmann sc. 1827",
+  "scans": [
+    "alm_2371_75329_fabe1c2q8x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PRECIOSA. / II. Aufz. 4. Sc. / Wiarda. Ueberlegt's Euch! Tausend Scudi, / Wollt Ihr nicht mein Vetter heißen!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ecamwv6zzbgomka"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "u0rbggd5vkcv29g"
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "annotation": "",
+  "biographical_data": "1784-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.515Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Malerin"
+      ],
+      "dateOfBirth": [
+        "1779-12-20"
+      ],
+      "dateOfDeath": [
+        "1867-03-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Therese aus dem Winckel"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Therese%20aus%20dem%20Winckel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Therese%20aus%20dem%20Winckel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Therese%20aus%20dem%20Winckel.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1243901152"
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-05T12:02:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117399620/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1385791136",
+          "label": "Winckel, Amalie aus dem"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117399620",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1385791136",
+          "label": "Winckel, Amalie aus dem"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117399620",
+      "oldAuthorityNumber": [
+        "(DE-588a)117399620",
+        "(DE-588a)104182989",
+        "(DE-588c)4666317-4",
+        "(DE-588)1243901152"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4318205-7",
+          "label": "Landkreis Weißenfels"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Winckel, Therese aus dem",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Therese"
+        ],
+        "prefix": [
+          "aus dem"
+        ],
+        "surname": [
+          "Winckel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4712027-7",
+          "label": "Harfenistin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4170818-0",
+          "label": "Musikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037223-6",
+          "label": "Malerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Theorosa"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Comala"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr2005002052"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/76269653"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1689811"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117399620/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1243901152"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Therese_aus_dem_Winckel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000051969496"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117399620"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1822_winkel"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117399620"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117399620.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117399620"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Winkel, Emilie Henriette aus dem",
+        "Winkel, Therese E. aus dem",
+        "Winkel, Therese von",
+        "Theorosa",
+        "Winckel, Therese E. von",
+        "Winkel, Therese aus dem",
+        "Winckel, Therese Emilie Henriette aus dem",
+        "Comala",
+        "Winckel, Therese Emilie Henriette von",
+        "Winkel, Therese Emilie Henriette aus dem"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Therese E."
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese E. von"
+          ],
+          "surname": [
+            "Winckel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Emilie Henriette von"
+          ],
+          "surname": [
+            "Winckel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "personalName": [
+            "Theorosa"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Emilie Henriette"
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Emilie Henriette"
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winckel"
+          ]
+        },
+        {
+          "forename": [
+            "Emilie Henriette"
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese Emilie Henriette"
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "prefix": [
+            "aus dem"
+          ],
+          "surname": [
+            "Winkel"
+          ]
+        },
+        {
+          "personalName": [
+            "Comala"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Therese_aus_dem_Winckel",
+          "label": "https://de.wikipedia.org/wiki/Therese_aus_dem_Winckel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:23:12Z",
+    "gnd_query_biographical_data": "1784-1867",
+    "gnd_query_name": "winkel, therese aus dem"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3157,
+  "name": "Winkel, Therese aus dem",
+  "profession": "Text",
+  "pseudonyms": "Comala; Theorosa",
+  "refs": "E 386",
+  "updated": "2026-06-11 13:29:25.789Z",
+  "uri": "https://d-nb.info/gnd/117399620",
+  "editor": ""
+}

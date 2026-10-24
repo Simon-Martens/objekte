@@ -1,0 +1,89 @@
+{
+  "annotation": "Titelauflage von: Abentheuerliche Wanderung von Weimar nach Carlsbad. Taschenbuch aufs Jahr 1810 mit Kupfern von St. Schütze [...] /) Goed IX 320, 8 verweist zum Erscheinen dieser 2. Ausgabe auf verschiedene Angaben: 1810, 1812, 1817 und eine TA 1825",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, S 1 nT, SS 3-183 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Abentheuerliche Wanderung von Weimar nach Carlsbad von St. Schütze [oJ]",
+    "norm": "~",
+    "biblio": 410505,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2020-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4689,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Abentheuerliche Wanderung von Weimar nach Carlsbad von St. Schütze [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed IX 320, 8",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad / von / St. Schütze / Zweite wohlfeilere Ausgabe / mit Kupfern. / Leipzig / bei Johann Friedrich Gleditsch",
+  "updated": "2026-06-11 10:18:55.489Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "flhp0jyxneg0c0k"
+  ],
+  "contents": [
+    "qoid3hx3vrkywtn",
+    "x5tc0p0x48clfnz",
+    "397i3hzepglotla",
+    "n2j0bwxfnxbbhx1",
+    "g1j84ygvhfcjyhb",
+    "jvd5eszfcyxuj7b",
+    "yfdpiyv88jn3shy",
+    "n98vmrusbffapyc",
+    "fxy42gokf3r7gpa",
+    "intvbv9u8bllqek"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.435Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.435Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "iftkc4bfrnoldlp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.407Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.407Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "wvvtfpm1r9a588t"
+    }
+  ]
+}

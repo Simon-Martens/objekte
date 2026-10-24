@@ -1,0 +1,82 @@
+{
+  "annotation": "varianter Umschlag s. Photos",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frauenzimmer-Almanach 1799 [var.]",
+    "norm": "~",
+    "biblio": 409661,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-09-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4595,
+  "parallel_title": "",
+  "place_statement": "Leipzig (A. Fr. Böhme)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Frauenzimmer-Almanach 1799 [var.]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 130; L/R 61; Goed VIII. 94, 187",
+  "responsibility_statement": "Franz Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / ALMANACH / zum / NUTZEN u. VERGNÜGEN. / für das Jahr / 1799. / Leipzig / bey A. F. Böhme",
+  "updated": "2026-06-11 10:18:54.652Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "2kfcsh5mv5il8v4"
+  ],
+  "contents": [
+    "zy78h3kbuw5n8qk",
+    "d04mv5qq4dttvba",
+    "v9ohyzxq47e08hz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.550Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.550Z",
+      "agent": "azooh24aw3k5jg4",
+      "source_id": "h1a6w28wu49mnmx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.391Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.391Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "out4e4yv46lzhzt"
+    }
+  ]
+}

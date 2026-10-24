@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Erhabenster, der du das All gestaltet, / Zu deiner Herrlichkeit Pallast",
+  "language": [],
+  "musenalm_id": 3423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode / der fünfzigjährigen Jubelfeier / der / Georgia Augusta / am 17. Septembr. 1787 / gewidmet / von / mehreren zu Göttingen Studierenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode / der fünfzigjährigen Jubelfeier / der / Georgia Augusta / am 17. Septembr. 1787 / gewidmet / von / mehreren zu Göttingen Studierenden",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.744Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "bws4ll1t1guumn6"
+    }
+  ]
+}

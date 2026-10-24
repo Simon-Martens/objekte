@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenleben. Sonetten-Cyklus von Johann N. Vogl als Erklärung der Kupferstiche (Sammlung INr 94994, Obj 5) s. Graphik INr 94898, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Jungfrau sieh' in Träumen ganz verloren, / Ein theures Bildniß haltend in der Hand,",
+  "language": [],
+  "musenalm_id": 94899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.671Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "7lez8i6rp6049io"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An die Rose« von B. d.i. H. C. Boie INr 4995, Obj 46; nach dem Reprint Hildesheim, New York (Olms)1979 autopsiert",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 46.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (del. E. C. Dressler)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "del. E. C. Dressler",
+  "scans": [
+    "alm_103_41204_2k2fu2il7o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.721Z",
+      "agent": "1anhey70qa9n5qm",
+      "source_id": "t0cbmcw6xlt59u5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollständige Bezeichnung am 2. Blatt der Suite /) kol. Graphik im Kalendarium Oktober; Illustration zu »Der gute Rath« INr 124379, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124361,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der gute Rath",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bergel del. Cl. Kohl sc.",
+  "scans": [
+    "alm_3284_124361_ns7viulblx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der gute Rath",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.809Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "0cema6vkbrgt0wr"
+    }
+  ]
+}

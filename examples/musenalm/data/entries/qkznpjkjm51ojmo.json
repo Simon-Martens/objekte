@@ -1,0 +1,105 @@
+{
+  "annotation": "# Bez. s. Nachwort des Herausgebers INr 72395/)  Im Nachwort Ankündigung der Veröffentlichung des siebten und letzten Teils der »Preußisch-Brandenburgischen Staatengeschichte« von Brunn als »Jahrbuch der Preußisch Brandenburgischen Staatengeschichte 1796«, da »der Debit der Calender anderweit verpachtet«. Die Teile 1-6 wurden im Historisch-Geneaologischen Kalender (Berlin) 1790-1795 gegegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 12 GG Kr, 4 GG, S 1 zT, SS 3-104, SS 105 G-Verz, 3 SS VrlGM, 72 BB, Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1795",
+    "norm": "~",
+    "biblio": 404126,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 830,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1795",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Siwicke",
+  "subtitle_statement": "",
+  "title_statement": "Historisch Genealogischer / Calender / auf das Jahr / 1795. / MIT GENEHMHALTUNG / der Königl. / Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.871Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "1ti6huyafu2ssv2"
+  ],
+  "contents": [
+    "q2pu7yuks8r46iy",
+    "8u8jdujrbzy66pg",
+    "s6ul09hkysgw07t",
+    "lp87hwojm1ykhyk",
+    "2k84dbub8r32tmh",
+    "sf4jiuceiwrycn9",
+    "6u551g4205274nv",
+    "3g6srva9l2samn0",
+    "wox23gi0avqoful",
+    "ad21z9xjgkoxrug",
+    "yg2lsubtbimzmo2",
+    "sckv2khhvhldcwl",
+    "72ilcw3yk8f5c5e",
+    "41nubaxwjgf5cc2",
+    "8z8s7oy0qzglpxt",
+    "8r5fbzxc4bjiift",
+    "0q4b5ehvbilj5s3",
+    "1q7nc0zjdana4in",
+    "wgr4nf0eyjdfndp",
+    "evliiklvwp5eten",
+    "d530xoc45tmj3jk",
+    "w203osmy50cpl8u",
+    "2ycqyjdhslx4ont",
+    "ff7og1vlxorign6",
+    "skhce6mh82y0h7f",
+    "etmtdukf5r7k7bn",
+    "bbs0b3muizfu529",
+    "20belme0s95sv3q",
+    "rkh5i24il2ez95j",
+    "ad8v42ss16evj9m",
+    "ff50w4bxbligabg",
+    "qph0bk36nd4xlav",
+    "b6ehm0qjk35f0kx",
+    "bx9uaii6dwlt7oo",
+    "smg71nrd0bbmrpj",
+    "bvj87rmz8q7z1si",
+    "r67hjrbn83mhabq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "xa7jku7nodk32p5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103077,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1834. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / vormals F. G. Franckh'sche Verlagshandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seitz. sc.",
+  "scans": [
+    "alm_3407_103077_03ayg0xwj8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1834. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / vormals F. G. Franckh'sche Verlagshandlung",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.800Z",
+      "agent": "cz18k5n47dz11wc",
+      "source_id": "3fzt14y9e2wv171"
+    }
+  ]
+}

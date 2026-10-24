@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Die Erde schmückt, an holden Reitzen reich, / Der andern Schönen blumiges Gewimmel,",
+  "language": [],
+  "musenalm_id": 88703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lilia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lilia",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.096Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "rnb7rtpvi2x3wkb"
+    }
+  ]
+}

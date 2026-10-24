@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 7. [Heirathsanträge. Zweite Folge] s. Textbezug INr 42992, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42964,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kutscher. / Le Cocher",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodoviecki del & sculps.",
+  "scans": [
+    "alm_156_42964_99zm2a8thy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kutscher. / Le Cocher",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.315Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "hethy0objs0fg2f"
+    }
+  ]
+}

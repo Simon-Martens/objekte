@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Zu Braunschweig steht ein hohes Schloß, / Sechs Brüder sind d'rin gesessen;",
+  "language": [],
+  "musenalm_id": 99952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vlämisches Volkslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vlämisches Volkslied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.912Z",
+      "agent": "n93zvl8q72c04nh",
+      "source_id": "k0syyo218tyn3za"
+    }
+  ]
+}

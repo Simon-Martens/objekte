@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vorwort (INr 127250, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Der Sklav! er hat, fürwahr, mir ganz den Kopf verrückt / Mit dem, was er erzählt’.",
+  "language": [],
+  "musenalm_id": 127257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenlist / Burleske in einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauenlist / Burleske in einem Aufzuge",
+  "updated": "2015-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.899Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "dgzs38txu3e07j0"
+    }
+  ]
+}

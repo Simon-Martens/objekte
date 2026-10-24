@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 9840, Obj 247) Gesänge vermischten Inhalts 1792 (Sammlung INr 9918, Obj 224,01)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Füllet hoch die Gläser an! / Jubelnd soll's erklingen, / Was Paul Knoll für That gethan",
+  "language": [],
+  "musenalm_id": 9843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 250,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXV. / Trinklied. / Bei alten Meißner Wein zu singen. / Mel. Ohne Lieb und Wein etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXV. / Trinklied. / Bei alten Meißner Wein zu singen. / Mel. Ohne Lieb und Wein etc",
+  "updated": "2001-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.536Z",
+      "agent": "sg73x8kcyc2ixxl",
+      "source_id": "zsp9s5khtbknslk"
+    }
+  ]
+}

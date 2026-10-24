@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "406",
+  "incipit_statement": "Aus Abenddämmerung in des Himmels Blau / Erhebt ein Kreuz sich drüben, alt und grau,",
+  "language": [],
+  "musenalm_id": 99404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 310,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kreuzes Wort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Kreuzes Wort",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.971Z",
+      "agent": "kddiuy2wa4u1map",
+      "source_id": "pjn3e2eynnd54dc"
+    }
+  ]
+}

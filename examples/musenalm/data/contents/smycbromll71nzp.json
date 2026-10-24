@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 6.  Pag. 243 /) Illustration zu »Précis de l'histoire de la révolution francoise« von J. R. Rabaut INr 79452, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le Roi acceptant la Constitution, au / milieu de l'Aßemblée Nationale, / Le 14 Septembre 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moreau inventit De Longueil sculp.",
+  "scans": [
+    "alm_3776_79457_8c942fzzjc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le Roi acceptant la Constitution, au / milieu de l'Aßemblée Nationale, / Le 14 Septembre 1791",
+  "updated": "2012-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "fefojuqn8m9sm1d",
+      "source_id": "m19bznikna8kayp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "6v2mea0laepybs2",
+      "source_id": "s7rkg01vpxcyenl"
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt /) §§ Paginierungs bzw Bindefehler (?) auf ar: S 31 folgt ar1: SS 16 ff wahrscheinlich mit Textverlust",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 15 SS darin 6 GG, S, SS 1-31 §§, ar1: SS 16-97",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Wiener 1852",
+    "norm": "~",
+    "biblio": 406838,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2011-10-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3723,
+  "parallel_title": "",
+  "place_statement": "Wien (Milde)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenkalender, Wiener 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Taschenkalender / auf das Jahr / 1852 / WIEN / bei Franz Milde / k.k. Hof- und bürgerl. Buchbinder. / Stadt, Wollzeil, No. 782",
+  "updated": "2026-06-11 10:18:55.199Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "s0x5bycp4va2z6m"
+  ],
+  "contents": [
+    "wi7k2kp3wpgez98",
+    "t5hc5talwolknat",
+    "bhrpwh3ncdf1gfn",
+    "v1psevuoyno0hot",
+    "xdijnicqjy3h56k",
+    "cac9cq6ih3w943k",
+    "ni1rrcrpir4o2yu",
+    "rqe0k55zkevamda",
+    "p6jr4653fuyk1pk",
+    "zwbnuzzesum43pm",
+    "56zk30wloqedu0b",
+    "uqafr5v1ym9116n",
+    "o3vxl52bh8f72j4",
+    "hty3qxsa1ztgvsa",
+    "q79fd7v3cerpz9c",
+    "cdymihmjt633g5d",
+    "ibss4suytrgmw4t",
+    "5042reme8r4sq4w",
+    "7t45lntafu3epv8",
+    "1eyymt7cjmteosv",
+    "xb8utv6wgba4o71",
+    "1sfxekpt0ex2nhc",
+    "sctqzbecyua8cih"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.107Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.107Z",
+      "agent": "ohxsxfjpi6gynat",
+      "source_id": "457a6kudi0636n7"
+    }
+  ]
+}

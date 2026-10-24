@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann« INr 47036, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O! wie ist die Liebe auch im Herbst des / Lebens noch so schön",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. J. Penzel fec.",
+  "scans": [
+    "alm_635_85176_sbt6yihxi7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O! wie ist die Liebe auch im Herbst des / Lebens noch so schön",
+  "updated": "2006-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.094Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "2tbejfa4ptorxd7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.094Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "lym3jfhhlb7pug4"
+    }
+  ]
+}

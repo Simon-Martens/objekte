@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Mein Sohn, was regt sich so dumpf an der Wand? / Mein Sohn, was hat da so gerasselt?",
+  "language": [],
+  "musenalm_id": 99306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schwert an der Wand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philipp Engelhard Nathusius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schwert an der Wand",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.884Z",
+      "agent": "tr8mb3pxom078aa",
+      "source_id": "kwrny8wtqvc48ac"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Viel Unrecht überall, und wenig Recht« von L. Kruse INr 94021, Ob 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung »Uiberall viel Unrecht und / wenig Recht von L. Kruse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. A. Winkler sc.",
+  "scans": [
+    "alm_1865_94022_t9cg2puq7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung »Uiberall viel Unrecht und / wenig Recht von L. Kruse",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.486Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "k90chse3gzc2due"
+    }
+  ]
+}

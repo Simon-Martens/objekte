@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 4 GG, 29 BB Kal darin 6 GG, 8 BB Kal (franz.), S 1 nT, SS 3-239 darin 6 GG, 2 SS I-Verz, 2 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1802",
+    "norm": "~ +++ 106540 die Umschlaggraphiken des 2. Exemplars sind als Vollbild beigefügt",
+    "biblio": 101205,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-12-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 163,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Göttingischer / Taschen-Calender / für das Jahr 1802. / Göttingen / bey Heinrich Dieterich",
+  "updated": "2026-06-11 10:18:55.220Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "6sfkk526scjgrp2",
+    "vwinrplrx9m4r7k"
+  ],
+  "contents": [
+    "c4c1qgkv5ie2efi",
+    "m1am9nxx9v558bk",
+    "evge94imbdy6re1",
+    "x8rg837wy78lxs0",
+    "mz7cstulcih2vj6",
+    "k4dgx8vc82sup4n",
+    "9pfzjqkwqy8a3nr",
+    "cyf7u40zf8nslym",
+    "5wvrf110ml6iejh",
+    "9f55fbge4u2jew1",
+    "sn7qqq0wh14f1m1",
+    "9cxa8hv3hjrvf0d",
+    "o233rdmbjy98rrm",
+    "cvm7wfn4tzl9inz",
+    "cr532n6fkjeeetn",
+    "h4pi2erzd7bno09",
+    "u1ocwixyin9vn7v",
+    "2nyrbsuuuoc0i9l",
+    "l0nlgjhg43lxr29",
+    "fygjj9bsxb4oxcz",
+    "u9628cikag7e2h4",
+    "8f2yaacacu2kc3c",
+    "8enzm28a9ktmqbl",
+    "nukcjwu0ksvq85z",
+    "9izf3tl1j8y4l5x",
+    "1pndka35lnkoppn",
+    "ekzomwm4t95acte",
+    "4riy62x209zeuxk",
+    "b3igjlz37if5wxo",
+    "44br5hmq60qbdck",
+    "75nn3ehmo3jeu2t",
+    "24tb1pg658e86av",
+    "e09l1vnk31jpau6",
+    "t4l736vrhi77m3o",
+    "nzn5g6plxpkkmih",
+    "qi4c7mdf5k3jhqm",
+    "hmct6m7jbuvzo16",
+    "18a2rngdnmn6ciq",
+    "6j797x50veqw2tz",
+    "pfc1dqsm5egelfr",
+    "2hz9ii2z2qk275j",
+    "k2db0pdt1xdxdzt",
+    "i8brbgyfvtalzlx",
+    "w7pps8dq4mevbns",
+    "evuy8g0vmnaxg89"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.943Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.943Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "wa60fyglj0hmurd"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Wolfsjagd« von C. B. von Miltitz INr 48649, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48591,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Retzsch del. Martin Esslinger sculp. Zürich)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Martin Esslinger sculp. Zürich",
+  "scans": [
+    "alm_664_48591_uheq1oq9ic.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.569Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "e3aiztrpo59z0ir"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.569Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "gehoxo5k0ne63jk"
+    }
+  ]
+}

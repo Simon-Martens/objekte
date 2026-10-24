@@ -1,0 +1,124 @@
+{
+  "annotation": "# Posselt starb 1804; die Beiträge bis S 82 (INr 22081) sind von ihm. /) Fortsetzung von: Taschenbuch für die neuste Geschichte (Posselt) 1794-1796, 1798-1803 /) Die Staatsgeschichte Europas erschien bei Cotta 1805, 1806, 1808-1811, 1816 /) s. Bernhard Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbiographie 1787-1832. Aus den Quellen bearbeitet. Marbach a.N., München 2003: Nr. 429",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, B I-Verz, G, ar: SS 1-127 darin 5 GG, ar1: S 1 zT, SS 3-136 darin 4 Krr 2 Diagr, GG, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Staatsgeschichte Europas (Cotta) 1805",
+    "norm": "~",
+    "biblio": 100624,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-11-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 131,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Staatsgeschichte Europas (Cotta) 1805",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed VI. 310, 21",
+  "responsibility_statement": "D. E. L. Posselt",
+  "subtitle_statement": "",
+  "title_statement": "StaatsGeschichte Europa's / vom Tractat von Amiens bis zum Wiederaus- / bruch des Krieges zwischen Frankreich / und / England / von / D. E. L. Posselt. / Als Taschenbuch für 1805. / Mit Karten und Kupfern. / Tübingen, / im Verlag der J. G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.423Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "11pjfxqoxu6cu7l"
+  ],
+  "contents": [
+    "7ad48la1ho4tl5a",
+    "vg53c9nrzmft30x",
+    "3kfbi6oa5jy2upp",
+    "suuf6iyh48tdig3",
+    "6911gweiol9n6fk",
+    "mw3yfck5c27wytf",
+    "yhsjpjfsgbs66m9",
+    "osoj4bslcdl5pz5",
+    "bkqaqvbo9xc0vha",
+    "glr410g013et9wt",
+    "f8ozqtajfdj1fg8",
+    "3zzcvkp5m02zb02",
+    "7kqiw5olthsku8h",
+    "mgzr4mr1pbnxq2g",
+    "8br9oupi5kjmjdq",
+    "93ej757nnsjprat",
+    "ava4s62agjs3h7c",
+    "a2zmqnc5268obe1",
+    "gytcmdyr3fdnmn6",
+    "4gr0it2izy2ad3x",
+    "qieycco0p93v51g",
+    "khb5pob7o84hbpa",
+    "5mwmo749nlz85ob",
+    "nkpa1ylss0zfv4j",
+    "o5yn5uhzpkmt13u",
+    "b0bpnlt52d1jigy",
+    "krflu35gy7m86cc",
+    "dq32ia42xui3pvx",
+    "0ppver1jflvd38i",
+    "eoyvpqll8sv8ffp",
+    "ogjs7xcn97g7bpk",
+    "u0up7zy1qh6ub5t",
+    "iay42hqgzljpfm8",
+    "66h3yvxvt4tikcf",
+    "ib0u52b6n8bhr60",
+    "xup01ilk8x6vmkl",
+    "lttd1ywfaffufp8",
+    "s477n9svdy09bd8",
+    "8beio6p87i65aph",
+    "3ee9cuz9utbjue5",
+    "9pvuw4j3g3te4pn",
+    "1crwvlz23rk5p38",
+    "kr957q0ibuyt7us",
+    "hvqu8kg07acdvnw",
+    "xuxncvesg8md2fk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.678Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.678Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "ktecvkkeykjlecj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.201Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.201Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "yd2iniq6vdbcytm"
+    }
+  ]
+}

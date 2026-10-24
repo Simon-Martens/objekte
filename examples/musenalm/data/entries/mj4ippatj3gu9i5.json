@@ -1,0 +1,108 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, S I T, S III G-Verz u.I-Verz, SS V- XXXI darin 7 GG, SS 1-404",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1852",
+    "norm": "~",
+    "biblio": 100607,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-07-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 606,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "C. Dräxler-Manfred",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1852. / Herausgegeben / von / C. Dräxler-Manfred. / Mit 8 Stahlstichen. / Frankfurt am Main. / J. D. Sauerländer's Verlag",
+  "updated": "2026-06-11 10:18:55.290Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "053uagggokzpjaq"
+  ],
+  "contents": [
+    "h4bj1hfedvsrh54",
+    "omt2wsjh5po0vva",
+    "zlzb5v8nl8fnusn",
+    "7w71suzoe8synly",
+    "m0t0c5342jphu8g",
+    "xt80cg086x4l38v",
+    "5u023gt8t16zxdw",
+    "tqiltm8u8d08mh1",
+    "xkamt8nvooj9ovy",
+    "vbqd38tb782wlie",
+    "z8qhcab26t8oqtn",
+    "s2rkaq02luyv0tw",
+    "1srep1ftzc2azil",
+    "37fb3fqlz4rkzqm",
+    "cakwt1dvbeiprqz",
+    "b50mh7jcij1eezo",
+    "scbxu54oamxvr6g",
+    "v8i1imt802zh0pg",
+    "5vxhuy7ph8nogxh",
+    "h5huo0ik5nv635s",
+    "65tksoadhmj4g1u",
+    "qq225wzt5d37irf",
+    "dcf729jtqcf6ex1",
+    "j63h89r3vh5tgou",
+    "gz26cv59m1v88gg",
+    "mun8pcu61c5s1ty",
+    "ibk0esy8opyaz5z",
+    "zf7st84jolthe14",
+    "w8v0wury18c271q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.068Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.068Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "nxze08bjt1o8u88"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.716Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.716Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "zif9m21t2aztnhn"
+    }
+  ]
+}

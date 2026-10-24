@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Mag Thoren hienieden / Die Fessel aus Gold, / Wie reich sie gewollt,",
+  "language": [],
+  "musenalm_id": 4736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebescheue",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebescheue",
+  "updated": "2000-10-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.840Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "qdvj26i51frq9v7"
+    }
+  ]
+}

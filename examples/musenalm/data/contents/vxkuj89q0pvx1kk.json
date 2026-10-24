@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel verso",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75134,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / für / Kinder. / Berlin. 1784. / bey S. F. Hesse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Glaßbach fec.",
+  "scans": [
+    "alm_3657_75134_tm1js3bqik.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Kinder. / Berlin. 1784. / bey S. F. Hesse",
+  "updated": "2011-05-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.675Z",
+      "agent": "k4qenzugolwyo4s",
+      "source_id": "onsqkk5vbvbwcq0"
+    }
+  ]
+}

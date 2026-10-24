@@ -1,0 +1,89 @@
+{
+  "annotation": "K gibt Jg 1836 an; KVK: 1836, 1837, 1838",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Deutsches (Wolff, Doering) 1837",
+    "norm": "",
+    "biblio": 409960,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4666,
+  "parallel_title": "",
+  "place_statement": "London ( Asher)",
+  "places": [
+    "ufsk13cgb3rh96j"
+  ],
+  "preferred_title": "Taschenbuch, Deutsches (Wolff, Doering) 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "Prof. O. L. B. Wolf; Dr. H. Doering",
+  "subtitle_statement": "",
+  "title_statement": "Deutsches Taschenbuch. / (Norden.) / Mit / siebzehn englischen Stahlstichen / nach / Original-Zeichnungen von A. Vickers. / Herausgegeben / von / Prof. O.L. B. Wolff / und / Dr. H. Doering. / London, A. Asher. / Fleet Street",
+  "updated": "2026-06-11 10:18:54.552Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "wfcppjb18mc3xcm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.403Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.403Z",
+      "agent": "9hf3yrzfqx4aso2",
+      "source_id": "dg43lm7hz1d84y6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.403Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.403Z",
+      "agent": "7z02zmx8ocy9uwz",
+      "source_id": "hvg2mqojv9j5akr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.486Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.486Z",
+      "agent": "o7t1usk5ddj0a0c",
+      "source_id": "u1ry7cbdte8a1gs"
+    }
+  ]
+}

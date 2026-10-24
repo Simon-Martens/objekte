@@ -1,0 +1,99 @@
+{
+  "annotation": "Jedem Monat des Kalendariums 1782 ist je eine Seite Politischer Kalender (in Tabellenform, Untertitel: Politische Feste und Jahrmärkte),  je 2 Seiten Historischer Calender (fortlaufender Text: Denkwürdigste Begebenheiten aus der Helvetischen Geschichte) beigegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT, 26 BB Kal darin 3 GG, SS 1-259 darin 4 GG, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1782",
+    "norm": "~",
+    "biblio": 200595,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 682,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / für das Jahr / 1782. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.856Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "fkq6ik7do2orake"
+  ],
+  "contents": [
+    "divo2y1icoc4on1",
+    "vg1amkj5as6t63p",
+    "z4svuizmrxdn4cn",
+    "znbl7pp0siime0j",
+    "0o5ld7g6rvpt7cr",
+    "pzfchq11mjfotfv",
+    "i2a6rce35ri9ttr",
+    "lb2bm9k06kmzwpy",
+    "z8q58i0ef06klh6",
+    "2132fzwu7d87c0j",
+    "tj452myi2eami31",
+    "kkfbmpvdya7wmhk",
+    "5jsorzhnf75ufak",
+    "s3gj9ay166i2osy",
+    "tyvstxuc0cw2vfb",
+    "iml1t5l2g3x196f",
+    "m8uesnzk7drwqvd",
+    "z4vr0x4a7t0nbku",
+    "f5nvol2x4ljjgnc",
+    "0imo7zsfecz3287",
+    "x98e5n5ihu1gzku",
+    "j5zt7f3khi7ayyb",
+    "z232i5vcc2owcf0",
+    "luike663dz0l9m3",
+    "rnenqwmien7y451",
+    "afztgqv65qlc6j7",
+    "74tmkaxquk7e1xq",
+    "zbtbxcd9w74qs5q",
+    "kjm8rb3omwq5wzl",
+    "jxlwdcrv56tho7z",
+    "kak9vsk3sihi4mn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.897Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.897Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "p9xmzhuu11b410g"
+    }
+  ]
+}

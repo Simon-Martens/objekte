@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollst. Bez. aus dem Autorenverzeichnis /) paginiert 168;  Illustration zu »Märchen vom Meister Pfriem« von Wilhelm Grimm INr 59691, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister Pfriem",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. H. 1842",
+  "scans": [
+    "alm_924_59692_drsb6vaijj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Meister Pfriem",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.910Z",
+      "agent": "n3ihb7ql4bfk9ih",
+      "source_id": "qwkfop5o3i8vqok"
+    }
+  ]
+}

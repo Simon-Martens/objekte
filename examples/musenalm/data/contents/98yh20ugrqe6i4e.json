@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Sanft, wie um Blumenstellen / Ein Bienenvölkchen schwirrt,",
+  "language": [],
+  "musenalm_id": 96498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Kindheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nonne",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Kindheit",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.737Z",
+      "agent": "cxy9h3a46pg7xn4",
+      "source_id": "aa275zcemhnvslp"
+    }
+  ]
+}

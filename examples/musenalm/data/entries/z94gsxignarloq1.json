@@ -1,0 +1,55 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Feldblumen 1826",
+    "norm": "",
+    "biblio": 200568,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1764,
+  "parallel_title": "",
+  "place_statement": "Danzig",
+  "places": [
+    "eexjrdpg43s7b9y"
+  ],
+  "preferred_title": "Feldblumen 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; nicht bei L/R; Goed VIII. 117, 288",
+  "responsibility_statement": "J. Satori",
+  "subtitle_statement": "",
+  "title_statement": "Feldblumen / ein / TASCHENBUCH / für / das Jahr 1826 / Herausgegeben / von / J. Satori / Danzig",
+  "updated": "2026-06-11 10:18:55.627Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "vw96l1i0dyle8zl"
+  ],
+  "contents": [],
+  "agents": []
+}

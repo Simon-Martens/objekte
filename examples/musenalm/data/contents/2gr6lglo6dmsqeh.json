@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Deine Nähe umwallt ein ganzer Himmel, / Fried' und Freude, die schönen Engelkinder, / Harfnen stilles Entzücken,",
+  "language": [],
+  "musenalm_id": 135322,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeno Schubert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sie",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.144Z",
+      "agent": "o0b6lrjourw0us8",
+      "source_id": "hyeyoavzyz13qmw"
+    }
+  ]
+}

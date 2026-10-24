@@ -1,0 +1,45 @@
+{
+  "annotation": "Aufsätze in Stammbücher (Sammlung INr 131998, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Gestehen Sie es immer, meine Damen, man wird durch die freundschaftlichen und ehererbietigen Einladungen, sein Andenken in einem Stammbuche zu verewigen, bisweilen ueberrascht",
+  "language": [],
+  "musenalm_id": 131999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gestehen Sie es immer, meine Damen, man wird durch die freundschaftlichen und ehererbietigen Einladungen, sein Andenken in einem Stammbuche zu verewigen, bisweilen ueberrascht…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Friedrich Voigt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.085Z",
+      "agent": "ist0hhj6cs5q2wv",
+      "source_id": "fd9skj29u8tagx6"
+    }
+  ]
+}

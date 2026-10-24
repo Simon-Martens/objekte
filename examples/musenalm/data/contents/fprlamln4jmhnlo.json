@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Wie Treubruch holde Liebe verkehrt in grimmen Haß. / Klagt noch der Dänen Ufer von Wogen und Thränen / naß!",
+  "language": [],
+  "musenalm_id": 45719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Garhöwens Zorn / (Strandsage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Garhöwens Zorn / (Strandsage)",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.982Z",
+      "agent": "aq3u8k3couckqq1",
+      "source_id": "yrqrpckl00q8w7x"
+    }
+  ]
+}

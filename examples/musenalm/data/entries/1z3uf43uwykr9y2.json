@@ -1,0 +1,52 @@
+{
+  "annotation": "5.-7. Abt. in einem Band /) Titel und I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 3 BB I-Verz, SS 1-152",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichter und Dichterfreunde 1776",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2743,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Dyck)",
+  "places": [],
+  "preferred_title": "Taschenbuch für Dichter und Dichterfreunde 1775 5. Abt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.811Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "9721yb5aktl570h",
+    "tvumigmrz5xxud9"
+  ],
+  "agents": []
+}

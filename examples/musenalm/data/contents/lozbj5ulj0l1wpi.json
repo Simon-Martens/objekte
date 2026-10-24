@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung am Objekt: Der Chevalier Saroux d'Agincourt, auf Trinita del Monte zu Rom; Verfasser des so eben erscheinenden Classischen Werkes: Histoire de l'Art par les Monumens",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Sehet den himmlischen Greis, als Schnee / schon die Lock' ihm umblühte,",
+  "language": [],
+  "musenalm_id": 16522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Greis, / der mit siebenzig Jahren ein Gärtchen / pflanzte in dessen Schatten er mit Zwey und Achtzig wandelte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrike Brun, geb. Münter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Greis, / der mit siebenzig Jahren ein Gärtchen / pflanzte in dessen Schatten er mit Zwey und Achtzig wandelte",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.748Z",
+      "agent": "38esu046kftupf5",
+      "source_id": "7p30dki9tgir8gj"
+    }
+  ]
+}

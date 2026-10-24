@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Der Ruf in die Stadt« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1799 INr 11124",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11568,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welch ein Geschenk, wer ihn aus dieser Hand / freywillig erhielte! p. 106",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_205_11568_j4xn4x6ufv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Welch ein Geschenk, wer ihn aus dieser Hand / freywillig erhielte! p. 106",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.379Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "o69bo8sej0dyb2y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.379Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "xsoo7m4s7zoea6n"
+    }
+  ]
+}

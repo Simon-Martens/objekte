@@ -1,0 +1,45 @@
+{
+  "annotation": "Junggesellenübermuth (Sammlung INr 22710, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "Es stand ein Baum im jungen Holz, / So grad' und stolz,",
+  "language": [],
+  "musenalm_id": 22718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Letzter Stoßseufzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Letzter Stoßseufzer",
+  "updated": "2002-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.916Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "te78sqifo9bswns"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite. /) Graphik im Kalendarium: October. /) Illustration zu: »Das Pas de Deux« von Jos. Richter INr 37677, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37678,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Pas de Deux",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Seb. Mansfeld fec.",
+  "scans": [
+    "alm_508_37678_709vmbic3p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Pas de Deux",
+  "updated": "2005-04-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.744Z",
+      "agent": "ze1m2gdl2g6avu5",
+      "source_id": "8h6lxezpxg1593q"
+    }
+  ]
+}

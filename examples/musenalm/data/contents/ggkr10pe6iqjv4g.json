@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Ich saß in stille Träume hingesunken, / Des Herzens Räthsel war mir unenthüllt:",
+  "language": [],
+  "musenalm_id": 78369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Blick",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Clytia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Blick",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.795Z",
+      "agent": "jr89ogbwhlz0fa7",
+      "source_id": "fslucoq5s2kdzbu"
+    }
+  ]
+}

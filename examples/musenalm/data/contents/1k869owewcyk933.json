@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121996, Obj 150)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Sonnenschein lag auf den Hügeln, / Blau war Himmel rings und Wogen / Als wir auf dem schönen Rheine / Wieder einmal abwärts zogen.",
+  "language": [],
+  "musenalm_id": 121999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Eine Rheinfahrt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Eine Rheinfahrt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.636Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "vil53wup349ywi8"
+    }
+  ]
+}

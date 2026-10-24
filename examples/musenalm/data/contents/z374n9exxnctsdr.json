@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Eine alte Kirche, welche den Sperlingen unzählige Nester gab, ward ausgebessert",
+  "language": [],
+  "musenalm_id": 92380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sperlinge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sperlinge",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.592Z",
+      "agent": "69uz48pj64zapqw",
+      "source_id": "1l7i4cnv6cyc1ha"
+    }
+  ]
+}

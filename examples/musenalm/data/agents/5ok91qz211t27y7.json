@@ -1,0 +1,475 @@
+{
+  "annotation": "",
+  "biographical_data": "1763-1821",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.322Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1776-1782 am Gymnasium Casimirianum in Coburg; Professor der Geschichte, Geographie und englischen Sprache in Erlangen"
+      ],
+      "dateOfBirth": [
+        "1763-10-12"
+      ],
+      "dateOfDeath": [
+        "1821-06-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Dolezalek.f"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fick%2016Christian%20b.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fick%2016Christian%20b.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fick%2016Christian%20b.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/121748146",
+        "https://d-nb.info/gnd/1117234762"
+      ],
+      "describedBy": {
+        "dateModified": "2023-01-14T09:29:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/10000492X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10000492X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/10000492X",
+      "oldAuthorityNumber": [
+        "(DE-588)1117234762",
+        "(DE-588a)121748146",
+        "(DE-588)121748146",
+        "(DE-588a)10000492X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4015299-6",
+          "label": "Erlangen"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Sattelgrund"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4015299-6",
+          "label": "Erlangen"
+        }
+      ],
+      "preferredName": "Fick, Johann Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christian"
+        ],
+        "surname": [
+          "Fick"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4142462-1",
+          "label": "Anglist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        }
+      ],
+      "publication": [
+        "Vollständiges Englisch-Deutsches und Deutsch-Englisches Lexicon",
+        "Lehrbuch der Geographie",
+        "Historisch-topographisch-statistische Beschreibung von Erlangen ..",
+        "Lob- und Ehren-Rede an dem hohen Fest-Tag der großen Wunder-Heiligen ..",
+        "Versuch über die Anwendung der Naturhistorie auf die Dichtkunst",
+        "Ut in omnibus glorificetur Deus",
+        "Der treue Führer auf der akademischen Laufbahn für Jünglinge",
+        "Leitfaden der Statistik des Königreichs Baiern",
+        "English dialogues"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr98007576"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29869072"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1674153"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10000492X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1117234762"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/121748146"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Fick"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000458769568"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10000492X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10000492X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Fickius, Joannes Georgius Christianus",
+        "Fickius, Jo. Georgius Casparus",
+        "Fickius, Ioannes Georgius Casparus",
+        "Fick, John Christian",
+        "Fick, Johan Georg Christian",
+        "Ficke, Johann Georg Caspar",
+        "Fick, Johannes Georg Caspar",
+        "Fickius, Joannes Georgius Casparus",
+        "Fick, Johann Georg Kaspar",
+        "Ficke, Jo. Georg Caspar",
+        "Fick, Johannes Christian",
+        "Fick, J. G. C.",
+        "Fick, John C.",
+        "Fick, Johannes Georg Kaspar",
+        "Fick, Johann Georg Christian",
+        "Fick, Jo. Georg Caspar",
+        "Fickius, Johannes Georgius Christianus",
+        "Ficke, Johann Georg Kaspar",
+        "Fickius, Io. Georgius Casparus",
+        "Fickius, Johannes Georgius Casparus",
+        "Fick, Johann Georg Caspar"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johannes Georgius Casparus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Kaspar"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Georgius Casparus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Georgius Casparus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Georgius Casparus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Georg Caspar"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "John C."
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Georgius Christianus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Georgius Christianus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Caspar"
+          ],
+          "surname": [
+            "Ficke"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Kaspar"
+          ],
+          "surname": [
+            "Ficke"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Georg Christian"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Caspar"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Io. Georgius Casparus"
+          ],
+          "surname": [
+            "Fickius"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Georg Kaspar"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christian"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "J. G. C."
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Georg Caspar"
+          ],
+          "surname": [
+            "Ficke"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Georg Caspar"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg Christian"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        },
+        {
+          "forename": [
+            "John Christian"
+          ],
+          "surname": [
+            "Fick"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Fick",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christian_Fick"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:21:54Z",
+    "gnd_query_biographical_data": "1763-1821",
+    "gnd_query_name": "fick, johann georg christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 711,
+  "name": "Fick, Johann Georg Christian",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 543",
+  "updated": "2026-06-11 13:29:22.242Z",
+  "uri": "https://d-nb.info/gnd/10000492X",
+  "editor": ""
+}

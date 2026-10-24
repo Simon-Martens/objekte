@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühjahr 1842 (Sammlung INr 59698, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Lang ists, lang, / Seit ich meinen Liebesfrühling sang;",
+  "language": [],
+  "musenalm_id": 59728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "30. / An Robert und Clara Schumann in Leipzig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "30. / An Robert und Clara Schumann in Leipzig",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.854Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "q3ld005q3qd6k4t"
+    }
+  ]
+}

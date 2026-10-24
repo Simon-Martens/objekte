@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "O Freundschaftsenglein falte deine Hände / So lang du auf den hohen Wölklein schwebest,",
+  "language": [],
+  "musenalm_id": 62699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freundschaftsengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Freyh. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freundschaftsengel",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.254Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "qfm9to3biyrpgub"
+    }
+  ]
+}

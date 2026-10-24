@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19386,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKER'S / TASCHENBUCH / zum / GESELLIGEN VERGNÜGEN. / Herausgegeben / von / Friedrich Kind / Fünf und Zwanzigster Jahrgang. / 1815. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG / bei Joh. Friedrich Gleditsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_263_19386_ojmgr9jzxh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKER'S / TASCHENBUCH / zum / GESELLIGEN VERGNÜGEN. / Herausgegeben / von / Friedrich Kind / Fünf und Zwanzigster Jahrgang. / 1815. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG / bei Joh. Friedrich Gleditsch",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.912Z",
+      "agent": "u3ev7bjxvo21hzz",
+      "source_id": "1cfi147r6xjxcpw"
+    }
+  ]
+}

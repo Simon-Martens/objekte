@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Wiener 1785",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2003-01-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 415,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Musenalmanach, Wiener 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 89; L/R 30; Goed IV/1. 952, 11",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.970Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

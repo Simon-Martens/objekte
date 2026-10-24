@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 14 Gedichten INr 45617-45630, Obj 26-39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45616,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verwehte Stimmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verwehte Stimmen",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.161Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "bltaeg9w9ne3koc"
+    }
+  ]
+}

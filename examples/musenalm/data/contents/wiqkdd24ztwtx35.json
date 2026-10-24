@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "393",
+  "incipit_statement": "Der Doctor Luther saß beim Hochzeitsmahle, / Sein neuverlobt Gemahl an seiner Seite,",
+  "language": [],
+  "musenalm_id": 26459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hochzeitsgabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giesebrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hochzeitsgabe",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.028Z",
+      "agent": "g4m6uyvtmaggql5",
+      "source_id": "e1me7mku3rtnzy8"
+    }
+  ]
+}

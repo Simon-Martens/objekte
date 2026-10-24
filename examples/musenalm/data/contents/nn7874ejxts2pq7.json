@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Lieder (Sammlung INr 100433, Obj 97)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Ein Bächlein, das von Eis befreit / Sich plätschernd durch das Thal ergießt,",
+  "language": [],
+  "musenalm_id": 100438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Auferstehung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Auferstehung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.932Z",
+      "agent": "thvjtwgntimiqn7",
+      "source_id": "uxspusi1ilb8kei"
+    }
+  ]
+}

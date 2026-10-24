@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Ich singe meinen Gruß der Süßen, / Die meiden ich nicht will, noch mag.",
+  "language": [],
+  "musenalm_id": 129284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Heinrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Heinrich",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.013Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "f0w8vrzh70btfh5"
+    }
+  ]
+}

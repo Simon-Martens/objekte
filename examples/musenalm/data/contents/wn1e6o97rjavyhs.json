@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7499,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goettinger Taschen / CALENDER / vom Jahr / 1779 / bey Joh. Chr. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner fec.",
+  "scans": [
+    "alm_153_7499_2tk7oo1m77.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1779 / bey Joh. Chr. Dieterich",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.246Z",
+      "agent": "lyz2x127nyb2cxs",
+      "source_id": "uq8qcmgskrl4et3"
+    }
+  ]
+}

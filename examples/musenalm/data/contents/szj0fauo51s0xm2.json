@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Den hohen kunstsinnigen Beförderern dieses Taschenbuchs den allerunterthänigsten, unterthänigsten und ehrfurchtsvollsten Dank darbringend, Gefühle nährend, die Worte nicht genügend bezeichnen können,",
+  "language": [],
+  "musenalm_id": 79472,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.867Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "nn0bvuk2gh888d2"
+    }
+  ]
+}

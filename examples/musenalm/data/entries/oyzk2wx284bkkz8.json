@@ -1,0 +1,67 @@
+{
+  "annotation": "Erscheinungsweise s. Anm. im Almanach: Das Poetische Album erscheint in veränderter äußerer Ausstattung auch für 1858 als Beilage zu Auer's Faust und wird demselben gratis beigegeben.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenalbum, Poetisches 1858",
+    "norm": "",
+    "biblio": 404945,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1699,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Friedlein)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Damenalbum, Poetisches 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Poetisches / Damen-Album. / Blumenlese / aus / den neueesten Erscheinungen / der / poetischen Literatur. / Leipzig, G. H. Friedlein. / 1858",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "25eclaakvddvbm9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.876Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.876Z",
+      "agent": "y1qkubdtu9tu3os",
+      "source_id": "g7qcxfdd6vm0wl7"
+    }
+  ]
+}

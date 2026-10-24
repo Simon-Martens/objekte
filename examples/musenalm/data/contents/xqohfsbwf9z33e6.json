@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 60995, Obj 4) s. Titelgraphik INr 60993, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Feldherr der Achäer und griechischer Geschichtschreiber, trägt eine mit Blumenketten umwundene Urne, in welcher die Asche des letzten großen Griechen, Philopömenes, gesammelt ist;",
+  "language": [],
+  "musenalm_id": 60996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelkupfer. / Polibius",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titelkupfer. / Polibius",
+  "updated": "2008-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.002Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "q34m3suqakjoeq1"
+    }
+  ]
+}

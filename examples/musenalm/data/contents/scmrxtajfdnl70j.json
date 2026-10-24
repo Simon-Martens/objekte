@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht von Ecker INr 16080, Obj 100",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Das vorstehende Gedicht des Herausgebers an seinen Freund und Arzt Ecker giebt mir Veranlassung",
+  "language": [],
+  "musenalm_id": 16081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Etwas über den Küfer-Tanz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Schnetzler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Etwas über den Küfer-Tanz",
+  "updated": "2001-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.778Z",
+      "agent": "qmbaw1mam941gsq",
+      "source_id": "d4t38oc9br9qlim"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Skizzen zu Klopstocks Portrait« von K. A. Böttiger INr 39643, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KLOPSTOCK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Bolt sc.",
+  "scans": [
+    "alm_520_39644_wug307yn7c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KLOPSTOCK",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.153Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "6z56su4uccfaoy9"
+    }
+  ]
+}

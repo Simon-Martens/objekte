@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94439,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen am Stickrahmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schindler del. I. Krepp sc.",
+  "scans": [
+    "alm_1871_94439_jxawjq7mm6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen am Stickrahmen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.429Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "dsg6f0f1syl6xgd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.429Z",
+      "agent": "tbgpv1iuik548pk",
+      "source_id": "qowxm9d2ma4bauo"
+    }
+  ]
+}

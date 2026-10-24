@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Auf der Lippe dein Herz? Und dessen / rühmst du, Freund, dich?",
+  "language": [],
+  "musenalm_id": 302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herz und Zunge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herz und Zunge",
+  "updated": "2000-07-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.883Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "8bj0vnuozz64drl"
+    }
+  ]
+}

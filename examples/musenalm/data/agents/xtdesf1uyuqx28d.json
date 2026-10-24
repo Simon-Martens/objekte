@@ -1,0 +1,125 @@
+{
+  "annotation": "",
+  "biographical_data": "1750-1813",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.296Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1750-02-13"
+      ],
+      "dateOfDeath": [
+        "1813-01-14"
+      ],
+      "describedBy": {
+        "dateModified": "2019-04-12T11:54:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1183416474/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "1183416474",
+      "id": "https://d-nb.info/gnd/1183416474",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4071444-5",
+          "label": "Freiburg im Üechtland"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4071444-5",
+          "label": "Freiburg im Üechtland"
+        }
+      ],
+      "preferredName": "Curty, Joseph-Emmanuel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph-Emmanuel"
+        ],
+        "surname": [
+          "Curty"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96415782"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1183416474/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:10:21Z",
+    "gnd_query_biographical_data": "1750-1813",
+    "gnd_query_name": "curty, joseph emmanuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 477,
+  "name": "Curty, Joseph Emmanuel",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B VIII, 215",
+  "updated": "2026-06-11 13:29:21.959Z",
+  "uri": "https://d-nb.info/gnd/1183416474",
+  "editor": ""
+}

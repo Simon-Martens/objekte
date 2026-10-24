@@ -1,0 +1,54 @@
+{
+  "annotation": "paginiert 1-8; /) Vertonung des Gedichts »Thränenfrucht« von Th. Herzenskron /) Photos 56398,01-56398,08",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Am Erker, da sitzt wohl Abend im Fenster 'ne schöne Maid",
+  "language": [],
+  "musenalm_id": 56398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THRÄNENFRUCHT / Ballade von Th. Herzenskron. / Musik von Conradin Kreutzer / Kapellmeister des k.k. Hofoperntheaters in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conradin Kreutzer",
+  "scans": [
+    "alm_757_56398_01_5jypnqw81l.jpg",
+    "alm_757_56398_02_bu5llwgwxz.jpg",
+    "alm_757_56398_03_au05y5litz.jpg",
+    "alm_757_56398_04_3qdia9axnt.jpg",
+    "alm_757_56398_05_f8ypnfqg2j.jpg",
+    "alm_757_56398_06_m2vyp8yu4y.jpg",
+    "alm_757_56398_07_w5cvpwna13.jpg",
+    "alm_757_56398_08_qvhacsjnjz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THRÄNENFRUCHT / Ballade von Th. Herzenskron. / Musik von Conradin Kreutzer / Kapellmeister des k.k. Hofoperntheaters in Wien",
+  "updated": "2008-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.637Z",
+      "agent": "n0y8m2wz5j1rywn",
+      "source_id": "8685v4w3hlsuc4w"
+    }
+  ]
+}

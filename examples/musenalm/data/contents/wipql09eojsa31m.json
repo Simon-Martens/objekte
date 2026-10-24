@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Hier ruhet Meister Scheere, / Der manchesmal",
+  "language": [],
+  "musenalm_id": 2333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines Schneiders",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines Schneiders",
+  "updated": "2000-08-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.093Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "2o8ijx82b6wvqga"
+    }
+  ]
+}

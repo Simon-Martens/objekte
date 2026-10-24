@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Wohl traurt wenn dunkle Wetter fliegen, / Wenn uferlose Ströme wiegen, / Die reizberaubte öde Flur;",
+  "language": [],
+  "musenalm_id": 51568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blik in das künftige Jahrhundert. / (Dezember. 1799.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Graß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blik in das künftige Jahrhundert. / (Dezember. 1799.)",
+  "updated": "2007-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.719Z",
+      "agent": "i0cejljfkkaygsk",
+      "source_id": "y7rqvwkyrhcr4g0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zum Taschenbuch zum geselligen Vergnügen 1820 (Sammlung INr 22238, Obj 127 )\ns. INr 22227, Obj 116",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22241,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seize Ite. u. IIte. Tour Rond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_298_22241_69q05p9s2l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seize Ite. u. IIte. Tour Rond",
+  "updated": "2002-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.003Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "qgsellrhyncrcdn"
+    }
+  ]
+}

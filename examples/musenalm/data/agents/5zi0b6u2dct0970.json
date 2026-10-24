@@ -1,0 +1,411 @@
+{
+  "annotation": "",
+  "biographical_data": "1721-1781",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.347Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter, Theologe"
+      ],
+      "dateOfBirth": [
+        "1721"
+      ],
+      "dateOfDeath": [
+        "1781"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann David Schleuen"
+          ],
+          "creditText": [
+            "Werkausgabe, own scan"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/G%C3%B6tz%20als%20Pfarrer.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/G%C3%B6tz%20als%20Pfarrer.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:G%C3%B6tz%20als%20Pfarrer.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118540300/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1153570769",
+          "label": "Götz, Philipp Peter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115878602",
+          "label": "Götz, Johann Sebastian"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118540300",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/115878602",
+          "label": "Götz, Johann Sebastian"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1153570769",
+          "label": "Götz, Philipp Peter"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118540300",
+      "oldAuthorityNumber": [
+        "(DE-588a)118540300",
+        "(DE-588a)102780552",
+        "(DE-588c)4021490-4"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066942-7",
+          "label": "Worms"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4832103-5",
+          "label": "Winterburg"
+        }
+      ],
+      "preferredName": "Götz, Johann Nikolaus",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Nikolaus"
+        ],
+        "surname": [
+          "Götz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        }
+      ],
+      "publication": [
+        "Anacreon: Die Gedichte Anakreons und der Sappho Oden",
+        "Anacreon,: Die Gedichte",
+        "Anakreon: Die Gedichte Anakreons und der Sappho Oden",
+        "Anacreon: Gedichte",
+        "Anacreon: Die Gedichte",
+        "Götz, Johann N.: Briefe",
+        "Götz, Johann N.: Vermischte Gedichte",
+        "Götz, Johann N.: Gedichte"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb105485721"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82056677"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8179182"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77275"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118540300/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Nikolaus_G%C3%B6tz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Nikolaus_G%C3%B6tz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Nikolaus_G%C3%B6tz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Nikolaus_G%C3%B6tz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080878163"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118540300"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118540300.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118540300.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118540300"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118540300"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Götz, Joh. Nik.",
+        "Götz, J. N.",
+        "Götz, Nikolaus J.",
+        "Götz, Nicolaus",
+        "Götz, Johann Nicolaus",
+        "Götz, Nikolaus",
+        "Götz, Johannes Nicolaus",
+        "Götz, Johann N.",
+        "Götz, Johann Nikolas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Nikolas"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann N."
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolaus"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolaus J."
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Nik."
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nicolaus"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "J. N."
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Nicolaus"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        },
+        {
+          "forename": [
+            "Nicolaus"
+          ],
+          "surname": [
+            "Götz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Nikolaus_G%C3%B6tz",
+          "label": "https://de.wikipedia.org/wiki/Johann_Nikolaus_G%C3%B6tz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:33:03Z",
+    "gnd_query_biographical_data": "1721-1781",
+    "gnd_query_name": "götz, johann nikolaus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 938,
+  "name": "Götz, Johann Nikolaus",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB X, 252; Goed (H) 166",
+  "updated": "2026-06-11 13:29:22.605Z",
+  "uri": "https://d-nb.info/gnd/118540300",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Weine nicht Aedler - wenn das endli- / che Auge, / Unendliche Dinge nicht sieht - / Wenn die begrenzte Seele / Grenzenlose Dinge nicht fasst",
+  "language": [],
+  "musenalm_id": 75235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Freund / C. Salis Contessa / in Hamburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Zerboni",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Freund / C. Salis Contessa / in Hamburg",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.639Z",
+      "agent": "e3km19xmbzdye28",
+      "source_id": "zz8ljcfukycqldu"
+    }
+  ]
+}

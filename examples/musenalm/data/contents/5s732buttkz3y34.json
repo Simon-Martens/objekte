@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 52300, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52304,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Canton-Ticino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet v. H. Keller, nach Pater Paolo Ghiringelli Gest. von J. J. Scheurmann",
+  "scans": [
+    "alm_712_52304_c6tacfujt5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Canton-Ticino",
+  "updated": "2007-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.801Z",
+      "agent": "hp3ztaqa2ipzjih",
+      "source_id": "f549shm72dqaydb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.801Z",
+      "agent": "9ql0nfn99kgr5a3",
+      "source_id": "glk4okwhrra1fw2"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach d’Anecdotes 1812",
+    "norm": "",
+    "biblio": 407232,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-03-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3791,
+  "parallel_title": "",
+  "place_statement": "Wien (Schaumburg u. Comp.); Dresden (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach d’Anecdotes 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K, nicht bei L/R; nicht bei G-C",
+  "responsibility_statement": "J. A. Bruel",
+  "subtitle_statement": "",
+  "title_statement": "Almanach d'Anecdotes / pour / l'an 1812 / par / J. A. Bruel. / A Vienne / Chez Schaumburg et Comp. / A Dresde / chez Arnold Libraire",
+  "updated": "2026-06-11 10:18:55.509Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "a3jgqj1qkba89iw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.480Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.480Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "swbqtkcopsfyc14"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.146Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.146Z",
+      "agent": "g6951l246ccrd18",
+      "source_id": "w05u1v2f3u9yufl"
+    }
+  ]
+}

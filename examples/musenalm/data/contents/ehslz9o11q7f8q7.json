@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Sorglos wagt' ich einst zu schwören: / Keines Mädchens Zauberwort,",
+  "language": [],
+  "musenalm_id": 3886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An - / 1. Petri (3,1.) / »-auf daß auch die , so nicht glau- / ben an das Wort, durch der Weiber / Wandel ohne Wort gewonnen werden.«",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An - / 1. Petri (3,1.) / »-auf daß auch die , so nicht glau- / ben an das Wort, durch der Weiber / Wandel ohne Wort gewonnen werden.«",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.017Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "v76cn9hxxhxsp2i"
+    }
+  ]
+}

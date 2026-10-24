@@ -1,0 +1,356 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.511Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10179471-X",
+          "label": "Herrenhäuser Gärten"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Botaniker; 1780 Gärtner, 1817 Garteninspektor der Herrenhäuser Gärten"
+      ],
+      "dateOfBirth": [
+        "1755-07-17"
+      ],
+      "dateOfDeath": [
+        "1828-07-27"
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-26T17:12:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/131707329/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117572055",
+          "label": "Wendland, Hermann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133905764",
+          "label": "Wendland, Heinrich Ludolph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "131707329",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#24.3p",
+          "label": "Personen zu Botanik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/133905764",
+          "label": "Wendland, Heinrich Ludolph"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/117572055",
+          "label": "Wendland, Hermann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/131707329",
+      "oldAuthorityNumber": [
+        "(DE-588a)131707329",
+        "(DE-588a)100700349"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023349-2",
+          "label": "Hannover"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4034222-0",
+          "label": "Landau in der Pfalz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4072455-4",
+          "label": "Herrenhausen"
+        }
+      ],
+      "preferredName": "Wendland, Johann Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christoph"
+        ],
+        "surname": [
+          "Wendland"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4019065-1",
+          "label": "Gärtner"
+        }
+      ],
+      "publication": [
+        "Verzeichniss der Glas- und Treibhauspflanzen, welche sich auf dem Königlichen Berggarten zu Herrenhausen bei Hannover befinden",
+        "Ericarum Icones Et Descriptiones",
+        "Hortus Herrenhusanus Seu Plantae Rariores Quae In Horto Regio Herrenhusano Prope Hannoveram Coluntur",
+        "Botanische Beobachtungen",
+        "Schrader, Heinrich Adolf: Sertum Hannoveranum Seu Plantae Rariores Quae In Hortis Regiis Hannoverae Vicinis Coluntur",
+        "Collectio Plantarum Tam Exoticarum, Quam Indigenarum",
+        "Handbuch der Gartenbau-Kunst",
+        "Botanische Beobachtungen nebst einigen neuen Gattungen und Arten"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2020034752"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/40515421"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q67700"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/131707329/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Christoph_Wendland"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Wendland"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Christoph_Wendland"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Christoph_Wendland"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000021228865"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/131707329"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd131707329.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/131707329"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Wendland, Johannes Christophorus",
+        "Wendland, Christoph Johann",
+        "Wendland, Ioannes Christophorus",
+        "Wendland, Johann Christof",
+        "Wendland, Johannes Christoph",
+        "Wendland, Joannes Christopherus",
+        "Wendland, Johann Christoff",
+        "Wendland, Joannes Christophorus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christoph Johann"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Christophorus"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christoph"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christof"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Christophorus"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Christopherus"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christophorus"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christoff"
+          ],
+          "surname": [
+            "Wendland"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christoph_Wendland",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christoph_Wendland"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:20:33Z",
+    "gnd_query_biographical_data": "1755-1828",
+    "gnd_query_name": "wendland, johann christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3104,
+  "name": "Wendland, Johann Christoph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLI",
+  "updated": "2026-06-11 13:29:25.690Z",
+  "uri": "https://d-nb.info/gnd/131707329",
+  "editor": ""
+}

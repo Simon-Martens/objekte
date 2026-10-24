@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 57716, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Du drückst so froh an Deine Brust den Affen, / als sei er Dir ein Freund, ein lieber Gast,",
+  "language": [],
+  "musenalm_id": 57715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein / Savoyardenknabe. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein / Savoyardenknabe. / Gedicht",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.921Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "wp0kl3ex3mivp7f"
+    }
+  ]
+}

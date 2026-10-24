@@ -1,0 +1,115 @@
+{
+  "annotation": "Jgg 1801-1803 /) Fortsetzung von: Meßgeschenk zur belehrenden Unterhaltung für Liebhaber der Pferde 1798-1800",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, SS IX- XII darin 2 GG, 4 GG, SS 1-152; S MusB, SS 153-160 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur belehrenden Unterhaltung für Liebhaber der Pferde 1801",
+    "norm": "~",
+    "biblio": 404936,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3801,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zur belehrenden Unterhaltung für Liebhaber der Pferde 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 135",
+  "responsibility_statement": "Seyffert von Tennecker",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / belehrenden Unterhaltung / für / Liebhaber der Pferde. / Herausgegeben / von / Seyffert von Tennecker. / Erstes Bändchen. / Mit 3 illuminirten und 4 schwarzen Kupfern. / Dieses Taschenbuch ist eine Fortsetzung des Meßge- / schenks für Liebhaber der Pferde, und macht / für die Besitzer desselben das vierte Bändchen aus. / Leipzig, 1801. / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.682Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "4kvzxg9ngj6u88j"
+  ],
+  "contents": [
+    "w1kbg708t7se8fc",
+    "m5o4j2jhy954m3r",
+    "tc242yu2z8bwl3a",
+    "51fcv0g1ji3ln6j",
+    "qnc9707pnus6nie",
+    "h2y0gs3fk51llgg",
+    "uja9v0nlq5e6m2w",
+    "steyhi5pnuhv59m",
+    "jnj24zywzdov54y",
+    "1zadzqgfdc1x3tp",
+    "pic7uh2unimt6l2",
+    "s3iqmsapjmwddlz",
+    "u5w5phk13xtlpx1",
+    "b936upk0mqbucdu",
+    "kkloinvlbmhzffm",
+    "j20ut9t2lykl460",
+    "3xlxhvj0u3im7w2",
+    "f3nv19fk6qsq9li",
+    "h1us8q70l82v10c",
+    "ardm9keuz3we5c8",
+    "b3ihpyq8auwor9f",
+    "1kttuyssmuqj5wg",
+    "vi4p5i5y5hysizb",
+    "85biff3tlmfwkq4",
+    "sx2jnmvy8o893hi",
+    "hi9hd2hqmhk2ddp",
+    "1ye7lg493dlyqtg",
+    "ab7w2xtf74ogzve",
+    "lox2nemm7972n0i",
+    "9f9k92oh851sca5",
+    "yxnmf0kdodvx41n",
+    "eq9a7rq1hw70y30",
+    "qq3bqm1tbx5fui1",
+    "ucwvvpkilh9d36x",
+    "f7y0cbsny8w3nij",
+    "swnhgk2tqtvnf7p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "7zj4hhtuz89qmk6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.298Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.298Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "raskzo24s5jh0yb"
+    }
+  ]
+}

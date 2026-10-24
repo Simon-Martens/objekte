@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 131308, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "478",
+  "incipit_statement": "Süße Gefühle des Himmels, die zart ihr dem / Herzen entschlüpfet,",
+  "language": [],
+  "musenalm_id": 131359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 244,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Momente",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Momente",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.031Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "iovgnmqrb3l9iko"
+    }
+  ]
+}

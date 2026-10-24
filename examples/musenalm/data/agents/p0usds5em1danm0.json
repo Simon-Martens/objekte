@@ -1,0 +1,377 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Tschech. Beamter und Lyriker, publizierte zuerst auf Deutsch, später auf Tschechisch"
+      ],
+      "dateOfBirth": [
+        "1766-12-14"
+      ],
+      "dateOfDeath": [
+        "1835-05-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Karla Sudimíra Šnaidra Básně [1]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karel%20Sudim%C3%ADr%20%C5%A0najdr.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karel%20Sudim%C3%ADr%20%C5%A0najdr.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karel%20Sudim%C3%ADr%20%C5%A0najdr.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1147512647"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-24T19:41:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/14103243X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Victoria"
+          ],
+          "surname": [
+            "Ladis"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1147721572",
+          "label": "Klingner, Josef Franz"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "14103243X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/14103243X",
+      "oldAuthorityNumber": [
+        "(DE-588)1147512647",
+        "(DE-588a)14103243X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031522-8",
+          "label": "Königgrätz"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Smidarz"
+      ],
+      "preferredName": "Šnajdr, Karel Sudimír",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karel Sudimír"
+        ],
+        "surname": [
+          "Šnajdr"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        }
+      ],
+      "publication": [
+        "Marienbad",
+        "Šestero selských písní",
+        "Entzauberung",
+        "Nemoc a pomoc"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n95104946"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73109081"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19971442"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1147512647"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/14103243X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Agnel_Schneider"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000077819875"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Snajdr_Karel-Sudimir_1766_1835.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/14103243X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schneider, Karl Aguel",
+        "Schneider, Carl Agnell",
+        "Šnaidr, Karel S.",
+        "Schneider, K. A.",
+        "Šnajdr, Karel",
+        "Schneider, Karl Agnel",
+        "Šnaidr, Karel Sudimjr",
+        "Schneider, Karl August",
+        "Schneider, Karl Agnell",
+        "Šnaidr, Karel Sudimiř",
+        "Schneider, Karl Agul"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karel Sudimjr"
+          ],
+          "surname": [
+            "Šnaidr"
+          ]
+        },
+        {
+          "forename": [
+            "Karel"
+          ],
+          "surname": [
+            "Šnajdr"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Agnell"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Agnel"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karel Sudimiř"
+          ],
+          "surname": [
+            "Šnaidr"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Agnell"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Agul"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Aguel"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "K. A."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Karel S."
+          ],
+          "surname": [
+            "Šnaidr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Agnel_Schneider",
+          "label": "https://de.wikipedia.org/wiki/Karl_Agnel_Schneider"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:50:51Z",
+    "gnd_query_biographical_data": "1766-1835",
+    "gnd_query_name": "schneider, karl agnell"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2504,
+  "name": "Schneider, Karl Agnell",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 737",
+  "updated": "2026-06-11 13:29:24.737Z",
+  "uri": "https://d-nb.info/gnd/14103243X",
+  "editor": ""
+}

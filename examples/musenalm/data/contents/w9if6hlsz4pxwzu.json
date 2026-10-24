@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "Des Herzens Pförtner ist des Mannes Angesicht, / Der den und den Empfang beim Herren dir verspricht.",
+  "language": [],
+  "musenalm_id": 37149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 274,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Herzens Pförtner ist des Mannes Angesicht, / Der den und den Empfang beim Herren dir verspricht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.742Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "fasw19qklesryhr"
+    }
+  ]
+}

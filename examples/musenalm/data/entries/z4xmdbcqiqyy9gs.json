@@ -1,0 +1,78 @@
+{
+  "annotation": "$ vermutl. einziger Jahrgang, s.a.: Almanach, Ephemerischer der neuern Zeit 1782, 1783 Hrsg.: D. C. Seybold, Alm-1427",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches auf alle Tage im Jahre hauptsächlich den Jünglingen gewidmet 1797",
+    "norm": "",
+    "biblio": 106821,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3050,
+  "parallel_title": "",
+  "place_statement": "Winterthur (Steiner)",
+  "places": [
+    "hpyzutncspbaexg"
+  ],
+  "preferred_title": "Taschenbuch, Historisches auf alle Tage im Jahre hauptsächlich den Jünglingen gewidmet 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Seybold",
+  "subtitle_statement": "",
+  "title_statement": "Historisches Taschenbuch / auf / alle Tage im Jahre / hauptsächlich / den Jünglingen / gewiedmet / von / Prof. Seybold, / ord. Prof. der klass. Litteratur in Tübingen. / Praecipuum munus annalium reor, ne virtutes file- /antur, utque pravis dictis factisque ex posteritate et / infamia metus sit. / TACIT. Annal. III. 6. / Winterthur / in der Steinerischen Buchhandlung / 1797",
+  "updated": "2026-06-11 10:18:54.757Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "aomcspyt0n90zvc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.177Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.177Z",
+      "agent": "dl3s0iglv2inskj",
+      "source_id": "g1accn2gn43yo5m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "5iw0h7sulh23cdo",
+      "source_id": "quaopejqi1gbf19"
+    }
+  ]
+}

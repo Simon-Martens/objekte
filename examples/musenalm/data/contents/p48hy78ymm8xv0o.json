@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Am rechten Ufer des Po, in der Richtung von Pavia nach Ferrara, prangte noch vor sechzig Jahren auf einer sanften Anhöhe das Kloster San Benedetto.",
+  "language": [],
+  "musenalm_id": 77651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blutbrücke. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Arnold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blutbrücke. / Novelle",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.772Z",
+      "agent": "ywf9jr8cwlo32f3",
+      "source_id": "fr98vs5vnk1encz"
+    }
+  ]
+}

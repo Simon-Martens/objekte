@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosa Siciliana (Sammlung INr 2755, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "O Pilgerseelchen, mit des Leibes Kleide / Leicht angethan zur Lebenspilgerfahrt!",
+  "language": [],
+  "musenalm_id": 27568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LXIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "LXIII.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.464Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "uc4170vs2xms1xr"
+    }
+  ]
+}

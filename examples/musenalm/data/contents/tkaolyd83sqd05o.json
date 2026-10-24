@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Wie glänzend Gräfin Julia! das nenne ich eine vollendete Toilette!",
+  "language": [],
+  "musenalm_id": 27217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maltheser. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Baronin de la Motte Fouqué, geb. von Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Maltheser. / Eine Erzählung",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.972Z",
+      "agent": "t59v9lajt8yljq5",
+      "source_id": "pncilrjr5uo3urh"
+    }
+  ]
+}

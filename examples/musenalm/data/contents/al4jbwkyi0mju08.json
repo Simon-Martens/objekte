@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64492, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64493,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tochter Erins #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Jones pinxt. Chr. Hoffmeister sculpt.",
+  "scans": [
+    "alm_1074_64493_lcq23x10rw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tochter Erins #",
+  "updated": "2009-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.327Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "xv9frinmxwwz1a7"
+    }
+  ]
+}

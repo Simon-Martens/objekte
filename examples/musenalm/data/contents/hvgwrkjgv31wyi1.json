@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »San-Pietro von Bastelica« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1802 INr 11764",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11898,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Armer San-Pietro, man hat Euch betrogen. / Ebendaselbst S. 86",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. J. A. Darnstedt",
+  "scans": [
+    "alm_209_11898_wuxouh6jrk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Armer San-Pietro, man hat Euch betrogen. / Ebendaselbst S. 86",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "jzeu15zex4chkc1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.532Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "nmhhvg0v1qz31hn"
+    }
+  ]
+}

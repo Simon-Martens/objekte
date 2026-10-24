@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Nur demüthig still getragen / Was auch Gott noch auf dich legt, / Laß zu grübeln und zu fragen: / »Wird mir’s nachten, wird mir’s tagen, / Wenn dies Herz nun nicht mehr schlägt?«",
+  "language": [],
+  "musenalm_id": 122133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ergebung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.756Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "atgqdr1ivuifc10"
+    }
+  ]
+}

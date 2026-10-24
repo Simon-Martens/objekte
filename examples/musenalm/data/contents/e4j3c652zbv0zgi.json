@@ -1,0 +1,45 @@
+{
+  "annotation": "Uebersicht einiger für die Fortsezung dieses Taschenbuchs geeigneten Gegenstände (Sammlung INr 84928, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Unter Gesezen, nach welchen der papierne Drache, von der Hand des Knaben am Faden geleitet, sich in schiefer Richtung aufwärts hebt,",
+  "language": [],
+  "musenalm_id": 84935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 7. / Das Steigeschirm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 7. / Das Steigeschirm",
+  "updated": "2012-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.228Z",
+      "agent": "n8i1nzykub0v7l7",
+      "source_id": "bujyjtkd9aike4j"
+    }
+  ]
+}

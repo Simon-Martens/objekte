@@ -1,0 +1,112 @@
+{
+  "annotation": "Nachtitel lautet: Helvetischer Revolutionsalmanach für das Jahr 1801. Zürich, bey Orell, Füßli und Comp.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I nT, SS III-XVI Kal darin 4 GG, SS XVII-LXI, G, SS 1-163 darin 4 GG, SS 164-177 G-Verz, S 178 I-Verz u C, Kr, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1801",
+    "norm": "~",
+    "biblio": 200411,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-09-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 700,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / für das Jahr / 1801. / Zürich, / bey Orell, Füssli & Compagnie",
+  "updated": "2026-06-11 10:18:55.146Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "kydnwa20dj480c7"
+  ],
+  "contents": [
+    "8f5kyoo8tkm14ag",
+    "pypiqh3jzruacdc",
+    "sdlo24w9oizv36k",
+    "jf8jdekh1bgiwpu",
+    "y240hya68vmn7oh",
+    "jy1lwftg1sy0yti",
+    "gbp3fshk5kne8eb",
+    "6eyqgt64kaddzlg",
+    "a8r3ghbffw3fpil",
+    "0ce1fnzquajnqab",
+    "82ennfitm6jkf1w",
+    "x9ollnuup8sltg0",
+    "8y1zxvy8s521rzy",
+    "dxle63dlosaubll",
+    "8skbu343tp0tjxu",
+    "5mxevuadcv0rt5s",
+    "mt82rhewf6xz8ag",
+    "nzx72mpkths3trm",
+    "nqkzhd4thlz1te0",
+    "4ksbwp1m6xvi2u9",
+    "2w6p5p5dgad9tm8",
+    "0ynswnlnub3eq6l",
+    "psylkxbl6p0kn14",
+    "ble232mhkirnkpu",
+    "wgv478lux9oybn1",
+    "tlw4bwvi62cxafy",
+    "so5ndmeldb5mvf8",
+    "hi038n7phiia1xr",
+    "y4aaqcbd70s5khg",
+    "vjaow9khorfr1sp",
+    "rpj61d0yvcphxwi",
+    "2rmn43nbvqo2oes",
+    "ol0qgcs96qq9qod",
+    "d88f0u8a7ixkhb4",
+    "4rwh9qxe4ovm8g3",
+    "bh2a92heua2jap8",
+    "hlchi3cpu1pwx8j",
+    "b1wcvogfdis9ndd",
+    "2i9w5brlukej7gt",
+    "woay22zzx4kld1l",
+    "l48fy8klchjiswj",
+    "guu84l738jis0he",
+    "3c3yhcgap93bz8x",
+    "60ldno25zhgqht5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.116Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.116Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "5yv5juitwdpfm8s"
+    }
+  ]
+}

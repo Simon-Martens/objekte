@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 2 und 7 der Suite; paginiert 8. /) Illustration zu »Die Rückkehr von der Kirmes« von H. Kletke INr 59550, Obj 69 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59549,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rückkehr von der Kirmes #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener",
+  "scans": [
+    "alm_898_59549_g5tpd7ng2r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rückkehr von der Kirmes #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.954Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "o1m89rgpki8iyul"
+    }
+  ]
+}

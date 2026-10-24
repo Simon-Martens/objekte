@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Floribert, mein Knappe! höre, was ich sage! Befehlt, gnädigster Herr. - Wenn wir uns trennen müßten, heute, morgen, von einander ziehen, einer dahin, der andre dorthin?",
+  "language": [],
+  "musenalm_id": 104345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Liebe und des Hasses Botschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Liebe und des Hasses Botschaft",
+  "updated": "2010-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.139Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "2l2vj1s6o1dq4ye"
+    }
+  ]
+}

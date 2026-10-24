@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; nummeriert 1. /) s. Textbezug INr 108448, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108460,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todt des Fürsten Potemkin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_2171_108460_snqeea70ad.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Todt des Fürsten Potemkin",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.275Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "shdd0qxtzf6m4j7"
+    }
+  ]
+}

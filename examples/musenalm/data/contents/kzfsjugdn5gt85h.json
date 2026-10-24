@@ -1,0 +1,45 @@
+{
+  "annotation": "Vom Kloster Corvei (Sammlung INr 86575, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Feierlich vor allen Festen / Ward zu Corvei von den Mönchen / Der Sanct Vitustag begangen.",
+  "language": [],
+  "musenalm_id": 86577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.283Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "au7ybjdk3pnbkq1"
+    }
+  ]
+}

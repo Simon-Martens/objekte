@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik: unteres von 2 Portraitmedaillons",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82067,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. C. Brübel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von Bährenstecher Gestochen von F. Fleischmann",
+  "scans": [
+    "alm_3069_82067_ldkfr31h3r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. C. Brübel",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.056Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "e0qjw00r6mha9kc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.056Z",
+      "agent": "o9xw92sdiade0lv",
+      "source_id": "zdo8nyraplavgil"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sprüche (Sammlung INr 22410, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Vor Allem, Bruder treu und schlicht, / Thu auf dein eignes Ich Verzicht.",
+  "language": [],
+  "musenalm_id": 22430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor Allem, Bruder treu und schlicht, / Thu auf dein eignes Ich Verzicht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.981Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "aav5x8g2n68kgrr"
+    }
+  ]
+}

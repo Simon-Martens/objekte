@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Siehe die Pflanz' auf dem Felsen, aus fast versen- / getem Laube / Treibt sie das Edelste doch, treibt sie die Blüthe / hervor:",
+  "language": [],
+  "musenalm_id": 61967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bildung des Edelsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bildung des Edelsten",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.086Z",
+      "agent": "lw3uqo50dp1mpif",
+      "source_id": "u67flc1nbs54y4n"
+    }
+  ]
+}

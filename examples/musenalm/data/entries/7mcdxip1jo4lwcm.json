@@ -1,0 +1,65 @@
+{
+  "annotation": "<div>weitere Jgg nicht ermittelt</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Humoristisches",
+    "norm": "",
+    "biblio": 411388,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4904,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [],
+  "preferred_title": "Vergißmeinnicht, Humoristisches 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "M. B. von Olschen",
+  "subtitle_statement": "",
+  "title_statement": "Humoristisches Vergißmeinnicht / für / 1849. / Herausgegeben / von / M. B. von Olschen. / Mit ergötzlichen Illustration. / Leipzig, 1849. / Literarisches Museum",
+  "updated": "2026-06-25 09:00:18.128Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "nzmb3vvgk48watz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.205Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-25 09:00:18.129Z",
+      "agent": "8nobf6qh7vu3pla",
+      "source_id": "66hhxzh72o6p8nv"
+    }
+  ]
+}

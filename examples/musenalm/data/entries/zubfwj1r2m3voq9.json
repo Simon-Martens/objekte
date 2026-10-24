@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, SS 1-238 darin 8 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach, Prager 1809",
+    "norm": "~",
+    "biblio": 409316,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-11-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4351,
+  "parallel_title": "",
+  "place_statement": "Prag (Calvé)",
+  "places": [
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Theater-Almanach, Prager 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Prager / Theater-Almanach / auf das Jahr / 1809. / Zweiter Jahrgang / Prag, / in Commission in der Calvéschen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.991Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "ezf447lc6abobic"
+  ],
+  "contents": [
+    "nu8978r7zxd0fcg",
+    "ufg09n8vl3cefxv",
+    "284ge30s1eymzmn",
+    "gmm978pl4kucmsi",
+    "viploe4qwty5brv",
+    "8acyod28z9xawyq",
+    "ulvgajrnrhsz6kd",
+    "ued8q7uceko1bn7",
+    "sngrxqid2hvo60r",
+    "297hns64rxyt2nt",
+    "jrexy13ecebbukr",
+    "0syy32z6iszc6cs",
+    "c1ujih6cqidebat",
+    "yf5othlt2uckdwc",
+    "e70u5vsixrfpnsh",
+    "9vb3kte7wyu8gn3",
+    "qju3nncr8vkety7",
+    "8rmhn352w6b6o7g",
+    "8pfu2jl91z8cp7t",
+    "g1hd35uraily05c",
+    "i7gzrgr3v7g6i93",
+    "on8iy4zyenwiyh5",
+    "1n6w2fggf1pbbzd",
+    "62u3h0p5o289x5w",
+    "0iey6jat5u2fthu",
+    "54982udxjbm7y7a",
+    "rfp3wht5krogl8w",
+    "dfqikaaiifekedy",
+    "jyh67rbjcpenqap",
+    "mcholy8io72qwgu",
+    "0m1i9ruaa3fswfm",
+    "edih2ptkw4wi6vh",
+    "6oofz89364fq2eb",
+    "33td4g6o2635z85",
+    "igg3jzluqzf3ue3",
+    "vmexyvvlo0scl8k",
+    "ioq858gpumzsczw",
+    "4ivrgoc7r8ukxev",
+    "sjmxq13u7gog17h",
+    "oxl9xnw720owhax",
+    "ngkw7s0rwyst6ym",
+    "k2g27oprhiodzbr",
+    "icq3oy4gtpwhjbh",
+    "r7ovjq1nk4d82jz",
+    "wwa4oynz9ew2mra",
+    "diz7upzo7ckvl4b",
+    "fnau1sjxatmkzv6",
+    "l6pby4yf82i2az8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.648Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.648Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "5nrbv64kcjsjwnp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Weil ich lausche deinem Sange, / Chloris, sinkt mein Leben hin!",
+  "language": [],
+  "musenalm_id": 8788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / Nach dem Englischen des Waller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / Nach dem Englischen des Waller",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.420Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "okrpsh3fj9db1rl"
+    }
+  ]
+}

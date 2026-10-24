@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Ich denke jener Tage, / Die mir in dir geschenkt,",
+  "language": [],
+  "musenalm_id": 46472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie denk ich dein?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad von Prittwitz und Gaffron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie denk ich dein?",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.623Z",
+      "agent": "lddqf86sm2shosm",
+      "source_id": "6tjxwn1ur159hwt"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "§4§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "382",
+  "incipit_statement": "Einmal noch, und dann nicht wieder / Wandr' ich berghinan und nieder",
+  "language": [],
+  "musenalm_id": 19880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sänger. / Mit Composition von J. G. Seidel §4§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seifried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sänger. / Mit Composition von J. G. Seidel §4§",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.812Z",
+      "agent": "htjq8uohs4h9hsk",
+      "source_id": "f3mpqa29vbgbm1q"
+    }
+  ]
+}

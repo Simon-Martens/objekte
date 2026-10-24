@@ -1,0 +1,50 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Der Wechsel der Dinge. Ein Echo. Nach dem Spanischen« von W. d. i. Goethe INr 37972, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38808,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 670,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wechsel der Dinge. / Ein Echo. Nach dem Spanischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [
+    "alm_511_38808_01_1jqdzphjor.jpg",
+    "alm_511_38808_02_szcmb5vjsy.jpg",
+    "alm_511_38808_03_8mgcxl2e8g.jpg",
+    "alm_511_38808_04_vya5ok2z4j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Wechsel der Dinge. / Ein Echo. Nach dem Spanischen",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.941Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "rv9pikxowycczxs"
+    }
+  ]
+}

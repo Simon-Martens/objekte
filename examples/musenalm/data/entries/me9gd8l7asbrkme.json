@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 8 BB Kal darin 4 GG, 2 BB G-Verz; SS 1-244 darin 2 GG, S 244 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Brittischer 1801",
+    "norm": "~",
+    "biblio": 200176,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1705,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Jäger)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Damenkalender, Brittischer 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 71",
+  "responsibility_statement": "W. Hadermann",
+  "subtitle_statement": "",
+  "title_statement": "Brittischer / DAMENKALENDER / und Taschenbuch / für das Jahr / 1801 / Herausgegeben / von / W. Hadermann / und anderen / Mit Kupfern / FRANKFURT am MAYN / In der Jaegerschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.606Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "dz8h3eryy33wr3b"
+  ],
+  "contents": [
+    "hoexwma3a58b6d8",
+    "y9wi9c5dp4cdjcb",
+    "vezbumxrfer7k0s",
+    "c5auhwzktqcn8p2",
+    "6n0oz74zr61ezsi",
+    "6lcbbuxmdst1i27",
+    "aw77vaoluf902je",
+    "vak6nmwugm3t13t",
+    "h96jpmdjfd3bny3",
+    "2mjmgmghsa0k46t",
+    "77cgx5w7wohfb29",
+    "33z9hry3lhx4pep",
+    "k2wrwebmp9mcqgw",
+    "v44l7tf22l4ghti",
+    "7gm5vyww6eshuuw",
+    "ajko33sdp8ky44m",
+    "f3tec84pcyuz8ta",
+    "mmyx8xna2af05kh",
+    "owurofp4j793pq8",
+    "fadh4c8a2nz4qqb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.072Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.072Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "2ulmacjc206dcpn"
+    }
+  ]
+}

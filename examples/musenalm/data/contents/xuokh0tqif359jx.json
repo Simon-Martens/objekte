@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Nicht des Volkes Afrodite; du nenne sie Himm- / lische Göttin, / Ehrfurchtsvoll;",
+  "language": [],
+  "musenalm_id": 6778,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUF EIN BILDNIS / DER HIMMLISCHEN AFRODITE. / Nach Theokrit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voss",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AUF EIN BILDNIS / DER HIMMLISCHEN AFRODITE. / Nach Theokrit",
+  "updated": "2000-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.202Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "2849hlcvvalfs9i"
+    }
+  ]
+}

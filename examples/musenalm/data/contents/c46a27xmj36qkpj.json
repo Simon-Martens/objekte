@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ländliche Stille« von Voß INr 18162, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländliche Stille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_99_18163_uibvcud22i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ländliche Stille",
+  "updated": "2001-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.553Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "uxoifs107vm3541"
+    }
+  ]
+}

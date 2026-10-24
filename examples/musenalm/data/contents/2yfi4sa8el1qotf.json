@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 57991, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Wie in der Geschichte die Väter und Zeiten, so sind es auch in der Geschichte unseres eigenen Mikrokosmus immer nur die unzweideutigsten, ganz rein sich herausstellenden Thatsachen,",
+  "language": [],
+  "musenalm_id": 58002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historische Selbstkenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Historische Selbstkenntniß",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.954Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "s44cpochtqovkd1"
+    }
+  ]
+}

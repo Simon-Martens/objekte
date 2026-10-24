@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumenlese, Akademische (Prag) 1784",
+    "norm": "",
+    "biblio": 409962,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-09-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4669,
+  "parallel_title": "",
+  "place_statement": "Prag (Eisenwangerische Erben)",
+  "places": [
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Blumenlese, Akademische (Prag) 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Karl Heinrich Seibt",
+  "subtitle_statement": "",
+  "title_statement": "Akademische Blumenlese. / Herausgegeben / von / Karl Heinrich Seibt, / öffentl. und ordentl. Lehrer der schönen Wissenschaften / und der Moral. / Prag 1784, / in der k.k. Normalschulbuchdruckerey durch Wenzel Pistaczek / Faktorn, verlegt von den Eisenwangerischen Erben",
+  "updated": "2026-06-11 10:18:55.543Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "7wscb0lk5vb6twe"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.404Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.404Z",
+      "agent": "0xpkronp284rfrf",
+      "source_id": "dj2cz2q3pv1zntz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.766Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.766Z",
+      "agent": "cl2gghamjd6xu4l",
+      "source_id": "viaydkl08md02p4"
+    }
+  ]
+}

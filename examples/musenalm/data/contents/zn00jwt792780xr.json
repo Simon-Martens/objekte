@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Es zogen zwei Burschen den Thalweg entlang, / Laut jauchzend und lachend bei frohem Gesang.",
+  "language": [],
+  "musenalm_id": 45747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Firmenich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Todten",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.304Z",
+      "agent": "fc09ekcgxjxmoow",
+      "source_id": "mr3e945gsbqri8r"
+    }
+  ]
+}

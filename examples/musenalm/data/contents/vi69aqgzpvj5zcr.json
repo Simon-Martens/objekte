@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86267, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Dem stärkern Schicksal widerstrebst vergeblich du; / Es führt den Kampf mit dir nach einem Recht,",
+  "language": [],
+  "musenalm_id": 86271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem stärkern Schicksal widerstrebst vergeblich du; / Es führt den Kampf mit dir nach einem Recht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.230Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "znjjjuaqm4o9vws"
+    }
+  ]
+}

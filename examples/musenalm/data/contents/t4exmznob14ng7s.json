@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 90788-90791, Obj 6-9 /) Fortsetzung aus dem Vorläuferjahrgang",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder an Fortuna. / (Siehe den vorigen Jahrgang dieses Taschenbuchs)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder an Fortuna. / (Siehe den vorigen Jahrgang dieses Taschenbuchs)",
+  "updated": "2013-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.244Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "k8tlcm8qjd9pdpf"
+    }
+  ]
+}

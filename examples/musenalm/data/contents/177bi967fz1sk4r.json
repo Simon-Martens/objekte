@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Im Kalendarium paginiert 4. s. Textbezug INr 7483, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7444,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kinder Frankreichs drohen ihrer Mutter / Les enfans de france menacent leur mere",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_151_7444_ckn0xlr93p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kinder Frankreichs drohen ihrer Mutter / Les enfans de france menacent leur mere",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.411Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "bea0dcg3yym9xa8"
+    }
+  ]
+}

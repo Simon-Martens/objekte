@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Universität Leipzig 1823",
+    "norm": "",
+    "biblio": 406358,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1166,
+  "parallel_title": "",
+  "place_statement": "Leipzig  (Ernst Klein's literarisches Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Universität Leipzig 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 21; nicht bei L/R",
+  "responsibility_statement": "Carl Ferdinand Fiedler",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Universität Leipzig / auf das Jahr / 1823. / Mit vier Portraits. / Leipzig, 1823. / In Ernst Klein's literarischem Comptoir",
+  "updated": "2026-06-11 10:18:55.109Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "w32bz4fk6ldnzwo"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.788Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.788Z",
+      "agent": "qa218hgdobjqpek",
+      "source_id": "dw2gv8udfkb4tkm"
+    }
+  ]
+}

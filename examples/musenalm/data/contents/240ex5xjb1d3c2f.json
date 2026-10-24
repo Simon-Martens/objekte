@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Von der zahlreichen Gesellschaft, welche, durch die verwittwete Frau von Jung eingeladen, den Mittag auf dem Gute Heinrichshausen bey ihr verlebte, hatte sich nach und nach Alles verloren,",
+  "language": [],
+  "musenalm_id": 77152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ehe aus Dankbarkeit. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ehe aus Dankbarkeit. / Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.690Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "zq3e9mfutrfeq4c"
+    }
+  ]
+}

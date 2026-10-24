@@ -1,0 +1,96 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S I-Verz, ar: SS 1-146, SS I-VI, ar1: SS 1-177",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Kotzebue, Huber) 1807",
+    "norm": "~",
+    "biblio": 103617,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 766,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch (Kotzebue, Huber) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; nicht bei L/R; Goed VIII. 128, 3",
+  "responsibility_statement": "Kotzebue und Huber",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf / das Jahr 1807. / Von / Kotzebue und Huber. / Tübingen. / in der J. G. Cotta'schen Buchhandlung. / 1806",
+  "updated": "2026-06-11 10:18:55.437Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "j62n5dieejexps4"
+  ],
+  "contents": [
+    "6xbk5mx7agybze1",
+    "o9a8du3ltqc12wf",
+    "a9muj4p7g802ut6",
+    "37sah1n9etr07nc",
+    "6anmcw3rg381wz8",
+    "34yk6furzcq274g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.773Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.773Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "2p3x1w40dxadsx9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.772Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.772Z",
+      "agent": "j6zj4e02mmgth5i",
+      "source_id": "jstddslnkl46b47"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.678Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.678Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "o8dqg5bmbavi2q3"
+    }
+  ]
+}

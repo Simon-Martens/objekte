@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Von welcher Sekte Wipwap ist? / Fragt Wipwap, was er jetzo liest!",
+  "language": [],
+  "musenalm_id": 5201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gelehrte Wetterhahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sprickmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gelehrte Wetterhahn",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.082Z",
+      "agent": "9p4t51qtb5vwvkk",
+      "source_id": "slme8z1h55pkfo0"
+    }
+  ]
+}

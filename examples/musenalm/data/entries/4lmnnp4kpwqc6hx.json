@@ -1,0 +1,67 @@
+{
+  "annotation": "§§ 2 (Titel-) Graphiken fehlen hier:  Ausrißspuren: s. Graphiken der deutschen Ausgabe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "§§, ar: S 1 T, 2 GG, SS 3-60 Kal darin 4 GG, ar1: S 1nT, SS 3-149 darin 7 GG, SS 150-152 G-Verz, ar2: SS 1-49, 2 SS I-Verz, S VrlgM, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1808 (franz. Ausg.: Almanach de poche de Goettingue 1808)",
+    "norm": "~",
+    "biblio": 408253,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2013-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4076,
+  "parallel_title": "",
+  "place_statement": "Göttingen (H. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1808 (franz. Ausg.: Almanach de poche de Goettingue 1808)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / de poche de Goettingue / pour / l'année bissextile / 1808. / A Goettingue / chez Henri Dieterich",
+  "updated": "2026-06-11 10:18:55.216Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "59x3ell79pdw884"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.942Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.942Z",
+      "agent": "jhk0r2ray3q5ecb",
+      "source_id": "7nofp017nxqkvj3"
+    }
+  ]
+}

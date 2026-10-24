@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Wundersam, durch Dunkelheiten, / Geht, allheilige Natur, / Deines Zaubertrittes Spur;",
+  "language": [],
+  "musenalm_id": 63073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wahre Traum. / Eine Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Gr. z. Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wahre Traum. / Eine Ballade",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.977Z",
+      "agent": "gtq8zou6jpsfpy4",
+      "source_id": "c41s75yzpzyejx6"
+    }
+  ]
+}

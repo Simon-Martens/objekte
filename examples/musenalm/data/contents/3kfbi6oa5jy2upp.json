@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers mit Hinweis auf Autorschaft Posselts für die Beiträge INr 22055-INr 22081, Obj 7-32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der berühmte Verfasser dieses Almanachs hat die Herausgabe desselben nicht mehr erlebt. Bis S. 82 ist alles seine Arbeit, die unverändert und ohne irgend einen Zusaz zu geben, ich für heilge Pflicht gegen den Verstorbenen hielt",
+  "language": [],
+  "musenalm_id": 22051,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cotta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2000-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.096Z",
+      "agent": "0rnyqiybfu5n3e2",
+      "source_id": "3xnrwwzhy4won10"
+    }
+  ]
+}

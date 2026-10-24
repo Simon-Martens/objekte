@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Bey meiner Seele, ich höre nichts mehr; – / Ey so lauft ihr Kerls, als wärt ihr besessen, / Da sind sie hinter dem Feinde her, / Und ich, – die Schildwache, wurde ver- / gessen",
+  "language": [],
+  "musenalm_id": 129999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Soldat ganz allein. / Ein komisches Zwischenspiel in einer Scene, / nach einer Anekdote, von I. F. Castelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Soldat ganz allein. / Ein komisches Zwischenspiel in einer Scene, / nach einer Anekdote, von I. F. Castelli",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.055Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "gwfges7qt293rut"
+    }
+  ]
+}

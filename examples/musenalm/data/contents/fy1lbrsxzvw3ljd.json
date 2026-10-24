@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Sieghaft war die Schlacht geschlagen / An der Loire grünem Bord,",
+  "language": [],
+  "musenalm_id": 22890,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harry Montmorenci, / historische Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harry Montmorenci, / historische Romanze",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.095Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "1hwdg2fycg14t3z"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "annotation": "einziger Jahrgang /) Kurzaufnahme: Umschlag, Titel, Vorwort sind als Vollbild gegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I vT, S III T, SS V-VIII Vrwrt d Vrf, S 1 zT, SS 3-216, S 217 zT, SS 219-472",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Curiositäten-Almanach, Allgemeiner unterhaltender 1825",
+    "norm": "~",
+    "biblio": 200939,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 19,
+  "parallel_title": "",
+  "place_statement": "Mainz (Kupferberg)",
+  "places": [
+    "884lron7ayuezbp"
+  ],
+  "preferred_title": "Curiositäten-Almanach, Allgemeiner unterhaltender 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 40; nicht bei L/R; H.-G. I, 713; H.-G. II, 271",
+  "responsibility_statement": "Fischer, Christian August",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeiner unterhaltender / Curiositäten-Almanach / auf / alle Tage im Jahr. / Herausgegeben / von / Christian August Fischer. / Erster Jahrgang. / 1825. / Mainz. / Bei Florian Kupferberg",
+  "updated": "2026-06-11 10:18:55.598Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "r0nw6zfmpnrwzlk"
+  ],
+  "contents": [
+    "iuogsbc9e9x8o4q",
+    "35hx1ip8l9ehoba",
+    "r0nxozyprihl6az",
+    "ll2t1fzpwg0juti"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.193Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.193Z",
+      "agent": "f9dgwof9o4ukhch",
+      "source_id": "4vqlj3r51zrtiio"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "j0b862lc8g34nvw",
+      "source_id": "uu5t87p6fmje30d"
+    }
+  ]
+}

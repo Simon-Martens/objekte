@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 29380, Obj 65) /) Tändeleien (Sammlung INr 29379, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Eine Stille kenn' ich, des Herzens friedliche süße, / Die wie ein heiliger Hain ziehet den Menschen in sich.",
+  "language": [],
+  "musenalm_id": 29383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Verschiedene Stille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Verschiedene Stille",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.509Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "xyujrgsnby3dxkh"
+    }
+  ]
+}

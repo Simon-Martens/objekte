@@ -1,0 +1,578 @@
+{
+  "annotation": "",
+  "biographical_data": "1750-1804",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.499Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2015876-2",
+          "label": "Akademie der Künste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/6145654-8",
+          "label": "Johann Friedrich Ungersche Buchdruckerei und Schriftgießerei"
+        }
+      ],
+      "dateOfBirth": [
+        "1753-08-26"
+      ],
+      "dateOfDeath": [
+        "1804-12-26"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/117293113",
+        "https://d-nb.info/gnd/118803158",
+        "https://d-nb.info/gnd/137790120"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:13:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11729327X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117293091",
+          "label": "Unger, Friederike Helene"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137790457",
+          "label": "Unger, Johann Georg"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11729327X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/137790457",
+          "label": "Unger, Johann Georg"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117293091",
+          "label": "Unger, Friederike Helene"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11729327X",
+      "oldAuthorityNumber": [
+        "(DE-588)118803158",
+        "(DE-588a)117293113",
+        "(DE-588)137790120",
+        "(DE-588c)4114886-1",
+        "(DE-588a)118803158",
+        "(DE-588)117293113",
+        "(DE-588a)11729327X",
+        "(DE-588a)137790120"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Unger, Johann Friedrich Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Friedrich Gottlieb"
+        ],
+        "surname": [
+          "Unger"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628946-1",
+          "label": "Musikdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398799-0",
+          "label": "Musikverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7551045-5",
+          "label": "Formschneider"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4180006-0",
+          "label": "Schriftsetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160532-9",
+          "label": "Holzschneider"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Sechs Figuren für die Liebhaber der schönen Künste",
+        "Probe einer neuen Art deutscher Letterio",
+        "Vorschlag, wie Landkarten ... können gemeinnützig gemacht werden"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12239455z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr90004808"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44352619"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q75081"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117293113"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11729327X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118803158"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/137790120"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Friedrich_Unger"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Unger_%28Verleger%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Friedrich_Unger"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000106540508"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11729327X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11729327X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11729327X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11729327X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11729327X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11729327X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Unger, Friedrich Gottl.",
+        "Unger, Friedrich Gottlieb",
+        "Unger, Johann Fridericus",
+        "Unger, J. Fr.",
+        "Unger, Johann Friedrich",
+        "Unger, J. F.",
+        "Unger, Jean Frédéric",
+        "Unger, junior",
+        "Unger, Giov. Feder.",
+        "Unger, Johann Friedrich Gottlieb, der Jüngere",
+        "Unger, Johann F.",
+        "Unger, Johannes Fridericus",
+        "Unger, J. F. G.",
+        "Unger, Ioa. Fr.",
+        "Unger, Friedr. Gottl.",
+        "Unger, Johann Friederich",
+        "Unger, Johann Gottlieb Friedrich",
+        "Unger, Friedrich G.",
+        "Unger, Giovanni Federico"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Giov. Feder."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friederich"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich G."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottlieb Friedrich"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Fridericus"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlieb"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "J. F. G."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Frédéric"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "J. Fr."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottl."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich Gottlieb"
+          ],
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann F."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Federico"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "nameAddition": [
+            "junior"
+          ],
+          "personalName": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Gottl."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Fridericus"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Gottlieb"
+          ],
+          "surname": [
+            "Unger"
+          ]
+        },
+        {
+          "forename": [
+            "Ioa. Fr."
+          ],
+          "surname": [
+            "Unger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Friedrich_Unger_%28Verleger%29",
+          "label": "https://de.wikipedia.org/wiki/Johann_Friedrich_Unger_%28Verleger%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:13:06Z",
+    "gnd_query_biographical_data": "1750-1804",
+    "gnd_query_name": "unger, johann friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2954,
+  "name": "Unger, Johann Friedrich",
+  "profession": "Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 2087; ADB XL, 332",
+  "updated": "2026-06-11 13:29:25.501Z",
+  "uri": "https://d-nb.info/gnd/11729327X",
+  "editor": ""
+}

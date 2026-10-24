@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 91733, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Rudolph, der elde Graf von Habsburg, war / In stürmevoller Zeit voll Zank und Zwietracht / Zum Oberhaupt des Reichs erwählt",
+  "language": [],
+  "musenalm_id": 91735,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolf und Ottokar. / (Zur Erklärung des Titelkupfers.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rudolf und Ottokar. / (Zur Erklärung des Titelkupfers.)",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.370Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "vx9510kh2puqvwb"
+    }
+  ]
+}

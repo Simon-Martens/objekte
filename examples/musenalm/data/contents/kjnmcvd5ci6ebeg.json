@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 87122, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Manches Gedicht steigt auf, gleich einer leuchtenden / Flamme,",
+  "language": [],
+  "musenalm_id": 87137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15.",
+  "updated": "2013-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.199Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "w8du3n7rg778vpw"
+    }
+  ]
+}

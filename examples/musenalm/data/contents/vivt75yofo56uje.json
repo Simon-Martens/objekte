@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 30136, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Da die schöne Kunst in ihrer Gesamtheit dahin strebt, die ganze Schöpfung in einem herrlichen, uns deutlichern Lichte darzustellen",
+  "language": [],
+  "musenalm_id": 30137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Säulenhalle eines Palastes. / von D. van Deelen. / Hoch 25¾ Zoll, breit 20 Zoll",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Säulenhalle eines Palastes. / von D. van Deelen. / Hoch 25¾ Zoll, breit 20 Zoll",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.347Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "77rndejxjnw55b5"
+    }
+  ]
+}

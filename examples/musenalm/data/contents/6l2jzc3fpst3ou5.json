@@ -1,0 +1,45 @@
+{
+  "annotation": "Der todte Adonis, nach der 30. Idylle des Theokrit und Balders Leichen-Feyer, nach der 43. Fabel der jüngern Edda, Eine Parallele (Sammlung INr 25807, Obj 92) mit Anmerkungen INr 25812, Obj 97",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Bey Balders Wunder-Barke / Dem besten Schiff im Himmel, / Dem besten Schiff auf Erden,",
+  "language": [],
+  "musenalm_id": 25811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Balders Leichen-Feyer. / Skiebnen dig kan idet boie etc. / Ewald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Balders Leichen-Feyer. / Skiebnen dig kan idet boie etc. / Ewald",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.359Z",
+      "agent": "wfk4mi4tbts3zzx",
+      "source_id": "3534hwna72a8618"
+    }
+  ]
+}

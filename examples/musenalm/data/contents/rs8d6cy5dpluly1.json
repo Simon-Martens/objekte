@@ -1,0 +1,54 @@
+{
+  "annotation": "VIII. Exequien dreier Oberpriester Dianens (Sammlung INr 67400, Obj 37) mit einem beigegebenen Gedicht INr 67402, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Schon im Beginnen dieses Jahrs, am 22. Februar [...] starb [...], der, durch seine classischen Werke in der Naturhistorie und Jagdkunde weltberühmte, herzoglich Meiningische geheime Kammer- und Forstrath, Dr. Johann Matthäus Bechstein,",
+  "language": [],
+  "musenalm_id": 67401,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schon im Beginnen dieses Jahrs, am 22. Februar [...] starb [...], der, durch seine classischen Werke in der Naturhistorie und Jagdkunde weltberühmte, herzoglich Meiningische geheime Kammer- und Forstrath, Dr. Johann Matthäus Bechstein,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.432Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "sbd3m4x6tys5470"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.432Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "x1zo8ltls4x2uei"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Wahn« von K. A. von Wachsmann INr 112511, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ODA VON NORBERG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_2472_112512_mb08zv0336.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ODA VON NORBERG",
+  "updated": "2010-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.251Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "gwiu55fefbwe6dh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.251Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "t7054o16ylmgk1v"
+    }
+  ]
+}

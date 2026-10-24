@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Noch wirbeln deine Töne mir durchs Haupt, / Noch hältst du meinen Sinn in deinem Banne, / Du hast mir meine Phantasie geraubt;",
+  "language": [],
+  "musenalm_id": 45935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Liszt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baltasar Reber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz Liszt",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.270Z",
+      "agent": "dzhprhqu0sih6o6",
+      "source_id": "ju3f6oy6retfwc9"
+    }
+  ]
+}

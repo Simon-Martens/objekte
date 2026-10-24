@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34474, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34483,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE PROPOSAL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Stephanoff del. W. Humphrys sculp.",
+  "scans": [
+    "alm_479_34483_zdl1th6px3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE PROPOSAL",
+  "updated": "2003-06-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.588Z",
+      "agent": "6pt03l90qpia7vf",
+      "source_id": "gmaott4z9fwlypm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.588Z",
+      "agent": "t4zzk84d4faswqe",
+      "source_id": "qox0beu9mxuo3hc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Es gieng ein Mann im Syrerland, / Führt' ein Kamel am Hafterband.",
+  "language": [],
+  "musenalm_id": 27628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parabel. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parabel. / 1.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.297Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "zon4vk0qqk0ydz6"
+    }
+  ]
+}

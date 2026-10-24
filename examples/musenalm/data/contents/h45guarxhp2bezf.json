@@ -1,0 +1,56 @@
+{
+  "annotation": "über der Graphik: p. 205 /) Illustration zu »Die Wellenbraut« von E. Straube INr 81945, Obj 102",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wellenbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. B.",
+  "scans": [
+    "alm_3321_81856_xwl8zm47jt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wellenbraut",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.874Z",
+      "agent": "o70q3vimhwk7cqf",
+      "source_id": "fmkfmidxguli32y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.874Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "mqtyejzb0aj8d25"
+    }
+  ]
+}

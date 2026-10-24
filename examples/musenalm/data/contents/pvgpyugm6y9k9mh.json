@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 63720, Obj 10 /) unter der Graphik: Druck u. Papier v. Lange in Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63727,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebenden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Edouard Schuler sc.",
+  "scans": [
+    "alm_1046_63727_gsd5blcvbl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebenden #",
+  "updated": "2009-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.970Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "gef2cu0gy6ixalr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.970Z",
+      "agent": "15dx9apva9mgxq4",
+      "source_id": "l20kczj24nohj79"
+    }
+  ]
+}

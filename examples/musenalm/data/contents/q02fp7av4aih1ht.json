@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Heute die und jene morgen! / Also liebt man ohne Sorgen,",
+  "language": [],
+  "musenalm_id": 3377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Flattersinn. / Lied aus einem Singspiel. / Si l'maour porte des ailes, / B'est - ce pas pour voltiger?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. H. Heydenreich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Flattersinn. / Lied aus einem Singspiel. / Si l'maour porte des ailes, / B'est - ce pas pour voltiger?",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.019Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "7rs8hbc1znq6v3a"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "annotation": "einziger Jahrgang /) 25 Sammlungen (»Abendunterhaltungen«) mit zahlreichen Beiträgen. Die Sammlungen sind nicht mit ihren Beiträgen aufgenommen, lediglich Incipit des je ersten Beitrags",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I-IV Vrwrt d Hrsg, SS 5-436",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Komus Launig Kurzweil, der humoristische Anekdoten-Raritäten- und Kuriositätenjäger. Ein Almanach von Florestin [oJ]",
+    "norm": "~",
+    "biblio": 110585,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2205,
+  "parallel_title": "",
+  "place_statement": "Halberstadt",
+  "places": [
+    "mdhj603ygs24e0m"
+  ],
+  "preferred_title": "Komus Launig Kurzweil, der humoristische Anekdoten-Raritäten- und Kuriositätenjäger. Ein Almanach von Florestin [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 73; nicht bei L/R",
+  "responsibility_statement": "Florestin Verfasser des Kaleidosk ...",
+  "subtitle_statement": "",
+  "title_statement": "Komus Launig / Kurzweil, / der humoristische Anekdoten-, / Raritäten- und Kuriositätenjäger. / Ein Almanach / von / FLORESTIN. / Verfasser des Kaleidosk., Anti-Hypochondr. / und Musaikons. / HALBERSTADT, / verlegt von H. Vogler",
+  "updated": "2026-06-11 10:18:55.907Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "zaxd7ybi3n9f82v"
+  ],
+  "contents": [
+    "1jgikpxsll31mzm",
+    "a880exmtslnzolg",
+    "oli0hwn3yrscxkm",
+    "mh22ilk55jnj0c5",
+    "p8b1hjh90cp0ioz",
+    "36gc5gat9xr7g7s",
+    "sdkas0uggqv0aff",
+    "t3kstfhi906cygk",
+    "ry4tx79jgo8ltjo",
+    "bl7mpol434ed3ge",
+    "vwr51zgc304a3fb",
+    "7c5kq6biaa9g46n",
+    "n81012whbfj2x4w",
+    "tx5829gh6q5xs4f",
+    "7hsys3e0591zyxt",
+    "r2pisjp5gvh35he",
+    "09vhfwos058ie4n",
+    "emzcratr851qo7j",
+    "pjry94gvtkfvrge",
+    "fe5g9ti34rkqwei",
+    "ya0dpnhxda9vo6g",
+    "qvwpoy4lb455jw6",
+    "ek4f9vgvd2fwm2p",
+    "ynzlxl3sn84rnxl",
+    "wc9rtle1o6p69f8",
+    "cb5kuusnt68p798",
+    "73a7lsex1wff5i4",
+    "1yae89419i1yyfk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.011Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.011Z",
+      "agent": "5jlkfsrdxdqri25",
+      "source_id": "51c33q3jnxjrrun"
+    }
+  ]
+}

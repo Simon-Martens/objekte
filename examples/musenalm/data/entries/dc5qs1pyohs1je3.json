@@ -1,0 +1,107 @@
+{
+  "annotation": "Zweiter Titel lautet: Weiblicher Sinn und weibliches Leben. Charakterzüge. Gemählde und Reflexionen. Von Friedrich Ehrenberg, Königlichem Hofprediger zu Berlin. Reutlingen, in der J. J. Mäcken'schen Buchhandlung 1810. /) Es handelt sich um den als Taschenbuch aufgemachten Raubdruck von: Friedrich Ehrenberg: »Weiblicher Sinn und weibliches Leben«, Berlin 1809. /) Ein weiterer Mäckenscher Raubdruck auf der Musenalm ist: »Der Tag auf dem Lande.  Von  J. H. Voß.  Als Taschenbuch für das Jahr 1808. Dritte von neuem durchgesehene Auflage. Reutlingen in der J. J. Mäcken'schen Buchhandlung« Alm-564",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, S I T, S III-VI Vrwrt d Verf, B I-Verz, S 7 zT, SS 9-186, S 187 zT, SS 190-330, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Weiber und Mädchen zur moralisch-religiösen Bildung (Raubdruck: Mäcken) 1810",
+    "norm": "~",
+    "biblio": 200801,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 11,
+  "parallel_title": "",
+  "place_statement": "Reutlingen (J. J. Mäcken'sche Buchhandlung)",
+  "places": [
+    "cfccuhks1f06hoj"
+  ],
+  "preferred_title": "Taschenbuch für Weiber und Mädchen zur moralisch-religiösen Bildung (Raubdruck: Mäcken) 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed VI. 226, 6",
+  "responsibility_statement": "Friedrich Ehrenberg",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Weiber und Mädchen / zur / moralisch-religiösen Bildung / in / charakteristischen Gemählden. / Herausgegeben / von / Friedrich Ehrenberg. / Königlichem Hofprediger zu Berlin. / Mit einem Titelkupfer. / Reutlingen, in der J. J. Mäcken'schen Buchhandlung. / 1810",
+  "updated": "2026-06-11 10:18:55.043Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "0ym7ra1zdtwa6rt"
+  ],
+  "contents": [
+    "daqgcn0v0hp8usc",
+    "jrkalvlmgnrseqp",
+    "7i8nsh9bap07mi4",
+    "yl34ojjyshp0nhv",
+    "34zkmasnip1das9",
+    "4150tbpkagly593",
+    "8e93sm408f4pqiu",
+    "nwngucg4mdo1veg",
+    "qrya6xhig4p2wrr",
+    "nsnp23upj7bgx8z",
+    "8nlvt9wov7r8aow",
+    "cioo36yp5zklmzo",
+    "zv1azw9awjursvt",
+    "bvm0rvvagr02is3",
+    "do2w2zrlopbyrpx",
+    "0kazbfg44vdcaau",
+    "grcrvhl7alnfn9o",
+    "c59p486az5451xf",
+    "vzpql4p25vim9e5",
+    "vhk6m2r89idmfob",
+    "26qfmcpj07g4n7i",
+    "a63e4zje6a7ay0v",
+    "qukwr969yb87152",
+    "tzfz4vcyt5zyixr",
+    "c4xwfuuu1epnccm",
+    "90ju6xo67cct61h",
+    "it6lvkg84mg8geb",
+    "5egukwpdao8gzv4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.193Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.193Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "84gaev2zpf4l65l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.069Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.069Z",
+      "agent": "28j43c9nrs7wzpb",
+      "source_id": "ebankhv8vdhr9h5"
+    }
+  ]
+}

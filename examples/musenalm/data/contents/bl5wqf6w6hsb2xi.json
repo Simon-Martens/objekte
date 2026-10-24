@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 83049, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Seht einen armen alten Mann, / Den Schmerz und Noth verzehren.",
+  "language": [],
+  "musenalm_id": 83051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Greis. / Eine Romanze, nach dem Fran- / zösischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Greis. / Eine Romanze, nach dem Fran- / zösischen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.121Z",
+      "agent": "t6wjjpa90xmd7r2",
+      "source_id": "btupg6htm5d0ahx"
+    }
+  ]
+}

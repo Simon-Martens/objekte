@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Fastnachts-Almanach 1832",
+    "norm": "",
+    "biblio": 404110,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1763,
+  "parallel_title": "",
+  "place_statement": "Merseburg (Weidemann)",
+  "places": [
+    "mkp74x12ar6rekk"
+  ],
+  "preferred_title": "Fastnachts-Almanach 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; H.-G. II, 236",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Fastnachts-Almanach / auf das Jahr 1832. / für / Hyppochondristen, hyste- / rische Frauen und alle Leu- / te die gern lustig seyn wol- / len und es aus sich selbst / nicht können. / 1ster Jahrgang. / Preis 1 Rhlr. / Merseburg / Verlag der Buchhandlung / von Fr. Weidemann",
+  "updated": "2026-06-11 10:18:55.625Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "wlej1xej071alqp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.183Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.183Z",
+      "agent": "115v3hkojo3wobg",
+      "source_id": "8p34bd4lk1fc3vb"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10 /) Graphik im Kalendarium Oktober /) Illustration zu »Begebenheiten des Peregrine Pickles« von T. G. Smollet s. Textbezug INr 70075, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christ sey uns gnädig! Wahrhaftig er ist / ein eingefleischter Teufel. / III. Th. 90. Cap.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_797_70063_iczunm7uh7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christ sey uns gnädig! Wahrhaftig er ist / ein eingefleischter Teufel. / III. Th. 90. Cap.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.335Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "izt72t0stubdh1y"
+    }
+  ]
+}

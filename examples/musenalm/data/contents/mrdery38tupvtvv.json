@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Im Bukke-Fiörd am Norwegerstrand, / Vor ärmlichem Haus im lockeren Sand, / Da rudert im Kahn ein alterndes Weib,",
+  "language": [],
+  "musenalm_id": 86820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fischerin von Bukke-Fiörd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fischerin von Bukke-Fiörd",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.008Z",
+      "agent": "e0feijwjpugv8vg",
+      "source_id": "9wj8yboljnqsvne"
+    }
+  ]
+}

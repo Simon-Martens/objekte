@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Weit vom Mondlicht überschienen / Glänzt die Wüste silberweiß;",
+  "language": [],
+  "musenalm_id": 100693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wüste-Mährchen. / Episode aus einem ungedruckten Gedichte: Sabathai Zewi, / ein Messias in Israel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Ring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wüste-Mährchen. / Episode aus einem ungedruckten Gedichte: Sabathai Zewi, / ein Messias in Israel",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.717Z",
+      "agent": "tg632xcb1qqevtg",
+      "source_id": "w0b2apvf37vz2jj"
+    }
+  ]
+}

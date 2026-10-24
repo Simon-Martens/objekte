@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Begräbniß-Denkmal Landgraf Wilhelm's III, des jüngern, in der St. Elisabeth-Kirche zu Marburg«  von K. W. Justi INr 97689, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Begräbnis-Denkmal / Landgraf Wilhelm's des jüngern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. B. Kessler del.",
+  "scans": [
+    "alm_3495_97690_de329l0kcb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Begräbnis-Denkmal / Landgraf Wilhelm's des jüngern",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.798Z",
+      "agent": "2e0zj08qq2qshay",
+      "source_id": "xwfggcpzkvvcp2j"
+    }
+  ]
+}

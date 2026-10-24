@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Gründung von Gelnhausen in der Wetterau. Altdeutsche Sage. (Sammlung INr 19961, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Der Ritter stürmt in den finstern Wald, / Wo schmetternd des Jägers Hifthorn erschallt;",
+  "language": [],
+  "musenalm_id": 19964,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Liebesqual",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise v. Hohenhausen, geb. v. Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Liebesqual",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.094Z",
+      "agent": "egwykz1ou8cu8sz",
+      "source_id": "15jysdgb9ti1es9"
+    }
+  ]
+}

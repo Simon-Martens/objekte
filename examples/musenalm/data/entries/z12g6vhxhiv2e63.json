@@ -1,0 +1,53 @@
+{
+  "annotation": "KVK: BVB: Jgg 1801-1803. Dort: Nebentitel 1801: Wiener Gesundheits-Almanach - Nebentitel 1802: Wiener Gesundheits-Taschenbuch. - Nebentitel 1803: Franks Gesundheits-Taschenbuch. - Zusatz anfangs: von einer Gesellschaft Wiener Ärzte;  Hrsg: Frank, Joseph (1771-1842)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gesundheits-Taschenbuch (Wien) 1801",
+    "norm": "",
+    "biblio": 406600,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-05-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3661,
+  "parallel_title": "",
+  "place_statement": "o. O.",
+  "places": [],
+  "preferred_title": "Gesundheits-Taschenbuch (Wien) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gesundheits- / Taschenbuch / für / das Jahr / 1801",
+  "updated": "2026-06-11 10:18:55.646Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "kdqtcylt35nmzxl"
+  ],
+  "contents": [],
+  "agents": []
+}

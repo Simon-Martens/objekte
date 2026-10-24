@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Textbezügen zu den Graphiken des Almanachs INr 60249-60272, Obj 33-56",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. / Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. / Erklärung der Kupfer",
+  "updated": "2008-10-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.890Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "bagmi569dl8dbau"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, S III W, SS V-VII Vrwrt d Hrsg, S I-Verz, SS 1-328",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Eurynome. Dramatisches Taschenbuch 1837",
+    "norm": "~",
+    "biblio": 405060,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 17,
+  "parallel_title": "",
+  "place_statement": "Breslau (Friedländer)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Eurynome. Dramatisches Taschenbuch 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K, nicht bei L/R",
+  "responsibility_statement": "W. Foerster",
+  "subtitle_statement": "",
+  "title_statement": "Eurynome. / Dramatisches Taschenbuch / für / das Jahr 1837. / Von / Dr. W. Foerster. / Breslau. / Druck und Verlag von M. Friedländer",
+  "updated": "2026-06-11 10:18:55.624Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "khyeoc35eoxep17"
+  ],
+  "contents": [
+    "nvby1zsdqquei2z",
+    "bmt5cxq37vgxq6i",
+    "zgw18p5gdy1v4u4",
+    "qx9o3fhzxovvi03",
+    "tt5rhnh9onbxxpc",
+    "vzqxy8jvt04iu2f",
+    "zei99muzd5j6fqm",
+    "p4266z8vdi5go52",
+    "84zawx6f9569q63",
+    "3vlec25j5065405",
+    "im0epo4jspr9ttr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.875Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.875Z",
+      "agent": "d89wfugn17epl20",
+      "source_id": "8dx79ns8ys0ti4f"
+    }
+  ]
+}

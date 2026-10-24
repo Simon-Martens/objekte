@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik/) s. Beitrag » Schreiben an Amalia« von L. Thiele INr 83566, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83553,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amalie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Senf del. Krüger sc",
+  "scans": [
+    "alm_3881_83553_jxb1s291bp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amalie",
+  "updated": "2012-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.940Z",
+      "agent": "x0ogu0rnknnjdtv",
+      "source_id": "uz21mccpxhv6lj8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.940Z",
+      "agent": "mi3sfg9f1oc68es",
+      "source_id": "vaafdu8jrr1wc5p"
+    }
+  ]
+}

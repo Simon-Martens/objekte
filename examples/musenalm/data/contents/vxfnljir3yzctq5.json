@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30325, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Blumen sind's die zu Dir sprechen; / Flüsternd nur gleich Frühlingsbächen,",
+  "language": [],
+  "musenalm_id": 30326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Ihro Kaiserlichen Hoheit / Maria Paulowna / Großherzogin zu Weimar / zum 16. Februar 1832 / vom / Verein für Blumistik und Gartenbau in Weimar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Ihro Kaiserlichen Hoheit / Maria Paulowna / Großherzogin zu Weimar / zum 16. Februar 1832 / vom / Verein für Blumistik und Gartenbau in Weimar",
+  "updated": "2002-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.398Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "jrzjwsjjot6urrv"
+    }
+  ]
+}

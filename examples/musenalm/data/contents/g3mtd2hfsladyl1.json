@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 4 Textbezügen zu vier Graphiken INr 30446-30453, Obj 5-12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30445,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freude des Wiedersehens, / in / vier Bildern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stephan Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freude des Wiedersehens, / in / vier Bildern",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.517Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "qidwy82x762o6bj"
+    }
+  ]
+}

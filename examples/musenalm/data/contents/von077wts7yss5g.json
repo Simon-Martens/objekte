@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Nicht mehr ferne ist die Stunde, / Die mein liebend' Herz ersehnet;",
+  "language": [],
+  "musenalm_id": 90593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Mitternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Mitternacht",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.410Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "jc09vcnd74gtvmu"
+    }
+  ]
+}

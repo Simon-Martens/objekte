@@ -1,0 +1,78 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisch-Romantisches des Abentheuerlichen [...] 1834",
+    "norm": "",
+    "biblio": 407171,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3774,
+  "parallel_title": "",
+  "place_statement": "München (Sauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch, Historisch-Romantisches des Abentheuerlichen [...] 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Adolph von Schaden",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Romantisches / Taschenbuch / des / Abentheuerlichen, Außerordentlichen, / Wundervollen und Seltsamen, / in den / wirklichen Schicksalen / größtentheils geschichtlich-berühmter Personen. / Für das Jahr 1834. / Herausgegeben / durch / Adolph von Schaden. / München. / Joseph Lindauer'sche Buchhandlung / (C. T. F. Sauer.)",
+  "updated": "2026-06-11 10:18:54.754Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "oca8a62tjxb5was"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.145Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.145Z",
+      "agent": "50ji0uq7yml77re",
+      "source_id": "22zil9ty2kiat0o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.295Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.295Z",
+      "agent": "j37nzjxn0n0hi2j",
+      "source_id": "78wamwx0z4xpm6y"
+    }
+  ]
+}

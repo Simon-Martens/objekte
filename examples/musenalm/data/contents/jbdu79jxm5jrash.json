@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Schwerdt und Leyer vereint, sie schaffen gar liebliche / Klänge, / So auch Rede und Schwerdt, würdigem Ziele ge- / weiht.",
+  "language": [],
+  "musenalm_id": 74961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Foy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Foy",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.374Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "40wr3vbnp3k4sdv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung iNr 116050, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Ich ward so arm durch Schmerz, daß selbst die Thräne / Nicht länger mehr mein Dolmetsch wollte sein;",
+  "language": [],
+  "musenalm_id": 116051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der wahnsinnige Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Ritter von Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der wahnsinnige Dichter",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.411Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "a1bnw6fdky1lcuj"
+    }
+  ]
+}

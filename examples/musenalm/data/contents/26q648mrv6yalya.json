@@ -1,0 +1,45 @@
+{
+  "annotation": "Sylbenräthsel (Sammlung INr 41333, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Wankelmüthig, wandelbar / Soll die Erste seyn,",
+  "language": [],
+  "musenalm_id": 41343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.108Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "d85e8n56okeweqv"
+    }
+  ]
+}

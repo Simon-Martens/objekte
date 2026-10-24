@@ -1,0 +1,479 @@
+{
+  "annotation": "",
+  "biographical_data": "1788-1853",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.472Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler, Radierer und Lithograf"
+      ],
+      "dateOfBirth": [
+        "1788-10-11"
+      ],
+      "dateOfDeath": [
+        "1853-04-13"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-27T08:15:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118609823/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118609815",
+          "label": "Schnorr von Carolsfeld, Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115752870",
+          "label": "Schnorr von Carolsfeld, Veit Hans Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1022006363",
+          "label": "Krug, Charlotte"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118609823",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/115752870",
+          "label": "Schnorr von Carolsfeld, Veit Hans Friedrich"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118609815",
+          "label": "Schnorr von Carolsfeld, Julius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1022006363",
+          "label": "Krug, Charlotte"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118609823",
+      "oldAuthorityNumber": [
+        "(DE-588c)4053066-8",
+        "(DE-588a)118609823"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Schnorr von Carolsfeld, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Schnorr von Carolsfeld"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Mephistopheles durch Faust beschworen. - 1819"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14931720p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr96017002"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/8180360"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q470537"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118609823/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Ferdinand_Schnorr_von_Carolsfeld"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Ferdinand_Schnorr_von_Carolsfeld"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110374151"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118609823"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1860_schnorr"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schnorr-Carolsfeld_Ludwig-Ferdinand_1788_1853.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118609823.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118609823"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schnorr von Carolsfeld, L. F.",
+        "Schnorr von Carlsfeld, Ludwig",
+        "Schnorr v. K., Ludov.",
+        "Carolsfeld, Ludwig Ferdinand Schnorr von",
+        "Karolsfeld, L. F.",
+        "Schnorr",
+        "Schnorr von Karolsfeld, Ludwig Ferdinand",
+        "L. S. v. K.",
+        "Carolsfeld, Ludwig F. von",
+        "Carlsfeld, Ludwig Schnorr von",
+        "Schnorr, Ludwig",
+        "Schnor",
+        "Schnorr, Ludwig von",
+        "Carolsfeld, Ludwig Schnorr von",
+        "Schnorr von Karolsfeld, L. F.",
+        "Schnorr, Ludwig Ferdinand",
+        "Schnorr v. K.",
+        "Schnorr von Carolsfeld, Ludwig Ferdinand",
+        "Schnorr von Carolsfeld, Ludwig F.",
+        "Schnorr v. Carolsfeld, L. F.",
+        "L. S."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carlsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "L. F."
+          ],
+          "surname": [
+            "Karolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Ferdinand"
+          ],
+          "surname": [
+            "Schnorr von Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Ferdinand Schnorr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Ferdinand"
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "L. F."
+          ],
+          "surname": [
+            "Schnorr v. Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "L. S. v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig Ferdinand"
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "L. F."
+          ],
+          "surname": [
+            "Schnorr von Karolsfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schnorr"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig F."
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnorr v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludov."
+          ],
+          "surname": [
+            "Schnorr v. K."
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Schnorr von Carlsfeld"
+          ]
+        },
+        {
+          "personalName": [
+            "Schnor"
+          ]
+        },
+        {
+          "personalName": [
+            "L. S."
+          ]
+        },
+        {
+          "forename": [
+            "L. F."
+          ],
+          "surname": [
+            "Schnorr von Carolsfeld"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Ferdinand_Schnorr_von_Carolsfeld",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Ferdinand_Schnorr_von_Carolsfeld"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:51:24Z",
+    "gnd_query_biographical_data": "1788-1853",
+    "gnd_query_name": "schnorr von carolsfeld, ludwig ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2515,
+  "name": "Schnorr von Carolsfeld, Ludwig Ferdinand",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXX, 208",
+  "updated": "2026-06-11 13:29:24.762Z",
+  "uri": "https://d-nb.info/gnd/118609823",
+  "editor": ""
+}

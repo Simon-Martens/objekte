@@ -1,0 +1,56 @@
+{
+  "annotation": "Oden aus dem Horaz (Sammlung INr 91628, Obj 23) s. vorstehende erste Übersetzung INr 91633, Obj 28 /) mit Erläuterungen s. INr  91640, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Ruh' ersteht auf offnen Meereswogen, / Wenn eine schwarz Gewölk den Mond umzogen,",
+  "language": [],
+  "musenalm_id": 91634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die nemliche Ode. / (Versuch in gereimten Versen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die nemliche Ode. / (Versuch in gereimten Versen.)",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.382Z",
+      "agent": "ogosxb6kwkoek7l",
+      "source_id": "c6ogwa0725lxq1s"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.382Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "s1v3sh0bdzax9ri"
+    }
+  ]
+}

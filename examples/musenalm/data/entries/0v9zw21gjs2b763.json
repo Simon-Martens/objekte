@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, G, 11 BB Kal darin 12 GG, ar: SS 1-172, SS 173-180 G-Verz, ar1: SS 1-105 Tab, 17 BB Tab, VrlgM, 36 SS Tab, B Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1808",
+    "norm": "~",
+    "biblio": 100172,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 447,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berlinischer / Damen-Kalender / auf / das Schalt-Jahr 1808. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.605Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "y7l0fgl7weif35p"
+  ],
+  "contents": [
+    "5apdt4uvfbs4ih8",
+    "1bhptwzpq5p2u8v",
+    "uats2spi5gxv7a9",
+    "3ef4kt9l1uddia7",
+    "7ury3ujezrrxll4",
+    "55tiaauogxyvxnb",
+    "vtlgvgpgszmvmd5",
+    "vg0sckh9grx3xzz",
+    "2tbbtlzq9mnfob6",
+    "pn245mmu688bakz",
+    "d1eyz967c4dhrxt",
+    "ph60bykvn7n2nrk",
+    "8asurqas0uiax3v",
+    "b1lmg5ccuo2phkj",
+    "30q36of7545njut",
+    "n35acbwdt9cd9pr",
+    "4p9kx9lrafuoiw3",
+    "5is838az5uybkkd",
+    "2k0r3nmyxtwfif2",
+    "euq3b8yseufw46c",
+    "9um7s9jcyeeubb7",
+    "eeivh0y1bghvrjj",
+    "izz0qnen4d6clvm",
+    "7f738yxygtb1bzm",
+    "sjlqfackvg038zp",
+    "q4ut2uwtbiykwvp",
+    "58txswgexeui9wa",
+    "ny0gycprt7nwhao",
+    "iogz2nprjjtr5re",
+    "n8m0a1ua6fcfd2n",
+    "5yri91ofzaqtuzw",
+    "adt5bk92ttdx04q",
+    "htfeb0lsjl3g4np",
+    "bhxlzt4ut03z6jr",
+    "m9tdq95o47wrzve",
+    "auyg51ibssv6frp",
+    "y2efi5bew7p5xep",
+    "9g0u3lppdiud3jf",
+    "xmnyrghxzrakhai"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.669Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.669Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "2xtsl02gt8ez876"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "pyka3f7hxof3nz7"
+    }
+  ]
+}

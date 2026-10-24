@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Amara (Sammlung INr 100262, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "Ich liebe dich nach Gottes ew'gem Schlusse - / Verlass' mich nicht!",
+  "language": [],
+  "musenalm_id": 100283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 223,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXI.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.856Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "x3t32amzlotjc6o"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, gT, 6 GG, S 1 T, S 2, SS 3-354 darin 15 GG, G, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) TB der Liebe, der Freundschaft und dem Familienleben des deutschen Volkes gewidmet 1845",
+    "norm": "~",
+    "biblio": 100975,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3417,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Franckh)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) TB der Liebe, der Freundschaft und dem Familienleben des deutschen Volkes gewidmet 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 166; L/R 99; Goed VIII. 126, 332 b",
+  "responsibility_statement": "C. Spindler",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch / der Liebe, der Freundschaft und dem Familienleben / des deutschen Volkes / gewidmet / von / C. Spindler. / Für das Jahr 1845. / Mit Illustrationen von L. Weißer. / Stuttgart. / Franckh'scher Verlag",
+  "updated": "2026-06-11 10:18:54.855Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "6qqogp3lcrq0cju"
+  ],
+  "contents": [
+    "3kn83tf0m32lvqo",
+    "8qvkgnprnqnqp9c",
+    "tw37fjwvsr3x5c3",
+    "fqc02eqn6rfianh",
+    "6jc2rjodeb7e8m9",
+    "p4avl9o0lyymwwo",
+    "bz0tbf1zzrsw27t",
+    "ulp5fid9fb9j4nt",
+    "u0qgnhcphkpbf1w",
+    "d8lmhkbxmu58f5k",
+    "bojyai3k9o7174z",
+    "4tguewvcrr1jt48",
+    "habyhiymlomgtu0",
+    "2ly5iyuyrfzpb2c",
+    "1vlktmr2okypd56",
+    "5d37uzx3ibn3wzb",
+    "agr9bb6wcx2bacr",
+    "4643m26ep06tsze",
+    "trxe2dsan4icp40",
+    "lmqpgd747j83tfp",
+    "ycni8zrbqc3ipv3",
+    "i0d8x91p9m2ktbv",
+    "ymspzv9y5ufhwrf",
+    "aklerh52revr6g1",
+    "zu1jurjxgq74w1c",
+    "odkux66a9cifzu0",
+    "w309mvmtq1m00ro",
+    "o12arf3iyipj57m",
+    "ubgh9zr98tuj9rw",
+    "a3rp1gln5t4fgkj",
+    "0vrs55ctfjtfmvm",
+    "em9f1w1f59l9f94",
+    "2oswquuh7bd9iv8",
+    "bpqzodks3yrnjkf",
+    "5spcse6xofja659",
+    "5g28cielh8c3mm3",
+    "gbgkw3ychv2uelh",
+    "2hk7n8luiama7gc",
+    "rx3o6o5q7j41qd3",
+    "r0ai9hb008rizi8",
+    "ieb0m9pt5fhthj3",
+    "kr5ftcebzlxurcq",
+    "ecx3jd8w25zgc3w",
+    "q6oeuju5acetq0v",
+    "cyh08eb2ov9yxoq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.868Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.868Z",
+      "agent": "px7obnkeo4tgafv",
+      "source_id": "i5xsbywjmzz6v9b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.217Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "r1w5an3d1697e9h"
+    }
+  ]
+}

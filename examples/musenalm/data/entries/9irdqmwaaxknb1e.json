@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Argo, Album für Kunst und Dichtung 1859",
+    "norm": "",
+    "biblio": 407457,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4255,
+  "parallel_title": "",
+  "place_statement": "Breslau (Trewendt)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Argo, Album für Kunst und Dichtung 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Friedr. Eggers; Th. Hosemann; B. von Lepel",
+  "subtitle_statement": "",
+  "title_statement": "ARGO. / Album für Kunst und Dichtung / herausgegeben / von / Fr. Eggers; Th. Hosemann, B. von Lepel. / Breslau / Verlag von Eduard Trewendt / 1859",
+  "updated": "2026-06-11 10:18:54.610Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "items": [
+    "ycbekch2yaqabx0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.167Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.167Z",
+      "agent": "jyymxmi6wlpul20",
+      "source_id": "7fjrkie3ylepzpd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.353Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.353Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "9lvbveeymhduoof"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.353Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.353Z",
+      "agent": "n3ihb7ql4bfk9ih",
+      "source_id": "hkjddw1jhcdki3v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.354Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.354Z",
+      "agent": "mkmpkja16nfssf1",
+      "source_id": "j4l49lyzrd9bs7y"
+    }
+  ]
+}

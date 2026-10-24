@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43539, Obj 32) mit 2 Illustrationen s. Graphiken INr 43524, 43525; Obj 17, 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Graf Raimund herrschte gewaltig auf dem Erbe der Scharfeneck am Rheine. Er führte als Vater die Vormundschaft über Ludmille, den letzten Sprößling diese mächtigen Geschlechts.",
+  "language": [],
+  "musenalm_id": 43543,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gelübde. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gelübde. / Eine Novelle",
+  "updated": "2006-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.316Z",
+      "agent": "j6u4xe56jqv8urn",
+      "source_id": "aos5m1kdliubilh"
+    }
+  ]
+}

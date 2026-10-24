@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Wenn die Jugend von dir weichet, / Und das Alter dich beschleichet, / Ist's zu spät, von frühen Tagen / Das Versäumte nachzutragen.",
+  "language": [],
+  "musenalm_id": 54547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermunterung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulr. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ermunterung",
+  "updated": "2008-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.744Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "ga9qaxjf7zdkw6v"
+    }
+  ]
+}

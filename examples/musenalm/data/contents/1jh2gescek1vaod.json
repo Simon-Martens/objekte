@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Ist euch wohl jemals einer jener Männer der Wissenschaft, der Staubfäden und der langen lateinischen Namen, der Salbentöpfe und der Pillenschachteln, zum ersten Mal begegnet,",
+  "language": [],
+  "musenalm_id": 44150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Frauenherz. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levin Schücking",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Frauenherz. / Novelle",
+  "updated": "2006-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.232Z",
+      "agent": "g37v62wgwv6p784",
+      "source_id": "g5ixlb7aip8bppa"
+    }
+  ]
+}

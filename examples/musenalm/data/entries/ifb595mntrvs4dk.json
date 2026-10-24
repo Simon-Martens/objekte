@@ -1,0 +1,67 @@
+{
+  "annotation": "TA von: Taschenbuch für Kunst und Laune 1804 Alm-667",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Erholungs-Taschenbuch 1805",
+    "norm": "",
+    "biblio": 101352,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1752,
+  "parallel_title": "",
+  "place_statement": "Köln (Kaufmann)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Erholungs-Taschenbuch 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 44; K 130; L/R 191; Goed VIII. 56, 26",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Erholungs / Taschenbuch / für / das Jahr 1805, / für / Freunde und Freundinnen / des guten Geschmacks. / Köln, / bei J. L. Kaufmann",
+  "updated": "2026-06-11 10:18:55.620Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "v2dve9ekn2h421c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.075Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.075Z",
+      "agent": "5c8waft1i3saoai",
+      "source_id": "mo4uypmwj8abar3"
+    }
+  ]
+}

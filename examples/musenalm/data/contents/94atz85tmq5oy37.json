@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Wanda, Herzogin von Polen« INr 48277, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WANDA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. d. Fr. Bolt s. 1811",
+  "scans": [
+    "alm_657_48238_ph342fw93m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WANDA",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.691Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "4ccz7a65kbfm1x4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.691Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "udsrywialm9lo0l"
+    }
+  ]
+}

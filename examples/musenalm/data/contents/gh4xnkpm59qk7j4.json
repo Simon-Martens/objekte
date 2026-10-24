@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 76457, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76451,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht auf das Wehr u. den Hegereuther im Plauisch. Grunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther fec.",
+  "scans": [
+    "alm_3704_76451_it9je7rxq7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht auf das Wehr u. den Hegereuther im Plauisch. Grunde",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.686Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "2b5i02s344pd2qv"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "annotation": "§ vorderer Deckel fehlt, §§ 3 kol. Graphiken fehlen, §§ 12 Graphiken (Monatskupfer) fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, ar: SS 1-12 G-Verz, 76 BB Kal, röm: S I T, SS III-VIII Vrwrt d Hrsg, ar1: SS 1-202, röm1: SS I-VI VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender für Deutsche 1797",
+    "norm": "~",
+    "biblio": 404006,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1969,
+  "parallel_title": "",
+  "place_statement": "Eisenach (Krumbhaar)",
+  "places": [
+    "ku73yb3lujbr7md"
+  ],
+  "preferred_title": "Kalender für Deutsche 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 69; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Calender / für / Deutsche. / Auf das Jahr 1797. / Neue Auflage des Jahrgangs 1796. / Eisenach, / bey August Krumbhaar",
+  "updated": "2026-06-11 10:18:55.745Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "ffv1zg8po4byeb5"
+  ],
+  "contents": [
+    "641f0bi96theeis",
+    "455xtvmzk9a2w8w",
+    "b8tewide7dkwit2",
+    "xlip7iinqq7rh85",
+    "trkfhx05qn8ty1s",
+    "798h2h2y0uhek7x",
+    "0h5sg563fjtzum7",
+    "y0kr4odznhetjjl",
+    "0peu9sumqd2ouh7",
+    "u2aht31iqc0j3fm",
+    "nllr0bfspfpuhh0",
+    "l9odjt6w7xmfsvx",
+    "oeb3uwmahiyn77s",
+    "la1dmjggqcej372",
+    "c64tx14z5fdbt79",
+    "rddvtum8972zo12",
+    "yvcvkfmwg4men66",
+    "eewfx2csk9ktjkz",
+    "7kwtw7ul92ig5uu",
+    "iikxnu22yofuqan",
+    "9hh0fogcdn2imha",
+    "yn5861wetpe9um9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "tkfzh164ytb86lu",
+      "source_id": "n53mxsyprdwdyg1"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Ydoman und Lisbe« von Chr. Kuffner INr 95931, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95925,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "YDOMAN UND LISBE. / Erzählung von Kuffner Pag. 43",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Rieder del. Passini sc.",
+  "scans": [
+    "alm_4091_95925_vc7vkus61j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "YDOMAN UND LISBE. / Erzählung von Kuffner Pag. 43",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.608Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "dsp2rgwt5ttsvb6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.609Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "v0y68za8rwszcx8"
+    }
+  ]
+}

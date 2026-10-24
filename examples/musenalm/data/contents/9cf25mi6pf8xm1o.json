@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Es klirrt der Frost, Dezemberstürme tosen; / Allein die Wärme, d'rin ich wählig sitze, / Webt auf die Fenster,",
+  "language": [],
+  "musenalm_id": 95014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eisblumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. von Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eisblumen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.353Z",
+      "agent": "demesi9ujep1ia6",
+      "source_id": "sojoe3t1r0gzpq1"
+    }
+  ]
+}

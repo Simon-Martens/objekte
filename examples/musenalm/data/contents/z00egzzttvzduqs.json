@@ -1,0 +1,47 @@
+{
+  "annotation": "Zwischentitel mit kleiner Graphik (Turbanmotiv). Es folgt: Sammlung von 12 Gedichten INr 34026-34037, Obj 24-35",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34025,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "West-Oestlicher Divan. / Versammelt / von / Goethe. / In den Jahren 1814-1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [
+    "alm_472_34025_znuemu218i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "West-Oestlicher Divan. / Versammelt / von / Goethe. / In den Jahren 1814-1815",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.664Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "qzz9tfbhmphxdfu"
+    }
+  ]
+}

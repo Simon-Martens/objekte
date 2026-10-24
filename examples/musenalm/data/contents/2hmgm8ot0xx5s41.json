@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37484, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "St. Preux, oder vielmehr Rousseau im St. Preux, mit seiner ganzen kränklich reizbaren, Argwohn fangenden Empfindlichkeit;",
+  "language": [],
+  "musenalm_id": 37492,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / (2 Th. 10 Br.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / (2 Th. 10 Br.)",
+  "updated": "2005-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.911Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "cchdjgg1ddutovj"
+    }
+  ]
+}

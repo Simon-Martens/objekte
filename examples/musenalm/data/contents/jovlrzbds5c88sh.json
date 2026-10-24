@@ -1,0 +1,45 @@
+{
+  "annotation": "Palimpseste (Sammlung INr 46028, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Sie spotten mich wahrlich mit Rechten, / Ich seh' es selber nun ein,",
+  "language": [],
+  "musenalm_id": 46030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.556Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "67g9zmnzo4cb0pc"
+    }
+  ]
+}

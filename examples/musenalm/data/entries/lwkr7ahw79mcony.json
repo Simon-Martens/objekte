@@ -1,0 +1,131 @@
+{
+  "annotation": "einziger Jahrgang /) Hrsg. und Bezeichnung der Beiträge s. ADB XXXV, 235 ff /) lt. L/R 158 fortgesetzt durch: Taschenbuch, Neues für die Jugend 1794",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso gT, nT, B I-Verz, SS 1-313",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Kinder (Berlin) 1784",
+    "norm": "~ +++ fremde Herkunft (nT)",
+    "biblio": 407034,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-05-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3657,
+  "parallel_title": "",
+  "place_statement": "Berlin (Hesse)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für Kinder (Berlin) 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 128; L/R 158; ADB XXXV, 235",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Kinder. / Berlin. 1784. / Bey S. F. Hesse",
+  "updated": "2026-06-11 10:18:54.733Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "8z9d72adg4mqmom"
+  ],
+  "contents": [
+    "vxkuj89q0pvx1kk",
+    "keyqi45cpbekuas",
+    "rlqnaykndmef2o0",
+    "v1d00t6gwpcz1od",
+    "4ugaervrzl9nzgp",
+    "p817d04qm4i0wun",
+    "42lijrzh7q7ale2",
+    "w4rdtxk7e47ncge",
+    "a0jo7di7n0okx9n",
+    "0b3ifkkzq95q00v",
+    "sm9kc4fudnq3a42",
+    "0dprrnkarspqw7b",
+    "mcca0y11r9rzrje",
+    "k86pfcx1k13413v",
+    "jzb7m3g2gj6ymbw",
+    "628df1udr6nfvvz",
+    "xgio7g7c0d2yrfm",
+    "c49v4lk47h1ovx4",
+    "0r1wxqongwbgbrs",
+    "iocituh39r9lq3h",
+    "m58657sqh9n0oud",
+    "w8grx46zbhh4ao2",
+    "gen6zrqm65f928n",
+    "924eop0zurpyinh",
+    "qp7opthorzwi0ot",
+    "iuftqoo2p4s5pk9",
+    "unhrycz1gseizxi",
+    "y2cvb6xeqb8z36n",
+    "lwxg2bvomw63fed",
+    "tzw8tyzchnb64sk",
+    "ftdo39crj47mefe",
+    "fnx8x38p287gjdq",
+    "av8y41lnerrpbdy",
+    "y1leped9gctn0st",
+    "0lqabidwcxyy6wp",
+    "q5gyjayg2qiykpz",
+    "djqh7vzdg9bc8ws",
+    "b4fvnx8llkwm9ds",
+    "1axzzk0lwcn0t3m",
+    "ygz5t0dfaj4wam7",
+    "dal0aah9xgx8f6o",
+    "58eposmdiz8h6zw",
+    "3tvs9k7sl0wck3h",
+    "tl3asumf7iyuof9",
+    "mfxbcrb1kv6kq1q",
+    "e96b2txcbpx2aho",
+    "1srbcgk73gne0ya",
+    "7z2w7qoo1pkl1yd",
+    "5msfpl5fmxx7i0q",
+    "8f36ajk2onff0oz",
+    "h4s99clh59ra5v2",
+    "4iomn04bj9zosgn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.274Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.274Z",
+      "agent": "58byfz890fzelu8",
+      "source_id": "vww1v3wmhaomkhd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.004Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.004Z",
+      "agent": "kdfyto8icolvhp5",
+      "source_id": "wg2v2vfsddsq5w3"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, S I-Verz, SS 1-326, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1846",
+    "norm": "~",
+    "biblio": 405333,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1630,
+  "parallel_title": "",
+  "place_statement": "Berlin (Puttkammer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Müller",
+  "subtitle_statement": "",
+  "title_statement": "Bettlers Gabe. / Taschenbuch für 1846 / von / Wilhelm Müller. / Zwölfter Jahrgang. / Berlin. / Verlag von C. G. von Puttkammer",
+  "updated": "2026-06-11 10:18:55.538Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "mzxn12kydvjg63m"
+  ],
+  "contents": [
+    "onhhqcz0yy75kxv",
+    "j9qtdzi2zdv0k2l",
+    "jpdesk31nbjcpit",
+    "t3ez2ynzn04t4xw",
+    "e85h84ukr28egrc",
+    "qy342ctn9c2gga9",
+    "b85euheoddgrbfb",
+    "qqlki66jrrjeo27",
+    "tgodtik0lz6xr9t",
+    "vr703wvtl78d7bw",
+    "pw2lpm6kopicst9",
+    "obwaqbold3lf75a",
+    "d4ipxegruuteiqv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.132Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.132Z",
+      "agent": "3y9su3bvjb6unzc",
+      "source_id": "6i16e1pmo6ajsek"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.944Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.944Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "i0qt39d1bv7mndt"
+    }
+  ]
+}

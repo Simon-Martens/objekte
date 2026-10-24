@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Eingehüllt in nächtlich Dämmern, / Schlummert unter mir das Thal.",
+  "language": [],
+  "musenalm_id": 36391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Die Nacht auf den Bergen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Die Nacht auf den Bergen",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.731Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "txtpbiahlh5kgah"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "O glücklichste der Myrthen / An Hymens Hochaltar / Wirst du Amandas Haar, / Der Unschuld Schmuck, umgürten,",
+  "language": [],
+  "musenalm_id": 88606,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Myrthe / (Nach dem Französischen des Delandine von Carl Müchler)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Myrthe / (Nach dem Französischen des Delandine von Carl Müchler)",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "q37bvrzr8dl073z"
+    }
+  ]
+}

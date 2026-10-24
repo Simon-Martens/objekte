@@ -1,0 +1,45 @@
+{
+  "annotation": "Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Wo Grillen mit den Parzen sich vereinen, / Da müssen grause Trauerspiel' erscheinen.",
+  "language": [],
+  "musenalm_id": 24653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 231,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grillparzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grillparzer",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.971Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "d0fdp7qndgbjyko"
+    }
+  ]
+}

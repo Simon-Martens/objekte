@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Jäger« von Mahlmann INr 11913, Obj 30 (Photos 11914,01; 11914,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_209_11914_01_5lsamwkir8.jpg",
+    "alm_209_11914_02_ynkyf8wb55.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Jäger",
+  "updated": "2001-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.597Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "u11yd46sn9skarc"
+    }
+  ]
+}

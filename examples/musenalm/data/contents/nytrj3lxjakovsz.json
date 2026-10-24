@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Minnedienst« von A. v. Chamisso INr 30316, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Minnedienst / v. Ad. von Chamisso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Hessloehl sc.",
+  "scans": [
+    "alm_396_30317_0g9c4kttu4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Minnedienst / v. Ad. von Chamisso",
+  "updated": "2002-11-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.398Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "2o5xtqxuaevoc5f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.398Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "8yypdwwrjc9iqkn"
+    }
+  ]
+}

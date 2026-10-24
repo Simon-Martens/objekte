@@ -1,0 +1,67 @@
+{
+  "annotation": "$ vermutl. 2. Aufl eines einzigen Jahrgangs",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein (Blumauer) 1836 (2. Auflage)",
+    "norm": "",
+    "biblio": 100282,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1788,
+  "parallel_title": "",
+  "place_statement": "Gotha (Neumann)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Gedenke Mein (Blumauer) 1836 (2. Auflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Archibald",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke mein ! / Blätter / der / Ehre, Liebe und Freundschaft / für / Wohlgewogene und Schreibende, / von / Karl Blumauer. / Erste Abteilung. / Zweite viel vermehrte und verbesserte Auflage. / Wo Liebe lebt und labt, ist lieb das Leben / A. W. Schlegel. / Mit 6 Kupfern / Gotha, 1836. / Verlag von Carl Neumann.",
+  "updated": "2026-06-11 10:18:55.632Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "24tou5kj836bhaz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.112Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.112Z",
+      "agent": "2vf2ao47qi3dagc",
+      "source_id": "cqbj45jhiqzz2u4"
+    }
+  ]
+}

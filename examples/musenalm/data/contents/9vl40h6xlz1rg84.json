@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Dezember /)  Illustration zu »Geschichte der Bartholomäusnacht oder der Bluthochzeit zu Paris« INr 68912, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68906,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl der Neunte / Charles neuf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec. 1797 # M. Haas",
+  "scans": [
+    "alm_834_68906_2zk2f7ir3r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl der Neunte / Charles neuf",
+  "updated": "2008-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.342Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ryz2qj0f48fun60"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.342Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "y5t29jd8pz23mfg"
+    }
+  ]
+}

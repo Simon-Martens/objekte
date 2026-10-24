@@ -1,0 +1,47 @@
+{
+  "annotation": "Incipit des ersten Beitrags; die Sammlung ist nicht mit ihren Beiträgen aufgenommen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Still und klar sei die Seele des Künstlers, tief wie der südliche Ocean und friedlich wie er, nur dann wird sie reiner Himmelspiegel werden.",
+  "language": [],
+  "musenalm_id": 126613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blätter aus dem Lebensbuche einer Künstlerin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theorosa",
+  "scans": [
+    "alm_3237_126613_cfsajxm88q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blätter aus dem Lebensbuche einer Künstlerin",
+  "updated": "2020-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.838Z",
+      "agent": "n6qyanzc3p535fs",
+      "source_id": "kr6zkh26laumx1t"
+    }
+  ]
+}

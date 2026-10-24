@@ -1,0 +1,99 @@
+{
+  "annotation": "KVK, Swissbib mit Standort für Jgg 1798-1800 /) Gedruckt und zu haben bei Samuel Flick",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, Vrwrt, Kal, SS 1–119 darin 6 GG, G-Verz, C, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Basler 1798",
+    "norm": "~",
+    "biblio": 409562,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-04-24T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4519,
+  "parallel_title": "",
+  "place_statement": "Basel (Flick)",
+  "places": [
+    "5iuvceiv7ces8g4"
+  ],
+  "preferred_title": "Almanach, Basler 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "BASLER ALMANACH / FÜR / DAS JAHR / 1798",
+  "updated": "2026-06-11 10:18:54.810Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "kzhaox7cq58n6mc"
+  ],
+  "contents": [
+    "off4jby3rvldba9",
+    "h87ys6gf6zvxt3z",
+    "2rl29uket9nwn1u",
+    "ax22n8plyvxn5ro",
+    "7cjp50y9gbv6j3c",
+    "sgqbmcqvns35vm3",
+    "wtpbuhqjyr080dg",
+    "fx45xud2slssy0h",
+    "rvapsknh090hwy8",
+    "4tkdrn06g33e99u",
+    "ojy8uoahcuv5kkf",
+    "p0rhs7zc6evkp3l",
+    "yg0fg2y6qkncnwq",
+    "kh4rksw2qsmmag5",
+    "szp04hmhswz1awi",
+    "zahcuz6k8opd26l",
+    "6nlh7nw3lurjheb",
+    "ufiu9xdkc5rva9s",
+    "6bfl6pusce0k52b",
+    "2ebgr1qkbp7aizc",
+    "cthdkoh3d68kqvt",
+    "ikpfur57my7juuy",
+    "n83mzxwcb18y2h3",
+    "u0t6ed4fa9ctq3h",
+    "vpepcjh01grfu0x",
+    "ga0wa5ll0d82uyt",
+    "w1bf46lqx5kpol6",
+    "ox91gihypvhg7d2",
+    "tn5zbdfzu9nxpo6",
+    "dbvhev4qyvz4iul",
+    "cpr63dvjv3efqo6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.859Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.859Z",
+      "agent": "yipsbe3vu0radw1",
+      "source_id": "cpsb6tflkr9w0ju"
+    }
+  ]
+}

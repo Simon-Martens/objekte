@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Es will mich liebevoll Erinn'rung schmücken, / Süßträumend wall' ich noch im heil'gen Thale,",
+  "language": [],
+  "musenalm_id": 1418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Seifersdorfer Tal. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Seifersdorfer Tal. / Sonett",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.695Z",
+      "agent": "08be5slqlt4odk1",
+      "source_id": "ovhf93fd1jd5h7i"
+    }
+  ]
+}

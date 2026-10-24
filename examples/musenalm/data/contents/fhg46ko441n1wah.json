@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Es hatte Kaiser Severus's Kraft / Sich blutige Lorbeer'n errungen. / Zertrümmert war Nigers gefürchtete Macht,",
+  "language": [],
+  "musenalm_id": 54354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Basilides und Potamiäna, / oder: / Der Sieg des Glaubens. / Eine Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hünerwadel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Basilides und Potamiäna, / oder: / Der Sieg des Glaubens. / Eine Legende",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.885Z",
+      "agent": "pyh2lmbifvilpio",
+      "source_id": "ydf4214u0hkl7nc"
+    }
+  ]
+}

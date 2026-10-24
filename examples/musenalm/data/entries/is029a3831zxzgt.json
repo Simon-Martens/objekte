@@ -1,0 +1,112 @@
+{
+  "annotation": "ohne Kalendarium /) Zur graph. Ausstattung gehört lt. Vorwort des Herausgebers lediglich das Titelportrait /) auch vorhanden als: Theater-Kalender, auf das Jahr 1798. Gotha, bey Carl Wilhelm Ettinger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, 2 BB G-Verz I-Verz, SS I-XCV, SS 1-271",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Kalender (Gotha) 1798",
+    "norm": "~",
+    "biblio": 408974,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3270,
+  "parallel_title": "",
+  "place_statement": "Gotha (Ettinger)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Theater-Kalender (Gotha) 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 161; L/R 111; Goed IV/1. 680, 22",
+  "responsibility_statement": "Reichard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die Schaubühne, / auf das Jahr / 1798. / Gotha, / bey Carl Wilhelm Ettinger",
+  "updated": "2026-06-11 10:18:54.979Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "yto4xyxnw4545ib"
+  ],
+  "contents": [
+    "1e0wuyr44coh086",
+    "16iybbl54usepnq",
+    "2vnoh6gniasa5q0",
+    "ksdp9bpaeljxk0w",
+    "e7deo2ala81icld",
+    "nwcyem177c0pyc1",
+    "l1d64tgg90td15h",
+    "8iqhbuzmf05cih6",
+    "28jax3fywsjad0m",
+    "i1400cr80097d77",
+    "vwy9b05i2w3nhzm",
+    "iedbq5w56rquxqt",
+    "kqtuk13ge837tbu",
+    "ihfghcecj5h7nt4",
+    "xas41did6waeoqn",
+    "k7tb0s3rtadiosu",
+    "7q5579kb0vn3kt0",
+    "kmqbpjr5ous6fv2",
+    "5e1mi0x0w186qjt",
+    "khwjmemeyhd1gw1",
+    "diwxj2b0gv9xwhl",
+    "c9776kxpe1cc3bj",
+    "4x7vtw2v5np2bhw",
+    "63h869hu1xzlm3e",
+    "dz4axjgyiyy2ubx",
+    "84wzw2w0xw0qxn9",
+    "wv29e16ujxn7ras",
+    "rfvtnuktn2is110",
+    "78b9lgu5wzss3q4",
+    "bp9b5y05y7fx9b6",
+    "j025g19c4qpeol3",
+    "d013g5lz2vn4eb3",
+    "n47hz7qlk7slr5p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.806Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.806Z",
+      "agent": "57058q4ca487ing",
+      "source_id": "1ymhfpzexrm5z1d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.201Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.201Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "2volfjmz0h1bx2i"
+    }
+  ]
+}

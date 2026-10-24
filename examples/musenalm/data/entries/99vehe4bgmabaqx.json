@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 2 GG, 10 SS Kal darin 8 GG, 3 SS Tab, B I-Verz, B G-Verz, ar: S 1 zT, SS 3-48, S 49 zT, SS 51-102, ar1: S 1 zT, SS 3-230, S 231 zT, SS 233-248",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Großherzoglich Hessischer 1811; s. a. Taschenbuch, Rheinisches 1811",
+    "norm": "~",
+    "biblio": 101338,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 566,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Hofkalender, Großherzoglich Hessischer 1811; s. a. Taschenbuch, Rheinisches 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1811 / Darmstadt / bei Carl Wilhelm Leske",
+  "updated": "2026-06-11 10:18:55.656Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "x5blc6xx1lfr75i"
+  ],
+  "contents": [
+    "mlih4gnduqxbwb8",
+    "wmi56ls16t110ll",
+    "c8hh80sy8s38y41",
+    "k5qq1f78yyd6m7s",
+    "f7lk3gkyw91t9o0",
+    "77gnu9qtfr09lp2",
+    "w2tqhkzpvd77bso",
+    "g2l5xnmqk7yuq5d",
+    "njhu53xvykytocz",
+    "bxh1xeri5vqdsj5",
+    "wq3fc8j8ak1k5jq",
+    "x9krn32dtsmzle1",
+    "tvn89zocauunye6",
+    "eipzkocsrth13jb",
+    "heqzat4hevdo8oa",
+    "lb2nfi6md7p8y8i",
+    "sxul41an2n3obzf",
+    "l320mysh2433oo7",
+    "6nh6b0maksm27fh",
+    "s4sjbewb47hdj9b",
+    "ujvvkmes3rac1yh",
+    "pgdgsae98zg00ny",
+    "bjyvgy5q4jun771",
+    "f9oo3jbxf112uh7",
+    "7z0swg0n6tyfoxl",
+    "j0gm3lxkss1iiwg",
+    "7q9y1de1xxg7vuy",
+    "ojgoi9hi19smlgc",
+    "0k947d3f6sy2tkb",
+    "mmz3x1btzqjumuz",
+    "mzfcjr1b73556th",
+    "mwb0kev2y3pac6l",
+    "jih5fpiqpq6bpd4",
+    "rlawz7mv6b925t9",
+    "9ua6qzlbk8yq5nw",
+    "53qmlu8xn43bq7l",
+    "1e48rbxtj6fwknc",
+    "ka5lxme0w6flma5",
+    "wfiqqyfhcwrlij2",
+    "v1f90u1ln6drrrt",
+    "3mx30eoc9hs99i5",
+    "05i9i5e4iqim0oe",
+    "6rc33nj38lsk4yn",
+    "3ri8i72atab1tns",
+    "dfhurg2ge9m3zgn",
+    "3cflj0mefup06h0",
+    "tt6wrs4kikgifb8",
+    "ds0sadfg0qxl3j7",
+    "mdq5bf49xkqtlil",
+    "o3jambbjswhb8az",
+    "5ehho6prx5s5knq",
+    "jmnmzirho6rvh8g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.094Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.094Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "1bweo8uzhqupjw4"
+    }
+  ]
+}

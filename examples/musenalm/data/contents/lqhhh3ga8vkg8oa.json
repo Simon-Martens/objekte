@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42099, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42106,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Torquato Tasso / Act I. Scene 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geissler del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_535_42106_4vl1q3tu2j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Torquato Tasso / Act I. Scene 3.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.186Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "6q5zqdrphjyzqok"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.186Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "j0b3huh6ywtrwwb"
+    }
+  ]
+}

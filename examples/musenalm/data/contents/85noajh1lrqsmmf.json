@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Jeder Wandrer in der Fremde, / Winket ihm der Heimat Land,",
+  "language": [],
+  "musenalm_id": 114199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fanny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Gottfried Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fanny",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.520Z",
+      "agent": "u56d09jffk0z5ur",
+      "source_id": "0pg9qap1jmf2ggo"
+    }
+  ]
+}

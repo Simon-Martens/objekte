@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, verso G, S I T, SS III- VI Vrwrt d Hrsg, S I-Verz, S I-Verz, SS 1-327, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Italia (A. Reumont) 1840",
+    "norm": "~",
+    "biblio": 404608,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1937,
+  "parallel_title": "",
+  "place_statement": "Berlin (Duncker)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Italia (A. Reumont) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Alfred Reumont",
+  "subtitle_statement": "",
+  "title_statement": "Italia. / Mit Beiträgen / von / Ida Gräfin Hahn-Hahn, F. W. Barthold, Franz / Freiherrn v. Gaudy, Gaye, C. Fr. v. Rumohr, / H. W. Schulz. / Herausgegeben / von / ALFRED REUMONT. / Zweiter Jahrgang. / Mit einem Titelkupfer. / Berlin, 1840. / Verlag von Alexander Duncker",
+  "updated": "2026-06-11 10:18:55.719Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "svnubttiby3t768"
+  ],
+  "contents": [
+    "c9ghhgogsfnshyz",
+    "yngffpy6glbh75x",
+    "wsbcmhh5qxmq2zy",
+    "u3d62tr18gdl749",
+    "4np7ytav34g9x1q",
+    "1sdo9c2kodsdvj3",
+    "imquteomyj5inas",
+    "hssk61wdtpftlr2",
+    "iakn4c4lanh8evb",
+    "0zg7a5sxk83quph",
+    "cvbbotq6e1m6vbg",
+    "xl9ivs24hqcbhox",
+    "asfkzp1cv6ifs6z",
+    "8jfgzlhhvzovotm",
+    "y0ps18q4jtwzlli",
+    "2armye8nje47qxy",
+    "pgcbq0u272puguh",
+    "eic1oi1mi85exhj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.987Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.987Z",
+      "agent": "q99l6w88p9m3j5v",
+      "source_id": "6fs0aktd3gq8ni3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.744Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.744Z",
+      "agent": "2dryhr23lnncnvq",
+      "source_id": "iew99v6x0rdn14v"
+    }
+  ]
+}

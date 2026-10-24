@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz. s. Textbezug INr 33777, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33778,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. Wächter  Autenrieth sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Wächter # Autenrieth sc.",
+  "scans": [
+    "alm_468_33778_l67le6drr6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.656Z",
+      "agent": "jgp8dgth3q9useg",
+      "source_id": "39dd1fltpivkgfj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.656Z",
+      "agent": "494d92fqsi62f1e",
+      "source_id": "ho49pdngjjvunnc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Wer Amor ist? Er ist ein Kind, Be- / linde; / Doch unterwerfen diesem Kinde",
+  "language": [],
+  "musenalm_id": 4965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.021Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "k6xpnnehzv9g3di"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "annotation": "Köhring gibt Jgg 1842-1860 an; Prag; Hrsg.: Klar, Paul Aloys",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Libussa 1842",
+    "norm": "",
+    "biblio": 409903,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2214,
+  "parallel_title": "",
+  "place_statement": "Prag",
+  "places": [
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Libussa 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; nicht bei L/R",
+  "responsibility_statement": "Paul Aloys Klar",
+  "subtitle_statement": "",
+  "title_statement": "Libussa. / Jahrbuch für 1842. / Herausgegeben / von / Paul Aloys Klar, / [...] / Prag",
+  "updated": "2026-06-11 10:18:55.913Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "ud91f437pkmgz89"
+  ],
+  "contents": [],
+  "agents": []
+}

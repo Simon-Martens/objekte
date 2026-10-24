@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "383",
+  "incipit_statement": "Ach wenn ich dochn iht mehr in diese Gegend gehen müßte! Es wird mir gar zu bang, wenn ich mir so denke, wie es sonst hier war.",
+  "language": [],
+  "musenalm_id": 125558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vorsatz. / Lustspiel in einem Aufzuge / von / Holbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Holbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vorsatz. / Lustspiel in einem Aufzuge / von / Holbein",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.900Z",
+      "agent": "m3yveluutefrlv5",
+      "source_id": "w2q4mvseza9k9oh"
+    }
+  ]
+}

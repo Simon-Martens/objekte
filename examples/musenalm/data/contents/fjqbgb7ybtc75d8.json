@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Die du so treu geliebt, so treu besungen, / Soll ferner deiner Liebe sich entwöhnen,",
+  "language": [],
+  "musenalm_id": 85555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arger Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Gottfried v. Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arger Wunsch",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.033Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "xg4xjcwoam2y1a2"
+    }
+  ]
+}

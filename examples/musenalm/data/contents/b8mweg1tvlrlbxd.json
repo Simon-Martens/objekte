@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 6621, Obj 86",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Auf grüner grüner Heide / Stehn sieben Hügelein! / Es flüstern Wind' im schaurigen Thal;",
+  "language": [],
+  "musenalm_id": 6620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sieben Hügel. / An Ernst Grafen von Schimmelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Brun, geb. Münter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sieben Hügel. / An Ernst Grafen von Schimmelmann",
+  "updated": "2000-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.130Z",
+      "agent": "38esu046kftupf5",
+      "source_id": "cp951d42ozoc3zr"
+    }
+  ]
+}

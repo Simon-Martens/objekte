@@ -1,0 +1,45 @@
+{
+  "annotation": "1815 (Sammlung INr 40885, Obj 23)  II. Tafeln am Wege (Sammlung INr 40884, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Zwei Elephanten, ein männlicher und ein weiblicher, langten aus Holland in der Menagerie an.",
+  "language": [],
+  "musenalm_id": 40904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.088Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "rzq4nwwcl0zri1t"
+    }
+  ]
+}

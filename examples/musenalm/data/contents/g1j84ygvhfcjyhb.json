@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es ist mir oft gegangen, wie andern, wenn ich Romane las: ich zweifelte, daß dergleichen Begebenheiten, als darin erzählt werden, wohl auch im Leben sich wirklich zugetragen könnten,",
+  "language": [],
+  "musenalm_id": 124466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abentheuerliche / Wanderung / von / Weimar nach Carlsbad",
+  "updated": "2020-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.803Z",
+      "agent": "3v1s1vpur451cyh",
+      "source_id": "rlzw8q7s8pnxt8s"
+    }
+  ]
+}

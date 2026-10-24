@@ -1,0 +1,81 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S 1 T, S 3, W, SS 4-216",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Carnevals-Almanach, Kölnischer 1831",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-03-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4187,
+  "parallel_title": "",
+  "place_statement": "Cöln ( Schlösser)",
+  "places": [
+    "am8bpqovjpn9yn6"
+  ],
+  "preferred_title": "Carnevals-Almanach, Kölnischer 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 38; nicht bei L/R; nicht bei Goed VIII. 122, 323",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Hanswurst's / WIEDERGEBURT /. / Echtester Cölnischer / CARNEVALS-ALMANACH / Auf / das Jahr 1831. / Naturam si furca expellas / tamen usque recurret! / EILFTE, / verminderte, mit gehörigen Druckfehelrn versehene und / mit einem in Holz geschnittenen Kupferstiche - / vid. gegenüberstehende Seite - verzierte Auflage. / Cöln an der Tuffesbaach. / Nachgedruckt bei bei Franz Xaver Schlösser",
+  "updated": "2026-06-11 10:18:55.567Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "pit1fz1ihwawzls",
+    "f9w2hg1rw82gcf8",
+    "djfqiti2lo2sxo8",
+    "65ygtmogso8ae7r",
+    "fg1movkny1ng792",
+    "qlpmtz3h99c2j5v",
+    "q4zkzh7lf1kl02j",
+    "kqw7uj58eh2g1ph",
+    "rshm1bcn6e6ah50",
+    "zx9xls4v95zqr8f",
+    "3v2wexrd5cq3w11",
+    "reoc1gsdxei9ir2",
+    "d8f6ltgmt99w2qv",
+    "3gal9zxgqg3486q",
+    "g0vkms7s7g3n7ua"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.146Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.146Z",
+      "agent": "lcb59mx771leydy",
+      "source_id": "bz506pywtm2utp5"
+    }
+  ]
+}

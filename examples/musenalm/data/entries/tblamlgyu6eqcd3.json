@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Ostfriesisches zur Belehrung und Unterhaltung 1826",
+    "norm": "",
+    "biblio": 410737,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-05-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4726,
+  "parallel_title": "",
+  "place_statement": "Norden ( J. F. Schmidt)",
+  "places": [
+    "gmz7x1bidfoik0z"
+  ],
+  "preferred_title": "Taschenbuch, Ostfriesisches zur Belehrung und Unterhaltung 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; nicht bei L/R; Goed VIII. 80, 155",
+  "responsibility_statement": "J. Ch. Gittermann",
+  "subtitle_statement": "",
+  "title_statement": "Ostfriesisches / Taschenbuch / zur / Belehrung und Unterhaltung / auf das Jahr / 1826. / Herausgegeben / von / J. Ch. H. Gittermann, / Prediger in Emden. / Norden, / bei Johann Friedrich Schmidt",
+  "updated": "2026-06-11 10:18:55.373Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "y7ovwv5w5tj6mgp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.412Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.412Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "7abmwbbh4elhxlw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.069Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.069Z",
+      "agent": "329f7zhnhejch5u",
+      "source_id": "sxbrxvqs3furkrl"
+    }
+  ]
+}

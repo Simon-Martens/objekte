@@ -1,0 +1,45 @@
+{
+  "annotation": "Neunzehn Lyrische Gedichte (Sammlung INr 50315, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Ehrvolle Männer fruchtender Wissenschaft, / Auf hohem Schulsiz, den Akademia / Ihr nanntet, eingedenk des Platon, / Und des sokratischen Gangs im Lusthain;",
+  "language": [],
+  "musenalm_id": 50330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Die Zünfter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Die Zünfter",
+  "updated": "2007-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.501Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "ltp281j5uuf5o3f"
+    }
+  ]
+}

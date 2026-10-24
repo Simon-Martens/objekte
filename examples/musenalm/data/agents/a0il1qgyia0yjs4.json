@@ -1,0 +1,857 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.325Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1069178489",
+          "label": "Neue Societäts-Verlags-Buchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1047031752",
+          "label": "Flittnersche Buchhandlung"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Besaß Buchhandlungen in Berlin, Frankfurt/Oder und Cottbus"
+      ],
+      "dateOfBirth": [
+        "1770-06-06"
+      ],
+      "dateOfDeath": [
+        "1828-01-06"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-14T10:37:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/104274328/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-605",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-605"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104274328",
+      "id": "https://d-nb.info/gnd/104274328",
+      "oldAuthorityNumber": [
+        "(DE-588a)104274328"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018122-4",
+          "label": "Frankfurt (Oder)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4070126-8",
+          "label": "Cottbus"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1099134412",
+          "label": "Düben"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Flittner, Christian Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Gottfried"
+        ],
+        "surname": [
+          "Flittner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4002475-1",
+          "label": "Apotheker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Ehrgott"
+          ],
+          "surname": [
+            "Campe"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friederike Karoline Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolf J. T."
+          ],
+          "surname": [
+            "Funke"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Justus"
+          ],
+          "surname": [
+            "Abel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolph J. T."
+          ],
+          "surname": [
+            "Fielding"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Freudenberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "surname": [
+            "Fielding"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Frietel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "G. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abenstein"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "surname": [
+            "Funke"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düben"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ehregarte"
+          ],
+          "surname": [
+            "Campe"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A. J. Th."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julius Augustus"
+          ],
+          "surname": [
+            "Freudenberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F. W."
+          ],
+          "surname": [
+            "Jung"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Friederike K. L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Faber"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolph Julius Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Just"
+          ],
+          "surname": [
+            "Abel"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "C. G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düren"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. C. G."
+          ],
+          "surname": [
+            "Scholz"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Elias"
+          ],
+          "surname": [
+            "Fielding"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julius T."
+          ],
+          "surname": [
+            "Filding"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolph J. T."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "C. G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düben"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "De Mesmerismi vestigiis apud Veteres",
+        "Meine Bekenntnisse über die Weiber",
+        "Die Begattung und Fortpflanzung organischer Wesen nah der Stufe*",
+        "Der Beischlaf",
+        "Das Band der Ehe",
+        "Anmuth und Schönheit aus den Misterien der Natur und Kunst",
+        "Neueste Anweisung zur leichten und gründlichen Erlernung des Whis*",
+        "Ueber die Kunst ein hohes Alter zu erreichen. - s.a.",
+        "Über Staats- und Privatbordelle"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr95019059"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71827172"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q123610"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104274328/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottfried_Flittner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108149887"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/104274328"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104274328"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Freudenberg, Julius Augustus",
+        "Flittner, Christian G.",
+        "Flittner, C. G.",
+        "Flitner, Christian G.",
+        "Berga, Adolph Julius Theodor von",
+        "Funke, Adolf Julius Theodor",
+        "Düben, C. G. F. von",
+        "Fielding, Elias",
+        "Abenstein, G. W. von",
+        "Berga, Adolph J. T. von",
+        "Flitner, C.",
+        "Düben, G. F. von",
+        "Abel, Just",
+        "Abel, Justus",
+        "Berga, Friederike K. L. von",
+        "Düben, G.F. von",
+        "Frietel, J. G.",
+        "Campe, Ehrgott",
+        "Fielding, Adolf Julius Theodor",
+        "Flittner, Johann Gottfried",
+        "Filding, Julius T.",
+        "Scholz, J. C. G.",
+        "Flitner, Chr. Gottfr.",
+        "Faber, F.",
+        "Flittner, Christian W.",
+        "Berga, Friederike Karoline Luise von",
+        "Freudenberg, J. A.",
+        "Jung, F. W.",
+        "Berga, Adolf Julius Theodor von",
+        "Funke, Adolf J. T.",
+        "Fielding, Adolph J. T.",
+        "Berga, A. J. Th. von",
+        "Flitner, Christian Gottfried",
+        "Düren, C. G. F. von",
+        "Campe, Ehregarte"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Freudenberg"
+          ]
+        },
+        {
+          "forename": [
+            "F. W."
+          ],
+          "surname": [
+            "Jung"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Flittner"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "surname": [
+            "Fielding"
+          ]
+        },
+        {
+          "forename": [
+            "Ehregarte"
+          ],
+          "surname": [
+            "Campe"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Gottfried"
+          ],
+          "surname": [
+            "Flitner"
+          ]
+        },
+        {
+          "forename": [
+            "C. G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düben"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Faber"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. G."
+          ],
+          "surname": [
+            "Scholz"
+          ]
+        },
+        {
+          "forename": [
+            "Julius T."
+          ],
+          "surname": [
+            "Filding"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph J. T."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "Justus"
+          ],
+          "surname": [
+            "Abel"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "surname": [
+            "Flittner"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Flittner"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf J. T."
+          ],
+          "surname": [
+            "Funke"
+          ]
+        },
+        {
+          "forename": [
+            "Just"
+          ],
+          "surname": [
+            "Abel"
+          ]
+        },
+        {
+          "forename": [
+            "G. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Abenstein"
+          ]
+        },
+        {
+          "forename": [
+            "A. J. Th."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph J. T."
+          ],
+          "surname": [
+            "Fielding"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Gottfr."
+          ],
+          "surname": [
+            "Flitner"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Julius Theodor"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike K. L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "C. G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düren"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Karoline Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Berga"
+          ]
+        },
+        {
+          "forename": [
+            "J. G."
+          ],
+          "surname": [
+            "Frietel"
+          ]
+        },
+        {
+          "forename": [
+            "Elias"
+          ],
+          "surname": [
+            "Fielding"
+          ]
+        },
+        {
+          "forename": [
+            "Ehrgott"
+          ],
+          "surname": [
+            "Campe"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Julius Theodor"
+          ],
+          "surname": [
+            "Funke"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Augustus"
+          ],
+          "surname": [
+            "Freudenberg"
+          ]
+        },
+        {
+          "forename": [
+            "G. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düben"
+          ]
+        },
+        {
+          "forename": [
+            "C. G."
+          ],
+          "surname": [
+            "Flittner"
+          ]
+        },
+        {
+          "forename": [
+            "G.F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Düben"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Flitner"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "surname": [
+            "Flitner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Gottfried_Flittner",
+          "label": "https://de.wikipedia.org/wiki/Christian_Gottfried_Flittner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:23:18Z",
+    "gnd_query_biographical_data": "1770-1828",
+    "gnd_query_name": "flittner, christian gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 739,
+  "name": "Flittner, Christian Gottfried",
+  "profession": "Text",
+  "pseudonyms": "G. W. von Abenstein; Adolf Julius Theodor (Caroline Luise) v. Berga; Julius August Freudenberger",
+  "refs": "Goed (H) 128; E 92",
+  "updated": "2026-06-11 13:29:22.287Z",
+  "uri": "https://d-nb.info/gnd/104274328",
+  "editor": ""
+}

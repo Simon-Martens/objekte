@@ -1,0 +1,634 @@
+{
+  "annotation": "",
+  "biographical_data": "1591-1635",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/80092-2",
+          "label": "Jesuiten"
+        }
+      ],
+      "dateOfBirth": [
+        "1591-02-25"
+      ],
+      "dateOfDeath": [
+        "1635-08-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://www.hstad-online.de/ausstellungen/online/webhexen/Hexenverfolgung/Tafel19/Tabelle7.htm Ausgrenzung und Gewalt gegen Ketzer, Juden, Hexen ... auch in der hessischen Geschichte - Ausstellung der Hessischen Staatsarchive 1994. Das Foto von hstad-online.de wurde hier vertikal gespiegelt, um es den übrigen Abbildungen des Originalgemäldes aus anderen Quellen anzupassen. Vgl. http://schule.erzbistum-koeln.de/spee-kolleg/Aktuelles/: Fotos von Veranstaltungen am 23. März und 15. April 2016 im Atrium des erzbischöflichen Friedrich-Spee-Kollegs in Neuss zeigen das Gemälde, das sich nun anscheinend wieder dort befindet."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Fridericus%20Spee%20SJ.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fridericus%20Spee%20SJ.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Fridericus%20Spee%20SJ.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/185809464"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:37:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11861598X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1251427138",
+          "label": "Spee, Robert von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1020221879",
+          "label": "Spee, Peter von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1041370563",
+          "label": "Spee, Johann Adolf von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11861598X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1020221879",
+          "label": "Spee, Peter von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1041370563",
+          "label": "Spee, Johann Adolf von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11861598X",
+      "oldAuthorityNumber": [
+        "(DE-588a)185809464",
+        "(DE-588)185809464",
+        "(DE-588c)4056090-9",
+        "(DE-101c)310216583",
+        "(DE-588a)134526589",
+        "(DE-588a)126861196",
+        "(DE-588a)17411785X",
+        "(DE-588a)11861598X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044283-4",
+          "label": "Paderborn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4060877-3",
+          "label": "Trier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4065697-4",
+          "label": "Wesel"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4096881-9",
+          "label": "Kaiserswerth"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4060877-3",
+          "label": "Trier"
+        }
+      ],
+      "preferredName": "Spee, Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Spee"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4030020-1",
+          "label": "Katholischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4121430-4",
+          "label": "Ordenspriester"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4215617-8",
+          "label": "Kirchenlieddichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        }
+      ],
+      "publication": [
+        "Trutz-Nachtigall Oder Geistlichs-Poetisch Lust-Waldlein",
+        "Immerwehrendes Lob Gottes",
+        "Trutz-Nachtigall",
+        "Cautio criminalis, seu de processibus contra sagas liber",
+        "Trutz-Nachtigall oder Geistlichs-Poetisch Lust-Wäldlein",
+        "Güldenes Tugend-Buch"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11925319q"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81127963"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71397976"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77283"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=11861598X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11861598X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185809464"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Spee"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Spee"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_Spee"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Spee"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010913509X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11861598X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11861598X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11861598X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11861598X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11861598X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11861598X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Langenfeld, Friedrich Spee von",
+        "Spe, Friedrich",
+        "Spee von Langenfeld, Friedrich",
+        "Spee, Friedrich",
+        "Spe, Friedrich von",
+        "Incertus Theologus Orthodoxus",
+        "Incertus Theologus Romanus",
+        "Spee, Friederich von",
+        "Spe von Langenfeld, Friedrich",
+        "S. von Langenfeld, F.",
+        "Spee von Lengenfeld, Friedrich",
+        "Langenfeld, F. S. von",
+        "S., Fridericus",
+        "Spee, Friedericus",
+        "Spee, Fridericum",
+        "Spee, Julius Friedrich",
+        "Lengenfeld, Friedrich Spee von",
+        "Langenfeld, Friderich Spee von",
+        "Langenfeld, Friedrich Spe von",
+        "Fridericus S.",
+        "Spee von Langenfeld, Friedrich von",
+        "Spee, Fridericus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Incertus Theologus Orthodoxus"
+          ]
+        },
+        {
+          "personalName": [
+            "Incertus Theologus Romanus"
+          ]
+        },
+        {
+          "forename": [
+            "F. S."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friederich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Spe von Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Spee von Lengenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Spe"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spee von Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericum"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        },
+        {
+          "personalName": [
+            "Fridericus S."
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Spee"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Spee von Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Spee"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Lengenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Spee"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spe"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus"
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "S. von Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Spe"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friderich Spee"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Langenfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Friedericus"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Friedrich"
+          ],
+          "surname": [
+            "Spee"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Spee",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Spee"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:00:48Z",
+    "gnd_query_biographical_data": "1591-1635",
+    "gnd_query_name": "spee, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2704,
+  "name": "Spee, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 193",
+  "updated": "2026-06-11 13:29:25.097Z",
+  "uri": "https://d-nb.info/gnd/11861598X",
+  "editor": ""
+}

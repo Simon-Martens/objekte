@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Frühlingsliebe« von J. H. Voß INr 5742, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5743,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. A. P. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_116_5743_p60gd7m6x8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.054Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "9a37lpbeuo9y9sy"
+    }
+  ]
+}

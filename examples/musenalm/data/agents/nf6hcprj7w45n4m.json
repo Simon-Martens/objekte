@@ -1,0 +1,125 @@
+{
+  "annotation": "",
+  "biographical_data": "1793-1851",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.479Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Graf"
+      ],
+      "dateOfBirth": [
+        "1793"
+      ],
+      "dateOfDeath": [
+        "1851"
+      ],
+      "describedBy": {
+        "dateModified": "2014-08-14T22:05:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#6",
+          "label": "Katalogisierungslevel 6"
+        },
+        "id": "https://d-nb.info/gnd/1055467491/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "gndIdentifier": "1055467491",
+      "id": "https://d-nb.info/gnd/1055467491",
+      "preferredName": "Sermage, Carl Johann Peter von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Johann Peter"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Sermage"
+        ]
+      },
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/309693054"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1055467491/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Sermage von Szomszédvár, Karl Johann Peter",
+        "Sermage, Jean Pierre Charles"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Johann Peter"
+          ],
+          "surname": [
+            "Sermage von Szomszédvár"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Pierre Charles"
+          ],
+          "surname": [
+            "Sermage"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:57:21Z",
+    "gnd_query_biographical_data": "1793-1851",
+    "gnd_query_name": "sermage von szomszédvár, karl johann peter"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2635,
+  "name": "Sermage von Szomszédvár, Karl Johann Peter",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1905",
+  "updated": "2026-06-11 13:29:24.978Z",
+  "uri": "https://d-nb.info/gnd/1055467491",
+  "editor": ""
+}

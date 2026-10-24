@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus der Erklärung der Kupfertafel /) Graphik im Kalendarium Januar /) paginiert I. /) s. vorstehenden Textbezug INr 82357, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82358,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Amour dérobe le foudre / a Jupiter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Le Sueur; Riepenhausen",
+  "scans": [
+    "alm_168_82358_t0dwd7lu0e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Amour dérobe le foudre / a Jupiter",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.045Z",
+      "agent": "rgscrveej5a4mer",
+      "source_id": "e7ux1d52wt797ix"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.045Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "yaltuo8vwv278tw"
+    }
+  ]
+}

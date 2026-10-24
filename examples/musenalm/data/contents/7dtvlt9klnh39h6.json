@@ -1,0 +1,45 @@
+{
+  "annotation": "gest.Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1834. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Igler sculpt. Frankfurt",
+  "scans": [
+    "alm_589_43856_avrmiqur7w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1834. / Herausgegeben von / Dr. ADRIAN. / Frankfurt am Main, / bei Johann David Sauerländer",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.371Z",
+      "agent": "wklj72l91t2u9fj",
+      "source_id": "ntfqwd39q67xf6x"
+    }
+  ]
+}

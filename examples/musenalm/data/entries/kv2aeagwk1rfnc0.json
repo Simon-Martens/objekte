@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, B G-Verz, 8 BB Tab darin 7 GG, SS 1-212",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Klio und Euterpe (Neuhofer) 1807",
+    "norm": "~",
+    "biblio": 405448,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2198,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Klio und Euterpe (Neuhofer) 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 72; L/R 20; Goed VIII. 61, 69; ADB XXIII, 509",
+  "responsibility_statement": "G. A. Neuhofer",
+  "subtitle_statement": "",
+  "title_statement": "Klio und Euterpe, / ein / Taschenbuch / auf das Jahr / 1807 / von / G. A. Neuhofer / AUGSBURG / im Joh. Georg Rollwagen'schen / Verlage unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:55.906Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "m62exdiryq1uinv"
+  ],
+  "contents": [
+    "r51otrohgqec5bx",
+    "2h9o0cuhbtb4ala",
+    "l7nqxmiusbv0v57",
+    "r8cqzk19s765clc",
+    "ram1877pgph9rk7",
+    "h9rsv4sfwt65ly9",
+    "axv5l26aw226cra",
+    "91t4rf368cq7pon",
+    "d2lhjkpujl40s57",
+    "19iw9aa2rq3vimm",
+    "xo0bom5ld01x4u0",
+    "gz0knu93ps0ijak",
+    "3gwgmazobohp73l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.007Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.007Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "fdeunpipjzpotiv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "ow7l53lozp3bfa0"
+    }
+  ]
+}

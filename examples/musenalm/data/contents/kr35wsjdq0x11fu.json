@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Lieder (Sammlung INr 100433, Obj 97)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Frisch die Glieder, frisch der Muth / Wandert sich's am Morgen gut.",
+  "language": [],
+  "musenalm_id": 100437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Wanderliedchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Wanderliedchen",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.932Z",
+      "agent": "thvjtwgntimiqn7",
+      "source_id": "19o1gad0n59xjfq"
+    }
+  ]
+}

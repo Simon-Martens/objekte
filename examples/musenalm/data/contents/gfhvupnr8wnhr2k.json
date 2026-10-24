@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63674, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Freundlich ist die Natur in lieblichen Strahlen der Sonne, / Und es freuen sich rings Hügel und Wiesen und Wald;",
+  "language": [],
+  "musenalm_id": 63682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gleichniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gleichniß",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.051Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "vogc1z33m3fcdv1"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "Ein erster Jahrgang wahrscheinlich 1823; weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Taschenbuch den Freunden der Zunft gewidmet (München) 1824",
+    "norm": "",
+    "biblio": 408291,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-12-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4081,
+  "parallel_title": "",
+  "place_statement": "München (Hübschmann)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Theater-Taschenbuch den Freunden der Zunft gewidmet (München) 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Friedr. Holzapfel",
+  "subtitle_statement": "",
+  "title_statement": "THEATER- / Taschenbuch / den / Freunden der Kunst / gewidmet / von / FRIEDR. HOLZAPFEL / Zweiter Jahrgang / München 1824 / gedruckt bei Franz S. Hübschmann",
+  "updated": "2026-06-11 10:18:54.978Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "844kw8zfrt7lhqd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.045Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.045Z",
+      "agent": "doirmqr9ue3j0mn",
+      "source_id": "vhu2xm0ezqwetgn"
+    }
+  ]
+}

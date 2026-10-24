@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober /) Illustration zu »Das leere Faß« von J. G. Seidl INr 89572, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89545,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das leere Fass",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. del. A. D. sc.",
+  "scans": [
+    "alm_3354_89545_g0wg0nv074.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das leere Fass",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.118Z",
+      "agent": "masan4fv3ew8l5z",
+      "source_id": "glegfc0qb9fygzc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.118Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "xl6oc317745uxgb"
+    }
+  ]
+}

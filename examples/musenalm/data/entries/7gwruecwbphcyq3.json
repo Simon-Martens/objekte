@@ -1,0 +1,76 @@
+{
+  "annotation": "Neuauflage mit neuer Pagina von: Taschenbuch zum geselligen Vergnügen 1793, Leipzig (Voß und Leo), alm- 135. Gegeben sind die Beiträge  SS 1- 192, Obj 11-150 aus alm-135, jedoch keine Graphiken keine Musikbeigaben, Anleitungen etc. Der Umschlag wie Jg 1823 s. alm-301. /) Beigegeben sind hier vier nicht kolorierte Graphiken unter Verwendung der kolorierten 2 Umschlaggraphiken der Ausgabe von 1820: s. alm-298, INr 22952, 37405 sowie 2 weiterer (Umschlag-) graphiken der Suite »Die vier Jahreszeiten«;s. dazu Vorwort des Herausgebers INr 122335 /) Kurzaufnahme: Titel, Vorwort, Graphiken als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, B Vrwrt d Hrsg [nach 1820] , 4 GG, T, SS 1-156",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zum geselligen Vergnügen 1793 [Neuauflage nach 1820]",
+    "norm": "~ Kurzaufnahme: Titel, Vorwort, Graphiken als Vollbild",
+    "biblio": 409933,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2019-07-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4660,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zum geselligen Vergnügen 1793 [Neuauflage nach 1820]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; K 150; K 152; L/R 101; Goed VIII. 42, 3 a u. b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zum / geselligen Vergnügen / für 1793. / Neue Auflage. / Mit Kupfern. / Leipzig / bei Joh. Friedrich Gleditsch",
+  "updated": "2026-06-11 10:18:54.743Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "i6eo75ble3tocwy"
+  ],
+  "contents": [
+    "gjfvm16ki5py7t0",
+    "za3awfu61wef4wj",
+    "66uma9y219kk4s8",
+    "ba88y5ts46y3afa",
+    "765ep1ye8jth6sg",
+    "hoon6px21joijwt",
+    "tqa043y57p0e0t3",
+    "zjimepbuw4gchra"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.908Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.908Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "deioaot7ydpoxfw"
+    }
+  ]
+}

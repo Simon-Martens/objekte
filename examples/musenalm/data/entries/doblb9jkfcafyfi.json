@@ -1,0 +1,119 @@
+{
+  "annotation": "2 Jgg 1801, 1802; Leipzig (Weigel); Hrsg.: J. G. D. Schmiedtgen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 5 GG, S I T, SS III Vrwrt d Hrsg, SS V-VII G-Verz,S VII C, S I-Verz, SS 1-200",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Leipziger für Liebhaber des Schönen und Guten 1801",
+    "norm": "~",
+    "biblio": 101357,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3053,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weigel)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Leipziger für Liebhaber des Schönen und Guten 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; K 157; nicht bei L/R; Goed VIII. 57, 33",
+  "responsibility_statement": "J. G. D. Schmiedtgen",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für / Liebhaber / des / Schönen und Guten. / Auf das Jahr 1801. / Von / J. G. D. Schmiedtgen. / Leipzig / bei C. G. Weigel",
+  "updated": "2026-06-11 10:18:55.399Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "6g88dw24mvilogn"
+  ],
+  "contents": [
+    "u12pqv1bqit7ebv",
+    "mzbkdvyoh4g56nn",
+    "2dnj80ofpmn00bi",
+    "zl6zebwydnjhdv8",
+    "h8qy6hkbu708ayl",
+    "szdpes7zvvgqkim",
+    "8f7ohmr63v3zrh8",
+    "993w14x2l72jutv",
+    "te1bw5le5qubbl6",
+    "4cevfluvujdlryl",
+    "dyt5cvrqjksx7tz",
+    "mfnyejpp6w97kxf",
+    "nvxawfj78w8zdtk",
+    "107jfhzmj1bskox",
+    "ngvgt70xp7d5bvj",
+    "lwikbgk6yubw691",
+    "7qkbjwh3wpczqu0",
+    "3jntacbos4wrrxr",
+    "diw2afg96w3pd59",
+    "pc3k2y1pspewzte",
+    "yasd4lj1qgtdctx",
+    "fa0zpgcqhey6orh",
+    "ki0ce7pwnoebmtr",
+    "q6wuav58a1gh6q7",
+    "5m3ezyoiqtf8f4c",
+    "x4qz229sx8k9tbe",
+    "zywek6uteigk76y",
+    "850f2xo1wznmp8c",
+    "llyhfhhyuar0sgs",
+    "mglyy3cz6vtye2u",
+    "pl2tqrlpatvp8n9",
+    "c0ixsfv3i1n4uch",
+    "8u3m9wdm3wclcd2",
+    "mpbwb6yaklnoatc",
+    "nt426o9al3lmxge",
+    "hkzwpo6f4jp0fk4",
+    "pw2kp2kls6wsy83",
+    "1jykpdmat5fgm7t",
+    "voblhh79oyoayzq",
+    "r4qkho7xcqqcivh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.183Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.183Z",
+      "agent": "mawx9so82lzv5uf",
+      "source_id": "omopgsjknlixekl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.177Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.177Z",
+      "agent": "b6kcmfff33vx9hs",
+      "source_id": "soamj4c3kho36j4"
+    }
+  ]
+}

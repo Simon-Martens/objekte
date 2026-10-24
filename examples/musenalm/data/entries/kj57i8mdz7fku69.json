@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, T, 14 BB Kal darin 6 GG, S, SS 1-64, 6 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach (Augsburg) 1849",
+    "norm": "",
+    "biblio": 412076,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2025-06-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4905,
+  "parallel_title": "",
+  "place_statement": "Augsburg",
+  "places": [],
+  "preferred_title": "Almanach (Augsburg) 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 8; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / 1849 / Mit poetischer Beigabe / von / Ferd. Aug. Oldenburg / AUGSBURG / bei J. G. Rollwagen",
+  "updated": "2026-06-11 10:18:56.029Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "oi296i3dx643bbu"
+  ],
+  "contents": [
+    "mc4hut0ptq8mgso",
+    "qd325qk4o1v1wt3",
+    "vgotggdi4so4s61",
+    "p409cmq1eunkq5y",
+    "aa95s4umrjgu05o",
+    "szvk59miegvu4o1",
+    "dwssth8riozpdgz",
+    "kmdpc1x4wcxmg3b",
+    "pyaqbr2kakh0scr",
+    "qe9rnjh6g6pqiv5",
+    "nqozvpqxvmk11yw",
+    "ubny536yyjvw2ta",
+    "6ui9saah2xl2dzb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "i0l66gem707fosl"
+    }
+  ]
+}

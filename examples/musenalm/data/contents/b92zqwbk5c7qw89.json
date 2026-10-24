@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Motto: Quien no ha visto Granada, / No ha visto nada. / Spanisches Sprüchwort /) mit 2 Illustrationen s. Graphiken INr 109974, Obj 2 und INr 109976, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Norden ist die Heimath der Sage. Hier schwebt sie um nackte Berggipfel, blickt aus klaren Quellen, flüstert aus den Blättern uralter Bäume, nistet wie das einsame Käuzchen in jedem zerfallenen Gemäuer.",
+  "language": [],
+  "musenalm_id": 109983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dreihundert Jahren. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. von Wachsmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dreihundert Jahren. / Erzählung",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.269Z",
+      "agent": "6kzqe6d8kkkucin",
+      "source_id": "zlqt5virq19e0vi"
+    }
+  ]
+}

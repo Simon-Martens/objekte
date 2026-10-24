@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I-Verz G-Verz, SS 1-442 darin 2 GG, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1848",
+    "norm": "~",
+    "biblio": 106038,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2419,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1848",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1848. / Herausgegeben / von / Theodor Hell. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.956Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "a3kiv8flpkzc0ov"
+  ],
+  "contents": [
+    "4b63wdu9a6pi9ox",
+    "e4l5hsf3cp20k20",
+    "vfcvi5iha23myba",
+    "o9tsnqrzj55c5yy",
+    "i889iv2jf3asnf3",
+    "9k864kjd3lni1yr",
+    "zia64om2703ebgz",
+    "08srenokm9hbq1i",
+    "hd8zt2q8tii4i5v",
+    "zeuxmjo1n6vqswb",
+    "xe29qkq109yq6iy",
+    "m996pyw983ed0y9",
+    "yxcbtbj184js4nt",
+    "cj10bsavnbeh21w",
+    "01yvuztbzhcrnrn",
+    "6xmah5jff9w8orw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.024Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.024Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "5q74oajkfl4y8x7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.085Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.085Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ywzp95kns6c7k3f"
+    }
+  ]
+}

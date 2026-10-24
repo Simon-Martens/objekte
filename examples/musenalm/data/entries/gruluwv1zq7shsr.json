@@ -1,0 +1,114 @@
+{
+  "annotation": "weiterer Jg 1848 : KVK, GBV: Weimar, Herzogin Anna Amalia Bibliothek",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, SS 1-100 darin 11 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Medaillon-Almanach 1848",
+    "norm": "~",
+    "biblio": 409438,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-07-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4445,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Payne)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Medaillon-Almanach 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Eduard Kauffer",
+  "subtitle_statement": "",
+  "title_statement": "Medaillon-Almanach / für / 1848. / Jahresgabe für Damen / von Eduard Kauffer. / Leipzig, / Verlag der Englischen Kunstanstalt von / A. H. Payne",
+  "updated": "2026-06-11 10:18:55.928Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "m4s5lo48k82yarx"
+  ],
+  "contents": [
+    "02ek48xbv4rtim0",
+    "9bxup81dl2emrx2",
+    "4q90561n4plbwo2",
+    "eiamlrclu9z724l",
+    "8h45nk5i1hys6n6",
+    "ssl2hidypz5mg8z",
+    "3u90trzpgtz9n0m",
+    "18prwh37b69l799",
+    "5fh8zjqtebj4vsh",
+    "ck5cxwzhjbm14hp",
+    "9mlxyzs9rd71j4f",
+    "vzdloz6923uu3z9",
+    "6bpggthsh6pgx1p",
+    "7rdu9qxvh3bzy0v",
+    "m6w14nsn09slzfy",
+    "2gznmat8vk2jxyq",
+    "ooqmbirqn143eic",
+    "lkfvgs8540bp4s0",
+    "kddraalv6rfzupa",
+    "u6rsop2u9x5z3pa",
+    "y6q577mfi3p42vr",
+    "mk3vgq6w845p64p",
+    "gaooqeheyo5ci7d",
+    "f0idxh44vwq9flu",
+    "k02i0rf7wxt9qye",
+    "pzu7y4vd80xs8md",
+    "44bvph4spkiols3",
+    "39fkxx5d17oqq7o",
+    "5b6a8vukfovhzlv",
+    "714peci8npyhqqx",
+    "yy4gxrm9ovfuh73",
+    "t0ytyai87v3ptw9",
+    "ai3u8l8kchi5ni8",
+    "5zftspaj05dj5ah",
+    "z9p98j3r1lp9n01"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "rso7514j1fk11kq",
+      "source_id": "jx2j9t7np54f9cy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.380Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.380Z",
+      "agent": "ovwfj6gd1uq3abt",
+      "source_id": "r4ktqnuxjm0f3k6"
+    }
+  ]
+}

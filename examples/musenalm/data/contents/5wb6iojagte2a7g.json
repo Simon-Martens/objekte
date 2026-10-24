@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 20165, Obj 86) §1§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Haltet an der Hoffnung fest! / Flieht an ihre Schutzaltäre,",
+  "language": [],
+  "musenalm_id": 20166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lebensgefährten. / Mit Musik-Begleitung von Franz Schubert in Dresden §1§",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lebensgefährten. / Mit Musik-Begleitung von Franz Schubert in Dresden §1§",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.987Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "ivdvr56botm5dta"
+    }
+  ]
+}

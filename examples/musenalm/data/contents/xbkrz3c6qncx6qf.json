@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 5. /) s. Textbezug INr 88165, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88176,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niederländ. Schule. / Rembrandt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rembrandt. F. H. Müller gez. Martin Esslinger gest.",
+  "scans": [
+    "alm_575_88176_miok8jrhf6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Niederländ. Schule. / Rembrandt",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "j12p4vv4qgvdxl0",
+      "source_id": "313uhktpsiaeb96"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "40c1v5ls729f5ph"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.114Z",
+      "agent": "f6e5t5hil0gzo1m",
+      "source_id": "5tsanx236s9ify9"
+    }
+  ]
+}

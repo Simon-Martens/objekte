@@ -1,0 +1,45 @@
+{
+  "annotation": "Klänge aus der Ferne (Sammlung INr 86227, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Vor vielen, vielen Jahren, - die Zahl geht uns nichts an - / Da lebt' im Morgenlande ein hochberühmter Mann;",
+  "language": [],
+  "musenalm_id": 86232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Alchimist und seine Söhne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Alchimist und seine Söhne",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.221Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "qx9kqsbus3xcyu8"
+    }
+  ]
+}

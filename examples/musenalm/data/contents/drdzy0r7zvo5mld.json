@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Ranftl. J. Axmann",
+  "scans": [
+    "alm_345_26174_3q5up9fgq6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgen",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.047Z",
+      "agent": "vyuxy9kfo54vvq8",
+      "source_id": "4j7h5qa9vhmfdpd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.047Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "rrhpyyxnlpbiuxw"
+    }
+  ]
+}

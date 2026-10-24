@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Die Nonne« von H. Smidt INr 59509, Obj 28; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59508,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nonne #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59508_360jphv5aj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Nonne #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.872Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "w2hfxnxf20eq0zb"
+    }
+  ]
+}

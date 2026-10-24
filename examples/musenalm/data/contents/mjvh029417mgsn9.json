@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39471, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braut von Messina / Don Manuel. / Bewegungslos starr ich das Wunder an / Den Jagdspies in der Hand, zum Wurf ausholend - / Sie aber blickt mit großen Augen flehend / Mich an",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_518_39470_d0yp1kbtvv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braut von Messina / Don Manuel. / Bewegungslos starr ich das Wunder an / Den Jagdspies in der Hand, zum Wurf ausholend - / Sie aber blickt mit großen Augen flehend / Mich an",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.166Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ar4f9t2fyzrm26q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.167Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "j2bnge5zu784qgh"
+    }
+  ]
+}

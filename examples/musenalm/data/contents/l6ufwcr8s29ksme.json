@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opiz (Sammlung INr 733, Obj 4) s. Graphik INr 65159, Obj 9,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Ein Ritter ritt einst in den Krieg, / Und als er seinen Hengst bestieg, / umfing ihn sein fein's Liebchen:",
+  "language": [],
+  "musenalm_id": 1929,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ritter und sein Liebchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ritter und sein Liebchen",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.055Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "nxs0gnnrnj6nqau"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die drei weißen Rosen. Rittergedicht in drei Gesängen (Sammlung 19239, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Es war in schönen lichten Sommertagen, / Wo Rosen frisch in voller Blüthe standen",
+  "language": [],
+  "musenalm_id": 1603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritter Gesang",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.928Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "pas1v21eu8cpm8v"
+    }
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "annotation": "",
+  "biographical_data": "1746-1776",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.585Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1746-01-04"
+      ],
+      "dateOfDeath": [
+        "1776-05-21"
+      ],
+      "describedBy": {
+        "dateModified": "2018-07-02T11:53:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-3",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-3"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1015756662/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1015756662",
+      "id": "https://d-nb.info/gnd/1015756662",
+      "oldAuthorityNumber": [
+        "(DE-588a)159583853",
+        "(DE-588a)1015756662",
+        "(DE-588a)100368875"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008252-0",
+          "label": "Brieg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008252-0",
+          "label": "Brieg"
+        }
+      ],
+      "preferredName": "Lentner, Karl Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Friedrich"
+        ],
+        "surname": [
+          "Lentner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/187415735"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q29453392"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015756662/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Lentner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000356663148"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1015756662"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Lentner, Karl F.",
+        "Lentner, Carl Friedrich",
+        "Lentner, Carl F.",
+        "Lentner, Carolus Fridericus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Lentner"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus"
+          ],
+          "surname": [
+            "Lentner"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Lentner"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Lentner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Friedrich_Lentner",
+          "label": "https://de.wikipedia.org/wiki/Carl_Friedrich_Lentner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:27:54Z",
+    "gnd_query_biographical_data": "1746-1776",
+    "gnd_query_name": "lentner, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3997,
+  "name": "Lentner, Karl Friedrich",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 1239",
+  "updated": "2026-06-11 13:29:25.932Z",
+  "uri": "https://d-nb.info/gnd/1015756662",
+  "editor": ""
+}

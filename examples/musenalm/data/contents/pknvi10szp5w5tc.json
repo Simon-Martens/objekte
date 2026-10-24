@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Die zu Vielen sucht zu gefallen, / Kriegt am End' doch keinen von Allen; [...] / Altes Lied",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "An dem Ufer der Als, welche vor Kurzem noch ringsum in gar üblem Geruche stand, nicht weit von dem in jener Zeit daselbst bestandenen Siechenhause,",
+  "language": [],
+  "musenalm_id": 86518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Jungfrau von Siechenals. / Eine Wiener Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Falkner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Jungfrau von Siechenals. / Eine Wiener Sage",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.156Z",
+      "agent": "oz4bgeac30exnw3",
+      "source_id": "oh0ozom4tamp2rg"
+    }
+  ]
+}

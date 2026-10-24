@@ -1,0 +1,121 @@
+{
+  "annotation": "12 Zwischentitel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-VIII Vrwrt d Hrsg, SS IX-X, X, S 1-152, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Männer 1828",
+    "norm": "~",
+    "biblio": 200098,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-04-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 34,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vossische Buchhandlung)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch für Männer 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136; nicht bei L/R; Goed VIII. 121, 306",
+  "responsibility_statement": "Martin Cunow",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Männer / Eine / Schaltjahrsgabe / für 1828 / von / Martin Cunow. / Berlin, / in der Vossischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.067Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "v16dw0yp0vr0haq"
+  ],
+  "contents": [
+    "w374ltkmmu2q0mi",
+    "t05a8evmqem51d9",
+    "1zxb36xbcdhv2jt",
+    "lw1v2aco3kxnt4b",
+    "m8qlz1scifckp8k",
+    "zykyds1kru4g7nb",
+    "8bb1nsf0l7vjjg6",
+    "90g578h518gxnqw",
+    "64rvbvjyhtfpxhu",
+    "axchnl4orw6mo1g",
+    "w516wtjqls74f03",
+    "qu08umgpy6x1aop",
+    "7dtiy6neu8vsesm",
+    "hdimwr2f44pby7w",
+    "wjl9fwidyvfay6t",
+    "evjlfofibred686",
+    "pjwtq2f2km3exjg",
+    "mrzghel0r0d11nj",
+    "nbuzw77od1cwbkv",
+    "f3tjwbn2yn9t815",
+    "zgbwsvkdggop68s",
+    "mirpw21ydufkn4p",
+    "080i45jj5tz0ub7",
+    "huvq8job126r2pa",
+    "ry7fyscep0jjwde",
+    "2zo3zw2zcapwwyx",
+    "irk3ocmegu4t4ht",
+    "sj8agcfzzs0m6xl",
+    "jx2itbepdl8wnrw",
+    "q5k49v8yffb3vg3",
+    "jsnwi3c5hcyw3pt",
+    "uhz0o5ur4ppnjui",
+    "j39jyf82lbeoyoe",
+    "rk19ggfkv8p6zx1",
+    "d8x4dbbaupjzwlh",
+    "0zeb8z2lf35zdih",
+    "1nfqw3baxivh9p2",
+    "yqd8jf43mlatg1c",
+    "vvymmm8q9crsmr4",
+    "mnr5bk3xi6stmp9",
+    "8ne5sifgeefbluo",
+    "rhvu0wx817v5i0s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.178Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.178Z",
+      "agent": "baxq9zlo4hsf9bx",
+      "source_id": "dof7qxufb8nwq9e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.194Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.194Z",
+      "agent": "doais0yqjhhelne",
+      "source_id": "xgb868gttd876qa"
+    }
+  ]
+}

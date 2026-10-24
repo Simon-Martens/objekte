@@ -1,0 +1,89 @@
+{
+  "annotation": "Jgg 1843-1847; Leipzig (Friese); Hrsgg.: 1843-1845: Robert Blum und Friedrich Steger; 1806: Robert Blum",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorwärts ! Volkstaschenbuch 1843",
+    "norm": "",
+    "biblio": 100560,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3489,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Friese)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vorwärts ! Volkstaschenbuch 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Robert Blum und Friedrich Steger",
+  "subtitle_statement": "",
+  "title_statement": "Vorwärts! / Volks-Taschenbuch / für das Jahr 1843. / Unter Mitwirkung / von / Dr. Johann Deeg, Adv. Dr. Detmold, Georg Herwegh, H. A. Hoff- / mann von Fallersleben, Dr. Jachmann, Dr. Johann Jacoby, / Jul. Molen, R. E. Prutz, Walesrode, C. Th. Welcker u.a. / Herausgegeben / von / Robert Blum und Friedrich Steger. / Motto: / Partei, Partei! Wer sollte sie nicht nehmen, / Die noch die Mutter aller Siege war? [...] / Leipzig 1843, / Verlag von Robert August Friese",
+  "updated": "2026-06-11 10:18:54.516Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "hsc4b6dqgaw97y3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.238Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.238Z",
+      "agent": "29bzu7e1ijooqgq",
+      "source_id": "6r8rvoxyrfk0xt6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.877Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.877Z",
+      "agent": "evdvttatpeb3kfh",
+      "source_id": "bvayujdkbgk9g57"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.238Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.238Z",
+      "agent": "buprkstm5ipe9ub",
+      "source_id": "wv6jmxfpovxxgq9"
+    }
+  ]
+}

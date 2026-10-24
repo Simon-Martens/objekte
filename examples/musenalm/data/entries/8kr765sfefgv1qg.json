@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Verbreitung geographischer Kenntnisse 1833",
+    "norm": "",
+    "biblio": 404591,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2894,
+  "parallel_title": "",
+  "place_statement": "Prag (Calve)",
+  "places": [
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Taschenbuch zur Verbreitung geographischer Kenntnisse 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 149; nicht bei L/R",
+  "responsibility_statement": "Johann Gottfried Sommer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur Verbreitung / geographischer / Kenntnisse. / Eine Übersicht des Neusten und Wissens- / würdigsten im Gebiete der gesammten Län- / der- und Völkerkunde. / Herausgegeben / von / Johann Gottfried Sommer. / Für 1833 / (Eilfter Jahrgang.) / Mit sechs Kupfer- und Stahltafeln. / Prag. / J. G. Calve'sche Buchhandlung / 1833",
+  "updated": "2026-06-11 10:18:55.679Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "4j8iu476ft1ibnk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.645Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.645Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "gx1cy7xoxuhszl2"
+    }
+  ]
+}

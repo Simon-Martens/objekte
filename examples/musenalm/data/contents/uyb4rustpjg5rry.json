@@ -1,0 +1,56 @@
+{
+  "annotation": "Fortsetzung der Beiträge aus: Urania 1822, INr 1637, 1866-1870 und Urania 1823, INr 1760-1762",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Beim Durchsuchen meiner Habseligkeiten im Thor Alcala widmete der Aufseher seine größte Achtsamkeit verbotenen Schriften;",
+  "language": [],
+  "musenalm_id": 1862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemälde aus Madrid / nach / Casanova",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Casanova; Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gemälde aus Madrid / nach / Casanova",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.909Z",
+      "agent": "twsnbj8qnaadxfr",
+      "source_id": "9tuysz0ijp0t9rr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.909Z",
+      "agent": "j5e1jto7rj2ibw3",
+      "source_id": "a8slybftib4jm89"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "Quelle für autopsiert oder Erfassung fehlt.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Petit 1810",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4834,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach, Petit 1810 [s. u. Taschenkalender (Berlin, Königl. Akademie der Wissenschaften) 1810]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "Königl. Akademie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Petit / ALMANAC / pour l'an 1810, / avec / six fables de Lafontaine, / françoises et allemandes, / et / 12 estampes qui s'y rapportent. / Avec approbation de l' Académie / royale des sciences",
+  "updated": "2026-06-11 10:18:55.179Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.186Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.186Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "fgrjfhpbmh2cpju"
+    }
+  ]
+}

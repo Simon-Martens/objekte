@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso g, T, 8 BB Kal (deutsch) darin 6 GG, 8 BB Kal (franz.), T, B Vrwrt d Hrsg, 2 BB, SS 1-184 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Geschichte und Unterhaltung (Neuhofer) 1802",
+    "norm": "~+++ 409108 (var. Umschlag)",
+    "biblio": 407358,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-06-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3830,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Taschenbuch für Geschichte und Unterhaltung (Neuhofer) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 123; L/R 20; ADB XXIII, 509",
+  "responsibility_statement": "G. A. Neuhofer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Geschichte / und / Unterhaltung / auf das Jahr / 1802. / Augsburg / verlegt von Joh. Georg Rollwagen / unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:54.739Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "3rthizznalhvzmi",
+    "4zz1vnkppk3znqf"
+  ],
+  "contents": [
+    "pn88ukg18kgexf3",
+    "c2qdcdu36kqslef",
+    "ikyrpxe1nk83te4",
+    "njlucrpb7ohnaaq",
+    "7agqwy04axunn63",
+    "g4una4d3avywzg6",
+    "drhe6ovty03gevs",
+    "vo5x5pbuzfr3236",
+    "oi5lm4pvce2gq9s",
+    "84ipoy9wcn51bc2",
+    "gik6hvdz316r099",
+    "g5mszfbanshgtwj",
+    "2ioj8pj4e02poma",
+    "y4cfe3aycsimlcf",
+    "c8dkkbh00qqfpyh",
+    "c4ydnz9kacrb03z",
+    "ehof8j9zuw7k1ea",
+    "qpw9ot6u7p7y6de",
+    "lxp4t36xkqotrmw",
+    "gy28xp9wf18491x",
+    "0fg9nstn1asbavj",
+    "s3krosu8xqnnavn",
+    "xskpja7kndl5tyu",
+    "gorz53hadyxd26v"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.303Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.303Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "4dm0tahfg6gy69p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "pu122hhh9prfoqh"
+    }
+  ]
+}

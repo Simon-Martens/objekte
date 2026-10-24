@@ -1,0 +1,700 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.328Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1775-10-07"
+      ],
+      "dateOfDeath": [
+        "1831-07-21"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "http://www.fouque-gesellschaft.de/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Caroline%20de%20la%20Motte%20Fouqu%C3%A9.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Caroline%20de%20la%20Motte%20Fouqu%C3%A9.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Caroline%20de%20la%20Motte%20Fouqu%C3%A9.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172078725"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T13:14:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118692321/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rochow"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rochow"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118534556",
+          "label": "Fouqué, Friedrich de La Motte-"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118692321",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118692321",
+      "oldAuthorityNumber": [
+        "(DE-588a)172078725",
+        "(DE-588c)4093082-8",
+        "(DE-588a)118692321",
+        "(DE-588)172078725",
+        "(DE-588a)131131591"
+      ],
+      "preferredName": "Fouqué, Caroline de La Motte-",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Caroline de La Motte-"
+        ],
+        "surname": [
+          "Fouqué"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Serena"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Vergangenheit und Gegenwart",
+        "Die blinde Führerin"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12086497v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no90022077"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34482994"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77933"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118692321/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172078725"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Caroline_de_la_Motte_Fouqu%C3%A9"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Caroline_de_la_Motte-Fouqu%C3%A9"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Caroline_de_la_Motte_Fouqu%C3%A9"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108863546"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118692321"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118692321"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/7538687-2",
+          "label": "Freifrau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7538688-4",
+          "label": "Baronin"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "SWD; DDB"
+      ],
+      "variantName": [
+        "Fouqué, Karoline A. de",
+        "LaMotte Fouqué, Caroline de",
+        "Briest, Caroline Auguste von",
+        "Motte Fouqué, Caroline Philippine de la",
+        "Fouqué, Caroline Auguste de LaMotte-",
+        "La Motte-Fouqué, Caroline Auguste de",
+        "Fouqué, Karoline Auguste de La Motte-",
+        "Motte-Fouqué, Caroline de la",
+        "La Motte Fouqué, Caroline de",
+        "Fouqué, Karoline de La Motte",
+        "LaMotte-Fouqué, Caroline de",
+        "Serena",
+        "Fouqué, Caroline de LaMotte-",
+        "Briest, Caroline Philippine von",
+        "Briest, Karoline Auguste von",
+        "Briest, Caroline von",
+        "LaMotte-Fouqué, Caroline Auguste de",
+        "LaMotte Fouqué, Karoline Auguste de",
+        "Fouqué, Caroline",
+        "LaMotte-Fouqué, Karoline Auguste von",
+        "Motte Fouqué, Caroline de la",
+        "Rochow, Caroline Auguste von",
+        "LaMotte-Fouqué, Caroline A. de",
+        "Fouque, Caroline von",
+        "La Motte Fouqué, Caroline Philippine de",
+        "Fouqué, Karoline de la Motte",
+        "Briest, Karoline von",
+        "LaMotte Fouqué, Karoline",
+        "La Motte Fouqué, Karoline",
+        "Fouqué, Caroline Auguste de La Motte-",
+        "LaMotte, Caroline de",
+        "La Motte-Fouqué, Caroline de",
+        "Fouqué, Caroline de la Motte",
+        "Fouqué, Caroline Auguste de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Motte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline de la Motte"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Auguste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "LaMotte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline de La Motte"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline de la Motte"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Philippine"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Motte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Fouque"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "La Motte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste de La Motte-"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "personalName": [
+            "Serena"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Motte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Rochow"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaMotte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Philippine"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Motte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste de LaMotte-"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Motte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Auguste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Motte Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline A."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Auguste de La Motte-"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Motte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Karoline Auguste"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "LaMotte-Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline de LaMotte-"
+          ],
+          "surname": [
+            "Fouqué"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline Philippine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Briest"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Caroline_de_la_Motte_Fouqu%C3%A9",
+          "label": "https://de.wikipedia.org/wiki/Caroline_de_la_Motte_Fouqu%C3%A9"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T11:24:33Z",
+    "gnd_query_biographical_data": "1773-1831",
+    "gnd_query_name": "fouqué, karoline auguste de la motte"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 764,
+  "name": "Fouqué, Karoline Auguste de la Motte",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 131",
+  "updated": "2026-06-11 13:29:22.346Z",
+  "uri": "https://d-nb.info/gnd/118692321",
+  "editor": ""
+}

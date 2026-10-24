@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S1 T, SS 3–6 G-Verz, SS 7–142, darin 7 GG, I-Verz, 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1837",
+    "norm": "~",
+    "biblio": 404520,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1001,
+  "parallel_title": "",
+  "place_statement": "Wien (Buchholz)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1837. / WIEN / bei Heinrich Buchholz. / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:54.678Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "pnsuhhw57bjw4bq"
+  ],
+  "contents": [
+    "u62snto68qyzkl9",
+    "wgfmibvyxztc5eq",
+    "3u4srz8u6ggrzai",
+    "bpp2fdqfgnk239d",
+    "d7wnrk3bd9r7crg",
+    "o3m3wpbsuebgohl",
+    "r0ecbl4c4roc9cw",
+    "n7y8hxu9tb8x213",
+    "qkoi5hsghsnivm9",
+    "5a68xmjrp5dae83",
+    "mv4uslnhvq3zy6v",
+    "a66frk0gbgd473g",
+    "dt1sgc9py39y3qr",
+    "53940gdq5pzq0pa",
+    "2xd84nxu1a8lnfi",
+    "ttup815ockott9t",
+    "48n34z9rqx69blh",
+    "qvq9x8mjvkjiwq4",
+    "li9erka3mxaulhe",
+    "hwshbv6tq9res8r",
+    "va3w8tql38hxjvl",
+    "4idm5lnwdftlfde",
+    "hfa6dhf20ftpgs5",
+    "nei7241djcee176",
+    "zlax3w9b8htyw3x",
+    "a8bynguux3csddr",
+    "ssaw4z82sh6tj2v",
+    "hajz0jmbmn2dujx",
+    "ht1x11e7tkjef3h",
+    "cr9fpo0nuichk2s",
+    "1ttv81ybvtf12p4",
+    "d5mfyt1hs2wc3pp",
+    "3ktr4nkgk8ksw12",
+    "by1ik73cvwyeco3",
+    "htaim1njbm2us8q",
+    "oj8znhsbuxyajky",
+    "odsek1zh4acnc5x",
+    "oyeeeoosob5f7fl",
+    "a0g055dp3p4dnun"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.621Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.620Z",
+      "agent": "7y7pahz53spng1g",
+      "source_id": "4yww0zbsm7ezyl4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.790Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.790Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "p35q8u2wfs7ias4"
+    }
+  ]
+}

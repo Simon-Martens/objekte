@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Ich sah die Leiden deiner jungen Tage, / Die Seel' und Körper schmerzhaft oft umwanden;",
+  "language": [],
+  "musenalm_id": 60716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung. / An Julie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. NEUMANN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung. / An Julie",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.608Z",
+      "agent": "qwgxcg99zpa7j4i",
+      "source_id": "ssk520196rkzxj9"
+    }
+  ]
+}

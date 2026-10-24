@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 120240, Obj 15 /) mit einigen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Von unsern Waldhühnern ist jezt nur die dritte, lezte und kleinste Gattung zu beschreiben noch übrig.",
+  "language": [],
+  "musenalm_id": 120241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Der Haselhahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Der Haselhahn",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.722Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "3padwaibr0zco6e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) am Objekt: Musik-Beilage zu den Alpenrosen 1831",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54681,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gestillte Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schnyder von Wartensee",
+  "scans": [
+    "alm_743_54681_ea1mhhzypc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gestillte Sehnsucht",
+  "updated": "2008-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.713Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "7v05ijn2s0a8we3"
+    }
+  ]
+}

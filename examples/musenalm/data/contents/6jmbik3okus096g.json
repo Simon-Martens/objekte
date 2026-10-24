@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "An den reichen, rebenumkränzten Ufern der prächtigen Garonne blühte im fürstlichen Glanze Jahrhunderte hindurch das edle Haus des Grafen von Artaban,",
+  "language": [],
+  "musenalm_id": 43613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haß und Liebe. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haß und Liebe. / Eine Novelle",
+  "updated": "2006-05-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.310Z",
+      "agent": "ms9iodhebw7wz0l",
+      "source_id": "l8dou5a9g36gb4q"
+    }
+  ]
+}

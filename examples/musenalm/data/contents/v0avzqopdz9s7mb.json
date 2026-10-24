@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Unsre Lieblingsschriftsteller beiderlei Geschlechts haben  bisher mit dem besten Erfolg Gemählde von Weibern und Mädchen entworfen, wie sie seyn sollen und wie sie seyn können.",
+  "language": [],
+  "musenalm_id": 132106,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laura. / Ein nachahmungswürdiges Bei- / spiel für junge Damen aus / der / wirklichen Welt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Laura. / Ein nachahmungswürdiges Bei- / spiel für junge Damen aus / der / wirklichen Welt",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.087Z",
+      "agent": "pt1hiqrxpeom0l4",
+      "source_id": "ox1xub11vjtoz5y"
+    }
+  ]
+}

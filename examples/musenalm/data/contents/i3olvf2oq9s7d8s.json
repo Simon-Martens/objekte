@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Wer nennt dich, wunderbares Wesen, / Von unsichtbarer Macht beseelt?",
+  "language": [],
+  "musenalm_id": 1428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Hellwig, geb v. Imhoff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.947Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "dj3146oli4rqzas"
+    }
+  ]
+}

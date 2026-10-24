@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Den Morgenstrahl im Felde / Begrüßt die Schnitterin.",
+  "language": [],
+  "musenalm_id": 100120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tageslauf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kahlert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tageslauf",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.892Z",
+      "agent": "l9ob2970ns5k8js",
+      "source_id": "dpog6vo5kpowqf7"
+    }
+  ]
+}

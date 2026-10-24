@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Kein Wunder, daß ich mehr aus ihrem Bilde / mache:",
+  "language": [],
+  "musenalm_id": 778,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marilis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. Dg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marilis",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.846Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "9e4punmmwl8960z"
+    }
+  ]
+}

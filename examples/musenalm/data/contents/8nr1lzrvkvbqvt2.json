@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportratit s. Textbezug INr 72303, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72277,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philippine Charlotte, / verw. Herzoginn von Braunschweig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas f.",
+  "scans": [
+    "alm_2012_72277_wyq7p2cmqn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philippine Charlotte, / verw. Herzoginn von Braunschweig",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.637Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "jggg1l4r8zcbu4y"
+    }
+  ]
+}

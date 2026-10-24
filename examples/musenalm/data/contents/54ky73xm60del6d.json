@@ -1,0 +1,45 @@
+{
+  "annotation": "Wandergrüße. Erinnerungen aus dem Tagebuche einer Herbstreise (Sammlung INr 81147, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Wenn wir nach Hellas wallen, / Vom Geisthauch angefacht,",
+  "language": [],
+  "musenalm_id": 81179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Holsteins Buchenhallen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Holsteins Buchenhallen",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.006Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "wdhlkjpfw9vc9xf"
+    }
+  ]
+}

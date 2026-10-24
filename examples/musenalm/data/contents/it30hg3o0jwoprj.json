@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungsgedicht /) Beigabe zu »Die Geschichte Josephs und Asseneths, der Tochter Potiphars. Aus dem Griechischen« INr 73237, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Als einst am seligen Tage / Dich, unter Nachtigallschlage, / Liebend ein Engel geweckt.",
+  "language": [],
+  "musenalm_id": 73240,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als einst am seligen Tage / Dich, unter Nachtigallschlage, / Liebend ein Engel geweckt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.733Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "yd4bg9a7pi37zwm"
+    }
+  ]
+}

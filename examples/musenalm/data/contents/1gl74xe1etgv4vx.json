@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81273, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Sprich, kennst du deiner Sippschaft Bahn, / Ihr Schicksal wachsgelber Vogel,",
+  "language": [],
+  "musenalm_id": 81274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Vor einem Kanarienkäfig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Vor einem Kanarienkäfig",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.802Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "bz864en63xpbyvd"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Phädra« von Fr. Schiller s. Textbezug INr 40075, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40074,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phaedra IIr. Aufz. Vr. Auftr. / Phaedra. Leih mir dein Schwert, wenn du den Arm nicht willst. / Oenone. Königinn, was machst du? Grosse Götter!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Stoelzel d. J. sc 1819",
+  "scans": [
+    "alm_524_40074_sofqrvu25o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Phaedra IIr. Aufz. Vr. Auftr. / Phaedra. Leih mir dein Schwert, wenn du den Arm nicht willst. / Oenone. Königinn, was machst du? Grosse Götter!",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.949Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "e1s2u48i48mur2w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.949Z",
+      "agent": "faptm77901k6u4a",
+      "source_id": "jmg0qr5s50v1d4j"
+    }
+  ]
+}

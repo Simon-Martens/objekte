@@ -1,0 +1,424 @@
+{
+  "annotation": "",
+  "biographical_data": "1769-1846",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.387Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller und Philosoph; Lehrer der dt. Sprache u. Deklamation"
+      ],
+      "dateOfBirth": [
+        "1769-12-16"
+      ],
+      "dateOfDeath": [
+        "1846-09-23"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/172183782"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:49:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116141395/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116141395",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116141395",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116141395",
+        "(DE-588)172183782",
+        "(DE-588a)172183782"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4491770-3",
+          "label": "Reudnitz (Leipzig)"
+        }
+      ],
+      "preferredName": "Kerndörffer, Heinrich August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Heinrich August"
+        ],
+        "surname": [
+          "Kerndörffer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Cosani"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Wanderungen eines Mismuthigen in die Gefilde ländlicher Zufriedenheit",
+        "Athelin Graf von Wothenstern und seine Familie",
+        "Handbuch für Freimaurer",
+        "Der Bettlerknabe",
+        "Die Ahnfrau",
+        "Leipziger Briefsteller oder ausführliche und gründliche Anleitung zum Briefschreiben",
+        "Darstellungen aus der Menschenwelt",
+        "Lotterieen und Kunst zu gewinnen",
+        "Leipziger Handlungs-Briefsteller",
+        "Handbuch der Declamation",
+        "Die Einsamen im Thale oder Reue versöhnt"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058843"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37659468"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1596600"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116141395/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172183782"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_August_Kernd%C3%B6rffer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Heinrich_August_Kernd%C3%B6rffer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081170941"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116141395"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116141395"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Cosani, Carlo",
+        "A.K.",
+        "Kerndörfer, August",
+        "Kerndörffer",
+        "Kerndörffer, Heinrich A.",
+        "Kerndörffer, H. A.",
+        "Kerndörfer, Heinrich August",
+        "Kerndoerffer, August",
+        "Kerndörffer, H.A.",
+        "Kerndörfer, H.A.",
+        "Kerndörfer, H. A.",
+        "A. K.",
+        "K., A.",
+        "Kerndörfer, Heinrich",
+        "Kerndörfer, August Heinrich",
+        "Kerndoerffer, Heinrich August",
+        "Kerndörffer, August",
+        "Kerndörffer, August Heinrich",
+        "Kerndörfer, Heinrich A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich A."
+          ],
+          "surname": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "forename": [
+            "H. A."
+          ],
+          "surname": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich August"
+          ],
+          "surname": [
+            "Kerndoerffer"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich A."
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "H. A."
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "personalName": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Kerndoerffer"
+          ]
+        },
+        {
+          "forename": [
+            "H.A."
+          ],
+          "surname": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "personalName": [
+            "A.K."
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "H.A."
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "August Heinrich"
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Kerndörfer"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Cosani"
+          ]
+        },
+        {
+          "forename": [
+            "August Heinrich"
+          ],
+          "surname": [
+            "Kerndörffer"
+          ]
+        },
+        {
+          "personalName": [
+            "A. K."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_August_Kernd%C3%B6rffer",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_August_Kernd%C3%B6rffer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:54:42Z",
+    "gnd_query_biographical_data": "1769-1846",
+    "gnd_query_name": "kerndörfer, heinrich august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1373,
+  "name": "Kerndörfer, Heinrich August",
+  "profession": "Text",
+  "pseudonyms": "Isidor; Carlo Cosani",
+  "refs": "Goed VI, 399; E 171",
+  "updated": "2026-06-11 13:29:23.179Z",
+  "uri": "https://d-nb.info/gnd/116141395",
+  "editor": ""
+}

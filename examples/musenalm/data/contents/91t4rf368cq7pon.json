@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert IV. /) Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78202,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon giebt das Signal zur / Schlacht bei Austerlitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mettenleiter inv. P. J. Laminit sc. A. V.",
+  "scans": [
+    "alm_2198_78202_8dap9v6vmr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon giebt das Signal zur / Schlacht bei Austerlitz",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.763Z",
+      "agent": "47esr93u2wyl7ta",
+      "source_id": "0ul6zpqkom1g054"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.763Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "v16kt05i0jfa6ra"
+    }
+  ]
+}

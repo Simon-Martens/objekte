@@ -1,0 +1,67 @@
+{
+  "annotation": "Vortitel lautet: Cartons und Ergänzungen / zu dem / Genealogisch-historisch-statistischen / Almanach / von 1846 / für das Jahr 1847. / Den 24sten oder der neuen Folge 2ten Jahrgang / bildend. / Weimar, / Druck und Verlag des Landes-Industrie-Compoirs / 1847",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Genealogisch-historisch-statistischer 1847",
+    "norm": "",
+    "biblio": 406001,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-04-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3556,
+  "parallel_title": "",
+  "place_statement": "Weimar (Landes-Industrie-Comptoir )",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Almanach, Genealogisch-historisch-statistischer 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogisch-historisch- / statistischer / Almanach / Vierundzwanzigster / oder der neuen Folge / Zweiter Jahrgang. / für / das Jahr 1847. / Weimar, / Landes-Industrie-Comptoir / 1847",
+  "updated": "2026-06-11 10:18:54.836Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "hngllfw4p5bk6fn"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.088Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.088Z",
+      "agent": "kl5qdlx0bl59fkd",
+      "source_id": "ez3i4l7l7lnwfin"
+    }
+  ]
+}

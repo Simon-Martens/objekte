@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30088, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (de Fries pinx. Ludw. Meÿer jun. sc. Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de Fries pinx. Ludw. Meÿer jun. sc. Berlin",
+  "scans": [
+    "alm_390_30089_ykxwlk29hu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.469Z",
+      "agent": "t370gpe08zu71di",
+      "source_id": "9czypi7rcy5yphg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.469Z",
+      "agent": "l5ef0nkmotzvzwh",
+      "source_id": "wcnchsxakswqq11"
+    }
+  ]
+}

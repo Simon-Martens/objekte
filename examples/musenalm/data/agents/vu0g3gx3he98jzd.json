@@ -1,0 +1,586 @@
+{
+  "annotation": "",
+  "biographical_data": "1823-1891",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.453Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024703-5",
+          "label": "Universität Wien"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1823-06-28"
+      ],
+      "dateOfDeath": [
+        "1891-07-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Hanfstaengl"
+          ],
+          "creditText": [
+            "Webseite Stadtmuseum München http://stadtmuseum.bayerische-landesbibliothek-online.de/pnd/116392983"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Oskar%20von%20Redwitz1.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Oskar%20von%20Redwitz1.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Oskar%20von%20Redwitz1.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/182511111",
+        "https://d-nb.info/gnd/185682359",
+        "https://d-nb.info/gnd/182511081",
+        "https://d-nb.info/gnd/141416033"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-07T22:00:29.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116392983/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Mathilde"
+          ],
+          "surname": [
+            "Hoscher"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116389680",
+          "label": "Redwitz, Marie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116392983",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116389680",
+          "label": "Redwitz, Marie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116392983",
+      "oldAuthorityNumber": [
+        "(DE-588)182511111",
+        "(DE-588)141416033",
+        "(DE-588a)127036806",
+        "(DE-588)185682359",
+        "(DE-588)182511081",
+        "(DE-588a)141416033",
+        "(DE-588a)116392983",
+        "(DE-588a)182511081",
+        "(DE-588a)185682359",
+        "(DE-588a)182511111"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035606-1",
+          "label": "Lichtenau (Landkreis Ansbach)"
+        }
+      ],
+      "placeOfDeathAsLiteral": [
+        "Gilgenberg <Bayreuth>"
+      ],
+      "preferredName": "Redwitz, Oskar von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Oskar"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Redwitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156858-8",
+          "label": "Germanist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Professor für Aesthetik",
+        "Abgeordneter",
+        "Dichter"
+      ],
+      "publication": [
+        "Redwitz, Oscar von: Hermann Stark",
+        "Redwitz, Oscar von: Hymen",
+        "Redwitz, Oscar von: Haus Wartenberg",
+        "Redwitz, Oscar von: Sieglinde",
+        "Redwitz, Oscar von: Amaranth",
+        "Redwitz, Oscar von: Ein Märchen",
+        "Redwitz, Oscar von: Das Lied vom neuen deutschen Reich",
+        "Redwitz, Oscar von: Gedichte",
+        "Redwitz, Oscar von: Glück"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13925209d"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n91002610"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22892461"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q91175"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116392983/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/141416033"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182511081"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182511111"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185682359"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Oskar_von_Redwitz"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Oskar_von_Redwitz"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Oskar_von_Redwitz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Oskar_von_Redwitz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000083644194"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116392983"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116392983"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116392983.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116392983"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116392983"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Redwitz-Schmoelz, Oskar von",
+        "Schmölz, Oskar von, Freiherr",
+        "Redwitz, Oscar v.",
+        "Redwitz Schmölz, Oskar von",
+        "Redwitz, Oscar von",
+        "Schmölz, Oskar Redwitz- von",
+        "Redwitz, Oskar",
+        "Redwitz-Schmoelz, Oscar von",
+        "Schmölz, Oscar von Redwitz-",
+        "Von Redwitz, Oskar",
+        "Redwitz-Schmölz, Oskar von",
+        "Redwitz",
+        "Redwitz, Oskar von, Freiherr",
+        "Redwitz-Schmölz, Oskar von, Freiherr"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "surname": [
+            "Redwitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Redwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Oscar"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz-Schmoelz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oscar von Redwitz-"
+          ],
+          "surname": [
+            "Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar Redwitz- von"
+          ],
+          "surname": [
+            "Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oscar"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz-Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz-Schmoelz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "surname": [
+            "Von Redwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar von"
+          ],
+          "surname": [
+            "Redwitz-Schmölz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Oscar"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Redwitz"
+          ]
+        },
+        {
+          "forename": [
+            "Oskar"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Redwitz-Schmölz"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Oskar_von_Redwitz",
+          "label": "https://de.wikipedia.org/wiki/Oskar_von_Redwitz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:35:51Z",
+    "gnd_query_biographical_data": "1823-1891",
+    "gnd_query_name": "redwitz, oskar von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2203,
+  "name": "Redwitz, Oskar von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 400",
+  "updated": "2026-06-11 13:29:24.200Z",
+  "uri": "https://d-nb.info/gnd/116392983",
+  "editor": ""
+}

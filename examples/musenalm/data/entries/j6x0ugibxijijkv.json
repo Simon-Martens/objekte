@@ -1,0 +1,81 @@
+{
+  "annotation": "Das Exemplar bringt (noch) das »verunglückte« Titelportrait: »LOUISE KÖNIGIN VON PREUSSEN«. (Dähling p. Ant. Karcher sc.) s. Photo. /) Dieses Titelportrait wurde mangels Qualität zurückgezogen; s. eingeklebte Vorbemerkung im Exemplar alm-1024: »Da das versprochene Bildniß der Höchstseligen Königin Luise von Preußen, unter den Händen des Kupferstechers verunglückt ist, so fand man für gut, es dem Taschenbuche nicht beizugeben. Die Zeit mangelte aber, eine neue Platte stechen zu lassen; die Verlagshandlung wird daher gedachtes Bild, nach einem schönen Mignaturportrait, dem nächsten Jahrgange der Cornelia gratis beifügen.«.  Im Jg 1817 erschien dann  das Titelportrait »LOUISE Königin von Preussen« (L. Portmann sculps) alm-1025, INr 62439",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III W, S V, SS VII-VIII Vrwrt d Hrsg, SS IX-XIV G-Verz, SS XV-XVI I-Verz, SS 1-224 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1816 [var]",
+    "norm": "~",
+    "biblio": 409845,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2019-06-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4654,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1816 [var]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "Cornelia. / Taschenbuch für Deutsche Frauen / auf das Jahr 1816. / Herausgegeben / von / Aloys Schreiber, / Großherzogl. Bad. Hofrathe und Historiographen. / Erster Jahrgang. / Mit Kupfern. / Heidelberg, / im Verlag von Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.581Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "l5vcgp4eoj5tq8y"
+  ],
+  "contents": [
+    "75zu8mkn3v6lutb",
+    "ldtki14dxtig5vm"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.403Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.403Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "cufhsou8qyo8k6g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.781Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.781Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "sxy9etwyaf98eku"
+    }
+  ]
+}

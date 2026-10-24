@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 12. s. Textbezug INr 32551, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moderne CharakterKleidung / Mlle. Contat, als Suzanne in Mar. de Figaro",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel fec.",
+  "scans": [
+    "alm_451_32552_1zxug26zeh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Moderne CharakterKleidung / Mlle. Contat, als Suzanne in Mar. de Figaro",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.608Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "0s9nqpjfxu1cqoq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.608Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "t3r401ihte597up"
+    }
+  ]
+}

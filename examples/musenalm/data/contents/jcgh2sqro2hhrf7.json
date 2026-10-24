@@ -1,0 +1,45 @@
+{
+  "annotation": "Stickerei (Sammlung INr 76164, Obj 62) mit 3 graph. Anleitungen s. INr 76175, 76177, 76178; Obj 73, 75, 76",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Die Stroharbeiten haben seit einigen Jahren so vielen Beyfall gefunden, daß wir uns zuweilen in jene glücklichen Idyllen-Zeiten zurück versetzt glauben.",
+  "language": [],
+  "musenalm_id": 76176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Stroharbeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Stroharbeiten",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.879Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "2npjjn1j1k9ilpj"
+    }
+  ]
+}

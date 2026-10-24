@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pseudonyms": {
+      "type": "string"
+    },
+    "fictional": {
+      "type": "boolean"
+    },
+    "uri": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "readOnly": true
+    },
+    "updated": {
+      "type": "string",
+      "readOnly": true
+    },
+    "musenalm_id": {
+      "type": "number"
+    },
+    "edit_state": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "ToDo",
+        "Seen",
+        "Partially Edited",
+        "Waiting",
+        "Review",
+        "Edited",
+        ""
+      ]
+    },
+    "annotation": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "edit_comment": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "editor": {
+      "type": "string",
+      "description": "Source users ID; that collection was not included in the export.",
+      "readOnly": true
+    }
+  },
+  "required": [
+    "name",
+    "musenalm_id"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Unterhaltung und Aufheiterung 1811",
+    "norm": "",
+    "biblio": 201005,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2883,
+  "parallel_title": "",
+  "place_statement": "Wien (Pichler; Herausgeber)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch zur Unterhaltung und Aufheiterung 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 108",
+  "responsibility_statement": "W. M.",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / Unterhaltung und Aufheiterung, / für das Jahr 1811. / Gesammelt und herausgegeben / von W. M. / Wien, 1811, / gedruckt bey Anton Pichler. / Auf Kosten des Herausgebers",
+  "updated": "2026-06-11 10:18:55.684Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "ntsk3jl19t5ysak"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.465Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.465Z",
+      "agent": "mh7qs5l57bq89om",
+      "source_id": "w6c9kc2q9udzcxs"
+    }
+  ]
+}

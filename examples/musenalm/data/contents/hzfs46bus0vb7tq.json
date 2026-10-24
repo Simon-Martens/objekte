@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 28804, Obj 102) mit einer Illustration s. Graphik INr 28807, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Willkommen mir, du holde Kleine, / geliebtes erstes Unterpfand",
+  "language": [],
+  "musenalm_id": 28806,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / An die Erstgeborne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / An die Erstgeborne",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.115Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "dzvpy7vhjscwxwy"
+    }
+  ]
+}

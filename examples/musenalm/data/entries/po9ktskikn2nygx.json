@@ -1,0 +1,67 @@
+{
+  "annotation": "Erscheinungsverlauf unklar: K gibt 12 Jgg zwischen 1829 und 1855 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Augsburg) 1838",
+    "norm": "",
+    "biblio": 112614,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4169,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Taschenkalender (Augsburg) 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 156; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHEN-KALENDER / für / das Jahr 1838 / mit / einer Erzählung / von dem / Verfasser der / OSTEREIER / AUGSBURG / bey J. G. Rollwagen",
+  "updated": "2026-06-11 10:18:55.273Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "yecleu6ydfuug2c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.144Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.144Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "e9wpu9v7pmpo0ig"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 6. Blatt der Suite /) s. Textbezug INr 58145, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weinsberg gegen dem Ort zu",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stoll del. D'argent sc.",
+  "scans": [
+    "alm_776_58146_t2w13wvw4d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weinsberg gegen dem Ort zu",
+  "updated": "2008-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.927Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "wl7vyk6xvmlo2k1"
+    }
+  ]
+}

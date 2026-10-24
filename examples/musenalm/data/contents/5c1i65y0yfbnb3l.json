@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. # Titel aus dem Textbezug INr 40798, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40796,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch versuche die Götter nicht, / Und begehre nimmer und nimmer zu schauen, / Was sie gnädig bedecken mit Nacht und Grauen! #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.1826",
+  "scans": [
+    "alm_532_40796_hjud4xarwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch versuche die Götter nicht, / Und begehre nimmer und nimmer zu schauen, / Was sie gnädig bedecken mit Nacht und Grauen! #",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.157Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "0kz23exde91xftc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.158Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "o9fhc73zuwduiah"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Wiegenlied für eine teutsche Mutter« INr 46528, Obj 38 durch den Verfasser (Photos 46529,01; 46529,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr v. Ulmenstein",
+  "scans": [
+    "alm_630_46529_pumh8dv9pk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied für eine teutsche Mutter. / Mit Musik",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.399Z",
+      "agent": "cwttmuw4wau2fpy",
+      "source_id": "nk89yagm1nbvfy0"
+    }
+  ]
+}

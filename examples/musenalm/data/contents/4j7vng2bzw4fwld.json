@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert VIII. Illustration zu »VI. Scenen aus der Familie Ehrenberg 2. Amalie Trunemann« INr 48332, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.530Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48297,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir alle, gross und klein, kommen Ihnen / Glück zu wünschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_658_48297_gftnqgnxkl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir alle, gross und klein, kommen Ihnen / Glück zu wünschen",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.646Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "hyr1h1u6pltirp3"
+    }
+  ]
+}

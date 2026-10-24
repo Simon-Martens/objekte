@@ -1,0 +1,133 @@
+{
+  "annotation": "Jgg 1792, 1794; Berlin (Lagarde); Hrsg: George Scheffner /) # K 6 gibt fälschlich u. lediglich Jg 1772 an; Goed (H) 438 f gibt lediglich Jg 1794 an; nicht bei Goed IV. 112, 47; KVK, GBV-GVK gibt 1792-1794 an und Standorte für 1792, 1794; /) Der Almanach bringt Beiträge aus verschiedenen Kalendern und Almanachen, so z. B. aus: Taschenkalender, Göttinger 1791",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, S I T, S III-X Vrwrt d Hrsg, SS XI-XIV I-Verz, SS 1-370",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aehrenlese vom Calenderfelde 1792",
+    "norm": "~",
+    "biblio": 111321,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-12-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 957,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Aehrenlese vom Calenderfelde 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 6; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Aehrenlese / vom / CALENDERFELDE. / bestehend in einer / Auswahl vorzüglicher Aufsätze / aus / Deutschlands Taschenbüchern / Berlin bei F. T. Lagarde, / 1792",
+  "updated": "2026-06-11 10:18:55.493Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "jlwgng65ek03yf7"
+  ],
+  "contents": [
+    "fn0791nm1ccnler",
+    "ukghlbf69kxzwjs",
+    "b1bgvc76m1q911k",
+    "wef4evqh2fzvdi7",
+    "e2u9a78tcqrv96k",
+    "d6q9c8vl3vq8pwu",
+    "g1g472n4zk2jqva",
+    "rox9erbtnnxvk1y",
+    "17xez2n82wrmhmj",
+    "e68ue6m9itwt2mb",
+    "dwxv5wmv3iimuj4",
+    "q575k91s6ezy39y",
+    "xfl9iolo1syd820",
+    "gkxoj10k3ezk5fd",
+    "rb7c3i68e8cj6fa",
+    "tr5pv19y5pgq45z",
+    "au6o4mxno1ovzf8",
+    "xt0jwtoel5zvymg",
+    "i199j70gic8i72f",
+    "bycu9wlixhj2rsg",
+    "a44p7aihn2rw8oj",
+    "hppliy55afg0d3j",
+    "ksne3sc5nu77iw6",
+    "rxz8qxxluhrusux",
+    "gvi8jpvfbsybn01",
+    "bcnwx7ufxkd805z",
+    "m913pv6us2zgrvw",
+    "ldjmpo8fq49hu13",
+    "p7y5z81w7nbxg33",
+    "r63qkgqik9ro3lu",
+    "hl684lq5oo26t5v",
+    "b78ey1na8fwcrso",
+    "mm28156xu5zgaqp",
+    "bn28zin0mwh3fw4",
+    "spswxn74umbn2nc",
+    "4qtuhimvjfutdyf",
+    "ypfzks53djnrq40",
+    "ctcuror4dw5a4zd",
+    "i06697o8yjpefwj",
+    "0hpighxv4qyabk2",
+    "rciu5qjv6mtq5gn",
+    "zm08wt254fmt6hy",
+    "6jnhor94swfb9mo",
+    "u6w94ssbscyri26",
+    "7ac1zhsfqbg5m7a",
+    "bzvdnxf6skxt6ur",
+    "2f6a31a33jon0y6",
+    "zow77bv0md9eeg0",
+    "38n2b86nkbzkslt",
+    "tm47ayxw47fmm2u",
+    "osat8b9fu89et0o",
+    "gbmc6m4pi00vnu2",
+    "wubl0fv4uicvlcl",
+    "cfir7as15a9ynky"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.462Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.462Z",
+      "agent": "rk4oyn05lnt4aiw",
+      "source_id": "6c920uq7qwtxwf5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.785Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.785Z",
+      "agent": "vbr2b069z83eyrk",
+      "source_id": "zzz78ypbx3thgwq"
+    }
+  ]
+}

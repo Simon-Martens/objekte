@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11093, Obj 151",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Komm (Mädchen Jüngling) schweb an meiner Hand / Hinab die frohen Reihen;",
+  "language": [],
+  "musenalm_id": 11009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "95. / Tanzlied. / Strophenweise bei der Promenade zwischen den / Touren zu singen. / Die Compos. ist vom H. Capellmstr. Schuster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. Köpken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "95. / Tanzlied. / Strophenweise bei der Promenade zwischen den / Touren zu singen. / Die Compos. ist vom H. Capellmstr. Schuster",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.400Z",
+      "agent": "5z7qom88v60ghpp",
+      "source_id": "hrtjetdru1bdya2"
+    }
+  ]
+}

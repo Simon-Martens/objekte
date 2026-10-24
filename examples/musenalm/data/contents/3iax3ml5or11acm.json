@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trunemann« INr 47335, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Beyspiel der Eltern bildet / das Glück der Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1795",
+  "scans": [
+    "alm_641_47337_b19e9jv5ur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Beyspiel der Eltern bildet / das Glück der Kinder",
+  "updated": "2006-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "jv2ctm49zkrd65q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "qjt531oaz3chjcv"
+    }
+  ]
+}

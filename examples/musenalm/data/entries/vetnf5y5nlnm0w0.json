@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Gemeinnütziger (Hamburg) 1853",
+    "norm": "",
+    "biblio": 410756,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-06-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4745,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler und Melle)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Almanach, Gemeinnütziger (Hamburg) 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. E. Schuback",
+  "subtitle_statement": "",
+  "title_statement": "Gemeinnütziger / Almanach / auf das / Jahr 1853. / Nebst Anhang. / Von / F. C. Schuback, / Geometer. / Mit eines Hochedlen und Hochweisen Raths / Special-Privilegio. / Kostet geheftet, mit dem Anhang, 2 Schillinge. / Hamburg, / gedruckt und verlegt von F. H. Nestler und Melle",
+  "updated": "2026-06-11 10:18:54.829Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "1332hw5mqmx6o2f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.111Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.111Z",
+      "agent": "aa9vw07f3okuhxb",
+      "source_id": "ss0thrxsqgzzre6"
+    }
+  ]
+}

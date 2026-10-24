@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Engel des Todes! du kömmst mich abzuholen, ich / bitte / Mir zu sagen, wohin?",
+  "language": [],
+  "musenalm_id": 37370,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Engel des Todes und ich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Engel des Todes und ich",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.149Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "eckcfnkonucfoj7"
+    }
+  ]
+}

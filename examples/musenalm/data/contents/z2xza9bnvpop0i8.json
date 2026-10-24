@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 71163, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Wem je des Glükkes Gunst so sehr gewogen, / Dass er erblikte deutungsvolle Zeichen",
+  "language": [],
+  "musenalm_id": 71167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2010-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.470Z",
+      "agent": "ift6i2oy1gozbs3",
+      "source_id": "xajhsws1sugbrbt"
+    }
+  ]
+}

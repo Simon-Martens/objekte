@@ -1,0 +1,95 @@
+{
+  "annotation": "mit kol. Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, SS I–VIII: T u. Vrwrt, I-Verz, SS1–388 darin 5 GG, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1833",
+    "norm": "~",
+    "biblio": 405210,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1261,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "F. A. von Kurländer",
+  "subtitle_statement": "",
+  "title_statement": "Lustspiele / oder / dramatischer Almanach / für das Jahr 1833 / von / F. A. von Kurländer. / Drei und zwanzigster Jahrgang. / Mit sechs Kupfern. / Leipzig. / Baumgärtners Buchhandlung",
+  "updated": "2026-06-11 10:18:55.143Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "n5c2dcqjqnoi8qz"
+  ],
+  "contents": [
+    "2mefzb1mpgho2ul",
+    "kjujzxgtqeqb060",
+    "knivow8lu4d0nlo",
+    "x6c55f38w18u7h2",
+    "0ygu9i84wo4l3ld",
+    "4fgd0d00gkces7k",
+    "1a19hfi1clu9uzx",
+    "en8wyea8guc6ps1",
+    "w8lidaujiy0rmnc",
+    "mk2hyqxuf1q5na1",
+    "07pt90q84jytema",
+    "bgnkjp4ulvbnskl",
+    "jbfamvh9rlnquid",
+    "yydjocn2yhxvbn2",
+    "qxwc39ef9mby5wi",
+    "57y2cndyqna4tp9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.865Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.865Z",
+      "agent": "cp675a99tnl2fek",
+      "source_id": "8unphl9w20wa1r4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.509Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.509Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "po53sbsetooz0cs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 20165, Obj 86) §6§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "400",
+  "incipit_statement": "Mit der Laute, mit frohem Sinn / Ziehet der Sänger durchs Leben hin,",
+  "language": [],
+  "musenalm_id": 20171,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängerleben. / In Musik gesetzt von Dozauer §6§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. v. Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängerleben. / In Musik gesetzt von Dozauer §6§",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.987Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "o38tb5lhbmhxj2f"
+    }
+  ]
+}

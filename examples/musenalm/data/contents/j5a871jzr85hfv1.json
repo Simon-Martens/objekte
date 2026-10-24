@@ -1,0 +1,45 @@
+{
+  "annotation": "Schwäbische Sagen (Sammlung INr 24051, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Du hast geliebet meinen Knecht, / Du hast geschändet mein Geschlecht;",
+  "language": [],
+  "musenalm_id": 24053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Elsbeth von Calw",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Elsbeth von Calw",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.191Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "5rzs4twr7jigz4d"
+    }
+  ]
+}

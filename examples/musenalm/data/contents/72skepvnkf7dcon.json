@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 30033, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Wiwi pinx. C. Rist sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wiwi pinx. C. Rist sc.",
+  "scans": [
+    "alm_389_30032_z18ckudwe9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.300Z",
+      "agent": "0m3r585b0p98uxw",
+      "source_id": "febyejvykgdabnk"
+    }
+  ]
+}

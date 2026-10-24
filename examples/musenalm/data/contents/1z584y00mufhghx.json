@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Ach sie singet, die brünstige Finke, / Breitet den zarten Flügel übers vollendete Nestchen,",
+  "language": [],
+  "musenalm_id": 5302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Hahns Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Hahns Abschied",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.042Z",
+      "agent": "xudibmgptrwrx3w",
+      "source_id": "yg7ovuz6a8f1989"
+    }
+  ]
+}

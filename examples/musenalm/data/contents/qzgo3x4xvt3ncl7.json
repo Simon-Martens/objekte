@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Die Rast auf der Flucht« von Fr. de la Motte Fouqué INr 43368, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.710Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43351,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rast auf der Flucht , von / Fr. Baron de la Motte Fouqué. Seite 160",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schwerdgeburth del. et sc.",
+  "scans": [
+    "alm_569_43351_ombulasg19.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rast auf der Flucht , von / Fr. Baron de la Motte Fouqué. Seite 160",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.109Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "v8977hdtznit4qh"
+    }
+  ]
+}

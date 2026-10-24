@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte von A. Schreiber (Sammlung INr 63624, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Ein Araber kam einst mit seinem Sohne auf der Wanderung durch eine wenig angebaute Gegend, zu einer freundlichen Hütte,",
+  "language": [],
+  "musenalm_id": 63630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Parabel",
+  "updated": "2009-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.245Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "4wflh859hgb502o"
+    }
+  ]
+}

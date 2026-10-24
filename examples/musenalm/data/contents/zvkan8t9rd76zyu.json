@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Noch floß in Strömen von den Termopylen / Erschlagner Perser Blut herab ins Meer,\ner",
+  "language": [],
+  "musenalm_id": 3640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Opfer. / Lo. Thy country calls. / Glover",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seume",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Opfer. / Lo. Thy country calls. / Glover",
+  "updated": "2000-09-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.749Z",
+      "agent": "ez181fjr8mhbxyp",
+      "source_id": "gvr9d2jac1e4a4i"
+    }
+  ]
+}

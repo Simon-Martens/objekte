@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Schied dir ein Freund , o Mond? Du blickst / so traurig / Durch die hangenden Mayen!",
+  "language": [],
+  "musenalm_id": 2206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.812Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "8hfuhj6eg2vl3q0"
+    }
+  ]
+}

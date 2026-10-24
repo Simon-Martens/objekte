@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 38 /) Illustration zu »Die Gefahren der Täuschung« INr 48793, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da fliegt er hin, Sire! man lass ihn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1800",
+  "scans": [
+    "alm_646_48795_e3uuh9t1b2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da fliegt er hin, Sire! man lass ihn",
+  "updated": "2007-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.278Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "2ewkl1f01f4e4nu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.278Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "hmvr1ajcct7v5yo"
+    }
+  ]
+}

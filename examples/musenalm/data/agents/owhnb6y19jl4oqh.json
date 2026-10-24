@@ -1,0 +1,419 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.471Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1770-04-19"
+      ],
+      "dateOfDeath": [
+        "1839-01-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "anonym"
+          ],
+          "creditText": [
+            "Bildarchiv Staatsbibliothek zu Berlin, Signatur: Mus.P. Schneider, G. A. I,2"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Schneider-georg-abraham.tif",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Schneider-georg-abraham.tif?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Schneider-georg-abraham.tif?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-10T10:31:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119503700/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116829397",
+          "label": "Schneider, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133658864",
+          "label": "Schneider-Portmann, Caroline"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116836709",
+          "label": "Schneider, Louis"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133658694",
+          "label": "Schneider, Franz"
+        },
+        {
+          "forename": [
+            "Maschenka"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117109525",
+          "label": "Schubert, Maschinka"
+        },
+        {
+          "forename": [
+            "Johanna"
+          ],
+          "surname": [
+            "Freund"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119503700",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116829397",
+          "label": "Schneider, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133658694",
+          "label": "Schneider, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117109525",
+          "label": "Schubert, Maschinka"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116836709",
+          "label": "Schneider, Louis"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/133658864",
+          "label": "Schneider-Portmann, Caroline"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119503700",
+      "oldAuthorityNumber": [
+        "(DE-588a)119503700",
+        "(DE-588a)134605519",
+        "(DE-101c)310295513",
+        "(DE-588c)4471650-3"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Schneider, Georg Abraham",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Georg Abraham"
+        ],
+        "surname": [
+          "Schneider"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4712307-2",
+          "label": "Hornist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188376-7",
+          "label": "Violoncellist"
+        }
+      ],
+      "publication": [
+        "[Etüden, Fl 1 2 op. 28]",
+        "[Quintette, Fl Vl Va 1 2 Vc op. 49]",
+        "[Duos, Va Vc op. 15]",
+        "[Trios, Hr 1 2 3 op. 56]",
+        "[Divertimenti, Fl op. 45]",
+        "[Duos, Fl 1 2 op. 78]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14984413b"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89003727"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/2744787"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q322434"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=119503700"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119503700/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Georg_Abraham_Schneider"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Georg_Abraham_Schneider"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108636028"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119503700"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119503700.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119503700"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schneider, Georg Albrecht",
+        "Schneider, M. G. A.",
+        "Schneider, G. A.",
+        "Schneider, G. Ab.",
+        "Schneider, Georg A.",
+        "Schneider, Abraham",
+        "Schneider, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "G. Ab."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Georg Albrecht"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham"
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "Georg A."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        },
+        {
+          "forename": [
+            "M. G. A."
+          ],
+          "surname": [
+            "Schneider"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Georg_Abraham_Schneider",
+          "label": "https://de.wikipedia.org/wiki/Georg_Abraham_Schneider"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:50:45Z",
+    "gnd_query_biographical_data": "1770-1839",
+    "gnd_query_name": "schneider, georg abraham"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2502,
+  "name": "Schneider, Georg Abraham",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXII, 119",
+  "updated": "2026-06-11 13:29:24.732Z",
+  "uri": "https://d-nb.info/gnd/119503700",
+  "editor": ""
+}

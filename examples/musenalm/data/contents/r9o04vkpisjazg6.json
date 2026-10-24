@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 27 Gedichten INr 65437-65453, Obj 5-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epigrammatische Spiele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epigrammatische Spiele",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.215Z",
+      "agent": "e0tovmmp7jpcteo",
+      "source_id": "rn1maory41mrtvh"
+    }
+  ]
+}

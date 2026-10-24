@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INe 111950, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Als ich einst beim sel'gen Tantchen / Spät bei düstrer Lampe saß, / Und in Amaranth und Nantchen / Statt in Arndt und Schmolke las -",
+  "language": [],
+  "musenalm_id": 111951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lolo's Leiden und Freuden, / oder / die drei Amaranthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lolo's Leiden und Freuden, / oder / die drei Amaranthe",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.394Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "3wx7hhny4k72kmi"
+    }
+  ]
+}

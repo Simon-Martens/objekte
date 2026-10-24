@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Sind, o Freund, wohl dieses Lebens Scenen / Mehr und minder als ein Traum?",
+  "language": [],
+  "musenalm_id": 3370,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An U-r / Bey unserer Trennung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An U-r / Bey unserer Trennung",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.746Z",
+      "agent": "jw839qn8xbse64z",
+      "source_id": "wbuzrwdba9icje0"
+    }
+  ]
+}

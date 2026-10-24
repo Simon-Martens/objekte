@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hertha, Germaniens Schutzgeist 1811",
+    "norm": "",
+    "biblio": 100761,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1839,
+  "parallel_title": "",
+  "place_statement": "Berlin (Dieterici)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Hertha, Germaniens Schutzgeist 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 56; nicht bei L/R; Goed VIII. 76, 136",
+  "responsibility_statement": "Janisch. Heinsius. Heyn",
+  "subtitle_statement": "",
+  "title_statement": "Hertha / Germaniens Schutzgeist. / Ein Jahrbuch für 1811. / Herausgegeben / von / Janisch. Heinsius. Heyne. / Mit zwei Kupfern und fünf Musikblättern. / Berlin, / bei Dieterici / 1811",
+  "updated": "2026-06-11 10:18:55.652Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "tpdqgxd652v7igr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.724Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.724Z",
+      "agent": "0cazj0li1wskf2s",
+      "source_id": "7iv8pz7ci6sq3vp"
+    }
+  ]
+}

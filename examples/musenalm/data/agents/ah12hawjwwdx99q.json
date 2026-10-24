@@ -1,0 +1,534 @@
+{
+  "annotation": "",
+  "biographical_data": "1752–1820",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.446Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller, Frankreich"
+      ],
+      "dateOfBirth": [
+        "1752-12-04"
+      ],
+      "dateOfDeath": [
+        "1820-09-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Bertonnier, Pierre Francois (1791-1858)"
+          ],
+          "creditText": [
+            "[1] [2] [3] [4]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/La%20Chabeaussi%C3%A8re.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/La%20Chabeaussi%C3%A8re.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:La%20Chabeaussi%C3%A8re.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-10T19:02:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116480998/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "116480998",
+      "id": "https://d-nb.info/gnd/116480998",
+      "oldAuthorityNumber": [
+        "(DE-588a)116480998",
+        "(DE-588a)100549683"
+      ],
+      "preferredName": "Poisson de la Chabeaussière, Ange-Etienne-Xavier",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ange-Etienne-Xavier"
+        ],
+        "surname": [
+          "Poisson de la Chabeaussière"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Catéchisme françois ou principes de philosoph*",
+        "Lamentine ou les tapouis",
+        "Dalayrac, Nicolas: Gulistan ou le Hulla de Samarcande",
+        "Les maris corrigés",
+        "L' éllipse totale",
+        "L' éclipse de Lune, ou l'astrologue qui tomb*",
+        "Les deux fourbes",
+        "Catéchisme républicain, philosophique et moral"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n89611485"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49265915"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2849269"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116480998/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ange-%C3%89tienne-Xavier_Poisson_de_La_Chabeaussi%C3%A8re"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121012009"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116480998"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116480998"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116480998"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "La Chabeaussière, Auguste-Étienne-Xavier P. de",
+        "LeVacher de Charnoix",
+        "La Chabaussière, Auguste Étienne",
+        "Poisson de LaChabeaussière, Auguste-Étienne-Xavier",
+        "LaChabeaussière, Auguste-Étienne-Xavier P. de",
+        "Poisson de LaChabeaussière, Ange-Etienne-Xavier",
+        "Chabeaussière, Auguste Étienne Xavier Poisson de la",
+        "LaChabeaussière, Auguste Étienne Xavier Poisson de",
+        "LaChabeaussière, Auguste Etienne de",
+        "La Chabeaussière, Auguste-Etienne-Xavier P. de",
+        "Poisson de LaChabeaussière, Auguste Étienne Xavier",
+        "LaChabeaussière, Auguste Étienne de",
+        "Poisson de LaChabeaussière, Ange Étienne Xavier",
+        "Chabeaussière, Auguste Etienne de la",
+        "La Chabeaussière",
+        "Poisson de LaChabeaussière, Auguste Étienne",
+        "Poisson de la Chabeaussière, Auguste Étienne",
+        "Chabeaussière, Ange-Etienne-Xavier Poisson de la",
+        "La Chabeaussière, Auguste Etienne de",
+        "DeLaChabeaussière, Auguste Étienne Xavier Poisson",
+        "Poisson de la Chabeaussière, Auguste-Étienne-Xavier",
+        "La Chabeaussière, Auguste-Etienne-Xavier Poisson de",
+        "De La Chabeaussière, Auguste-Etienne-Xavier Poisson",
+        "Chabeaussière, Auguste-Etienne-Xavier P. de la",
+        "LaChabaussière, Auguste Étienne",
+        "Poisson de La Chabeaussière, Auguste-Etienne-Xavier",
+        "La Chabeaussière, Auguste Étienne de",
+        "Chabaussière, Auguste Étienne la",
+        "LaChabeaussière, Ange-Etienne-Xavier Poisson de",
+        "LaChabeaussière",
+        "Poisson, Auguste É."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste É."
+          ],
+          "surname": [
+            "Poisson"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Etienne-Xavier P."
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Etienne-Xavier Poisson"
+          ],
+          "surname": [
+            "De La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne Xavier Poisson"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Ange-Etienne-Xavier Poisson"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Étienne-Xavier"
+          ],
+          "surname": [
+            "Poisson de LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Etienne"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "surname": [
+            "Poisson de LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne Xavier Poisson"
+          ],
+          "surname": [
+            "DeLaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Étienne-Xavier P."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Ange-Etienne-Xavier"
+          ],
+          "surname": [
+            "Poisson de LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Ange Étienne Xavier"
+          ],
+          "surname": [
+            "Poisson de LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Etienne"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Chabeaussière"
+          ]
+        },
+        {
+          "personalName": [
+            "LeVacher de Charnoix"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "surname": [
+            "La Chabaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Ange-Etienne-Xavier Poisson"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Étienne-Xavier"
+          ],
+          "surname": [
+            "Poisson de la Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Etienne"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Etienne-Xavier"
+          ],
+          "surname": [
+            "Poisson de La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne Xavier Poisson"
+          ],
+          "prefix": [
+            "de la"
+          ],
+          "surname": [
+            "Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne Xavier"
+          ],
+          "surname": [
+            "Poisson de LaChabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Etienne-Xavier P."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Chabeaussière"
+          ]
+        },
+        {
+          "personalName": [
+            "La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "surname": [
+            "Poisson de la Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "surname": [
+            "LaChabaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste Étienne"
+          ],
+          "prefix": [
+            "la"
+          ],
+          "surname": [
+            "Chabaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Etienne-Xavier Poisson"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Chabeaussière"
+          ]
+        },
+        {
+          "forename": [
+            "Auguste-Étienne-Xavier P."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "La Chabeaussière"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:30:51Z",
+    "gnd_query_biographical_data": "1752–1820",
+    "gnd_query_name": "poisson de la chabeaussière, ange-etienne-xavier"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2102,
+  "name": "Poisson de la Chabeaussière, Ange-Etienne-Xavier",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "NBG XXVIII, 480",
+  "updated": "2026-06-11 13:29:24.095Z",
+  "uri": "https://d-nb.info/gnd/116480998",
+  "editor": ""
+}

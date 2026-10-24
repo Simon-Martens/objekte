@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95108, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95107,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Court pinxt. Ch. Hoffmeister sculp. Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Court pinxt. Ch. Hoffmeister sculp. Wien",
+  "scans": [
+    "alm_1879_95107_gnosxk97r6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.488Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "0tf5a7fsn3og4xw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.488Z",
+      "agent": "17xk90e0xgar3dn",
+      "source_id": "x89kj7oykw35xg3"
+    }
+  ]
+}

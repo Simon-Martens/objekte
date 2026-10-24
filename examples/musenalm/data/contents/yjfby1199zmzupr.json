@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum nicht veröffentlichen Gedicht  von E. v.d. Malsburg mit Hinweisen im G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67904,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.07,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rautenkranz v. Ernst v. d. Malsburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. L. Gruner sc.",
+  "scans": [
+    "alm_274_67904_4nnk8fetq2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Rautenkranz v. Ernst v. d. Malsburg",
+  "updated": "2002-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.423Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "1mga60lwruy7ae6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.423Z",
+      "agent": "aojzejymdgem420",
+      "source_id": "y34klzovhm9x7qq"
+    }
+  ]
+}

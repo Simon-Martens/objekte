@@ -1,0 +1,45 @@
+{
+  "annotation": "An Nikolaus Lehnau. Winnenthal (1845.) (Sammlung INr 86754, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Welch Wiedersehn'n! Zerstörung und Entsetzen! / Ein prächt'ger Vollmondhimmel war dein Träumen;",
+  "language": [],
+  "musenalm_id": 86755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.285Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "faya65l6ampfwlf"
+    }
+  ]
+}

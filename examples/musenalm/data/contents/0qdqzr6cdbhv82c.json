@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Der deutsche Studiosus römisch-katholischer Theologie ist ein unglücklicher junger Mann. Er íst ein Deutscher und soll zum Römer erzogen werden.",
+  "language": [],
+  "musenalm_id": 71430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Studiosus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Studiosus",
+  "updated": "2010-09-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.511Z",
+      "agent": "qwibej56fq45fjs",
+      "source_id": "3kvw8r78k2lm0k1"
+    }
+  ]
+}

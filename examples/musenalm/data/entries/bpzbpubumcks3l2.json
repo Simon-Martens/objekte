@@ -1,0 +1,69 @@
+{
+  "annotation": "Das Rheinische Taschenbuch 1810-1858 erschien 1810-1822 auch als Großherzoglich Hessischer Hofkalender: 1810, 1811: Darmstadt (Leske); 1812-1821 Darmstadt (Heyer und Leske); 1822: Darmstadt (ohne Verlagsangabe)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Großherzoglich Hessischer 1810 s. u. Taschenbuch, Rheinisches 1810",
+    "norm": "",
+    "biblio": 200200,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4059,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Hofkalender, Großherzoglich Hessischer 1810 s. u. Taschenbuch, Rheinisches 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1810 / Darmstadt / bei Carl Wilhelm Leske",
+  "updated": "2026-06-11 10:18:55.656Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "r3id4rcsgh2ggti"
+  ],
+  "contents": [
+    "bst2bp16pfr3qoq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.094Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.094Z",
+      "agent": "waod1clw1b2bq4n",
+      "source_id": "kzazocak5hmvwjt"
+    }
+  ]
+}

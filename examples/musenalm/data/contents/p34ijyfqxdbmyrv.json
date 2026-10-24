@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten (Sammlung INr 77212, Obj 5) s. Titelgraphik INr 72209, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Gräfin sprach zu Fridolin, / Mußt Du zum Eisenhammer zieh'n",
+  "language": [],
+  "musenalm_id": 77213,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die milde Herrin. / (Zu dem Gang nach dem Eisenhammer.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die milde Herrin. / (Zu dem Gang nach dem Eisenhammer.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "sdrxe1u0q5h77is"
+    }
+  ]
+}

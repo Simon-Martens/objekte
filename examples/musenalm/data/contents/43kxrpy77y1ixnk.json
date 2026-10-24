@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert VI. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "STATUE AUS DEM HERCULANUM",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Gottschick",
+  "scans": [
+    "alm_219_13842_pocnmyenrr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "STATUE AUS DEM HERCULANUM",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.593Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "y1gxfwjpeuy7d3z"
+    }
+  ]
+}

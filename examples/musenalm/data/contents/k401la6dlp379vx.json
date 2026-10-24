@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55025, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Nicht Farben kann der Maler finden / Zu Laub und Blust dem hellen, linden,",
+  "language": [],
+  "musenalm_id": 55026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicht Farben kann der Maler finden / Zu Laub und Blust dem hellen, linden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.850Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "wgr3bqdj8a8hovg"
+    }
+  ]
+}

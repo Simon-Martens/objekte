@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 38916-38921, Obj 104-109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strandlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stahr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Strandlieder",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.250Z",
+      "agent": "bb9z2ffyn7qc15x",
+      "source_id": "63x7hhdmyy9n83e"
+    }
+  ]
+}

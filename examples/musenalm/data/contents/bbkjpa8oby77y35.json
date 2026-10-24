@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Nahe war der große Gustav Wasa dem Ende seines ruhmvollen Lebens. Ein schleichendes Fieber verzehrte die Kraft, welche dem Unglück getrotzt, und dem Glück seine seine höchsten Spenden abgezwungen hatte.",
+  "language": [],
+  "musenalm_id": 39635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Gustav Wasa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kähler / Verfasser des Herrmann von Löbeneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Gustav Wasa",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.995Z",
+      "agent": "rplcedkwg5rqz7n",
+      "source_id": "crl7ppo99gy35u6"
+    }
+  ]
+}

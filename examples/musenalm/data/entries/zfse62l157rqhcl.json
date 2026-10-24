@@ -1,0 +1,110 @@
+{
+  "annotation": "<div>KVK: Landesbibliothekenverbund Österreich/Südtirol gibt an Jgg.: 1802, 1803, 1804, 1805, 1807, 1808, 1810, 1812, 1813, 1817</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, BB Kal darin 8 GG, SS I-VIII G-Verz darin 6 GG, T, S I-Verz, SS 1-50 darin 7 GG, 11 SS Tabb darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freundinnen romantischer Lectüre 1802",
+    "norm": "",
+    "biblio": 405910,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3393,
+  "parallel_title": "",
+  "place_statement": "Wien (Gränmmer)",
+  "places": [],
+  "preferred_title": "Almanach für Freundinnen romantischer Lectüre 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnett",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / für / Freundinnen / romantischer LECTURE / auf das Jahr / 1802. / WIEN, / bey Joseph Grämmer Buchbinder, / in der Wollzeile No. 829",
+  "updated": "2026-09-24 09:28:50.734Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "uhw8zltye5liz7f"
+  ],
+  "contents": [
+    "qrvf0zqov16wipd",
+    "rixcc97f46715nw",
+    "b6y3d6qh4312qex",
+    "1014s0keesedza6",
+    "w2olpvsjc1es40m",
+    "595jtuyc8txi2et",
+    "gqp5lkmpe3h0qgy",
+    "236d7zsm8mvay8a",
+    "jyiacbty0k8dc8w",
+    "te5pnkf95d09kpn",
+    "bqap3zk291n4bhl",
+    "k7u12iatqwey7w6",
+    "t6qs3zucg13t5ig",
+    "5pcsvh9rcz73a3v",
+    "5bfzlfm3ut4b2v7",
+    "alq9628q2u32mgj",
+    "eh4fjy3iaxg05wx",
+    "x74v3xqzo1ul9iv",
+    "pdji6f3dbia1mfn",
+    "3jkx4bew9wwkncg",
+    "dq2tnp0qokatyzb",
+    "yfvuxylqnkhv9pi",
+    "zgg3ifjowf10t9d",
+    "ejwcp1qtm32y1on",
+    "wx7uujs4vh2sva3",
+    "s67iqbcjm1bmmc1",
+    "t8den0vu8xczqxx",
+    "32sfokaidk7vnr8",
+    "qj80gx3fux8nx8u",
+    "gcarhrr5habrb9p",
+    "7fto8dt5vaaub6a",
+    "f9hun9isuxxq7vz",
+    "y5abe8yzjgtbw8n",
+    "tuixg699h39az3t",
+    "q6jrmip72bajqqn",
+    "mrmjms5tifjreg0",
+    "12s43pg2cbcnbea",
+    "el24qm7saav2uby",
+    "k5m9j6xedbj2zpc",
+    "d2t6cc185vwikps",
+    "ejoh4oxvebf0w0o",
+    "1zna5h14wc5932i",
+    "uhev4e6avtoz87w",
+    "xk3p3jgiwclihog"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.215Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-09-24 09:28:50.735Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "t4j79cr95gpan2n"
+    }
+  ]
+}

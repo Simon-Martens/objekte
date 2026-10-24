@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22759, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Der Baron Werner saß nachdenkend am Theetisch, seiner Tante Cordula gegenüber.",
+  "language": [],
+  "musenalm_id": 22779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pygmalion. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pygmalion. / Novelle",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.123Z",
+      "agent": "47huvmykx9z6337",
+      "source_id": "76isfyn1u3jv2g6"
+    }
+  ]
+}

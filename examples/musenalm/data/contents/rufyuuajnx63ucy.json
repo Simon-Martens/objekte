@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »An Mignon« von Goethe INr 1226, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8693,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Mignon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_33_8693_tlz5wy0y6u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An Mignon",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.303Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "fn4r59ch6atupyp"
+    }
+  ]
+}

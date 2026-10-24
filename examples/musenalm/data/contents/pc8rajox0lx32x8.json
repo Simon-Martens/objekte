@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03 08:34:48.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Schlaf, holder Knabe, sanft und mild, / Du, deines Vaters Ebenbild",
+  "language": [],
+  "musenalm_id": 140469,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2026-09-10 09:57:12.101Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-10 09:57:12.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10 09:57:12.102Z",
+      "agent": "bmrndjx591terfe",
+      "source_id": "erva9rhhahvjskd"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Anekdoten (Sammlung INr 67021, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "In der Mitte des Novembers wird in der Torgauer und Annaburger Haide, jedes Jahr eine große Jagd veranstaltet,",
+  "language": [],
+  "musenalm_id": 67027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.432Z",
+      "agent": "20ldxbr4i8whm1q",
+      "source_id": "s8b3hmkn8j2bvan"
+    }
+  ]
+}

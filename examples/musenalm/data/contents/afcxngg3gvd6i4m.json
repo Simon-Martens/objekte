@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IV. Illustration zu »Häusliche Glückseligkeit, oder Dießmal hatte sich der Onkel nicht wenig geirrt« INr 47785, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47747,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Häusliches Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Hoppe sc.1805",
+  "scans": [
+    "alm_651_47747_lz7gj3o9tp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Häusliches Glück",
+  "updated": "2007-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.571Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "almqxa7gqcqjodf"
+    }
+  ]
+}

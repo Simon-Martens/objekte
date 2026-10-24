@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Euch, Meergöttinnen, will ich, im Chor / heilbringender Nymphen, / Jetzo mit Preisgesang verherrlichen.",
+  "language": [],
+  "musenalm_id": 42772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne / an die Nymphen der Ostsee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neubeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne / an die Nymphen der Ostsee",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.808Z",
+      "agent": "62d9p80gfw782cr",
+      "source_id": "utfwa200pw58xn2"
+    }
+  ]
+}

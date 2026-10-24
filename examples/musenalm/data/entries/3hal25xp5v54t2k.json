@@ -1,0 +1,104 @@
+{
+  "annotation": "KVK-GBV gibt Jgg 1786-1859 an /) Format 5,5 x 8,5 /) im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 52 SS Kal darin 13 GG, 11 SS, 10 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Hamburgischer 1820",
+    "norm": "~",
+    "biblio": 407496,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-05-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4099,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Nestler)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenkalender, Hamburgischer 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 157; nicht bei L/R",
+  "responsibility_statement": "F. P. Nuppnau",
+  "subtitle_statement": "",
+  "title_statement": "Hamburgischer / Taschen-Kalender / auf das / Schalt-Jahr 1820. / Von / F. P. Nuppnau, / Lehrer an der Michaelis-Schule / in Hamburg. / Mit E. Hochedl. u. Hochw. Raths / Special-Privilegio. / Hamburg, / gedr. u. verl. von F. H. Nestler",
+  "updated": "2026-06-11 10:18:55.213Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "items": [
+    "ik2gzooj96bdgg8"
+  ],
+  "contents": [
+    "ns8tep85oagqcn1",
+    "bma855kh9vzp8hg",
+    "ipnuaiyhot3lr6h",
+    "pxqtztlos8buisc",
+    "62j8sbxxzgw21px",
+    "v5n7vftvks1oawz",
+    "ru87wd4pjlrn668",
+    "tfde7wua547r9no",
+    "p97g9wx1dbp0v8a",
+    "hnqw1s8gb5smd4a",
+    "i666if8r1gaf3od",
+    "49n2pvd4g0omwhc",
+    "t6r2fi9snynxmkz",
+    "2c5ei53aw425fa8",
+    "xzyjlgls80jo0gt",
+    "loytqd4a9gdox9s",
+    "tmn0h2l7ovfphsz",
+    "e5uxm86cy9wbhku",
+    "lwvi2ytn4sfmool",
+    "nsjbn9doz7xkycc",
+    "0ifbzc37e3595b9",
+    "jfc4h89jrdi2qi7",
+    "bhwkm8linf3booe",
+    "a4nl748ibozj1o0",
+    "olxcwzedv0nms74"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.110Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.110Z",
+      "agent": "gs4un6n2mvt0s65",
+      "source_id": "b1etklfalfkzlpb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.334Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.334Z",
+      "agent": "jmk7s1t2orsqisu",
+      "source_id": "o2ey00v3g4m792c"
+    }
+  ]
+}

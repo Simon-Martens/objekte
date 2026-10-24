@@ -1,0 +1,108 @@
+{
+  "annotation": "Als Autor der »Gallerie aus Scotts Werken« ist Joh. Val. Adrian angegeben",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, verso G, gT, S I-Verz, S I-XXIV darin 8 GG, S 1 nT, SS 3-285",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1827",
+    "norm": "~",
+    "biblio": 100583,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 582,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "RHEINISCHES / Taschenbuch / auf das Jahr 1827. / Herausgegeben / von / Dr. ADRIAN. / Achtzehenter Jahrgang. / Frankfurt a/M / bei Joh. David Sauerländer",
+  "updated": "2026-06-11 10:18:55.359Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "0od6wklvrxifrea"
+  ],
+  "contents": [
+    "bxp4pcencls98nu",
+    "yxcrdkdt5pyx6y9",
+    "7scjalxnm6f1jvr",
+    "sdvwqgr9667g09n",
+    "m0sv9eadn4lm9ht",
+    "pog0nzsn70nlzci",
+    "qw6j7s92ijh6cdm",
+    "zvj2gf68d0fh8t1",
+    "max9e80qz6o84ie",
+    "teeqj9bqmi7zd9o",
+    "o6lmls2vjy1drdc",
+    "srr7qlyyixgxzkc",
+    "68mlimctcy4otvv",
+    "1xgqqwyv5t7sz4y",
+    "igcpd4poyps4hqm",
+    "nq4eod838ycpoqp",
+    "tn88mvle2ovhrg2",
+    "llxfn4hhpnbpyrd",
+    "usxtv4b1mdtradz",
+    "caw76faacwpkgx5",
+    "7ojlv5gvyjtmjyr",
+    "9c21qa9e7b36qkg",
+    "nnpof5mqfcpwogf",
+    "lvlz81qv8zt65yj",
+    "td1izoqj20cbfg0",
+    "sgiox9oz1qpk9p1",
+    "1wca0an52i1kccw",
+    "ezyjvzw4lix5u0n",
+    "hscag3sd2jqymlv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.707Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.707Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "4xthavlo25k1zct"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "uj3wq9ueyaorcq5"
+    }
+  ]
+}

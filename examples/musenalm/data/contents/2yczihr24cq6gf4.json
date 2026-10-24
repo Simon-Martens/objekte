@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Freude! Himelstochter! senke / Dich herab mit leisem Tritt! / Weisheit, stille Weisheit! lenke / Du der zarten Schwester Schritt!",
+  "language": [],
+  "musenalm_id": 101394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blicke jenseits des Grabes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blicke jenseits des Grabes",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.825Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "er4gi09jffcc159"
+    }
+  ]
+}

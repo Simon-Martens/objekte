@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Komus in Wien 1848",
+    "norm": "",
+    "biblio": 410697,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-04-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4704,
+  "parallel_title": "",
+  "place_statement": "Wien (Dorfmeister)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Komus in Wien 1848",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Realis",
+  "subtitle_statement": "",
+  "title_statement": "Komus in Wien, / oder: / Illustrirter / komischer Kalender / für / Freunde des Scherzes, Spaßmacher, / lustige Brüder und Spottvögel. / auf das Schaltjahr / 1848. / von Realis. / Eigenthum der Verlagshandlung. / Wien. / A. Dorfmeister's vorm. Mausberger's Verlag. / (Stadt, Petersplatz, in Mitte Kühfußgasse Nr. 575.)",
+  "updated": "2026-06-11 10:18:55.907Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "79xrhjf006t589r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.739Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.739Z",
+      "agent": "imt5iykvh6te0ll",
+      "source_id": "i6ihauv4x880pc2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.410Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.410Z",
+      "agent": "ecom2a0z4ryhqpe",
+      "source_id": "rjmkxymp6n7cymo"
+    }
+  ]
+}

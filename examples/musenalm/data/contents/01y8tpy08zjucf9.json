@@ -1,0 +1,45 @@
+{
+  "annotation": "§ 1-3",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Kapitel. / Vom künstlichen Stricken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Kapitel. / Vom künstlichen Stricken",
+  "updated": "2007-04-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.446Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "bkv8elvxpjomrg6"
+    }
+  ]
+}

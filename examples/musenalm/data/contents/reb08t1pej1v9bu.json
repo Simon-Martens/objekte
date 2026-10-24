@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Was säuselt und schwebet in schwirrenden Reih'n / Und zirpt mit geschwungenem Flügel?",
+  "language": [],
+  "musenalm_id": 20674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grillen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Grillen",
+  "updated": "2002-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.885Z",
+      "agent": "li9wd1vvzigu4ia",
+      "source_id": "b4nyk66qtrdcymv"
+    }
+  ]
+}

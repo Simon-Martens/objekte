@@ -1,0 +1,385 @@
+{
+  "annotation": "",
+  "biographical_data": "1781–1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.360Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1781-12-24"
+      ],
+      "dateOfDeath": [
+        "1867-06-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Fleischmann"
+          ],
+          "creditText": [
+            "http://www.museen-nord.de/Objekt/6885262/lido/G267"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Wilhelm%20Haeser.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Wilhelm%20Haeser.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Wilhelm%20Haeser.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-25T21:56:08.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116368926/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/136791247",
+          "label": "Haeser, Gustav"
+        },
+        {
+          "forename": [
+            "Charlotte Henriette"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "forename": [
+            "Mathilde"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116368861",
+          "label": "Häser, Charlotte"
+        },
+        {
+          "forename": [
+            "Karl Georg"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/137675089",
+          "label": "Lindner, Mathilde"
+        },
+        {
+          "forename": [
+            "August Ferdinand"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130607479",
+          "label": "Häser, Johann Georg"
+        },
+        {
+          "forename": [
+            "Maria"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116368926",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/137675089",
+          "label": "Lindner, Mathilde"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136791247",
+          "label": "Haeser, Gustav"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/130607479",
+          "label": "Häser, Johann Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116368861",
+          "label": "Häser, Charlotte"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116368926",
+      "oldAuthorityNumber": [
+        "(DE-588a)116368926"
+      ],
+      "periodOfActivity": [
+        "1821-1844"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Häser, Christian Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Wilhelm"
+        ],
+        "surname": [
+          "Häser"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125219-6",
+          "label": "Opernsänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628958-8",
+          "label": "Bassbariton <Sänger>"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4124099-6",
+          "label": "Sänger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4125219-6",
+          "label": "Opernsänger"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/67215312"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55674418"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=116368926"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116368926/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_H%C3%A4ser"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080007691"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116368926"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116368926"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116368926"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Haeser, Christian Wilhelm",
+        "Haeser, Wilhelm",
+        "Häser, Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Häser"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm"
+          ],
+          "surname": [
+            "Haeser"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Haeser"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_H%C3%A4ser",
+          "label": "https://de.wikipedia.org/wiki/Christian_Wilhelm_H%C3%A4ser"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:40:27Z",
+    "gnd_query_biographical_data": "1781–1867",
+    "gnd_query_name": "häser, christian wilhelm"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1087,
+  "name": "Häser, Christian Wilhelm",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 761",
+  "updated": "2026-06-11 13:29:22.820Z",
+  "uri": "https://d-nb.info/gnd/116368926",
+  "editor": ""
+}

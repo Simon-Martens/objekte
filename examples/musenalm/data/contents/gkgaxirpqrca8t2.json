@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Heil den Edlen! welche hingeschieden, / Die am schönen Ziele sind, und nun,",
+  "language": [],
+  "musenalm_id": 23668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Manen / eines edlen Weibes / die an den Folgen einer unglücklichen / Entbindung starb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Müller geb. Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den Manen / eines edlen Weibes / die an den Folgen einer unglücklichen / Entbindung starb",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.010Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "czswb5ex3sea5oq"
+    }
+  ]
+}

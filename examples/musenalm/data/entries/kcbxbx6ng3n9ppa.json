@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Satans Theater-Perspectiv 1850",
+    "norm": "",
+    "biblio": 200694,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2284,
+  "parallel_title": "",
+  "place_statement": "Wien (Wallishauser)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Satans Theater-Perspectiv 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Gustav Schönstein",
+  "subtitle_statement": "",
+  "title_statement": "Satans / Theater-Perspectiv. / Humoristisch-satyrischer / Almanach / für das Jahr 1850. / Mit Beiträgen von: / Bauernfeld, Saphir, A. Glasbrenner, Friedr. Hebbel, Deinhardstein, / C. Gutzkow, Anastasius Grün, Dr. J. U. Vogl, Theod. Vogl, / Castelli, Friedrich Halm, J. G. Seidl, Otto Prechtler, Moritz Albert, / C. Cerri, G. Herwegh, Fr. Steinebach, C. W. Koch, B. Klesheim, / Johann Nestroy, Th. Drobisch, Friedr. Kaiser, C. Elmar, Heinrich / Proch, Franz Wallner, A. Weber u. A. m. / Herausgegeben / von / Gustav Schönstein. / Wien. / Verlag und Druck von J. B. Wallishauser",
+  "updated": "2026-06-11 10:18:55.462Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "v0grpog0yzb4y9r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.181Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.181Z",
+      "agent": "28o863twe4o7kyv",
+      "source_id": "sv2ggfnk0xca3bm"
+    }
+  ]
+}

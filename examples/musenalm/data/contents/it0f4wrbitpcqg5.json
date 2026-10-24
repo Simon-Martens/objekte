@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124272, Obj 4); Illustration zu »Ein Stündchen Incognito« von Töpfer (INr 124281, Obj 13); # Pseudonym",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Blei:) Balsamisch! ach! kann’s nicht / verschweigen. / Ein Stündchen Incognito (Act 1. Scene 4.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser dell.",
+  "scans": [
+    "alm_1301_124282_s4ro053w20.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "(Blei:) Balsamisch! ach! kann’s nicht / verschweigen. / Ein Stündchen Incognito (Act 1. Scene 4.)",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.859Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "fk0ourde8cm3v4p"
+    }
+  ]
+}

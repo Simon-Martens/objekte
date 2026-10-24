@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Das kleinste aller Reiseabentheuer« von Fr. Rochlitz in: Taschenbuch zum geselligen Vergnügen 1807 INr 12916",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13073,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das kleinste aller Reiseabentheuer / von Rochlitz Seite 9 u. 10",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl sc.",
+  "scans": [
+    "alm_215_13073_1hi6xtn1sc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das kleinste aller Reiseabentheuer / von Rochlitz Seite 9 u. 10",
+  "updated": "2001-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.652Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "gvo6y97k1lp96vl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.652Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "svoqhu8hl9mw09p"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Distichen über Raphaels, Christus und die Apostel (Sammlung INr 84052, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Senkst du auch zweifelnd den Blick in's hohe Ge- / heimniß des Sohnes;",
+  "language": [],
+  "musenalm_id": 84058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thomas",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.044Z",
+      "agent": "lddxtb72o5kmwcl",
+      "source_id": "asdjbjzelta0g3m"
+    }
+  ]
+}

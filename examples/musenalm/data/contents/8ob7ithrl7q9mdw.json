@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Dort in den Schatten breiter Buchen, / Wo ich dich gestern weiden sah,",
+  "language": [],
+  "musenalm_id": 8579,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lydia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lydia",
+  "updated": "2000-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.244Z",
+      "agent": "x1mwystx1l16y0s",
+      "source_id": "t8a8sb59xsxwtsp"
+    }
+  ]
+}

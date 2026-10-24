@@ -1,0 +1,45 @@
+{
+  "annotation": "# Aus dem G-Verz: Tab I. enthält Kante zu Jüpons und Damen-Kleidern /) graph. Anleitung paginiert I.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48946,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "#",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto ft. 2te. Jah. G.",
+  "scans": [
+    "alm_670_48946_nowxj8xnhe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "#",
+  "updated": "2007-04-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.464Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "3yzcktz4z2u0cbr"
+    }
+  ]
+}

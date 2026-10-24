@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Aus den einleitenden Partien des Werkes (Sammlung INr 27719, 69) /) Aus Nisami's Iskandername / (Alexanders-Buch) (Sammlung INr 27718, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "421",
+  "incipit_statement": "In Jugendtagen, meiner frischen Zeit, / Spielt' ich des Alters Ehrenvestigkeit.",
+  "language": [],
+  "musenalm_id": 27722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Doppelz. 271 u. f.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(Doppelz. 271 u. f.)",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.286Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "00u2vk7vi6lo2dr"
+    }
+  ]
+}

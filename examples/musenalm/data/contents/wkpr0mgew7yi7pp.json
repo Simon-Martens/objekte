@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung. / Die großen Bäder« von G. H. Rapp INr 74310, Obj 34 /) # Zuschreibung: Fischer S. 280",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die grosse Römische Baeder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3111_74312_f1pqxcxids.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die grosse Römische Baeder",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.632Z",
+      "agent": "4b4lhy0iqevooje",
+      "source_id": "9kygzy5g0ac0et6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.633Z",
+      "agent": "dmfllispixrqk5r",
+      "source_id": "ppeyap31qyzbv59"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.633Z",
+      "agent": "vegn0h1zmp24y6i",
+      "source_id": "z12xmqrc9zg3gso"
+    }
+  ]
+}

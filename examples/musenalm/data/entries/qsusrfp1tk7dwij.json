@@ -1,0 +1,97 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 3 BB Tab, ar: SS 1-134, ar1: SS 1-143, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1786",
+    "norm": "~",
+    "biblio": 105941,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 686,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / fürs Jahr 1786. / Zürich / bey Geßner",
+  "updated": "2026-06-11 10:18:55.857Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "k1mgyy94n1pjxzp"
+  ],
+  "contents": [
+    "cim8eoghovt4e99",
+    "e3d6chw81ku6dri",
+    "pgr7gjy1m08e5bo",
+    "40b1lzw88663wjz",
+    "ia94jaf4ir68691",
+    "ljrimq0ceer3f7j",
+    "7c37espz3q6b90b",
+    "b6ddlwm6a7lv8f9",
+    "v89pjvt624cm7rd",
+    "kntzoa3c0leh8kc",
+    "0p29ot1vfg2mxee",
+    "q54nozmgvzw7oq0",
+    "0afg934kvbbu0zw",
+    "9eizha7hqbvaf5f",
+    "b4gezvf6qf13jn7",
+    "4w9dao9mcnptjvf",
+    "sdcpkfmejibg03f",
+    "1sozmli2zn68isg",
+    "lwxm82d0hi6ir5l",
+    "wr435a2ixw3ynmj",
+    "mruf7ihf50gqo37",
+    "kkeythy7ut5d7qr",
+    "mm9qe47a79mxla3",
+    "o29u4ayoxtnqzql",
+    "01eea93zl51aex6",
+    "w8o66cljt2syw1t",
+    "btz4nfqg5ml2bsw",
+    "lc6db6xjlhmn3v1",
+    "l17yw0y6o5l2g12"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.903Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.903Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "zftb9sk7el12jcc"
+    }
+  ]
+}

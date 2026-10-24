@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 11. Blatt der Suite /) Graphik im Kalendarium August, nummeriert 8; s. Textbezug INr 128488, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128489,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du erbst, Dorneck, die Benigna, / und meine Sünden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard del. J. Blaschke",
+  "scans": [
+    "alm_1721_128489_tvhzp09suz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du erbst, Dorneck, die Benigna, / und meine Sünden",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.955Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "brmx30kmnsw02o8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.956Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "te2cvz9nrzpxtvs"
+    }
+  ]
+}

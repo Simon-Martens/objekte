@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Sie trauert um entferntere Verwandte, / Doch nach dem Tode der geliebten Tante,",
+  "language": [],
+  "musenalm_id": 62000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anekdote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anekdote",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.923Z",
+      "agent": "wx8h2mpbw2hmdqp",
+      "source_id": "1zyhi9k2ln913vn"
+    }
+  ]
+}

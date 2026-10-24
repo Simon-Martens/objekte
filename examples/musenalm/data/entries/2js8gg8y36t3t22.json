@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues Freimaurerisches 1816, 1817",
+    "norm": "",
+    "biblio": 411348,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-03-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4836,
+  "parallel_title": "",
+  "place_statement": "Freyberg (Gerlach)",
+  "places": [
+    "0zijzn2javj75in"
+  ],
+  "preferred_title": "Taschenbuch, Neues Freimaurerisches 1816, 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Freymaurerisches / Taschenbuch / auf / die Jahre 1816 und 1817 / Achter Jahrgang oder sechstes Bändchen. / Freyberg, / bey dem Br. Gerlach",
+  "updated": "2026-06-11 10:18:55.384Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "oqpndu0qsjrlcac"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.891Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.891Z",
+      "agent": "wm9z50t2pa7nkr4",
+      "source_id": "kh82gkaxgayhuzq"
+    }
+  ]
+}

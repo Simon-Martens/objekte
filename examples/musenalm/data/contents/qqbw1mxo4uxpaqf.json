@@ -1,0 +1,45 @@
+{
+  "annotation": "Vulkan (Sammlung INr 91563, Obj 87) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Das künstliche Netz, welches der eifersüchtige Gatte um den Mars und die Venus schmiedet, und alle Götter herbeiruft,",
+  "language": [],
+  "musenalm_id": 91567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eifersucht des Vukanus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eifersucht des Vukanus",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.359Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "4kuam0s6gdo0q7g"
+    }
+  ]
+}

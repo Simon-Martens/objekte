@@ -1,0 +1,519 @@
+{
+  "annotation": "",
+  "biographical_data": "1777-1831",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.391Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dr. Schriftsteller; Theaterdirektor in Braunschweig"
+      ],
+      "dateOfBirth": [
+        "1777-08-31"
+      ],
+      "dateOfDeath": [
+        "1831-01-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "nicht angegeben"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bonaventura.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bonaventura.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bonaventura.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:05:15.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118563300/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna Elisabeth Christiane"
+          ],
+          "surname": [
+            "Weinholtz"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/136051014",
+          "label": "Haas, Mathilde"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136071015",
+          "label": "Klingemann, Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1074262298",
+          "label": "Keller, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13604316X",
+          "label": "Beurer, Auguste"
+        },
+        {
+          "forename": [
+            "Sophie"
+          ],
+          "surname": [
+            "Rückling [gesch. Schröder]"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich Julius"
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/136071023",
+          "label": "Klingemann, Elise"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118563300",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/136051014",
+          "label": "Haas, Mathilde"
+        },
+        {
+          "id": "https://d-nb.info/gnd/136071023",
+          "label": "Klingemann, Elise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13604316X",
+          "label": "Beurer, Auguste"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118563300",
+      "oldAuthorityNumber": [
+        "(DE-588a)118563300",
+        "(DE-588c)4031185-5"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "preferredName": "Klingemann, Ernst August Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst August Friedrich"
+        ],
+        "surname": [
+          "Klingemann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Jurist"
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1130876535",
+          "label": "Bonaventura"
+        }
+      ],
+      "publication": [
+        "Die Grube zur Dorothea",
+        "Heinrich der Finkler",
+        "Das Kreuz im Norden",
+        "Ahasver",
+        "Don Quixote und Sancho Panza oder Die Hochzeit des Camacho",
+        "Ferdinand Cortez, oder die Eroberung von Mexiko",
+        "Kunst und Natur",
+        "Die Asseburg",
+        "Der Lazzaroni oder Der Bettler von Neapel",
+        "Faust"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12376915c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr91044676"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/73932790"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q68143"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118563300/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ernst_August_Friedrich_Klingemann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/August_Klingemann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/August_Klingemann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_August_Friedrich_Klingemann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000458085107"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118563300"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1595_nnb;17"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118563300"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563300.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118563300.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118563300"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118563300"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Klingemann, Ernst August",
+        "Klingemann, August Ernest Fryderyk",
+        "Klingemann, Ernst A.",
+        "Klingemann, ...",
+        "Klingmann, ...",
+        "Klingemann, August",
+        "E. A. F. K.",
+        "Klingemann, E.A.F.",
+        "K., E. A. F.",
+        "Klingemann, Ernst August Friedr.",
+        "Klingemann, E. A. F.",
+        "Klingemann, August Ernst Friedrich",
+        "Klingemann, A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "E. A. F. K."
+          ]
+        },
+        {
+          "forename": [
+            "Ernst August Friedr."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. F."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "August Ernst Friedrich"
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst A."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. F."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "August"
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst August"
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "August Ernest Fryderyk"
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "E.A.F."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Klingemann"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Klingmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/August_Klingemann",
+          "label": "https://de.wikipedia.org/wiki/August_Klingemann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 2,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:56:30Z",
+    "gnd_query_biographical_data": "1777-1831",
+    "gnd_query_name": "klingemann, august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1410,
+  "name": "Klingemann, August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XVI, 187",
+  "updated": "2026-06-11 13:29:23.235Z",
+  "uri": "https://d-nb.info/gnd/118563300",
+  "editor": ""
+}

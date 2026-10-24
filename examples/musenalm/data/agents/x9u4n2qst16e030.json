@@ -1,0 +1,281 @@
+{
+  "annotation": "",
+  "biographical_data": "1759-1844",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.486Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dichter"
+      ],
+      "dateOfBirth": [
+        "1759"
+      ],
+      "dateOfDeath": [
+        "1844"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1057766380"
+      ],
+      "describedBy": {
+        "dateModified": "2020-06-25T15:52:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeAW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeAW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1036147606/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-PL",
+          "label": "Polen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1036147606",
+      "id": "https://d-nb.info/gnd/1036147606",
+      "oldAuthorityNumber": [
+        "(DE-588)1057766380"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Włodzienin (Bladen)"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Stein, Anton Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Joseph"
+        ],
+        "surname": [
+          "Stein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Palladius"
+          ],
+          "surname": [
+            "Philocharis"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Stein, Anton: Auf die höchsterfreuliche Ankunft Ihrer Maj. der kaiserinn von Österreich, *. - [1816]",
+        "Stein, Anton: Anthologia epigrammatum latinorum recentioris aevi. - 1816"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059348"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/75986188"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q51884431"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1036147606/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1057766380"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anton_Joseph_Stein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000044924214"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Stein_Anton-Joseph_1759_1844.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Stein, Anton Johann",
+        "Philocharis, Palladius",
+        "Stein, Anton J.",
+        "Stein, Antonius",
+        "Stein, Anton",
+        "Stein, Antoine"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anton Johann"
+          ],
+          "surname": [
+            "Stein"
+          ]
+        },
+        {
+          "forename": [
+            "Antoine"
+          ],
+          "surname": [
+            "Stein"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Stein"
+          ]
+        },
+        {
+          "forename": [
+            "Antonius"
+          ],
+          "surname": [
+            "Stein"
+          ]
+        },
+        {
+          "forename": [
+            "Anton J."
+          ],
+          "surname": [
+            "Stein"
+          ]
+        },
+        {
+          "forename": [
+            "Palladius"
+          ],
+          "surname": [
+            "Philocharis"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anton_Joseph_Stein",
+          "label": "https://de.wikipedia.org/wiki/Anton_Joseph_Stein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:03Z",
+    "gnd_query_biographical_data": "1759-1844",
+    "gnd_query_name": "stein, anton joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2751,
+  "name": "Stein, Anton Joseph",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 548",
+  "updated": "2026-06-11 13:29:25.171Z",
+  "uri": "https://d-nb.info/gnd/1036147606",
+  "editor": ""
+}

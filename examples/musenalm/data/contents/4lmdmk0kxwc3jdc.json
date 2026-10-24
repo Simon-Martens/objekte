@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Innig umschlungen standen Beide - stürmisch, / Bange klopfte des Jünglings Busen, stiller / War die fromme Seele des Mädchens,",
+  "language": [],
+  "musenalm_id": 95452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die weinende Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die weinende Rose",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.370Z",
+      "agent": "snndqassjoh7vf0",
+      "source_id": "l01y7325al3l73q"
+    }
+  ]
+}

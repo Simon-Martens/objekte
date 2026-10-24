@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein fremder Sänger naht sich voll Vertrauen, / Erhab'ne Herrscherin! dem Weihaltar, /",
+  "language": [],
+  "musenalm_id": 95024,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widmung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widmung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.435Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "e6dm6p5l4schvhb"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 11 BB Kal darin 9 GG, Kr, S 1 I-Verz, SS 3-180, 78 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1802",
+    "norm": "~",
+    "biblio": 105903,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2185,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1802. / Mit Kupfern. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.895Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "9bmxihnlczgm2k9"
+  ],
+  "contents": [
+    "q905z2h3m4z8npv",
+    "97g9trj9878va5f",
+    "r90ignrirwk6fpf",
+    "g3c5i8w70qe8mdt",
+    "17u090hij85g9ct",
+    "vzzs5wsfva6z130",
+    "oa8rtzb5szfnnmp",
+    "do34vke3okpdfne",
+    "84ootjkxgg76hei",
+    "5ql94co961f13np",
+    "yknooykrj92tdqy",
+    "v6sjrgbtupn2gf5",
+    "4oo49a9xms63evg",
+    "ntfjpxi6876c2uy",
+    "y3n1006qtpptrwe",
+    "hhzeavbwlmmax1e",
+    "i4laz3frftmxkgc",
+    "gjogdvs59vyrtjp",
+    "w9yxep67bli2dox",
+    "cdg7aqredlp6qi8",
+    "hz5p7o9tb6wfbnm",
+    "x93fhx58pachtij",
+    "mf1dcdhyr8r5bry",
+    "zprhm2xeyik10e4",
+    "wmhu7v11ko4wf8x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "v9kyvx6wtzzz17h"
+    }
+  ]
+}

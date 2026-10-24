@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel, Motiv: Elisabeth, Landgräfin von Thüringen s. Textbezug INr 27911, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27910,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1828. / Nürnberg / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. F. Fleischmann sc.",
+  "scans": [
+    "alm_358_27910_tsbi72x5c4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1828. / Nürnberg / bei / Joh. Leonh. Schrag",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.199Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "1i48gt8cu8huxle"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.200Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "pj2bq2fcnwckjxm"
+    }
+  ]
+}

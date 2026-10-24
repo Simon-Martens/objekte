@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Schon naht die Stunde der Mitternacht, / Doch unermüdet noch immer wacht / Der alte Pfarrer von Robiskrug, / Er blättert und liest in dem Kirchenbuch",
+  "language": [],
+  "musenalm_id": 122857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 200,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pfarrer von Robiskrug / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Osterwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Pfarrer von Robiskrug / Ballade",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.703Z",
+      "agent": "srb5p67tufd1pp2",
+      "source_id": "uvw62a8lpaajq04"
+    }
+  ]
+}

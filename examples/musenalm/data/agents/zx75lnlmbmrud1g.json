@@ -1,0 +1,431 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1866",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.503Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Österr. Schriftsteller, Lyriker u. Publizist; auch als Herausgeber von Jahrbüchern und Theateralmanachen tätig."
+      ],
+      "dateOfBirth": [
+        "1802-02-07"
+      ],
+      "dateOfDeath": [
+        "1866-11-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie aus eigenem Besitz"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Nepomuk%20Vogl.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Nepomuk%20Vogl.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Nepomuk%20Vogl.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118768972/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Oesterlein"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118768972",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118768972",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118768972",
+        "(DE-588c)4108351-9"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Vogl, Johann Nepomuk",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Nepomuk"
+        ],
+        "surname": [
+          "Vogl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005081-6",
+          "label": "Beamter"
+        }
+      ],
+      "publication": [
+        "Die ältesten Volksmärchen der Russen",
+        "Schatten",
+        "Bilder aus dem Soldatenleben",
+        "Novellen",
+        "Erzählungen eines Großmütterchens",
+        "Volksmährchen",
+        "Balladen, Romanzen, Sagen und Legenden",
+        "Neue Erzählungen und Novellen",
+        "Balladen und Romanzen",
+        "Klänge und Bilder aus Ungarn"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88094743"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9836847"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1695671"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118768972/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Nepomuk_Vogl"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Nepomuk_Vogl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108683721"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118768972"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118768972"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_V/Vogl_Johann-Nepomuk_1802_1866.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118768972.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118768972"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Vogl, Joh. Nep.",
+        "Vogel, Johann N.",
+        "Vogl, I.N.",
+        "Vogl, I. N.",
+        "Vogl, J.N.",
+        "Vogel, Johann Nepomuk.",
+        "Vogl, Joh. N.",
+        "Vogl, Iohann Nep.",
+        "Vogl, Johann N.",
+        "Vogl, Johann Nep.",
+        "Vogl, J. N.",
+        "Vogel, J.",
+        "Vogl, N.",
+        "Vogl, Nepomuk"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann Nep."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "J.N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk."
+          ],
+          "surname": [
+            "Vogel"
+          ]
+        },
+        {
+          "forename": [
+            "I. N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Johann N."
+          ],
+          "surname": [
+            "Vogel"
+          ]
+        },
+        {
+          "forename": [
+            "N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "surname": [
+            "Vogel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Nepomuk"
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nep."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "I.N."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Nep."
+          ],
+          "surname": [
+            "Vogl"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Nepomuk_Vogl",
+          "label": "https://de.wikipedia.org/wiki/Johann_Nepomuk_Vogl"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:15:30Z",
+    "gnd_query_biographical_data": "1802-1866",
+    "gnd_query_name": "vogl, johann nepomuk"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3003,
+  "name": "Vogl, Johann Nepomuk",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XII, 225",
+  "updated": "2026-06-11 13:29:25.564Z",
+  "uri": "https://d-nb.info/gnd/118768972",
+  "editor": ""
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33109, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gerard p. Jagemann d. Fr. Bolt sc. 1804)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerard p. Jagemann d. Fr. Bolt sc. 1804",
+  "scans": [
+    "alm_460_33132_bmwohigzvo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.280Z",
+      "agent": "sfft0bwua7oooyo",
+      "source_id": "dsaqlo9wm03j8pv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.280Z",
+      "agent": "bngwvjxc7lwq3li",
+      "source_id": "hf2lfenjabh35rp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.281Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "z3ilbzrde6scsgy"
+    }
+  ]
+}

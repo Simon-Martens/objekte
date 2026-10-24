@@ -1,0 +1,107 @@
+{
+  "annotation": "Berlin, gedruckt bey Christian Ludewig Kunst, 1768",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 10 BB Kal darin 12 GG, 71 BB, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1768",
+    "norm": "~",
+    "biblio": 201001,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 779,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1768",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "Königl. Academie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Calender / Auf das Schalt-Jahr / 1768. / Mit schönen Kupfern gezieret, / und / mit Genehmhaltung / der Königlichen Academie der Wissen- / schaften zu Berlin heraus- / gegeben",
+  "updated": "2026-06-11 10:18:55.759Z",
+  "variant_title": "",
+  "year": 1768,
+  "editor": "",
+  "items": [
+    "8a13pxd8ikmhsvg"
+  ],
+  "contents": [
+    "i6s6zpoenb8xa72",
+    "m31pd79bhxpfzx5",
+    "8qt6v2djocyi0aw",
+    "r6xt8dgpuc6f5ye",
+    "kbt5fxweqdmk118",
+    "sn6lzesgkn2evt7",
+    "cjf2ljxw5tfpjrd",
+    "yv4id2dbfyhdr42",
+    "vwziag572v1eikq",
+    "ivx0p0qdpst9mbv",
+    "3z0xkwf2bcxaxsx",
+    "5qu8ni6isd2zc68",
+    "z2u1ryjxx9ur9ey",
+    "kzlzbj7zepw637g",
+    "bvmr3mbry9um42h",
+    "pjo13gmxzxxmz2b",
+    "4q2m1ag3r3c26ja",
+    "hkhuolru6kvqdis",
+    "k761a3c5yymwqwr",
+    "op9t1oxow1qij4v",
+    "61c3xaubu5e283z",
+    "hmw9sw6b67cu8d0",
+    "y9j9t7kpv8jc1ch",
+    "0w0m5ev9196wpyd",
+    "gqhrfeislmgw3in",
+    "x8x84anr638j70t",
+    "xkgfswa2nhxxrlu",
+    "k5rnc8piye40nfw",
+    "aeck8ri70gs9zs4",
+    "bd9k4vlqol62msr",
+    "53vzb453fj7akkf",
+    "2kn4hhn6mibv7qo",
+    "ddodx0rsc7feyn2",
+    "65lergnsdjmr432",
+    "1n6wnzs1ckspjn1",
+    "i06rzg886uua7aq",
+    "3icye0vufc9f5wm",
+    "mjwpbf04e4gx967",
+    "ibyn07v0btsheev"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.210Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "q7svlawwbo2enjc"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "UG auf dem vorderen Deckel s. Textbezug INr 30659, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. P. T. Lyser del.  Hamb. priv. Steindruck)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser del. # Hamb. priv. Steindruck",
+  "scans": [
+    "alm_406_30655_cfsqhs9nep.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.446Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "d0n9qnhkoothng5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ars longa, vita brevis. [...] /) mit einer Illustration s. Graphik im Kalendarium INr 89467, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Louise war mit Tantchen den Hügel hinangestiegen, um den wunderherrlichen Tag verdämmern zu sehen.",
+  "language": [],
+  "musenalm_id": 89478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der ungekannte Maler. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hyazinth von Schulheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der ungekannte Maler. / Novelle",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.068Z",
+      "agent": "miy11spit4lljvz",
+      "source_id": "bz5myttz0a2wrn4"
+    }
+  ]
+}

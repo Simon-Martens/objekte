@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10713, Obj 67",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Es war ein schöner Dienstag-Morgen, / Als Eginhart, mein Bräutigam,",
+  "language": [],
+  "musenalm_id": 10712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. / Henriette als Junge-Frau. / Die Compos. ist vom Hrn. Capellmstr. Seydelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. / Henriette als Junge-Frau. / Die Compos. ist vom Hrn. Capellmstr. Seydelmann",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.471Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "u9wv6vbp0iv5hgg"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorbemerkung des Herausgebers und des Verlegers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Musenalmanach bringt seit seinem Erscheinen, wie auch in diesem Jahrgang wieder, nur bisher Ungedrucktes, Originales.",
+  "language": [],
+  "musenalm_id": 99837,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber Dr. Schad. Der Verleger V. J. Stahel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.884Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "7kzhcwz73657o4f"
+    }
+  ]
+}

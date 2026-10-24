@@ -1,0 +1,82 @@
+{
+  "annotation": "einziger Jahrgang /) variantes Exemplar: Provenienz: Bibliothek des Königlichen Hauses Hannover, s. Katalog der Druckschriften der Königlichen Ernst-August-Fideicommis-Bibliothek in Gmunden (1911) vol. 1, p. 152,  Nr. Dc 596; in zeitgenössischem roten Maroquineinband; das Titelportrait von H. Clauren. (d. i. K. G. S. Heun) hier als unbezeichnete kolorierte Originalzeichnung; s. Photos",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 BB W, 2 BB Vrwrt d Hrsg, B I-Verz, ar SS 1-120 darin G, ar1: SS 1-128 darin G, ar2: SS 1-87 darin G, ar3: SS 1-64, B C, 5 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Weimarisches dramatisches für größere und kleinere Bühnen 1823 [var.]",
+    "norm": "~",
+    "biblio": 411153,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2021-09-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4795,
+  "parallel_title": "",
+  "place_statement": "Weimar (Hoffmann)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Taschenbuch, Weimarisches dramatisches für größere und kleinere Bühnen 1823 [var.]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 152; L/R 126; Goed VIII. 131, 25",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Weimarisches / dramatisches / Taschenbuch / für / größere und kleinere Bühnen / unter der Theilnahme von / Castelli, H. Clauren, Contessa, Gehe, Geyer, / Holbein, v. Houwald, Kind, Lebrün, v. d. Velde / Weissenthurn, Ziegler u. a. / Herausgegeben / von / Theodor Hell. / Erster Jahrgang / 1823. / Mit Claurens Portrait und 3 kolorirten Kupfern. / Weimar, / in der Hofbuchhandlung der Gebrüder Hoffmann",
+  "updated": "2026-06-11 10:18:55.278Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "q947cirjeapu878"
+  ],
+  "contents": [
+    "0dm76yh04imzxfu",
+    "h4z0jdae7oa8bt3",
+    "ew9avlkwuro7led"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.425Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.425Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "0u5o37e9g0r2s0f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.041Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.041Z",
+      "agent": "bfuo4gd8o0bm87p",
+      "source_id": "lv9dm0nhozgz7md"
+    }
+  ]
+}

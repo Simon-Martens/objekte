@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124216, Obj 17;",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Ei, hier ist noch alles so früh! Ah – dort in der Laube werden sie wohl beim Frühstück sitzen –.",
+  "language": [],
+  "musenalm_id": 124215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vatersegen. / Drama in einem Act. / von / August Lewald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lewald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vatersegen. / Drama in einem Act. / von / August Lewald",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.780Z",
+      "agent": "bv9so4m92p9fsk9",
+      "source_id": "1ioj4kgc3ipln6k"
+    }
+  ]
+}

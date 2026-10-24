@@ -1,0 +1,306 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1828",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.367Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Kupferstecher; Professor der Düsseldorfer Akademie"
+      ],
+      "dateOfBirth": [
+        "1755-01-22"
+      ],
+      "dateOfDeath": [
+        "1828-07-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Selbstportrait"
+          ],
+          "creditText": [
+            "http://matrikel.adbk.de/07lehrer/lehrergalerie/hess-carl.jpg/view"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Ernst%20Christoph%20Hess%20-%20Maler%20und%20Kupferstecher.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Ernst%20Christoph%20Hess%20-%20Maler%20und%20Kupferstecher.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Ernst%20Christoph%20Hess%20-%20Maler%20und%20Kupferstecher.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-02T14:28:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116768452/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11676841X",
+          "label": "Hess, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116764937",
+          "label": "Hess, Heinrich von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116768754",
+          "label": "Hess, Peter von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116768452",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116764937",
+          "label": "Hess, Heinrich von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11676841X",
+          "label": "Hess, Carl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116768754",
+          "label": "Hess, Peter von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116768452",
+      "oldAuthorityNumber": [
+        "(DE-588a)116768452"
+      ],
+      "preferredName": "Hess, Carl Ernst Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Ernst Christoph"
+        ],
+        "surname": [
+          "Hess"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4064237-9",
+          "label": "Waffenschmied"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14960052r"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64276655"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q76135"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116768452/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Ernst_Christoph_Hess"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Ernst_Christoph_Hess"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066634621"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116768452"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116768452.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116768452"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116768452"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Hess, C.",
+        "Heß, Karl Ernst Christoph",
+        "Heß, Carl Ernst Christoph",
+        "Hess, Karl Ernst Christoph"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Hess"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ernst Christoph"
+          ],
+          "surname": [
+            "Heß"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ernst Christoph"
+          ],
+          "surname": [
+            "Heß"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ernst Christoph"
+          ],
+          "surname": [
+            "Hess"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Ernst_Christoph_Hess",
+          "label": "https://de.wikipedia.org/wiki/Carl_Ernst_Christoph_Hess"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:44:30Z",
+    "gnd_query_biographical_data": "1755-1828",
+    "gnd_query_name": "hess, carl ernst christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1168,
+  "name": "Hess, Carl Ernst Christoph",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XVI, 576",
+  "updated": "2026-06-11 13:29:22.912Z",
+  "uri": "https://d-nb.info/gnd/116768452",
+  "editor": ""
+}

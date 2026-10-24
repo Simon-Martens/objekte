@@ -1,0 +1,56 @@
+{
+  "annotation": "XII. Fragmente aus Casanova's handschriftlichen Memoiren (Sammlung INr 1760, Obj 128) Anm. am Objekt: Fragment aus dem vierten Band der Casanovaschen Memoiren, der in der Jubilate-Messe des nächsten Jahres (1823) bei dem Verleger der Urania erscheinen wird. Der Preis der ersten drei Bände ist 7 Thlr, 12 Gr.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "447",
+  "incipit_statement": "Deutschen Lesern ist Casanova's Leben bis kurz vor seiner Gefangenschaft in Venedigs Bleikammern mittels einer Bearbeitung seiner Memoiren in ihrer Sprache erzählt worden.",
+  "language": [],
+  "musenalm_id": 1762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Casanova's Flucht aus den Bleikammern zu Venedig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Casanova; Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Casanova's Flucht aus den Bleikammern zu Venedig",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.797Z",
+      "agent": "twsnbj8qnaadxfr",
+      "source_id": "38outxoqn0vqv3d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.797Z",
+      "agent": "j5e1jto7rj2ibw3",
+      "source_id": "fqd0vpvlygxouvt"
+    }
+  ]
+}

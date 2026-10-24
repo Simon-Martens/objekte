@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Vermischte Gedichte (Sammlung INr 29731, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Haben sie die Todte nicht / Wunderherrlich ausgeschmücket!",
+  "language": [],
+  "musenalm_id": 29735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei einer geschmückten Leiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei einer geschmückten Leiche",
+  "updated": "2002-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.557Z",
+      "agent": "vmqur31l5jqxgmx",
+      "source_id": "rswalpyk946qjjz"
+    }
+  ]
+}

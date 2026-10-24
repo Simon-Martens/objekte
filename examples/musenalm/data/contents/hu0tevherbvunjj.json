@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischarioth Krall's Lehren und Thaten in 30 episch-didaktischen Lectionen (Sammlung INr 97309, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Rasch fuhr ich nun fort, meine ganzen Kräfte / zu widmen dem Organisirungs-Geschäfte.",
+  "language": [],
+  "musenalm_id": 97334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier und zwanzigste Lection",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ischarioth Krall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier und zwanzigste Lection",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.755Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "y4cw2wuq8a2ok50"
+    }
+  ]
+}

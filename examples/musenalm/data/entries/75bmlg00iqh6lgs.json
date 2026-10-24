@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, VrlgM, G, SS I–VIII T, I-Verz, G-Verz, S1–364, darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1833",
+    "norm": "~",
+    "biblio": 405188,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1301,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 128",
+  "responsibility_statement": "Mehrere",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande. / Begründet / von / AUG. von KOTZEBUE, / herausgegeben / von / MEHREREN / Ein und Dreissigster Jahrgang. / HAMBURG, / bei Hoffmann & Campe. / 1833",
+  "updated": "2026-06-11 10:18:55.006Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "6uludim53tb9yj8"
+  ],
+  "contents": [
+    "kkq0fpphonmzgn4",
+    "0a40a9usp8t6vq5",
+    "4dr4utwfxienxxt",
+    "c4rwxtq0eiq66w9",
+    "1lwq1ysoog2y92h",
+    "b69osqcm26vlyxo",
+    "kia1scf5meo96ht",
+    "myx86l8skcpwi2u",
+    "iv2135sdlsmonxy",
+    "ykgkgxlf228r2q1",
+    "uqinho6ofvoupuu",
+    "e57cxbsuord3w90",
+    "otmuanex97uljzn",
+    "it0f4wrbitpcqg5",
+    "fo7xm9koa94qngo",
+    "6k894j2eu0hfxk0",
+    "lvi9a2j7bklvgjg",
+    "n419xmer4ws4en1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.041Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.041Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "71jwf5j1nglln1f"
+    }
+  ]
+}

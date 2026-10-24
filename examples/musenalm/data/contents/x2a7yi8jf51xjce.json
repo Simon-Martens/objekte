@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81283, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "bitten kann ich Sie doch wohl, dass Sie erklären, ob Sie mich / für einen ehrlichen Mann halten. / Flaming. Th. II. S. 200",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Henne fec.",
+  "scans": [
+    "alm_3855_82184_aix1kxrpmv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "bitten kann ich Sie doch wohl, dass Sie erklären, ob Sie mich / für einen ehrlichen Mann halten. / Flaming. Th. II. S. 200",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.019Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "vq9g3rsuqceggkh"
+    }
+  ]
+}

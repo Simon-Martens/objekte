@@ -1,0 +1,590 @@
+{
+  "annotation": "",
+  "biographical_data": "1759–1818",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.608Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/35671-2",
+          "label": "Kaiserlich Leopoldinisch-Carolinische Deutsche Akademie der Naturforscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1343097991",
+          "label": "Bureau des Annales encyclopédiques"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2004629-7",
+          "label": "Bibliothèque Nationale (Paris)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Franz. Archäologe, Numismatiker, Botaniker und Mineraloge; Konservator am Cabinet des Antiques der Bibliothèque nationale"
+      ],
+      "dateOfBirth": [
+        "1759-07-19"
+      ],
+      "dateOfDeath": [
+        "1818-08-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "François Forster / Jacques Marie Noël Frémy"
+          ],
+          "creditText": [
+            "https://www.flickr.com/photos/internetarchivebookimages/14594849547/ Source book page: https://archive.org/stream/bibliographicala02dibd/bibliographicala02dibd#page/n578/mode/1up"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20bibliographical%2C%20antiquarian%20and%20picturesque%20tour%20in%20France%20and%20Germany%20%281821%29%20%2814594849547%29.jpg",
+          "license": [
+            {
+              "abbr": null,
+              "attributionRequired": true,
+              "id": "https://www.gesetze-im-internet.de/urhg/",
+              "name": "Urheberrechtlich geschützt"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/A%20bibliographical%2C%20antiquarian%20and%20picturesque%20tour%20in%20France%20and%20Germany%20%281821%29%20%2814594849547%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:A%20bibliographical%2C%20antiquarian%20and%20picturesque%20tour%20in%20France%20and%20Germany%20%281821%29%20%2814594849547%29.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T21:38:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117044237/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "117044237",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.3p",
+          "label": "Personen zu Architektur, Bautechnik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.7p",
+          "label": "Personen zu Bibliothek, Information und Dokumentation"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117044237",
+      "oldAuthorityNumber": [
+        "(DE-588a)117044237",
+        "(DE-588c)4998190-0"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Milin, Aubin Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Aubin Louis"
+        ],
+        "surname": [
+          "Milin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4345132-9",
+          "label": "Konservator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4329065-6",
+          "label": "Mineraloge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4172176-7",
+          "label": "Numismatiker"
+        }
+      ],
+      "publication": [
+        "Description des tombeaux, qui ont été decouverts à Pompéji dans l'a*",
+        "L'Orestéide",
+        "Description d'une mosaique antique du Musée Pio-Clémentin à Rome, re*",
+        "Introduction à l'étude des pierres gravées",
+        "Description des tombeaux de Canosa, ainsi que des basreliefs, les armur*",
+        "Dictionnaire des beaux arts",
+        "Dallaway, James: Les Beaux arts en Angeleterre",
+        "Pierres gravées inédites tirées des plus célébres cabinets de l'Eu*",
+        "Observations sur le monument sépulcral de Pompéius Campanus \"'a Aix e*",
+        "Dissertation d'un disque d'argent du cabinet des antiques, connu sous l*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb125252621"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84229399"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59193412"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q781003"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117044237/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Aubin-Louis_Millin_de_Grandmaison"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Aubin-Louis_Millin_de_Grandmaison"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109059138"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117044237"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117044237"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117044237"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117044237"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Millin, Aubin L.",
+        "Millin de Grande-Maison, L . A.",
+        "Millin, Laubin Louis",
+        "Grande-Maison, Aubin-Louis Millin de",
+        "Grandmaison, Aubin L. Millin de",
+        "Grandmaison, Aubin-Louis Millin de",
+        "Grandmaison, Aubin L. de",
+        "De Grandmaison, Aubin-Louis Millin",
+        "Millin, L. A.",
+        "Millin de Grandmaison, Aubin Louis",
+        "Millin de Grandmaison, Louis Aubin",
+        "Millin, A. L.",
+        "Millin, Aubin-Louis",
+        "Millin de Grandmaison, Aubin L.",
+        "Millin, Aubin Louis",
+        "Müllin, A. L.",
+        "Millin, Albinus Ludovicus",
+        "Millin, Albinus L.",
+        "Moulin, Eleuthérophile",
+        "Millin, Louis Aubin",
+        "Millin, L. M.",
+        "Millin, Albino Luigi",
+        "Millin, Louis",
+        "Millin",
+        "Millin de Grandmaison, Aubin-Louis",
+        "Millin de Grande-Maison, Aubin-Louis",
+        "Grandmaison, Aubin Louis Millin de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Aubin-Louis"
+          ],
+          "surname": [
+            "Millin de Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "L. A."
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "L. M."
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin Louis"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "A. L."
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin-Louis"
+          ],
+          "surname": [
+            "Millin de Grande-Maison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin Louis Millin"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Aubin"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "L . A."
+          ],
+          "surname": [
+            "Millin de Grande-Maison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin-Louis Millin"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Grande-Maison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin L. Millin"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Grandmaison"
+          ]
+        },
+        {
+          "personalName": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Aubin"
+          ],
+          "surname": [
+            "Millin de Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin-Louis Millin"
+          ],
+          "surname": [
+            "De Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Albino Luigi"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin L."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin L."
+          ],
+          "surname": [
+            "Millin de Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "A. L."
+          ],
+          "surname": [
+            "Müllin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin-Louis"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Albinus Ludovicus"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin Louis"
+          ],
+          "surname": [
+            "Millin de Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin Louis"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Albinus L."
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Laubin Louis"
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin-Louis Millin"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Grandmaison"
+          ]
+        },
+        {
+          "forename": [
+            "Aubin L."
+          ],
+          "surname": [
+            "Millin"
+          ]
+        },
+        {
+          "forename": [
+            "Eleuthérophile"
+          ],
+          "surname": [
+            "Moulin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Aubin-Louis_Millin_de_Grandmaison",
+          "label": "https://de.wikipedia.org/wiki/Aubin-Louis_Millin_de_Grandmaison"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:28:21Z",
+    "gnd_query_biographical_data": "1759–1818",
+    "gnd_query_name": "millin, aubin-louis"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4019,
+  "name": "Millin, Aubin-Louis",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Nouvelle biographie universelle XXXV, 538",
+  "updated": "2026-06-11 13:29:25.947Z",
+  "uri": "https://d-nb.info/gnd/117044237",
+  "editor": ""
+}

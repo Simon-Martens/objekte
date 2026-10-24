@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Säumest du immer noch, lockt dir dein Vaterland / Keins der Lieder mehr ab, wie du vorzeiten sangst,",
+  "language": [],
+  "musenalm_id": 8321,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den / Herrn Regierungsrath Huber, / 1772",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Telynhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den / Herrn Regierungsrath Huber, / 1772",
+  "updated": "2000-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.283Z",
+      "agent": "kguhc4kb9u0c03l",
+      "source_id": "z32gtpalrtbqms2"
+    }
+  ]
+}

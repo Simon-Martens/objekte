@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Graphik im Kalendarium November /) s. Gedicht INr 81588, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81549,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Denke an den Abend deiner Tage!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HR. Grape sc.",
+  "scans": [
+    "alm_3834_81549_t0xd393n7v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Denke an den Abend deiner Tage!",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "t2z8lq4qwm3oov7",
+      "source_id": "4ypcau5flb68wp7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "za7rkyjrhj1n43p"
+    }
+  ]
+}

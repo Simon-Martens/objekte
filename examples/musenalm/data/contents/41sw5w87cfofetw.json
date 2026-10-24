@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts » Pfingstreihen« von J. H. Voß INr 17067, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pfingstreihen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_122_17068_sjvwe7op7c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pfingstreihen",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.648Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "63j2a3htysj8c9q"
+    }
+  ]
+}

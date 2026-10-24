@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Was gleicht wohl auf Erden dem Jäger-ver- / gnügen / Doch zeigt es allein nicht die Flur und der / Wald,",
+  "language": [],
+  "musenalm_id": 20406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grillenjägerlied. / Mel. Was gleicht wohl auf Erden etc aus dem Frei- / schützen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grillenjägerlied. / Mel. Was gleicht wohl auf Erden etc aus dem Frei- / schützen",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.829Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "388tv35ejr9qjyb"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107466,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MIHRIMA. / Leipzig bei F. A. Leo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2487_107466_50ln1v1yxa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MIHRIMA. / Leipzig bei F. A. Leo",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.352Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "7baphjix61bnaqq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.352Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "kg3mwjr5tixg6e9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.352Z",
+      "agent": "x4wr3clisfzne16",
+      "source_id": "qiixzddaqxdyqkd"
+    }
+  ]
+}

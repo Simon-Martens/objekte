@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I-Verz B G-VerzG, B G-Verz, S 1 nT, SS 3-290 darin 5 GG, SS 291-338 Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1823",
+    "norm": "~",
+    "biblio": 106715,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-05-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 578,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / TASCHENBUCH / auf das Jahr 1823. / FRANKFURT a/M / bei Joh. David Sauerländer",
+  "updated": "2026-06-11 10:18:55.361Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "87kgb4l0k37og9m"
+  ],
+  "contents": [
+    "p9eqc5yz0z2nfrn",
+    "nnopc1kfc2gto3e",
+    "wxznjeo9ix6ffe0",
+    "bf7hmy2opoo59nk",
+    "18m66x46z5wo9gf",
+    "s7t49qy880i98v6",
+    "ixms83bd6u7qrcb",
+    "if84j7ffrajoa7h",
+    "7i66al8dyzgs73f",
+    "w44ze3wwy1vspvh",
+    "jwfvpa7ykc2ugg6",
+    "ogu1mib18usnvh3",
+    "ahhz10y4l3ecg3f",
+    "q4fah8adejrzfip",
+    "jeruvom2yu17vhl",
+    "176zzv7tvtrxxii",
+    "c7k7jj0vtlbh9gy",
+    "w8azikppi3i9xvz",
+    "n3m59ev5s5zg4zt",
+    "bu10vptnd0c5kmd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.066Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.066Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "u2sytkzpvagf3cb"
+    }
+  ]
+}

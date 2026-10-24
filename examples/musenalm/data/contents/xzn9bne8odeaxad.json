@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Monathe (Sammlung INr 77455, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Doch zum Manne wird der Knabe. / Sieh - er sät, und freut sich seiner Saat,",
+  "language": [],
+  "musenalm_id": 77461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juni",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.699Z",
+      "agent": "jqanokpcqaenxu5",
+      "source_id": "yj1dvd6awpd4jtw"
+    }
+  ]
+}

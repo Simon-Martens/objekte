@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Von allen schönen Waaren, / Zum Markte hergefahren, / Wird keine mehr behagen,",
+  "language": [],
+  "musenalm_id": 17175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebesgötter auf dem / Markte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebesgötter auf dem / Markte",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.781Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "es1qrjrcdjcxtw3"
+    }
+  ]
+}

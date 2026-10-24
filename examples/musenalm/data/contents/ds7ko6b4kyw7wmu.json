@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.066Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "In des Mondes Silberhelle, / Durch die stille Nacht, / Trag’ uns, Gondel, sanft zur Stelle, / Wo das Liebchen wacht.",
+  "language": [],
+  "musenalm_id": 131392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alessandro Stradella. / Romantische Oper in drei Aufzügen. / Musik von F. v. Flotow. / Zum Erstenmale dargestellt auf dem Hamburger Stadt- / theater am 28. December 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Friedrich [Pseud.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alessandro Stradella. / Romantische Oper in drei Aufzügen. / Musik von F. v. Flotow. / Zum Erstenmale dargestellt auf dem Hamburger Stadt- / theater am 28. December 1844",
+  "updated": "2022-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.033Z",
+      "agent": "leehf6gmcvm3b0n",
+      "source_id": "gwfppaog0cv8qun"
+    }
+  ]
+}

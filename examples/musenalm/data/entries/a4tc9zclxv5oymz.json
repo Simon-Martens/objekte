@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "National-Kalender, Westphälischer historisch-geographischer 1804",
+    "norm": "",
+    "biblio": 406728,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-07-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3681,
+  "parallel_title": "",
+  "place_statement": "Paderborn (Wesener)",
+  "places": [
+    "0vbdq4ymdqruhrm"
+  ],
+  "preferred_title": "National-Kalender, Westphälischer historisch-geographischer 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Peter Florens Weddigen",
+  "subtitle_statement": "",
+  "title_statement": "Westphälischer / historisch-geographischer / National-Kalender / zum / Nutzen und Vergnügen, / auf / das Jahr 1804. / Von / Peter Florens Weddigen. / Mit einem Kupfer. / Paderborn, / in der Wesenerschen Buch- und Musikhandlung. / 1804. / Ladenpreis 1 Rthlr 8 Ggr.",
+  "updated": "2026-06-11 10:18:55.963Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "j193mqa28fpz1vk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.281Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.281Z",
+      "agent": "49nt94qkx1zsfm5",
+      "source_id": "6esuind8ufwusui"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "853b6ptzzaz72zj",
+      "source_id": "n06fsj3uc6d6znq"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze Baugeschichte und Beschreibung des Rathauses zu Basel« INr 82800, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANSICHT DES INNEREN RATHAUSES / in Basel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gez. von J. Neustück Lith. v. A. Merian Auf Stein gez. von. Oppermann",
+  "scans": [
+    "alm_3736_82799_6uyriqta4h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANSICHT DES INNEREN RATHAUSES / in Basel",
+  "updated": "2011-12-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.137Z",
+      "agent": "h9ct06b0z8utvuu",
+      "source_id": "2p5d0cp1fi69l7u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.137Z",
+      "agent": "nprwmxswqg6yzqw",
+      "source_id": "e2nsk15sfb7nxa8"
+    }
+  ]
+}

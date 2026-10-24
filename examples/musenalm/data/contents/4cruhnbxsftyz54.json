@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Der alte Guerillo von Granada« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110941, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fernanda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. M. Hofmann & Fr. Stöber direx. sculps.",
+  "scans": [
+    "alm_3473_110943_sn3pl7qqtl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fernanda",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.319Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "1fhz21le4a6ny2w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.319Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "7mwg0xmz57hx36o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.319Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "8nk0pldfllocn8t"
+    }
+  ]
+}

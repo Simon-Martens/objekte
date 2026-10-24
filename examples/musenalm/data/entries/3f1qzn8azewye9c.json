@@ -1,0 +1,118 @@
+{
+  "annotation": "# Reprint: Alfred Förg Verlag, Rosenheim 1982. Als Autor gilt nach L/R 185 Joseph Richter /) $ vermutl. fehlt UG /) L/R geben Jgg 1780, 1781, 1787 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-4 Vrwrt d Vrlg, verso G, SS 5-83 darin 11 GG, S 84 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Grabennymphen 1787",
+    "norm": "~",
+    "biblio": 100708,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 240,
+  "parallel_title": "",
+  "place_statement": "Wien; Rosenheim (Förg)",
+  "places": [
+    "d5240fbjezsfgqf",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Grabennymphen 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 124; L/R 185",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Grabennymphen / auf das / Jahr / 1787",
+  "updated": "2026-06-11 10:18:54.736Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "items": [
+    "ga9f656izlnorhd"
+  ],
+  "contents": [
+    "fj92e937omgyecb",
+    "kd6vcdpp56hm4pf",
+    "4vkmqvo2v6aeddj",
+    "orha4qhrq0cfihn",
+    "wk5fmkocahj6qnv",
+    "rm8ycf5d5rjh4ay",
+    "ut3irax77s56n7h",
+    "v5u9oy83nk8yqds",
+    "xitiniuab4bufi7",
+    "g5omwnsv1ggl806",
+    "s7gvm7y0ceudzua",
+    "lekz7apy3sr8pvr",
+    "5agz2yvi3334coj",
+    "fdy5tqhql76regf",
+    "mzbi6w076paq0aq",
+    "tb5cz3pkhe7igie",
+    "dfhenemtu456shx",
+    "al19ry5p2iogziq",
+    "x4yfl0rz9ffmszb",
+    "4nuqtxrzg2taker",
+    "uzrft4s2nam9x68",
+    "tlrsjfe7ypdhe8t",
+    "7gihj148tvkbcdl",
+    "rhv7d76lrqnqe8g",
+    "dydeb40cqx3k3r5",
+    "8ahj8dlzbzmo8c4",
+    "pg99y8mkzfggh43",
+    "xpevb1bi3ff4gmz",
+    "p46ksrrt0l122vh",
+    "tc3940r6zo5l6gy",
+    "ykdfqobamzoff8s",
+    "3fdg3kl7fjvms9k",
+    "n6bumabamgal0sq",
+    "aaq6vb1809e1vu1",
+    "xaou6tqu37q25lj",
+    "gs0t3zczxpsubm4",
+    "ixm1vuf2nvwkw6b",
+    "7b0tx40y8ev5kzy",
+    "g771kcg9ihiylmk",
+    "0dbulz9sxwresgw",
+    "r1gx1g8goudgesk",
+    "99tjbu09yy4aoeo",
+    "0equkhzxiqdgljd",
+    "amp90tzsptj4sab",
+    "4uuuknu0kqknwty",
+    "5ywcjm4xqwvn32i",
+    "egozq4nrr8kgfxu",
+    "3isci52riobl2zv",
+    "ufsu8jkopyukv6s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.865Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.865Z",
+      "agent": "w8cx87l9mxaq3lp",
+      "source_id": "mp4yze0fcenzx6q"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu La Motte Fouqué's »Held des Nordens« (Sammlung INr 20985, Obj 7) s. Graphik INr 20991, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Prächtiges Gemach im Innern des Thurms. Zur Rechten ist ein Gewebe aufgerollt, worauf Sigurd sichtbar,",
+  "language": [],
+  "musenalm_id": 20992,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Thormod Legis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.861Z",
+      "agent": "1k9wqtqdatu7v5n",
+      "source_id": "iffa346h5zxuxl5"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Sehnsucht nach Oskar« INr 46921, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht nach Oskar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hausius",
+  "scans": [
+    "alm_633_46920_35mbqzl9v4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht nach Oskar",
+  "updated": "2006-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.459Z",
+      "agent": "uf91zrt87qnsu6f",
+      "source_id": "fb46r2wu6xtjy0r"
+    }
+  ]
+}

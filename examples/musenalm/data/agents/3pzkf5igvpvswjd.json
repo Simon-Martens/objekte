@@ -1,0 +1,554 @@
+{
+  "annotation": "",
+  "biographical_data": "1819-1890",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.387Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/11896061X",
+          "label": "Exner, Adolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1115374079",
+          "label": "Scheidegger, Christina Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118960601",
+          "label": "Exner, Marie"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ausbildung zum Landschaftsmaler in Deutschland 1840-1842; Verfassung politischer Schriften; 1861-1876 Staatsschreiber des Kantons Zürich, danach freier Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1819-07-19"
+      ],
+      "dateOfDeath": [
+        "1890-07-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johannes Ganz (1821-1886)"
+          ],
+          "creditText": [
+            "Zentralbibliothek Zürich"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Ganz%20Gottfried%20Keller%201885.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes%20Ganz%20Gottfried%20Keller%201885.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johannes%20Ganz%20Gottfried%20Keller%201885.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11856109X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119206102",
+          "label": "Keller, Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137730047",
+          "label": "Keller, Johann Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1115669397",
+          "label": "Keller, Regula"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "11856109X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/119206102",
+          "label": "Keller, Elisabeth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137730047",
+          "label": "Keller, Johann Rudolf"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1115669397",
+          "label": "Keller, Regula"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11856109X",
+      "oldAuthorityNumber": [
+        "(DE-588a)12751175X",
+        "(DE-588a)135418690",
+        "(DE-588a)11856109X",
+        "(DE-588a)127166351",
+        "(DE-101c)311108695",
+        "(DE-588c)4030186-2",
+        "(DE-588a)126715262",
+        "(DE-588a)127732799"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023996-2",
+          "label": "Heidelberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4068038-1",
+          "label": "Zürich"
+        }
+      ],
+      "preferredName": "Keller, Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gottfried"
+        ],
+        "surname": [
+          "Keller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Regierungssekretär"
+      ],
+      "publication": [
+        "Der grüne Heinrich",
+        "Der Landvogt von Greifensee",
+        "Martin Salander",
+        "Das Sinngedicht",
+        "Romeo und Julia auf dem Dorfe",
+        "Züricher Novellen",
+        "Pankraz der Schmoller",
+        "Sieben Legenden",
+        "Die Leute von Seldwyla",
+        "Kleider machen Leute",
+        "Spiegel, das Kätzchen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119095592"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80035887"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/102319551"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D12024.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q122370"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11856109X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottfried_Keller"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Keller"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Gottfried_Keller"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_Keller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000010787135X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11856109X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11856109X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856109X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11856109X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11856109X"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/E28EB8FCE5D04655BFCF916887297868"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11856109X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Keller, Gotfryd",
+        "Keller, Goffredo",
+        "Kīllir, Ǧūtfrīd",
+        "קלר, גוטפריד",
+        "Keler, Gotfrid",
+        "Keller, Gotfrid",
+        "凯勒, 高",
+        "Keleri, Gotpʹrid",
+        "Kaile, Gaotefeilite",
+        "Kerā",
+        "Keller, Gkoto̲fri̲nt",
+        "高·凯勒",
+        "凱勒",
+        "ケラー, ゴットフリート",
+        "Kai le",
+        "Kaile",
+        "ケラー・ゴットフリート"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gotfrid"
+          ],
+          "surname": [
+            "Keler"
+          ]
+        },
+        {
+          "personalName": [
+            "凱勒"
+          ]
+        },
+        {
+          "forename": [
+            "ゴットフリート"
+          ],
+          "surname": [
+            "ケラー"
+          ]
+        },
+        {
+          "forename": [
+            "Gaotefeilite"
+          ],
+          "surname": [
+            "Kaile"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfrid"
+          ],
+          "surname": [
+            "Keller"
+          ]
+        },
+        {
+          "personalName": [
+            "Kaile"
+          ]
+        },
+        {
+          "forename": [
+            "Ǧūtfrīd"
+          ],
+          "surname": [
+            "Kīllir"
+          ]
+        },
+        {
+          "personalName": [
+            "ケラー・ゴットフリート"
+          ]
+        },
+        {
+          "forename": [
+            "Gotpʹrid"
+          ],
+          "surname": [
+            "Keleri"
+          ]
+        },
+        {
+          "personalName": [
+            "Kai le"
+          ]
+        },
+        {
+          "forename": [
+            "Gotfryd"
+          ],
+          "surname": [
+            "Keller"
+          ]
+        },
+        {
+          "forename": [
+            "高"
+          ],
+          "surname": [
+            "凯勒"
+          ]
+        },
+        {
+          "personalName": [
+            "高·凯勒"
+          ]
+        },
+        {
+          "personalName": [
+            "Kerā"
+          ]
+        },
+        {
+          "forename": [
+            "Goffredo"
+          ],
+          "surname": [
+            "Keller"
+          ]
+        },
+        {
+          "forename": [
+            "גוטפריד"
+          ],
+          "surname": [
+            "קלר"
+          ]
+        },
+        {
+          "forename": [
+            "Gkoto̲fri̲nt"
+          ],
+          "surname": [
+            "Keller"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gottfried_Keller",
+          "label": "https://de.wikipedia.org/wiki/Gottfried_Keller"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:54:30Z",
+    "gnd_query_biographical_data": "1819-1890",
+    "gnd_query_name": "keller, gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1369,
+  "name": "Keller, Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB LI, 486; LV, 895",
+  "updated": "2026-06-11 13:29:23.173Z",
+  "uri": "https://d-nb.info/gnd/11856109X",
+  "editor": ""
+}

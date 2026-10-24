@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Den mit Kränzen sie banden, / Eros brachten die Musen / Einst als Gabe der Schönheit.",
+  "language": [],
+  "musenalm_id": 51311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Anakreon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. CHAMISSO",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Anakreon",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.656Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "f2h4rv0eo8ll24e"
+    }
+  ]
+}

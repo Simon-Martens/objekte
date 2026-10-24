@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Den dir das Leben gereicht, den Lorbeer halte für / dein nicht: / Wenn er die Urne dir kränzt, dann erst gehört er dir ganz.",
+  "language": [],
+  "musenalm_id": 42665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den dir das Leben gereicht, den Lorbeer halte für / dein nicht: / Wenn er die Urne dir kränzt, dann erst gehört er dir ganz.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.217Z",
+      "agent": "qwgxcg99zpa7j4i",
+      "source_id": "q00pfnuou8i7qck"
+    }
+  ]
+}

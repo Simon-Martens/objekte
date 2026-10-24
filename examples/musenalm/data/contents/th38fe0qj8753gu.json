@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Nur über Wind hör' ich dich klagen? / Sag, welch Geschöpf kann nicht sein Element ver- / tragen.",
+  "language": [],
+  "musenalm_id": 63056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An M.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An M.",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.067Z",
+      "agent": "9ffesqccgj8nyl5",
+      "source_id": "6ua76178cqc3uxy"
+    }
+  ]
+}

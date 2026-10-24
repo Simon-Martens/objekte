@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Wer steht mit sel'gen Blicken, / Das Aug' empor gewandt, / Die Seele trägt Entzücken / In ein verheiß'nes Land.",
+  "language": [],
+  "musenalm_id": 131214,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erscheinung der Jungfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erscheinung der Jungfrau",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.009Z",
+      "agent": "wty417vt1e1tkcs",
+      "source_id": "ywkgjk9f49hasae"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am Monatskupfer September /) Graphik im Kalendarium November /) s. Textbezug INr 92505, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92490,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Königs Mark",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_3288_92490_2ovetrkgbw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Graf Königs Mark",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.562Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "q2uft84p23z33gh"
+    }
+  ]
+}

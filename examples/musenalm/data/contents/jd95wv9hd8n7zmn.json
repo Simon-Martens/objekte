@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Lenz und Liebe« von A. E. Fröhlich INr 54739, Obj 52 /) Photos 54812,01; 54812,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54812,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenz und Liebe / (Seite 168.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Fröhlich",
+  "scans": [
+    "alm_744_54812_01_rhsz8b9hlk.jpg",
+    "alm_744_54812_02_xsta3gq6kx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lenz und Liebe / (Seite 168.)",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.859Z",
+      "agent": "2zdwvvsdgu1m59h",
+      "source_id": "fhghrw7c1tnaguc"
+    }
+  ]
+}

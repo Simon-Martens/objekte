@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 20903, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Was neigen aus der Wolken Ferne, / durch die ein Strahl des Morgens bricht,",
+  "language": [],
+  "musenalm_id": 20910,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erscheinung. / Zu dem Madonnen-Bilde, gemalt und in / Kupfer gestochen von Fleischmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erscheinung. / Zu dem Madonnen-Bilde, gemalt und in / Kupfer gestochen von Fleischmann",
+  "updated": "2002-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.788Z",
+      "agent": "xrm3e2g6mht03kn",
+      "source_id": "lsgy1ls8dcran7n"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Mathilde von Asseburg« von Fr. Lohmann INr 30057, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30058,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Mathilde von Asseburg, Volkssage / von Fr. Lohmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_389_30058_wpkpa6zcce.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Mathilde von Asseburg, Volkssage / von Fr. Lohmann",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.337Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "8wjlvt9zj7cx0wp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.337Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "dum89yzdxao7v7w"
+    }
+  ]
+}

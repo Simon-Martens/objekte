@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 10482, Obj 120)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Zwei Silben hab' ich nur zu geben: / Jedoch die erste faßt den Anfang aller Leben,",
+  "language": [],
+  "musenalm_id": 10483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Charade",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.372Z",
+      "agent": "r6akxiph7cy43x3",
+      "source_id": "qf23s92tyzj3lrg"
+    }
+  ]
+}

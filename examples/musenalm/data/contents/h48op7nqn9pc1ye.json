@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 84122, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Kniee dem Herrn, und ergeuß dein Herz! Ist / dir dieses nicht möglich:",
+  "language": [],
+  "musenalm_id": 84124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Beter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Beter",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.991Z",
+      "agent": "8jkm2mpf22llpf2",
+      "source_id": "gzmot0wx6akys8j"
+    }
+  ]
+}

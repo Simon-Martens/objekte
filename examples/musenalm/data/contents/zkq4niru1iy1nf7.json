@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Die mich an Heilige des Himmels glauben / lehret, / Ein schönes junges Weib, bescheidner noch / als schön,",
+  "language": [],
+  "musenalm_id": 3871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Meister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Meister",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.136Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "cmjyh13ojs7uhme"
+    }
+  ]
+}

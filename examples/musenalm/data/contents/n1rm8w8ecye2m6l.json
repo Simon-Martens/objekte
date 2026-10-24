@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Liebe webt der Täuschung bunten Schleyer, / sie regiert den größten Zauberstab,",
+  "language": [],
+  "musenalm_id": 10101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe webt der Täuschung bunten Schleyer, / sie regiert den größten Zauberstab,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.446Z",
+      "agent": "fby2gdha04397wg",
+      "source_id": "d4yaernqh9yy7qy"
+    }
+  ]
+}

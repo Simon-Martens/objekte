@@ -1,0 +1,45 @@
+{
+  "annotation": "Im Kalendarium paginiert 1. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. s. Textbezug INr 7122, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7084,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr kennt mein Herz, ihr wißt, daß / es ohne Mißtrauen ist. / Carl IX. oder die Bartholomaeus Nacht. / I. Aufz. 2 Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_143_7084_36pdosnvk3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihr kennt mein Herz, ihr wißt, daß / es ohne Mißtrauen ist. / Carl IX. oder die Bartholomaeus Nacht. / I. Aufz. 2 Auftr.",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "957stu1c1r8p5a1"
+    }
+  ]
+}

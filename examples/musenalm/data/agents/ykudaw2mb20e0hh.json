@@ -1,0 +1,301 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.359Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. theol."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Orientalist, Theologe, Philologe",
+        "Theologe, Philologe, Orientalist",
+        "1797-99 Konrektor am Gymnasium Soest; bis 1804 Prorektor in Herford; 1804-11 Kollaborator in Oldenburg, ab 1811 Prof. d. Theol. Univ. Rostock; 1813 nachträgl. zum Dr. theol. promoviert; 1815 Konsistorialrat; ab 1818 Direkt. Rostocker Münzkabinett"
+      ],
+      "dateOfBirth": [
+        "1774-06-25"
+      ],
+      "dateOfDeath": [
+        "1838-04-20"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:42:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116491418/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116491418",
+      "id": "https://d-nb.info/gnd/116491418",
+      "oldAuthorityNumber": [
+        "(DE-588a)116491418",
+        "(DE-588a)100160611"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        }
+      ],
+      "preferredName": "Hartmann, Anton Theodor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Theodor"
+        ],
+        "surname": [
+          "Hartmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4415844-0",
+          "label": "Orientalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Orientalist"
+      ],
+      "publication": [
+        "Früchte des asiatischen Geistes",
+        "Aufklärungen über Asien .... - 1806 - 1807",
+        "Merkwürdige Beilagen zu dem O. G. Tychsen's Verdiensten gewidmeten li*",
+        "Blicke in den Geist des Urchristenthums",
+        "Die Hebräerin am Putztische und als Braut. - 1809 - 1810",
+        "Die enge Verbindung des Alten Testaments mit dem Neuen aus rein bib*",
+        "Oluf Gerhard Tychsen oder Wanderungen durch die manigfaltigsten Gebie*. - 1818 - 1823",
+        "Johann Andreas Eisenmenger und seine jüdischen Gegner ...",
+        "Morgenländische Blumenlese",
+        "Historisch-kritische Forschungen über die Bildung der 5 Bücher Moses *. - s.a."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb165434475"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no99013196"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54901590"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q16635810"
+        },
+        {
+          "collection": {
+            "abbr": "DE-28",
+            "id": "https://cpr.uni-rostock.de",
+            "name": "Catalogus Professorum Rostochiensium (CPR)",
+            "publisher": "Forschungsstelle Universitätsgeschichte Rostock"
+          },
+          "id": "https://cpr.uni-rostock.de/resolve/gnd/116491418"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116491418/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116491418"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anton_Theodor_Hartmann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066776291"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116491418"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116491418.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116491418"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Hartmann, Ant. Theod.",
+        "Hartmann, Antonius Theodorus",
+        "Hartmann, A. Th.",
+        "Hartmann, Anton T."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A. Th."
+          ],
+          "surname": [
+            "Hartmann"
+          ]
+        },
+        {
+          "forename": [
+            "Anton T."
+          ],
+          "surname": [
+            "Hartmann"
+          ]
+        },
+        {
+          "forename": [
+            "Antonius Theodorus"
+          ],
+          "surname": [
+            "Hartmann"
+          ]
+        },
+        {
+          "forename": [
+            "Ant. Theod."
+          ],
+          "surname": [
+            "Hartmann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anton_Theodor_Hartmann",
+          "label": "https://de.wikipedia.org/wiki/Anton_Theodor_Hartmann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:39:57Z",
+    "gnd_query_biographical_data": "1774-1838",
+    "gnd_query_name": "hartmann, anton theodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1077,
+  "name": "Hartmann, Anton Theodor",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 780",
+  "updated": "2026-06-11 13:29:22.809Z",
+  "uri": "https://d-nb.info/gnd/116491418",
+  "editor": ""
+}

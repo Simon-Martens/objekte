@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Flore d'Allemagne 1804 (franz. Ausg. von: Flora, Deutschlands 1804)",
+    "norm": "",
+    "biblio": 100217,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4463,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Palm)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Flore d'Allemagne 1804 (franz. Ausg. von: Flora, Deutschlands 1804)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 133",
+  "responsibility_statement": "Georg Franz Hoffmann",
+  "subtitle_statement": "",
+  "title_statement": "LA FLORE D'ALLEMAGNE / OU / ETRENNES / BOTANIQUES / TOME PREMIER. / NOUVELLE EDTION, REVUE ET AUGMENTÉE / EN DEUX PARTIES. / II. PARTIE CONTENANTE LES CLASS. 14-23. / PAR / FRANÇOIS HOFFMAN / PROF. DE MED. ET DE BOTANIQUE / A L'UNIVERSITÉ DE GOTTINGUE. / à ERLANG 1804. / CHEZ JEAN JACQUES PALM, Libraire. / Et se trouve à PARIS et à STRASBOURG / chez Mr. Amand Koenig; Mess. Treuttel et / Würz; Mess. Levrault, Schoell et Comp. / à LEYDE en Hollande chez Mess. Luchtmanns",
+  "updated": "2026-06-11 10:18:55.629Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "h15e4f4oyk2fvxy"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.385Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.385Z",
+      "agent": "unfjb2prdot2pyl",
+      "source_id": "3mt0jgagftiglxn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "n6riamlzwhhzdiv",
+      "source_id": "b3kwmr9dw0o0ds2"
+    }
+  ]
+}

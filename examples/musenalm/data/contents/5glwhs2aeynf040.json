@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Ich mahl' euch die Holde, ich mahl' euch sie jetzt, / So wie sie mir einst erschienen,",
+  "language": [],
+  "musenalm_id": 94373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Egon Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.629Z",
+      "agent": "8gvoxfhtianvore",
+      "source_id": "kr0o24ckjty3man"
+    }
+  ]
+}

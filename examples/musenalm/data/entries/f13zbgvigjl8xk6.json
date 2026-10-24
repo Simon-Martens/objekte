@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Saat und Ernte, Politische 1847",
+    "norm": "",
+    "biblio": 410908,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-12-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4767,
+  "parallel_title": "",
+  "place_statement": "Grimma (Verlags-Comptoir)",
+  "places": [
+    "fzsj1wa86ivt0tq"
+  ],
+  "preferred_title": "Saat und Ernte, Politische 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Politische / Saat und Ernte des Jahres 1847. / Historisches Taschenbuch / auf das Jahr 1848. / (Einundzwanzig-Bogen-Schrift) / Grimma, / Druck und Verlag des Verlags-Comptoirs",
+  "updated": "2026-06-11 10:18:55.466Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "h1u7lb14o0cwlyg"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "hc0m08c5j8ox9fe",
+      "source_id": "moazg8wbg7jg1qp"
+    }
+  ]
+}

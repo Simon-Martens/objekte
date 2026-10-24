@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Friedel und Mariane nach J. P. Hebel« s. Textbezug INr 63966, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63972,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDEL & MARIANE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Nilson del. Stahlst. v. W. Otto",
+  "scans": [
+    "alm_1054_63972_m51ab5mnes.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDEL & MARIANE",
+  "updated": "2009-05-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.270Z",
+      "agent": "8bb100zizr2ji3a",
+      "source_id": "6kw7wytquq0oy2h"
+    }
+  ]
+}

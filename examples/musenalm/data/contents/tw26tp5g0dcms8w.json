@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung: Schubert del. am ersten Blatt; Bezeichnung: Riepenhausen sculps. am letzten Blatt der Suite. Folgen des Kriegs: Graphik im Kalendarium paginiert 4. s. Textbezug 7208, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7171,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Handel und Gewerbe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. # Riepenhausen sculps.",
+  "scans": [
+    "alm_145_7171_esngflop8q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Handel und Gewerbe",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.258Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "3901yjtdfh8jxk2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.258Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "bcudyw9i69w9ike"
+    }
+  ]
+}

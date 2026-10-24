@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Agrionien für das Jahr 1818 (Sammlung INr 39950, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "487",
+  "incipit_statement": "Als im grauen Heidenthumhe / Pyrrha und Dekaleon, / Zierlich singt Ovid davon",
+  "language": [],
+  "musenalm_id": 39968,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Räthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Räthsel",
+  "updated": "2005-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.158Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "80jbymgb58fzar6"
+    }
+  ]
+}

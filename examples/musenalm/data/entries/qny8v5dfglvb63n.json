@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK, SWB: 1844-1855",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Album des literarischen Vereins in Nürnberg 1845",
+    "norm": "",
+    "biblio": 405405,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4181,
+  "parallel_title": "",
+  "place_statement": "Nürnberg",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Album des literarischen Vereins in Nürnberg 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Album / des / literarischen Vereins / in / Nürnberg / für / 1845. / Nürnberg. / Verlag von Bauer und Raspe. / 1845",
+  "updated": "2026-06-11 10:18:54.846Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "q1tn3it1jxjb0es"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.444Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.444Z",
+      "agent": "0c1qwmkn2tnkdy6",
+      "source_id": "57frbpu7g5k66q0"
+    }
+  ]
+}

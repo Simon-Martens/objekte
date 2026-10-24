@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Aphorismen (Sammlung INr 98606, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Die ungleich zahlreichen Charaktere, die in der neuern Zeit aufgetreten sind, haben einen bedeutenden Einfluß auf die Verurtheilung auch der Sachen geübt.",
+  "language": [],
+  "musenalm_id": 98612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.918Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "bjibctwr5hlo5yh"
+    }
+  ]
+}

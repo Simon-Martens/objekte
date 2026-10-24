@@ -1,0 +1,54 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Indess die niedre Welt, gehüllt in Grauen / Vom trägen Zeitgeist, Nacht und Schlaf verblinden,",
+  "language": [],
+  "musenalm_id": 60588,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. U. CH.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fichte",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.962Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "d4ap2i850quodf9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.962Z",
+      "agent": "qwgxcg99zpa7j4i",
+      "source_id": "sm9dvmko35gnzdj"
+    }
+  ]
+}

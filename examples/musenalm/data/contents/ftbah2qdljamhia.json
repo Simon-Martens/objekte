@@ -1,0 +1,45 @@
+{
+  "annotation": "Jupiter (Sammlung INr 91482, Obj 6) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgende 3 Gedichte INr 91491-91493, Obj 15-17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Die drei siegreichen Söhne des Saturnus theilten nun das alte Reich der Titanen unter sich;",
+  "language": [],
+  "musenalm_id": 91490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gigantenkrieg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gigantenkrieg",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.406Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "dy3ld037blgs42n"
+    }
+  ]
+}

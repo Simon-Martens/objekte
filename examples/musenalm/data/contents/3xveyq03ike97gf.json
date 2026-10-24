@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Wie Erd' und Himmel sich in Ihr umfangen! / Der Augen Sterne bei den Blütenwangen.",
+  "language": [],
+  "musenalm_id": 33486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von der Liebsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von der Liebsten",
+  "updated": "2003-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.681Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "8o7d55gbswbl0rx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25189, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Bei Thann da grünen Triften voll reicher Wiesenflur, / Und lustig rauscht dazwischen die himmelblaue Thur;",
+  "language": [],
+  "musenalm_id": 25181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Lügenfeld / Elsässische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Lügenfeld / Elsässische Sage",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.199Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "dbuwy51lni74os3"
+    }
+  ]
+}

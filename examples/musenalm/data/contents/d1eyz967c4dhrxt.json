@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 8. Illustration zu »Die Söhne des Thales, erster Teil: Die Templer auf Cypern« s. Textbezug 32391, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32373,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Molay. / Im Nahmen Gottes denn, -- / Nehm' ich euch auf zu allen Ordens Wercken",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger Sculps. 1807",
+  "scans": [
+    "alm_447_32373_tz58nc07qg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Molay. / Im Nahmen Gottes denn, -- / Nehm' ich euch auf zu allen Ordens Wercken",
+  "updated": "2003-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.271Z",
+      "agent": "rcmptupq08d0ih1",
+      "source_id": "6jxuddyg405ck2m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.271Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "rn6c8kgn1olqep6"
+    }
+  ]
+}

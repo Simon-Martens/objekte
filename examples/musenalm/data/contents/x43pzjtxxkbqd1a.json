@@ -1,0 +1,46 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20476, Obj 16) s. Graphik INr 20482, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Doch bey allem Sinne für Unabhängigkeit und ländliche Muße, die Horaz unter den biederherzigen Bewohnern",
+  "language": [],
+  "musenalm_id": 20478,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Villa des Mäcenas zu Tivoli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Villa des Mäcenas zu Tivoli",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.895Z",
+      "agent": "lov7zjtttdvp66e",
+      "source_id": "99sihvd0mn62rno"
+    }
+  ]
+}

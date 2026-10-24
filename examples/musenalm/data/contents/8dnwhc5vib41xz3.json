@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Aus des Schlummers treuster Ruh / Wecke dich dieß Lied:",
+  "language": [],
+  "musenalm_id": 8322,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An - - / zu ihrem Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An - - / zu ihrem Geburtstage",
+  "updated": "2000-12-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.270Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "mpwg9314h6drfya"
+    }
+  ]
+}

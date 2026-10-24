@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Von zwei Schwestern, die ich kenne, / Blüht die eine, die ich nenne, / Wie im klaren Sonnenlicht.",
+  "language": [],
+  "musenalm_id": 26529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die eine Schwester",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottwalt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die eine Schwester",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.453Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "o300nnzas6diwjg"
+    }
+  ]
+}

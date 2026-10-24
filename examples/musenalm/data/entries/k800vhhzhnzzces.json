@@ -1,0 +1,78 @@
+{
+  "annotation": "Kurzaufnahme der Titelauflage: Aufgenommen sind die von: Almanach der Heiligen 1788; alm-1230 abweichenden Objekte; als Photos: Umschlag und Titel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 3 SS Vrwrt d Hrsg, S, G, SS 33-224 darin 12 GG 9 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Heiligen [oJ] (Titelauflage: Almanach der Heiligen auf jedes Jahr)",
+    "norm": "~",
+    "biblio": 104455,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3592,
+  "parallel_title": "",
+  "place_statement": "Rom [Leipzig]",
+  "places": [
+    "d7kbujq7399g22j",
+    "81anw8y01wiey0k"
+  ],
+  "preferred_title": "Almanach der Heiligen [oJ] (Titelauflage: Almanach der Heiligen auf jedes Jahr)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; nicht bei L/R; Goed V. 545, 2, 5",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Heiligen / auf jedes Jahr / mit 13 saubern Kupfern und Musik. / Mit Erlaubniß der Obern? / Unabänderlich abgedruckt. / Gedruckt zu Rom / und zu haben in allen Buchhandlungen / Teutschland's",
+  "updated": "2026-06-11 10:18:55.088Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "c45bcvd8r2huuai"
+  ],
+  "contents": [
+    "tvsow0cqj0us7qf",
+    "y286qmby63onvl0",
+    "0v1mw1nvsnv1118",
+    "cypdapo1p3yo43i",
+    "h4042kjjsl6y847"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.266Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.266Z",
+      "agent": "966ytxt7m1p6jd1",
+      "source_id": "j44nq6y0zc9fi8j"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I T, S II G-Verz I-Verz, SS III-XIV G-Verz, 7 GG, SS 1-362",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1860",
+    "norm": "~",
+    "biblio": 106492,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-05-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1068,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1860",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Henninger",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1860 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Aloys Henninger / 45r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2026-06-11 10:18:55.593Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "items": [
+    "l2nye46iozv440v"
+  ],
+  "contents": [
+    "fhhjgj6hyh69sqt",
+    "lovagjbuexzqf2t",
+    "fvdc4d4i02wmodo",
+    "ajh0rvvjdkyzlgk",
+    "1p8hoa4o7994xna",
+    "w1fj3p9s0r5n5ny",
+    "ikqobn4tt1u355f",
+    "1n3ojqr59h8yoxv",
+    "y1hm95rxburld6b",
+    "dbpflu2l2buam73",
+    "i6lji0qr7gpqk08",
+    "hb6bpjmy050ebad",
+    "vk7iivij7at9evt",
+    "gch1bnqui60cmip",
+    "ypwfdiajt6jabzt",
+    "5m044w77t5h8lad",
+    "mhwadxtqkpxsghd",
+    "1pacn7dt6ety2ca",
+    "jesuwja680hoald",
+    "n7xzbk2kbox42gb",
+    "s1kwuwkbqsdv8r9",
+    "s46jnmswovskush",
+    "e2u1kl06sdj8k7r",
+    "nmitef7izzbh4c9",
+    "d4qn8w7tq614c88"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.813Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.813Z",
+      "agent": "6fj9ilu2sqskj9p",
+      "source_id": "cgem5osolovyrgk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.089Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.089Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "xlhwsa7kvrsfetw"
+    }
+  ]
+}

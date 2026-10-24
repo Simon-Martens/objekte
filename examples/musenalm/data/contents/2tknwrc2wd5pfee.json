@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 54401, Obj 69",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Blume, die im Himmelsgarten blühte, / Bist verpflanzt in unsers Lebens Kranz.",
+  "language": [],
+  "musenalm_id": 54402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amalie. / (Mit Musik.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amalie. / (Mit Musik.)",
+  "updated": "2008-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.730Z",
+      "agent": "nj18pm3lt87v37m",
+      "source_id": "3w6fkqsimlyqfnv"
+    }
+  ]
+}

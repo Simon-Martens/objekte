@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ein Blick über das Emmenthal« von G. J. Kuhn INr 53681, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß Brandis im Emmenthal, / vor 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory del. F.Hegi sc.",
+  "scans": [
+    "alm_734_53682_7xiyl33lih.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß Brandis im Emmenthal, / vor 1798",
+  "updated": "2007-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.527Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "5xbnc0pd0pcv4k4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.527Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "9kk4f131cloba4f"
+    }
+  ]
+}

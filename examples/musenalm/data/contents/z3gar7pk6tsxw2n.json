@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Kampflechzend, schon den Fuß im Bügel, / Die Fers' umklirrt vom heißen Sporn,",
+  "language": [],
+  "musenalm_id": 45304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blücher. / (Geschrieben nach Lesung eines Briefe von Blücher an Stein, welcher / beginnt: Ich breche morgen mit meinem ganzen Corps auf, kann / in diesem augenblick nicht vihle Brife schreiben.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blücher. / (Geschrieben nach Lesung eines Briefe von Blücher an Stein, welcher / beginnt: Ich breche morgen mit meinem ganzen Corps auf, kann / in diesem augenblick nicht vihle Brife schreiben.)",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.151Z",
+      "agent": "sv92qni765t0f64",
+      "source_id": "ga2wkosh8lglb8v"
+    }
+  ]
+}

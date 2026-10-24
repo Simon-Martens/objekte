@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Mode Thorheiten« hier, zu »Eine Geister- und Schatzgräbergeschichte« aus: Berlinische Monathsschrift 1784 August, S. 191 /) s. Textbezug INr 70219, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70205,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le Trésor trouvé / Eine Schatz-Gräber Geschichte / ibid. 1784 Aug . 191",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70205_mvyiffueah.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le Trésor trouvé / Eine Schatz-Gräber Geschichte / ibid. 1784 Aug . 191",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.628Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "3kcasqg67u6wdl0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.628Z",
+      "agent": "cj6pzq84zp925pc",
+      "source_id": "hheil34ig7qtj1n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.628Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "kj2szyd5bwtw3wy"
+    }
+  ]
+}

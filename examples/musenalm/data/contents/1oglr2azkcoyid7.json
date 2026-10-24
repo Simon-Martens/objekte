@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 55009, Obj 19) Gedichte (Sammlung INr 55006, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Ueber die Feinde beklagst du dich? / Die gefährlich- / sten Feinde / Liegen in eigner Brust;",
+  "language": [],
+  "musenalm_id": 55011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Rudolf Wyss der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Feinde",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.782Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "jd31cj5aqzitc6b"
+    }
+  ]
+}

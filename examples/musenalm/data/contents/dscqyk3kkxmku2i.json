@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wünsche und Erfüllungen« von F. L. Bührlen INr 29945, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29946,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Wünsche und Erfüllungen. / Eine Erzäh- / lung von Fr. L. Bührlen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_387_29946_sdsgtxl00x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Wünsche und Erfüllungen. / Eine Erzäh- / lung von Fr. L. Bührlen",
+  "updated": "2002-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.440Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "bsuf6rhoipr9uf1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.440Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "u5ld8npdcqxxtxz"
+    }
+  ]
+}

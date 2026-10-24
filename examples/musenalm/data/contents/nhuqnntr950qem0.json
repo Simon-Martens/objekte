@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 81291, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81292,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosenschau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Stahlstich v. Carl Mayer's. Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_1809_81292_9mbcrcwxc1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosenschau",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.724Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "4zuwd7ysjfh6bui"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.724Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "izj2r1tqhfmq4bu"
+    }
+  ]
+}

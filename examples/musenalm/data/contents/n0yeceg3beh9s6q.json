@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 9170 Obj 5) s. Titelportrait INr 9167, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Das Bildniß dieses eben so edlen Menschen als großen Feldherrn hat sehr viel Aehnlichkeit.",
+  "language": [],
+  "musenalm_id": 18725,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moreau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moreau",
+  "updated": "2001-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.853Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "vai7pkb3ccmsy3w"
+    }
+  ]
+}

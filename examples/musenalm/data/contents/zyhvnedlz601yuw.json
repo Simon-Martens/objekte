@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 43930, Obj 6. Illustration zu »Das Soldatenkind« von J. V. Adrian INr 43944, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43929,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Miss Mc. Alpine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Panted by E. Stone Engraved by C. Rolls",
+  "scans": [
+    "alm_591_43929_dw50ahqo4x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Miss Mc. Alpine",
+  "updated": "2006-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.310Z",
+      "agent": "v9uxeb4p9b2c1mo",
+      "source_id": "yg6dsmhxbq8bj20"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Ilias, dich, und dich, Odysee, euch muß man bewundern, / Wenn ihr das Schicksal der Welt, Helden und Menschen / uns zeigt:",
+  "language": [],
+  "musenalm_id": 26212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In die anthologische Sammlung ( Tempe) / des Herrn Prof. Jacobs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In die anthologische Sammlung ( Tempe) / des Herrn Prof. Jacobs",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.262Z",
+      "agent": "ymo6fj9vzc9ufg1",
+      "source_id": "r4k0xgp4m4yahon"
+    }
+  ]
+}

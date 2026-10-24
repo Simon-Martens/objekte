@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jeschurun, TB für Schilderungen und Anklänge aus dem Leben der Juden 1841",
+    "norm": "",
+    "biblio": 407270,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3796,
+  "parallel_title": "",
+  "place_statement": "Leipzig (L. Fort)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jeschurun, TB für Schilderungen und Anklänge aus dem Leben der Juden 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Carl Maien; Siegm. Frankenberg",
+  "subtitle_statement": "",
+  "title_statement": "Jeschurun. / Taschenbuch / für / Schilderungen und Anklänge / aus dem Leben / der Juden. / Auf das Jahr 5601 / israelitischer Zeitrechnung. / Herausgegeben / von / Carl Maien und Siegm. Frankenberg. / Leipzig, 1841. / Verlag von L. Fort",
+  "updated": "2026-06-11 10:18:55.735Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "jztrruj9jwpt0ew"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "hjap8cuowna450l",
+      "source_id": "sm8votlw9kkmezx"
+    }
+  ]
+}

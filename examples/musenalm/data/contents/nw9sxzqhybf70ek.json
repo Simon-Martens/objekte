@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44359, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44354,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. Kaulbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Asher. Gest. v. C. Gonzenbach",
+  "scans": [
+    "alm_603_44354_auh82yqovk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. Kaulbach",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "5q6ebv8kym3mtpt",
+      "source_id": "kr799epte7i5r0f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "c8modz3qb31ely4",
+      "source_id": "maokm5xauwxevk2"
+    }
+  ]
+}

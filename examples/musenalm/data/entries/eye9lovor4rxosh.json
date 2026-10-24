@@ -1,0 +1,104 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, VB, T, S W, S I- Verz, SS III-XXIV G-Verz darin 5 GG, SS 1-468",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Helena 1838",
+    "norm": "~",
+    "biblio": 106550,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1833,
+  "parallel_title": "",
+  "place_statement": "Bunzlau (Appun)",
+  "places": [
+    "0iaibicwu3uxte6"
+  ],
+  "preferred_title": "Helena 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 56; nicht bei L/R",
+  "responsibility_statement": "Leopold Schefer",
+  "subtitle_statement": "",
+  "title_statement": "HELENA / TASCHENBUCH / für / 1838. / Zweiter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "updated": "2026-06-11 10:18:55.649Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "6ieqwwz5fbfzu4s"
+  ],
+  "contents": [
+    "4cyj7tog4xd8fp4",
+    "pa9f8zcpqiy1cc6",
+    "j301wljn52aa4uq",
+    "128sefuma4bdf8h",
+    "z0ajkzktj78pxb8",
+    "yirg9kh6bt2oj3j",
+    "7pj2y3sczphn0bb",
+    "6g7mxax95z0big1",
+    "7t0k35x0i2vjdm1",
+    "di8jg0lgz56nue6",
+    "fzmrxpbn5axqz2r",
+    "bx81h7bvigo85uk",
+    "f8sxt4paw0yyari",
+    "9brh0jy49urkm9q",
+    "8wlv7t42iw2wq2o",
+    "0rb1zpphivohs8t",
+    "owy2rooljx5vz1w",
+    "1xfi8pr8hddhc3e",
+    "xxktmyo6jwudf3f",
+    "9n5qbn4hikti9co",
+    "9gm9xryui6ehfrq",
+    "2krxdhnnh4acxf5",
+    "h8qdl9t9nj2c1wd",
+    "74aznr9n9nlazeh",
+    "b6rlt5kqppv23bk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.479Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.479Z",
+      "agent": "fohx9p9stkubrj5",
+      "source_id": "6adyucpsm0cfu17"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.976Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.976Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "yof2d7ovb3ypgss"
+    }
+  ]
+}

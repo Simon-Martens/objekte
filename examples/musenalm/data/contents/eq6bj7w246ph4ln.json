@@ -1,0 +1,45 @@
+{
+  "annotation": "Scholien zu den Bildern (Sammlung 9204, Obj 9) s. Graphik INr 9198, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Ferd. Hartmann entwarf schon in Rom die Skizze zu diesem Gemälde, das er später in Dresden ausführte,",
+  "language": [],
+  "musenalm_id": 19377,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hebe liebkoset dem Adler des Zeus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hebe liebkoset dem Adler des Zeus",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.701Z",
+      "agent": "7cdnqd525rp9gi5",
+      "source_id": "bc11yrqzutl1dfw"
+    }
+  ]
+}

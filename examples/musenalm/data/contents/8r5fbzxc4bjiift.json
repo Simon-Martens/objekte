@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12. /) Graphik im Kalendarium Dezember. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Zweyte Abtheilung oder Geschichte des siebenjährigen Krieges. Erste Hälfte. 1756-1759.« INr 72381, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72374,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der junge Graf Gisors stirbt in den Armen des / Erbprinzen von Braunschweig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "dessiné par Kimpfel Commencé en Iuin 94 et gravé à l'eau forte jusqu'au 24 Okt 94 par W. Arndt!!! Executé par Meno Haas",
+  "scans": [
+    "alm_830_72374_6ro2dtvthn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der junge Graf Gisors stirbt in den Armen des / Erbprinzen von Braunschweig",
+  "updated": "2008-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.515Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "1twbavgdq42r3yt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.515Z",
+      "agent": "vchcd29ycfa3hgi",
+      "source_id": "6qml138cik7mm5j"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.515Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "d7us8xmz1jca3g0"
+    }
+  ]
+}

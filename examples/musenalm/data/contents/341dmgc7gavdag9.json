@@ -1,0 +1,56 @@
+{
+  "annotation": "3. Erzählungen nach dem Buche de rebus memorandis. (Sammlung INr 76846, Obj 30)  Kleine Erzählungen aus Petrarcas lateinischen Schriften (Sammlung INr 76841, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Der berühmte Dante Allighieri, der, in Hinsicht seines Betragens, wenig beliebt war, weil sein Trotz und seine freimüthige Rede den zarten Ohren und Augen der Großen unserer Zeit nicht schmeichelte,",
+  "language": [],
+  "musenalm_id": 76850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der berühmte Dante Allighieri, der, in Hinsicht seines Betragens, wenig beliebt war, weil sein Trotz und seine freimüthige Rede den zarten Ohren und Augen der Großen unserer Zeit nicht schmeichelte,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.930Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "5x1yrxkccjvhy64"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.930Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "g75ylusefjgr9lr"
+    }
+  ]
+}

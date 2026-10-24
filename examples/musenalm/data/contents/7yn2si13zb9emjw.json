@@ -1,0 +1,45 @@
+{
+  "annotation": "Reseda. Sinnbild der Innigkeit und Häuslichkeit (Sammlung INr 84494, Obj 314)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Dein Duft ist süß und mild / Und ohne Farbenpracht, doch lieblich deine Blüth;",
+  "language": [],
+  "musenalm_id": 84497,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 319,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dein Duft ist süß und mild / Und ohne Farbenpracht, doch lieblich deine Blüth;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.270Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "954zaky32ko6ikq"
+    }
+  ]
+}

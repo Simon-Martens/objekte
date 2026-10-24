@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52018,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CALENDER / der / MUSEN und GRAZIEN / für das Jahr / 1796. / Leipzig zur Messe / bey / Haude u. Spener / von Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schadow. Bolt sc. 1794",
+  "scans": [
+    "alm_15_52018_jfbil23x17.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CALENDER / der / MUSEN und GRAZIEN / für das Jahr / 1796. / Leipzig zur Messe / bey / Haude u. Spener / von Berlin",
+  "updated": "2007-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.650Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "9h255xzcu9yrcun"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.650Z",
+      "agent": "n0oakd9l1ov7den",
+      "source_id": "y7sffh38nz2p7cc"
+    }
+  ]
+}

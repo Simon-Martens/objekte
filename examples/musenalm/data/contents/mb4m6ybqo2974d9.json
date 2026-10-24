@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 177; Alm-177, INr 38451",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Du übertreibst, o Freundinn meiner Jugend, / Den Reitz der Scham und Sittsamkeit,",
+  "language": [],
+  "musenalm_id": 8010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte eines Liebhabers an seine junge Geliebte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bitte eines Liebhabers an seine junge Geliebte",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.146Z",
+      "agent": "t5xduzz1g6d3iy5",
+      "source_id": "0y5htujr9ilptj2"
+    }
+  ]
+}

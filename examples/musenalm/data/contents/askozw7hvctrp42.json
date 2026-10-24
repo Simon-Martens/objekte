@@ -1,0 +1,45 @@
+{
+  "annotation": "§ 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechstes Kapitel. / Die neueste Art, die Wäsche in Tambourin zu zeichnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sechstes Kapitel. / Die neueste Art, die Wäsche in Tambourin zu zeichnen",
+  "updated": "2007-04-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.464Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "qex330j8n7d7df7"
+    }
+  ]
+}

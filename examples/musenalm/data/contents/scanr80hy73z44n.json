@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So wie sich das Ende des achtzehnten Jahrhunderts in Ansehung der politischen Begebenheiten auszeichnet, eben so sehr erhebt es sich gegen die vorigen Jahrhunderte an Merkwürdigkeit in der Forstwirthschaft",
+  "language": [],
+  "musenalm_id": 89319,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verfasser, F. G. Leonhardi, Prof. d. Oekonomie zu Leipzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.840Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "1gb0b7dxfi2tuo6"
+    }
+  ]
+}

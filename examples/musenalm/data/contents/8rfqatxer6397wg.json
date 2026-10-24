@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verlag v. J. D. Sauerländer. H. Felsing impr.] s. Textbezüge INr 44313, 44315; Obj 14, 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44314,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER MUTTER ABENDGEBET",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riedel pinx. T. Engelheart sc.",
+  "scans": [
+    "alm_602_44314_nkpn88riv7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER MUTTER ABENDGEBET",
+  "updated": "2006-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.031Z",
+      "agent": "kmgjs8katc6rqpu",
+      "source_id": "k7pitq97uggzr8w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.031Z",
+      "agent": "8w6n9g0x6dcpwhp",
+      "source_id": "s77xoq6pw53wubp"
+    }
+  ]
+}

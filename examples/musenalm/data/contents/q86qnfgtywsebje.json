@@ -1,0 +1,47 @@
+{
+  "annotation": "Seite 21 der Beilage mit Vertonungen zu »Die Perlenschnur«von Karl v. Holtei INr 109330, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109357,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3551_109357_0ims7p09x7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-04-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.323Z",
+      "agent": "9enp1bdvcfoj1ba",
+      "source_id": "ufn53kr7qpogg93"
+    }
+  ]
+}

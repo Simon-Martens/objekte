@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "In tiefempfundnes Sehnen / Ist aufgelös't mein Herz und meine Sinnen,",
+  "language": [],
+  "musenalm_id": 60702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canzone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. VARNHAGEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Canzone",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.950Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "kkg7ndfb56firf0"
+    }
+  ]
+}

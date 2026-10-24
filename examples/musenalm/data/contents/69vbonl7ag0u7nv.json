@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50776,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gletscher zu Bernina in Bünten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hess del. S. G. f.",
+  "scans": [
+    "alm_688_50776_aw7r80gneb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gletscher zu Bernina in Bünten",
+  "updated": "2007-07-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.808Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "29ex8tp8ip509dz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.808Z",
+      "agent": "pua8u6y6ts6oo5o",
+      "source_id": "m7g5c8o319r4qvh"
+    }
+  ]
+}

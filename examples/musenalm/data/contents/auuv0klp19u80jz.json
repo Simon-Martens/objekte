@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der »Parodie auf Schillers Resignation« (INr 130386, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Auch ich war in Arkadien geboren, / Auch mir hat die Natur / An meiner Wiege Freude zugeschworen; / Auch ich war in Arkadien geboren, / Doch Thränen gab der kurze Lenz mir nur.",
+  "language": [],
+  "musenalm_id": 130385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXII. / Resignation, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXII. / Resignation, / von / Schiller",
+  "updated": "2009-12-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.068Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "oa7096gj1rblcf3"
+    }
+  ]
+}

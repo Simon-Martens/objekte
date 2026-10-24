@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Silesia 1838",
+    "norm": "",
+    "biblio": 404893,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2619,
+  "parallel_title": "",
+  "place_statement": "Brieg (Schwarz)",
+  "places": [
+    "s3annaospphg74s"
+  ],
+  "preferred_title": "Silesia 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "SILESIA. / Taschenbuch / auf das Jahr 1838. / Der Unterhaltung geweiht. / Brieg, in Commission bei C. Schwarz",
+  "updated": "2026-06-11 10:18:55.409Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "jbl2mfgvr9nhume"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.636Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.636Z",
+      "agent": "0i52rqm491p66k2",
+      "source_id": "xx6q7ynb5akd357"
+    }
+  ]
+}

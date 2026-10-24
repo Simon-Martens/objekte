@@ -1,0 +1,67 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Regenten-Almanach, Genealogischer Allgemeiner 1800",
+    "norm": "",
+    "biblio": 405406,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3943,
+  "parallel_title": "",
+  "place_statement": "Weimar (Industrie-Comptoir)",
+  "places": [
+    "lvwi5tdquuz526c"
+  ],
+  "preferred_title": "Regenten-Almanach, Genealogischer Allgemeiner 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. C. Gaspari",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeiner / Genealogischer / Regenten-Almanach / von Europa / für / das Jahr 1800. / Herausgegeben / von / A. C. Gaspari. / Weimar, 1800. / im Verlage des Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:55.948Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "3aasazkzp6kbvjl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.046Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.046Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "axpx65n8mntuwk1"
+    }
+  ]
+}

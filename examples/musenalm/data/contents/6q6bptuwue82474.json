@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 120976, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Wenn ich mich je vergleichen möchte / Dingen, / So wollt' ich meinem Spiegel mich ver- / gleichen,",
+  "language": [],
+  "musenalm_id": 120978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Spiegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. C. Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Spiegel",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.768Z",
+      "agent": "komn1vrjagnnzo8",
+      "source_id": "254h0jh84rsee7b"
+    }
+  ]
+}

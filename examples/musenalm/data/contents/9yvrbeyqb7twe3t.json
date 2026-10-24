@@ -1,0 +1,45 @@
+{
+  "annotation": "Fliegende Blätter (Sammlung INr 55899, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Verstand kommt nicht vor Jahren. Um das Eigenthümliche der Erscheinungen des Lebens zu begreifen, muß man das Allgemeine in ihnen zuvor erkennen.",
+  "language": [],
+  "musenalm_id": 55908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verstand kommt nicht vor Jahren. Um das Eigenthümliche der Erscheinungen des Lebens zu begreifen, muß man das Allgemeine in ihnen zuvor erkennen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.586Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "fngywxt8zloumgp"
+    }
+  ]
+}

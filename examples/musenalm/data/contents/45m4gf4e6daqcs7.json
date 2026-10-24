@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Aegyptische Nächte in der Landkutsche« von Salvatorello INr 20906, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20901,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aegyptische Nächte. No. II",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. S. Langer sc.",
+  "scans": [
+    "alm_276_20901_a52j485drm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aegyptische Nächte. No. II",
+  "updated": "2002-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.128Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "hj8iyq47w620wpg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.128Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "t2cobnnsasrph9t"
+    }
+  ]
+}

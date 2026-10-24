@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Hört, ihr Quiriten, insgesammt / Die wunderneue Mähre! / Von wannen euer Name stammt,",
+  "language": [],
+  "musenalm_id": 24430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Ballade / vom Raube der Sabinerinnen / und der neuentdeckten Stadt Quirium. / (Gedichtet im Jahre 1827.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Ballade / vom Raube der Sabinerinnen / und der neuentdeckten Stadt Quirium. / (Gedichtet im Jahre 1827.)",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.137Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "rrduj19m3q2i4u4"
+    }
+  ]
+}

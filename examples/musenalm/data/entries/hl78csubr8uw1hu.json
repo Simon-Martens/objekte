@@ -1,0 +1,78 @@
+{
+  "annotation": "Vermutl. erschienen: Bändchen 1-4",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde der Declamation (Leipzig) Bd 4 [o.J.]",
+    "norm": "",
+    "biblio": 406594,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-11-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4075,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Franz)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde der Declamation (Leipzig) Bd 4 [o.J.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 118; nicht bei L/R",
+  "responsibility_statement": "C. F. Solbrig",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde der Declamation. / Enthält / eine Auswahl von Gedichten / ernsten und launigen Inhalts / nach / den Regeln der Rede-Kunst / bearbeitet. / Herausgegeben / von / C. F. Solbrig. / Viertes Bändchen. / Leipzig, / bei Carl Friedrich Franz",
+  "updated": "2026-06-11 10:18:54.711Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "0wsomzecndm1997"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.328Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.328Z",
+      "agent": "etqeiq0g3gswd8j",
+      "source_id": "i6qnuejssmsu68h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.873Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.873Z",
+      "agent": "oi7nzik00egzcl5",
+      "source_id": "zwb9dfq620p5rwx"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Was die Welt viel Unrecht thut, / Richtend nach dem Scheine!",
+  "language": [],
+  "musenalm_id": 68204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schein trügt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kreuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schein trügt",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.226Z",
+      "agent": "nwzqfwyixmokyap",
+      "source_id": "yldlxbdtdnit60g"
+    }
+  ]
+}

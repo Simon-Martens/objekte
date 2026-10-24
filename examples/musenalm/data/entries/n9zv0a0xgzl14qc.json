@@ -1,0 +1,69 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die Geschichte, Topographie und Statistik Frankenlands 1798",
+    "norm": "",
+    "biblio": 405607,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2605,
+  "parallel_title": "",
+  "place_statement": "Frankfurt und Leipzig; Erlangen (Palm)",
+  "places": [
+    "wj30yx71okckkk5",
+    "inpa0koig1pzpcp",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für die Geschichte, Topographie und Statistik Frankenlands 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 123; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / Geschichte, Topographie / und / Statistik / Frankenlands, / besonders dessen / Hauptstadt Würzburg. / 1798. / Frankfurt und Leipzig, / in Commission bey Johann Jacob Palm / in Erlangen",
+  "updated": "2026-06-11 10:18:55.805Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "ybmcyqjifst6r9o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "n6riamlzwhhzdiv",
+      "source_id": "n2259qu3hkm17o5"
+    }
+  ]
+}

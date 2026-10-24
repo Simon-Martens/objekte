@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Ritornelle (Sammlung INr 1636, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Die Liebste sah ich heut ein Aeuglein machen, / Mir war's als ob ich's deutlich hörte sprechen,",
+  "language": [],
+  "musenalm_id": 19206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebste sah ich heut ein Aeuglein machen, / Mir war's als ob ich's deutlich hörte sprechen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.843Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "z6g46xsfukn35yy"
+    }
+  ]
+}

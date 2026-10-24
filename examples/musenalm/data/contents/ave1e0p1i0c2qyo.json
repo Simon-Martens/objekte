@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Die Zeit war schaurig kalt, sie sah mit Angst und Pein / Ins blumenvolle Land der Poesie hinein.",
+  "language": [],
+  "musenalm_id": 129646,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Clemens Brentano / de la Roche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Passy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Clemens Brentano / de la Roche",
+  "updated": "2022-02-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.045Z",
+      "agent": "gzy7khu1txc8z5v",
+      "source_id": "qtoq7rkcprr0rji"
+    }
+  ]
+}

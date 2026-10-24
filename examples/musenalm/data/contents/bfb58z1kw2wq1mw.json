@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "So wäre ich Euch denn endlich entschlüpft - dem Himmel sei Dank! es durfte so nicht länger bleiben,",
+  "language": [],
+  "musenalm_id": 441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Briefe eines genialen Frauenzimmers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Minna S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Briefe eines genialen Frauenzimmers",
+  "updated": "2000-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.817Z",
+      "agent": "6bba95qi5qffiw1",
+      "source_id": "eb60xleo8ahj9vw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Was sind, mein Jordan! Körper? Was ist / mein Kreil! / ein Geist?",
+  "language": [],
+  "musenalm_id": 3295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erdenweisheit. / An Jordan und Kreil. / Gesungen am 13 Mai 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lor. Leop. Haschka",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erdenweisheit. / An Jordan und Kreil. / Gesungen am 13 Mai 1785",
+  "updated": "2000-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.033Z",
+      "agent": "j63e4oki0d4f74a",
+      "source_id": "f6a50en0f9wbd0v"
+    }
+  ]
+}

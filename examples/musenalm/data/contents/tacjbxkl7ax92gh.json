@@ -1,0 +1,43 @@
+{
+  "annotation": "s. vorstehende Tabelle INr 96196, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Anfertigung vorstehenden Verzeichnisses ist mit mehr Mühe verknüpft gewesen, als man bey dem ersten Anblick desselben vermuthen sollte.",
+  "language": [],
+  "musenalm_id": 96197,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. v. Oesfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkung",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.402Z",
+      "agent": "lnn52xz2952audn",
+      "source_id": "qjf5oro8r6spmj6"
+    }
+  ]
+}

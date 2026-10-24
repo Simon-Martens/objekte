@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 10. s. Textbezug INr 32547, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter-Kleidung / Herr Lainez als Rodrigue i. d. Opera Chimene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel fec.",
+  "scans": [
+    "alm_451_32548_hskrvbumhn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ritter-Kleidung / Herr Lainez als Rodrigue i. d. Opera Chimene",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.607Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "1vkm2nc2fv9hsaw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.607Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "xrj91zlo3w717qd"
+    }
+  ]
+}

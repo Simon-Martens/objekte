@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Das Geständniß« von W. G. Becker INr 3383, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geständniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_85_3384_3s26xan0ln.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Geständniß",
+  "updated": "2000-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.017Z",
+      "agent": "ubitdekwc4vpg28",
+      "source_id": "75vrbxmro9of9ma"
+    }
+  ]
+}

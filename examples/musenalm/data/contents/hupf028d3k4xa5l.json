@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 7. /) s. Textbezug INr 32541, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32542,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idealische Kleidung. / Mlle. Raucourt als Medea",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel fec.",
+  "scans": [
+    "alm_451_32542_uq1txyseon.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Idealische Kleidung. / Mlle. Raucourt als Medea",
+  "updated": "2003-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.405Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "f93fsiha7yumfbt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.405Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "k4rdb25sxr7swsk"
+    }
+  ]
+}

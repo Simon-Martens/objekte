@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83926,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bacharach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Maron gest. v. Schulin",
+  "scans": [
+    "alm_878_83926_bn3bmmy1pj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bacharach",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.147Z",
+      "agent": "upsrb82zs34rpbh",
+      "source_id": "7vvbyohdnr9c2lq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.147Z",
+      "agent": "blk0bwibfqnyvz6",
+      "source_id": "ea1cv9vx6cc5p3k"
+    }
+  ]
+}

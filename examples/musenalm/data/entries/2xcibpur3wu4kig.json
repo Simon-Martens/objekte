@@ -1,0 +1,96 @@
+{
+  "annotation": "s.a. die übersetzte Ausgabe: »Taschenbuch der Franken, enthaltend die Geschichte der französischen Revolution, von Hrn. Rabaut de St. Etienne Mitglied der constituirenden Nationalversammlung, mit der Constitutions-Akte. Aus dem Französischen übersezt. Mit Kupfern. Straßburg 1792. bey Johann Georg Treuttel, zu Paris, bey Onfroi und Denne«; alm-3775: dort andere Anordnung der Beiträge und Neustich der Graphiken /) sowie: HISTORISCHES TASCHENBUCH von Rabaut de St. Etienne für das Jahr 1793 das erste der Fränkischen Republick STRASBURG bey J. G. Treuttel; alm-4320",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS XI-XXVI, ar: SS 1-257 darin 5 GG, ar1: S 1 zT, SS 2-93, SS 94-108 Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach historique de la Revolution Francoise 1792",
+    "norm": "~",
+    "biblio": 201003,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3776,
+  "parallel_title": "",
+  "place_statement": "Paris (Onfroy); Straßburg (Treuttel)",
+  "places": [
+    "du5enlw6l3e30d0",
+    "1q8z8aa12br1w4q"
+  ],
+  "preferred_title": "Almanach historique de la Revolution Francoise 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; G-C 275, 1042",
+  "responsibility_statement": "M. J. R. Rabaut",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / HISTORIQUE / DE LA RÉVOLUTION FRANÇOISE, / POUR L'ANNÉE 1792, / RÉDIGÉ / Par M. J. P. RABAUT. / On y a joint l'Acte constitutionnel des Francois / avec le Discours d'acceptation du Roi. / Ouvrage orné de gravures d'après les / dessins de Moreau. / A PARIS, / Chez ONFROY, Libraire, rue S.-Victor, No. 11. / A STRASSBOURG, / Chez J. C. TREUTTEL, Libraire. / De l'Imprimerie de DIDOT L'AÎNÉ",
+  "updated": "2026-06-11 10:18:54.935Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "5eaxxutyca02ils"
+  ],
+  "contents": [
+    "d80l6u36j1lw6k3",
+    "9jgs0hkenj3dndg",
+    "nx9o922i96t3i4k",
+    "h1x9ulr8rf9n8z6",
+    "bmzbtcriouflcyp",
+    "ezx3nv7vhrrdvau",
+    "n6illyuxjivm65i",
+    "svcn31kfn299cmh",
+    "smycbromll71nzp",
+    "vgxjhzk0z2mt7gt",
+    "85f9j86g0loau4t",
+    "tc156yhbaf5lq9n",
+    "81mu8cee7nl42id",
+    "jjgc7i8vk1gj685",
+    "uw18k5z5ldoi5sv",
+    "adewwemxeltp2h3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.116Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.116Z",
+      "agent": "t7ajjadq5waj1sk",
+      "source_id": "recr3l9jm9baqg1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.165Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.165Z",
+      "agent": "1zu0y53dr2n5y9v",
+      "source_id": "td7gtod92675nsg"
+    }
+  ]
+}

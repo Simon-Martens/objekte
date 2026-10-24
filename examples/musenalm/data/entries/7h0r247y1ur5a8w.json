@@ -1,0 +1,102 @@
+{
+  "annotation": "<div>§§ Titelgraphik fehlt, Kalendarium unvollständig, § einige Monatskupfer fehlen $§ vielleicht fehlen drei Modekupfer, § Deckel verso fehlt; § Blatt mit SS 135/136 fehlt; Textverlust: Gedichte 3-6</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, § UG, VB, §,T, 3 GG, 5  BB Kal § darin 2 GG, 4 BB Tabb, nT, B, SS 1-138 §, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1844",
+    "norm": "",
+    "biblio": 405879,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3355,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [],
+  "preferred_title": "Veilchen, Das 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / VEILCHEN. / Ein Taschenbuch / für / FREUNDE / einer gemüthlichen und erheiternden / LECTÜRE. / Sieben und zwanzigster Jahrgang. / 1844. / Wien / bei Franz Riedl's k. k. Hof- und bürgerl. Buchbinders, / sel. Wittwe &amp; Sohn, / im Schottenhofe No. 136",
+  "updated": "2026-06-18 08:49:01.105Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "8sobuxqvr18lftk"
+  ],
+  "contents": [
+    "x1bqjt8z1gaxbl8",
+    "pwd86ol8gmozgub",
+    "rijwq4c3928x34x",
+    "q1plyivvcwzgohx",
+    "y0ggyu75gjjxtb3",
+    "yi7ejybokbbskqn",
+    "xdsae522kzfh0t2",
+    "ox00quwzihajzzn",
+    "u67ouo2vea48i7h",
+    "zqwd5aus7arz52c",
+    "jt9e7vug97huiyy",
+    "6qk61dallildn7g",
+    "kzq5icmmjfkfufi",
+    "zjmh4m9ecw9q9xm",
+    "du7oinkkx20pmc0",
+    "c424vmqp4sqd6q1",
+    "01b1ze0zgz1qeuv",
+    "wo3ih2skzp28r3j",
+    "a2qq7cvkxba5iy6",
+    "hlpshx06y1liycs",
+    "s38mklw4xvistsf",
+    "3v02ng55a37wmlf",
+    "wm7hqvjcelb5ft3",
+    "lyndae9axfhatgg",
+    "cc0u9810zduec7s",
+    "0wpoakb9dthmnru",
+    "0jw280wmn616q2p",
+    "asr3j8s36df6dik",
+    "482xk5z8ppzwag3",
+    "sbv8zvso5szrphb",
+    "dr2jql4fl8pjfz0",
+    "nmvax0fugcbaqgw",
+    "3aagrk3m4sigh5u",
+    "t51608e9kre66vd",
+    "tc6o5oucpw9vslg",
+    "4cgd0g28jvg4b2r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.204Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-18 08:49:01.108Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "g3oa2mrpbyfi956"
+    }
+  ]
+}

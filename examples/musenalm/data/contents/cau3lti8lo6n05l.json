@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug »Des Schottländers Brautschau« von J. V. Adrian INr 43977, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43979,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ellen Eskdale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Printed by H. Richter Engraved by H. Cook",
+  "scans": [
+    "alm_593_43979_9rt1h367nl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ellen Eskdale",
+  "updated": "2006-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.303Z",
+      "agent": "2p87lmr62wiucvw",
+      "source_id": "95dgi3i31ebfc9h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.303Z",
+      "agent": "li9bs4mqvtf7drh",
+      "source_id": "apzh2kvx5q858f3"
+    }
+  ]
+}

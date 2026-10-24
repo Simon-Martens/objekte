@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Freiwerber wider Willen. Ein Lustspiel in zwölf Scenen (INr 29862, Obj 5) s. Graphik INr 29866, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Ha, Dorchen, ist die Luft hübsch rein / Hier bin ich, komm nur schnell! Ich warte, bin allein;",
+  "language": [],
+  "musenalm_id": 29865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweite Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweite Scene",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.371Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "5z8k8venkur2m19"
+    }
+  ]
+}

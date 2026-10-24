@@ -3913,3 +3913,177 @@ async fn every_embedded_table_has_independent_column_choices() {
     assert_eq!(state.editor.get("groups", "g").unwrap().revision, revision);
     assert_eq!(std::fs::read(root.join(".editor/ui.json")).unwrap(), config);
 }
+#[tokio::test]
+async fn project_selection_isolates_data_drafts_and_csrf() {
+    use structured_editor_core::projects::Projects;
+    let (temp, original, cookie, _) = fixture().await;
+    fn copy(from: &std::path::Path, to: &std::path::Path) {
+        std::fs::create_dir_all(to).unwrap();
+        for file in std::fs::read_dir(from).unwrap() {
+            let file = file.unwrap();
+            let target = to.join(file.file_name());
+            if file.file_type().unwrap().is_dir() {
+                copy(&file.path(), &target);
+            } else {
+                std::fs::copy(file.path(), target).unwrap();
+            }
+        }
+    }
+    copy(&temp.path().join("project"), &temp.path().join("second"));
+    std::fs::write(
+        temp.path().join("second/data/notes/one.json"),
+        r#"{"name":"Second project record","count":2}"#,
+    )
+    .unwrap();
+    let path = temp.path().join("projects.json");
+    std::fs::write(
+        &path,
+        json!({"default":"first","projects":[
+            {"id":"first","name":"First project","path":"project"},
+            {"id":"second","name":"Second project","path":"second"}
+        ]})
+        .to_string(),
+    )
+    .unwrap();
+    let assets = original.assets.clone();
+    drop(original);
+    let server = crate::projects::ProjectServer::open(
+        Projects::load(&path).unwrap(),
+        &temp.path().join("state"),
+        assets,
+        true,
+    )
+    .await
+    .unwrap();
+    let first = server.default_state();
+    let mut headers = HeaderMap::new();
+    headers.insert("cookie", cookie.parse().unwrap());
+    let actor = first.auth.actor(&headers).await.unwrap();
+    let second_actor = first.auth.scoped("second").actor(&headers).await.unwrap();
+    assert_ne!(actor.csrf, second_actor.csrf);
+    let draft = first
+        .sessions
+        .lock()
+        .unwrap()
+        .start(&first.editor, &actor, "notes", Some("one"))
+        .unwrap();
+    let app = server.router();
+    async fn call(
+        app: &axum::Router,
+        method: &str,
+        url: &str,
+        cookie: &str,
+        body: String,
+        project: Option<&str>,
+    ) -> axum::response::Response {
+        let mut request = Request::builder()
+            .method(method)
+            .uri(url)
+            .header("cookie", cookie)
+            .header("content-type", "application/x-www-form-urlencoded");
+        if let Some(project) = project {
+            request = request.header("x-objekte-project", project);
+        }
+        app.clone()
+            .oneshot(request.body(Body::from(body)).unwrap())
+            .await
+            .unwrap()
+    }
+    async fn body(response: axum::response::Response) -> String {
+        String::from_utf8(
+            response
+                .into_body()
+                .collect()
+                .await
+                .unwrap()
+                .to_bytes()
+                .to_vec(),
+        )
+        .unwrap()
+    }
+    let html = body(call(&app, "GET", "/", &cookie, String::new(), None).await).await;
+    assert!(
+        html.contains("id=\"project-select\"")
+            && html.contains("First project")
+            && html.contains("Second project")
+    );
+    assert!(!html.contains("Second project record"));
+    let response = call(
+        &app,
+        "POST",
+        "/projects/select",
+        &cookie,
+        format!("project=second&csrf={}", actor.csrf),
+        None,
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::SEE_OTHER);
+    assert!(
+        response.headers()["set-cookie"]
+            .to_str()
+            .unwrap()
+            .contains("HttpOnly; SameSite=Strict")
+    );
+    let switched = format!("{cookie}; objekte_project=second");
+    let html = body(call(&app, "GET", "/", &switched, String::new(), None).await).await;
+    assert!(html.contains("Second project record"));
+    assert!(html.contains("value=\"second\" selected"));
+    // Even without JavaScript, a stale form cannot act in the newly selected project.
+    let response = call(
+        &app,
+        "POST",
+        "/collections/notes/records/one/edit-sessions",
+        &switched,
+        format!("csrf={}", actor.csrf),
+        None,
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::FORBIDDEN);
+    // Draft IDs never resolve in the other project's registry.
+    let response = call(
+        &app,
+        "GET",
+        &format!("/edit-sessions/{}", draft.id),
+        &switched,
+        String::new(),
+        None,
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::NOT_FOUND);
+    let response = call(&app, "GET", "/", &switched, String::new(), Some("first")).await;
+    assert_eq!(response.status(), StatusCode::CONFLICT);
+    let response = call(
+        &app,
+        "POST",
+        "/projects/select",
+        &switched,
+        format!("project=../../etc&csrf={}", second_actor.csrf),
+        None,
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::BAD_REQUEST);
+    let response = call(
+        &app,
+        "POST",
+        "/projects/select",
+        &switched,
+        format!("project=first&csrf={}", second_actor.csrf),
+        None,
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::SEE_OTHER);
+    let response = call(
+        &app,
+        "GET",
+        &format!("/edit-sessions/{}", draft.id),
+        &cookie,
+        String::new(),
+        Some("first"),
+    )
+    .await;
+    assert_eq!(response.status(), StatusCode::OK);
+    assert_eq!(
+        first.editor.get("notes", "one").unwrap().value["name"],
+        "First"
+    );
+}

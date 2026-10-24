@@ -1,0 +1,84 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 6 GG, SS 1–486, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1841",
+    "norm": "~",
+    "biblio": 106736,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2483,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1841. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.471Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "twx2tyt56kn6cjf"
+  ],
+  "contents": [
+    "5387rf543lsq8hs",
+    "b8ssufrcu4yttgj",
+    "9l94vdv7mo0widt",
+    "wrgiaz9bl1ugupa",
+    "8i44cpuwef39er5",
+    "9fqoz3qj1roddjb",
+    "z27w6cqraldu8tk",
+    "e2rppx7nwu6kxrz",
+    "g7eromqsgmyahzb",
+    "sqisyuoehjb9br5",
+    "ikdw9lykkqd99zw",
+    "sglre5dxcr5mfk5",
+    "d9mib4cszhr3uej",
+    "uiuyf1wxcddir1g",
+    "xdzh4qywannl98n",
+    "zy5ljiuzb9djc2r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "wrysyn6wtzleeno"
+    }
+  ]
+}

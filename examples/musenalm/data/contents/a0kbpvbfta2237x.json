@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Glücklich, wen auf Schweizer-Flur / Unschuld, Freyheit und Natur,",
+  "language": [],
+  "musenalm_id": 17792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In einem Bauernhause / des Canton Bern, den 12. May 1786",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. v. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In einem Bauernhause / des Canton Bern, den 12. May 1786",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.546Z",
+      "agent": "8qf8v6035kmy0ob",
+      "source_id": "mk57cqtaylvov71"
+    }
+  ]
+}

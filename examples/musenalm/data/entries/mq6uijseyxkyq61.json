@@ -1,0 +1,78 @@
+{
+  "annotation": "KVK mit Standorten zwischen 1817 und 1878; Lübeck (Schmidt), Lübeck (Schmidt u. Sohn); Hrsg. für einige Jgg: Johann Heinrich Sahn (1767-1835)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Lübeckischer 1823",
+    "norm": "",
+    "biblio": 411319,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-11-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4827,
+  "parallel_title": "",
+  "place_statement": "Lübeck (Schmidt)",
+  "places": [
+    "9hlnoi7oavbn5np"
+  ],
+  "preferred_title": "Taschenkalender, Lübeckischer 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. H. Sahn",
+  "subtitle_statement": "",
+  "title_statement": "Lübeckischer / Taschen-Kalender / auf / das Jahr / 1823. / Von / J. H. Sahn, / Lehrer der Schiffahrtskunde. / Lübeck. / Bey G. C. Schmidt",
+  "updated": "2026-06-11 10:18:55.235Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "items": [
+    "9i0ktk41y069tn1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.431Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.431Z",
+      "agent": "lpm72imjaybslg9",
+      "source_id": "at810u4xhek5sjl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "is9nc7qv76i3cjj",
+      "source_id": "ihx8b2nta2frt4h"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Titelgraphik INr 111408, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Du stehst und sinnst, und blickst in ferne Weite / So ernst und still - was ist dir dort erschienen?",
+  "language": [],
+  "musenalm_id": 111413,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.242Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "gopc24lkwx62ya0"
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "annotation": "<div>KVK: Landesbibliothekenverbund Österreich/Südtirol: Jgg 1795-1833; ab Jg 1805: Toilettenkalender für Damen; Jgg 1832, 1833: Toilettenalmanach für Damen /) bei K 162: Toilette-Kalender für Damen 1815 und 1822. /) etliche Beiträge sind übernommen in: Taschen KALENDER für / DAMEN 1841. Wien, bei Franz Jos. Mechtler in der Grünangergasse Nr. 835; alm-4586</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG,   BB Kal darin 12 SS Tabb 12 GG S Tab , ar: S 1 T,  S 2 I-Verz, SS 3-36, ar1: SS 1-8 Tab, BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toilettenkalender für Frauenzimmer (Wien) 1805",
+    "norm": "~",
+    "biblio": 405824,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3293,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Toilettenkalender für Frauenzimmer (Wien) 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Toiletten / KALENDER / für / DAMEN / 1805. / Wien bey J. Grämmer Buchb. / in der Wollzeile No. 829",
+  "updated": "2026-07-16 09:45:29.372Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "v68bw5vfc2ib35a"
+  ],
+  "contents": [
+    "t74wrv9isc7d6jo",
+    "mj3sq0xjicqs7l6",
+    "o22nwuct6iib7me",
+    "7awn57iftgqfwp4",
+    "uocasq3hiiqcrnv",
+    "7x2ocur2ppjb1ps",
+    "xqr6lwq9mfbbloa",
+    "ho0s628o7ijt0re",
+    "6zrkiayketk1o3k",
+    "dif8n0ah1oixtxy",
+    "977uy0cg1oky9px",
+    "79eras65igc0zum",
+    "7y2zo5yvngcwbjj",
+    "8u97szg4ggd4b79",
+    "wfxomrdx43pc02l",
+    "4r0iju2s3k8byqy",
+    "ed3px8pfursnxby",
+    "old8t1yqgygp8tq",
+    "d4l6ctxr4xqgl4d",
+    "3b0rzegoe280to7",
+    "lfyfh8r6efqzuqu",
+    "1c7a7lqm20xdukl",
+    "765dahhdtiqn7mp",
+    "s3epwgsf8as79ep",
+    "i7g034jbwtco1ca",
+    "bsi0b5gkug2qyz3",
+    "2k7i5mfmupiznl1",
+    "ig3vubwjh5z4sjp",
+    "75yqjaq9ph96utk",
+    "cbi843teydxh72v",
+    "y1bt4v6y8bv9ot1",
+    "7t95ml3y2pni7ov",
+    "190xai30t5og5zi",
+    "gplhjg6n5jw2j9c",
+    "xkohp32by7l24aq",
+    "gr50x1h6outsbfp",
+    "42meo9osyr8kkho",
+    "nptg7fvodgk2ajy",
+    "ofgiu2osfb5u35e",
+    "mhopxdy9y8vv4qv",
+    "dgh1iwjpqywv332",
+    "hb3uw5eryks7gmd",
+    "alypf4ds5dqucr3",
+    "e9tm499ctcaracx",
+    "17q7haw0n698ni2",
+    "56ilngvk24n7mv0",
+    "qdcgl6chu5g2yxe",
+    "tdr6z51zqeohivy",
+    "z9lmfdlg9ateqpp",
+    "ppcob8gu0rzl2j6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.928Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-16 09:45:29.376Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "4wx25iox565xnwh"
+    }
+  ]
+}

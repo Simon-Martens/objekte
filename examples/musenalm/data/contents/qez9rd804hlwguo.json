@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 49248, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zählen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. Schule sc.",
+  "scans": [
+    "alm_675_49249_9g8l56myxc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Zählen",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.733Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9mytxf321ne3pqu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.733Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "l53t88ukhti7319"
+    }
+  ]
+}

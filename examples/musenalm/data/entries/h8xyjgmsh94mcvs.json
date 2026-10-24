@@ -1,0 +1,78 @@
+{
+  "annotation": "KVK: 1791-1796. Erscheinungsverlauf unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Mädchenwerth und Mädchenglück 1783",
+    "norm": "",
+    "biblio": 409376,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-04-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4370,
+  "parallel_title": "",
+  "place_statement": "Winterthur (Steiner)",
+  "places": [
+    "hpyzutncspbaexg"
+  ],
+  "preferred_title": "Mädchenwerth und Mädchenglück 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Mädchenwerth / und / Mädchenglük. / Neujahrsgeschenk / an / Meine Schülerinnen. / La vertu seule rend aimable. / Erstes Bändchen. / Winterthur, / Bey Heinrich Steiner und Compagnie. / 1783",
+  "updated": "2026-06-11 10:18:55.926Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "tnm3wpmfo1ajltm"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.158Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.158Z",
+      "agent": "5iw0h7sulh23cdo",
+      "source_id": "afedl3trgedkkvr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.374Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.374Z",
+      "agent": "rel7cpgcy0cce01",
+      "source_id": "kkvyang2ib33c81"
+    }
+  ]
+}

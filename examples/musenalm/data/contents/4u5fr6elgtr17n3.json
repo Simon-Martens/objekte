@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Feenreigen« von Matthisson INr 1189, Obj 12 (Photos alm-33-8695,01; alm-33-8695,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8695,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feenreigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_33_8695_01_0xw5dt4tt9.jpg",
+    "alm_33_8695_02_1ytmdph2ce.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Feenreigen",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.303Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "50msdhppxt28xkw"
+    }
+  ]
+}

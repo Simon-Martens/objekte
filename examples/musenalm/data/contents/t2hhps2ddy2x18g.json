@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 14558-14461, Obj 14-17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.612Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "nicnrasfnn9hb3d"
+    }
+  ]
+}

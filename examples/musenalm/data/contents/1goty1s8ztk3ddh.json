@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Trüber Schleier der Luft, der uns den golde- / nen Tag raubt,",
+  "language": [],
+  "musenalm_id": 946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Luft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Luft",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.895Z",
+      "agent": "stasese2l43xq94",
+      "source_id": "5m0x2yl6qjses2v"
+    }
+  ]
+}

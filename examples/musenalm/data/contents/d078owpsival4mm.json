@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Wer rasselt in eherner Rüstung daher? / Wer trägt den furchtbaren Todesspeer?",
+  "language": [],
+  "musenalm_id": 66016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräfin von Spanheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stork",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräfin von Spanheim",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.295Z",
+      "agent": "s7de32zgkxgyhex",
+      "source_id": "620tapo51oxmxbo"
+    }
+  ]
+}

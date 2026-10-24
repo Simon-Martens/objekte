@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "In meines Herzens Grunde, / Du heller Edelstein, / Funkelt all Zeit und Stunde",
+  "language": [],
+  "musenalm_id": 15317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "BONAVENTURA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.659Z",
+      "agent": "2nf8rafl09q6rn4",
+      "source_id": "a0euwdkkml41gl5"
+    }
+  ]
+}

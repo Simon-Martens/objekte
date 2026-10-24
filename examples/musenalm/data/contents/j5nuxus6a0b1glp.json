@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung aus: Gallerie zu La Motte Fouqué's »Held des Nordens« (Sammlung INr 20985, Obj 7)\ns. Textbezug INr 20998, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20997,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kraka. Ja wenn du sichre Rückkehr mir verheiß'st / So komm ich gern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Wottawa # F. Wagner sc.",
+  "scans": [
+    "alm_278_20997_pazpxoplhd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kraka. Ja wenn du sichre Rückkehr mir verheiß'st / So komm ich gern",
+  "updated": "2002-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.862Z",
+      "agent": "zcahh3ez21pnltp",
+      "source_id": "5cih6kag6kvzzn9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.862Z",
+      "agent": "sd23pd99eo8r456",
+      "source_id": "e36j81csvrtpn8h"
+    }
+  ]
+}

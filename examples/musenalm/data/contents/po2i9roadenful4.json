@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik vor dem Kalendarium paginiert 1. Illustration zu »Die Wahlverwandschaften« [1. Teil, 9. Kapitel]  von J. W. von Goethe, Tübingen 1809; s. Textbezug INr 43256, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goethe's Wahlverwandschaften. / 1r. Thl. 9s. Cap.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voltz del. Portmann sc.",
+  "scans": [
+    "alm_567_43265_i7lszmmdyn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goethe's Wahlverwandschaften. / 1r. Thl. 9s. Cap.",
+  "updated": "2006-04-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.106Z",
+      "agent": "9jdjix2kojsx6en",
+      "source_id": "0merje5z9awrije"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.106Z",
+      "agent": "dtwggxcbl5w7fng",
+      "source_id": "lia79nw6d5fku8v"
+    }
+  ]
+}

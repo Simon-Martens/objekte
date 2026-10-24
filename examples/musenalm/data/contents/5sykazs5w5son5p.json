@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / für / die neuste Geschichte / Fünfter Jahrgang / 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vogel sc.",
+  "scans": [
+    "alm_195_9109_yft7zv1m4d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / die neuste Geschichte / Fünfter Jahrgang / 1799",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.994Z",
+      "agent": "k5mzhsnsldwkcu7",
+      "source_id": "aqg8mbxxd3y4nfl"
+    }
+  ]
+}

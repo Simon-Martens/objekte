@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Als in freundlichen Gestalten, / Mild vergessend ihren Stand,",
+  "language": [],
+  "musenalm_id": 84492,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 314,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pomeranzenbaum. / Bild der Trefflichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pomeranzenbaum. / Bild der Trefflichkeit",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.269Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "dzvcun4em2r19o9"
+    }
+  ]
+}

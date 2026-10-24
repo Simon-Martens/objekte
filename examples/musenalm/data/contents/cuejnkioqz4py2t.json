@@ -1,0 +1,45 @@
+{
+  "annotation": "Träume (Sammlung INr 34564, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Eine weite Königshalle that sich auf vor meinen / Blicken / Und den König auf dem Throne sah ich grollen finstern / Blickes,",
+  "language": [],
+  "musenalm_id": 34571,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das wunderliche Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das wunderliche Lied",
+  "updated": "2003-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.431Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "zv0zvh9ca2bhsou"
+    }
+  ]
+}

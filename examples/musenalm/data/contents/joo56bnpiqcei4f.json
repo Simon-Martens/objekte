@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Habt Ihr mich denn nun auch Alle wohl verstanden? / Ja, ganz gewiß.",
+  "language": [],
+  "musenalm_id": 127560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dissonanzen, / oder: / Heut vor fünfunfzwanzig Jahren. / Lustspiel in drei Akten, / von / Heinrich Smidt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dissonanzen, / oder: / Heut vor fünfunfzwanzig Jahren. / Lustspiel in drei Akten, / von / Heinrich Smidt.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.945Z",
+      "agent": "p5nbyct99xa1658",
+      "source_id": "hh5s8m0tdi0euq6"
+    }
+  ]
+}

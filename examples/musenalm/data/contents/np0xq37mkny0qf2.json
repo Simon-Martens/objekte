@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Seht ihr die Heere brausend wogen, / Wie Sturmesfluth auf hohem Meer,",
+  "language": [],
+  "musenalm_id": 92415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / heilige Augenblick. / Im November 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Aloys Weißenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / heilige Augenblick. / Im November 1813",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.541Z",
+      "agent": "dh3tm3lh6b5ehoz",
+      "source_id": "cy35x718c3xa4ye"
+    }
+  ]
+}

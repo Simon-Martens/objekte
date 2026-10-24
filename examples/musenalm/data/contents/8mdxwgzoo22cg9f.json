@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 44537-44539, Obj 27-29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Sagen / aus / dem Berchtesgadener Land",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. J. Englerth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Sagen / aus / dem Berchtesgadener Land",
+  "updated": "2006-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.341Z",
+      "agent": "3otjq4rpoe162xd",
+      "source_id": "wi2759n3yhx8v1x"
+    }
+  ]
+}

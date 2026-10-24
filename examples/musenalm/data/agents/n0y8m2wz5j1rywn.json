@@ -1,0 +1,546 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.399Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10137130-5",
+          "label": "Königliche Hofkapelle (Stuttgart)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Instrumental- und Theorieunterricht in der Benediktiner-Lateinschule Zwiefalten, 1799 Jurastudium in Freiburg, 1801 in der Schweiz, 1804 als Lehrer und Pianist in Wien, 1811 Opernerfolg in Stuttgart, 1812 dort Hofkapellmeister, 1817 in gleicher Position in Donaueschingen, seit 1822 Kapellmeister an verschiedenen Wiener Theatern, 1840 städtischer Musikdirektor in Köln, zahlreiche Konzertreisen, schrieb Opern, Oratorien, Kirchenmusik, Lieder, Hymnen, (Männer-)Chöre",
+        "Conradin ist die selbstgebrauchte Namensform seit 1799"
+      ],
+      "dateOfBirth": [
+        "1782-11-22"
+      ],
+      "dateOfDeath": [
+        "1849-12-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie aus eigenem Besitz."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/ConradinKreutzer.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/ConradinKreutzer.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:ConradinKreutzer.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-19T08:50:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11871600X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anna"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ostheim"
+          ]
+        },
+        {
+          "forename": [
+            "Marie"
+          ],
+          "surname": [
+            "Kreutzer"
+          ]
+        },
+        {
+          "forename": [
+            "Anna"
+          ],
+          "surname": [
+            "Huber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/136523935",
+          "label": "Kreutzer, Cäcilie"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "11871600X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/136523935",
+          "label": "Kreutzer, Cäcilie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11871600X",
+      "oldAuthorityNumber": [
+        "(DE-588a)186216963",
+        "(DE-588a)126529329",
+        "(DE-101c)310124743",
+        "(DE-588a)134434749",
+        "(DE-588c)4097066-8",
+        "(DE-588a)11871600X"
+      ],
+      "periodOfActivity": [
+        "1833-1842"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4068268-7",
+          "label": "Zwiefalten"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012715-1",
+          "label": "Donaueschingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018272-1",
+          "label": "Freiburg im Breisgau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4038841-4",
+          "label": "Meßkirch"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050042-1",
+          "label": "Riga"
+        }
+      ],
+      "preferredName": "Kreutzer, Conradin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Conradin"
+        ],
+        "surname": [
+          "Kreutzer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        }
+      ],
+      "publication": [
+        "Moses Sendung",
+        "Hoffman, François B.: Le Brigand",
+        "Feodora",
+        "Der Taucher",
+        "Das Nachtlager zu Granada",
+        "Der Gang zum Eisenhammer",
+        "[Sonaten, Fl Kl op. 35]",
+        "Cordelia",
+        "Alimon und Zaide",
+        "Melusina"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Conrad"
+          ],
+          "surname": [
+            "Kreutzer"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13896167t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82153070"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/kreutzer-conradi-urspr-conradus/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/10033659"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q458732"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=11871600X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11871600X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Conradin_Kreutzer"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Conradin_Kreutzer"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Conradin_Kreutzer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Conradin_Kreutzer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108694121"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11871600X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11871600X"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Kreutzer_Conrad_1780_1849.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11871600X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11871600X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11871600X"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/6A798BEB109B4FEEB35CBE0EEEE90359"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11871600X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kreuzer",
+        "Kreuzer, Conrad",
+        "Kreuzer, Konradin",
+        "Kreutzer, Konradin",
+        "Kreuzer, Konrad",
+        "Kreutzer, C.",
+        "Kreuzer, Conradin",
+        "Creutzer, Conradin",
+        "Kreutzer, Konrad",
+        "Kreutzer, Conrad"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Conradin"
+          ],
+          "surname": [
+            "Kreuzer"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad"
+          ],
+          "surname": [
+            "Kreuzer"
+          ]
+        },
+        {
+          "forename": [
+            "Konradin"
+          ],
+          "surname": [
+            "Kreuzer"
+          ]
+        },
+        {
+          "forename": [
+            "Konradin"
+          ],
+          "surname": [
+            "Kreutzer"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad"
+          ],
+          "surname": [
+            "Kreuzer"
+          ]
+        },
+        {
+          "forename": [
+            "Conrad"
+          ],
+          "surname": [
+            "Kreutzer"
+          ]
+        },
+        {
+          "personalName": [
+            "Kreuzer"
+          ]
+        },
+        {
+          "forename": [
+            "Konrad"
+          ],
+          "surname": [
+            "Kreutzer"
+          ]
+        },
+        {
+          "forename": [
+            "Conradin"
+          ],
+          "surname": [
+            "Creutzer"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Kreutzer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Conradin_Kreutzer",
+          "label": "https://de.wikipedia.org/wiki/Conradin_Kreutzer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:00:12Z",
+    "gnd_query_biographical_data": "1780-1849",
+    "gnd_query_name": "kreutzer, konradin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1484,
+  "name": "Kreutzer, Konradin",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XVII, 145",
+  "updated": "2026-06-11 13:29:23.367Z",
+  "uri": "https://d-nb.info/gnd/11871600X",
+  "editor": ""
+}

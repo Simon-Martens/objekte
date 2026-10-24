@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Nummeriert 6. /) Graphik im Kalendarium Juni /) Illustration zu »Schwabens Schicksale im spanischen Erbfolgekriege. Eine historische Skizze« INr 82004, Obj 33 /) s.a. Textbezug INr 81996, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88892,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Augsburgs Schreckensnacht den / 8. December 1703",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. Weber inv. J. P. Laminit sc.",
+  "scans": [
+    "alm_2010_88892_4j8vkxyqbc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Augsburgs Schreckensnacht den / 8. December 1703",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.132Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "11gxp9kkio9e92d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.132Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "r5ith46purket4v"
+    }
+  ]
+}

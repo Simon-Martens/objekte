@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, SS I-XII darin 5 GG, T, B G-Verz I-Verz, SS 1-280",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gedenke Mein 1842",
+    "norm": "~",
+    "biblio": 200676,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1799,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Pfautsch u. Comp.)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Gedenke Mein 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 99",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gedenke Mein! / Taschenbuch / für / 1842. / Eilfter Jahrgang. / Mit sechs Kupfer- und Stahlstichen. / Wien und Leipzig. / Verlag von Pfautsch & Compagnie. / Zu beziehen von allen Buchhandlungen des In- und Auslandes",
+  "updated": "2026-06-11 10:18:55.636Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "g7xfum72ujzbq5o"
+  ],
+  "contents": [
+    "yyyvy4p4hwai4px",
+    "g2rkhmmozh0h2rs",
+    "opy85c6tnwzkgj5",
+    "pcskgso3rnwzd1x",
+    "i42yo4fh94yf6ec",
+    "kyzfp6pqxbhq65s",
+    "3mj7gtbskzfqs2t",
+    "b33imm7hdhxqcm4",
+    "wu5sfu4uqwokeys",
+    "io80ri50i0xjt0q",
+    "bx9xhz2p530q805",
+    "8d2dqqy1rwgv4e9",
+    "bjs2juiwagk3xdt",
+    "wkez6e8fse6sdhq",
+    "bn2c85lf8o00xi4",
+    "pg1b0ltpizzptby",
+    "ianl0nfpi1heqo2",
+    "wmyzeqo17eg7c5n",
+    "stygig6345p32iw",
+    "bimttg5szxp2ps1",
+    "v3gbggg6d9lrtrt",
+    "78tq0v7r9zsik5u",
+    "02mv44z7fnz1c3o",
+    "wx94wsog25kjo9c",
+    "iqc1x2bpv7bbemg",
+    "vb5a8m0snaegwbx",
+    "e5eutifiqm1u8yz",
+    "3ss9xfvpzgwnm91",
+    "ix9s2ttdfg497tx",
+    "kkptbqyi14eebez",
+    "lctayoss6361xlb",
+    "z5dcvfho8jpgjy8",
+    "px27o03etnmqb54",
+    "blfbrb396v9cadm",
+    "3rtyizqoijtoqqv",
+    "z741fznx315lcgv",
+    "r2umgmz0d6aw20k",
+    "hfbpqs571bo56yb",
+    "chaywei8sys2avy",
+    "fauomi4n77mr1f3",
+    "002mj6ne5pjg4o0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.130Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.130Z",
+      "agent": "u4t2m1i1755p4j1",
+      "source_id": "2wm9f69ztqdmb98"
+    }
+  ]
+}

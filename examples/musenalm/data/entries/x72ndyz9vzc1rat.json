@@ -1,0 +1,122 @@
+{
+  "annotation": "§ nur die ersten drei Seiten Blatt des Kalendariums vorhanden; die Monatsblätter sind herausgerissen, Monatskupfer vollständig /) im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 GG, B G-Verz, S, 3 SS Kal § darin 12 GG, SS 1-36, 21 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Toilettenkalender für Frauenzimmer (Wien) 1796",
+    "norm": "~",
+    "biblio": 405816,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3285,
+  "parallel_title": "",
+  "place_statement": "Wien (Grämmer)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Toilettenkalender für Frauenzimmer (Wien) 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Toiletten-Kalender / für / Frauenzimmer / 1796 / Wien bey Joseph Grämmer",
+  "updated": "2026-06-11 10:18:54.966Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "qadg7yu01rcnihu"
+  ],
+  "contents": [
+    "y5etva4n2sw3lh2",
+    "27ptvxtnt89o3da",
+    "ku70piisozheifn",
+    "q4az1i9mipc3ncx",
+    "99873boqigm9wfo",
+    "iwezxpefyf3m473",
+    "uq0le00vvm0hn0m",
+    "nupbcf69zuwckco",
+    "hdjggg2eexwguqa",
+    "l8xra43epme3tsa",
+    "60g6vnl72hunqqs",
+    "17h1sw8316cdwls",
+    "38wk1f0j6coqmmt",
+    "3bopxz6c0cl50dr",
+    "17wowpm13vhu9ii",
+    "wwhsnw1wuw45b5p",
+    "71ownxf7lesmfsp",
+    "netp7uwe0kkcrfm",
+    "wsl5npi4pg6i9lw",
+    "fpxikfkk3ipyv5m",
+    "orsebrljh2iwjem",
+    "01vnlvlhzesz2el",
+    "98ph0ci01g3wcjw",
+    "bjm9rtw7hy55ih8",
+    "x68h1klrog37smi",
+    "xdjgqfzm6dlbbzj",
+    "o7u2g87bm11dtzn",
+    "cb3ayiyi3c6qq4y",
+    "iq53byv9kpqxkk7",
+    "e354bl4i96g4qes",
+    "c2h4z1c7uxgq8xr",
+    "plskh9j8owqop8z",
+    "5vmce6ph5tpdsa7",
+    "ugupdlp5xw82dpf",
+    "zsehes5vtiyegvo",
+    "m7oxl5qjj81405f",
+    "3mi2hev71wbudc2",
+    "7t706cfsv0qlmq2",
+    "l5sard6p4517els",
+    "c65ovhpc9ovf0xv",
+    "lmdjuv24zffho0l",
+    "z4lixnkuvg292fz",
+    "k5q824d386a8lyn",
+    "zmtw8846nzv2mij",
+    "nqtq7kk3pwwyhd6",
+    "lpdetxopdyx75da",
+    "9dpsev459k8jb50",
+    "eim1pt83hnw9r6t",
+    "d3sg01b5y2ystwj",
+    "lcvnv1u0518whz0",
+    "w24fnoq6m1mv6gt",
+    "92vvase77spu8pg",
+    "qk1p7w62apc6ps0",
+    "e6aoglx12ikjfnt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.929Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.929Z",
+      "agent": "39bz4chv06szaab",
+      "source_id": "av92d5rvjenvu5b"
+    }
+  ]
+}

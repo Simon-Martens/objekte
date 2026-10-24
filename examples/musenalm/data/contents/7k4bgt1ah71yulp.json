@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. G-Verz: »Männliche Altersstufen in einer Auswahl von Bildern nach berühmten Meistern« INr 103542, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103543,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor als Knabe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "n. Pompejo Battoni. C. Roth lith. Lith. v. T. Malté",
+  "scans": [
+    "alm_3420_103543_wik1epjcqo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor als Knabe #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.986Z",
+      "agent": "x2h3hsll3k2fyzb",
+      "source_id": "iuwjzh371d0yfv1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 23 Rätseln INr 40699-40721, Obj 65-87",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "525",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40698,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Agrionien / für das Jahr 1825 / gesammelt / von / Theodor Hell",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Agrionien / für das Jahr 1825 / gesammelt / von / Theodor Hell",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.799Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "qj0epygl5jbuedj"
+    }
+  ]
+}

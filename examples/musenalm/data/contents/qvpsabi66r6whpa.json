@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Übersetzung INr 66578, Obj 30 als Beigabe zu »Standhafte Liebe« von P. L. Bunsen INr  66561, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Fissus erat tenui rima quam duxerat olim / Cum fieret paries domui utrique",
+  "language": [],
+  "musenalm_id": 66580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fissus erat tenui rima quam duxerat olim / Cum fieret paries domui utrique…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ovid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.931Z",
+      "agent": "1v47d45gg201l59",
+      "source_id": "s1p6dtjs0qc5g3t"
+    }
+  ]
+}

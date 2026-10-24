@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Meistertrunk« von J. N. Vogl INr 116094, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116078,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER MEISTERTRUNK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hasslwander del. I. Krepp sc.",
+  "scans": [
+    "alm_3211_116078_9wwtcg75q2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER MEISTERTRUNK",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.415Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "tpck9puieve62jf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.415Z",
+      "agent": "rb0is2za5c4lggc",
+      "source_id": "x0nn75cy6bcoqnw"
+    }
+  ]
+}

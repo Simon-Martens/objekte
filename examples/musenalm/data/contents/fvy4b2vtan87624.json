@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Des Lebens stillen Geist und seine Wonnestunden / Verdank' ich, gute Kinder, euch: / In eurem Arm hab' ich ein Königreich, / Der Liebe höchsten - Preis gefunden;",
+  "language": [],
+  "musenalm_id": 72794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / An / meine Kinder / Eine / poetische Epistel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / An / meine Kinder / Eine / poetische Epistel",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.753Z",
+      "agent": "byawwvreucy8ohr",
+      "source_id": "y1rprttd8j81q6e"
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "annotation": "2. Titel: Mahlerische STREIFZÜGE durch die interessantesten Gegenden UM WIEN Viertes Bändchen. WIEN , 1808. Im Verlage bey Anton Doll",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, T, T, S 1 nT,SS 3-4 Vwrt d. Hrsg, SS 5-260 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde schöner vaterländischer Gegenden 1808",
+    "norm": "~",
+    "biblio": 408143,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-09-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4024,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Freunde schöner vaterländischer Gegenden 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 148",
+  "responsibility_statement": "Max. Fischel",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / FREUNDE / schöner vaterländischer / GEGENDEN. / Vierter Jahrgang. / Wien, 1808. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:54.722Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "xpm2ywar5lr0p6z"
+  ],
+  "contents": [
+    "bab4fcmiu1iro3z",
+    "e94rktq1l18okxj",
+    "vyjv1wot87qjisb",
+    "3kin7d4eiw5qcl8",
+    "9a19slhxk7oucnr",
+    "fun5cbc0jkhx5yh",
+    "y2pzl6ivm01pkg0",
+    "1tj9k4qgp72kdp2",
+    "sowjtzje1fdq30t",
+    "rvseptuen52s19z",
+    "4escvkm7h7ic67o",
+    "2qb99hnnsqe45sr",
+    "c956m2rq8qq07fe",
+    "ag2xmcsjnj1jd4q",
+    "pzcigrptt7v7sa6",
+    "1emulmia2fevy04"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.736Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.736Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "k54gc3qujr9i81k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.325Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.325Z",
+      "agent": "9fm6ody20z4gtke",
+      "source_id": "obbt1ot9nvfh83q"
+    }
+  ]
+}

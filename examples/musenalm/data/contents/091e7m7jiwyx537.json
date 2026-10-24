@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Der ist zu schwer, der andre fällt ins Leichte, / Den strengen Ernst hier müßte man noch würzen,",
+  "language": [],
+  "musenalm_id": 15243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Ideal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Ideal",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.625Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "lnjmkk6ivasdd43"
+    }
+  ]
+}

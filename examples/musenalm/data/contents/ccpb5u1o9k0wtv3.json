@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 126. /) Illustration zu »Aegid Prinz von Bretagne. Nach D'Arnaud« INr 46790, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. Geyser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Geyser sc.",
+  "scans": [
+    "alm_631_46792_l7fuvqsitu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.239Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "8n4gvhsrge0lw5y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.239Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "s9k693zg5pqn4i7"
+    }
+  ]
+}

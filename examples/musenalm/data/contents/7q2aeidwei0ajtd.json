@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 7. /) Graphik im Kalendarium Juli /) s. Textbezug INr 88290, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88260,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kunst Kenntnis / Connoissance des Arts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki sculps.",
+  "scans": [
+    "alm_154_88260_9kbsca9kpu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kunst Kenntnis / Connoissance des Arts",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.258Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "lc934gh5lv183ja"
+    }
+  ]
+}

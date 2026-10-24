@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüten aus dem Reiche der Flora (Sammlung INr 82451, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Kleine Blümchen, ihr gelben, bereitet ein duftendes Lager. / Hier für die zarten Frau'n, wie's euer Name entspricht",
+  "language": [],
+  "musenalm_id": 84267,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Frauenbettstroh (Gallium verum)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Muth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Frauenbettstroh (Gallium verum)",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.058Z",
+      "agent": "cuv25mgj45dpxdp",
+      "source_id": "71rpdrps2789t39"
+    }
+  ]
+}

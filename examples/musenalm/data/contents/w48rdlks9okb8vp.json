@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Ritornelle (Sammlung INr 1636, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Blick' um dich, und am Weh der Welt dich weide, / Wie Männerwangen werden bleich vor Liebe,",
+  "language": [],
+  "musenalm_id": 19158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blick' um dich, und am Weh der Welt dich weide, / Wie Männerwangen werden bleich vor Liebe,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.770Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "f7dsq7hgcoza24h"
+    }
+  ]
+}

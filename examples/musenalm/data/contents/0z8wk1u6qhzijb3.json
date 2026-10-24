@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachdichtung von Psalm 19 s. a. Nachdichtung INr 34996, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Die Himmel sprechen laut von Gottes Ehren. / Das Firnament macht seine Werke kund.",
+  "language": [],
+  "musenalm_id": 34997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ebenderselbe Psalm. / Nach der Vulgata",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ebenderselbe Psalm. / Nach der Vulgata",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.734Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "hoiohw2h2v0atuz"
+    }
+  ]
+}

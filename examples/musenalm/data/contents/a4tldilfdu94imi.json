@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte von Friedrich Koelle (Sammlung INr 49117, Obj 145)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Der guten alten Amme Mähren / Horcht er, ein Kind, so gerne zu,",
+  "language": [],
+  "musenalm_id": 49119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängerjugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Koelle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängerjugend",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.610Z",
+      "agent": "c98kgeq0jg98qoh",
+      "source_id": "znjbxywap1zl9l1"
+    }
+  ]
+}

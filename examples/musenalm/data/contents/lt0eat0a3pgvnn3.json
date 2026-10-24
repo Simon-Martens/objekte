@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Gedicht mit biogr. u. bibliogr. Hinweisen zu Jérémie-Jacques Oberlin (1735-1807)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Ewig in dem Kampfe mit dem Leben / Zieht der Tod auf nachtumhüllter Bahn,",
+  "language": [],
+  "musenalm_id": 23873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Oberlins Grabe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Oberlins Grabe #",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.174Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "m8bxjj9vsd2uvxo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# an der Bezeichnung: Weimar, den 30. April 1821. /) mit einer Einleitung s. INr 59738, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Ihr wertestes Schreiben, theuerster Herr und Freund, hätte mich beinahe erschreckt; es fand mich zwischen mehreren durch's Frühjahr aufgeschlossenen Mineralschränken, eben in Betrachtung von Pflanzenresten der Urwelt,",
+  "language": [],
+  "musenalm_id": 59739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Ein Brief Goethe's. Aus dem Nachlasse des Grafen Brühl. / (Mitgetheilt von Hofrath Teichmann.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. v. Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Ein Brief Goethe's. Aus dem Nachlasse des Grafen Brühl. / (Mitgetheilt von Hofrath Teichmann.)]",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.877Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "hyejgb3jrvi8tjm"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Singen möchte' ich ein Lied von der freudigen / Feier des Herbstes, / Wie das friedliche Volk sie begeht im Sue- / vischen Lande. / Allemannia, dir hat Mutter Natur der Ge- / schenke / Viele verlieh'n!",
+  "language": [],
+  "musenalm_id": 72934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Herbstfeier / Ein Sittengemählde / in / neun Gesängen / von / C. L. Neuffer. / 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Herbstfeier / Ein Sittengemählde / in / neun Gesängen / von / C. L. Neuffer. / 1802",
+  "updated": "2010-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.733Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "gic3tvgyne5zqwz"
+    }
+  ]
+}

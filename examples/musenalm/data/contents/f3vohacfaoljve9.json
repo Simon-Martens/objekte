@@ -1,0 +1,43 @@
+{
+  "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es ist nicht Sprache noth den Bildern, / Die klar, auch ohne Wort und Klang,",
+  "language": [],
+  "musenalm_id": 29394,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.584Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "owj3vp2zv0a0yhh"
+    }
+  ]
+}

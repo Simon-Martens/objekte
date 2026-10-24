@@ -1,0 +1,564 @@
+{
+  "annotation": "",
+  "biographical_data": "1609-1640",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.325Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. med."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Barockdichter, auch Liederdichter; Arzt; Hofjunker; Moskau- und Persienreisender"
+      ],
+      "dateOfBirth": [
+        "1609-10-05"
+      ],
+      "dateOfDeath": [
+        "1640-04-02"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "unknown, author of photo unknown"
+          ],
+          "creditText": [
+            "copperplate from XVII century \"Teütsche Poemata\", 1642; via http://www.utlib.ee/ekollekt/eeva/files/pilt/17-311.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Paul%20Fleming.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Paul%20Fleming.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Paul%20Fleming.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T11:03:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118533908/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Matthias"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1058559230",
+          "label": "Flemming, Abraham"
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "forename": [
+            "Ursula"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "forename": [
+            "Dorothea"
+          ],
+          "surname": [
+            "Müller"
+          ]
+        },
+        {
+          "forename": [
+            "Sabina"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-EE",
+          "label": "Estland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118533908",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1058559230",
+          "label": "Flemming, Abraham"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118533908",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4017505-4",
+        "(DE-588a)118533908"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4074118-7",
+          "label": "Leiden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4076684-6",
+          "label": "Reval"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4440677-0",
+          "label": "Hartenstein (Landkreis Zwickau)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Fleming, Paul",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Paul"
+        ],
+        "surname": [
+          "Fleming"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4215617-8",
+          "label": "Kirchenlieddichter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "publication": [
+        "Epigrammata Latina",
+        "Geist- und Weltliche Poëmata",
+        "Gedichte",
+        "Pontischer Gedichten",
+        "Davids Bußpsalme, und Manasse, des Königs Juda Gebet aller zu Babel ..",
+        "Erlesene Gedichte",
+        "Ausgewählte Dichtungen",
+        "Teütsche Poemata. - s.a.",
+        "Klagegedichte uber das vnschüldigste Leiden und Todt unseres Erlösers ..",
+        "Rubella, sive Suaviorum liber"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11956936t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84092085"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/fleming-paul/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9855662"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q77418"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118533908/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Paul_Fleming_(poet)"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Paul_Fleming"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Paul_Fleming"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Paul_Fleming_%28poet%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110208401"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118533908"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1630_fleming"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118533908"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118533908.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118533908.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118533908"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118533908"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Flemming, Paull",
+        "P. F.",
+        "P. Fl.",
+        "Flemingus, Paulus",
+        "P. F. V. H.",
+        "Flemming, Paul",
+        "Flemingius Hartenstein, Paulus",
+        "Flemming, Paulus",
+        "Flemich, Paul",
+        "M. P. F. V. H.",
+        "Fleming von Hartenstein, Paull",
+        "Fläming, Paul",
+        "Flemigk, Paul",
+        "Flemmingius, Paullus",
+        "Flämmig, Paul"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "P. Fl."
+          ]
+        },
+        {
+          "forename": [
+            "Paulus"
+          ],
+          "surname": [
+            "Flemingius Hartenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flämmig"
+          ]
+        },
+        {
+          "personalName": [
+            "P. F."
+          ]
+        },
+        {
+          "forename": [
+            "Paull"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "personalName": [
+            "M. P. F. V. H."
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "forename": [
+            "Paullus"
+          ],
+          "surname": [
+            "Flemmingius"
+          ]
+        },
+        {
+          "forename": [
+            "Paull"
+          ],
+          "surname": [
+            "Fleming von Hartenstein"
+          ]
+        },
+        {
+          "forename": [
+            "Paulus"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flemigk"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flemich"
+          ]
+        },
+        {
+          "personalName": [
+            "P. F. V. H."
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Flemming"
+          ]
+        },
+        {
+          "forename": [
+            "Paulus"
+          ],
+          "surname": [
+            "Flemingus"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Fläming"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Paul_Fleming",
+          "label": "https://de.wikipedia.org/wiki/Paul_Fleming"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:23:15Z",
+    "gnd_query_biographical_data": "1609-1640",
+    "gnd_query_name": "fleming, paul"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 738,
+  "name": "Fleming, Paul",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed III, 58",
+  "updated": "2026-06-11 13:29:22.285Z",
+  "uri": "https://d-nb.info/gnd/118533908",
+  "editor": ""
+}

@@ -1,0 +1,484 @@
+{
+  "annotation": "",
+  "biographical_data": "1713-1768",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/129194131",
+          "label": "Draper, Elizabeth"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Englischer Schriftsteller, Journalist und Pfarrer, geboren und teilweise aufgewachsen in Irland, lebte 1762-1764 in Frankreich, auch Reisen durch Frankreich und Italien",
+        "Engl. Schriftsteller in der Zeit der Aufklärung und Vicar (Pfarrer) der Anglikanischen Kirche"
+      ],
+      "dateOfBirth": [
+        "1713-11-24"
+      ],
+      "dateOfDeath": [
+        "1768-03-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joshua Reynolds (died 1792)"
+          ],
+          "creditText": [
+            "one or more third parties have made copyright claims against Wikimedia Commons in relation to the work from which this is sourced or a purely mechanical reproduction thereof. This may be due to recognition of the \"sweat of the brow\" doctrine, allowing works to be eligible for protection through skill and labour, and not purely by originality as is the case in the United States (where this website is hosted). These claims may or may not be valid in all jurisdictions. As such, use of this image in the jurisdiction of the claimant or other countries may be regarded as copyright infringement. Please see Commons:When to use the PD-Art tag for more information."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Laurence%20Sterne%20by%20Sir%20Joshua%20Reynolds.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Laurence%20Sterne%20by%20Sir%20Joshua%20Reynolds.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Laurence%20Sterne%20by%20Sir%20Joshua%20Reynolds.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/185799698",
+        "https://d-nb.info/gnd/186459645"
+      ],
+      "describedBy": {
+        "dateModified": "2025-09-23T16:16:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11861794X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Roger"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IE",
+          "label": "Irland"
+        }
+      ],
+      "gndIdentifier": "11861794X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11861794X",
+      "oldAuthorityNumber": [
+        "(DE-588a)126982473",
+        "(DE-588a)186459645",
+        "(DE-588a)185799698",
+        "(DE-588c)4057361-8",
+        "(DE-588)186459645",
+        "(DE-588a)131190253",
+        "(DE-588)185799698",
+        "(DE-588a)11861794X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1042745684",
+          "label": "Clonmel"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Sterne, Laurence",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Laurence"
+        ],
+        "surname": [
+          "Sterne"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1091567549",
+          "label": "Yorick"
+        }
+      ],
+      "publication": [
+        "The works of L. St.",
+        "Journal to Eliza",
+        "Works",
+        "Das Leben und die Meinungen des Herrn Tristram Schandy",
+        "Voyage sentimental",
+        "Tristram Schandis Leben und Meynungen",
+        "A sentimental journey, through France and Italy",
+        "The life and opinions of Tristram Shandy",
+        "Oeuvres",
+        "Letters to his friends"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79073616"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/61552699"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q218960"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11861794X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185799698"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186459645"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Laurence_Sterne"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Laurence_Sterne"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Laurence_Sterne"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Laurence_Sterne"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000446461697"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11861794X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11861794X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11861794X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Sterne, Lawrence",
+        "Stern",
+        "Stern, L.",
+        "Sterne, Laurenz",
+        "Sterne, L.",
+        "Sterne, Lauwrence",
+        "Sterne, Lorenzo",
+        "Sterne, Lorenz",
+        "Sterne, M.",
+        "Stern, Lorens",
+        "St'ērn, Lawrēns",
+        "Stern, Lourens",
+        "Stern, Laurence",
+        "Stern, Laurens",
+        "Sterne, Wawrzynec",
+        "Sterne, Laurens"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lorenzo"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Lorens"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Lauwrence"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Laurens"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Lourens"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Laurens"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Wawrzynec"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "nameAddition": [
+            "M."
+          ],
+          "personalName": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Laurence"
+          ],
+          "surname": [
+            "Stern"
+          ]
+        },
+        {
+          "forename": [
+            "Lawrence"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenz"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Laurenz"
+          ],
+          "surname": [
+            "Sterne"
+          ]
+        },
+        {
+          "forename": [
+            "Lawrēns"
+          ],
+          "surname": [
+            "St'ērn"
+          ]
+        },
+        {
+          "personalName": [
+            "Stern"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Laurence_Sterne",
+          "label": "https://de.wikipedia.org/wiki/Laurence_Sterne"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:03:57Z",
+    "gnd_query_biographical_data": "1713-1768",
+    "gnd_query_name": "sterne, laurence"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2770,
+  "name": "Sterne, Laurence",
+  "profession": "Text",
+  "pseudonyms": "Yori(c)k",
+  "refs": "Goed (H) 493",
+  "updated": "2026-06-11 13:29:25.207Z",
+  "uri": "https://d-nb.info/gnd/11861794X",
+  "editor": ""
+}

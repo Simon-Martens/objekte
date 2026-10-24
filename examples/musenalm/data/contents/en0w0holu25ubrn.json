@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe von Forkel s. INr 757, Obj 142 und einer weiteren Vertonung von Chr. W. Gluck in: Musenalmanach (Göttinger) 1774 INr 2090",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Was that dir Thor, dein Vaterland? / Dein spott' ich, Glüht dein Herz dir / nicht / Bey seines Namens Schall!",
+  "language": [],
+  "musenalm_id": 870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir und Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wir und Sie",
+  "updated": "2000-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.674Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "u4jybxtz2j0bgj4"
+    }
+  ]
+}

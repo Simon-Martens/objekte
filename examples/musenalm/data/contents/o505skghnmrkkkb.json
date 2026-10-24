@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Wir sagen's nicht, um Augendienst zu üben, / Wir lieben unsern Herrn, weil wir ihn lieben, [...] J. G. Seidl",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Es war zu Costnitz im Jahre des Herrn 1416, die Stadt vermochte nicht die Zahl ihrer Gäste zu fassen, denn alle Häupter der Kirche wie des Staates, den deutschen Kaiser Sigmund an der Spitze, waren mit ihren Vasallen und mit glänzendem Gefolge",
+  "language": [],
+  "musenalm_id": 87038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosner-Burgel. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosner-Burgel. / Historische Novelle",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.207Z",
+      "agent": "lzi1zyn6aqla0ny",
+      "source_id": "2geyeip84yp4iq2"
+    }
+  ]
+}

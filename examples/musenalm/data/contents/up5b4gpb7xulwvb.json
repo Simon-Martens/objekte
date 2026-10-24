@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Vermischte Gedichte (Sammlung INr 29518, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Wo die muntern Jäger stehn mit Schweigen, / Immer grün die schlanken Leiber strecken",
+  "language": [],
+  "musenalm_id": 29519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Heimliches Wohnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Heimliches Wohnen",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.952Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "8b6mkucgydhrvn9"
+    }
+  ]
+}

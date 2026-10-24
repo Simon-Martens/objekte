@@ -1,0 +1,296 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.305Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1783-03-26"
+      ],
+      "dateOfDeath": [
+        "1811-09-30"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:48:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116138149/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116138149",
+      "id": "https://d-nb.info/gnd/116138149",
+      "oldAuthorityNumber": [
+        "(DE-588a)116138149"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4022085-0",
+          "label": "Grimma"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011039-4",
+          "label": "Danzig"
+        }
+      ],
+      "preferredName": "Dippoldt, Hans Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Hans Carl"
+        ],
+        "surname": [
+          "Dippoldt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "publication": [
+        "Coxe, William: Geschichte des Hauses Oesterreich ...",
+        "Dippold, Hans C.: Skizzen der allgemeinen Geschichte",
+        "Dippoldt, Hans C.: Skizzen der allgemeinen Geschichte",
+        "Dippoldt, Hans C.: Leben Kaiser Karl des Großen",
+        "Dippoldt, Hans C.: Genaue und ausführliche Beschreibung des vierten Jubelfestes ..",
+        "Dippoldt, Hans C.: Leben Kaiser Karls des Großen",
+        "Dippoldt, Hans C.: De fontibus historiae Caroli Magni et scriptoribus eam illustrantibus ..",
+        "Dippold, Hans C.: Föreläsningar öfver allmänna historien",
+        "Coxe, William: Geschichte des Hauses Oestreich ... 1218-1792"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/316423523"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q138299115"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55674192"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116138149/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116138149"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116138149"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Dippold, Hans Carl",
+        "Dippoldt, Johannes Karl",
+        "Dippoldt, Hans Karl",
+        "Dippoldt, Johann Carl",
+        "Dippoldt, Johann Karl",
+        "Dippold, Hans Karl",
+        "Dippold, Johannes Carl",
+        "Dippold, Johann Carl",
+        "Dippold, Johannes Karl",
+        "Dippoldt, Johannes Carl",
+        "Dippold, Johann Karl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Carl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "surname": [
+            "Dippoldt"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Carl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Karl"
+          ],
+          "surname": [
+            "Dippoldt"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Karl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "surname": [
+            "Dippoldt"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Karl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Carl"
+          ],
+          "surname": [
+            "Dippoldt"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "surname": [
+            "Dippold"
+          ]
+        },
+        {
+          "forename": [
+            "Hans Karl"
+          ],
+          "surname": [
+            "Dippoldt"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:14:12Z",
+    "gnd_query_biographical_data": "1783-?",
+    "gnd_query_name": "dippold, hans karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 554,
+  "name": "Dippold, Hans Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 418",
+  "updated": "2026-06-11 13:29:22.065Z",
+  "uri": "https://d-nb.info/gnd/116138149",
+  "editor": ""
+}

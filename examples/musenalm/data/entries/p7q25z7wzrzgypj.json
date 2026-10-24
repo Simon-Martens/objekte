@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Charitas 1842",
+    "norm": "",
+    "biblio": 405344,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1663,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Manz)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Charitas 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 38; L/R 100; Goed VIII. 580, 34",
+  "responsibility_statement": "Eduard von Schenk",
+  "subtitle_statement": "",
+  "title_statement": "Charitas. / Festgabe / für 1842 / von / Eduard von Schenk. / Neue Folge zweiter Jahrgang. / Mit Beiträgen von König Ludwig von Bayern, / Kronprinz Maximilian von Bayern, / L. Aurbacher, A. v. Maltitz, C. v. Neumayr, C. Fernau, / F. Baron v. la Motte Fouqué, A. Büssel, F. Grafen / v. Pocci, J. A. Pangkofer, F. Thiersch, C. F. Ph. / v. Martius und dem Herausgeber. / Mit Stahlstichen. / Regensburg. / Verlag von Joseph Manz",
+  "updated": "2026-06-11 10:18:55.569Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "hpba6ipem5o3m16"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "g9pkwb8iodgvv90",
+      "source_id": "leu1lb6i6oyfp1w"
+    }
+  ]
+}

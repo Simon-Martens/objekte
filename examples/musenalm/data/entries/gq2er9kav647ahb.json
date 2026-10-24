@@ -1,0 +1,71 @@
+{
+  "annotation": "KVK: Neue Thalia 1874 sowie Cornelia 1874 nicht nachweisbar.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, I T, 6 GG, SS 1-303",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1871 [var.2].: Thalia, Neue. Ausgabe der Cornelia für Oesterreich 1874",
+    "norm": "~ Identisch mit Cornelia 1871. Umschlaggraphik r., Titelgraphik  und Titel sind als Vollbild gegeben /) Die Titelgraphik von Cornelia 1871 und Cornelia 1871var1: ersetzt durch Neustich der Graphik  »Auf Wiedersehen« INr 64464 aus: Cornelia 1865; Graphik INr 64464",
+    "biblio": 407507,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 765,
+  "parallel_title": "",
+  "place_statement": "Wien (Perles)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Cornelia 1871 [var.2].: Thalia, Neue. Ausgabe der Cornelia für Oesterreich 1874",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 39; nicht bei L/R 93; nicht bei Goed VIII. 90, 177",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neue / Thalia. / Taschenbuch für 1874. / Ausgabe der Cornelia für Oesterreich. / Mit sieben Stahlstichen. / Wien. / Verlag von Moritz Perles, / Stadt, Spiegelgasse Nr. 17",
+  "updated": "2026-06-11 10:18:55.597Z",
+  "variant_title": "",
+  "year": 1874,
+  "editor": "",
+  "items": [
+    "n5a4w51d5vnnjw1"
+  ],
+  "contents": [
+    "pcvoiojn8u89u1w",
+    "aw7cr0wx7szz7ax",
+    "uen79ptowmtscmv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "zy7hqi3kx8xuocu",
+      "source_id": "2o66u45qzk9bsmc"
+    }
+  ]
+}

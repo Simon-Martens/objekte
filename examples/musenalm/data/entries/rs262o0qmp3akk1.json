@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1843-1848; 1843, 1844 Leipzig (Wigand), 1845-1848 Hannover (Kius); Hrsg. R. E. Prutz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Literarhistorisches (Prutz) 1843",
+    "norm": "",
+    "biblio": 200221,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3937,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Wigand)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Literarhistorisches (Prutz) 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 135; nicht bei L/R; ADB XXVI, 680",
+  "responsibility_statement": "R. E. Prutz",
+  "subtitle_statement": "",
+  "title_statement": "Literarhistorisches Taschenbuch. / Herausgegeben / von / R. E. Prutz. / Erster Jahrgang. / 1843. / Mit Beiträgen von G. Bernhardy, K. Rosenkranz, A. Stahr, / A. Wellmann und dem Herausgeber. / Leipzig, / Otto Wigand",
+  "updated": "2026-06-11 10:18:55.397Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "5bl72h1wzz9pumd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.312Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.312Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "3srkyyumcmiywb9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "k8e1epqeqxplo0k",
+      "source_id": "qv7cop9dko01yp6"
+    }
+  ]
+}

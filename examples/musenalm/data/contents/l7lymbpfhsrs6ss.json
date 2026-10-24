@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In einer reizenden Gegend Italiens, nahe dem kleinen Städtchen Avellino, lag einst in Bergen und Kastanienwäldern versteckt,",
+  "language": [],
+  "musenalm_id": 21093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Braut. / Letzte Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Braut. / Letzte Erzählung",
+  "updated": "2002-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.127Z",
+      "agent": "o98cykqmxxu1sx9",
+      "source_id": "fqrodhc25z8twn0"
+    }
+  ]
+}

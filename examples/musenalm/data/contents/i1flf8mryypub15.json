@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Lieder (Sammlung INr 1779, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Maler Traum hat diese Nacht / Meine Liebste mir gewiesen.",
+  "language": [],
+  "musenalm_id": 1797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII.",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.092Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "zr6zoq9nxlqkqvf"
+    }
+  ]
+}

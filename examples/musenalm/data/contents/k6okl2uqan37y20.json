@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Mit süßer Wehmuth habe ich diesen Ort wieder gesehen, wo ich an der Hand und dem Herzen meiner edlen, unvergeßlichen Tante meine Kinderjahre verlebt habe.",
+  "language": [],
+  "musenalm_id": 48515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Marie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fanny Tarnow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Marie",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.368Z",
+      "agent": "oaar9957opo6yl4",
+      "source_id": "m2b54fume6cmn58"
+    }
+  ]
+}

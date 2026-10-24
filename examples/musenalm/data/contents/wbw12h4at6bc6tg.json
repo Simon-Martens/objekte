@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: S. Athénée des Dames, a Paris,1808. T. IV. Livraison I. p. 37-43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Adine war in ihrem sechszehnten Jahre schön mit wie eine Grazie, keusch wie eine Vestale, und empfindsam wie ein Dichterinn.",
+  "language": [],
+  "musenalm_id": 128906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Land der Erinnerung. / Eine Allegorie. Nach dem Französischen einer Dame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. D. Arnstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Land der Erinnerung. / Eine Allegorie. Nach dem Französischen einer Dame",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.954Z",
+      "agent": "1ep11uxg6h0kbzz",
+      "source_id": "uhd3v0gt3rm2n4g"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober /) Illustration zu »Das heilbringende Almosen« von J. G. Seidl INr 86640, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89603,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das heilbringende Almosen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. A. Geiger sc.",
+  "scans": [
+    "alm_3356_89603_plbz3gon7b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das heilbringende Almosen",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.214Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "ebwa2mww5mnhe54"
+    }
+  ]
+}

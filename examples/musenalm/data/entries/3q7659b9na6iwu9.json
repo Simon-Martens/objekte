@@ -1,0 +1,78 @@
+{
+  "annotation": "2 Jgg 1835, 1836; Bamberg (Kunz) u. Bamberg u. Würzburg (Göbhardt); Hrsg. J. P. v. Hornthal",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frühlingskränze, Deutsche 1815",
+    "norm": "",
+    "biblio": 200852,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1786,
+  "parallel_title": "",
+  "place_statement": "Bamberg (Kunz)",
+  "places": [
+    "8lhjg1fp51faz5c"
+  ],
+  "preferred_title": "Frühlingskränze, Deutsche 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 42",
+  "responsibility_statement": "Johann Peter von Hornthal",
+  "subtitle_statement": "",
+  "title_statement": "Deutsche Frühlingskränze / für 1815 / von / Isidorus, Karl v. / Oberkamp, Dr. F. G. Wetzel, / A. Seyfried, M. Birnbaum u. A. / Herausgegeben / von / Johann Peter von Hornthal. / Bamberg, / in Kommission bei Karl Friedrich Kunz. / 1815",
+  "updated": "2026-06-11 10:18:54.687Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "o4ymu9e2kwab7k7"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.974Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.974Z",
+      "agent": "1acfhtvr8htxmbh",
+      "source_id": "aoavsgq843yfcrs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.085Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.085Z",
+      "agent": "522fu7k82tjngev",
+      "source_id": "uumb6gr6rmtlcd9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Der Kaiser sitzt auf goldnem Thron, / Im Purpurkleid, mit goldner Kron.",
+  "language": [],
+  "musenalm_id": 100682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bischof Kletus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bischof Kletus",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.743Z",
+      "agent": "knoskc7ee942ezb",
+      "source_id": "0mot0ts034h9vaz"
+    }
+  ]
+}

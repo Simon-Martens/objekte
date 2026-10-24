@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Mit dem Liebchen in die Wette / Hatt' ich alle Lust errungen,",
+  "language": [],
+  "musenalm_id": 1372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Harfenspielerin. / Linde lös't der Harfe Klimpern / Die gesunknen Augenwimpern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Wilhelm Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Harfenspielerin. / Linde lös't der Harfe Klimpern / Die gesunknen Augenwimpern",
+  "updated": "2000-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.004Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "kh6yv00cir37fyw"
+    }
+  ]
+}

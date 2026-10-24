@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedichte INr 28963, 28964; Obj 66, 67",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "So hast Du wirklich denn den Dorn empfunden, / den in des Lobes Kranz ich Dir gewunden?",
+  "language": [],
+  "musenalm_id": 28965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Rechtfertigung an Seume. / Sonnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnoldine Wolf, geb. Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Rechtfertigung an Seume. / Sonnet",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.197Z",
+      "agent": "k4l0etwctfexyyx",
+      "source_id": "y22th45tej4cxjo"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS1–234",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1827",
+    "norm": "~",
+    "biblio": 405929,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3428,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1827",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Fünftes Bändchen. / Enthält: / Die Vernunftheirath. / Lustspiel in 2 Aufzügen. / Der Gesandte. / Lustspiel in einem Aufzuge. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1827",
+  "updated": "2026-06-11 10:18:54.851Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "ljxji0v2wqp6r3n"
+  ],
+  "contents": [
+    "dueu032r8689zh4",
+    "u22sag86pb5wjzv",
+    "j2m3kqa2p877z4b",
+    "53p7sdmbemkjtrd",
+    "mtl46k5f781ppn6",
+    "vxt7toyb1507z8i",
+    "seio3ek4ty99y7k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.219Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.219Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "h0hbm0qqlyhtchc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.482Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.482Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "jqthwrbg47987e6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48131,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prof. Werthes / in Pest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48131_4e8cuii57u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prof. Werthes / in Pest",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.525Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "h539ev4a04sw7c7"
+    }
+  ]
+}

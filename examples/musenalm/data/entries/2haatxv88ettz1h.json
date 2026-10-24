@@ -1,0 +1,93 @@
+{
+  "annotation": "Das Jahrbuch ist nicht mit seinen Beiträgen aufgenommen: Titel, I-Verz, Karte als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, B I-Verz, SS 1-251, S 252 C, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch, Astronomisches (Bode) 1821",
+    "norm": "~",
+    "biblio": 409669,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-10-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4600,
+  "parallel_title": "",
+  "place_statement": "Berlin (Selbstverlag; Dümmler)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Jahrbuch, Astronomisches (Bode) 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. E. Bode",
+  "subtitle_statement": "",
+  "title_statement": "Astronomisches / Jahrbuch / für das Jahr 1821 / nebst einer Sammlung / der neuesten / in die astronomischen Wissenschaften / einschlagenden Abhandlungen, Beobach- / tungen und Nachrichten. / Mit Genehmhaltung / der Königl. Akademie der Wissenschaften / berechnet und herausgegeben / von / Dr. J. E. Bode, Königl. Astronom [...] / Mit einer Kupfertafel. / Berlin, 1818. / Bey dem Verfasser, und in Commission bey Ferd. Dümm- / ler, Buchhändler in Berlin. / Gedruckt bey C. F. E. Späthen",
+  "updated": "2026-06-11 10:18:55.729Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "tdn7ra0vejnoqky"
+  ],
+  "contents": [
+    "fr827n6ho8zfemf",
+    "3frageo049psbh1",
+    "ajf6n3zlj7whe9y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.155Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.155Z",
+      "agent": "fewqjyfkqpxnleo",
+      "source_id": "6b5elm44wvmg3zl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.392Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.392Z",
+      "agent": "fewqjyfkqpxnleo",
+      "source_id": "9ngh8e35dzsr6zk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.743Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.743Z",
+      "agent": "2om7u2svybkrv77",
+      "source_id": "dor1kyzl7s709or"
+    }
+  ]
+}

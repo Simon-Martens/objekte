@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. s. Titelblatt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Kennst du sie noch Thuiskons Helden-Söhne / Die Männer, die für Vaterland und Freiheit / den Blutkampf freudig kämpften",
+  "language": [],
+  "musenalm_id": 60886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kennst du sie noch Thuiskons Helden-Söhne / Die Männer, die für Vaterland und Freiheit / den Blutkampf freudig kämpften…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.180Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "pyoi2txxblyxd4h"
+    }
+  ]
+}

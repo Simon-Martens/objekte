@@ -1,0 +1,105 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt /) F. A. Schrämbl wohl Autor der 9 Kapitel von »Geschichte des heutigen Europa, vom fünften bis zum achtzehnten Jahrhunderte« /) §$ vermutl. fehlen Monatskupfer Ch. Sambach del. Cl. Kohl sc.; s. L/R 23",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, 2 BB Vrwrt d Hrsg, 27 BB Kal, ar: SS 1-16 Tab, ar1: SS 1-223,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Historischer (Wien/Schraembl) 1788",
+    "norm": "~",
+    "biblio": 406776,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-09-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3716,
+  "parallel_title": "",
+  "place_statement": "Wien (Schraembl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenkalender, Historischer (Wien/Schraembl) 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 23",
+  "responsibility_statement": "F. A. Schraembl",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Taschenkalender / auf / das Jahr / 1788 / Wien / bey J. A. Schraembl",
+  "updated": "2026-06-11 10:18:55.209Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "0lzcbykqhsbx1pb"
+  ],
+  "contents": [
+    "9ryzmb951l1359w",
+    "6dczv38krcrp44j",
+    "f3aqzelap4kvbsu",
+    "neia8mtz2irqfy3",
+    "n2gdvvulrx96x23",
+    "mmkji2s9xl3a5li",
+    "mlohatkwj4vw60f",
+    "eb7lqpl7mym1ddo",
+    "wcqvhfb51xi0wq2",
+    "zs83h2b94qvqjb9",
+    "p5lj1xm9f8ss91q",
+    "a95p5vqvk7oinq5",
+    "xzmkhvl1034urqk",
+    "uo9abq2jn9rkw2e",
+    "asnso6zrpbfbv21",
+    "i84cumcdlkl3m00",
+    "p1jtw1o8d8jbd2a",
+    "8f77wwc0bpkbnys",
+    "ulz9fb9m3vyeici",
+    "pkwvygzghr8qbju",
+    "cua0lepyvqp00ss",
+    "ii1ulvanrnyl2z5",
+    "y02famjo81e7uir",
+    "l7gmkrhmgp4umxv",
+    "r3azy91pevhia3x",
+    "39huy0zs7kne8fg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "nir53iavdmajy38",
+      "source_id": "91vqfpeenc3ysvm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.286Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.286Z",
+      "agent": "y25hl83vqnv3opz",
+      "source_id": "w5sn9o6hea46yio"
+    }
+  ]
+}

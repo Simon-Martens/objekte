@@ -1,0 +1,97 @@
+{
+  "annotation": "KVK mit Standorten für 1839-1842; 1839: Berlin (Morin), 1841: Berlin (Klemann); Hrsg. Alexander Cosmar; s.a.: Berliner Theater-Almanach  von A. Cosmar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-IV Vrwrt d Hrsg, SS V-VI I-Verz, SS 1-379 darin 5 GG, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Salon, Dramatischer 1839",
+    "norm": "~",
+    "biblio": 404894,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-05-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3806,
+  "parallel_title": "",
+  "place_statement": "Berlin (Morin)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Salon, Dramatischer 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Alexander Cosmar",
+  "subtitle_statement": "",
+  "title_statement": "Dramatischer Salon. / Almanach / kleiner Bühnenspiele / zur / Unterhaltung in geselligen Kreisen. / Von / Alexander Cosmar. / Erster Jahrgang. / Berlin, 1839. / F. H. Morin",
+  "updated": "2026-06-11 10:18:55.465Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "5dqoek2xnio0fnb"
+  ],
+  "contents": [
+    "u83dppjtedby7f1",
+    "9evtvijw0kwqnze",
+    "opdx4hqfdyi31m2",
+    "yei0qriq0mnw5tx",
+    "vv32l00h8k4i70v",
+    "8kzzid73ha9bxc3",
+    "5epd1hhv7o7t07r",
+    "fdkmyxcyt3f0roy",
+    "n48edlhgwkupype",
+    "umyisogm7i5olni",
+    "ppz726z68vn5u0z",
+    "aep4j9l5iwcyi4t",
+    "i3wj5grprkf8s47",
+    "poayq95wi08xpro",
+    "9ruoa63n7zpluje",
+    "uippq71d23k024i",
+    "ziq06v0h6zefitt",
+    "4sq44dcfxoo0ymg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "n1h8r9p4mt4wadf",
+      "source_id": "1qpydt4bcgo0rez"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.300Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.300Z",
+      "agent": "2s3vhf9nlntlu1k",
+      "source_id": "c5ox19cgkshaxea"
+    }
+  ]
+}

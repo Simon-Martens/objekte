@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 3 /) s. INr 18584, Obj 14 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beaurepaires Römertod",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_176_7993_qie764csq6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Beaurepaires Römertod",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.115Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "idqh2zw8lgsngxx"
+    }
+  ]
+}

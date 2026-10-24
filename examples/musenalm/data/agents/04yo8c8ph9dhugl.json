@@ -1,0 +1,312 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.301Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Studium a. d. Academie royale de Peinture et de Sculpture in Paris; nach dem Tod von Jean Michel Moreau einer d. angesehensten frz. Vignettenzeichner"
+      ],
+      "dateOfBirth": [
+        "1785-01-01"
+      ],
+      "dateOfDeath": [
+        "1827-01-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Print made by: Hippolyte Garnier Printed by: Ducarme Published by: Blaisot"
+          ],
+          "creditText": [
+            "https://www.britishmuseum.org/collection/object/P_1914-0228-2186"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Alexandre-Joseph%20Desenne.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Alexandre-Joseph%20Desenne.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Alexandre-Joseph%20Desenne.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-27T05:35:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb112",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb112"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1032491396/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-Mb112",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-Mb112"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1032491396",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1032491396",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Desenne, Alexandre Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alexandre Joseph"
+        ],
+        "surname": [
+          "Desenne"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr99027402"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41856446"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2833366"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1032491396/about"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alexandre-Joseph_Desenne"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121296996"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1032491396"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/1032491396"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Desenne",
+        "Desenne, Alexandre",
+        "De Sene, Alexandre Joseph",
+        "De Sene, Alexandre",
+        "Desenne, Alex",
+        "Desenne, Alexandre-Joseph AKL",
+        "Desenne, Alexandre J.",
+        "Desenne, A.",
+        "Desenne, Alex.",
+        "De Sene"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "De Sene"
+          ]
+        },
+        {
+          "personalName": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "De Sene"
+          ]
+        },
+        {
+          "forename": [
+            "Alex"
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre-Joseph"
+          ],
+          "prefix": [
+            "AKL"
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre J."
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alex."
+          ],
+          "surname": [
+            "Desenne"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre Joseph"
+          ],
+          "surname": [
+            "De Sene"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:12:54Z",
+    "gnd_query_biographical_data": "1785-1827",
+    "gnd_query_name": "desenne, alexandre joseph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 528,
+  "name": "Desenne, Alexandre Joseph",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B IX, 124",
+  "updated": "2026-06-11 13:29:22.036Z",
+  "uri": "https://d-nb.info/gnd/1032491396",
+  "editor": ""
+}

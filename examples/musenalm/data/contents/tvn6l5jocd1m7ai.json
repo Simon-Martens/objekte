@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Du schämst dich nicht, durch leise Klagen / mir deines Herzens Wunsch zu sagen?",
+  "language": [],
+  "musenalm_id": 87703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Korb einer Weltdame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Korb einer Weltdame",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.441Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "1q74ab2v2c8kord"
+    }
+  ]
+}

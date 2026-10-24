@@ -1,0 +1,45 @@
+{
+  "annotation": "Neptun (Sammlung INr 91519, Obj 43) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgende 2 Gedichte INr 91524, 91525; Obj 48, 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Im Kriege vor Troja saß Neptun auf der Spitze des waldigten Samos, und sah dem Treffen zu.",
+  "language": [],
+  "musenalm_id": 91523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Majestät des Neptuns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Majestät des Neptuns",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.245Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "4gux40phjxztfym"
+    }
+  ]
+}

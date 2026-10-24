@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto G, verso G, T, 7 BB Kal darin 6 GG, G, SS 1-156 darin 4 GG, 2 BB G-Verz, gzT, 14 SS Tab, UG, UG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Vieweg) 1799",
+    "norm": "~+++ (409161 Var. Umschlaggraphik) /) Das autopsierte Exemplar in roter Maroquin-Brieftasche; lt. Preisliste für die fünf verschiedenen Ausgaben des Jg, wie sie dem Jg 1802 beigefügt ist, handelt es sich um die vierte Ausgabe; s. Photo alm-9, INr 50407/) Photos der varianten Unschlaggraphiken eines 2. Exemplars  beigegeben",
+    "biblio": 100640,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 7,
+  "parallel_title": "",
+  "place_statement": "Berlin (Vieweg)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch (Vieweg) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 106; L/R 51; Goed VIII. 49, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / 1799. / Maria Stuart / von / Friedrich Gentz. / Die Rache / von / August Lafontaine. / Berlin / bey Friedrich Vieweg dem älteren",
+  "updated": "2026-06-11 10:18:55.445Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "kgeobst0dm6oqb6",
+    "vzh2tzzkek3h1hp"
+  ],
+  "contents": [
+    "eeiizd0z4t6gtf2",
+    "kaqxui3s2ecolp5",
+    "wg9zuudce1o9n5c",
+    "haszk95kit86qpg",
+    "0uyvu79z96sou35",
+    "3yatjii0y4an3i2",
+    "ym3oxy1ltp7w14x",
+    "ce20i1lm1gl47k0",
+    "2h15p31k1od05o6",
+    "92ins3yyyps9grk",
+    "ygnwztqj3jxh0k7",
+    "mw5ysatyo4pk84g",
+    "8kfavexgw8gcroc",
+    "4t7r0bllofyjikb",
+    "evhwgn9eg44l95g",
+    "rd4kmkhpx43dqy5",
+    "3o2gbvj4yzhr3dw",
+    "khl7jyfbf4p1f7r",
+    "djqixluheenjd93",
+    "mgnpsl18isi3tbh",
+    "xvcbyoz5oj0mlgo",
+    "at2ra4fgm9o9izz",
+    "tvpf75mu9698jcs",
+    "jyndedmg5gew2zv",
+    "myhk9ajho92b00k",
+    "cfya5rn43k3qbjt",
+    "hx86xdenjqnzdl2",
+    "yq10rl3cmyuhgkd",
+    "htnjhn2i8j2zc2t",
+    "1p2b92o3sa7oa1z",
+    "wzbf9pb9u8u3vvy",
+    "mf6cpjk1knzxaiv",
+    "2bvqvhdw2c4yorl",
+    "5syi2gg5yvp3lfb",
+    "wej1cvsv7o62zo4",
+    "o006lgppkp874db",
+    "uhm3r897noj0bii",
+    "1fsomxyzgpskvja"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.175Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.175Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "r7dqx50uv891lvr"
+    }
+  ]
+}

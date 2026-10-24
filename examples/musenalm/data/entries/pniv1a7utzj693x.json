@@ -1,0 +1,123 @@
+{
+  "annotation": "im Schuber mit Rückenschild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I vT, S II VrlgM, verso G, S III T, S V I-Verz, S VII-XX G-Verz darin 6 GG, SS 1-367",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1833",
+    "norm": "~",
+    "biblio": 101003,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 58,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1833. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1833",
+  "updated": "2026-06-11 10:18:54.890Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "jbr47i78lzjnt0p"
+  ],
+  "contents": [
+    "14lo8cfurggbulw",
+    "ys5lv1gttt0bwz4",
+    "kgipd8gp8eyy5zb",
+    "w72lv7tp5hdzojf",
+    "oljqpslxiii2r4j",
+    "yfgx9p45ahd9yrb",
+    "kge6ssjed7jgsbs",
+    "ymsuk89ngywokm6",
+    "dqrei17knpqh2k5",
+    "y7ocmlojqi8xlc6",
+    "4pq2d9vqvn5ixzd",
+    "mstnakn0dq1apv5",
+    "2diacdvhgupnfa0",
+    "nur0xnuiyremvlw",
+    "1ge80us99aea7cv",
+    "r3zp4bzi56f8cuw",
+    "1tka7gxg0qokrp9",
+    "7jm9bu1glil7f6m",
+    "gflnio1hsm8xro8",
+    "pjv9fxmi1e757bk",
+    "o9wvzrgwqfl6jhk",
+    "ouz6zqbvgsuuryi",
+    "2awl93exxdk9q55",
+    "w2dpjv8p682fa7v",
+    "8yczb9xp0r87bai",
+    "w00h8r3rh550301",
+    "ouvjl5hvdslxdyp",
+    "q2wjyxrbbdn74zp",
+    "y2srn1gcmw8ea9r",
+    "zoj9k04jfvg09q9",
+    "33b891ajfwnutym",
+    "s4v6coyi02qlstr",
+    "42t2rgeh00spwby",
+    "lo6zgjbi4hioirq",
+    "osvj9xts9ewf85k",
+    "ytde3zr1fkm14br",
+    "0wp5vgertzqqzax",
+    "e80bikjlf3d3qwd",
+    "3est7fgupwfh8cu",
+    "9132v2hudqv6bc7",
+    "temo0yjbg61u2d4",
+    "x1d1end7ifx7afe",
+    "4sd7g2baadh80tg",
+    "xmld72qh9nrvu6y",
+    "f6c3ks6401jkdi7",
+    "tum7z0rrfp5jfdy",
+    "0cwunbgs0c6tx8s",
+    "wg705bbxf8aftr0",
+    "d6cquwoiaa20psl",
+    "0hxp0q8jnn1q4ri",
+    "8cvxd09it3e8uav",
+    "y7vjlckpoixbdbe",
+    "xkpz80adr4cy81y",
+    "ivk4vvgirdhxtqt",
+    "22lq5z1en76357m"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.600Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.600Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "hx6qxb8rlh2df5s"
+    }
+  ]
+}

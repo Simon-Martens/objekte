@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 29976, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Dieß Bild gibt gleichfalls das Bohnenfest, aber mit mehr Figuren und noch größerem Leben.",
+  "language": [],
+  "musenalm_id": 29977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bohnenfest / von Joh. van Steen. / 21½ Zoll Höhe, 17¼ Zoll Breite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bohnenfest / von Joh. van Steen. / 21½ Zoll Höhe, 17¼ Zoll Breite",
+  "updated": "2002-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.212Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "shul8lkq2oje4ld"
+    }
+  ]
+}

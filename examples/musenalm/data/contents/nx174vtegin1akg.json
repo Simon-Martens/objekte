@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67205, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Folg ich dem Pfad, der sich durch Wiesen windet; / Er führt zum Bach, der zwischen Erlen hüpft,",
+  "language": [],
+  "musenalm_id": 67212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Das Grabmal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freih. von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Das Grabmal",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.149Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "lg0fmsxrcua3z5f"
+    }
+  ]
+}

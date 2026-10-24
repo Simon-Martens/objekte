@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte nach den Minnesingern (Sammlung INr 128899, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Wie des Finken Schlag im Reise / Zart und schmetternd bald erklingt, / Sing' ich auch in seiner Weise / Jene, die mein Herz bezwingt.",
+  "language": [],
+  "musenalm_id": 128901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Frauentrost. / Nach Hiltbold von Schwanegöi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Frauentrost. / Nach Hiltbold von Schwanegöi",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.954Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "um9p2ad3vlt05hx"
+    }
+  ]
+}

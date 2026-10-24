@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsblätter (Sammlung INr 26147, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Wer am Leib gesunde Beine / Und im Kopfe Augen hat,",
+  "language": [],
+  "musenalm_id": 26156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Mai",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.176Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "s7pe0te6vwx0c8b"
+    }
+  ]
+}

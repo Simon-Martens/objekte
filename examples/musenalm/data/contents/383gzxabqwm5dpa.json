@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlieder (Sammlung INr 95565, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Saß am weißbelegten Tische, / Im Salon erhellt mit Gas,",
+  "language": [],
+  "musenalm_id": 95566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Blumenmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Blumenmädchen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.652Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "vmoufeo8txax1iz"
+    }
+  ]
+}

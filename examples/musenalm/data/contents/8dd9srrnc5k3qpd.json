@@ -1,0 +1,45 @@
+{
+  "annotation": "Stammbuchblätter (Sammlung INr 100376, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Segne das Leiden, segne den Schmerz! / Was du nie und nimmer verschuldet,",
+  "language": [],
+  "musenalm_id": 100377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.835Z",
+      "agent": "zg6jbd5dfgl0cyy",
+      "source_id": "ztpx357vbyq1izj"
+    }
+  ]
+}

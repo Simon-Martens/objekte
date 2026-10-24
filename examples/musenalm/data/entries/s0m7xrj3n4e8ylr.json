@@ -1,0 +1,97 @@
+{
+  "annotation": "Widmungsgedicht bezeichnet: Th. Hell",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B, B W, G, S I-Verz, SS 1- 493 darin B 6 GG, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1828",
+    "norm": "~",
+    "biblio": 106723,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2471,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1828",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1828. / Leipzig, bei Fridrich August Leo",
+  "updated": "2026-06-11 10:18:55.473Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "y78wjv4hdbb98z6"
+  ],
+  "contents": [
+    "ejgjidzr66nwam9",
+    "kcyzzc1vaj7wg81",
+    "5zzvkdyrzey826u",
+    "skxtwu0lic25fbk",
+    "uqdxogf5u7bzzp7",
+    "18gkjx8wmwxjvtk",
+    "tf6od114zukuhar",
+    "ylkgujffk87mznq",
+    "ry89wn3rq3cnhp2",
+    "v0t2rwbeqypufqe",
+    "w2cxk7duw2gb79o",
+    "fsoc9yt1fp7dk8j",
+    "1fyy2vpwbjyas7n",
+    "zre7ftvin7aorme",
+    "m8t6b02bmoh57mw",
+    "hlbbcjls1fgtlw0",
+    "z0ucbe9uhhlpyho",
+    "edrm68sbtkal5m1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "iab9talor2fdzkh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.100Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.100Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "lbrizjtopvg4tic"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Die Brautfarth« von F. Krug v. Nidda INr 19851, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19831,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brautfarth von Krug v. Nidda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Jury sc.",
+  "scans": [
+    "alm_267_19831_nc35rdt9bn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Brautfarth von Krug v. Nidda",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.825Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "h64aegu93n9viop"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.825Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "svyh275ll3i6b7y"
+    }
+  ]
+}

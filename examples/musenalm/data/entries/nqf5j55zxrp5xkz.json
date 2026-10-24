@@ -1,0 +1,78 @@
+{
+  "annotation": "im Nachwort des Herausgebers: Das Hansa-Album soll eine Gabe der deutschen Schriftsteller sein für die Aermsten der in Hamburg Abgebrannten und zugleich ein würdiges Denkmal des Brandes und seiner Folgen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hansa-Album (Halberstadt) 1842",
+    "norm": "",
+    "biblio": 411354,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-03-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4839,
+  "parallel_title": "",
+  "place_statement": "Halberstadt (Lindenquist und Schönrock)",
+  "places": [
+    "mdhj603ygs24e0m"
+  ],
+  "preferred_title": "Hansa-Album (Halberstadt) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. Harnisch",
+  "subtitle_statement": "",
+  "title_statement": "Hansa-Album / mit Beiträgen / von Th. Apel - L. Bechstein [...] / und / dem Herausgeber / A. Harnisch. / Halberstadt, / bei Lindenquist und Schönrock. / 1842",
+  "updated": "2026-06-11 10:18:55.647Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "jwxhu7tvr2491sv"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.432Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.432Z",
+      "agent": "h43rynnfs33mput",
+      "source_id": "dltegkvrgnxoh7w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.100Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.100Z",
+      "agent": "kyqfdp85rycjydj",
+      "source_id": "wyci42zt0836j26"
+    }
+  ]
+}

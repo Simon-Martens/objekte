@@ -1,0 +1,74 @@
+{
+  "annotation": "angegebener Titel vom vorderen Deckel /) vollst. Titel: Taschenbuch, Historisch-malerisches von und für Oesterreich1804. Wien. bey J. V. Degen, Buchdrucker und Buchhändler/)  2. Titel auf dem hinteren Deckel: Denkwürdigkeiten der österreichischen Monarchie. Auf jeden Tag des Jahres gesammelt. Wien. Bey J. V. Degen, Buchdrucker und Buchbinder. 1804; als Autor gibt Goed VI. 5. 519 G. A. Griesinger an /) Im Vorwort des Verfassers: Das Bedürfniß solcher Wißbegierigen soll dieses Buch zunächst befriedigen, indem es an jedem Tage einen Mann oder eine Thatsache aufführt, die der Vergessenheit entrissen zu werden verdienen. /) Das I-Verz ist als Vollbild gegeben /) §§ Titel und 6 Graphiken: Maillard del. Duttenhofer sc. zu Schultes »Ansichten nach dem Schneeberge« fehlen, s. Goed VI. 519 ff",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, B Vrwrt d Hrsg, SS I-XVIII, SS 1-464",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch von und für Oesterreich (Degen) 1804",
+    "norm": "~",
+    "biblio": 409005,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-05-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4195,
+  "parallel_title": "",
+  "place_statement": "Wien (Degen)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Historisch-malerisches von und für Oesterreich (Degen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 147; Goed VI. 519",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / von und für Oesterreich / 1804. / Wien. / Bey J. V. Degen, / Buchdrucker und Buchhändler",
+  "updated": "2026-06-11 10:18:54.745Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "g7ikb4k0l57pye6"
+  ],
+  "contents": [
+    "6jj13wrc25lmsqk",
+    "ql879d11a2c9dbm",
+    "89sorldo823c0c0",
+    "0a76ch9yjcg4zcc",
+    "n8dogcynrzv4hfn",
+    "aih8lx9cncaipzl"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.714Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.714Z",
+      "agent": "uelm0e03nkq3tde",
+      "source_id": "q9ioz7k4lq9crqh"
+    }
+  ]
+}

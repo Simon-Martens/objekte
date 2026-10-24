@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es gab eine Zeit, wo unser nordisches Deutschland nur wenige Spuren jener Cultur sehen ließ, die jetzt den Reisenden überall freundlich begrüßt,",
+  "language": [],
+  "musenalm_id": 75102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Graf Hackelberg / oder / der Ritter mit der Sichel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Graf Hackelberg / oder / der Ritter mit der Sichel",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.758Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "6wizcwe6fgz76o0"
+    }
+  ]
+}

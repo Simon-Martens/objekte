@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94437,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen mit dem Lorbeerkranze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Mezler del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1871_94437_38id125s38.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen mit dem Lorbeerkranze",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.429Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "fmwrcnukhouytzq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.429Z",
+      "agent": "4ydtp3mjohkj17q",
+      "source_id": "i5uq7akiy5pvtgl"
+    }
+  ]
+}

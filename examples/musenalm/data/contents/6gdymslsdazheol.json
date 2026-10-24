@@ -1,0 +1,45 @@
+{
+  "annotation": "Trutznachtigall. Eine Auswahl geistlicher Lieder (Sammlung INr 91289, Obj 5) mit einer Musikbeigabe s. INr 91299, Obj 16 /)  # Bez. aus dem Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Bei finstrer Nacht, zur ersten Wacht, / Ein' Stimm' begunt' zu klagen;",
+  "language": [],
+  "musenalm_id": 91298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Christus im Garten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Spee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Christus im Garten",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.404Z",
+      "agent": "x4foo3ypaa4r4o4",
+      "source_id": "zgrrmvwr6dqty3p"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 20804, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20799,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luise v. Mathisson",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. F. Fleischmann sc.",
+  "scans": [
+    "alm_275_20799_5pdsur3hfj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Luise v. Mathisson",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.433Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "hq0zqq4pbijfasa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.433Z",
+      "agent": "ail6kpkgq3rdfot",
+      "source_id": "tg3y9p1p2pwfes8"
+    }
+  ]
+}

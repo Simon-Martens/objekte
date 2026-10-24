@@ -1,0 +1,529 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1823",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.276Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/65191-6",
+          "label": "F. A. Brockhaus (Leipzig)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Verleger und Buchhändler aus Dortmund (Westfalen), Gründer des Verlags F. A. Brockhaus; das Geschäft wurde bis 1829 für die Erben fortgesetzt. Anschließend Übernahme durch seine Söhne Friedrich Brockhaus und Heinrich Brockhaus. Quelle: ADB Bd. 3, S. 337-340"
+      ],
+      "dateOfBirth": [
+        "1772-05-04"
+      ],
+      "dateOfDeath": [
+        "1823-08-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Carl Christian Vogel von Vogelstein"
+          ],
+          "creditText": [
+            "http://www.bildindex.de"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Arnold%20Brockhaus%20Vogel%20von%20Vogelstein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Arnold%20Brockhaus%20Vogel%20von%20Vogelstein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Arnold%20Brockhaus%20Vogel%20von%20Vogelstein.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-07-16T07:50:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119501201/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-384",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-384"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1061161269",
+          "label": "Brockhaus, Rudolf Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117632104",
+          "label": "Brockhaus, Albert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116552328",
+          "label": "Brockhaus, Fritz A."
+        },
+        {
+          "id": "https://d-nb.info/gnd/1050271092",
+          "label": "Brockhaus, Johanna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116552115",
+          "label": "Brockhaus, Heinrich Eduard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116552891",
+          "label": "Brockhaus, Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130123552",
+          "label": "Brockhaus, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116552433",
+          "label": "Brockhaus, Heinrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119501201",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116552433",
+          "label": "Brockhaus, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130123552",
+          "label": "Brockhaus, Friedrich"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116552891",
+          "label": "Brockhaus, Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116552115",
+          "label": "Brockhaus, Heinrich Eduard"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119501201",
+      "oldAuthorityNumber": [
+        "(DE-588c)4470909-2",
+        "(DE-588a)103770844",
+        "(DE-588a)104502207",
+        "(DE-588a)119501201",
+        "(DE-588a)100834345"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012814-3",
+          "label": "Dortmund"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012814-3",
+          "label": "Dortmund"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Brockhaus, Friedrich Arnold",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Arnold"
+        ],
+        "surname": [
+          "Brockhaus"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        }
+      ],
+      "publication": [
+        "Schopenhauer, Arthur: Schopenhauer und Brockhaus",
+        "Karte Eines Theils von Central-Afrika. - s.a. [um 1850]",
+        "Change-Verzeichniß von F. A. Brockhaus in Leipzig. - s.a",
+        "Les Pays Et Les Peuples De L'Europe de L'Asie Anterieure ..",
+        "Die Firma F. A. Brockhaus in Leipzig",
+        "Change-Verzeichniß von F. A. Brockhaus in Leipzig. - s.a.",
+        "Hermes oder kritisches Jahrbuch der Literatur"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12352524v"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no90000295"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5006664"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q62851"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119501201/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Arnold_Brockhaus"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Arnold_Brockhaus"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Arnold_Brockhaus"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108547922"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119501201"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119501201"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119501201.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119501201"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119501201"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Brokgaus, F. A.",
+        "Brockhaus, Fr. Arn.",
+        "Brockhaus, Friedr. Arn.",
+        "Brockhaus, F.",
+        "Brockhaus, Friedrich A.",
+        "Brokgauz, F.A.",
+        "Brockhaus, F.A.",
+        "Brokgauz, F. A.",
+        "Brokgauz, Fridrich Arnold",
+        "Brockhaus, Friedrich",
+        "Brokgauz, Fridrich Arnolʹd",
+        "Brokgauzʺ, F. A.",
+        "Brockhaus, David Arnold Friedrich",
+        "Brokchauz, Fridrich Arnold",
+        "Brokchauz, Fridrich Arnolʹd",
+        "Brockhaus, F. A.",
+        "Brockhaus, Friedrich Arnold, der Ältere"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Brokgauz"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Arnold"
+          ],
+          "surname": [
+            "Brokgauz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich A."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Arnolʹd"
+          ],
+          "surname": [
+            "Brokchauz"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Brokgaus"
+          ]
+        },
+        {
+          "forename": [
+            "F.A."
+          ],
+          "surname": [
+            "Brokgauz"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Arnolʹd"
+          ],
+          "surname": [
+            "Brokgauz"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr. Arn."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich Arnold"
+          ],
+          "surname": [
+            "Brokchauz"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "F. A."
+          ],
+          "surname": [
+            "Brokgauzʺ"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Arnold"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "David Arnold Friedrich"
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Arn."
+          ],
+          "surname": [
+            "Brockhaus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Arnold_Brockhaus",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Arnold_Brockhaus"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:03Z",
+    "gnd_query_biographical_data": "1772-1823",
+    "gnd_query_name": "brockhaus, friedrich arnold"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 309,
+  "name": "Brockhaus, Friedrich Arnold",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "Guntram",
+  "refs": "ADB III, 337",
+  "updated": "2026-06-11 13:29:21.760Z",
+  "uri": "https://d-nb.info/gnd/119501201",
+  "editor": ""
+}

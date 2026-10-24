@@ -1,0 +1,98 @@
+{
+  "annotation": "Widmungsgedicht bezeichnet: Th. Hell /) »Weihgeschenk« wie in: Vergißmeinnicht (Clauren) 1830",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B, B W, G, S I-Verz, SS 1- 528 darin B 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1830",
+    "norm": "~",
+    "biblio": 106724,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2473,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1830",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "Th. Hell",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1830. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.473Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "87duzcgunnol721"
+  ],
+  "contents": [
+    "0j288rmlaqqfcd7",
+    "yk3dbblirabs637",
+    "fkpgniske1wf2tw",
+    "6i68pam3ppn79b8",
+    "2ee3s78y0b4wxqd",
+    "gsnyvohjtfa1hy0",
+    "gqpp49r0tuir287",
+    "62qivw2u93eyp4u",
+    "8ym0a4w4byv62fi",
+    "wmjiwpxhfly0i4v",
+    "u5forsgbl6f9mcy",
+    "fepkeoz2bmubxzi",
+    "bemmrhk286v83kv",
+    "xjpdoq8zbx0n5in",
+    "8pei162oe6ym7ut",
+    "z4t8qxt1grnj8gu",
+    "y0x54qmks8yfpf6",
+    "ib3howhth6pyvfj",
+    "26tec9g2w7dfgct"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "20xm0t9ytjy23x1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.101Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.101Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "mpswirw8wtowaoq"
+    }
+  ]
+}

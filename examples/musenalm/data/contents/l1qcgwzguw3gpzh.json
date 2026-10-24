@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Die Sonne steigt in Osten licht empor; / Von goldnem schimmernden Gedüft um- / flossen,",
+  "language": [],
+  "musenalm_id": 1228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guidos Aurora",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "LOUISE ***",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Guidos Aurora",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.653Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "99h3yxfvpl3w525"
+    }
+  ]
+}

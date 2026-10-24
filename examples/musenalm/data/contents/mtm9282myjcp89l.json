@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium Juli",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MONAC",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92861_tssy7wmsba.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MONAC",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "4g9riovxk49ns62"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "sjryrwpw74yqnj4",
+      "source_id": "tzirtl0ttnfy5kz"
+    }
+  ]
+}

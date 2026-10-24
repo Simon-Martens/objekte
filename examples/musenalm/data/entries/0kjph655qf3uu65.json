@@ -1,0 +1,49 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach, Leipziger 1778",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2313,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Musenalmanach, Leipziger 1778",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 86; L/R 29; Goed IV/1. 946, 2",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.983Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

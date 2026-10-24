@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "So soll ich denn zu neuen Elegien / Für dich, geliebter Freund! / Mein kleines Saitenspiel mit Flor beziehen,",
+  "language": [],
+  "musenalm_id": 31394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwey Elegien / II. / Auf den / Tod einer geliebten Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwey Elegien / II. / Auf den / Tod einer geliebten Nachtigall",
+  "updated": "2003-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.336Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "jfv2zfo2zbbi04k"
+    }
+  ]
+}

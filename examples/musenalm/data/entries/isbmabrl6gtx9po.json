@@ -1,0 +1,51 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.426Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.\nMehrdeutiger Baende.xml-Titelabgleich; AlmNeu-only importiert, bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-06-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4901,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Klio (Wien) 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 72; nicht bei L/R; Goed VIII, 101, 221",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-07-09 08:36:03.200Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "mh7a3wfar1fvrpf"
+  ],
+  "contents": [],
+  "agents": []
+}

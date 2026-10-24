@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, T, I-Verz, SS1–172, darin MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hoftheater-Taschenbuch, Königlich Württembergisches 1817",
+    "norm": "~",
+    "biblio": 200270,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-20T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1842,
+  "parallel_title": "",
+  "place_statement": "Stuttgart",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hoftheater-Taschenbuch, Königlich Württembergisches 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 64; L/R 120",
+  "responsibility_statement": "B. Korsinsky",
+  "subtitle_statement": "",
+  "title_statement": "KOENIGLICH / WÜRTTEMBERGISCHES / Hof-Theater / TASCHENBUCH / auf das Jahr / 1817. / Zweiter Jahrgang. / Stuttgart",
+  "updated": "2026-06-11 10:18:55.667Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "bd4r1xqqi6d80ve"
+  ],
+  "contents": [
+    "l2r6th90h2sfib6",
+    "48vqvov0x26qpkk",
+    "9upi7v7892o8vp3",
+    "eanfpuboeaodwqu",
+    "muzph5gdksoluhr",
+    "0doa7023mrc6xhs",
+    "t5l855yvasia8ha",
+    "cu911jeahx6rf4s",
+    "7f9yqtfk61zxuzx",
+    "zwt24eo1p6afjlm",
+    "kxlhaaqwg2cfx09",
+    "g8t19g9vpm0hgtg",
+    "5lcusvehtx7cqg2",
+    "psg6ryi9gtkm88q",
+    "rv5t4ndi9v3c4id",
+    "vbwa465wveql8fr",
+    "um1t2kuik2xgnw4",
+    "d29azl29lw36b8d",
+    "2a0yemibyrf7y0o",
+    "5inkat02izxt56a",
+    "b3yn6bkw8m9bhhd",
+    "ciekyv1h9olvg26",
+    "vokrojwji5tmpta",
+    "wc8tsc666q4k4ea",
+    "iy91cxbvj7ouhle",
+    "5lbljy365jag58s",
+    "opvedxanf389dme",
+    "mrwia6h268t54jh",
+    "yc67jlf96g319zq",
+    "w36deatrl4l83as",
+    "kd7wv7t2egma53a",
+    "vlt8nweqqknevy2",
+    "wrwy403izro5f5r",
+    "zv2e667ax8xgbot",
+    "ogc3uz0qpct9yfh",
+    "0r8472hx2pgj9du",
+    "5w961g5jyzpdj2n",
+    "rdxxq235s2lnhml",
+    "xqo9alcfo2g5z3g",
+    "tefrfwyjbblsh1x",
+    "smct2bh8u51wuny",
+    "2hz84nbxdb2evso",
+    "qcxwqnioxw8up3w",
+    "9reele8x5ubnwtt",
+    "cx8dzo8ggasg8st",
+    "r5vmwnu98ph840w",
+    "i57nqqcfpw0e7kg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.978Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.978Z",
+      "agent": "wm9j08mfjk3c14b",
+      "source_id": "28bplf27c9yl578"
+    }
+  ]
+}

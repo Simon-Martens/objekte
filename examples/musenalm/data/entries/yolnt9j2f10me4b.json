@@ -1,0 +1,92 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt /) vielleicht fehlen einige SS 301 ff",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-X, Kr, SS XI-XII, G, 6 BB Kal dazu GG, SS 13-300",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach zu Kenntniß der Preußischen Staaten 1795",
+    "norm": "~",
+    "biblio": 407961,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-07-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3987,
+  "parallel_title": "",
+  "place_statement": "Berlin (C. S. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach zu Kenntniß der Preußischen Staaten 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / zur / Kenntniß der Preußischen Staaten / für / Reisende und Einheimische. / Herausgegeben / 1795 / mit Genehmhaltung / der Königlichen Akademie der Wissenschaften zu Berlin. / Berlin, / gedruckt bey Christian Sigismund Spener",
+  "updated": "2026-06-11 10:18:54.806Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "d2uwwal760s2c5s"
+  ],
+  "contents": [
+    "kpttq0le6fzriek",
+    "0ja1u279dwj73b4",
+    "9dljqj7sbl2qfw2",
+    "lvjelzx46g12r5b",
+    "2ehhw81t0vp2r01",
+    "cub5tcvxu8wv1de",
+    "fakqoacps0jafwc",
+    "effpw9i3sl2pmw4",
+    "gkh5sqjr84kite4",
+    "66iiafx84ppfusx",
+    "9jhilwplkixh1i4",
+    "hgxl93mqw7f7p96",
+    "gfu0um86b6k4nbd",
+    "5djx9utkbwh134t",
+    "m8z3n0whhv1lazo",
+    "lpuuuffqi967jq3",
+    "nn4sn550nt1000l",
+    "p364eogfnvdjxpw",
+    "re326g6ltkf7fy2",
+    "mteljt5hv616xa2",
+    "qeco0edc3g5crpp",
+    "kduwyz9vuxn3018",
+    "d6c9ezpotrdnw3o",
+    "piijsokkym1ukpr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.635Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.635Z",
+      "agent": "estnn1lmg3j09tt",
+      "source_id": "96vybm4cpy2lfe7"
+    }
+  ]
+}

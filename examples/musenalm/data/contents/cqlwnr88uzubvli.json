@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 131308, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "481",
+  "incipit_statement": "Schmerz des Todes! dich kennt nicht der Greis, / dem lange das Leben / Leuchtete;",
+  "language": [],
+  "musenalm_id": 131366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 251,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Greises",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Greises",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.032Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "0pslgswz03tnm5b"
+    }
+  ]
+}

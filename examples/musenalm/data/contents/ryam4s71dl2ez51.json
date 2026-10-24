@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Der strenge Winter ist vergangen, / Der Himmel rein und blau;",
+  "language": [],
+  "musenalm_id": 62087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Frühlinge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Frühlinge",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.086Z",
+      "agent": "u7poegszzbmufqb",
+      "source_id": "r88zpyjhowftipy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 14586, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Wenn Sonnenstrahlen sich im Lenz ergießen, / Und recht ins tiefste Herz der Erd tauchen,",
+  "language": [],
+  "musenalm_id": 14589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Deutung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Wagner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Deutung",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.613Z",
+      "agent": "x7c2pl3bvx7jtlf",
+      "source_id": "dbq81ik0b410p50"
+    }
+  ]
+}

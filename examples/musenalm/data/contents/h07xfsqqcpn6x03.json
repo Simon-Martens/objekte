@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Du, die mit stillem Engelblick, / Auch bei dem widrigsten Geschick,",
+  "language": [],
+  "musenalm_id": 5710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geduld. / Im Mai 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geduld. / Im Mai 1782",
+  "updated": "2000-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.029Z",
+      "agent": "dxi2hql7exffxou",
+      "source_id": "vs62fehxggtys9v"
+    }
+  ]
+}

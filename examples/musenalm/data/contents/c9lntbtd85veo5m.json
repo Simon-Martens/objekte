@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57536,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Cantone Schaffhausen und Thurgau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. u. gest. von Scheurmann",
+  "scans": [
+    "alm_711_57536_7gjcc9xl2r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Cantone Schaffhausen und Thurgau",
+  "updated": "2007-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.594Z",
+      "agent": "9ql0nfn99kgr5a3",
+      "source_id": "6xc0h41931ysfgc"
+    }
+  ]
+}

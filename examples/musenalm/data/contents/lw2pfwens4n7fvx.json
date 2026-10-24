@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zu »Ausstellungen aus den Reisen und Abentheuern Von Jean Jaques Casanova de Seingalt. Nach dem in französischer Sprache geschriebenen Original-Manuscript bearbeitet von Wilhelm von Schütz« (Sammlung INr 1637, Obj 147)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Ein günstiger Zufall führte dem unterzeichneten Herausgeber und Verleger der Urania im vorigen Jahr ein höchst merkwürdiges Manuscript zu, das in der Gattung der Memoiren vielleicht für einzig gelten kann.",
+  "language": [],
+  "musenalm_id": 1866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort des Herausgebers der Urania",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort des Herausgebers der Urania",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.122Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "r0i13swv433kblf"
+    }
+  ]
+}

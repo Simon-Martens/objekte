@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 115828, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Du taumelst stets in engern Ringen / Um einer Kerze helles Licht -",
+  "language": [],
+  "musenalm_id": 115830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Schmetterling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Schmetterling",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.628Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "r9rthmnl28bss43"
+    }
+  ]
+}

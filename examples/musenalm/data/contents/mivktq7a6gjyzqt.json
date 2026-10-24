@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Illustrationen s.Graphiken INr 110926-1109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Da wo in dem Walde von Fontainebleau sich die verschiedenen durch den Forst gehauenen Wege an der Clodwigs-Eiche vereinigen, hielt im Sommer der 1572sten Jahres ein junger Mann auf fahlem Rosse.",
+  "language": [],
+  "musenalm_id": 110925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl der Neunte / und / Die Bartholomäusnacht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Carl der Neunte / und / Die Bartholomäusnacht",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.389Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "ws3tddmmcdx4qus"
+    }
+  ]
+}

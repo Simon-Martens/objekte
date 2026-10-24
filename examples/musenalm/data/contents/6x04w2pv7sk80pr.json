@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Vom dunkeln Waldrand dorten steiget / Glühend der volle Mond empor; / Im Nachtwind leise das Schilf sich neiget, / Lauschend schleicht das Wild hervor.",
+  "language": [],
+  "musenalm_id": 122298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 322,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schlachtfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schlachtfeld",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.688Z",
+      "agent": "n93zvl8q72c04nh",
+      "source_id": "tmusm9d622pswbo"
+    }
+  ]
+}

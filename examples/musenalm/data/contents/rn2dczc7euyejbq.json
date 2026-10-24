@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Es war im Berner Oberland ein Zwerglein, Ledene genannt, das saß recht traurig bei einem Gläschen, weiß nicht, war's Wein oder Bier, vor seiner kleinen Hütte Thür,",
+  "language": [],
+  "musenalm_id": 129647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elend, / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Passy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elend, / Ein Mährchen",
+  "updated": "2022-02-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.045Z",
+      "agent": "gzy7khu1txc8z5v",
+      "source_id": "rrkxd9snkojd37v"
+    }
+  ]
+}

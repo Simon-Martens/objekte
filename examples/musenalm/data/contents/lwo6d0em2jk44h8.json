@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) paginiert 6. Graphik im Kalendarium Oktober /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68952,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sterbende Kaiser mit seinem / Sohne Manfred",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_843_68952_0b3rxfbkml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der sterbende Kaiser mit seinem / Sohne Manfred",
+  "updated": "2008-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.234Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "smx1ckw4l1jf0h3"
+    }
+  ]
+}

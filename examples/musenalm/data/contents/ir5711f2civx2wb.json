@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Sänger zieht am Meere nieder, / Hört im Sturm der Wellen Schlag,",
+  "language": [],
+  "musenalm_id": 68051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Taucher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Taucher",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.224Z",
+      "agent": "prvw4acsenveets",
+      "source_id": "7f8zglro54xw4ye"
+    }
+  ]
+}

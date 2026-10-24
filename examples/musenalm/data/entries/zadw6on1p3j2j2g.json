@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frühlingskränze, Deutsche 1816",
+    "norm": "",
+    "biblio": 200853,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1787,
+  "parallel_title": "",
+  "place_statement": "Bamberg u. Würzburg (Göbhardt)",
+  "places": [
+    "8lhjg1fp51faz5c",
+    "7q54mvk5779ovsc"
+  ],
+  "preferred_title": "Frühlingskränze, Deutsche 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 42; Goed VIII. 88, 166",
+  "responsibility_statement": "Johann Peter von Hornthal",
+  "subtitle_statement": "",
+  "title_statement": "Deutsche Frühlingskränze / für 1816 / von / Isidorus, Max v. Schenkendorf, Gustav Schwab, K. A. / Varnhagen van Ense, Dr. F. G. Wetzel, Karl v. / Oberkamp u. A. / Herausgegeben / von / Johann Peter von Hornthal. / Bamberg und Würzburg, / in den Göbhardt'schen Buchhandlungen. / 1816",
+  "updated": "2026-06-11 10:18:54.687Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "u8yj8rni4v94btr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.912Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.912Z",
+      "agent": "eo963ri3b6zd7x6",
+      "source_id": "6tholfg5o4mrs0x"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.975Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.975Z",
+      "agent": "1acfhtvr8htxmbh",
+      "source_id": "ad66i01c4xejocq"
+    }
+  ]
+}

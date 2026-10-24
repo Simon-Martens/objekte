@@ -1,0 +1,45 @@
+{
+  "annotation": "Landschaftsskizzen (Sammlung INr 90564, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Sieh, die Berge sonnetrunken / Legen ihre Riesenarme / Müd' hinaus so gramversunken",
+  "language": [],
+  "musenalm_id": 90569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Auf den Bergen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Auf den Bergen",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.253Z",
+      "agent": "cvs1lz6mp4pj8h4",
+      "source_id": "wxs7t6oxg2o86sw"
+    }
+  ]
+}

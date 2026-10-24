@@ -1,0 +1,43 @@
+{
+  "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) Corrigenda",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Unter den unsäglichen Leiden, welche einen armen Autor heimsuchen, so oft er ein Büchlein in die Welt sendet, stehen nebst ungünstigen Recensionen Druckfehler oben an.",
+  "language": [],
+  "musenalm_id": 36425,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Druckfehler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Druckfehler",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.758Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "vl8zdubf23u6p1u"
+    }
+  ]
+}

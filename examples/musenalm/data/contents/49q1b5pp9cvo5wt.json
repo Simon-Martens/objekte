@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "495",
+  "incipit_statement": "Die erste Sylbe ist des Winters Kind, / Doch auch im Sommer gern gesehn von vielen,",
+  "language": [],
+  "musenalm_id": 42465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.147Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ba0apxl75zrw795"
+    }
+  ]
+}

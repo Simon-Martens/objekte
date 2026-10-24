@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pseudonyms": {
+      "type": "string"
+    },
+    "refs": {
+      "type": "string"
+    },
+    "frequency": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "readOnly": true
+    },
+    "updated": {
+      "type": "string",
+      "readOnly": true
+    },
+    "musenalm_id": {
+      "type": "number"
+    },
+    "edit_state": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "ToDo",
+        "Seen",
+        "Partially Edited",
+        "Waiting",
+        "Review",
+        "Edited",
+        ""
+      ]
+    },
+    "annotation": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "edit_comment": {
+      "type": "string",
+      "x-content": "markdown"
+    },
+    "editor": {
+      "type": "string",
+      "description": "Source users ID; that collection was not included in the export.",
+      "readOnly": true
+    },
+    "entries": {
+      "type": "array",
+      "uniqueItems": true,
+      "default": [],
+      "x-children": true,
+      "items": {
+        "type": "string",
+        "x-relation": {
+          "collection": "entries"
+        }
+      }
+    },
+    "related_entries": {
+      "type": "array",
+      "default": [],
+      "items": {
+        "type": "object",
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "minLength": 15,
+            "maxLength": 15,
+            "pattern": "^[a-z0-9]+$",
+            "readOnly": true
+          },
+          "entry": {
+            "type": "string",
+            "x-relation": {
+              "collection": "entries"
+            }
+          },
+          "annotation": {
+            "type": "string",
+            "x-content": "markdown"
+          },
+          "created": {
+            "type": "string",
+            "readOnly": true
+          },
+          "updated": {
+            "type": "string",
+            "readOnly": true
+          }
+        },
+        "required": [
+          "entry"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "title",
+    "musenalm_id"
+  ],
+  "additionalProperties": false
+}

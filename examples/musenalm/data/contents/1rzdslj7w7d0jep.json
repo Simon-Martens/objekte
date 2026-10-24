@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach Petrarka's Zeugniß schlägt der Blitz in keinen Lorbeer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Ruhig steh' ich in den Wettern, / Denn nur spielend darf der Blitz mir nah'n.",
+  "language": [],
+  "musenalm_id": 62360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lorbeer und die Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Lorbeer und die Eiche",
+  "updated": "2009-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.988Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "ukngscdx403j0zg"
+    }
+  ]
+}

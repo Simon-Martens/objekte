@@ -1,0 +1,65 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Münchner 1796",
+    "norm": "",
+    "biblio": 411477,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-08-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4870,
+  "parallel_title": "",
+  "place_statement": "München (Zängl)",
+  "places": [],
+  "preferred_title": "Taschenkalender, Münchner 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; KVK, HBZ: 1794-1802",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Münchner / Taschenkalender / zum / allgemeinen Gebrauche / auf das Jahr / 1796. / Mit Genehmhaltung des kurfl. hochl. / Büchercensur-Collegiums. / München, / gedruckt und zu finden bey Jos. Zängl, / bürgerl. Stadtbuchdrucker im Bierwirth / Hrn. Zwergers Hause nächst der Land- / schaft auf dem Platz über 2 Stiegen",
+  "updated": "2026-06-30 10:08:08.925Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "d6vfqo10bt891lt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.218Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-30 10:08:08.926Z",
+      "agent": "rc78ajrthxqwzin",
+      "source_id": "qvi0deq7xwajyk2"
+    }
+  ]
+}

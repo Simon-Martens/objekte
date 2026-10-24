@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B, B W, G, S I-Verz, SS 1- 467 darin 2 BB 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1831",
+    "norm": "~",
+    "biblio": 106725,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2474,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / EIN / TASCHENBUCH / FÜR 1831. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.473Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "dssla6g6u72gf6s"
+  ],
+  "contents": [
+    "a8tk4zglxygolws",
+    "2lw16fadm4j2ldf",
+    "s7tcnp5xxu1x03p",
+    "gdtwlnjc4v5yvbt",
+    "vwlbvpj33xeeu9l",
+    "zpk7mkgu7o9aief",
+    "zzxp8g3m8aqvj4m",
+    "2hmjm0u86l6ax72",
+    "7tzaxux1np57vvv",
+    "zcwfyzu0wkyt0dp",
+    "ckf2renpt2qgc0j",
+    "6j9pvz9ksa4gy80",
+    "kvzvwt3w52gg6c3",
+    "yiduwmgoq8qdfaf",
+    "o7cra0o00577ohz",
+    "52tp084qgp0ss1o",
+    "uybeyxrdtxm3upj",
+    "cynkwncrcrc1ope",
+    "aiyylznplfs67wu",
+    "ffh0xbzitam16n6",
+    "oyrac00qyeey2fc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "ogf0x8ciqyq275c"
+    }
+  ]
+}

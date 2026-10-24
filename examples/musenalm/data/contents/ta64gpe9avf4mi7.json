@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) paginiert 3 /) Illustration zu »Der Graf von Eberstein« INr 56928, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alle Frauen blickten nach dem stattli- / chen Paare. / zu Hugo von Eberstein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hörmann inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_57_56929_fhuyb35enz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alle Frauen blickten nach dem stattli- / chen Paare. / zu Hugo von Eberstein",
+  "updated": "2008-04-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.940Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "u0k764wklw66kna"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Charaden über ein Wort (Sammlung INr 19883, Obj 67) Räthsel, Charaden und Logogryphe (Sammlung INr 19881, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Hast du das Erste nur gewonnen, / Bist du dem Zweiten auch entronnen;",
+  "language": [],
+  "musenalm_id": 19884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hast du das Erste nur gewonnen, / Bist du dem Zweiten auch entronnen;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.683Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "9f3huts6xdnlqf9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Als ich Euniken lieblich zu küssen mich nahte, lachte / Sie herzschneidend mich aus und sagte: rühre mich nicht / an!",
+  "language": [],
+  "musenalm_id": 28695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Der Ochsenhirt. / Angeblich von dem Syrakuser Theokrit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seume",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Der Ochsenhirt. / Angeblich von dem Syrakuser Theokrit",
+  "updated": "2002-10-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.115Z",
+      "agent": "ez181fjr8mhbxyp",
+      "source_id": "bgrqyt5vl7iekct"
+    }
+  ]
+}

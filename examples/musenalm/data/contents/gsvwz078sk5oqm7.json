@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Ahnungsvoll war Zwingli mitgezogen / In der Brüder oft beweinten Streit.",
+  "language": [],
+  "musenalm_id": 53573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwinglis / Blick in die Zukunft. / Den 1ten Januar 1819 in der Hauptkirche zu St. Gallen / vorgetragen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hanhart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwinglis / Blick in die Zukunft. / Den 1ten Januar 1819 in der Hauptkirche zu St. Gallen / vorgetragen.",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.714Z",
+      "agent": "r7qty9urjd87rae",
+      "source_id": "r64mk2un0qqb0bw"
+    }
+  ]
+}

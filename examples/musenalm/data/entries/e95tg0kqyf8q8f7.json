@@ -1,0 +1,114 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 17 BB Kal darin 6 GG, 7 SS Tab, S 1 nT, SS 3-138, S I-Verz, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Veilchen, Das 1837",
+    "norm": "~",
+    "biblio": 200884,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3348,
+  "parallel_title": "",
+  "place_statement": "Wien (Buchholz)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Veilchen, Das 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 164; L/R 94; Goed VIII. 98, 201",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DAS / Veilchen / Ein / TASCHENBUCH / für / Freunde / einer gemüthlichen und erheiternden / LECTÜRE. / Zwanzigster Jahrgang. / 1837. / WIEN / bei Heinrich Buchholz / k.k. Hof- und bürgl. Buchbinder, / im Schottenhofe No. 136",
+  "updated": "2026-06-11 10:18:54.873Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "7oqpuccynge6j8h"
+  ],
+  "contents": [
+    "za6qll78rpjxkya",
+    "shjhc1h0pyrk6nv",
+    "jq68h9wgras9l39",
+    "nut8nmfkcyys9w2",
+    "v5ni5egv15rpglo",
+    "6kv7myn3leyody6",
+    "lvg8i1hgzt7zxxu",
+    "oc0qhfogmfuta74",
+    "hbus87hosaib6mo",
+    "n4cjhqt3z9veadz",
+    "nv68gza42a7niqr",
+    "rlkivyl3y2k3ief",
+    "upxcbf5t2erhy9i",
+    "0kc65io6bmzrhi4",
+    "8hdyzs7udf12asl",
+    "n5kog85ic8v4cwb",
+    "i2yi4bgpnt0l0zq",
+    "6bs8749aeq8fbkv",
+    "3b5ybgq1ng664kl",
+    "8yrbmrg8hkrkkg4",
+    "31fpir7lak40vxf",
+    "5ff7ort2c5703fa",
+    "rrhcdr9nmcejf6u",
+    "6bdm3x2h2p0jhyv",
+    "if03ska8a6tq7bv",
+    "43y19x2njpn48kz",
+    "j9tej8hxnaehb13",
+    "m2800kz1fkrvlm8",
+    "iklu6ccz3oxchge",
+    "uxk5ffyx6g2htm3",
+    "04ulurvjvmrls7a",
+    "vc3r7tlc1wisndu",
+    "kvi0l4pc4ytkxm0",
+    "rscujjyg2mdxhnb",
+    "drg9wsc1nbi1aqv",
+    "zicsdj3iqlq8cyh",
+    "aqy169jwzwguc66",
+    "rhywuyzj3rz3fav",
+    "e2b4juzkr1xc6xm",
+    "lp0rtp8fuyaavxc",
+    "mpmenvmjs0d3njr",
+    "z3r9lbhj2aza9lb",
+    "26baq6rzz4j4vwf",
+    "zm4rhr6lu9ro374",
+    "pwm25tvncmenhem",
+    "0gfgbkhogi4i15r"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.616Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.616Z",
+      "agent": "7y7pahz53spng1g",
+      "source_id": "5wnwni4ubkdfbf7"
+    }
+  ]
+}

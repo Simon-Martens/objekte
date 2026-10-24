@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Die Lieb' und Ruhmbegier, sind jene festen / Pfeiler, / Worauf das Wohl der Menschheit ruht;",
+  "language": [],
+  "musenalm_id": 125717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment / aus / Alxingers Bliomberis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment / aus / Alxingers Bliomberis",
+  "updated": "2020-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.832Z",
+      "agent": "3v0kb6a8a8y5rhb",
+      "source_id": "dnmiq1pa9ovddfy"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 28067, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28068,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Sebald heilt einen Geblendeten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Vischer; Albert Reindel",
+  "scans": [
+    "alm_361_28068_frrxt47bii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Sebald heilt einen Geblendeten",
+  "updated": "2002-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.390Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "a2lcl6t8tpi6agk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.390Z",
+      "agent": "2j4fmhpjuaqhaao",
+      "source_id": "e6dd019c3kp3ydo"
+    }
+  ]
+}

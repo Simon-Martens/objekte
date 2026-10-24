@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Hinaus will ich aus dir, du Welt! / Du Welt! bist eine Mördergrube!",
+  "language": [],
+  "musenalm_id": 6652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TIMON",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GLEIM",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "TIMON",
+  "updated": "2000-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.236Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "1qkku4w4sd5goo6"
+    }
+  ]
+}

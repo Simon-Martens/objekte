@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96729, Obj 28 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96715, 96716; Obj 14, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Der väterlichen Laren satt, / Verläßt, mit einem Kopf der / kein Gehirne hat; / Einst eine Feldmaus ihre Hütte",
+  "language": [],
+  "musenalm_id": 96728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Maus und die / Auster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Maus und die / Auster",
+  "updated": "2014-05-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.646Z",
+      "agent": "3i4im09snt5w2js",
+      "source_id": "f4wt3qio67e6ils"
+    }
+  ]
+}

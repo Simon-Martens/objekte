@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 87771, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Marie erhob sich weinend aus den Armen ihrer mütterlichen Freundinn, welche sie Erziehung und Wohlthaten seit ihrer verwaisten Kindheit verdankte,",
+  "language": [],
+  "musenalm_id": 87794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie. / Eine Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser des Romans Heliodora",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marie. / Eine Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.151Z",
+      "agent": "082sspsj3rz0i1b",
+      "source_id": "t6u3tpl2vmy91k8"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122847 Obj 190",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Wer Freiheit liebt und Vaterland, / Der soll gen Haarlem gehen; / Am »Milchstäg« nehm’ er seinen Stand, / Das Eckhaus zu besehen",
+  "language": [],
+  "musenalm_id": 122848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hanns Barendse oder Hanns der Flicker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J.J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hanns Barendse oder Hanns der Flicker",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.733Z",
+      "agent": "biljcxuc46g2kmt",
+      "source_id": "pl35hqbhclrqsyt"
+    }
+  ]
+}

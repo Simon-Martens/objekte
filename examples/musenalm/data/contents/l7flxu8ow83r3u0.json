@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert V. /) Illustration zu »Mandat Generalcommandant der pariser Nationalgarde und Clermont Tonnere Exdeputirter der konstituirenden National-Versammlung, Opfer der pariser Revoluzion am 10. August 1792« INr 59881, Obj 47; s.a. Textbezug INr 59856, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59857,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschworne des zehnten Augusts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Geyser sc.",
+  "scans": [
+    "alm_933_59857_wlou9amcb8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verschworne des zehnten Augusts",
+  "updated": "2008-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.959Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "j153oah6rnsddm5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.959Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "ug650kr9se3q26z"
+    }
+  ]
+}

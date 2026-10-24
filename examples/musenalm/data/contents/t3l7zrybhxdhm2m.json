@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Seit vielen Wochen durchbrach die Sonne zum ersten Male das dichte Märzgewölk und sah freundlich auf die mit Schnee bedeckten Straßen der Stadt *** herab,",
+  "language": [],
+  "musenalm_id": 86292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viktor. / Novelle. / (Nach dem Ungarischen des G. Tretter.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Steinacker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viktor. / Novelle. / (Nach dem Ungarischen des G. Tretter.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.192Z",
+      "agent": "ykspfd0cjafw5jg",
+      "source_id": "7bpqxqlgy1hlrrk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Welch ein Anblick ward dem guten Assad, / Als er rund umher den Blick versandte!",
+  "language": [],
+  "musenalm_id": 26111,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen Hallermünde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achter Gesang",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.097Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "nlhqqpdjcysbiye"
+    }
+  ]
+}

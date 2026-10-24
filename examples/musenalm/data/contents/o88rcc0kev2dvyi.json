@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64244, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64252,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Himmelskönigin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Murillo pinxt. W. Otto sculpt.",
+  "scans": [
+    "alm_1064_64252_h6xpo9st54.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Himmelskönigin #",
+  "updated": "2009-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.978Z",
+      "agent": "zikixfku6z2uhtf",
+      "source_id": "02grzi2ti2ym6tq"
+    }
+  ]
+}

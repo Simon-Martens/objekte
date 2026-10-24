@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Anmerkung A. Gebauers zur Enstehung des Gedichts /) mit einer Entgegnung von J.G. von Salis-Seewis in: Alpenrosen 1827 INr 54382",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Sänger, der früh mich erquickt, deß lyrische Blüthengewinde / Mich im erwachenden Lenz einst der krieg'ri- / schen Bahn / Hold begleitet in's Feld,",
+  "language": [],
+  "musenalm_id": 53944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Salis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Salis",
+  "updated": "2008-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.716Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "k19iysudlr0auwq"
+    }
+  ]
+}

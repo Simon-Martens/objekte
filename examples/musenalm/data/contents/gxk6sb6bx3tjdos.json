@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Rauh und steil erhebt sich dort drüben das Ufer des Sees. Unersteigliche Felsenwände starren aus der Tiefe, und trotzen in den Wolken empor.",
+  "language": [],
+  "musenalm_id": 50967,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die wahren Reichen. / Gedichtet bey der Ansicht von / Quinten, am Wallenstatter-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bronner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die wahren Reichen. / Gedichtet bey der Ansicht von / Quinten, am Wallenstatter-See",
+  "updated": "2007-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.652Z",
+      "agent": "tgu359r6w056o92",
+      "source_id": "ybee7neahgpobj4"
+    }
+  ]
+}

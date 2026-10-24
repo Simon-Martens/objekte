@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Johanns Hadloub, ein Minnesinger von Zürich« von J. Horner INr 52833, Obj 65; mit Anmerkungen (Worterläuterungen)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Ach ich sah sie truten ein Kindelin, / Davon ward min, / Muth Liebes ermahnt,",
+  "language": [],
+  "musenalm_id": 52837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zweyte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanns Hadloub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Zweyte",
+  "updated": "2007-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.503Z",
+      "agent": "c049n5g26xjdbvq",
+      "source_id": "xo5x7tgdxtfwf7o"
+    }
+  ]
+}

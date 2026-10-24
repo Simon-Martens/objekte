@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Deutsche Volkssagen (Sammlung INr 24954, Obj 235) Gedichte (Sammlung INr 24953, Obj 234)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Es ward von unsern Vätern mit Treuen uns vermacht / Die Sage, wie die Väter sie ihnen überbracht,",
+  "language": [],
+  "musenalm_id": 24958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 239,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Birnbaum auf dem Walserfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Birnbaum auf dem Walserfeld",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.246Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "cyd42n3dr7e0qsf"
+    }
+  ]
+}

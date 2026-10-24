@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert Pag 89 /) Illustration zu »Don Diegos nächtliches Abentheuer« INr 78931, Obj 119",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Dähling i. 99. F. W. Bollinger s. 99)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling i. 99. F. W. Bollinger s. 99",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.889Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "3tp6jhtrd2rgtla"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.890Z",
+      "agent": "xudps8vzrobe0d5",
+      "source_id": "pbjtbehzuyzq789"
+    }
+  ]
+}

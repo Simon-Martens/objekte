@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Des Schicksals strengste Prüfung trift / Nicht selten edler Menschen Herzen",
+  "language": [],
+  "musenalm_id": 31565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In das Stammbuch / eines unglücklichen aber edeldenkenden Mannes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In das Stammbuch / eines unglücklichen aber edeldenkenden Mannes",
+  "updated": "2003-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.388Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "r6o5s5xrfgkrsjz"
+    }
+  ]
+}

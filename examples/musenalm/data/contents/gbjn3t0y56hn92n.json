@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung der Verse »Dulces exuviae, dum fata Deusque sinebant [...]« aus dem 4. Buch der Aenaeis s. INr 42692, Obj 225",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vespera Lutheri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_560_42691_f2x91ntv4a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vespera Lutheri",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.100Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "39tyoqgv8ztkp17"
+    }
+  ]
+}

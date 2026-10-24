@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel österreichischer Juden (Sammlung INr 119062, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Das Handwerk erwirbt sich in dem Grade mehr Anhänger unter den österreichischen Israeliten, als die Schwierigkeiten zum Selbstbetriebe entschwinden.",
+  "language": [],
+  "musenalm_id": 119064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Handwerk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Handwerk",
+  "updated": "2017-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.663Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "6x0j69ll2g6yv1a"
+    }
+  ]
+}

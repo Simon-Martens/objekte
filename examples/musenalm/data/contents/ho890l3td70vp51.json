@@ -1,0 +1,45 @@
+{
+  "annotation": "110f /) Anm. am Objekt: Wegerich, wildes Kraut mit breiten Blättern /) Siebentes Jahr (Sammlung INr 48772, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Endlich doch, nach Sturm und Stöberwetter / Sträubt' umsonst der wilde Winter sich,",
+  "language": [],
+  "musenalm_id": 48739,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenzgenuß, / an Henrietten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lenzgenuß, / an Henrietten",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.590Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "pbgs2lngnc1d9zo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Die Welt der Kunst und Wissenschaft, welche in Paris den Fremden umfängt, ist von untadelichem Reiz. In dieser Beziehnung glänzt Paris noch immer als die Kapitale der Welt.",
+  "language": [],
+  "musenalm_id": 88206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Wanderung an der Loire. / Aus meinen Erlebnissen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Wanderung an der Loire. / Aus meinen Erlebnissen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.158Z",
+      "agent": "jqanokpcqaenxu5",
+      "source_id": "1kcaa4p0tawxs9w"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Leibrente« von Maltitz (INr 125759, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ja, auch du, du warst vergiftet / Satansspeise! Teufels Silz!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmutzer del. M. Hofmann sc.",
+  "scans": [
+    "alm_2731_125760_8duntxqcu2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ja, auch du, du warst vergiftet / Satansspeise! Teufels Silz!",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.914Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "4xdhg6tsm73lbea"
+    }
+  ]
+}

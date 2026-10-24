@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 25641, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Sey jener Bauer ein Geselle / Auch noch so roh, die Goldeshelle",
+  "language": [],
+  "musenalm_id": 25678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 209,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Morgennebel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Morgennebel",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.989Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "uzd8u05sttkklwv"
+    }
+  ]
+}

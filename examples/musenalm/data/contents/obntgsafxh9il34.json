@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Riese! wie ragst Du empor aus Fluthen vergangener / Zeiten! / Ha! Dein Herrschergebot fesselte siegend die Welt;",
+  "language": [],
+  "musenalm_id": 74959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.455Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "zlrftk3xvp39zjs"
+    }
+  ]
+}

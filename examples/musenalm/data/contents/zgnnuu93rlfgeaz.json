@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. INr 75671, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tapferkeit und Stärke erringet und sichert für die Völker den Frieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Geyser sc.",
+  "scans": [
+    "alm_2143_75655_jeuybkmzly.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tapferkeit und Stärke erringet und sichert für die Völker den Frieden",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.544Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "8b7vtlwlas5zblu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.544Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "mp85tu4acowlnc3"
+    }
+  ]
+}

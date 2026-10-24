@@ -1,0 +1,56 @@
+{
+  "annotation": "Charade in fünf Umrissen (Sammlung INr 20182, Obj 103) Räthsel und Charaden (Sammlung INr 20174, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20183,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg del. Zschoch sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Zschoch sc.",
+  "scans": [
+    "alm_269_20183_ii32buomqa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.886Z",
+      "agent": "s4g5qqmtfq8rt8j",
+      "source_id": "gquxoab1sqohm5d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.886Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "w31uugsg8yj3kyz"
+    }
+  ]
+}

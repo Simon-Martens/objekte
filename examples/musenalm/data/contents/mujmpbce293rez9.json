@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. am Schluß des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ruh', o Seele! nun in Frieden! / Von der langen Bahn hienieden, / Von dem mühevollen Lauf",
+  "language": [],
+  "musenalm_id": 78690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Gleims Seele / (Mel. Ruhn in Frieden alle Seelen etc)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Gleims Seele / (Mel. Ruhn in Frieden alle Seelen etc)",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.734Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "upokceiimcc1utu"
+    }
+  ]
+}

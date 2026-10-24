@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Müllerin im Thale (Sammlung INr 133778, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Eine Müllrin jung und schön / Habe ich gesehen;",
+  "language": [],
+  "musenalm_id": 133779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.120Z",
+      "agent": "t0ac1fy2s8750zm",
+      "source_id": "jhmc9b75zsk1d83"
+    }
+  ]
+}

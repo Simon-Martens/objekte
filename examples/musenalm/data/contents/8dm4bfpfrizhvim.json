@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "O goldne Zeit, auf ewig hingeschwunden! / Wie süss bethört es, deine ferne Spur",
+  "language": [],
+  "musenalm_id": 1194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prometheus. / Ein erhabenes Antliz verlieh er dem Menschen, / und hiess ihn / Schaun gen Himmel, und frey das Haupt zu den / Sternen erheben. / OVIDIUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prometheus. / Ein erhabenes Antliz verlieh er dem Menschen, / und hiess ihn / Schaun gen Himmel, und frey das Haupt zu den / Sternen erheben. / OVIDIUS",
+  "updated": "2000-07-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.711Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "7kkcdf2le9fulve"
+    }
+  ]
+}

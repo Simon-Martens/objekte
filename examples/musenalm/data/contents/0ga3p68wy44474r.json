@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Graphik im Kalendarium September /) s. Textbezug INr 81570, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81548,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Crocodil, der Ichneumon und der Ibis / Thiere in Aegypten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HR. Grape sc.",
+  "scans": [
+    "alm_3834_81548_sb4xvmo5w7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Crocodil, der Ichneumon und der Ibis / Thiere in Aegypten",
+  "updated": "2012-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "t2z8lq4qwm3oov7",
+      "source_id": "g2seeak5s2e7j5y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.004Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "i58w8tzpvwqcrd8"
+    }
+  ]
+}

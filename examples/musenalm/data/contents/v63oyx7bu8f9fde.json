@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 71031, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Einen Geist in der Pflanz' erkennt er, den spiritus / rector, / Der aus der Reb' ihn stets mächtig und sichtbar / regiert.",
+  "language": [],
+  "musenalm_id": 71059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pflanzengeist",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chrysalethes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pflanzengeist",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.630Z",
+      "agent": "1s7x50uh0tm3jdc",
+      "source_id": "pts1th31ai16w7g"
+    }
+  ]
+}

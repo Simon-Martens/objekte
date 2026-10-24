@@ -1,0 +1,43 @@
+{
+  "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29559, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es lag ein munt'res Städtchen drüben, / Vom Vaterland nicht allzu weit,",
+  "language": [],
+  "musenalm_id": 29558,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.335Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "xnq1dzoexe1k1ng"
+    }
+  ]
+}

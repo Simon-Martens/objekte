@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III I-Verz, SS V-XVI darin 6 GG, SS 1-298, 11 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1836",
+    "norm": "~ K gibt 8 Stahlstiche an /) +++ 408369 (Graphik)",
+    "biblio": 101312,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-06-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 591,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1836. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen. / Frankfurt am Main. / Verlag von Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.356Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "m5k7qiot9yk7rwu",
+    "w58n8j7duy8ho5q"
+  ],
+  "contents": [
+    "p3iuztlsyfp8bda",
+    "elotp0zx0s5zwom",
+    "1kgxswxzyfasyna",
+    "g7mdqsf68m250r6",
+    "zyhvnedlz601yuw",
+    "s3j7d1vhf5mgq71",
+    "7o25i6ur13x4wnn",
+    "ehwlg87av6aq1cj",
+    "dcafgkws76xxuy2",
+    "vxva6z7z1zp5j5y",
+    "gy2sc98y8ztn5gt",
+    "g4j1ubgc0br2pl7",
+    "amhxh2qmsyduv5i",
+    "ixer2xbzo0xb52t",
+    "i755o9rhwgp4rvw",
+    "ipcqif1ez9lc7jb",
+    "iyvthdwazuuet6r",
+    "835zbanptzrmufu",
+    "ig8v9oqzic8k0mz",
+    "6cncl4adtzis0mz",
+    "sq3bl2j8e413rxc",
+    "p62sw3kowiswn4y",
+    "j4hhvg9bx3nm5c8",
+    "fz1uyyal3jc5vrc",
+    "7evi6mbvzfy0i3k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "ayoh2rh2sj4t8ay"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.711Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.711Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "r561pfqk40puh2l"
+    }
+  ]
+}

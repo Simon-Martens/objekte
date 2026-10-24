@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 53256, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53266,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegend bey Weinheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schilbach del. Haldenwang",
+  "scans": [
+    "alm_576_53266_sd1hw9de75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gegend bey Weinheim",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "3qspqgk80hg0ut6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.485Z",
+      "agent": "wqze1ivkmgxwz33",
+      "source_id": "w7ycmtr0kpw3ez7"
+    }
+  ]
+}

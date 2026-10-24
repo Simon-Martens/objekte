@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Schnee bedecket Berg und Thale, / Wüthend tobt der eis'ge Nord:",
+  "language": [],
+  "musenalm_id": 94402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Martin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "St. Martin",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.391Z",
+      "agent": "1gx7z956tuv7ghs",
+      "source_id": "r5vag2lzjm6yls9"
+    }
+  ]
+}

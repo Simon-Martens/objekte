@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Würtembergischer 1775",
+    "norm": "",
+    "biblio": 408184,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4037,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Chr. Fr. Cotta)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hofkalender, Würtembergischer 1775",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Würtembergischer / Hof- / Calender, / worinnen / allerhand nützliche und angenehme / Kenntnisse / enthalten sind; / auf das Jahr / 1775. / Stuttgard, / bey Christoph Friedrich Cotta, / Hof- und Canzley-Buchdrucker",
+  "updated": "2026-06-11 10:18:55.661Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "items": [
+    "umw5jgpfblx9oi4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.700Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.700Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "7u7e0l3pwdawlaq"
+    }
+  ]
+}

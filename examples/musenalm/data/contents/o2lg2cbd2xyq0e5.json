@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Den Lauben des Himmels entschweben, / O Freundin, die Himmlischen oft,",
+  "language": [],
+  "musenalm_id": 72580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fantasie",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.474Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "motmlx0u8v9b39q"
+    }
+  ]
+}

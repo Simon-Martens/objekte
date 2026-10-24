@@ -1,0 +1,342 @@
+{
+  "annotation": "",
+  "biographical_data": "1760-1817",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.401Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliationAsLiteral": [
+        "Universität (Altdorf)"
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Als Geburtsort wird auch Gräfenberg in Oberfranken angegeben; Maler, Kupferstecher; Angeblicher Fälscher"
+      ],
+      "dateOfBirth": [
+        "1760-02-02"
+      ],
+      "dateOfDeath": [
+        "1817"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "von C.M.Bock gez. u. gest. 1791"
+          ],
+          "creditText": [
+            "Stich von C.M.Bock"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/A.W.K%C3%BCfner%20mit31Jahren.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/A.W.K%C3%BCfner%20mit31Jahren.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:A.W.K%C3%BCfner%20mit31Jahren.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-06-02T05:32:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124319319/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-355",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-355"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "124319319",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/124319319",
+      "oldAuthorityNumber": [
+        "(DE-588a)124319319",
+        "(DE-588c)7526316-6"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4001388-1",
+          "label": "Altdorf b. Nürnberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4088220-2",
+          "label": "Betzenstein"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4026991-7",
+          "label": "Ingolstadt"
+        }
+      ],
+      "preferredName": "Küfner, Abraham Wolfgang",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Abraham Wolfgang"
+        ],
+        "surname": [
+          "Küfner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Maler",
+        "Verleger"
+      ],
+      "publication": [
+        "Sammlung der Ruinen- und Ritterburgen Frankenlands. - [1803]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149542286"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007053218"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17493023"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q330713"
+        },
+        {
+          "collection": {
+            "abbr": "AAA",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://aaa.gf-franken.de",
+            "name": "Album Academicum Altorphinum (AAA)",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://aaa.gf-franken.de/de/recherche.html?permaLink=L4470"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124319319/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Abraham_Wolfgang_K%C3%BCfner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000071422594"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/124319319"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124319319"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/124319319"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kuffner, a. W.",
+        "Küffner, Abraham W.",
+        "A. W. K.",
+        "Küffner, Abraham Wolfgang",
+        "Küffner, A. W.",
+        "AWK",
+        "Küfner, A. W."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A. W."
+          ],
+          "surname": [
+            "Küffner"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham W."
+          ],
+          "surname": [
+            "Küffner"
+          ]
+        },
+        {
+          "forename": [
+            "a. W."
+          ],
+          "surname": [
+            "Kuffner"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham Wolfgang"
+          ],
+          "surname": [
+            "Küffner"
+          ]
+        },
+        {
+          "personalName": [
+            "AWK"
+          ]
+        },
+        {
+          "personalName": [
+            "A. W. K."
+          ]
+        },
+        {
+          "forename": [
+            "A. W."
+          ],
+          "surname": [
+            "Küfner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Abraham_Wolfgang_K%C3%BCfner",
+          "label": "https://de.wikipedia.org/wiki/Abraham_Wolfgang_K%C3%BCfner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:01:06Z",
+    "gnd_query_biographical_data": "1760-1817",
+    "gnd_query_name": "küffner, abraham wolfgang"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1502,
+  "name": "Küffner, Abraham Wolfgang",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXII, 49",
+  "updated": "2026-06-11 13:29:23.391Z",
+  "uri": "https://d-nb.info/gnd/124319319",
+  "editor": ""
+}

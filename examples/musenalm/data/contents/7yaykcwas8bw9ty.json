@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: »Kais und Lobna« INr 58018, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Von den weiblichen Idealen arabischer Dichtkunst ist bisher nur der Name Leila's im Westen fast eben so bekannt, als im Osten.",
+  "language": [],
+  "musenalm_id": 58017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die berühmten / Liebespaare der Araber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die berühmten / Liebespaare der Araber",
+  "updated": "2008-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.758Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "f73oh9xwu8pz6hc"
+    }
+  ]
+}

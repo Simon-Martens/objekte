@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Durch eine Sonne, aus gediegnem Gold gemacht, / Vermagst du nicht in Tag zu wandeln finstre Nacht.",
+  "language": [],
+  "musenalm_id": 65658,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 226,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.232Z",
+      "agent": "b6lr2rx1hatxube",
+      "source_id": "7a1hjie9i42o97e"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 20165, Obj 86) §6§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Schweige Mund! und redet Augen! / Andre Sendung will ich nicht.",
+  "language": [],
+  "musenalm_id": 20172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Boten. / Mit Musik von Albert Methfessel §7§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Boten. / Mit Musik von Albert Methfessel §7§",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.987Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "b8p9n5yzyj9vqom"
+    }
+  ]
+}

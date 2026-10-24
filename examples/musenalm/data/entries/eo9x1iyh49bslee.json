@@ -1,0 +1,93 @@
+{
+  "annotation": "<div>§ UG verso fehlt</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG §, verso G, S I T, SS III-VI, SS 1-510",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Pferdezucht, Pferdekenntniß, Pferdehandel, der militärischen Campagne- und Kunstreiterei 1823",
+    "norm": "",
+    "biblio": 411489,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2024-11-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4876,
+  "parallel_title": "",
+  "place_statement": "Ilmenau (Voigt)",
+  "places": [],
+  "preferred_title": "Jahrbuch für Pferdezucht, Pferdekenntniß, Pferdehandel, der militärischen Campagne- und Kunstreiterei 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Seifert von Tennecker; Stallmeister von Vallentini",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Pferdezucht, Pferdekenntniß, Pferdehandel, / der militärischen Campagne- und Kunstreiterei / und die Roßarzneikunst in Deutschland und / den angränzenden Ländern, / auf das Jahr 1823. / Herausgegeben / von / Seifert von Tennecker, [...] und von / dem Stallmeister von Vallentini / in Hamburg. / Erster Jahrgang. / Mit dem Bildniß des Kunstreiters Baptist. / Ilmenau, 183. / Gedruckt und verlegt bei B. F. Voigt",
+  "updated": "2026-07-08 09:43:53.245Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "pd8j5rram24s22l"
+  ],
+  "contents": [
+    "9kld5edt84bsk7r",
+    "dwodd6kw2lvtvgv",
+    "b14s8585g2t0i9j",
+    "x73bcl3th4wue6y",
+    "47hmrkjc4oq7shf",
+    "wep7hfyzyv9mpxj",
+    "6zykgvdbp5kgve3",
+    "gmdttfpfo4bk3dh",
+    "64j5dofuh5rrvrb",
+    "us0ljb07dlyqozh",
+    "uwvgj6tcuogy65l",
+    "hjfoim7wvk4ar0u",
+    "wf44ztsmeuvplin",
+    "bzi26o676ftuza2",
+    "njfmeltajmltj9t",
+    "8693k71tmjxaa1y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-08 09:43:53.248Z",
+      "agent": "68vz9513hfeiif2",
+      "source_id": "b7k3ph8e61liufo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.217Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-07-08 09:43:53.248Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "j9x3va4sjkv8fo4"
+    }
+  ]
+}

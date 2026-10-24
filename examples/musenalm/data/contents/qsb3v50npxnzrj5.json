@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Wen der Frühling niedersinket, / Und die bunten Blumen blüh'n;",
+  "language": [],
+  "musenalm_id": 129903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dauer der Mädchenliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freyh. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dauer der Mädchenliebe",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.051Z",
+      "agent": "otquhrfmf15x6tw",
+      "source_id": "2pfh15vcv5ub5ux"
+    }
+  ]
+}

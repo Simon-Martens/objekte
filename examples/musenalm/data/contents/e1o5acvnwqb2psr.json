@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s.INr 11220, Obj 112,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Feine Brillen trag' ich zum Verkauf / Von der Klugheit Meisterhand geschliffen.",
+  "language": [],
+  "musenalm_id": 11219,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "72. / Der Brillenhändler. / Nach dem Französischen. / Die Compos. ist vom H. Capellmstr. Seydelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "72. / Der Brillenhändler. / Nach dem Französischen. / Die Compos. ist vom H. Capellmstr. Seydelmann",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.469Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "4c5cjsf79xn4f2u"
+    }
+  ]
+}

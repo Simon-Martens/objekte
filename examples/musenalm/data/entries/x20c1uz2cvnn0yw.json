@@ -1,0 +1,109 @@
+{
+  "annotation": "Erste franz. Ausgabe mit Beiträgen aus den Jgg 1807, 1808, 1809; weitere Erscheinungsweise unklar /) Die Graphik »Zug nach dem Reichstagspallaste in Worms« ist nicht beigegeben; s. Anmerkung auf dem Schuber: La belle estampe coloriée, représentant la procession au palais de la diète de Worms, n'a pas été jointe à l'almanach, mais se distribue séparément, afin qu'on n'ait pas besoin de la plier, et qu'elle se conserve mieux",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.332Z",
+  "dimensions": "",
+  "edit_comment": "Doppelte Relation Band–Reihe entfernt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 2 GG, SS I-IV Vrwrt d Hrsg, SS V-VIII G-Verz, ar: SS 1-327, ar1: SS 1-16 VrlgM, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach fürs Theater (Iffland) 1809",
+    "norm": "~",
+    "biblio": 409158,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4245,
+  "parallel_title": "",
+  "place_statement": "Berlin (Braunes)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach fürs Theater (Iffland) 1809 (franz. Ausgabe: Almanac du Théatre)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; L/R 117; Goed VIII. 128, 2",
+  "responsibility_statement": "Aug. Guill. Iffland",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / du / Théâtre / pour l'an / 1809. / par / Aug. Guill. Iffland. / Directeur du Théâtre royal national / de Berlin. / traduit de l'Allemand. / Avec 3 portraits et la procession au palais / de la diète de Worms, tirée du drame / intitulé Martin Luther / a / Berlin, 1809. / Chez Friedr. Braunes et Co.",
+  "updated": "2026-06-11 10:18:55.011Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "hxkofdcq40wv5yp"
+  ],
+  "contents": [
+    "oj056w8xfqfxu2r",
+    "7nuzy83njdlwga1",
+    "xissqksuvvg95t9",
+    "20yzf9o65qpfgk4",
+    "6iwmt86b1ti0b8g",
+    "y83ea9a0ro7mejv",
+    "aw3vfqos2xa9zgb",
+    "0dsn4xhd21sxzf9",
+    "m80uo54b4y35yyf",
+    "ap0wbuwdik1e70l",
+    "4mf74ooqv9hy6p5",
+    "9cmqyq8xzxpbln1",
+    "jdqho0zv6lsv8rq",
+    "kxj843egqj9ytng",
+    "ih435zd6w8dlrbl",
+    "nw7a8iw0dkji65f",
+    "bey7q6xfz7b9840",
+    "7r30a00n4g4awy7",
+    "ww4nsftowryhexe",
+    "1pagr6pf6opcm27",
+    "kic6uv0yzo7c4v0",
+    "75aob3nbtu3s3he",
+    "wbalhffqut1ze96",
+    "pfrz2wia89kgmvn",
+    "qjln4t97iw6c5o9",
+    "lewb9stnrx7vzr3",
+    "5ir1rk9ecdg7v0z",
+    "qtdog50dpcehqlh",
+    "0dbusa9dm1duwzk",
+    "vxtlr7y0vx7xm5l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.569Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.569Z",
+      "agent": "hnw9mmujaqrvfh8",
+      "source_id": "4x1vee66nlfft8f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.349Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.349Z",
+      "agent": "ygkra5epb9ywce3",
+      "source_id": "aji5hj7wh90dts5"
+    }
+  ]
+}

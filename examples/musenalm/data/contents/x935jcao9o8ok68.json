@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Es liegt so ewig nahe, / Das heil'ge Reich der Liebe;",
+  "language": [],
+  "musenalm_id": 48979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rose, Rose! Warum hast du Dornen?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rose, Rose! Warum hast du Dornen?",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.525Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "u93d3358zhz20np"
+    }
+  ]
+}

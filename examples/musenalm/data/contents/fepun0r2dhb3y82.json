@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93320,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / allgemein geschätzten / Freyfrau / Franziska von Arenstein / ehrfurchtsvoll gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von dem Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / allgemein geschätzten / Freyfrau / Franziska von Arenstein / ehrfurchtsvoll gewidmet",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.432Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "2in48qq7974eear"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "annotation": "# Bez. s. Widmung INr 90981 /) Jgg 1790-1826: Berlin; Jgg 1796, 1798-1807 bei Unger; Hrsg.: 1790, 1794, 1795: Siwicke; Hrsg: ab 1812: Kön. Preuß. Kalender-Deputation /) auch als franz. Ausgabe: Almanac historique & généalogique pour l'année […]; jedoch unklar ob sämtliche Jgg so erschienen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, Kr, 12 BB Kal darin 16 GG, zT, 4 BB W, 2 BB Vrwrt d Hrsg, SS 1- 93 darin 6 GG, SS 94-102 G-Verz, 3 GG, 72 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1790",
+    "norm": "~",
+    "biblio": 404122,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 825,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1790",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Siwicke",
+  "subtitle_statement": "",
+  "title_statement": "Historisch Genealogischer / CALENDER / auf das Jahr / 1790. / Mit Genehmhaltung der König. / Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.869Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "3nie2wsv2htt3oa"
+  ],
+  "contents": [
+    "xqcp2cvj6ph3t9l",
+    "a2xxxdp9mre34zb",
+    "8it62kdveju8yq8",
+    "pywkdmbm1fud42m",
+    "y3mmfyhfpntiqjw",
+    "7xkj0x6mwvi8cnc",
+    "adgex3e7xmnuxq5",
+    "xk5rcmgupnj1vav",
+    "8bkqv1dqafnbusu",
+    "r7xcu3bg6xx5f1u",
+    "op0pr1klvjb22as",
+    "7qduhvdoevffeif",
+    "v0gno1m8bi90yqh",
+    "ekbjvj1xe59at83",
+    "sy7f70sshfv496x",
+    "z03evsjic1l1yqg",
+    "61b8d01d15rz876",
+    "s6cgtd27dsc1so6",
+    "tj6vthpxpyj4t9g",
+    "7bv78d3x7lksp0i",
+    "6cgukbwxawe6r6f",
+    "sutwe1z3no6v9b6",
+    "gz9edg0b4rbvlcf",
+    "dzsz4k3hs3isu13",
+    "brbv2v80m2nfrnn",
+    "9dkffokhg6po0fk",
+    "i1h8smu9adkbmwc",
+    "bq0zxm412a7x5oy",
+    "xfow88pofhegb76",
+    "qfof7yn9ka1ztyd",
+    "dypaxoimp0jvs7u",
+    "w2zbbhx4rbq8484",
+    "16wlyt37xdfw48m",
+    "kxh3sfbdxkm70qn",
+    "405je67cc5ly02k",
+    "22wfgqbeoj7de2x",
+    "dcrk3q6k8ilssnf",
+    "egqn06zz027bhmh",
+    "evk3jksm6pgq2li",
+    "3y1cy5ib53nwyyg",
+    "esduue5jxmij0zd",
+    "8g2r6q6v1468tzb",
+    "gpoikyyd978vmfc",
+    "bsv0yr7d3gq5gwm",
+    "v44ojtgha10l641"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "tolr0r4p10g9iwh"
+    }
+  ]
+}

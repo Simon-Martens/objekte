@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IMMERGRÜN / für /  1841. / WIEN / Verlag der Carl Haas'sche Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rauschenfels gez. u. in Stahl gestochen",
+  "scans": [
+    "alm_1930_103993_o2bvtdhjcr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IMMERGRÜN / für /  1841. / WIEN / Verlag der Carl Haas'sche Buchhandlung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.903Z",
+      "agent": "a2hvl8gw6rbw7mo",
+      "source_id": "fcd7cok6ui7ai4w"
+    }
+  ]
+}

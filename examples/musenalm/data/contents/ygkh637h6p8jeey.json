@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 101651, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Grabe, Spaden grabe! / Alles, was ich habe, / Dank ich, Spaden dir!",
+  "language": [],
+  "musenalm_id": 101650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortsetzung von Hölty's Todtengräberlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fortsetzung von Hölty's Todtengräberlied",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.069Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "s662tpwzdo6eom7"
+    }
+  ]
+}

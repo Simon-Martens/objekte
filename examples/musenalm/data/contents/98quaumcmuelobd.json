@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 8068-8070, Obj 65-67 Anm. am Objekt: Diese Oden habe ich der Gütigkeit eines Freundes zu verdanken. Für die Richtigkeit der Abschrift kann ich daher nicht stehen. [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Oden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drey Oden",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.356Z",
+      "agent": "ckd4l48jtgsgmor",
+      "source_id": "lqbafyuf2s5cm7f"
+    }
+  ]
+}

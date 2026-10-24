@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte aus Jens Imm. Baggesen's Nachlasse (Sammlung INr 54581, Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Ueber Herrn von Kalb's Geschlecht / Kein Märtyrer für Wahrheit und für Recht?",
+  "language": [],
+  "musenalm_id": 54585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Ueber Herrn von Kalb's Geschlecht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jens Imm. Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Ueber Herrn von Kalb's Geschlecht",
+  "updated": "2008-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.715Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "hmt6ofdqyn37pz2"
+    }
+  ]
+}

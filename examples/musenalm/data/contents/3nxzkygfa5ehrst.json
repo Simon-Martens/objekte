@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Dich zu loben, ist sehr leicht, / Wenn ich deinen Leib zum Stoffe wähle,",
+  "language": [],
+  "musenalm_id": 8454,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amalien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amalien",
+  "updated": "2026-06-23 09:01:04.898Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.448Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "ijybrpvgi2t3rl2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder. Liebesfrühling (Sammlung INr 1718, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Der Himmel hat eine Thräne geweint. / Die hat sich in's Meer zu verlieren gemeint.",
+  "language": [],
+  "musenalm_id": 1738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XX.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XX.",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.910Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "8ub1tuta70dpfdg"
+    }
+  ]
+}

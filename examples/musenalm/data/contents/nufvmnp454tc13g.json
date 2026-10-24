@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5228, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Bist du noch fern, gewünschte stille Stunde? / Bist du noch fern?",
+  "language": [],
+  "musenalm_id": 5227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sterbelied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus der Fanny Wilkes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sterbelied",
+  "updated": "2000-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.961Z",
+      "agent": "xpo363njgmsmovp",
+      "source_id": "3wbf0lui1kvplho"
+    }
+  ]
+}

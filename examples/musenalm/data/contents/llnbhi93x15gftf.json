@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Das Fürstenkind« von Fouqué INr 26499, Obj 28 s. a. Textbezug INr 26478, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26477,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fürstenkind von de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. Hess sc.",
+  "scans": [
+    "alm_347_26477_d3tehz34cg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fürstenkind von de la Motte Fouqué",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.072Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "sexzaneahn0qeg5"
+    }
+  ]
+}

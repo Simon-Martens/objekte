@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Ich stand am Rand der Inselwand / Und schaute hinab in die Flut,",
+  "language": [],
+  "musenalm_id": 44336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Meermaid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Plönnies",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Meermaid",
+  "updated": "2006-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.259Z",
+      "agent": "x92gop17wjmkkw4",
+      "source_id": "ha4yppp7v41igzt"
+    }
+  ]
+}

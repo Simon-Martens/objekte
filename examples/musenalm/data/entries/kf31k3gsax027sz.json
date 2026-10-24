@@ -1,0 +1,106 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, G, Vrwrt, SS7–42 Kal,darin 4 GG, SS43–350, I-Verz, VrlgM, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Herzogl. S. Coburg-Meiningisches jährliches gemeinnütziges 1801",
+    "norm": "",
+    "biblio": 412456,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2025-12-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4909,
+  "parallel_title": "",
+  "place_statement": "Meinigen",
+  "places": [],
+  "preferred_title": "Taschenbuch, Herzogl. S. Coburg-Meiningisches jährliches gemeinnütziges 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Herzogl. S. Coburg-Meiningisches / jährliches / gemeinnütziges Taschenbuch. / 1801. / Mit Kupfern. / Meiningen, / bey dem Hofbuchdrucker Hartmann und dem / Buchbinder Klein",
+  "updated": "2026-06-11 10:18:56.030Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "ftk45r25fjjnwi6",
+    "eteuit9mjxan3qt",
+    "nakxw3qg37gdvhp",
+    "8fvrpfiguu06m58",
+    "63fml32yi5a49yy",
+    "eoyd8yru5g23jqw",
+    "9gh7cweyjw1bppq",
+    "i4d7nlpr22x0wk9",
+    "tzmuz9riw0iatdw",
+    "d26ll5t01btu94y",
+    "mnpqwp1myv5fvpv",
+    "qhfmbbkbd6xvpk2",
+    "78xbh45zk01xq6h",
+    "mthexbldfi6k50g",
+    "fstqv6pidi8wzgx",
+    "j6a28hpgwfxtpoy",
+    "0ue367yfp0gly3k",
+    "486nddtu7kmm9vz",
+    "dzpt4ehfyybcich",
+    "nganlcp1o397ro6",
+    "7sfxwhpzq2mt31z",
+    "ksfr19m66smucwl",
+    "ixmymlxovaov0kc",
+    "jxd8jjlwl5avrge",
+    "kfitvxx3hmdq1m0",
+    "6fnn334yn4xetsq",
+    "m81065x9uj4tstu",
+    "jdnwffdu1i91d2j",
+    "2z3azwdk0fxca45",
+    "42ai481w9lzhzih",
+    "z8hf4clwr39twbg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "b4ztpbye7xb6uqv",
+      "source_id": "q959minmyigznkh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.206Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "tqigd82zqz2t5ww"
+    }
+  ]
+}

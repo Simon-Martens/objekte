@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Könntest du mein Schweigen verstehen! Liebstes Gustgen!",
+  "language": [],
+  "musenalm_id": 18816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfter Brief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elfter Brief",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.957Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "iczzlmj7iivfhbq"
+    }
+  ]
+}

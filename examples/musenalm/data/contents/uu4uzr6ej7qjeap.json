@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert III. /) # Titel aus dem G-Verz /) als Stecher ist der Berliner F. Ramberg anzunehmen (kurze Erwähnung bei L/R 159 und bei Rümann: Die iIllustrierten deutschen Bücher des 18. Jahrhunderts )",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23218,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost im Ungewitter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Ramberg sc.",
+  "scans": [
+    "alm_305_23218_ghihm4h6sa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trost im Ungewitter #",
+  "updated": "2002-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.959Z",
+      "agent": "yn5dqo3oyes0o9i",
+      "source_id": "pblqhwmrxjvlzxt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.959Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "so2v7fus0xz71jr"
+    }
+  ]
+}

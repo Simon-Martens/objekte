@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26013,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER PAPAGOY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "van Schalken pinx. J. Passini sc.",
+  "scans": [
+    "alm_342_26013_chh398r157.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER PAPAGOY",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.939Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "dpxk2sj53mkqi8o"
+    }
+  ]
+}

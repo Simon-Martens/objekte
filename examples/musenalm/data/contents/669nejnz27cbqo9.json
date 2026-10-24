@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 85791, Obj 23) Anm. am Objekt: S. the poetical works of John Milton from the Text of Dr. Newton, V. 1. P. 572. (London, 1793.)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Bedarf denn mein Shakespear für seine verehrten Ge- / beine / Noch eines Jahrhunderts / Bemüh'n, schweraufzuthürmende / Steine?",
+  "language": [],
+  "musenalm_id": 85794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Shakespear. / (Nach Miltom, 1630.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Shakespear. / (Nach Miltom, 1630.)",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.178Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "7wj8j63efin7lv7"
+    }
+  ]
+}

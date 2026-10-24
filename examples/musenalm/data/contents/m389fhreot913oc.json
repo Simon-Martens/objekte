@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das Schloß Greenwich in England wiederhallte von bacchantischem Jubel; die Töne der Musik, Becherklang und Lieder durchzitterten die Lüfte,",
+  "language": [],
+  "musenalm_id": 86861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomas Morus. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thomas Morus. / Historische Novelle",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.364Z",
+      "agent": "lzi1zyn6aqla0ny",
+      "source_id": "1njo88bplocudys"
+    }
+  ]
+}

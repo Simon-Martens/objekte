@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111371, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Was sie Alles weiß zu sagen! / In den Karten steht's genau, / Die geheimste aller Fragen / Kennt die wunderkluge Frau.",
+  "language": [],
+  "musenalm_id": 111372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kartenleserin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kartenleserin",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.278Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "22yzpx2jyw2nehp"
+    }
+  ]
+}

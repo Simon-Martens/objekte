@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86267, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Wär' flach nur nicht der Mensch, er wäre böse nicht! / Denn wäre flach er nicht, er wäre mit sich selbst / Nicht stets im Widerspruch.",
+  "language": [],
+  "musenalm_id": 86272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wär' flach nur nicht der Mensch, er wäre böse nicht! / Denn wäre flach er nicht, er wäre mit sich selbst / Nicht stets im Widerspruch.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.231Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "byplivmgqosy11n"
+    }
+  ]
+}

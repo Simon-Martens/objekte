@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55025, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Die Bienen dringen: / Wir wollen hinaus! / Wir hören singen / Land ein und aus",
+  "language": [],
+  "musenalm_id": 55037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. Erster Ausflug der Bienen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. Erster Ausflug der Bienen",
+  "updated": "2008-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.782Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "vkc7x9p49soujg8"
+    }
+  ]
+}

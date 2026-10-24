@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem Vorwort INr 120375, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Willkommen! Tausendmal willkommen! / Bedeckt mit Ruhm, doch / unversehrt. / So bald wir die Friedens- / trompete vernommen, / Sind eiligst wir zurück ge- / kehrt",
+  "language": [],
+  "musenalm_id": 120380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Max Giesbrecht / von der Humpenburg / oder / Die neue Ritterzeit. / Komische Oper in Einem Act",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Max Giesbrecht / von der Humpenburg / oder / Die neue Ritterzeit. / Komische Oper in Einem Act",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.745Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "wrc8xyeee2r4sx1"
+    }
+  ]
+}

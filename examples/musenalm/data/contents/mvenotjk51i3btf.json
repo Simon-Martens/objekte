@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64377, Obj 11) s. Graphik INr 64373, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "In einem Thal bei armen Hirten / Erschien mit jedem jungen Jahr, / Sobald die ersten Lerchen schwirrten, / Ein Mädchen schön und wunderbar.",
+  "language": [],
+  "musenalm_id": 64379,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Das Mädchen aus der Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Das Mädchen aus der Fremde",
+  "updated": "2009-05-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.977Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "vtbbjeut08xtya1"
+    }
+  ]
+}

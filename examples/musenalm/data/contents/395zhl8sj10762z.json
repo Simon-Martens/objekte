@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s.Textbezug INr 121600, Obj 4,02 /) s. Gedicht INr 104036, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103992,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE MORGENLÄNDERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Amerling gemalt. Stahlstich v. C. Mahlknecht in Wien",
+  "scans": [
+    "alm_1930_103992_si2xg9pi87.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE MORGENLÄNDERIN",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.903Z",
+      "agent": "eano5qvjrpf1wwx",
+      "source_id": "b3kjhzumpzw6yxe"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.903Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "l7jrz1vzntleez4"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 112533, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn der Töne regelrechte Weisen / Voll und perlend Deinem Mund entquollen,",
+  "language": [],
+  "musenalm_id": 112532,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelmine Schröder Devrient. / Königl. Hofschauspielerin und Sängerin / zu Dresden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelmine Schröder Devrient. / Königl. Hofschauspielerin und Sängerin / zu Dresden",
+  "updated": "2010-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.417Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ms65fn36urtvotr"
+    }
+  ]
+}

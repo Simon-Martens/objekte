@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Ihr Bild mit Geistesaugen gesehen« von Th. Hell d. i. K. G. Th. Winkler INr 19653, Obj 75 (Photos INr 19701,01-19701,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr Bild mit Geistesaugen gesehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Methfessel",
+  "scans": [
+    "alm_265_19701_01_ahnsseu6pm.jpg",
+    "alm_265_19701_02_ak6k3wl1kk.jpg",
+    "alm_265_19701_03_ihj4sgjlud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihr Bild mit Geistesaugen gesehen",
+  "updated": "2001-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.702Z",
+      "agent": "b0s74m54xi13z2z",
+      "source_id": "ubv7jm31hyqv0cs"
+    }
+  ]
+}

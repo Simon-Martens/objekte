@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Hagestolz« von F. A. E. Langbein INr 30108, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30109,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Der Hagestolz. Ein Mährchen von / A. F. E. Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+  "scans": [
+    "alm_390_30109_kkpn2vnyon.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Der Hagestolz. Ein Mährchen von / A. F. E. Langbein",
+  "updated": "2002-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.536Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "plctynqiysge5s9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.536Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "qtzcnnih741hg2r"
+    }
+  ]
+}

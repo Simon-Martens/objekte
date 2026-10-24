@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, SS I-II I-Verz, SS III-XIII dazu 7 GG, SS XIX-XXXVI, SS 1-272",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1819",
+    "norm": "~",
+    "biblio": 106829,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-05-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 474,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49, 11",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Damen / auf das Jahr 1819. / Tübingen bey Cotta",
+  "updated": "2026-06-11 10:18:55.815Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "tp8q1t9brepj8uc"
+  ],
+  "contents": [
+    "hgck70taguqn4v3",
+    "5eq4srxqc45du0g",
+    "d4dryq48mzsjmrf",
+    "lz3a3k6btkkusn7",
+    "ol2o9hnd4odexa5",
+    "ofxgif1p101w4gt",
+    "ysgoxi5kf6jr7xv",
+    "cijgan9hzk35lzr",
+    "6joexxkysruqxp1",
+    "uin2jzrhbz7zrke",
+    "j1tyb2lescx3of4",
+    "081n17qestxy0ns",
+    "tayp3lbni5o4v9x",
+    "08nwjtq4jfapyq1",
+    "juzwfll78yrs2c6",
+    "yytc74wsqpwz0it",
+    "ipv2mjj80jwplxq",
+    "ba6n91gsfa9qmwt",
+    "v8ssaiqx1wsy09x",
+    "8oa8b885xaalkzt",
+    "uzaao1m4624e10z",
+    "2nlggq14rh7u7k1",
+    "k9knvr4sq5pq5zm",
+    "nsk8twkrzwgqgww",
+    "mm27oo5ehdiqv97",
+    "gkr4l6us4lxt4au",
+    "yulin5iy4crgo61",
+    "rqsian6yuee0klj",
+    "6peu6hygym0136i",
+    "dl9owb8sfjwkbth",
+    "bao9m3h4ozsyt05",
+    "u0s2sdvxxicir0b",
+    "sdl7k1794xvk5pq",
+    "i10nw9761enoqd4",
+    "hgsj51s6fa2ercx",
+    "fypvkksg9w5w426",
+    "k1qfecjjfwrm0pc",
+    "abcvh7ecf958i1z",
+    "nykmdvnqabn2pin"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.690Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.690Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "gf80nnnz1npepso"
+    }
+  ]
+}

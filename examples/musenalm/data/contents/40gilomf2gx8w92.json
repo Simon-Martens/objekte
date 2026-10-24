@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Blätter (Sammlung INr 57643, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Ein Album ist der Menschen inn'res Leben, / Das aufbewahrt in Gottes Händen bleibt:",
+  "language": [],
+  "musenalm_id": 57644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2008-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.613Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "xmo06azg9h5w0ku"
+    }
+  ]
+}

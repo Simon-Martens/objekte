@@ -1,0 +1,85 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, Kr, 16 BB Kal darin 12 GG, 56 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreib- und Postkalender, Genealogischer (Berlin) 1757",
+    "norm": "~",
+    "biblio": 404997,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2513,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schreib- und Postkalender, Genealogischer (Berlin) 1757",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Schreib- und Post- / Calender, / auf das Gemeine Jahr / 1757. / Welcher vorstellet / die Genealogie der jetztlebenden / Hohen Häupter und anderer / Fürstlichen Personen / wie auch / die Post-Curse / und / andere nützliche Sachen. / Herausgegeben / Mit Approbation der Kön. Preuß. / Academie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.402Z",
+  "variant_title": "",
+  "year": 1757,
+  "editor": "",
+  "items": [
+    "4k8np9djsg392k7"
+  ],
+  "contents": [
+    "y95ofnknukq7ayw",
+    "8cokssyt33cu5il",
+    "21k25jm0t88aknr",
+    "2f6o6wsytcbros2",
+    "yuerygc9wkx284c",
+    "zzkry01785h6b4a",
+    "ufpeqteb263kzxy",
+    "6x6rjpktsbhiub5",
+    "j5i4cvj0h88dl09",
+    "5b7ev82z3893o7a",
+    "eszgmnn5pmtyfyk",
+    "6vt1fwq9aqrgu3r",
+    "dmo4sx2qskykmtt",
+    "i55kna37nxn49r2",
+    "oebvxdp57vf7y77",
+    "0q31v36125d10tp",
+    "7fz58f4alz4oonb",
+    "yz1gql9upsq2qn6",
+    "vlmeyxxzwhxvu5e",
+    "839zx1u1wprzcfb",
+    "t6rcwmtj15am2mb",
+    "w018h8gdsvtzlvy",
+    "grcsl6fomiz6sor",
+    "5iu4yuj90zgud1f",
+    "t13cc4rilv8zelo",
+    "vd0vy389mnf9x6x",
+    "lgsnfj3j291xymi",
+    "lqsu0z86euaif5y",
+    "w1t626yxlmaiihe"
+  ],
+  "agents": []
+}

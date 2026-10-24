@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "In der Austragsstube herrschte eine lautlose Geschäftigkeit. Die Bäuerin ging auf den Socken ab und zu, ordnete dieses und jenes, und ihr weinendes Auge blickte bisweilen auf die Liegerstätte im Winkel des Zimmers.",
+  "language": [],
+  "musenalm_id": 64553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauer am Rain. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauer am Rain. / Erzählung",
+  "updated": "2009-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.276Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "bpkae82adh8jka5"
+    }
+  ]
+}

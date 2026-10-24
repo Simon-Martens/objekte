@@ -1,0 +1,109 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, S I-Verz, SS 1-322, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Frühlingsbote, Der 1825",
+    "norm": "~",
+    "biblio": 407011,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-12-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3748,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Frühlingsbote, Der 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 94, 184 b",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Der / Frühlingsbote. / Herausgegeben von St. Schütze. / Dritter Band. / Frankfurt am Main / bei Friedrich Wilmans. / 1825",
+  "updated": "2026-06-11 10:18:54.686Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "6arp7eb5h0qy61y"
+  ],
+  "contents": [
+    "klvm1rgr2e4i9q3",
+    "ybho9jcmcv580sz",
+    "w8vnuuus72qwlj0",
+    "z41ntfqzkw8og4c",
+    "iszhxa8i7rukpb0",
+    "cl37tul07n0km4b",
+    "ll8mgppvp8cjhih",
+    "9qgngi50viubcro",
+    "n58aqqh8fl2d5fw",
+    "k0wuxzd54ifxjau",
+    "ye8lygvauahejfr",
+    "bek20ws5dosd0r4",
+    "l1vi7s961eoah66",
+    "glvaqopy9i4dgi2",
+    "kbpxn65gvv9o84s",
+    "yvj2znn38wfzq9d",
+    "2faxoo1wju0mlp3",
+    "hv9ah2nm8lqht7r",
+    "auomxjxnisa2c3e",
+    "5fiab2no21l1nxm",
+    "lqwalhsieqwnntr",
+    "ssjcrthe2lfxsdn",
+    "ukpc6s257zulrt4",
+    "5bb80x39gykl16v",
+    "va0396id9ynn3fv",
+    "qupb41ltlc4x08v",
+    "by9yec2jdp0s36r",
+    "63hb9iwycxqfy91",
+    "im7n8zzwdrqk1us",
+    "5uae8g5vy1rhpwd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "elfwvcka195x5ox"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.292Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.292Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "fxf7s4op9drkd79"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Sey mir gegrüßt feyerliche Stille, / Und der Melancholie Gefühl!",
+  "language": [],
+  "musenalm_id": 88862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todenfeyer. / Der Manen Gallisch / geheiligt. / Et in Ercadia ego!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todenfeyer. / Der Manen Gallisch / geheiligt. / Et in Ercadia ego!",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.029Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "a45j33md3p8ageq"
+    }
+  ]
+}

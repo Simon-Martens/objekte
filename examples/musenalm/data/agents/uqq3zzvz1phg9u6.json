@@ -1,0 +1,459 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1802",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.316Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/10129551-0",
+          "label": "Königliches Nationaltheater (Berlin)"
+        }
+      ],
+      "dateOfBirth": [
+        "1741-09-11"
+      ],
+      "dateOfDeath": [
+        "1802-06-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anton Graff"
+          ],
+          "creditText": [
+            "scanned by Staatliche Schlösser und Gärten Berlin (Hrsg.): 450 Jahre Jagdschloß Grunewald, II. Aus der Gemäldesammlung, Berlin 1992, S. 75"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Jacob%20Engel.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Jacob%20Engel.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Jacob%20Engel.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-18T12:12:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11868468X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/120619326",
+          "label": "Engel, Karl Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118114522",
+          "label": "Engel, Johann Ludwig"
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Engel"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11868468X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/118114522",
+          "label": "Engel, Johann Ludwig"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/120619326",
+          "label": "Engel, Karl Christian"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11868468X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4091778-2",
+        "(DE-588a)11868468X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4050610-1",
+          "label": "Rostock"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4230395-3",
+          "label": "Parchim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4230395-3",
+          "label": "Parchim"
+        }
+      ],
+      "preferredName": "Engel, Johann Jakob",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Jakob"
+        ],
+        "surname": [
+          "Engel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185045-2",
+          "label": "Theaterkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        }
+      ],
+      "publication": [
+        "Lobrede auf den König",
+        "Der Edelknabe",
+        "Die Apotheke",
+        "Der dankbare Sohn",
+        "Herr Lorenz Stark",
+        "Über die musicalische Mahlerei"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/4038197-3",
+          "label": "Mecklenburg"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87827847"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44369039"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q71442"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11868468X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Jakob_Engel"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Jakob_Engel"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Jakob_Engel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000116313050"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11868468X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11868468X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11868468X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11868468X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11868468X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Engel, Johann J.",
+        "Engel, Johan Jakob",
+        "Engel, Jean Jaques",
+        "Engel",
+        "Engel, J. J.",
+        "Engel, Johann Jacob",
+        "Engel, Iohann Iacob",
+        "Engel, I.I.",
+        "Engel, G. G.",
+        "Engel, I. I.",
+        "Engel, J.J.",
+        "Engel, G.G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "I.I."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "I. I."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "J.J."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Jaques"
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann J."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "G.G."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "Johan Jakob"
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Jacob"
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "G. G."
+          ],
+          "surname": [
+            "Engel"
+          ]
+        },
+        {
+          "personalName": [
+            "Engel"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann Iacob"
+          ],
+          "surname": [
+            "Engel"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Jakob_Engel",
+          "label": "https://de.wikipedia.org/wiki/Johann_Jakob_Engel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:19:06Z",
+    "gnd_query_biographical_data": "1741-1802",
+    "gnd_query_name": "engel, johann jakob"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 654,
+  "name": "Engel, Johann Jakob",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 473",
+  "updated": "2026-06-11 13:29:22.164Z",
+  "uri": "https://d-nb.info/gnd/11868468X",
+  "editor": ""
+}

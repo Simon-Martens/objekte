@@ -1,0 +1,101 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 14 BB Kal darin 6 GG, 5 SS gT, ar: SS 1-144, ar1: SS 1-119 darin MusB, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Helvetischer 1790",
+    "norm": "~",
+    "biblio": 200401,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-07-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 690,
+  "parallel_title": "",
+  "place_statement": "Zürich (Geßner)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Kalender, Helvetischer 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 35; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Calender / für das Jahr / 1790. / Zürich, / bey Geßner",
+  "updated": "2026-06-11 10:18:55.858Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "items": [
+    "6845mwvytxnne99"
+  ],
+  "contents": [
+    "n08jhsjkmofqwwb",
+    "h4j5jbscsib2w1x",
+    "kt3f5fb8ekxs1tl",
+    "ywdxbobgeoburtb",
+    "34avwhtsc8kbuxh",
+    "0ljm09j707zz7fz",
+    "5u55epidsumahd1",
+    "ikn4hnz02i32c31",
+    "nr1xved007vqxyl",
+    "sowv3013dy5ehmw",
+    "acbx1l0moo8x4sy",
+    "rriic9zetvecpxe",
+    "g2gf4hhds143ld0",
+    "pw4acw1jiwa9xh5",
+    "4337ncwdtv0805a",
+    "efyb4y6k4lxfz6f",
+    "jcinlwbl3bmposj",
+    "rwv1wf94mwimyb4",
+    "ubeupv4u00gpcwa",
+    "482s4nnbbcetu8o",
+    "oja70itpwt2lfsw",
+    "xagn2e0o6deplff",
+    "z7wlfgrmx3zsl4p",
+    "bejlk7rwweit9hc",
+    "iqgy9dq8m9jm2ff",
+    "uv4wk0ju93qoxkc",
+    "ap3b39mpvip1t0x",
+    "sl2ul9u8im5ukq3",
+    "fqglb5qru788gx1",
+    "krn7wswgtlfgqgn",
+    "647cutsqjzi3pqt",
+    "hgsazlr4s89hzst",
+    "zjbq9xsyqibu1wa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.899Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.899Z",
+      "agent": "fde3qf5uchm8tm3",
+      "source_id": "vmi8o8mksw0fnfu"
+    }
+  ]
+}

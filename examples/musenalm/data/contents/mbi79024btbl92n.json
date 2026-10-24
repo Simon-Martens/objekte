@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Illustration zu <em>Die Zauberrose</em> INr 140770</div>",
+  "content_type": [],
+  "created": "2026-10-21 09:54:51.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zauberrose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steindr. v. C. W. Medau in Leitmeritz Langhans grav.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zauberrose",
+  "updated": "2026-10-22 09:33:26.298Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22 09:33:26.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22 09:33:26.299Z",
+      "agent": "cgmvj1ypmw4qftg",
+      "source_id": "tmfaqau4qbd9oqh"
+    }
+  ]
+}

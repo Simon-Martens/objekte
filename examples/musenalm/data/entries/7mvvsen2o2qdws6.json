@@ -1,0 +1,67 @@
+{
+  "annotation": "2 Jgg 1803, 1804; Straßburg (Silbermann)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Straßburger 1803",
+    "norm": "",
+    "biblio": 106707,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3096,
+  "parallel_title": "",
+  "place_statement": "Straßburg (Silbermann)",
+  "places": [
+    "1q8z8aa12br1w4q"
+  ],
+  "preferred_title": "Taschenbuch, Straßburger 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 147; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Straßburger / Taschenbuch / auf / das Jahr 1803. / Straßburg, / (XI und XII.) bey Joh. Heinr. Silbermann, Kettengasse No. 2",
+  "updated": "2026-06-11 10:18:55.283Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "naxet118dmwqo6v"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "4frkfdd5x1kan33",
+      "source_id": "b5f8bjv9bfhseni"
+    }
+  ]
+}

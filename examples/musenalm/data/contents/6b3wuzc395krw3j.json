@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 10249, Obj 15) mit einer Karte s. INr 10362, Obj 126",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Teplitz, das durch seine vortreflichen Bäder so berühmt geworden, ist sechs Meilen von Dresden und zehen von Prag entfernt.",
+  "language": [],
+  "musenalm_id": 10256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Kurze Beschreibung von Teplitz mit / seinen Bädern, und den umlie- / genden Gegenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Kurze Beschreibung von Teplitz mit / seinen Bädern, und den umlie- / genden Gegenden",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.572Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "b20w9rf3932cnxa"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik nach dem Monatskonto Juli /) über der Graphik: b.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109499,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brücke von Connewitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. G. Boettger senior sc. 1811",
+  "scans": [
+    "alm_2383_109499_rmk81j8vcu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brücke von Connewitz",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.311Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "dn9o256ttjvj5wc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.311Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "lvlhgdedo7pat88"
+    }
+  ]
+}

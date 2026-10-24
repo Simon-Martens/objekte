@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden (Sammlung INr 90595, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Aus seiner stillen Zelle im strengen Ordenshaus' / Der fromme Mönch Antonio sieht in die Welt hinaus.",
+  "language": [],
+  "musenalm_id": 90597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 193,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. St. Antonius von Padua",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. W. A. Swoboda. (Prag.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. St. Antonius von Padua",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.410Z",
+      "agent": "9kz5ml6439jqbxl",
+      "source_id": "tf2plmppc8hhm0y"
+    }
+  ]
+}

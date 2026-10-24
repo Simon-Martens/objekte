@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium November; nummeriert 11.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107026,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "C'est la le fort du fourbe & du traitre. / Pour faire toûjours le Malin. [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_2156_107026_jcexqzuu55.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "C'est la le fort du fourbe & du traitre. / Pour faire toûjours le Malin. [...]",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.823Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "2fleij58abbzc5b"
+    }
+  ]
+}

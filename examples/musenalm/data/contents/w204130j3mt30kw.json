@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu W. G. Beckers Beitrag »Kurze Beschreibung von Teplitz mit seinen Bädern, und den umliegenden Gegenden« INr 10256, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10362,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HERSCHAFT / TOEPLITZ / Im Leutmeritzer Creisse / Des Königreichs / BOEHMEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. A. F. Zurner J. G. Klinger gest.",
+  "scans": [
+    "alm_134_10362_piq5mb7sgx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HERSCHAFT / TOEPLITZ / Im Leutmeritzer Creisse / Des Königreichs / BOEHMEN",
+  "updated": "2001-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.147Z",
+      "agent": "v0kedmr3z8wtqy6",
+      "source_id": "adtrnobficnrbu1"
+    }
+  ]
+}

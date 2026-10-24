@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert V. /) Illustration zu » Scenen aus der Familie Ehrenberg. 1. Charlotte Waller« INr 47986, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47943,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O, wie süss lohnt das Muttergefühl!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert d. Fr. Bolt sc. 1808",
+  "scans": [
+    "alm_654_47943_c5r8w8nd4l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O, wie süss lohnt das Muttergefühl!",
+  "updated": "2007-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.268Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "3b3jq1029eu4eg5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.268Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "qdwqqyv6i6b92wr"
+    }
+  ]
+}

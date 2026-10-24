@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Freund! laß uns Blumenkränze winden, / Eh' Lenz und Jugend noch entfliehn;",
+  "language": [],
+  "musenalm_id": 37344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freund! laß uns Blumenkränze winden, / Eh' Lenz und Jugend noch entfliehn;…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Selmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.834Z",
+      "agent": "9l93ioes6kzj7pb",
+      "source_id": "xfjp247ch3ijm1h"
+    }
+  ]
+}

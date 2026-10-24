@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouetten aus dem Künstlerleben (Sammlung INr 121094, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Jeanne Antoinette Poisson war so gnädig gewesen, aus den Händen des zu ihren Füßen schmachtenden Königs den Titel Marquise von Pompadour anzunehmen,",
+  "language": [],
+  "musenalm_id": 121096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Demoiselle Lemaure",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Demoiselle Lemaure",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.585Z",
+      "agent": "lzi1zyn6aqla0ny",
+      "source_id": "k67unsouae04km7"
+    }
+  ]
+}

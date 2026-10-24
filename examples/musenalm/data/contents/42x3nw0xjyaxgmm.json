@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Friedr. Schubarts »Gedichte aus dem Kerker.« Zürich 1785",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Gott, wenn ich dich als Weltenschöpfer / denke, / Am Meere steh, das deiner Faust ent- / rann",
+  "language": [],
+  "musenalm_id": 21472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An GOTT. / Eine Ode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An GOTT. / Eine Ode",
+  "updated": "2002-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.081Z",
+      "agent": "e0jidz7fwbzecy6",
+      "source_id": "jfd9xzrowmuecuj"
+    }
+  ]
+}

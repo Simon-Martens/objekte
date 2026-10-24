@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Ich bin im Besitze eines Tagebuches, welches an Bord eines Auswanderungsschiffes geschrieben worden ist. Der Schulmeister einer kleinen Gemeinde, ein junger Mann, führte es.",
+  "language": [],
+  "musenalm_id": 44122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Auswanderungsschiff. / Tagebuchblätter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Auswanderungsschiff. / Tagebuchblätter",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.224Z",
+      "agent": "p5nbyct99xa1658",
+      "source_id": "xrzsgv4c0spq6r9"
+    }
+  ]
+}

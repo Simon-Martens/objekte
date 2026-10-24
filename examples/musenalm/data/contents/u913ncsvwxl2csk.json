@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Wo flieh' ich hin? Folgt er mir nicht / Auf jedem Pfade nach?",
+  "language": [],
+  "musenalm_id": 17780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Chloris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schaz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Chloris",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.911Z",
+      "agent": "u9v2tmfqh5ow1lu",
+      "source_id": "aoloiby2ts8y6od"
+    }
+  ]
+}

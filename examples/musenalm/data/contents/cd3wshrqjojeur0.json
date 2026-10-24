@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16; mit einer Musikbeigabe s. INr 2221, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Schon locket der May, / Die Schwalben herbey, und alles im Dörfchen ist heiter",
+  "language": [],
+  "musenalm_id": 2149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauer",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.876Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "v1lbmyz592qb8y9"
+    }
+  ]
+}

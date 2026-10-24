@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Fabelbilder, erfunden und entworfen von M. Disteli, gestochen von F. Buser, nachgezeichnet von A. E. Fröhlich (Sammlung INr 54700, Obj 13) s. Graphik INr 54706, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Der Fuchs hält sonst nicht viel vom Glauben, / er trachtet jetzt der Freiheit nach,",
+  "language": [],
+  "musenalm_id": 54705,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Fuchs-Beichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Fuchs-Beichte",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.805Z",
+      "agent": "94rmjnpm6yfqwop",
+      "source_id": "z03nz4hrrxczicn"
+    }
+  ]
+}

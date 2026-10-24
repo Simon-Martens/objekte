@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Wanderleben (Sammlung INr 80349, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "War lange nun bei euch zu Haus', / Muß jetzt doch einmal auch hinaus / Zu Andern,",
+  "language": [],
+  "musenalm_id": 80350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Wanderlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Wanderlied",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.783Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "l1jlmc4fgf01tfw"
+    }
+  ]
+}

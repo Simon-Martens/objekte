@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bühnen-Almanach, Deutscher 1889",
+    "norm": "",
+    "biblio": 101286,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2574,
+  "parallel_title": "",
+  "place_statement": "Berlin (Verlag der Theater-Agentur A. Entsch)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Bühnen-Almanach, Deutscher 1889",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 31; L/R 130",
+  "responsibility_statement": "Th. Entsch",
+  "subtitle_statement": "",
+  "title_statement": "Deutscher / Bühnen-Almanach / Dreiundfünfzigster Jahrgang. / Herausgegeben / von / Th. Entsch. / Berlin, / Verlag der Theater-Agentur A. Entsch / N.-W., Mittel-Straße Nr. 25",
+  "updated": "2026-06-11 10:18:55.563Z",
+  "variant_title": "",
+  "year": 1889,
+  "editor": "",
+  "items": [
+    "niofi096hm1mcmf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.173Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.173Z",
+      "agent": "a5npv8i7c6ya7hk",
+      "source_id": "d0rwpmkyijnfhq3"
+    }
+  ]
+}

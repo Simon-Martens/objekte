@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war ein heller, freundlicher Morgen, als die edle Gräfin Catharina nachsinnend im Gartensaale saß, indem ihr großes Auge auf den blühenden Granaten ruhte,",
+  "language": [],
+  "musenalm_id": 65369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod des Dichters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tod des Dichters",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "rcsdl9ci40zvgls"
+    }
+  ]
+}

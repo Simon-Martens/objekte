@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Während meine Begleiterinnen die Abbildungen und das Costum der Landgrafen von Hessen in dem anstoßenden Saal musterten, besah ich im Vorzimmer die mancherley Rüstwerkzeuge und Morderfindungen der Menschen,",
+  "language": [],
+  "musenalm_id": 60238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Tallards Degen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Tallards Degen",
+  "updated": "2008-10-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.918Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "f0nszff9pywb913"
+    }
+  ]
+}

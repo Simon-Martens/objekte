@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 25124, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Glückselig, wer, im Schooß der Apenninen, / Am Fuß der Alpen oder Pyrenäen,",
+  "language": [],
+  "musenalm_id": 25130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Gebirgsnatur. / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Gebirgsnatur. / 2.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.083Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "dl8nx48nypujwh3"
+    }
+  ]
+}

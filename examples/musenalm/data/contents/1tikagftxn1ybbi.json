@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Könnt' ich immer auf der Andacht Flügel, / Unbelauscht im freien Sternenschein,",
+  "language": [],
+  "musenalm_id": 4185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des guten Karlos Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Ch. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des guten Karlos Grab",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.987Z",
+      "agent": "2glx0j2o180tzfm",
+      "source_id": "ngxbvzis83amqpx"
+    }
+  ]
+}

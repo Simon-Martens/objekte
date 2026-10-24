@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "In den fruchtbaren Gefilden Schlesiens, unweit der Stadt Landshut, sind die großen weiten Gebäude des Klosters Grißau gelegen.",
+  "language": [],
+  "musenalm_id": 22339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacob Thau, / der Hofnarr. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst von Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jacob Thau, / der Hofnarr. / Eine Erzählung",
+  "updated": "2002-02-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.027Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "w0qq32ci04wehz5"
+    }
+  ]
+}

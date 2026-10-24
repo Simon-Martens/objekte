@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Wär’ mir die Kraft, die des Geschickes Mächte / Dem Sterblichen auf immerdar verschlossen, / Aus Wintereis zu locken Frühlingssprossen, / Schön wie der Aetherduft der Juninächte",
+  "language": [],
+  "musenalm_id": 122042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett / An * *",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Böttger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett / An * *",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.754Z",
+      "agent": "dy67ht7nshcb4v2",
+      "source_id": "e09yn744rs1evr4"
+    }
+  ]
+}

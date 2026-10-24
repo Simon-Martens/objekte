@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Nachlasse des Max von Schenkendorf (Sammlung INr 63193, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Erschalle laut aus frommer Brust, / O heller Klang der Lieder!",
+  "language": [],
+  "musenalm_id": 63197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Gesang zu Vater Stillings Fest. / Den 12. September 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Gesang zu Vater Stillings Fest. / Den 12. September 1815",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.103Z",
+      "agent": "591e69im25wvavb",
+      "source_id": "rx83ftiyxhnwi5c"
+    }
+  ]
+}

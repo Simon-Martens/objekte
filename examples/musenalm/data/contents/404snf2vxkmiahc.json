@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102974,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE THEILNAHME",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. n. B. Stahlstich von Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2484_102974_ckhfi5d7e2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE THEILNAHME",
+  "updated": "2010-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.899Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "pw279sfcv5tx5r9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.899Z",
+      "agent": "1v07c6j6mxrdvwn",
+      "source_id": "wvixegzlbsyvtws"
+    }
+  ]
+}

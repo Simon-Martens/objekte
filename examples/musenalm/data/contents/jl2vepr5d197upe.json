@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 93009, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Was?! Bin ich selbst nicht Mann genug, / So ich bis jetzt geführt, / Zu schützen vor Gewalt und Trug, / Ein Volk, wie sich's gebührt?",
+  "language": [],
+  "musenalm_id": 93033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod für Tod. / 880. / Ballade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hugo vom Schwarzthale",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tod für Tod. / 880. / Ballade",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.620Z",
+      "agent": "wgv00y69o1rn8le",
+      "source_id": "vag8pn591hvov75"
+    }
+  ]
+}

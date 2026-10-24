@@ -1,0 +1,56 @@
+{
+  "annotation": "1. Illustration zu »Cecilie Stuart« von K. von Wachsmann INr 41375, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41362,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cecilie Stuart. / Seite 243",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herbig del. Döbler sc.",
+  "scans": [
+    "alm_483_41362_u3xtiycjb6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cecilie Stuart. / Seite 243",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.156Z",
+      "agent": "8oou0acn8kvvu4m",
+      "source_id": "7eowncqhg1eizxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.156Z",
+      "agent": "774ug9zf5qb4ald",
+      "source_id": "s9yl27s1wb368a9"
+    }
+  ]
+}

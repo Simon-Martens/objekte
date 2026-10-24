@@ -1,0 +1,113 @@
+{
+  "annotation": "10 Jgg 1792-1801; 1792: Stuttgart (Akademische Buchdruckerei), 1794: Stuttgart (Akademische Buchdruckerei) u. Tübingen (Cotta), 1794,1795: Tübingen (Cotta); Hrsg: F. M. F. Freiherr Bouwinghausen von Wallmerode",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 2 BB Vrwrt d Hrsg, 15 BB Kal darin 12 GG, 15 SS Tab, ar: SS 4-9 G-Verz, ar: SS 10-64 darin 3 GG, ar1: SS 1-109, SS 110-111 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender für Pferdeliebhaber 1792",
+    "norm": "~",
+    "biblio": 110620,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3120,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Akademische Buchdruckerei)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenkalender für Pferdeliebhaber 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 158; nicht bei L/R",
+  "responsibility_statement": "F. M. F. Freiherr Bouwinghausen von Wallmerode",
+  "subtitle_statement": "",
+  "title_statement": "Taschenkalender / auf / das Schalt-Jahr 1792, / für / Pferdeliebhaber, Reuter, Pferde- / züchter, Pferdärzte und Vor- / gesezte groser Marställe. / Herausgegeben / von / F. M. F. Freiherrn Bouwinghausen / von Wallmerode, / Herzogl. Wirtembergischen Kammerherrn, und der /  Landwirthschaftsgesellschaften zu Zelle, und / zu Burghausen Mitglied. / Stuttgart, / gedrukt in der Akademischen Buchdrukerei",
+  "updated": "2026-06-11 10:18:55.256Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "items": [
+    "mpwyhzdpr1anhk0"
+  ],
+  "contents": [
+    "mh158x2xavpk6l8",
+    "lzrwat0xrbd6756",
+    "nptzeetidiy6k6e",
+    "r95n8art58tm6zq",
+    "v265vm3rlpgyhwq",
+    "d59shhjszcrbtwv",
+    "nf7tykmzprzbzxk",
+    "hp2oi9d8aidu4nb",
+    "5702hiru8ax557a",
+    "rruk535o5ribzz2",
+    "8fl1n7bcheiiyhi",
+    "k2916hp2nw6sg17",
+    "anwv0eiedeawd8v",
+    "0nkdji6e6urrb2f",
+    "2qevn1nk84ykqml",
+    "enllcgqbbx7thyb",
+    "r5ntpgklj1yn770",
+    "df3mgj63alrvvwv",
+    "66cjcgg1qaw2fub",
+    "ra2savrof2v3c9a",
+    "qh9kl4jrterdrmq",
+    "tyr9j2ibbgldjxz",
+    "zb8v1s11e3eksle",
+    "xc76098sgyvp8xw",
+    "8iukg6uyjofdnsx",
+    "phiikmysgsz41p1",
+    "rucdphdhwi29w50",
+    "x7ox7l6u2ntjlbp",
+    "eq8996z81llv2oi",
+    "x3jtkk720e1uykx",
+    "h1zy62hv4k2cv4s",
+    "y34xc9vny03ce2s",
+    "jc6gddhxg7ztcyc",
+    "v5z6j8lfnxip3jd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.183Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.183Z",
+      "agent": "azadxb055n0u58d",
+      "source_id": "aclfn9x24kw4tdd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.468Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.468Z",
+      "agent": "06wseegnqyzsyh2",
+      "source_id": "zirj7c5rxfll5qo"
+    }
+  ]
+}

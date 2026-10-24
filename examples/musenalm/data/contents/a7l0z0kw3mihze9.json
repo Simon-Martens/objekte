@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Hier war es, wo der Stolz, der Welten überwand, / Zum letztenmal Trophän an deutsche Eichen band;",
+  "language": [],
+  "musenalm_id": 8195,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / im Charakter einer Nymphe der Gärten / (Gehalten zu Osnabrück von Madam Hensel am Ge- / dächtnistage der Wahl des Prinzen Friedrichs von Großbritannien zum Bischofe von Osnabrück.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / im Charakter einer Nymphe der Gärten / (Gehalten zu Osnabrück von Madam Hensel am Ge- / dächtnistage der Wahl des Prinzen Friedrichs von Großbritannien zum Bischofe von Osnabrück.)",
+  "updated": "2000-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.261Z",
+      "agent": "s34fjwkh4uvwpky",
+      "source_id": "4a0vl5hg80gy8o0"
+    }
+  ]
+}

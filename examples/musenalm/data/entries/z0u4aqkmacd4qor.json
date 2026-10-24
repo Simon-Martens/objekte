@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Volkskalender, Neuer 1795",
+    "norm": "",
+    "biblio": 411368,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2023-07-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4848,
+  "parallel_title": "",
+  "place_statement": "Hannover (Hahn'sche Buchhandlung)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Volkskalender, Neuer 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neuer / Volkskalender / auf / das Jahr 1795. / Mit Kupfern. / Hannover, / in der Hahnschen Buchhandlung. / 1795",
+  "updated": "2026-06-11 10:18:54.511Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "vevxp9oq5c3dasp"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.951Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.951Z",
+      "agent": "4vob6y8vk0x4foi",
+      "source_id": "kedr7ot60vovvri"
+    }
+  ]
+}

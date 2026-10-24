@@ -1,0 +1,79 @@
+{
+  "annotation": "2 Jgg 1818, 1821 /) s.a: Vergißmeinnicht. Ein TB f. d. Besuch der sächsischen Schweiz u. d. angränzenden Theile Böhmens 1823; alm-408600",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Albina, TB für Wanderer in der sächsischen Schweiz 1818",
+    "norm": "",
+    "biblio": 408601,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-07-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4152,
+  "parallel_title": "",
+  "place_statement": "Pirna (Diller); Dresden ( Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "0t6lug4nf3yorcq"
+  ],
+  "preferred_title": "Albina, TB für Wanderer in der sächsischen Schweiz 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; L/R 129",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Albina. / Ein / Taschenbuch / für / Wanderer in der sächsischen Schweiz, / enthaltend: / eine Beschreibung des meißnischen Hoch- / lands und der merkwürdigsten um- / liegenden Oerter. / Mit 16 Kupfern, 4 radirten Ansichten und 1 Reisekarte / Pirna, 1818. / bei Conrad Diller. / Dresden, / in Commission der Arnoldischen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.845Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "h1cic9v2u6k06ax"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.724Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.724Z",
+      "agent": "dczetvjyymccm0b",
+      "source_id": "dp4d9snl4bi35oc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.484Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.484Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "rvbk16psfb6m60n"
+    }
+  ]
+}

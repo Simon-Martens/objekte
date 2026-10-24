@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Hast du, o Jüngling, die Freude zu deiner / Geliebten erkoren: / So umarme sie keusch",
+  "language": [],
+  "musenalm_id": 4136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.015Z",
+      "agent": "29znr1cu0wo4ctf",
+      "source_id": "ocaz3ztc9aithj3"
+    }
+  ]
+}

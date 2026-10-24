@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I T, SS III-IV I-Verz, 17 SS Kal, SS XXI-XXIV, SS 1-304, SS 305-328 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1860",
+    "norm": "~",
+    "biblio": 409427,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-05-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4424,
+  "parallel_title": "",
+  "place_statement": "Wien (Schmid u. Busch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1860",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Joseph Wertheimer",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / für / Israeliten, auf das Jahr 5621 / (1860-1861). / Mit Beiträgen von / Dr. Beer in Dresden, - Dr. W. Derblich, [...] Herausgegeben / von / Joseph Wertheimer. / Neue Folge, siebenter Jahrgang / WIEN. 1860. / Druck und Verlag des Franz Edlen von Schmid & J. J. Busch",
+  "updated": "2026-06-11 10:18:55.725Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "items": [
+    "iepr40hqh53a1ud"
+  ],
+  "contents": [
+    "8wztnv190asm7n4",
+    "qok4w5ai67gvr7y",
+    "jrbsgebving9w1h",
+    "l7vrv4v3k9ijba3",
+    "qpmy2o1g6i7zqff",
+    "gblqdul4yad8fpn",
+    "qcg6yvx35maxziu",
+    "0w1y9h4z2y4hs64",
+    "gsfsjlalc65c6pt",
+    "iclt96impzdwnyu",
+    "npz2ic0tgrppc5s",
+    "qnof4rbucc8a1d5",
+    "9tkivp9k8dsiy0w",
+    "0a249wyfxnrcyzz",
+    "7xnsqfrkvjo332i",
+    "z0cs0s28fpi9l2m",
+    "kyjxku3f9xo024a",
+    "9ce1648075s8khp",
+    "yz55r5u29dtuvf4",
+    "aaf5d3ogsxrs4bg",
+    "rr2jdhl605euufz",
+    "7svyuxrsu5qf3m7",
+    "541v10diibjfmy4",
+    "5z8kdn5po0lswt8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.374Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.374Z",
+      "agent": "t40io73vfefta51",
+      "source_id": "32qo8rx2gcgrl3w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "0s9t9275aejerak",
+      "source_id": "zllspuaw7ohqlgl"
+    }
+  ]
+}

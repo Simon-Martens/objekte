@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. Illustration zu »Die lustigen Weiber von Windsor« von W. Shakespeare s. Textbezug INr 6926, Obj 84",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6881,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da schien denn die Sonne auf / einen Misthaufen. / Die lustigen Weiber zu Windsor / 1. Aufz. 7. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_139_6881_uzclg8pzgr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da schien denn die Sonne auf / einen Misthaufen. / Die lustigen Weiber zu Windsor / 1. Aufz. 7. Auftr.",
+  "updated": "2000-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.245Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "xrb1spqa7q28r5k"
+    }
+  ]
+}

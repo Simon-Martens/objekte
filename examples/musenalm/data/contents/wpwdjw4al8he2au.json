@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 30225, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30224,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Rmbg; Rosmäsler 1829)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rmbg; Rosmäsler 1829",
+  "scans": [
+    "alm_394_30224_ydlu5lh3ed.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.576Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "9ie8url3eepk924"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.576Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "qf2llg6njjppo97"
+    }
+  ]
+}

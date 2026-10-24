@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Unter seine schönsten Jungfraun zählte / Mytilene eine Dichterinn:",
+  "language": [],
+  "musenalm_id": 1287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "NÖLLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sappho",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.705Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "5s846vhsp6t0zaq"
+    }
+  ]
+}

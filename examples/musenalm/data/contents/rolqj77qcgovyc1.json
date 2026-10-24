@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94983, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94982,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Mayer del. Stahlst. v. L. Burkhardt u. Mahlknecht)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer del. Stahlst. v. L. Burkhardt u. Mahlknecht",
+  "scans": [
+    "alm_1877_94982_9bdvasrj81.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.625Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "ghr1mro5ze96qcc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.625Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "q4tfkr44wgn8wsv"
+    }
+  ]
+}

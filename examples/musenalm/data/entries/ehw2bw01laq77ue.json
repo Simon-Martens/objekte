@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der neusten Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1808",
+    "norm": "",
+    "biblio": 409295,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-06-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4319,
+  "parallel_title": "",
+  "place_statement": "Rudolstadt",
+  "places": [
+    "ky31gq2b2nkpn53"
+  ],
+  "preferred_title": "Almanach der neusten Fortschritte in Wissenschaften, Künsten, Manufakturen und Handwerken 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "G. C. B. Busch",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / neusten Fortschritte, / in / Wissenschaften, Künsten, / Manufakturen / und / Handwerken, / enthaltend / die neuesten Erfindungen und Entdeckungen / von Ostern 1806 bis Ostern 1807 / Herausgegeben / von / G. C. B. Busch. / Zwölfter Jahrgang. / Rudolstadt, 1808. / in der Klügerischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.100Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "iybywel8pfh02tw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.364Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.364Z",
+      "agent": "y7cxehho661g55i",
+      "source_id": "be5drkckqwzt0tp"
+    }
+  ]
+}

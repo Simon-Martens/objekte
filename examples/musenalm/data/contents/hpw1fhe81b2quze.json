@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Das Grab auf dem Oybin« von K. G. Prätzel INr 14107, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab auf dem Oybin. IIs. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_221_14063_hbi5g36f4k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab auf dem Oybin. IIs. Blatt",
+  "updated": "2001-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.618Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "61j2pqyeuc44or9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.618Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "aw0w9g0ucoiaqgg"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 5. /) s. Textbezug INr 82478, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antonius und Cleopatra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fiorillo del. Geyser sc.",
+  "scans": [
+    "alm_167_82476_rkycyq0eba.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Antonius und Cleopatra",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "82hnuogab8tns1x",
+      "source_id": "740i3jg2cey84kv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "rml2ghiyh25kbdf"
+    }
+  ]
+}

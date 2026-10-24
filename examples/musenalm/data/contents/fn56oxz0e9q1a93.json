@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Donner und's Wetter, Herr Professor, was haben Sie mir für'n Hofmeister geschickt. Einpökeln möcht ich den Kerl.",
+  "language": [],
+  "musenalm_id": 37280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brief, / des Baron von Donnerstrunkhausen, an den Prof. C. / Ergebenst. P. M.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wieder von mir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brief, / des Baron von Donnerstrunkhausen, an den Prof. C. / Ergebenst. P. M.",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.145Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "rzv8dlvsbjecnpt"
+    }
+  ]
+}

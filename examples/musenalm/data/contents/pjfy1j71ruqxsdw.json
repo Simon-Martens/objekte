@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verlag J. D. Sauerländer] s. Textbezug INr 44105, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44106,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SENNERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Ph. Foltz. Gest. v. C. Müller",
+  "scans": [
+    "alm_598_44106_9l7jgca2tv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SENNERIN",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "0bmeck77h5fvi5x",
+      "source_id": "fmewsy1g183d6wo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.292Z",
+      "agent": "q352vh257bwt4mb",
+      "source_id": "q0r2ddougv5exep"
+    }
+  ]
+}

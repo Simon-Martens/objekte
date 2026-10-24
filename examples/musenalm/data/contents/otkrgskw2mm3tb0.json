@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "In dem wohlverwahrten Kellerstübchen des Schiffsherrn Erasmus Kooper zu Leyden saßen Jacobine, seine Schwester und seine achtzehnjährige Tochter Alida.",
+  "language": [],
+  "musenalm_id": 27764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmidt zu Leyden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmidt zu Leyden",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.179Z",
+      "agent": "li9wd1vvzigu4ia",
+      "source_id": "xptxw5iockrg5xo"
+    }
+  ]
+}

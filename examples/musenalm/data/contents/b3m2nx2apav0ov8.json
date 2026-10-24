@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Tausenmal willkommen seist du mir, / Schöner Jüngling, holder Mai, so lange",
+  "language": [],
+  "musenalm_id": 12698,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / an den Mai des 1794sten Jahres, / Meiner Luise gewidmet. / Den 18. Mai, 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / an den Mai des 1794sten Jahres, / Meiner Luise gewidmet. / Den 18. Mai, 1794",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.580Z",
+      "agent": "6bfutz0x9ote9sz",
+      "source_id": "9cck4enicqr7ovq"
+    }
+  ]
+}

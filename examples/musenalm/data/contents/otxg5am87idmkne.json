@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Lieder (Sammlung INr 1779, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Liebster! Zürne nicht den Fragen: / Liebster! liebst du mich?",
+  "language": [],
+  "musenalm_id": 1789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X.",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.036Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "3fdxntgeqpmp93b"
+    }
+  ]
+}

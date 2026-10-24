@@ -1,0 +1,47 @@
+{
+  "annotation": "nummeriert 2. /) Illustration zu »Die Gräfin Cherubim« INr 102774, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wo sind wir denn?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Stöber sc. Vienannae",
+  "scans": [
+    "alm_3369_102776_b2fiwnlm48.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wo sind wir denn?",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.047Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "w2kc9fv1x8yxbgg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. INr 28479, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ich bin in einer Mittelstadt Teutschlands geboren. Mein Vater war der erste von seiner Familie, der den Stamm verachtete,",
+  "language": [],
+  "musenalm_id": 28494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Flucht nach der Hauptstadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Brentano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Flucht nach der Hauptstadt",
+  "updated": "2002-10-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.360Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "9pn03m78armpo2y"
+    }
+  ]
+}

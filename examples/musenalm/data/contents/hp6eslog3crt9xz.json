@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Vier weibliche Charakterschilderungen (Sammlung INr 40823, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Unter den vielen, großen Frauen, welche das heldenreiche Rom im Schoße der Freiheit gezeugt,",
+  "language": [],
+  "musenalm_id": 40825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Oktavia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Münch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Oktavia",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.722Z",
+      "agent": "h05fi1l9hhcmfmt",
+      "source_id": "3ozaaiczvigr9e7"
+    }
+  ]
+}

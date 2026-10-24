@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Ihr Töchter Deutschlands, wallet mit Hochgesang / Entgegen, wallt in freudigem Reigen! eilt / Entgegen unsern Helden!",
+  "language": [],
+  "musenalm_id": 62347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blücher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blücher",
+  "updated": "2009-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.945Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "68uqlaggi1g8p5l"
+    }
+  ]
+}

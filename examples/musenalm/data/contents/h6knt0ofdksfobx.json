@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 12598, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Der schönste, kühnste, verliebteste Hirt, / Der in einer Königin Bett sich verirrt,",
+  "language": [],
+  "musenalm_id": 12621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.116Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "4bmsmaqw4sjyn1q"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Vater, wie ohne / Mühe doch leb' ich / Hier auf der schönen, / Köstlichen Erde,",
+  "language": [],
+  "musenalm_id": 119392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hyperion in Arkadien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hyperion in Arkadien",
+  "updated": "2017-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.699Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "2veqklj1hh1pfsw"
+    }
+  ]
+}

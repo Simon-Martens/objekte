@@ -1,0 +1,34 @@
+{
+  "annotation": "(Photos 62040,01; 62040,02) Vertonung eines Gedicht aus dem Bergischen Taschenbuch 1801",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62040,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Heimath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. C. Steup",
+  "scans": [
+    "alm_1016_62040_01_rl9i9bssm9.jpg",
+    "alm_1016_62040_02_kv49t6s44l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Heimath",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": []
+}

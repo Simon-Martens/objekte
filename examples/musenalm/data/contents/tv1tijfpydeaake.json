@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 116501, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Auf beblümtem Wiesenhügel / Lag der Knabe Ganymed, / Süß umtönt vom Lied der Haine,",
+  "language": [],
+  "musenalm_id": 116502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ganymed",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ganymed",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.590Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "at89gc7i2va0047"
+    }
+  ]
+}

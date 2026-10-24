@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Ein schönes Gotteshaus, erbaut in edlem Style; / Mit Würde nimmt es sich vor andern aus.",
+  "language": [],
+  "musenalm_id": 52779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die neue Kirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die neue Kirche",
+  "updated": "2007-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.701Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "80j2u7un80kqbty"
+    }
+  ]
+}

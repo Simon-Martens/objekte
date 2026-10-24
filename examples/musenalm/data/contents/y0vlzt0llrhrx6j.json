@@ -1,0 +1,45 @@
+{
+  "annotation": "Berns Reformatoren. In vier Sonnetten (Sammlung INr 54459,Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Kleiner als der ersten Größe Sonnen / Leuchtest du doch auch mit reinem Strahl,",
+  "language": [],
+  "musenalm_id": 54461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Sebastian Meyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Sebastian Meyer",
+  "updated": "2008-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.887Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "a6vb0j7il2imvmn"
+    }
+  ]
+}

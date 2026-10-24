@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 80153, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Ein Thor nur sendet Wunsch auf Wunsch zum Himmel. / Doch nur ein Wunsch ist dem Weisen selbst erlaubt:",
+  "language": [],
+  "musenalm_id": 80167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Thor nur sendet Wunsch auf Wunsch zum Himmel. / Doch nur ein Wunsch ist dem Weisen selbst erlaubt:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.825Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "u7yel1btp7hnxba"
+    }
+  ]
+}

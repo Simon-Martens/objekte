@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Merkenstein« von J. B. Rupprecht INr 93551, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merkenstein, / von J. B. Rupprecht, / in Musik gesetzt, / von / Ludwig van Beethoven",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig van Beethoven",
+  "scans": [
+    "alm_2616_93552_hznyf5gdjv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Merkenstein, / von J. B. Rupprecht, / in Musik gesetzt, / von / Ludwig van Beethoven",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.301Z",
+      "agent": "isecfl4y15yf8e2",
+      "source_id": "mhrb6ea0elfeubr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131733,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pag. 141. / Leçon de Musique",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fragonard fils del. B. Roger sc.",
+  "scans": [
+    "alm_4831_131733_11dhosfeih.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pag. 141. / Leçon de Musique",
+  "updated": "2022-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.038Z",
+      "agent": "eyiqw9lbt77s2ne",
+      "source_id": "4h1jwxxi8n4uteb"
+    }
+  ]
+}

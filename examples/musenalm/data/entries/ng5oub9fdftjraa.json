@@ -1,0 +1,94 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III I-Verz, G, SS IV- LV darin G, G, SS 1-347, S, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1851",
+    "norm": "~",
+    "biblio": 100776,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3386,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Thomas)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht (Herloßsohn; Jeanne Marie) 1851",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; nicht bei L/R",
+  "responsibility_statement": "Dr. C. Herloßsohn",
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / Taschenbuch für 1851. / Fünfter Jahrgang. / Mit Beiträgen von Jeanne Marie, Bernd v. Guseck, / Adolph Görling und C. Herloßsohn. / Mit vier Stahlstichen. / Leipzig, / Theodor Thomas",
+  "updated": "2026-06-11 10:18:54.861Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "items": [
+    "4q6noow2ld47hv6"
+  ],
+  "contents": [
+    "4aoqseqddc39l6y",
+    "k8il24juq5m2u4l",
+    "2n44qg2fts3nkbl",
+    "vhvm0edyp7h1unm",
+    "xlrko4w2quo53hm",
+    "cx8tsj9xgxtr4t6",
+    "odyc5u9t8vhmqml",
+    "89ube34wkke5j06",
+    "5fvjd5vzzc90gyk",
+    "txll4r9yg1lwfg0",
+    "x6dxeka3mebpem8",
+    "hggjqw785i7g0bq",
+    "wkrn6je2qas1l4x",
+    "8oy7dkcf0vw8to2",
+    "3kk4ia3bd83960y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "wm3zyw8rnaueef5",
+      "source_id": "207il9s0mebb9fq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.212Z",
+      "agent": "16uxlf73ehnhqr1",
+      "source_id": "qmj63gp8pwtncsc"
+    }
+  ]
+}

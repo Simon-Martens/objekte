@@ -1,0 +1,68 @@
+{
+  "annotation": "4 Jgg 1850-1853; 1850-1852: Aarau und Thun (Christen); 1803: Basel (Schweighauser); Hrsgg: Jgg 1850-1852: A. E. Fröhlich et alii; 1853: A. E. Fröhlich; der Jg 1853 nicht bei K 22; nicht bei L/R; nicht bei Goed VIII. 76, 134",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alpenrosen 1850",
+    "norm": "",
+    "biblio": 101199,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1486,
+  "parallel_title": "",
+  "place_statement": "Aarau und Thun (Christen)",
+  "places": [
+    "m0gbyp7o5hl2p3l",
+    "js4tnjtapbdivk3"
+  ],
+  "preferred_title": "Alpenrosen 1850",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 22; nicht bei L/R; Goed VIII. 76, 134",
+  "responsibility_statement": "A. E. Fröhlich, Jer. Gotthelf, K. R. Hagenbach, Ed. Dößekel, J. J. Reithard, B. Reber u. a.",
+  "subtitle_statement": "",
+  "title_statement": "Alpenrosen / auf / das Jahr 1850. / Herausgegeben / von / A. E. Fröhlich, Jer. Gotthelf, K. R. Hagenbach, / Ed. Dößekel, J. J. Reithard, / B. Reber u. a. / Aarau und Thun, / Druck und Verlag von J. J. Christen",
+  "updated": "2026-06-11 10:18:55.192Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "items": [
+    "x5al6aqpr9atas9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.651Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.651Z",
+      "agent": "1whf67qwk14y3gh",
+      "source_id": "ukagffqlgcm89h3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Vernahmst du schon die ernste Kunde / Von jenem wundersamen Wald,",
+  "language": [],
+  "musenalm_id": 73499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Abendgeläute im Walde. / (Legende.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Abendgeläute im Walde. / (Legende.)",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.507Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "ou228v41qrz0pod"
+    }
+  ]
+}

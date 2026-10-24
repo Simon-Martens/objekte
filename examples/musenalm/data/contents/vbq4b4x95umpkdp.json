@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Der Schöpfung sonnenhelle Sphären / Durchdringt die Harmonie, / Im Meergewog', in Thaueszähren / Gleich herrlich waltet sie.",
+  "language": [],
+  "musenalm_id": 69497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welteinklang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Sauter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Welteinklang",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.445Z",
+      "agent": "i2mivu0y5cpv8x8",
+      "source_id": "t3mzpmlamjh9qwe"
+    }
+  ]
+}

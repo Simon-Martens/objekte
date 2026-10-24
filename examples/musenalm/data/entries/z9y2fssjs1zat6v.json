@@ -1,0 +1,107 @@
+{
+  "annotation": "2. Titel: Taschenbuch der neuesten Kriegsbegebenheiten für gebildete Leser aller Stände. Dritter Jahrgang 1811. Mit schwarzen und illuminierten Kupfern und einem großen Plane. Leipzig bei Georg Joachim Göschen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S III T, SS V-VI I-Verz, SS VII-XII G-Verz darin G, 3 GG ar: SS 1-248 darin K, ar1: SS 1-158, 2 BB VrlgM, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kriegs-Kalender 1811 [Jahrbuch der Weltbegebenheiten] 1811",
+    "norm": "~",
+    "biblio": 111739,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2208,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kriegs-Kalender 1811 [Jahrbuch der Weltbegebenheiten] 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 73; L/R 21",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kriegs-Kalender / für / gebildete Leser aller Stände / Dritter Jahrgang 1811. / Mit schwarzen und illuminierten Kupfern / und einem großen Plane. / Leipzig bei Georg Joachim Göschen",
+  "updated": "2026-06-11 10:18:55.909Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "nrcepbg9h8mcppj"
+  ],
+  "contents": [
+    "l7hi2pryuvc9m1u",
+    "a7vtgutzgy4febp",
+    "p5g2a0rifx3zrv1",
+    "17jdzieqydtv84c",
+    "gk7bvp6iwsle7h7",
+    "m1ou8l3ceywkuf5",
+    "4ro235nndp140rs",
+    "rb0lbhej0o6iank",
+    "l17huklmbtc5h5k",
+    "pm022am9wmc90w5",
+    "urpi3nbo16b92wa",
+    "vwnasspccuqdilq",
+    "mgmlqcj1wcunv1f",
+    "0er43ezqobrb37y",
+    "9on0qho82ovjecz",
+    "jww26q39no4tuxa",
+    "uryq32dgmzqtimb",
+    "4na3sc8o791gura",
+    "k6l2uutwa2po357",
+    "031xfeidps38c9v",
+    "gvjn6w1k1p5kf0v",
+    "t2zzaenqaxqmj4x",
+    "1meqn5i8venjia8",
+    "tu9385xahwo2vh3",
+    "9u7ceuuo2qkyak6",
+    "7i3hmsncb1aah67",
+    "q2kxo7l8tph7xu1",
+    "4v0focyqk1lgpxu",
+    "sgal46x6948l00q",
+    "1nbz1pvhgxatwvj",
+    "zq4gwn7nanuv2om",
+    "z0mbikji1dczoke",
+    "ero4tos3mwz372k",
+    "so9oi5yzl7qy1dn",
+    "nsw6zaifq8uuqkn",
+    "cgf96huet76zy1y",
+    "xynklyhtx9b7upw",
+    "i4k2xu7a8loff8q",
+    "drl7qk77hz7qc51"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.919Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.919Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "hnb09pm6nlluvly"
+    }
+  ]
+}

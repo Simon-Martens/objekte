@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 24 Rätseln INr 40034-400457, Obj 60-83",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "471",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII. / Agrionien / für das Jahr 1819. / gesammelt von Theodor Hell",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIII. / Agrionien / für das Jahr 1819. / gesammelt von Theodor Hell",
+  "updated": "2005-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.854Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "clsoija5subze1d"
+    }
+  ]
+}

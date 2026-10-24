@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite. s. Textbezug INr 28911, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28912,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury inv. et fec.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_374_28912_kwgs2ktg9o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.090Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "jutecmoiopd80ip"
+    }
+  ]
+}

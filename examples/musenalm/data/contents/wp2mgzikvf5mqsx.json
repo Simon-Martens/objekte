@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Einige werden hier von mir eine Anfeurung junger Dichter, besonders katholischer Seits erwarten: andere einige Hiebe über ihre so geringe Aufklärung,",
+  "language": [],
+  "musenalm_id": 52481,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Lüthy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2007-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "7siumto5sxmrqjz",
+      "source_id": "ybqb67cfdqyoi4y"
+    }
+  ]
+}

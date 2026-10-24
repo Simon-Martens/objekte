@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Glückselig, wem, entfernt vom Wahn, / der immer trüget, / Ein treues Weib, ein Buch, ein wahrer / Freund vergnüget,",
+  "language": [],
+  "musenalm_id": 47573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das wahre Glück. / Aus dem franz. Nach Leonhard. / An Charlotten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Eck in Leipzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das wahre Glück. / Aus dem franz. Nach Leonhard. / An Charlotten",
+  "updated": "2007-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.525Z",
+      "agent": "t4962qj1xtqcfm9",
+      "source_id": "mttqphnog2258wt"
+    }
+  ]
+}

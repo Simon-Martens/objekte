@@ -1,0 +1,67 @@
+{
+  "annotation": "# K nennt nur Jg 1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch für Winterabende, Das 1843",
+    "norm": "",
+    "biblio": 106694,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1650,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (Gutsch u. Rupp)",
+  "places": [
+    "ouysrvcrf9nrnri"
+  ],
+  "preferred_title": "Buch für Winterabende, Das 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30 #; nicht bei L/R",
+  "responsibility_statement": "M. Honek",
+  "subtitle_statement": "",
+  "title_statement": "Das / Buch für Winterabende. / Volksbuch u. Volkskalender / auf / 1843. / Mit Stahlstichen, Lithographien und Holzschnitten. / Von M. Honek. / Mit Beiträgen von K. Andree, Dr. M. Berend, K. Buchner, / A. Lewald, K. Mathy. / Karlsruhe. / Druck und Verlag des Artistischen Instituts. / F. Gutsch & Rupp",
+  "updated": "2026-06-11 10:18:55.551Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "mhgf3hjdwx8wjd4"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.939Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.939Z",
+      "agent": "u6anivo6933cor6",
+      "source_id": "owal5eh8lsfxkgi"
+    }
+  ]
+}

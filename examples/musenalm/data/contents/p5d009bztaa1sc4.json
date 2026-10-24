@@ -1,0 +1,45 @@
+{
+  "annotation": "Aprilflocken (Sammlung INr 26711, Obj 135)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "446",
+  "incipit_statement": "Was ich unmöglich achtet', ist geschehn, / Daß, die in allen stillen Knospen wühlen,",
+  "language": [],
+  "musenalm_id": 26717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.525Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "5uqthzm61v1xzh5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10951, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Mein ist er nun! er, dessen Geisteswürde / Mich oft entzückt!",
+  "language": [],
+  "musenalm_id": 10950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "37. / Minna als Wilhelms Gattin. / Die Compos. ist vom H. Capellmstr. Naumann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "37. / Minna als Wilhelms Gattin. / Die Compos. ist vom H. Capellmstr. Naumann",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.186Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "h3ik7ydne0gd2vv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Drei Gedichte (Sammlung INr 39498, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Die Schlacht, wo blut'ge Panner wehten, / Das Fest, im grimmen Rausche blind,",
+  "language": [],
+  "musenalm_id": 39500,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Freundin. / (Bei Uebersendung des Alboin.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqé",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Freundin. / (Bei Uebersendung des Alboin.)",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.169Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "p1k4l0lkcbeyiwa"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 127794, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Durch die winterliche Gegend zieht ein kleiner Schlit- / ten hin, / Und ein Mädchen läuft daneben rüstig fort mit munterm / Sinn.",
+  "language": [],
+  "musenalm_id": 127804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Das trauernde Milchmädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Das trauernde Milchmädchen",
+  "updated": "2021-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.959Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "sjy8b4xnqrdfeau"
+    }
+  ]
+}

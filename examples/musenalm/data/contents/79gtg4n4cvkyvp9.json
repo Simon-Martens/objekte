@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Schmetterlinge (Sammlung INr 111901, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Max Frölich reiste - tralala! / Sich Welt und Mädchen zu besehen;",
+  "language": [],
+  "musenalm_id": 111906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Empfehlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Empfehlung",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.391Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "l8dwf8ecswa9x6p"
+    }
+  ]
+}

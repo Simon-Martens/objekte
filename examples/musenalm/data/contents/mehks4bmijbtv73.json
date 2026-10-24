@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81511, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Genieße voll die Gegenwart; / Sind schöne Stunden Dir verklungen, / So rufe wieder sie zurück / In Träumen der Erinnerungen.",
+  "language": [],
+  "musenalm_id": 81513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Lebensregeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. L. Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Lebensregeln",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.082Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "bpbdne36435qx67"
+    }
+  ]
+}

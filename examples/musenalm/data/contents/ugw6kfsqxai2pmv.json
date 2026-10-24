@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesreime (Sammlung INr 62235, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Müde wird man dieser Reime! Freund, wirst Du es denn nicht / auch?",
+  "language": [],
+  "musenalm_id": 62245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Müde wird man dieser Reime! Freund, wirst Du es denn nicht / auch?…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.242Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "b7i06b519y5b3yo"
+    }
+  ]
+}

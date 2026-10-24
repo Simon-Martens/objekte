@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54979,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AGLAJA. / Ein Taschenbuch / für das Jahr 1816 / Zweyter / Jahrgang. / WIEN / gedruckt und im Verlag / bey Joh. Bapt. Wallishauser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Junker sc.",
+  "scans": [
+    "alm_223_54979_nbjmcmqwu2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA. / Ein Taschenbuch / für das Jahr 1816 / Zweyter / Jahrgang. / WIEN / gedruckt und im Verlag / bey Joh. Bapt. Wallishauser",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.775Z",
+      "agent": "zuzc1anf4hbbexc",
+      "source_id": "zjq2rxs71hv8dmp"
+    }
+  ]
+}

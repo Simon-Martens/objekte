@@ -1,0 +1,117 @@
+{
+  "annotation": "Anthologie: 2 Jgg 1817, 1818; Berlin; Hrsg.: Karl Andreas von Boguslawski",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I nT, S III W, S V-LXIV Vrwrt d Hrsg, SS LXV-LXVIII I-Verz, SS 1-188",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Mnemosyne Taschenbuch des Andenkens (Boguslawski) 1817",
+    "norm": "~",
+    "biblio": 404007,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2283,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Mnemosyne Taschenbuch des Andenkens (Boguslawski) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 79; nicht bei L/R; Goed VII. 429, 10; Goed VIII. 97, 192",
+  "responsibility_statement": "B..ski",
+  "subtitle_statement": "",
+  "title_statement": "Mnemosyne / Taschenbuch / des / Andenkens. / Erstes Heft. / Berlin 1817. / zum besten der Armen",
+  "updated": "2026-06-11 10:18:56.021Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "39ff6oc7ok7zipd"
+  ],
+  "contents": [
+    "i7df4v8qa0g22gp",
+    "8sbcdfo9y44stc4",
+    "6tc8qp13za4ej2q",
+    "676kzuy707kjsm6",
+    "5cy5jow7rirktus",
+    "tj2gfbvo1phuk6x",
+    "ywvnamq6ldwco0t",
+    "u7gu4h7aoi0vg4u",
+    "4qqw2a5i9jomqvb",
+    "h1jvhjg46lffz94",
+    "8vwww9a1s2h9pak",
+    "1pau72b30rjygrt",
+    "sytmz5a8y9pgsge",
+    "6kvp3z63mmuoynj",
+    "azr4nl7xgz7v96m",
+    "gtoz7spitvsqe26",
+    "oqyzobnle8pvuad",
+    "wnjsyvlex5ua3do",
+    "93p3mh239hflejg",
+    "dx72wtgwocbfieu",
+    "uvr1ch16dgzhapk",
+    "xtdiwx8rg23cgvw",
+    "5cxzwciu7svtvij",
+    "1m4slxvrgmjxq0p",
+    "yutygn1904qmps1",
+    "i9pwevzn230g7k0",
+    "xbnzzsz6rwoc21u",
+    "3f175vzs3ni0wlf",
+    "edzxd9jx0endli2",
+    "oh7voahpoyzenoy",
+    "0j1ia3abk2pknwz",
+    "s8evyse6upflh7b",
+    "1a11bar4d54ffra",
+    "a9d31e5rpooogn1",
+    "1d0pivqo53rryq7",
+    "odtnta7iupnnrl8",
+    "1ftwpv905bm30j4",
+    "6jg1h0hd9ckidnv",
+    "nqw5fcvvgtinoa3",
+    "rg7o5hhro7za1te",
+    "gcdqkgiwx6j53uc",
+    "l5nhquchufxau4x",
+    "pz4t4ka5lr8oow7",
+    "ks3f9jq6rc34flm",
+    "1lhqezk26gefvzu",
+    "i0u8g198esc0uwo",
+    "jma36gmn2b8e7ik",
+    "8rf49b11ndq6d9j",
+    "w6s34y4y8jnabd4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.034Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.034Z",
+      "agent": "3c4z57eb6rjd4gw",
+      "source_id": "71g8lxk4ao57su1"
+    }
+  ]
+}

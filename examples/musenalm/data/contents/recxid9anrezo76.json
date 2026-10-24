@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni paginiert 6. /) # Titel s. Textbezug INr 107210, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107198,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese zwei Monathskupfer stellen zwei englische Post-Zugpferde vor. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent",
+  "scans": [
+    "alm_3124_107198_xuwoxi9ec8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diese zwei Monathskupfer stellen zwei englische Post-Zugpferde vor. #",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.085Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "j8jq2fbhgevrz5k"
+    }
+  ]
+}

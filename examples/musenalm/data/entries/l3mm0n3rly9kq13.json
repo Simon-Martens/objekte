@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanac des Ambassades 1804",
+    "norm": "",
+    "biblio": 408910,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-03-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4185,
+  "parallel_title": "",
+  "place_statement": "Braunschweig ( Vieweg)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Almanac des Ambassades 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; nicht bei L/R",
+  "responsibility_statement": "Anton-Christian Wedekind",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / DES / AMBASSADES / OU / Liste générale des Ambassadeurs, Envoyés, Ministres, Résidens [...] / DE / L’EUROPE, / PAR / ANTOINE-CHRETIEN WEDEKIND. / L’AN 1804. / A BRONSVIC, / CHEZ FREDERIC VIEWEG",
+  "updated": "2026-06-11 10:18:55.504Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "9ru1o0gfv9eda5y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "u2okid4mnnsk1vk"
+    }
+  ]
+}

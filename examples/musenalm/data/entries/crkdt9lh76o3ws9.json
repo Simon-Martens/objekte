@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, S I-Verz, 6 GG, SS 1-384",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) 1831",
+    "norm": "~",
+    "biblio": 108638,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3404,
+  "parallel_title": "",
+  "place_statement": "München (Franckh)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; L/R 99; Goed VIII. 126, 332 a",
+  "responsibility_statement": "C. Spindler",
+  "subtitle_statement": "",
+  "title_statement": "VERGISS MEIN NICHT. / Taschenbuch / für das Jahr / 1831. / Herausgegeben / von / C. Spindler. / MÜNCHEN / bey / F. G. Franckh",
+  "updated": "2026-06-11 10:18:54.860Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "vo36gpxx4fqogo0"
+  ],
+  "contents": [
+    "u2zbgv16hbrtls4",
+    "xcow8rnzi4sgxjo",
+    "v5ervtqcx7x8rza",
+    "dquhzgf6tt5wdd8",
+    "nruf31h1nzuu00s",
+    "f60m4ld4piqoptg",
+    "0reb5hmhpm962ou",
+    "4r4m7zia9oixask",
+    "99u06e2faajzx6u",
+    "hclet1ra2d8q6lr",
+    "0980jrn2be194yg",
+    "3jzjm0bops53upe",
+    "p6dnhfxtiujn6bd",
+    "vtq6h8vwbz978w2",
+    "4zd2m1cxw5z8l4n",
+    "cirt9mpyvvti10b"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.868Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.868Z",
+      "agent": "px7obnkeo4tgafv",
+      "source_id": "369iq55hriidsof"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.213Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "6yez9lxvnc15bxg"
+    }
+  ]
+}

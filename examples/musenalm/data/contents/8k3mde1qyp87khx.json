@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 94710-94712, Obj 49-51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Geliebte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Geliebte",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.569Z",
+      "agent": "xaj6m1llkx5hiyx",
+      "source_id": "dwdz40rtthu03wt"
+    }
+  ]
+}

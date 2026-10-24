@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen Almanach / für 1787 / Herausgegeben / von / Voss und Goeking / Hamburg / bey Carl Ernst Bohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. G. Fritzsch sc.",
+  "scans": [
+    "alm_119_5919_h5ik3vo071.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen Almanach / für 1787 / Herausgegeben / von / Voss und Goeking / Hamburg / bey Carl Ernst Bohn",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.060Z",
+      "agent": "qrvk817xh0swaop",
+      "source_id": "hz8dm7pa6hwozdf"
+    }
+  ]
+}

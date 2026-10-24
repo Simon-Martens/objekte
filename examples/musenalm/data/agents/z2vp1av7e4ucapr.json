@@ -1,0 +1,856 @@
+{
+  "annotation": "",
+  "biographical_data": "1788-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.283Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Engl. Dichter"
+      ],
+      "dateOfBirth": [
+        "1788-01-22"
+      ],
+      "dateOfDeath": [
+        "1824-04-19"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Thomas Phillips"
+          ],
+          "creditText": [
+            "BBC Your Paintings"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Byron%201813%20by%20Phillips.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Byron%201813%20by%20Phillips.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Byron%201813%20by%20Phillips.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325002631",
+        "https://d-nb.info/gnd/187979677",
+        "https://d-nb.info/gnd/160321301",
+        "https://d-nb.info/gnd/188113266"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-05T15:58:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118518208/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "John \"Mad Jack\""
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "Annabella"
+          ],
+          "surname": [
+            "Milbank"
+          ]
+        },
+        {
+          "forename": [
+            "Catherine"
+          ],
+          "surname": [
+            "Gordon of Gight"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119232022",
+          "label": "Lovelace, Ada"
+        },
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118518208",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119232022",
+          "label": "Lovelace, Ada"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118518208",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)160321301",
+        "(DE-588a)188113266",
+        "(DE-588)187979677",
+        "(DE-588a)118518208",
+        "(DE-588a)134585976",
+        "(DE-588)1325002631",
+        "(DE-101c)310275970",
+        "(DE-588)188113266",
+        "(DE-588c)4009252-5",
+        "(DE-588a)187979677",
+        "(DE-588a)160321301"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4393351-8",
+          "label": "Mesolongion"
+        }
+      ],
+      "preferredName": "Byron, George Gordon Byron, Baron",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "George Gordon Byron"
+        ],
+        "nameAddition": [
+          "Baron"
+        ],
+        "surname": [
+          "Byron"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Quevedo Redivivus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81026857"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95230688"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41410.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q5679"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118518208/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325002631"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160321301"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187979677"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188113266"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118518208"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Lord_Byron"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/George_Gordon_Byron"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/George_Gordon_Byron"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Lord_Byron"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121031939"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118518208"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118518208"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118518208"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118518208"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4122878-9",
+          "label": "Baron"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4589831-5",
+          "label": "Lord"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Gordon, Jorge Noel",
+        "Byron, George Noël Gordon, Lord",
+        "G .G بايرون",
+        "Byron, George Gordon Byron, Baron, Dichter, Grossbritannien",
+        "Lord Bayron",
+        "Byron, Noël",
+        "Payrẹn",
+        "לורד בירון",
+        "Byron, George Gordon Byron, Baron, Poet, Great Britain",
+        "Baylun",
+        "Bajron, Džordž Gordon",
+        "Byron, George Gordon Noel, 6th Baron Byron",
+        "Bajroni, Xhorxh",
+        "Byron, George Gordon, 6th Baron Byron",
+        "Bajron, Džordž Gordon, Lord",
+        "بايرون, گىئورگى گوردون",
+        "Byron, George Gordon, Lord",
+        "Byron, George Noel Gordon",
+        "בירון, ג'ורג' גורדון נואל",
+        "Byron, George Gordon Noel, Poet, Great Britain",
+        "Байрон, Джордж Гордон",
+        "Byron, George Gordon Noel, Dichter, Grossbritannien",
+        "Bayron, G. G",
+        "Byron, Jorge Gordon",
+        "Byron, George Noel Gordon Lord",
+        "Byron, G. G.",
+        "Byron, George Noel",
+        "Byron, George Gordon",
+        "Bayron, Giʾorgi Gordon",
+        "Byron, George Gordon Noel Byron",
+        "Byron, George Gordon, 6. Baron Byron",
+        "Byron, George Gordon Byron",
+        "Byron, Jerzy",
+        "Byron",
+        "Byron, Lord",
+        "Byron, George Gordon Noel, Poète, Grande-Bretagne",
+        "Byron, George G.",
+        "拜论",
+        "Byron, George Gordon Noel",
+        "Quevedo Redivivus",
+        "Byron, George Gordon Noël",
+        "Byron, George Gordon Noel, 6. Baron Byron",
+        "Bailun",
+        "Bajron",
+        "Lord Byron",
+        "擺倫",
+        "Byron, George Gordon Byron, Baron, Poète, Grande-Bretagne"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Noël"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Noël Gordon"
+          ],
+          "nameAddition": [
+            "Lord"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "擺倫"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Lord"
+          ],
+          "personalName": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon"
+          ],
+          "nameAddition": [
+            "6th Baron Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon"
+          ],
+          "nameAddition": [
+            "6. Baron Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Payrẹn"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "nameAddition": [
+            "6. Baron Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "לורד בירון"
+          ]
+        },
+        {
+          "personalName": [
+            "Bailun"
+          ]
+        },
+        {
+          "forename": [
+            "G. G"
+          ],
+          "surname": [
+            "Bayron"
+          ]
+        },
+        {
+          "forename": [
+            "George Noel"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "Giʾorgi Gordon"
+          ],
+          "surname": [
+            "Bayron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Byron"
+          ],
+          "nameAddition": [
+            "Baron, Poète, Grande-Bretagne"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Lord Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Bajron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "Jerzy"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "Jorge Noel"
+          ],
+          "surname": [
+            "Gordon"
+          ]
+        },
+        {
+          "forename": [
+            "Xhorxh"
+          ],
+          "surname": [
+            "Bajroni"
+          ]
+        },
+        {
+          "forename": [
+            "Jorge Gordon"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Byron"
+          ],
+          "nameAddition": [
+            "Baron, Dichter, Grossbritannien"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "G .G بايرون"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "nameAddition": [
+            "Poète, Grande-Bretagne"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "拜论"
+          ]
+        },
+        {
+          "forename": [
+            "Džordž Gordon"
+          ],
+          "surname": [
+            "Bajron"
+          ]
+        },
+        {
+          "forename": [
+            "George Noel Gordon"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Byron"
+          ],
+          "nameAddition": [
+            "Baron, Poet, Great Britain"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noël"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Quevedo Redivivus"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "nameAddition": [
+            "Dichter, Grossbritannien"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Lord Bayron"
+          ]
+        },
+        {
+          "forename": [
+            "Džordž Gordon"
+          ],
+          "nameAddition": [
+            "Lord"
+          ],
+          "surname": [
+            "Bajron"
+          ]
+        },
+        {
+          "forename": [
+            "Джордж Гордон"
+          ],
+          "surname": [
+            "Байрон"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon"
+          ],
+          "nameAddition": [
+            "Lord"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George G."
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Noel Gordon"
+          ],
+          "prefix": [
+            "Lord"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "گىئورگى گوردون"
+          ],
+          "surname": [
+            "بايرون"
+          ]
+        },
+        {
+          "forename": [
+            "G. G."
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "ג'ורג' גורדון נואל"
+          ],
+          "surname": [
+            "בירון"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "nameAddition": [
+            "Poet, Great Britain"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "forename": [
+            "George Gordon Noel"
+          ],
+          "nameAddition": [
+            "6th Baron Byron"
+          ],
+          "surname": [
+            "Byron"
+          ]
+        },
+        {
+          "personalName": [
+            "Baylun"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/George_Gordon_Byron",
+          "label": "https://de.wikipedia.org/wiki/George_Gordon_Byron"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:04:42Z",
+    "gnd_query_biographical_data": "1788-1824",
+    "gnd_query_name": "byron, george gordon"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 362,
+  "name": "Byron, George Gordon",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 78",
+  "updated": "2026-06-11 13:29:21.819Z",
+  "uri": "https://d-nb.info/gnd/118518208",
+  "editor": ""
+}

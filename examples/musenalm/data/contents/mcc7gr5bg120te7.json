@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111122, obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der fromme Greis, nach vielbewegtem Leben, / Ruht aus bei Bethlehem, der heil'gen Stadt,",
+  "language": [],
+  "musenalm_id": 111123,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der heilige Hieronymus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der heilige Hieronymus",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.268Z",
+      "agent": "hh3dab1czdktu2g",
+      "source_id": "derq40nm3l8xue2"
+    }
+  ]
+}

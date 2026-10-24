@@ -1,0 +1,79 @@
+{
+  "annotation": "<div>§§ sämtliche Graphiken und Karte fehlen</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T,12 BB Kal, SS 1-67, 3 SS Tab, 72 BB Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärisch-Genealogischer 1792",
+    "norm": "",
+    "biblio": 407902,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3964,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärisch-Genealogischer 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 37, L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärisch-Genealogischer / CALENDER / auf das Jahr 1792. / Mit Genehmhaltung der König. / Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-09-30 10:19:54.604Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "m6nae9r182n0glh"
+  ],
+  "contents": [
+    "8dd7chrjsqbbeuq",
+    "7plma5evr9m8xp5",
+    "k1sw87pnhhv9gvx",
+    "qjo3ad1xwstjhqp",
+    "ugj6omnd9wmdcym",
+    "o9yotrkix9xrcs4",
+    "nyv26ad2b7qmaon",
+    "u6e490bmnaaeafi",
+    "j2aphwxrc53p4rz",
+    "bgcjzntgsigzph0",
+    "ci5cddepl2gushi",
+    "v6l2jezl7jn6phr",
+    "w3jyyxizze2zhlb",
+    "w099jcsgrttflwc",
+    "zdkuf0q8q6gu7yn",
+    "klmdv5hzp5mcohp",
+    "91bme9m3cqrdyhq",
+    "of0tpeaj6natvc6",
+    "2mtck15i2lb2a36",
+    "i1rmf3dhbec0f4p",
+    "9dkr2faju9zf9je",
+    "vnpfsj765t17owz",
+    "x2xx980utqvz1hk"
+  ],
+  "agents": []
+}

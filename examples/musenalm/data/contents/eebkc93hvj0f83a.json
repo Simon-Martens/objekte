@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104258, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE WEIDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Berghem pinx. S. v. Perger del. Passini sculp.",
+  "scans": [
+    "alm_1933_104257_ck0hzc8kxv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE WEIDE",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.078Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "75q4m1622j83pel"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.078Z",
+      "agent": "9a313ypmn6fzfj6",
+      "source_id": "oxf511qnjwynmxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.078Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "ql8ht947xl1w4vt"
+    }
+  ]
+}

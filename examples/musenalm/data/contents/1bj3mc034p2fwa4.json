@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108262,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1789. / mit Kupfern von Chodowiecki / Lauenburg / bey J. G. Berenberg / in Commission / bey H. C. Siedentopf / in Göttingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et fec.",
+  "scans": [
+    "alm_2167_108262_vejwdb1qp4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grosbritannischer / Historischer / Genealogischer / CALENDER / für / 1789. / mit Kupfern von Chodowiecki / Lauenburg / bey J. G. Berenberg / in Commission / bey H. C. Siedentopf / in Göttingen",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.326Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "d4cqr7r3ghy370n"
+    }
+  ]
+}

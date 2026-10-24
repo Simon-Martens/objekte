@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 80, 154 /) Abendbesuche (Sammlung INr 70976, Obj 50) Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Aus des Schiffleins trautem Dunkel, / Wo mein Liebchen mir gewacht,",
+  "language": [],
+  "musenalm_id": 70979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.351Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "hyhs1su9l42sb7q"
+    }
+  ]
+}

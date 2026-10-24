@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März. Illustration zu »Indien in seinen Hauptbeziehungen. Dritter und letzter Jahrgang« INr 58904, Obj 18. s.a. Textbezug INr 58911, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58893,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Ansicht von Calcutta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. von Mauch gest. von Barber",
+  "scans": [
+    "alm_866_58893_mj7z97kdw1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Ansicht von Calcutta",
+  "updated": "2008-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.957Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "b04l16uwcflakp3"
+    }
+  ]
+}

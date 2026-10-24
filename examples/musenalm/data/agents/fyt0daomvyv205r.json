@@ -1,0 +1,1592 @@
+{
+  "annotation": "",
+  "biographical_data": "1799-1837",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.449Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1121402763",
+          "label": "Smit, Marija Nikolaevna"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Gilt als russischer Nationaldichter und Begründer der modernen russischen Literatur"
+      ],
+      "dateOfBirth": [
+        "1799-05-26"
+      ],
+      "dateOfDeath": [
+        "1837-02-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Orest Kiprensky"
+          ],
+          "creditText": [
+            "Google Arts &amp; Culture — GwHXH-oqLPXL8g"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Orest%20Kiprensky%20-%20%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%20%D0%BF%D0%BE%D1%8D%D1%82%D0%B0%20%D0%90.%D0%A1.%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%20-%20Google%20Art%20Project.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Orest%20Kiprensky%20-%20%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%20%D0%BF%D0%BE%D1%8D%D1%82%D0%B0%20%D0%90.%D0%A1.%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%20-%20Google%20Art%20Project.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Orest%20Kiprensky%20-%20%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82%20%D0%BF%D0%BE%D1%8D%D1%82%D0%B0%20%D0%90.%D0%A1.%D0%9F%D1%83%D1%88%D0%BA%D0%B8%D0%BD%D0%B0%20-%20Google%20Art%20Project.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/186082983",
+        "https://d-nb.info/gnd/186200978",
+        "https://d-nb.info/gnd/185684750",
+        "https://d-nb.info/gnd/186412517",
+        "https://d-nb.info/gnd/188317953"
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-08T10:27:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118641816/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/11892611X",
+          "label": "Puškina, Natalʹja Nikolaevna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/143676385",
+          "label": "Potockaja, Sof'ja S."
+        },
+        {
+          "id": "https://d-nb.info/gnd/116891793",
+          "label": "Merenberg, Natalie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-RU",
+          "label": "Russland"
+        }
+      ],
+      "gndIdentifier": "118641816",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116891793",
+          "label": "Merenberg, Natalie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118641816",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/rus",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/rus"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)126742200",
+        "(DE-588a)186082983",
+        "(DE-588a)128052015",
+        "(DE-588a)186200978",
+        "(DE-588a)186412517",
+        "(DE-588)186200978",
+        "(DE-588a)185684750",
+        "(DE-588)186412517",
+        "(DE-588a)134489861",
+        "(DE-588a)118641816",
+        "(DE-588)186082983",
+        "(DE-588a)188317953",
+        "(DE-588)185684750",
+        "(DE-588a)127798005",
+        "(DE-101c)310179866",
+        "(DE-588a)131123041",
+        "(DE-588a)131195646",
+        "(DE-588)188317953"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "ru",
+          "@value": "Пушкин, Александр Сергеевич"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074987-3",
+          "label": "Moskau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4267026-3",
+          "label": "Sankt Petersburg"
+        }
+      ],
+      "preferredName": "Puškin, Aleksandr Sergeevič",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Aleksandr Sergeevič"
+        ],
+        "surname": [
+          "Puškin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        }
+      ],
+      "publication": [
+        "Eugenii Oněgin",
+        "Eugenii OnŚegin",
+        "Stichotvorenija",
+        "Kapitanskaja Dočka",
+        "Dichtungen",
+        "Skupoj rycar. - [ca. 1910]",
+        "Sočinenija Alexandra Puškina. - 1838 - 1841",
+        "Der Berggefangene",
+        "Geschichte des Pugatschewschen Aufruhrs",
+        "Kapitanskaja DoŚcka",
+        "SoŚcinenija Alexandra PuŚskina. - 1838 - 1841",
+        "Boris Godunov"
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/1218159-6",
+          "label": "Muzej A. S. Puškina (Torschok)"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n80036579"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66477450"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q7200"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118641816/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/185684750"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186082983"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186200978"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/186412517"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188317953"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Alexander_Pushkin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Alexander_Sergejewitsch_Puschkin"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Alexander_Sergejewitsch_Puschkin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Alexander_Pushkin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121372055"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118641816"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118641816"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118641816"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/A3A9208F9E3C4E7DBABF8AF1E1146265"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118641816"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Pushkin, Alexander",
+        "Puxijin\"",
+        "Pushkin, Aleksandr Sergieevich",
+        ".פושקין, א. ס",
+        "Pusjkin, Alexander",
+        "Puškin, Aleksandr S.",
+        "Pushkin, Alexandr",
+        "Puskin, Sándor",
+        "Puszkin, Aleksander S.",
+        "Pushkin, Alejandro S.",
+        "Пушкин, Александр",
+        "Puschkins, A. S.",
+        "PuŚskin, Aleksandr",
+        "Puschkin, Alexander Sergejewitsch",
+        "Pouchkine, Alexandre ̣S.",
+        "Puškin, Oleksandr Serhiiovych",
+        "Puschkin, Alexander Sergejewitscḥ",
+        "Pushkins na all, Alexander",
+        "Püšk’in, A. S.",
+        "Pushkin, Alexander S.",
+        "PuŚskin, Aleksandr SergejewiŚc",
+        "Pouchkine, Alexandre",
+        "Punkkin, Alekandr S.",
+        "PuŚskin, Alexander",
+        "Puschkin, Alexander Sergiejewitsch",
+        "PuŚskin, Alessandro",
+        "Pushkin, Aleksandr Sergeevich",
+        "プーシキン, アレクサンドル セルゲーヴィチ",
+        "Puszkin",
+        "Puschkin, A.",
+        "PuŚskin, A. S.",
+        "Puškinas, Aleksandras",
+        "Poushkin, Alexander",
+        "Puškin, Alexander Sergiejewitsch",
+        "פושקין, אלעקסאנדר",
+        "Puszkin, Aleksander",
+        "Puskin, Alếchxanđrơ",
+        "Puškin, Alexander Sergeevič",
+        "Puskin, Alexantr Sernkegiebits",
+        "Pushkin, Alexander Sergeejevich",
+        "Pouchkine, A.",
+        "Pusjkin, Alexandr",
+        "Puškin, Aleksandr Sergejewič",
+        "Puskin, Alekszandr",
+        "Puškin",
+        "Puschkin, Alexander S.",
+        "PuŚskin, Aleksandr S.",
+        "Puškinin, A. S.",
+        "Pouchkine, Alexander S.",
+        "Puschkin, Aleksandr",
+        "پۇشكىن",
+        "Puishkiv",
+        "P., A.",
+        "Pusjkin, Aleksander",
+        "PuŚskin, Aleksandar",
+        "Puschkin, Alexander",
+        "Pusjkin",
+        "Powškin, Alekʹsandr",
+        "Puškin, Aleksander S.",
+        "Pusjkin, Aleksandr",
+        "Puškin, Alêchxandro",
+        "Puškin, A.",
+        "Pushkin, Aleksandr Segeevicḥ",
+        "PuŚskin, Alexander S.",
+        "Puškin, Aleksandr Sergiejevič",
+        "Puškin, Aleksandar Sergeevič",
+        "Poesjkin, Alexander",
+        "Puškin, Aleksander Sergejevič",
+        "Puškin, Aliksandir Sirgiyiwič",
+        "Puškinʺ, A. S.",
+        "Powškin, A. S.",
+        "Puschkin, Alexandr S.",
+        "Puškin, Aleksandir Sergeyewič",
+        "Puskini, Alek`sandre",
+        "Puškin, Alexander Sergejevič",
+        "Puixkin, Alexandr S.",
+        "Pouchkine, A. S.",
+        "Pushkin, Aleksandr S.",
+        "Pouchkine, Alexandre Serguéiévitch",
+        "Pūshikin",
+        "Pouchkine",
+        "Puschkin, Aleksandr Sergejewitsch",
+        "Puschkin",
+        "Puškin, Alexander S.",
+        "Puškin, Alexantr Sernkegiebits",
+        "Püšḳin",
+        "Puškin, Oleksandr",
+        "Puškin, Aleksandr Sergejevič",
+        "Puškin, Aleksandar S.",
+        "Puškin, Aleksandr",
+        "Puškin, Alekdandr S.",
+        "普希金",
+        "Pushkin, A.",
+        "Pushkin, Alexander Sergeevich",
+        "Puşkin, Aleksander Sergeyeviç",
+        "PuŚskin, Aleksandr SergeeviŚc",
+        "Puschkin, Aleksander",
+        "Puškyn, Aleksander S.",
+        "Puškin, A. S.",
+        "Puskēn, Alexandros Sergiados",
+        "Pouchkine, Aleksandr Sergueevitch",
+        "Puishkiv, Vax. Sx.",
+        "Puxijin",
+        "PuŚskin, Aleksandr Sergeevięc",
+        "Pushkin, Aleksander Sergaits'",
+        "Puşkin, Aleksandır",
+        "Pushkin, A. S.",
+        "Puschkin, Alexandre",
+        "Puškin, Alegsandar",
+        "Püšḳin, A. S.",
+        "Puškin, Alessandro",
+        "Phuvu-zhi-cin",
+        "Puchkin, Alejandro",
+        "Puszkin, A.",
+        "Puškin, Aleksandar",
+        "Pushkin, Alexandre",
+        "پۇشكىن, ئالېكساندىر سېرگېيېۋىچ",
+        "Puschkin, Alejandro Sergueievich",
+        "Pushkin, Aleksandr",
+        "Puschkin, A. S.",
+        "Puškinʺ, Aleksandrʺ Sergěevičʹ",
+        "Pusckin, Alessandro",
+        "Puškin, Aleksandr Sergeejevič",
+        "Puh̄kin, H̱a, S.",
+        "پۇشكىن, ئالىكساندىر سىرگىيىۋىچ",
+        "Puškins, Aleksandrs",
+        "Puskin",
+        "Puskēn, Alexandros Sergiadu",
+        "Пушкин, А. С.",
+        "Puškin, Aleksandr Sergěevič",
+        "Puškins, A.",
+        "Pushkin",
+        "Puchkin, Alejandro Serguievich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Aleksandar S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "personalName": [
+            "Puskin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Püšḳin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergejewitsch"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "ئالىكساندىر سىرگىيىۋىچ"
+          ],
+          "surname": [
+            "پۇشكىن"
+          ]
+        },
+        {
+          "personalName": [
+            "普希金"
+          ]
+        },
+        {
+          "forename": [
+            "А. С."
+          ],
+          "surname": [
+            "Пушкин"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "アレクサンドル セルゲーヴィチ"
+          ],
+          "surname": [
+            "プーシキン"
+          ]
+        },
+        {
+          "forename": [
+            "Alexantr Sernkegiebits"
+          ],
+          "surname": [
+            "Puskin"
+          ]
+        },
+        {
+          "personalName": [
+            "Puishkiv"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergejevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander S."
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alekdandr S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "А. С."
+          ],
+          "surname": [
+            "Пушкин"
+          ]
+        },
+        {
+          "personalName": [
+            "Puszkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Pushkins na all"
+          ]
+        },
+        {
+          "forename": [
+            "Alexantr Sernkegiebits"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergiejewitsch"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alekandr S."
+          ],
+          "surname": [
+            "Punkkin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Puškinʺ"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandr S."
+          ],
+          "surname": [
+            "Puixkin"
+          ]
+        },
+        {
+          "forename": [
+            "Sándor"
+          ],
+          "surname": [
+            "Puskin"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro"
+          ],
+          "surname": [
+            "Puchkin"
+          ]
+        },
+        {
+          "personalName": [
+            "Phuvu-zhi-cin"
+          ]
+        },
+        {
+          "personalName": [
+            "Pusjkin"
+          ]
+        },
+        {
+          "forename": [
+            "אלעקסאנדר"
+          ],
+          "surname": [
+            "פושקין"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Puškinin"
+          ]
+        },
+        {
+          "forename": [
+            "Alessandro"
+          ],
+          "surname": [
+            "Pusckin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergeejevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Puschkins"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Pusjkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander S."
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro S."
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Vax. Sx."
+          ],
+          "surname": [
+            "Puishkiv"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergiejewitsch"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergeevięc"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander"
+          ],
+          "surname": [
+            "Pusjkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergieevich"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "personalName": [
+            "پۇشكىن"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro Serguievich"
+          ],
+          "surname": [
+            "Puchkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander S."
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "P."
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre ̣S."
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "personalName": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergeevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "personalName": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandros Sergiadu"
+          ],
+          "surname": [
+            "Puskēn"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergiejevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Puszkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergejewič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Александр"
+          ],
+          "surname": [
+            "Пушкин"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander Sergaits'"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr S."
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergejewitsch"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandr"
+          ],
+          "surname": [
+            "Pusjkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandir Sergeyewič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Powškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre Serguéiévitch"
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Poushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandır"
+          ],
+          "surname": [
+            "Puşkin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergeevich"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alêchxandro"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "H̱a, S."
+          ],
+          "surname": [
+            "Puh̄kin"
+          ]
+        },
+        {
+          "personalName": [
+            "Puxijin"
+          ]
+        },
+        {
+          "forename": [
+            "א. ס"
+          ],
+          "surname": [
+            ".פושקין"
+          ]
+        },
+        {
+          "personalName": [
+            "普希金"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander S."
+          ],
+          "surname": [
+            "Puškyn"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Poesjkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandre"
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander S."
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "forename": [
+            "Alekʹsandr"
+          ],
+          "surname": [
+            "Powškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander Sergeyeviç"
+          ],
+          "surname": [
+            "Puşkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr SergeeviŚc"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandr"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandrs"
+          ],
+          "surname": [
+            "Puškins"
+          ]
+        },
+        {
+          "forename": [
+            "Alegsandar"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandrʺ Sergěevičʹ"
+          ],
+          "surname": [
+            "Puškinʺ"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Püšk’in"
+          ]
+        },
+        {
+          "forename": [
+            "אלעקסאנדר"
+          ],
+          "surname": [
+            "פושקין"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergeevich"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandar Sergeevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergueevitch"
+          ],
+          "surname": [
+            "Pouchkine"
+          ]
+        },
+        {
+          "personalName": [
+            "Puxijin\""
+          ]
+        },
+        {
+          "personalName": [
+            "پۇشكىن"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergeejevich"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandar"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr S."
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander"
+          ],
+          "surname": [
+            "Puszkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Oleksandr"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergejewitscḥ"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandros Sergiados"
+          ],
+          "surname": [
+            "Puskēn"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "Pusjkin"
+          ]
+        },
+        {
+          "personalName": [
+            "Püšḳin"
+          ]
+        },
+        {
+          "forename": [
+            "Alexandr S."
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander Sergejevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr S."
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Oleksandr Serhiiovych"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Sergěevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Alekszandr"
+          ],
+          "surname": [
+            "Puskin"
+          ]
+        },
+        {
+          "forename": [
+            "ئالېكساندىر سېرگېيېۋىچ"
+          ],
+          "surname": [
+            "پۇشكىن"
+          ]
+        },
+        {
+          "forename": [
+            "Alejandro Sergueievich"
+          ],
+          "surname": [
+            "Puschkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr SergejewiŚc"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandar"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "A. S."
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Puškins"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander Sergejevič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandr Segeevicḥ"
+          ],
+          "surname": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alếchxanđrơ"
+          ],
+          "surname": [
+            "Puskin"
+          ]
+        },
+        {
+          "personalName": [
+            "Pushkin"
+          ]
+        },
+        {
+          "forename": [
+            "Alessandro"
+          ],
+          "surname": [
+            "PuŚskin"
+          ]
+        },
+        {
+          "forename": [
+            "Alek`sandre"
+          ],
+          "surname": [
+            "Puskini"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksandras"
+          ],
+          "surname": [
+            "Puškinas"
+          ]
+        },
+        {
+          "forename": [
+            "Alessandro"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "personalName": [
+            "Puškin"
+          ]
+        },
+        {
+          "personalName": [
+            "Pūshikin"
+          ]
+        },
+        {
+          "forename": [
+            "Aliksandir Sirgiyiwič"
+          ],
+          "surname": [
+            "Puškin"
+          ]
+        },
+        {
+          "forename": [
+            "Aleksander S."
+          ],
+          "surname": [
+            "Puszkin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Alexander_Sergejewitsch_Puschkin",
+          "label": "https://de.wikipedia.org/wiki/Alexander_Sergejewitsch_Puschkin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:33:00Z",
+    "gnd_query_biographical_data": "1799-1837",
+    "gnd_query_name": "puschkin, alexander"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2145,
+  "name": "Puschkin, Alexander",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 390",
+  "updated": "2026-06-11 13:29:24.140Z",
+  "uri": "https://d-nb.info/gnd/118641816",
+  "editor": ""
+}

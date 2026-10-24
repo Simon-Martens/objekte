@@ -1,0 +1,107 @@
+{
+  "annotation": "die unbezeichneten Graphiken erkennbar von J. H. Ramberg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, SS 1-379 darin G, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wintergarten, Der 1818",
+    "norm": "~",
+    "biblio": 100876,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3533,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Wintergarten, Der 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 175; L/R 91; Goed VIII. 94, 186 a",
+  "responsibility_statement": "St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Der / Wintergarten. / Herausgegeben / von / St. Schütze. / Zweiter Band. / Frankfurt am Mayn / bei den Gebrüdern Wilmans. / 1818",
+  "updated": "2026-06-11 10:18:54.494Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "tude9rr2txyx85t"
+  ],
+  "contents": [
+    "zpca7tc4g2ku7v4",
+    "yuh2vv5ryhhxx9f",
+    "oh74l3j9jayn5iw",
+    "eh0ith5fjah7h4g",
+    "2nmfwhfq63yg19k",
+    "47alydsj204bqks",
+    "gk46x2si7qndihs",
+    "j32b9ysbjf0356h",
+    "bzwxo83jz0f1g36",
+    "hu2zgoyx34zo0yv",
+    "j0jo1ry6cymhfp8",
+    "wm0ei7gr9ar47oq",
+    "qn1m8cnpcm3u9o3",
+    "3vprvi1d0hulga9",
+    "vvf1ygs5oxok4es",
+    "6dk0vubfoihbxc3",
+    "nggyzvgigbiowmw",
+    "z3eingebhcxq0s4",
+    "1dwq9ttgzffgol3",
+    "573uth1ki4pig1k",
+    "v71bkr40slw77jb",
+    "z2xds0z6hjl97kn",
+    "0x1dy5d0aeearzp",
+    "5ytjwco6sh2n0n1",
+    "r82i7dwnnz2lwhf",
+    "4jsq9xa4golgv4c",
+    "zq224im0npaqr89",
+    "ssb7hrjelg7y7e7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.256Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.256Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "bcqte4lu7scvlm9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.187Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.187Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "h3d54x5gywoz7uu"
+    }
+  ]
+}

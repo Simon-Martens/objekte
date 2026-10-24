@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 68579, Obj 3,06 /) Das Original befindet sich im Cabinette des Herrn Grafen Moritz von Fries",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Auf kurzem Stroh, entbehrend weich Gewand, / Den Menschen fern, die Ihn noch nicht erkennen,",
+  "language": [],
+  "musenalm_id": 68580,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3.07,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Maria, das Kind betrachtend. / Gemählde von Correggio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Maria, das Kind betrachtend. / Gemählde von Correggio",
+  "updated": "2001-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.636Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "t8tujo8hdwlve5r"
+    }
+  ]
+}

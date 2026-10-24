@@ -1,0 +1,103 @@
+{
+  "annotation": "Paginierungs- bzw. Bindefehler SS 168 ff",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S III-VIII G-Verz darin 2 GG, SS 1-168, SS 181-183, S C, SS 169-172 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Meßgeschenk zur belehrenden Unterhaltung für Liebhaber der Pferde 1799",
+    "norm": "~",
+    "biblio": 404933,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2251,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Meßgeschenk zur belehrenden Unterhaltung für Liebhaber der Pferde 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 135",
+  "responsibility_statement": "Seyffert von Tennecker",
+  "subtitle_statement": "",
+  "title_statement": "Meßgeschenk / zur / belehrenden Unterhaltung / für / Liebhaber der Pferde. / Herausgegeben / von / Seyffert von Tennecker, / Lieutenant der Churfürstl. Sächsis. Cavallerie und Vor- / steher / eines Privat-Instituts der Roßarzney- und / Reitkunst. / Mit illuminirten und schwarzen Kupfern. / Drittes Bändchen / Leipzig, 1799. / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.929Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "kzw9sz0oma0pel7"
+  ],
+  "contents": [
+    "wn9xxv99wxyh5ap",
+    "dza2omzo7fz6xam",
+    "fde1vr6gr5qa9oy",
+    "v8pt257f37u7h6r",
+    "yspbqcqolphvuj0",
+    "iax5bndym4ab3i5",
+    "ygqrq470vc5facy",
+    "k9q7eplspacin3t",
+    "0gca9rt6n5tm3mz",
+    "f5ll3qnn2d0sgx7",
+    "p6e2xsd5hb81fzy",
+    "nu9w71cnt6s0k0z",
+    "c2bsort4t4evtpb",
+    "b23st1ch2wgve0m",
+    "qphm5t8cdqpvb0q",
+    "f2yfduawljgpkm7",
+    "g9l9odefbgfl8rq",
+    "wprwcyuw0vu811l",
+    "ylkdui6hfkcxd7i",
+    "9akchqgb390304x",
+    "oc8tqqnh2h6zzh8",
+    "lwh6a6aa8xtv0rw",
+    "8k9lykhizkwydmv",
+    "yri3xw6hjlyjcae"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.019Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.019Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "1bfwn26phqvc8zt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "n35r5b4mvcjtifx"
+    }
+  ]
+}

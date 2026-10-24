@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1823, gesammelt von Theodor Hell (Sammlung INr 40524, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "487",
+  "incipit_statement": "Am Fuße recht - im Kopfe schlecht, / Dien' ich so Herrn als Knecht;",
+  "language": [],
+  "musenalm_id": 40533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Räthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rich. Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Räthsel",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.093Z",
+      "agent": "bmrndjx591terfe",
+      "source_id": "ypixroloygbi9u3"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Erster Abschnitt. Regeln für Reisende (Sammlung INr 97392, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Wer das Geld dazu hat, um einen eigenen Reisewagen zu haben, der sehe darauf, daß dieser gut und bequem sey.",
+  "language": [],
+  "musenalm_id": 97394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Regeln für fahrende Reisende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Regeln für fahrende Reisende",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.631Z",
+      "agent": "5ok91qz211t27y7",
+      "source_id": "frp6je63zeu1t8r"
+    }
+  ]
+}

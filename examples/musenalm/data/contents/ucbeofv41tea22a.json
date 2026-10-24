@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollst. Titel aus dem G-Verz. Illustration zu »Wallensteins Lager. Die Piccolomini« von Fr. Schiller s. Textbezug INr 21848, 0bj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21846,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallensteins Lager # / Wie sie juchzen - das Gott erbarm!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc. 1799",
+  "scans": [
+    "alm_296_21846_f60g569hqp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wallensteins Lager # / Wie sie juchzen - das Gott erbarm!",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.018Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "jdez9y09yx7rx5w"
+    }
+  ]
+}

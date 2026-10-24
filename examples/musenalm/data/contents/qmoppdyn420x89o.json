@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Daphne am Bach« von C. A. Overbeck INr 5352, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daphne am Bach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juliane Reichardt, geb. Benda",
+  "scans": [
+    "alm_111_5353_9wsrbyux0m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Daphne am Bach",
+  "updated": "2000-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.108Z",
+      "agent": "3yhlkmaw0c4nfr1",
+      "source_id": "k6ym9ghmybt2973"
+    }
+  ]
+}

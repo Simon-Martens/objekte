@@ -1,0 +1,351 @@
+{
+  "annotation": "",
+  "biographical_data": "1725-1789",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.516Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichter, Arzt und Professor der Medizin und der Geschichte"
+      ],
+      "dateOfBirth": [
+        "1725"
+      ],
+      "dateOfDeath": [
+        "1789"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "The original uploader was Albrechtblank at German Wikipedia."
+          ],
+          "creditText": [
+            "Transferred from de.wikipedia to Commons by Ireas using CommonsHelper."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Withof.jpeg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Withof.jpeg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Withof.jpeg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-11T16:14:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/122850610/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/122360303",
+          "label": "Withof, Friedrich Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117414417",
+          "label": "Withof, Johann Hildebrand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123019672",
+          "label": "Withof, Balthasar Eberhard"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "122850610",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117414417",
+          "label": "Withof, Johann Hildebrand"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/123019672",
+          "label": "Withof, Balthasar Eberhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122360303",
+          "label": "Withof, Friedrich Theodor"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/122850610",
+      "oldAuthorityNumber": [
+        "(DE-588a)122850610",
+        "(DE-588c)4793174-7"
+      ],
+      "preferredName": "Withof, Johann Philipp Lorenz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Philipp Lorenz"
+        ],
+        "surname": [
+          "Withof"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        }
+      ],
+      "publication": [
+        "Prolusio continens animadversiones aliquas de poesi epica",
+        "Gedichte",
+        "Nachricht von einem ehemahl sehr hochgehaltnen Arzneygelehrten Ägidius*",
+        "De castratis commentationes quatuor",
+        "De Castratis Commentationes quatuor",
+        "Academische Gedichte",
+        "Das meuchelmörderische Reich der Assassinen",
+        "Ad systema Leeuwenhoekianum commentarii duo",
+        "Aufmunterungen in moralischen Gedichten"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059499"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/3364958"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q110902"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/122850610/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Philipp_Lorenz_Withof"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000061450743"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd122850610.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/122850610"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/122850610"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Withof, Johann Philipp",
+        "Withof, Lorenz",
+        "Withof, Joann. Phil. Laur.",
+        "Withof, J. P. L.",
+        "Withof, Joh. Phil. Lorenz",
+        "Withofius, Joann. Phil. Laur.",
+        "Withof, Johannes Philippus Laurentius",
+        "Withof, Jo. Phil. Laur.",
+        "Withof, Joannes Philippus Laurentius"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Philipp"
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Philippus Laurentius"
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Joann. Phil. Laur."
+          ],
+          "surname": [
+            "Withofius"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Phil. Lorenz"
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenz"
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "J. P. L."
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Phil. Laur."
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Joann. Phil. Laur."
+          ],
+          "surname": [
+            "Withof"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Philippus Laurentius"
+          ],
+          "surname": [
+            "Withof"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Philipp_Lorenz_Withof",
+          "label": "https://de.wikipedia.org/wiki/Johann_Philipp_Lorenz_Withof"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:23:42Z",
+    "gnd_query_biographical_data": "1725-1789",
+    "gnd_query_name": "withof, johann philipp lorenz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3167,
+  "name": "Withof, Johann Philipp Lorenz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 30",
+  "updated": "2026-06-11 13:29:25.806Z",
+  "uri": "https://d-nb.info/gnd/122850610",
+  "editor": ""
+}

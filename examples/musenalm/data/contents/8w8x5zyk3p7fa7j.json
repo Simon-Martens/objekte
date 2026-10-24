@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Beglückt, wer nie aus fremder Hütte / Aufsteigen sah des Festes Rauch!",
+  "language": [],
+  "musenalm_id": 13640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines wandernden Indianers. / Nach Chateaubriand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines wandernden Indianers. / Nach Chateaubriand",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.497Z",
+      "agent": "cxnpeuic3nrym95",
+      "source_id": "a7gt8t0u62botfd"
+    }
+  ]
+}

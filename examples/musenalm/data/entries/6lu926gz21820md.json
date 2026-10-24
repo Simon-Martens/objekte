@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1832",
+    "norm": "",
+    "biblio": 200718,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2776,
+  "parallel_title": "",
+  "place_statement": "München (Franz)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "Joseph von Hormayr",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / vaterländische Geschichte. / Herausgegeben / von / Joseph Freyherrn von Hormayr. / Neue Folge. / Dritter Jahrgang. / 1832. / München, / Druck und Verlag von Georg Franz",
+  "updated": "2026-06-11 10:18:55.082Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "whh5q369li5n2vv"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.874Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.874Z",
+      "agent": "oi7nzik00egzcl5",
+      "source_id": "2ir2q57ew698dyr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.140Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.140Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "m6lo0qutfyg2vti"
+    }
+  ]
+}

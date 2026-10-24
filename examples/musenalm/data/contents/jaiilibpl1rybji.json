@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Klingen müssen die Polkale / Zu dem frohen Jägermahle",
+  "language": [],
+  "musenalm_id": 63494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jagdlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jagdlied",
+  "updated": "2009-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.194Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "ftqty7axmltnkli"
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "annotation": "Format 4,2 x 7 /) franz. Titel lautet: Petit Almanac pour l'an 1808, avec six fables de Lafontaine françoises et allemandes et 12 estampes qui s'y rapportent. Avec approbation de l'Academie royale des sciences",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T verso, T recto, 29 SS Kal darin 12 GG, S 1 zT, SS 2-39",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Akademie der Wissenschaften) 1808",
+    "norm": "~",
+    "biblio": 409561,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-04-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4517,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Akademie der Wissenschaften) 1808 [s. a.: Almanach, Petit 1808]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königl Akademie der Wissenschaften",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1808, / mit / sechs Fabeln von Lafontaine / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Mit Genehmigung der Königl. / Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.272Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "5z6czudogfmiveb"
+  ],
+  "contents": [
+    "cgkly4fhiocqy9r",
+    "hpiiv096470jxi7",
+    "3qouly7ov000rbe",
+    "l9q5pfv6luw78cl",
+    "5q1tr8mhn2u5pdo",
+    "m6t6w2ou1j35g3d",
+    "0tnqtu17w2pblev",
+    "nt16vf4103qk4a1",
+    "hqpsjuuhs9sy8bk",
+    "vhgiidhlcbgf5rr",
+    "s5ty8s50c3m7zjj",
+    "unsliwqccl4foax",
+    "pnbs8tgs5vafn7a",
+    "nw8qidgka57f6gj",
+    "kjrv53juot9kfzu",
+    "nrbbcn261ldj1hy",
+    "s4t4hou346v4zcy",
+    "lzqzw6hbuje4t4i",
+    "21gncbzwyx1b97u",
+    "62b3j2heu78l9qh",
+    "iab26ueahqakm01",
+    "agx73qaxsge4ual",
+    "5kwa6k3do29647k",
+    "otshgvgn0219bsy",
+    "c4aitva3tqbtlw9",
+    "564dig2fn4mzqpz",
+    "9g201w7lopprm71",
+    "3hz7u9a2ktz76k9",
+    "bh3c2d5wfe4zygh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.208Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.208Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "5igjse95hz0rl7e"
+    }
+  ]
+}

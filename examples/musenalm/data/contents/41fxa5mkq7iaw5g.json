@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt im Kalendarium /) Graphik im Kalendarium paginiert 4 /) Illustration zu Motiven aus »Mährchen, Erzählungen, kleine Romane« von Aug. Lafontaine (Berlin 1801)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56772,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Armer, armer Knabe / pag 273",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner de sct.1802",
+  "scans": [
+    "alm_47_56772_ne9pl4lzy7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Armer, armer Knabe / pag 273",
+  "updated": "2008-04-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.851Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "cg9bus4i2r6qkoq"
+    }
+  ]
+}

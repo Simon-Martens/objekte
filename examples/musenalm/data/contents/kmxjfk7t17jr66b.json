@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August; nummeriert 8 /) Illustration zu S. Gessners Idyllen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110705,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damon à Dàphné / Vois belle Dàphné, / vois ce bal - en ciel - / Id. VIII.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et. del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_784_110705_mrb37hp9zm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Damon à Dàphné / Vois belle Dàphné, / vois ce bal - en ciel - / Id. VIII.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.236Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "i6edcgh9vz1k7o9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.236Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "iyfskf1fz60s265"
+    }
+  ]
+}

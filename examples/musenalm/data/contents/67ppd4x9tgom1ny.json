@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Help God mit Gnaden! / Hier werd ock Seepe gesaden! / Herbei hier, herbei,",
+  "language": [],
+  "musenalm_id": 4654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wettsteiger. / An Vater Gleim's ein und acht-zigstem Geburtstage. Am 2. April, / 1799. / Bei'm Chinesischen Schattenspiele gesprochen / und gesungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nachtigal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wettsteiger. / An Vater Gleim's ein und acht-zigstem Geburtstage. Am 2. April, / 1799. / Bei'm Chinesischen Schattenspiele gesprochen / und gesungen",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.025Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "kdljtb3286k8bsu"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "annotation": "Aus Flittners Reihe: Gynäologie /) # K kennt nur Die Kunst mit Weibern glücklich zu seyn",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, T, 4 GG, SS 1-252",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kunst, Die mit Männern glücklich zu seyn 1800",
+    "norm": "~",
+    "biblio": 410645,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-02-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4698,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kunst, Die mit Männern glücklich zu seyn 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei L/R; Goed (H) 128; Hayn-Gotendorf III 637",
+  "responsibility_statement": "Flittner",
+  "subtitle_statement": "",
+  "title_statement": "Die Kunst / mit / Männern glücklich zu seyn / ein / Almanach für das Jahr 1800 / nach / Göthe Lafontaine Rousseau und Wieland / mit Kupfern. / Berlin 1800 bey Oehmigke d. Jüng.",
+  "updated": "2026-06-11 10:18:55.912Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "qf82iilv4xa3ybm"
+  ],
+  "contents": [
+    "1ghbff6cs2o3alk",
+    "f4ogoigybu29z76",
+    "7o53p8a4k8kixs0",
+    "ico86t7jyli92fu",
+    "fc43u3dsqc11ast",
+    "catka57gmgi54ra",
+    "2vus7blvlnkpca9",
+    "ni2l7fu7ljyirrw",
+    "rvdyglevni5u0ou"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.408Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.408Z",
+      "agent": "a0il1qgyia0yjs4",
+      "source_id": "9217yvey0s5b56h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "ynnt0ejwacvjf8u"
+    }
+  ]
+}

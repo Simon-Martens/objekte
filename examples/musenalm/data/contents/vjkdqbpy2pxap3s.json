@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar, paginiert 2. /) Illustration zu »Der rasende Roland« von L. Ariosto",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58251,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rohland allein schlägt die Armee des / Tyrannen Cimosk und befreyet Birenen. / Cant IX.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. D. Chki. fec.",
+  "scans": [
+    "alm_783_58251_smi6u0bbri.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rohland allein schlägt die Armee des / Tyrannen Cimosk und befreyet Birenen. / Cant IX.",
+  "updated": "2008-06-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.001Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "i84yzq2tbpfv35v"
+    }
+  ]
+}

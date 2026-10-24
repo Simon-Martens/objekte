@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Aus dem gährenden Gemische der Völker, durch nichts verbunden, als durch die gleiche Nacht der Barbarei, in welcher der Despotismus sie umfangen hält, erhebt sich das Volk der Griechen,",
+  "language": [],
+  "musenalm_id": 45041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Türkei und Griechenland]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Türkei und Griechenland]",
+  "updated": "2006-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.370Z",
+      "agent": "b96jiypecb45ptj",
+      "source_id": "gn1f6ehqrjm136d"
+    }
+  ]
+}

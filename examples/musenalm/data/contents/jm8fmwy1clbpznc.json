@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der letzte Mohikaner« von J. F. Cooper ; am oberen rechten Rand: Cooper's Werke B. II. S. 65 s. Textbezug in 43806, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Letzte der Mohikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Langer sc. V.",
+  "scans": [
+    "alm_585_43809_aq8tuh0xcf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Letzte der Mohikaner",
+  "updated": "2006-05-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.099Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "xbw4q007pill802"
+    }
+  ]
+}

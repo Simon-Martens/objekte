@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Compagnie! vor Euch! / Vor Euch! / Kolberg! / Hier! / Strohbein / Hier!",
+  "language": [],
+  "musenalm_id": 130829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tanz- und Reitstunde. / Posse in einem Act, / von / Georg Harrys",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Harrys",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tanz- und Reitstunde. / Posse in einem Act, / von / Georg Harrys",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.053Z",
+      "agent": "qca9htaeoraxkt9",
+      "source_id": "u2q7q3pyh1xcyd6"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "annotation": "Formatwechsel zu 8°",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, ar: SS 1-343, ar1: SS 1-98, ar2: 1-114",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1842",
+    "norm": "~",
+    "biblio": 200919,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 877,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / KALENDER / auf das / GEMEIN-JAHR / 1842. / MIT KUPFERN / Herausgegeben / VON DER KÖN. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.755Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "b62mabissn8el67"
+  ],
+  "contents": [
+    "tuukml6lc2bd2sy",
+    "uj8ltbak052t1yk",
+    "z8yr93cb7yqylgh",
+    "ne81wcqglwyuw6m",
+    "i8d0x77bjun59yq",
+    "zjhi7jmme5u8941",
+    "wv75e1d7e4es62i",
+    "dlp3215htc2bvl6",
+    "2ape5rsgrrmchze",
+    "5j5qo5jq11mlg47",
+    "bk0ma3jrscx89mk",
+    "3hcdg90r0u1lszp",
+    "bs4sizzpxg3bxnt",
+    "udrsvn9cnuhkry9",
+    "26b3x3yu4w62okk",
+    "rcesn1un4xntuz4",
+    "aly9zz8e7nsqgms",
+    "wj9tzx1ca1d4i3a",
+    "0x168pnfum223la",
+    "na9e72olgiuo4qr",
+    "e07g20njv63oneb",
+    "8bwdim5ljh60c16",
+    "u3fwwg0dlg6t1oc",
+    "e6l8q97sebrcspq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "tgv1cntc3coetbr"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "Titel verso lautet: Kritisch-etymologisches / Wörterbuch / oder / vergleichende Anatomie / der / deutschen Sprache / Nebst / Materialien für slaw. und lat. Spracherforschung. / 1. Heft. / Juspiciens haec / despiciat - perpendens dummodo pendat / 1843",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Pallas Athene 1843",
+    "norm": "",
+    "biblio": 200926,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2380,
+  "parallel_title": "",
+  "place_statement": "Gitschin (Kastranek)",
+  "places": [
+    "41u981h5h6qevlu"
+  ],
+  "preferred_title": "Pallas Athene 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Anton Fähnrich",
+  "subtitle_statement": "",
+  "title_statement": "PALLAS ATHENE. / Ein / etymologisches Taschenbuch / von / ANTON FÄHNRICH, / Ph. Dr. u. k.k. Prof. in Gitschin. / Der Reinertrag ist zur Begründung eines / Stiftungsplatzes in der Versorgungsanstalt für / erwachsene Blinde in Böhmen bestimmt. / 4ter Jahrgang. / GITSCHIN bei F. J. KASTRANEK",
+  "updated": "2026-06-11 10:18:55.323Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "o33v2q26z5zzuvi"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.074Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.074Z",
+      "agent": "23pw8k1vz339c7m",
+      "source_id": "a66kghs3j40tu0d"
+    }
+  ]
+}

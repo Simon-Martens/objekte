@@ -1,0 +1,58 @@
+{
+  "annotation": "[Unter der Graphik Atelier v. Grünewald & Cooke] s. Textbezug INr 44112, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44111,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRAUT VOM RHEINSTEIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. B. Zwecker pinx. T. S. Engleheart sc.",
+  "scans": [
+    "alm_598_44111_iyq6glchzx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRAUT VOM RHEINSTEIN",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.381Z",
+      "agent": "8w6n9g0x6dcpwhp",
+      "source_id": "4yrz6l1laffy6m9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.381Z",
+      "agent": "usgtr6dipvre26m",
+      "source_id": "fqowcztum46ohri"
+    }
+  ]
+}

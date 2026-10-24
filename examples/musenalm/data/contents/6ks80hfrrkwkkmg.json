@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Der Wind weiht, / De Uhle de schreit, / Der Mon noch immer nit ufegoht,",
+  "language": [],
+  "musenalm_id": 27697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allemannisches Liedchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allemannisches Liedchen",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.002Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "0t8i2ynhgo195zq"
+    }
+  ]
+}

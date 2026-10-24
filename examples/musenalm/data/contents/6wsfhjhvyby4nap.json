@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 115834, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Ich stand an meines Vaters Grabeshügel, / Die Brust erfüllt von Schmerz und sehnendem Verlangen / Nach ihm,",
+  "language": [],
+  "musenalm_id": 115836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[I. Erinnerungen] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. von Schulheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[I. Erinnerungen] 2.",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.559Z",
+      "agent": "miy11spit4lljvz",
+      "source_id": "zr1xhlgyn0u1dvo"
+    }
+  ]
+}

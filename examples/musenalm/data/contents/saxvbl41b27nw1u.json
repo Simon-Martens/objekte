@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Romanzen (Sammlung INr 42129, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Was girren die Täubchen so wehmuthsvoll / Dort über den einsamen Hügeln?",
+  "language": [],
+  "musenalm_id": 42131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm und Klärchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ortlepp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm und Klärchen",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.276Z",
+      "agent": "8jy8jxpsgv6f24z",
+      "source_id": "7vo67aeg9uwolt4"
+    }
+  ]
+}

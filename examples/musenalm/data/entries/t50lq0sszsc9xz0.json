@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Mittheilungen, Jährliche (Rochlitz) 1822 /) Hier als Titelauflage: Mittheilungen, (Rochlitz) Bd 2 1824",
+    "norm": "",
+    "biblio": 100410,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2281,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Cnobloch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Mittheilungen, Jährliche (Rochlitz) 1822 [Hier als Titelauflage: Mittheilungen, (Rochlitz) Bd 2 1824]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 79; nicht bei L/R; Goed VIII. 104, 237",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "subtitle_statement": "",
+  "title_statement": "Jährliche Mittheilungen / in Verbindung / mit / Böttiger d. j., Bührlen, v. Fouqué, v. Houwald, / Jacobs, v. Miltitz, Raupach, Suabedissen / und Wellentreter / herausgegeben / von / Friedrich Rochlitz. / Zweiter Band. / Mit dem Bildnis Herzog Heinrichs des Frommen. / Leipzig, / bei Carl Cnobloch / 1824",
+  "updated": "2026-06-11 10:18:56.022Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "ze3sv3qvvp0mht0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.657Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.657Z",
+      "agent": "wnmfzev1v8wi2px",
+      "source_id": "phlk6u23axiybo1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.033Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.033Z",
+      "agent": "2wsoz27ytrsps8l",
+      "source_id": "ungufzjjgbemn8n"
+    }
+  ]
+}

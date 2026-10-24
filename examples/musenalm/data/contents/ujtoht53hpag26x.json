@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Wenn vom Frühling rund umschlungen, / Von des Morgens Hauch umweht, / Trunken nach Erinnerungen / Meine wache Seele späht;",
+  "language": [],
+  "musenalm_id": 91687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einer abwesenden Freundin. / (1794.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einer abwesenden Freundin. / (1794.)",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.531Z",
+      "agent": "0lnasue8ibiowgx",
+      "source_id": "4zomr8y8bu2mngj"
+    }
+  ]
+}

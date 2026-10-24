@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58836,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luise / Königin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_439_58836_pninzqs5fh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Luise / Königin von Preussen",
+  "updated": "2003-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.896Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "aodg3evvd8xnm2z"
+    }
+  ]
+}

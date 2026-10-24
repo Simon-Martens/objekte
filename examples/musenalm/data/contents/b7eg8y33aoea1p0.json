@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Die süßeste Musik gewähret meinem Ohr / Die Flöte. Doch zieh' ich die Laute noch ihr / vor.",
+  "language": [],
+  "musenalm_id": 5759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedener Geschmack",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedener Geschmack",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.703Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "tbk4ngbjji9h4gd"
+    }
+  ]
+}

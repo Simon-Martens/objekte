@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 2. Blatt der Suite /) paginiert III. /) kol. Illustration zu »Der schreiende Brachvogel« von V. F. S. Fischer INr 67314, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oedicnemus crepitans (Temminck) Der schreiende / Brachvogel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1150_67313_d709536agz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oedicnemus crepitans (Temminck) Der schreiende / Brachvogel",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.192Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "l13ywyrbfpaitrk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.192Z",
+      "agent": "93i1cvgb16cjfey",
+      "source_id": "znp1t34ji9p6sxw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Textbezügen zu 5 Graphiken INr 60059-60063, Obj 58-62 /) XIX. Erklärung der Kupfer (Sammlung INr 60034, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abbé Sieyes und Bemerkungen über die übrigen Kupfer und Porträte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abbé Sieyes und Bemerkungen über die übrigen Kupfer und Porträte",
+  "updated": "2008-09-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.061Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "ugwqa6lnqq61m07"
+    }
+  ]
+}

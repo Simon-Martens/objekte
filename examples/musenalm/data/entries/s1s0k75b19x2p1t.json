@@ -1,0 +1,87 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kanton Genf",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, B Vrwrt d Hrsg, SS 1- 197 darin 4 GG, SS 198-199 I-Verz, S 199 G-Verz, S C, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1817",
+    "norm": "~",
+    "biblio": 200427,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 717,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1817. / POST TENEBRAS LUX / IHS / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.014Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "02shyf1w04kd6d7"
+  ],
+  "contents": [
+    "4fjnvajd7bxvulh",
+    "3mt12sv7t0dkc81",
+    "9yak16l67knxqvj",
+    "z3abvhovf8f124g",
+    "f4p4m582ohqswyr",
+    "53qst0avw33k0ts",
+    "26cmfk32z6ei829",
+    "19dc74tzhqoir0u",
+    "3b2fnjws2j041l7",
+    "prtgfqfmp9unqgi",
+    "u5f7dzddm47her0",
+    "g3s7wip77nib7r2",
+    "of0cvwxqkm8c9ts",
+    "htr33rls4bt5jg5",
+    "3yk8pa47driahyo",
+    "xwlgvj515w754pw",
+    "0trbb0qq1pgw1pk",
+    "5v9xqdvjq9ghowp",
+    "4n5uu9eln3mtw8d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "de8okpzxyu8ojp7"
+    }
+  ]
+}

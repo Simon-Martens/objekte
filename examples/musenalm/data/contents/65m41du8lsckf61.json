@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Dieser Gedenkvers, welchen ein Witzbold des vorigen oder eines noch früheren Jahrhunderts maccaronisch also verfälscht hat: / Et Brot esse volunt, et Wein potare Poetae, / gilt nicht von Dichtern allein, sondern von allen Musensöhnen",
+  "language": [],
+  "musenalm_id": 64827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Erstes Capitel des Buches ohne Ende. / Et prodesse volunt et delectare Poetae",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Simplicius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Erstes Capitel des Buches ohne Ende. / Et prodesse volunt et delectare Poetae",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.160Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "okn3xktuc27ny36"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgen 3 Kapitel INr 69537-69539, Obj 75-77",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Drei bejahrte Freunde, von denen die zwei ersten mit den kurzen Vornamen: Ernst und Adam bezeichnet werden mögen, der dritte aber, als Referent, den echten seinigen, Friedrich, behält, saßen um die knisterne Flamme im schwedischen Ofen,",
+  "language": [],
+  "musenalm_id": 69536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zauberflöte. Der Dorfbarbier. / Fidelio. / Beitrag zur musikalischen Kunstgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zauberflöte. Der Dorfbarbier. / Fidelio. / Beitrag zur musikalischen Kunstgeschichte",
+  "updated": "2008-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.227Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "mqvddsh1c74i8i2"
+    }
+  ]
+}

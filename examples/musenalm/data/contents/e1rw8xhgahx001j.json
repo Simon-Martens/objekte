@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "O wenn ich kalt und ruhig scheine, / Ist's möglich, daß der Falsche meine, / Daß ich die schwere Schuld vergrab?",
+  "language": [],
+  "musenalm_id": 77417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr Schmerz. / (Nach dem Englischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf Blankensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihr Schmerz. / (Nach dem Englischen.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.860Z",
+      "agent": "l8ofx6a8nd7fpu5",
+      "source_id": "14ushg4jzpk3w3c"
+    }
+  ]
+}

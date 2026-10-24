@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel s. Textbezug INr 69065, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Römische Karnevalsscene #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. August Krafft sculps. Rom 1829",
+  "scans": [
+    "alm_2655_69066_1tgb3fr3pd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Römische Karnevalsscene #",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.254Z",
+      "agent": "j21gk7nan3sfxho",
+      "source_id": "21m4ig6fk5vm9h7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "§1§ Beitrag unvollständig SS 321-324 fehlen /) # Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit einer Illustration s. Graphik INr 59989, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Als die Spanier America entdeckten, ahndete niemand, daß einst aus diesem Lande ein junger schwärmerischer Mann, (la Fayette) die ersten Keime einer Gährung in sein Vaterland verpflanzen,",
+  "language": [],
+  "musenalm_id": 59965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Miszellen / größtentheils aus der gegenwär- / rtigen Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Miszellen / größtentheils aus der gegenwär- / rtigen Zeit",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.908Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "hctcuu83bw5k2xu"
+    }
+  ]
+}

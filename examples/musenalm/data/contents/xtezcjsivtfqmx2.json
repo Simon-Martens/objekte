@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 7 Gedichten INr 78373-78381, Obj 29-36 /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "So heißt bei den Persern und Türken eine besondere Dichtungsart, deren Eigenthümlichleit man ohne einige nähere Erklärung schwerlich errathen könnte.",
+  "language": [],
+  "musenalm_id": 78372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stadtaufruhr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stadtaufruhr",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.795Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "t56f9e1r2okeeou"
+    }
+  ]
+}

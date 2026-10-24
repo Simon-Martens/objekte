@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 80214, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Einige leben vom Raub, und and're vom Bettel und Diebstahl,",
+  "language": [],
+  "musenalm_id": 80229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Klassen von Journalisten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Klassen von Journalisten",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.706Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "8ubnx9eewgrc8ch"
+    }
+  ]
+}

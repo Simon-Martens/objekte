@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Dichter des Minnewin (Sammlung INr 46444, Obj 50) Sonette (Sammlung INr 46438, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Fürwahr, dir ist ein Königsschuß gelungen! / So hat es lange nicht mit süßem Beben / Durchzuckt mein innerstes, geheimstes Leben,",
+  "language": [],
+  "musenalm_id": 46444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.526Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "t40a2qew36owb3l"
+    }
+  ]
+}

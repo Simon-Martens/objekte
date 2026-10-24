@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Ist das der Christen Kaiser? so spricht der Moslem / Schaar, / Ist das der Kaiser Rotbart? weiß ist doch Bart und / Haar!",
+  "language": [],
+  "musenalm_id": 46666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 209,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Kaisers Barbarossa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Kaisers Barbarossa",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.435Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "a62ibtw9j0c5b72"
+    }
+  ]
+}

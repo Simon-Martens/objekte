@@ -1,0 +1,45 @@
+{
+  "annotation": "TANZTOUREN zu Beckers Taschenbuch 1811 (Sammlung 13722, Obj 159) 3 graph. Tanzanleitungen",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13724,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_218_13724_1rvdygq5to.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaisen",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.347Z",
+      "agent": "5e64t7ca8x2wyim",
+      "source_id": "ei9cuboapu6goxh"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Agnes« von R. G. Puff INr 85690, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85683,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Russ del. J. Kovatsch sc.",
+  "scans": [
+    "alm_1594_85683_xb5iw80v8d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agnes",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.079Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "62xylq2r17e00q5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.079Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "sh8m8qd8d5ym1oy"
+    }
+  ]
+}

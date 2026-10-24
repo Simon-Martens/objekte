@@ -1,0 +1,207 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.385Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftsteller und Dramatiker; Kreiskalkulator in Breslau; Regierungsrat in Breslau"
+      ],
+      "dateOfBirth": [
+        "1772-04-20"
+      ],
+      "dateOfDeath": [
+        "1839-08-14"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:19:05.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-473",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-473"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124779034/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-473",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-473"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "124779034",
+      "id": "https://d-nb.info/gnd/124779034",
+      "oldAuthorityNumber": [
+        "(DE-588a)124779034"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Blaufarbenwerk/Kloster Wittichen"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Kapf, Karl Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Gottlieb"
+        ],
+        "surname": [
+          "Kapf"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398825-8",
+          "label": "Regierungsrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "publication": [
+        "Die Schwaden",
+        "Briefe aus und über Esslingen",
+        "Blumensträuße"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/134152742930627731936"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q137341334"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124779034/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124779034"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kapf, Carl Gottlieb",
+        "Kapf, Karl Gottlieb Heinrich",
+        "Kapf, Carl Gottlieb Heinrich",
+        "Kapf, Gottlieb"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Gottlieb Heinrich"
+          ],
+          "surname": [
+            "Kapf"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gottlieb Heinrich"
+          ],
+          "surname": [
+            "Kapf"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb"
+          ],
+          "surname": [
+            "Kapf"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gottlieb"
+          ],
+          "surname": [
+            "Kapf"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:53:30Z",
+    "gnd_query_biographical_data": "1772-1839",
+    "gnd_query_name": "kapf, carl gottlieb heinrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1349,
+  "name": "Kapf, Carl Gottlieb Heinrich",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 217; Goed XIII, 219",
+  "updated": "2026-06-11 13:29:23.136Z",
+  "uri": "https://d-nb.info/gnd/124779034",
+  "editor": ""
+}

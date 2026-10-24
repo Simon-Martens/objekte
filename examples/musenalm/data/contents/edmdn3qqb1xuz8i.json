@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Freiwerber wider Willen. Ein Lustspiel in zwölf Scenen (INr 29862, Obj 5) s. Graphik INr 29880, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Was? war das nicht Musik? Ein Vogel lockt den / andern. / Nun pfeif' ich, wie sie singt.",
+  "language": [],
+  "musenalm_id": 29879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neunte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neunte Scene",
+  "updated": "2002-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.373Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "ahr3wm13wwid3g7"
+    }
+  ]
+}

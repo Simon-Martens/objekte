@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Eine Biene hatte den ganzen Tag auf einem Thymianstengel zugebracht, und sich Nahrung eingesogen.",
+  "language": [],
+  "musenalm_id": 35570,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmetterling und die Biene. / Nach Mancini Nivernois",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kayser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmetterling und die Biene. / Nach Mancini Nivernois",
+  "updated": "2003-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.702Z",
+      "agent": "hyp0si34pt4b3dd",
+      "source_id": "4l655eipe2m3zah"
+    }
+  ]
+}

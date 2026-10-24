@@ -1,0 +1,169 @@
+{
+  "annotation": "",
+  "biographical_data": "1814-1878",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.309Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1814"
+      ],
+      "dateOfDeath": [
+        "1878"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-03T13:50:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-16",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-16"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/1388766892/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117663980",
+          "label": "Duval-Le-Camus, Pierre"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "1388766892",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#31.3p",
+          "label": "Personen zu Architektur, Bautechnik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.6p",
+          "label": "Personen zu Kunsthandwerk"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117663980",
+          "label": "Duval-Le-Camus, Pierre"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1388766892",
+      "preferredName": "Duval le Camus, Jules-Alexandre",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Jules-Alexandre"
+        ],
+        "surname": [
+          "Duval le Camus"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4310043-0",
+          "label": "Dekorateur"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Camus, Jules-Alexandre Duval le",
+        "Duval-Lecamus, Jules",
+        "Duval LeCamus, Jules-Alexandre",
+        "Le Camus, Jules-Alexandre Duval",
+        "Duval-le-Camus, Jules-Alexandre"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Jules-Alexandre"
+          ],
+          "surname": [
+            "Duval LeCamus"
+          ]
+        },
+        {
+          "forename": [
+            "Jules-Alexandre Duval"
+          ],
+          "surname": [
+            "Le Camus"
+          ]
+        },
+        {
+          "forename": [
+            "Jules"
+          ],
+          "surname": [
+            "Duval-Lecamus"
+          ]
+        },
+        {
+          "forename": [
+            "Jules-Alexandre"
+          ],
+          "surname": [
+            "Duval-le-Camus"
+          ]
+        },
+        {
+          "forename": [
+            "Jules-Alexandre Duval"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Camus"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:16:21Z",
+    "gnd_query_biographical_data": "1814-1878",
+    "gnd_query_name": "duval le camus, jules alexandre"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 599,
+  "name": "Duval Le Camus, Jules Alexandre",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B X, 243",
+  "updated": "2026-06-11 13:29:22.119Z",
+  "uri": "https://d-nb.info/gnd/1388766892",
+  "editor": ""
+}

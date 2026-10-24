@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüthen aus der Schweiz. Zweyter Strauß (Sammlung INr 54435, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Hier, wo die zarte Natur in überschwenglicher / Schöne / Himmel zum göttlichen Bild, Pflanzen und / Wasser vereint.",
+  "language": [],
+  "musenalm_id": 54438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Isola madre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Isola madre",
+  "updated": "2008-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.903Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "ezejsi42io13rh3"
+    }
+  ]
+}

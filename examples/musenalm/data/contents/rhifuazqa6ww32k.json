@@ -1,0 +1,45 @@
+{
+  "annotation": "Träume (Sammlung INr 34564, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Träumte mir, ich sey gestorben und bereits begraben / worden, Und sechs Ellen tief im Boden lag ich,",
+  "language": [],
+  "musenalm_id": 34582,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Alpensee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Alpensee",
+  "updated": "2003-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "vevq6uxpkl35m0p"
+    }
+  ]
+}

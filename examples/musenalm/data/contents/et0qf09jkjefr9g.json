@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Murmelnd wiegst du in Schlummer den Müden; / Dankbar kränzt er, erwacht, mit Blumen dein Haupt.",
+  "language": [],
+  "musenalm_id": 118181,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inschrift bei einer Quelle im Parke zu ***",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius, Graf v. Soden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Inschrift bei einer Quelle im Parke zu ***",
+  "updated": "2010-02-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.358Z",
+      "agent": "bg9pg0hlnq5rkkl",
+      "source_id": "q10a5vyicnqodl9"
+    }
+  ]
+}

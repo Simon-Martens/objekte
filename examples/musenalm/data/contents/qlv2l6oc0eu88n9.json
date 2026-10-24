@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Singe, wem Gesang gegeben / In dem deutschen Dichterwald!",
+  "language": [],
+  "musenalm_id": 70931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freie Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freie Kunst",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.510Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "0hqnugrhz72xmn8"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Falsche« von St. Schütze INr 13278, Obj 69 /) Anhang zu Beckers Taschenbuch 1809. enthaltend: Compositionen und Tänze, von Harder, Reichardt, Himmel  und Bergt (Anhang INr 61598, Obj 163) (Photos 6160401; 61604,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Falsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_216_61604_01_gq5wzg3a0b.jpg",
+    "alm_216_61604_02_r25pybtk5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Falsche",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.741Z",
+      "agent": "cx1t1g6vij8mhnm",
+      "source_id": "n6pllc9vqza67ow"
+    }
+  ]
+}

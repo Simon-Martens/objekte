@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Brautstande (Sammlung INr 55472, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Horch! der Storch ist wiederkommen! / Froh erzählt sichs Groß und Klein;",
+  "language": [],
+  "musenalm_id": 55487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV.",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.728Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "pjmz3id4isaj2w2"
+    }
+  ]
+}

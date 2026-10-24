@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Graphik im Kalendarium, nummeriert I /) über der Graphik: Jahrg. 1794 /) Illustration zu »Das Edelwild« von  L. C. E. H. F. von Wildungen INr 82142, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82139,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. Francof. G. Boettger sc. Lips",
+  "scans": [
+    "alm_1127_82139_y60hlfhk1h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirsch",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "nnf0klu45mboxsu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "ere2ck7piw4n43b",
+      "source_id": "red76xn2ak4t7ca"
+    }
+  ]
+}

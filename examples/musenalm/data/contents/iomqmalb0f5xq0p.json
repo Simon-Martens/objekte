@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) s. Textbezug INr 29068, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29069,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury del & fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & fec.",
+  "scans": [
+    "alm_376_29069_vd9l5uxj8w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.459Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "c78jeedl2i7abf3"
+    }
+  ]
+}

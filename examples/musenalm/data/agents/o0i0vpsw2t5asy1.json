@@ -1,0 +1,531 @@
+{
+  "annotation": "",
+  "biographical_data": "1730-1793",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.266Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1731-01-16"
+      ],
+      "dateOfDeath": [
+        "1793-12-13"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "\"Ausschnitt aus einem anonymen (wahrscheinlich von F. John gefertigten) Kupferstiche.\""
+          ],
+          "creditText": [
+            "Scan: Gustav Könnecke: Bilderatlas zur Geschichte der deutschen Nationallitteratur. Zweite, verbesserte und vermehrte Auflage. Marburg: Elwert 1895"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Bode.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Bode.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Bode.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-10-29T14:55:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118660438/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118660438",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118660438",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        },
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)131045512",
+        "(DE-588a)118660438",
+        "(DE-588c)4087858-2"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Bode, Johann Joachim Christoph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Joachim Christoph"
+        ],
+        "surname": [
+          "Bode"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188376-7",
+          "label": "Violoncellist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Joachim Christov"
+          ],
+          "surname": [
+            "Amelius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Sterne, Laurence: Tristram Schandis Leben und Meynungen",
+        "Die Schottische Maurerey",
+        "Smollett, Tobias G.: Humphrey Klinkers Reisen",
+        "Montaigne, Michel E. de: Gedanken und Meinungen über allerley Gegenstände",
+        "Starke Erweise aus den eigenen Schriften des hochheiligen Ordens Gold- und Rosenkreutzer*",
+        "Starke Erweise aus den eigenen Schriften des hochheiligen Ordens Gold- und Rosenkreutzer für die Wahrheit, dass seine in Gott ruhende Väter von ewiger Thät- und Wirksamkeit sind",
+        "Übers. von: Montaigne, Michel Eyquem: Gedanken und Meinungen über allerley Gegenstände",
+        "Sterne, Laurence: Yoriks empfindsame Reise",
+        "Übers. von: Sterne, Laurence: Yoriks empfindsame Reise",
+        "Mehr Noten als Text",
+        "Nachtrag zu dem Circular-Brief an die S. E. Freimaurerlogen",
+        "Übers. von: Sterne, Laurence: Tristram Schandis Leben und Meynungen",
+        "Übers. von: Smollett, Tobias George: Humphrey Klinkers Reisen"
+      ],
+      "relatedWork": [
+        {
+          "id": "https://d-nb.info/gnd/1082532479",
+          "label": "Stempel (Bode, Johann Joachim Christoph), 01"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb133206396"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr95042818"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71536008"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213880"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118660438"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118660438/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Joachim_Christoph_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Joachim_Christoph_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Joachim_Christoph_Bode"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Joachim_Christoph_Bode"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109143030"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118660438"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1734_schmidt;292"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118660438"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118660438.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118660438.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118660438"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118660438"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Bode, Christoph",
+        "Bode, Johann",
+        "Bode, J. J.",
+        "Amelius, Johann Joachim Christov",
+        "Bode, J. J. Christoph",
+        "Bode, J. J. Chr.",
+        "Urban, Johann Conrad",
+        "B",
+        "Bode, J. J. C.",
+        "Bode, Johann Joachim Christof",
+        "Bode",
+        "Bode, Johann J.",
+        "Bode, Joachim C.",
+        "J. J. C. B.",
+        "Bode, Johann Joachim"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. J. Chr."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "J. J. Christoph"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Conrad"
+          ],
+          "surname": [
+            "Urban"
+          ]
+        },
+        {
+          "personalName": [
+            "B"
+          ]
+        },
+        {
+          "forename": [
+            "Joachim C."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann J."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joachim Christof"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "personalName": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joachim Christov"
+          ],
+          "surname": [
+            "Amelius"
+          ]
+        },
+        {
+          "forename": [
+            "J. J. C."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "personalName": [
+            "J. J. C. B."
+          ]
+        },
+        {
+          "forename": [
+            "Christoph"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "J. J."
+          ],
+          "surname": [
+            "Bode"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Joachim"
+          ],
+          "surname": [
+            "Bode"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Joachim_Christoph_Bode",
+          "label": "https://de.wikipedia.org/wiki/Johann_Joachim_Christoph_Bode"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:58:24Z",
+    "gnd_query_biographical_data": "1730-1793",
+    "gnd_query_name": "bode, johann joachim christoph"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 236,
+  "name": "Bode, Johann Joachim Christoph",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 585",
+  "updated": "2026-06-11 13:29:21.642Z",
+  "uri": "https://d-nb.info/gnd/118660438",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 135265, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Im südlichen Gothland erhoben sich sich noch zur Zeit des Olaus Magnus, Erzbischofs von Upsala, wie er selbst in seinem Werke über die Gebräuche der nördlichen Völker (1. Bd. 31. E.) erzählt, zwei mächtige Grabhügel,",
+  "language": [],
+  "musenalm_id": 135272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die feindlichen Brüder. (Beschreibung allerlei Gelegenheiten etc durch Olaum Magnum. Straßburg 1567)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die feindlichen Brüder. (Beschreibung allerlei Gelegenheiten etc durch Olaum Magnum. Straßburg 1567)",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.140Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "bjdj58z89bgcs29"
+    }
+  ]
+}

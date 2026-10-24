@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebeslieder. Nach dem Türkischen (Sammlung INr 42802, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Rosige Wangen verwahrt euch vor den Seuf- / zern der / Liebe, / Denn der Nachtigall Seufzer entblättern die / blühende Rose.",
+  "language": [],
+  "musenalm_id": 42803,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosige Wangen verwahrt euch vor den Seuf- / zern der / Liebe, / Denn der Nachtigall Seufzer entblättern die / blühende Rose.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.742Z",
+      "agent": "nvdnek6niibgjex",
+      "source_id": "gnc8dy1v873dkyt"
+    }
+  ]
+}

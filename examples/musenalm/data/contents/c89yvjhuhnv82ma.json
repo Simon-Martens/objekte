@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "Ein Jesuit - aber ein wirklicher Jesuit - ging heute mit mir von der reichen und interessanten Villa Fontana herüber.",
+  "language": [],
+  "musenalm_id": 44046,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritter Brief. / Triest im September",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritter Brief. / Triest im September",
+  "updated": "2006-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.804Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "7w5zpl5hx6ofs27"
+    }
+  ]
+}

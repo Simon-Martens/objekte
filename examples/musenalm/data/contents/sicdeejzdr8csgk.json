@@ -1,0 +1,58 @@
+{
+  "annotation": "Dritte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 77577, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER KLEINE MÖNCH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lindau del. in Rom. J. Axmann sc.",
+  "scans": [
+    "alm_2408_77577_owy7neqwz8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER KLEINE MÖNCH",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.668Z",
+      "agent": "lbjc9wym039t07j",
+      "source_id": "bpw7x0lzi0wjb6e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.668Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "hcifd6jeiks4a7o"
+    }
+  ]
+}

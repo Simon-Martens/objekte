@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das stille Haus« von C. Spindler; s. Textbezug INr 103199, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103198,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS STILLE HAUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Führich del. D. v. Lange Leop. Beyer sc.",
+  "scans": [
+    "alm_3413_103198_hw4pm282e6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS STILLE HAUS",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.158Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "0v90idbvf5sbzkb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.158Z",
+      "agent": "m8y5g9ap5pw6fd8",
+      "source_id": "31gh8o8lnhobfmb"
+    }
+  ]
+}

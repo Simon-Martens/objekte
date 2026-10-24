@@ -1,0 +1,106 @@
+{
+  "annotation": "Jgg 1800-1807: KVK-GVK mit Standorten für Jgg 1800-1807; 1801: Leipzig (Reinicke und Hinrichs), 1805-1807: Leipzig (Hinrichs) /) Hrsg.: 1805-1807: Friedrich Herrmann",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, T, 12 GG, B I-Verz, SS 1-6 G-Verz, SS 7-223, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde und Freundinnen des Schönen und Nützlichen (Leipzig) 1800",
+    "norm": "~ /) ohne Kalendarium",
+    "biblio": 406735,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3698,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reinicke und Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde und Freundinnen des Schönen und Nützlichen (Leipzig) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 130; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Leipziger / Taschenbuch / für / Freunde und Freundinnen / des Schönen und Nützlichen, / besonders / für edle Gattinnen und Mütter / und solche, / die es werden wollen. / Auf das Jahr 1800. / Leipzig 1800, / bei Reinicke und Hinrichs",
+  "updated": "2026-06-11 10:18:54.724Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "3v39wn6r844yc1w"
+  ],
+  "contents": [
+    "e5rt49p59dudg3z",
+    "r2usz7boinm9bbl",
+    "kbwgcenecui56nq",
+    "6u76v8qswlozscb",
+    "9h0a1sqpc2obgwm",
+    "62mjsm5p67q8szs",
+    "rp72tog26j5rb47",
+    "3nwz0es2pmdiyu4",
+    "yj2nnt65krcv6bu",
+    "4bedh8o4omnj5dr",
+    "qfhre07uzf5wa79",
+    "4pub0r6lvywttj2",
+    "fuy08xlpjpiwxxb",
+    "h4qkukgo3w7pz42",
+    "c4ykk4nj2kfrti1",
+    "8r9rul3ltauzzrb",
+    "kqaoppj3gl3ayve",
+    "4b8fto5dh9r2wne",
+    "ddbmhndxmm9fam3",
+    "qse36cvfijmm3mm",
+    "4uk66y4ymtezchp",
+    "kogexxxrso1a31i",
+    "cg9c8y8vn5v9v5b",
+    "z20rrd8y4enhw3j",
+    "qqq1smkgpwgdxkz",
+    "3du82zod6q6xhnh",
+    "4ps79usjihkuow7",
+    "hxdvr48z5lczswd",
+    "tgn6m1xhwerv9eb",
+    "wnq6lso800kb5ag",
+    "46u5itgob94xshk",
+    "nclu1v65gxy9eez",
+    "q99mqspnskm78v8",
+    "nei1a9xzhsebcog",
+    "kx24m4cepw2phh4",
+    "jrsgoo655quu7xi",
+    "orckq1ikw4g69hc",
+    "u16yq4e0abrfvy6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "wd1hzmq17fj7ew8",
+      "source_id": "g0zeta57dozg6xo"
+    }
+  ]
+}

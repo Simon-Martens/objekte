@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Mitleid fühle mit dem, der irret, und Nachsicht erweise / Jeglichem,",
+  "language": [],
+  "musenalm_id": 42853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lehre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albrecht Kochen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lehre",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.253Z",
+      "agent": "fyntyt5h3n204i4",
+      "source_id": "f503j65n1fvexk8"
+    }
+  ]
+}

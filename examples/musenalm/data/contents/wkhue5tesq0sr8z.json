@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Nicht so, dieweil mich auch des Bruders Mißgeschick / Schwer drückt, des Atlas, welcher dort an Hesperos / Bezirk gestellt des Himmels Grundsäul' und der Erd' / Aufstützt den Schultern,",
+  "language": [],
+  "musenalm_id": 51478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Typhon / Aus dem Prometheus des Aeschylos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aeschylos; [übers.] Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Typhon / Aus dem Prometheus des Aeschylos",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.641Z",
+      "agent": "9q1rj1t9phz8fdv",
+      "source_id": "ddouh0ezrapcm2b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.641Z",
+      "agent": "kqtjs5z40p79gpq",
+      "source_id": "um10ym84ny8f5f9"
+    }
+  ]
+}

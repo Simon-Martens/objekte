@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. 4. /) kol. Illustration zu »Die Becassinen« von L. C. E. H. F. von Wildungen INr 66598, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scolopax Gallinago et Gallinula. Große u. kleine / Becassine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. del. G. Bttg. sen. sc.",
+  "scans": [
+    "alm_1138_66599_qbycbx2b8r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scolopax Gallinago et Gallinula. Große u. kleine / Becassine",
+  "updated": "2009-09-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.171Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "gna7jrantcpdyz9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.171Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "s2lh13h4vs6afjl"
+    }
+  ]
+}

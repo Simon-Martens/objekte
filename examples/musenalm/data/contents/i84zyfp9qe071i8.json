@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik (Portrait) im Kalendarium Juni; nummeriert 9. /) s. Textbezug INr 96246, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Heinrich v. Katte, / Kön. Pr. Gen. Lieut. und Chef eines / Dragoner Regiments",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_2184_96235_8uuokm7e5y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Heinrich v. Katte, / Kön. Pr. Gen. Lieut. und Chef eines / Dragoner Regiments",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.711Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "5ovhhjawd2eq0s1"
+    }
+  ]
+}

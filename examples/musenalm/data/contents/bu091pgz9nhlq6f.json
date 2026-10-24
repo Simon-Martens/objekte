@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 10810, Obj 165)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Vier Jahr bleibt er aus. / Dann kommt er nach Haus.",
+  "language": [],
+  "musenalm_id": 10815,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 170,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Räthsel",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.449Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "s1giv6jfmoi8h3c"
+    }
+  ]
+}

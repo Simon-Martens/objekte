@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Der scherzenden, der ernsten Maske Spiel / Dem ihr so oft ein willig Ohr und Auge / Geliehn, die weiche Seele hingegeben,",
+  "language": [],
+  "musenalm_id": 1340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / zu Wallensteins Lager. / Gesprochen bei Wiedereröffnung der Schaubühne in Weimar im October 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / zu Wallensteins Lager. / Gesprochen bei Wiedereröffnung der Schaubühne in Weimar im October 1798",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.732Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "v179m3ktqohgxce"
+    }
+  ]
+}

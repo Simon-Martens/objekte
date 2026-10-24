@@ -1,0 +1,45 @@
+{
+  "annotation": "# s.Re 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Heran! heran! die Fahne weht / Für Freyheit, Leben, Gluth!",
+  "language": [],
+  "musenalm_id": 63059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegeslied eines Provinzialen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-tt-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kriegeslied eines Provinzialen",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.067Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "90l51e5rf213por"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Charitas 1840",
+    "norm": "",
+    "biblio": 405343,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1662,
+  "parallel_title": "",
+  "place_statement": "Landshut (Krüll)",
+  "places": [
+    "2sszcnqi92pliml"
+  ],
+  "preferred_title": "Charitas 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 38; L/R 100; Goed VIII. 580, 34",
+  "responsibility_statement": "Eduard von Schenk",
+  "subtitle_statement": "",
+  "title_statement": "Charitas. / Festgabe / von / Eduard von Schenk. / Neue Folge erster Jahrgang. / Mit Beiträgen von König Ludwig von Bayern, / M. Diepenbrock, C. Fernau, A. Fürstin von Gallitzin, / A. v. Maltitz, C. F. Ph. v. Martius, C. v. Neumayr, / J. A. Pangkofer, Fr. Rückert, G. v. Schubert, / F. A. Frhrn. v. Zu-Rhein, dem Verfasser der Beatushöhle und / dem Herausgeber. / Landshut, 1840. / In Commission der Krüll'schen Universitäts- / Buchhandlung. / Druck der Palm'schen Officin",
+  "updated": "2026-06-11 10:18:55.569Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "a0bzolgepa5lgu3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.948Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.948Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "5et76s0jmmx9qxx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "fn6j1ypajxz740l",
+      "source_id": "65vn8opr28brhpm"
+    }
+  ]
+}

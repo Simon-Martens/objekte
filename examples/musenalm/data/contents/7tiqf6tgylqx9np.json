@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September; Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« von Fr. Buchholz INr 58560, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58556,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sire, durchbohren Sie mich, aber / schonen Sie Ihres Sohnes. /) S. 31",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury sc.",
+  "scans": [
+    "alm_860_58556_ame2k71yt4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sire, durchbohren Sie mich, aber / schonen Sie Ihres Sohnes. /) S. 31",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.954Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "2obwlch73pjanz0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.954Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "e0kpz5l0um9kmo7"
+    }
+  ]
+}

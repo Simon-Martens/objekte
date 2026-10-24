@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 71356, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vampyren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. M. f.",
+  "scans": [
+    "alm_3605_71357_hce3nmqxdu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Vampyren",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.439Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "n1r02vyrhsrzl7k"
+    }
+  ]
+}

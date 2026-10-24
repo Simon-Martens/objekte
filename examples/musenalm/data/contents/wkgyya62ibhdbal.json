@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Vorwort INr 120387, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Brillen! Brillen! ohne Brillen / Kommt man nimmer durch die Welt; / Denn so manches wird verachtet, / waas durch Brillen nur betrachtet / Dir gefällt und mir gefällt.",
+  "language": [],
+  "musenalm_id": 120391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brillen-Insel. / Eine fantastische Oper in zwei Acten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Brillen-Insel. / Eine fantastische Oper in zwei Acten",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.568Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "2u7ytocgf6955fz"
+    }
+  ]
+}

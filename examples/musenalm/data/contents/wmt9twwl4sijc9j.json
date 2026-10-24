@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5438,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen-Almanach / für 1780. / Herausgegeben / von / Voss und Goekingk / Hamburg / bey Carl Ernst Bohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Chodowiecki gest.",
+  "scans": [
+    "alm_112_5438_6iu2vrp4rm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen-Almanach / für 1780. / Herausgegeben / von / Voss und Goekingk / Hamburg / bey Carl Ernst Bohn",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.293Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "zac5mlku1occjuu"
+    }
+  ]
+}

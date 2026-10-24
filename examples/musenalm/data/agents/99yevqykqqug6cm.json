@@ -1,0 +1,259 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1838",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.519Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1772-07-03"
+      ],
+      "dateOfDeath": [
+        "1838-07-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Andreas Faessler"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20friedrich%20karl%20wuerttemberg.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20friedrich%20karl%20wuerttemberg.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heinrich%20friedrich%20karl%20wuerttemberg.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-03-12T18:21:20.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117375802/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116954825",
+          "label": "Hohenlohe-Kirchberg, Marie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117375802",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116954825",
+          "label": "Hohenlohe-Kirchberg, Marie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117375802",
+      "oldAuthorityNumber": [
+        "(DE-588a)117375802"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4074960-5",
+          "label": "Montbéliard"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4061529-7",
+          "label": "Ulm"
+        }
+      ],
+      "preferredName": "Heinrich, Württemberg, Herzog",
+      "preferredNameEntityForThePerson": {
+        "nameAddition": [
+          "Württemberg, Herzog"
+        ],
+        "personalName": [
+          "Heinrich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4057007-1",
+          "label": "Statthalter"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/57390452"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2531068"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117375802/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Friedrich_Karl_von_W%C3%BCrttemberg"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117375802"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117375802"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117375802"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Heinrich Friedrich Karl, Württemberg, Herzog",
+        "Württemberg, Heinrich von",
+        "Heinrich Friedrich Carl, Württemberg, Herzog"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Württemberg, Herzog"
+          ],
+          "personalName": [
+            "Heinrich Friedrich Karl"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Württemberg"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Württemberg, Herzog"
+          ],
+          "personalName": [
+            "Heinrich Friedrich Carl"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Heinrich_Friedrich_Karl_von_W%C3%BCrttemberg",
+          "label": "https://de.wikipedia.org/wiki/Heinrich_Friedrich_Karl_von_W%C3%BCrttemberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:25:33Z",
+    "gnd_query_biographical_data": "1772-1838",
+    "gnd_query_name": "württemberg, heinrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3206,
+  "name": "Württemberg, Heinrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 831",
+  "updated": "2026-06-11 13:29:25.873Z",
+  "uri": "https://d-nb.info/gnd/117375802",
+  "editor": ""
+}

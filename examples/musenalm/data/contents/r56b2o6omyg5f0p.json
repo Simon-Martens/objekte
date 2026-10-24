@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischarioth Krall's Lehren und Thaten in 30 episch-didaktischen Lectionen (Sammlung INr 97309, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Kaum war Herr Jobst Oberamtmann geworden, / so sorgt' ich auch, daß Stehlen und Morden / belegt wieder ward mit gerichtlichem Zoll,",
+  "language": [],
+  "musenalm_id": 97329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neunzehnte Lection",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ischarioth Krall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neunzehnte Lection",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.490Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "mexyb4xgwn44kv2"
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "annotation": "Die Chiffren S.; Sch.; Schr.; Schrbr. für: Schreiber, Aloys Wilhelm",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, nT, 12 BB Kal, T, 2 BB W, B I-Verz, B G-Verz Anm d Hrg, G, SS 1-128 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rastatter 1802",
+    "norm": "~",
+    "biblio": 408524,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-05-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4097,
+  "parallel_title": "",
+  "place_statement": "Rasttat (Sprinzing); Mannheim (Schwan und Götz)",
+  "places": [
+    "siwp3jn1focgmbs",
+    "jwglkpivflgjt6w"
+  ],
+  "preferred_title": "Taschenbuch, Rastatter 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 142; nicht bei L/R; Goed VIII. 59, 53",
+  "responsibility_statement": "Verfasser der Szenen aus Fausts Leben",
+  "subtitle_statement": "",
+  "title_statement": "Rastatter / Taschenbuch / auf / das Jahr 1802. / Herausgegeben / von dem Verfasser der / Szenen aus Fausts / Leben / Rastatt bei Sprinzing / und in Commission / bei Schwan und Götz / in Mannheim",
+  "updated": "2026-06-11 10:18:55.365Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "sxv47fvh6pe4bm8"
+  ],
+  "contents": [
+    "fac23caa84ef3z3",
+    "kr883oubj8cmezm",
+    "vcjixbai0d0la2n",
+    "ntsmwad63noa6k7",
+    "l9vjyixp82v8vbq",
+    "fsf1hr2bxnpuu9o",
+    "9sp1lrfjja1n06z",
+    "5fxwuaq9abzztqz",
+    "ba3x7lnje5uecpx",
+    "kqo8m3s8yz1j9ya",
+    "3k8i3i5k528l6dr",
+    "bk8dqaqwc0rjk1t",
+    "w6re59u5zdejo13",
+    "r5bb3k7afd4bln1",
+    "x799vllyfpc2htt",
+    "l7mz28a4p7u4lho",
+    "pl18q6bbihofcyn",
+    "cqedld3kz41xsj3",
+    "74eieud6v2loo2x",
+    "o6rychcl5ib4buv",
+    "ggzfcdwum2jmuvn",
+    "nwgs8jlnbrrk5n2",
+    "dnxvim6guilajdk",
+    "98d7ok37g2vl804",
+    "6lo7d0dkkfhi5lj",
+    "reaijntxdwdkzrt",
+    "j7tlt9zdkyohulj",
+    "tmvjrql50ba7m3q",
+    "vf3t1bamflvz7fh",
+    "zckg5zosh8k74uy",
+    "shub66yn5w66h9o",
+    "ifqhh8i9vwstdtm",
+    "mm3vnosdtpzdpfd",
+    "m0xrsmsl1bw0lx9",
+    "b7mafjwpydujqie",
+    "kmg3lad7gqj36eb",
+    "bwhpbidrj5yuglq",
+    "px5cml0qk6s4y4w",
+    "i702lpjlvdugpnl",
+    "b1abvauqwy32xty",
+    "shxcmn7hxp7okhk",
+    "w53nzabdoqxuwg9",
+    "uqngx246g1hsg8v",
+    "raublfmhtjgiyde",
+    "j71r1g1u590f9zd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "5canabava44wp9b",
+      "source_id": "26a0udfynqy7f3e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.333Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.333Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "7fpfz35bvwasf1t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.150Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.150Z",
+      "agent": "u2pc3v2kcjdchft",
+      "source_id": "g71xk83ovp0wj82"
+    }
+  ]
+}

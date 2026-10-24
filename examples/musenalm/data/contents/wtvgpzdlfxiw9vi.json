@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Geflüchtet vor den Gräueln des Bürgerkrieges, welcher die schönsten Gegenden Frankeichs durch eine Reihe von Jahren, von der Regierung Heinrich II. bis zu der, nicht minder bewegten Heinrich IV. verwüsteten, saß eine junge Frau im stillen Kämmerchen",
+  "language": [],
+  "musenalm_id": 63779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die weisse Frau. / Erzählung aus dem 15ten Jahrhundert",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lina Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die weisse Frau. / Erzählung aus dem 15ten Jahrhundert",
+  "updated": "2009-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.045Z",
+      "agent": "mkz3b0l4gdht2nh",
+      "source_id": "64c005rj1rmv3qu"
+    }
+  ]
+}

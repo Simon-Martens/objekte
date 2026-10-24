@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüten aus dem Reiche der Flora (Sammlung INr 82451, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Lieblich ist es zu wohnen, wie du, am schlängelnden Bache, / An dem spiegelnden Quell,",
+  "language": [],
+  "musenalm_id": 84275,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lysimachie, gelber Weiderich ( Lysimachia vulgaris)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Muth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lysimachie, gelber Weiderich ( Lysimachia vulgaris)",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.985Z",
+      "agent": "cuv25mgj45dpxdp",
+      "source_id": "fcil36e5z7u3ewu"
+    }
+  ]
+}

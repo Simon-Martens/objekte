@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März; nummeriert 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Allouëtte en enchantant du laboueur l'oreille / Le fait sans nul dessein. [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_2156_107018_o5jr56jn05.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Allouëtte en enchantant du laboueur l'oreille / Le fait sans nul dessein. [...]",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.715Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "tbc9ze5tei3tfoc"
+    }
+  ]
+}

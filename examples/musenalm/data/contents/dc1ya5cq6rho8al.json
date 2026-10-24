@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Gedicht INr 88710, Obj 5,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FLORA UND HERMINIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Penstone fecit",
+  "scans": [
+    "alm_596_88711_xk3xd4xbtt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FLORA UND HERMINIE",
+  "updated": "2006-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.996Z",
+      "agent": "r86tuknlngatn14",
+      "source_id": "bry58xxw1xo9mnj"
+    }
+  ]
+}

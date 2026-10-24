@@ -1,0 +1,96 @@
+{
+  "label": "Places",
+  "display": "name",
+  "singularLabel": "Place",
+  "icon": "ri-map-pin-line",
+  "position": 5,
+  "sidebarGroup": "Catalogue",
+  "fields": {
+    "/properties/name": {
+      "title": "Name"
+    },
+    "/properties/pseudonyms": {
+      "title": "Pseudonyms"
+    },
+    "/properties/fictional": {
+      "title": "Fictional"
+    },
+    "/properties/uri": {
+      "title": "Uri"
+    },
+    "/properties/created": {
+      "title": "Created"
+    },
+    "/properties/updated": {
+      "title": "Updated"
+    },
+    "/properties/musenalm_id": {
+      "title": "Musenalm id"
+    },
+    "/properties/edit_state": {
+      "title": "Edit state"
+    },
+    "/properties/annotation": {
+      "title": "Annotation",
+      "x-editor": "markdown"
+    },
+    "/properties/edit_comment": {
+      "title": "Edit comment",
+      "x-editor": "markdown"
+    },
+    "/properties/editor": {
+      "title": "Editor"
+    }
+  },
+  "fieldOrder": [
+    "name",
+    "pseudonyms",
+    "fictional",
+    "uri",
+    "created",
+    "updated",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment",
+    "editor"
+  ],
+  "labels": {
+    "list": [
+      "name"
+    ],
+    "search": [
+      "name"
+    ],
+    "record": [
+      "name"
+    ],
+    "reference": [
+      "name"
+    ]
+  },
+  "search": [
+    "name",
+    "pseudonyms",
+    "uri",
+    "musenalm_id",
+    "edit_state",
+    "annotation",
+    "edit_comment"
+  ],
+  "list": {
+    "columns": [
+      "name",
+      "musenalm_id"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "autoFilters": false,
+    "filters": [
+      "edit_state"
+    ]
+  },
+  "sidebarTree": false
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 20265-20267, Objk 37-39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette aus Italien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Gr. Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette aus Italien",
+  "updated": "2001-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.851Z",
+      "agent": "7s14awjauhcdi1w",
+      "source_id": "yxpp71mlhe2tyd5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Damen-Charaden (Sammlung INr 61699, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Die Erste ist ein Fluß an unsers Reiches / Grenzen, / Ein ekelhaftes Thier benennt das näch- / ste Paar;",
+  "language": [],
+  "musenalm_id": 61709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Dreisilbig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Dreisilbig",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.016Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "jkc9o0tjyqms1q9"
+    }
+  ]
+}

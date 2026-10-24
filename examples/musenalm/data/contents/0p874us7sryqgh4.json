@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Ein Völkerjubel scholl' gen Asow's Meer, / als Alexander durch die Fluren zog,",
+  "language": [],
+  "musenalm_id": 94178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Treue Wanderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Treue Wanderung",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.643Z",
+      "agent": "enmi0t9mog462m5",
+      "source_id": "0cv3ui1ss38rdij"
+    }
+  ]
+}

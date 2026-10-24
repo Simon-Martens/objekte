@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Betzy« von A. v. Sternberg INr 104192, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104175,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BETZY. / Zu der Novelle von A. v. Sternberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Preisel sc. Vienna",
+  "scans": [
+    "alm_1932_104175_p5vpdo23fq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BETZY. / Zu der Novelle von A. v. Sternberg",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.083Z",
+      "agent": "9s6c9wuymvvgbhx",
+      "source_id": "jh5ez9dlcgeqnxj"
+    }
+  ]
+}

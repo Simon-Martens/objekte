@@ -1,0 +1,119 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB verso G, T, S I T, SS III-IV I-Verz, SS V-XVI G-Verz, 7 GG, SS 1-400",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Minerva 1833",
+    "norm": "~",
+    "biblio": 106682,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-09-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 535,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Minerva 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 78; L/R 83; Goed VIII. 66, 115",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Minerva. / Taschenbuch / für / das Jahr 1833. / Drei und Zwanzigster / oder der / Neuen Folge / Zweiter Jahrgang. / Mit 8 Kupfern. / Leipzig, / bei Friedrich Fleischer",
+  "updated": "2026-06-11 10:18:55.939Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "vm0fr7wya6k921z"
+  ],
+  "contents": [
+    "r7ir8hg6fsjl19u",
+    "xjbz1aqc6lk0d0g",
+    "xy8pwwdclcj9bhf",
+    "ir4yvtc4keqpn0c",
+    "3dqp61t9mgmd8fs",
+    "5dz1vuhw65dgs4v",
+    "1gbqievh5wnru5f",
+    "gwt6c3ba86egjw1",
+    "ruzq6oe2lyyxfh1",
+    "i0u7owkcebrvwdc",
+    "7u2gvzeboblww38",
+    "k6f0t5hr6ry3ex7",
+    "47by3g81tlkm22z",
+    "vor0cv8ijyov58z",
+    "1n6gw0dvbzmqebc",
+    "lqhhh3ga8vkg8oa",
+    "sav52gb2p93hour",
+    "dbo6lrc3yi9v31x",
+    "e4dvfsu2nwpozg9",
+    "99qtumnekfmimus",
+    "ua2q7zbzlordvto",
+    "2tkzw0nkps0hc9h",
+    "tv0erbfas2od6vg",
+    "g0z2y4n7qzvs2di",
+    "66kgodwh2yvswnh",
+    "9xcwiinaaqwxdep",
+    "2uu2mibg5p1e1ui",
+    "htyp4rq8hh0v9ku",
+    "yw0qnx97gycgkpy",
+    "ulw88adpbq63vnh",
+    "m6f7mupmfxt8mfb",
+    "pvulpzbjp0ydaaq",
+    "obmpem6udreneyn",
+    "xznvciu35y4a9y2",
+    "4alyc1iw0mmszah",
+    "7ca80pwzltah9ny",
+    "f3b6u54zyf2gpt3",
+    "85ftsg82k09uo8c",
+    "vx1p28cmvigh76k",
+    "cqxm029ntf7cll4",
+    "saxvbl41b27nw1u",
+    "66bun2d342giqm6",
+    "f8yuidltvrql7bx",
+    "s8musgf4yujz1cg",
+    "mudqoy883qm6b9f",
+    "icj0grsw4x5449u",
+    "bl0iudccjkst079",
+    "dryo3i4l3hkvawt",
+    "t8fc0z7y0wz8zx3",
+    "gqawhh13d9r1ckb",
+    "jnz519j1eq7plrr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.850Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.850Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "o72bvi7mr811dxl"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Der Handschuh« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77162, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77163,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ist eure Lieb' so heiss, / Ei so hebt mir den Handschuh auf!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jo. Ender del. Fr. Stöber sc. Vien.",
+  "scans": [
+    "alm_2399_77163_vho31l1ob3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ist eure Lieb' so heiss, / Ei so hebt mir den Handschuh auf!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.730Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "9gi0wk3o9hgkvqp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.730Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "oa04twog9s9kuht"
+    }
+  ]
+}

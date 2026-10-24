@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Wie die lieben Mayenlichter / Hüpfen / In des scheuen Laubes Schleyer,",
+  "language": [],
+  "musenalm_id": 14721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Wald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Wagner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Wald",
+  "updated": "2001-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.582Z",
+      "agent": "x7c2pl3bvx7jtlf",
+      "source_id": "zibs1j27lblvzt1"
+    }
+  ]
+}

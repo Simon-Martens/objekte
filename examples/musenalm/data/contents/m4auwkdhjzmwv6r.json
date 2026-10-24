@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert III.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7880,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riepenhausen del. & sulps.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. & sulps.",
+  "scans": [
+    "alm_149_7880_lt6xabboq3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.301Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "ewtqcu8evxd6uyu"
+    }
+  ]
+}

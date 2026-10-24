@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Dort, wo sich graubemooste Eichen / So schwesterlich die Arme reichen,",
+  "language": [],
+  "musenalm_id": 96423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klause",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schrbr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klause",
+  "updated": "2014-05-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.236Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "vjtjg1s8wu78tk3"
+    }
+  ]
+}

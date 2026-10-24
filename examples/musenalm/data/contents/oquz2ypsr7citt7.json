@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 15 Textbezügen zu 15 Graphiken des Almanachs INr 59970, 59971, 59973-59999, 60001",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Erläuterung / der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Erläuterung / der Kupfer",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.084Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "c6f2mkuo1d2tz2o"
+    }
+  ]
+}

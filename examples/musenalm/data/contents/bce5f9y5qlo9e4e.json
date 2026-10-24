@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Sucht ihn, ihr Alchimisten, wo ihr wollt! Herr Blanchard hat den wahren Stein der Weisen?",
+  "language": [],
+  "musenalm_id": 83737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stein der Weisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stein der Weisen",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.091Z",
+      "agent": "j34hzsrw81cdjdh",
+      "source_id": "uppdvtrp7wiqkub"
+    }
+  ]
+}

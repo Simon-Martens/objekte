@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel s. Textbezug INr 34578, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32443,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pandora / oder / Kalender / des Luxus / und / der Moden / für / das Jahr 1787. / von F. J. Bertuch u. G. M. Kraus. / Weimar und Leipzig. / bey G. J. Göschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del.",
+  "scans": [
+    "alm_450_32443_huhh6m96ho.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pandora / oder / Kalender / des Luxus / und / der Moden / für / das Jahr 1787. / von F. J. Bertuch u. G. M. Kraus. / Weimar und Leipzig. / bey G. J. Göschen",
+  "updated": "2003-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.566Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "2avpptksj0ql4h3"
+    }
+  ]
+}

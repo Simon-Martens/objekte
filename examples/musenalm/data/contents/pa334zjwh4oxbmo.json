@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 71381, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geisterbeschwörer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit 1790",
+  "scans": [
+    "alm_3605_71359_jolcej4vok.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Geisterbeschwörer",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.583Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "24bg0tns670xdgh"
+    }
+  ]
+}

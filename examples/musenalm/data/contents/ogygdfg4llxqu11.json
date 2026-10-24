@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 10810, Obj 165)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Aufklärung, wie du weißt, schaff' ich an finstern Orten. / Und dennoch haben mich",
+  "language": [],
+  "musenalm_id": 10818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Charade",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.449Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "fpn1vdt41vd2n0y"
+    }
+  ]
+}

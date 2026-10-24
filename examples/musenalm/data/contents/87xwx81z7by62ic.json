@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27663, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27662,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Stilke del. C. Maÿer sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. C. Maÿer sc.",
+  "scans": [
+    "alm_354_27662_2s0lww9wp9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.400Z",
+      "agent": "4ht5ezov61cxhie",
+      "source_id": "9qz81r1j018k22v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.400Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "f893qjabn8vraio"
+    }
+  ]
+}

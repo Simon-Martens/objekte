@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphik im Kalendarium INr 75658, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sachsen zu retten, hatte Gustav Adolph seine Eroberungen im Reiche und damit Vortheile verlassen, welche nur eine sehr große Seele der Freundschaft aufzuopfern vermag.",
+  "language": [],
+  "musenalm_id": 75676,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 3.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.667Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "3ai0t293062ct9o"
+    }
+  ]
+}

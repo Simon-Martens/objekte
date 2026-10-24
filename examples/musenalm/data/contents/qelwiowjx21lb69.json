@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Welch eine Göttinn gebeut / Dem Herbstgewölk sich aufzuhellen?",
+  "language": [],
+  "musenalm_id": 4963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die / Vermählung / des Königs / von Dännemark / mit der Königl. / großbritannischen Prinzeßinn / Carolina Mathildis. / Den 8. Nov. 1766",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die / Vermählung / des Königs / von Dännemark / mit der Königl. / großbritannischen Prinzeßinn / Carolina Mathildis. / Den 8. Nov. 1766",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.021Z",
+      "agent": "wj40krq87n1bwgw",
+      "source_id": "yfca0qtnmaypi0w"
+    }
+  ]
+}

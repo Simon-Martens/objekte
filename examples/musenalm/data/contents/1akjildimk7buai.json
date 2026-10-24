@@ -1,0 +1,45 @@
+{
+  "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37518, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Sehr schön sagt Antonia in Stylpo: Nur Muth gehört dazu, mein Kind zu retten? Wie konntest du mich so ängstigen? Und sehr wahr!",
+  "language": [],
+  "musenalm_id": 37520,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / (N. H. VI. Th. 9ter Brief.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / (N. H. VI. Th. 9ter Brief.)",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.926Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "fmdzipd3wj5imfc"
+    }
+  ]
+}

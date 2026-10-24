@@ -1,0 +1,102 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS 1-216",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gaben der Milde 1817 (2)",
+    "norm": "~",
+    "biblio": 409588,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3712,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Gaben der Milde 1817 (2)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 97, 193",
+  "responsibility_statement": "F. W. Gubitz",
+  "subtitle_statement": "",
+  "title_statement": "Gaben der Milde / Zweites Bändchen. / Mit Beiträgen / von / Goethe, Clemens Brentano, Bü- / sching, F. W. Gubitz, Th. Hell, Wilh. / Hensel, Hoffmann, C. Holtei, Keßler, / Louise Brachmann, Haug, Fr. Kuhn, / A. F. E. Langbein, O. F. Graf von / Loeben, Karl Müchler, K. L. Methus. / Müller und K. G. Prätzel. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1817",
+  "updated": "2026-06-11 10:18:54.688Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "7e991xmmxhswu77"
+  ],
+  "contents": [
+    "qlr7tp3q0tdfhoe",
+    "9kndn3vjb5d4p3u",
+    "abk1068yi4kp2lx",
+    "g6usytu4uvl18xw",
+    "8e6vrpfqkqbbjde",
+    "tuoe4qb5usoj3kd",
+    "5dczofhaxjqmccp",
+    "iux0rnx4i910tni",
+    "yr79vn59lof4zig",
+    "kcvggmyy7jgdovj",
+    "n1s6pscsrtyxoet",
+    "dd9kyz5tlygfl5t",
+    "ou3lo9q4lx7iwyv",
+    "w5y5yowe3c254pf",
+    "04yt0y6qhugu1iy",
+    "l8o0p1d4tl0iru6",
+    "b9ybpyt6ezo4jc2",
+    "yejm3lxpcxt6fwy",
+    "qz5nrdt9fko73ft",
+    "u1fguzjzz3xbs4l",
+    "aeu24t8awa2r5ym",
+    "3jtv1jgb1zf09eg",
+    "wtqw26nwl10gtqf",
+    "cs0m8psq9w2e41n",
+    "gnxnuzl5vcs0dwp",
+    "ithnxmbjjetg5yi",
+    "lw898eul1n5qc6b",
+    "xh6sv8u3eq7ry3x",
+    "nty5kisx9goinel",
+    "lxtuaiuh35xvns7",
+    "tofl3z98tkuwzcw",
+    "vwqi2jklsn3xmxk",
+    "2qq4w3xo84x8wda",
+    "wnezzt1mlw00to1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.284Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.284Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "vp0ziox1840jtbf"
+    }
+  ]
+}

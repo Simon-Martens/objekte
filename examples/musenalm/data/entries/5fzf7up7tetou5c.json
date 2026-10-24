@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Politisches (Fischer) 1840",
+    "norm": "",
+    "biblio": 100699,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3087,
+  "parallel_title": "",
+  "place_statement": "Mannheim (Hoff)",
+  "places": [
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Taschenbuch, Politisches (Fischer) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Fischer",
+  "subtitle_statement": "",
+  "title_statement": "Das / Jahr 1839. / Politisches Taschenbuch / auf / das Jahr 1840. / Von / Wilhelm Fischer / Mannheim, / Verlag von Heinrich Hoff. / 1840",
+  "updated": "2026-06-11 10:18:55.366Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "feusav3udva53wr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.027Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.027Z",
+      "agent": "s5nswffbdfix8q4",
+      "source_id": "nibz9c4jk8ii4fy"
+    }
+  ]
+}

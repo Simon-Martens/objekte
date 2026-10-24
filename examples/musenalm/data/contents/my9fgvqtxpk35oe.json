@@ -1,0 +1,43 @@
+{
+  "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30412, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ist Venus einst aus Schaum geboren, / Stieg hold sie aus dem Meer herauf,",
+  "language": [],
+  "musenalm_id": 30413,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der unerfahr'ne Jüngling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stephan Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der unerfahr'ne Jüngling",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.641Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "esr7ksoywenq4e1"
+    }
+  ]
+}

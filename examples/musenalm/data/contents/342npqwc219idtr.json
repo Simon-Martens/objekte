@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Den Sänger hört' ich von erhab'nen Dingen, / Die sonst Natur in ihem Busen trug,",
+  "language": [],
+  "musenalm_id": 33094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Mellish",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Schiller",
+  "updated": "2003-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.701Z",
+      "agent": "9qbyusor8ln39qi",
+      "source_id": "qfwc04ooql74k5c"
+    }
+  ]
+}

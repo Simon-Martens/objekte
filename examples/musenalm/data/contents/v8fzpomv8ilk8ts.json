@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1828. gesammelt von Th. Hell (Sammlung INr 40837, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "452",
+  "incipit_statement": "Mein erstes findest Du in jedem Hain und Garten, / Es baut Dir Haus und Dach, und fördert, was Dich / nährt,",
+  "language": [],
+  "musenalm_id": 40859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Sylbenräthsel. / Drei Sylben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Sylbenräthsel. / Drei Sylben",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.941Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "ud8ee1v3b9pj4hj"
+    }
+  ]
+}

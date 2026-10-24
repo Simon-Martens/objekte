@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Rätseln INr 78469-78475, Obj 124-130, mit Auflösungen INr 78476, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stoll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.950Z",
+      "agent": "3csio4i9ab77igj",
+      "source_id": "5prj4hokoq49e2o"
+    }
+  ]
+}

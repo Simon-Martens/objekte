@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Es war ein Mal ein König, welcher einen einzigen Sohn hatte, den er nicht nur, als den künftigen Erben seiner Kronen und Ländereien über alle Maßen liebte, sondern vorzüglich darum hochhielt,",
+  "language": [],
+  "musenalm_id": 132454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Uhr. / Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Uhr. / Mährchen",
+  "updated": "2022-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.091Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "3grl3bpvrstmf0o"
+    }
+  ]
+}

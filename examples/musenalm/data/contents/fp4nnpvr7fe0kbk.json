@@ -1,0 +1,67 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111258, Obj 18 /) die Zuschreibung Jan u n d Andries Both wohl falsch; s. T/B IX, 409 f",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bergstrom im Thale #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jan u. Andreas Both pinx. J. B. Tétar van Elven sculps.",
+  "scans": [
+    "alm_3455_111257_npefn45ko7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bergstrom im Thale #",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.407Z",
+      "agent": "kwwnhrdl70qtxgf",
+      "source_id": "mw4qypbco33iwxx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.407Z",
+      "agent": "7l66ckmup6wdhiw",
+      "source_id": "o9mhh08npzf14z1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.407Z",
+      "agent": "419u4mreixnpriz",
+      "source_id": "py54tuangqeyod7"
+    }
+  ]
+}

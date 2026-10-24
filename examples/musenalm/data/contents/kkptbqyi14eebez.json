@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Titelgraphik INr 80772, Obj 2 und Graphik 80775, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Nein, ich bin zu zerstreut um lesen zu können. Mit diesen Worten legte die junge Gräfin Alwine von Kronburg das kurz vorher ergriffene Buch wieder nieder,",
+  "language": [],
+  "musenalm_id": 80800,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloß Stammbruch. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schloß Stammbruch. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.948Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "fwos6hx8q1x3j7a"
+    }
+  ]
+}

@@ -1,0 +1,681 @@
+{
+  "annotation": "",
+  "biographical_data": "1815-1894",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.464Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1815-08-02"
+      ],
+      "dateOfDeath": [
+        "1894-04-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz von Lenbach"
+          ],
+          "creditText": [
+            "[1]"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/LenbachPortraitSchack.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/LenbachPortraitSchack.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:LenbachPortraitSchack.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/183254902",
+        "https://d-nb.info/gnd/174167555",
+        "https://d-nb.info/gnd/174328966",
+        "https://d-nb.info/gnd/182551849",
+        "https://d-nb.info/gnd/181202409",
+        "https://d-nb.info/gnd/182551857"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T09:20:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118606042/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118606042",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118606042",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)182551849",
+        "(DE-588a)182551857",
+        "(DE-588)182551849",
+        "(DE-588)174328966",
+        "(DE-588a)181202409",
+        "(DE-588a)174167555",
+        "(DE-588a)174328966",
+        "(DE-588)174167555",
+        "(DE-588a)183254902",
+        "(DE-588a)118606042",
+        "(DE-588)181202409",
+        "(DE-588)183254902",
+        "(DE-588)182551857"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4053950-7",
+          "label": "Schwerin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "preferredName": "Schack, Adolf Friedrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adolf Friedrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schack"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167838-2",
+          "label": "Literarhistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Adolphi"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Schack, Adolf F. von: Nächte des Orients oder die Weltalter",
+        "Schack, Adolf F. von: Anthologie abendländischer und morgenländischer Dichtungen in deu*",
+        "Schack, Adolf F. von: Lothar",
+        "Schack, Adolf F. von: Episteln und Elegien",
+        "Schack, Adolf F. von: Aus zwei Welten"
+      ],
+      "relatedPlaceOrGeographicName": [
+        {
+          "id": "https://d-nb.info/gnd/7682090-7",
+          "label": "Stralendorf"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13481648t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87804341"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66617166"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q63876"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118606042/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174167555"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174328966"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/181202409"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182551849"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182551857"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183254902"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adolf_Friedrich_von_Schack"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adolf_Friedrich_von_Schack"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adolf_Friedrich_von_Schack"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adolf_Friedrich_von_Schack"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121374894"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118606042"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118606042"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118606042.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118606042.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118606042"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118606042"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schack, Adolf Friedrich, Graf von",
+        "Adolphi, Felix",
+        "Schack, Adolph F. von",
+        "Schack, Adolf F. von",
+        "Schack, Adolfo Federico de",
+        "Schack, Adolph Friedrich von",
+        "Schack, Adolf Friedrich von, Graf",
+        "Von Schack, Adolf Friedrich",
+        "Schack, Ad. Frdr. v.",
+        "Schack, A. Fr. v., Graf",
+        "Schack, Adolf Friedrich",
+        "Schack",
+        "Schack, Adolf von",
+        "Schack, A. F. von",
+        "Schack, Adolf Friedrich Graf von",
+        "Schack, A. Fr. von",
+        "Schack, Adolph",
+        "Schack, A. F. v.",
+        "Schack, A. von",
+        "Schack, Fr. Ad.",
+        "Schack, A. Fr. v."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "A. F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich"
+          ],
+          "nameAddition": [
+            "Graf von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Felix"
+          ],
+          "surname": [
+            "Adolphi"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "personalName": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "A. Fr."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich"
+          ],
+          "surname": [
+            "Von Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "A. Fr."
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. Ad."
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Ad. Frdr."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "A. F."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolfo Federico"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolph Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf Friedrich Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "A. Fr."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        },
+        {
+          "forename": [
+            "Adolf F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schack"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adolf_Friedrich_von_Schack",
+          "label": "https://de.wikipedia.org/wiki/Adolf_Friedrich_von_Schack"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:45:12Z",
+    "gnd_query_biographical_data": "1815-1894",
+    "gnd_query_name": "schack, adolph friedrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2391,
+  "name": "Schack, Adolph Friedrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 434",
+  "updated": "2026-06-11 13:29:24.523Z",
+  "uri": "https://d-nb.info/gnd/118606042",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Heinrich von Kempten. Romanzenkette (Sammlung INr 80992, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Viel Jahre sind verflossen in dieser Einsamkeit, / Viel Freuden sind erfahren, vergessen ist viel Leid.",
+  "language": [],
+  "musenalm_id": 80996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Heerbann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Heerbann",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.948Z",
+      "agent": "big4tm69ocucym5",
+      "source_id": "079zi3458vqbznc"
+    }
+  ]
+}

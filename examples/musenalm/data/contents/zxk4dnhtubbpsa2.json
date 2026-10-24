@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Der regenreiche Novemberabend fing bereits zu dunkeln an, als ein schwerbepackter Reisewagen vor dem Gasthofe zu den drei Kronen in der Stadt Liegnitz hielt.",
+  "language": [],
+  "musenalm_id": 19023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / DerAdoptivvater. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emerentius Scaevola",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / DerAdoptivvater. / Novelle",
+  "updated": "2001-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.988Z",
+      "agent": "9b0fkhld94kpyv9",
+      "source_id": "sif4xgwoos1i45k"
+    }
+  ]
+}

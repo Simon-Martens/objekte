@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus der »Erklärung der Kupfertafel Nr. 1.« /) Graphik im Kalendarium Juli /) paginiert 1. /) s. vorstehenden Textbezug INr 82369, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82370,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubart)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart",
+  "scans": [
+    "alm_168_82370_5bbnrffimy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.129Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "1e1zv846a02pke4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Was du mir wachend versagst, gewährst Du, / o Liebe, im Schlafe:",
+  "language": [],
+  "musenalm_id": 101804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Träume. / Nach Politianus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Träume. / Nach Politianus",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.002Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "k1g4mribeqdb8n1"
+    }
+  ]
+}

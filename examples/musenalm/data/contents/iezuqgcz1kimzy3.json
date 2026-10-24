@@ -1,0 +1,45 @@
+{
+  "annotation": "4. Drei Bitten im frühen Jahr (Sammlung INr 111824, Obj 212) Aus dem Klingenwald (Sammlung INr 111820, Obj 206)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Die Blume blüht nicht, um gepflückt / Von einer Menschenhand zu werden,",
+  "language": [],
+  "musenalm_id": 111825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 213,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / O laß am Dorn die Rose blühn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Conrad Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / O laß am Dorn die Rose blühn",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.366Z",
+      "agent": "ozbm86woe020u89",
+      "source_id": "pojw2g832ghxk6m"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s.Graphiken INr 13580, 13581; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Ja, ich muß die Fürstengruft / Berg und Thal und Auen / In des Abends Pupurduft",
+  "language": [],
+  "musenalm_id": 13643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wunder des Doms",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wunder des Doms",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.471Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "urubql6gjj5ff5g"
+    }
+  ]
+}

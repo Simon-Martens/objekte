@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration, s. Graphik INr 123052, Obj 5; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit einer Vorrede (INr 123075, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Es ist ein herrlicher Wintermorgen, / Der mich aus der dumpfen Zelle ruft; / Die offene Brust ist frei von Sorgen, / Wie frei von Dünsten ist die Luft",
+  "language": [],
+  "musenalm_id": 123050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / barmherzigen Brüder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / barmherzigen Brüder",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.782Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "xs352avh09ry9pw"
+    }
+  ]
+}

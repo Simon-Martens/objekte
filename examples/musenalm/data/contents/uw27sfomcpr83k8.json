@@ -1,0 +1,45 @@
+{
+  "annotation": "Irische Bull's (Sammlung INr 95614, Obj 43) Einleitung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Bekannt dürfte den meisten Leserinnen und Lesern der Ausdruck John Bull (Hans Stier.) sein. Er wurde von dem berühmten humoristischen Schriftsteller Swift, zuerst gebraucht und bezeichnet den personifizirten Nationalcharakter der Engländer.",
+  "language": [],
+  "musenalm_id": 95615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekannt dürfte den meisten Leserinnen und Lesern der Ausdruck John Bull (Hans Stier.) sein. Er wurde von dem berühmten humoristischen Schriftsteller Swift, zuerst gebraucht und bezeichnet den personifizirten Nationalcharakter der Engländer.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.758Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "b9vtbbogs9f87kd"
+    }
+  ]
+}

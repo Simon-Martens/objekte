@@ -1,0 +1,45 @@
+{
+  "annotation": "IV Apologen (Sammlung INr 11124, Obj 21) /) Prosaische Aufsätze (Sammlung INr 11121, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Sieh, sprach der Sohn zum Vater, der mit einem brennenden Stück Salpeter-Papier eine Wachskerze anzündete:",
+  "language": [],
+  "musenalm_id": 11126,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Nachtigal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.316Z",
+      "agent": "fct0t8vge28lj72",
+      "source_id": "nw52jpk2sn27dpf"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik, nummeriert 1. /) Illustration zu » Robert oder der Mann wie er seyn sollte« 2. Bd.; s. Textbezug INr 132086, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132082,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott! wohin verirrt sich meine Phantasie! Sie kann ja nicht die / Meinige werden.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & fec.",
+  "scans": [
+    "alm_1952_132082_l19uqmzrfk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott! wohin verirrt sich meine Phantasie! Sie kann ja nicht die / Meinige werden.",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.086Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "av9gjdh2wocn7cr"
+    }
+  ]
+}

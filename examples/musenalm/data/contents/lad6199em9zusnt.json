@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder zu russischen Nationalmelodieen (Sammlung INr 25536, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Die dort stehet, ist die Braut, / Mit den weißen Armen;",
+  "language": [],
+  "musenalm_id": 25543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. A. Assing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.090Z",
+      "agent": "gplimo7htici8gi",
+      "source_id": "outoxgrt53o18lb"
+    }
+  ]
+}

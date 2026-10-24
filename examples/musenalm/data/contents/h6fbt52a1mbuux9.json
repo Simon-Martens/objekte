@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Jagdschloß Rothenkirchen« von V. F. S.  Fischer INr 67473, Obj 28 /) die Graphik ist fälschlich nach S. 184 eingeklebt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rotenkirchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. M. Grape del. G. Boettger sc.",
+  "scans": [
+    "alm_1152_67488_z1xjcu84kq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rotenkirchen",
+  "updated": "2009-11-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.326Z",
+      "agent": "sssaoymhwhmr99u",
+      "source_id": "gvj79b1k51vd50o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.326Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "xsm4rhhi3w090se"
+    }
+  ]
+}

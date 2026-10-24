@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Ein Mann, der in der Welt sich trefflich um- / gesehn, / Kam endlich heim von seiner Reise.",
+  "language": [],
+  "musenalm_id": 92350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die seltsamen Menschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lichtwer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die seltsamen Menschen",
+  "updated": "2013-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.403Z",
+      "agent": "nn1x55o0j1701k4",
+      "source_id": "4y8t83qybct3e38"
+    }
+  ]
+}

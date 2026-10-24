@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Es war ein also schöner Tag, / An Farb' und Düften wohl getahn,",
+  "language": [],
+  "musenalm_id": 51306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wahrsagenden Bäume",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "PELLEGRIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die wahrsagenden Bäume",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.477Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "7wk9z2eqcv6g73c"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Solche tiefe tausendfache Leiden / fühlt ich noch bei einem Abschied nie.",
+  "language": [],
+  "musenalm_id": 75231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei der Abreise aus Schlesien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmieder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei der Abreise aus Schlesien",
+  "updated": "2010-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.619Z",
+      "agent": "ii78f2x1yo6pd2c",
+      "source_id": "vrhqvic6klu5zg8"
+    }
+  ]
+}

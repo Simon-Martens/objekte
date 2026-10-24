@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Hier bin ich, meine Liebe! an dem Orte meiner Bestimmung. Als ich von weitem die Zinnen des alterthümlichen Schlosses sah,",
+  "language": [],
+  "musenalm_id": 39409,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Bade-Aufenthalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Bade-Aufenthalt",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.127Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "brvjrlji2uxcwbt"
+    }
+  ]
+}

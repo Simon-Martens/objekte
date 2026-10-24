@@ -1,0 +1,60 @@
+{
+  "annotation": "<div>Privateinband<br>Ausstattung wie franz. Ausgabe; alm 154<br>§§ 2 BB: SS 7-10 und auszufaltende Graphik: »William Crotch 3 Jahr 7 Monath alt« fehlen.&nbsp;</div>",
+  "carrier_type": [],
+  "content_type": [],
+  "created": "2026-06-30 10:30:38.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": null,
+  "musenalm_id": 5012,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1780 / bey Joh. Chr. Dieterich",
+  "updated": "2026-06-30 10:49:56.374Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-30 10:36:20.140Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-30 10:49:56.375Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "tsc6zwth06daahx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-30 10:37:26.701Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-30 10:49:56.375Z",
+      "agent": "hes0024bxvv8wzo",
+      "source_id": "wn71ec4k1hul0l4"
+    }
+  ]
+}

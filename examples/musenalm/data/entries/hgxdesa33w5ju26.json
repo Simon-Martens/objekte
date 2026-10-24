@@ -1,0 +1,81 @@
+{
+  "annotation": "Jgg 1805-1808; Hrsg: 1805, 1806: Widemann, 1807, 1808: Max. Fischel; Wien (Doll) /) 2. Titel: MAHLERISCHE STREIFZÜGE durch die interessantesten Gegenden UM WIEN. Vom Verfasser der Streifzüge nach Venedig und Istrien. Erstes Bändchen. WIEN , 1805. Im Verlage bey Anton Doll",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, T, S I nT, SS III-VIII Vrwrt d Hrsg, SS 9-152 darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde schöner vaterländischer Gegenden 1805",
+    "norm": "~",
+    "biblio": 408140,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-09-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4021,
+  "parallel_title": "",
+  "place_statement": "Wien (Doll)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Freunde schöner vaterländischer Gegenden 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 148",
+  "responsibility_statement": "Widemann",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / FREUNDE / schöner vaterländischer / GEGENDEN. / Vom Verfasser / der Streifzüge nach Venedig und Istrien. / Erster Jahrgang. / Wien, 1805. / Im Verlage bey Anton Doll",
+  "updated": "2026-06-11 10:18:54.721Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "uy9tpayv1jripkn"
+  ],
+  "contents": [
+    "xqiy4yl1qklis3p",
+    "gqigq2k80zfzon7",
+    "2sfjtxs0xo7gjkw",
+    "rjtq8w1880e281e",
+    "t41g8cleunb41yk",
+    "2ztxkmi44i6f5ni",
+    "ziw40czrk378xop",
+    "0nkrj4o0bqerdkw",
+    "au30frq3poblszg",
+    "avuvm7bp0hkcxk3",
+    "onrwlcq7wibsf2q",
+    "lda7zl8um5nxlcm",
+    "82dlokvqz6t8ltk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.736Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.736Z",
+      "agent": "tm0le2wfgxvk1ai",
+      "source_id": "1aiy8qgoaxv76fu"
+    }
+  ]
+}

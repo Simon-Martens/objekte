@@ -1,0 +1,103 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, Sp, VB, verso G, T, 6 GG, SS Kal darin 6 GG, S, 3 BB Tabb, S 1 T, SS 3-119, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1836",
+    "norm": "~",
+    "biblio": 405425,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1902,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Pfautsch)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch für 1836. / Sechszehnter Jahrgang. / Edlen Frauen und Mädchen gewidmet. / Motto: / Ehrt die Frauen, sie flechten und weben / Himmlische Rosen in's irdische Leben, / Schiller / Wien und Leipzig, / Friedrich Wilhelm Pfautsch",
+  "updated": "2026-06-11 10:18:55.704Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "56153azzat3d1ju"
+  ],
+  "contents": [
+    "vv4fxcu2ou91i1b",
+    "1fd6al9arersqfx",
+    "5ttiu06r6j6aebb",
+    "1sk50gzpxno70qv",
+    "tfpua4kq0g16l3v",
+    "auqifwdcugu7oug",
+    "y31gc2iyos7qlqv",
+    "jnx2ugij3i3xb7b",
+    "7x6tuqwhps3ccwm",
+    "ol71qsxpr1pvurh",
+    "7t88l068pqsryzw",
+    "4bx8do6yolktvvi",
+    "0v8nllzkii85ngd",
+    "85diwkov3z311lq",
+    "v1fjza9n7c74zc6",
+    "u22e17okyw3uhjy",
+    "ggslo9ae29ilgey",
+    "mxo2k0ivohwiop2",
+    "dmvb38lhml2jb0y",
+    "v4u2tlc8rr8jl2b",
+    "5pmjfqgxswbkupb",
+    "m9zeucvjyw8p8gp",
+    "1ri2g11nywnalf7",
+    "b5t85qbfa87acq2",
+    "423lwpx1r7xaby3",
+    "ak52jk712ai8nca",
+    "3p1d817w1ax1ws5",
+    "lwxjmwmc2yampe0",
+    "rdj37ze5xw2cspx",
+    "1syk2m3h9qhtge1",
+    "jgtn3p2769p96w5",
+    "sbkb5j0q87tcub4",
+    "azpq1lxiwrc0mvl",
+    "4cwm7y7k3ochvc7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.129Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.129Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "mciinkd64l51d3q"
+    }
+  ]
+}

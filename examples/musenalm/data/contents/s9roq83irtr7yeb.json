@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "O der verwünschte, böse Vetter! / Kaum geben mir die guten Götter",
+  "language": [],
+  "musenalm_id": 5010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vetter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Z.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vetter",
+  "updated": "2000-10-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.156Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "gg1yzta1x85o4aj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 14571-14575, Obj 27-31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14570,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensansichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensansichten",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.562Z",
+      "agent": "jho0bsnjm9w01d5",
+      "source_id": "3fqt54w8xzopo8n"
+    }
+  ]
+}

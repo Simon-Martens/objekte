@@ -1,0 +1,78 @@
+{
+  "annotation": "im Schuber /) K kennt Jgg 1839-1941",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schneeglöckchen 1845",
+    "norm": "",
+    "biblio": 410355,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-12-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4682,
+  "parallel_title": "",
+  "place_statement": "Breslau (Kühn)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Schneeglöckchen 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 101, nicht bei L/R",
+  "responsibility_statement": "A. von Schaden",
+  "subtitle_statement": "",
+  "title_statement": "Schneeglöckchen / Taschenbuch / auf das Jahr 1845. / Zweiter Jahrgang. / Herausgegeben / von / A. von Schaden. / Mit Beiträgen / von / Aloys, W. v. Erichsen, Dr. Göhring, / Gottschalk, Hoffmann, Prof. Möller, Dr. Severin, / v. Zitzewitz u. A. / Mit einemTitelkupfer. / Breslau, / L. M. R. Kühn'sche Veragsbuchhandlung. / Druck von Eduard Klein",
+  "updated": "2026-06-11 10:18:55.459Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "5fdf2h3kg455uqe"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.407Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.407Z",
+      "agent": "j37nzjxn0n0hi2j",
+      "source_id": "tyznme4j8lqnl70"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "ehflmzdyacxx64w",
+      "source_id": "x68lrhebnvoqnyf"
+    }
+  ]
+}

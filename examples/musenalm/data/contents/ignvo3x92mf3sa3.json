@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Gedichte (Sammlung INr 57088, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Zwei Nachbarn, Arm und Reich, ent- / zweiten / Unnachbarliche Streitigkeiten,",
+  "language": [],
+  "musenalm_id": 57091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachbaren. / (Fabel.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachbaren. / (Fabel.)",
+  "updated": "2008-04-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.020Z",
+      "agent": "g8prxnhm5z8oc6o",
+      "source_id": "bu6f2049nxcjbnk"
+    }
+  ]
+}

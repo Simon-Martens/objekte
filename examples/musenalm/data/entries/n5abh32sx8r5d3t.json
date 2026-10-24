@@ -1,0 +1,61 @@
+{
+  "annotation": "Jgg 1809, 1810  fortgesetzt durch: Nazional-Garde-Almanach f. d. Königreich Baiern 1811-1816 und: Landwehr-Almanach f. d. Königreich Baiern 1817; Hrsg: F. J. Lipowsky",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bürger-Militär-Almanach für das Königreich Baiern 1809",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-04-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3944,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Bürger-Militär-Almanach für das Königreich Baiern 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; L/R 181",
+  "responsibility_statement": "Lipowsky",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.565Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.314Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.314Z",
+      "agent": "46kejxdgsiggk3k",
+      "source_id": "eklajei371zohny"
+    }
+  ]
+}

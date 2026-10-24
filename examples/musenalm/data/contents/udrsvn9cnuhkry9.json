@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Zweiter Theil« INr 59129, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59126,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landsberg a/W.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. Schulin",
+  "scans": [
+    "alm_877_59126_8xj4am9zw3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landsberg a/W.",
+  "updated": "2008-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.633Z",
+      "agent": "upsrb82zs34rpbh",
+      "source_id": "f2njn6ov5mo9ign"
+    }
+  ]
+}

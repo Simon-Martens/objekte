@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait. s. Textbezug INr 19056, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9344,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antonio Canova",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Vogel del. C. A. Schwerdgeburth",
+  "scans": [
+    "alm_49_9344_16pe3m8kn9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Antonio Canova",
+  "updated": "2000-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.421Z",
+      "agent": "hnc7x2p8pzr9l8y",
+      "source_id": "ghj009m4zktb49p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.421Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "pmrmofkefgff7qo"
+    }
+  ]
+}

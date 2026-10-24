@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Vermischte Gedichte (Sammlung INr 37239, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "477",
+  "incipit_statement": "In einer Dorfkapelle / Die Thür stets offen war, / Es ging über seine Schwelle / Der Pilger fomme Schaar.",
+  "language": [],
+  "musenalm_id": 1916,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Muttergottesbild. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Muttergottesbild. / Legende",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.106Z",
+      "agent": "iz27nbfvrc0qfs3",
+      "source_id": "vlzwlpfmjmpumdi"
+    }
+  ]
+}

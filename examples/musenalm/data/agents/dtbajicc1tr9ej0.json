@@ -1,0 +1,500 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-1814",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.274Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2024162-8",
+          "label": "Universität Breslau"
+        }
+      ],
+      "dateOfBirth": [
+        "1773-12-14"
+      ],
+      "dateOfDeath": [
+        "1814-09-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Ernst-Günther Prühs, Geschichte der Stadt Eutin. Struve's Verlag, 1994. ISBN&nbsp;3-923457-23-5"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gabriel%20Gottfried%20Bredow.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gabriel%20Gottfried%20Bredow.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gabriel%20Gottfried%20Bredow.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174123973",
+        "https://d-nb.info/gnd/1157657389"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:36:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116469382/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116469382",
+      "id": "https://d-nb.info/gnd/116469382",
+      "oldAuthorityNumber": [
+        "(DE-588a)174123973",
+        "(DE-588)1157657389",
+        "(DE-588a)12623146X",
+        "(DE-588a)116469382",
+        "(DE-588)174123973"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4018122-4",
+          "label": "Frankfurt (Oder)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4024344-8",
+          "label": "Helmstedt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015796-9",
+          "label": "Eutin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "preferredName": "Bredow, G. G.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "G. G."
+        ],
+        "surname": [
+          "Bredow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127948-7",
+          "label": "Schulleiter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Karl der Grosse wie Eginhart ihn beschrieben, die Legende ihn dargestellt, Neuere ihn beurtheilt haben",
+        "Untersuchungen über einzelne Gegenstände der alten Geschichte ...",
+        "Reineke de Voss",
+        "Weltgeschichte in Tabellen",
+        "Merkwürdige Begebenheit aus der Allgemeinen Weltgeschichte",
+        "Handbuch der alten Geschichte",
+        "Die Umschiffung Libyens durch die Phoiniker",
+        "Umständliche Erzählung der merkwürdigen Begebenheiten ..",
+        "Handbuch der alten Geschichte, Geographie und Chronologie",
+        "Carl der Große"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13598578j"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88058304"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/49394309"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q552805"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157657389"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116469382/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174123973"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Gottfried_Gabriel_Bredow"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gabriel_Gottfried_Bredow"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gottfried_Gabriel_Bredow"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000011871515X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116469382"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116469382.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116469382"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116469382"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Brodovius, Gottfried Gabriel",
+        "Bredow, Gabr. Godofr.",
+        "Bredow, G.G.",
+        "Bredovius, Gabriel Godofredus",
+        "Bredow, Gottlieb Gabriel",
+        "Bredow, Gottfried Gabriel von",
+        "B.",
+        "Bredovius, Gabrielus Godofredus",
+        "Bredow, Gabriel Gottfried",
+        "Bredovius, Gabrielus G.",
+        "Bredow, Gottfried G.",
+        "Bredow, Gabr. Gf.",
+        "Bredow, Gottfried Gabriel",
+        "Bredow, Gabriel",
+        "Bredow, Gabriel Godofredus",
+        "Brodovius, G. G.",
+        "Bredow, Gabriel G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gottfried Gabriel"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel Godofredus"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gabrielus G."
+          ],
+          "surname": [
+            "Bredovius"
+          ]
+        },
+        {
+          "forename": [
+            "G. G."
+          ],
+          "surname": [
+            "Brodovius"
+          ]
+        },
+        {
+          "forename": [
+            "Gabr. Godofr."
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Gabriel"
+          ],
+          "surname": [
+            "Brodovius"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel Godofredus"
+          ],
+          "surname": [
+            "Bredovius"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel Gottfried"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "G.G."
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Gabriel"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gabrielus Godofredus"
+          ],
+          "surname": [
+            "Bredovius"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried G."
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gabr. Gf."
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "personalName": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "Gabriel G."
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Gabriel"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bredow"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gabriel_Gottfried_Bredow",
+          "label": "https://de.wikipedia.org/wiki/Gabriel_Gottfried_Bredow"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:01:27Z",
+    "gnd_query_biographical_data": "1773-1814",
+    "gnd_query_name": "bredow, gabriel gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 297,
+  "name": "Bredow, Gabriel Gottfried",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 326; Goed XI/1, 478",
+  "updated": "2026-06-11 13:29:21.745Z",
+  "uri": "https://d-nb.info/gnd/116469382",
+  "editor": ""
+}

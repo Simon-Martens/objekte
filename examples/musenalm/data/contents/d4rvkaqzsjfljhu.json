@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Immerhin in Gallerieen / Könnt ihr Sonnen niedergehn, / Könnt ihr, Freunde, Rosen blühn",
+  "language": [],
+  "musenalm_id": 30870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Natur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Natur",
+  "updated": "2003-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.707Z",
+      "agent": "v5wbuj6yomki99q",
+      "source_id": "yevdzfxr2peicv4"
+    }
+  ]
+}

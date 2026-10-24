@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) Graphik im Kalendarium Dezember. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen« von F. W. Schubert INr 58939, Obj 20 s.a. Textbezug INr 58967, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58935,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rathaus in Danzig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gregorovius",
+  "scans": [
+    "alm_869_58935_igk7y673ax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rathaus in Danzig",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.002Z",
+      "agent": "5ab1u4dy8i5pdjp",
+      "source_id": "qz9akt9kz0n23ck"
+    }
+  ]
+}

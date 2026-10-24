@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Wovon gedenken Sie dem Vaterlande / Den Schulden-Beitrag zu erlegen?",
+  "language": [],
+  "musenalm_id": 5496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei Gelegenheit einer Steuer zu / Bezahlung der Kriegsschulden, wel- / che vom Gehalt oder Vermögen, / je nachdem das eine oder andre mehr / betrug, entrichtet werden mußte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei Gelegenheit einer Steuer zu / Bezahlung der Kriegsschulden, wel- / che vom Gehalt oder Vermögen, / je nachdem das eine oder andre mehr / betrug, entrichtet werden mußte",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.128Z",
+      "agent": "9ffesqccgj8nyl5",
+      "source_id": "0kguzjqqpw6lpsl"
+    }
+  ]
+}

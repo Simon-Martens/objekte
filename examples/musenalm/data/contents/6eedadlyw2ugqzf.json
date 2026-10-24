@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3907,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gottfr. Aug. Bürger. / gebohren d. 1. Jan. 1748 / gestorben d. 8. Jun. 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen",
+  "scans": [
+    "alm_92_3907_wdxsydotcx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gottfr. Aug. Bürger. / gebohren d. 1. Jan. 1748 / gestorben d. 8. Jun. 1794",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.094Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "2ekonh29j4ai1a8"
+    }
+  ]
+}

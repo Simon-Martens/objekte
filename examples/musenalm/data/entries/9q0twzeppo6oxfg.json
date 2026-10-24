@@ -1,0 +1,115 @@
+{
+  "annotation": "3 Jgg 1801, 1802, 1804  Köln (Haas u. Sohn) Hrsg: K. G. Cramer.  Jg 1804 als Titelauflage: Erholungs Taschenbuch für das Jahr 1805, für Freunde und Freundinnen des guten Geschmacks. Köln, bei J. L. Kaufman; Alm-1752 /) mit einem Vorwort und Kommentaren  zu den Graphiken von W. Carsparsson d.i.: F. F. Wallraff; $  Als Reproduktionsstecher ist Georges Malbeste anzunehmen: s. Bezeichnung am gest. Titel: Malbeste sculp. sowie Hinweis in Wallraffs Vorwort: »Um diesen Zweck zu erreichen, hat der Verleger sieben der vortrefflichsten, nun im Central-Museum in Paris sich befindenden Gemälde, von einem der geschicktesten Pariser Künstler in Kupfer stechen lassen«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, röm: SS I- XII Vrwrt d Hrsg, G, ar: SS 1- 68 darin 5 GG, röm1: SS I-XII, ar1: SS 13-160, ar2: SS 1-32, 7 BB VrlgM,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Kunst und Laune 1801",
+    "norm": "~",
+    "biblio": 101182,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-03-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 667,
+  "parallel_title": "",
+  "place_statement": "Köln (Haas und Sohn)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Taschenbuch für Kunst und Laune 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 130; L/R 191; Goed VIII. 56, 26",
+  "responsibility_statement": "C. G. Cramer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1801 / von / C. G. Cramer / Köln / bei / Haas und Sohn",
+  "updated": "2026-06-11 10:18:55.071Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "rhabqtq20rneigu"
+  ],
+  "contents": [
+    "01l1tshd2rzsrxa",
+    "v5ah25qwd6bwlny",
+    "zlnul25tnkn4vol",
+    "goww1rp2ry8o4by",
+    "35m756m1wgy674z",
+    "4107kfjeycnwp37",
+    "odxmtezwt9mvtl6",
+    "xp2zgjhojjfpeh8",
+    "6lx3hfm9paqaxpu",
+    "iv3ohdaiyd65zyg",
+    "8kp5n1m48006l5h",
+    "itwo4wkm53v3xs0",
+    "5xbkiuc5iesc0s8",
+    "6kp1h5sbjl1r3t6",
+    "b2iaevz8i982d8j",
+    "kk5602kqtqpqo5q",
+    "v30vgshz916yw6z",
+    "4hp7vytqd1zt3a4",
+    "36p761gjc2xlsma",
+    "224s292td1ehszp",
+    "dsqwm9hzak3wivf",
+    "8a95ta82qvr438v",
+    "27aa46b8zpy08nl",
+    "nurm1n5wo5tacgb",
+    "t197yvihotb1rpx",
+    "ct19ygopog1elhp",
+    "uc0slyct7g6jt31",
+    "94zn65l7m4ouhwx",
+    "nhehczvti759ndm",
+    "1o71tmeqgslrnb3",
+    "5bfjyncijp5l2zj",
+    "s491kfh05amvfzv",
+    "aymgpiotfwofrwq",
+    "pt9rzawvur23nvz",
+    "zgvafnhwpzb7wsv",
+    "jtzsnb048c4vgsv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.735Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.735Z",
+      "agent": "amqten9820medl4",
+      "source_id": "0adxua8fkwfeel6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.949Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.949Z",
+      "agent": "9l06jnsi2qrqws4",
+      "source_id": "mmf859c83m6y3fg"
+    }
+  ]
+}

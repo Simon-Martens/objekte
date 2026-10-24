@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 39299, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau von Orleans Ir. Aufz. VIII.r. Auft. / Gott und die heilige Jungfrau führt euch an",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Hess sc.",
+  "scans": [
+    "alm_516_39298_6y94hc5867.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau von Orleans Ir. Aufz. VIII.r. Auft. / Gott und die heilige Jungfrau führt euch an",
+  "updated": "2005-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.921Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7z3925zplndf0lx"
+    }
+  ]
+}

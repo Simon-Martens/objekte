@@ -1,0 +1,104 @@
+{
+  "annotation": "keine weiteren Jahrgänge ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, zT, SS I-II I-Verz, SS III- VI Vrwrt d Hrsg, SS VII- X, ar: SS 1-8, ar1: SS 1-40, ar2: SS 1-78, ar3: SS 1-58, S zT, ar4: SS 1- 22, ar5: SS 1-23, 2 BB mit 2 BB mit 4 GG, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Marionetten- und Kinder- Theater 1789",
+    "norm": "~",
+    "biblio": 408862,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-12-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4163,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Verlags-Comptoir); Augsburg (Bäumer)",
+  "places": [
+    "lrzo2mh9qtb8qr8",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Marionetten- und Kinder- Theater 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Freyherr von Scherzgern",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / für / Marionetten- und Kinder- / Theater / vom / Freyherrn von Scherzgern. / Mit Kupfern und Musikbeilagen. / LEIPZIG 1825. / im Verlags-Comptoir. / In Commission bey Aug. Bäumer in Augsburg",
+  "updated": "2026-06-11 10:18:55.067Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "d9m7tuu8fpean0m"
+  ],
+  "contents": [
+    "pnzd3y8s31oz1nq",
+    "9a26wagu5ro2s2d",
+    "c6p5dqy2q34gpls",
+    "xppy193g40m7ane",
+    "ez6eh8meus7uxbq",
+    "0b7cs82qf4lfbgq",
+    "87qntnun5vj2xdm",
+    "wm24m1l109aqi8e",
+    "vgc2hl4qaeiven8",
+    "090yvgz406i7oto",
+    "amdll4j7b8ct5ya",
+    "b121cvueboa87kf",
+    "32g25u08wnbbmba",
+    "9z6braij628tb06",
+    "yhqppojqyfyiy21",
+    "wvbjd8fzbjnea2h",
+    "ilsmc7hnylkiljx",
+    "mozrfexo10esl57",
+    "lrlo6zivg9qvmcf",
+    "rhi8l7l4v1sk09f",
+    "7z5i4wjwaudxd54",
+    "bsfl7eqtb3wrbqt",
+    "46kvg2x4kx7qrvm",
+    "w21xrrtaf5hsj7o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "hc0m08c5j8ox9fe",
+      "source_id": "4h55dkqyt4pqa38"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.500Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.500Z",
+      "agent": "0121vnqfl2lwd95",
+      "source_id": "9fneaibp5tl4ca3"
+    }
+  ]
+}

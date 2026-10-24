@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 5.  Pag. 185 /) Illustration zu »Précis de l'histoire de la révolution francoise« von J. R. Rabaut INr 79452, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Confédération des François / Le 14 Juillet 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moreau Je. inv. Coiny sc.",
+  "scans": [
+    "alm_3776_79456_wrd82lvdtc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Confédération des François / Le 14 Juillet 1790",
+  "updated": "2012-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "w6bq4igjnhzo44m",
+      "source_id": "4iyp9b0ryffa4e2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.826Z",
+      "agent": "6v2mea0laepybs2",
+      "source_id": "i8722vyri4zymsr"
+    }
+  ]
+}

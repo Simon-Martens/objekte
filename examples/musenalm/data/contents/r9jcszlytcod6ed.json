@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Edmund Wallendorf besuchte wie gewöhnlich an jedem schönen Sommerabende seine junge Freundin.",
+  "language": [],
+  "musenalm_id": 33064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edmund und Emma",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Verf. v. Agnes v. Lilien",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Edmund und Emma",
+  "updated": "2003-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.688Z",
+      "agent": "ngiqzohpakvtqf9",
+      "source_id": "wa5gen59ysfjt7z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122986, Obj 245",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "373",
+  "incipit_statement": "Da Tod, dea hat’s nöthi / In an Summ’r amal g’habt, / Drum’ zwischen zwoa Dörfeln / Is a ’s Gangsteigl trabt",
+  "language": [],
+  "musenalm_id": 122987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 246,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "’S Todtenbrünnerl",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Anselm Pangkofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "’S Todtenbrünnerl",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.811Z",
+      "agent": "e1ej71krebuh2ms",
+      "source_id": "ho1lkd7t5pu0o4a"
+    }
+  ]
+}

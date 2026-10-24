@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 18964, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1993,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER POLITISCHE SCHUSTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Landseer pinx. Frommel. Hessloehl sculp.",
+  "scans": [
+    "alm_59_1993_t565ygz7jd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER POLITISCHE SCHUSTER",
+  "updated": "2000-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "9b2uxqkf8x5d4i0",
+      "source_id": "dkuvuyrb0487r53"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "yxu70p4laeh97im",
+      "source_id": "sh80u2s6dv2c351"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.646Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "yhd3oyefoz1dq95"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "annotation": "mit Anmerkung s. INr 96197, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96196,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verzeichniß / der / an jedem Tage im Jahre / vorgefallenen merkwürdigsten / Kriegesbegebenheiten / der Brandenburgisch-Preußischen / Truppen / seit der Regierung / Churfürst Friedrich Wilhelms / bis zur gegenwärtigen Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. v. Oesfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verzeichniß / der / an jedem Tage im Jahre / vorgefallenen merkwürdigsten / Kriegesbegebenheiten / der Brandenburgisch-Preußischen / Truppen / seit der Regierung / Churfürst Friedrich Wilhelms / bis zur gegenwärtigen Zeit",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.402Z",
+      "agent": "lnn52xz2952audn",
+      "source_id": "vclh7egavbvm6dt"
+    }
+  ]
+}

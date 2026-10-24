@@ -1,0 +1,114 @@
+{
+  "annotation": "Der in ADB XXIV, 471 erwähnte K. L. Oesfeld übernahm »1782  als Generalpächter der preußischen Kalender, welche zum Besten der preußischen Akademie der Wissenschaften erschienen, die Herausgabe derselben«",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, Kr, 12 BB Kal darin 12 GG, 7 SS G-Verz, 207 SS",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1788",
+    "norm": "~",
+    "biblio": 404189,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 799,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / KALENDER / auf das Jahr / 1788. / mit Genehmhaltung der / Königl. Academie der / Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.766Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "tevp6gu28mnfy88"
+  ],
+  "contents": [
+    "o5rukc4dyk1ysmq",
+    "9kmvlczy1t0u2h5",
+    "ol2pspdew2dtd6h",
+    "027h4frv8ogs6se",
+    "wcubcxda8mv2has",
+    "09afjcl6prl3k6v",
+    "nwlpvyp90dffk9q",
+    "ndshqani3vm0e1l",
+    "g5yvw61cux2ebvm",
+    "vxub448yj32g0ju",
+    "iv7rn17vfjn8jx9",
+    "51k44y6kuarrb6v",
+    "3nmg8smj1ecejfs",
+    "f1ss0gizn3p00og",
+    "tbsxsnmcqlkc4a8",
+    "q9zfzcosyt4z9v1",
+    "0exdy911379ig78",
+    "esy2z1dnt4qadfw",
+    "b2wcsmclamxckti",
+    "5cc94i62pwqrjqe",
+    "u35ryuc8l56i7kt",
+    "bdvhdst24cdvgw9",
+    "96xzgxfdkflz12s",
+    "621s1jo6rsjubn9",
+    "srfu6hr9ctyw2s8",
+    "sulmim5euhvb6pu",
+    "eaonc804yt3i30o",
+    "yhr5dvq59oii5ha",
+    "nb8vvou6u2j22mx",
+    "bksztthrh7l78kj",
+    "feda3z500gqzj1p",
+    "82vg368l5gg2j6o",
+    "4i5uzpzar91qfyo",
+    "7y49t20r2x3as7n",
+    "i63w0usrllogm1x",
+    "kniqub8xs5o2dbb",
+    "4dt1890kfqi3uej",
+    "nfcklr5m4gh1r1o",
+    "bmflj8p69gr534t",
+    "4exoy3gog48lby7",
+    "q62j7m0n1sesduk",
+    "tzptduoooy84jjp",
+    "cgn8w3k0iuzaq5o",
+    "3lhyvwr5woniycx",
+    "xv5m99j4rmjx79n",
+    "ufmcbiialjsba92"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "4layav1w3wjth1g"
+    }
+  ]
+}

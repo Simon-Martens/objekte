@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Mein ist er nun, den das geheimste Sehen / Sich längst erkohr! / O Wilhelm, mein!",
+  "language": [],
+  "musenalm_id": 47958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minna, Wilhelms Gattin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa v. d. Recke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minna, Wilhelms Gattin",
+  "updated": "2007-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.258Z",
+      "agent": "w70q3jb7y9a6a6k",
+      "source_id": "6lihbni8i3b9upx"
+    }
+  ]
+}

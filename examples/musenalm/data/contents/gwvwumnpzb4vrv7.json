@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 99064, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Freude war am Tajostrande / Seit dem Blumentag erwacht,",
+  "language": [],
+  "musenalm_id": 99066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erkennung. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Notter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erkennung. / Romanze",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.933Z",
+      "agent": "tyve9yzi4i8w698",
+      "source_id": "6catdku460eyz8y"
+    }
+  ]
+}

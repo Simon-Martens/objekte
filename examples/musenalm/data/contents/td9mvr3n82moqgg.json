@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischarioth Krall's Lehren und Thaten in 30 episch-didaktischen Lectionen (Sammlung INr 97309, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "So, meine gnädigen Herren und Damen! / so streute mein Feind des Vorurtheils Saamen / in Aller Gemüther gegen mich aus,",
+  "language": [],
+  "musenalm_id": 97315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünfte Lection",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ischarioth Krall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünfte Lection",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.617Z",
+      "agent": "9ndls4gksm9067r",
+      "source_id": "gcs6zvbgxfijgcj"
+    }
+  ]
+}

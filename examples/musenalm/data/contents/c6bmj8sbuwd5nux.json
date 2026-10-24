@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 45561, Obj 270)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Weil nun in seiner frischen Kraft / Der Frühling bricht herein,",
+  "language": [],
+  "musenalm_id": 45565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 274,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weil nun in seiner frischen Kraft / Der Frühling bricht herein,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.138Z",
+      "agent": "dh41pv1tstggnwb",
+      "source_id": "9rrpdtfjcerph1w"
+    }
+  ]
+}

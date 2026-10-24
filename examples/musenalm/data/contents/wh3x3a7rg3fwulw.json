@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräche mit Bäumen (Sammlung INr 90599, Obj 195)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Akazie lockte mich zu ihr, / Im Mai, zur Abendstunde, / Und lispelte: Du siehst in mir / Die schönste Zier der Runde.",
+  "language": [],
+  "musenalm_id": 90601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Akazie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Akazie",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.410Z",
+      "agent": "zxn7he3vfca86w3",
+      "source_id": "6ijexrzit0llq62"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Daß ein deutscher Mann ich bin, / Deß erfreuet sich mein Sinn:",
+  "language": [],
+  "musenalm_id": 2144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsches Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Miller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutsches Lied",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.063Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "usyrdx7obi1i8q1"
+    }
+  ]
+}

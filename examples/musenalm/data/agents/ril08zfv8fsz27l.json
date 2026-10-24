@@ -1,0 +1,362 @@
+{
+  "annotation": "",
+  "biographical_data": "1766-1822",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.477Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Von 1788 bis 1822 war er Kantor am Johanneum und Direktor der Kirchenmusik in Hamburg."
+      ],
+      "dateOfBirth": [
+        "1767-08-30"
+      ],
+      "dateOfDeath": [
+        "1822-10-27"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-10T10:34:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-386",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-386"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124268498/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117410969",
+          "label": "Schwencke, Johann Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "124268498",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117410969",
+          "label": "Schwencke, Johann Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/124268498",
+      "oldAuthorityNumber": [
+        "(DE-588a)134732057",
+        "(DE-588a)124268498",
+        "(DE-101c)310422051",
+        "(DE-588c)4711252-9"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4108605-3",
+          "label": "Wachenhausen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Schwencke, Christian Friedrich Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Friedrich Gottlieb"
+        ],
+        "surname": [
+          "Schwencke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7719046-4",
+          "label": "Selbstverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398799-0",
+          "label": "Musikverleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        }
+      ],
+      "publication": [
+        "Mozart, Wolfgang A.: [Requiem]",
+        "Händel, Georg F.: [Messiah]",
+        "DellaMaria, Pierre-Antoine-Dominique: [Le prisonnier]",
+        "Marches & danses pour deux flûtes (en mi bémol) ou 2 clarinettes, 2 bassons, 2 cors & trompete ad lib. ... liv. 1, [179-?]",
+        "Spohr, Louis: Der Zweikampf mit der Geliebten",
+        "Händel, Georg F.: Der Messias. - s.a."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14815204f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no93008628"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29797518"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1079601"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124268498/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Friedrich_Gottlieb_Schwencke"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Friedrich_Gottlieb_Schwencke"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000008368337X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/124268498"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd124268498.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124268498"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schwenke, C.F.G.",
+        "Schwencke, C. F. T.",
+        "Schwenke, Christian Friedrich Gottlieb",
+        "Schwenke, Chr. Fr. Gottlieb",
+        "Schwencke, Christian F.",
+        "Schwencke, C.F.G.",
+        "Schwencke, Christien",
+        "Schwencke, Chr. Fr. Gottlieb",
+        "Schwenke, C. F. G.",
+        "Schwencke, C. F. G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Christian F."
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Friedrich Gottlieb"
+          ],
+          "surname": [
+            "Schwenke"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. G."
+          ],
+          "surname": [
+            "Schwenke"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Fr. Gottlieb"
+          ],
+          "surname": [
+            "Schwenke"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. T."
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "Christien"
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Fr. Gottlieb"
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "C.F.G."
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "C. F. G."
+          ],
+          "surname": [
+            "Schwencke"
+          ]
+        },
+        {
+          "forename": [
+            "C.F.G."
+          ],
+          "surname": [
+            "Schwenke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Friedrich_Gottlieb_Schwencke",
+          "label": "https://de.wikipedia.org/wiki/Christian_Friedrich_Gottlieb_Schwencke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:55:51Z",
+    "gnd_query_biographical_data": "1766-1822",
+    "gnd_query_name": "schwenke, christian friedrich gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2605,
+  "name": "Schwenke, Christian Friedrich Gottlieb",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 1885",
+  "updated": "2026-06-11 13:29:24.928Z",
+  "uri": "https://d-nb.info/gnd/124268498",
+  "editor": ""
+}

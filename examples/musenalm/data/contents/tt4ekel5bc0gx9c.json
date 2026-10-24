@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 125344, Obj 9); $ vermutl. Anicet Bourgeois (vgl. NBG VII, Sp. 81)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Gut, recht, gut, – fast zu einfach – die Röcke dürften etwas mehr verbrämt sein.",
+  "language": [],
+  "musenalm_id": 125345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Militärbefehl. / Lustspiel in zwei Akten / von / C. W. Koch. / Mit Benutzung eines Vaudeville des Anicet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anicet $ [bearb.] C. W. Koch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Militärbefehl. / Lustspiel in zwei Akten / von / C. W. Koch. / Mit Benutzung eines Vaudeville des Anicet",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.888Z",
+      "agent": "snm7ivv5m1ogx5v",
+      "source_id": "mdazkzomtm232em"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Titel vom Textbezug INr 39388, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39385,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schicksalswage #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_517_39385_7bzb4rwxqr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schicksalswage #",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.971Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "8xda1d33l86pdjr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.971Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "ocl8kg0m9mbnygl"
+    }
+  ]
+}

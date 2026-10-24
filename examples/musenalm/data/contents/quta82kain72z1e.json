@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu Teutsche Geschichte (INr 120042, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120047,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Drey SCHWEIZER Bauern verbünden sich / wider adeliche Menschen-Plager",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Rode del",
+  "scans": [
+    "alm_1161_120047_yx47ej8v27.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "5. / Drey SCHWEIZER Bauern verbünden sich / wider adeliche Menschen-Plager",
+  "updated": "2009-12-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.609Z",
+      "agent": "onjbwk6cew0f5xx",
+      "source_id": "jq3rxe1d8ptaksg"
+    }
+  ]
+}

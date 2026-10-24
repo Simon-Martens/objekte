@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Im R. A. Nro 297 S. 3852 wurden die Früchte des virginischen Staudenklees (Lederblume) oder der Plea trifoliata als Surrogat des Hopfens angegeben.",
+  "language": [],
+  "musenalm_id": 74560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stellvertreter des Hopfens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kurt Sprengel. Prof. der Botanik",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stellvertreter des Hopfens",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.462Z",
+      "agent": "aff40356u4rcx61",
+      "source_id": "kau9qtcqlhtgn1k"
+    }
+  ]
+}

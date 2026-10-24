@@ -1,0 +1,67 @@
+{
+  "annotation": "Autor des Vorworts dieses Bandes ist Böttiger",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Waisenfreund, Der 1821",
+    "norm": "",
+    "biblio": 407294,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3812,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Waisenfreund, Der 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Verein von Dichtern",
+  "subtitle_statement": "",
+  "title_statement": "Der Waisenfreund. / Ein Buch für Familienkreise / von / einem Verein von Dichtern zu Unterstützung / des Waisenhauses in Pirna. / Mit einem Titelkupfer und Musik. / Erster Band. / Leipzig, / bei Joachim Göschen 1821. / (In Commission.)",
+  "updated": "2026-06-11 10:18:54.525Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "f40bvm2tmxqo465"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.916Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.916Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "1ibo3tf6k16thgs"
+    }
+  ]
+}

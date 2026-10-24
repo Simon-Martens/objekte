@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Manfred« von G. G. Byron; über der Graphik: Byron's Werke B. 8 /) s. Textbezug INr 127765, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Manfred",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Rahn v. Zürich sculp.",
+  "scans": [
+    "alm_588_127764_60xzb3hcht.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Manfred",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.957Z",
+      "agent": "2qfnp8a93m1r2da",
+      "source_id": "z9raoxtwkivr7t3"
+    }
+  ]
+}

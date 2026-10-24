@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Zu Frankfurt in dem Römer, da strahlt's von Glanz / und Pracht, / Da treiben sich die Gäste in bunter Maskentracht,",
+  "language": [],
+  "musenalm_id": 90608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 204,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Schelm von Bergen. Ballade.] II. Die Maske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nep. Vogl. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Schelm von Bergen. Ballade.] II. Die Maske",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.461Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "vgzles9d42izly3"
+    }
+  ]
+}

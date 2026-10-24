@@ -1,0 +1,95 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T u I-Verz, S G-Verz, G, SS 1-468 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1839",
+    "norm": "~",
+    "biblio": 108670,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3475,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1839",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98",
+  "responsibility_statement": "A. von Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen. / Historisch-Romantisches Taschenbuch / für / 1839. / Von / A. von Tromlitz. / Zwölfter Jahrgang. / Mit 8 Stahlstichen",
+  "updated": "2026-06-11 10:18:54.501Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "0j7n3chdhaht35u"
+  ],
+  "contents": [
+    "nf4sed967ipcccz",
+    "nl8sum267mk9rbh",
+    "c2cdlnlmdpk7n7g",
+    "q5tj7l66n5lvk3j",
+    "wzbno2xpxx7tdhd",
+    "li99nb972dqu4uw",
+    "wv5pjryfn2r5tg8",
+    "jl5ws7j5ljsktc3",
+    "4gpaym2njhouv7d",
+    "kq1w2u73ssm9sxr",
+    "2yw5bqf5io7uiq4",
+    "znft7p4ki7wod59",
+    "uez4u8ckgc3tdd2",
+    "42j0vl9ixmrik48",
+    "8jpu7cr6mzevl1t",
+    "fv58ihnonqscob3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.231Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.231Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "42xok807r5wgzhb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.517Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.517Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "phyzs8crvnmhh2j"
+    }
+  ]
+}

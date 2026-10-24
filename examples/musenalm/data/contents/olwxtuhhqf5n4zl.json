@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VIII. (Sammlung INr 77068, Obj 4) Illustration zu »Hero und Leander« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77216, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77217,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich erkenn' euch ernste Mächte, / Strenge treibt ihr eure Rechte, / Furchtbar, unerbittlich ein - -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. H. Schnorr v. Carolsleld del. G. Leybold sc.",
+  "scans": [
+    "alm_2400_77217_ycrv6glk9d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich erkenn' euch ernste Mächte, / Strenge treibt ihr eure Rechte, / Furchtbar, unerbittlich ein - -",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "zefb5ir07ld7tkj",
+      "source_id": "6h1p47tyup4v0xs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "i8vl21p9337802j"
+    }
+  ]
+}

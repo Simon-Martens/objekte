@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Du hast Recht, lieber Lengenfeld, unsre Klagen über das Schicksal mögen, wenigstens der augenblicklichen Ansicht nach, gerecht, und dazu höchst energisch und beredt ausgedrückt seyn;",
+  "language": [],
+  "musenalm_id": 39412,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Jungfer Pathe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filibert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Jungfer Pathe",
+  "updated": "2005-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.128Z",
+      "agent": "rplcedkwg5rqz7n",
+      "source_id": "m3w02utnim133p5"
+    }
+  ]
+}

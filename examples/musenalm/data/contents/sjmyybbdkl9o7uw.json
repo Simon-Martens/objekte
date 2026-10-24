@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Der Pappel gleich, die von der Pyramide / Den Nahmen lieh, schlank in den Äther strebet",
+  "language": [],
+  "musenalm_id": 14624,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Muse",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Muse",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.782Z",
+      "agent": "6nwmu2j1m8xu6n4",
+      "source_id": "gy5pep8srnstwac"
+    }
+  ]
+}

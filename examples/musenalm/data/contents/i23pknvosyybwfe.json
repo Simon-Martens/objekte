@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Gedichten INr 40597-40604, Obj 46-53",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Gedichte",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.226Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "o9soimv5k8suwwl"
+    }
+  ]
+}

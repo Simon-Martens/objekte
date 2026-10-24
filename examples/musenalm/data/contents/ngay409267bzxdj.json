@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Der Pedantismus bath die Phantasie / Um einen Kuß. Sie schickt' ihn zu der Sünde.",
+  "language": [],
+  "musenalm_id": 17525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lucinde. / Ein Roman",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bk.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lucinde. / Ein Roman",
+  "updated": "2001-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.822Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "puxaponqnjijy1q"
+    }
+  ]
+}

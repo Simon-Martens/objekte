@@ -1,0 +1,43 @@
+{
+  "annotation": "Text zu den Kupfern (Sammlung INr 29219, Obj 5) s. Graphik INr 29233, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Blind ergreifen frommt oft besser, Als zu schwanken in der Wahl,",
+  "language": [],
+  "musenalm_id": 29232,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juli",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.439Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "so4145risoy8lt8"
+    }
+  ]
+}

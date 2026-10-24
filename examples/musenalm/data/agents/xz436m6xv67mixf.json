@@ -1,0 +1,336 @@
+{
+  "annotation": "",
+  "biographical_data": "1822-1880",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.468Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller; verwickelt in der 1848er Revolution, von Kriegsgericht zum Tode verurteilt, zu 12 Jahre Festungshaft begnadigt, nach 6 Jahren (1854?) in Kufstein und Theresienstadt entlassen, danach Dramatiker und Zeitungs-Herausgeber in Wien, Hamburg, Berlin; von seiner Familie verstoßen"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1822-12-24"
+      ],
+      "dateOfDeath": [
+        "1880-02-03"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-16T17:24:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611.",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611."
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117643432/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1311429395",
+          "label": "Schlechta, Marie von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117282901",
+          "label": "Schlechta, Franz von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "117643432",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117282901",
+          "label": "Schlechta, Franz von"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1311429395",
+          "label": "Schlechta, Marie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117643432",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)117643432"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Schlechta, Kamill Maria von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Kamill Maria"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schlechta"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1228179808",
+          "label": "Hell, Camillo"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Camillo"
+          ],
+          "surname": [
+            "Hell"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/795041"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55675492"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117643432/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117643432"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schlechta-Wschehrd_Kamill-Franz-Karl-Adam_1822_1880.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117643432"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym bzw. dem wirklichen Namen"
+      ],
+      "variantName": [
+        "Schlechta von Wschehrd, Kamillo Franz Karl Adam",
+        "Schlechta von Wschehrd, Kamill Franz Karl Adam",
+        "Schlechta z Wschehrd, Camill",
+        "Schlechta von Wschehrd, Camillo Franz Karl Adam",
+        "Schlechta, Kamill F. von",
+        "Schlechta, Camill",
+        "Hell, Camillo",
+        "Wschehrd, Kamill Franz Karl Adam Schlechta von",
+        "Šlechta ze Všehrd, Kamill Maria von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Kamill Franz Karl Adam"
+          ],
+          "surname": [
+            "Schlechta von Wschehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Camill"
+          ],
+          "surname": [
+            "Schlechta z Wschehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Kamill Franz Karl Adam Schlechta"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wschehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Kamill F. von"
+          ],
+          "surname": [
+            "Schlechta"
+          ]
+        },
+        {
+          "forename": [
+            "Kamillo Franz Karl Adam"
+          ],
+          "surname": [
+            "Schlechta von Wschehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Camill"
+          ],
+          "surname": [
+            "Schlechta"
+          ]
+        },
+        {
+          "forename": [
+            "Camillo Franz Karl Adam"
+          ],
+          "surname": [
+            "Schlechta von Wschehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Kamill Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Šlechta ze Všehrd"
+          ]
+        },
+        {
+          "forename": [
+            "Camillo"
+          ],
+          "surname": [
+            "Hell"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:48:18Z",
+    "gnd_query_biographical_data": "1822-1880",
+    "gnd_query_name": "schlechta von wschehrd, camillo franz karl adam"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2453,
+  "name": "Schlechta von Wschehrd, Camillo Franz Karl Adam",
+  "profession": "Text",
+  "pseudonyms": "Camillo Hell",
+  "refs": "E 310",
+  "updated": "2026-06-11 13:29:24.648Z",
+  "uri": "https://d-nb.info/gnd/117643432",
+  "editor": ""
+}

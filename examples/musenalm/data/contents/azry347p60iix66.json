@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel s. Textbezug INr 68530, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68501,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historisch-genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1784. / Leipzig / zur Messe / bey Haude und Spener von Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del. D. Berger sc. 1783",
+  "scans": [
+    "alm_925_68501_o1x35pshnp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1784. / Leipzig / zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2008-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.359Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "5otnzr34fdvl3xy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.359Z",
+      "agent": "mmq9ql2t3b3zqca",
+      "source_id": "xtxiqsbom83p0dz"
+    }
+  ]
+}

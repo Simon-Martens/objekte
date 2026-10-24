@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 67134, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67128,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Georg Ludwig Hartig / Königl. Preuss. Ober-Landforstmeister / Staatsrath, und / Mitglied mehrerer deutschen und französischen / Gelehrten Gesellschaften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fregevize pinxt. L. Buchhorn sc.",
+  "scans": [
+    "alm_1146_67128_ee41foy8t1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Georg Ludwig Hartig / Königl. Preuss. Ober-Landforstmeister / Staatsrath, und / Mitglied mehrerer deutschen und französischen / Gelehrten Gesellschaften",
+  "updated": "2009-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.367Z",
+      "agent": "eelhn6956y9y8u1",
+      "source_id": "onsspr0h6ncghzd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.367Z",
+      "agent": "z3xj5kkwhch6rva",
+      "source_id": "zyr3vpwfnitrmsd"
+    }
+  ]
+}

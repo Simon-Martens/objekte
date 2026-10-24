@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61885, Obj 117",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "und du bleibst der Grentzpfahl wie / weit ich das Kapital benutzen darf. / pag. 80",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61887_jrd5lyusu6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "und du bleibst der Grentzpfahl wie / weit ich das Kapital benutzen darf. / pag. 80",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.976Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "yfczgm27115ydxy"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IIII zu S. 87. Illustration zu »Amalie« von A. H. J. Lafontaine INr 23685, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23678,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gezeichnet von Bodmer A. W. Küffner sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet von Bodmer A. W. Küffner sc.",
+  "scans": [
+    "alm_319_23678_nji3mi2psr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.111Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "o8y33rqgq7lvo14"
+    }
+  ]
+}

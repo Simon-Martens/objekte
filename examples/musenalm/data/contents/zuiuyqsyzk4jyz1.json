@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg« INr 48383, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48343,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "und er kniete an dem Grabhügel des Gross- / vaters nieder und betete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_659_48343_fzxzonc8up.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "und er kniete an dem Grabhügel des Gross- / vaters nieder und betete",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "w9av34xl3sgnox9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Willkommen uns wieder und wider, / Lieb Töchterlein, stiegst du hernieder / Aus seligen, leuchtenden Höh'n!",
+  "language": [],
+  "musenalm_id": 33994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei der Geburt eines Mädchens, / unter Kriegsgerüchten. / Nach der Mel. Das waren mir selige Tage etc)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei der Geburt eines Mädchens, / unter Kriegsgerüchten. / Nach der Mel. Das waren mir selige Tage etc)",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.819Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "as6adf4jy6mpmfd"
+    }
+  ]
+}

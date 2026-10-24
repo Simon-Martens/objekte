@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Ich lag, unter duftgen Rosen, / Am murmelnden Wasserfall, / Und ließ die Zephyre kosen, / Und murmeln der Wellen Krystall.",
+  "language": [],
+  "musenalm_id": 44391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Verschwiegene Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Verschwiegene Liebe",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.750Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "rsv0qlfi3kgxqhr"
+    }
+  ]
+}

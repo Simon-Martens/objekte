@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Stimmt, Hirten, nun die süßen Flöten wieder! / Mit Friedensklang und Lorbeern ziehn / Des einzigen Monarchens Helden, unsre Brüder, / Ins ewige Berlin.",
+  "language": [],
+  "musenalm_id": 135598,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beym Rückzug der Preussen aus Sachsen. / Im May 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. B. Berger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beym Rückzug der Preussen aus Sachsen. / Im May 1779",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.153Z",
+      "agent": "lmhkzj71seuklka",
+      "source_id": "urynnh4qms5v83n"
+    }
+  ]
+}

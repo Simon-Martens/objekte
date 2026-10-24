@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So schließe ich denn den fünften Jahrgang unsers Taschenbuchs, und danke meinen Leserinnen herzlich für die Theilnahme, mit der sie uns zeither gelesen haben.",
+  "language": [],
+  "musenalm_id": 46900,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So schließe ich denn den fünften Jahrgang unsers Taschenbuchs, und danke meinen Leserinnen herzlich für die Theilnahme, mit der sie uns zeither gelesen haben.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.286Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "p1ewqm1g8z8j8ov"
+    }
+  ]
+}

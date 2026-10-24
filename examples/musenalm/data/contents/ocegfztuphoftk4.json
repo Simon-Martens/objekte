@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37482, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Nein, nichts was einer historischen Deutung ähnlich sähe, bei diesem Moment der höchsten Seligkeit,",
+  "language": [],
+  "musenalm_id": 37490,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / (Neue Heloise. 1. Th. 14. Brief.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / (Neue Heloise. 1. Th. 14. Brief.)",
+  "updated": "2005-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.873Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "9loncfjn1am1vee"
+    }
+  ]
+}

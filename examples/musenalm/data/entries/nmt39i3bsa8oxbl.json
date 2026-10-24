@@ -1,0 +1,110 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, 2 BB G-Verz I-Verz, 8 BB Kal, SS 1-298",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Kalender (Gotha) 1800",
+    "norm": "~",
+    "biblio": 105921,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3272,
+  "parallel_title": "",
+  "place_statement": "Gotha (Ettinger)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Theater-Kalender (Gotha) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 161; L/R 111; Goed IV/1. 680, 22",
+  "responsibility_statement": "Reichard",
+  "subtitle_statement": "",
+  "title_statement": "Theater- / Kalender, / auf das Jahr / 1800. / Gotha, / bey Carl Wilhelm Ettinger",
+  "updated": "2026-06-11 10:18:54.978Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "7dhd0a888avbk8y"
+  ],
+  "contents": [
+    "8sorse3km7lv9yf",
+    "g934p4pupdwymv4",
+    "lwbxknlyq96dnxa",
+    "hbr0it8f3egiyrz",
+    "q6bipwb0dtqkqw7",
+    "1o4fgwli3u3gvwp",
+    "btmy88l5zhk131q",
+    "f8e3aq6ht22clhp",
+    "xz3z7luax57srxv",
+    "4w15mc82067n9q6",
+    "uyz3cm5x1azn10o",
+    "cgexxqul3ym78ik",
+    "innhf3h608qy8na",
+    "5sx8zrntqsy29gr",
+    "erqsgjj8zy5zqas",
+    "g6e0lvupi3sira7",
+    "gtkogypoul2zm7h",
+    "2cbg46rfonx4obl",
+    "lu92h9uuki9rker",
+    "tljwi3rdirn1fmy",
+    "jhz036zb9q1cm4z",
+    "f3ipynzshikgg2o",
+    "ez702mdjgbik0w2",
+    "hhsm7tflhmhsocf",
+    "hrw4cjqvghp6wor",
+    "phtbmbopysfadug",
+    "1z9t98sdblq2qdm",
+    "msp00gei90vthi3",
+    "ko5chhjda138eoj",
+    "n2h8rx2m6g6kw63",
+    "clozpyzg56rngpk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.201Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.201Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "szqhsd5dvwo8wuk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.814Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.814Z",
+      "agent": "57058q4ca487ing",
+      "source_id": "td2t62tycdv2cin"
+    }
+  ]
+}

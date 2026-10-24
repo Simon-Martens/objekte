@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 67789-67800, Obj 20-31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erinnerungen aus den Blüthentagen der Liebe. / Ein Sonettenkranz, / meiner Josephine gewidmet zu ihrer Namensfeier, / den 19. März 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bueren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erinnerungen aus den Blüthentagen der Liebe. / Ein Sonettenkranz, / meiner Josephine gewidmet zu ihrer Namensfeier, / den 19. März 1822",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.133Z",
+      "agent": "ztyz68vc4kj5ehs",
+      "source_id": "na0wfoe0kkn4481"
+    }
+  ]
+}

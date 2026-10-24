@@ -1,0 +1,113 @@
+{
+  "annotation": "1768-1991, Ulm (Wohler) Hrsg: Christoph Ferdiand Moser",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 3 BB W, SS I-XII Vrwrt d Hrsg, S C, B I-Verz, SS 1-126",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für teutsche Schulmeister 1786",
+    "norm": "~",
+    "biblio": 406739,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3686,
+  "parallel_title": "",
+  "place_statement": "Ulm (Wohler)",
+  "places": [
+    "7j5sscot2sb7ova"
+  ],
+  "preferred_title": "Taschenbuch für teutsche Schulmeister 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "Christoph Ferdiand Moser",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / teutsche / Schulmeister / auf / das Jahr 1786. / Herausgegeben / von / Christoph Ferdinand Moser, / Pfarrer in Wippingen und Lautern. / Ulm / bey Johann Conrad Wohler",
+  "updated": "2026-06-11 10:18:55.057Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "ycbqsyqavn0mnil"
+  ],
+  "contents": [
+    "1o1669kqc7a47vc",
+    "p2jb12l5s6xb6g4",
+    "pm2ghahm9h42bsr",
+    "r30ev5l34c6ik4e",
+    "v801rklvaiko9l7",
+    "e3nre72c2rjosdl",
+    "9pthk91m3147clt",
+    "en5hvh02gfshh67",
+    "3ivio6pcejr64wl",
+    "zi6tg4njxbsj53a",
+    "1j3xdncjnygtq4k",
+    "497q6rjd0skcua7",
+    "gz7tzvvnifxphf8",
+    "p1xzdq4ijpiwo2m",
+    "sivntrupde1nud7",
+    "h2t24l1nln68aru",
+    "4rr3nb4k20lx7b7",
+    "446yk6wm2pq4f11",
+    "h494srmciz06s8v",
+    "3esotd6xr93me2k",
+    "p1qyohh9p2s338y",
+    "qbjmfzql5cnjm8h",
+    "uem12wiztp0wb81",
+    "3kgfwbp3gctmau5",
+    "7ra7jrotcf4c4qx",
+    "vnovhv5fxmwt2bq",
+    "m3o5oqb8q1svsuj",
+    "9244yqgrz194cwx",
+    "7wio937pa7oqyf5",
+    "fokd7jrrw84gtfa",
+    "cc5lvqy2xp0dd07",
+    "g0jglespi4oqh3v",
+    "rsrkuwc1nfhdlhg",
+    "tf20cd69xopyxbh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.281Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.281Z",
+      "agent": "opllmisqfx4rssx",
+      "source_id": "6zs0qvmrn4vn1im"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.189Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.189Z",
+      "agent": "skp0g12v6742tpg",
+      "source_id": "mjbgaf1a6h33yva"
+    }
+  ]
+}

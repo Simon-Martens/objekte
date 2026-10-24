@@ -1,0 +1,45 @@
+{
+  "annotation": "Passion. Vier Sonnette von Deinhardstein (Sammlung INr 125147, Obj 20) II. Sonnette (INr 124146, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Es kommt die Nacht, und keine Sterne scheinen; / Er hangt am Kreutz, dem Vater treu ergeben;",
+  "language": [],
+  "musenalm_id": 125149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Kreutzigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Kreutzigung",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.868Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "hmwdrt62vqp36oz"
+    }
+  ]
+}

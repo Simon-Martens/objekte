@@ -1,0 +1,45 @@
+{
+  "annotation": "Drittes Jahr (Sammlung INr 48686, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Hinter diesem Lak- und Rosenbäumchen / Hier am kleinen offnen Fenster ruht / Sich's beym Abendsange lieber Heimchen, / Und der Frösche Quaken noch so gut.",
+  "language": [],
+  "musenalm_id": 48690,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bald, / im May Abends 11. Uhr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bald, / im May Abends 11. Uhr",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.479Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "34mwuw5euzxlyv4"
+    }
+  ]
+}

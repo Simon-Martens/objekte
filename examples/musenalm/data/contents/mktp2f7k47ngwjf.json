@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu den Opern. Fünfte Lieferung. Preciosa (Sammlung INr 75318, Obj 6) s. Graphik INr 75331, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Don Francisco / Nun mein Sohn? / Don Alonzo (zu seinen Füßen stürzend) / Verzeihung Vater! / Was ich that, geschah aus Liebe.",
+  "language": [],
+  "musenalm_id": 75330,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pius Alexander Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "txnoxc1duud05n7",
+      "source_id": "wy77uhvjnp4zlow"
+    }
+  ]
+}

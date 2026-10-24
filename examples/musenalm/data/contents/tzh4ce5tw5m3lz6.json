@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte und Epigramme (Sammlung INr 28456, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Wie ist mir die Göttin der Freundschaft so hold, / Sie hat mir die schönste der Gaben gezollt,",
+  "language": [],
+  "musenalm_id": 28468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / An den Barden ...",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnoldine Wolf, geb. Weissel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / An den Barden ...",
+  "updated": "2002-10-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.640Z",
+      "agent": "k4l0etwctfexyyx",
+      "source_id": "1urml7zu7lzt21d"
+    }
+  ]
+}

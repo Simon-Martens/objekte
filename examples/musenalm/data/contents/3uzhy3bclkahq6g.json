@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert III. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIANA",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Gottschick",
+  "scans": [
+    "alm_219_13774_dmu5mcylpc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIANA",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.614Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "46r6rt3o60xdocp"
+    }
+  ]
+}

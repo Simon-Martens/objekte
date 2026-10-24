@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Graphik im Kalendarium Mai. /) Illustration zu »Der nordische Krieg vom Jahre 1700 bis 1721« INr 75769, Obj 31; s.a. Textbezug INr 75767, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75747,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Catharina rettet ihren Gemahl Peter den Grossen / von seinem Untergang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Penzel fec. 1793. D. Chod. del.",
+  "scans": [
+    "alm_2140_75747_6butu754vl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Catharina rettet ihren Gemahl Peter den Grossen / von seinem Untergang",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.780Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "ie5cevztdor8qh3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.780Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "rtgs4x2yxg84rze"
+    }
+  ]
+}

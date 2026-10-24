@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Der ohne Widerspruch sich Joseph's / Sohn ließ nennen, / Soll man ihn nicht für Joseph's Sohn er- / kennen?",
+  "language": [],
+  "musenalm_id": 18215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neu theologischer Schluß. / (Im Anfange der Nacht des 16. Mais, / 1800.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neu theologischer Schluß. / (Im Anfange der Nacht des 16. Mais, / 1800.)",
+  "updated": "2001-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.711Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "rcjj4xs43swxktt"
+    }
+  ]
+}

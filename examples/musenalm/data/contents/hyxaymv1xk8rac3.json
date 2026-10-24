@@ -1,0 +1,45 @@
+{
+  "annotation": "Charade in fünf Umrissen (Sammlung INr 20182, Obj 103) Räthsel und Charaden (Sammlung INr 20174, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20185,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg del. 1820; Fr. Ed. Müller sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. 1820; Fr. Ed. Müller sc.",
+  "scans": [
+    "alm_269_20185_9urdutty84.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.886Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ibvuekevcshnnfe"
+    }
+  ]
+}

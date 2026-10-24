@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Sein Schornstein raucht, ein selt'nes Abenteuer, / Die Nachbarn sind bestürzt, und rufen: Feuer",
+  "language": [],
+  "musenalm_id": 28954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Geizigen Mahl. / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henriette Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Geizigen Mahl. / Nach dem Englischen",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.361Z",
+      "agent": "od6meihhmql1c8r",
+      "source_id": "pn7wjjj2m83rsv6"
+    }
+  ]
+}

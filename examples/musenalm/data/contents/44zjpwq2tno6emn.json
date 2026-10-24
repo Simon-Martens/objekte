@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Zu bequem durch Tagesfleiß und Nachtwachen den Schatz der Wissenschaft zu heben, kaufte ein Junker dennoch kostbare und schöne Bücher, um sie in zierlichen Kasten als Beweise seiner Gelehrsamkeit zur Schau zu stellen.",
+  "language": [],
+  "musenalm_id": 89095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Büchernarr und die Milbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Büchernarr und die Milbe",
+  "updated": "2013-05-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.404Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "i4jvqf84cua0qru"
+    }
+  ]
+}

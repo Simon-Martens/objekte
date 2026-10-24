@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Charaden (Sammlung INr 61848, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Ein Wort von drei Silben. Die beiden ersten: ein Weibername; die letzte bezeichnet eine merkliche Erhöhung.",
+  "language": [],
+  "musenalm_id": 61855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.117Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "h95hcixda0dqk45"
+    }
+  ]
+}

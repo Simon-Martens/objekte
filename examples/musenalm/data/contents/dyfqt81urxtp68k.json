@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89565, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Zwei leibliche Brüder hatten von ihrem Vater ein reichlich Erbtheil erhalten, mit dessen Hälften sie jedoch auf verschiedene Art gebahrten.",
+  "language": [],
+  "musenalm_id": 89569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wunderkräutlein. / (Ottonis Melandri Jocoseria. Lichae. MDCV. / Lib. III. 36. pag. 49.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wunderkräutlein. / (Ottonis Melandri Jocoseria. Lichae. MDCV. / Lib. III. 36. pag. 49.)",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.338Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "jdd2em1ju82fpji"
+    }
+  ]
+}

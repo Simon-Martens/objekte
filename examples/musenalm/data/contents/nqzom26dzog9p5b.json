@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Basels südliche Umgebungen oder mein Besuch auf Sankt Margrethen« INr 78487, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARGRETHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sam. Frey fecit. A. Benz delt. Lith von A. Merian",
+  "scans": [
+    "alm_3731_78488_lp3zen5kuc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARGRETHEN",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.785Z",
+      "agent": "ldosmz32ve7ibjb",
+      "source_id": "0btbfa8vvvyd8re"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.785Z",
+      "agent": "en0ptsusthk5jnk",
+      "source_id": "yebxi6g5fxo72tn"
+    }
+  ]
+}

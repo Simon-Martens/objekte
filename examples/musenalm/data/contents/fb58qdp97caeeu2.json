@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphik im Kalendarium INr 75660, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Don Ferdinand, Spanischer Infant, Sohn des Königs Philipp III, Cardinal und Erzbíschof von Toledo, erhob sich durch Denkungsart und Sitten über seine Nation.",
+  "language": [],
+  "musenalm_id": 75675,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 2",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.667Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "ryx9wwiydtf04dl"
+    }
+  ]
+}

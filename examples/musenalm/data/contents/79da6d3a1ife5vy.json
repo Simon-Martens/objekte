@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 32110, Obj 3,04",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TOCHTER DER HERODIAS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Onoro Marinaro pt. F. John sc.",
+  "scans": [
+    "alm_230_32109_hf4sq261xg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TOCHTER DER HERODIAS",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.450Z",
+      "agent": "zdl03kbqq95jjm1",
+      "source_id": "hlnod92zuepqbqs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.450Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "too6vjlve3m1413"
+    }
+  ]
+}

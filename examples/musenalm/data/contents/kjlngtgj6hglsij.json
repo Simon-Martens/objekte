@@ -1,0 +1,43 @@
+{
+  "annotation": "Franz und Mathilde oder Liebe, Leiden und Freuden (INr 29469, Obj 4) s. Graphik INr 29477, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wie eine sturmvolle Nacht lag es jetzt auf Franzens unmuthsvoller Seele;",
+  "language": [],
+  "musenalm_id": 29476,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2002-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.993Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "qcjw5mqmmkr6816"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli; paginiert 7.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97052,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königl. Schloss zu Köpenick. / Château Royal à Coepenick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_3987_97052_hf6wf7xdll.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königl. Schloss zu Köpenick. / Château Royal à Coepenick",
+  "updated": "2013-07-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.696Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "6tnxtumswtaxuof"
+    }
+  ]
+}

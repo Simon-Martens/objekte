@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Ernst aus Scherz.« von Amalia Schoppe INr 63830, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63821,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LOUISE / zur Erzählung: Ernst und Scherz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Jenkins pinx. C. Deucker sc. Frankft a/m",
+  "scans": [
+    "alm_1049_63821_itirqtev3t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LOUISE / zur Erzählung: Ernst und Scherz",
+  "updated": "2009-04-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.155Z",
+      "agent": "elw11pa6n5pk69x",
+      "source_id": "8esgw4i8d630im0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.155Z",
+      "agent": "o82hjun2z18aur7",
+      "source_id": "a7rhti8kiptai0v"
+    }
+  ]
+}

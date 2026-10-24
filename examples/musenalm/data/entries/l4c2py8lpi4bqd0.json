@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 2 BB, S I-Verz, 7 GG, SS 1- 458",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1835",
+    "norm": "~",
+    "biblio": 106728,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2477,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN. / EIN / TASCHENBUCH / FÜR 1835. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.472Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "a46t92abhvag1ys"
+  ],
+  "contents": [
+    "2shbge7g8z2awcu",
+    "s9i7pypqj0augwf",
+    "41m3sdn9hzunhui",
+    "crb0o7a5yuj44bp",
+    "dc5zx3xx7dfh86c",
+    "qvhvwsur36ii7xa",
+    "a3v55kkrkksjmhd",
+    "0f183ttcdgsgcjm",
+    "gbdvmhuq8oi6uf8",
+    "4sl6nl07cb37n7l",
+    "rbb7yxtuil0auww",
+    "f195g42q3xxi10g",
+    "e7wwzy52pgcuv84",
+    "nbkchjaosyzkcuy",
+    "09019hl0wever76",
+    "15vzjl4l2bpx7hr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.093Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.093Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "zobgn2ogw9e7718"
+    }
+  ]
+}

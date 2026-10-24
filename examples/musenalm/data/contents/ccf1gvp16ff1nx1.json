@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetisches Allerlei (Sammlung INr 34377, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Höhern Wesen erscheinen wir vielleicht reicher als uns selber,",
+  "language": [],
+  "musenalm_id": 34384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Wir",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Wir",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.672Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "vojig59csarye7h"
+    }
+  ]
+}

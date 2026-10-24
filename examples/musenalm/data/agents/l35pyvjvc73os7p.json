@@ -1,0 +1,615 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1857",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.319Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1780-08-18"
+      ],
+      "dateOfDeath": [
+        "1857-02-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Christian Wilhelm von Faber du Faur"
+          ],
+          "creditText": [
+            "Franz Georg Friedrich von Kausler, Christian Wilhelm von Faber du Faur. Der Russlandfeldzug Napoleons 1812. — Wolnzach: Kastner, 2003. — ISBN&nbsp;3-936154-97-X"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Wilhelm%20von%20Faber%20du%20Faur.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Christian%20Wilhelm%20von%20Faber%20du%20Faur.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Christian%20Wilhelm%20von%20Faber%20du%20Faur.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-02-28T16:14:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118828703/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116359560",
+          "label": "Faber du Faur, Otto von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118828703",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#8.4p",
+          "label": "Personen zu politischer Theorie, Militär"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116359560",
+          "label": "Faber du Faur, Otto von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118828703",
+      "oldAuthorityNumber": [
+        "(DE-588a)118828703",
+        "(DE-588c)4194403-3"
+      ],
+      "preferredName": "Faber du Faur, Christian Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Faber du Faur"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132742-1",
+          "label": "General"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "publication": [
+        "Napoleons Feldzug in Russland 1812. - 1897"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81058492"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64280179"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q823966"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118828703/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Christian_Wilhelm_von_Faber_du_Faur"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_von_Faber_du_Faur"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Christian_Wilhelm_von_Faber_du_Faur"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118828703"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066634904"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118828703"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118828703"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118828703"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Faur, Christian Guillaume de Faber du",
+        "DuFaur, Christian W.",
+        "Faber du Faur, Christian W. von",
+        "Faur, Christian W. von Faber du",
+        "Faber du Faur, Wilhelm",
+        "Faber DuFaur, Christian G. de",
+        "Faber DuFaur, Christian Guillaume de",
+        "Du Faur, Christian Guillaume de Faber",
+        "Faber du Faur, Wilhelm von",
+        "DuFaur, Christian G. de",
+        "Du Faur, Christian W. von Faber",
+        "Faber DuFaur, Guillaume de",
+        "Faber DuFaur, Christian Wilhelm von",
+        "Faber du Faur, Christian Guillaume de",
+        "DuFaur, Christian Wilhelm von Faber",
+        "Du Faur, Christian W.",
+        "Faber DuFaur, Wilhelm von",
+        "Faber du Faur, C. W. von",
+        "DuFaur, Wilhelm von F.",
+        "Du Faur, Christian Wilhelm von Faber",
+        "DuFaur, Christian W. von Faber",
+        "Faber DuFaur, Christian W. von",
+        "Faber DuFaur, Christian G. von",
+        "DuFaur, Christian G. von",
+        "Faur, Christian W. du",
+        "Du Faur, Christian G. von",
+        "Faur, Christian G. de",
+        "Du Faur, Wilhelm von F.",
+        "Faur, Christian Wilhelm von Faber du",
+        "Faber du Faur, Christian Wilhelm Philipp Friedrich von",
+        "Faber du Faur, Guillaume de"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm von Faber"
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "C. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Guillaume de Faber"
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm Philipp Friedrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm von F."
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm von F."
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm von Faber"
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm von Faber"
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W. von Faber"
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Guillaume de Faber"
+          ],
+          "surname": [
+            "Du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W. von Faber"
+          ],
+          "surname": [
+            "DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Guillaume"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Faber du Faur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Faber DuFaur"
+          ]
+        },
+        {
+          "forename": [
+            "Christian W. von Faber"
+          ],
+          "prefix": [
+            "du"
+          ],
+          "surname": [
+            "Faur"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Christian_Wilhelm_von_Faber_du_Faur",
+          "label": "https://de.wikipedia.org/wiki/Christian_Wilhelm_von_Faber_du_Faur"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:20:36Z",
+    "gnd_query_biographical_data": "1780-1857",
+    "gnd_query_name": "faber du faur, christian wilhelm von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 684,
+  "name": "Faber du Faur, Christian Wilhelm von",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XI, 157",
+  "updated": "2026-06-11 13:29:22.210Z",
+  "uri": "https://d-nb.info/gnd/118828703",
+  "editor": ""
+}

@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Libussa 1852",
+    "norm": "",
+    "biblio": 405458,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2224,
+  "parallel_title": "",
+  "place_statement": "Prag (Calve), Leipzig (Hübner)",
+  "places": [
+    "d7kbujq7399g22j",
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Libussa 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; nicht bei L/R",
+  "responsibility_statement": "Paul Aloys Klar",
+  "subtitle_statement": "",
+  "title_statement": "Libussa. / Jahrbuch für 1852. / Herausgegeben / von / Paul Aloys Klar, / [...] / Eilfter Jahrgang. / Mit zwei gestochenen Portraiten, einem Kunstblatte, und vier lithographirten / Beilagen. / Prag. / J. G. Calve's / Buchhandlung in Prag / Heinrich O. Hübner's / Buchhandlung in Leipzig",
+  "updated": "2026-06-11 10:18:55.916Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "lwk0w8u8z2l4pgf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.636Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.636Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "50vhc893hrol963"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.044Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.044Z",
+      "agent": "trle1eunm8dryz2",
+      "source_id": "elkj41aukkq26wg"
+    }
+  ]
+}

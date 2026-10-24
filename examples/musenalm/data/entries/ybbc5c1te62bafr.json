@@ -1,0 +1,112 @@
+{
+  "annotation": "KVK-SWB: 1780-1782 (?)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 15 BB Kal, B, ar: SS 1-26, ar1: SS 1-263, S VrlgM, S C, S, 2 BB I-Verz, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Pfalzbayrischer literarischer 1781",
+    "norm": "~",
+    "biblio": 404544,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1471,
+  "parallel_title": "",
+  "place_statement": "München (Fritz)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Almanach, Pfalzbayrischer literarischer 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Pfalzbaierischer / litterarischer / Almanach / auf das Jahr / 1781. / Mit Genehmhaltung des Churfürstl. / Büchercensurkollegium. / München, / zu finden bey Johann Nepomuck Fritz, / akademischen Buchhändler",
+  "updated": "2026-06-11 10:18:55.180Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "2aj9kfejxk8nf1l"
+  ],
+  "contents": [
+    "0mg0spb4le3et6c",
+    "11v1u00ffvo00kh",
+    "c00s1yvkbtjgwwo",
+    "vk4bha8yjkx5ilu",
+    "iavz6wos6pdrdye",
+    "xbvuhyfk8bgf2be",
+    "1dpyn3jnqmy6y39",
+    "93bfp52sae2eq06",
+    "9dr2y9dkshrjg15",
+    "416zg70f9elt2hn",
+    "ocyzs3k43atsvgf",
+    "7gmtu3l003o5rsq",
+    "x7anocn0nlh3h2y",
+    "20yo2qkehnwgymo",
+    "t484no81773z51b",
+    "mtrx2tlel52hacn",
+    "fq5unvr3b1gw4ns",
+    "d6zo6wz93pnfy5p",
+    "2p57hf4uul97k4u",
+    "phh5mr3e3ythnt3",
+    "69kbprzbrv2y6zb",
+    "u09abl1puvbnjir",
+    "73ddqx6pic99x72",
+    "b62wvctpyja9gjf",
+    "bcyddys3ycno2zc",
+    "10kuq22u7doyk1c",
+    "qzvxfh7uakenah0",
+    "9yhgvp7b1a30p8v",
+    "ihbsnpf1t6pszoe",
+    "mjthzra4sgu5pgk",
+    "jt50llqw3atw11o",
+    "f008jcxajiwfqg0",
+    "pxkxyz365fpgqn3",
+    "ixzwkpczmdu4enl",
+    "tlfqy7ixbbba63b",
+    "czvcwnkjowssqc6",
+    "puk6sdagm8hwfnk",
+    "j30p4f37dm6y4ud",
+    "2yxg3uomjsrs3a8",
+    "o1q6qm6hrqp5q6j",
+    "8d3qr2375h7dyer",
+    "h9tfb1yd84etevk",
+    "aw1q87huk4zp3a8",
+    "c7jvmf49li9ecqj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.877Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.877Z",
+      "agent": "lqfzi8k98zxwra9",
+      "source_id": "d02vs3heia1l5iz"
+    }
+  ]
+}

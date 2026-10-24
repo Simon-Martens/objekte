@@ -1,0 +1,806 @@
+{
+  "annotation": "",
+  "biographical_data": "1810-1884",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.518Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Adresse: (Berlin) 12 Marien-Straße 1 Treppe. - Zeitraum: 1872",
+        "Vollständiger Vorname: Anton Edmund",
+        "Deutscher Schriftsteller, Dramaturg, Philologe und Sprachwissenschaftler, Theaterdirektor, Diplomat"
+      ],
+      "dateOfBirth": [
+        "1819-02-12"
+      ],
+      "dateOfDeath": [
+        "1884-10-24"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "August Weger"
+          ],
+          "creditText": [
+            "http://resolver.sub.uni-hamburg.de/goobi/PPN663949858"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/PPN663949858%20Bildnis%20von%20Anton%20Eduard%20Wollheim%20Dafonseca.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/PPN663949858%20Bildnis%20von%20Anton%20Eduard%20Wollheim%20Dafonseca.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:PPN663949858%20Bildnis%20von%20Anton%20Eduard%20Wollheim%20Dafonseca.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/157623696",
+        "https://d-nb.info/gnd/159227828",
+        "https://d-nb.info/gnd/159227836",
+        "https://d-nb.info/gnd/15922781X"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T16:24:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117433640/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Hirsch Jakob"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117433640",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117433640",
+      "oldAuthorityNumber": [
+        "(DE-588a)159227828",
+        "(DE-588a)157623696",
+        "(DE-588a)159227836",
+        "(DE-588a)15922781X",
+        "(DE-588c)4697982-7",
+        "(DE-588)15922781X",
+        "(DE-588)157623696",
+        "(DE-588)159227828",
+        "(DE-588)159227836",
+        "(DE-588a)117433640"
+      ],
+      "periodOfActivity": [
+        "1859-1875"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Wollheim da Fonseca, A. E.",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "A. E."
+        ],
+        "surname": [
+          "Wollheim da Fonseca"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012679-1",
+          "label": "Dolmetscher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398844-1",
+          "label": "Theaterdirektor"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftsteller",
+        "Theaterdirektor",
+        "Publizist"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Grillophilos"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Fallmer"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Lehnhard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Mausche"
+          ],
+          "surname": [
+            "Worscht"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carl Julius"
+          ],
+          "surname": [
+            "Wallheim"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Der deutsche Trelawney ..",
+        "Der deutsche Seehandel ..",
+        "Don Lottario",
+        "Österreich, Venetien und Deutschland",
+        "Indiscretionen",
+        "De nonnullis Padma-Purani capitibus",
+        "Andrea. - o.J.",
+        "Spanischer Pfeffer gegen Deutsches Salz"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Anton Edmund Franz Joseph Xaver Maria Evarist"
+          ],
+          "surname": [
+            "Wollheim de Fonseca"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no95056792"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17999951"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q589105"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117433640/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/157623696"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/15922781X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159227828"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159227836"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anton_Eduard_Wollheim_da_Fonseca"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110419321"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117433640"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117433640"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117433640.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117433640"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Wollheim de Fonseca",
+        "Wollheim da Fonseca, Ant. Edm.",
+        "Wollheim DaFonseca, Anton Edmund",
+        "Worscht, Mausche",
+        "Wollheim, Anton E.",
+        "Wollheim, Anton Edward",
+        "Wollheim de Fonseka, Anton Evarist",
+        "DaFonseca, Anton Eduard Wollheim",
+        "Wollheim, A. E., Chevalier da Fonseca",
+        "Wollheim, Antonio Edmundo",
+        "Wollheim, Anton Eduard",
+        "Fonseka, Anton Evarist de",
+        "Wallheim, Carl Julius",
+        "Wollheim, Anton Evarist",
+        "Wollheim de Fonseca, Anton Edmund Franz Joseph Xaver Maria Evarist",
+        "Fonseca, Anton Eduard Wollheim da",
+        "Wollheim da Fonseca, Anton Edmund",
+        "Fonseca, Anton Edmund Wollheim da",
+        "Fonseca, Anton Evarist da, Chevalier",
+        "Wollheim da Fonseca, Anton Eduard",
+        "Wollheim, Anton Eduard Franz Joseph da Fonseca",
+        "Wollheim da Fonseca, Anton E.",
+        "Wollheim, A. E.",
+        "Wollheim DaFonseca, Anton Eduard",
+        "Wollheim von Fonseca",
+        "Fonseca, A. E. Wollheim da",
+        "Da Fonseca, A. E. Wollheim",
+        "Lehnhard, H.",
+        "W. d. F.",
+        "de Fonseca, Anton Evarist",
+        "Wollheim de Fonseca, Anton Evarist",
+        "Da Fonseca, Anton Eduard Wollheim",
+        "DaFonseca, Anton Edmund Wollheim",
+        "Fallmer, A. G.",
+        "Wollheim, Anton",
+        "Wollheim, Edmund Anton",
+        "Wollheim, Ant. Edm.",
+        "Wollheim da Fonseca",
+        "Grillophilos",
+        "Wollheim, Anton Edmund",
+        "DaFonseca, Anton E."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anton E."
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund"
+          ],
+          "surname": [
+            "Wollheim DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "nameAddition": [
+            "Chevalier"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton E."
+          ],
+          "surname": [
+            "Wollheim da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Fonseka"
+          ]
+        },
+        {
+          "forename": [
+            "Mausche"
+          ],
+          "surname": [
+            "Worscht"
+          ]
+        },
+        {
+          "forename": [
+            "A. E."
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Antonio Edmundo"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Ant. Edm."
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "personalName": [
+            "W. d. F."
+          ]
+        },
+        {
+          "forename": [
+            "A. E."
+          ],
+          "nameAddition": [
+            "Chevalier da Fonseca"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard Wollheim"
+          ],
+          "surname": [
+            "Da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard Wollheim"
+          ],
+          "surname": [
+            "DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "A. E. Wollheim"
+          ],
+          "surname": [
+            "Da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "surname": [
+            "de Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Julius"
+          ],
+          "surname": [
+            "Wallheim"
+          ]
+        },
+        {
+          "forename": [
+            "Ant. Edm."
+          ],
+          "surname": [
+            "Wollheim da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "personalName": [
+            "Wollheim de Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "H."
+          ],
+          "surname": [
+            "Lehnhard"
+          ]
+        },
+        {
+          "personalName": [
+            "Wollheim da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund Franz Joseph Xaver Maria Evarist"
+          ],
+          "surname": [
+            "Wollheim de Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Fallmer"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard"
+          ],
+          "surname": [
+            "Wollheim da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "A. E. Wollheim"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard Franz Joseph da Fonseca"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Fonseka"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund Wollheim"
+          ],
+          "surname": [
+            "DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard Wollheim"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "surname": [
+            "Wollheim de Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "personalName": [
+            "Wollheim von Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard"
+          ],
+          "surname": [
+            "Wollheim DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edward"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Eduard"
+          ],
+          "surname": [
+            "Wollheim DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund Wollheim"
+          ],
+          "prefix": [
+            "da"
+          ],
+          "surname": [
+            "Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton E."
+          ],
+          "surname": [
+            "DaFonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Edmund"
+          ],
+          "surname": [
+            "Wollheim da Fonseca"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Evarist"
+          ],
+          "surname": [
+            "Wollheim de Fonseka"
+          ]
+        },
+        {
+          "personalName": [
+            "Grillophilos"
+          ]
+        },
+        {
+          "forename": [
+            "Edmund Anton"
+          ],
+          "surname": [
+            "Wollheim"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anton_Eduard_Wollheim_da_Fonseca",
+          "label": "https://de.wikipedia.org/wiki/Anton_Eduard_Wollheim_da_Fonseca"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:24:57Z",
+    "gnd_query_biographical_data": "1810-1884",
+    "gnd_query_name": "wollheim da fonseca, anton eduard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3194,
+  "name": "Wollheim da Fonseca, Anton Eduard",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLIV, 146",
+  "updated": "2026-06-11 13:29:25.860Z",
+  "uri": "https://d-nb.info/gnd/117433640",
+  "editor": ""
+}

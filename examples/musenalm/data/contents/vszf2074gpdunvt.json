@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April; pag. Taf. IV. # vollst. Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62053,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / 8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kaiser del. 1803. Thelott sc.",
+  "scans": [
+    "alm_1018_62053_srravehhoe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "7. / 8.",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.103Z",
+      "agent": "temkw600l59vchm",
+      "source_id": "b3tk3xb9tvdes1g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.103Z",
+      "agent": "f8vs62ntusa9nl2",
+      "source_id": "fn55oylbr16pqx9"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Bez. am Gedicht INr 76515, Obj 36 /) Lieder mit Musik (Sammlung INr 76514, Obj 34) Euterpe (Sammlung INr 76513, Obj 33) mit einer Musikbeigab s. INr 76517, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Früh Morgens als ich gestern / im Felde gieng entlang, / da hört' ich wie im Thurme / ein Mädchen lieblich sang;",
+  "language": [],
+  "musenalm_id": 76518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines wahnsinnigen Mädchens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "von demselben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines wahnsinnigen Mädchens",
+  "updated": "2011-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.660Z",
+      "agent": "lxhop9b69bw0dct",
+      "source_id": "5ihhh2gq5kp1ktx"
+    }
+  ]
+}

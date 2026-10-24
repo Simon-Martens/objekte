@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 62862, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Von Lieb' entbrannt, und fertig zu der Reise / In's Schlachtfeld, sang mit unbewölktem Sinn / Ein Trobadour in wiederholter Weise",
+  "language": [],
+  "musenalm_id": 62861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Troubadour. / Nach dem Französischen, mit Musik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Troubadour. / Nach dem Französischen, mit Musik",
+  "updated": "2009-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.025Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "tbvclxd7odh35jo"
+    }
+  ]
+}

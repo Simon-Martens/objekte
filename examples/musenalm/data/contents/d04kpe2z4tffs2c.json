@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz; s. Textbezug INr 63515, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63520,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen von Athen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Chalon pinx. F. Fleischmann sc. Mchn",
+  "scans": [
+    "alm_1043_63520_iab35mhd6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen von Athen #",
+  "updated": "2009-04-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.173Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "f4u06yrttyay2sk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.173Z",
+      "agent": "ofmlr5ax2rwl9dz",
+      "source_id": "tzcsm6pcdvir7si"
+    }
+  ]
+}

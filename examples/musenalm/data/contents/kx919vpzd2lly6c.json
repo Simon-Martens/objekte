@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Motto: Wir umflattern das mächtige Wasserroß, / Von dessen Huf das Meer erschäumt, [...] / Nach W. Scott /) mit einer Illustration s. Graphik INr 110049, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Gott segne Dich, mein Kind, und seine heiligen Engel mögen Dich geleiten! sagte Mistreß Vansittart",
+  "language": [],
+  "musenalm_id": 110053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter Carey's Hühnchen. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. von Wachsmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutter Carey's Hühnchen. / Erzählung",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.354Z",
+      "agent": "0erfxld46kry72g",
+      "source_id": "tu4y76zmoqfuvy4"
+    }
+  ]
+}

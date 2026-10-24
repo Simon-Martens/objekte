@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen. Dritter Abschnitt.« von F. W. Schubert INr 59028, Obj 19 s.a. Textbezug INr 59041, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59023,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Fürstenstein in Schlesien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gezeichnet von S. Rösel. L. Schütze sc. in Dresden",
+  "scans": [
+    "alm_871_59023_882kaeaaem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Fürstenstein in Schlesien",
+  "updated": "2008-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.746Z",
+      "agent": "fvvo7u8gqk8l3ze",
+      "source_id": "76ceg6bw5cmi73h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.746Z",
+      "agent": "2a43eco4bvr5idy",
+      "source_id": "7w02nalorforw91"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Briefwechsel zur Charakteristik unsrer Zeit (Sammlung INr 44860, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Liebe Alphonsine! Schon oft habe ich Dich höflichst ersucht, Deinem Portier Abschied zu geben, weil der Lümmel so entsetzlich ungeschliffen ist.",
+  "language": [],
+  "musenalm_id": 44861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lord Beefstek an die Tänzerin Alphonsine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lord Beefstek an die Tänzerin Alphonsine",
+  "updated": "2006-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.433Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "2m97mv6pc4aqa74"
+    }
+  ]
+}

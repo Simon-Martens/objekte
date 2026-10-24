@@ -1,0 +1,43 @@
+{
+  "annotation": "Die verheimlichte Schöne. Ein erzählendes Gedicht in zwölf Balladen (Sammlung INr 29749, Obj 5) s. Graphik INr 29763, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Umschlag, der im Busen ruht, / Der Brief - sie beide tragen",
+  "language": [],
+  "musenalm_id": 29762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siebente Ballade. / Wiedersehn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siebente Ballade. / Wiedersehn",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.413Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "yy63mj8qbukj6j5"
+    }
+  ]
+}

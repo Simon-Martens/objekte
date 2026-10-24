@@ -1,0 +1,101 @@
+{
+  "annotation": "$§ vermutl. fehlt Graphik im Kalendarium Dezember",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 21 SS Kal darin 11 GG $§, S VrlgM, Kr, ar: SS 1-155, S 156-165 VrlgM, 3 SS VrlgM, 88 BB Tabb, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Militärischer 1798",
+    "norm": "~",
+    "biblio": 100312,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2181,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Militärischer 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 70; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärischer / Kalender / auf / das Jahr 1798. / Mit 12 Bildnissen / und der / Geschichte des Feldzuges am Rhein / vom Jahr 1792. / nebst / einer genauen Karte des Kriegs-Schauplatzes. / Mit Genehmigung der Königl. Preußischen / Akademie der Wissenschaften. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.895Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "7ly64unzed8rok0"
+  ],
+  "contents": [
+    "eusbcq4s8s1p1jz",
+    "g5lhtcadb6l0jyt",
+    "82d1159388nb63e",
+    "uvl857r8979eqpl",
+    "boiujm5xp3g5pro",
+    "ziu9idv84zn5q4g",
+    "k459ai43hp9j0rq",
+    "ptdd0j8uafgau07",
+    "aumf88rk3gglhxt",
+    "iyzohf8mbwts3f8",
+    "zf51ptq0pdgynbh",
+    "f6s7rc44lc47sgv",
+    "scrytgk60qde1eg",
+    "phl19ttnfr72lt3",
+    "tk0uxkfyniirwi0",
+    "v31ae5xga2izixj",
+    "5aa8fyqx98neucu",
+    "oxgvnc413e0tt9n",
+    "gq0t58in5pc3z1h",
+    "lzmecee5w0nyavo",
+    "bhs1m6p27tao82z",
+    "j7i9x5gmcs9bzz6",
+    "yab73txtkys432a",
+    "vc8436b1tottwmq",
+    "eo1sk5eb26pctqk",
+    "ss4et96j2i2ie15",
+    "inj2k7iwjqkb3em",
+    "bnwupqa81sx2s0o",
+    "6lhl8xb3nb0o2oo",
+    "o5tim3l6wf5e2yk",
+    "jewhg61r2up9u4s",
+    "5bxqgggf31sf7du",
+    "tqdek0ykmm11nxj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.169Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.169Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "5p0jokqisowgpuc"
+    }
+  ]
+}

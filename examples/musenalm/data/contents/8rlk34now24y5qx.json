@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 24581, Obj 159)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Das Insect, wie frühlingsfertig, / Golden schillernd, schwebt dahin!",
+  "language": [],
+  "musenalm_id": 24582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufbruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufbruch",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.680Z",
+      "agent": "24r7c2wzrpocitx",
+      "source_id": "9vdx9hzvege3d66"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 12598, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Gehängt zu werden ist mir eigen; / Berührst du mich, so kling' ich fein.",
+  "language": [],
+  "musenalm_id": 12625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Noeller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27.",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.116Z",
+      "agent": "jwuw6kcpwyx8ojz",
+      "source_id": "11q2ndb5wvtc2nc"
+    }
+  ]
+}

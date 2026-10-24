@@ -1,0 +1,56 @@
+{
+  "annotation": "KLEINE GEDICHTE (Sammlung INr 71336, Obj 123) CAMOENS (s. Zwischentitel INr 71332, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Weil ihr mit so üblem Namen / Mich Senhora, habt empfohlen: / Mög' euch denn der Teufel hohlen.",
+  "language": [],
+  "musenalm_id": 71338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / ALS IHN EINEN DAME, DOS ANJOS MIT NAMEN, TEUFEL / GENANNT HATTE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Camoens; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / ALS IHN EINEN DAME, DOS ANJOS MIT NAMEN, TEUFEL / GENANNT HATTE",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "cfp4b3jy9shffk2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "k7u16ib34tg2ui1",
+      "source_id": "js2bigwqdfjivvh"
+    }
+  ]
+}

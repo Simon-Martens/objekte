@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Soll denn immer neues Leiden / Herrin, über mich ergehen?",
+  "language": [],
+  "musenalm_id": 62682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freyhr. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Meinen Augen muß ich's sagen, / Daß sie schweigen, nicht dem Munde, / Denn die Augen geben Kunde, / Wo es nicht die Lippen wagen. / (Calderon.)",
+  "updated": "2009-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.223Z",
+      "agent": "7pclzh61bvgdvvq",
+      "source_id": "49y63oo0jsdqf7z"
+    }
+  ]
+}

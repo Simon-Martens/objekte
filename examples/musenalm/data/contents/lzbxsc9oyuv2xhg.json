@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) zus. Bez.: Gedruckt bei Franz Kargl /) s. Textbezug INr 86475, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86470,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angelica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Theer pinx. J. Axmann sc. Vienna",
+  "scans": [
+    "alm_1601_86470_mc1b6qcdlj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angelica",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.224Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "intxr3lhyde8rx8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.224Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "tu1giq58mo246bg"
+    }
+  ]
+}

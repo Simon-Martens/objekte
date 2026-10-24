@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Mit seiner Seligkeit steht es wahrhaftig / schlimm: / Man sah die ganze Zeit kein gutes Wort von / ihm.",
+  "language": [],
+  "musenalm_id": 30988,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines schlechten / Autors",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines schlechten / Autors",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.289Z",
+      "agent": "k0pr8qnl9uye038",
+      "source_id": "grz6ek47y4v7xu2"
+    }
+  ]
+}

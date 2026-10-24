@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen, darin: Das Original dieses alten Volksliedes steht in einer seltenen Sammlung, betitelt: Curious pieces of ancient English poetry von Charles Kippis",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Zwei Reiter sah ich reiten / Zu gleicher Zeit aus, / Durch Wälder und Heiden, / Weit, weithin zu Haus,",
+  "language": [],
+  "musenalm_id": 62077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zwei Reiter. / Ballade, Altschottisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Bothe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zwei Reiter. / Ballade, Altschottisch",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.663Z",
+      "agent": "naz7pgrgy8ee7vq",
+      "source_id": "7vebsup6fm6fz4e"
+    }
+  ]
+}

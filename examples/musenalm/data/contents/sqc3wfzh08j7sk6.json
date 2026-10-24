@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte (Sammlung INr 29095, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Was es war, was ich in Kindheitstagen / Gern mir träumte? So ein niedlich Gütchen,",
+  "language": [],
+  "musenalm_id": 29097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gut. / Idylle. / Aedon und Ino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gut. / Idylle. / Aedon und Ino",
+  "updated": "2002-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.401Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "tyvcybvw1i08odb"
+    }
+  ]
+}

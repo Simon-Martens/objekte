@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Der Britte ehrt, es liebt der feur'ge Franke, / Es preiset Welschland seinen Genius;",
+  "language": [],
+  "musenalm_id": 95523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die deutsche dramatische Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die deutsche dramatische Kunst",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.610Z",
+      "agent": "cvs1lz6mp4pj8h4",
+      "source_id": "shg2cntvoeb81fl"
+    }
+  ]
+}

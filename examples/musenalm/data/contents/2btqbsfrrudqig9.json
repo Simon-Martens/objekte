@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit Anmerkungen zum Bild",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Der fröhlichste Morgen leuchtete über Neapel und seinen schönen Golf, als ein Barke im röthlichen Glanz der aufgehende Sonne der Insel Kapri zusteuerte.",
+  "language": [],
+  "musenalm_id": 40316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Das Kloster auf Kapri. / Nach einem Gemälde von Catel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Pichler, geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Das Kloster auf Kapri. / Nach einem Gemälde von Catel",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.144Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "schwoauqejf7gnm"
+    }
+  ]
+}

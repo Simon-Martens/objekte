@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Die Poesie in allen ihren Zungen / Ist dem Geweihten Eine Sprache nur,",
+  "language": [],
+  "musenalm_id": 24414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 194,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermuthigung zur Uebersetzung der / Hamasa, / einer Sammlung alt-arabischer Volkslieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ermuthigung zur Uebersetzung der / Hamasa, / einer Sammlung alt-arabischer Volkslieder",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.200Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "zsmvum5wddydiyz"
+    }
+  ]
+}

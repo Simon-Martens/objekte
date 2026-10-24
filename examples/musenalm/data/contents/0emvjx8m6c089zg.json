@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium; nummeriert 4. /) s. Textbezug INr 109770, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109771,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haben sie diese Art Dankbarkeit von mir gewollt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard del. Jos. Stöber sc.",
+  "scans": [
+    "alm_1720_109771_cbae0yrnlj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Haben sie diese Art Dankbarkeit von mir gewollt",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.342Z",
+      "agent": "jqx789ngxccpl2l",
+      "source_id": "ccg38lk31dhyhq9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.342Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "z2jaj0ju1wj2hby"
+    }
+  ]
+}

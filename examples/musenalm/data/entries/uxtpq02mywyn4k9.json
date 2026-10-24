@@ -1,0 +1,74 @@
+{
+  "annotation": "Erschienen auch als Ausgabe für Frankreich: Flore d'allemagne ou étrennes botaniques tome second...    [...]",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Flora, Deutschlands 1795",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1766,
+  "parallel_title": "",
+  "place_statement": "Erlangen (Palm)",
+  "places": [
+    "wj30yx71okckkk5"
+  ],
+  "preferred_title": "Flora, Deutschlands 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 133",
+  "responsibility_statement": "Georg Franz Hoffmann",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.627Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.120Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.120Z",
+      "agent": "n6riamlzwhhzdiv",
+      "source_id": "f24dxghjug04i99"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.968Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.968Z",
+      "agent": "unfjb2prdot2pyl",
+      "source_id": "wib8p0cas51iuod"
+    }
+  ]
+}

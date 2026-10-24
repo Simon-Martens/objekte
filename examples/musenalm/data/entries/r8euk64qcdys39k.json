@@ -1,0 +1,78 @@
+{
+  "annotation": "Nachtitel lautet: Geschichte / der / Europäischen Staaten / seit dem Frieden von Wien. / Von / Fr. Buchholz. / Sechster Band. / Von der Beendigung des Wiener Congresses bis / zur Bekanntwerdung des heiligen Bündnisses. / Berlin, 1817. / bei L. W. Wittich",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Historisches (Buchholz) 1817",
+    "norm": "",
+    "biblio": 405702,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2966,
+  "parallel_title": "",
+  "place_statement": "Berlin (Wittich)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Historisches (Buchholz) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Fr. Buchholz",
+  "subtitle_statement": "",
+  "title_statement": "Historisches Taschenbuch. / Herausgegeben / von / Fr. Buchholz. / Vierter Jahrgang. / Berlin 1817 / bei L. W. Wittich",
+  "updated": "2026-06-11 10:18:54.779Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "49cap1ykeu3ocsx"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.160Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.160Z",
+      "agent": "7zon2137dp4tnal",
+      "source_id": "7qmzpu2njujnnkh"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.189Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.189Z",
+      "agent": "q05e1kmu0iqr7pk",
+      "source_id": "ii4zis2uwpblgen"
+    }
+  ]
+}

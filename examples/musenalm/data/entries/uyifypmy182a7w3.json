@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelauflage von Jg 1824",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für fröhliche Gesellschafter 1828",
+    "norm": "",
+    "biblio": 404041,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2839,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Erie)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch für fröhliche Gesellschafter 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 124; nicht bei L/R; H.-G. VII, 598",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für fröhliche / Gesellschafter. / Anekdoten, Parodien und kleine Aufsätze, / zur Unterhaltung in müßigen Stunden. / Hamburg 1828. / bei Johann Philipp Erie",
+  "updated": "2026-06-11 10:18:54.727Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "tfvo3ct7eo3mxv8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.787Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.787Z",
+      "agent": "d7x9mkv6yjhxq4e",
+      "source_id": "l3k4u2ej5e6j68e"
+    }
+  ]
+}

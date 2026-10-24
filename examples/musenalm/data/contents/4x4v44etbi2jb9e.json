@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 101215, Obj 153",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Hier, Freunde, laßt uns Hütten bauen, / Im Kreise der Natur!",
+  "language": [],
+  "musenalm_id": 101126,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "60.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voigt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "60.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.122Z",
+      "agent": "ist0hhj6cs5q2wv",
+      "source_id": "xgmvkn5sp2upbxv"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "O Freund, für den Hesperiens Paradies, / Stolz auf dein Lob, aus Fluren, Bergen, / Thalen,",
+  "language": [],
+  "musenalm_id": 6599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Grafen F. L. zu Stolberg, / wegen der von ihm aus Italien an / den Verfasser geschriebenen Episteln, / die Hesperiden betitelt. Braunschweig, im Mai 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Grafen F. L. zu Stolberg, / wegen der von ihm aus Italien an / den Verfasser geschriebenen Episteln, / die Hesperiden betitelt. Braunschweig, im Mai 1793",
+  "updated": "2000-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.294Z",
+      "agent": "6bfutz0x9ote9sz",
+      "source_id": "ese5gn0l09xtv8o"
+    }
+  ]
+}

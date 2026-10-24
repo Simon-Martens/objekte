@@ -1,0 +1,45 @@
+{
+  "annotation": "Slovenische Sagen und Geschichten (Sammlung INr 127419, Obj 13) mit einer Illustration s. Graphik INr 127411, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Weithin sichtbar wie ein riesiger Wächter steht im östlichen Winkel des Cillier Kreises ein kegelförmiger Berg,",
+  "language": [],
+  "musenalm_id": 127428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Die wandernden Glocken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Die wandernden Glocken",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.941Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "u6bai8r446dwbcy"
+    }
+  ]
+}

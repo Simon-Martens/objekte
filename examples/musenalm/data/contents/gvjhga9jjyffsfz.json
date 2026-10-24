@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Ein Bild der Wehmuth strahlt aus Clio's Spiegel, / Und jedes ihrer Blätter färbet Blut.",
+  "language": [],
+  "musenalm_id": 83820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unsre Zeit. / An Herrn geheimen Medicinalrath Abel in Düsseldorf. / Am 18. October 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unsre Zeit. / An Herrn geheimen Medicinalrath Abel in Düsseldorf. / Am 18. October 1818",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.923Z",
+      "agent": "lddxtb72o5kmwcl",
+      "source_id": "qprkx8174rbfinh"
+    }
+  ]
+}

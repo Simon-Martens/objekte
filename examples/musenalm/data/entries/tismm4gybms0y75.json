@@ -1,0 +1,86 @@
+{
+  "annotation": "Formatänderung zu kl. 8°",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, 11 BB Kal darin 12 GG, ar: SS 1-168, ar1: SS 1-90, ar2: SS 1-65",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1817",
+    "norm": "~",
+    "biblio": 200855,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 852,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1817. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.878Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "wycveg0ptto040j"
+  ],
+  "contents": [
+    "njjtehoa5dhbmap",
+    "j0igpcrxs7o3cun",
+    "1m29gef9na8o1ls",
+    "atllwcyzyh3kyar",
+    "qlzti5jcrospj4w",
+    "82qrg4vi5eow46u",
+    "hpjvwrwvlyb0sgx",
+    "6rhs2c0500xiesp",
+    "x3ohaaos8n7x9mj",
+    "0112x0yzmq02bg4",
+    "921g8vwgfw4lgi1",
+    "2j7ik7a3jkhwoyj",
+    "ps9ren1mm7zyzv9",
+    "9rnyect2ewcn9eh",
+    "r1hxa04s7jqx2ce",
+    "1mawyzkug3j1j8w",
+    "8bn3q2jr9xhzulh",
+    "f9zlonyq3kv2hm5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "t59iuotz0z09pvc"
+    }
+  ]
+}

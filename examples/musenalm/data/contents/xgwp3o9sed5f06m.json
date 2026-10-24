@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35106, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Schwalben bauen ihre Nest. / Sie flattern geschäftig selbzwei, / Sie tragen den Mörtel herbei;",
+  "language": [],
+  "musenalm_id": 35112,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Schwalben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Elissen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Schwalben",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.746Z",
+      "agent": "g3mog3e4iqetkn4",
+      "source_id": "c3ia284vo3cglhr"
+    }
+  ]
+}

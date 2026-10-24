@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblätter (Sammlung INr 28038, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "430",
+  "incipit_statement": "Wer macht so öde / Mir Hain und Wald?",
+  "language": [],
+  "musenalm_id": 28041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Verödung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Verödung",
+  "updated": "2002-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.182Z",
+      "agent": "15ilq8sfeqx1cly",
+      "source_id": "2xfzhuvriktc39c"
+    }
+  ]
+}

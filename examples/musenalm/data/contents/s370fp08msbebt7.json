@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Auf einer der steilsten Alpen des Sudetengebirgs, nicht gar entfernt vom Fuß der Riesenkoppe, trieben einst am Johannisabend mehrer Hirten ihre Heerden zusammen",
+  "language": [],
+  "musenalm_id": 53277,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nacht im Riesengebirge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nacht im Riesengebirge",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.866Z",
+      "agent": "ynj6s229zp88pv2",
+      "source_id": "8ei6p9er4w3v6y6"
+    }
+  ]
+}

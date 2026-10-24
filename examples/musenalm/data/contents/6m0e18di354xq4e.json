@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3); ## Bezeichnung aus dem I-Verz (INr 127381, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "So bleibt ihr fest? / Mein Wort, war nie ein Scherz.",
+  "language": [],
+  "musenalm_id": 127399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bürgerkrone ## / Eine viersilbige Charade.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bürgerkrone ## / Eine viersilbige Charade.",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.887Z",
+      "agent": "lonqcs6pn486ebs",
+      "source_id": "yhrwp6xttlrar8w"
+    }
+  ]
+}

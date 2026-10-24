@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kl. Graphik über dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "O du Tyrann auf diesem Erdenballe, / Erträumter Herrscher dieser Welt!",
+  "language": [],
+  "musenalm_id": 30977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Nep. Edler v. Kalchberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.352Z",
+      "agent": "h496zc5w34vctbd",
+      "source_id": "72ctamsgv3d4hg8"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "annotation": "Nachtitel lautet: Kleine Romanen-Bibliothek Von Anton Theodor Hartmann, August Lafontaine, K. L. Rahbek, Karl Reinhard, und Johann Friedrich Schink Jahrgang 1801. Mit Kupferstichen und einer Melodie. Göttingen, in der Dieterichischen Buchhandlung. 1801",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 16 BB Kal darin 3 GG, S I nT, SS III-VIII Vrwrt d Hrsg, SS IX-X I-Verz, SS 1-239 darin MusB 3 GG, S 240 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1801",
+    "norm": "~",
+    "biblio": 101287,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 621,
+  "parallel_title": "",
+  "place_statement": "Göttingen (Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Romanen-Kalender 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 82; Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für das Jahr 1801. / Von / Anton Theodor Hartmann, August Lafontaine, / K. L. Rahbek, Karl Reinhard, / und / Johann Friedrich Schink / Mit Kupferstichen und einer Melodie. / Göttingen, / in der Dieterichischen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "pw05bwtv2b939qq"
+  ],
+  "contents": [
+    "futu3mx47fg62v5",
+    "c1g5igd5geb3zu8",
+    "t3w4nl9aw3q6iim",
+    "7fdh5ur7arms4e8",
+    "1hby2xqt3a8jub0",
+    "2qbxzcepx6990td",
+    "cilujhthuvvzmlt",
+    "86vown1kop4pwv8",
+    "bzjo0snbwjale1h",
+    "chcafjmnterkqlo",
+    "so8b68cb1y2hd7b",
+    "7gvd8v11iw0adjw",
+    "c1df2iyxzr3az00",
+    "wl3t45wevfdjbtj",
+    "n3cu3gk3w4njxa4",
+    "tyvbpnv7y1tvyep",
+    "ss43xt9mdzfsxt5",
+    "ghom4cumogampbi",
+    "4n9pw5zk396o4cf",
+    "7usaos3ng8pt9hf",
+    "97zkq89ebki08g8",
+    "5f9mrj34leuehg2",
+    "u87qh5du435drss",
+    "vfu2iyns2qblqva",
+    "tycfns3nkf258gg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.719Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.719Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "4od52ejru6hkvkm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.723Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.723Z",
+      "agent": "3k6mygjjaagwbj8",
+      "source_id": "5im7efwv2ufsqif"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s. u.: Cornelia 1872 var.; dort die abweichenden Titel etc. als Vollbilder",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, S III G-Verz I-Verz, SS V-VI, SS VII-XVI G-Verz, 6 GG, SS 1-288",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia, Neue 1872; id. mit Cornelia 1872",
+    "norm": "~",
+    "biblio": 100631,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2012-10-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3886,
+  "parallel_title": "",
+  "place_statement": "Wien (Perles)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia, Neue 1872; id. mit Cornelia 1872",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177; Goed VIII. 92",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neue / Thalia. / Taschenbuch für Damen. / Mit / sieben Stahlstichen. / Wien. / Moritz Perles, / Spiegelgasse Nr. 17.",
+  "updated": "2026-06-11 10:18:55.149Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "items": [
+    "cclcpbrqwb0qr6b"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.122Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.122Z",
+      "agent": "zy7hqi3kx8xuocu",
+      "source_id": "f4kibe30nr4z4g9"
+    }
+  ]
+}

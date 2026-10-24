@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Mein Nannchen ist das beste Kind, / Nicht, wie die meisten Mädchen sind,",
+  "language": [],
+  "musenalm_id": 96359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treue Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. Drexler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Treue Liebe",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.650Z",
+      "agent": "j4fihvyes63kxz4",
+      "source_id": "k6gz7g8hjtdmi0y"
+    }
+  ]
+}

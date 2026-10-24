@@ -1,0 +1,45 @@
+{
+  "annotation": "Wach auf! Ein Kranz von sieben Sonetten. (Sammlung INr 9277, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Wach auf! Du darfst nicht länger Ruhe halten! / So tönt der Sorge strengeres Geheiß.",
+  "language": [],
+  "musenalm_id": 1589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Die Sorge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Die Sorge",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.978Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "pz51olr61gc2g1i"
+    }
+  ]
+}

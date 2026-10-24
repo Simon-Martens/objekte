@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Gedicht vorangestelt: Menander ap. Clem. Al.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Endlich heimgekehrt, / Grüß ich athmend meinen Heerd! / Schon die Linden an der Pforte",
+  "language": [],
+  "musenalm_id": 17204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abgeschiedenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abgeschiedenheit",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.525Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "ixtciyrqxwneyr1"
+    }
+  ]
+}

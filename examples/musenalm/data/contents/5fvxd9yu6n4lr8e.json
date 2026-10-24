@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Mein Vetter Xott schloß hier die Augen zu. / O Wanderer, sieh in die Höh'",
+  "language": [],
+  "musenalm_id": 5820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines Spaniers auf / seinen gehenkten Vetter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines Spaniers auf / seinen gehenkten Vetter",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.330Z",
+      "agent": "p56m9esfl91y36d",
+      "source_id": "5tuibgzfbn7g3uk"
+    }
+  ]
+}

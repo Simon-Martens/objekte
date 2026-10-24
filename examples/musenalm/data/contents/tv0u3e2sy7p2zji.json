@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Spiele (Sammlung INr 65436, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "O schütze nicht die Noth vor, die dich schlecht gemacht, / Den manchen kenn' ich, der so lang ihn Noth bedrängt, / Gut blieb",
+  "language": [],
+  "musenalm_id": 65459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.141Z",
+      "agent": "e0tovmmp7jpcteo",
+      "source_id": "qx6y8v2ix74illq"
+    }
+  ]
+}

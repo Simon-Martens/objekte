@@ -1,0 +1,56 @@
+{
+  "annotation": "graph.Titel. s. Textbezug INr 26496, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26474,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1817 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Heidlof del. Albt. Reindel sc.",
+  "scans": [
+    "alm_347_26474_f3k2604cqc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1817 / von / de la Motte Fouqué. / Nürnberg, / bei / Joh. Leonh. Schrag",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.072Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "8a6zyu2z58mkmmx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.071Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "kl0qcxtj9vvvjzb"
+    }
+  ]
+}

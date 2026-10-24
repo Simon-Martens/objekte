@@ -1,0 +1,45 @@
+{
+  "annotation": "Leuchtkugeln (Sammlung INr 40024, Obj 50) VII. Gedichte (Sammlung INr 40022, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Nicht das vergossene Blut, nein, das verdorb'ne / bringt Unheil;",
+  "language": [],
+  "musenalm_id": 40065,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost für den Würgeengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Graf Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost für den Würgeengel",
+  "updated": "2005-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.323Z",
+      "agent": "nf6hcprj7w45n4m",
+      "source_id": "96hbwqlajm0e9hx"
+    }
+  ]
+}

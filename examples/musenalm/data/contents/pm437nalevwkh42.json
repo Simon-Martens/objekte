@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Preis und Jubelgesang der Zauberin Liebe! / Dies entzückende Traumbild webte sie / Mit lebendigen Farben in meine Phantasie:",
+  "language": [],
+  "musenalm_id": 67605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenband",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenband",
+  "updated": "2009-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.355Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "xqyp5e2u4b9v85s"
+    }
+  ]
+}

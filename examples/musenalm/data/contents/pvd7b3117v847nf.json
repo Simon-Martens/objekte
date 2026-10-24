@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Zur Zeit der Birkhahnbalze geht ein sehr glaubwürdiger Jagdfreund von mir, aus dessen eigenem Munde ich diese Geschichte gehört habe, auf einem von Hähnen sehr besuchten Balzplatz,",
+  "language": [],
+  "musenalm_id": 69850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / Der dreiste Auerhahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. v. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / Der dreiste Auerhahn",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.157Z",
+      "agent": "cmylaolo9dbcgmr",
+      "source_id": "oyc58gasi7vdown"
+    }
+  ]
+}

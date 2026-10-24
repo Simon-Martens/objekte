@@ -1,0 +1,97 @@
+{
+  "annotation": "einziger Jahrgang, wiederholt 1817",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, B Vrwrt d Hrsg, SS 1-218, 3 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach lustiger Schwänke für die Bühne 1816",
+    "norm": "~",
+    "biblio": 200598,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1351,
+  "parallel_title": "",
+  "place_statement": "Berlin (Maurer)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach lustiger Schwänke für die Bühne 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; L/R 128; Goed VIII. 129,16; Goed VI. 391, 23, 14",
+  "responsibility_statement": "Theodor Heinrich Friedrich",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / lustiger / Schwänke / für die Bühne, / herausgegeben / von / T. H. Friedrich. / (Verfasser der satyrischen Feldzüge.) / Mit trefflichen Kupferstichen, / durch treue Abbildung bekannter Personen doppelt anziehend. / Berlin 1816, / in der Maurerschen Buchhandlung. / (Poststraße Nr. 29.)",
+  "updated": "2026-06-11 10:18:54.935Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "j8aavn75ue0wew2"
+  ],
+  "contents": [
+    "ymvjjg56ojl7c2c",
+    "5li9m2w4ilnnmlr",
+    "b3geuosathq217n",
+    "hupuroai6ue3kgw",
+    "gjsf7dhpjnerxk3",
+    "5thh66pjryqhxay",
+    "7po3d63xt2olxpt",
+    "an0n88wamwhv0jw",
+    "s6leozk4ivnli9n",
+    "m56kg3kmoc1p8sk",
+    "hpikkwj9cy32hnt",
+    "wce7142l16qxai4",
+    "1vzt95tirvwf0nu",
+    "kizo38oo6mdp0pz",
+    "h0fw6320a3qygzx",
+    "1ae2w478smrqgok",
+    "wan5r2gykyiakhb",
+    "6vbzzheo7szspey"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.104Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.104Z",
+      "agent": "uacpcajd0vzsizs",
+      "source_id": "7me4tv9gvrc1hl6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.881Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.881Z",
+      "agent": "ig1o98q79i5gv1i",
+      "source_id": "w5p50g12fmey9md"
+    }
+  ]
+}

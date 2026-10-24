@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Den Blick nach Osten! Siehe der Göttliche, / Er kommt, er kommt! wie flutet sein goldnes Haar!",
+  "language": [],
+  "musenalm_id": 83807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgen. / Januar 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgen. / Januar 1815",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.900Z",
+      "agent": "m5rx9w2im02sg0o",
+      "source_id": "soz6j8jwl9fqb61"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Was Sie uns sind , was Sie uns stets gewesen, / Das möcht' ich gern in edle Reime bringen;",
+  "language": [],
+  "musenalm_id": 19328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weimars Meistersänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weimars Meistersänger",
+  "updated": "2000-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.947Z",
+      "agent": "7wewn5gfr0shp0v",
+      "source_id": "dd95xt3yh6yivim"
+    }
+  ]
+}

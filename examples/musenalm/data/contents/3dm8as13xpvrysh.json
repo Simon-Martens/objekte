@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Ich heirathete deine Mutter als eine reiche Erbin und gab sie nach Verlauf von fünf Jahren ihren Ältern wieder zurück ohne einen Pfennig im Vermögen.",
+  "language": [],
+  "musenalm_id": 2062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Physiologie der Gesellschaft. / in Briefen eines Vaters an seinen Sohn. / Ein Beitrag zu Knigge's Umgang mit Menschen. / Man muß oft schlimmer scheinen als man ist. / La Rochefoucauld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Physiologie der Gesellschaft. / in Briefen eines Vaters an seinen Sohn. / Ein Beitrag zu Knigge's Umgang mit Menschen. / Man muß oft schlimmer scheinen als man ist. / La Rochefoucauld",
+  "updated": "2000-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.995Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "w60jyziitomg31g"
+    }
+  ]
+}

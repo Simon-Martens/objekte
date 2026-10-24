@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts von Stolberg INr 101077, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Der Frühling ist gekommen, es schallt der Hain von Gesängen,",
+  "language": [],
+  "musenalm_id": 101181,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No 22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schultz",
+  "scans": [
+    "alm_1824_101181_ahzzl9no3r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No 22.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.867Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "ac3uofz3hgt6k3j"
+    }
+  ]
+}

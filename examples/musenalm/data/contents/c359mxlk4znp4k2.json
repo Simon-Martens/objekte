@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 78106, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Gutes Gehör braucht seltner als Andre das Erste fragen, / Gutes Gesicht kann weiter umher das Zweite erspähen,",
+  "language": [],
+  "musenalm_id": 78120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.725Z",
+      "agent": "272r3k0zcaqt41m",
+      "source_id": "el841nrx9ayecsp"
+    }
+  ]
+}

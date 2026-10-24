@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Charitas 1847",
+    "norm": "",
+    "biblio": 200772,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1668,
+  "parallel_title": "",
+  "place_statement": "Regensburg (Manz)",
+  "places": [
+    "y65j24bd8l6si3d"
+  ],
+  "preferred_title": "Charitas 1847",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 38; L/R 100; Goed VIII. 580, 34",
+  "responsibility_statement": "Carl Fernau",
+  "subtitle_statement": "",
+  "title_statement": "Charitas. / Festgabe / für / 1847. / Gestiftet durch / Eduard von Schenk. / Fortgesetzt durch / Carl Fernau. / Mit Beiträgen von König Ludwig von Bayern, / Fr. X. Badhauser, C. Barth, J. v. Braun, Chr. Knorr, / Fr. v. Kobell, F. J. Schermer, G. Scheurlin, C. Schultes, / C. Weichselbaumer, und dem Herausgeber. / Mit vier Stahlstichen. / Regensburg, / Verlag von Georg Joseph Manz",
+  "updated": "2026-06-11 10:18:55.571Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "kpye4latbzww76a"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.950Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.950Z",
+      "agent": "lgzkna3xrmxutak",
+      "source_id": "5qi15ouxx2lncsg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "g9pkwb8iodgvv90",
+      "source_id": "9uwnffgokuqdus8"
+    }
+  ]
+}

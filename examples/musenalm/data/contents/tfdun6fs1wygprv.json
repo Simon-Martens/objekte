@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 8. s. Textbezug INr 7077, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7051,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter. / Mère",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert, D. inv. del.",
+  "scans": [
+    "alm_142_7051_au1wkp7yuu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutter. / Mère",
+  "updated": "2000-11-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.438Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "0fmys263j4p4yzg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.438Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "zlvgoprvzm87zew"
+    }
+  ]
+}

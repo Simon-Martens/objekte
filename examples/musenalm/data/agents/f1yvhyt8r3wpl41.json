@@ -1,0 +1,205 @@
+{
+  "annotation": "",
+  "biographical_data": "1755-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.415Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/6145502-7",
+          "label": "Franz Christian Löflund (Stuttgart)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072981246",
+          "label": "F. C. Loeflund & Sohn (Stuttgart)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/6146050-3",
+          "label": "Erhard und Löflund (Stuttgart)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1072988658",
+          "label": "Franz Christian Löflund (Stuttgart)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "starb an Entkräftung",
+        "bis 1796 Teilhaber bei Erhard & Löflund, dann selbstständig. 1824 nahm er seinen Sohn Christian Wilhelm Löflund als Teilhaber auf; dieser führte den Verlag unter der alten Firma fort, bis er ihn im Jahre 1835 and die Firma Beck & Fränkel in Stuttgart abgab"
+      ],
+      "dateOfBirth": [
+        "1755-08-08"
+      ],
+      "dateOfDeath": [
+        "1827-01-12"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-03T11:01:07.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-547",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-547"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1037587626/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1073480631",
+          "label": "Löflund, Christian Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FI",
+          "label": "Finnland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "1037587626",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1073480631",
+          "label": "Löflund, Christian Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/1037587626",
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4058282-6",
+          "label": "Stuttgart"
+        }
+      ],
+      "preferredName": "Löflund, Franz Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz Christian"
+        ],
+        "surname": [
+          "Löflund"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/201145304396478570202"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94922413"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1037587626/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/1037587626"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/1037587626"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Löflund, F. C.",
+        "Löfflund, F. C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Löflund"
+          ]
+        },
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Löfflund"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:09:03Z",
+    "gnd_query_biographical_data": "1755-1827",
+    "gnd_query_name": "löflund, franz christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1661,
+  "name": "Löflund, Franz Christian",
+  "profession": "Text u. Vrlgr",
+  "pseudonyms": "",
+  "refs": "DBI 1272",
+  "updated": "2026-06-11 13:29:23.631Z",
+  "uri": "https://d-nb.info/gnd/1037587626",
+  "editor": ""
+}

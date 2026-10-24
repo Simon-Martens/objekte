@@ -1,0 +1,83 @@
+{
+  "annotation": "die Graphiken im Kalendarium des vorliegenden Exemplars des Historisch-Genealogischen Kalenders 1794 (Chodowiecki del. et sculp.) und die varianten Umschlaggraphiken als Vollbild. /) s. zum Vergleich die Graphiken im Kalendarium (D. Chodowiecki. J. D. Heidenreich sc. 1793) im vollständig autopsierten Exemplar alm-828",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 7 BB Kal darin 12 GG, Kr, Tab, 4 GG, S 1 zT, SS 3-113, SS 114-115 G-Verz, 2 SS VrlgM, 70 BB davon S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1794",
+    "norm": "~",
+    "biblio": 409267,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2016-03-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4301,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1794",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Siwicke",
+  "subtitle_statement": "",
+  "title_statement": "Historisch Genealogischer / Calender / auf das Jahr / 1794 / MIT GENEHMHALTUNG / der Königl. Academ. d. Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.870Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "69xwr84nqdtcr4y"
+  ],
+  "contents": [
+    "t1kae5ng5rfm9xk",
+    "8ixvz2j0s3r1d5d",
+    "wnno1fxgw0eekaq",
+    "gkwf409vxdcj3zw",
+    "ooqx3ycr8sxhgg0",
+    "8uxj93g9jcdwd9k",
+    "ijax03fuyjlwu8j",
+    "iygj3dq4l3b1wbz",
+    "2yph1o1rztww338",
+    "sm3cl5byndrbhpq",
+    "30056e92zys2t0n",
+    "cdgyo7bs2v8ly89",
+    "yjpnc8449oct1z6",
+    "eeucy9thytd4ojp",
+    "gg300lzgjsze5le"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "0fzpik4qju87258"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Zur wunderschönen Sommerzeit, / Wenn die Rosen blüh'n und der Kuckuck schreyt,",
+  "language": [],
+  "musenalm_id": 26431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebestraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebestraum",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.477Z",
+      "agent": "s6vrgm9x7setd1t",
+      "source_id": "z18cgwlfh8zntxc"
+    }
+  ]
+}

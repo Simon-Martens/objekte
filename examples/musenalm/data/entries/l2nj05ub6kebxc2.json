@@ -1,0 +1,59 @@
+{
+  "annotation": "Reprint i. Großformat /) KVK, Gateway-Bayern: nur Jg 1784, mit einem Nachtrag; Herausgeber Beda Aschenbrenner",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": {
+    "places": {
+      "conjecture": true
+    }
+  },
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "S 1 gT, SS 2-122, SS 123-128 Nwrt d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aufklärungs-Almanach für Aebte und Vorsteher Katholischer Klöster 1784",
+    "norm": "",
+    "biblio": 409644,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-07-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4579,
+  "parallel_title": "",
+  "place_statement": "Nürnberg [?]",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Aufklärungs-Almanach für Aebte und Vorsteher Katholischer Klöster 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Aufklärungs-Allmanach / für / Aebbte und Vorsteher / Katholischer Klöster. / 1784",
+  "updated": "2026-06-11 10:18:54.624Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "items": [
+    "84wf8h6wqn3wdwh"
+  ],
+  "contents": [],
+  "agents": []
+}

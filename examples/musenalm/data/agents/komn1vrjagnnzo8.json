@@ -1,0 +1,603 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1879",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.307Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Hofrat"
+      ],
+      "dateOfBirth": [
+        "1806-07-17"
+      ],
+      "dateOfDeath": [
+        "1879-12-31"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/128361468"
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-04T12:53:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/100809766/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "100809766",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/100809766",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)128361468",
+        "(DE-588)128361468",
+        "(DE-588a)100809766",
+        "(DE-588c)7553166-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035304-7",
+          "label": "Lemberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        }
+      ],
+      "preferredName": "Dräxler, Carl Ferdinand",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Ferdinand"
+        ],
+        "surname": [
+          "Dräxler"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398838-6",
+          "label": "Dramaturg"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Claudius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carl D.-"
+          ],
+          "surname": [
+            "Manfred"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klinger"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Manfred"
+          ],
+          "surname": [
+            "Dräxler"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Manfred"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "K. L. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klinger"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Clausius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Dräxler-Manfred, Karl F.: Gedichte",
+        "Dräxler-Manfred, Karl F.: Bunte Bilder in Erzählungen, Novellen und Balladen",
+        "Dräxler-Manfred, Karl F.: Freud und Leid",
+        "Dräxler-Manfred, Karl F.: Pentameron",
+        "Dräxler-Manfred, Karl F.: Vignetten",
+        "Dräxler-Manfred, Karl F.: Glokkenblumen",
+        "Dräxler-Manfred, Karl F.: Gruppen und Puppen",
+        "Dräxler-Manfred, Karl F.: Geschichten aus und nach dem Leben",
+        "Dräxler-Manfred, Karl F.: Herz und Ehre"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058748"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27420036"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q23041426"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100809766/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/128361468"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Dr%C3%A4xler"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055263474"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/100809766"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/100809766"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_D/Draexler_Karl-Ferdinand_1806_1879.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd100809766.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/100809766"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/100809766"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "SWD ; DDB"
+      ],
+      "variantName": [
+        "Manfred",
+        "Dräxler, Karl Ferdinand",
+        "Dräxler-Manfred, Carl F.",
+        "Clausius, F. C.",
+        "Dräxler-Manfred, Karl Ferdinand",
+        "Dräxler-Manfred, Carl",
+        "Dräxler, Karl",
+        "Klinger, K. L. W. von",
+        "Dräxler Manfred, Karl",
+        "Manfred, Carl Ferdinand",
+        "Dräxler, Carl",
+        "Draexler-Manfred, Karl",
+        "Claudius, F. C.",
+        "Klinger, Karl L. von",
+        "Dräxler-Manfred, Ferdinand",
+        "Manfred, Karl Ferdinand Dräxler-",
+        "Manfred, Carl D.-",
+        "Klinger, Karl Ludwig Wilhelm von",
+        "Manfred, Karl F.",
+        "Dräxler-Manfred, Carl Ferdinand",
+        "Dräxler, Manfred",
+        "Dräxler-Manfred, C.",
+        "Dräxler, Carl F.",
+        "Dräxler-Manfred, Karl F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Manfred"
+          ],
+          "surname": [
+            "Dräxler"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Dräxler"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Dräxler"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Draexler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ferdinand"
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Carl D.-"
+          ],
+          "surname": [
+            "Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "K. L. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klinger"
+          ]
+        },
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Claudius"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "personalName": [
+            "Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Dräxler"
+          ]
+        },
+        {
+          "forename": [
+            "F. C."
+          ],
+          "surname": [
+            "Clausius"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ferdinand"
+          ],
+          "surname": [
+            "Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Dräxler Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl L."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klinger"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ferdinand"
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ferdinand"
+          ],
+          "surname": [
+            "Dräxler"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl F."
+          ],
+          "surname": [
+            "Dräxler-Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ferdinand Dräxler-"
+          ],
+          "surname": [
+            "Manfred"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Ludwig Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klinger"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Dr%C3%A4xler",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Dr%C3%A4xler"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:15:09Z",
+    "gnd_query_biographical_data": "1806-1879",
+    "gnd_query_name": "dräxler, karl ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 574,
+  "name": "Dräxler, Karl Ferdinand",
+  "profession": "Text",
+  "pseudonyms": "Manfred",
+  "refs": "Goed XII, 402; H/B 173",
+  "updated": "2026-06-11 13:29:22.097Z",
+  "uri": "https://d-nb.info/gnd/100809766",
+  "editor": ""
+}

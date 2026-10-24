@@ -1,0 +1,75 @@
+{
+  "annotation": "§§ sämtliche Graphiken fehlen: lt Köhring 35: Titelk., 7 Kpf (Chodowiecki) 4 Portr. u. 4 kol. Modekupfer; der Hinweis auf Engelmann 920a = Baumann 1950-1957 führt zu: Kalender, Historisch-Genealogischer (Berlin) 1800 und dürfte falsch sein. Der Kalender beinhaltet lediglich Kalendarium, Genealogie, sowie 20 Seiten Verlagsmitteilung  (2 Inhaltsangaben: Des Grafen Macartney Gesandschaftsreise nach China [...] Historischer Inhalt des zweyten Bändchens von Macartneys Gesandschaftsreise u.s.w.) Ein Beitrag mit zweiter arabischer Pagierung, wie in den Vorläuferjahrgängen fehlt.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, 30 BB Kal, SS 1-120 Tab, S VrlgM, SS I-XXII VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1799",
+    "norm": "~",
+    "biblio": 404153,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 930,
+  "parallel_title": "",
+  "place_statement": "Berlin (Haude u. Spener)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1799. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2026-06-11 10:18:55.885Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "ua7mvwudfy0s57q"
+  ],
+  "contents": [
+    "9t26ybz6dzc1edy",
+    "rmsqh6js4hyvln7",
+    "bybik1ru626leae",
+    "hm462hmh4kkfj2b",
+    "8bpg3njc06g2r7a",
+    "339y5vkf2ou1au8",
+    "2epzjrrqbe87xyg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.974Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.974Z",
+      "agent": "zpxupy2kkmjae9t",
+      "source_id": "c6qsn4vd5uq15os"
+    }
+  ]
+}

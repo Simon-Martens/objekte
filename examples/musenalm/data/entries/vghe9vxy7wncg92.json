@@ -1,0 +1,89 @@
+{
+  "annotation": "§§ sämtliche Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, SS I-II Vrwrt d Hrsg, SS III-XIV G-Verz, SS 1-232 dazu 2 Tabb",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Tiroler 1805",
+    "norm": "~",
+    "biblio": 100943,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1480,
+  "parallel_title": "",
+  "place_statement": "Wien (Degen)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Tiroler 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Tiroler Almanach / für / 1805. / WIEN, / BEY J. V. DEGEN / Buchdrucker und Buchhändler",
+  "updated": "2026-06-11 10:18:55.183Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "9zo3bzq9blp2niq"
+  ],
+  "contents": [
+    "rmyg55ky2gx2klc",
+    "va70x7g3togy6z4",
+    "ilefwk8zml9lvku",
+    "if8hyh4x1rj4fj4",
+    "kll5h443nbpoujc",
+    "udrdfbjalidkr1i",
+    "7etsx85mnmbxddh",
+    "f9fuf55ryr3sd6t",
+    "zmqo3959i3nvtau",
+    "r7wfnnrv9wj19s6",
+    "tjxgz8w8kty55ey",
+    "7js216wpvlpuj3k",
+    "3x0o3wc09gigyfg",
+    "py5z7q3nz9eikow",
+    "tlhp13q8ylgodsp",
+    "htqa5wv787eiigb",
+    "2pn9oxdoao4btse",
+    "uuhy7g0amp0o0o8",
+    "xzxdqv6finhouth",
+    "7lb9uqd15bnml83",
+    "bwjfvnje7s2kwa9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.715Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.715Z",
+      "agent": "uelm0e03nkq3tde",
+      "source_id": "d1pp07n03k79m4e"
+    }
+  ]
+}

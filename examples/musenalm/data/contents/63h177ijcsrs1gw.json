@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Mir ist's wieder eine Zeit her für Wohl und Weh, dass ich nicht weis ob ich auf der Welt bin,",
+  "language": [],
+  "musenalm_id": 18809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vierter Brief. / Augusten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vierter Brief. / Augusten",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.026Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "yw1y9bcod1itefm"
+    }
+  ]
+}

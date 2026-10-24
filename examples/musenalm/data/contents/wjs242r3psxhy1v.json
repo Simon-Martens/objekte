@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung und Titel aus dem G-Verz. Illustration zu »Hamlet« von W. Shakespeare; s. Textbezug INr 19248, Obj 13 /) # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9283,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritter Aufzug, vierte Scene #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Bein sc. 1819",
+  "scans": [
+    "alm_43_9283_k2tv0nj364.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dritter Aufzug, vierte Scene #",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.177Z",
+      "agent": "zmvjdej6nue3uh9",
+      "source_id": "8wkdaapu73m6dx6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.177Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "h70xvhhea4r3mk1"
+    }
+  ]
+}

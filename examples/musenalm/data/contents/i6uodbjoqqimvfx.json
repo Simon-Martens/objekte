@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1791 (Sammlung INr 9401, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Fröhlich wandern wir aufs Land / Aus dem lieben Städtchen:",
+  "language": [],
+  "musenalm_id": 9409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Lied bey einer gesellschaftlichen Auswan- / derung aufs Land. / Mel. Rosen auf den Weg gestreut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hausius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Lied bey einer gesellschaftlichen Auswan- / derung aufs Land. / Mel. Rosen auf den Weg gestreut",
+  "updated": "2001-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.418Z",
+      "agent": "uf91zrt87qnsu6f",
+      "source_id": "2qz4o3qk2omx889"
+    }
+  ]
+}

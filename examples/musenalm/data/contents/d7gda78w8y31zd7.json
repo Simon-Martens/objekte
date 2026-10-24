@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Franzensbad bei Eger (Sammlung INr 77677, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Nicht mag ich aus dem Born Genesung trinken, / Was hülf' es auch, die Seele ist ja krank.",
+  "language": [],
+  "musenalm_id": 77681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. An der Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. An der Quelle",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.822Z",
+      "agent": "tcaorsyhw9evcti",
+      "source_id": "2xy1nootm4ewmhp"
+    }
+  ]
+}

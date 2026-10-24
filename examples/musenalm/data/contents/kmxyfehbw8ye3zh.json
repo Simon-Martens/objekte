@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Bunte Farben sah ich glänzen in des Morgens Rosenlicht, / Doch es war nur eine Tulpe - und die Tulpe rührt mich nicht",
+  "language": [],
+  "musenalm_id": 90546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Antithese",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. A. Moshammer. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Antithese",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.263Z",
+      "agent": "hsujjp5smywjyiq",
+      "source_id": "bsov3sblg34oejb"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80124,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CYANEN. / 1841. / Der / Liebe und Freundschaft / geweiht. / Wien und Leipzig. / Friedrich Wilhelm Pfautsch. / (Seitzergasse Nr. 423)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. A. Dworžak",
+  "scans": [
+    "alm_1696_80124_hpz1eor5ll.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CYANEN. / 1841. / Der / Liebe und Freundschaft / geweiht. / Wien und Leipzig. / Friedrich Wilhelm Pfautsch. / (Seitzergasse Nr. 423)",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "6m80rt0ym23mwca"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.789Z",
+      "agent": "masan4fv3ew8l5z",
+      "source_id": "ecrbxmpgd1ko4tf"
+    }
+  ]
+}

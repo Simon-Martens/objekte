@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Graphik (Silhouette) INr 2997, Obj 102",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Ruh sanft, o lieblicher Stral! / Früh sankst du hinter die Berge!",
+  "language": [],
+  "musenalm_id": 2996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachruf auf Friederiken",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ossian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachruf auf Friederiken",
+  "updated": "2000-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.957Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "ak0hsht2ghqklwe"
+    }
+  ]
+}

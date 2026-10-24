@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.739Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Literarischer 1832",
+    "norm": "",
+    "biblio": 100104,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1459,
+  "parallel_title": "",
+  "place_statement": "München (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Almanach, Literarischer 1832",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 13; nicht bei L/R",
+  "responsibility_statement": "Lic. Simon Ratzeberger der Jüngste",
+  "subtitle_statement": "",
+  "title_statement": "Literarischer / Almanach / für / 1832. / So nützlich und angenehm, als unterhaltend und / lustig zu lesen. / Von / Lic. Simon Ratzeberger / dem Jüngsten. / Sechster und letzter Jahrgang. / München. / In der Lindauer'schen Verlagshandlung",
+  "updated": "2026-06-11 10:18:55.171Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "nzk2hj9emz9mscz"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.100Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.100Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "9taw0dzvlg4c7vm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.910Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.910Z",
+      "agent": "hjzso88gvqk6ag5",
+      "source_id": "rl6qcxgqmjm8shh"
+    }
+  ]
+}

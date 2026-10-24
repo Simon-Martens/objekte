@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116174, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Bergan zu Tannenzweigen / Treibt Epheu sein Geflecht. / Warum? das ist so eigen / Dem zitternden Geschlecht.",
+  "language": [],
+  "musenalm_id": 116176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Warum?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Warum?",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.534Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "l5i1ctmz1j9hg42"
+    }
+  ]
+}

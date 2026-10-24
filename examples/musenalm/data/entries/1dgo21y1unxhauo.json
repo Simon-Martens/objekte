@@ -1,0 +1,78 @@
+{
+  "annotation": "genauer Erscheinungsverlauf nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kinderbibliothek, Kleine (Campe) 1781",
+    "norm": "",
+    "biblio": 407626,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-01-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3908,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Herold)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Kinderbibliothek, Kleine (Campe) 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. H. Campe",
+  "subtitle_statement": "",
+  "title_statement": "Kleine / Kinderbibliothek, / herausgegeben / von / J. H. Campe. / Siebentes Bändchen. / Hamburg, / in der Heroldschen Buchhandlung. / 1781",
+  "updated": "2026-06-11 10:18:55.902Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "j413x6x069tmpqt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.307Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.307Z",
+      "agent": "nuls4hlyk7nfgd0",
+      "source_id": "96h0hg6lsa60bzo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.996Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.996Z",
+      "agent": "p61edzq4yde43sv",
+      "source_id": "ci54ffwtoqqpll8"
+    }
+  ]
+}

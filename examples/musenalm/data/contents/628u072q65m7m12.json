@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus: Verzeichniss der Verfasser des N. W. Musenalmanachs vom J. 1798 in: Neuer Wiener Musenalmanach 1800",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Seh' ich an dem Blau des Himmels mir / Sanfte Rosenwölkchen glühen;",
+  "language": [],
+  "musenalm_id": 122430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NATUR. / SONETT",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "NATUR. / SONETT",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.709Z",
+      "agent": "9fm6ody20z4gtke",
+      "source_id": "o20mzlxykd2muhr"
+    }
+  ]
+}

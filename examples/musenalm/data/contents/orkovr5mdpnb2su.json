@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Blumen sucht' ich auf der Aue, / Heut das Schönste dir zu bringen,",
+  "language": [],
+  "musenalm_id": 80034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergißmeinnicht. / An Melanie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht. / An Melanie",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.786Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "p5in9qk226d0uup"
+    }
+  ]
+}

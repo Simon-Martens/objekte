@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 24471, Obj 49) Gedichte (Sammlung INr 24470, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Raublustig und schreckverbreitend und arm / Geleitet Abdalla den Araberschwarm",
+  "language": [],
+  "musenalm_id": 24475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Zobir",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Zobir",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.113Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "vo2krc0gdqbz6nq"
+    }
+  ]
+}

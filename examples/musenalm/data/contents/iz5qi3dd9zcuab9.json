@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 54798, Obj 111)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "384",
+  "incipit_statement": "Wie eine Kerze sollst du sein, / die flammt am heil'gen Hochaltar:",
+  "language": [],
+  "musenalm_id": 54799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heiliger Dienst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heiliger Dienst",
+  "updated": "2008-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.878Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "nrwe8p25o7q2g8y"
+    }
+  ]
+}

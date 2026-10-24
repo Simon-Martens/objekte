@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »The sleeping Congregation. Die schlafende Versammlung« paginiert I. s. Textbezug INr 7260, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+  "scans": [
+    "alm_146_7261_xi7k2rvqwn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.438Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "cfjw3hm2p9zz2x3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.438Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "qv8wmrhb7hki083"
+    }
+  ]
+}

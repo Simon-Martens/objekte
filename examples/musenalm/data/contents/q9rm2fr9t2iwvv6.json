@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Majestät / der durchlauchtigsten Frau Frau / Marie Louise, / Kaiserlichen Prinzessinn und Erzherzoginn / von Österreich, / Herzoginn von Parma, Piacenza und Guastalla, etc / in tiefster Ehrfurcht gewidmet / von dem Verleger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von dem Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Majestät / der durchlauchtigsten Frau Frau / Marie Louise, / Kaiserlichen Prinzessinn und Erzherzoginn / von Österreich, / Herzoginn von Parma, Piacenza und Guastalla, etc / in tiefster Ehrfurcht gewidmet / von dem Verleger",
+  "updated": "2001-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.616Z",
+      "agent": "i5hrikz4qdzavwx",
+      "source_id": "we5l3vu4ftj747r"
+    }
+  ]
+}

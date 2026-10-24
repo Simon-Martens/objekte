@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. J. D. Sauerländer] s. Textbezug INr 44577, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44576,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HAGAR UND ISMAEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Köhler gem. Gest. v. Rud. Stang in Düsseldorf",
+  "scans": [
+    "alm_609_44576_ftpov70z62.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HAGAR UND ISMAEL",
+  "updated": "2006-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.439Z",
+      "agent": "ca9v0cxu46el6gy",
+      "source_id": "nrkns77gqql2m75"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.438Z",
+      "agent": "u4so4nos3io9u5u",
+      "source_id": "rq5eouycw28hf9v"
+    }
+  ]
+}

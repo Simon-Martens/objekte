@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, G, 10 BB Kal darin 11 GG,S VrlgM, S 1 nT, S 3 W, SS 5-108 darin MusB, 48 BB Tab, 23 BB Tab, B VrlgM, 13 BB Tab, 3 BB G-Verz, B VrlgM, ar1: SS 1-12",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1800",
+    "norm": "~ +++ 404156",
+    "biblio": 100170,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 439,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "Sophie Mereau",
+  "subtitle_statement": "",
+  "title_statement": "BERLINISCHER / DAMEN- / KALENDER / auf das Jahr / 1800. / mit 14 Kupfern / BERLIN / bei Joh. Fr. Unger",
+  "updated": "2026-06-11 10:18:55.604Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "ele14szmkxohbbw",
+    "uag9dllvabvfe8r"
+  ],
+  "contents": [
+    "odxpgv5qpnpjofv",
+    "znyj24yjtnzj1nq",
+    "89we4kt5xobj0aa",
+    "vap8zab26pg9u4i",
+    "d4rpm1q011816l0",
+    "kgx2l8ok8i1lwjg",
+    "sv4hxu5m0ve59px",
+    "rtbz8856a232fcq",
+    "tij8xnymd6h28mh",
+    "ylz32y0mo320w06",
+    "q12ck6let428dm0",
+    "8m7jp5hegvcid6e",
+    "c609dkamlabm3ug",
+    "6o8je3zra4kdjws",
+    "8dze5k0xdnxmr6o",
+    "uh628cazldia8ly",
+    "u1z34jhxtbkkfio",
+    "ag00c2oxe4qf7tt",
+    "ytj3v7s8klgovi6",
+    "emiqzgwa0d9yk0i",
+    "bwcqt1sg327n85x",
+    "6kpfr8hgm1jhh59",
+    "qpcy1rwwvy311s1",
+    "ghuqpjyzpxveeg5",
+    "t94ekq5t13efqyi",
+    "tgnmsinj4x1q32k",
+    "9ycj722hlrpfx2f",
+    "6pm1yakbjuwo9d6",
+    "m9dcumcoz01oo8x",
+    "95zsc5ga1xapn2i",
+    "ci505bgilr8l4sa",
+    "zdbdyjfaevmynw7",
+    "tn4ka5704uqqyn8",
+    "1u7xzkjpyz81vkm",
+    "5bmoe9vvadgtcg9",
+    "ol2eu5e9knhmbj2",
+    "ltk4jhjbxgd7491",
+    "qiexxapzjsoa3ij",
+    "a0sd9tw29654xqr",
+    "5v7n7nop8datf14",
+    "3coae0bjhtiw1ck",
+    "3aa1gt9f1qcq1xm",
+    "1lxtozxe4x80c0z",
+    "3yn3lkvr8v81741",
+    "mhptx6ulpf57gfw",
+    "x2amo6obmd28np3",
+    "p0p4dkd8yufnlaw",
+    "7qypucuaj7dp3rf",
+    "52tzuqp9i11enrl",
+    "sthexj1lwmxa4vk",
+    "fehyyodsbqv7y4y",
+    "kxjt9zc6rzvcu2x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.167Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.167Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "nd8bkppv8t94gi1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.664Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.664Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "xjxjztydbu8fw6x"
+    }
+  ]
+}

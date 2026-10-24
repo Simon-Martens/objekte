@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Ihr Frömmlinge, verlasst die Tempelhallen! / Ihr dienet Gott, dem Teufel zu Gefallen.",
+  "language": [],
+  "musenalm_id": 939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frömmlinge.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HAUG",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frömmlinge.",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.895Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "s27t6nzn46ecg1f"
+    }
+  ]
+}

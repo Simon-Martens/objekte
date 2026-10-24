@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CRICKET",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92864_c74wyndy6n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CRICKET",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "sjryrwpw74yqnj4",
+      "source_id": "chxx5uz7nmoucha"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "z41pw3g8vt58850"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Gebirge (Sammlung INr 24499, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Es blinken die Alpenzinnen / In Eis schon silbern glanz,",
+  "language": [],
+  "musenalm_id": 24501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Sennerinn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Sennerinn",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.258Z",
+      "agent": "7s5akx33j2gpr6y",
+      "source_id": "eyxb7j0yxgz6lo4"
+    }
+  ]
+}

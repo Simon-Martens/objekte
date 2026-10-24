@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert 15. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48107,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joh. Hunczovsky",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48107_haanu8csdx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joh. Hunczovsky",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.646Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "plesdg70wg5rdcl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Rothe Blätter (Sammlung INr 99317, Obj 223) V. Oesterreich (Sammlung INr 99313, Obj 219)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Von rothen Blättern einen Kranz / Will flechten ich im Wald,",
+  "language": [],
+  "musenalm_id": 99323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 230,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuck Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.706Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "3bos1t6gmtc5hr8"
+    }
+  ]
+}

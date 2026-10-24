@@ -1,0 +1,77 @@
+{
+  "annotation": "3 Jgg 1825-1827; 1825: Hannover (Hahn); 1825: Hrsg.: Georg Harrys",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SSI–VIII, darin Vrwrt, I-Verz, SS1–320",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Blüthen 1825",
+    "norm": "~",
+    "biblio": 404897,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2727,
+  "parallel_title": "",
+  "place_statement": "Hannover (Hahn)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Taschenbuch dramatischer Blüthen 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 114; nicht bei L/R; Goed VIII. 131, 31",
+  "responsibility_statement": "Georg Harrys",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / dramatischer Blüthen / für / das Jahr 1825 / von / GEORG HARRYS. / Erster Jahrgang. / Hannover / in der Hahn’schen Hofbuchhandlung",
+  "updated": "2026-06-11 10:18:55.826Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "fcryjq9ybwhxw0a"
+  ],
+  "contents": [
+    "7syevcofjlksz1e",
+    "wj6ux6o839dqy7n",
+    "rvwtb59m257wl0a",
+    "0v7iot9wwuwzzjb",
+    "e4drrapnynlofdd",
+    "1qo7l1et0owfb9k",
+    "dvrw616w5un10ws",
+    "wyc5h65z70aakhc",
+    "s9h38cjev6aghhg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.951Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.951Z",
+      "agent": "4vob6y8vk0x4foi",
+      "source_id": "libj6w1rakwnr7x"
+    }
+  ]
+}

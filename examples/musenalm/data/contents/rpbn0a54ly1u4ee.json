@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Drei Trinker thaten eines Tages / Drei Wünsche während des Gelages.",
+  "language": [],
+  "musenalm_id": 83269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Wünsche. / Nach Pannard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Wünsche. / Nach Pannard",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.035Z",
+      "agent": "t6wjjpa90xmd7r2",
+      "source_id": "yhbpip6v5t5ub1a"
+    }
+  ]
+}

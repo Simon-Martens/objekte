@@ -1,0 +1,111 @@
+{
+  "annotation": "I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 8 BB Kal darin 6 GG, SS I -II I-Verz, S III- XIV G-Verz, SS 1-314",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1799",
+    "norm": "~ §§ 4. Graphik im Kalendarium fehlt; $ vermutl. fehlt 2. Titel",
+    "biblio": 106639,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1950,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Seeger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Jahrbuch zur belehrenden Unterhaltung für junge Damen 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; nicht bei L/R; Goed VIII. 48, 4",
+  "responsibility_statement": "J. J. Ebert",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / zur / belehrenden Unterhaltung / für / DAMEN / von / J. J. Ebert / Professor zu Wittenberg. / Für / das Jahr 1799. / Mit Kupfern. / Leipzig / bei Theodor Seeger",
+  "updated": "2026-06-11 10:18:55.727Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "476ekxqpcb1p7l3"
+  ],
+  "contents": [
+    "l67r28ys6tfp71y",
+    "zc9tf2sqnhznl6q",
+    "qaz9vmo80r5594e",
+    "o9h1pu6eatx7qdt",
+    "44y9w7whrb7dgcy",
+    "hejdix28m08eqz9",
+    "3g23bwy211dca8f",
+    "073pl8arobczg28",
+    "biz7bijucuw4dat",
+    "5hqh11nhmioie26",
+    "hcausya7xbssdi7",
+    "wpe8a2hbe1p7h2c",
+    "jjx9gdmimzcz72z",
+    "gju7582ec3jw1xr",
+    "i7j973gzr0wp72w",
+    "yd82cia3hp3rb30",
+    "meqwasusoaew65j",
+    "5uo445hlgdpkzd8",
+    "1t2lgx837tcdgox",
+    "84t2n00x6yia8pg",
+    "dtu71zd6mpufehf",
+    "9xzz2r1ojmhe6sm",
+    "zyzjnkalyxwvjr7",
+    "95yj7j4v26xm399",
+    "94m2h05guf7g64z",
+    "fkdni3v1vgn3b1h",
+    "er3odbysauzupvq",
+    "9swgx5ewdp07gx7",
+    "ujbg9d3ufrvkqwa",
+    "l1tpygvrdoqgwz1",
+    "6bhp806ewjoxo84",
+    "g75127hx5on7i37"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.153Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.153Z",
+      "agent": "jdn0r08l1adif49",
+      "source_id": "nc5f18bgfern5or"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.991Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.991Z",
+      "agent": "pt1hiqrxpeom0l4",
+      "source_id": "r9cou4btk0h9v69"
+    }
+  ]
+}

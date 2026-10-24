@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70512,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seiner / Königlichen Hoheit, / Carl / Theodor Maximilian, / Königlichem Prinzen und Herzoge / in Baiern, Königlichem General / der Cavallerie etc / in / tiefester Ehrfurcht / gewidmet / von / den Herausgebern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seiner / Königlichen Hoheit, / Carl / Theodor Maximilian, / Königlichem Prinzen und Herzoge / in Baiern, Königlichem General / der Cavallerie etc / in / tiefester Ehrfurcht / gewidmet / von / den Herausgebern",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.389Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "lmbwvad3w0q6s58"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.389Z",
+      "agent": "2xhyvvcaj1v6uqn",
+      "source_id": "xu2kww4qri81hbh"
+    }
+  ]
+}

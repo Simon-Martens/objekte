@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Schlummre sanft! des Lebens Morgenröthe, / Des Genusses Augenblick, ist dein.",
+  "language": [],
+  "musenalm_id": 1281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von STEIGENTESCH",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.705Z",
+      "agent": "hbndpd23j3pyj28",
+      "source_id": "8tgmsoyfbbr2i6w"
+    }
+  ]
+}

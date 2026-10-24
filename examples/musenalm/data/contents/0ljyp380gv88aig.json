@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Fernab am Horizont auf Felsenrissen / Liegt der gewitterschwarze Krieg gethürmt.",
+  "language": [],
+  "musenalm_id": 26638,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das letzte Lied. / (Gesungen in der Zeit von Deutschlands / Unterdrückung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich von Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das letzte Lied. / (Gesungen in der Zeit von Deutschlands / Unterdrückung.)",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.325Z",
+      "agent": "jaer15own8gb04o",
+      "source_id": "v99h8e7y9uxkezx"
+    }
+  ]
+}

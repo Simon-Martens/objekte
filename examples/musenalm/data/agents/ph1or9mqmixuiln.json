@@ -1,0 +1,277 @@
+{
+  "annotation": "",
+  "biographical_data": "1797–1855",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.250Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5350738-1",
+          "label": "Baumgärtnersche Buchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5325582-3",
+          "label": "Industrie-Comptoir in Leipzig"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Buchhändler und Gelegenheitsdichter",
+        "seit 1825 Inhaber von Baumgärtners Buchhandlung in Leipzig"
+      ],
+      "dateOfBirth": [
+        "1797-08-13"
+      ],
+      "dateOfDeath": [
+        "1855-08-09"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-04T14:14:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116090871/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1073441970",
+          "label": "Baumgärtner, Gottlob Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1073392023",
+          "label": "Baumgärtner, Otto"
+        },
+        {
+          "id": "https://d-nb.info/gnd/132424983",
+          "label": "Baumgärtner, Adam Friedrich Gotthelf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1073430456",
+          "label": "Friederici, Amalie Bertha"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1073391043",
+          "label": "Baumgärtner, Alphons"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116090871",
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/1073441970",
+          "label": "Baumgärtner, Gottlob Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1073392023",
+          "label": "Baumgärtner, Otto"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1073391043",
+          "label": "Baumgärtner, Alphons"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/132424983",
+          "label": "Baumgärtner, Adam Friedrich Gotthelf"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1073430456",
+          "label": "Friederici, Amalie Bertha"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116090871",
+      "oldAuthorityNumber": [
+        "(DE-588a)116090871"
+      ],
+      "periodOfActivity": [
+        "1826-1843"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "preferredName": "Baumgärtner, Julius Alexander",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julius Alexander"
+        ],
+        "surname": [
+          "Baumgärtner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Erbach"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2011076948"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/20422944"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q60842541"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116090871/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000119301530"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116090871"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116090871"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Baumgärtner, Julius Alex.",
+        "Erbach, Alexander",
+        "Baumgärtner, Julius A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julius A."
+          ],
+          "surname": [
+            "Baumgärtner"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "surname": [
+            "Erbach"
+          ]
+        },
+        {
+          "forename": [
+            "Julius Alex."
+          ],
+          "surname": [
+            "Baumgärtner"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:06Z",
+    "gnd_query_biographical_data": "1797–1855",
+    "gnd_query_name": "baumgärtner, julius alexander"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 129,
+  "name": "Baumgärtner, Julius Alexander",
+  "profession": "Text",
+  "pseudonyms": "Alexander Erbach",
+  "refs": "DBI 499",
+  "updated": "2026-06-11 13:29:21.498Z",
+  "uri": "https://d-nb.info/gnd/116090871",
+  "editor": ""
+}

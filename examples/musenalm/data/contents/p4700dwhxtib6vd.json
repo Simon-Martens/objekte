@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus Boies poetischem Nachlaß (Sammlung INr 16422, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Minerven aufzufordern, hat / Arachne weise nicht gehandelt;",
+  "language": [],
+  "musenalm_id": 16428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Die Stickerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Die Stickerin",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.613Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "wx162q5clqto8pn"
+    }
+  ]
+}

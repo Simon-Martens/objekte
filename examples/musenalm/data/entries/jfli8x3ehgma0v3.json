@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S III-VI W, G, SS VII-XVIII G-Verz darin    GG, SS XIX-XX I-Verz, SS 1-268",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die Deutsche Jugend 1805",
+    "norm": "~",
+    "biblio": 405659,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2752,
+  "parallel_title": "",
+  "place_statement": "Fürth (Bureau für Literatur)",
+  "places": [
+    "73xbe52959p0a6e"
+  ],
+  "preferred_title": "Taschenbuch für die Deutsche Jugend 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 127; L/R 162; Goed VII. 84, 158; Goed VIII, 61, 64",
+  "responsibility_statement": "Jakob Glatz",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / Deutsche Jugend, / auf das Jahr / 1805. / Herausgegeben / von / Jakob Glatz. / Fürth, im Bureau für Literatur",
+  "updated": "2026-06-11 10:18:55.807Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "ois0uc5lhcvfvfb"
+  ],
+  "contents": [
+    "l39xmeberu6mq7e",
+    "8j15ih6o5gzsctv",
+    "z2j4yhn4gug5fy0",
+    "ml4y719zs4fvcbs",
+    "7vl7ynwvtoc5f93",
+    "ezx3q458aovikqu",
+    "qex4r90z9wgjum7",
+    "k1kyesm4nx8w8cu",
+    "0diz3na1iuicqge",
+    "ipjlbhv0t33rjbm",
+    "ryng27tcoi4xn0z",
+    "1aoa6nj0dp18nbt",
+    "qhji8l33v543ovy",
+    "syaokt0ga6osjhx",
+    "w3bvrd3jqvg0bfp",
+    "yvw65uzk5r82jl3",
+    "x0xi5q33dqfy9id",
+    "l9npodjp03i6lgs",
+    "hl467r15vfcapr4",
+    "famfk3txzd4wf7b",
+    "99bd93wutq4whst",
+    "arne42lnafpwmz1",
+    "emjeyu7gfmbjmyz",
+    "l81y08x0u2eedrd",
+    "fznvx2wcj0y8tdo",
+    "fcxqtx77dfa8ath",
+    "3aumzqt4nislau1",
+    "m483x74plq61q76",
+    "os35sutxo2y2x4e",
+    "23qr3i5mme6z36p",
+    "8705wt5h0yl67yj",
+    "s852yltialw90lb",
+    "xt1pey24fu6sju0",
+    "dta2oi499na6rv9",
+    "adqqkcpmt0og914",
+    "vn4jhr30hq5os3t",
+    "xjye6ggcgod3nle"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.133Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.133Z",
+      "agent": "qxcj6iktsu2xp76",
+      "source_id": "aeyunf12rqvyo7z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.622Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.622Z",
+      "agent": "sbhmimk7mbc9zol",
+      "source_id": "gwxo0jd2hjzu327"
+    }
+  ]
+}

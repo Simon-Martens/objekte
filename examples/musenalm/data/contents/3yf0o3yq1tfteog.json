@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts von Hölty INr 101078, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Rosen auf den Weg gestreut, und des Harms vergessen!",
+  "language": [],
+  "musenalm_id": 101175,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichardt",
+  "scans": [
+    "alm_1824_101175_9hsa8o10me.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 16.",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.801Z",
+      "agent": "it8ptc76fbrkd73",
+      "source_id": "y22vui828y4a4go"
+    }
+  ]
+}

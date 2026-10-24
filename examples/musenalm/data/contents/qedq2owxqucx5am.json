@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 8. s. Textbezug INr 59986, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind Römer, wir morden keine Weiber",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59985_ho1s00u9s2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind Römer, wir morden keine Weiber",
+  "updated": "2008-09-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.026Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "adn5rupqlr58k8w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.026Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "pgmu88joxhudnn8"
+    }
+  ]
+}

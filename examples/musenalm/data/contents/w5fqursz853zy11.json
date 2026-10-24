@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43467, Obj 31) mit einer Illustration s. Graphik INr 43450, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Die Muhme ließ noch einmal Aureliens schöne Locken durch ihre Finger rollen, und sagte dann: Nun geh mein Kind, es ist Zeit,",
+  "language": [],
+  "musenalm_id": 43469,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mitternacht. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mitternacht. / Eine Novelle",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.317Z",
+      "agent": "9vkmi7lv0745wmz",
+      "source_id": "61vs92fhpbncbuo"
+    }
+  ]
+}

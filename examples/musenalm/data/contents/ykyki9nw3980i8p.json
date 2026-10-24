@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Hier siz' ich wieder wohlgemut / Bei meinem Abendschmause",
+  "language": [],
+  "musenalm_id": 21560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hahnreih",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hahnreih",
+  "updated": "2002-01-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.746Z",
+      "agent": "2f965te58psi6tx",
+      "source_id": "98l1nhdhrevq63w"
+    }
+  ]
+}

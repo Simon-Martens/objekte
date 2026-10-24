@@ -1,0 +1,45 @@
+{
+  "annotation": "Wort- und Sylben-Räthsel (Sammlung INr 65175, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "411",
+  "incipit_statement": "Zwey Sylben - ein friedlicher Ort / In Pallästen, Hotels, und Gärten.",
+  "language": [],
+  "musenalm_id": 65182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Charade",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.039Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "4fw5elgypjzhnex"
+    }
+  ]
+}

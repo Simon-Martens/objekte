@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt:  Motto: Was Dich umgibt ist eitel / Als wie das Laub am Baum […] J. N. Vogl",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Im Jahre 1830 besaß Lord Fenimore Douglas in der schottischen Grafschaft Midlothian die ebenso wald- als wildreiche Herrschaft Islington",
+  "language": [],
+  "musenalm_id": 81671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Trauerspiel im Walde. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Trauerspiel im Walde. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.044Z",
+      "agent": "lzi1zyn6aqla0ny",
+      "source_id": "xmbnurqnc9l87k9"
+    }
+  ]
+}

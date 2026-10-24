@@ -1,0 +1,110 @@
+{
+  "annotation": "§1§ graph. Stickanleitung fehlt /) 37 Jgg 1811-1813, 1815-1848; Leipzig (Hinrichs); Hrsg.: Theodor Hell d.i. K. G. Th. Winkler /) Die Graphiken mit der Bezeichnung: »Schnorr del.« etc werden, wie von L/R 87 Ludwig Schnorr von Carolsfeld zugeschrieben; die Graphiken mit der Bezeichnung »V. Schnorr«, »V. H. Schnorr« etc dessen Vater Hans Veit Schnorr von Carolsfeld",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 6 BB Tab darin 7 GG, S I-Verz, SS 1-259 darin §1§ gA, SS 260-262 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1811",
+    "norm": "~",
+    "biblio": 106020,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2382,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1811",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / der / Häuslichkeit und Eintracht / gewidmet, / auf das Jahr 1811 / von / Theodor Hell. / Mit Kupfern und Landschaften. / Leipzig, / bei J. C. Hinrichs",
+  "updated": "2026-06-11 10:18:55.312Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "z1itbkmuixb7gd4"
+  ],
+  "contents": [
+    "wjg9mppqg20gt7u",
+    "hbt4h4pdekmibx4",
+    "14u8pnzvmcshacl",
+    "zs1sfc5ru5mjcao",
+    "feb52bvk1l1bytd",
+    "jf3yqawxf1rorb3",
+    "wxu43ctl5v9bj9w",
+    "63s23swgrtl3t2d",
+    "ct7g172lh4cxyz6",
+    "l0jspb0wh59cz16",
+    "zyloa80s7lhw1z2",
+    "yqooc5ldrbdxbaz",
+    "t5ev2l0f1dovm5m",
+    "aq22q009fd69b0e",
+    "bjktb3m5yy2w9ag",
+    "brc107wedhuxo24",
+    "vza2cdg83lu6xe8",
+    "cz7ozb7o1i2uxg1",
+    "woca3mza6eit5cd",
+    "a3qvdt2u0l6wftw",
+    "yc66sknugv0mtk2",
+    "0wbnhxngep3arl2",
+    "y1r7je3evlyh04m",
+    "luqy2fhgkhg7d7v",
+    "2ik4qpq16xvmrzk",
+    "0viv3j1d6ygsoh4",
+    "ycoifai7bfp8kd6",
+    "bg6b9b5sjjm9ksg",
+    "x4holoft6vp9s42",
+    "wg1fwu93b8cfsxl",
+    "evg1zy6eaokakg9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.060Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.060Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "0yudhv8g50sh1fa"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.014Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.014Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "5kwxjjl11xwu858"
+    }
+  ]
+}

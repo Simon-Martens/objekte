@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait nach der Skulptur von J. G. Schadow",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 724,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wieland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHADOW. Fr. Bolt del. et sculp. 1805",
+  "scans": [
+    "alm_30_724_blru1v9atg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wieland",
+  "updated": "2000-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.040Z",
+      "agent": "n0oakd9l1ov7den",
+      "source_id": "6lv392f7h22a4aq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.040Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "niedovxssyd8t8v"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90206,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andreas Graf von Hadik. / K.K. Feldmarschall und / Hofkriegsraths Präsident",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Adam fecit",
+  "scans": [
+    "alm_2209_90206_90fhfgvfrj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Andreas Graf von Hadik. / K.K. Feldmarschall und / Hofkriegsraths Präsident",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.136Z",
+      "agent": "v31c77tq4slj851",
+      "source_id": "fl7nmsr82mguz72"
+    }
+  ]
+}

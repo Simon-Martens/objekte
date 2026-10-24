@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 32134, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32133,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. PETRUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael Mengs pt. F. John sc.",
+  "scans": [
+    "alm_238_32133_u1emi1313d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. PETRUS",
+  "updated": "2001-05-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.364Z",
+      "agent": "cbnfvcf84xtpegb",
+      "source_id": "4i2iddgehj6uhda"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.364Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "si4gywsphe8fxqf"
+    }
+  ]
+}

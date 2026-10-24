@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter aus dem Leben eines Amors (Sammlung INr 71811, Obj 13) s. Titelgraphik INr 71800, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es sank der Frühling auf Flur und Hain, / Und milde Lüfte wehten,",
+  "language": [],
+  "musenalm_id": 71812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Blatt",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.370Z",
+      "agent": "zx4hokgptxl8kwz",
+      "source_id": "xwqm0uu7frbexl0"
+    }
+  ]
+}

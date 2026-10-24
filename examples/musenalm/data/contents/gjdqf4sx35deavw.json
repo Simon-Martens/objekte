@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Will doch Mancher Alles allein; - ich gleiche nicht / diesen.",
+  "language": [],
+  "musenalm_id": 65888,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Billigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikol. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Billigkeit",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.149Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "0b3b2oehpb5d6bi"
+    }
+  ]
+}

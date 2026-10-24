@@ -1,0 +1,68 @@
+{
+  "annotation": "Jg nicht bei K 16; Fortsetzung der Reihe 1786-1793",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Prediger, die lesen, forschen und denken 1794",
+    "norm": "",
+    "biblio": 405399,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2325,
+  "parallel_title": "",
+  "place_statement": "Weißenfels und Leipzig (Severin)",
+  "places": [
+    "d7kbujq7399g22j",
+    "hjh7xg66f4oi4f0"
+  ],
+  "preferred_title": "Almanach für Prediger, die lesen, forschen und denken 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 16; nicht bei L/R",
+  "responsibility_statement": "Johann Georg Schellenberg",
+  "subtitle_statement": "",
+  "title_statement": "Neuer / Almanach für Prediger / welche / lesen, forschen und denken. / Auf das Jahr 1794. / Herausgegeben / von / M. Johann Georg Schellenberg, / Sonnabends-Prediger an der Kirche zu St. Nikolai / in Leipzig. / Weißenfels und Leipzig, / bey Friedrich Severin",
+  "updated": "2026-06-11 10:18:54.901Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "vrq8u5yfyma7io1"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.155Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.155Z",
+      "agent": "mv269u6vveful7h",
+      "source_id": "uz3eg2k18gk9d4f"
+    }
+  ]
+}

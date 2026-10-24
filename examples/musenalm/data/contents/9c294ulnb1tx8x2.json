@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Treue bis zum Tode« von A. von Tschabuschnigg INr 80469, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80455,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madame Dunois. / Zur Novelle von Adolph Ritter v. Tschabuschnigg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1793_80455_slgjs5ltgo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madame Dunois. / Zur Novelle von Adolph Ritter v. Tschabuschnigg",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.917Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "9lceu6lteb3z4f6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.917Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "p7097jnd0vooink"
+    }
+  ]
+}

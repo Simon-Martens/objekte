@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Mein Herr, Nie ist mir ein Antrag unerwarteter gewesen, als da vor einiger Zeit Herr Ipsen zu mir kam,",
+  "language": [],
+  "musenalm_id": 9006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brief / vom Schulmeister an den Kauf- / mann Dyrchsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Hinrich Thomsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brief / vom Schulmeister an den Kauf- / mann Dyrchsen",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.270Z",
+      "agent": "0bikdzvwxny59z6",
+      "source_id": "icx55lmdlqlp2rh"
+    }
+  ]
+}

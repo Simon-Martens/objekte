@@ -1,0 +1,93 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, SS I- III Vrwrt d Verf, S I-Verz, SS 1-316",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Klio (Wilmsen) 1811",
+    "norm": "~",
+    "biblio": 406135,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-08-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3597,
+  "parallel_title": "",
+  "place_statement": "Berlin (Amelang)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Klio (Wilmsen) 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 72; nicht bei L/R; ADB XLIII, 309",
+  "responsibility_statement": "Wilmsen, F. P.",
+  "subtitle_statement": "",
+  "title_statement": "Klio. / Ein / historisches Taschenbuch / für / die wissenschaftlich gebildete Jugend / von / F. P. Wilmsen. / Erster Jahrgang. / Mit Kupfern. / Berlin, / bei Carl Friedrich Amelang. / 1811",
+  "updated": "2026-06-11 10:18:55.905Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "1kbqmm9k19x1hnf"
+  ],
+  "contents": [
+    "v5huqau3149maro",
+    "h58mj5einb9r8ds",
+    "dyvlbd6g6o3zdnw",
+    "8lj09snjb2owrvj",
+    "2bw3crs6l7dmvon",
+    "d4m2q6yhhd90ldy",
+    "yrem0c79qhdzcxl",
+    "1hy0jgfhz1nwe0b",
+    "lcl2qfnzdxkigtu",
+    "teq3cr8dxi8vznn",
+    "g521yfvyww5ec5h",
+    "lp8df1yk1oy4b3i",
+    "gl3ae57f180792s",
+    "vkv9iisiifjxf0x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.266Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.266Z",
+      "agent": "16tb3i8mxvamyxl",
+      "source_id": "8otkbik7eir9rk8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.472Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.472Z",
+      "agent": "i3x6166wzkf7glb",
+      "source_id": "r04k8s9kcnbselj"
+    }
+  ]
+}

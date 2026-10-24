@@ -1,0 +1,45 @@
+{
+  "annotation": "Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Deine Sanskritpoesiemetriknachahmungen / Sind voll von goldfunkelneublanken Benamungen.",
+  "language": [],
+  "musenalm_id": 24667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 244,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des vers un peu plus longs que les / Alexandrins",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des vers un peu plus longs que les / Alexandrins",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.193Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "q2t9aojmic6l8ez"
+    }
+  ]
+}

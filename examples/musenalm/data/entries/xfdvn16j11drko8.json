@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–479, C, I-Verz, C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Schauspieler und Schauspielfreunde 1823",
+    "norm": "~",
+    "biblio": 106812,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-04-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2862,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler und von Manstein)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Schauspieler und Schauspielfreunde 1823",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 146; L/R 129; Goed VIII. 129, 15",
+  "responsibility_statement": "Lembert",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Schauspieler und Schauspielfreunde / auf das Jahr 1823 / Herausgegeben / von / Lembert / [...] / Wien, / bei Tendler und von Manstein.",
+  "updated": "2026-06-11 10:18:55.060Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "qn1xjj2dtz69nvh"
+  ],
+  "contents": [
+    "gm3du34eamva4gh",
+    "69mbz2dync7rszy",
+    "jtonjhv0pa2p39i",
+    "k45ba38pz9awhsz",
+    "jtx5635cgjvvtdy",
+    "i8xazw29raw3s4m",
+    "0glpr1x5vxqd71l",
+    "kqxwc8eo8931dl5",
+    "oarikd8cu3qot0b",
+    "d9350pk7h8u3vj9",
+    "hxy2bmvat4l0mwm",
+    "l9gq00hxp6lk4nf",
+    "um8lnb7uw09m7zh",
+    "xfe1k3p9nvvj9so"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "lxngazxhjdim5r0",
+      "source_id": "fydyynnlmv68x33"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.155Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.155Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "uachb58aq8cam2c"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ceres (Sammlung INr 91572, Obj 96) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Durch alle diese Dichtungen schimmern die Begriffe von der geheimnißvollen Entwickelung des Keimes im Schooß der Erde,",
+  "language": [],
+  "musenalm_id": 91575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Deutung von Proserpinens / Raub",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Deutung von Proserpinens / Raub",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.249Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "8y2p516akj2kxi1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Dort jenseits den Bergen, dort jenseits dem See, / Dort wohnet mein Liebchen, mein alles wohnt dort;",
+  "language": [],
+  "musenalm_id": 71870,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Liebchen ist fern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cesar Heigel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Liebchen ist fern",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.398Z",
+      "agent": "y0n5xpakyalvzgl",
+      "source_id": "ua5a4xvofxtmg5m"
+    }
+  ]
+}

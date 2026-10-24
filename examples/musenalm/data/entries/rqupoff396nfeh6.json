@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1835",
+    "norm": "",
+    "biblio": 200721,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2779,
+  "parallel_title": "",
+  "place_statement": "Braunschweig (Viehweg)",
+  "places": [
+    "juyttf4bsw9orki"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 122; L/R 24; Goed VI. 344, 20",
+  "responsibility_statement": "Joseph von Hormayr",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die vaterländische Geschichte. / Herausgegeben / von / Joseph Freyherrn von Hormayr. / Neue Folge. / Sechster Jahrgang. / 1835. / Braunschweig, / Verlag von Friedrich Vieweg",
+  "updated": "2026-06-11 10:18:55.084Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "vucuytyvrzmp2mr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "j07ti5324nwpzxz",
+      "source_id": "1oq1ctr3emy7ipj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.141Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.141Z",
+      "agent": "hhurlw3k8vevy63",
+      "source_id": "52gdxiwq9adzjfm"
+    }
+  ]
+}

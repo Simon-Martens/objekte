@@ -1,0 +1,414 @@
+{
+  "annotation": "",
+  "biographical_data": "1789-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Verfasserin von Trivialromanen und Haushaltsratgebern"
+      ],
+      "dateOfBirth": [
+        "1789-11-26"
+      ],
+      "dateOfDeath": [
+        "1867-06-25"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1158081847"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:09:58.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/101145918/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Criegern"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118993992",
+          "label": "Sydow, Emil von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/138583781",
+          "label": "Sydow, Oskar von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117390887",
+          "label": "Sydow, Friedrich von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "101145918",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/118993992",
+          "label": "Sydow, Emil von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/138583781",
+          "label": "Sydow, Oskar von"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/117390887",
+          "label": "Sydow, Friedrich von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/101145918",
+      "oldAuthorityNumber": [
+        "(DE-588)1158081847",
+        "(DE-588a)101145918"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Thumitz"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4052708-6",
+          "label": "Schleusingen"
+        }
+      ],
+      "preferredName": "Sydow, Wilhelmine von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelmine"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Sydow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Isidore"
+          ],
+          "surname": [
+            "Grönau"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Sydow, Wilhelmine von: Arwid",
+        "Sydow, Wilhelmine von: Die Marketenderin",
+        "Sydow, Wilhelmine von: Die Verirrten",
+        "Sydow, Wilhelmine von: Die Inselfahrer",
+        "Sydow, Wilhelmine von: Die Grafen von Nordheim oder Das Rätsel der Friedburg",
+        "Sydow, Wilhelmine von: Opferblumen, niedergelegt auf dem Altar der Liebe und Freundschaft",
+        "Der Krieg um Schleswig-Holstein, oder Dank in Erinnerung"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline"
+          ],
+          "surname": [
+            "Sydow- von Kriegern"
+          ],
+          "type": "RealNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline"
+          ],
+          "surname": [
+            "Sydow-von Kriegern"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n91064668"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/286148995766459750837"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15429729"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101145918/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1158081847"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelmine_von_Sydow"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Wilhelmine_von_Sydow"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079903085"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101145918"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/101145918"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd101145918.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101145918"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Kriegern, Wilhelmine Friederike Karoline Sydow von",
+        "Grönau, Isidore",
+        "Sydow, Wilhelmine F. von",
+        "Sydow, Wilhelmine Friederike Karoline von",
+        "Sydow- von Kriegern, Wilhelmine Friederike Karoline",
+        "Sydow, Wilhelmine",
+        "Sydow-von Kriegern, Wilhelmine Friederike Karoline",
+        "Groenau, Isidore",
+        "Criegern, Wilhelmine von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "surname": [
+            "Sydow"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Criegern"
+          ]
+        },
+        {
+          "forename": [
+            "Isidore"
+          ],
+          "surname": [
+            "Grönau"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline"
+          ],
+          "surname": [
+            "Sydow-von Kriegern"
+          ]
+        },
+        {
+          "forename": [
+            "Isidore"
+          ],
+          "surname": [
+            "Groenau"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline Sydow"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kriegern"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine F."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sydow"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sydow"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Friederike Karoline"
+          ],
+          "surname": [
+            "Sydow- von Kriegern"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelmine_von_Sydow",
+          "label": "https://de.wikipedia.org/wiki/Wilhelmine_von_Sydow"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:07:54Z",
+    "gnd_query_biographical_data": "1789-1867",
+    "gnd_query_name": "sydow, wilhelmine friederike karoline von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2849,
+  "name": "Sydow, Wilhelmine Friederike Karoline von",
+  "profession": "Text",
+  "pseudonyms": "Isidore Grönau; Wilhelmine Friedrike Karoline von Criegern",
+  "refs": "E 354",
+  "updated": "2026-06-11 13:29:25.343Z",
+  "uri": "https://d-nb.info/gnd/101145918",
+  "editor": ""
+}

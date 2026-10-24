@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Publikum, poetische Bilder-Skizze (Sammlung INr 115663, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "In's Theater geh' ich pünktlich / Zwei Mal immer wöchentlich,",
+  "language": [],
+  "musenalm_id": 115669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mechanischer. / Motto: Ein klägliches unsäglich bittres Nichts. / Immermann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Liber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mechanischer. / Motto: Ein klägliches unsäglich bittres Nichts. / Immermann",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.473Z",
+      "agent": "zfc98s6qn3u27oa",
+      "source_id": "vdqdlbvut2sgh29"
+    }
+  ]
+}

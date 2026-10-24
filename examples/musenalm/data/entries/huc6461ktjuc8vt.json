@@ -1,0 +1,77 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "SS1–144, darin T, SS1–442, darin I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1845",
+    "norm": "~",
+    "biblio": 200313,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1319,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst / auf / das Jahr 1845. / Herausgegeben / von L. Wolff, / Souffleur des Königl. Theaters. / Zehnter Jahrgang. / Berlin, / den 1. Januar 1846",
+  "updated": "2026-06-11 10:18:54.923Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "items": [
+    "sbrj8jtiq4nieo0"
+  ],
+  "contents": [
+    "6986ejn94ivg7pc",
+    "tuf5dza2et9pq02",
+    "hma34an24svjehp",
+    "ymhpgxr4mvkhucj",
+    "8vfwo6hgkzzilm6",
+    "0xmlrlyipgtlm91",
+    "fh92yloa8j1ja0q",
+    "zer6bdzrzmlqf2b",
+    "g3tcx9e2c4krd0u",
+    "syqxa3fecpf0jho",
+    "r0xlgdaverodv1h",
+    "28jb769hh7w9x0v",
+    "xgg4m1yw29rc3w9",
+    "53wean8ixeqnupr",
+    "ofux3gh2noy8oqj",
+    "jq3i0ou2xtaeocg",
+    "1gt2j2clo4ekcp5",
+    "rl8shvof5eeq3dh",
+    "1dwai9ev0tp7d0y",
+    "iiqmcobw0rb7id6",
+    "ho9uajmel8usgf9"
+  ],
+  "agents": []
+}

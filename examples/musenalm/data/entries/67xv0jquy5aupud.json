@@ -1,0 +1,113 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 2 GG, 12 BB Kal darin 12 GG, 31 SS G-Verz,182 SS, S VrlM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1789",
+    "norm": "~",
+    "biblio": 404190,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 800,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / KALENDER / auf das Jahr / 1789. / mit Genehmhaltung der / Königl. Academie der / Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.767Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "items": [
+    "86n20pygy6t8fj7"
+  ],
+  "contents": [
+    "ngxjim9ylmvh8b4",
+    "ukkka99x7xkrs1o",
+    "iigkliujbeyn8nk",
+    "gzhl6z9c7n22zqu",
+    "kxysjt8b52vwec2",
+    "bw8p807vbb40hjz",
+    "xh8hi3sxzea8uwm",
+    "uzdgx52xwbdg18s",
+    "ooo0pmtr0z9awp4",
+    "zfthq4jwnutl094",
+    "9awh502b4kpq5rw",
+    "ixaor3lk67i1ctl",
+    "15sthwanbeuenyz",
+    "yd3j8sjkxwj5ver",
+    "8aie6cpfczj7zsl",
+    "5jm7oo7ghrt3zzu",
+    "50britocylanw2n",
+    "75o9s1q9iaebrdi",
+    "o89drp3grna7kqt",
+    "cymp7s5hajppspw",
+    "08a1f8sis8h9il8",
+    "qh3kfmpdeppopqk",
+    "8twha911crufr6y",
+    "0e2kxqfbnkzlvpr",
+    "4ohbznblkphky0e",
+    "fi1r7m5srvlw199",
+    "eaw8weky11nxosr",
+    "5o5l7tq4rjf7jq5",
+    "f63azsrs6qwigtu",
+    "cq1exo1yzj5e83k",
+    "xaf7okzx0xpmi97",
+    "gjj15ihnk8fup0n",
+    "6f4kvzm3gxp5qbc",
+    "o6yuxko7tkcz5h6",
+    "qmpkfth0pvczsyv",
+    "0szdf6q4fw9vhnv",
+    "h6u68mdu2sf1guj",
+    "ymgmcx2jpvikpxb",
+    "i7e45jc0qy5vt10",
+    "pgw4bhu73t7dd9w",
+    "lie8x27ra7ruebi",
+    "cb5tb9p9cqa48me",
+    "5gpe8w1eo3uzp9a",
+    "enfwyns1609cwlz",
+    "ys9462pbjxy72vh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "eutkhaehq1sgjop"
+    }
+  ]
+}

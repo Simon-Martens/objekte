@@ -1,0 +1,45 @@
+{
+  "annotation": "Schleswig-Holsteinische Lieder (Sammlung INr 122793, Obj 126); # Bezeichnung am Gedicht INr 122792, Obj 135",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Hei, das war ein Kanonenboot, / Das Schlug sich mit dem Stolzen Geyser, / Der Däne kam in schwere Noth, / Er seufzte und stöhnte heiser",
+  "language": [],
+  "musenalm_id": 122795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Gerber aus Altona",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Gerber aus Altona",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.698Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "ig62p0lagcvmuis"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Du Blütenmeer von Namen, / Wie schwimm' ich durch dich hin?",
+  "language": [],
+  "musenalm_id": 94386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An alle meine Schönen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An alle meine Schönen",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.324Z",
+      "agent": "7vcuasq6vh9n9b3",
+      "source_id": "78h1xnsg0o7uqw4"
+    }
+  ]
+}

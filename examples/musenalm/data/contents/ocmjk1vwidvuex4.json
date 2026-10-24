@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "381",
+  "incipit_statement": "Du zweifelst, Freund, daß vor dem klaren Geist, / Der nicht im Traum, der mit Bewußtseyn lebe, / Bisweilen eine Ahnung sich erhebe,",
+  "language": [],
+  "musenalm_id": 76860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ahnung. / Eine Epistel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst von Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ahnung. / Eine Epistel",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.795Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "2r9y6cjpasevrq6"
+    }
+  ]
+}

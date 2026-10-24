@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 37339, Obj 14,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Simple, doch authentische Relation von den curieusen schwimmenden Batterien, wie solche Ao. 1782 am 13ten und 14tenSept. unvermuthet zu schwimmen aufgehört,",
+  "language": [],
+  "musenalm_id": 37287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Simple, doch authentische Relation von den curieusen schwimmenden Batterien, wie solche Ao. 1782 am 13ten und 14tenSept. unvermuthet zu schwimmen aufgehört,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.019Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "l8j1hyjf5fcl2g3"
+    }
+  ]
+}

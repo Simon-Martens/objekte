@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Wohin so früh? / Wollt' in die Schule gehn. / Wohl! das gefällt mir! das ist schön!",
+  "language": [],
+  "musenalm_id": 6015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonderbare Hofnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonderbare Hofnung",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.954Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "mdbjhs9uh600wii"
+    }
+  ]
+}

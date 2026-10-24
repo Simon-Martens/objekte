@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August, nummeriert 9 /)  Illustration zu »Kleine moralische Erzählungen« von A. H. J. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129176,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl Engelmann Tagebuch. / Das Würmchen hungert, wir / haben seit gestern Mittag nichts / zu essen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner sc. 1800",
+  "scans": [
+    "alm_4798_129176_q1ypvdijf3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl Engelmann Tagebuch. / Das Würmchen hungert, wir / haben seit gestern Mittag nichts / zu essen",
+  "updated": "2021-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.006Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "v0cqybapq7cgw8u"
+    }
+  ]
+}

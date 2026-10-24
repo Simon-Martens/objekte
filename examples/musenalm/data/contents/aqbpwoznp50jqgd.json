@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kunz von Kaufungen, der Prinzenräuber« INr 129715, Obj 17 /) nummeriert 3.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sächsische Prinzenraub. s. Leipz. Taschenb. für die Jug. männl. Geschl. 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del Geyser sc.",
+  "scans": [
+    "alm_3025_129718_kgexfst9t6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Sächsische Prinzenraub. s. Leipz. Taschenb. für die Jug. männl. Geschl. 1790",
+  "updated": "2010-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.047Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "9ben6pavqh43f80"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.047Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "ce4287toz7orxc4"
+    }
+  ]
+}

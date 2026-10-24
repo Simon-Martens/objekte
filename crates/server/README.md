@@ -12,7 +12,7 @@ Requires the repository's Rust toolchain and Node/npm for the asset build. From 
 npm --prefix crates/server/assets ci
 npm --prefix crates/server/assets run build
 cargo run -p structured-editor-server -- admin-create
-EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
+EDITOR_INSECURE_COOKIE=1 cargo run --release -p structured-editor-server
 ```
 
 Open http://127.0.0.1:4322. `admin-create` prompts for email, display name, and a password of at least 12 characters. Noninteractive use accepts those as three stdin lines. It only creates the first administrator.
@@ -21,7 +21,8 @@ To delete all Rust server accounts and sessions, stop the server and run `cargo 
 
 | Variable | Default / meaning |
 | --- | --- |
-| `EDITOR_ROOT` | Workspace `examples/lenz-archiv`; repository to edit |
+| `EDITOR_ROOT` | Optional single repository; otherwise load the project registry |
+| `EDITOR_PROJECTS` | Workspace `examples/projects.json`; project registry (overrides `EDITOR_ROOT`) |
 | `EDITOR_DATA_DIR` | Workspace `.data`; must be outside the repository |
 | `EDITOR_BIND` | `127.0.0.1:4322` |
 | `EDITOR_ASSETS_DIR` | This crate's `assets/dist` |
@@ -277,3 +278,33 @@ Removal actions describe the stored data: **Unlink from this list** removes an I
 
 
 ID references declared with `x-relation` are checked by the server against their target collection before saving, including nested arrays/objects, mapped JSON documents, and raw editing. Missing or invalid IDs produce errors at the JSON path and leave the saved file unchanged. `allowUnresolved` no longer bypasses validation. Incoming references from mapped documents/settings block deletion and are updated automatically when a record ID changes. Rename also updates Markdown record links and reports the number of other files changed. Standalone document saves recheck references under the same write lock as deletion. External edits to repository files can still introduce invalid data; the editor rejects saving it until the references are repaired.
+
+### Multiple projects
+
+The large **Project** select above the sidebar opens a registered repository.
+By default the server loads `examples/projects.json`, containing Lenz-Archiv and
+Musenalm. Set `EDITOR_PROJECTS=/path/to/projects.json` to use your own registration:
+
+```json
+{
+  "default": "archive",
+  "projects": [
+    { "id": "archive", "name": "Archive", "path": "./archive" },
+    { "id": "catalogue", "name": "Catalogue", "path": "./catalogue" }
+  ]
+}
+```
+
+Use the release build for large collections; the first search and backlink index build reads the imported files, and subsequent requests reuse the cache.
+
+Paths are relative to the registration file (absolute paths also work). IDs must
+be unique and contain only letters, digits, `_` or `-`. Project directories cannot
+contain one another. Set `EDITOR_ROOT` without `EDITOR_PROJECTS` for the existing
+single-project mode. Restart after changing registrations.
+
+Accounts and roles apply to all projects registered in this server instance.
+Each project has its own Rust Editor, cache and draft sessions. Selection is
+remembered in an HttpOnly, SameSite cookie and switches via a CSRF-protected full
+page reload. Draft recovery keys and CSRF tokens are scoped to the project;
+requests from an older tab after a switch require a reload. Unsaved changes show
+the existing leave-view confirmation before switching.

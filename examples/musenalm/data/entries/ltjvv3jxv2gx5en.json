@@ -1,0 +1,100 @@
+{
+  "annotation": "so nicht bei K 45; L/R 159: s. Etrennes pour la jeunesse, Taschenbuch für die Jugend 1793, alm 1970. /) Diese Ausgabe bei gleichem Inhalt mit Verlagsbroschur, Kalendarium, das Titelportrait fehlt. Ohne erkennbaren Bezug zu den Beiträgen des Almanachs sind vier Graphiken und 2 kolorierte Zeichnungen beigegeben: Diese abweichende Austattung hier als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, 6 BB Kal dazu 12 GG, S 1 zT, SS 2- 264, 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender für die Jugend 1793. Titelauflage von: Etrennes pour la Jeunesse 1793",
+    "norm": "~",
+    "biblio": 100816,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-10-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2795,
+  "parallel_title": "",
+  "place_statement": "Berlin (Barbiez); Leipzig (Fleischer)",
+  "places": [
+    "0tnbaim8zcehbp7",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender für die Jugend 1793. Titelauflage von: Etrennes pour la Jeunesse 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 45; L/R 159",
+  "responsibility_statement": "Hr. Prof. Muechler",
+  "subtitle_statement": "",
+  "title_statement": "CALENDER / für / die Jugend / für das Jahr 1793. / in franzoesischer und deutscher Sprache / von / Hr. Prof. Muechler / mit Kupfern / von / Fr. Barbiez / Berlin bey Fr. Barbiez / und in Commission bey J. B. G. Fleischer / in Leipzig",
+  "updated": "2026-06-11 10:18:55.745Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "t29va2e3a11boqk"
+  ],
+  "contents": [
+    "683i1ojxo37vd8s",
+    "xrg2a81clp8fgwr",
+    "2vbsfgnah04xlop",
+    "wftvn2o7jfl5aoa",
+    "0qhdvuyt2b6mx94",
+    "j1qbihvuy3onftl",
+    "4s03gmn5ltkyy3h",
+    "mncs8ra1uz6opdz",
+    "0dn0ffde2nklrip"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.493Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.493Z",
+      "agent": "av4zukwdrwhw44l",
+      "source_id": "4xkhwubkba00obo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.147Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.147Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "holfp41wlh6tf8d"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.842Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.842Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "tgzqktv2ezzuqft"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lebenslied« von F. H. Bothe INr 62058, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_1018_62057_po83a9bixt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebenslied",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.207Z",
+      "agent": "ubitdekwc4vpg28",
+      "source_id": "9632fv0822pvgo9"
+    }
+  ]
+}

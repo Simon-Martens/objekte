@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 19346, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die indifferenten Reisenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. W. Jury sc.",
+  "scans": [
+    "alm_41_9257_ps9eh9rc1u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die indifferenten Reisenden",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "7i3dft84vs3et7r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.398Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "u1ugjpyf4pa0btu"
+    }
+  ]
+}

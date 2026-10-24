@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10639, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Trinket, trinket, holde Schönen! / Euch und uns schenkt ein! / Gern hört Amor Gläser tönen;",
+  "language": [],
+  "musenalm_id": 10527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / An die Schönen. / Nach Paolo Rolli. / Die Compos.ist von Hrn. Rolli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. Köpken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / An die Schönen. / Nach Paolo Rolli. / Die Compos.ist von Hrn. Rolli",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.577Z",
+      "agent": "5z7qom88v60ghpp",
+      "source_id": "h3ayfyf4b8g7agv"
+    }
+  ]
+}

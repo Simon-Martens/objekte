@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105568, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Die Kunst, in deren traulichem Geleite / wir uns Thaliens Tempel nah'n, / führt uns zu Euch,",
+  "language": [],
+  "musenalm_id": 105579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog, / gehalten von Herrn Einer bei Er- / öfnung der Bühne in Erfurt, am / 19. August 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Vulpius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog, / gehalten von Herrn Einer bei Er- / öfnung der Bühne in Erfurt, am / 19. August 1791",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.930Z",
+      "agent": "allpiu4vpyku74f",
+      "source_id": "slpkx56943mzt81"
+    }
+  ]
+}

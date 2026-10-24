@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Ein leiser Nebel dämmert auf den Wogen / Des stillen Stroms im Schoos der Unterwelt;",
+  "language": [],
+  "musenalm_id": 48005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisium",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elisium",
+  "updated": "2007-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.264Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "g6w7h93sesq4zc6"
+    }
+  ]
+}

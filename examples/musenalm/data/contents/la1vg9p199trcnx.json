@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosa Siciliana (Sammlung INr 2755, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Tief im Gebirg, wo sich zusammen grasen / Das Lamm der Trift, das Reh der Wildniß, sahn,",
+  "language": [],
+  "musenalm_id": 27553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XLVIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XLVIII.",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.473Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "q640vd2zb3gyzpq"
+    }
+  ]
+}

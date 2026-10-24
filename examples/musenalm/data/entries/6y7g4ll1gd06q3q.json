@@ -1,0 +1,99 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, T, I-Verz, SS1–389",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Schauspieler und Schauspielfreunde 1821",
+    "norm": "~",
+    "biblio": 106446,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2860,
+  "parallel_title": "",
+  "place_statement": "Wien (Tendler und von Manstein)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch für Schauspieler und Schauspielfreunde 1821",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 146; L/R 129; Goed VIII. 129, 15",
+  "responsibility_statement": "Lembert",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Schauspieler und Schauspielfreunde / auf das Jahr 1821, / mit Beiträgen von: Castelli, Grillpar- / zer, Fr. Haug, von Mosel, Graf von / Riesch, August West u. A. / Herausgegeben / von / Lembert. / Mit dem Bildnisse des Herrn Grafen v. Brühl. / Wien, / bei Tendler und von Manstein",
+  "updated": "2026-06-11 10:18:55.061Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "7pmqde1pr51sgcf"
+  ],
+  "contents": [
+    "widcqq8fq0w6q3j",
+    "tz0r99a9vw8gghe",
+    "rvbhpruxwf0ktnm",
+    "uzg5t5oypnjzb0p",
+    "qk2g3vxnzbc96hz",
+    "u2xc91rl9h7pdeq",
+    "rhsrm94540bplro",
+    "kqp7y64qs9cxihy",
+    "kbf1kkl0ioy0m2h",
+    "m0m35frhts5woot",
+    "uhnflak60fll63x",
+    "im52pokztjvro2i",
+    "j5lykscrsk8boj3",
+    "3zb0325oa056ngy",
+    "gaun3uucnufbosg",
+    "6uun2gz45x9svpp",
+    "065tyshqjx4vovy",
+    "sel9cyztvvgifkf",
+    "t0j0ma1f6rbg3ji",
+    "pp4cyjw12bvcmiv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.155Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.155Z",
+      "agent": "uylk38bu9ebsams",
+      "source_id": "bg8j6lejd1io9mr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.163Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.163Z",
+      "agent": "lxngazxhjdim5r0",
+      "source_id": "fgl1rtzp37fx1f7"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Natalie hatte von der Natur zwei Gaben empfangen, die man bei ihrem Geschlechte nicht selten zusammen, aber selten in gutem Einvernehmen trifft;",
+  "language": [],
+  "musenalm_id": 37443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Versöhnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. P. Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Versöhnung",
+  "updated": "2005-03-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.917Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "zaydd7h4y2l05k2"
+    }
+  ]
+}

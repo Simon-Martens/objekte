@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Gemeinen Steinen lag ein Edelstein / Durch Zufall beigesellt; allein er war / Verachtet, weil man seinen Werth nicht sah.",
+  "language": [],
+  "musenalm_id": 83520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rubin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kapf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rubin",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.070Z",
+      "agent": "cosha5k0ycv5np0",
+      "source_id": "eapibn3e1j7j3ey"
+    }
+  ]
+}

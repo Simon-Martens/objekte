@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Wohlan, mein Herz! was frägst du mich? / Sie will es, wohl! es sey geschworen!",
+  "language": [],
+  "musenalm_id": 8803,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amarant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.282Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "pjwqjlft29hx1wc"
+    }
+  ]
+}

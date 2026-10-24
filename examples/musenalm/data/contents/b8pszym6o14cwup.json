@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Gedichte INr 921 u. 8700, Obj 53 u. 55",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kophtische Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GÖTHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kophtische Lieder",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.489Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "21f2d84u7ookrt4"
+    }
+  ]
+}

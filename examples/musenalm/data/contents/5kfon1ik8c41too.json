@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Was lächelst du mit halb geschlossnem Munde / Mich, Rosenblümchen, an?",
+  "language": [],
+  "musenalm_id": 60731,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. NEUMANN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Rose",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.923Z",
+      "agent": "qwgxcg99zpa7j4i",
+      "source_id": "907su1k65l3y5z4"
+    }
+  ]
+}

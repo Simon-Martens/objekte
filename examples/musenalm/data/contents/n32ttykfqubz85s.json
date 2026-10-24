@@ -1,0 +1,45 @@
+{
+  "annotation": "Portrait paginiert 4",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58299,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ewald Friedrich Graf von Hertzberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schröder pinx. F. C. sc.",
+  "scans": [
+    "alm_829_58299_h51x37h1pj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ewald Friedrich Graf von Hertzberg",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.754Z",
+      "agent": "pxcq3jg95iqk4au",
+      "source_id": "24lskl3354gtm5y"
+    }
+  ]
+}

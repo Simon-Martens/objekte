@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühjahr 1842 (Sammlung INr 59698, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Bist du von dem Erfolge nicht / Befriedigt, deines Strebens, / Behalte nur die Zuversicht:",
+  "language": [],
+  "musenalm_id": 59699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.812Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "eoem346js48t4gs"
+    }
+  ]
+}

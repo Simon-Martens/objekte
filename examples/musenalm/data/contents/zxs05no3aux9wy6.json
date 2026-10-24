@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Im Monat Jenner 1797, als ich in Blaubeuren Königlich Würtembergischer Oberforstmeister war, ritt ich eines Vormittags in Dienstgeschäften in das Gerhauser Forstrevier,",
+  "language": [],
+  "musenalm_id": 67260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Hasen-Parforcejagd durch eine Fuchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oberforstrath und Professor Graf Sponeck zu Heidelberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Hasen-Parforcejagd durch eine Fuchs",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.183Z",
+      "agent": "b96bpcyyap183qh",
+      "source_id": "ufo33h1tirb44kz"
+    }
+  ]
+}

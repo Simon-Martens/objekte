@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksprüche (Sammlung INr 46422, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Nicht dorther, wo ihr's meint, kommt Glück / Vom Ort her, wo's nicht scheint, kommt Glück.",
+  "language": [],
+  "musenalm_id": 46428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.596Z",
+      "agent": "q3hkrc4mbx3ugx0",
+      "source_id": "qse14zcwt49qagk"
+    }
+  ]
+}

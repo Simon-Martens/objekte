@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7348,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goettinger Taschen / CALENDER / vom Jahr / 1784 / bey Joh. Chr. Dietrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. u. sculps.",
+  "scans": [
+    "alm_149_7348_xkm2uo4qkm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1784 / bey Joh. Chr. Dietrich",
+  "updated": "2000-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.318Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "h68b5xppcokt5vm"
+    }
+  ]
+}

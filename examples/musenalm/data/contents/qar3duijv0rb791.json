@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Welch ein Lärmen in der Schenke, / Geig' und Cymbal schallen drein,",
+  "language": [],
+  "musenalm_id": 57814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Éljen a Király. / Wahre Begebenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joahnn Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Éljen a Király. / Wahre Begebenheit",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.962Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "a6smygfg7yfbrv7"
+    }
+  ]
+}

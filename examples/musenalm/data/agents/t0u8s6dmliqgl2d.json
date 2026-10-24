@@ -1,0 +1,1021 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1856",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.289Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1783-01-26"
+      ],
+      "dateOfDeath": [
+        "1856-02-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Wilhelm Hensel"
+          ],
+          "creditText": [
+            "http://www.kunstgeschichte.tu-berlin.de/index.php?id=176"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Helmina%20von%20Ch%C3%A9zy%202.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Helmina%20von%20Ch%C3%A9zy%202.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Helmina%20von%20Ch%C3%A9zy%202.png?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1070884650"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-10T10:51:03.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119360659/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116222425",
+          "label": "Klencke, Caroline Luise von"
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "nameAddition": [
+            "Freiherr"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hastfer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116504617",
+          "label": "Chezy, Wilhelm von"
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Max"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118560328",
+          "label": "Karsch, Anna Luise"
+        },
+        {
+          "forename": [
+            "Antoine-Léonard"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Leopold"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "119360659",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116504617",
+          "label": "Chezy, Wilhelm von"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/118560328",
+          "label": "Karsch, Anna Luise"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116222425",
+          "label": "Klencke, Caroline Luise von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119360659",
+      "oldAuthorityNumber": [
+        "(DE-588a)134346580",
+        "(DE-588c)4419574-6",
+        "(DE-588)1070884650",
+        "(DE-588a)127318631",
+        "(DE-588a)119360659",
+        "(DE-588a)12832063X",
+        "(DE-101c)310036585"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4020137-5",
+          "label": "Genf"
+        }
+      ],
+      "preferredName": "Chézy, Helmina von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Helmina"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Chézy"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4683584-2",
+          "label": "Librettistin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Sylvandry"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Helmina"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Enkelin der Karschin"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Sylvandra"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Euryanthe von Savoyen",
+        "Gedichte der Enkelin der Karschin",
+        "Weber, Carl M. von: Euryanthe. - [ca. 1835]",
+        "Herzenstöne auf Pilgerwegen",
+        "Leben und romantische Dichtungen der Tocher der Karschin ..",
+        "Gemälde von Heidelberg, Mannheim, Schwetzingen, dem Odenwalde ..",
+        "Bruchstücke ihres Briefwechsels",
+        "Leben und Kunst in Paris",
+        "Norika",
+        "Todtenopfer an der Gruft J. B. Bertram's, Dr. der Philosophie ... - s.a.",
+        "Blumen in die Lorbeern von Deutschlands Rettern gewunden"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12125208j"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82058439"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32029599"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q67815"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=119360659"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1070884650"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119360659/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Helmina_von_Ch%C3%A9zy"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Helmina_von_Ch%C3%A9zy"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Helmina_von_Ch%C3%A9zy"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Helmina_von_Ch%C3%A9zy"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108848178"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000048145541X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119360659"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/119360659"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119360659.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119360659.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119360659"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/119360659"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Klenke, Wilhelmine Christiane von",
+        "Chézy, Wilhelmina von",
+        "Klenke, Wilhelmina Christiane von",
+        "Chézy, Helmine",
+        "Hastfer, Helmina von",
+        "Klencke, Helmina von",
+        "Chézy, Helmine von",
+        "Klenck, Wilhelmina von",
+        "Chézy, Helma von",
+        "Klencke, Wilhelmine Christiane von",
+        "Helmina",
+        "Chézy, Wilhelmine Christiane von",
+        "Hastfer, Helmine von",
+        "Czézy, Wilhelmina C. von",
+        "Czézy, Helmine von",
+        "Chézy, Helmina Wilhelmine von",
+        "Klenck, Wilhelmine Christiane von",
+        "Hastfer, Wilhelmina Christiane von",
+        "Chézy, Wilhelmine Christiane Helmina von",
+        "Chézy, Wilhelmine C. von",
+        "Chézy, Wilhelmine von",
+        "Czézy, Wilhelmine C. von",
+        "Sylvandra",
+        "Klencke, Wilhelmina von",
+        "Chezy, Helmina von",
+        "Chezy, H. v.",
+        "Sylvandry",
+        "Hastfer, Wilhelmine Helmina Christiane von",
+        "Chezy, Helmina",
+        "Klenke, Helmina von",
+        "Klencke, Helmina",
+        "Czézy, Helmina von",
+        "Klencke, Wilhelmine C. von",
+        "Chézy, Wilhelmina C. von",
+        "Enkelin der Karschin",
+        "Klenck, Helmina von",
+        "Chézy, Wilhelmina Christiane von",
+        "Chezy, Helmine von",
+        "Klenke, Wilhelmine C. von",
+        "Chezij, Helmina von",
+        "Chézy, Elmine de",
+        "Klenck, Helmine von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hastfer"
+          ]
+        },
+        {
+          "personalName": [
+            "Enkelin der Karschin"
+          ]
+        },
+        {
+          "forename": [
+            "H. v."
+          ],
+          "surname": [
+            "Chezy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "surname": [
+            "Chezy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina Wilhelmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "personalName": [
+            "Sylvandra"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hastfer"
+          ]
+        },
+        {
+          "personalName": [
+            "Helmina"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chezij"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "personalName": [
+            "Sylvandry"
+          ]
+        },
+        {
+          "forename": [
+            "Helma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chezy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hastfer"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Czézy"
+          ]
+        },
+        {
+          "forename": [
+            "Elmine"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chezy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenke"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Czézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Helmina Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hastfer"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klenck"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Czézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmina C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Czézy"
+          ]
+        },
+        {
+          "forename": [
+            "Helmina"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Klencke"
+          ]
+        },
+        {
+          "forename": [
+            "Helmine"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Christiane"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Chézy"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Helmina_von_Ch%C3%A9zy",
+          "label": "https://de.wikipedia.org/wiki/Helmina_von_Ch%C3%A9zy"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:07:00Z",
+    "gnd_query_biographical_data": "1783-1856",
+    "gnd_query_name": "chézy, helmina von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 408,
+  "name": "Chézy, Helmina von",
+  "profession": "Text",
+  "pseudonyms": "Enkelin der Karschin, Hastfer",
+  "refs": "Goed VI, 134",
+  "updated": "2026-06-11 13:29:21.882Z",
+  "uri": "https://d-nb.info/gnd/119360659",
+  "editor": ""
+}

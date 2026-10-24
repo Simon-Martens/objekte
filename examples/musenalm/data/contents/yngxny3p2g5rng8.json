@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80030, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Wir leeren bedächtig Glas für Glas, / Als wenn es zur Frohne wär'!",
+  "language": [],
+  "musenalm_id": 80031,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Trinklied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Trinklied",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.933Z",
+      "agent": "g5bo98tjkpy8a15",
+      "source_id": "8614ukhu5gq86z6"
+    }
+  ]
+}

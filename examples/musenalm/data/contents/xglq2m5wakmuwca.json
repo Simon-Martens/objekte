@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Wenn man in den Geschichten der alten Religionen, besonders jener, die unter den asiatischen Himmelsstrichen begründet wurden,",
+  "language": [],
+  "musenalm_id": 16603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber den Ursprung der Weiber nach / der Indischen Mytologie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber den Ursprung der Weiber nach / der Indischen Mytologie",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.643Z",
+      "agent": "imr7l7jckky4gjp",
+      "source_id": "7fwbsjff2lvfjol"
+    }
+  ]
+}

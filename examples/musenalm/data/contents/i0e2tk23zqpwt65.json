@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Ihr Sänger, denen auf die Brauen / Einst süßer Thau des Himmels fiel,",
+  "language": [],
+  "musenalm_id": 45424,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Dichtern. / 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den Dichtern. / 1849",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.269Z",
+      "agent": "h8j0pzrwje92vvq",
+      "source_id": "c1pk8nxk6tz16ob"
+    }
+  ]
+}

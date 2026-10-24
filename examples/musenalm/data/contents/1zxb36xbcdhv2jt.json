@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wir kaufen alle Jahr' Taschenbücher für's folgende und für Frau und Kind - letztere haben wenigstens den Mitgenuß der Bilderchen -; warum wollen wir uns nicht einmal selber eins kaufen und uns damit pro 1828 beschenken?",
+  "language": [],
+  "musenalm_id": 56717,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geleitsbrief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Cunow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geleitsbrief",
+  "updated": "2008-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.981Z",
+      "agent": "doais0yqjhhelne",
+      "source_id": "9fw6t0ik52h199x"
+    }
+  ]
+}

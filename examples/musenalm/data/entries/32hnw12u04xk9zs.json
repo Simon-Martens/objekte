@@ -1,0 +1,117 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S 1 T, SS 3-239, darin 2 GG MusB, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1833",
+    "norm": "~",
+    "biblio": 404535,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2715,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 148; L/R 119; Goed VIII. 81, 161",
+  "responsibility_statement": "Franz Fitzinger",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / vom / k.k. privilegirten Theater / in der Leopoldstadt / für das Jahr 1833. / Zum Besten der Witwe des Schauspielers / Ziegelhauser, / herausgegeben / von / Franz Fitzinger, / Mit Beyträgen / von Castelli, Bauernfeld, Hannusch, Vogl, u. a. m. / Zwanzigster Jahrgang. / Wien, 1833. / Gedruckt in der Wollzeile Nr. 782",
+  "updated": "2026-06-11 10:18:55.036Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "qtpqc6yjltg86j9"
+  ],
+  "contents": [
+    "as1y9gq3j3s67rh",
+    "0fb79h9wt4s26v8",
+    "702kl81vry1j8xf",
+    "xnpwrcr2lt14lyy",
+    "vog57obka0tkixt",
+    "tfeje0qllky6bs5",
+    "dwuorlbjra1x6l9",
+    "hlr0dit7cx7ffrs",
+    "h2r3yaw9tapx51g",
+    "d167d07scgfqebi",
+    "jsj1ow66h4ajrd0",
+    "7q3cg0x16phpkib",
+    "dso1xoy70oh59iw",
+    "af8gxxdpjc6hhx7",
+    "aggs9xso77xy1nd",
+    "a3ycsmdu4uet6xf",
+    "x9i0ddorpmj9r6x",
+    "3vy8q4wgou0r15i",
+    "v423mrrrulnhui1",
+    "li02x9pkzx5lgw0",
+    "2nje803q7vnahf6",
+    "y96cmgz6prczek9",
+    "78j2fkuglc53kca",
+    "ss93y28pzy6pp0t",
+    "khyam8fk3vd0fzb",
+    "5pw6r05fe1rfici",
+    "x7bf3az7snu4dto",
+    "tx2vspy7g9a58zt",
+    "6vyrfsw0gll180v",
+    "sjt0z2ys7tpdxx4",
+    "tvamp06niu7bqlu",
+    "jvi9h8qmly2kw2g",
+    "nm0app8ncqqtb3t",
+    "exk73o3l0oqh4y5",
+    "1yknj8wxuhi4qjp",
+    "4en4ltu426n9bzw",
+    "a7pgqe68118y69t",
+    "cbcsjgdgcw8tew4",
+    "zn9fbg0oewn6rld",
+    "hz6or9avgygib0r",
+    "lxjgck1qubjt65m",
+    "3iaw4p83p0xrbe4",
+    "seu59riyxdl1hl7",
+    "nd0y9co27mztatt",
+    "qnqht345fgrcr3s",
+    "ushhjow2pmo59b6",
+    "dvho1v3lqc2i47f",
+    "7qzj0jw6gpw7jqt",
+    "wceqzfo5zegi2yd"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.128Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.128Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "a9u9vqp00wtza53"
+    }
+  ]
+}

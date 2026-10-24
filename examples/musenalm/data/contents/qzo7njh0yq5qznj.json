@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "So thürmet ihr Wellen euch höher und höher, / Begrabet nur eilig das lustige Grün.",
+  "language": [],
+  "musenalm_id": 77346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang am Meere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. K. Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang am Meere",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.779Z",
+      "agent": "gvrm573djft0g9v",
+      "source_id": "89ov48wbz3jnydm"
+    }
+  ]
+}

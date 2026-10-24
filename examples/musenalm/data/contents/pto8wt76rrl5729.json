@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Welch ein Mädchen voll Reiz! Ruft Jeder, der / dich erblicket, / Ist es Aglaia? ists Cypris von Amathunt / selbst?",
+  "language": [],
+  "musenalm_id": 4139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chloris",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chloris",
+  "updated": "2000-09-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.016Z",
+      "agent": "6b95o6o4p7mql27",
+      "source_id": "qqpq09sfntx3jvr"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 65; Alm-177, INr 38359",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Mit der Mutterliebe Schwingen / Wärmt die Nachtigall ihr Ey;",
+  "language": [],
+  "musenalm_id": 8016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Daphnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Daphnen",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.147Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "o3iptigvmjxkfl9"
+    }
+  ]
+}

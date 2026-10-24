@@ -1,0 +1,778 @@
+{
+  "annotation": "",
+  "biographical_data": "1769-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.239Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/116192607",
+          "label": "Pistorius, Charlotte"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/4018128-5",
+          "label": "Frankfurter Nationalversammlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/36158-6",
+          "label": "Ernst-Moritz-Arndt-Universität Greifswald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/36150-1",
+          "label": "Rheinische Friedrich-Wilhelms-Universität Bonn"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1812 Privatsekretär des Freiherrn von Stein; Abgeordneter von Solingen im Frankfurter Parlament 1848"
+      ],
+      "dateOfBirth": [
+        "1769-12-26"
+      ],
+      "dateOfDeath": [
+        "1860-01-29"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Ferdinand Bender (* 1814, Königsberg; † 1905)"
+          ],
+          "creditText": [
+            "Bildindex der Kunst und Architektur: object 02521241&nbsp;– image file ngngs_1713a.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Moritz%20Arndt.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ernst%20Moritz%20Arndt.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ernst%20Moritz%20Arndt.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-07-30T07:57:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118504118/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Gottsgab"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Reinhold"
+          ],
+          "surname": [
+            "Mierendorff"
+          ]
+        },
+        {
+          "forename": [
+            "Lorenz"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Charlotte Marie"
+          ],
+          "surname": [
+            "Quistorp"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Willibald"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Sigerich"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Nanna Gottsgab"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/120922339",
+          "label": "Arndt, Karl Moritz"
+        },
+        {
+          "forename": [
+            "Fritz"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Heinrich Leubold"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/127927557",
+          "label": "Rassow, Charlotte Dorothea"
+        },
+        {
+          "id": "https://d-nb.info/gnd/143708821",
+          "label": "Arndt, Anna Maria Louise"
+        },
+        {
+          "forename": [
+            "Ludwig Nicolas"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Friederice"
+          ],
+          "surname": [
+            "Schumacher"
+          ]
+        },
+        {
+          "forename": [
+            "Leubold"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Hartmuth"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "Anna Maria"
+          ],
+          "surname": [
+            "Schleiermacher"
+          ]
+        },
+        {
+          "forename": [
+            "Roderich"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118504118",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/120922339",
+          "label": "Arndt, Karl Moritz"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/127927557",
+          "label": "Rassow, Charlotte Dorothea"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118504118",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)118504118",
+        "(DE-588a)135428017",
+        "(DE-588c)4002973-6",
+        "(DE-588a)104611812",
+        "(DE-588a)120310481",
+        "(DE-101c)311118011"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021965-3",
+          "label": "Greifswald"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1137736151",
+          "label": "Groß Schoritz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "preferredName": "Arndt, Ernst Moritz",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ernst Moritz"
+        ],
+        "surname": [
+          "Arndt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4447167-1",
+          "label": "Freiheitskämpfer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4059756-8",
+          "label": "Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4139824-5",
+          "label": "Volkskundler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4224183-2",
+          "label": "Linguist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Schaller"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "S."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "X. Y. Z."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Blick aus der Zeit auf die Zeit",
+        "Bruchstücke aus einer Reise von Baireuth bis Wien",
+        "Einleitung zu historischen Karakterschilderungen",
+        "Bruchstücke aus einer Reise durch einen Theil Italiens",
+        "Versuch einer Geschichte der Leibeigenschaft in Pomern u. Rügen",
+        "Beherzigungen vor dem Wiener Congreß",
+        "Bruchstücke einer Reise durch Frankreich",
+        "Entwurf der Erziehung und Unterweisung eines Fürsten",
+        "Christliches und Türkisches",
+        "Ansichten und Aussichten der teutschen Geschichte",
+        "Briefe an Freunde"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81076100"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/arndt-ernst-moritz/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59103999"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q57351"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118504118/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ernst_Moritz_Arndt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ernst_Moritz_Arndt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ernst_Moritz_Arndt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ernst_Moritz_Arndt"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118504118"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121348573"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118504118"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1775_nn.eutin;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1841_schorn;24"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1848_schorn;17"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1849_gluemer;12"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1789_arndt"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118504118"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118504118.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118504118.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118504118"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118504118"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118504118"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118504118"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Arndt, Ernst M.",
+        "Schaller, F.",
+        "E. M. A.",
+        "X. Y. Z.",
+        "S., E. von",
+        "Z., X. Y",
+        "A., E. M.",
+        "Arndt, E. M.",
+        "Arndt, Ernst Moriz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ernst Moriz"
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "E. M."
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Schaller"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst M."
+          ],
+          "surname": [
+            "Arndt"
+          ]
+        },
+        {
+          "personalName": [
+            "X. Y. Z."
+          ]
+        },
+        {
+          "personalName": [
+            "E. M. A."
+          ]
+        },
+        {
+          "forename": [
+            "E. M."
+          ],
+          "surname": [
+            "A."
+          ]
+        },
+        {
+          "forename": [
+            "X. Y"
+          ],
+          "surname": [
+            "Z."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ernst_Moritz_Arndt",
+          "label": "https://de.wikipedia.org/wiki/Ernst_Moritz_Arndt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:49:42Z",
+    "gnd_query_biographical_data": "1769-1860",
+    "gnd_query_name": "arndt, ernst moritz"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 60,
+  "name": "Arndt, Ernst Moritz",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VII, 815",
+  "updated": "2026-06-11 13:29:21.373Z",
+  "uri": "https://d-nb.info/gnd/118504118",
+  "editor": ""
+}

@@ -1,0 +1,65 @@
+{
+  "annotation": "Vorwort der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mit dem Jahr 1811 hat die Herausgabe dieses Taschenbuches angefangen, und zehn Jahrgänge dessen sind freygebig von Schweizern und Nichtschweizern mit Beyträgen unterstützt,",
+  "language": [],
+  "musenalm_id": 53567,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2007-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "36z0r1tt3gj4sn4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "gh4wh4d5jdrvuk3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "iiupr2r579a9h60"
+    }
+  ]
+}

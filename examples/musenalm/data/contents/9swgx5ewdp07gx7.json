@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "In einem Lande, das an das Reich der Feen grenzt, war einmal ein König, dessen finstre und übellaunige Sinnesart alle Herzen von ihm abwendig machte.",
+  "language": [],
+  "musenalm_id": 132042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der goldene Zweig. / Ein Mährchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "aus dem Franz. von Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der goldene Zweig. / Ein Mährchen",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.085Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "c66ke66eo4r9zpu"
+    }
+  ]
+}

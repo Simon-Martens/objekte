@@ -1,0 +1,98 @@
+{
+  "annotation": "<div>im Schuber</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 17 SS Kal darin 6 GG, 7 SS Tab, S 1 T, SS 3-123, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1823",
+    "norm": "",
+    "biblio": 404507,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 987,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1823",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "Joseph Ritter von Seyfried",
+  "subtitle_statement": "",
+  "title_statement": "Der / FREUND / des / schönen Geschlechts / ein angenehm und nützlicher / Taschenkalender / von / Joseph Ritter von Seyfried verfasst / für das Jahr / 1823. / WIEN, / bey Jos. Riedl bürgl. Buchbinder im Schottenhof",
+  "updated": "2026-06-18 08:28:46.618Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "rleo64ndchg0gvk"
+  ],
+  "contents": [
+    "de7djf3x7mbzjs8",
+    "vpd7czbniwst92f",
+    "s7m8svsmkzdkdpg",
+    "xq3zd6it45l6wsd",
+    "ggpqk07d0z8x2gn",
+    "nrqx2ys2jq2lx9x",
+    "q6bw45c34ao99my",
+    "xeb2rj6mdaf77ld",
+    "su553i483uybp5n",
+    "p8unb2hj6rcuonm",
+    "gdv2zdczk951olx",
+    "6hg4d8e0sei3qj6",
+    "22extbyg8m9c857",
+    "d6bbs4q5kdjbywf",
+    "bvjq7id6x1kx08e",
+    "hz18z055r7zav7w",
+    "n149r92yhp3jaa7",
+    "nswxh3acnrbdoim",
+    "axifhejurqfww5a",
+    "355f4clgg96fnpt",
+    "42v5i1ck9fpcnay",
+    "ohpj69ezhhvxv09",
+    "xew9bz4r9vz32mr",
+    "b8v15pedxu8b0f3",
+    "u6lcz100kgyr8sl",
+    "g1en7c92r2y18cf",
+    "gc36r6cbprotnue",
+    "jpncvtkzy0oxyo6",
+    "y5msdasl139nh7m",
+    "hvh3jn174pu6d6x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.206Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-18 08:28:46.619Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "vtskc9muz6nu1d5"
+    }
+  ]
+}

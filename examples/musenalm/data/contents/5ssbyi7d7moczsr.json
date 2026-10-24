@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers mit Ankündigung der Einstellung des Taschenbuchs /) mit beigegebenem Gedicht s. INr 83432, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die abermalige Veränderung meines Wohnortes und Wirkungskreises, und die damit unzertrennlich verbundenen Arbeiten und Zerstreuungen, haben mir für das gegenwärtige Taschenbuch wenig Zeit und Muße übrig gelassen.",
+  "language": [],
+  "musenalm_id": 83431,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.899Z",
+      "agent": "gmsxseq0l1x8zfa",
+      "source_id": "mcr4xj6ki4vibnj"
+    }
+  ]
+}

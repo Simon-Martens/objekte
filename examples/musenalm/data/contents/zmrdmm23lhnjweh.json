@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objek zum Titelt: So heißen auf Cuba die Zuckerpflanzung, die Zuckermühle",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Die Sonne brauet im goldenen Strahl / Des Zuckerrohrs labenden Saft;",
+  "language": [],
+  "musenalm_id": 100232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 172,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "El Ingenio / Cubanisches Negerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "El Ingenio / Cubanisches Negerlied",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.991Z",
+      "agent": "gpow9s19ygz3th4",
+      "source_id": "nitj4jm0u0yz296"
+    }
+  ]
+}

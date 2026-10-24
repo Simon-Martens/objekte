@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. am 8. Blatt der Suite /) kol. Graphik im Kalendarium - Oktober; s. Gedichte INr 56666, 56667; Obj 32, 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56665,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herbst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_32_56665_8uayygad3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Herbst",
+  "updated": "2008-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.777Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "dpzb1bjze885jew"
+    }
+  ]
+}

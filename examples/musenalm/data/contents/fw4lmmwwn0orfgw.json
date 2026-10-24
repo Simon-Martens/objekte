@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Warum soll ich eben heilig thun, / Nicht zur Schau die wahren Züge tragen?",
+  "language": [],
+  "musenalm_id": 67826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermuthigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ermuthigung",
+  "updated": "2009-08-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.281Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "smd43z8ogn7w94a"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 28 BB Kal darin 12 GG, ar: SS 1-70,T, ar1: SS 1-134, SS 134-135 I-Verz, S 136 VrlgM, 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1781",
+    "norm": "~",
+    "biblio": 105975,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-11-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 155,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 154; L/R 15",
+  "responsibility_statement": "Lichtenberg",
+  "subtitle_statement": "",
+  "title_statement": "Goettinger Taschen / CALENDER / vom Jahr / 1781 / bey Joh. Chr. Dietrich",
+  "updated": "2026-06-11 10:18:55.232Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "mi2fjj3j0j9or8m"
+  ],
+  "contents": [
+    "oe0w2c1jw817akr",
+    "ivzyvnh3vbrcbru",
+    "qdy7re1jo4c24b7",
+    "b6cwqr6k7m6hlko",
+    "cnf9vbdzzwfob3e",
+    "98dg8rn3m7acavz",
+    "wbqk3fry6gyuxpk",
+    "pvn7ixo6gh2lwo1",
+    "ws9douh11th8xne",
+    "gjb36pb40lda196",
+    "m30zizf4jyz2dml",
+    "onr36bcznzxd1iw",
+    "qsxanmh5ugjq3nt",
+    "peg6d1gpphamoax",
+    "qzq26uf0p51htiy",
+    "0gjqontf6529pi9",
+    "yf62toqlz6elkbn",
+    "gpj3d9dq681z4gt",
+    "7fngmzzm1a38ae2",
+    "jwgwszjz4payd9n",
+    "cd7v7pvk2dfpsbb",
+    "tiefdop0dftzf1p",
+    "0g36fbicty2m985",
+    "psh55ewx80f8h44",
+    "4fr8fpd7bm7tet4",
+    "10q1vc50xy95o81",
+    "8tk4kkbajikq3kl",
+    "qrxzpwrgm2vtm2c",
+    "ymit98mfdc07t9p",
+    "iqrvmnd0ueew1pl",
+    "plppkj6vgyfg2nz",
+    "kum3upm8niwow0g",
+    "ukzfunhj06n8l71",
+    "c5zc4vk3gimn1ll",
+    "9c2hysxmorlst2n",
+    "g0mhyjb6r4j566s",
+    "1z4eib19nau3msl",
+    "tiugelm98uoo3qd",
+    "bgx9zjhelpix13g",
+    "br8aho4zu00inws",
+    "46m4czosthkxpv4",
+    "xcxk3sm3ggj6s3t",
+    "b21wb9mhpqtaiam",
+    "szsmh4qxtec6miy",
+    "p9iifaiqk6zzwni",
+    "bjdddt0lygpwb18",
+    "l3zww03ra4z4opt",
+    "44fnbvrnrag59rl",
+    "n1o63awlxuq78m8",
+    "zc484kdl9rf3n3z",
+    "fk2w7fauterj4fq",
+    "ezop4aalv31fnue",
+    "e9qsv7n0ivydpeq"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.056Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.056Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "71sqhyd6coxfwja"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.202Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.202Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "8ci4vayfpff2y5u"
+    }
+  ]
+}

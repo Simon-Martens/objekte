@@ -1,0 +1,61 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Nazional-Garde Almanach 1814",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-12-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4359,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Nazional-Garde Almanach 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; L/R 181",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.961Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.371Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.371Z",
+      "agent": "46kejxdgsiggk3k",
+      "source_id": "i8dhjkrhkhsr3zq"
+    }
+  ]
+}

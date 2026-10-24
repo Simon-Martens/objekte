@@ -1,0 +1,58 @@
+{
+  "annotation": "lt. G-Verz: Wallensteins Lager /) s. Textbezug INr 130436, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Julius Schnoor v. C. inven. et fec. 1809. die Aqua Tinta von J. B. Hössel in Altenburg)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schnoor v. C. inven. et fec. 1809. die Aqua Tinta von J. B. Hössel in Altenburg",
+  "scans": [
+    "alm_2207_130434_5fpxct0xob.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.070Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "2tf6wdeuo5csg3l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.070Z",
+      "agent": "w78lomy5w24kuml",
+      "source_id": "qb4g29n8jcalf5u"
+    }
+  ]
+}

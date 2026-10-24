@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12 /) Graphik im Kalendarium Dezember /) Illustration zu »Hamlet« v. W. Shakespeare /) s. G-Verz INr 69979, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69978,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter! versöhnt euch mit dem / Himmel. / VI. Aufz. letzter Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp.",
+  "scans": [
+    "alm_790_69978_s49l8jgoqg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutter! versöhnt euch mit dem / Himmel. / VI. Aufz. letzter Auftr.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.435Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "c5f5xs0it8jyjgu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.435Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "q3bi0vcea4haegi"
+    }
+  ]
+}

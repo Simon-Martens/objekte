@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Die Schwestern von Lesbos« von A. von Helvig s. Textbezug INr 37430, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37432,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury del et fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del et fec.",
+  "scans": [
+    "alm_503_37432_llubz6aq5c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-03-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.736Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "rebv8cp6w3zpr3c"
+    }
+  ]
+}

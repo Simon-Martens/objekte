@@ -1,0 +1,45 @@
+{
+  "annotation": "Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Dich feiern wollte ich durch süße Töne, / Denn sind nicht Griffel, Wort' und Pinsel arm,",
+  "language": [],
+  "musenalm_id": 49060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprache. / An .....",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprache. / An .....",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.505Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "t6obm6e47gvj2it"
+    }
+  ]
+}

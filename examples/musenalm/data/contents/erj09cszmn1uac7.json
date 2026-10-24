@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Den König Richard und sein Heer, / Es hungert sie in Syrien sehr, / Und haben seine Räth' und Weisen / Gedanken viel, doch nichts zu speisen.",
+  "language": [],
+  "musenalm_id": 100235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Richard Löwenherz und Saladin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Augus Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Richard Löwenherz und Saladin",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.827Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "7beuf72i7uml2n7"
+    }
+  ]
+}

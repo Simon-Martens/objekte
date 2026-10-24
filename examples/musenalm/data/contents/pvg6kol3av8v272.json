@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Suschen war wahrhaftig in der Straße St. Marie, die nach der Boulewards hinführte, das hübscheste Mädchen. Ein Götterkind! sagten die jungen Herrn, die gewiß einige Male vorübergiengen,",
+  "language": [],
+  "musenalm_id": 50437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Suschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Suschen",
+  "updated": "2007-06-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.779Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "xo7p0in495nci48"
+    }
+  ]
+}

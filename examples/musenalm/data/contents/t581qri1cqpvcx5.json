@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Schwebst du mit den Erosflügeln, / Erste Liebe, noch einmal / Von der Jugend Sonnenhügeln",
+  "language": [],
+  "musenalm_id": 64431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erste Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Lingg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erste Liebe",
+  "updated": "2009-06-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.346Z",
+      "agent": "0cypjj5vas77v7w",
+      "source_id": "olxf3fci6obgn6n"
+    }
+  ]
+}

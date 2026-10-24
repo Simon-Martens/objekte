@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; # Titel von Textbezug INr 39603, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39597,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Salto mortale oder der Sturz in den Abgrund. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_520_39597_3i7z3ypbj4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Salto mortale oder der Sturz in den Abgrund. #",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.126Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "o5qibnn53cz5ms4"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.126Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "vh5uue2gmt5bzrg"
+    }
+  ]
+}

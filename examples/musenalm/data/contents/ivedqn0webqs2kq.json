@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57808, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "San Jago di Compostella / Sei unser Ziel, o Braut!",
+  "language": [],
+  "musenalm_id": 57812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le bon mariage. / (Romanze.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Le bon mariage. / (Romanze.)",
+  "updated": "2008-06-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.962Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "p6l2u6iureq7zic"
+    }
+  ]
+}

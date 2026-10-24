@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 108; Alm-177, INr 38400",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Wär ich Schöpfer, wie der Dichter, / Der, Eloa, dich erschuf! / Säh' ich herrliche Gesichter,",
+  "language": [],
+  "musenalm_id": 8045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Oberburgemeister Schulze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Oberburgemeister Schulze",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.116Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "dptqi71rwfocmfc"
+    }
+  ]
+}

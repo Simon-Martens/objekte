@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Winter ward und meine Mutter / Hatte sich ein Grab bestellt,",
+  "language": [],
+  "musenalm_id": 115935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Waise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Waise",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.463Z",
+      "agent": "j7plmb89f8s4m2q",
+      "source_id": "q3k12chnjvmd02x"
+    }
+  ]
+}

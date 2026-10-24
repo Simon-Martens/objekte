@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Lieber Cotta! Man sagt zwar, ein Wort ein Mann, aber nicht, ein Wort ein Autor; denn jener giebt es wohl, dieser muß es halten.",
+  "language": [],
+  "musenalm_id": 33025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ursachen warum der Verfasser / nichts für das Taschenbuch / auf 1803 liefert. / Ein Brief",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. F. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ursachen warum der Verfasser / nichts für das Taschenbuch / auf 1803 liefert. / Ein Brief",
+  "updated": "2003-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.437Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "54i5gsrk8g0civi"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Das ist bei der Lieb', daß keine / Blume fehlt in ihrem Kranz.",
+  "language": [],
+  "musenalm_id": 67942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.152Z",
+      "agent": "690p6l7d7zmbgvd",
+      "source_id": "wygol7orqhnxjms"
+    }
+  ]
+}

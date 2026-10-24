@@ -1,0 +1,45 @@
+{
+  "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85471, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Willkommen auf der Heimat altem Boden, / Willkommen in der Deinem frohem Kreis!",
+  "language": [],
+  "musenalm_id": 85473,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho. / (Erster Aufzug. Zweiter Auftritt. Seite 7.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sappho. / (Erster Aufzug. Zweiter Auftritt. Seite 7.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.979Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "aot9gk4zmpyffg0"
+    }
+  ]
+}

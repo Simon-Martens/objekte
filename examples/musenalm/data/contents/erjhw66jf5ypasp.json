@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123357, Obj 3); Illustration zu »Kayser Claudius« von Kotzebue (INr 123363, Obj 9); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Einen Verräther entlarvt, einen Freund gewonnen, / der Kayser hat einen schönen Tag gelebt. / Kayser Claudius. 1te Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+  "scans": [
+    "alm_1275_123362_q4knt2u6t8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "2. / Einen Verräther entlarvt, einen Freund gewonnen, / der Kayser hat einen schönen Tag gelebt. / Kayser Claudius. 1te Scene",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.806Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "9sz6knzouaj3ton"
+    }
+  ]
+}

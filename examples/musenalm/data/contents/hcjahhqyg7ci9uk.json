@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Der Vogelhändler« von C. Spindler; s. Textbezug INr 10269, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103258,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SPINDLERS VOGELHAENDLER VON IMST. IV Bd.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fellner del. Hessloehl sc.",
+  "scans": [
+    "alm_3416_103258_e4ea4srs35.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SPINDLERS VOGELHAENDLER VON IMST. IV Bd.",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.084Z",
+      "agent": "9z4h7ka6ovxy0ac",
+      "source_id": "ckdmm8cbs7hnwhg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.084Z",
+      "agent": "g141z8lw112bbl6",
+      "source_id": "wbjb39b9i0r0taz"
+    }
+  ]
+}

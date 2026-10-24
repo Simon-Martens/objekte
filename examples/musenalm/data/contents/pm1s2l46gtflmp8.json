@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; paginiert pag. p. 377 /) s. Textbezüge INr 87535, Obj 31 und INr 87550, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87520,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm IV. schenckt Prüschenck von Linden- / hofen sein Zutrauen und Gnade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elsasser del. C. Schule sc.",
+  "scans": [
+    "alm_3929_87520_pkaocj2bor.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm IV. schenckt Prüschenck von Linden- / hofen sein Zutrauen und Gnade",
+  "updated": "2013-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.380Z",
+      "agent": "ri87ed3zfsk183z",
+      "source_id": "cap531e6dlmcvml"
+    }
+  ]
+}

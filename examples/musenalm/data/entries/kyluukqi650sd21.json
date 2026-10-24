@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bürger-Militär-Almanach für das Königreich Baiern 1810",
+    "norm": "",
+    "biblio": 407760,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-04-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3945,
+  "parallel_title": "",
+  "place_statement": "München (Fleischmann)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Bürger-Militär-Almanach für das Königreich Baiern 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 75; L/R 181",
+  "responsibility_statement": "Lipowsky",
+  "subtitle_statement": "",
+  "title_statement": "Bürger-Militär- / Almanach / für das / Königreich Baiern. / 1810. / von / Lipowsky. / München, / bey E. A. Fleischmann",
+  "updated": "2026-06-11 10:18:55.565Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "3wzmdkq62veydqw"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.314Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.314Z",
+      "agent": "46kejxdgsiggk3k",
+      "source_id": "8ss3dcq1w2ek0zz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.858Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.858Z",
+      "agent": "ejggi76t7h6qc42",
+      "source_id": "xydhmi8p0myj9ux"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung INr 50240, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Zwey junge Personen aus einer schon seit langer Zeit unter Französicher Botmäßigkeit stehenden Deutschen Provinz waren beynahe von ihrer Kindheit an in gegenseitiger Zuneigung aufgewachsen,",
+  "language": [],
+  "musenalm_id": 50241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft und Liebe / auf der Probe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundschaft und Liebe / auf der Probe",
+  "updated": "2007-06-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.820Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "pqpscihhqo9xaxy"
+    }
+  ]
+}

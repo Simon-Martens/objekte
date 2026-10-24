@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Leben. Sonettenkranz. (Sammlung INr 65908, Obj 99)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Das Kind, in seinen Wünschen still bescheiden, / Ist friedlich an die Heimath noch gekettet.",
+  "language": [],
+  "musenalm_id": 65909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Das Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Messow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Das Kind",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.187Z",
+      "agent": "u3h0otg4lapzo9f",
+      "source_id": "1qv9yy43oawl3gz"
+    }
+  ]
+}

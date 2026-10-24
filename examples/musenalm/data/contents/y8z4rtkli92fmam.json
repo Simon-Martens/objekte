@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3 /) Graphik im Kalendarium März /) Illustration zu »Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70246,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Süsse, ruhige Unschuld, du allein fehltest / meinem Herzen. 1 Th. 63. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculpsit",
+  "scans": [
+    "alm_801_70246_k1popk732t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Süsse, ruhige Unschuld, du allein fehltest / meinem Herzen. 1 Th. 63. B.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.388Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "7048u9q4td783y0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.388Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "un9gnwi3tkr41rq"
+    }
+  ]
+}

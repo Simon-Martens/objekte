@@ -1,0 +1,45 @@
+{
+  "annotation": "Die weiße Rose. Liederkranz (Sammlung INr 81119, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Im kleinen Kirchhofsraume / Ein schwarzes Kreuz sich hebt,",
+  "language": [],
+  "musenalm_id": 81126,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. Grabesblüthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. Grabesblüthe",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.882Z",
+      "agent": "onb8bft2jljf6eb",
+      "source_id": "davw1ywki9hyddo"
+    }
+  ]
+}

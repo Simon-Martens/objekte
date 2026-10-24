@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "469",
+  "incipit_statement": "Was rauscht und murmelt deine Fluth, / Du heller Bach in Mitte dieser Auen?",
+  "language": [],
+  "musenalm_id": 131294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 213,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wär ich wie ihr",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. Abschatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wär ich wie ihr",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.025Z",
+      "agent": "zqagfqn8g3oskms",
+      "source_id": "1g1w3fpqf976ztw"
+    }
+  ]
+}

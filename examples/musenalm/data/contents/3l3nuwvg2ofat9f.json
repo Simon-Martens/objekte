@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In einer der preußischen Provinzen, ganz dicht am Weserufer, hatte sich eine gar anmuthige Besitzung erhoben, auf höchst ordentliche Weise angebaut;",
+  "language": [],
+  "musenalm_id": 128290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Paul Pommer. / Scenen aus dem Leben eines preußischen In- / validen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Paul Pommer. / Scenen aus dem Leben eines preußischen In- / validen",
+  "updated": "2011-08-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.981Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "7nhjj4s94afp124"
+    }
+  ]
+}

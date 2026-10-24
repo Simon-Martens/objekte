@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 16736, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9233,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ganÿmed, vom Adler in den Olymp getragen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Gerh. v. Kügelgen gez. v. Therese von Winkel gest. v. Zschoch",
+  "scans": [
+    "alm_40_9233_e3rrd79qpd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ganÿmed, vom Adler in den Olymp getragen",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.477Z",
+      "agent": "ypie95xdp0y0ob7",
+      "source_id": "rdjakpmg63293jn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.477Z",
+      "agent": "s4g5qqmtfq8rt8j",
+      "source_id": "ygk2746hywxhb6e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.477Z",
+      "agent": "g2gt3akj0yc6x1r",
+      "source_id": "z5pw3o2s5rcqb2a"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar paginiert 2. s. Textbezug im Kalendarium »Loudons Skizze« INr 62284, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62285,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Loudon erhält das für ihn bestimmte aber / den Preussischen Husaren in die Hände / gefallene Generalmajors Dekrete mit / einem Glückwunsch Friedrichs zurück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seb. Mansfeld inv. et fec.",
+  "scans": [
+    "alm_1021_62285_mf0mc7raec.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Loudon erhält das für ihn bestimmte aber / den Preussischen Husaren in die Hände / gefallene Generalmajors Dekrete mit / einem Glückwunsch Friedrichs zurück",
+  "updated": "2009-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.129Z",
+      "agent": "ze1m2gdl2g6avu5",
+      "source_id": "nxfnm74ov5b2ano"
+    }
+  ]
+}

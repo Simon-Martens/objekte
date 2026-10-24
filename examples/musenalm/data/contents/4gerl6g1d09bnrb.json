@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Amara (Sammlung INr 100262, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Daß ich als süß Geheimniß dich mir hüte, ver- / arg' es nicht!",
+  "language": [],
+  "musenalm_id": 100284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXII.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.856Z",
+      "agent": "ujjt9xntbdmu6em",
+      "source_id": "ang5brg0cfdo84i"
+    }
+  ]
+}

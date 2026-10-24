@@ -1,0 +1,113 @@
+{
+  "annotation": "§§§ Ex. beschädigt, $ vermutlich fehlen Widmung und Vorwort des Herausgebers",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, recto G, T, SS 1-4, SS 5-9 G-Verz, G, 14 BB Kal darin 12 GG, G, ar1: SS 1-130, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für den deutschen Adel 1794",
+    "norm": "~",
+    "biblio": 100034,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-02-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 293,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (P. H. Guilhauman)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach, Historischer für den deutschen Adel 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; L/R 21; Goed V. 449, 11; Goed VII. 200, 11",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1794. / Ritter / Göz von Berlichingen, / mit der eisernen Hand. / von / Carl Lang. / mit Kupfern von Küffner, Lang u. a. / Frankfurt am Main, / bey Philip Heinrich Guilhauman",
+  "updated": "2026-06-11 10:18:55.167Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "cr6uwqdl191xatk"
+  ],
+  "contents": [
+    "hpt5iqovcsji9mt",
+    "cl9ulib7qtoa9xh",
+    "h67cbb1cnpz9u5d",
+    "6o61sztgvhw8tcp",
+    "65dxei2cmiz84k9",
+    "wjbx5yi3fnrr4af",
+    "8zqzngls768c6wt",
+    "9vezlxhp8yot5ft",
+    "lp2qkn68o86qkeo",
+    "mnp6mh8fnole8jy",
+    "8j5bz0378fnj72t",
+    "cbmzqwu0jnqujjc",
+    "a46vl8a2hkz7ju4",
+    "wrtsdbvav8jl272",
+    "rn3j2sxo62rd2q4",
+    "yudptux164b2nyz",
+    "j7tszoix36qhhpn",
+    "xmsgft9ac8rf7pi",
+    "dpm9mhdzzpygbnd",
+    "0x4jcretgjpig5v",
+    "lh5jhef8lf6ujp9",
+    "y0e93sdcz12mvvp",
+    "5f3h0mpgcnngzgz",
+    "yaxhuglwrvnpymw",
+    "k7v479worod4qh3",
+    "zw8kemo3tn5dd59",
+    "gqcnwkz00gp7d6k",
+    "y7dp8j0ctj5x1cn",
+    "6h9sjbqd03kjg7j",
+    "wlsdjsk0xn0fy3o",
+    "1ilzxzkpgkvhyha",
+    "oswqwnc4kffrvq3",
+    "ygihmq9kj2j4jdk",
+    "vwn0pesqa2sdsov"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.939Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.939Z",
+      "agent": "fao1gdwq2he58u0",
+      "source_id": "4gc1ls5cwdyr6s5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.583Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.583Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "vx3riacv6f4069o"
+    }
+  ]
+}

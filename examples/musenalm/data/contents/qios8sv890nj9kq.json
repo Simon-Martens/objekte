@@ -1,0 +1,45 @@
+{
+  "annotation": "# In der Anmerkung am Objekt Hinweis auf die zu erwartende Aufhebung der Leibeigenschaft durch die Versammlung des Schleswig-Holsteinischen Adels. /) mit einer Musikbeigabe s. INr 17226, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Die Scheun' ist vollgedrängt von Garben, / Die wir durch Pflug und Sens erwarben;",
+  "language": [],
+  "musenalm_id": 17225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang der Leibeigenen / beim Erntekranz. / Den Edleren des Adels gewidmet. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang der Leibeigenen / beim Erntekranz. / Den Edleren des Adels gewidmet. #",
+  "updated": "2001-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.806Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "xq470hauc0986g5"
+    }
+  ]
+}

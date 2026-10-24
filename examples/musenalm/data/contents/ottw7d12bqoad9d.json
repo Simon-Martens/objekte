@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 115828, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Ich sah dich an mit Wonne; / Du hast es nicht verschmäht;",
+  "language": [],
+  "musenalm_id": 115829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Planet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Planet",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.571Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "y0q6jvr4hz3lu68"
+    }
+  ]
+}

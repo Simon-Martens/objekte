@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34552, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34553,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Augenblick der Versuchung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Collins. R. A. delt. H. C. Shenton sculpt.",
+  "scans": [
+    "alm_480_34553_yve1htctun.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Augenblick der Versuchung #",
+  "updated": "2003-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.711Z",
+      "agent": "jfn0m9odb0mqqv8",
+      "source_id": "2uwceuznz865hkc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.711Z",
+      "agent": "r1vy04g1bcdp3en",
+      "source_id": "g9k0otd7zy0vtqz"
+    }
+  ]
+}

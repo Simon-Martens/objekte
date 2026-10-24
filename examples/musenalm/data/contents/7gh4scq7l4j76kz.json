@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 10402, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Es ist ein chemischer Satz, das Salze nicht wirken, wenn sie nicht aufgelöset werden.",
+  "language": [],
+  "musenalm_id": 10415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Salz und Witz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Salz und Witz",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.412Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "85cgmdp354mq6n9"
+    }
+  ]
+}

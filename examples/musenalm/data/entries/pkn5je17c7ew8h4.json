@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelauflage: K 150 gibt einen Band mit falschem Jg 1810 an; Goed VIII, 75, (131) gibt zwei Bände mit falschem Jg 1810 an und fragt »Vermutl. Anthologie«. Beide geben eine Wiederholung der Auflage 1814 an.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, verso G, T, SS 1-XVI G- Verz darin 6 GG, SS XVII-XX I-Verz, zT, ar: SS 1-202, ar1: S 1 zT, SS 3-82 darin 2 MusBB, B C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaia (Frankfurt) 1803 (Titelauflage)",
+    "norm": "~",
+    "biblio": 200511,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2005-03-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3591,
+  "parallel_title": "",
+  "place_statement": "Frankfurt",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Aglaia (Frankfurt) 1803 (Titelauflage)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 5, 150; L/R 71; Goed VIII. 55, 20; Goed VIII. 75,131",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die / Verehrer der schönen Literatur / und einer / ausgewählten edlen Lectüre. / Herausgegeben / von / den geschätztesten Schriftstellern / der / Deutschen. / Dritter Theil. / mit sieben Kupfern von Jury / und Musikbeilage. / Frankfurt am Mayn / bei Bernhard Körner 1811",
+  "updated": "2005-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "xnwnkqvpy06az89"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.266Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.266Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "6xmpnj38dmj9d0f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.438Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.438Z",
+      "agent": "h0siijp048vuz94",
+      "source_id": "8ioceywwa25cvhq"
+    }
+  ]
+}

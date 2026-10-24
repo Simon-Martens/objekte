@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Mutter Gottes, steh mir bey, / Daß ich werth, dich zu begrüssen, sey!",
+  "language": [],
+  "musenalm_id": 8421,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kirchengebeth an die Mutter Maria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. E. K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kirchengebeth an die Mutter Maria",
+  "updated": "2026-06-23 09:01:04.900Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.477Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "09o2qkkps3fdb2v"
+    }
+  ]
+}

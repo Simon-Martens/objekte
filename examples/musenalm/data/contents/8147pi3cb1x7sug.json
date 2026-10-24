@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel /) # Zuschreibung nach L/R 169",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91359,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ETRENNES / pour la Jeunesse / TASCHENBUCH / für die Jugend / für das Jahr / 1793 / von Hr. Pr. Muechler / Berlin bey Fr. Barbiez / und in Commission bey J. G. B. Fleischer / in Leipzig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Ramberg",
+  "scans": [
+    "alm_1970_91359_bqhgddcswh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ETRENNES / pour la Jeunesse / TASCHENBUCH / für die Jugend / für das Jahr / 1793 / von Hr. Pr. Muechler / Berlin bey Fr. Barbiez / und in Commission bey J. G. B. Fleischer / in Leipzig",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.440Z",
+      "agent": "yn5dqo3oyes0o9i",
+      "source_id": "ho9k7xohs0i42h1"
+    }
+  ]
+}

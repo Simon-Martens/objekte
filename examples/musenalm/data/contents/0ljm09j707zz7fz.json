@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50838,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Viro Magadin, am Locarner-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hess del. ad nat. J. H. Meyer sc.",
+  "scans": [
+    "alm_690_50838_5af1fx4qjb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Viro Magadin, am Locarner-See",
+  "updated": "2007-07-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.584Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "lliz7fr38sgmdje"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.584Z",
+      "agent": "uc4ahm2w7hhtikb",
+      "source_id": "oru7hyilpukid5j"
+    }
+  ]
+}

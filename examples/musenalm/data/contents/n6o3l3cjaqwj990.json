@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Alte von Furnatsch. Erzählung aus den Zeiten des Religionskrieges in Graubünden, 1637« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110859, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "426",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Imeldi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl. Wien",
+  "scans": [
+    "alm_3468_110861_pdjgqb9xu4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie Imeldi",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.284Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "7b55b8ybfl3m0qk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.283Z",
+      "agent": "gwpog0zaym1qin6",
+      "source_id": "q5nped4104bwio1"
+    }
+  ]
+}

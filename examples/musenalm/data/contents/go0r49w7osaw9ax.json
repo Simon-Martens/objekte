@@ -1,0 +1,56 @@
+{
+  "annotation": "mit einem einleitenden Beitrag s. INr 58750, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "An der Säule Sockel, da sitzt er gebeugt, / Das Antlitz in seine Hand geneigt;",
+  "language": [],
+  "musenalm_id": 58751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Belagerung von Korinth]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lord Byron; [übers.] S. H. Spiker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Belagerung von Korinth]",
+  "updated": "2008-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.974Z",
+      "agent": "ifwkraj21mnbg9a",
+      "source_id": "lprr4xyt0wqobef"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.974Z",
+      "agent": "z2vp1av7e4ucapr",
+      "source_id": "mt5pz25hwy06g43"
+    }
+  ]
+}

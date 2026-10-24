@@ -1,0 +1,43 @@
+{
+  "annotation": "mit der Erwähnung C. E. C. Hess' als Stecher der Graphiken",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Unter den Erfindungen des Luxus und der Mode, wodurch sich unser Jahrhundert ausgezeichnet hat, ist vielleicht keine einzige, die so vortheilhaft zur Verbreitung gemeinnütziger Kenntnisse, zur Verfeinerung des Geschmacks und zur Beförderung guter Sitten",
+  "language": [],
+  "musenalm_id": 82913,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.983Z",
+      "agent": "gmsxseq0l1x8zfa",
+      "source_id": "052nm4pwkh15d3x"
+    }
+  ]
+}

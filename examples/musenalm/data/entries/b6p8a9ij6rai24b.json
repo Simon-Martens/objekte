@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Würtembergischer 1788",
+    "norm": "",
+    "biblio": 408197,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-10-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4050,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Buchdruckerei der Herzoglichen Hohen Carlsschule)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Hofkalender, Würtembergischer 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 63; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Wirtembergischer / Hof- / Calender / auf / das Schaltjahr / 1788. / Stuttgart, / gedruckt und zu finden in der Buchdruckerei, / der Herzoglichen Hohen Carlsschule",
+  "updated": "2026-06-11 10:18:55.664Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "jd5a0n269l0w6lf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.613Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.613Z",
+      "agent": "yruw941k4ns2bcp",
+      "source_id": "fbmtl5rnyf5fs4v"
+    }
+  ]
+}

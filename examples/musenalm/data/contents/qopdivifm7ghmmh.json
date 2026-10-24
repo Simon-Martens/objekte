@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Ein Pilger kam aus fernem Land / In unsers Thales Schoos;",
+  "language": [],
+  "musenalm_id": 36020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Verbindung eines Griechen / mit einer Stuttgarterin. / Im Jahre 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werthes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Verbindung eines Griechen / mit einer Stuttgarterin. / Im Jahre 1800",
+  "updated": "2003-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.842Z",
+      "agent": "2dkhavramcy8bv0",
+      "source_id": "lxwv8w8nv7d52k6"
+    }
+  ]
+}

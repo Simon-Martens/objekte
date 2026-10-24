@@ -1,0 +1,93 @@
+{
+  "annotation": "UG recto fehlt; mit kol. Illustrationen; Fortsetzung von: Almanach dramatischer Spiele für Gesellschaftstheater 1811-1837 Hrsg. F. A. von Kurländer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, Vrwrt, I-Verz, SS 1–336, darin 3 GG, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele für Gesellschaftstheater 1839",
+    "norm": "~",
+    "biblio": 200643,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1267,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele für Gesellschaftstheater 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18 u. 76; L/R 123; Goed VIII. 128, 7; Goed III. 813",
+  "responsibility_statement": "C. W. Koch",
+  "subtitle_statement": "",
+  "title_statement": "F. A. von Kurländers / dramatischer Almanach / für das Jahr 1839. / Fortgesetzt / von / C. W. Koch. / Neun und zwanzigster Jahrgang. / Leipzig. / Baumgärtners Buchhandlung",
+  "updated": "2026-06-11 10:18:55.144Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "hvyj14lhbzun63f"
+  ],
+  "contents": [
+    "zu0dqp6by55v6cp",
+    "29vzvt0z3k8x5zd",
+    "1v39mskp0xxgntd",
+    "2u7y3ny26jb5vxv",
+    "5wlb1z1ug38zx5g",
+    "fw36g1pwp5lxqoc",
+    "kdejovppr0xe5zq",
+    "fxruyeyn86vqvr5",
+    "bug0gjqpedaw610",
+    "tt4ekel5bc0gx9c",
+    "vx1n5ygg3rp8zit",
+    "yfexpotaild5006",
+    "aipz2fuyouzztc3",
+    "du35ast5mg0nsr9"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.867Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.867Z",
+      "agent": "snm7ivv5m1ogx5v",
+      "source_id": "68zp3794eqzqrmi"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.503Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.503Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "7lb04atb5w7qqkp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Längs den Häusern eines dunklen Seitengäßchens huschte eine Mannsgestalt hin, die Schirmmütze tief über die Stirne gezogen.",
+  "language": [],
+  "musenalm_id": 64550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bella Flora. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bella Flora. / Erzählung",
+  "updated": "2009-06-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.233Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "y8l7rx1yvyf5ygh"
+    }
+  ]
+}

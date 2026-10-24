@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachgelassene Sprüche (Sammlung INr 24067, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Den Bergmann soll die Wünschelruthe nicht / Mit blindem Glück an goldne Schätze führen,",
+  "language": [],
+  "musenalm_id": 24073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich von Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.253Z",
+      "agent": "jaer15own8gb04o",
+      "source_id": "a47stkblw98y20z"
+    }
+  ]
+}

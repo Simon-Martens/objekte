@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39467, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braut von Messina / Die Mutter / O meine Söhne! kommt, entschliesset euch, / Die Rechnung gegenseitig zu vertilgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_518_39466_km2d552txz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braut von Messina / Die Mutter / O meine Söhne! kommt, entschliesset euch, / Die Rechnung gegenseitig zu vertilgen",
+  "updated": "2005-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.097Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "fxltvgfguij68b9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.097Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "uzfsvw5ryocswf5"
+    }
+  ]
+}

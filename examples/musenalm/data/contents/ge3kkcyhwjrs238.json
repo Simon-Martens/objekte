@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 98435-98439, Obj 65-70 /) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeigen",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.817Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "xb920ev4xo11uwh"
+    }
+  ]
+}

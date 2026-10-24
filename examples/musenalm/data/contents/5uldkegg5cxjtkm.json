@@ -1,0 +1,56 @@
+{
+  "annotation": "paginert II. /) Illustration zu »Die Mordnacht von Zürich« INr 79090, Obj 13 /) # Bez. aus der Vorrede des Hrsg",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79083,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mordnacht zu Zürich. / Seite 88",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri; P. J. Laminit",
+  "scans": [
+    "alm_2199_79083_aoou4iif74.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Mordnacht zu Zürich. / Seite 88",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.798Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "1woep9oyjqwoqxw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.798Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "pyeozzkx512raag"
+    }
+  ]
+}

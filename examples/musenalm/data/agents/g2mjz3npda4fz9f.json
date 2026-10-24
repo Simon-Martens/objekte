@@ -1,0 +1,502 @@
+{
+  "annotation": "",
+  "biographical_data": "1753-1793",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.472Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Neffe des jüdischen Messias Jakob Frank, 1773 vom Judentum zum Katholizismus konvertiert; 1778 nobilitiert; 1792 als Revolutionär in Frankreich, später zusammen mit Danton guillotiniert"
+      ],
+      "dateOfBirth": [
+        "1753-07-12"
+      ],
+      "dateOfDeath": [
+        "1793-04-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "משה דוברושקה"
+          ],
+          "creditText": [
+            "הספרייה הלאומית של ישראל"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/%D7%A1%D7%A4%D7%A8%20%D7%94%D7%A9%D7%A2%D7%A9%D7%95%D7%A2.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/%D7%A1%D7%A4%D7%A8%20%D7%94%D7%A9%D7%A2%D7%A9%D7%95%D7%A2.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:%D7%A1%D7%A4%D7%A8%20%D7%94%D7%A9%D7%A2%D7%A9%D7%95%D7%A2.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/125392077X"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-18T16:38:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119412055/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobruška"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobruschka"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119412055",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119412055",
+      "laterNameOfThePerson": [
+        {
+          "forename": [
+            "Lucius Junius"
+          ],
+          "surname": [
+            "Frey"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Junius"
+          ],
+          "surname": [
+            "Frey"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Lucien"
+          ],
+          "surname": [
+            "Frey"
+          ],
+          "type": "LaterNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sigmund Gottlob Junius Brutos"
+          ],
+          "surname": [
+            "Frey"
+          ],
+          "type": "LaterNameOfThePerson"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4436965-7",
+        "(DE-588a)119412055",
+        "(DE-588)125392077X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Schönfeld, Franz Thomas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Franz Thomas"
+        ],
+        "surname": [
+          "Schönfeld"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4176751-2",
+          "label": "Rabbiner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4165211-3",
+          "label": "Konvertit"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4128272-3",
+          "label": "Kaufmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4212680-0",
+          "label": "Alchemist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4213137-6",
+          "label": "Bibliotheksdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4162691-6",
+          "label": "Jakobiner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Sozialphilosoph",
+        "Heereslieferant"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Franz Thomas"
+          ],
+          "surname": [
+            "Schönfeld"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n81089361"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/47571010"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q328094"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119412055/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/125392077X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Moses_Dobru%C5%A1ka"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Junius_Frey"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Moses_Dobru%C5%A1ka"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066773066"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119412055"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119412055"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Frey, Lucius Junius",
+        "דאברושקי, משה בן זלמן",
+        "Dobruschka, Moses",
+        "Frey, Junius",
+        "Frey, Lucien",
+        "Schönfeld, Franz Thomas von",
+        "Schönfeld, Franz Thomas",
+        "Dobruska, Moses",
+        "Frey, Sigmund Gottlob Junius Brutos",
+        "Dobrushka, Moses",
+        "Schönfeld, Franz Thomas von, Edler",
+        "Dobruška, Moses",
+        "Dobrushḳi, Mosheh ben Zalman"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Franz Thomas"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schönfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund Gottlob Junius Brutos"
+          ],
+          "surname": [
+            "Frey"
+          ]
+        },
+        {
+          "forename": [
+            "Mosheh ben Zalman"
+          ],
+          "surname": [
+            "Dobrushḳi"
+          ]
+        },
+        {
+          "forename": [
+            "Junius"
+          ],
+          "surname": [
+            "Frey"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobruška"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Thomas"
+          ],
+          "nameAddition": [
+            "Edler"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schönfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobrushka"
+          ]
+        },
+        {
+          "forename": [
+            "Lucius Junius"
+          ],
+          "surname": [
+            "Frey"
+          ]
+        },
+        {
+          "forename": [
+            "Franz Thomas"
+          ],
+          "surname": [
+            "Schönfeld"
+          ]
+        },
+        {
+          "forename": [
+            "Lucien"
+          ],
+          "surname": [
+            "Frey"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobruschka"
+          ]
+        },
+        {
+          "forename": [
+            "Moses"
+          ],
+          "surname": [
+            "Dobruska"
+          ]
+        },
+        {
+          "forename": [
+            "משה בן זלמן"
+          ],
+          "surname": [
+            "דאברושקי"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Junius_Frey",
+          "label": "https://de.wikipedia.org/wiki/Junius_Frey"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:51:45Z",
+    "gnd_query_biographical_data": "1753-1793",
+    "gnd_query_name": "schönfeld, franz thomas von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2522,
+  "name": "Schönfeld, Franz Thomas von",
+  "profession": "Text",
+  "pseudonyms": "Moses Dobruska",
+  "refs": "DBI 1834",
+  "updated": "2026-06-11 13:29:24.776Z",
+  "uri": "https://d-nb.info/gnd/119412055",
+  "editor": ""
+}

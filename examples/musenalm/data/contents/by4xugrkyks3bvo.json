@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Seid uns recht herzlich im Grünen willkommen, / Ihr Freund' und Freundinnen, groß und klein!",
+  "language": [],
+  "musenalm_id": 44398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. Prolog zum »dankbaren Sohn« von Engel. / (Aarau 1838, als das Stück von meinen Kindern im Garten, zum Geburtstag / ihrer Mutter aufgeführt wurde.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. Prolog zum »dankbaren Sohn« von Engel. / (Aarau 1838, als das Stück von meinen Kindern im Garten, zum Geburtstag / ihrer Mutter aufgeführt wurde.)",
+  "updated": "2006-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.194Z",
+      "agent": "2zqoqv8fdrs839t",
+      "source_id": "p4aek7usl35bvnw"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vater - Mutter - Vaterhaus. Skizzen aus Belgien. (1790-1802.) (Sammlung INr 70684, Obj 21) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Vieles hat sich verändert. Der glückliche Soldat Bonaparte ist Konsul der französischen Republik geworden.",
+  "language": [],
+  "musenalm_id": 70688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Vaterhaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Vaterhaus",
+  "updated": "2010-08-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.387Z",
+      "agent": "p9xocrmcb2o8pu5",
+      "source_id": "hnfmym6gj670j5b"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Entseelt verwest Wiens Spanheim, Eckhel, / Hier unter diese Sarges Deckel.",
+  "language": [],
+  "musenalm_id": 11236,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "87. / Grabschrift des k.k. Münzcabinets- / Director Eckhel. / Wien im Mai 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "87. / Grabschrift des k.k. Münzcabinets- / Director Eckhel. / Wien im Mai 1798",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.461Z",
+      "agent": "y0pp926xdweonfb",
+      "source_id": "nhkusn944aoe6xh"
+    }
+  ]
+}

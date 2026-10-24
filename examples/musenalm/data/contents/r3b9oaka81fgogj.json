@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 45401-45409, Obj 110-118",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Reise",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.298Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "uu6jcupvlr8nqh7"
+    }
+  ]
+}

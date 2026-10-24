@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-verz. paginiert 4. s. Textbezug INr 7722, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7695,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Burg Acropolis bei Athen, in der Ferne sieht man das neue Athen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kaaz pinx. # J. A. Darnstedt sc.",
+  "scans": [
+    "alm_30_7695_c8pw566koj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Burg Acropolis bei Athen, in der Ferne sieht man das neue Athen",
+  "updated": "2000-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.117Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "4iu14xsb87o8f1q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.117Z",
+      "agent": "3b22tvkhcnjfda6",
+      "source_id": "em1f7r353p7eqha"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jahrgänge nicht nachweisbar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Frankreich und Deutschland 1834",
+    "norm": "",
+    "biblio": 407300,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3816,
+  "parallel_title": "",
+  "place_statement": "Paris (General-Subscriptions-Bureau)",
+  "places": [
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Taschenbuch für Frankreich und Deutschland 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "National-Gesellschaft von Frankreich",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für Frankreich und Deutschland, / für das Jahr 1834; / Herausgegeben / von der National-Gesellschaft von Frankreich. / Preis zu Paris: / […]. / Man wendet sich in portofreien Briefen zu Paris: […]",
+  "updated": "2026-06-11 10:18:54.706Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "m7u0jmcn6qual2t"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.891Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.891Z",
+      "agent": "6hfj0w61qra2ham",
+      "source_id": "zj935k92m8roruw"
+    }
+  ]
+}

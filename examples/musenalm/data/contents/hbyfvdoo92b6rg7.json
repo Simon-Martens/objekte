@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Aus Bruder Wilhelm, glauben Sie, Mama! / Wird nie was werden!",
+  "language": [],
+  "musenalm_id": 5532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friz und Mama",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friz und Mama",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.188Z",
+      "agent": "vurjmtt5tprr0cw",
+      "source_id": "fv2qbdyj6ueuhu9"
+    }
+  ]
+}

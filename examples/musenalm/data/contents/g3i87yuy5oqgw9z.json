@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt Suite /) Graphik im Kalendarium März; paginiert 4. /) s. Textbezug INr 96794, Obj 13 /) wohl Illustration zu »Kurze Geschichte der Hessen, mit besonderer Rücksicht auf ihre Kriege.« INr 96916 f, 35 f",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96907,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lass dich umarmen Camrad",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96907_u6vfzvqyfb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lass dich umarmen Camrad",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.740Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "z4kl6pgv6vyhfru"
+    }
+  ]
+}

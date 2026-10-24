@@ -1,0 +1,45 @@
+{
+  "annotation": "Jacobis kritische Anmerkungen zum vorstehenden Gedicht INr 86, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Der bescheidne Verfasser dieses Gedichts, welcher sich in einem Brief' einen Anfänger und Dillentanten nennt,",
+  "language": [],
+  "musenalm_id": 87,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANMERKUNGEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "ANMERKUNGEN",
+  "updated": "2001-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.974Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "f52ruawofsds355"
+    }
+  ]
+}

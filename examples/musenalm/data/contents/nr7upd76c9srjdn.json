@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104254, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104253,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GRAF V. MONTFORT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Dyck pinx. S. v. Perger del. Kovatsch sculp.",
+  "scans": [
+    "alm_1933_104253_12quwmkhiw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GRAF V. MONTFORT",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.077Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "b5rwnso58e60tx8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.077Z",
+      "agent": "yfpqp089ikjb1ej",
+      "source_id": "jemg35g74q5jeqb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.077Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "n9svqove7ct3ree"
+    }
+  ]
+}

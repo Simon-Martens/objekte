@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4 /) kol. Graphik im Kalendarium Juli /) Illustration zum unbetitetelten, unbezeichneten Beitrag INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81969,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Übergang über die Salza unter Gen. Decaen (S. 99)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber inv. P. J. Lamint sc.",
+  "scans": [
+    "alm_3830_81969_eyzczvjq0s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Übergang über die Salza unter Gen. Decaen (S. 99)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "1m4atej9naqkx4v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.116Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "exalsnr2s821eay"
+    }
+  ]
+}

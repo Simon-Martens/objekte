@@ -1,0 +1,45 @@
+{
+  "annotation": "Ernst- und scherzhafte Erklärung der Kupfer (Sammlung INr 129263, Obj 9) s. Graphik INr 128273, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Wie die Räuber in Schiller's Moor sitzen die schelmischen Buben ums Feuer herum im Kreis, und wärmen sich die erstarrten Finger.",
+  "language": [],
+  "musenalm_id": 129272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebesgötter beym Feuer. / (Kupfer-Erklärung)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebesgötter beym Feuer. / (Kupfer-Erklärung)",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.008Z",
+      "agent": "zx4hokgptxl8kwz",
+      "source_id": "oq0fchlxtcg1g11"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Das von Linz kommende Dampfschiff hatte bei Rußdorf gelandet. Viele Passagiere stiegen aus, darunter auch Leopold Riesenegger,",
+  "language": [],
+  "musenalm_id": 117949,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Bruder vom Lande. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Scheyrer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Bruder vom Lande. / Novelle",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.623Z",
+      "agent": "ffr90h140nkavcs",
+      "source_id": "dr6abmyb8cet050"
+    }
+  ]
+}

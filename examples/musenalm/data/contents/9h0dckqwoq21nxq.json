@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Ich grüße nieder in das Thal, / Von dir, du alte Burg!",
+  "language": [],
+  "musenalm_id": 78393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von der Burg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von der Burg",
+  "updated": "2011-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.682Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "4myudozk1l8k5vg"
+    }
+  ]
+}

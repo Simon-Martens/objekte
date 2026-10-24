@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Februar, nummeriert 2 /) s. Textbezug INr 120093, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120120,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JOHANN VON WUNSCH",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sculpsit 1784",
+  "scans": [
+    "alm_3957_120120_itvehnx5g0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JOHANN VON WUNSCH",
+  "updated": "2013-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.606Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "w87xe0vs6yqqot3"
+    }
+  ]
+}

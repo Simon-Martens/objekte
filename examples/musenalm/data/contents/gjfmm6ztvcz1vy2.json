@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. V /) kol. Illustration zu »Die Schleyereule« von L. C. E. H. F. von Wildungen INr 66692, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strix flammea. Schleiereule. Perleule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad. vivo. del",
+  "scans": [
+    "alm_1139_66691_pr93u5ovni.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Strix flammea. Schleiereule. Perleule",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.220Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "v3s2jj65444tub9"
+    }
+  ]
+}

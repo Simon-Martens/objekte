@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Wintergrün 1838",
+    "norm": "",
+    "biblio": 406000,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-06-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4557,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Herold)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Wintergrün 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 175; nicht bei L/R; Goed VIII. 103, 234",
+  "responsibility_statement": "Georg Lotz",
+  "subtitle_statement": "",
+  "title_statement": "Wintergrün. / Taschenbuch auf 1838. / Herausgegeben / von / Georg Lotz. / Hamburg, / in der Herold'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.032Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "fi64k9bdu6anxuf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.000Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.000Z",
+      "agent": "p61edzq4yde43sv",
+      "source_id": "bm0efcitkhvgfzn"
+    }
+  ]
+}

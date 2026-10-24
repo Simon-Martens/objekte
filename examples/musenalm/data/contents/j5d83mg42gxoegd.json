@@ -1,0 +1,56 @@
+{
+  "annotation": "Tabulae votivae (Sammlung INr 38033, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Wärt ihr, Schwärmer, im Stande die Ideale / zu fassen,",
+  "language": [],
+  "musenalm_id": 38055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natur und Vernunft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Natur und Vernunft",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.726Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "qc6dzfm14lgsj20"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.726Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "v4b38jkow7ni388"
+    }
+  ]
+}

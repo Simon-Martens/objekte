@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Vom Nachtgewölb' tiefblau und dunkel, / Da flimmert's und flammert's herab",
+  "language": [],
+  "musenalm_id": 85656,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Siedlers Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rudolph Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Siedlers Abend",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.197Z",
+      "agent": "z276kpo6m8d5nvd",
+      "source_id": "i75extylve54bj4"
+    }
+  ]
+}

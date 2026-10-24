@@ -1,0 +1,532 @@
+{
+  "annotation": "",
+  "biographical_data": "1807-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.491Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftstellerin"
+      ],
+      "dateOfBirth": [
+        "1807-07-12"
+      ],
+      "dateOfDeath": [
+        "1876-04-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/EmmavonSuckow.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/EmmavonSuckow.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:EmmavonSuckow.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T21:51:18.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116146095/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pappenheim und Calatin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Calatin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emma von Pappenheim"
+          ],
+          "prefix": [
+            "und"
+          ],
+          "surname": [
+            "Calatin"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117365718",
+          "label": "Suckow, Albert von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116146095",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117365718",
+          "label": "Suckow, Albert von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116146095",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116146095",
+        "(DE-588a)126409374",
+        "(DE-588c)7675501-0"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044554-9",
+          "label": "Pappenheim"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050471-2",
+          "label": "Rom"
+        }
+      ],
+      "preferredName": "Suckow, Emma von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Emma"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Suckow"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Schriftstellerin"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Niendorf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "surname": [
+            "Niendorf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "surname": [
+            "Nindorf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nindorf"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Suckow, Emma von: Erzählungen",
+        "Suckow, Emma von: Aus London",
+        "Suckow, Emma von: Reisescenen in Bayern, Tyrol und Schwaben",
+        "Suckow, Emma von: Lenau in Schwaben",
+        "Suckow, Emma von: Einfache Geschichten",
+        "Suckow, Emma von: Ueber diese Geschichte ist Gras gewachsen",
+        "Suckow, Emma von: Aus der Gegenwart"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Emma von"
+          ],
+          "surname": [
+            "Suckow"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2013053390"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35200702"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1338067"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116146095/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Emma_Niendorf"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Emma_Niendorf"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000000977840X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116146095"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1850_suckow;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1842_niendorf"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1850_suckow"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116146095.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116146095"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/116146095"
+        }
+      ],
+      "titleOfNobilityAsLiteral": [
+        "Gräfin; Baronin"
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Niendorf, Emma",
+        "Calatin, Emma von",
+        "Pappenheim und Calatin, Emma von",
+        "Succow, Emma von",
+        "Niendorf, Emma von",
+        "Suckow, Emma von",
+        "Nindorf, Emma von",
+        "Sukkow, Emma von",
+        "Nindorf, Emma",
+        "Calatin, Emma von Pappenheim und"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Emma von"
+          ],
+          "surname": [
+            "Suckow"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Succow"
+          ]
+        },
+        {
+          "forename": [
+            "Emma von Pappenheim"
+          ],
+          "prefix": [
+            "und"
+          ],
+          "surname": [
+            "Calatin"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Calatin"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "surname": [
+            "Nindorf"
+          ]
+        },
+        {
+          "forename": [
+            "Emma von"
+          ],
+          "surname": [
+            "Niendorf"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Niendorf"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "surname": [
+            "Niendorf"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Nindorf"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Sukkow"
+          ]
+        },
+        {
+          "forename": [
+            "Emma"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pappenheim und Calatin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Emma_Niendorf",
+          "label": "https://de.wikipedia.org/wiki/Emma_Niendorf"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:07:03Z",
+    "gnd_query_biographical_data": "1807-1876",
+    "gnd_query_name": "suckow, emma von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2832,
+  "name": "Suckow, Emma von",
+  "profession": "Text",
+  "pseudonyms": "Emma (von) Niendorf",
+  "refs": "E 353",
+  "updated": "2026-06-11 13:29:25.323Z",
+  "uri": "https://d-nb.info/gnd/116146095",
+  "editor": ""
+}

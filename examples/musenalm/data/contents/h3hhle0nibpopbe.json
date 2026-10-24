@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 68574, Obj 3,01",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16714,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IDEAL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jac. Palma sen. pt. F. John sc.",
+  "scans": [
+    "alm_227_16714_1z4p31lolq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IDEAL",
+  "updated": "2001-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.529Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "goq4l6o5q6gjysx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.529Z",
+      "agent": "v4ukljtiialnocd",
+      "source_id": "y24ct8txvkt03p5"
+    }
+  ]
+}

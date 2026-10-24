@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Norwegens Krone zu erben / That Harald, dem Krieg nur gefiel, / Um Gunild Goldhaar werben;",
+  "language": [],
+  "musenalm_id": 66377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harald Harfagri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harald Harfagri",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "tpwve3h1enyv5eo",
+      "source_id": "z64a6udkm8tq4sf"
+    }
+  ]
+}

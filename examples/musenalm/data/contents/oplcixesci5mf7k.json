@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Sonette zu den Kupfern (Sammlung INr 94282, Obj 5) s. Titelgraphik INr 94279, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Was Anmuth sey, wer wagt es auszudrücken? / Der Prunk der Worte führt uns nicht zum Ziele,",
+  "language": [],
+  "musenalm_id": 94283,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die anmuthige Schöne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die anmuthige Schöne",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.478Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "we37g9r07r4zk98"
+    }
+  ]
+}

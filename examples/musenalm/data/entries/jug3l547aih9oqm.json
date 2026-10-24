@@ -1,0 +1,76 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-224",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gaben der Milde 1817 (1)",
+    "norm": "~",
+    "biblio": 406769,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3711,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Gaben der Milde 1817 (1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 49; L/R 91; Goed VIII. 97, 193",
+  "responsibility_statement": "F. W. Gubitz",
+  "subtitle_statement": "",
+  "title_statement": "Gaben der Milde / Erstes Bändchen. / Mit Beiträgen / von / Helmina von Chezy, de la Motte- / Fouqué, Franz Horn, Gustav / Jördens, Karl Stein, und der / Verfasserin von Juliens Briefe. / Für die Bücher-Verloosung »zum Vortheil hülfloser Krie- / ger« herausgegeben von F. W. Gubitz. / Berlin, 1817",
+  "updated": "2026-06-11 10:18:54.688Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "eitbofh3flaz9dn"
+  ],
+  "contents": [
+    "022o9tu6ckdcfhw",
+    "8mckyhiyrmg9fy2",
+    "3l3nuwvg2ofat9f",
+    "3cffyoe1aykndby",
+    "e5pyn3o5lvhlgug",
+    "sg8znvrbcwbmzk8",
+    "iowrtepsjfr30c0",
+    "bta9jsha2r1863o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.284Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.284Z",
+      "agent": "5riql8l2fq0wx5f",
+      "source_id": "7u0790vdj5suzzp"
+    }
+  ]
+}

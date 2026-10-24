@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 90685, Obj 40) mit einer Illustration s. Graphik im Kalendarium INr 90654, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "In Frankreich war ein Graf, welcher einen Tischnarren hatte. Das war gar ein freundlicher Narr, der Niemand betrübte, weder mit Worten noch mit Werken,",
+  "language": [],
+  "musenalm_id": 90689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Die große Nase",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Die große Nase",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.391Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "wtk5rzm6mdrki18"
+    }
+  ]
+}

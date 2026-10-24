@@ -1,0 +1,396 @@
+{
+  "annotation": "",
+  "biographical_data": "1803-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.332Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "forename": [
+            "Johann Ulrich"
+          ],
+          "surname": [
+            "Ernst"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Kesselring"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Conrad"
+          ],
+          "surname": [
+            "Freienmuth"
+          ]
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Pflegte Beziehungen zu bedeutenden Persönlichkeiten des Kantons Thurgau"
+      ],
+      "dateOfBirth": [
+        "1803-02-20"
+      ],
+      "dateOfDeath": [
+        "1836-10-16"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Theodor%20Froehlich.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Theodor%20Froehlich.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Theodor%20Froehlich.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-06-17T13:15:43.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11910184X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Anna Rosina"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuel"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham Emanuel"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Ida"
+          ],
+          "surname": [
+            "von Klizzing"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "11910184X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11910184X",
+      "oldAuthorityNumber": [
+        "(DE-588a)11910184X",
+        "(DE-588c)4316589-8",
+        "(DE-588a)186217692",
+        "(DE-101c)310068932",
+        "(DE-588a)134378938",
+        "(DE-588a)156731541"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4000018-7",
+          "label": "Aarau"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4090211-0",
+          "label": "Brugg (Aargau)"
+        }
+      ],
+      "preferredName": "Fröhlich, Friedrich Theodor",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Theodor"
+        ],
+        "surname": [
+          "Fröhlich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628980-1",
+          "label": "Musikdirektor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/7628966-7",
+          "label": "Gesangslehrer"
+        }
+      ],
+      "publication": [
+        "Fröhlich, Theodor: [Messen 1828]",
+        "Fröhlich, Theodor: [Sonaten, Vc Kl f-Moll]",
+        "Fröhlich, Theodor: [Messen (1828)]",
+        "Fröhlich, Theodor: [Motetten / Ausw.]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb13981323h"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79038846"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/5733727"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D20576.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1462495"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11910184X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Theodor_Fr%C3%B6hlich"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Theodor_Fr%C3%B6hlich"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109508044"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11910184X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11910184X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11910184X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11910184X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Fröhlich, Friedrich Theodor",
+        "Fröhlich, Fritz Theodor",
+        "Fröhlich, Theodor",
+        "Fröhlich, F. Theodor",
+        "Fröhlich, Theodor Friedrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fritz Theodor"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Theodor"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "F. Theodor"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Theodor"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        },
+        {
+          "forename": [
+            "Theodor Friedrich"
+          ],
+          "surname": [
+            "Fröhlich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Theodor_Fr%C3%B6hlich",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Theodor_Fr%C3%B6hlich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:26:21Z",
+    "gnd_query_biographical_data": "1803-1836",
+    "gnd_query_name": "fröhlich, friedrich theodor"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 803,
+  "name": "Fröhlich, Friedrich Theodor",
+  "profession": "Musik u. Text",
+  "pseudonyms": "",
+  "refs": "ADB VIII, 134",
+  "updated": "2026-06-11 13:29:22.403Z",
+  "uri": "https://d-nb.info/gnd/11910184X",
+  "editor": ""
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht v. Wilhelmshöhe bei Cassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Nahl del. J. Ad. Darnstedt sc. 1803",
+  "scans": [
+    "alm_169_52177_w505nz7vqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht v. Wilhelmshöhe bei Cassel",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.771Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "a8xssxt6czppv9z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.771Z",
+      "agent": "19dpt0c5iom2ho8",
+      "source_id": "is1o3kbxqxns1wb"
+    }
+  ]
+}

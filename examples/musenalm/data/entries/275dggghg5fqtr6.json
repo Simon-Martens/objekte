@@ -1,0 +1,60 @@
+{
+  "annotation": "2. Raubdruck  von Chr. Ludw. Neuffers 1802 in Leipzig erstmals erschienenen Idylle.  Dem 1. Raubdruck Leipzig (A. Gerstle) 1803 wurde der Zusatz J. H. Voß  beigegeben, 1805 erschien ein Raubdruck in Reutlingen; dem hier vorliegenden, bei Goed V. 449, 3 nicht erwähnten Raubdruck wurde darüber hinaus der Zusatz  »als Taschenbuch« beigegeben. Weitere Ausgaben:  Bremen und Leipzig 1815 (Comptoir v. Kaiser) und: Leipzig 1816 /) Ein weiterer Mäckenscher Raubdruck auf der Musenalm ist: »Taschenbuch für Weiber und Mädchen  zur moralisch-religiösen Bildung in charakteristischen Gemählden. Herausgegeben von Friedrich Ehrenberg. Königlichem  Hofprediger zu Berlin. Mit einem Titelkupfer. Reutlingen, in der J. J. Mäcken'schen Buchhandlung. 1810« Alm-11",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-2 VrlgM, SS1 nT, SS 3-236",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Der Tag auf dem Lande (Neuffer) (Raubdruck: Mäcken) 1808",
+    "norm": "~",
+    "biblio": 200668,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 564,
+  "parallel_title": "",
+  "place_statement": "Reutlingen",
+  "places": [
+    "cfccuhks1f06hoj"
+  ],
+  "preferred_title": "Der Tag auf dem Lande (Neuffer) (Raubdruck: Mäcken) 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed V. 449, 3;",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Der / Tag auf dem Lande. / Von / J. H. Voß. / Als / Taschenbuch / für / das Jahr 1808. / Dritte von neuem durchgesehene Auflage. / Reutlingen / in der J. J. Mäcken'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.607Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "0bbclkhw6poutrx"
+  ],
+  "contents": [
+    "52kjq15tg07k462",
+    "rinh4sofux22yb8",
+    "4wmf0tfkd2y2ic1",
+    "ffop3pjofcc8dun"
+  ],
+  "agents": []
+}

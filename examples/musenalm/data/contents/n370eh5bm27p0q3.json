@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 50909, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rezüns, in Bündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinrich Meyer f. ad. nat.",
+  "scans": [
+    "alm_692_50890_41xm71tixx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rezüns, in Bündten",
+  "updated": "2007-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.585Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "417ttsbbwxhnrvy"
+    }
+  ]
+}

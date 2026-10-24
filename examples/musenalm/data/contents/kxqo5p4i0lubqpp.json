@@ -1,0 +1,45 @@
+{
+  "annotation": "Maria. Ein Sonettenkranz (Sammlung INr 43070, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Ein Tag erschien und neigte sich zum Enden / O könnt' ich aus der Reihe aller Tage",
+  "language": [],
+  "musenalm_id": 43086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16.",
+  "updated": "2003-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.312Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "z1v7ng30r7tgl5a"
+    }
+  ]
+}

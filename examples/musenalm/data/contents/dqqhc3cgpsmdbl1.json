@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Wer den wuchtig'gen Hammer schwingt; / Wer im Felde mäht die Aehren;",
+  "language": [],
+  "musenalm_id": 44330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Requiescat!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Requiescat!",
+  "updated": "2006-07-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.991Z",
+      "agent": "vmnuom11udo0f3y",
+      "source_id": "1nva5xa3q2khhot"
+    }
+  ]
+}

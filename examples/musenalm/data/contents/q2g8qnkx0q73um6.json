@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schafhausen / von der Westseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Hauenstein del. ad nat. J. H. Meyer sculps.",
+  "scans": [
+    "alm_711_57521_kughnr3n6n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schafhausen / von der Westseite",
+  "updated": "2007-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.649Z",
+      "agent": "qfq553jmfkso7qx",
+      "source_id": "64t7uv3o553oqhe"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.649Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "uitlmiioxhbwrp0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Süß ist das Angedenken vergangener fröhlicher / Tage, / Wenn kein Kummer den Geist umwölkt, kein / drängender Seufzer",
+  "language": [],
+  "musenalm_id": 31513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen. / An meine Freundinn Fräulein Sophie von Mertens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen. / An meine Freundinn Fräulein Sophie von Mertens",
+  "updated": "2003-02-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.555Z",
+      "agent": "vxzn7evqhv18e38",
+      "source_id": "hn4hn4qo851cwc8"
+    }
+  ]
+}

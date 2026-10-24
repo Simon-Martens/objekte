@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied um Regen« INr 46771, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (G. C. Claudius)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. Claudius",
+  "scans": [
+    "alm_631_46772_2t6r08a7jy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.452Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "125x6b228yrwmc7"
+    }
+  ]
+}

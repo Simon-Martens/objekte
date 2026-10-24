@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Tirol (Sammlung INr 45936, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Der Adler schwingt im Felsengrunde / Sich von der todten Gemse auf,",
+  "language": [],
+  "musenalm_id": 45938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Adler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Adler",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.233Z",
+      "agent": "xgh72r9y3fxa6u5",
+      "source_id": "s3cm3hydnx7yrfr"
+    }
+  ]
+}

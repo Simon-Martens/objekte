@@ -1,0 +1,131 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 6 GG, nT, 2 SS G-Verz, SS 1- 191, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1847",
+    "norm": "~",
+    "biblio": 404530,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1011,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "DER / FREUND / des / schönen Geschlechtes. / Taschenbuch / für das Jahr / 1847. / Vier und vierzigster Jahrgang. / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn, / k.k. Hofbuchbinder, / Schottenhof No. 136",
+  "updated": "2026-06-11 10:18:54.682Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "wq8dt1xz5pv5ska"
+  ],
+  "contents": [
+    "gkh4z3hqr85peyp",
+    "j8at0hmxzdfu9c1",
+    "1nuugunedpi1q5g",
+    "humbgixp81i8lvf",
+    "bc3gry7gc9ceyy5",
+    "a6tcsl57fe8e1j4",
+    "tvy0vwxxk9cvfr0",
+    "vv4gyvt75q4yzt5",
+    "jrkk98w9xcvapnf",
+    "oieryudunaexw2j",
+    "8zgk1mf25nwoml3",
+    "qc7oyldieu9ufu1",
+    "kiuzybtb4n27rf9",
+    "o7mwj7lyopbf10a",
+    "amu744g1le0ir78",
+    "7ygbej0xvvfdwss",
+    "u31myf8zy4od3ki",
+    "lnzogdaip8ndpuh",
+    "gdzn6093x8f6e9i",
+    "2cqf036el0biy16",
+    "x5j263srmrq3wnd",
+    "n83a1cq71g0oder",
+    "x0jfv3bxqsak69s",
+    "qavunng7ytx3tdy",
+    "dq5dn9m79pvlq81",
+    "nlow5aa0i4c6mt0",
+    "47dtmjbe2dcci95",
+    "ijxp254j7jw869j",
+    "tsqqk9uwyd1jpz6",
+    "k8d2q7k3ejickus",
+    "0ejfrc97z761xmj",
+    "gifo868n5c1iupt",
+    "l63xwact5sm5opv",
+    "n4ofljzxql5wthn",
+    "shuna07v03ubzmg",
+    "m2g9tckidckv91h",
+    "0sxt53wdxypkbmz",
+    "1rpjs2aif8f8r4o",
+    "xkovvc8e8cevzwu",
+    "fdh5dnyj6fgp9cv",
+    "xwoqgehu86ucyfv",
+    "u6biw8xhyckcgn0",
+    "q5kk7iabl0zapl1",
+    "fthasy76igis4ni",
+    "qvxp0v8hht3g1ns",
+    "4hesdvmmj0nha6f",
+    "3l3pqx2v30iebsf",
+    "61uwuvjsvrrx95d",
+    "i50rax1ti2jywwy",
+    "rljropgb3hjj9fw",
+    "oj0ftlggruws9q1",
+    "bgxq8xbw12ngpes"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.793Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.793Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "b4iak3jrk9so32o"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "cpvq08xpsygazql"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "O du mein kleines, zartes, süßes Leben, / Wie blickst du froh und frei ins heil'ge Licht!",
+  "language": [],
+  "musenalm_id": 37560,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIII. / Mein Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. W. Bommer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIII. / Mein Kind",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.120Z",
+      "agent": "s5myzcuzsygfm34",
+      "source_id": "b0ov03udl0s6oc1"
+    }
+  ]
+}

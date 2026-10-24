@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I vT, S II VrlgM, verso G, S III T, S V I-Verz, SS VII-XX G-Verz darin 6 GG, SS 1-388",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1838",
+    "norm": "~",
+    "biblio": 101007,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 64,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1838. / Mit sieben Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1838",
+  "updated": "2026-06-11 10:18:54.888Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "8817zdbuamydrge"
+  ],
+  "contents": [
+    "b7vpl67ilkaf3f4",
+    "herl72q9tokgcuo",
+    "e9jh2qftj3a783f",
+    "j394i5aec9vwwfo",
+    "rvq7cchoqfddwv8",
+    "8shp1girzib6pld",
+    "iy2cr9jpftwhmn2",
+    "otiejga56dx274h",
+    "clvrr2uercyumrb",
+    "j3qyo2cpqsynj3s",
+    "h7ai01kceotwd7a",
+    "dh63e184fy8nko6",
+    "7qifvhh7ozq5c9x",
+    "h4ua5yi2bby555r",
+    "vdvq42816yp7y26",
+    "vgefniu1p0guo2l",
+    "rgrggbvkhgxwpzv",
+    "tahg5dnqxl5x3nh",
+    "j58qdxas9dao4tu",
+    "mn5ww7dewgvvbd4",
+    "1ciw2854kop3me0",
+    "etl0eq4qgosrjml"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.602Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.602Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "xzu88nd94bj5hyw"
+    }
+  ]
+}

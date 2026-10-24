@@ -1,0 +1,65 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "Unvollständige Relation Band–Akteur; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Das illustrirte Schleswig-Holstein und Dänemark. Humoristisches Taschenbuch",
+    "norm": "",
+    "biblio": 411480,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-08-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4873,
+  "parallel_title": "",
+  "place_statement": "Leipzig",
+  "places": [],
+  "preferred_title": "Das illustrirte Schleswig-Holstein und Dänemark. Humoristisches Taschenbuch 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Herausgeber des Corsaren, d. i.: Goldschmidt, Meir Aaron",
+  "subtitle_statement": "",
+  "title_statement": "Das illustrirte / Schleswig-Holstein und / Dänemark. / Humoristisches Taschenbuch / vom / Herausgeber des Corsaren. / Leipzig, / Verlag von Wilhelm Jurany. / 1847",
+  "updated": "2026-06-11 10:18:56.033Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "7hfmwh2n2g9a672"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "3tg2j114hei1lo4",
+      "source_id": "oamjh7dagklmtrl"
+    }
+  ]
+}

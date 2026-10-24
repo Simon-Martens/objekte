@@ -1,0 +1,103 @@
+{
+  "annotation": "Thematischer Schwerpunkt des Almanachs: Kantone Solothurn u. Basel",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, 4 BB Kal, SS 1-138 darin 9 GG 4 Tab, SS 139-144 G-Verz, S 144 I-Verz, Kr,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Helvetischer 1813",
+    "norm": "~",
+    "biblio": 200423,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-10-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 713,
+  "parallel_title": "",
+  "place_statement": "Zürich (Orell, Füssli u. Comp.)",
+  "places": [
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Almanach, Helvetischer 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; K 15; nicht bei L/R; Goed VIII. 51, 13",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Helvetischer / Almanach / Für das Jahr / 1813. / Zürich / bey Orell Füssli & Comp.",
+  "updated": "2026-06-11 10:18:55.163Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "mzz8uo0mddj3hkg"
+  ],
+  "contents": [
+    "xmu4xim4k8bc9xk",
+    "9lg9qiv17gws2n6",
+    "zs3r2yuelrtul6j",
+    "1e0a6u8b9uiattf",
+    "r352txpkgzmo1nj",
+    "q3s3rh9chaexzkp",
+    "hfpdzl5vrvgevlo",
+    "nb387jtnsol0281",
+    "6uvj4pq5h0jcmvt",
+    "7956jump2s9er5e",
+    "grc0vj7su7ql16x",
+    "5lat0eb19vfna1b",
+    "iptyg17g0qxw3ed",
+    "nixbxc5o0c857ms",
+    "h2udqjz10ubioac",
+    "lnpqy5zhdruohjf",
+    "9vi10hgc2o4q4vr",
+    "rqmwpc549fmkxz9",
+    "98f24m5o46s3t1c",
+    "qu9orpv3l1fvlf2",
+    "bdmt1ts3iwdrs6c",
+    "j5tzz9tj4i89p5c",
+    "zevjniwp99dipjq",
+    "eydsd6xawerwm4z",
+    "m99y0pgz6mpvff4",
+    "udbv0l0ypah8rtv",
+    "sofx0sa3j4b1huz",
+    "21xjn5s328sot8a",
+    "6g1w2q8ebhvsuzp",
+    "xd89f4a6vxwba4c",
+    "3s2t0tjvohtap36",
+    "43dznlamofhop1u",
+    "keu84crr5w82wuz",
+    "5fna06dh3y94yqw",
+    "48obmw7oa7bmaiv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.117Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.117Z",
+      "agent": "5mdh1jbzijbcmos",
+      "source_id": "jd80nnv1rdl2vgr"
+    }
+  ]
+}

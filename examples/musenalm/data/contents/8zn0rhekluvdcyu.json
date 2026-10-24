@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25; mit einer Musikbeigabe s. INr 2729, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Komm, du kleiner Engel! / Laß dich recht besehn,",
+  "language": [],
+  "musenalm_id": 2728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.848Z",
+      "agent": "851irea8sb4kx1v",
+      "source_id": "xfdrfm5y5apry0f"
+    }
+  ]
+}

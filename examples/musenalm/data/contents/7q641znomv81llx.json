@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Einfach kling' ich der Welt, doch groß ihr verkün- / dend und ernst mich;",
+  "language": [],
+  "musenalm_id": 96463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schule der Tonkunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schule der Tonkunst",
+  "updated": "2014-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.580Z",
+      "agent": "vwjpew1dybbkwm8",
+      "source_id": "l1q6d904svwbn55"
+    }
+  ]
+}

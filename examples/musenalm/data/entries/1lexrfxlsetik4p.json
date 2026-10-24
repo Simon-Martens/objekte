@@ -1,0 +1,67 @@
+{
+  "annotation": "K 137: Jgg 1807-1809; Hrsg: H. A. v. Reisach",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neuburger 1807",
+    "norm": "",
+    "biblio": 409636,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-07-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4573,
+  "parallel_title": "",
+  "place_statement": "Neuburg (Stöttner)",
+  "places": [
+    "qjlfll77if8360h"
+  ],
+  "preferred_title": "Taschenbuch, Neuburger 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 137; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "NEUBURGER / Taschenbuch / für / 1807 / Wird jährlich fortgesetzt / Neuburg / an der Donau / bey L. G. Stöttner Buchhändler",
+  "updated": "2026-06-11 10:18:55.386Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "nqttx0q8qg03x8y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.159Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.159Z",
+      "agent": "u7a3cjdnq6p48e1",
+      "source_id": "2l3vpujtpk2o9ju"
+    }
+  ]
+}

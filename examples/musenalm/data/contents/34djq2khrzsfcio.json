@@ -1,0 +1,45 @@
+{
+  "annotation": "Abendlieder. Am Strande (Sammlung INr 81160, Obj 32) Wandergrüße. Erinnerungen aus dem Tagebuche einer Herbstreise (Sammlung INr 81147, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Blick auf, blick nieder, / Blick um dich her!",
+  "language": [],
+  "musenalm_id": 81163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2008-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.905Z",
+      "agent": "1obisuoppirekjz",
+      "source_id": "yhc3op6rmjiux3p"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "annotation": "im Schuber /) unter dem I-Verz: Gedruckt b. A. Strauß's Witwe & Sommer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, nT, B, SS 1-219, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1843",
+    "norm": "~",
+    "biblio": 404888,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1909,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1843",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA / TASCHENBUCH / für / das Jahr 1843. / Edlen Frauen und Mädchen gewidmet / WIEN, / bei Franz Riedls sel. Wittwe & Sohn",
+  "updated": "2026-06-11 10:18:55.706Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "items": [
+    "2quneluet0o9zml"
+  ],
+  "contents": [
+    "6zddxdvxn3bwfr0",
+    "7pn9c62b25hrcv1",
+    "p3uhizwhpldu41r",
+    "hh3imhpnmi3t1q8",
+    "rqi565qw9mg3e8l",
+    "phocw1l1xrn91r5",
+    "ezqgy23hc5jgkir",
+    "39aud67aryctif7",
+    "065uw379qro3xgm",
+    "mimqjy4ip7o2n5g",
+    "e42tqpzxe3l43aj",
+    "yqyouaga5v646li",
+    "cxcfu3shkqfxw4u",
+    "phzqeosc89f31wf",
+    "7yrwg7tbbdkrfq9",
+    "lxvqty4gppm0hzk",
+    "0ohdjdrmqdv0hee",
+    "hn8zvh15g25kip3",
+    "metrei7bcjm5dmg",
+    "4cb103ewffksq1v",
+    "3xjvwv9m82yuz90"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "qolbbmbnwmh909r"
+    }
+  ]
+}

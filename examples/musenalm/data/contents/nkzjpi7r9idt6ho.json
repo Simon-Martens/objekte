@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 82474, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fiorillo del. Grünler sc.",
+  "scans": [
+    "alm_167_82475_da5tnir8u1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marius",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "ridwblfgc44phs2",
+      "source_id": "9o34yidnl2c8gso"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.913Z",
+      "agent": "82hnuogab8tns1x",
+      "source_id": "av4747gl8t1lclf"
+    }
+  ]
+}

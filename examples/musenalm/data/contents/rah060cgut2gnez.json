@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Elegien (Sammlung INr 39667, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "431",
+  "incipit_statement": "Das auch soll ich bestehn, daß sanft, mit freundlicher / Rede, / Sie mir quälet die Brust, die sie dem Tode geweiht?",
+  "language": [],
+  "musenalm_id": 39669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweite Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Carl August Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweite Elegie",
+  "updated": "2005-08-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.117Z",
+      "agent": "ckm5lh2oeabz6sp",
+      "source_id": "pxpdhpcd8arjgap"
+    }
+  ]
+}

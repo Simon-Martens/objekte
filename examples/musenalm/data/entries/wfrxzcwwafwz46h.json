@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, G, T, SS1–360, darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiele, Dramatische (Costenoble) 1811",
+    "norm": "~",
+    "biblio": 405620,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2639,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Schmidt)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Spiele, Dramatische (Costenoble) 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 104, L/R 124",
+  "responsibility_statement": "C. Costenoble",
+  "subtitle_statement": "",
+  "title_statement": "DRAMATISCHE / Spiele / von / C. COSTENOBLE. / Ein Taschenbuch für 1811. / Hamburg. / In Commission bei Adolph Schmidt",
+  "updated": "2026-06-11 10:18:55.421Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "efrnbeyrly5ddcp"
+  ],
+  "contents": [
+    "z99o5jt92581g86",
+    "dafd1a9qd6hh2wx",
+    "3btrt9e0c3nd1ai",
+    "hga7nt1drxgmh8k",
+    "ei93ngskgffd01t",
+    "tkmi56pxogth9uf",
+    "dtcbzaz7teji79e",
+    "pqoyjo4mrl61rkq",
+    "3bhi0akl8256wq5",
+    "6app67mvc378hm3",
+    "f1pdiul89nkptmi",
+    "molxjcszb7llvk0",
+    "6k2hvni8wn5hrd7",
+    "ybekyg4gwb5ieso"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "is9nc7qv76i3cjj",
+      "source_id": "vrdndlknp3jy4yn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.110Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.110Z",
+      "agent": "9s5nr8pn295d964",
+      "source_id": "ytuqlk1ikjlk0zg"
+    }
+  ]
+}

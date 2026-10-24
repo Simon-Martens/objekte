@@ -1,0 +1,16 @@
+{
+  "type": "data",
+  "path": "data/series",
+  "format": "json",
+  "id": "filename",
+  "idPattern": "^[a-z0-9][a-z0-9-]*$",
+  "schema": ".editor/collections/series/schema.json",
+  "ui": ".editor/collections/series/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

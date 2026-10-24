@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 285. /) Illustration zu »Tagebuch von Charlotte Ehrenberg« INr 46809, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. Geyser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Geyser sc.",
+  "scans": [
+    "alm_631_46810_xuaef7p7zx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.264Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "ax8lk2snykipo98"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.264Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "b0n96bicbmqiqz6"
+    }
+  ]
+}

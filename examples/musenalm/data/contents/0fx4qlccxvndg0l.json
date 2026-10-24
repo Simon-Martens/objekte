@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Sommerliebe« von Dr. Adolph Bacherer INr 86092, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86078,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommerliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Russ del. A. Seipp jun. sc.",
+  "scans": [
+    "alm_1595_86078_owl9nuvpby.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sommerliebe",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.143Z",
+      "agent": "iexyvzdzwrb4rqw",
+      "source_id": "evx9ormzi45d81h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.143Z",
+      "agent": "vllgarlnpg4orfd",
+      "source_id": "vnskhf6dki9ixtf"
+    }
+  ]
+}

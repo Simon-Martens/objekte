@@ -1,0 +1,128 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, T, I-Verz, VrlgM, 8 GG dazu 8 BB, SS 1-416",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zum geselligen Vergnügen 1829 (1: Hartmann)",
+    "norm": "~",
+    "biblio": 101176,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-01-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 277,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hartmann)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch zum geselligen Vergnügen 1829 (1: Hartmann)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 26; K 150; K 152; L/R 101; Goed VIII. 42, 3 a u. b",
+  "responsibility_statement": "Fr. Kind",
+  "subtitle_statement": "",
+  "title_statement": "W. G. Becker's / Taschenbuch / zum / geselligen Vergnügen. / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1829. / Mit Königl. Sächs. allergnädigstem Privilegio. / Leipzig, / bei Chr. Heinrich Ferdinand Hartmann",
+  "updated": "2026-06-11 10:18:55.680Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "items": [
+    "iwop3wooqgio4fa"
+  ],
+  "contents": [
+    "og3td40utjkzy1e",
+    "0zmbz1f9wj4w8cx",
+    "5ygafmojbr1yk5x",
+    "sf04m5oegvrle1m",
+    "vymjz9awyct09zl",
+    "su8fu3ixg1eshyj",
+    "sy9so8xrhl5764u",
+    "vz0a13dx6rbzifi",
+    "tl8hf53nza7c6zd",
+    "9q5kcjin20xu26m",
+    "yt6ax7yodghivdj",
+    "gqjcea76rn1odqw",
+    "2cm3vgwtk6q7dgb",
+    "kk5aossw12jtw2e",
+    "wwgp7jrzg8j100f",
+    "k3f61t26hrjhe15",
+    "mxodzyyk978gub7",
+    "ggrzrudsyuuhomf",
+    "avkl1yowz2cvped",
+    "n8y8ksopuu6ta2p",
+    "zcq075g1uxo73m2",
+    "mt6zrmymza3ikuq",
+    "wpvaudg87pg5iiy",
+    "q514603etffq387",
+    "0drmbqigtohqnep",
+    "6xc98v5kh2mwro9",
+    "sn9tksjg82m89f1",
+    "y9lj485te79kavb",
+    "if3ua6nw7xt48cu",
+    "q72ys06ek1tzqaa",
+    "mykenk57qr84ywq",
+    "dgvos3yn0upsej0",
+    "6dll6jvrsbdfo72",
+    "bis2a5qcv9sy6nv",
+    "qdctbh13nlc3agj",
+    "hq9k5dj6uiph5dv",
+    "jxpb5jngnbi0lhk",
+    "3wrpvveewquvrf8",
+    "4vvceoka13ojgg4",
+    "mnubexvnpxyd1ij",
+    "uyjzk1lo6ljoaq0",
+    "kbpgdjobz311rq9",
+    "o8ee6knkwh43q8j",
+    "jnsopxf9x9pnaih",
+    "tzkjev37xgxzofa",
+    "6xxfpfn1xed90uq",
+    "gufg21uphfycm7i",
+    "hfffmuy18hnwwc1",
+    "cwoa3j3m54o1bcj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.970Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.970Z",
+      "agent": "p9ks1mekociw0y5",
+      "source_id": "m8ysjhvj6o9kdv1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.570Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.570Z",
+      "agent": "optixied5re5eqj",
+      "source_id": "tflud5ozt2iuv0o"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; Modekupfer paginiert 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7900,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. Riepenhausen f.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen f.",
+  "scans": [
+    "alm_145_7900_oitro5p1rq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.068Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "b08lui9zwf7vcu6"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Ostfriesisches zur Belehrung und Unterhaltung 1831",
+    "norm": "",
+    "biblio": 410742,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-05-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4731,
+  "parallel_title": "",
+  "place_statement": "Norden ( J. F. Schmidt)",
+  "places": [
+    "gmz7x1bidfoik0z"
+  ],
+  "preferred_title": "Taschenbuch, Ostfriesisches zur Belehrung und Unterhaltung 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 141; nicht bei L/R; Goed VIII. 80, 155",
+  "responsibility_statement": "J. Ch. Gittermann",
+  "subtitle_statement": "",
+  "title_statement": "Ostfriesisches / Taschenbuch / zur / Belehrung und Unterhaltung / auf das Jahr / 1831. / Herausgegeben / von / J. Ch. H. Gittermann, / Prediger in Emden. / Norden, / bei Johann Friedrich Schmidt",
+  "updated": "2026-06-11 10:18:55.371Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "vnru5qwazc2eaht"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.069Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.069Z",
+      "agent": "329f7zhnhejch5u",
+      "source_id": "0ywtsl0sbv95exy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.413Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.413Z",
+      "agent": "csr350ne0svibrz",
+      "source_id": "n4iafzqrdzqgw12"
+    }
+  ]
+}

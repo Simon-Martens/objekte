@@ -1,0 +1,114 @@
+{
+  "annotation": "im Schuber § Karte fehlt /) Graphik INr 96049: »Façade de la nouvelle Tour de l'Église françoise sur la Place des Gens d'Armes à Berlin« nicht in der deutschen Ausgabe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, G, 11 BB Kal darin 12 GG, 30 BB, 141 SS Tabb, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer-Militärischer 1785 /) (franz. Ausgabe: Almanac Généalogique et Militaire pour l’Année 1785)",
+    "norm": "~",
+    "biblio": 407892,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-05-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3974,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer-Militärischer 1785 (franz. Ausgabe: Almanac Généalogique et Militaire pour l’Année 1785)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33, L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / Généalogique / et Militaire / pour l'Année / 1785. / avec l'approbation / de L'Académie Royale / des Sciences / et belle Lettres / à Berlin",
+  "updated": "2026-06-11 10:18:55.775Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "l1mxooiwbe1wo4j"
+  ],
+  "contents": [
+    "mpg2c7t672rwzgu",
+    "jqo9btpfc3iadxj",
+    "etd7xfvdn8cv9q4",
+    "zqw56uloksydiq4",
+    "effe25ds2nfy6me",
+    "vvgvo7z3uzyw4d0",
+    "g3zi5m8rv4rlfn8",
+    "1ze5g9yl4fdut41",
+    "hupezdq3eehv543",
+    "51io5zckqbizxzm",
+    "whlue3ogglbmkdf",
+    "mqtqmjbyfmzk98f",
+    "l4zv1mwqte6ldxh",
+    "gprak9twoie47ls",
+    "4jxbkqqavejeyfn",
+    "dp1ci2avkufyzee",
+    "1gy3jgs15ut8j5z",
+    "g6n30jik73ztwh3",
+    "cug9ipxa1acgenn",
+    "5ay36hxijzvswf2",
+    "mfejzboryni3ndy",
+    "7qz4allzjvzds3o",
+    "jg0n7azqz0wnba2",
+    "zb4mrh7q0jd3efk",
+    "glga8jadxo76d5g",
+    "qqt4w57jlinr5vd",
+    "tcu58cwmp4xdf5n",
+    "7e6yr857g7flqpn",
+    "73xqpxcbgwqlpan",
+    "c8irry01064z18t",
+    "ow2ayynhn1nnozh",
+    "6zzx76fxojdou0s",
+    "4fxyxjssooc8syg",
+    "fk6w937rie7003r",
+    "w8n3bmkolpz1n0y",
+    "ulf5wfe35o17686",
+    "gd9et1skzozukpz",
+    "e8bm5le1fkl7bpi",
+    "699tdm6axgh1kxq",
+    "4s42o6oh3c1x1af",
+    "6i6qqgrq1fuqsj9",
+    "1a70vmaa6hs3n57",
+    "8ktzwi560w85kvn",
+    "dxxwvpr4lq86fua",
+    "bowkl0x9836yr33",
+    "zjwjreppqzy2map"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "tynr6awpt4g1ais"
+    }
+  ]
+}

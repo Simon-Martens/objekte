@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Schön Sidselil schnürte sich so knapp und / schlank, / Dass ihr die Milch aus den Brüsten sprang.",
+  "language": [],
+  "musenalm_id": 951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön Sidselil und Ritter Ingild. / Nach dem Altdänischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "KOSEGARTEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schön Sidselil und Ritter Ingild. / Nach dem Altdänischen",
+  "updated": "2000-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.654Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "0xiq0j8o4xkj7o1"
+    }
+  ]
+}

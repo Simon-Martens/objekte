@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichts (Sammlung INr 25234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Die Ameis' unter'm Fuß der Leute wird zertreten, / Und in dem Angesicht die Flieg' ist unerbeten.",
+  "language": [],
+  "musenalm_id": 25256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.200Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "gfq4ol7ncerww7u"
+    }
+  ]
+}

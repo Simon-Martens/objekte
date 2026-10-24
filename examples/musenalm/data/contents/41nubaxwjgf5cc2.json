@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Oktober. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Zweyte Abtheilung oder Geschichte des siebenjährigen Krieges. Erste Hälfte. 1756-1759.« INr 72381, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heldenmuth eines Preussischen Grenadiers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "dessiné par Kimpfel Commencé en Iuin 94 et gravé à l'eau forte jusqu'au 24 Okt 94 par W. Arndt!!! Executé par Meno Haas",
+  "scans": [
+    "alm_830_72372_q300y2egd9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heldenmuth eines Preussischen Grenadiers",
+  "updated": "2008-06-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.514Z",
+      "agent": "vchcd29ycfa3hgi",
+      "source_id": "17wvzlgot1f8514"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.514Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "8706mnk6mgewp85"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.514Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "xg083a1fkmj7kyu"
+    }
+  ]
+}

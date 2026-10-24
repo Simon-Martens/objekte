@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten und 3 Sammlungen mit 41 Gedichten INr 65535-90, Obj 103-158",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2009-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.851Z",
+      "agent": "yjnbioe01jyvf6s",
+      "source_id": "8ioe783pl9yrn60"
+    }
+  ]
+}

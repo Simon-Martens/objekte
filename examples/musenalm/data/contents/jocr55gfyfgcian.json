@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Auch sie die Rose, die Du mir gegeben, / Legt schon die Pracht der zarten Blüthen ab.",
+  "language": [],
+  "musenalm_id": 122900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die welkende Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die welkende Rose",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.826Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "6qmfubdb2jqf84g"
+    }
+  ]
+}

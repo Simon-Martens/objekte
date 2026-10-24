@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Man weiß, daß Pilpai, Trismegist, / Und Plato selbst sich oft herabgelassen,",
+  "language": [],
+  "musenalm_id": 8050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment eines Gedichts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment eines Gedichts",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.117Z",
+      "agent": "dn0yjm1srfyi7cs",
+      "source_id": "e0rclui2qb6piya"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25133, Obj 155)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Vor der Goldbegier des Bruders, / Der nach ihren Schätzen schnaubt,",
+  "language": [],
+  "musenalm_id": 25138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Gründung Karthago's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Gründung Karthago's",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.380Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "8rqp50hz3nqmbt2"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86481, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86482,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marietta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Theer pinx. I. Krepp sc.",
+  "scans": [
+    "alm_1601_86482_thmi7rme57.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marietta",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.225Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "kcjhazo6332yd4y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.225Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "nhelxkqfo9i80zl"
+    }
+  ]
+}

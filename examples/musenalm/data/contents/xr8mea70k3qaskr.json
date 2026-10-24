@@ -1,0 +1,45 @@
+{
+  "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister /) I. Fantasien aus D-Moll INr 36394, Obj 58 /) V. Lichte Stunden eines wahnsinnigen Musikers (Sammlung INr 36393, Obj 57) s. a. Anm. INr 36393 Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Ach! was dem Herzen lieb' und theuer, / Was ihm bleibt, wenn Alles auch schwand,",
+  "language": [],
+  "musenalm_id": 36397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Larghetto. / (F-dur 12/8 Tact)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Larghetto. / (F-dur 12/8 Tact)",
+  "updated": "2003-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.979Z",
+      "agent": "4u8ho959cgz0cdc",
+      "source_id": "fxs8apr26todcuy"
+    }
+  ]
+}

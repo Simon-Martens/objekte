@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 12 GG, 12 BB G-Verz, 90 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1786",
+    "norm": "~",
+    "biblio": 404187,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 797,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / CALENDER / auf das Jahr / 1786. / mit Kupfern gezieret, / und / mit Genehmhaltung / der Königl. Academie / der Wissenschaften / zu Berlin, herausgegeben",
+  "updated": "2026-06-11 10:18:55.765Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "items": [
+    "2d0w6fci5uh9nvn"
+  ],
+  "contents": [
+    "5bvzxkqnuczwbvb",
+    "5ib9p6up0emqdl7",
+    "gsx4e5511xbc64n",
+    "jmd3kulq2p17qoy",
+    "nlf2yaw8y413mzq",
+    "gwsbtnxj29wwhjm",
+    "m0eqrnplkgy2m86",
+    "sx5gco291mykk52",
+    "i7qh9yn22cdluxh",
+    "ytffs6ezvuc3w2i",
+    "41q3nvuwuxfw3m2",
+    "wjokmy5y9gwuuen",
+    "kejlqe7r8feg4rs",
+    "73yyll9x7jp3ys8",
+    "zg8mrph7w68hhgm",
+    "bedjtutnc4wrmna",
+    "w79uzwsfk1qhojg",
+    "3ujz402jk76n6vl",
+    "og6i50xivup5n9i",
+    "30m3l4xjjcusok7",
+    "akiira4h79aca5q",
+    "g2xoak8d49skio7",
+    "as74lwzc3l6zg6q",
+    "yz9czqhly16i0d3",
+    "sw0lltxp7dt5lhb",
+    "3uyl2mgihjqf01n",
+    "zu2c8wyo9nc7cbl",
+    "5t8osifcpkthpec",
+    "if6qnk9yi2169mc",
+    "ygrjhvxhwq9j3ws",
+    "8d8so82hdz32h5h",
+    "m72biw7zrt3z6s1",
+    "qxvtda16qcldxyv",
+    "f672xoaq3le80q3",
+    "rjzg22iffe1ubb8",
+    "mcpm2imtggwnmdk",
+    "fm87vf5hjl9hgwv",
+    "iu195qs7bmu1tac",
+    "lpjuwn9k6okvlpg",
+    "ub3pefzp90aibmv",
+    "yn4q8ej3qhg5lbw",
+    "yiyycngybdxf2ju",
+    "5flyw9a2sgv7l7v",
+    "d60cruq8p9kbm1d",
+    "wzlgcngwd3x3z24",
+    "obfhqwecvbpavc2",
+    "jy6rchxsktrmxpk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.211Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.211Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "21d6faxh0fjtceq"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Haben wir beim vollen Becher / Nicht schon manches Fest begrüßt?",
+  "language": [],
+  "musenalm_id": 76942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschieds-Lied. / An meinen Freund C. v. M.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschieds-Lied. / An meinen Freund C. v. M.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.523Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "eoyj0di2etn8j9t"
+    }
+  ]
+}

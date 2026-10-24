@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Nachtfeyer der Venus. / Ein Hymnus aus dem Lateinischen (Sammlung INr 2124, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "[Morgen liebe,...] / Auf! Schon glänzt Aurorens Schleyer, / Auf! Beginnt den Lobgesang!",
+  "language": [],
+  "musenalm_id": 39061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Lobgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Lobgesang",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.062Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "5ji738ngeigo6nv"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: Zwei Nächte I. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Zweite Lieferung (Sammlung INr 85530, Obj 7) Illustration zu »Zwei Nächte zu Valladolid«  von J. C. v. Zedlitz /) s. Textbezug INr 85532, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85531,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fugace. O ewiges Licht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. S. Langer sc.",
+  "scans": [
+    "alm_1584_85531_u2bdh8khsk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fugace. O ewiges Licht",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.073Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "dvafu8xsoqj1ycq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.073Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "t0wm6udf5rduh37"
+    }
+  ]
+}

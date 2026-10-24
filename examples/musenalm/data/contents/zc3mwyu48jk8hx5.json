@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert XXXI /) »National Singspiel« (Sammlung INr 48169, Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48171,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ernst Dauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48171_2us9yg674g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ernst Dauer",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.600Z",
+      "agent": "theiyy8sya8no7i",
+      "source_id": "xky02to0pi6u40e"
+    }
+  ]
+}

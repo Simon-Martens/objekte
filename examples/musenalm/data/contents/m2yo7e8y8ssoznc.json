@@ -1,0 +1,45 @@
+{
+  "annotation": "I. (Sammlung INr 86024, Obj 28) /) XI. Fragmente der Lehre für die Gegenwart und die kommenden Zeitalter (Sammlung IN 85023, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Es muß doch traurig seyn, die wichtigsten Grundlagen der menschlichen Sicherheit und Ruhe auf lockeren Sand bauen zu sehn.",
+  "language": [],
+  "musenalm_id": 86027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Spittler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2013-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.026Z",
+      "agent": "2qxaa4m54yby5iw",
+      "source_id": "xpo41m3m88ql00f"
+    }
+  ]
+}

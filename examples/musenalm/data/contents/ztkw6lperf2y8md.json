@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Ha was war das? / Die Götter schützen uns!",
+  "language": [],
+  "musenalm_id": 131507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Der Tod / des / Pharao Sesostris / eine Scene aus dem Drama: / Moses / von Aug. Klingemann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Klingemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Der Tod / des / Pharao Sesostris / eine Scene aus dem Drama: / Moses / von Aug. Klingemann",
+  "updated": "2022-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.035Z",
+      "agent": "4s7269wm8jxsp50",
+      "source_id": "6nzpyjtbt72tfcc"
+    }
+  ]
+}

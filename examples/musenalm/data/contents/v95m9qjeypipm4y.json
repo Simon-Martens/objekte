@@ -1,0 +1,56 @@
+{
+  "annotation": "Fünf Epigramme Marots. Uebersetzt von Hammer-Purgstall (Sammlung INr 94793, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Weil's dich verlangt zu hören, was ich sinne, / So wiss' es denn, o Königin der Minne!",
+  "language": [],
+  "musenalm_id": 94795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / A Anne, lui déclarant sa pensée",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marot [übers.] Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / A Anne, lui déclarant sa pensée",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.367Z",
+      "agent": "ydnw02njp3h9lk9",
+      "source_id": "omwinr5p2xzwmvd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.368Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "tsgf32vk0vttfo9"
+    }
+  ]
+}

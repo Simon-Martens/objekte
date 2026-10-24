@@ -1,0 +1,106 @@
+{
+  "annotation": "Die Abbildung der Umschlaggraphik wurde freundlicherweise zur Verfügung gestellt von: Antiquariat Wolfgang Braecklein, Berlin",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 BB Vrwrt d Hrsg, 6 BB darin 2 GG, 23 BB G-Verz darin 12 GG, ar: SS 1-46, ar1: SS 1-336, S C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Revolutionsopfer 1794",
+    "norm": "~",
+    "biblio": 100026,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-09-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 932,
+  "parallel_title": "",
+  "place_statement": "Chemnitz (Hofmann)",
+  "places": [
+    "ytizcghqg9111a0"
+  ],
+  "preferred_title": "Almanach der Revolutionsopfer 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; L/R 20",
+  "responsibility_statement": "unbezeichnet $",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der / Revolutionsopfer / für das Jahr / 1794. / Erster Jahrgang / Chemnitz / bey Karl Gottlieb Hofmann",
+  "updated": "2026-06-11 10:18:55.105Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "26smfbcv8bqag5b"
+  ],
+  "contents": [
+    "59yvr27792o0eli",
+    "an34xkvfetrc8fr",
+    "jhevph4dw5prfyt",
+    "imxq6scr8s3bm4l",
+    "nicpjcrgf4xnkmh",
+    "12iu2lyiiwiubhy",
+    "civw2p3hnmryk8e",
+    "j42laq5axmd3nqu",
+    "mrccksofpgu62is",
+    "u32us0i8td40e4h",
+    "zwl8xatyxyy5oda",
+    "akpex498wp6fgwa",
+    "i0n58mvhkfvtv9v",
+    "tcnbntyarl07i07",
+    "mofadakqaw3ns3x",
+    "1v14f6cct7xzeet",
+    "kkyqa3mqlzb5i45",
+    "6cwcp9bcnykjloj",
+    "horq2ii19ut08iv",
+    "ogud84soyhru2lb",
+    "mt2cp2ghexf79e3",
+    "zl7i7isoveh9v88",
+    "uwdeksr7waa52jt",
+    "bn8r6xtszr20hhk",
+    "zjnnqtlzr9d6tqr",
+    "f0y9uju2jyoyg79",
+    "bqg358n9elunjno",
+    "l1vp89lqfuoiwyy",
+    "ptsdr7ac2gjaz1x",
+    "aj5gfc7g4nsn5ut",
+    "sx4fxjtmvjnzv9k",
+    "5jzotr6sfmy2pmc",
+    "gbzep0gh5585rrb",
+    "8k7k7y53ngv4nih",
+    "46fwhzyxtrfv2zr",
+    "7ww5idafrftc6zv",
+    "owzpey0yvahu48q",
+    "ix2drxfvraub8k0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.043Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.043Z",
+      "agent": "8vatv411bf27ejn",
+      "source_id": "41w7y46u5298fc8"
+    }
+  ]
+}

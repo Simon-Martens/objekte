@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 1 und 6 der Suite; paginiert 7. /) Illustration zu »Die wandernden Musikanten« von E. Ferrand d.i. Ed. Schulz INr 59565, Obj 83 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59564,
+  "musenalm_pagination": [
+    "4. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wandernden Musikanten #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59564_kq8jp7yf8h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die wandernden Musikanten #",
+  "updated": "2008-08-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.913Z",
+      "agent": "bapys0xj1dvdjus",
+      "source_id": "y9opbnp9x601njh"
+    }
+  ]
+}

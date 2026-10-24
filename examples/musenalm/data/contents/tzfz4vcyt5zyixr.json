@@ -1,0 +1,45 @@
+{
+  "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Nicht weniger interessant, als in der Freude, zeigt sich der Sinn des guten Weibes im Leiden.",
+  "language": [],
+  "musenalm_id": 50462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Weib im Unglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Weib im Unglück",
+  "updated": "2007-07-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.729Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "tqw6ktdrv1gvm19"
+    }
+  ]
+}

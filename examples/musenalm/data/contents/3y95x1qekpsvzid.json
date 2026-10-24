@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Landschaftsmaler in Rom (Sammlung INr 77310, Obj 25) Skizzen aus Italien (Sammlung INr 77307, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "In Hesperien preißt der Greis noch die glückliche Ju- / gend, / Aber die Jugend bei uns rühmt sich schon altklug zu /seyn",
+  "language": [],
+  "musenalm_id": 77318,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Deutsche und Römer.] / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Deutsche und Römer.] / 2.",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.778Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "mhph8jy5czmkvi4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht Nr 121855, Obj 116)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Wie singst du so süß und lieblich, / Du Zauberin Nachtigall! Welch eine fröhliche Botschaft / Ist dienes Liedes Schall!",
+  "language": [],
+  "musenalm_id": 121857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonntagsfeier. ( Gräfin Rossi den 17. Dezember 1851 in Neuwieb.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonntagsfeier. ( Gräfin Rossi den 17. Dezember 1851 in Neuwieb.)",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.700Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "nzdaok4051h5vi5"
+    }
+  ]
+}

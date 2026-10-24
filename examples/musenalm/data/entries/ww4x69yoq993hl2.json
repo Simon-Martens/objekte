@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, T, 3 BB I-Verz, SS 1-219",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1840",
+    "norm": "~",
+    "biblio": 405327,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1624,
+  "parallel_title": "",
+  "place_statement": "Cöslin (Hendeß)",
+  "places": [
+    "c7y67i2klrfutre"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Müller",
+  "subtitle_statement": "",
+  "title_statement": "Des / Bettlers Gabe. / Taschenbuch für 1840 / von / Wilhelm Müller. / Sechster Jahrgang. / Cöslin. / Druck und Verlag von C. G. Hendeß",
+  "updated": "2026-06-11 10:18:55.537Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "zbj79yu0xrue9x3"
+  ],
+  "contents": [
+    "997zm9jumd6w2ta",
+    "ewdakwrrr0ywznh",
+    "afdxid46ipf9ezd",
+    "gn12hfbykc29foi",
+    "p0aarzgr0lslllo",
+    "uma3ojser2fzhx8",
+    "nfxgyvz9gpsz2mo"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.986Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.986Z",
+      "agent": "y2q23p6frjaqg0h",
+      "source_id": "k9744doiu8md7hs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.943Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.943Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "s62x9hpr3nri6ib"
+    }
+  ]
+}

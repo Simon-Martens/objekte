@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 86118, Obj 10) mit einer Illustration s. Titelgraphik INr 86110, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Hermine, schöne Hermine, / Wie schwelgst du in deinem Glück!",
+  "language": [],
+  "musenalm_id": 86122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hermine. / (Zum Titelkupfer.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hermine. / (Zum Titelkupfer.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.189Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "ovse070drdzd8pj"
+    }
+  ]
+}

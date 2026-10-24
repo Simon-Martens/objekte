@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Greis in der Waldhöhle« von F. K. Hiemer INr 35809, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Greis in der Waldhöhle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thouret del. Guttenberg sc.",
+  "scans": [
+    "alm_490_35810_h5f7ovkjfk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Greis in der Waldhöhle",
+  "updated": "2003-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.907Z",
+      "agent": "zrmsqolvt94ydaa",
+      "source_id": "gdm940ynn3zoso1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.907Z",
+      "agent": "p79994clraf220s",
+      "source_id": "r5zy3ads8nizhzo"
+    }
+  ]
+}

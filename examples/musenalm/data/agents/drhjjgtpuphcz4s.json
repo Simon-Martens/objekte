@@ -1,0 +1,440 @@
+{
+  "annotation": "",
+  "biographical_data": "1619-1690",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.408Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Maler, Frankreich",
+        "Franz. Maler, Architekt, Ornamentzeichner; königl. Hofmaler, Direktor der königl. Gobelin-Manufaktur, Rektor und Kanzler der Académie royale de Peinture et de Sculpture"
+      ],
+      "dateOfBirth": [
+        "1619"
+      ],
+      "dateOfDeath": [
+        "1690"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Nicolas de Largillière"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Le%20brun.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Le%20brun.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Le%20brun.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174170424"
+      ],
+      "describedBy": {
+        "dateModified": "2024-03-25T12:21:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118779141/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1144918499",
+          "label": "Le Brun, Gabriel"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118779141",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1144918499",
+          "label": "Le Brun, Gabriel"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118779141",
+      "oldAuthorityNumber": [
+        "(DE-588a)174170424",
+        "(DE-588)174170424",
+        "(DE-588c)4109886-9",
+        "(DE-588a)118779141"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Le Brun, Charles",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Charles"
+        ],
+        "surname": [
+          "Le Brun"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002844-6",
+          "label": "Architekt"
+        }
+      ],
+      "publication": [
+        "La grande gallerie de Versailles, et les deux salons qui l'accompagnent",
+        "LeBrun, Charles: A method to learn to design the passions ...",
+        "LeBrun, Charles: Abbildung oder Vorstellung der Gemüths-Regung. - s.a.",
+        "LeBrun, Charles: Abbild oder Vorstellung der Gemüths-Regungen. - [ca. 1700]",
+        "LeBrun, Charles: Abhandlung über den Ausdruck der bildenden Künste",
+        "LeBrun, Charles: Méthode pour apprendre à dessiner les passions"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78072045"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/59097680"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q271676"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118779141/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174170424"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Charles_Le_Brun"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Charles_Le_Brun"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121016536"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118779141"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118779141"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118779141"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118779141"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Le Brun, Car.",
+        "LeBrun, Char.",
+        "Le Brun, Carlo",
+        "Le Brün",
+        "Le Brun, Ch.",
+        "Le Brun, Carl",
+        "Brun, Car. le",
+        "LeBrun, Charles",
+        "Brun, Char. le",
+        "Brun, Charles Le",
+        "Brun, Charles le",
+        "LeBrun, Car.",
+        "Le Brun, C.",
+        "Le Brun, Char.",
+        "Le Brun",
+        "Lebrun, Charles"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Char."
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "surname": [
+            "LeBrun"
+          ]
+        },
+        {
+          "forename": [
+            "Car."
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Char."
+          ],
+          "surname": [
+            "LeBrun"
+          ]
+        },
+        {
+          "personalName": [
+            "Le Brün"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo"
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Char."
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Car."
+          ],
+          "surname": [
+            "LeBrun"
+          ]
+        },
+        {
+          "forename": [
+            "Charles"
+          ],
+          "surname": [
+            "Lebrun"
+          ]
+        },
+        {
+          "forename": [
+            "Ch."
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "personalName": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Car."
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Le Brun"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Charles_Le_Brun",
+          "label": "https://de.wikipedia.org/wiki/Charles_Le_Brun"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:05:03Z",
+    "gnd_query_biographical_data": "1619-1690",
+    "gnd_query_name": "le brun, charles"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1581,
+  "name": "Le Brun, Charles",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXII, 510",
+  "updated": "2026-06-11 13:29:23.515Z",
+  "uri": "https://d-nb.info/gnd/118779141",
+  "editor": ""
+}

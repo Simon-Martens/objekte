@@ -1,0 +1,87 @@
+{
+  "annotation": "Inhaltsverzeichnis als Vollbild /) s.a.: Libertas. Deutsches Volkstaschenbuch 1847; alm 4345, das den Beitrag »Die politischen Parteien Europa's« INr 114649 in bearbeiteter und ergänzter Form sowie u. a. den Beitrag »Offener Brief an den König in Preußen« INr 114665 bringt /) s. I-Verz Photos 114648,01-114648,05",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, SS III-VIII I-Verz, SS 1-328",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jetzt! Historisch-politisches Taschenbuch 1846",
+    "norm": "~",
+    "biblio": 409332,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-11-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4345,
+  "parallel_title": "",
+  "place_statement": "Grimma (Verlags-Comptoir)",
+  "places": [
+    "fzsj1wa86ivt0tq"
+  ],
+  "preferred_title": "Jetzt! Historisch-politisches Taschenbuch 1846",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Bruno Theobald",
+  "subtitle_statement": "",
+  "title_statement": "Jetzt! / Historisch-politisches / Taschenbuch für Liberale und Servile / auf das Jahr 1846. / Herausgegeben / von / Bruno Theobald. / Es lebe der König / Es lebe der Adel. / Die Absolutisten. / Es lebe der König! Es lebe der Adel! / Es lebe die Büreaukratie! / Die Conservativen. / Es lebe der König und die Verfassung! / Die Liberalen. / Es lebe die Freiheit! / Die Radicalen. / Grimma, / Druck und Verlag des Verlags-Comptoirs",
+  "updated": "2026-06-11 10:18:55.735Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "pwa8mv3kv2fdb7v"
+  ],
+  "contents": [
+    "vkscos8pfzwfhop",
+    "p9k7p0qrwpkgwwo",
+    "go3iyoewp32ekfr",
+    "f3at7lk9xabuan3",
+    "3vjeg76z4o2sgo7",
+    "4ayu4grs48u2ff1",
+    "oqky72vclcqhj5x",
+    "wcyyr03zepcel54",
+    "wgo2ew6mxfuwaxo",
+    "2bixakicm7tjvry",
+    "omxxyfm4qxr7n74",
+    "5qq4lw9ip5lxxx6",
+    "yvao7ch0cd0wd4x",
+    "q6ocxna1r5js3ya",
+    "gqg6npiccam5ghu",
+    "eux7f2pjhohnqzc",
+    "boc4mvyy3mqez1o",
+    "3ea47sco25f95pv",
+    "dhpfk8xmlyqzx4n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.173Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.173Z",
+      "agent": "hc0m08c5j8ox9fe",
+      "source_id": "bvlmpecals4s0qv"
+    }
+  ]
+}

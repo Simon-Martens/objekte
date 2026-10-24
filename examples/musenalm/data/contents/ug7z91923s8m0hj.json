@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Leben. Sonettenkranz. (Sammlung INr 65908, Obj 99)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Die Nacht entweicht der flammenden Beschwörung / Des Morgenroths und wendet sich in Thränen;",
+  "language": [],
+  "musenalm_id": 65911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Der Mann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Messow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Der Mann",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.188Z",
+      "agent": "u3h0otg4lapzo9f",
+      "source_id": "7i6tvk5pru5f5jx"
+    }
+  ]
+}

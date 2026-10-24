@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Eh' ich verreis'te vor sieben Jahren, / Da war das Mägdlein noch klein;",
+  "language": [],
+  "musenalm_id": 63219,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heimkehr",
+  "updated": "2009-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.035Z",
+      "agent": "tetas6nm69fwpjp",
+      "source_id": "dk2uwhnx9231eaa"
+    }
+  ]
+}

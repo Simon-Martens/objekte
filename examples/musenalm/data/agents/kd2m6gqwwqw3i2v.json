@@ -1,0 +1,399 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1867",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.482Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/2016740-4",
+          "label": "Künstler-Verein Malkasten"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5127590-9",
+          "label": "Königliche Kunstakademie zu Düsseldorf"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Porträtmaler; Vertreter der Düsseldorfer Malerschule und ab 1838 Professor an der Düsseldorfer Kunstakademie; befreundet mit Eduard und Lida Bendemann"
+      ],
+      "dateOfBirth": [
+        "1805-12-10"
+      ],
+      "dateOfDeath": [
+        "1867-11-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Julius Hübner"
+          ],
+          "creditText": [
+            "Official gallery link"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Ferdinand%20Sohn.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Ferdinand%20Sohn.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Ferdinand%20Sohn.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-05-29T16:53:56.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117452963/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1210749327",
+          "label": "Sohn, Sophie Emilie Auguste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11745298X",
+          "label": "Sohn, Karl Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1208466356",
+          "label": "Hoff, Maria Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1210744155",
+          "label": "Sohn, Emilie Auguste"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116112573",
+          "label": "Dietrich, Clara"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117452998",
+          "label": "Sohn, Wilhelm"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117452963",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1208466356",
+          "label": "Hoff, Maria Luise"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116112573",
+          "label": "Dietrich, Clara"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11745298X",
+          "label": "Sohn, Karl Rudolf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1210749327",
+          "label": "Sohn, Sophie Emilie Auguste"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1210744155",
+          "label": "Sohn, Emilie Auguste"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117452963",
+      "oldAuthorityNumber": [
+        "(DE-588a)117452963"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4013255-9",
+          "label": "Düsseldorf"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "preferredName": "Sohn, Carl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl"
+        ],
+        "surname": [
+          "Sohn"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176793-7",
+          "label": "Radierer"
+        }
+      ],
+      "publication": [
+        "Reinick, Robert: Lieder eines Malers mit Randzeichnungen seiner Freunde. - 1838"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/77093899"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q678040"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117452963/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Ferdinand_Sohn"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Sohn"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Ferdinand_Sohn"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066789981"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117452963"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/117452963"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117452963.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117452963"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/117452963"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Sohn, C.",
+        "Sohn, Carl Ferdinand",
+        "Sohn, Carl F.",
+        "C. Sohn d. Ä.",
+        "Sohn, Karl",
+        "C. Sohn der Ältere",
+        "Sohn, Karl Ferdinand"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Ferdinand"
+          ],
+          "surname": [
+            "Sohn"
+          ]
+        },
+        {
+          "forename": [
+            "Carl F."
+          ],
+          "surname": [
+            "Sohn"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Sohn"
+          ]
+        },
+        {
+          "personalName": [
+            "C. Sohn der Ältere"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Sohn"
+          ]
+        },
+        {
+          "personalName": [
+            "C. Sohn d. Ä."
+          ]
+        },
+        {
+          "forename": [
+            "Carl Ferdinand"
+          ],
+          "surname": [
+            "Sohn"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Sohn",
+          "label": "https://de.wikipedia.org/wiki/Karl_Ferdinand_Sohn"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:59:48Z",
+    "gnd_query_biographical_data": "1805-1867",
+    "gnd_query_name": "sohn, carl ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2684,
+  "name": "Sohn, Carl Ferdinand",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 216",
+  "updated": "2026-06-11 13:29:25.055Z",
+  "uri": "https://d-nb.info/gnd/117452963",
+  "editor": ""
+}

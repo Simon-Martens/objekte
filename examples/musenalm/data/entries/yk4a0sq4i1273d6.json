@@ -1,0 +1,119 @@
+{
+  "annotation": "Jgg 1779-1784; Berlin (Lange); Hrsg.: K. Müchler /) mit kleinen Graphiken (Holzschnitten) über und unter den Beiträgen; s. als Beispiel Photo 87623 /) Die (unbezeichneten) Beiträge wohl von Müchler",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S W, B Vrwrt d Vrlg, SS 1-138 darin 4 GG, MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch fürs Frauenzimmer 1779",
+    "norm": "~",
+    "biblio": 200108,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2867,
+  "parallel_title": "",
+  "place_statement": "Berlin (Lange)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch fürs Frauenzimmer 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 116; L/R 61",
+  "responsibility_statement": "Karl Müchler",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / fürs / Frauenzimmer. / Das edelste Schöne / ist das Schöne der Seele. / Bodmer. / mit Kupfern. / Berlin, 1779. / bey Gottlieb August Lange, / dem Königl. Schlosse gegen über",
+  "updated": "2026-06-11 10:18:55.044Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "items": [
+    "pss2ej3g0b8u9vd"
+  ],
+  "contents": [
+    "c5wlrprmxtm1xz3",
+    "m1al9gnig43x7ou",
+    "zejyqv6s0jnrrsc",
+    "sijv6ednll1gkx8",
+    "vj1dhalxvt63x8h",
+    "ekayqb10rw5tn5e",
+    "rcq5ggzamnnw5pd",
+    "8mww1zabq2m63cy",
+    "65xjuq403xuvr9r",
+    "laudmwa0kiyggxo",
+    "jbq5m6i26qxo5g1",
+    "h8ewulan0xdzhox",
+    "084uui6bmmu0gx2",
+    "3ldb3ow0yy1ogzg",
+    "yexzqtqm18qypns",
+    "rnbcefyeydhpyww",
+    "kpq8wit7c5tar27",
+    "owr46rikqpe6rga",
+    "cyzwr0wqacywn1k",
+    "zraxe1iop4k1ysk",
+    "kbh2sogbryhq37a",
+    "c9e4c6bl4gkrpqa",
+    "5q38jg31ozm2bpq",
+    "q7p0mnjwhgqq8k6",
+    "qlijdhveqiexibl",
+    "a325m3pbfo7p7t8",
+    "vhnu9o0k7rlfinm",
+    "4ob2mxvbab5tfvt",
+    "hxm63xp63zemmnf",
+    "r6fz94405kxunzh",
+    "a62d2ttn5o33657",
+    "9zholqsdiqdp7s7",
+    "sn316iempq807hh",
+    "6lhnm1fs90wbyrp",
+    "9dpkbog4mzla5nh",
+    "8t1m44fh2jmjn22",
+    "pmzkmon9bqojad4",
+    "wytg2xr518ryron",
+    "2wpnrpd4njrp6s2",
+    "in2uqjt0un8qdq5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "a3b7nhxjocqw61y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.156Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.156Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "b1qt9uct2567c5x"
+    }
+  ]
+}

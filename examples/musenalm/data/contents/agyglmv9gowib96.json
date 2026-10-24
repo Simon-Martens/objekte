@@ -1,0 +1,45 @@
+{
+  "annotation": "Galanterien, dem schönen Geschlechte gewidmet (Sammlung INr 113781, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Du grollst, daß ich dir auf dem Fuß / Nachfolge, liebes Schätzchen!",
+  "language": [],
+  "musenalm_id": 113786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Marie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Marie",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.411Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "pa49qpzx6lhz56f"
+    }
+  ]
+}

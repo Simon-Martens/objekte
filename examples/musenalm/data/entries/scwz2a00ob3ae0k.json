@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch, Rheinisches 1841",
+    "norm": "",
+    "biblio": 106701,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1939,
+  "parallel_title": "",
+  "place_statement": "Köln (Du Mont-Schauberg)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Jahrbuch, Rheinisches 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; nicht bei L/R",
+  "responsibility_statement": "F. Freiligrath, C. Matzerath und K. Simrock",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Jahrbuch / für / Kunst und Poesie. / herausgegeben / von / F. Freiligrath, C. Matzerath und K. Simrock. / Zweiter Jahrgang. / Köln a. Rh. / M. Du Mont-Schauberg. / 1841",
+  "updated": "2026-06-11 10:18:55.731Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "skn7ntfovuzdtx3"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.742Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.742Z",
+      "agent": "xqd0m7u8vy59gpf",
+      "source_id": "m0qsikbgycvpibo"
+    }
+  ]
+}

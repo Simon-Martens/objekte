@@ -1,0 +1,88 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 5 GG dazu 6 BB G-Verz, S 1 nT, SS 3-217, S 218 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaja (Wien) 1832",
+    "norm": "~",
+    "biblio": 106383,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-05-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 239,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aglaja (Wien) 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 6; L/R 91; Goed IX. 33, 23; Goed VIII. 84,163",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1832. / Achtzehnter Jahrgang. / WIEN / gedruckt und im Verlage / bey Joh. B. Wallishausser",
+  "updated": "2026-06-11 10:18:54.844Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "ahsdsxoq6iu0iet"
+  ],
+  "contents": [
+    "hzhlc1oajpxmqnj",
+    "yei24or2gtupiol",
+    "gp3rz9q1dekear0",
+    "hyjmadcviblqqme",
+    "h9aex5lw3rnkwup",
+    "iakxr575v5fx1ye",
+    "8y69be62d8p7gjh",
+    "kewip57l6iecsig",
+    "u4zauesf8hpfl1n",
+    "0rixcmaqtu48xqh",
+    "h2i9ozory2k79ue",
+    "uombhtmbbbagyd3",
+    "94hzu88v2ds4t2t",
+    "38ci0mt7dd5ld5a",
+    "htpvjckeyrbb4s7",
+    "esml33stkeccm9q",
+    "h4xbx5uos8ptzn6",
+    "7b52dh4nussnbw5",
+    "yuc2jmwgu7og88e",
+    "oqie2c4ytkthvdk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.443Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.443Z",
+      "agent": "1ernx4twed64bul",
+      "source_id": "47w4jm39rjskylq"
+    }
+  ]
+}

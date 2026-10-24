@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135562,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KARL / Prinz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krüger del. Stahlstich von Carl Mayer Nbg",
+  "scans": [
+    "alm_2088_135562_1yz9huom9z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KARL / Prinz von Preussen",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.152Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "afao9v23uixpro8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.152Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "oep64fke400xxkm"
+    }
+  ]
+}

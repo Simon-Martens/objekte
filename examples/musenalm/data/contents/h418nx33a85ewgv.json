@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: D. Gutierro; I. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Vierte Lieferung (Sammlung INr 85606, Obj 5) Illustration zu »Der Arzt seiner Ehre« von Calderon, übers. von A. Schumacher /) s. Textbezug INr 85614, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85613,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mencia. Himmel, was muss ich gewahren?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. M. Hofmann sc.",
+  "scans": [
+    "alm_1586_85613_tfwacxpw25.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mencia. Himmel, was muss ich gewahren?",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.269Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "6yu4839guea8fbz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.269Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "ne8wispkswgyhlq"
+    }
+  ]
+}

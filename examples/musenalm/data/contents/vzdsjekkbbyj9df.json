@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Hier stieg Mirandola zu früher Gruft hinab, / Nicht eh der Tajus ihn, eh ihn der Ganges / kannte;",
+  "language": [],
+  "musenalm_id": 41190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giovanni Mirandola und Gero- / nimo Beneveni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Giovanni Mirandola und Gero- / nimo Beneveni",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.228Z",
+      "agent": "byuhkknqr79s51g",
+      "source_id": "31trtlriap0khgj"
+    }
+  ]
+}

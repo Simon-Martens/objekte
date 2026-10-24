@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait. # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7989,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robespierre",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_176_7989_nven4n7nxj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Robespierre",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.115Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "12m4bvp7kdwtc8c"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Fabeln (INr 93540, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Hanns trieb schon öfters ungeseh'n, / Sein Eselsfüllen auf des Nachbars Wiese,",
+  "language": [],
+  "musenalm_id": 93543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Eselsfüllen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Eselsfüllen",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.301Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "z451nktft9w9skw"
+    }
+  ]
+}

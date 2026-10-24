@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. hierzu Sonett von Treitschke INr 14339, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RAPHAEL D' URBINO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael d'Urbino p. Agricola miniat. p. F. John sc.",
+  "scans": [
+    "alm_225_14336_cndsk91w9l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RAPHAEL D' URBINO",
+  "updated": "2001-04-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.693Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "1wvycfyar0266du"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.693Z",
+      "agent": "ztgmm4mptvjp8o3",
+      "source_id": "sl58bosxboxgd87"
+    }
+  ]
+}

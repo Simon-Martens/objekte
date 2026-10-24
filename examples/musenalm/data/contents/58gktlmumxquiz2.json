@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 117233, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Ich kann daheim nicht rasten, / Muß in die weite Welt.",
+  "language": [],
+  "musenalm_id": 117235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Wanderlust",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Siegmund",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Wanderlust",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.575Z",
+      "agent": "fpnd1gzhfjqx9bk",
+      "source_id": "dfaga3i9l7303f2"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 40500, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "375",
+  "incipit_statement": "Wunderbares gesucht, leichtwiegenden Gründen ge- / glaubet: / Wie sie schnell der Natur Räthsel zu lösen verstehn!",
+  "language": [],
+  "musenalm_id": 40505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charakteristik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charakteristik",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.322Z",
+      "agent": "2i4oqqhryhrdin4",
+      "source_id": "nxu3rh1jq3z5nw4"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter (Sammlung INr 23389, Obj 44) mit einer Illustration s. Graphik INr 23390, Obj 44 und einer Antwort Schlossers INr 23393, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Dir, lieber Bruder, wiedme ich die folgende Geschichte, zum Andenken an einen unsrer glücklichen Morgen in Emmendingen.",
+  "language": [],
+  "musenalm_id": 23391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guter Glaube. / An Schlosser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Guter Glaube. / An Schlosser",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.218Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "d77uufbqqkzar1m"
+    }
+  ]
+}

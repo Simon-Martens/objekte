@@ -1,0 +1,46 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß (Sammlung INr 74293, Obj 17) mit einer Karte s. INr 74383, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Das Versprechen, den Beschreibungen der einzelnen GartenParthien von Hohenheim durch eine summarische Uebersicht Zusammenhung und Rundung zu geben, erfülle ich jetzt,",
+  "language": [],
+  "musenalm_id": 74382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grundriß / des herzoglich wirtembergischen LustSchlosses / und des Gartens in Hohenheim",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grundriß / des herzoglich wirtembergischen LustSchlosses / und des Gartens in Hohenheim",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.558Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "ozvouwrd7m5qkvw"
+    }
+  ]
+}

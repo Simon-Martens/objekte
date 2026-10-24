@@ -1,0 +1,76 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S I T, SS III-IV Vrwrt d Hrsg, SS 1-82, S C, 8 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kronos 1822",
+    "norm": "~",
+    "biblio": 405787,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2696,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Gleditsch)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kronos 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 74; nicht bei L/R",
+  "responsibility_statement": "Franz Stenzel",
+  "subtitle_statement": "",
+  "title_statement": "Kronos. / Genealogisch-historisches / Jahrbuch / für 1822. / Inhalt. / [...] / Leipzig / bey Joh. Friedr. Gleditsch",
+  "updated": "2026-06-11 10:18:55.911Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "0b0gdhii013fsun"
+  ],
+  "contents": [
+    "o2wk147pw0kg30b",
+    "aqz53s2ccb7nmde",
+    "1g3ze7m63gpqouo",
+    "21jqjnpjk0exhbd",
+    "ct2xhvtwksw4l1c",
+    "rmfdpglmaig381z",
+    "vbdj18pdqd3hkbt",
+    "etiibnv0huq8gfj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.905Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.905Z",
+      "agent": "2gt35w4cn5dv1rw",
+      "source_id": "o4qrne4bwfuqrql"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Graphik (Portrait) INr 91204, Obj 16 /) Graphik (Portrait) im Kalendarium /) Illustration zu »Die Geschichte der Bartholomäusnacht oder die Bluthochzeit zu Paris (Beschluß) INr 91205, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91203,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Admiral Kaspar v. Koligny. / Gaspard de Coligny, Admiral de France",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_4019_91203_r2x1z1ycrz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Admiral Kaspar v. Koligny. / Gaspard de Coligny, Admiral de France",
+  "updated": "2013-09-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.385Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "ipz5rmplgwvayoj"
+    }
+  ]
+}

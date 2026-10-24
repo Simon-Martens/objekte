@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80587, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Dunkle Wolken auf den Bergen, / Sonnenschein im Thale hier;",
+  "language": [],
+  "musenalm_id": 80590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Abschiedsgruß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Abschiedsgruß",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.764Z",
+      "agent": "ye6ke5f7oymjxx2",
+      "source_id": "tutymocxy1qilpo"
+    }
+  ]
+}

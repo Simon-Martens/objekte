@@ -1,0 +1,368 @@
+{
+  "annotation": "",
+  "biographical_data": "1822-1910",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.308Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1822-09-11"
+      ],
+      "dateOfDeath": [
+        "1910-04-15"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T12:33:25.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11623010X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11623010X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11623010X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)11623010X",
+        "(DE-588c)4830854-7",
+        "(DE-588a)113666667",
+        "(DE-588a)100813488",
+        "(DE-588a)126339082"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Duboc, Charles Edouard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Charles Edouard"
+        ],
+        "surname": [
+          "Duboc"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1163044334",
+          "label": "Waldmüller, Robert"
+        }
+      ],
+      "publication": [
+        "Duboc, Charles E.: Die Somosierra",
+        "Duboc, Charles E.: Mirandola, die Herrnhuterin",
+        "Duboc, Charles E.: Gehrt Hansen",
+        "Unterm Krummstab",
+        "Duboc, Charles E.: Der Secundant",
+        "Duboc, Charles E.: Baronisirt",
+        "Duboc, Charles E.: Die kleine Gipsgiesserin",
+        "Duboc, Charles E.: Leid und Lust",
+        "Duboc, Charles E.: Novellen"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Charles Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nb2010022041"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22887865"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q97223"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11623010X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Charles_Edouard_Duboc"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Charles_Edouard_Duboc"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000439840998"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11623010X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11623010X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11623010X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym",
+        "Weitere Titel ggf. auch unter dem Pseudonym."
+      ],
+      "variantName": [
+        "Duboc, Charles Eduard",
+        "Duboc, Carl Eduard",
+        "Waldmüller-Duboc, Robert",
+        "Duboc, Eduard",
+        "Duboc, Robert Waldmüller-",
+        "Duboc, Robert",
+        "Waldmüller, Robert",
+        "Duboc, Karl Eduard",
+        "Duboc, Edouard",
+        "Waldmüller Duboc, Robert"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Robert"
+          ],
+          "surname": [
+            "Waldmüller Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Robert"
+          ],
+          "surname": [
+            "Waldmüller"
+          ]
+        },
+        {
+          "forename": [
+            "Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Robert"
+          ],
+          "surname": [
+            "Waldmüller-Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Robert"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Eduard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Robert Waldmüller-"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        },
+        {
+          "forename": [
+            "Edouard"
+          ],
+          "surname": [
+            "Duboc"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Charles_Edouard_Duboc",
+          "label": "https://de.wikipedia.org/wiki/Charles_Edouard_Duboc"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:15:33Z",
+    "gnd_query_biographical_data": "1822-1910",
+    "gnd_query_name": "duboc, charles eduard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 583,
+  "name": "Duboc, Charles Eduard",
+  "profession": "Text",
+  "pseudonyms": "Robert Waldmüller",
+  "refs": "E 70",
+  "updated": "2026-06-11 13:29:22.103Z",
+  "uri": "https://d-nb.info/gnd/11623010X",
+  "editor": ""
+}

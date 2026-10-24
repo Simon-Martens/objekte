@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Mathilde, Gemalin Kaiser Heinrichs I. Aus der Geschichte des zehnten Jahrhunderts« 47969, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 0.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mathilde / Kaiser Heinrichs I. Gemahlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del.1808. Christ. Böhme sc.",
+  "scans": [
+    "alm_654_76099_abgggh7t47.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mathilde / Kaiser Heinrichs I. Gemahlin",
+  "updated": "2007-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.672Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "uwvt7hvgm1ho64l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.672Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "waltv9rszyqrdfx"
+    }
+  ]
+}

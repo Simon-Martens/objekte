@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Was strömt für ein Fluß aus den Alpen hervor / Und mitten durch den See?",
+  "language": [],
+  "musenalm_id": 92079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Leander von der Traun. / Seinem Freunde Herrn Doctor Sartori gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Leander von der Traun. / Seinem Freunde Herrn Doctor Sartori gewidmet",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.465Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "89wts3v24wcx1ds"
+    }
+  ]
+}

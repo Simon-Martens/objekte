@@ -1,0 +1,45 @@
+{
+  "annotation": "aus: Musenalmanach (Göttinger) 1802; INr 18118",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Im Vaterhaus ist froh mein Sinn, / Und mein Gesang nicht stumm;",
+  "language": [],
+  "musenalm_id": 47633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vierzehnjährige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vierzehnjährige",
+  "updated": "2007-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.588Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "td7ic1s265x2t30"
+    }
+  ]
+}

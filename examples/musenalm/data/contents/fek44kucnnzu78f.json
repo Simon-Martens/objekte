@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Wenn ich an meinem Fenster / Im Abenddunkel steh', / Des fernen Himmels Blumen, / Die tausend Sterne seh';",
+  "language": [],
+  "musenalm_id": 90562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Dort wie hier!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Dort wie hier!",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.252Z",
+      "agent": "rpx0m3s76l0s5s5",
+      "source_id": "jn4xh271hopkvbk"
+    }
+  ]
+}

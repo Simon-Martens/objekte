@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Es wallte Einer trüb und bang / Im Dämmerschein den Wald entlang;",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Nicht besser, als durch die vorstehenden Zeilen wüßte Schreiber dieses das Gefühl auszudrücken, so sich seiner bemächtiget, wenn das Bild der guten alten Stadt N. an seinem Gedächtnisse vorübergeht.",
+  "language": [],
+  "musenalm_id": 94650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Medaillon. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Medaillon. / Novelle",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.322Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "90hcwex11gttxb0"
+    }
+  ]
+}

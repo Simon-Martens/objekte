@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Anekdoten (Sammlung INr 66712, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Der bekannte Landdechant Arlotto aus dem Herzogthum Toscana, der durch seine witzigen Einfälle und ihre komische Ausführung in Italien nicht weniger berühmt ist, als Till Eulenspiegel in Deutschland,",
+  "language": [],
+  "musenalm_id": 66717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.272Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "pu7lc9sufzpnlip"
+    }
+  ]
+}

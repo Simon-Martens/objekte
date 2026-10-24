@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Ein Segenstrom wallt durch die blauen Lüfte, / Dem Hain entrauscht die frohste Synfonie!",
+  "language": [],
+  "musenalm_id": 10971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "58. / Natur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "58. / Natur",
+  "updated": "2001-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.566Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "w05rmmdj94auk08"
+    }
+  ]
+}

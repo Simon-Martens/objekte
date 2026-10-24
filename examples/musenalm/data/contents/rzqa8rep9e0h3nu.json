@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61883, Obj 115",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich kann mich also auf dich verlassen? / pag. 35",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61882_96yccc4wxm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich kann mich also auf dich verlassen? / pag. 35",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.976Z",
+      "agent": "dvhp1mfxgvurunq",
+      "source_id": "98nm400n1wtqp4c"
+    }
+  ]
+}

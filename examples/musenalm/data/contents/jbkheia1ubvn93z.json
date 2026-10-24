@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Liebesreime aus den Inseln des Archipelagus. Nach dem Neugriechischen (Sammlung INr 27816, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "456",
+  "incipit_statement": "Beim Becher schwarze Augen, / Am Fenster blaue taugen.",
+  "language": [],
+  "musenalm_id": 27820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beim Becher schwarze Augen, / Am Fenster blaue taugen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.379Z",
+      "agent": "nkp5jpl8qj93tqy",
+      "source_id": "fpvp111kls7dmka"
+    }
+  ]
+}

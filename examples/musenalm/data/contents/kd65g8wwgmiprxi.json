@@ -1,0 +1,45 @@
+{
+  "annotation": "1815 (Sammlung INr 40885, Obj 23)  II. Tafeln am Wege (Sammlung INr 40884, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Nach langer Dürre wieder der erste Regen! Höchlich willkommen, besonders den Anwohnern der Heerstraße von Stuttgart bis Ulm,",
+  "language": [],
+  "musenalm_id": 40895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.087Z",
+      "agent": "z3510nlbg6hd1qt",
+      "source_id": "6s1ve8c5yohp06b"
+    }
+  ]
+}

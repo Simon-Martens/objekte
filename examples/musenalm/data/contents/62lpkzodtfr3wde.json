@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien (Sammlung INr 81758, Obj 46) Gedichte (Sammlung INr 81754, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Niemals vermocht' ich allein aus ganzer Seele zu lachen,",
+  "language": [],
+  "musenalm_id": 81761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niemals vermocht' ich allein aus ganzer Seele zu lachen,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Constant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.957Z",
+      "agent": "wm9mmfgzc6wy00i",
+      "source_id": "mqq82qh5kv89fjl"
+    }
+  ]
+}

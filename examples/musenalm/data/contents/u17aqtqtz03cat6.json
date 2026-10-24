@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Gute Nacht! / Heil'gen Lebens Licht erwacht. / Sternlein irren durch die Lüfte, / Sternlein ruhn auf dem Geklüfte,",
+  "language": [],
+  "musenalm_id": 126538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gute Nacht. An **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chézy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gute Nacht. An **",
+  "updated": "2020-12-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.935Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "dvwh7i43a0iztru"
+    }
+  ]
+}

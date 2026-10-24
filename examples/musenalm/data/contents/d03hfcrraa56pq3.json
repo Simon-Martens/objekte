@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Du wandelst hinaus in den Glanz der Au. / Ueber der Erde das ewige Blau,",
+  "language": [],
+  "musenalm_id": 100217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himmel und Erde. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Georg Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Himmel und Erde. / 1.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.891Z",
+      "agent": "qrvhchv0ha68b9y",
+      "source_id": "72qnx4u2tf26m01"
+    }
+  ]
+}

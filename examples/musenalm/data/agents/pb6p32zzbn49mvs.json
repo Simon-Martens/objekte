@@ -1,0 +1,320 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1815",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.411Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Prediger; Pfarrer; Übers.; aus Alzey; ref. Prediger in Heidelberg, Erlangen u. ab 1806 in Mannheim",
+        "reformierter Prediger in Heidelberg, Erlangen und zuletzt in Mannheim; Theologe; Schriftsteller; Übersetzer"
+      ],
+      "dateOfBirth": [
+        "1776"
+      ],
+      "dateOfDeath": [
+        "1815"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-09T17:15:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11694448X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11694448X",
+      "id": "https://d-nb.info/gnd/11694448X",
+      "oldAuthorityNumber": [
+        "(DE-588a)11694448X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4037372-1",
+          "label": "Mannheim"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4001606-7",
+          "label": "Alzey"
+        }
+      ],
+      "preferredName": "Le Pique, Johann Philipp",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Philipp"
+        ],
+        "surname": [
+          "Le Pique"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130322-2",
+          "label": "Prediger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        }
+      ],
+      "publication": [
+        "Bibliothek für Lustgärtner und Blumenfreunde",
+        "Rede am Gedächtnißfeste des Sieges bey Leipzig",
+        "Predigt am zweyten Jubelfeste der Stadt Mannheim",
+        "Papiere aus dem Nachlasse eines Kaiserlichen Offiziers",
+        "Kessler, Johann S.: Papiere aus dem Nachlasse eines kaiserlichen Offiziers",
+        "Einige Gedanken über menschliche Erwartungen",
+        "Leitfaden zu christlicher Unterweisung",
+        "Rede am Grabe der Frau geheimen Finanzräthin Friderica Schmaltz, geb. Pastert",
+        "Antritts-Predigt",
+        "An die Confirmanden der deutsch-reformirten Gemeine in Mannheim zu Ostern 1811"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88611540"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25366937"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55901809"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11694448X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11694448X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11694448X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Le Pique, Joh. Philipp",
+        "Le Pique, J. P",
+        "Lepique, Johann Philipp",
+        "LePique, J. P.",
+        "LePique, Joh. Philipp",
+        "Pique, Johann Philipp le",
+        "LePique, Johann Philipp",
+        "Le Pique, Johann P.",
+        "Le Pique, J. P.",
+        "Le Pique, Johann Peter",
+        "Lepique, Johann P.",
+        "Le Pique"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "LePique"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Philipp"
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Philipp"
+          ],
+          "surname": [
+            "LePique"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Philipp"
+          ],
+          "surname": [
+            "LePique"
+          ]
+        },
+        {
+          "forename": [
+            "J. P"
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann P."
+          ],
+          "surname": [
+            "Lepique"
+          ]
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "LePique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter"
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "J. P."
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Philipp"
+          ],
+          "surname": [
+            "LePique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Philipp"
+          ],
+          "prefix": [
+            "le"
+          ],
+          "surname": [
+            "Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Peter"
+          ],
+          "surname": [
+            "Le Pique"
+          ]
+        },
+        {
+          "personalName": [
+            "Le Pique"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Philipp"
+          ],
+          "surname": [
+            "Lepique"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:06:27Z",
+    "gnd_query_biographical_data": "1776-1815",
+    "gnd_query_name": "lepique, johann philipp"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1609,
+  "name": "LePique, Johann Philipp",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "DBI 1243",
+  "updated": "2026-06-11 13:29:23.548Z",
+  "uri": "https://d-nb.info/gnd/11694448X",
+  "editor": ""
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "gT, 12 GG, 29 BB Kal darin 6 GG, S 1 T, SS 3-228 darin 5 GG, S, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender, Göttinger 1794 (franz. Ausg.: Almanac de Goettingue 1794)",
+    "norm": "~",
+    "biblio": 409486,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2017-11-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4475,
+  "parallel_title": "",
+  "place_statement": "Göttingen (J. C. Dieterich)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Taschenkalender, Göttinger 1794 (franz. Ausg.: Almanac de Goettingue 1794)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 154; L/R 15",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / de GÖTTINGUE / pour l'année / 1794. / chez J. C. Dieterich",
+  "updated": "2026-06-11 10:18:55.225Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "lh2s4ut90e0ctyc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.054Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.054Z",
+      "agent": "ypd7mg7vgkg1ypo",
+      "source_id": "cpmmziy82s5fxbl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "An die Wolken (Sammlung INr 42017, Obj 218)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Guten Abend, ihr freundlichen Wolken! / Was tragt ihr im lustigen Sinn?",
+  "language": [],
+  "musenalm_id": 42024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 225,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Sanguinische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Zeising",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Sanguinische",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.326Z",
+      "agent": "s5kqm22xcf4do3c",
+      "source_id": "wqlaxo8myq9e6wi"
+    }
+  ]
+}

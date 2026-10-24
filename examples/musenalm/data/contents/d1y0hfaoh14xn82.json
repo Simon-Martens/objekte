@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung aus:Taschenbuch, Bergisches 1804; alm-1018, INr 62151",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Auch Wilhelm der Erste war, ohne Kinder nachzulassen, gestorben (1308). Die bisherigen Annalisten unserer Länder geben ihm seinen älteren Bruder, Heinrich, Herrn von Windeck, zum Nachfolger",
+  "language": [],
+  "musenalm_id": 78785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Darstellung / der / bergischen Landesgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Darstellung / der / bergischen Landesgeschichte",
+  "updated": "2009-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.905Z",
+      "agent": "2nr9q3fe1nc6c2b",
+      "source_id": "1za9vvu95ud5kur"
+    }
+  ]
+}

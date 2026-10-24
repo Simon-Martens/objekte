@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Ehre sei dem Eisen! / Eisen, dich o starkes Herz, / Starkes Herz des Erdenballes;",
+  "language": [],
+  "musenalm_id": 44186,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ehre sei dem Eisen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Kalisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ehre sei dem Eisen!",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.458Z",
+      "agent": "wdqlc0hdzxbw7pk",
+      "source_id": "kdp3cfusfz8ly21"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 98518, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Komm, verhüllte Schöne! / Komm! aus deinem Haus / Locken stille Töne / Dich zur Nacht heraus.",
+  "language": [],
+  "musenalm_id": 98531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.860Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "y757il7lkkod7cp"
+    }
+  ]
+}

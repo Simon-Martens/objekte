@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Sinesische Volkslieder aus dem Schi-king des Confucius (Sammlung INr 99733, Obj 137)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Rauscht der große Wagen rasselnd; / Jener Mann darin trägt Kleider,",
+  "language": [],
+  "musenalm_id": 99738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Verkannte Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Minneburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Verkannte Liebe",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.976Z",
+      "agent": "ucy5ztqyrt5gvq8",
+      "source_id": "ycdf40mteta7ft0"
+    }
+  ]
+}

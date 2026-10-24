@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "In Osnabrück. Einige Stükke in seinen patriotischen Phantasien, sein vertheidigter Harlekin etc bringen ihn in unsern Almanach und es freut uns, daß wir Gelegenheit haben ihm all' die Hochachtung zu zeigen, die wir für sein Herz und seinen Kopf haben.",
+  "language": [],
+  "musenalm_id": 98727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Justus Möser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Justus Möser",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.892Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "eylvnh3rb7ydlf0"
+    }
+  ]
+}

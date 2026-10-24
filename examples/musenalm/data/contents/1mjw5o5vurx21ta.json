@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 6767, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Aufgeladen frisch und froh! / Diesen Sonntag feirt man so!",
+  "language": [],
+  "musenalm_id": 6766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS NOTHWERK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voss",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DAS NOTHWERK",
+  "updated": "2000-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.143Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "40zt3rntks1nvxh"
+    }
+  ]
+}

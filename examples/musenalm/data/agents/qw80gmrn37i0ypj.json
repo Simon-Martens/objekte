@@ -1,0 +1,155 @@
+{
+  "annotation": "",
+  "biographical_data": "1799-1875",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.482Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1788-04-08"
+      ],
+      "dateOfDeath": [
+        "1875-11-03"
+      ],
+      "describedBy": {
+        "dateModified": "2019-11-04T14:35:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1198752769/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SE",
+          "label": "Schweden"
+        }
+      ],
+      "gndIdentifier": "1198752769",
+      "id": "https://d-nb.info/gnd/1198752769",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4222141-9",
+          "label": "Norrköping"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4057648-6",
+          "label": "Stockholm"
+        }
+      ],
+      "preferredName": "Söderberg, Gustaf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustaf"
+        ],
+        "surname": [
+          "Söderberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4332866-0",
+          "label": "Landschaftsmaler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4043375-4",
+          "label": "Offizier"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/9628157342858410100003"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1198752769/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Söderberg, Jens",
+        "Söderberg, Gösta"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gösta"
+          ],
+          "surname": [
+            "Söderberg"
+          ]
+        },
+        {
+          "forename": [
+            "Jens"
+          ],
+          "surname": [
+            "Söderberg"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:59:39Z",
+    "gnd_query_biographical_data": "1799-1875",
+    "gnd_query_name": "söderberg, gustaf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2681,
+  "name": "Söderberg, Gustaf",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXXI, 203",
+  "updated": "2026-06-11 13:29:25.047Z",
+  "uri": "https://d-nb.info/gnd/1198752769",
+  "editor": ""
+}

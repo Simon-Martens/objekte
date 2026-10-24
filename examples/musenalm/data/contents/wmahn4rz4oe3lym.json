@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Anna von Östreich und Kardinal Mazarin« von Friedrich Buchholz INr 68935, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 40",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del et fec.",
+  "scans": [
+    "alm_839_68924_ofbd8zj61j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 40",
+  "updated": "2008-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.529Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "h2p7iwp2f1r9g1c"
+    }
+  ]
+}

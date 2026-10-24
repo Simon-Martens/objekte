@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11335, Obj 18) mit einer Illustration s. Graphik INr 11327, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es war gegen das Ende des elften Jahrhunderts, als Philipp der Erste Frankreich beherrschte.",
+  "language": [],
+  "musenalm_id": 11336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Benno. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Benno. / Eine Erzählung",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.608Z",
+      "agent": "5uss88okhpw2gvm",
+      "source_id": "t3tlohw01b8e7jz"
+    }
+  ]
+}

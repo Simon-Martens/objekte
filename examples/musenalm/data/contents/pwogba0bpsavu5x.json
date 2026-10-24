@@ -1,0 +1,45 @@
+{
+  "annotation": "Anecdoten und Einfälle (Sammlung INr 132968, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Ein Bauernknabe kam zu einem Handwerksmann, der wohlhabend ward, in die Lehre.",
+  "language": [],
+  "musenalm_id": 132972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der seltene Kummer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der seltene Kummer",
+  "updated": "2024-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.100Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "u53688y9b7jxalz"
+    }
+  ]
+}

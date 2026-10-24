@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Ja, heil'ge Freundschaft, dir allein / Ist heut' mein ganzes Herz geweihet!",
+  "language": [],
+  "musenalm_id": 80347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freundschaft. / (Bruchstück aus dem Epos »der Winter«.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kanne",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freundschaft. / (Bruchstück aus dem Epos »der Winter«.)",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.727Z",
+      "agent": "lfya0d0pv8esiqv",
+      "source_id": "n765zujz259l3ap"
+    }
+  ]
+}

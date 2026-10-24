@@ -1,0 +1,87 @@
+{
+  "annotation": "§§ Graphiken fehlen; K gibt 6 Stahlstiche an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, vT, T, S I-Verz, nT, SS 1-272",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Gräffer, Seidl) 1857",
+    "norm": "",
+    "biblio": 106442,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1613,
+  "parallel_title": "",
+  "place_statement": "Wien (Lienhart) Leipzig (Liebeskind)",
+  "places": [],
+  "preferred_title": "Aurora (Gräffer, Seidl) 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; L/R 96; Goed VIII. 111, 264",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "subtitle_statement": "",
+  "title_statement": "AURORA / Taschenbuch für das Jahr 1857. / Herausgegeben / von / Johann Gabriel Seidl. / Drei und dreißigster Jahrgang. / Wien. / Bei Ignaz Lienhart. / Leipzig, bei A. G. Liebeskind",
+  "updated": "2026-06-11 10:18:55.531Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "items": [
+    "mmajdxg4wntlblf"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "2gh9s9bmjxl8x1h",
+      "source_id": "dwfecynp7ya0mog"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "mudamtl4o6ngt7i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.216Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.216Z",
+      "agent": "w2bayedwdqvhj9v",
+      "source_id": "x455a90yifazf2v"
+    }
+  ]
+}

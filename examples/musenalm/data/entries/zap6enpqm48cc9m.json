@@ -1,0 +1,107 @@
+{
+  "annotation": "§1§-§15§ GG fehlen /) Fortgesetzt durch: Kalender, Historischer (Göschen) 1794; alm-2140",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T 16 BB Kal darin §1§-§12§ GG, 10 BB G-Verz darin §13§-§15§ GG, SS 473-860, 9 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer für Damen 1793 (Schiller)",
+    "norm": "~",
+    "biblio": 106633,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2144,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Kalender, Historischer für Damen 1793 (Schiller)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 35; L/R 18; Goed V. 187, 27",
+  "responsibility_statement": "Friedrich Schiller",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / Damen / für das Jahr 1793 / von / Friedrich Schiller / Leipzig / bey / G. J. Göschen",
+  "updated": "2026-06-11 10:18:55.868Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "items": [
+    "3fw2jmnod04xw8c"
+  ],
+  "contents": [
+    "jcfayiyp7w2m6i6",
+    "os9kazypoa9ftza",
+    "agqohdl8w95rljd",
+    "3d892fjc6th69an",
+    "ejjhb51bhunlka7",
+    "cn692m0w1setq17",
+    "r3mp6dt5w47if6b",
+    "xtin5j0wojevwoc",
+    "vwu74vu2d5uwyf6",
+    "7vipgihe4xflfs2",
+    "15pcc9qxl25l9f9",
+    "k3p56wrs6go5ol3",
+    "jrurjzk7f17aie0",
+    "dopguyswmu9po18",
+    "4yjgvf4d171zoea",
+    "3hatd0vvrko3p5q",
+    "2n9og34wzhmasa2",
+    "dawxvdxtlsg86ya",
+    "xjnoo5e63adbt4a",
+    "600gf33fumk4lbx",
+    "291a7kdg5bs1dnz",
+    "4xscl05o4gwu1p6",
+    "ofbc191t91xwtin",
+    "iffyvmf6yynzeuj",
+    "keszkflcnilib5s",
+    "0aa2vw1rxn3xhr9",
+    "qlmturddmsw9ehp",
+    "v2ozrkuasx5m3o7",
+    "ov4rgfd7oyanypo",
+    "sm9mfrma0hdxg33",
+    "xl7rjoskidypnig",
+    "vtk96sybi99fye6",
+    "hr4vantux3711wy",
+    "vqfsz8jljbp19oa",
+    "8ko2fo8de9gua4u",
+    "14wuolblkpnbg4z",
+    "hpvunu5c8v6mu0n",
+    "v25xausi0db394t",
+    "7s4kwzoygxj0bsg"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.917Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.917Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "1iaq0c7c4nwa7dn"
+    }
+  ]
+}

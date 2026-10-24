@@ -1,0 +1,717 @@
+{
+  "annotation": "",
+  "biographical_data": "1802-1866",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.274Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1802-06-06"
+      ],
+      "dateOfDeath": [
+        "1866-11-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Andreas Staub"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Johann%20Braun%20von%20Braunthal.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Karl%20Johann%20Braun%20von%20Braunthal.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Karl%20Johann%20Braun%20von%20Braunthal.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T20:35:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116428384/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "116428384",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116428384",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-101c)310546826",
+        "(DE-588a)116428384",
+        "(DE-588a)134856821"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Eger"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Braun von Braunthal, Karl Johann",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Johann"
+        ],
+        "surname": [
+          "Braun von Braunthal"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Jean Charles"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Charles"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Kreutzer, Conradin: [Das Nachtlager in Granada / Arr.]. - ca. 1834",
+        "Braun von Braunthal, Karl J.: Stehende Masken im Lustspiele des Lebens",
+        "Braun von Braunthal, Karl J.: Schöne Welt",
+        "Braun von Braunthal, Karl J.: Dichterleben aus unserer Zeit",
+        "Braun von Braunthal, Karl J.: Donna Quixote, oder: Leben, Abenteuer und Meinungen einer s*",
+        "Braun von Braunthal, Karl J.: Novellen",
+        "Braun von Braunthal, Karl J.: Napoleon II",
+        "Braun von Braunthal, Karl J.: Der Abenteurer oder Hundert Leben in Einem",
+        "Braun von Braunthal, Karl J.: Die Marquise von L***",
+        "Braun von Braunthal, Karl J.: Die Stimme des Blutes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85160938"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/37666964"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1731807"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116428384/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Johann_Braun_von_Braunthal"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Johann_Braun_von_Braunthal"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000006676600X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116428384"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116428384"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_B/Braun-Braunthal_Karl-Johann_1802_1866.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116428384.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116428384.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116428384"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Braun von Braunthal, I. C.",
+        "Charles, Jean",
+        "Braun von Braunthal, ...",
+        "Braun von Brauntal, Karl Johann",
+        "Charles, Jean (Pseudonym)",
+        "Braunthal, Karl Johann von",
+        "Braun von Braunthal, J. C.",
+        "Jean Charles (Pseudonym)",
+        "Braun von Braunthal, Karl Johann, Ritter",
+        "Braunthal, Carl Johann Braun von",
+        "Braunthal, Karl Joseph Braun von",
+        "Braunthal, Johann Karl von",
+        "Braunthal, Johann Karl Braun von",
+        "Braun, Karl Johann",
+        "Jean Charles",
+        "Braunthal, Carl Johann von",
+        "Graun, J. K., Ritter",
+        "Braunthal, Karl Johann von, Ritter",
+        "Braun, Karl Johann von Braunthal",
+        "Braun, Johann Karl von",
+        "Braun, Karl Johann, Ritter",
+        "Braun, Carl Johann",
+        "Braunthal, Johann Carl Braun von",
+        "Braun von Braunthal, Karl Johann von",
+        "Braun, Karl Johann, Ritter von Braunthal",
+        "Braunthal, Karl Johann Braun von",
+        "Graun von Braunthal, J.K., Ritter",
+        "Braun, Carl von",
+        "Braun, Karl Joseph Johann",
+        "Braunthal, Johann Carl von",
+        "Braun von Braunthal, Carl Johann",
+        "Braunthal, Karl J.",
+        "Braun, Karl von",
+        "Braun von Braunthal, Johann Karl",
+        "Braun, C. von",
+        "Braun von Braunthal, Johann Carl",
+        "Braunthal, J. K. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "I. C."
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl Braun"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "nameAddition": [
+            "Ritter von Braunthal"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl J."
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann von Braunthal"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Johann"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Joseph Braun"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "J. K."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "J. K."
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "surname": [
+            "Graun"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "J.K."
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "surname": [
+            "Graun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann Braun"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Johann"
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "surname": [
+            "Braun von Brauntal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Joseph Johann"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Johann"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Johann"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "personalName": [
+            "Jean Charles (Pseudonym)"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "surname": [
+            "Braun von Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl Braun"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "Jean"
+          ],
+          "surname": [
+            "Charles"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Johann Braun"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braunthal"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Braun"
+          ]
+        },
+        {
+          "forename": [
+            "Jean (Pseudonym)"
+          ],
+          "surname": [
+            "Charles"
+          ]
+        },
+        {
+          "personalName": [
+            "Jean Charles"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Johann_Braun_von_Braunthal",
+          "label": "https://de.wikipedia.org/wiki/Karl_Johann_Braun_von_Braunthal"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:01:15Z",
+    "gnd_query_biographical_data": "1802-1866",
+    "gnd_query_name": "braun von braunthal, karl johann"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 293,
+  "name": "Braun von Braunthal, Karl Johann",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 64",
+  "updated": "2026-06-11 13:29:21.715Z",
+  "uri": "https://d-nb.info/gnd/116428384",
+  "editor": ""
+}

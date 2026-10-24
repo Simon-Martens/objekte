@@ -1,0 +1,90 @@
+{
+  "annotation": "Taschenbuch / der / Pferdekunde / für / Stallmeister, Offiziere, Oeconomen, / Thierärzte und / Freunde des Pferdes / überhaupt. / Herausgegeben von. / Dr. K. L. SCHWAB, / Königl. Baierl. Rath und Professor. / Füntes Bändchen. / MÜNCHEN, / bey Joseph A. Finsterlin. / 1822",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, nT, B I-Verz, SS 1-356, G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1822",
+    "norm": "~",
+    "biblio": 106783,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2691,
+  "parallel_title": "",
+  "place_statement": "München (Finsterlin)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch der Pferdekunde für Stallmeister, Offiziere [...] 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 136",
+  "responsibility_statement": "Dr. K. L. Schwab",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / Pferdekunde / für / Stallmeister, Offiziere, Oeconomen, / Thierärzte und Freunde des Pferdes / überhaupt. / Herausgegeben von. / Dr. K. L. SCHWAB, / Königl. Baier. Rath und Professor. / Füntes Bändchen. / MÜNCHEN, / bey Joseph A. Finsterlin. / 1822",
+  "updated": "2026-06-11 10:18:55.835Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "xnlu9txtnp3l8b1"
+  ],
+  "contents": [
+    "a71o3kgko3v6ygb",
+    "ejlp7dtue9h72nn",
+    "i9pj86absko3seq",
+    "l78tfjffm7pffwy",
+    "f13osk9ws9znlkh",
+    "6u7y5451ndyi3p0",
+    "wz2wrgs7la4toix",
+    "p9ly3wrxbcxruhx",
+    "o2ht2c6mja19bj9",
+    "xztpie8nxe759yt",
+    "6n0dpxka34gi5xn",
+    "ao2bt620n86c0co",
+    "t04y9n57h5k6tr6",
+    "zrdg95nkqgk86y3",
+    "pjer2g8bd4kl94w",
+    "1s3ncj014ar7tgh",
+    "uhom9fpzqglgtu9",
+    "46fcx7ak8fej9ge",
+    "th8a8tzlho0pa9f",
+    "1ru5ma8ayntoik4",
+    "dj0w0s59jhozhgr",
+    "4dp3ah618ssb64o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.841Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.841Z",
+      "agent": "3aj6gz8dbnbmf0q",
+      "source_id": "i5t32m6vvd3mk4r"
+    }
+  ]
+}

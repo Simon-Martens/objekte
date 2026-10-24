@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13570,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / W. G. BECKER / Ein und Zwanzigster Jahrgang / 1811. / Mit Königl. Sächsischem allergnädigstem Privilegio. / Leipzig / bei Johann Friedrich Gleditsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc. Leipzig",
+  "scans": [
+    "alm_218_13570_z076z8cbo4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / W. G. BECKER / Ein und Zwanzigster Jahrgang / 1811. / Mit Königl. Sächsischem allergnädigstem Privilegio. / Leipzig / bei Johann Friedrich Gleditsch",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.514Z",
+      "agent": "u3ev7bjxvo21hzz",
+      "source_id": "b6r184bj74e9d70"
+    }
+  ]
+}

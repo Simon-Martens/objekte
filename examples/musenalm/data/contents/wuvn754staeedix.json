@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung an einem Blatt der Suite (INr 124197, Obj 14); Illustration zu »Der versiegelte Burgemeister« von Raupach  (INr 124188, Obj 5) /) $ Zeichner: Christian Heinrich Schneider (T/B 30, 192)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braun. / Ach war je ein Burgemeister / In so schaudervoller Lage? / Der versiegelte Burgemeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneider del. gest. bei Fleischmann # $",
+  "scans": [
+    "alm_1297_124189_ktcaztg7h5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braun. / Ach war je ein Burgemeister / In so schaudervoller Lage? / Der versiegelte Burgemeister",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.779Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "07i4h9s29jjti3z"
+    }
+  ]
+}

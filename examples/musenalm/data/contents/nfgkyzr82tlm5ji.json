@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Wie freuet mich so innig / Des Lenzes erstes Grün,",
+  "language": [],
+  "musenalm_id": 90586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Mein Erstes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiacinth von Schulheim. (Graz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Mein Erstes",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.160Z",
+      "agent": "miy11spit4lljvz",
+      "source_id": "b3k7kwwwl4avebc"
+    }
+  ]
+}

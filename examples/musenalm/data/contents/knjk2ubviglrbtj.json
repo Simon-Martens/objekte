@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "In Damons Hause wird bald eine Leiche seyn:",
+  "language": [],
+  "musenalm_id": 2710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vorbote des Todes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A-g.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vorbote des Todes",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.877Z",
+      "agent": "6idi6dadwhz65cj",
+      "source_id": "hmiz8gx40jjc69u"
+    }
+  ]
+}

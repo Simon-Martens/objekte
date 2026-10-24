@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB , 2 BB VrlgM, verso G, T, S W, B Vrwrt d Hrsg, B I-Verz, nT, 16 BB Kal, SS 1-144,              BB Tabb, 4 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreibtafel zum Täglichen Gebrauch für Damen 1795",
+    "norm": "~",
+    "biblio": 410876,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-12-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4763,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Voss und Comp.)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Schreibtafel zum täglichen Gebrauch für Damen 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 102; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "SCHREIBTAFEL / zum / taeglichen Gebrauch / für / DAMEN / 1795. / mit Churfürstl. Saechs. Privilegio. / Leipzig, bey Voss und Comp.",
+  "updated": "2026-06-11 10:18:55.406Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "cjijjfrj5wdl3c7"
+  ],
+  "contents": [
+    "7im7krngmtsx6vs",
+    "plda38enklem8z2",
+    "xvd0nz3vlj3iax4",
+    "bb4o0jeltyiu5st",
+    "2f13awf6xsvevjl",
+    "o22j5w2yu6xufg8",
+    "zrxfxcn3vafuto4",
+    "h8qmm68iqak2lg3",
+    "w7tg6qpsgb3v3yp",
+    "qaf6kk0x2u2qtfn",
+    "8utxjdsnl457fcm",
+    "xqjhu176rcb57k2",
+    "045nwb5le7pescm",
+    "f9jjtmqmmzsx10y",
+    "joa6bdgpk1uugnn",
+    "hqyehyk8vumdj5a",
+    "9mbg9hm7yozzu6i",
+    "yia4yosz8rzb8m5",
+    "lximxf4wxcfw4ok",
+    "k9qmj8gysx1f7ok",
+    "8krxyz0wvb5n4e6",
+    "d2mwmnersl4klul",
+    "sikszvl5y0yfmzg",
+    "iedxgeu0ad5ghc2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.178Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.178Z",
+      "agent": "opicouvq1odrmvd",
+      "source_id": "hlkto27mfp23o4b"
+    }
+  ]
+}

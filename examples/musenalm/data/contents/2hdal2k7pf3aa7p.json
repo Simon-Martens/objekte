@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni # vollst. Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62055,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mengelberg del. Thelott sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Mengelberg del. Thelott sc.",
+  "scans": [
+    "alm_1018_62055_k0eavajgrt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.207Z",
+      "agent": "w3qiuoy5c9zgkv3",
+      "source_id": "m9v2cauxyjoeabn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.207Z",
+      "agent": "f8vs62ntusa9nl2",
+      "source_id": "ymyj3hviy0ygpi4"
+    }
+  ]
+}

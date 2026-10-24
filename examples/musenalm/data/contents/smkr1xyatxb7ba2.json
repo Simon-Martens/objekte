@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "VÉNUS un jour s’en vint me dire: / De ton art je sens tout le prix: / Chantre des bois! Viens, sur ta lyre, / Enseigner tes chants à mon fils.",
+  "language": [],
+  "musenalm_id": 132306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L’ÉCOLIER MAITRE, / CHANSON IMITÉE DE DION",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "LA CHABEAUSSIÈRE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "L’ÉCOLIER MAITRE, / CHANSON IMITÉE DE DION",
+  "updated": "2017-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.083Z",
+      "agent": "ah12hawjwwdx99q",
+      "source_id": "n5rlqf3oz3x2alq"
+    }
+  ]
+}

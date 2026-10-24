@@ -1,0 +1,67 @@
+{
+  "annotation": "ermittelte Jgg 1797 u. 1815; 1797: Schwerin (Bärensprung); 1815: Schwerin u. Hamburg (Appel); Hrsg.: Georg Heinrich Masius",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Medizinischer für Ärzte und Nichtärzte (Mecklenburg) 1797",
+    "norm": "",
+    "biblio": 200873,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2178,
+  "parallel_title": "",
+  "place_statement": "Schwerin (Bärensprung)",
+  "places": [
+    "yoialihr88jp8sh"
+  ],
+  "preferred_title": "Kalender, Medizinischer für Ärzte und Nichtärzte (Mecklenburg) 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Hofmedicus Masius",
+  "subtitle_statement": "",
+  "title_statement": "Allmanach / für / medicinische Policey, gerichtliche Arzneywis- / senschaft und Volks- Arzneykunde / mit besonderer Hinsicht / auf die / Medicinal-Bedürfniße Mecklenburgs / für / das Jahr 1797. / Vom / Hofmedicus Masius, / in Gnoien. / Prüfet alles und das Gute behaltet. / Schwerin, / gedruckt bei W. Bärensprung, Herzogl. Hofbuchdrucker",
+  "updated": "2026-06-11 10:18:55.893Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "2aoxkszvnoue9la"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.493Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.493Z",
+      "agent": "2kgw4mb6n2u0vkt",
+      "source_id": "lcn0kpeogr39oqw"
+    }
+  ]
+}

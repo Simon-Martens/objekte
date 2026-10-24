@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Nicht hat Gott mir verlieh'n ein Haus / mit marmornen Säulen, / Welches mit künstlicher Hand die / Architekten gebaut.",
+  "language": [],
+  "musenalm_id": 133741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An mein Liebchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An mein Liebchen",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.118Z",
+      "agent": "t0ac1fy2s8750zm",
+      "source_id": "6eio5is2l61umfn"
+    }
+  ]
+}

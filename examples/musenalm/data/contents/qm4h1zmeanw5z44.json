@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67530, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67537, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Veranlaßt durch das Auftreten unbefiederter Schnellläufer auf der Rennbane der europäischen Hauptstädte, an deren Mobilität ein schaulustiges, großes Publikum Geschmack gefunden hat,",
+  "language": [],
+  "musenalm_id": 67538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der isabellfarbige Läufer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der isabellfarbige Läufer",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.417Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "3o4ket76nji4jmb"
+    }
+  ]
+}

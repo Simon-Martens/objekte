@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Istrien und Dalmatien (Sammlung INr 87889, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Wasserfalls der Kerka",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3099_87898_1fkeaxv76w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Wasserfalls der Kerka",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.124Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "azjulnudz7g2cmy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.124Z",
+      "agent": "mwzww6qj9viy1kj",
+      "source_id": "nujoxpk4da4mngk"
+    }
+  ]
+}

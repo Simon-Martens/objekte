@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Die Astern« von Fr. Kind INr 43367, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43350,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Astern v. Fr. Kind. / Seite 115",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schwerdgeburth del et sc.",
+  "scans": [
+    "alm_569_43350_wu83cku8qg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Astern v. Fr. Kind. / Seite 115",
+  "updated": "2006-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.109Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "2regba74i2p2i97"
+    }
+  ]
+}

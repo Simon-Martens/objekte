@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 53248, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53243,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italienische Schule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Diego Velasquez de Silva. J. Lips gest.",
+  "scans": [
+    "alm_576_53243_0exzkpidbe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Italienische Schule",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.730Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "5y73qbiw80u4v39"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.730Z",
+      "agent": "wfn3txh2geqopji",
+      "source_id": "qyv20m9e1luhqgh"
+    }
+  ]
+}

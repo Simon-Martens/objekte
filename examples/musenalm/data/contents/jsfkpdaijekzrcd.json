@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 29275- 29283, Obj 61-69 /) XI. Gedichte (Sammlung INr 29273, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädchen-Gedanken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mädchen-Gedanken",
+  "updated": "2002-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.522Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "u9831f8agcl2drv"
+    }
+  ]
+}

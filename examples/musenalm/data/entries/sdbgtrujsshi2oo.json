@@ -1,0 +1,69 @@
+{
+  "annotation": "Titelauflage von 1800, ohne »Berechnung der Einnahme und Ausgabe Im Jahr 1800« (13 Tab) u. Verlagsmitteilung. /) § UG fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "Verso G, T, W, B, 15 BB Kal darin 6 GG,T, B G-Verz, B I-Verz, SS 1-200",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Liebe und Freundschaft gewidmet 1801",
+    "norm": "~",
+    "biblio": 100863,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-10-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 363,
+  "parallel_title": "",
+  "place_statement": "Bremen (Wilmans)",
+  "places": [
+    "vicuz8irdyy1b34"
+  ],
+  "preferred_title": "Taschenbuch der Liebe und Freundschaft gewidmet 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; L/R 71; Goed VIII. 51, 16a",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr / 1801 / der / Liebe und Freundschaft / gewidmet / Bremen / bey Friedrich Wilmans",
+  "updated": "2026-06-11 10:18:55.854Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "r3l2ysfzs4ucdg4"
+  ],
+  "contents": [
+    "kmq2uv728uu9lwj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.187Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.187Z",
+      "agent": "7ksfp6wn4xztxen",
+      "source_id": "5up3bbd0ljpf104"
+    }
+  ]
+}

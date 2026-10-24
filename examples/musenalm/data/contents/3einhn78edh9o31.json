@@ -1,0 +1,43 @@
+{
+  "annotation": "s. vorstehende Tabelle INr 37626, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Freunde der Tonkunst klagen die größeren musikalischen historischen Wörterbücher an, daß sie zu viel und zu wenig enthalten:",
+  "language": [],
+  "musenalm_id": 37627,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Idee zu einer kurzen Übersicht der merk- / würdigsten Componisten, Virtuosen, musi- / kalischen Dichter und Schriftsteller der letz- / ten Jahrhunderte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedrich Reichardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Idee zu einer kurzen Übersicht der merk- / würdigsten Componisten, Virtuosen, musi- / kalischen Dichter und Schriftsteller der letz- / ten Jahrhunderte",
+  "updated": "2005-04-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.725Z",
+      "agent": "it8ptc76fbrkd73",
+      "source_id": "5uor85jb7iszl2i"
+    }
+  ]
+}

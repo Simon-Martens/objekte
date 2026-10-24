@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Ein Tannenbaum im Schwarzwald steht, / Der wächst schon manches Jahr,",
+  "language": [],
+  "musenalm_id": 23576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind auf dem Holzwege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind auf dem Holzwege",
+  "updated": "2002-05-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.114Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "vg8gu6s4fk41cml"
+    }
+  ]
+}

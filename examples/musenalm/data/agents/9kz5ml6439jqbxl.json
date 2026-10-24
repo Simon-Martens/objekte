@@ -1,0 +1,370 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1849",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.492Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Tschech. Schriftsteller, geb. in Navarov, gest. in Prag"
+      ],
+      "dateOfBirth": [
+        "1791"
+      ],
+      "dateOfDeath": [
+        "1848"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jan Vilímek"
+          ],
+          "creditText": [
+            "1883/51 Humoristické listy, year 1883, issue 51, page 445, digitized by Czech Academy of Sciences"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaclav%20Alois%20Svoboda%20Navarovsky.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaclav%20Alois%20Svoboda%20Navarovsky.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Vaclav%20Alois%20Svoboda%20Navarovsky.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2022-09-18T05:33:48.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/101007183/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "101007183",
+      "id": "https://d-nb.info/gnd/101007183",
+      "oldAuthorityNumber": [
+        "(DE-588a)101007183"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "preferredName": "Svoboda, Václav Alois",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Václav Alois"
+        ],
+        "surname": [
+          "Svoboda"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158589-6",
+          "label": "Gymnasiallehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199241-6",
+          "label": "Klassischer Philologe"
+        }
+      ],
+      "publication": [
+        "Drei kirchliche Lieder",
+        "Königinhofer Handschrift",
+        "Hanka, Václav: Königinhofer Handschrift"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85017964"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52048247"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q11985378"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101007183/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109715430"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101007183"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S_43/Svoboda_Vaclav-Alois_1791_1849.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101007183"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/101007183"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Swoboda, Wenzel Aloys",
+        "Swoboda, Wenceslaus Aloys",
+        "Swoboda, Wenzel A.",
+        "Swoboda, Waclaw A.",
+        "Svoboda, Vácslav A.",
+        "Swoboda, Wenceslaw A.",
+        "Swoboda, Václav A.",
+        "Swoboda, Wáclaw A.",
+        "Swoboda, Wenzel Alois",
+        "Swoboda, ...",
+        "Swoboda, Wenceslaus A.",
+        "Swoboda, Wenzel",
+        "Swoboda, Wenceslawus A.",
+        "Swoboda, Wenceslaw Aloys",
+        "Svoboda, Václav A.",
+        "Swoboda, Wácslaw A."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wenzel Aloys"
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenzel Alois"
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Waclaw A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Václav A."
+          ],
+          "surname": [
+            "Svoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenceslaw Aloys"
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wácslaw A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Václav A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenceslaus A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenceslawus A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenceslaw A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenzel"
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenceslaus Aloys"
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Vácslav A."
+          ],
+          "surname": [
+            "Svoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wenzel A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        },
+        {
+          "forename": [
+            "Wáclaw A."
+          ],
+          "surname": [
+            "Swoboda"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:07:48Z",
+    "gnd_query_biographical_data": "1791-1849",
+    "gnd_query_name": "swoboda, wenzel alois"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2847,
+  "name": "Swoboda, Wenzel Alois",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 789",
+  "updated": "2026-06-11 13:29:25.340Z",
+  "uri": "https://d-nb.info/gnd/101007183",
+  "editor": ""
+}

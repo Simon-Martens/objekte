@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1824, gesammelt von Theodor Hell (Sammlung INr 40605, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "431",
+  "incipit_statement": "Seh't, mein Bräutigam trug die Namen / Den die beiden ersten nennen;",
+  "language": [],
+  "musenalm_id": 40618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.151Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "kz8u7yaag39qcv3"
+    }
+  ]
+}

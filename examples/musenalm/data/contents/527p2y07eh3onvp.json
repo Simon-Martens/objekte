@@ -1,0 +1,45 @@
+{
+  "annotation": "Stechpalmen (Sammlung INr 92739, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Ihr nennt es niedrig, feig und feil, / Daß wir so lang am Narrenseil / Uns führen lassen mochten?",
+  "language": [],
+  "musenalm_id": 92740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost aus der Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost aus der Geschichte",
+  "updated": "2013-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.328Z",
+      "agent": "nwzg4t9e6f4r4qh",
+      "source_id": "itk3m635qstl11e"
+    }
+  ]
+}

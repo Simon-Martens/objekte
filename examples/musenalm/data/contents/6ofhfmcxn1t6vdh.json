@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Des Wahnes holde Schöpfung stürzt in Trümmer / Berührt vom dürren Arm der Wirklichkeit;",
+  "language": [],
+  "musenalm_id": 76327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung. / Im Juli 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Lohbauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung. / Im Juli 1798",
+  "updated": "2002-05-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.805Z",
+      "agent": "69k49eskiwmqj57",
+      "source_id": "83soc1dt65v1n5j"
+    }
+  ]
+}

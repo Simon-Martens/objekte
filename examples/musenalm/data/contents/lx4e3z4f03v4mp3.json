@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze fürs Klavier von Vinzenz Mascheck (Sammlung INr 12260, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12270,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 220,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer 1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_211_12270_rxjj09aaxh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer 1",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.484Z",
+      "agent": "f5hnxd5mx1nzaii",
+      "source_id": "17tbsxis6bh26p9"
+    }
+  ]
+}

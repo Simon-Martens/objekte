@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: nach einer Zeichnung von Hickes gest. von Maj. Rennell",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Felsen-Festung Gwallior",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Hammer sculp. Dresden",
+  "scans": [
+    "alm_554_42231_qeo8ohow76.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Felsen-Festung Gwallior",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.108Z",
+      "agent": "6oi6sms2fozu3mk",
+      "source_id": "so96ltl94dof1xb"
+    }
+  ]
+}

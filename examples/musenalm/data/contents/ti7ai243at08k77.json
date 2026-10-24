@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu » Kurze geographisch-statistische Darstellung des Cantons Freyburg« INr 51972, Obj 5 /) s. a. Textbezug INr 52001, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cant. Freyburg / Deutscher Bauer in Tanztracht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_710_51978_8tcr1jdqet.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cant. Freyburg / Deutscher Bauer in Tanztracht",
+  "updated": "2007-10-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.662Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "u6ilvfme4w48arr"
+    }
+  ]
+}

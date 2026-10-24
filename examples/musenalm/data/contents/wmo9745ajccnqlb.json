@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Tändeleien (Sammlung INr 29852, Obj 108)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Den zierlich-schönen Schriftzug deiner Hand / Hatt' ich in zwanzig Jahren nicht gesehen.",
+  "language": [],
+  "musenalm_id": 29856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An K. R. / Triolett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An K. R. / Triolett",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.582Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "1t3o3k29811fylx"
+    }
+  ]
+}

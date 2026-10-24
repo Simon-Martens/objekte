@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86713, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86710,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Olga",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Theer pinx. Ig. Krepp sc.",
+  "scans": [
+    "alm_1605_86710_vfpldwbkwi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Olga",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.097Z",
+      "agent": "512hnx3l2hp6y3r",
+      "source_id": "c64zloe9qvk6bvb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.097Z",
+      "agent": "oqniiai3xrx228t",
+      "source_id": "ulhkh6g92pmag5b"
+    }
+  ]
+}

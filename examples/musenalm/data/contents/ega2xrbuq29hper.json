@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 2 Kapiteln INr 85839, 85840; Obj 30, 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei spanische Königinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Buchholz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei spanische Königinnen",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.072Z",
+      "agent": "7zon2137dp4tnal",
+      "source_id": "9086za1krwm5l1s"
+    }
+  ]
+}

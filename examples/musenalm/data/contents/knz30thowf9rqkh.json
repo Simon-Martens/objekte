@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Burgfeste Habichtstein im Leutmeritzer Kreise in Böhmen« INr 92090, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Habichtstein in Böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_3058_92091_98ygodnysx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Habichtstein in Böhmen",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.317Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "rzpvu8s0e9651ow"
+    }
+  ]
+}

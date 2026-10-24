@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "373",
+  "incipit_statement": "Das Kind schläft unter dem Rosenstrauch, / Die Knospen schwellen im Maienhauch.",
+  "language": [],
+  "musenalm_id": 25212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rosenstrauch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rosenstrauch",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.261Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "s8wewgbmrrhk97n"
+    }
+  ]
+}

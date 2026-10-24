@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 1 Gedicht und einer Sammlung mit 3 Gedichten INr 41991-41995, Obj 192-196",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gisebrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.195Z",
+      "agent": "g4m6uyvtmaggql5",
+      "source_id": "4wwyj6ecqnb5z1g"
+    }
+  ]
+}

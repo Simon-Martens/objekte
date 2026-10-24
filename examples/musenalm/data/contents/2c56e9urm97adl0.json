@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Kalendarium mit Tabelle der Geburtstage der zeitgenössischen Schauspieler und Schauspielerinnen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Verfasser dieses Verzeichnisses bescheiden sich gern, daß es noch andere deutsche Schauspieler und Schauspielerinnen giebt, die sowohl einen Platz an den Sonn- und Festtagen, als auch in diesem Verzeichniß überhaupt verdienen,",
+  "language": [],
+  "musenalm_id": 101225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schauspieler-Verzeichniß nach dem Alphabet / und in die Kalender-Tage eingetheilt. / Anmerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schauspieler-Verzeichniß nach dem Alphabet / und in die Kalender-Tage eingetheilt. / Anmerkung",
+  "updated": "2014-11-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.981Z",
+      "agent": "ii78f2x1yo6pd2c",
+      "source_id": "oqr1uk3chydwloh"
+    }
+  ]
+}

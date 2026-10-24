@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Freundschaft! deine Sympathieen / Sind des Lebens reinstes Glück;",
+  "language": [],
+  "musenalm_id": 21905,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Freundschaft",
+  "updated": "2002-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.682Z",
+      "agent": "ka1wm9mc4kl7y0b",
+      "source_id": "4ndafwgz9ti9e00"
+    }
+  ]
+}

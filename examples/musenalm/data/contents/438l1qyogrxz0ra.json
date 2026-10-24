@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Zauberspiegel« von H. v. Chézy INr 22690, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22645,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zauberspiegel. / Novelle von Helmina von Chezy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; Rosmäsler Dresd. 1823",
+  "scans": [
+    "alm_302_22645_nuyp4oao01.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Zauberspiegel. / Novelle von Helmina von Chezy",
+  "updated": "2002-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.817Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "6nruol6e8phlzqd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.817Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "8pfgc6cj8qecyok"
+    }
+  ]
+}

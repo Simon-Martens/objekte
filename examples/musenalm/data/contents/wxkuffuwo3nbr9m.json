@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Die Kunst ist lang, und kurz das Leben: / Dieß, edler Mann, bewährt sich nun an dir:",
+  "language": [],
+  "musenalm_id": 128858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Sallaba's Tod. / Vita brevis, ars longa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Sallaba's Tod. / Vita brevis, ars longa",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.988Z",
+      "agent": "p56m9esfl91y36d",
+      "source_id": "xnp0g022bk6sl95"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 11 BB Kal darin 9 GG, Kr, ar: SS 1-234, SS 235-240 G-Verz, ar1: SS 1-106, 37 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1809",
+    "norm": "~",
+    "biblio": 404243,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 844,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-genealogischer / Kalender / auf / das Jahr 1809. / Mit Kupfern. / Mit Genehmigung / der Kön. Preuß. Akademie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.875Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "i6lg5cmij8saqy0"
+  ],
+  "contents": [
+    "bdht9arc0q0oz5z",
+    "w6e5lstlq72jctn",
+    "9w5x1hyzikpewa9",
+    "mw48nrl6jucty72",
+    "alobrz0ncfu835z",
+    "ee0t9mvpfcvtxas",
+    "fkzm2n64dvgnc14",
+    "u18b5pfejsusfws",
+    "tt2b9xww5zpk7s3",
+    "q2zu4dwmhd23uqu",
+    "zwojpl0mrqpt898",
+    "lpa2u2jp300i7fd",
+    "y8epe33j0sirtws",
+    "ckjd9o55ou05nwy",
+    "gig2z7t5wmc7vhm",
+    "p7lbefg3pmll1a5",
+    "4dbs8datgt5xl4a",
+    "l6ofmric64oiyno",
+    "2flv9omgd2nszcu",
+    "cordtzspx098vym",
+    "ugni8lni288gdqu",
+    "mx4vkhlg1zobsge"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "zdsby715xdpjgbl"
+    }
+  ]
+}

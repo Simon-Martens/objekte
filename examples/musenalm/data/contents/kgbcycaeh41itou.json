@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Da schwitzest du nun über einem Blatt, du / Narr!",
+  "language": [],
+  "musenalm_id": 83710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichtergefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Burmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichtergefühl",
+  "updated": "2011-07-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.031Z",
+      "agent": "bzzrah5fx2452jq",
+      "source_id": "g5l0j9wol34wx78"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 46611-46613, Obj 154-156",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46610,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Schiffe. / (1840.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gisbert Freiherr Vincke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Schiffe. / (1840.)",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.314Z",
+      "agent": "9yqqagre869w9wq",
+      "source_id": "8ltm28lqbx0gysc"
+    }
+  ]
+}

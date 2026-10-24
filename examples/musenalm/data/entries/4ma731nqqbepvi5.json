@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Miniatur-Almanach, Payne’s 1853",
+    "norm": "",
+    "biblio": 404610,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2262,
+  "parallel_title": "",
+  "place_statement": "Leipzig u. Dresden (Vrlg. d. engl. Kunstanstalt)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Miniatur-Almanach, Payne’s 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. H. Payne",
+  "subtitle_statement": "",
+  "title_statement": "Payne's / Miniatur-Almanach / für / 1853. / Neunter Jahrgang. / Mit 12 brillanten Stahlstichen. / Leipzig und Dresden. / Verlag der Englischen Kunstanstalt / von A. H. Payne",
+  "updated": "2026-06-11 10:18:55.942Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "3jspniyilr6xxnd"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.179Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.179Z",
+      "agent": "hbe8zlyztkc7y0i",
+      "source_id": "78q4t8mkyufn377"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.023Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.023Z",
+      "agent": "vns4sg0j1neru7c",
+      "source_id": "bi4rbkb1p06qe3f"
+    }
+  ]
+}

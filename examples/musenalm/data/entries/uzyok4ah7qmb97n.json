@@ -1,0 +1,115 @@
+{
+  "annotation": "$ Kal. vermutl. unvollständig",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 2 BB Kal $, 2 BB Vrwrt d Hrsg, B I-Verz, S 1 nT, SS 3-298 darin 6 GG gA, 8 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1796",
+    "norm": "~",
+    "biblio": 110617,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1110,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Fleischer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Kalender / Für das Jahr / 1796. / von / M. F. G. Leonhardi / ordentlichem öffentl. Professor der Oekonomie, der / Leipziger ökonom. Societät, und der Hallischen na- / turforschenden Gesellschaft Ehrenmitglied. / Mit Kupfern. / Leipzig / bey Joh. Benj. Georg Fleischer",
+  "updated": "2026-06-11 10:18:55.630Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "kyzv790vlb4y5yh"
+  ],
+  "contents": [
+    "2wivwrhamfhvj07",
+    "39q35tmynlgk5kc",
+    "i3kd1ku24idj6y1",
+    "nc17mzaa0pgxoo2",
+    "oq95nnd0zmi8xcw",
+    "wlfebuw9li6f905",
+    "bw5wduq3f2l0a5i",
+    "cn2t6yl5bj8ybkz",
+    "09zjjmspsejvb7e",
+    "f7irb6k5hl1khbd",
+    "rbs9ce4tpnpdu95",
+    "wgjqbgktcrgdc61",
+    "zvgv4ay9b41807f",
+    "duu004p8vurytdm",
+    "tnk6cza1i94qpex",
+    "7nput8z3q7cuole",
+    "5e0ao7uz5g9bz5d",
+    "bbu7rsx6h0gi6kd",
+    "frrf59hilc2weoj",
+    "2pwusl0yryjvn3i",
+    "5tgxc0eaiqq9jg2",
+    "y30zlvrf0xm69gw",
+    "ztwp5mb2g2f2b0h",
+    "051928e3eg4rqqw",
+    "smtb31s11b0obmz",
+    "0563dejj689ppbc",
+    "quayn4mubmnaro3",
+    "kf67el9jkupon0y",
+    "lxuqs3kqpzvumit",
+    "zobpbo1e37bibux",
+    "ecdh31kdzojpc4j",
+    "x83915xveys48wl",
+    "60huqqdx44twgvx",
+    "chnk940m91h5mrs",
+    "e8v2cp2p14htdcb",
+    "r1zu3wp223tpkze"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.844Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.844Z",
+      "agent": "x4wg42bezwsq9i8",
+      "source_id": "n1ia7t35lv20vc7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.825Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.825Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "okduvsf25c9ne17"
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "annotation": "einziger Jahrgang /) Wien und Triest (Geistinger); Hrsg: A. v. Steigentesch /) Goed V. 296; 20,12  gibt an: Taschenbuch zur Unterhaltung auf dem Lande, für das Jahr 1811. Wien 1811; sowie das (im vorliegenden Almanach gedruckte) Lustspiel »Die Zeichen der Ehe« Wien und Triest 1808",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, verso G, SS 1-192 darin 2 g zT",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Steigentesch) 1811",
+    "norm": "~",
+    "biblio": 200825,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-04-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 671,
+  "parallel_title": "",
+  "place_statement": "Wien u. Triest (Geistinger)",
+  "places": [
+    "31n865keags4n1n",
+    "dp43n1va7to3kqu"
+  ],
+  "preferred_title": "Taschenbuch (Steigentesch) 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed V. 296, 20,12",
+  "responsibility_statement": "Aug. Freyh. v. Steigentesch",
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / AUF / DAS JAHR 1811. / VON / AUG. FREYH. v. STEIGENTESCH. / Wien und Triest, / bey Geistinger",
+  "updated": "2026-06-11 10:18:55.444Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "items": [
+    "cfqyvgz0z6ovqke"
+  ],
+  "contents": [
+    "ita4tzd1azq6pqi",
+    "ep7fnqqp3j7bjxq",
+    "62kdq2f97lhzvgh",
+    "wb1kepdmmm1n6ab",
+    "7xux3qfdiw3x5m2",
+    "ipc9hgyps0el5zr",
+    "a1xnkwgxlvk6mhm",
+    "zms07i3zmimfms0",
+    "6azis9luhdxmimu",
+    "13k3gni38rv5cig",
+    "rkfn2z7j7fe31sc",
+    "38ijwk9kacyldd1",
+    "3yzvfsy7swabl7p",
+    "4qqanga0usot23l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.890Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.890Z",
+      "agent": "fhg4akhxy4ralg4",
+      "source_id": "bi8h8y9qg3cyktm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.737Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.737Z",
+      "agent": "hbndpd23j3pyj28",
+      "source_id": "ou31deukf6u6siy"
+    }
+  ]
+}

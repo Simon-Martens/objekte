@@ -1,0 +1,93 @@
+{
+  "annotation": "34 Jgg 1828-1861; 1828-1838: Leipzig (Industrie-Comptoir), 1839-1861: Leipzig (Baumgärtner); Hrsgg.: 1828-1841: A. von Tromlitz d.i.: Friedrich Ludwig Witzleben; 1842-1849: Bernd von Guseck d.i. Carl Gustav von Berneck; 1850-1861 (Neue Folge): Theodor Mügge",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, S I-Verz, SS 1-412 darin 5 GG, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vielliebchen 1828",
+    "norm": "~",
+    "biblio": 108663,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3464,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Industrie-Comptoir)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vielliebchen 1828",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 167; L/R 98; Goed X. 31. 122, 23",
+  "responsibility_statement": "A. v. Tromlitz",
+  "subtitle_statement": "",
+  "title_statement": "Vielliebchen / historisch romantisches Taschenbuch / FÜR / 1828. / VON / A. von TROMLITZ. / Mit Kupfern. / Industrie-Comptoir in Leipzig",
+  "updated": "2026-06-11 10:18:54.498Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "items": [
+    "b0xc2a2s9c5p38z"
+  ],
+  "contents": [
+    "z1oq3awbdcea8vk",
+    "twl28w0lqs97iyd",
+    "wg448dqanix6p8h",
+    "yx8cf14e2b97zf6",
+    "nxt65ce3cmg861j",
+    "3mpmq4i5khmwyva",
+    "m2500u173x8ndaq",
+    "jxguthy33fq78ye",
+    "e0iodw303fybb9m",
+    "vezl1fq4q9ridip",
+    "iyzr80rgzy9lbge",
+    "jcksyyex8euc31z",
+    "jbrf4rpfg0t1too",
+    "9qc0ejcefh28etw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.048Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.048Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "63ttdnkgbgws46g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.227Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.227Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "6k04cbzdi8qnd0q"
+    }
+  ]
+}

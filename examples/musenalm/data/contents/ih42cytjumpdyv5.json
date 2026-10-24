@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Hier ruht ein Mann, der wohl zu nehmen / wußte, / Doch wiedergeben konnt' er nicht.",
+  "language": [],
+  "musenalm_id": 16844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines Geizigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines Geizigen",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.848Z",
+      "agent": "60dpq63kk6xup5g",
+      "source_id": "qbd98h9x22vqk5e"
+    }
+  ]
+}

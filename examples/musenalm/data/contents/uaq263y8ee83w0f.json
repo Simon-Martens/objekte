@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geist der Zeit (Sammlung INr 129853, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Des Tempels eine Säule reißet nieder, / So folgt die Zweite bald der Ersten nach.",
+  "language": [],
+  "musenalm_id": 129855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Religion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freiherr v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Religion",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.049Z",
+      "agent": "otquhrfmf15x6tw",
+      "source_id": "dslvabub7rvxfvp"
+    }
+  ]
+}

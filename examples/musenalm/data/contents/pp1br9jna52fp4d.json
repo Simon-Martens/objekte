@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Lieder (Sammlung INr 38931, Obj 119) Gedichte (Sammlung INr 38930, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Auf dem schlanken Kahne fuhren / Lustig wir hinab den Rhein,",
+  "language": [],
+  "musenalm_id": 38935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.227Z",
+      "agent": "dii69uyjdj5ln7l",
+      "source_id": "ycqvfsrci88z28d"
+    }
+  ]
+}

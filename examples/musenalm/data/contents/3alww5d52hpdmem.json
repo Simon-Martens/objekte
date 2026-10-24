@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Du kannst mit Recht, so sprach der Eich- / baum einst zum Rohr,",
+  "language": [],
+  "musenalm_id": 2760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Eichbaum und das Rohr. / Eine Fabel, aus dem Französischen des / la Fontaine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Eichbaum und das Rohr. / Eine Fabel, aus dem Französischen des / la Fontaine",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.800Z",
+      "agent": "3m5nfg6fbusqjem",
+      "source_id": "nfj5c74t18qepl0"
+    }
+  ]
+}

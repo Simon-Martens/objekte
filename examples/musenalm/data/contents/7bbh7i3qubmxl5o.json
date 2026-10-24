@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; Graphik im Kalendarium paginiert 10. s. Textbezug INr 7161, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7138,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nacht. / La Nuit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv.",
+  "scans": [
+    "alm_144_7138_qidzd744fh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nacht. / La Nuit",
+  "updated": "2000-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.437Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "npndawnxz1nprj9"
+    }
+  ]
+}

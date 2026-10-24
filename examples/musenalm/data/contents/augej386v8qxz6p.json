@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz. Mit Anmerkungen des Autors",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Das Grau der Vorzeit hellt sich dem Barden auf; / Er sieht. Ein Sprößling laubt sich vor ihm / empor",
+  "language": [],
+  "musenalm_id": 8935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Josephs sechste Reise, / gesungen im Brachmonate 1777",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Josephs sechste Reise, / gesungen im Brachmonate 1777",
+  "updated": "2001-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.411Z",
+      "agent": "fon9iiilzs9ke5a",
+      "source_id": "9g7j6vrlbo9q0sj"
+    }
+  ]
+}

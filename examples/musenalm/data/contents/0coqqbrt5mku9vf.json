@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Du wünschest Glück zum neuen Jahre mir, / Indem mich deine Blicke tödten;",
+  "language": [],
+  "musenalm_id": 31166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An M. V.** / Am Neujahrstag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriele von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An M. V.** / Am Neujahrstag",
+  "updated": "2003-01-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.288Z",
+      "agent": "sjp9eapkpagxg0d",
+      "source_id": "b41l56joihzsrvj"
+    }
+  ]
+}

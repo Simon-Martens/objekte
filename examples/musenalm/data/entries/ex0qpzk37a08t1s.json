@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, S I-Verz, 7 SS G-Verz,10 BB Kal darin 9 GG, B Tab, G, 3 SS Tab, S Anm d Hrsg, S 1 zT, SS 3-104, S 105 zT, SS 107-347",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Hofkalender, Großherzoglich Hessischer 1815; s. a. Taschenbuch, Rheinisches 1815",
+    "norm": "~",
+    "biblio": 101337,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-04-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 570,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Heyer & Leske)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Hofkalender, Großherzoglich Hessischer 1815; s. a. Taschenbuch, Rheinisches 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Grossherzoglich / Hessischer / Hofkalender / für das Jahr 1815 / Darmstadt / bei Heyer & Leske",
+  "updated": "2026-06-11 10:18:55.657Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "8rreuj40ewv55o9"
+  ],
+  "contents": [
+    "i01f3ror4z1sx30",
+    "qlv95ujrdq10b3l",
+    "29k0p299o6kxpdg",
+    "4hgn5rpi8j1c92n",
+    "5ku6folepo4k8iw",
+    "qp7b873yjfkqdnv",
+    "u4u8ph6075h9gsa",
+    "s5wjjd6hkrp9cmv",
+    "okf9nn9iel2ijb4",
+    "oiclj9iyy0iasvu",
+    "atslq9x3exmb12t",
+    "xjn2dqlci07a93b",
+    "xosmnndmmfs3pdv",
+    "ogry3mn8qo9yx1b",
+    "61x58rxamd05b8o",
+    "xyeqa6jx3a2ra9z",
+    "lf3xc6c7wxqei8m",
+    "hkmqy9qrs891dhu",
+    "y6co7hqnys26g27",
+    "40as18kba4vawac",
+    "lge2guvv18apyuk",
+    "mmlt0t5hgw7tmpp",
+    "njbk4tqnfwyp1is",
+    "0wwa3tdd7gx3asy",
+    "lj2rqro30wuaw39",
+    "f3yk1tn52w5sf29",
+    "fckmx4jvv3r5zld",
+    "2lvllc0y9pvetdb",
+    "1ottkvqrx1l23eq",
+    "lw6n59bwgdalrk8",
+    "swqagucaqqx80s5",
+    "jcnujodh51ffn14"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.006Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.006Z",
+      "agent": "vqth98uh4a13ml3",
+      "source_id": "kk6uabzp7tm83w9"
+    }
+  ]
+}

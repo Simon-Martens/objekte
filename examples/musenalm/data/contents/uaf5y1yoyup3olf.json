@@ -1,0 +1,56 @@
+{
+  "annotation": "# s. INr 32122, Obj 3,05",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32121,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Judith #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Onoro Marinaro pt. F. John sc.",
+  "scans": [
+    "alm_231_32121_dsvn91cgaz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Judith #",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.424Z",
+      "agent": "zdl03kbqq95jjm1",
+      "source_id": "1catzht82vwi6th"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.424Z",
+      "agent": "v005hqamxgclzg4",
+      "source_id": "zl64dnlqd3plxnm"
+    }
+  ]
+}

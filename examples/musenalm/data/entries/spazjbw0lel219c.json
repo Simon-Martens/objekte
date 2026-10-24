@@ -1,0 +1,93 @@
+{
+  "annotation": "§§  Graphiken fehlen /) 5 Jgg 1802-1806; 1802-1804 Wien (Gassler), 1805 Wien (Degen)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B I-Verz, SS 1-223 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Tiroler 1802",
+    "norm": "~",
+    "biblio": 100942,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1477,
+  "parallel_title": "",
+  "place_statement": "Wien (Gassler)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Almanach, Tiroler 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 20; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Tiroler Almanach / auf / das Jahr / 1802. / Wien, / bey Anton Gassler",
+  "updated": "2026-06-11 10:18:55.183Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "ubs1w3rkq9copq9"
+  ],
+  "contents": [
+    "xsl5exghwn58q5j",
+    "zy3rsgddni1j34m",
+    "z9plt2jrqlzthb9",
+    "uvepev0psw7nwci",
+    "g4l8qfbmoq7ielt",
+    "i589kdne4fxf0t2",
+    "mz4n2rrtet2xzu4",
+    "pekuk25ehene76t",
+    "1rraefdqtpxvorb",
+    "5x5t7ely0nteasl",
+    "2jwelkaoz4pd4ln",
+    "0jyktdi9qtj25fo",
+    "th7ts7przdxu41v",
+    "01vzpip4hhyh9su",
+    "xfd7ncfnagao8cj",
+    "wsq2n6ggknsneg2",
+    "k2bqil0gb96q51u",
+    "3js88a1qk5on55v",
+    "0u32ro7c6b4n70q",
+    "ii77jc4x66mzwjm",
+    "cqoap40ykc0y2vt",
+    "b12wvdu2hsbsabh",
+    "c68n401x42le5lb",
+    "6wfcsmnro81nvtn",
+    "04fp4emycs6ecn1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.885Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.885Z",
+      "agent": "i2o7zznd26kyn2y",
+      "source_id": "s0ou7lzivzookx2"
+    }
+  ]
+}

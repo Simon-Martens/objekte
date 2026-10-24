@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pag 22. /) Illustration zu »Crescentia und ihre Schwestern. Ein Familiengemälde« von L. Neuffer INr 91611, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff del. G. Rist sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. G. Rist sc.",
+  "scans": [
+    "alm_2875_91615_5sje57r3lk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.421Z",
+      "agent": "da1kftrnv0p7ngp",
+      "source_id": "e50tunf0uhtxm69"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.421Z",
+      "agent": "0m3r585b0p98uxw",
+      "source_id": "vj02pgeywuhsbzq"
+    }
+  ]
+}

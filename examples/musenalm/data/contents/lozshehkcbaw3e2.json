@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Das Du, das mir die Eltern geben, / Wird billig hoch von mir verehrt.",
+  "language": [],
+  "musenalm_id": 6502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorzüge des Duzens. / Pendant zu einem lessingschen Stück / ähnlichen Inhalts",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Br.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorzüge des Duzens. / Pendant zu einem lessingschen Stück / ähnlichen Inhalts",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.126Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "zid7gs8i76lcch3"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "KVK/GBV: Jgg 1852-1864",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Allerhöchst privilegirter gemeinnütziger (Altona) 1859",
+    "norm": "",
+    "biblio": 405611,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2607,
+  "parallel_title": "",
+  "place_statement": "Altona (Expedition des Altonaer Mercurs)",
+  "places": [
+    "snvlmxpira867wf"
+  ],
+  "preferred_title": "Almanach, Allerhöchst privilegirter gemeinnütziger (Altona) 1859",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. F. Pape",
+  "subtitle_statement": "",
+  "title_statement": "Allerhöchst privilegirter / gemeinnütziger / Almanach / auf / das Jahr / 1859. / Von / C. F. Pape. / Nebst einigen vermischten Aufsätzen. / Kostet ungebunden 6½ b R.-M. / Altona, / im Verlage der Expedition des Altonaer Mercur's",
+  "updated": "2026-06-11 10:18:54.809Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "items": [
+    "4k62lmgrv71ash5"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.819Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.819Z",
+      "agent": "7om6po3su0bwbj8",
+      "source_id": "fyzxiu3w7e2xdie"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte (Sammlung INr 29158, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Es lebt' einmal im schönen Lande Meißen / Ein Ritter, Kurd von Rechenberg geheißen.",
+  "language": [],
+  "musenalm_id": 29160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rechenbergs Knecht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rechenbergs Knecht",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.268Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "q12dszii31ghssn"
+    }
+  ]
+}

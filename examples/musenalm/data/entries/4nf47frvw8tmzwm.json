@@ -1,0 +1,70 @@
+{
+  "annotation": "variante Ausgabe ohne Textteil: Umschlag: Brieftasche mit Bleistift, 2 Blatt Notizpapier,Titelportrait,Titel, 8 Blatt Kalendarium darin 12 Graphiken, 14 Blatt Notizpapier, 2 BB Karton",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, 2 BB, verso G, T, 8 BB Kal darin 12 GG, 14 BB, 2 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1831 [var.]",
+    "norm": "~",
+    "biblio": 409943,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2019-08-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4665,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1831 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / TASCHENBUCH / AUF / das Gemein-Jahr 1831 / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.752Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "feqt0jmlo3a8hq5"
+  ],
+  "contents": [
+    "2f1l8iy51i28s1f",
+    "kl2laq66iqnx332"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "5pyjz6gq53fjv29"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Was rollt ein Donner durch die heitre Luft? / Der Berg erbebt in seinen Eingeweiden,",
+  "language": [],
+  "musenalm_id": 24697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 274,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vergrabenen Bergknappen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die vergrabenen Bergknappen",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.008Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "em88np3jr8kjlaq"
+    }
+  ]
+}

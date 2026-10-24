@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42380,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MINERVA. / Taschenbuch / für / das Jahr 1826. / Achtzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_530_42380_9kk21jbdjn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MINERVA. / Taschenbuch / für / das Jahr 1826. / Achtzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.388Z",
+      "agent": "cefecuqh5ju4cfh",
+      "source_id": "vjrnzbkngln8xa3"
+    }
+  ]
+}

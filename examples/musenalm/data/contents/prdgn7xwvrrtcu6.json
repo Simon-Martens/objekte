@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Elsaß. Burgund. Schweiz (Sammlung INr 99173, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Wollt ihr lieber Lust denn Leiden / Und vom Glück ein Unterpfand:",
+  "language": [],
+  "musenalm_id": 99208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie ihr's wünscht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "German Mäurer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie ihr's wünscht",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.734Z",
+      "agent": "vdzkjy7g3odikwh",
+      "source_id": "dys4qa85kpjfrf3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln (INr 125184, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Ein Goldaar, aller Heerden Schrecken, / Vermaß sich einst im stolzen Wahn,",
+  "language": [],
+  "musenalm_id": 125187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Goldadler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. R. v. Seyfr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Goldadler",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.874Z",
+      "agent": "0jv59az01keoeil",
+      "source_id": "cvqt78wkax7o99m"
+    }
+  ]
+}

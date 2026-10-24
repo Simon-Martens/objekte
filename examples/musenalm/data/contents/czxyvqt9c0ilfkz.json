@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24778, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Wann du gebohren, weiß ich nicht, / Will's wissen nicht, wenn ich's auch fände.",
+  "language": [],
+  "musenalm_id": 24782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Kein Geburtstag. / An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Kein Geburtstag. / An Sie",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.167Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "sb5dmpqorujvqqc"
+    }
+  ]
+}

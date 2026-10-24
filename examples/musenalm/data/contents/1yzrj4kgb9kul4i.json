@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Zürnet ihr Musen mir nicht, daß Amor dem kindischen / Lehrer / Ich auf eurem Altar bringe mein Opfergeschenk.",
+  "language": [],
+  "musenalm_id": 59256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Musen. / An Wach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Musen. / An Wach",
+  "updated": "2008-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.747Z",
+      "agent": "v63rmmxw84k8ut2",
+      "source_id": "yg9vh162mu6yj95"
+    }
+  ]
+}

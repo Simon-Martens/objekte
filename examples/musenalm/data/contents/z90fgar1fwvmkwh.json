@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Die Lebensgefährten« (INr 130518, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Haltet an der Hoffnung fest! / Flieht an ihre Schutzaltäre, / Dass sie Tröstung euch gewähre! / Denn sie trocknet jede Zähre, / Die das müde Auge näßt",
+  "language": [],
+  "musenalm_id": 130517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Lebensgefährten. / von Nostiz und Jänkendorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nostiz und Jänkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Lebensgefährten. / von Nostiz und Jänkendorf",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.073Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "4cbjbivmupkdlwy"
+    }
+  ]
+}

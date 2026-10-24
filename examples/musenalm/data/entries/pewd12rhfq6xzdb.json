@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vorwärts ! Volkstaschenbuch 1847",
+    "norm": "",
+    "biblio": 106711,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3493,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Friese)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vorwärts ! Volkstaschenbuch 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Robert Blum",
+  "subtitle_statement": "",
+  "title_statement": "Vorwärts ! / Volks-Taschenbuch / für das Jahr 1847. / Unter Mitwirkung mehrerer freisinnigen Schriftsteller / Deutschlands / herausgegeben von / Robert Blum / Fünfter Jahrgang: / Partei! Partei; Wer sollte sie nicht nehmen, / Die noch die Mutter aller Siege war! [....] Georg Herwegh. / Leipzig 1847, / Verlag von Robert Friese",
+  "updated": "2026-06-11 10:18:54.518Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "glsu9lm9mm34c80"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.877Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.877Z",
+      "agent": "evdvttatpeb3kfh",
+      "source_id": "wy4t44gv1cgpvpg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.241Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.240Z",
+      "agent": "29bzu7e1ijooqgq",
+      "source_id": "zvsaw0o9ldrkfvd"
+    }
+  ]
+}

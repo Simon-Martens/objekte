@@ -1,0 +1,1052 @@
+{
+  "annotation": "",
+  "biographical_data": "1786-1826",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.508Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1253919402",
+          "label": "Vigitill, Elise"
+        }
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1786-11-19"
+      ],
+      "dateOfDeath": [
+        "1826-06-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Caroline Bardua"
+          ],
+          "creditText": [
+            "1. umnofil.ru2. GalleriX"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Caroline%20Bardua%20-%20Bildnis%20des%20Komponisten%20Carl%20Maria%20von%20Weber.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Caroline%20Bardua%20-%20Bildnis%20des%20Komponisten%20Carl%20Maria%20von%20Weber.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Caroline%20Bardua%20-%20Bildnis%20des%20Komponisten%20Carl%20Maria%20von%20Weber.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/183420624",
+        "https://d-nb.info/gnd/1035174790"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118629662/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118816578",
+          "label": "Weber, Caroline von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1029541175",
+          "label": "Schwarz, Ruth"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122361261",
+          "label": "Weber, Genovefa von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1068389397",
+          "label": "Weber, Alexander von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117158542",
+          "label": "Weber, Franz Anton von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117380105",
+          "label": "Wildenbruch, Maria von"
+        },
+        {
+          "forename": [
+            "Konstanze"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1297578287",
+          "label": "Weber, Barbara von"
+        },
+        {
+          "forename": [
+            "Karoline"
+          ],
+          "surname": [
+            "Brandt"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117157678",
+          "label": "Weber, Edmund von"
+        },
+        {
+          "forename": [
+            "Fritz"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/130840653",
+          "label": "Weber, Fridolin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119429829",
+          "label": "Weber, Max Maria von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130840815",
+          "label": "Weber, Fridolin von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/143605550",
+          "label": "Weber, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130841056",
+          "label": "Weber, Maria Antonia"
+        },
+        {
+          "forename": [
+            "Victorine"
+          ],
+          "surname": [
+            "Weyrauch"
+          ]
+        },
+        {
+          "forename": [
+            "Margarethe"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117759147",
+          "label": "Weber, Mathilde von"
+        },
+        {
+          "forename": [
+            "Luise Maria Antonie"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118629662",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasAuntUncle": [
+        {
+          "id": "https://d-nb.info/gnd/130840653",
+          "label": "Weber, Fridolin"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/119429829",
+          "label": "Weber, Max Maria von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1068389397",
+          "label": "Weber, Alexander von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/143605550",
+          "label": "Weber, Karl von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117380105",
+          "label": "Wildenbruch, Maria von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117158542",
+          "label": "Weber, Franz Anton von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/122361261",
+          "label": "Weber, Genovefa von"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/130841056",
+          "label": "Weber, Maria Antonia"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/118816578",
+          "label": "Weber, Caroline von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118629662",
+      "oldAuthorityNumber": [
+        "(DE-588c)4064884-9",
+        "(DE-101c)310242029",
+        "(DE-588a)186116128",
+        "(DE-588)183420624",
+        "(DE-588a)118629662",
+        "(DE-588a)13114992X",
+        "(DE-588a)183420624",
+        "(DE-588a)134552024",
+        "(DE-588)1035174790"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4076982-3",
+          "label": "Salzburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4008216-7",
+          "label": "Breslau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4015796-9",
+          "label": "Eutin"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074335-4",
+          "label": "London"
+        }
+      ],
+      "preferredName": "Weber, Carl Maria von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Maria"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Weber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4120774-9",
+          "label": "Musikkritiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118836927",
+          "label": "Fürstenau, Anton Bernhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116261773",
+          "label": "Poland, Franz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116193212",
+          "label": "Kaufmann, Friedrich"
+        }
+      ],
+      "publication": [
+        "Jubel-Ouverture zur 50jährigen Feier des Regierungs-Antritts König Friedrich Augusts I. von Sachsen [Musikdruck] : op. 59",
+        "Klavierkonzert No. 1 in C-Dur, op. 26 [Musikdruck]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79110317"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/14959938"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q154812"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118629662"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1035174790"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118629662/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183420624"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118629662"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Maria_von_Weber"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Maria_von_Weber"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Carl_Maria_von_Weber"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Carl_Maria_von_Weber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000123199065"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118629662"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1799_weber1;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1799_weber1"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118629662"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118629662.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118629662"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/05302177592045E5B45EC6E45567991F"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118629662"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/118629662"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118629662"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118629662"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Weibo",
+        "Weber",
+        "Weber, Carl Maria Friedrich Ernest von",
+        "Weber, C. M. B. de",
+        "Weber, K. M. von",
+        "Weber, Carlo Maria de",
+        "Weber, Carl Maria, Freiherr von",
+        "Weber, Charle Marie de",
+        "Weber, Karl Maria Friedrich Ernst von",
+        "Weber, Karl Maria Friedrich Ernst",
+        "Weber, Charles Maria de",
+        "Von Weber, Karl Maria",
+        "Weber, Carlo Maria di",
+        "Weber, C. M. de",
+        "Wei bo",
+        "Weber, C. M. von",
+        "Weber, Charles M. de",
+        "Web, Carl Maria von",
+        "Weber, Carl Marie von",
+        "Weber, Charles M. von",
+        "Weber, Ch. Maria de",
+        "Weber, Carlo M. de",
+        "Weber, Karl Maria von",
+        "Veber, Karl Marija fon",
+        "Weber, Charl. Mar. B. de",
+        "Veber, Karl Marija",
+        "Weber, Carl Maria Friedrich Ernst von",
+        "Weber, C. M.",
+        "Weber, Carl M. von",
+        "Weber, K. M. v.",
+        "Weber, Carl Maria v.",
+        "Weber, Ernst von",
+        "Weber, C. M. v.",
+        "Von Weber, Carl Maria",
+        "Weber, Carl M. de",
+        "Weber, Ch. M. de",
+        "Weber, Carl Maria",
+        "Weber, Charles Marie von",
+        "Weber, Karl Marie von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Maria"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Maria"
+          ],
+          "surname": [
+            "Von Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Maria Friedrich Ernst"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Maria"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. M."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Charles M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "K. M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "personalName": [
+            "Weibo"
+          ]
+        },
+        {
+          "forename": [
+            "Carl M. von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Marija"
+          ],
+          "prefix": [
+            "fon"
+          ],
+          "surname": [
+            "Veber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Charles M."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Charl. Mar. B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Charle Marie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria Friedrich Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl M."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo M."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria Friedrich Ernest"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Maria Friedrich Ernst"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Marija"
+          ],
+          "surname": [
+            "Veber"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Marie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "K. M."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "personalName": [
+            "Weber"
+          ]
+        },
+        {
+          "personalName": [
+            "Wei bo"
+          ]
+        },
+        {
+          "forename": [
+            "Charles Maria"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl M."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "C. M. B."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Ch. Maria"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carlo Maria"
+          ],
+          "prefix": [
+            "di"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Web"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Maria"
+          ],
+          "surname": [
+            "Von Weber"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Maria_von_Weber",
+          "label": "https://de.wikipedia.org/wiki/Carl_Maria_von_Weber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:18:30Z",
+    "gnd_query_biographical_data": "1786-1826",
+    "gnd_query_name": "weber, carl maria von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3063,
+  "name": "Weber, Carl Maria von",
+  "profession": "Musik u. Text",
+  "pseudonyms": "",
+  "refs": "Goed IX, 305",
+  "updated": "2026-06-11 13:29:25.632Z",
+  "uri": "https://d-nb.info/gnd/118629662",
+  "editor": ""
+}

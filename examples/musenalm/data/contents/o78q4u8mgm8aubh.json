@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Eifersucht bis in den Tod« von J. v. C. INr 19753, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.066Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19710,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eifersucht bis in den Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; Frosch",
+  "scans": [
+    "alm_266_19710_e8sqyjglpa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eifersucht bis in den Tod",
+  "updated": "2001-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "gabjzigj7u0spfp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.052Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "h8ifz56rmtmd64w"
+    }
+  ]
+}

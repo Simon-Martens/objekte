@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Ja, Freund Legat, es muß dich seltsam dünken, / Daß du so vor dem Sclaven Geta stehst,",
+  "language": [],
+  "musenalm_id": 44292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vergeltung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Uechtritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vergeltung",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.311Z",
+      "agent": "k8bjm0vx0m6q334",
+      "source_id": "ohkv6lja69qbap6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sieben Trauergedichte des persischen Dichters Selman Sawedschi (Sammlung INr 95532, Obj 34) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Freunde, hebet an des Abschiedstages Klagen, / Zeit ist's längstens das Gepäcke fortzutragen!",
+  "language": [],
+  "musenalm_id": 95535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Ghasel / auf den Tod der Prinzessin Dilschad Chatun, der Gemah- / lin Sultan Ebu Seids. (Dostan rusi widaast fighan / dergirid.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Ghasel / auf den Tod der Prinzessin Dilschad Chatun, der Gemah- / lin Sultan Ebu Seids. (Dostan rusi widaast fighan / dergirid.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.669Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "7bu40fpolwv1gb8"
+    }
+  ]
+}

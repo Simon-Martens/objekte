@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # s. Vorwort des Herausgebers INr 50160, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50145,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alruna #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri del. W. Böhm sc.",
+  "scans": [
+    "alm_3_50145_bm0neiuean.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alruna #",
+  "updated": "2007-06-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.698Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "himlgi5eufd9alp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.698Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "pnga9e097dz0xzn"
+    }
+  ]
+}

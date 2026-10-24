@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 19827, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Kaiser Heinrich, der Erste dieses Namens, erstand eines Morgens, als es noch dunkel war rings umher,",
+  "language": [],
+  "musenalm_id": 19849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Graf von Altenburg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Graf von Altenburg",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.811Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "er7h80rg2jv1z0z"
+    }
+  ]
+}

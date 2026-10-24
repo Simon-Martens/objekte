@@ -1,0 +1,105 @@
+{
+  "annotation": "Paginierungsfehler: SS 130-139 »Räumung der Stadt Frankfurt von den Franzosen« in die laufende Paginierung eingeschoben; so auch im I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 2 BB Vrwrt d Vrlgr, 15 BB Kal darin 6 GG, G, ar: SS 3-23 G-Verz, B, ar1: S 1 T, SS 3-189, S 190 I-Verz, SS 193-194, 3 SS VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1797",
+    "norm": "~",
+    "biblio": 407959,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2175,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Jaeger)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königlich / Grosbritannischer / Historischer / Calender / für 1797 / mit Kupfern von / Schubert und Schule / und im Verlage der / Jaegerschen Buchhandlung / in Frankfurt am Main",
+  "updated": "2026-06-11 10:18:55.893Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "items": [
+    "7hl8k0rss7647nu"
+  ],
+  "contents": [
+    "elp1g3jqf44qmmk",
+    "6odzyksb6o37fpo",
+    "281us8fhqbzmbru",
+    "uoouhnh85stmmh0",
+    "p665228x3oumjcs",
+    "deptyfh12jao5o3",
+    "0msgli66lzrwl6l",
+    "g57l0yg9jyi53ie",
+    "gsyut1wvnff0uvs",
+    "4jmnbgakzbe1eoo",
+    "5mrkbajs5bhxbvy",
+    "13i9mqwb177s45i",
+    "bftmvj2ujpark0s",
+    "x5p3u2wnns1e4v8",
+    "1dkws16wbjnxkov",
+    "m7iko2194jscbjq",
+    "fm1i4g5a8v02xsw",
+    "3omszmf55r9q8e5",
+    "hxltdnajrp5up5j",
+    "l1n9qoevi6vd6io",
+    "idklhr4g9r4puzp",
+    "cxscqjd76fqm48i",
+    "appgzl5s7hft1gx",
+    "qpze4471w37u4e6",
+    "80e50lvzio8ura6",
+    "a2o73iecrd2nlxc",
+    "bmbto9makmxjbqg",
+    "klip4fxp1a0dz4t",
+    "4iig9nnhtelzaoo",
+    "0aj81pauarq30kq",
+    "48zyefqnmm3y5zo",
+    "t28cp1h78ohzbwa",
+    "ldw8nizd2p5k9a1",
+    "6rohmd9d7arpdi3",
+    "7u5kaxkuhu0iqt0",
+    "kog5xfuoxw1lvrx",
+    "o0z4xvtndzocpah"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "nafbwc09j45o4j7"
+    }
+  ]
+}

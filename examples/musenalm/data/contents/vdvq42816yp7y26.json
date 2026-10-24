@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18940, Obj 14 (Carlsruhe Im Kunst Verlag)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2024,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE MÄDCHEN AM BRUNNEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bendemann pinx. C. Schuler sculp.",
+  "scans": [
+    "alm_64_2024_7s1c54f194.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE MÄDCHEN AM BRUNNEN",
+  "updated": "2000-08-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.699Z",
+      "agent": "r1mrgok6yls9s7m",
+      "source_id": "cz4w6fhcmcy6im9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.698Z",
+      "agent": "tgvn6iyntlkd9zp",
+      "source_id": "en26qjfll6exd77"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 12947, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.400Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Lieb' und Leben blüht beisammen; / Wie in Flammen / Wärm und Licht.",
+  "language": [],
+  "musenalm_id": 12948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieb' und Leben. / Mit Musik von H. Zelter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieb' und Leben. / Mit Musik von H. Zelter",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.743Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "y3sv3tkay61nofk"
+    }
+  ]
+}

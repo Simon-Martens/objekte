@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-08 09:04:54.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Ich war ein junger Springinsfeld, als ich von der Universität nach der Residenz zog, um dort unter Oheim Strömfeld meine Carriere zu beginnen.",
+  "language": [],
+  "musenalm_id": 140499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huldigung den Frauen! / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Huldigung den Frauen! / Erzählung",
+  "updated": "2026-09-08 09:07:43.142Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08 09:06:59.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08 09:07:43.142Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "yd0ev891xtmapsb"
+    }
+  ]
+}

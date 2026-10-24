@@ -1,0 +1,43 @@
+{
+  "annotation": "Text zu den Kupfern (Sammlung INr 29130, Obj 5) s. Graphik INr 29144, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Heiße Phantasie, erreget / von der Liebe Schwärmerei,",
+  "language": [],
+  "musenalm_id": 29143,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "July",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "July",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.301Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "p9tjfyqd5gygmwc"
+    }
+  ]
+}

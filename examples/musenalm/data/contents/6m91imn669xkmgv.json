@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik [unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44625, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44612,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SPINNERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Vautier. F. Vogel",
+  "scans": [
+    "alm_611_44612_mcib0jrg34.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SPINNERIN",
+  "updated": "2006-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.332Z",
+      "agent": "jxtm6bc7viavt0a",
+      "source_id": "tn6zt7wzgazf2jy"
+    }
+  ]
+}

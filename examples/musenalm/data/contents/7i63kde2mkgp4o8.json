@@ -1,0 +1,45 @@
+{
+  "annotation": "Regner Lodbrog. Eine altdänische Sage in Balladen (Sammlung INr 26604, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Die Lanzen fliegen, / Die Waffen blitzen, / Die Adern sprützen / Tiefbluthges Roth.",
+  "language": [],
+  "musenalm_id": 26620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Schlacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Schlacht",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.402Z",
+      "agent": "vwa4f73bcjeod59",
+      "source_id": "zrxbc5vaavhow60"
+    }
+  ]
+}

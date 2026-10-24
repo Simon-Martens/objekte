@@ -1,0 +1,411 @@
+{
+  "annotation": "",
+  "biographical_data": "1771-1842",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.508Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1800305-9",
+          "label": "Státní Konservatoř Hudby (Prag)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Böhmischer Komponist, Musiklehrer u. Organist",
+        "Komponist"
+      ],
+      "dateOfBirth": [
+        "1766-10-09"
+      ],
+      "dateOfDeath": [
+        "1842-12-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Eduard Teltscher"
+          ],
+          "creditText": [
+            "http://www.beethoven-haus-bonn.de/sixcms/detail.php?id=&amp;template=dokseite_digitales_archiv_en&amp;_dokid=i3268&amp;_seite=1"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/D%20weber.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/D%20weber.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:D%20weber.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:33.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117158755/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "117158755",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117158755",
+      "oldAuthorityNumber": [
+        "(DE-588a)117158755",
+        "(DE-101c)310242088",
+        "(DE-588a)134552083"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "placeOfBirthAsLiteral": [
+        "Welchau (Böhmen)"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4076310-9",
+          "label": "Prag"
+        }
+      ],
+      "preferredName": "Weber, Bedřich Diviš",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Bedřich Diviš"
+        ],
+        "surname": [
+          "Weber"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Weber, Friedrich D.: Allgemeine theoretisch-praktische Vorschule der Musik",
+        "Weber, Friedrich D.: [Variationen, Kl A-Dur]",
+        "Weber, Friedrich D.: [Polonaisen, Kl F-Dur]",
+        "Weber, Friedrich D.: [Variationen, Trp Orch F-Dur]",
+        "Weber, Friedrich D.: [Quartette, Hr 1 2 3 4 Nr. 3]",
+        "Weber, Friedrich D.: Lyrische Spiele. - [circa 1818]",
+        "Weber, Friedrich D.: Theoretisch-praktisches Lehrbuch der Harmonie und des Generalbasses"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88639261"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56797932"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q79023"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117158755/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Bed%C5%99ich_Divi%C5%A1_Weber"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Dionys_Weber"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Bed%C5%99ich_Divi%C5%A1_Weber"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108005218"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117158755"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_W/Weber_Friedrich-Dionys_1766_1842.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117158755.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117158755"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117158755"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Weber, Friedrich D.",
+        "Weber, Frederico Dionisio",
+        "Weber, Friedrich Dionys",
+        "Weber, F. D.",
+        "Weber, Frederick Dionysus",
+        "Weber, Frederic Denis",
+        "Weber, Bedřich D.",
+        "Weber, Friedrich Dionysus",
+        "Weber, Frédéric Denis",
+        "Weber, Dionys",
+        "Weber, Frédéric D."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich Dionysus"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric D."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Dionys"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Dionys"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Dionys"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Bedřich D."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Frederic Denis"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Frederick Dionysus"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "F. D."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Frederico Dionisio"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric Denis"
+          ],
+          "surname": [
+            "Weber"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich D."
+          ],
+          "surname": [
+            "Weber"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Dionys_Weber",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Dionys_Weber"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:18:42Z",
+    "gnd_query_biographical_data": "1771-1842",
+    "gnd_query_name": "weber, friedrich dionys"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3067,
+  "name": "Weber, Friedrich Dionys",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 2156",
+  "updated": "2026-06-11 13:29:25.636Z",
+  "uri": "https://d-nb.info/gnd/117158755",
+  "editor": ""
+}

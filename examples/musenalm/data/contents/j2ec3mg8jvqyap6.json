@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 30128, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "So wie die Gewalt der Elemente überhaupt, so gewährt besonders das Feuer in seiner zerstörenden Macht",
+  "language": [],
+  "musenalm_id": 30129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Feuersbrunst / von Albert Poel. / Höhe 12 Zoll, Breite 15½ Zoll",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Feuersbrunst / von Albert Poel. / Höhe 12 Zoll, Breite 15½ Zoll",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.629Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "8lnat801y2jwmno"
+    }
+  ]
+}

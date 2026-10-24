@@ -1,0 +1,45 @@
+{
+  "annotation": "Der arme Heinrich (Sammlung INr 86632, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Der Schlaf mit leisen Tritten schleicht sich zum Lager der Ruh, / Und schließt mit zartem Finger die müden Augen zu,",
+  "language": [],
+  "musenalm_id": 86640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Der Liebe Verlangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ferdinand Stamm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Der Liebe Verlangen",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.166Z",
+      "agent": "big4tm69ocucym5",
+      "source_id": "jwf0mndxvy7wbb8"
+    }
+  ]
+}

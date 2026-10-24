@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:46.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Festgemauert in der Erden / Steht das Haus, der Kunst geweiht, / Heute muß ein Stück noch werden, / Frisch, ihr Dichter! seyd bereit.",
+  "language": [],
+  "musenalm_id": 122680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied vom Theater. / Travestie der Schillerischen Glocke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied vom Theater. / Travestie der Schillerischen Glocke",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.717Z",
+      "agent": "31iymrx6tazubtp",
+      "source_id": "fy3995fhltwfjxe"
+    }
+  ]
+}

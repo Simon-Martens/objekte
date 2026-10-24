@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Ritterorden 1819",
+    "norm": "",
+    "biblio": 407556,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-11-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3898,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Göschen)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Ritterorden 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; nicht bei L/R",
+  "responsibility_statement": "Friedrich Gottschalk",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DER / RITTER-ORDEN / VON / FRIEDRICH GOTTSCHALCK, / Herzogl. Anhalt-Bernburg-Assistenzrathe. / DRITTE ABTHEILUNG. / Die Ritter-Orden ausser den deutschen. / LEIPZIG, / bei Georg Joachim Goeschen. / MDCCCXIX",
+  "updated": "2026-06-11 10:18:55.107Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "1ac22wbj7mo7dq2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.914Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.914Z",
+      "agent": "r83dqus7bs9zi38",
+      "source_id": "24eskygp015y0le"
+    }
+  ]
+}

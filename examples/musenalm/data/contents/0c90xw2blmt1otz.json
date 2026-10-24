@@ -1,0 +1,43 @@
+{
+  "annotation": "§1§ Graphik fehlt s. Textbezug INr 44621, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44622,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Engel des ewigen Friedens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Barth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Engel des ewigen Friedens",
+  "updated": "2006-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.330Z",
+      "agent": "42lh0pjglbif6gz",
+      "source_id": "979z7a16pg6uzde"
+    }
+  ]
+}

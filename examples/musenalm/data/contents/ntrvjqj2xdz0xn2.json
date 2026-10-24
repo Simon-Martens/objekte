@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74310, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Ich hoffe, man werde es nicht misdeuten, wenn auch eine dem Anschein nach unbedeutende Parthie hier aufgeführt wird.",
+  "language": [],
+  "musenalm_id": 74309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Backofen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Backofen",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.632Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "9b2e5ezw1827fys"
+    }
+  ]
+}

@@ -19,8 +19,25 @@ import './controls/code-input';
 import { confirmNavigation } from './controls/navigation-dialog';
 import { syncDraft } from './controls/draft-lifecycle';
 
+import { installProjectChooser } from './controls/project-chooser';
+// Pin requests to the project rendered in this document, including older tabs.
+const projectId = document.querySelector<HTMLElement>('[data-project-id]')?.dataset.projectId;
+const nativeFetch = window.fetch.bind(window);
+window.fetch = (input, init) => {
+  const url = new URL(input instanceof Request ? input.url : String(input), location.href);
+  if (!projectId || url.origin !== location.origin) return nativeFetch(input, init);
+  const headers = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
+  headers.set('x-objekte-project', projectId);
+  return nativeFetch(input, {...init, headers});
+};
+
 // Navigation mechanics only. Datastar applies every server-generated DOM patch.
 let dirty = false;
+installProjectChooser(document, async () => {
+  if ((dirty || document.querySelector<HTMLElement>('#workspace')?.dataset.draftDirty === 'true') && !await confirmNavigation()) return false;
+  dirty = false;
+  return true;
+}, form => form.requestSubmit());
 let version = '';
 let shownUrl = location.pathname + location.search;
 function syncLocation() {

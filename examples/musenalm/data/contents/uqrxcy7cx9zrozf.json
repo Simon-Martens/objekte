@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Traulich sass ich bey ihr im Mondenschimmer, / Sanfte Weste spielten in ihren Locken,",
+  "language": [],
+  "musenalm_id": 123486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blüthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blüthe",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.569Z",
+      "agent": "vd3inw12z8a6gd2",
+      "source_id": "9xfpkxha7jyphxb"
+    }
+  ]
+}

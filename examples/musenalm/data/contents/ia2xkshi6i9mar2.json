@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Schön Mühmchen« von Langbein INr 13776, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13739,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön Mühmchen. v. Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Heß sc.",
+  "scans": [
+    "alm_219_13739_ddml3ngip3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schön Mühmchen. v. Langbein",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.347Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "f6aornywunyl80s"
+    }
+  ]
+}

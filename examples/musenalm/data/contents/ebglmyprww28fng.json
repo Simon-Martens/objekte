@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Lady Hyde« INr 58622, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie sollen also auch zuerst die Ehre haben, der Herzogin von / Yorck die Hand zu küssen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Hoffmann del. D. Berger sc. 1784",
+  "scans": [
+    "alm_624_88776_wfauwre3ig.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie sollen also auch zuerst die Ehre haben, der Herzogin von / Yorck die Hand zu küssen",
+  "updated": "2006-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.924Z",
+      "agent": "qtx54xtziq79pnc",
+      "source_id": "1k9xc2q8f9mvm01"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.924Z",
+      "agent": "d91op1cpa09sjn3",
+      "source_id": "rmtovzcjihel7hz"
+    }
+  ]
+}

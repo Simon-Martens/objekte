@@ -1,0 +1,49 @@
+{
+  "annotation": "1846, 1847;  # L/R kennt nur 1846",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kinder-Kalender (Wien, Riedl) 1846",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-10-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4672,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Kinder-Kalender (Wien, Riedl) 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 165",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.902Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": []
+}

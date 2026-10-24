@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25559, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "O Thurm, den manch Jahrhundert schon sah leuchten / Dem Fischer, wirft bei Nacht er aus die Netzte,",
+  "language": [],
+  "musenalm_id": 25561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Leuchtthurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. H. v. Wessenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Leuchtthurm",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.170Z",
+      "agent": "ct6ke46zkjmvu7l",
+      "source_id": "heecoeqd5z0upka"
+    }
+  ]
+}

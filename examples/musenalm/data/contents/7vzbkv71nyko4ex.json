@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Seit ich von dir gekostet, / Du labend heller Born, / Dünkt jedes Naß mir trübe,",
+  "language": [],
+  "musenalm_id": 14610,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wunderbrunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wunderbrunnen",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.653Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "fgrh0b8okqsz7e0"
+    }
+  ]
+}

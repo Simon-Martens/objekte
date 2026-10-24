@@ -1,0 +1,104 @@
+{
+  "annotation": "KVK: Stabi Berlin; 1842-1855",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, S I T, S III-IV Vrwrt d Vrlg, SS V-XXII, Kal, SS XXIII-LX Tab, S1 T, SS 3-170, 11 BB VrgM, S, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch für Israeliten (Wien) 1842",
+    "norm": "~",
+    "biblio": 409425,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2017-06-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4429,
+  "parallel_title": "",
+  "place_statement": "Wien (Schmid u. Busch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Jahrbuch für Israeliten (Wien) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Kalender / und / Jahrbuch / für / Israeliten / auf das Jahr / 5603. / Mit Beiträgen von: / Dr. J. Auerbach, Dr. Ludwig August Frankl, [...] Erster Jahrgang / WIEN 1842. / Druck und Verlag des Franz Edlen von Schmid & J. J. Busch",
+  "updated": "2026-06-11 10:18:55.724Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "3byfam6mmvraavk"
+  ],
+  "contents": [
+    "w23xhspr0aphjm0",
+    "dvodqpbtq86ykkx",
+    "q4ui39mirbjynhi",
+    "oqsbu1d4mr294jy",
+    "p6sqnxm8tlst64o",
+    "tybebp6fdhx85p3",
+    "zmoh2c1jnnz4beq",
+    "qxtd5qkhns1s96i",
+    "ilx1pmhkyq4i6fw",
+    "3kgurdlmw28dsjn",
+    "sgngnvxfhxboejf",
+    "0le15rc75dehe40",
+    "gs5oqose7n4k6oo",
+    "0a6qk85vd1c51kc",
+    "316j9jr20sfj4xu",
+    "p27864m2unwjheg",
+    "obujasmnejgr8lj",
+    "5f4uam5d6mu53a7",
+    "x271vr6oe1rerx1",
+    "5xci8p6va7ktcgq",
+    "y29sdywxl8vh0sz",
+    "ll2kanstitb198d",
+    "m0kvbsog046wkv4",
+    "sp6bv969s9uuub7",
+    "3wav045ff2mmxjd",
+    "6if6ugeci2q27dl",
+    "65hn87k641k4zm2",
+    "4vf79gcn58a8m76",
+    "q5lwoq8iofczn2d",
+    "9a749d167e07cxi",
+    "4j1o7ue452kkw5o",
+    "uvv06buh744i1os",
+    "0d51immw647caoc",
+    "n4eu2uz7swj4vfw",
+    "h36h8kecpbsnxgi",
+    "bltq4xv8g1ezeoj"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.171Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.171Z",
+      "agent": "0s9t9275aejerak",
+      "source_id": "y58ku506iz69ef9"
+    }
+  ]
+}

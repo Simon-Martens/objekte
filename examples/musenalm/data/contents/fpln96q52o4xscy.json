@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August paginiert 2. Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten. « von Fr. Buchholz INr 58580, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich II. nach der Schlacht bei / Collin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L.Wolf inv.et del. W. Jury sc.",
+  "scans": [
+    "alm_861_58575_9kdd1xre51.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich II. nach der Schlacht bei / Collin",
+  "updated": "2008-07-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.667Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "bqidodxnlxhmyx5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.667Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "wcj036rue0ebw7c"
+    }
+  ]
+}

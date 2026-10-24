@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Kalt und schaurig wehen schon die Lüfte / Um der Hingeschiedenen stilles Grab,",
+  "language": [],
+  "musenalm_id": 3977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Rosaliens, der Früherblaßten, / Grabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Rosaliens, der Früherblaßten, / Grabe",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.929Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "tj5jh7hhvexhi6r"
+    }
+  ]
+}

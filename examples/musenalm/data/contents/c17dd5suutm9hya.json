@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH der GROSSE / Koenig in Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hein. Ramberg del. Hannov. C. F. Stoelzel sc. Dresd. 1800",
+  "scans": [
+    "alm_4017_95848_2rs8onx3zc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH der GROSSE / Koenig in Preussen",
+  "updated": "2014-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.423Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "yu9vbqt0njksqlx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.423Z",
+      "agent": "e5dzzklohvjx1fv",
+      "source_id": "yxhae5d7hyymzlo"
+    }
+  ]
+}

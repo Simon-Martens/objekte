@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen INr 131428-131431, Obj 36-39",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tyrolerlieder / aus dem analogen Gemählde: / die Bürger in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bäuerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tyrolerlieder / aus dem analogen Gemählde: / die Bürger in Wien",
+  "updated": "2016-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.034Z",
+      "agent": "1lkxjega66pfmft",
+      "source_id": "7ioyy9yxbi3alhv"
+    }
+  ]
+}

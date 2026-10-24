@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Die Spieltische waren geordnet, die ältere Welt ließ sich daran nieder; die Marken klirrten und der Karten leises Rauschen und ein bedeutungsvolles Räuspern gebot den jüngern Leuten, die in munterer Unterhaltung in einzelnen Gruppen umherstanden, Stille,",
+  "language": [],
+  "musenalm_id": 77601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Löwenbraut. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Löwenbraut. / Novelle",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.554Z",
+      "agent": "jbbfx5lvloouivi",
+      "source_id": "1ymuto4cdphr3li"
+    }
+  ]
+}

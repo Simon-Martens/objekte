@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Preußen (",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Sie ritt an's eiserne Gitterthor, / Sie ritt auf weißem Roß,",
+  "language": [],
+  "musenalm_id": 99465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanda",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.804Z",
+      "agent": "ijwiphnikfuhyxf",
+      "source_id": "ujcn8miy80i0zcy"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65774, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "die in der Schlacht bey Zorndorf zu Gefan- / genen gemachten Russen werden in Berlin ein- / gebracht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. E. Henne sculp.",
+  "scans": [
+    "alm_1105_65773_sv1c316tlz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "die in der Schlacht bey Zorndorf zu Gefan- / genen gemachten Russen werden in Berlin ein- / gebracht",
+  "updated": "2009-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "25kscoeeq3kul2r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.064Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "s8nb5xlwrfd7cjf"
+    }
+  ]
+}

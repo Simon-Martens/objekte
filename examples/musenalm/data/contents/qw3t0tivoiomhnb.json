@@ -1,0 +1,56 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 37; Alm-177, INr 38337 # s. Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Was für ein eitler Wahn von Treue / Für deines Mannes Aschenrest?",
+  "language": [],
+  "musenalm_id": 8044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode an eine Wittwe, / aus dem Roußeau, auf Verlangen eines großen / Königs, übersetzt von einem großen / deutschen Dichter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Roußeau übersetzt von einem großen deutschen Dichter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode an eine Wittwe, / aus dem Roußeau, auf Verlangen eines großen / Königs, übersetzt von einem großen / deutschen Dichter",
+  "updated": "2000-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.116Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "cntb6b3y7vcfymc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.116Z",
+      "agent": "l7uikiley0mm1nx",
+      "source_id": "wabgmhdu7ucwbxh"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "16. Briefe des Brahmanen (Sammlung INr 25495, Obj 26) Gedichte (Sammlung INr 25479, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Du fragst, warum ich euch so lang nun lasse warten / Auf eine zweite Spend' aus meiner Weisheit Garten?",
+  "language": [],
+  "musenalm_id": 25502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brief 7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brief 7.",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.076Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "vt0czotfa2xrgqp"
+    }
+  ]
+}

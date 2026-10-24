@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Wie enden wir den feyerlichen Tag? / Der Zirkel unsrer Freunde fühlt mit uns / Die Freude:",
+  "language": [],
+  "musenalm_id": 31388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlußrede / bey der fünfzigsten Geburtstagsfeyer eines / Vaters im Namen seiner zwey / Töchter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph von Retzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schlußrede / bey der fünfzigsten Geburtstagsfeyer eines / Vaters im Namen seiner zwey / Töchter",
+  "updated": "2003-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.336Z",
+      "agent": "rszt46vfvzbfush",
+      "source_id": "sswoxpehp93y8vm"
+    }
+  ]
+}

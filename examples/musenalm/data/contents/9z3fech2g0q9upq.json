@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik vor dem Kalendarium paginiert 1. Illustration zu »Der dicke Mann« von Albrecht s. Textbezug INr 32214, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32184,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was wird aus ihm werden / S. 33",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del & sc.",
+  "scans": [
+    "alm_438_32184_t45wqzo6yv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Was wird aus ihm werden / S. 33",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.404Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "7x5w5e8fjr3r337"
+    }
+  ]
+}

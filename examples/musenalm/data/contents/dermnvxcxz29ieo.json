@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die lange Nase« von Soden (INr 125527, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg del. I. C. Böhme sc: Lipsie)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. I. C. Böhme sc: Lipsie",
+  "scans": [
+    "alm_1338_125528_r2pwv6q6ld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.897Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "j4eyfnipreu9k7c"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.898Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "ovl3ani7z5jl5sg"
+    }
+  ]
+}

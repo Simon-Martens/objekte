@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Gebt mir den königlichen Rebensaft, / Erzeugt am Rhein, gereift am letzten Hügel / Von Afrika,",
+  "language": [],
+  "musenalm_id": 92433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Geburt des Königs von Preußen / Friedrich Wilhelms des Zweyten. / Den 25sten September 1744",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Geburt des Königs von Preußen / Friedrich Wilhelms des Zweyten. / Den 25sten September 1744",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.371Z",
+      "agent": "uxrssb0qlf0ghgw",
+      "source_id": "1qik2fmq9ycibr9"
+    }
+  ]
+}

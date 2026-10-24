@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;Die Monate. An die Frauen (Sammlung INr 140542)&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-09-02 10:25:27.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Der Waizen, das Korn und die Gerste blinkt, / Dem Schnitter die goldne Erndte winkt,",
+  "language": [],
+  "musenalm_id": 140460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "August. / Jungfrau.) / Schnitterlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "August. / Jungfrau.) / Schnitterlied",
+  "updated": "2026-09-02 10:34:50.171Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-02 10:27:00.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-02 10:34:50.172Z",
+      "agent": "c4v9nl7ztvkf3sf",
+      "source_id": "xbehigmbrgypub3"
+    }
+  ]
+}

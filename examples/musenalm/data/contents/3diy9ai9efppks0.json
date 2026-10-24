@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Aus der binnen Kurzem erscheinenden längern Dichtung »Victor, vom Verfasser des Hohen Liedes«",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Heil! Ihr trutzigen Häupter! Heil! / Ihr Stirnen, so leuchtend klar,",
+  "language": [],
+  "musenalm_id": 23062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dithyrambe an die Jugend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Titus Ullrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dithyrambe an die Jugend",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.926Z",
+      "agent": "tczftje9868adfs",
+      "source_id": "7hapskjr16i2fue"
+    }
+  ]
+}

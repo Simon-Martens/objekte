@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Hier liegt Kornar, / Beweint mit Thränen",
+  "language": [],
+  "musenalm_id": 2198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kornar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "U. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kornar",
+  "updated": "2000-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.810Z",
+      "agent": "majfhkazcb1ylfy",
+      "source_id": "j2ovw7nem5sdsjx"
+    }
+  ]
+}

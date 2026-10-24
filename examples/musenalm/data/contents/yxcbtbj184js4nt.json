@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 77873, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "440",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zoran, die Armenierin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Perger pinx. J. Axmann sculps.",
+  "scans": [
+    "alm_2419_77872_v0vlrpr8f2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zoran, die Armenierin #",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.675Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "p8f47nys6hx92aj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.675Z",
+      "agent": "k1vb2ltzit1pkxn",
+      "source_id": "pbcx3243rje0ezo"
+    }
+  ]
+}

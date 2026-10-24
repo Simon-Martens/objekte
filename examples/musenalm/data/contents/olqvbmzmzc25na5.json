@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Uebersetzungen und Bearbeitungen von Gedichten aus fremden Sprachen (INr 93456, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Du also willst es, welche Qualen! / Loßreissen willst du dich von mir?",
+  "language": [],
+  "musenalm_id": 93469,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Louisen. / (Aus dem Französischen von M. Etienne.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Etienne [übers.] J. B. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Louisen. / (Aus dem Französischen von M. Etienne.)",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.263Z",
+      "agent": "47jltbo11xjvoib",
+      "source_id": "wn8d3yvcyua2vmj"
+    }
+  ]
+}

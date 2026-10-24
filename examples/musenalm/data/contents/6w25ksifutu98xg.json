@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Barbier von Sevilla« von G. Rossini /) s. Textbezug INr 75388, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75387,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BARBIER VON SEVILLA. / 1. Aufz. / Rosine. Das Billetchen wäre da-",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Rosmäsler 1829",
+  "scans": [
+    "alm_2374_75387_afcak12lei.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BARBIER VON SEVILLA. / 1. Aufz. / Rosine. Das Billetchen wäre da-",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.475Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "4z3lqfz1losk1r8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.475Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "m929uqibnw33okb"
+    }
+  ]
+}

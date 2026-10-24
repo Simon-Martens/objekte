@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die beiden Fahnenträger« von A. vom Nordstern d. i. A. von Nostitz und Jänkendorf INr 20553, Obj 92",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20474,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Fahnenträger. / von Arthur vom Nordstern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_271_20474_hn6ndmipuf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Fahnenträger. / von Arthur vom Nordstern",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.988Z",
+      "agent": "bmci0b7r798ev4s",
+      "source_id": "3l42l097ijm6fma"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.988Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "9x3i5hupdshxwzj"
+    }
+  ]
+}

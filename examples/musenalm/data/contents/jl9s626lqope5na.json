@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 3. /) Graphik im Kalendarium März /) Illustration zu »Don Carlos« von Fr. Schiller /) s. Textbezug im Kalendarium INr 90102, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90103,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In meinem Frankreich wars doch / anders",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc.",
+  "scans": [
+    "alm_1703_90103_jcricck9qw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In meinem Frankreich wars doch / anders",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.273Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "f1l69k425ptpz7w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.273Z",
+      "agent": "nroqcxxwwrnp5ol",
+      "source_id": "swjkpzk7fcu824w"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Ich bin heraufgestiegen / Im ersten Morgenstrahl,",
+  "language": [],
+  "musenalm_id": 20152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr Franz von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jäger",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.800Z",
+      "agent": "x1uz1klk4dlr9er",
+      "source_id": "ioawtzt4rnkyzwn"
+    }
+  ]
+}

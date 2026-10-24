@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24872, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Als wir noch Kinder waren, sie und ich, / Zusammen auferzogen wie Geschwister,",
+  "language": [],
+  "musenalm_id": 24875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Aus der Kindheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnetzler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Aus der Kindheit",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.082Z",
+      "agent": "dz5hqr7uvnamp20",
+      "source_id": "qgwd3bc5vqmcgq5"
+    }
+  ]
+}

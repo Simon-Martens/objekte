@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug 51114, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51088,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgarten, am Aegeri-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Füssly del ad nat. J. H. Meyer sc.",
+  "scans": [
+    "alm_695_51088_y8e7chhvwe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Morgarten, am Aegeri-See",
+  "updated": "2007-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.475Z",
+      "agent": "yofxgerf8u6q1n8",
+      "source_id": "gtw71sa022lwwty"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.476Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "kp62b26qcjb0p8j"
+    }
+  ]
+}

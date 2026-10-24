@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten und einer Sammlung mit 6 Trinksprüchen INr 84769-84782, Obj 40-53 /) Vermischte Gedichte (Sammlung INr 84766, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 84768,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Gedichte",
+  "updated": "2010-01-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.219Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "6a0liaeh9fu1s49"
+    }
+  ]
+}

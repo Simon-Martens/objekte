@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Die ihr euch satt gesehn an der Weltstädt prangendem / Wunder, / Wieder zurück nun kehrt in die Enge des heimischen Le- / bens,",
+  "language": [],
+  "musenalm_id": 45894,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 301,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.514Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "zjoy0r15vehf8bi"
+    }
+  ]
+}

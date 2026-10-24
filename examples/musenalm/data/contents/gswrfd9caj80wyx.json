@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 52815, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Im Siegesglanz vor Nancy stand / Der Schweizer freudig Heer. / Nicht droht dem theuren / Vaterland / Der kühne Herzog mehr.",
+  "language": [],
+  "musenalm_id": 52816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Heimkehrs des Kriegers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Heimkehrs des Kriegers",
+  "updated": "2007-11-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.597Z",
+      "agent": "kq69ntdbn8wcwoq",
+      "source_id": "2vquirr0kwov3bt"
+    }
+  ]
+}

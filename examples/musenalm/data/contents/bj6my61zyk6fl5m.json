@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 86 Gedichten  z. T. in 3 Sammlungen INr 64852-64940, Obj 28-116",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Nüsse / aus / verschiedenen Weltgegenden. / Gesammelt von / Frater Timoleon / 1828-1829",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Nüsse / aus / verschiedenen Weltgegenden. / Gesammelt von / Frater Timoleon / 1828-1829",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.127Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "zso0p1iv0h2g5zd"
+    }
+  ]
+}

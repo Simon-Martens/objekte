@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IV. s. Textbezug INr 43413, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43423,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hornberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. Haldenwang sc.",
+  "scans": [
+    "alm_571_43423_7whmksf0zo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Hornberg",
+  "updated": "2006-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.283Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "tfo0l6rf2t2b6qo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.283Z",
+      "agent": "mwin9klvyol78mm",
+      "source_id": "uezomzy9kc09kro"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>s. hierzu INr 140477</div>",
+  "content_type": [],
+  "created": "2026-09-03 09:00:16.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Langsam in dem Lauf der Horen / Füget sich der Stein zum Stein; / Schnell, wie es der Geist geboren, / Will das Werk empfunden seyn.",
+  "language": [],
+  "musenalm_id": 140476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse / an die Huldinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse / an die Huldinn",
+  "updated": "2026-09-03 09:08:22.642Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03 09:01:04.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-03 09:08:22.643Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "jvym0s2p4s8wewi"
+    }
+  ]
+}

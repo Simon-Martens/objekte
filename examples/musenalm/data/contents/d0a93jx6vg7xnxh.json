@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ich aber sage euch: Liebet eure Feinde, thut wohl denen, die euch hassen, [...] Matth. V. 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Ihr kennt wohl, liebe Freunde! aus den Büchern des alten Bundes jene belobte Wolke, welche in der Richtung gegen die fliehenden Israeliten hellbeleuchtet und goldglänzend war,",
+  "language": [],
+  "musenalm_id": 129629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charakterprobe. / Eine Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. A. Moshamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charakterprobe. / Eine Skizze",
+  "updated": "2022-02-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.047Z",
+      "agent": "hsujjp5smywjyiq",
+      "source_id": "yx5qacrfja5ddc1"
+    }
+  ]
+}

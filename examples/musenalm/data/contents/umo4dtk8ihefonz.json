@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) Illustration zu »Des Morgens« von Fr. Hölderlin INr 82197, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82175,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MORGEN MORNING",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Taylor inv. Duttenhofer sc.",
+  "scans": [
+    "alm_3855_82175_1bcpclud6o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MORGEN MORNING",
+  "updated": "2012-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.047Z",
+      "agent": "n6gy5dn9ed5g96z",
+      "source_id": "7vd5yi3myq2m9jk"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "In deiner Dichtung Labyrinth versunken, / Wo in des ew'gen Frühlings Jugendflore / Die Schönheit Himmel wird, die Lieb' Aurore,",
+  "language": [],
+  "musenalm_id": 71341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN CALDERON",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN CALDERON",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.497Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "2hd9hf24gbq4k9l"
+    }
+  ]
+}

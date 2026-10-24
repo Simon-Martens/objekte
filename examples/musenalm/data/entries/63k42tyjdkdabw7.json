@@ -1,0 +1,95 @@
+{
+  "annotation": "Erscheinen der zweiten Abteilung des Jahrgangs 1849 unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T verso, T recto, SS 1- 316",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jetzt! Historisch-politisches Taschenbuch 1849 1.",
+    "norm": "~",
+    "biblio": 409333,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-11-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4346,
+  "parallel_title": "",
+  "place_statement": "Bautzen (Helfer)",
+  "places": [
+    "67topoyplosy9un"
+  ],
+  "preferred_title": "Jetzt! Historisch-politisches Taschenbuch 1849 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Jetzt! / Historisch-politisches Taschenbuch / auf das Jahr 1849. / Vierter Jahrgang. / Erste Abtheilung. / Bautzen, / Verlag von R. Helfer. / 1848",
+  "updated": "2026-06-11 10:18:55.736Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "tdq3k5j97zr2sxh"
+  ],
+  "contents": [
+    "pdtoxf0qu0e6xgi",
+    "d6qw3xhsr4iotss",
+    "gane71sde3u0f94",
+    "648nx7blldk2ldr",
+    "btdo5vgwlaf8a3h",
+    "y39tz78dh93dxa1",
+    "mz56csnujreo8w8",
+    "e8iqi4i19yi6k1l",
+    "9xm9lfrbvhec4bu",
+    "4f6emdq95v9dvie",
+    "3ok9vcnaz75hgiu",
+    "7kysw9s0msrb9xn",
+    "svnn89qmyx1dmom",
+    "gsxh2i7dw27dw7l",
+    "rm06616zrxajzcd",
+    "7dytmi0hmos37ao",
+    "etnap9cyehr5zqm",
+    "4tmtsu8js78hyzf",
+    "s9fotipn7i9rop3",
+    "2g1kdqkq9rsw5fp",
+    "4vk05kizhsz4rpp",
+    "kaqgmjg0o93htub",
+    "4v2wok68d3xl3e4",
+    "2lex3wzfay34eq0",
+    "8ha86kxlb7pzvqj",
+    "lun2zmtpy9k260e",
+    "p3go9eo11q5ya5u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.984Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.984Z",
+      "agent": "aiyp19zxxye3fkb",
+      "source_id": "fi15gne03yl3dwc"
+    }
+  ]
+}

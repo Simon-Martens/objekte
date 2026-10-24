@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Königin von Golkonde« von Bürger s. INr 17813, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KÖNIGIN VON GOLGONDA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riep. f.",
+  "scans": [
+    "alm_91_17812_q4i8pjx49l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KÖNIGIN VON GOLGONDA",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.546Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "1sss4chk3dtotf4"
+    }
+  ]
+}

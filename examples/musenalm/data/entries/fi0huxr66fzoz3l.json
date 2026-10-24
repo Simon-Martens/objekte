@@ -1,0 +1,123 @@
+{
+  "annotation": "Mit einer für das Almanachwesen ungewöhnlichen Beigabe von zwei Reproduktionsstichen nach einer bildnerischen Vorlage, hier: »Die Entbindung der Maria von Medicis« Rubens pinx., Thelott sc. bzw. Rubens pinx., Bolt sc. /) Jg 1804 als Titelauflage: Erholungs Taschenbuch für das Jahr 1805, für Freunde und Freundinnen des guten Geschmacks. Köln, bei J. L. Kaufman; Alm-1752",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, B W, B G-Verz, SS I-XII, ar: SS 1-66 darin 7 GG, ar1: S 1 zT, SS 3-52 darin 3 MusBB, ar 2: SS 1-50",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Kunst und Laune 1804",
+    "norm": "~",
+    "biblio": 106800,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-04-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 669,
+  "parallel_title": "",
+  "place_statement": "Köln (Haas und Sohn)",
+  "places": [
+    "jztgfxo1uglteqq"
+  ],
+  "preferred_title": "Taschenbuch für Kunst und Laune 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 130; L/R 191; Goed VIII. 56, 26",
+  "responsibility_statement": "C. G. Cramer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / KUNST und LAUNE / Köln / bei / Haas und Sohn",
+  "updated": "2026-06-11 10:18:55.070Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "items": [
+    "ab5spnuk91u6zlz"
+  ],
+  "contents": [
+    "z6b61za3rx13jll",
+    "1fxgxjg6ywg1lk1",
+    "chsmary43facmx0",
+    "ofjr2m72nf4k3jm",
+    "im8rpeepshasr85",
+    "ru4j9dltrzd5pnj",
+    "6g7mm7b8ctwv609",
+    "uuimgsgllewc3ot",
+    "h77i992boj6xfyi",
+    "kc16ihjh6kftdfw",
+    "3zhbx2uhq40u3co",
+    "91p9i5qa0x70umm",
+    "1u6krtnpoxvxlxj",
+    "gxyn7k9o0c2bag8",
+    "8myhna4blaymgtd",
+    "vq1lfh7ab0u1vnx",
+    "0bbh3g7lz1whpbm",
+    "1ebfo26tsdc3kzl",
+    "u4vppjcif014hf9",
+    "dbjjdfhv1s0h0qj",
+    "mms92cup07dhw31",
+    "d0fad2a673unm10",
+    "tfwdnpjh8ijg8c5",
+    "zdtxksk3xv4wkj0",
+    "pvg2hpcng64i6dq",
+    "xo6omhmoj0wp8sy",
+    "52d7aa86s421bng",
+    "rk1ztuufinutf3z",
+    "pvciqehlh6x1p3u",
+    "imq252q6j7qch47",
+    "6jmphcxt56b3mi7",
+    "qb1tyyohdkjmq9u",
+    "zk7fkzzdk5v8sj9",
+    "ehcewnmbg0wmzvx",
+    "rj872fyq7l80la4",
+    "xdbgwuqykxbt3kf",
+    "xkbbvodn4x69cyp",
+    "uebhn1ze4sb1851",
+    "r3z8ht5bxdc42t5",
+    "gn76zbmzg2e6cuk",
+    "od212yjowrn8xc9",
+    "hxlyqva1zokk67z",
+    "y3l7aa8f8pcmuk1",
+    "lmyvou0pri89boa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.949Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.949Z",
+      "agent": "9l06jnsi2qrqws4",
+      "source_id": "a614mdzszp9dqzr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.736Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.736Z",
+      "agent": "amqten9820medl4",
+      "source_id": "rnbwu00c9k258qm"
+    }
+  ]
+}

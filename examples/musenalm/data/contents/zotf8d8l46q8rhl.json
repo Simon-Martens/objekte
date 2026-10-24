@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Schwester, mich hält der eiserne Winter, siehe, es hält mich, / Eisern, wie dieser, die Pflicht fern von der Heimath und dir.",
+  "language": [],
+  "musenalm_id": 118193,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Justine. / Göttingen, am 3.Januar, 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Justine. / Göttingen, am 3.Januar, 1804",
+  "updated": "2010-02-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.547Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.547Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "vtpfrge08rs4pk1"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Narrenalmanach 1848",
+    "norm": "",
+    "biblio": 106664,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2352,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reclam)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Narrenalmanach 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 89; nicht bei L/R",
+  "responsibility_statement": "Eduard Maria Oettinger",
+  "subtitle_statement": "",
+  "title_statement": "NARRENALMANACH / für / 1848 / von / Eduard Maria Oettinger. / Sechster Band. / Leipzig, 1848. / Druck und Verlag von Philipp Reclam jun.",
+  "updated": "2026-06-11 10:18:55.965Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "jil1jw5ywxog0q2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.050Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.049Z",
+      "agent": "wd7yy1894regb5j",
+      "source_id": "80u041kcjcmv7c2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "8ct4xks6w4yg6mb"
+    }
+  ]
+}

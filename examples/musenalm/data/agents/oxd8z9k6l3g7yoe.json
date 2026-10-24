@@ -1,0 +1,274 @@
+{
+  "annotation": "",
+  "biographical_data": "1818-1898",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.434Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Künstler",
+        "Schweiz. Genre-, Tier- und Bildnismaler",
+        "Maler"
+      ],
+      "dateOfBirth": [
+        "1818"
+      ],
+      "dateOfDeath": [
+        "1898"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Henry van Muyden"
+          ],
+          "creditText": [
+            "https://www.e-periodica.ch/digbib/view?pid=dis-001:1902:6#18"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques%20Alfred%20van%20Muyden%20%281818%E2%80%931898%29%20Maler.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 4.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by-sa/4.0",
+              "name": "Creative Commons Attribution-Share Alike 4.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Jacques%20Alfred%20van%20Muyden%20%281818%E2%80%931898%29%20Maler.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Jacques%20Alfred%20van%20Muyden%20%281818%E2%80%931898%29%20Maler.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2023-06-13T16:24:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/121920585/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1162162058",
+          "label": "Muyden, Albert-Steven van"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CH",
+          "label": "Schweiz"
+        }
+      ],
+      "gndIdentifier": "121920585",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1162162058",
+          "label": "Muyden, Albert-Steven van"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/121920585",
+      "oldAuthorityNumber": [
+        "(DE-588a)121920585",
+        "(DE-588c)4584952-3"
+      ],
+      "preferredName": "Muyden, Alfred van",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Alfred"
+        ],
+        "prefix": [
+          "van"
+        ],
+        "surname": [
+          "Muyden"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb149531260"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71662510"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D22545.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18600482"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/121920585/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Jacques_Alfred_van_Muyden"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Jacques_Alfred_van_Muyden"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066589330"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/121920585"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Muyden, Jacques Alfred van",
+        "Muyden, Jacques-Alfred van",
+        "Muyden, Alfred Jacques van"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Alfred Jacques"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Muyden"
+          ]
+        },
+        {
+          "forename": [
+            "Jacques-Alfred"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Muyden"
+          ]
+        },
+        {
+          "forename": [
+            "Jacques Alfred"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Muyden"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Jacques_Alfred_van_Muyden",
+          "label": "https://de.wikipedia.org/wiki/Jacques_Alfred_van_Muyden"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:21:27Z",
+    "gnd_query_biographical_data": "1818-1898",
+    "gnd_query_name": "muyden, jacques alfred, van"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1912,
+  "name": "Muyden, Jacques Alfred, van",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXV, 302",
+  "updated": "2026-06-11 13:29:23.907Z",
+  "uri": "https://d-nb.info/gnd/121920585",
+  "editor": ""
+}

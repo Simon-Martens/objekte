@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Die Spinnerin (INr 88230, Obj 18) Gedichte (Sammlung INr 88225, Obj 13) Anm. an der Sammlung der Gedichte: Dieses und die folgenden Lieder des ausgezeichneten jungen Dichters sind entlehnt aus dem »deutschen Taschenbuch, Verlag des litt. Compt. in Zürich u. Winterthur /) s. Taschenbuch, Deutsches (G. Keller) 1845; 23562 ff",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Nur diesen letzten Rocken / Noch spinnt mein reger Fleiß:",
+  "language": [],
+  "musenalm_id": 88232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2013-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.212Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "9drx60fvqbm77ki"
+    }
+  ]
+}

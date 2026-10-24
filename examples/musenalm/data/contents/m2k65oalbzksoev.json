@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Im alten Bingen, wo des Fergen Kahn / Nun sicher gleitet durch die feuchte Bahn,",
+  "language": [],
+  "musenalm_id": 44271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tagebuchblatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Creizenach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tagebuchblatt",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.398Z",
+      "agent": "lphx13gbei42kps",
+      "source_id": "7wzdq026kd5x56w"
+    }
+  ]
+}

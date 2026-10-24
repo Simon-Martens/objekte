@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Näherin« von J. H. Voß INr 6758, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE NÄHERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Reichardt",
+  "scans": [
+    "alm_130_6759_u1fsbelgr6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE NÄHERIN",
+  "updated": "2000-11-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.143Z",
+      "agent": "it8ptc76fbrkd73",
+      "source_id": "zf1um1tknhkc5qf"
+    }
+  ]
+}

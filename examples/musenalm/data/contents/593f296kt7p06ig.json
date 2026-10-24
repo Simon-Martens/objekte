@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 5. Blatt der Suite und vom Textbezug /) Graphik im Kalendarium Mai /) über der Graphik P 35 /) Illustration zu »Lady Magdalena. Eine Legende von dem Schlosse Campbell« INr 115155, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115147,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lady Magdalena",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba",
+  "scans": [
+    "alm_1898_115147_tfkhogv4sa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lady Magdalena",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.448Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "e14a305m3l7io5h"
+    }
+  ]
+}

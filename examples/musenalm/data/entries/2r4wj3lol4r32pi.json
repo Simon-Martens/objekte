@@ -1,0 +1,119 @@
+{
+  "annotation": "2. Auflage",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, B, G, SS 1-156 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Neujahrsgeschenk für Forst- und Jagdliebhaber 1796",
+    "norm": "~",
+    "biblio": 404909,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-09-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1130,
+  "parallel_title": "",
+  "place_statement": "Marburg (Neue academische Buchhandlung)",
+  "places": [
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Neujahrsgeschenk für Forst- und Jagdliebhaber 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 90; L/R 138",
+  "responsibility_statement": "L. C. E. H. F. von Wildungen",
+  "subtitle_statement": "",
+  "title_statement": "Neujahrs- / GESCHENCK / für / Forst- und Jagdliebhaber. / auf das Jahr / 1796 / herausgegeben / von / L. C. E. H. F. von Wildungen / Fürstl. Hess. Regierungsrath. / Zweite Auflage / Marburg / in der neuen academischen / Buchhandlung",
+  "updated": "2026-06-11 10:18:55.351Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "kagfgis7nw6uwsb"
+  ],
+  "contents": [
+    "nyrl7tcfav0rorw",
+    "51h55takugufvo0",
+    "lj3vf2dia0my3it",
+    "dr4m4g2e3o314ed",
+    "f6x7308zk32n11h",
+    "76jcwut2d30lf15",
+    "987b8kxw5bkorlf",
+    "889b1ljfn9ctxhz",
+    "8xlhabutr67jtyc",
+    "2gahbwp7n7syh97",
+    "7gf0l4kp7munmfp",
+    "9subv4xti6ososd",
+    "dfgncw4fskg8a7r",
+    "in0f8xg1er9hwxg",
+    "0btlzuvgg4n4rei",
+    "vkvqvhaol5r5wkp",
+    "9jyczhyeu27ok5q",
+    "5vptbavgfd5b6ea",
+    "0ryzygrakzdrqbt",
+    "t3cm6e36hea01aj",
+    "4w7ql3p8tuhpldb",
+    "zv9yakocpzdlpg9",
+    "5j8zw97ln31c1k5",
+    "omsxs2ykp70327c",
+    "krkjfq0w21qjw69",
+    "sd4lijnpp3xwezg",
+    "ilyi1at4xio0fj8",
+    "jlib0rsugxkigwm",
+    "nycjja5wyftszsh",
+    "awps1xuydwla99w",
+    "n6kpo42etq7teh9",
+    "lfq0piawit60i78",
+    "dqz2fp8qe08abhn",
+    "jsp1h5jgs4mz8dr",
+    "r5xht695h4dlyj8",
+    "053bgtvmuy45978",
+    "n4ww0law87berfi",
+    "uio22v30ljg6ce5",
+    "z5cn6mndagarz1u",
+    "4aoxhu934j5ytcf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.111Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.111Z",
+      "agent": "ld176sg3we0xibu",
+      "source_id": "f8jh5c0gz7x9lyu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.829Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.829Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "ysglvu6b9c3vrve"
+    }
+  ]
+}

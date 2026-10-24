@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Portrait des Vaters« von K. Schikaneder INr 118737, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:43.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Portrait des Vaters Sc. II. / Da musste ja der Schlag mich rühren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Leop. Beyer sc.",
+  "scans": [
+    "alm_2700_118738_ovl55a9e6l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Portrait des Vaters Sc. II. / Da musste ja der Schlag mich rühren",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.552Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "ia8phy3mzu4sxjy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.552Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "ruks3w2u3e9f3ai"
+    }
+  ]
+}

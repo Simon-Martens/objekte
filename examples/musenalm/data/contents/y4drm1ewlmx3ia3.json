@@ -1,0 +1,67 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 53251, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53262,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italienische Schule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Antonio Correggio. F. H. Müller del. E. Rauch sc. Darmstadt",
+  "scans": [
+    "alm_576_53262_6s0l2g5pr4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Italienische Schule",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.516Z",
+      "agent": "irhvezh3jd0m3va",
+      "source_id": "4vwci16wrdd5qaq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.516Z",
+      "agent": "j12p4vv4qgvdxl0",
+      "source_id": "ahfihtbcdx44l7z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.516Z",
+      "agent": "k7ib4tmw0w1jiao",
+      "source_id": "x64nw4vpe0rxm4s"
+    }
+  ]
+}

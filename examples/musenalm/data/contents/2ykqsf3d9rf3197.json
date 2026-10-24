@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VIII. (Sammlung INr 77068, Obj 4) Illustration zu »Der Taucher« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77214, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77215,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es kommen, es kommen die Wasser all', / Sie rauschen herauf, sie rauschen nieder, / Den Jüngling bringen sie nicht wieder!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Näke del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_2400_77215_cg952hdtmt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es kommen, es kommen die Wasser all', / Sie rauschen herauf, sie rauschen nieder, / Den Jüngling bringen sie nicht wieder!",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "yf7uqcfkp0nwlnb",
+      "source_id": "fgv88l21s5eowal"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "wwo4a4aih8em8kv"
+    }
+  ]
+}

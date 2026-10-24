@@ -1,0 +1,84 @@
+{
+  "annotation": "onym",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS1–95, SS1–80, SS1–56",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1847",
+    "norm": "~",
+    "biblio": 200868,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3448,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1847",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / auf das Jahr 1847 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Vierundzwanzigstes Bändchen. / Enthält: / Der junge Vormund. / Lustspiel in 2 Aufzügen. / Jeanne und Jeanneton. / Lustspiel in 2 Aufzügen. / Ihr Bild. / Lustspiel in 1 Aufzuge. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1847",
+  "updated": "2026-06-11 10:18:55.498Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "hw68iaa1a4vcvhs"
+  ],
+  "contents": [
+    "lw1hx5s6sa1hzjr",
+    "h9kwr99h36gii56",
+    "5o8tifn5wgx6fs9",
+    "51fkpzbajkzg2nf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.221Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.221Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "m8d7fr2kam8rnmp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.480Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.480Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "tsalhg3rlqdk9sc"
+    }
+  ]
+}

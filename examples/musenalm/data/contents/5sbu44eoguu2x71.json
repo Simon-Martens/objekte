@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Unser Wald. An Gärtner« von Carl Arnold Schmid INr 5797, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. A. P. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_116_5798_xhlllp7hhe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.101Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "s9umjbjhhkny42p"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "$ vermutl. einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "März-Almanach (Brennglas) 1849",
+    "norm": "",
+    "biblio": 406043,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-06-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3567,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Mittler)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "März-Almanach (Brennglas) 1849",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Adolf Brennglas",
+  "subtitle_statement": "",
+  "title_statement": "März-Almanach. / Von / Adolf Brennglas. / Mit vielen Illustrationen / von / Th. Hosemann, W. Scholz u. A. / Zweite Auflage. / Verlegt / von / J. G. Mittler in Leipzig. / 1849",
+  "updated": "2026-06-11 10:18:55.928Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "cfi79kyvlm0uq3y"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.107Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.107Z",
+      "agent": "npggi056hn5s4fl",
+      "source_id": "ngt8yp6eulir7to"
+    }
+  ]
+}

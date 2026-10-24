@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dort senkt im goldenen Gewölke / Die Sonne sich hinab ins Tal,",
+  "language": [],
+  "musenalm_id": 93315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Geist meines Vaters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Geist meines Vaters",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.432Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "b7s7eqteto8h2bq"
+    }
+  ]
+}

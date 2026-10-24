@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116438, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116447,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werthers Leiden. / Dritte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Fr. Wagner sc.",
+  "scans": [
+    "alm_534_116447_bumogpil3h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Werthers Leiden. / Dritte Scene",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.651Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "5pdw57f4zo0m149"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.651Z",
+      "agent": "zcahh3ez21pnltp",
+      "source_id": "area1nj4yp4w3k5"
+    }
+  ]
+}

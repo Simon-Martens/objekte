@@ -1,0 +1,704 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1835",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.278Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schriftstellerin und Lyrikerin, lebte in Dänemark und Deutschland"
+      ],
+      "dateOfBirth": [
+        "1765-06-03"
+      ],
+      "dateOfDeath": [
+        "1835-03-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Juersch"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Frederikke%20Brun%201818.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Frederikke%20Brun%201818.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Frederikke%20Brun%201818.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/18759659X",
+        "https://d-nb.info/gnd/183464087"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T10:53:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118516051/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Münter"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/133065421",
+          "label": "Brun, Johan Christian Constantin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118735098",
+          "label": "Münter, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1193509521",
+          "label": "Brun, Ida"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117178756",
+          "label": "Münter, Balthasar"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DK",
+          "label": "Dänemark"
+        }
+      ],
+      "gndIdentifier": "118516051",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1193509521",
+          "label": "Brun, Ida"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117178756",
+          "label": "Münter, Balthasar"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/118735098",
+          "label": "Münter, Friedrich"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/133065421",
+          "label": "Brun, Johan Christian Constantin"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118516051",
+      "oldAuthorityNumber": [
+        "(DE-588a)183464087",
+        "(DE-588a)118516051",
+        "(DE-588)18759659X",
+        "(DE-588a)18759659X",
+        "(DE-588c)4008473-5",
+        "(DE-588)183464087"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4238577-5",
+          "label": "Gräfentonna"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        }
+      ],
+      "preferredName": "Brun, Friederike",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friederike"
+        ],
+        "surname": [
+          "Brun"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        }
+      ],
+      "publication": [
+        "Neue Gedichte",
+        "Briefe aus Rom",
+        "Episoden aus Reisen durch das untere Italien",
+        "Episoden aus Reisen durch das südliche Deutschland ... - 1806 - 1818",
+        "Reise von Genf in das südliche Frankreich und nach Italien",
+        "Episoden aus Reisen durch das untere Italien in den Jahren 1808 - 1810",
+        "Gedichte",
+        "Sitten- und Landschaftsstudien von Neapel und seiner Umgebungen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb131966899"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr99001179"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/7531264"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D41430.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q450985"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118516051/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/183464087"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18759659X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friederike_Brun"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friederike_Brun"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friederike_Brun"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friederike_Brun"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080868117"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118516051"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1782_brun"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118516051.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118516051.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118516051"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118516051"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Brun, Sophie Christiane Frédérique",
+        "Brune, Frederika",
+        "Brun, Sophie Christiane Friederike",
+        "Brün, Friederika Ida",
+        "Brun, Friederike Sophie Christiane",
+        "Brun, Sophie Christiane",
+        "Brunn, Friederike",
+        "Bruen, Fr. geb. Muenter",
+        "Brun, Friederika",
+        "Münter, Frederike",
+        "Brun, Frederikke",
+        "Brun, Friederike Sophie",
+        "Brün, Friederike",
+        "Brun, Sophie Christiane Frederike",
+        "Brun, Sophie-Christiane-Frédérique",
+        "Brun, Sophie Christiane Frederikke",
+        "Brun, Friederike S. Chr.",
+        "Münter, Friderica",
+        "Brun, Friderica",
+        "Brun, Friderika",
+        "Brun, Fried.",
+        "Brün, Friedericke",
+        "Münter, Friederika",
+        "Brun, Frederike",
+        "Münter, Friederike Sophie Christiane",
+        "Brun, Sophie-Christiane-Friederike",
+        "Münter, Friederike Sophie",
+        "Brun, Friederika geb. Muenter",
+        "Münter, Friderike",
+        "Münter, Fried.",
+        "Brun, Friderike",
+        "Münter, Friederike"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Brunn"
+          ]
+        },
+        {
+          "forename": [
+            "Friderike"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friedericke"
+          ],
+          "surname": [
+            "Brün"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Christiane Frédérique"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Sophie Christiane"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friederika geb. Muenter"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friderica"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Fried."
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike"
+          ],
+          "surname": [
+            "Brün"
+          ]
+        },
+        {
+          "forename": [
+            "Friderike"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Frederike"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Christiane"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Fr. geb. Muenter"
+          ],
+          "surname": [
+            "Bruen"
+          ]
+        },
+        {
+          "forename": [
+            "Friderica"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Frederika"
+          ],
+          "surname": [
+            "Brune"
+          ]
+        },
+        {
+          "forename": [
+            "Friederika"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Christiane Friederike"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie-Christiane-Friederike"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederika"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Christiane Frederike"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friderika"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Sophie Christiane"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friederika Ida"
+          ],
+          "surname": [
+            "Brün"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie Christiane Frederikke"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Frederike"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Sophie"
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Sophie"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike Sophie Christiane"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Fried."
+          ],
+          "surname": [
+            "Münter"
+          ]
+        },
+        {
+          "forename": [
+            "Friederike S. Chr."
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Sophie-Christiane-Frédérique"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        },
+        {
+          "forename": [
+            "Frederikke"
+          ],
+          "surname": [
+            "Brun"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friederike_Brun",
+          "label": "https://de.wikipedia.org/wiki/Friederike_Brun"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:02:36Z",
+    "gnd_query_biographical_data": "1765-1835",
+    "gnd_query_name": "brun, friederike"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 320,
+  "name": "Brun, Friederike",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 430; Goed XII, 49",
+  "updated": "2026-06-11 13:29:21.771Z",
+  "uri": "https://d-nb.info/gnd/118516051",
+  "editor": ""
+}

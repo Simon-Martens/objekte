@@ -1,0 +1,55 @@
+{
+  "annotation": "KVK, GBV: Jgg 1820-1822",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Polycheiria 1822",
+    "norm": "",
+    "biblio": 409911,
+    "status": [
+      "Reprint vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2019-06-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4644,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Selbstverlag)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Polycheiria 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "B. Korsinsky",
+  "subtitle_statement": "",
+  "title_statement": "Polycheiria. / Herausgegeben / von / B. Korsinsky. / 1822. / Erste Lieferung. / (Neue Folge.) / Stuttgart, / auf Kosten des Herausgebers. / 1822",
+  "updated": "2026-06-11 10:18:55.298Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "v267l90jerye4m2"
+  ],
+  "contents": [],
+  "agents": []
+}

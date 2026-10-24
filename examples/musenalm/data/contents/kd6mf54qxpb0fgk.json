@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Taschenbuch für Liebe und Freundschaft. Eine Historie in 8 Kapiteln, mit 8 Bildern (Sammlung INr 30155, Obj 5) s. Graphik INr 30155, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mein Vater, der Registrator Wallrich, lebt noch im Andenken meiner Geburtsstadt, als der bravste und gefälligste Mann.",
+  "language": [],
+  "musenalm_id": 30156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Kapitel. / Das Mißgeschick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Kapitel. / Das Mißgeschick",
+  "updated": "2002-11-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.520Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "wic3tj334p2a2lz"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 23366, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Jole sprach zu Alkmene, die blühende Schnur zu der Schwieger: / Fremd ist eurem Geschlecht die Verwandelte,",
+  "language": [],
+  "musenalm_id": 23372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "August / Dryope. / (Ovid Metam. IX. 325-396.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "August / Dryope. / (Ovid Metam. IX. 325-396.)",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.868Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "d9w0t54qdehj7my"
+    }
+  ]
+}

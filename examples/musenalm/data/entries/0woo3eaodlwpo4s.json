@@ -1,0 +1,108 @@
+{
+  "annotation": "Auch vorhanden als: Berliner Taschenbuch auf das Schalt-Jahr 1832",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal, S I-Verz, ar: S 1 I-Verz, S 2, SS 3-386, SS 387-394 G-Verz, ar1: SS 1-104, B, ar2: SS 1-78, B",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1832",
+    "norm": "~",
+    "biblio": 404158,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 867,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "BERLINER / KALENDER / auf / das Schalt Jahr 1832 / MIT KUPFERN / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.752Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "6o2cgr6vn5prxkj"
+  ],
+  "contents": [
+    "oyqpa6afsedullm",
+    "pf58vkkph7az20w",
+    "5rdzamc4hckf4r1",
+    "0vtpa7ygygyz3ea",
+    "i1yjtuls27t4mus",
+    "1s2q0ll3as33atf",
+    "9u31s0sfrljjjt9",
+    "5dhvgj3xmakyxy5",
+    "78uue5c2giyhw71",
+    "6qaxaehgxusoyku",
+    "cx7tib961gqpzhr",
+    "fvn4im8uji3fv4k",
+    "72uvtigbfg73io6",
+    "xbt1k7quojy3spa",
+    "37ux60bu28h7cuw",
+    "28z8ov2m6bjuqvd",
+    "kv2htd1akho267c",
+    "clqtf5oxjn5tpbn",
+    "flxkb9d39iadiqi",
+    "wcssd4vgstn1kai",
+    "va3skukyno9vgnf",
+    "uoaoh2n6ssspa06",
+    "2cropxa6bswkmaf",
+    "gi4n4uek9rk0pdk",
+    "8x7gy0h7q64064b",
+    "9raxbgb6rx0i0h7",
+    "fbc4amraqm6875n",
+    "szdq4vstpg1un2d",
+    "urjf8p74kggomat",
+    "8px29c2r36c2n0f",
+    "p34o4vut3prcbwq",
+    "qx8jfazvja47ghf",
+    "crlcm0rf9re6y84",
+    "3dfllywsw93j5yy",
+    "0gtaimjt68sblyv",
+    "ymcehy48vmuikhg",
+    "5ahp2tg2otr0wpg",
+    "duom31u2en2h0z6",
+    "6v0keigpn3mf491",
+    "fokuw2bjgn2vosa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "856vp8gzh76jfwq"
+    }
+  ]
+}

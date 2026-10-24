@@ -1,0 +1,45 @@
+{
+  "annotation": "Skizzen aus Lord Byron's Leben und Schriften (Sammlung INr 127758, Obj 15) Dem Text vorangestellt: Seltsam immer  bleibt's und wundervoll. / Sommernachtstraum /) mit einer Illustration s. Graphik INr 127762, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Der nackt auf das wilde Pferd gebundene und im Sturm fort getragene Mazeppa ward der Vorwurf eines berühmten französischen Künstlers",
+  "language": [],
+  "musenalm_id": 127763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mazeppa unter den Pferden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mazeppa unter den Pferden",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.957Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "h9847pboj10t1ed"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64564, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64570,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Philister #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Bles pinx. J. W. Kaiser sculps.",
+  "scans": [
+    "alm_1076_64570_if4vx6k3vu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Philister #",
+  "updated": "2009-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.277Z",
+      "agent": "p3hijooo9pslzw2",
+      "source_id": "8c6cvhiruko799q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.277Z",
+      "agent": "r03ginlx54pqp8z",
+      "source_id": "k5fmw2ruemk5k8d"
+    }
+  ]
+}

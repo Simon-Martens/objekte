@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August nummeriert 8; # Bez. am ersten Blatt der Suite /) s. Textbezug INr 135017, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135032,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er hat Gerechtigkeit geübt / Il a rendu la justice",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodwiecki del. E. Henne sc.",
+  "scans": [
+    "alm_2047_135032_bndj9udg3f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er hat Gerechtigkeit geübt / Il a rendu la justice",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.132Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "9b3lpbc8mu59c8b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.132Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "z31lcj7hg7q6tyi"
+    }
+  ]
+}

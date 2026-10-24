@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Brautstande (Sammlung INr 55472, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Wie die Perle still geborgen / In der Muttermuschel ruht,",
+  "language": [],
+  "musenalm_id": 55478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2008-02-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.707Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "addkfp7tmtq8vru"
+    }
+  ]
+}

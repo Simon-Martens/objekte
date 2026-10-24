@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht »Beruhigung« von Sophie Nordenflycht in: Musenalmanach, Rheinisch-westfälischer 1821; INr 65858",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Den Blick gesenkt in sinniger Betrachtung / Stand ich am dunkeln Riesenstrom der Zeit,",
+  "language": [],
+  "musenalm_id": 66033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fräulein Julie von Norden- / pflycht. / (Siehe »Beruhigung« im vorjährigen Rhein. westf. / Musenalmanach, S. 90)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. R. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fräulein Julie von Norden- / pflycht. / (Siehe »Beruhigung« im vorjährigen Rhein. westf. / Musenalmanach, S. 90)",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.231Z",
+      "agent": "i8izpiuwm5jw2yh",
+      "source_id": "dxici20ov387tpb"
+    }
+  ]
+}

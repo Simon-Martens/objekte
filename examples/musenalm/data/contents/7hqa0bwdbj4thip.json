@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage (INr 98783, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Zu Wien. Sein Verdienst um die Schaubühne ist bekannt. Er half die Possen vertreiben, und lieferte der Wienerschen Bühne regelmäßige Stücke,",
+  "language": [],
+  "musenalm_id": 98791,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freiherr von Gebler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freiherr von Gebler",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.791Z",
+      "agent": "wqzupcw1vi6tnne",
+      "source_id": "acj36cwusp8cbqy"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88116, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Isola, und der durch den Fibrenus und Lyris: heutzutage Garigliano: verur- / sachten Wasserfälle in geringer Entfernung vom Berge Cassino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tierce del. Blaschke sc.",
+  "scans": [
+    "alm_3102_88066_6yj6jx6s8v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Isola, und der durch den Fibrenus und Lyris: heutzutage Garigliano: verur- / sachten Wasserfälle in geringer Entfernung vom Berge Cassino",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.148Z",
+      "agent": "apaqfqjh6vlnlni",
+      "source_id": "cbkhtidcqv90var"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.148Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "gyl6pj3eznnup1v"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1 /) kol. Graphik im Kalendarium Januar /) Illustration zum unbetitetelten, unbezeichneten Beitrag INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81966,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Latour d'Auvergne's Denkmal / bey Neuburg (S. 61.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber inv. P. J. Lamint sc.",
+  "scans": [
+    "alm_3830_81966_qtnsz4glzc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Latour d'Auvergne's Denkmal / bey Neuburg (S. 61.)",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "2oknl76ggg2toiy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.115Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "6t9odlekzp9hw4d"
+    }
+  ]
+}

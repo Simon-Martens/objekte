@@ -1,0 +1,545 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1801",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.435Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Musikstudium in Dresden, danach für mehrere Jahre in Italien; Hofkapellmeister in Dresden"
+      ],
+      "dateOfBirth": [
+        "1741-04-14"
+      ],
+      "dateOfDeath": [
+        "1801-10-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Friedrich Gotthard Naumann"
+          ],
+          "creditText": [
+            "http://www.deutschefotothek.de/documents/obj/70237678"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottlieb%20Naumann.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20Gottlieb%20Naumann.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20Gottlieb%20Naumann.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-01-15T13:01:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118738208/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116899239",
+          "label": "Naumann, Emil"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116900377",
+          "label": "Naumann, Carl Friedrich"
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Moritz Ernst Adolf"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117548421",
+          "label": "Naumann, Constantin August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116900490",
+          "label": "Naumann, Moritz"
+        },
+        {
+          "forename": [
+            "Karl Ernst"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118738208",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117548421",
+          "label": "Naumann, Constantin August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116900490",
+          "label": "Naumann, Moritz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116900377",
+          "label": "Naumann, Carl Friedrich"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/116899239",
+          "label": "Naumann, Emil"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118738208",
+      "oldAuthorityNumber": [
+        "(DE-588a)134610598",
+        "(DE-588c)4102394-8",
+        "(DE-588a)118738208",
+        "(DE-101c)310300592",
+        "(DE-588a)139395849"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4041476-0",
+          "label": "Neapel"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4007616-7",
+          "label": "Bologna"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4057648-6",
+          "label": "Stockholm"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032399-7",
+          "label": "Kopenhagen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044295-0",
+          "label": "Padua"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4414879-3",
+          "label": "Dresden-Blasewitz"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Naumann, Johann Gottlieb",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Gottlieb"
+        ],
+        "surname": [
+          "Naumann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Naumann, Johann G.: Betulia liberata",
+        "Recke, Elisa van der: Gedichte Der Frau Elisa von der Recke",
+        "Naumann, Johann G.: Das Vaterunser",
+        "Naumann, Johann G.: Gustaf Wasa",
+        "Naumann, Johann G.: [Konzerte, Kl Orch B-Dur]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84130294"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/34652621"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213927"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118738208"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118738208/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Gottlieb_Naumann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Naumann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Gottlieb_Naumann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000113440863"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118738208"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118738208"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118738208.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118738208.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118738208"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118738208"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Naumann, Amadeo",
+        "Naumann, Johann Amadeus",
+        "Naumann, Giovanni A.",
+        "Naumann, Johannes G.",
+        "Naumann, Johann G.",
+        "Nauman, J. A.",
+        "Naumann, Gottlieb Amandus",
+        "Naumann, Gottl.",
+        "Naumann",
+        "Naumann, G. A.",
+        "Naumann, Giovanni Amadeo",
+        "Nauman, Joh. Amad.",
+        "Nauman, Giovanni Amadeo",
+        "Nauman",
+        "Naumann, Amadeus",
+        "Naumann, C. M."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Giovanni Amadeo"
+          ],
+          "surname": [
+            "Nauman"
+          ]
+        },
+        {
+          "forename": [
+            "Amadeus"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Gottl."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Amadeo"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Amadeus"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Johann G."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni A."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Nauman"
+          ]
+        },
+        {
+          "forename": [
+            "Amadeo"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "G. A."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "C. M."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Amad."
+          ],
+          "surname": [
+            "Nauman"
+          ]
+        },
+        {
+          "personalName": [
+            "Nauman"
+          ]
+        },
+        {
+          "forename": [
+            "Gottlieb Amandus"
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes G."
+          ],
+          "surname": [
+            "Naumann"
+          ]
+        },
+        {
+          "personalName": [
+            "Naumann"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Naumann",
+          "label": "https://de.wikipedia.org/wiki/Johann_Gottlieb_Naumann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:22:06Z",
+    "gnd_query_biographical_data": "1741-1801",
+    "gnd_query_name": "naumann, johann gottlieb"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1925,
+  "name": "Naumann, Johann Gottlieb",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXIII, 306; Goed (H) 356",
+  "updated": "2026-06-11 13:29:23.928Z",
+  "uri": "https://d-nb.info/gnd/118738208",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Den letzten Pfeil aus dem Köcher / Leg' ich auf den Bogen für dich;",
+  "language": [],
+  "musenalm_id": 67932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.221Z",
+      "agent": "690p6l7d7zmbgvd",
+      "source_id": "xehjohoeledadgj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80062,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CYANEN. / TASCHENBUCH FÜR 1840. / MOTTO / Windet zum Kranze die goldenen Aehren, / Flechtet auch blaue Cyanen hinein! / Schiller. / WIEN UND LEIPZIG. / Friedrich Wilhelm Pfautsch / Seitzergasse Nr. 423",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. Pfoehl sc.",
+  "scans": [
+    "alm_1695_80062_08dfhu9b1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CYANEN. / TASCHENBUCH FÜR 1840. / MOTTO / Windet zum Kranze die goldenen Aehren, / Flechtet auch blaue Cyanen hinein! / Schiller. / WIEN UND LEIPZIG. / Friedrich Wilhelm Pfautsch / Seitzergasse Nr. 423",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.772Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "x18xebjxh503dv3"
+    }
+  ]
+}

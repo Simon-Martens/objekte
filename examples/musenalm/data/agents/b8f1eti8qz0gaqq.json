@@ -1,0 +1,165 @@
+{
+  "annotation": "",
+  "biographical_data": "?-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.442Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Bildhauer"
+      ],
+      "dateOfBirth": [
+        "1768"
+      ],
+      "dateOfDeath": [
+        "1800"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Sailko"
+          ],
+          "creditText": [
+            "Own work"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Agostino%20penna%2C%20esercizi%20ginnici%2C%201782%20ca.%2C%20lottatori.JPG",
+          "license": [
+            {
+              "abbr": "CC BY 3.0",
+              "attributionRequired": true,
+              "id": "https://creativecommons.org/licenses/by/3.0",
+              "name": "Creative Commons Attribution 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agostino%20penna%2C%20esercizi%20ginnici%2C%201782%20ca.%2C%20lottatori.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Agostino%20penna%2C%20esercizi%20ginnici%2C%201782%20ca.%2C%20lottatori.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-03-17T20:39:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/123738830/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-255",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-255"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "123738830",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.2p",
+          "label": "Personen zu Plastik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/123738830",
+      "oldAuthorityNumber": [
+        "(DE-588a)123738830",
+        "(DE-588c)4682239-2"
+      ],
+      "preferredName": "Penna, Agostino",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Agostino"
+        ],
+        "surname": [
+          "Penna"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4139550-5",
+          "label": "Bildhauer"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96197748"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q26035171"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/123738830/about"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/123738830"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:27:30Z",
+    "gnd_query_biographical_data": "?-1800",
+    "gnd_query_name": "penna, agostino"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2035,
+  "name": "Penna, Agostino",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVI, 380",
+  "updated": "2026-06-11 13:29:24.038Z",
+  "uri": "https://d-nb.info/gnd/123738830",
+  "editor": ""
+}

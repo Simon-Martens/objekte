@@ -1,0 +1,96 @@
+{
+  "annotation": "Format 4,2 x 7 /) franz. Titel lautet: Petit ALMANAC pour l'an 1817, avec six fables de Lafontaine, françoises et allemandes, et 12 estampes qui s'y rapportent. Publié par la Députation royale des Calendriers /) Die Illustrationen bezeichnet: Rp. d. sc.:$ vermutlich E. L. Riepenhausen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T verso, T recto, 29 SS Kal darin 12 GG, S 1 zT, SS 2-45",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1817",
+    "norm": "~",
+    "biblio": 406847,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-05-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4103,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1817 [s. a.: Almanach, Petit 1817]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königl. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1817, / mit / sechs Fabeln von Lafontaine, / deutsch und französisch, / und / 12 dazu gehörigen Kupfern. / Herausgegeben von der Königl. / Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.270Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "qqb6y3yffuo4fvf"
+  ],
+  "contents": [
+    "3nhyeklwpajaycc",
+    "gx25q04i8tfcmw0",
+    "vd2xl32dej8pztr",
+    "f9ixhigno0ww7n4",
+    "bdlca38na35yh6y",
+    "afgs6zvwwl8v4f6",
+    "c0wf8e77ov159pk",
+    "5twdvd3sr3jp790",
+    "rq9mkzrmbpmkq1o",
+    "gcfldyrj1oappc7",
+    "jeq1bktyo6zbwsu",
+    "0uka2dzc9tqz0fe",
+    "59n9snoja5aqknr",
+    "7w6jrhr8ed2g8m2",
+    "ivf59t3xenvgsqr",
+    "oir8a2xkwd0wbtr",
+    "k3b3a3cuu9eb278",
+    "q6somq24vfcy2ij",
+    "75tstat2z3r71sf",
+    "7fljt23vndd8a2q",
+    "cj07fqxbhrry7t0",
+    "i8sehueye8f10cr",
+    "ew01zbl0xpbfdfa",
+    "7bg4fe0ferpulpz",
+    "mpi77axlwjejksm",
+    "447oqpnck2r1b9m",
+    "8wzic40sxzyq38m",
+    "cnn5hzzeszdv7vr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "ok8uy39jdlkzsl4"
+    }
+  ]
+}

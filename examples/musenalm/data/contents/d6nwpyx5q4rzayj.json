@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neusel (Sammlung INr 98898, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Liebe, meinen Geist, / Der den deinen preist, / Leit' auf Einer Spur, / Deiner, deiner nur!",
+  "language": [],
+  "musenalm_id": 98926,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27.",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.905Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "tbqq605yj8l6g8z"
+    }
+  ]
+}

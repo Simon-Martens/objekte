@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetische Kleinigkeiten (Sammlung INr 33556, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Dein Wollen wachse gerade und beuge sich nicht, aber dein Wissen neige sich beweglich nach allen Gegenden des Lichts,",
+  "language": [],
+  "musenalm_id": 33558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brust und Kopf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brust und Kopf",
+  "updated": "2003-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.597Z",
+      "agent": "y5wtm06nok2j69h",
+      "source_id": "0ezliwpxux4ssxf"
+    }
+  ]
+}

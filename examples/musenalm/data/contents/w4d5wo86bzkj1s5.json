@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 79095, Obj 170",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Von allen Ländern in der Welt / das deutsche mir am besten gefällt,",
+  "language": [],
+  "musenalm_id": 13593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das deutsche Lied. / Mit Composition von H. Methfessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das deutsche Lied. / Mit Composition von H. Methfessel",
+  "updated": "2001-04-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.494Z",
+      "agent": "zcowt1c8qli1wm3",
+      "source_id": "jten34tr3kqwru1"
+    }
+  ]
+}

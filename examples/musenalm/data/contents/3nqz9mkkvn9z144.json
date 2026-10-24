@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 68179, 68180; Obj 196, 197",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Steinmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Romanzen",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.330Z",
+      "agent": "jxsklfwb6yipx9m",
+      "source_id": "2bj6x0lri6fpbm8"
+    }
+  ]
+}

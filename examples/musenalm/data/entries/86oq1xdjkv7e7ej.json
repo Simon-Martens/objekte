@@ -1,0 +1,55 @@
+{
+  "annotation": "10-12. Abt. in einem Band /) Titel und I-Verz als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.\nReihentitel aus AlmNeu.xml als neue Reihe angelegt; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "T, 2 BB I-Verz, SS 1-150",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-11-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4877,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Dyck)",
+  "places": [],
+  "preferred_title": "Taschenbuch für Dichter und Dichterfreunde 1781 12. Abt. 1781",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichter und Dichterfreunde. / Zwölfte und lezte Abtheilung. / Leipzig, / in der Dyckischen Buchhandlung. / 1780",
+  "updated": "2024-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "items": [
+    "e0fl6ugpi6qttig",
+    "pdeilcsvktbb2o2"
+  ],
+  "contents": [
+    "wb8osmzdej2t5s5",
+    "afcht0xffd3ktn0"
+  ],
+  "agents": []
+}

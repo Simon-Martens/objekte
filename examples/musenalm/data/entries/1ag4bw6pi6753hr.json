@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 12 GG Kr, 4 GG, S 1 zT, SS 3-92, B G-Verz, 147 SS, 2 SS Anm d Hrsg",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1795 /) (franz. Ausgabe: Almamac Historique & Généalogique 1795)",
+    "norm": "§$ vermutl. fehlt Karte",
+    "biblio": 409270,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-04-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4303,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1795 (franz. Ausgabe: Almamac Historique & Généalogique 1795)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Siwicke",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / Historique & Généalogique / pour l'année / 1795. / Avec l'approbation de L'Academie / Royale des Sciences et belles lettres / à Berlin",
+  "updated": "2026-06-11 10:18:55.871Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "qrspmkarpdmgcv0"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "z3zrlm9dqjqbi42"
+    }
+  ]
+}

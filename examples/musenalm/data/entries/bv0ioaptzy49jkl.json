@@ -1,0 +1,115 @@
+{
+  "annotation": "Dem Ex. ist beigebunden: Teutschlands National-Kalender 1796, Alm-Nr 307",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, ar: S 1 T, S 3 W, SS 5-18 G-Verz, 14 BB Kal darin 12 GG, ar1: SS 1-61 darin G, SS 63-71 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Historischer für den deutschen Adel 1795",
+    "norm": "~",
+    "biblio": 106631,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-02-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 294,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (P. H. Guilhauman)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Almanach, Historischer für den deutschen Adel 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 12; L/R 21; Goed V. 449, 11; Goed VII. 200, 11",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / Almanach / für / den deutschen Adel / und / für Freunde der Geschichte desselben / 1795. / Ravan von Helmstatt, / Bischof zu Speyer, / und Erzbischof zu Trier. / von / Carl Lang. / mit Kupfern von Verschiednen. / Frankfurt am Main, / bey Philip Heinrich Guilhauman",
+  "updated": "2026-06-11 10:18:55.168Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "5cjfs7724ihabgt"
+  ],
+  "contents": [
+    "ov4rwlpg9kxurkp",
+    "3e2vu187b356j0q",
+    "14r0epgb0b6oc3l",
+    "yg99mmze45796sf",
+    "hpiljsjindzeb43",
+    "z1m745to03362ec",
+    "eeapxlads3nhg8h",
+    "zibpljftspdhuhx",
+    "cllq1awsmoicwmm",
+    "pm93da2d0yry31m",
+    "c9124oarrfti5ph",
+    "piu13ivz8tunqpi",
+    "wp24r4wz2vzi4q7",
+    "e68026axgkp7xtl",
+    "q73alao1ni2na5s",
+    "q0cd2nn1lwyxv5f",
+    "1kozrwvezysw9ou",
+    "3e9hbkvwdarjycl",
+    "uvaxnkrlkvbrvbb",
+    "83lzops748cdai8",
+    "jp0e5nhecvkrv1q",
+    "1o1fdd0m2zq5ihi",
+    "mcyj6h4gzqsvln3",
+    "g6np7udq0b6yjq2",
+    "wpihkjqfwzmvp74",
+    "24q30e406rfcfyi",
+    "egjme829rrneam5",
+    "rt72ar166ydjge2",
+    "2zf569fjn468iyi",
+    "wz58n2rjed3lqo1",
+    "5l9foq5g9ryzeq5",
+    "5iuiv9kggbtr7k0",
+    "qg05bayed0zaxrt",
+    "kmftwi6zayor08h",
+    "zyffztretmtgrtb",
+    "bbljh7ydjsthnvw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.939Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.939Z",
+      "agent": "fao1gdwq2he58u0",
+      "source_id": "aoxnp5bpmnucwgg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.583Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.583Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "pufokfjtz57z9x2"
+    }
+  ]
+}

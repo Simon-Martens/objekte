@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 27458, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27459,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Stürmer del. W. Böhm sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Stürmer del. W. Böhm sc.",
+  "scans": [
+    "alm_353_27459_he3mkkg3oc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.042Z",
+      "agent": "6bm0o5ohkrr9ip0",
+      "source_id": "dr1op7tl3nqoq2k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.042Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "sv4ifpfctb5ukp8"
+    }
+  ]
+}

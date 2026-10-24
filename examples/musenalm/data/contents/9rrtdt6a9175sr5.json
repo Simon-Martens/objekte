@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: - - quis talia fando / temperet a lacrymis? / VIRGIL",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Lange schon hauseten im Paderbornischen zwei Wölfe. Einer davon ward bald erlegt, der andre täuschte alle Nachstellungen, bis endlich auch er, so schmählich!! wie folget, durch - Priesterhand zum Tode befördert wurde.",
+  "language": [],
+  "musenalm_id": 66704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Abentheuerliche Wolfsjagd eines Seelen- / hirten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Abentheuerliche Wolfsjagd eines Seelen- / hirten",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.176Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "qfvd3ovut75ce7g"
+    }
+  ]
+}

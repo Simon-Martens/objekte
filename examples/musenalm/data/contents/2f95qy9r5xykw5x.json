@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 30048, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Das fröhlich laute Treiben des Jahrmarkts in der glänzenden Hauptstadt, hatte mit dem Sinken des dritten Tages, an einem herrlichen Frühlingsabende, seine Endschaft erreicht.",
+  "language": [],
+  "musenalm_id": 30047,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jahrmarkt. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Borromäus von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jahrmarkt. / Eine Erzählung",
+  "updated": "2002-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.678Z",
+      "agent": "e36ydmk4x9m4umt",
+      "source_id": "72una6rl5opz9ln"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "1807-1829 Frankfurt; Hrsg: Carl Cesar Leonhard",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, verso G, T, S W, B Vrwrt d Hrsg, SS 1-408, SS 409-415 Tab, 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die gesammte Mineralogie 1810",
+    "norm": "",
+    "biblio": 104804,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-03-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4804,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Hermann)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch für die gesammte Mineralogie 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 137; nicht bei L/R ; ADB XVIII, 309",
+  "responsibility_statement": "Carl Cesar Leonhard",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für die gesammte / Mineralogie, / mit Hinsicht auf die neuesten / Entdeckungen, / herausgegeben / von Carl Caesar Leonhard, / Kammerrath, Mitgliede der Landkassen- und Steuer-Direction [...] / Vierter Jahrgang. / Mit Blumenbach's Bildniss und drei Kupfertafeln. / Frankfurt am Main, 1810. / Bei Johann Christian Hermann",
+  "updated": "2026-06-11 10:18:55.806Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "items": [
+    "nxzjauy3720jq6c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.994Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.994Z",
+      "agent": "w3vdcm9ewwhgul8",
+      "source_id": "qmqem0gy5ty2vth"
+    }
+  ]
+}

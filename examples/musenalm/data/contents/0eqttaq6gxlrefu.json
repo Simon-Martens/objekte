@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Erklärung der Kupfer (Sammlung INr 60185, Obj 21) s. Graphik INr 60204, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Zu Oberndorf in Franken, sagte eines Tages ein französischer Reiter zu seinem Hauswirth: Bauer, du hast dein Geld versteckt, bring es an einen andern Ort, es ist nicht mehr sicher.",
+  "language": [],
+  "musenalm_id": 60205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Der brave französische Reiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Der brave französische Reiter",
+  "updated": "2008-10-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.706Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "tyog0ui726xw8ff"
+    }
+  ]
+}

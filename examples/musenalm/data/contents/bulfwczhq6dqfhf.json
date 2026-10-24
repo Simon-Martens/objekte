@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 5 Gedichten als Textbezüge zu den Graphiken des Taschenbuchs INr 95209-95218, Obj 5-14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95208,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauen-Anmuth, / zur / Erläuterung der Stahlstiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauen-Anmuth, / zur / Erläuterung der Stahlstiche",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.201Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "jn6xbbg3yj7nlez"
+    }
+  ]
+}

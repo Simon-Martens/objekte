@@ -1,0 +1,36 @@
+{
+  "annotation": "Photos 124736,01; 124736,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124736,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_4703_124736_01_96e1cq9el8.jpg",
+    "alm_4703_124736_02_qzgq0npela.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2020-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": []
+}

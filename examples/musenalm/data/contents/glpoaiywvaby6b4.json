@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Nicht selten bleibt es für den Menschenbeobachter unentschieden, ob er gewisse von ihm wahrgenommene Eigenheiten der Menschennatur für ursprünglich ihr einverwebt halten,",
+  "language": [],
+  "musenalm_id": 12597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorlesung am Silvesterabend / in einem geselligen Kreise.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorlesung am Silvesterabend / in einem geselligen Kreise.",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.487Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "q99pd4xtl8monnm"
+    }
+  ]
+}

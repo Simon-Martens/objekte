@@ -1,0 +1,361 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.384Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1765-03-13"
+      ],
+      "dateOfDeath": [
+        "1827-02-03"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "unknown, not statet in source"
+          ],
+          "creditText": [
+            "Kalchberg (Abbildung). In: Anton Schlossar: Hundert Jahre deutscher Dichtung in Steiermark 1785-1885, Graz 1893, S. 17"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20von%20Kalchberg%20in%20Uniform.png",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Johann%20von%20Kalchberg%20in%20Uniform.png?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Johann%20von%20Kalchberg%20in%20Uniform.png?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-17T11:54:06.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115468048/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115468048",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/115468048",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)115468048"
+      ],
+      "periodOfActivity": [
+        "1817-1822"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Schloss Pichl in der Steiermark"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021912-4",
+          "label": "Graz"
+        }
+      ],
+      "preferredName": "Kalchberg, Johann von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Kalchberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002032696"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/57345282"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18509103"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115468048/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Ritter_von_Kalchberg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_von_Kalchberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055352880"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115468048"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_K/Kalchegger-Kalchberg_Johann_1765_1837.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115468048.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115468048.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115468048"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Kalchberg, Johann Nepomuk von, Ritter",
+        "Kalchegger von Kalchberg, Johann Nepomuk von, Ritter",
+        "Kalchegger, Johann Nepomuk von, Ritter",
+        "Kalchberg, Johann, Ritter von",
+        "Kalchegger von Kalchberg, Johann",
+        "Kalchberg, Johann Nepomuk, Ritter von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalchberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Kalchegger von Kalchberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Kalchberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Kalchberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalchegger"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Nepomuk"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kalchegger von Kalchberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Ritter_von_Kalchberg",
+          "label": "https://de.wikipedia.org/wiki/Johann_Ritter_von_Kalchberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:52:54Z",
+    "gnd_query_biographical_data": "1765-1827",
+    "gnd_query_name": "kalchberg, johann nepomuk von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1337,
+  "name": "Kalchberg, Johann Nepomuk von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 344; Goed VI, 638",
+  "updated": "2026-06-11 13:29:23.112Z",
+  "uri": "https://d-nb.info/gnd/115468048",
+  "editor": ""
+}

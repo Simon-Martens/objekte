@@ -1,0 +1,657 @@
+{
+  "annotation": "",
+  "biographical_data": "1577-1640",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.460Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "flämischer Maler, Zeichner, Dekorateur, Diplomat, Kunstsammler"
+      ],
+      "dateOfBirth": [
+        "1577-06-28"
+      ],
+      "dateOfDeath": [
+        "1640-05-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Peter Paul Rubens"
+          ],
+          "creditText": [
+            "Google Arts &amp; Culture — 4wEv0AeyeA36qg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Peter%20Paul%20Rubens%20-%20Portrait%20of%20the%20Artist%20-%20Google%20Art%20Project.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sir%20Peter%20Paul%20Rubens%20-%20Portrait%20of%20the%20Artist%20-%20Google%20Art%20Project.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sir%20Peter%20Paul%20Rubens%20-%20Portrait%20of%20the%20Artist%20-%20Google%20Art%20Project.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187114714"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:34.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11860354X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1019295015",
+          "label": "Rubens, Nicolaas"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128900997",
+          "label": "Rubens, Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124935303",
+          "label": "Rubens, Albert"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128802804",
+          "label": "Fourment, Hélène"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128900938",
+          "label": "Rubens, Jan"
+        },
+        {
+          "id": "https://d-nb.info/gnd/124437133",
+          "label": "Rubens, Philippe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/123050626",
+          "label": "Brant, Isabella"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128690097",
+          "label": "Rubens, Frans"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-BE",
+          "label": "Belgien"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-NL",
+          "label": "Niederlande"
+        }
+      ],
+      "gndIdentifier": "11860354X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.6p",
+          "label": "Personen zu Kunsthandwerk"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/128900997",
+          "label": "Rubens, Maria"
+        },
+        {
+          "id": "https://d-nb.info/gnd/128900938",
+          "label": "Rubens, Jan"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/124437133",
+          "label": "Rubens, Philippe"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11860354X",
+      "memberOfTheFamily": [
+        {
+          "id": "https://d-nb.info/gnd/118603558",
+          "label": "Rubens, Familie : 14. Jh.-"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)31151-0",
+        "(DE-588a)187114714",
+        "(DE-588c)4050781-6",
+        "(DE-588a)11860354X",
+        "(DE-588)187114714",
+        "(DE-588a)127110801"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/7517486-8",
+          "label": "Elewijt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4031483-2",
+          "label": "Köln"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4054883-1",
+          "label": "Siegen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4002364-3",
+          "label": "Antwerpen"
+        }
+      ],
+      "preferredName": "Rubens, Peter Paul",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Peter Paul"
+        ],
+        "surname": [
+          "Rubens"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4158107-6",
+          "label": "Graveur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4310043-0",
+          "label": "Dekorateur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166042-0",
+          "label": "Kunstsammler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118632787",
+          "label": "Wildens, Jan"
+        }
+      ],
+      "publication": [
+        "Entw. von: Blooteling, Abraham: Variae Leonum icones. - 1660/90",
+        "Palazzi di Genova",
+        "Lettres inédites de Pierre Paul Rubens",
+        "Architecture italienne"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79055561"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56647196"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q5599"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11860354X/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187114714"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/11860354X"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Peter_Paul_Rubens"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Peter_Paul_Rubens"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Peter_Paul_Rubens"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121341267"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11860354X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11860354X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11860354X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11860354X"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/11213EDB37934E6A8985F98BBB8F42B0"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/11860354X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/11860354X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11860354X"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Rubens, Pietro Pauolo",
+        "Rubens, Pierre Paul",
+        "Rubens, Peter-Paul",
+        "Rubens, Paul",
+        "Rubens",
+        "Rubens, Pieter P.",
+        "Rubens, Rondom",
+        "Rubbens, Peter Paul",
+        "Rubens, Pieter Paul",
+        "Rubens, Pedro Pablo",
+        "Rubens, Pierre-Paul",
+        "Rubens, Pierre P.",
+        "Rubens, Peter P.",
+        "Rubens, Piter P.",
+        "Rubens, Pieter Pauwel",
+        "Rubens, Peter Pauwel",
+        "Rubenius, Pet. P.",
+        "Rubens, Pedro Pauolo",
+        "Rubenius, Petrus Paulus",
+        "Rubenius, Petrus P.",
+        "Rubens, Pietro Paolo",
+        "Rubens, Pietro P.",
+        "Rubens, P. P.",
+        "Rubens, Petrus Paulus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Pieter Pauwel"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pierre P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "P. P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pietro Pauolo"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pet. P."
+          ],
+          "surname": [
+            "Rubenius"
+          ]
+        },
+        {
+          "forename": [
+            "Peter Pauwel"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Peter P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pierre Paul"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Peter Paul"
+          ],
+          "surname": [
+            "Rubbens"
+          ]
+        },
+        {
+          "forename": [
+            "Pedro Pauolo"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pietro Paolo"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pieter P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "personalName": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Paul"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pieter Paul"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Peter-Paul"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Petrus Paulus"
+          ],
+          "surname": [
+            "Rubenius"
+          ]
+        },
+        {
+          "forename": [
+            "Pietro P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Pierre-Paul"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Piter P."
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Rondom"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Petrus Paulus"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        },
+        {
+          "forename": [
+            "Petrus P."
+          ],
+          "surname": [
+            "Rubenius"
+          ]
+        },
+        {
+          "forename": [
+            "Pedro Pablo"
+          ],
+          "surname": [
+            "Rubens"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Peter_Paul_Rubens",
+          "label": "https://de.wikipedia.org/wiki/Peter_Paul_Rubens"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:42:18Z",
+    "gnd_query_biographical_data": "1577-1640",
+    "gnd_query_name": "rubens, peter paul"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2333,
+  "name": "Rubens, Peter Paul",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 137",
+  "updated": "2026-06-11 13:29:24.423Z",
+  "uri": "https://d-nb.info/gnd/11860354X",
+  "editor": ""
+}

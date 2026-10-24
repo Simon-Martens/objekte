@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert: pag. 58 /) Illustration zu »Du und Sie« INr 87294, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87295,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. W. Arndt sc.",
+  "scans": [
+    "alm_2794_87295_jxlb7krtj3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.285Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "o7wwgz5w9vtxph5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.285Z",
+      "agent": "72r3qe0psneye9d",
+      "source_id": "tqkn44l2y8pgyfb"
+    }
+  ]
+}

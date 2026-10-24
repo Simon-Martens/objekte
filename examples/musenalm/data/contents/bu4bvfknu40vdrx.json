@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Wiederhergestellter Haushalt.  Lustspiel in sechs Acten (Sammlung INr 119346, Obj 51) Distichen (Sammlung INr 119332, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Rosen zieh' ich so viel, zum Verkaufe nur kann ich's / nicht bringen.",
+  "language": [],
+  "musenalm_id": 119347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Gärtner zu seinem Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Gärtner zu seinem Sohn",
+  "updated": "2017-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.567Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "k3drljbcgu55cwg"
+    }
+  ]
+}

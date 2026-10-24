@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Geschichte des Prinzen Li-Bu« INr 91374, Obj 18 und der folgenden deutschen Fassung",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91358,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PRINZE LI-BOU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Barbiez del. F. Ramberg sc.",
+  "scans": [
+    "alm_1970_91358_26l7kvbr43.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PRINZE LI-BOU",
+  "updated": "2010-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.439Z",
+      "agent": "yn5dqo3oyes0o9i",
+      "source_id": "9553e7nkr3hxo6x"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezüge INr 43551, Obj 7 u. INr 43564, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43546,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm, / König von Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Morf del. Autenrieth sc.",
+  "scans": [
+    "alm_577_43546_kgw6gqybr2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm, / König von Würtemberg",
+  "updated": "2006-05-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.316Z",
+      "agent": "a3tmqioddxgsyo7",
+      "source_id": "wpejxvh5l55xj9g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.316Z",
+      "agent": "494d92fqsi62f1e",
+      "source_id": "zl1nwwk0uexzeyi"
+    }
+  ]
+}

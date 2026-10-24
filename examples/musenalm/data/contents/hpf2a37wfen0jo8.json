@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt 3 der Suite /) paginiert 8. s. Textbezug INr 60101, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Patriotische Kriegssteuer eines Kaiserlichen In- / validen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen sculps.",
+  "scans": [
+    "alm_937_60100_szg2ku9b3e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Patriotische Kriegssteuer eines Kaiserlichen In- / validen",
+  "updated": "2008-09-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.194Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "3vn0wv6q495zaq2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.194Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "qbazmrxppxned4t"
+    }
+  ]
+}

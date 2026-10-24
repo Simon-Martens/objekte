@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Canton / ZÜRICH / 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Keller del. J. J. Scheurmann sc.",
+  "scans": [
+    "alm_714_52363_87qbofxpr8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der / Canton / ZÜRICH / 1813",
+  "updated": "2007-11-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.562Z",
+      "agent": "9ql0nfn99kgr5a3",
+      "source_id": "zszpn4g2odscp2l"
+    }
+  ]
+}

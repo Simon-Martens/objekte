@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 44433, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44434,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kaulbach",
+  "scans": [
+    "alm_604_44434_yvjpqzi3go.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am Brunnen",
+  "updated": "2006-07-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.296Z",
+      "agent": "c7q5lldf9je7fx6",
+      "source_id": "tuhbhb5bcvo8dxb"
+    }
+  ]
+}

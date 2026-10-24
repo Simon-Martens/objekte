@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Die Alte sitzt im Kämmerlein, / Trüb flammt der Lampe matter Schein,",
+  "language": [],
+  "musenalm_id": 103364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das fromme Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das fromme Lied",
+  "updated": "2014-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.099Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "g8efkvwt8b0xdli"
+    }
+  ]
+}

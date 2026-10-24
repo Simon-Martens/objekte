@@ -1,0 +1,1043 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1843",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.373Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1068346647",
+          "label": "Le Bret, Elise"
+        }
+      ],
+      "dateOfBirth": [
+        "1770-03-20"
+      ],
+      "dateOfDeath": [
+        "1843-06-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Franz Carl Hiemer"
+          ],
+          "creditText": [
+            "Zeno.org"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/FK%20Hiemer%20-%20Friedrich%20H%C3%B6lderlin%20%28Pastell%201792%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/FK%20Hiemer%20-%20Friedrich%20H%C3%B6lderlin%20%28Pastell%201792%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:FK%20Hiemer%20-%20Friedrich%20H%C3%B6lderlin%20%28Pastell%201792%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/187961581",
+        "https://d-nb.info/gnd/160735610"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-31T14:29:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118551981/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119359294",
+          "label": "Breunlin, Heinrike"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012413705",
+          "label": "Hölderlin, Johanna Christiana Friderica"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012785386",
+          "label": "Breunlin, Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104175826",
+          "label": "Sutor, Johann Wolffgang"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116927070",
+          "label": "Hölderlin, Heinrich Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119359286",
+          "label": "Breunlin, Theodor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/155602098",
+          "label": "Hölderlin, Friedrich Jakob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118828517",
+          "label": "Gock, Johanna Christiana"
+        },
+        {
+          "id": "https://d-nb.info/gnd/101422792",
+          "label": "Gok, Carl Christoph Friedrich von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118551981",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/155602098",
+          "label": "Hölderlin, Friedrich Jakob"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/1012785386",
+          "label": "Breunlin, Friedrich"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116927070",
+          "label": "Hölderlin, Heinrich Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118828517",
+          "label": "Gock, Johanna Christiana"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/119359294",
+          "label": "Breunlin, Heinrike"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1012413705",
+          "label": "Hölderlin, Johanna Christiana Friderica"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118551981",
+      "oldAuthorityNumber": [
+        "(DE-588a)187961581",
+        "(DE-101c)310269350",
+        "(DE-588a)127676899",
+        "(DE-588c)4025375-2",
+        "(DE-588)187961581",
+        "(DE-588a)160735610",
+        "(DE-588a)126745528",
+        "(DE-588)160735610",
+        "(DE-588a)118551981",
+        "(DE-588a)131306081",
+        "(DE-588a)127252525",
+        "(DE-588a)134579356"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4034727-8",
+          "label": "Lauffen am Neckar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4061147-4",
+          "label": "Tübingen"
+        }
+      ],
+      "preferredName": "Hölderlin, Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich"
+        ],
+        "surname": [
+          "Hölderlin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Scardanelli"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Hillmar"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Mitverf. von: Dichter des Berliner Musenalmanachs, die Dichter des Wiener Musenalmanachs, die Dichter des Schillerschen Musenalmanachs und der Horen. - [1891 - 1894]",
+        "Hölderlin, Friedrich: Gedichte. - [um1890]",
+        "Hölderlin, Friedrich: Gedichte",
+        "Hölderlin, Friedrich: Dichtungen",
+        "Bianchi, Lorenzo: Versioni da Friedrich Hoelderlin",
+        "Hölderlin, Friedrich: Die späten Hymnen",
+        "Reutter, Hermann: Gesang des Deutschen",
+        "Matthisson, Friedrich von: Dichter d. Berliner, Wiener, des Schillerschen Musenalmanach*",
+        "Schicksalslied (Song of fate) [...]. - s.a",
+        "Hölderlin, Friedrich: Hyperion oder"
+      ],
+      "relatedPerson": [
+        {
+          "id": "https://d-nb.info/gnd/1181982693",
+          "label": "Burk, Israel Gottfried"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11886561c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79115224"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95147974"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D11957.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q75889"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118551981"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118551981/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160735610"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/187961581"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118551981"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_H%C3%B6lderlin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_H%C3%B6lderlin"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Friedrich_H%C3%B6lderlin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_H%C3%B6lderlin"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?118551981"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121031808"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118551981"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1785_hoelderlin"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118551981"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118551981.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118551981.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118551981"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/7939F3CEFEE84F6EB372215BB0F6DC3C"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118551981"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Hölderlin",
+        "Hoel deol lin, Peu li deu li hi",
+        "Holderlin, Friedrich",
+        "Helderlin, Fridrih",
+        "Chailnterlin, Phrēntrich",
+        "Hoelderlin, Friedrich",
+        "Holderlin, Frederich",
+        "Hūldarlīn, Frīdrīš",
+        "Hoelderlin, Christian Johann Friedrich",
+        "Hölderlin, Friedrich Johann Christian",
+        "Gel'derlin, Fridrich",
+        "Gëlʹderlin, Iogann Kristian Fridrich",
+        "Chʹolderlin, Fridrich",
+        "Gëlʹdėrlin, Frydrych",
+        "Hoelderlin, Joannes Christianus Fridericus",
+        "Гёльдерлин, Фридрих",
+        "Hölderlin, Friedr.",
+        "Ch'olderlin, Fridrich",
+        "Hoeldeollin",
+        "Hëlʹdėrlin, Frydrych",
+        "He'erdelin",
+        "Hölderlin, Johann C.",
+        "Heerdelin",
+        "Holderlin",
+        "Helderlîn, Frîdrîk",
+        "Гёльдэрлін, Фрыдрых",
+        "Hildarlin",
+        "Hölderlin, J. Ch. F.",
+        "弗里德里希·荷尔德林",
+        "Hillmar",
+        "荷尔德林, 弗里德里希",
+        "Herudārin",
+        "Kholʹderlin, Fridrikh",
+        "Scardanelli",
+        "Gelʹderlin, I. Ch. F.",
+        "Hölderlin, Johannes Christian Friedrich",
+        "Chelnterlin, Phrēntrich",
+        "Hölderlin, Johann",
+        "횔덜린 프리드리히",
+        "Gelʹderlin, Fridrich",
+        "Chailnterlin, Phrēntrix",
+        "프리드리히 횔덜린",
+        "Hölderling, Friedrich",
+        "He er de lin",
+        "Gelʹderlin",
+        "Holterling",
+        "Chelderlin, Fridrich",
+        "Helderlin, Fridrik",
+        "Gelʹderlin, Fridrikh",
+        "Hölderlin, Johann Christian Friedrich",
+        "Hölderlin, F.",
+        "Holḍālina",
+        "Helderlin, Fridrikh",
+        "Hölderlin, J. Ch. Friedrich",
+        "ヘルダーリン",
+        "Hoelderlin, Frédéric",
+        "Hölderlin, Fryderyk",
+        "Hoelderlin, Johann Christian Friedrich",
+        "Peu li deu li hi Hoel deol lin",
+        "Gëlderlin, Fridrich",
+        "Chiolderlin, Fridrich",
+        "Gelʹderlin, Friedrich",
+        "Hoelderlin",
+        "Herudârîn, Furîdorihhi",
+        "Hoelderlin, Christianus Johannes Fridericus",
+        "Chainterlin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Фридрих"
+          ],
+          "surname": [
+            "Гёльдерлин"
+          ]
+        },
+        {
+          "personalName": [
+            "프리드리히 횔덜린"
+          ]
+        },
+        {
+          "forename": [
+            "弗里德里希"
+          ],
+          "surname": [
+            "荷尔德林"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh"
+          ],
+          "surname": [
+            "Helderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Gëlderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Furîdorihhi"
+          ],
+          "surname": [
+            "Herudârîn"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Friedrich"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "J. Ch. F."
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "F."
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "횔덜린 프리드리히"
+          ]
+        },
+        {
+          "personalName": [
+            "Herudārin"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Christianus Fridericus"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Friedrich"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrih"
+          ],
+          "surname": [
+            "Helderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Phrēntrix"
+          ],
+          "surname": [
+            "Chailnterlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Holterling"
+          ]
+        },
+        {
+          "personalName": [
+            "Scardanelli"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Chelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Фрыдрых"
+          ],
+          "surname": [
+            "Гёльдэрлін"
+          ]
+        },
+        {
+          "personalName": [
+            "Holḍālina"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrik"
+          ],
+          "surname": [
+            "Helderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh"
+          ],
+          "surname": [
+            "Kholʹderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "He er de lin"
+          ]
+        },
+        {
+          "personalName": [
+            "Hillmar"
+          ]
+        },
+        {
+          "forename": [
+            "Christian Johann Friedrich"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Gelʹderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Johann Christian"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Hoeldeollin"
+          ]
+        },
+        {
+          "forename": [
+            "Johann C."
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Chʹolderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Chainterlin"
+          ]
+        },
+        {
+          "forename": [
+            "Friedr."
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Christian Friedrich"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "弗里德里希·荷尔德林"
+          ]
+        },
+        {
+          "forename": [
+            "Frederich"
+          ],
+          "surname": [
+            "Holderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Kristian Fridrich"
+          ],
+          "surname": [
+            "Gëlʹderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Gelʹderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Peu li deu li hi"
+          ],
+          "surname": [
+            "Hoel deol lin"
+          ]
+        },
+        {
+          "forename": [
+            "Frīdrīš"
+          ],
+          "surname": [
+            "Hūldarlīn"
+          ]
+        },
+        {
+          "personalName": [
+            "Peu li deu li hi Hoel deol lin"
+          ]
+        },
+        {
+          "personalName": [
+            "ヘルダーリン"
+          ]
+        },
+        {
+          "personalName": [
+            "He'erdelin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Gel'derlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrikh"
+          ],
+          "surname": [
+            "Gelʹderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Holderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hölderling"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Holderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fryderyk"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Christianus Johannes Fridericus"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrych"
+          ],
+          "surname": [
+            "Hëlʹdėrlin"
+          ]
+        },
+        {
+          "forename": [
+            "Phrēntrich"
+          ],
+          "surname": [
+            "Chailnterlin"
+          ]
+        },
+        {
+          "forename": [
+            "Frédéric"
+          ],
+          "surname": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Ch'olderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "J. Ch. Friedrich"
+          ],
+          "surname": [
+            "Hölderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Frydrych"
+          ],
+          "surname": [
+            "Gëlʹdėrlin"
+          ]
+        },
+        {
+          "forename": [
+            "I. Ch. F."
+          ],
+          "surname": [
+            "Gelʹderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Gelʹderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Frîdrîk"
+          ],
+          "surname": [
+            "Helderlîn"
+          ]
+        },
+        {
+          "personalName": [
+            "Heerdelin"
+          ]
+        },
+        {
+          "forename": [
+            "Fridrich"
+          ],
+          "surname": [
+            "Chiolderlin"
+          ]
+        },
+        {
+          "forename": [
+            "Phrēntrich"
+          ],
+          "surname": [
+            "Chelnterlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Hoelderlin"
+          ]
+        },
+        {
+          "personalName": [
+            "Hildarlin"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_H%C3%B6lderlin",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_H%C3%B6lderlin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:47:24Z",
+    "gnd_query_biographical_data": "1770-1843",
+    "gnd_query_name": "hölderlin, friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1227,
+  "name": "Hölderlin, Friedrich",
+  "profession": "Text",
+  "pseudonyms": "Hillmar",
+  "refs": "Goed V, 469",
+  "updated": "2026-06-11 13:29:22.968Z",
+  "uri": "https://d-nb.info/gnd/118551981",
+  "editor": ""
+}

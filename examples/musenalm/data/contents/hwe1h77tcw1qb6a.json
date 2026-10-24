@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Ich bin im Mai gegangen / Und hab es nicht gewußt,",
+  "language": [],
+  "musenalm_id": 26340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurzes Erwachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurzes Erwachen",
+  "updated": "2002-07-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.044Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "fpnv7urd6n2a122"
+    }
+  ]
+}

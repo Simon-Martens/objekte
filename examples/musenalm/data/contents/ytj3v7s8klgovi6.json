@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. folg. Beitrag INr 32230, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ich eigne Dir diese kleine Erzählung meine theure Freundin,",
+  "language": [],
+  "musenalm_id": 32229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Frau Regierungsräthin Geißler / in Gotha",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Frau Regierungsräthin Geißler / in Gotha",
+  "updated": "2003-02-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.089Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "gnr8cd6zdotd9s0"
+    }
+  ]
+}

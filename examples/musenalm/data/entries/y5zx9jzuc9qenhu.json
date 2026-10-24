@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, S W, B VrB I-Verz, Vwrt d Hrsg, 6 GG, SS 1-398, SS 399- 402 G-Verz, 8 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Gartenfreunde (W. G. Becker) 1799",
+    "norm": "~",
+    "biblio": 108628,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2844,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Voß und Compagnie)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Gartenfreunde (W. G. Becker) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 120; L/R 132",
+  "responsibility_statement": "W. G. Becker",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Garten Freunde / von / W. G. Becker / 1799. / Leipzig / bei Voß und Compagnie",
+  "updated": "2026-06-11 10:18:54.730Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "1zpz9j2dfniezet"
+  ],
+  "contents": [
+    "1bxxbyr60mydpsh",
+    "qfv4ojjeisyd6ox",
+    "qwtitvnoq2gmhqt",
+    "3gfutiqokmfkk68",
+    "khyft80vinbq1rm",
+    "qsbt88brksa04zp",
+    "s4m4ykxf6676k4j",
+    "v3l585atwpzf84v",
+    "tegmryugocmpf2f",
+    "kc6bx414mwc9mah",
+    "kho0thm9g4buby8",
+    "4t0a96pi4iu9rih",
+    "ucysqes2f63op3w",
+    "83o4efm9r86zqlw",
+    "0uobafmcuiv46pg",
+    "nq5443iywoac3bn",
+    "r2z6dh7dzb55np2",
+    "4wup3r24dmx4xkr",
+    "8r6rqkbdzqytcxq",
+    "tqb92y2i83gd1mi",
+    "quuyvbu444huaga",
+    "brafplut4v08l5y",
+    "ieqfgdais414feq",
+    "zolm8521nmjaupb",
+    "igk465k2idlpiqb",
+    "zbzhaapdvjbwfta",
+    "9fbjwq2eahw12rc",
+    "i97ldra58obpqkc",
+    "mhnhr7bgduurpx0",
+    "z3fhv9ijlmtxlkm",
+    "c4mlp9b2ybmz42y",
+    "d31fvy7hcz74p00",
+    "6bl12u9oj79ep7r",
+    "fxv28nplkp8pszf",
+    "cx2lmjhb3i2yl8i",
+    "zszdccta619sbmh",
+    "wwzgncijzq0lu47",
+    "x3v7mhdfsborkza",
+    "7ljqyi0hx5nv9jn"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.153Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.153Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "881jh7x4b07jiy0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.177Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.177Z",
+      "agent": "opicouvq1odrmvd",
+      "source_id": "hsk028079gpbr50"
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "annotation": "G-C gibt 8 Jgg 1801-1809 an /) vorhanden: 1801, 1802, 1803, 1805, 1806: lt. Zählung 1.–5. année; wahrscheinlich erschien der Almanach noch 1807–1809",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, SS I–XXIV, darin vT, VrlgM, T, Vrwrt, Kal, SS1–287, darin I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Prosateurs 1801",
+    "norm": "",
+    "biblio": 406183,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2017-05-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4416,
+  "parallel_title": "",
+  "place_statement": "Paris (Léger)",
+  "places": [
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Almanach des Prosateurs 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "G-C 350, 1341",
+  "responsibility_statement": "Fr. N[oel]; P. B. Lamare",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / DES / PROSATEURS, / OU / RECUEIL / DE PIÈCES FUGITIVES, / EN PROSE. / RÉDIGÉ par les CC. Fr. N… et P. B. LAMARE. / A PARIS, / Chez LÉGER, Libraire, quai des Augustins, No. 44. / DE L’IMPRIMERIE DE MARCHANT. / AN X – 1801",
+  "updated": "2026-06-11 10:18:55.132Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "ucrrhlk2p2fajdu"
+  ],
+  "contents": [
+    "4uth6ckgwkliqpe",
+    "3ct4v1nvfct9unh",
+    "yiqsk4ltmcc4yqj",
+    "6e8krk4zph0k4jq",
+    "bfkxc4mahg0h2ut",
+    "pvap6aqjp6skhkh",
+    "y0uss5663pzi934",
+    "0ft2666icwfdmjf",
+    "ybc6pbn8rxtt8qr",
+    "63nzoc6ny2a5y73",
+    "uno5oe34lgzv0i2",
+    "9mllnhz2shh8gej",
+    "o2wq3ffe2yqh1dl",
+    "pfphz4bh3rprzka",
+    "ocnsrx96whvf2u8",
+    "0qqawyeakojjwxm",
+    "2tk4j1encmnywep",
+    "vnolc8nd3q8bz2t",
+    "cbib8tb032zs9y9",
+    "lojqoe5hc8vn37x",
+    "4fb2ej7o1xu23n7",
+    "bvbw8f0g2wycyis",
+    "cg8fiejbb9fg4ph",
+    "pkcgwb6d7ftfqdo",
+    "h8tqu3562zxya2d",
+    "wwwc2o4ecdqhinw",
+    "8ll2l0hn0g7uvke",
+    "jfnl84nmfz7gro5",
+    "5pgqrxega35epna",
+    "jic63fscoe1wjqy",
+    "cclmmglc6yoy92b",
+    "97vy4nfs6kiqnb7",
+    "yqls0hjzq8atc7z",
+    "bm5fsbo3edfqim6",
+    "t2if0ons6inf9sy",
+    "w84e050r5l3dp8m",
+    "4ypx777s0xyujmq",
+    "pskzbnhscdz6jou",
+    "0zorv3x7h0fu8cj",
+    "wg5d6zrixn1e7kf",
+    "k4kwropap9nao5z",
+    "71ry42i4ypsdqlo",
+    "6sye9q21gt0qde1",
+    "63x8jkd0v3nxswi",
+    "3ervdlmrlsoane8",
+    "ngi6qzlt9mwf6zm",
+    "cfls3nli5qhzd5k",
+    "bopwsj4ooprwjfg",
+    "6v2twnzf10uyg2u",
+    "ke648hn7s8hqt5n",
+    "y902q3ers2wshsj",
+    "izy5s6bxxy63znh"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.091Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.091Z",
+      "agent": "18idu8br42qyf8q",
+      "source_id": "4wn7s6dgdhbwluc"
+    }
+  ]
+}

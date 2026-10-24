@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135932,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alfred, / Herzog von Sachsen-Coburg und Gotha",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Au. Th. Weger sc. Leipzig",
+  "scans": [
+    "alm_3864_135932_ierngqkkxa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alfred, / Herzog von Sachsen-Coburg und Gotha",
+  "updated": "2012-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1894,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.156Z",
+      "agent": "rikdy6r8rigq41t",
+      "source_id": "oabe33v31qn3abr"
+    }
+  ]
+}

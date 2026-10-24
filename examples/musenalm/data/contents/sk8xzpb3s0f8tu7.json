@@ -1,0 +1,45 @@
+{
+  "annotation": "Dichtungen (Sammlung INr 121970, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Des Teufels Großmutter im Höllenpfuhl / Mag nicht mehr thronen auf glüh'ndem Stuhl,",
+  "language": [],
+  "musenalm_id": 121972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Des Teufels Großmutter in Oesterreich. / (Österreichische Volkssage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Des Teufels Großmutter in Oesterreich. / (Österreichische Volkssage.)",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.691Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "leu365rtaksp5q4"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelgraphik. s. Beitrag »Karl der Kühne« von L. Halirsch INr 25923, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25912,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KARL DER KÜHNE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Holbein d. j. pinx. W. Rieder sc. J. Passini",
+  "scans": [
+    "alm_343_25912_3r0cb15lut.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KARL DER KÜHNE",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.345Z",
+      "agent": "knbo7jjf5xxcvwi",
+      "source_id": "0dr3wof4svi098m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.345Z",
+      "agent": "5pkyzklke319amr",
+      "source_id": "pg4lb710ivryvgu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.345Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "qwnxml2dc40ruab"
+    }
+  ]
+}

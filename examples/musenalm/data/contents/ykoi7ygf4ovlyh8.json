@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Was ich ersehnt, entbehret und errungen, / Seit Liebe meines Lebens Nacht erhelltet,",
+  "language": [],
+  "musenalm_id": 57372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zueignung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Bruckbräu",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zueignung",
+  "updated": "2008-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.709Z",
+      "agent": "exegl4z6k8jnby0",
+      "source_id": "k9zlq3mquow9a8o"
+    }
+  ]
+}

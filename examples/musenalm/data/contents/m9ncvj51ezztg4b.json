@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Boan-Upas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tilesius del.",
+  "scans": [
+    "alm_559_42347_yono15ppw5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Boan-Upas",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.264Z",
+      "agent": "pyk1nqor2ru8j94",
+      "source_id": "vk3oc426f9y35id"
+    }
+  ]
+}

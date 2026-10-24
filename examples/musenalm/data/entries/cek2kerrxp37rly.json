@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1852",
+    "norm": "",
+    "biblio": 405192,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1326,
+  "parallel_title": "",
+  "place_statement": "Berlin (Selbstverlag) (Lassar)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1852",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "A. Heinrich",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / Freunde der Schauspielkunst. / Herausgegeben / von / A. Heinrich, / Souffleur a. D. des Königlichen Theaters in Berlin. / Sechszehnter Jahrgang. / Mit dem Portrait und der Biographie des Königl. General-Intendanten / Herrn von Küstner. / Berlin, / den 1. Januar 1852. / Im Selbstverlage des Herausgebers. - In Commission bei Leop. Lassar",
+  "updated": "2026-06-11 10:18:54.926Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "items": [
+    "d94fk1315l1k9qk"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "ozsxe47lx5mdbgr",
+      "source_id": "hck1g44p3w2k8zu"
+    }
+  ]
+}

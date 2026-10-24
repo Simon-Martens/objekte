@@ -1,0 +1,92 @@
+{
+  "annotation": "Unter dem I-Verz: Gedruckt bei A. Strauß's sel. Witwe & Sommer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, nT, B, SS 1-191, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1847",
+    "norm": "~",
+    "biblio": 405434,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1913,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch für das Jahr 1847. / Sieben und zwanzigster Jahrgang. / Edlen Frauen und Mädchen gewidmet. / WIEN, / bei Franz Riedl's sel. Wittwe & Sohn",
+  "updated": "2026-06-11 10:18:55.707Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "17drym5efq7l5x5"
+  ],
+  "contents": [
+    "pningsy35dwaxi2",
+    "pooirznnyreha4k",
+    "uil97fc04yw4slk",
+    "glueq1yzuww9i53",
+    "g9cmin2ez6uynt0",
+    "rptnmlui4pfixdx",
+    "xpetirptujkdvw4",
+    "vnbto9h3witttvb",
+    "pfqgbmfex51fz7a",
+    "zzt7ljazuehb3yw",
+    "ie0ynjq19rwvmme",
+    "jsjnyahk2af28o5",
+    "ke1zu0ccrgb5lgs",
+    "4yeh2g34yic16nk",
+    "ii1kv54swi8okob",
+    "aoeh07oi5f1x5ok",
+    "tqhh2geuebvs5fa",
+    "t3m48hcvb408qkp",
+    "b753uhtxl9vrnfk",
+    "qqhx8y4mxz2kc1w",
+    "u4xtqox2h1g4m70",
+    "55xxbxcu8w9e0r4",
+    "xstcp1xe27uza2f",
+    "p7hsj3ba4kfgefz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.141Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.141Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "bmsmpa29cbg9xx2"
+    }
+  ]
+}

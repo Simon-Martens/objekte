@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S 1 T, SS 3-8 W, SS 9-163 darin G MusB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (A. v. Helvig: Die Schwestern auf Corcyra) 1812",
+    "norm": "~",
+    "biblio": 408107,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4012,
+  "parallel_title": "",
+  "place_statement": "Amsterdam und Leipzig (Industrie-Comptoir)",
+  "places": [
+    "84fokpvl9sftctt",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch (A. v. Helvig: Die Schwestern auf Corcyra) 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 107; nicht bei L/R; Goed VIII. 79, 150; Goed V. 452, 22, 3",
+  "responsibility_statement": "Amalie von Hellwig",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1812. / Die / Schwestern auf Corcyra. / Eine dramatische Idylle / in / zwey Abtheilungen. / Von / Amalie von Hellwig, / gebohrne von Imhof, / Verfasserin / der Schwestern von Lesbos. / Mit zwey Kupfern und Musik. / Amsterdam und Leipzig, / Kunst- und Industrie-Comptoir",
+  "updated": "2026-06-11 10:18:55.436Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "94g228bfgzp6u9c"
+  ],
+  "contents": [
+    "ah7ndaw6hvbhpnq",
+    "5ervcykhpf8k4zq",
+    "kfp2n3gm8gbo6sy",
+    "adhvxlyp9nvkwtz",
+    "ik3jiq9w4tnycm2",
+    "zvpp3kyik9e0c7j",
+    "0yex4n6hu9936zl",
+    "an8qesraxac8h1x",
+    "dyqfauv3om3k6u2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.047Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.047Z",
+      "agent": "b3cnf3kh3hgg77o",
+      "source_id": "4dbkzqnw2palc72"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.320Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.320Z",
+      "agent": "g022cx9ysck37av",
+      "source_id": "r8vstsolqn4a4uq"
+    }
+  ]
+}

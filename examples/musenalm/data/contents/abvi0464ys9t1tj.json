@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 6491, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Von Oberon im Feenland, / Dem Könige der Geister, / Komm' ich, Knecht Robert, abgesandt,",
+  "language": [],
+  "musenalm_id": 6490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Knecht Robert auf einer Maskerade. / (Siehe Reliques of ancient English poetry, / Vol. III. B. II. XXIV.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Knecht Robert auf einer Maskerade. / (Siehe Reliques of ancient English poetry, / Vol. III. B. II. XXIV.)",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.125Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "7ee2u52eqpnsduh"
+    }
+  ]
+}

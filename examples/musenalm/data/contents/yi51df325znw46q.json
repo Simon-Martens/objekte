@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar paginiert 3. /) Illustration zu »Herr Lorenz Stark« von J. J. Engel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70778,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ist er toll?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hörmann inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_3590_70778_ws8yf7zwqt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ist er toll?",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.407Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "rctdzmw4xq5djgm"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Wenn aus dem geliebten Vaterlande / Keine süße Stimme mir erschallt,",
+  "language": [],
+  "musenalm_id": 17790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / Hieres im Jenner 1786",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. v. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / Hieres im Jenner 1786",
+  "updated": "2001-09-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.652Z",
+      "agent": "8qf8v6035kmy0ob",
+      "source_id": "uo32hy1unst703v"
+    }
+  ]
+}

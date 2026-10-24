@@ -1,0 +1,45 @@
+{
+  "annotation": "Agnes. Bruchstücke einer ländlichen Todtenfeyer. 1812 (Sammlung INr 34053, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Willst du als Engel schweben auf zur blauen / Stadt Gottes,wo hochblickende Propheten,",
+  "language": [],
+  "musenalm_id": 34075,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIII.",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.756Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "692ssqxf75v1i7t"
+    }
+  ]
+}

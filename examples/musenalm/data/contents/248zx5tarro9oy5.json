@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die leisen Klänge einer kleinen Kirchenglocke riefen die Bewohner eines ziemlich unbedeutenden ungarischen Dorfes zur Erfüllung einer traurigen Pflicht.",
+  "language": [],
+  "musenalm_id": 81089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr und Knecht. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr und Knecht. / Novelle",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.062Z",
+      "agent": "5vrpezk8s9sgvqz",
+      "source_id": "cyxol04pptz3xse"
+    }
+  ]
+}

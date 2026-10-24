@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert S. 55. /) Illustration zu »Unser Herr und der Schmidt von Appolda. Ein Schwank. Nach einer alten Thüringischen Volksfabel« INr 73167, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Aufz. 5. Auftr. / Ein Gott dagegen fühlt nur seines Stand's Beschwerden! / Er kann ja nichts - auch nicht ein mal des Teufels werden!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Michel Angelo",
+  "scans": [
+    "alm_1826_73172_d6oirv1gxz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. Aufz. 5. Auftr. / Ein Gott dagegen fühlt nur seines Stand's Beschwerden! / Er kann ja nichts - auch nicht ein mal des Teufels werden!",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.486Z",
+      "agent": "l115ljzxlisa2ph",
+      "source_id": "nzoay4chpmjo3rr"
+    }
+  ]
+}

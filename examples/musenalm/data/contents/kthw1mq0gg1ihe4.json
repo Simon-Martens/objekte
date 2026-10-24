@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Tochter der Gottheit, meiner unsträflichen / Lieder / Freundinn, eile von deinem Wohnsitz hernieder;",
+  "language": [],
+  "musenalm_id": 5522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die himmlische Liebe. / Zum 21. Decbr. 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die himmlische Liebe. / Zum 21. Decbr. 1779",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.206Z",
+      "agent": "quu68xfhyzxlogj",
+      "source_id": "kos8t8e8nfv5i13"
+    }
+  ]
+}

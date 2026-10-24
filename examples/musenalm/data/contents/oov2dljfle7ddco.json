@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEANDER I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke sc.",
+  "scans": [
+    "alm_4015_91060_l6891kkz4j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEANDER I.",
+  "updated": "2013-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.320Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "gqubbp320k5dmsc"
+    }
+  ]
+}

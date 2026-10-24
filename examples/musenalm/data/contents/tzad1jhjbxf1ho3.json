@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim (Sammlung INr 74116, Obj 10) mit einer Illustration s. Graphik INr 74121, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "In der Nähe des Rathhauses und nicht weit vom Tempel der Flora winkt ein Hain von italienischen Pappeln dem Wanderer, der Schatten sucht,",
+  "language": [],
+  "musenalm_id": 74120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Köhlerhütte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Köhlerhütte",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.762Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "8g6emm1iqv01aua"
+    }
+  ]
+}

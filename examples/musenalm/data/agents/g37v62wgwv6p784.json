@@ -1,0 +1,501 @@
+{
+  "annotation": "",
+  "biographical_data": "1814-1883",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.474Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118527533",
+          "label": "Droste-Hülshoff, Annette von"
+        }
+      ],
+      "dateOfBirth": [
+        "1814-09-06"
+      ],
+      "dateOfDeath": [
+        "1883-08-31"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "abfotografiert"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Levin%20Schuecking.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Levin%20Schuecking.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Levin%20Schuecking.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2024-10-18T16:56:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118762109/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118762117",
+          "label": "Schücking, Walther"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117124958",
+          "label": "Schücking, Lothar"
+        },
+        {
+          "forename": [
+            "Gerhardine Friederike Juliane C."
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Adolfine"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/119079402",
+          "label": "Gall, Louise von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117124931",
+          "label": "Schücking, Levin Ludwig"
+        },
+        {
+          "forename": [
+            "Theophanie Elfriede Sabine C."
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Adrian Christoph Bernard"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11712477X",
+          "label": "Busch-Schücking, Katharina"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117130192",
+          "label": "Schuecking, Paul Nikolaus Modestus"
+        },
+        {
+          "forename": [
+            "Lothar Carl Levin [Carl Lothar Levin]"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118762109",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.3p",
+          "label": "Personen zu Presse"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118527533",
+          "label": "Droste-Hülshoff, Annette von"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/117124931",
+          "label": "Schücking, Levin Ludwig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117124958",
+          "label": "Schücking, Lothar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118762117",
+          "label": "Schücking, Walther"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117130192",
+          "label": "Schuecking, Paul Nikolaus Modestus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11712477X",
+          "label": "Busch-Schücking, Katharina"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/119079402",
+          "label": "Gall, Louise von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118762109",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4107152-9",
+        "(DE-588a)118762109"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4038685-5",
+          "label": "Meppen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4047920-1",
+          "label": "Bad Pyrmont"
+        }
+      ],
+      "preferredName": "Schücking, Levin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Levin"
+        ],
+        "surname": [
+          "Schücking"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichter"
+      ],
+      "publication": [
+        "Schücking, Levin: Ausgewählte Romane",
+        "Schücking, Levin: Luther in Rom",
+        "Schücking, Levin: Novellenbuch",
+        "Schücking, Levin: Aus heissen Tagen",
+        "Schücking, Levin: Neue Novellen",
+        "Schücking, Levin: Die Heiligen und die Ritter",
+        "Schücking, Levin: Feuer und Flamme",
+        "Schücking, Levin: Frauen und Räthsel",
+        "Schücking, Levin: Novellen",
+        "Schücking, Levin: Eine dunkle Tat"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Christoph Bernhard Levin Matthias"
+          ],
+          "surname": [
+            "Schücking"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n86824467"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/17307400"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q78349"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118762109/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Levin_Sch%C3%BCcking"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Levin_Sch%C3%BCcking"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Levin_Sch%C3%BCcking"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Levin_Sch%C3%BCcking"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000066465100"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118762109"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118762109"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118762109.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118762109.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118762109"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118762109"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schücking, Christoph Bernhard Levin",
+        "Schücking, Lewin",
+        "Schücking, P. L.",
+        "Heyne-Schücking",
+        "Schücking, Christoph Bernhard Levin Matthias",
+        "Schücking, Christoph Bernhard Levin Anton Matthias"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "P. L."
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Bernhard Levin Matthias"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Bernhard Levin Anton Matthias"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Lewin"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "personalName": [
+            "Heyne-Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Bernhard Levin"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        },
+        {
+          "forename": [
+            "Christoph Bernhard Levin Matthias"
+          ],
+          "surname": [
+            "Schücking"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Levin_Sch%C3%BCcking",
+          "label": "https://de.wikipedia.org/wiki/Levin_Sch%C3%BCcking"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:53:33Z",
+    "gnd_query_biographical_data": "1814-1883",
+    "gnd_query_name": "schücking, levin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2558,
+  "name": "Schücking, Levin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 463",
+  "updated": "2026-06-11 13:29:24.844Z",
+  "uri": "https://d-nb.info/gnd/118762109",
+  "editor": ""
+}

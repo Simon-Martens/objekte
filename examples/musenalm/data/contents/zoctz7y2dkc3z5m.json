@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 62353, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63660,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Savoyardenmädchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Davison pinx. J. Fleischmann sc.",
+  "scans": [
+    "alm_1045_63660_elfe3n4ers.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Savoyardenmädchen #",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.218Z",
+      "agent": "pvvqr72j8oow8qr",
+      "source_id": "1oqgre86xqadvp9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.218Z",
+      "agent": "9lorjkhsnx1rkjc",
+      "source_id": "5kh7bjxiqn5hww3"
+    }
+  ]
+}

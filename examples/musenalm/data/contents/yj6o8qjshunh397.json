@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ein Jahr ist bald gelebt! Der Wassertropfen / Bald aufgeschlürft vom mächt'gen Meere Zeit;",
+  "language": [],
+  "musenalm_id": 100466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gelebt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Constant von Wurzbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gelebt",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.826Z",
+      "agent": "wm9mmfgzc6wy00i",
+      "source_id": "3m2jpj01xk4eg5p"
+    }
+  ]
+}

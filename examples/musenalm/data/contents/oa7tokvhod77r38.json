@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphik im Kalendarium INr 75665, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Herzog Bernhard ließ Breysach befestigen, Magazine darin anlegen, und Kriegsvorrath herbey führen.",
+  "language": [],
+  "musenalm_id": 75681,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 8.",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.541Z",
+      "agent": "s7zezuvvsuyydzi",
+      "source_id": "irp9wlm6t9lxuxx"
+    }
+  ]
+}

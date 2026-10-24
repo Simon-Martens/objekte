@@ -1,0 +1,167 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.364Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Präsident der Konsistorialkirche und Prediger in Krefeld"
+      ],
+      "dateOfBirth": [
+        "1776-12-09"
+      ],
+      "describedBy": {
+        "dateModified": "2023-08-20T18:25:52.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/12217142X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "12217142X",
+      "id": "https://d-nb.info/gnd/12217142X",
+      "oldAuthorityNumber": [
+        "(DE-588a)12217142X"
+      ],
+      "periodOfActivity": [
+        "1776-1854"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4032952-5",
+          "label": "Krefeld"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4032952-5",
+          "label": "Krefeld"
+        }
+      ],
+      "preferredName": "Heilmann, Nikolaus Leonhard",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Nikolaus Leonhard"
+        ],
+        "surname": [
+          "Heilmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130322-2",
+          "label": "Prediger"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/23016716"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12217142X/about"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Heilmann, Nicolas Leonhard",
+        "Heilmann, Leonhard",
+        "Heilmann, Nikolas Leonhard",
+        "Heilmann, Nicolaus Leonhard"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Nicolaus Leonhard"
+          ],
+          "surname": [
+            "Heilmann"
+          ]
+        },
+        {
+          "forename": [
+            "Nikolas Leonhard"
+          ],
+          "surname": [
+            "Heilmann"
+          ]
+        },
+        {
+          "forename": [
+            "Nicolas Leonhard"
+          ],
+          "surname": [
+            "Heilmann"
+          ]
+        },
+        {
+          "forename": [
+            "Leonhard"
+          ],
+          "surname": [
+            "Heilmann"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:42:18Z",
+    "gnd_query_biographical_data": "1776-?",
+    "gnd_query_name": "heilmann, nikolaus leonhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1124,
+  "name": "Heilmann, Nikolaus Leonhard",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 824",
+  "updated": "2026-06-11 13:29:22.860Z",
+  "uri": "https://d-nb.info/gnd/12217142X",
+  "editor": ""
+}

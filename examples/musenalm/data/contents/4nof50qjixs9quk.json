@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Gedicht INr 98385, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sommer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3532_98384_fd8w2xzz0i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Sommer",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.691Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "qdrzf7e6hzofu0q"
+    }
+  ]
+}

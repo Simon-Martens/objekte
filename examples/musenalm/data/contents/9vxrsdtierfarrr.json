@@ -1,0 +1,45 @@
+{
+  "annotation": "XXIV. Gedichte (Sammlung INr 66720, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Bella! o du armes Thier! / Hat dich meine Frau geschlagen?",
+  "language": [],
+  "musenalm_id": 66723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die schwere Kunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Regierungsrath Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die schwere Kunst",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.272Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "2kqyr3mkyqtw6ak"
+    }
+  ]
+}

@@ -1,0 +1,575 @@
+{
+  "annotation": "",
+  "biographical_data": "1774-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.512Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1073591948",
+          "label": "Von Wessenberg'sche Erziehungsanstalt Konstanz"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. kathol. Theologe und Schulreformer; ab 1802 Generalvikar und Verweser des Bistums Konstanz; 814 Generalvikar u. Verweser d. Bistums Konstanz ab 1802; Generalvikar einer Diözese; Reformer der Priesterausbildung; Bibliotheksbesitzer",
+        "Theologe, Deutschland"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1774-11-04"
+      ],
+      "dateOfDeath": [
+        "1860-08-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Marie Ellenrieder"
+          ],
+          "creditText": [
+            "Unknown sourceUnknown source"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Marie%20Ellenrieder%20-%20Ignaz%20Heinrich%20von%20Wessenberg%20%28%C3%96aL%201819%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Marie%20Ellenrieder%20-%20Ignaz%20Heinrich%20von%20Wessenberg%20%28%C3%96aL%201819%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Marie%20Ellenrieder%20-%20Ignaz%20Heinrich%20von%20Wessenberg%20%28%C3%96aL%201819%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1325004456",
+        "https://d-nb.info/gnd/1089603436"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:45.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118631764/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/115670475",
+          "label": "Wessenberg, Johann Philipp von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118631764",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/115670475",
+          "label": "Wessenberg, Johann Philipp von"
+        }
+      ],
+      "homepage": [
+        {
+          "id": "http://www.pacelli-edition.de/Biographie/8225",
+          "label": "http://www.pacelli-edition.de/Biographie/8225"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118631764",
+      "oldAuthorityNumber": [
+        "(DE-588a)118631764",
+        "(DE-588)1325004456",
+        "(DE-588c)4065734-6",
+        "(DE-588)1089603436"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4032215-4",
+          "label": "Konstanz"
+        }
+      ],
+      "preferredName": "Wessenberg, Ignaz Heinrich von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ignaz Heinrich"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Wessenberg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4030020-1",
+          "label": "Katholischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4006949-7",
+          "label": "Bischof"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4113703-6",
+          "label": "Generalvikar"
+        }
+      ],
+      "publication": [
+        "Über den sittlichen Einfluß der Romane",
+        "Die Elementarbildung des Volks im 18. Jahrh.",
+        "Betrachtungen über die wichtigsten Gegenstände im Bildungsgan*",
+        "Die christlichen Bilder, ein Beförderungsmittel des christl*",
+        "Mittheilungen über die Verwaltung der Seelsorge nach dem Geis*",
+        "Julius Pilgerfahrt eines Jünglings",
+        "Fenelon",
+        "Über den sittlichen Einfluß der Schaubühne",
+        "Betrachtungen über die Verhältnisse der Katholischen Kirche i*"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr93016527"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/41869082"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q68798"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1089603436"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118631764/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1325004456"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ignaz_Heinrich_von_Wessenberg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ignaz_Heinrich_von_Wessenberg"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ignaz_Heinrich_von_Wessenberg"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ignaz_Heinrich_von_Wessenberg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000117597761"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118631764"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118631764"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118631764.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118631764"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118631764"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118631764"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Wessenberg, Heinrich von",
+        "Wessenberg, Ignaz Heinrich Karl, Freiherr von",
+        "Wessenberg-Ampringen, Ignaz H. von",
+        "Wessenberg, I. H. von",
+        "Wessenberg Anspringen, Ignatz Heinrich von",
+        "Wessenberg, I. H. v.",
+        "Wessenberg, Ignaz Heinrich Kurt von",
+        "Ampringen, Ignaz Heinrich von Wessenberg-",
+        "Anspringen, Ignatz Heinrich von Wessenberg-",
+        "Wessenberg-Anspringen, Ignatz Heinrich von",
+        "Wessenberg-Ampringen, Ignaz Heinrich von",
+        "Ampringen, Ignaz H. von",
+        "Wessenberg, Ignaz H. von",
+        "Wessenberg, J. H. von",
+        "Wessenberg, Ignaz Heinrich Karl von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ignaz Heinrich von Wessenberg-"
+          ],
+          "surname": [
+            "Ampringen"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Heinrich Karl von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Heinrich Kurt"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatz Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg-Anspringen"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatz Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg Anspringen"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg-Ampringen"
+          ]
+        },
+        {
+          "forename": [
+            "I. H."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Heinrich Karl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Ampringen"
+          ]
+        },
+        {
+          "forename": [
+            "I. H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz H. von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg-Ampringen"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatz Heinrich von Wessenberg-"
+          ],
+          "surname": [
+            "Anspringen"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Heinrich Karl"
+          ],
+          "nameAddition": [
+            "Freiherr von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        },
+        {
+          "forename": [
+            "J. H."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Wessenberg"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ignaz_Heinrich_von_Wessenberg",
+          "label": "https://de.wikipedia.org/wiki/Ignaz_Heinrich_von_Wessenberg"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:21:15Z",
+    "gnd_query_biographical_data": "1774-1860",
+    "gnd_query_name": "wessenberg, ignaz heinrich von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3118,
+  "name": "Wessenberg, Ignaz Heinrich von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed VI, 358; Goed XI/1, 251",
+  "updated": "2026-06-11 13:29:25.716Z",
+  "uri": "https://d-nb.info/gnd/118631764",
+  "editor": ""
+}

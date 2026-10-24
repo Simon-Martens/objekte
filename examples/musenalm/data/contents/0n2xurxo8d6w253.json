@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An das Clavier« von Philippine Engelhard geb.Gatterer INr 2835, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Clavier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Weiß",
+  "scans": [
+    "alm_80_2836_v4by6iwd8b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An das Clavier",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.976Z",
+      "agent": "x1lckegivk1oedd",
+      "source_id": "sl9fythxbp0roxo"
+    }
+  ]
+}

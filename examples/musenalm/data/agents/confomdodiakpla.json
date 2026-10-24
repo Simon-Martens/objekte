@@ -1,0 +1,1215 @@
+{
+  "annotation": "",
+  "biographical_data": "1564-1616",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.480Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Engl. Dichter und Dramatiker"
+      ],
+      "dateOfBirth": [
+        "1564-04-23"
+      ],
+      "dateOfDeath": [
+        "1616-04-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Attributed to John Taylor"
+          ],
+          "creditText": [
+            "Official gallery link"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Shakespeare.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Shakespeare.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Shakespeare.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1084293315"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-05T20:30:37.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#z",
+          "label": "Katalogisierungslevel z"
+        },
+        "id": "https://d-nb.info/gnd/118613723/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "118613723",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118613723",
+      "oldAuthorityNumber": [
+        "(DE-101c)310360153",
+        "(DE-588)1084293315",
+        "(DE-588a)134670159",
+        "(DE-588c)4054714-0",
+        "(DE-588a)131160834",
+        "(DE-588a)131206583",
+        "(DE-588a)127985425",
+        "(DE-588a)118613723",
+        "(DE-588a)131042203",
+        "(DE-588a)127961615"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4118849-4",
+          "label": "Stratford-upon-Avon"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4118849-4",
+          "label": "Stratford-upon-Avon"
+        }
+      ],
+      "preferredName": "Shakespeare, William",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "William"
+        ],
+        "surname": [
+          "Shakespeare"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        }
+      ],
+      "relatedCorporateBody": [
+        {
+          "id": "https://d-nb.info/gnd/37097-6",
+          "label": "Deutsche Shakespeare-Gesellschaft"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n78095332"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/96994048"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q692"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1084293315"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118613723/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118613723"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/William_Shakespeare"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/William_Shakespeare"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/William_Shakespeare"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/William_Shakespeare"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121032683"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118613723"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118613723"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118613723"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/373EB60430C64F72A002FCE502B99BD6"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118613723"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Šekspiras, Viljamas",
+        "Šekspir, William",
+        "S̆ekspir, Viljem",
+        "Šekspire",
+        "Shakspear",
+        "Šakisbīr, Williyam",
+        "Šiksbīr, Wīlīam",
+        "Sheḳspir, Ṿiliam",
+        "Šek'spiri, Uiliam",
+        "Szekspir, William",
+        "Šekspyras",
+        "Šekspir, Uilʹjam",
+        "Shakespearowy, W.",
+        "S̆ekspir, Vilʹjam",
+        "Sheḳspir, Ṿilyam",
+        "Shakspere",
+        "Šekesper, Wilyam",
+        "Shakespeare, W.",
+        "Shakspeare, Wilhelm",
+        "Sakespeĩros, Uíi͏̈lliam",
+        "Schekspirs, Wiljams",
+        "S., W.",
+        "Saixpēros",
+        "Šekspir, Vilijam",
+        "Shakespear",
+        "Shakspeare, William",
+        "Shakespeare",
+        "Shaekespeare, William",
+        "Šekspir, Wiliam",
+        "Šekspyras, V.",
+        "Szekspir, Wiliam",
+        "Shak-speare, William",
+        "Šekspir, Vilém",
+        "Schakespeare, William",
+        "Šekspir, Vil'jam",
+        "Šeḳisper",
+        "Shakespeare, Gwilherm",
+        "Sheg-si-phi-yar",
+        "Shakespear, Wilhelm",
+        "Shashibiya, William",
+        "Saixpēr, Uilliam",
+        "Shakespere, William",
+        "Saixpēr",
+        "Shakespear, Willhelm",
+        "Šikspīr, Wīlīam",
+        "Shackespear",
+        "שקספיר, וילים ",
+        "Bacon-Shakespeare, Francis",
+        "Shak-Speare, William",
+        "Sekhspír",
+        "Shekspir, Uiljjam",
+        "Šekspīrs, Viljams",
+        "Šaḳisper, Veilliyem",
+        "Shakspeare, Guillaume",
+        "Shaksper, William",
+        "Shakspere, William",
+        "莎士比亚",
+        "Šekspir, Uil'jam",
+        "Shakespeare, Willhelm",
+        "Shakespere, Vilmos",
+        "Shashibiya",
+        "Saíxpēr, Uílliam",
+        "Shakespeare, Guillermo",
+        "שקספער",
+        "Sheḳsper",
+        "Shekspir, Uiliem",
+        "Sheikusupia, Uiriamu",
+        "شېكېسپېر, ۋىليام",
+        "Shakespeare, Wilhelm",
+        "S̆ekhspiri, Wiliam",
+        "Schakespear",
+        "Šhekspir, Viliam",
+        "Шэкспир, Уильям",
+        "S̆ekspyras, Viljamas",
+        "Sakespear, William",
+        "Šekspir, Villiam",
+        "Sakespeiros",
+        "S'egsi-pe-yar, Wi-li-am",
+        "Szekspir, Wiljam",
+        "Chakespear, William",
+        "Shex'pir, Wil'yam",
+        "Chekchapiyera, William",
+        "Šekesper",
+        "Shakspeare",
+        "Sheḳspir, Ṿiliyam",
+        "Šaksbīr, Wiliyam",
+        "Šekspir, Uiljam",
+        "Šekspir, U.",
+        "Shakespear, William",
+        "Shakespeare, Guglielmo",
+        "Sekspir, Vilijam",
+        "Schakespear, William",
+        "Šekspir",
+        "Šaḳisper",
+        "Shakespear, W.",
+        "Shig-si-phi-ya",
+        "Shakesperae, William",
+        "Shakspeare, Guglielmo",
+        "Šaḳisper, Veilliyam",
+        "Šiksbīr, Willyam",
+        "Sekspiri, Viliam",
+        "Pseudo-Shakespeare",
+        "Shake-Speare, William",
+        "Shake-Spear, William",
+        "Šekspir, V.",
+        "Shakspear, William"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wiliam"
+          ],
+          "surname": [
+            "Szekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Willhelm"
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Viljem"
+          ],
+          "surname": [
+            "S̆ekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Guglielmo"
+          ],
+          "surname": [
+            "Shakspeare"
+          ]
+        },
+        {
+          "personalName": [
+            "Šaḳisper"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "personalName": [
+            "Sheḳsper"
+          ]
+        },
+        {
+          "personalName": [
+            "Sheg-si-phi-yar"
+          ]
+        },
+        {
+          "personalName": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Vilmos"
+          ],
+          "surname": [
+            "Shakespere"
+          ]
+        },
+        {
+          "forename": [
+            "Viliam"
+          ],
+          "surname": [
+            "Sekspiri"
+          ]
+        },
+        {
+          "forename": [
+            "Viljams"
+          ],
+          "surname": [
+            "Šekspīrs"
+          ]
+        },
+        {
+          "forename": [
+            "Veilliyem"
+          ],
+          "surname": [
+            "Šaḳisper"
+          ]
+        },
+        {
+          "forename": [
+            "U."
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "personalName": [
+            "Shakspear"
+          ]
+        },
+        {
+          "forename": [
+            "Villiam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shake-Speare"
+          ]
+        },
+        {
+          "forename": [
+            "Wiljam"
+          ],
+          "surname": [
+            "Szekspir"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Chakespear"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "S."
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakspeare"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakespear"
+          ]
+        },
+        {
+          "personalName": [
+            "Shig-si-phi-ya"
+          ]
+        },
+        {
+          "personalName": [
+            "Shashibiya"
+          ]
+        },
+        {
+          "forename": [
+            "Guillaume"
+          ],
+          "surname": [
+            "Shakspeare"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Schakespear"
+          ]
+        },
+        {
+          "forename": [
+            "Ṿilyam"
+          ],
+          "surname": [
+            "Sheḳspir"
+          ]
+        },
+        {
+          "personalName": [
+            "Šekesper"
+          ]
+        },
+        {
+          "forename": [
+            "Ṿiliyam"
+          ],
+          "surname": [
+            "Sheḳspir"
+          ]
+        },
+        {
+          "forename": [
+            "Wiliam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Willhelm"
+          ],
+          "surname": [
+            "Shakespear"
+          ]
+        },
+        {
+          "personalName": [
+            "Saixpēros"
+          ]
+        },
+        {
+          "forename": [
+            "Wiljams"
+          ],
+          "surname": [
+            "Schekspirs"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakesperae"
+          ]
+        },
+        {
+          "personalName": [
+            "Shackespear"
+          ]
+        },
+        {
+          "forename": [
+            "Wil'yam"
+          ],
+          "surname": [
+            "Shex'pir"
+          ]
+        },
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Šekspyras"
+          ]
+        },
+        {
+          "forename": [
+            "Vilijam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "personalName": [
+            "Shashibiya"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shaksper"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakspear"
+          ]
+        },
+        {
+          "forename": [
+            "Wiliam"
+          ],
+          "surname": [
+            "S̆ekhspiri"
+          ]
+        },
+        {
+          "forename": [
+            "Uíi͏̈lliam"
+          ],
+          "surname": [
+            "Sakespeĩros"
+          ]
+        },
+        {
+          "personalName": [
+            "שקספער"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shak-Speare"
+          ]
+        },
+        {
+          "forename": [
+            "Viljamas"
+          ],
+          "surname": [
+            "Šekspiras"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakspere"
+          ]
+        },
+        {
+          "forename": [
+            "Williyam"
+          ],
+          "surname": [
+            "Šakisbīr"
+          ]
+        },
+        {
+          "forename": [
+            "Vilʹjam"
+          ],
+          "surname": [
+            "S̆ekspir"
+          ]
+        },
+        {
+          "forename": [
+            "V."
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Shakspeare"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shak-speare"
+          ]
+        },
+        {
+          "personalName": [
+            "Šeḳisper"
+          ]
+        },
+        {
+          "personalName": [
+            "Shakespear"
+          ]
+        },
+        {
+          "forename": [
+            "Уильям"
+          ],
+          "surname": [
+            "Шэкспир"
+          ]
+        },
+        {
+          "forename": [
+            "Uiljjam"
+          ],
+          "surname": [
+            "Shekspir"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Shakespear"
+          ]
+        },
+        {
+          "forename": [
+            "Vil'jam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Uil'jam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "personalName": [
+            "Šekspyras"
+          ]
+        },
+        {
+          "forename": [
+            "Uílliam"
+          ],
+          "surname": [
+            "Saíxpēr"
+          ]
+        },
+        {
+          "forename": [
+            "Wīlīam"
+          ],
+          "surname": [
+            "Šikspīr"
+          ]
+        },
+        {
+          "personalName": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Wilyam"
+          ],
+          "surname": [
+            "Šekesper"
+          ]
+        },
+        {
+          "personalName": [
+            "莎士比亚"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Chekchapiyera"
+          ]
+        },
+        {
+          "forename": [
+            "Francis"
+          ],
+          "surname": [
+            "Bacon-Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Viliam"
+          ],
+          "surname": [
+            "Šhekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Ṿiliam"
+          ],
+          "surname": [
+            "Sheḳspir"
+          ]
+        },
+        {
+          "forename": [
+            "Vilém"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Viljamas"
+          ],
+          "surname": [
+            "S̆ekspyras"
+          ]
+        },
+        {
+          "forename": [
+            "Uiriamu"
+          ],
+          "surname": [
+            "Sheikusupia"
+          ]
+        },
+        {
+          "forename": [
+            "Vilijam"
+          ],
+          "surname": [
+            "Sekspir"
+          ]
+        },
+        {
+          "personalName": [
+            "Shakspere"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shaekespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Uilʹjam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shake-Spear"
+          ]
+        },
+        {
+          "forename": [
+            "Uiljam"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shashibiya"
+          ]
+        },
+        {
+          "forename": [
+            "Uiliam"
+          ],
+          "surname": [
+            "Šek'spiri"
+          ]
+        },
+        {
+          "personalName": [
+            "Šekspire"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Schakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Wīlīam"
+          ],
+          "surname": [
+            "Šiksbīr"
+          ]
+        },
+        {
+          "forename": [
+            "Uiliem"
+          ],
+          "surname": [
+            "Shekspir"
+          ]
+        },
+        {
+          "forename": [
+            "Veilliyam"
+          ],
+          "surname": [
+            "Šaḳisper"
+          ]
+        },
+        {
+          "personalName": [
+            "Schakespear"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Shakespearowy"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Shakespear"
+          ]
+        },
+        {
+          "personalName": [
+            "Saixpēr"
+          ]
+        },
+        {
+          "forename": [
+            "Wiliyam"
+          ],
+          "surname": [
+            "Šaksbīr"
+          ]
+        },
+        {
+          "forename": [
+            "Wi-li-am"
+          ],
+          "surname": [
+            "S'egsi-pe-yar"
+          ]
+        },
+        {
+          "forename": [
+            "Willyam"
+          ],
+          "surname": [
+            "Šiksbīr"
+          ]
+        },
+        {
+          "personalName": [
+            "Sekhspír"
+          ]
+        },
+        {
+          "forename": [
+            "Guillermo"
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "ۋىليام"
+          ],
+          "surname": [
+            "شېكېسپېر"
+          ]
+        },
+        {
+          "forename": [
+            "Guglielmo"
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "personalName": [
+            "Shakspeare"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Sakespear"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Šekspir"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Shakespere"
+          ]
+        },
+        {
+          "forename": [
+            "Uilliam"
+          ],
+          "surname": [
+            "Saixpēr"
+          ]
+        },
+        {
+          "forename": [
+            "W."
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "forename": [
+            "Gwilherm"
+          ],
+          "surname": [
+            "Shakespeare"
+          ]
+        },
+        {
+          "personalName": [
+            "Sakespeiros"
+          ]
+        },
+        {
+          "forename": [
+            "וילים "
+          ],
+          "surname": [
+            "שקספיר"
+          ]
+        },
+        {
+          "forename": [
+            "William"
+          ],
+          "surname": [
+            "Szekspir"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/William_Shakespeare",
+          "label": "https://de.wikipedia.org/wiki/William_Shakespeare"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:58:03Z",
+    "gnd_query_biographical_data": "1564-1616",
+    "gnd_query_name": "shakespeare, william"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2649,
+  "name": "Shakespeare, William",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 476",
+  "updated": "2026-06-11 13:29:25.003Z",
+  "uri": "https://d-nb.info/gnd/118613723",
+  "editor": ""
+}

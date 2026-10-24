@@ -1,0 +1,70 @@
+{
+  "annotation": "Ausgabe vor der Zensur: lt. handschriftlicher Notiz mit dem unbez. Gedicht »Auf die Inquisition« S. 147, das Anlaß zur Unterdrückung des Almanachs gegeben habe; dieses Gedicht (und andere?) soll(en) in der 2. (zensierten) Version durch eine lat. Ode von Denis ersetzt worden sein. /) 5.-7. Abt. in einem Band /) Titel und I-Verz als Vollbild /) 7.-9. Abt. in einem Band",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, 3 BB I-Verz, SS 1-152",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Dichter und Dichterfreunde 1778 9. Abt.",
+    "norm": "",
+    "biblio": 100659,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2746,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Dyck)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Dichter und Dichterfreunde 1778 8. Abt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 113; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Dichter und Dichterfreunde. / Neunte Abtheilung. / Leipzig, / in der Dyckischen Buchhandlung. / 1778",
+  "updated": "2026-06-11 10:18:55.810Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "items": [
+    "gbtyflbmomhqi8d"
+  ],
+  "contents": [
+    "ean5wg8oxuu7y1k",
+    "95n0umz3l8oc3qk"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.757Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.757Z",
+      "agent": "itls9uetbsspgi7",
+      "source_id": "wr4go6fo2158dxf"
+    }
+  ]
+}

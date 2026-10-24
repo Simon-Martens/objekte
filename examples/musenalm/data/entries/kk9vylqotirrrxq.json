@@ -1,0 +1,76 @@
+{
+  "annotation": "2 Jgg [?] 1886: Zweibrücken ( Kranzbühler), 1887: Kaiserslautern (Gotthold); Hrsg. J. Schreyer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, W, T, S I-Verz, 2 SS Vrwrt d Hrsg, S, SS 1-25 Kal, S 26, SS 27-468, SS 469- 478 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Blumenlese, Poetische aus der Pfalz 1886",
+    "norm": "~",
+    "biblio": 0,
+    "status": [
+      "Fremde Herkunft"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1118,
+  "parallel_title": "",
+  "place_statement": "Zweibrücken ( Kranzbühler)",
+  "places": [
+    "wpdhnfzzmx7epve"
+  ],
+  "preferred_title": "Blumenlese, Poetische aus der Pfalz 1886",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. Schreyer",
+  "subtitle_statement": "",
+  "title_statement": "Poetische Blumenlese / aus der Pfalz. / Eine Sammlung / pfälzischer Dichtung aus neuerer Zeit / für das Jahr 1886 / herausgegeben von / J. Schreyer. / Zweibrücken. / Buchdruckerei von Aug. Kranzbühler. / 1885",
+  "updated": "2026-06-11 10:18:55.545Z",
+  "variant_title": "",
+  "year": 1886,
+  "editor": "",
+  "items": [],
+  "contents": [
+    "arc6dsg1znfsmga",
+    "99606xmzoi2ore7",
+    "1k5086bwl2ucnve",
+    "z76g03fh0v0v49h",
+    "m9uc6cv14nv5va9",
+    "k9b28qjwkedt3rm",
+    "sobc9i1q6yz4itk",
+    "86ur6vphdvhytu5",
+    "93ygzti9jwkxdpv",
+    "a0gyns351dhfp8n"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.080Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.080Z",
+      "agent": "144un6vtlffxxsb",
+      "source_id": "9b6fgsx0ayz9u01"
+    }
+  ]
+}

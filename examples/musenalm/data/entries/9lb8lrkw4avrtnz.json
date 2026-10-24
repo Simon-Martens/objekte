@@ -1,0 +1,67 @@
+{
+  "annotation": "# K 30 nennt nur Jg 1842",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Buch für Winterabende, Das 1848",
+    "norm": "",
+    "biblio": 404801,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1655,
+  "parallel_title": "",
+  "place_statement": "Hannover (Helwing)",
+  "places": [
+    "imy1rici488e5cf"
+  ],
+  "preferred_title": "Buch für Winterabende, Das 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 30 #; nicht bei L/R",
+  "responsibility_statement": "M. Honek",
+  "subtitle_statement": "",
+  "title_statement": "Buch / für Winterabende. / Volkskalender auf 1848 / von / M. Honek. / Siebter Jahrgang. / Mit Beiträgen von Karl Andree, L. v. Arentsschildt, Emanuel Geibel, / Moritz Hartmann, H. Landesmann, Karl Lorentzen, Julius Mosen, / Theodor Mügge, Karl Nicol und Günther Nicol. / Mit Holzschnitten, nach Originalzeichnungen von Professor / Oesterley und A. Evers, von E. Obermüller. / Hannover. / Verlag der Helwing'schen Hofbuchhandlung",
+  "updated": "2026-06-11 10:18:55.552Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "n561s0i37rubhk8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.985Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.985Z",
+      "agent": "euwb21qp8rg45ig",
+      "source_id": "e12d9dwgwhpht1p"
+    }
+  ]
+}

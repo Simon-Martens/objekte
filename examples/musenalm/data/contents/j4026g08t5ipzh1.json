@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Nibelungen Stimmen (Sammlung INr 68124, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Sahst du die Sonn' sich auf am Hügel schwingen, / Am heitern Tag, in feierlicher Gluth?",
+  "language": [],
+  "musenalm_id": 68125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sivrit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Waldeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sivrit",
+  "updated": "2009-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.195Z",
+      "agent": "6j1axvcf9v8yiru",
+      "source_id": "2u6nppxzj8bom5p"
+    }
+  ]
+}

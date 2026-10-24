@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81331,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEDENKE MEIN! / Wien. / Verlag von Pfautsch & Voss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. A. D. sc.",
+  "scans": [
+    "alm_1810_81331_lhlmwwsv3q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN! / Wien. / Verlag von Pfautsch & Voss",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.313Z",
+      "agent": "masan4fv3ew8l5z",
+      "source_id": "j3alhwafv96ittv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.313Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "tjhkxuspgful62f"
+    }
+  ]
+}

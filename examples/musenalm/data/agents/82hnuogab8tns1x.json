@@ -1,0 +1,431 @@
+{
+  "annotation": "",
+  "biographical_data": "1748-1821",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.323Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Professor; Dt. Kunsthistoriker ital. Herkunft",
+        "Maler, Kunstschriftsteller, Deutschland"
+      ],
+      "dateOfBirth": [
+        "1748-10-13"
+      ],
+      "dateOfDeath": [
+        "1821-09-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Giovanni Domenico Fiorillo; Heinrich Schwenterley"
+          ],
+          "creditText": [
+            "http://www.portraitindex.de/dokumente/html/obj34006638"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Iean%20Fiorillo.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Iean%20Fiorillo.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Iean%20Fiorillo.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-18T17:42:09.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-386",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-386"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119224364/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "119224364",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.1bp",
+          "label": "Personen zu Kunstwissenschaft, Kunsthistoriker"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119224364",
+      "oldAuthorityNumber": [
+        "(DE-588c)4367832-4",
+        "(DE-588a)119224364"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Fiorillo, Johann Dominik",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Dominik"
+        ],
+        "surname": [
+          "Fiorillo"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4033654-2",
+          "label": "Kunsthistoriker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4191824-1",
+          "label": "Archäologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Kunsthistoriker"
+      ],
+      "publication": [
+        "Fiorillo, Johann D.: Über die Groteske",
+        "Fiorillo, Johann D.: Kleine Schriften artistischen Inhalts. - 1803 - 1806",
+        "Fiorillo, Johann D.: Considerations sur l'état de la peinture en Italie dans les quatre *",
+        "Fiorillo, Johann D.: Geschichte der zeichnenden Künste. - 1798 - 1808",
+        "Fiorillo, Johann D.: Über einige Italienische Gelehrte und Künstler, welche Matthias Corv*",
+        "Fiorillo, Johann D.: Geschichte der zeichnenden Künste in Deutschland und der vereinigten*. - 1815 - 1820",
+        "Fiorillo, Johann D.: Bemerkungen über die alten Mahlereyen in den Kirchen zu Göttingen",
+        "Fiorillo, Johann D.: Ueber die Groteske",
+        "Fiorillo, Johann D.: Das vermeinte Grabmal Homers",
+        "Fiorillo, Johann D.: Beschreibung der Gemälde-Sammlung der Universität zu Göttingen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14973881g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr95034804"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29805406"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q214589"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119224364/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Dominicus_Fiorillo"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Dominik_Fiorillo"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Dominicus_Fiorillo"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Dominicus_Fiorillo"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081091995"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119224364"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119224364.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119224364.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119224364"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/119224364"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Fiorillo, Giovanni D.",
+        "Fiorillo, Johannes Dominik",
+        "Fiorillo, Johannes D.",
+        "Fiorillo, Giovanni Domenico",
+        "Fiorillo, Johann Dominikus",
+        "Fiorillo, Johann D.",
+        "Fiorillo, Giovanni Dominicus",
+        "Fiorillo, Johannes Dominicus",
+        "Fiorillo, Joh. Dominik",
+        "Fiorillo",
+        "Fiorillo, Johann Dominicus",
+        "Fiorillo, Joh. Dom.",
+        "Fiorillo, J. D."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann D."
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "J. D."
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Dominik"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "personalName": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes D."
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Dominikus"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Dominik"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Dominicus"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Dominicus"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Dominicus"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Domenico"
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni D."
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Dom."
+          ],
+          "surname": [
+            "Fiorillo"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Dominik_Fiorillo",
+          "label": "https://de.wikipedia.org/wiki/Johann_Dominik_Fiorillo"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:22:15Z",
+    "gnd_query_biographical_data": "1748-1821",
+    "gnd_query_name": "fiorillo, johann dominicus"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 718,
+  "name": "Fiorillo, Johann Dominicus",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XII, 2",
+  "updated": "2026-06-11 13:29:22.257Z",
+  "uri": "https://d-nb.info/gnd/119224364",
+  "editor": ""
+}

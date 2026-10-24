@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. S. 27 /)  Illustration zu »Die Jungfrau« von Karoline W-lich INr 48368, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jungfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr d. Fr. Bolt sc. 1814",
+  "scans": [
+    "alm_659_48338_xvgvfnevb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Jungfrau",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "fz9t6rfb9yt4fx5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.539Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "l9zh8vhvir1wgtz"
+    }
+  ]
+}

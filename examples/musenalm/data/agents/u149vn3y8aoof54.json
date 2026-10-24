@@ -1,0 +1,761 @@
+{
+  "annotation": "",
+  "biographical_data": "1735-1787",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.434Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "dateOfBirth": [
+        "1735-03-29"
+      ],
+      "dateOfDeath": [
+        "1787-10-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.COLLECT.370020"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Johann%20Carl%20August%20Mus%C3%A4us%2C%20RP-P-1999-688%20%28cropped%29.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Johann%20Carl%20August%20Mus%C3%A4us%2C%20RP-P-1999-688%20%28cropped%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Johann%20Carl%20August%20Mus%C3%A4us%2C%20RP-P-1999-688%20%28cropped%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/159142784",
+        "https://d-nb.info/gnd/182054578",
+        "https://d-nb.info/gnd/1015114105",
+        "https://d-nb.info/gnd/160218756",
+        "https://d-nb.info/gnd/18205456X",
+        "https://d-nb.info/gnd/159142806",
+        "https://d-nb.info/gnd/182054551",
+        "https://d-nb.info/gnd/159142792"
+      ],
+      "describedBy": {
+        "dateModified": "2025-08-20T15:55:12.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118735365/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/143088130",
+          "label": "Musäus, Johann Christoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118565796",
+          "label": "Kotzebue, August von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117187941",
+          "label": "Musaeus, Carl"
+        },
+        {
+          "forename": [
+            "Juliane"
+          ],
+          "surname": [
+            "Krüger"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118735365",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#17.4p",
+          "label": "Personen zu Volkskunde, Völkerkunde"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117187941",
+          "label": "Musaeus, Carl"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/118565796",
+          "label": "Kotzebue, August von"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/143088130",
+          "label": "Musäus, Johann Christoph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118735365",
+      "oldAuthorityNumber": [
+        "(DE-588)160218756",
+        "(DE-588a)160218756",
+        "(DE-588)182054578",
+        "(DE-588a)159142806",
+        "(DE-588a)159142792",
+        "(DE-588)18205456X",
+        "(DE-588)159142806",
+        "(DE-588a)131050621",
+        "(DE-588a)18205456X",
+        "(DE-588)159142792",
+        "(DE-588a)1015114105",
+        "(DE-588a)182054551",
+        "(DE-588a)182054578",
+        "(DE-588a)159142784",
+        "(DE-588a)118735365",
+        "(DE-588)1015114105",
+        "(DE-588)159142784",
+        "(DE-588)182054551"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4028557-1",
+          "label": "Jena"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Musäus, Johann Karl August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Karl August"
+        ],
+        "surname": [
+          "Musäus"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167874-6",
+          "label": "Literaturkritiker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "J. R."
+          ],
+          "surname": [
+            "Schellenberg"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Volksmärchen der Deutschen",
+        "Übers. von: Monget, ...: Moralische Kinderklapper für Kinder und Nichtkinder",
+        "Straußfedern",
+        "Nachgelassene Schriften",
+        "Der deutsche Grandison",
+        "Grandison der Zweite, Oder Geschichte des Herrn v. N...",
+        "Physiognomische Reisen",
+        "Freund Heins Erscheinungen",
+        "Der Schiffs-Brand"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb10632866f"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n82011807"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/88721755"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213974"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1015114105"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118735365/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159142784"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159142792"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159142806"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160218756"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182054551"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/18205456X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182054578"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Johann_Karl_August_Mus%C3%A4us"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Karl_August_Mus%C3%A4us"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Johann_Karl_August_Mus%C3%A4us"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Karl_August_Mus%C3%A4us"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109228499"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118735365"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1757_museaeus;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1754_musaeus"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1757_musaeus"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118735365"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118735365.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118735365.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118735365"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118735365"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Musäus, Karl August",
+        "Schellenberg, J. R.",
+        "Musaeus, Johann Carl August",
+        "Musäus, Jean Charles Auguste",
+        "Musäus",
+        "Muzeus, J. A.",
+        "Musaeus, Johann Karl August",
+        "Musäus, J. K. A.",
+        "Musäus, Johann",
+        "Musaeus, Joannes Carolus Augustus",
+        "Muzeus",
+        "Musäus, Jean-Charles-Auguste",
+        "Musaeus, I. C.",
+        "Musäus, J. A.",
+        "Musaeus, Ioannes Carolus Augustus",
+        "Musäus, Johann Carl",
+        "Muzeus, Iogann Karl Avgust",
+        "Musäus, Joh. Karl August",
+        "ムゼーウス, J・K・A",
+        "Musäus, Johann Karl Augustus",
+        "Muzėus, Iogann",
+        "Musäus, I. A.",
+        "Musäus, Johann August",
+        "M.",
+        "Muzeus, Iogann",
+        "Musäus, J. C.",
+        "Musäus, Joh. Karl",
+        "Musäus, Johann Carl August",
+        "Musäus, Karl"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Muzeus"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann"
+          ],
+          "surname": [
+            "Muzėus"
+          ]
+        },
+        {
+          "forename": [
+            "Karl August"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann Karl Avgust"
+          ],
+          "surname": [
+            "Muzeus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl August"
+          ],
+          "surname": [
+            "Musaeus"
+          ]
+        },
+        {
+          "forename": [
+            "I. A."
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl August"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "J・K・A"
+          ],
+          "surname": [
+            "ムゼーウス"
+          ]
+        },
+        {
+          "forename": [
+            "Iogann"
+          ],
+          "surname": [
+            "Muzeus"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Karl Augustus"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann August"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "J. K. A."
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "personalName": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Jean-Charles-Auguste"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "I. C."
+          ],
+          "surname": [
+            "Musaeus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl August"
+          ],
+          "surname": [
+            "Musaeus"
+          ]
+        },
+        {
+          "personalName": [
+            "M."
+          ]
+        },
+        {
+          "forename": [
+            "J. R."
+          ],
+          "surname": [
+            "Schellenberg"
+          ]
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Ioannes Carolus Augustus"
+          ],
+          "surname": [
+            "Musaeus"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Charles Auguste"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Carolus Augustus"
+          ],
+          "surname": [
+            "Musaeus"
+          ]
+        },
+        {
+          "forename": [
+            "J. C."
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Carl"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Karl August"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "Joh. Karl"
+          ],
+          "surname": [
+            "Musäus"
+          ]
+        },
+        {
+          "forename": [
+            "J. A."
+          ],
+          "surname": [
+            "Muzeus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Karl_August_Mus%C3%A4us",
+          "label": "https://de.wikipedia.org/wiki/Johann_Karl_August_Mus%C3%A4us"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:21:21Z",
+    "gnd_query_biographical_data": "1735-1787",
+    "gnd_query_name": "musäus, johann karl august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1910,
+  "name": "Musäus, Johann Karl August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 579",
+  "updated": "2026-06-11 13:29:23.904Z",
+  "uri": "https://d-nb.info/gnd/118735365",
+  "editor": ""
+}

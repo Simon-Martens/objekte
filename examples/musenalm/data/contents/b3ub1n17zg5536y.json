@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Ich habe lange auf Dich gewartet, rief der junge Ferdinand seinem Freunde entgegen.",
+  "language": [],
+  "musenalm_id": 59363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verlobung. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Verlobung. / Eine Novelle",
+  "updated": "2008-08-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.776Z",
+      "agent": "lu281a3pqqlvbj5",
+      "source_id": "r6fjfhqdr6165sa"
+    }
+  ]
+}

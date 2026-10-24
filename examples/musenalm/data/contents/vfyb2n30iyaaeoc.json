@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105568, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:36.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Der Anfang ist an allen Sachen schwer / Bey vielen Werken fällt er nicht ins Auge.",
+  "language": [],
+  "musenalm_id": 105578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / bei Eröfnung des Hoftheaters zu Weimar, gesprochen von Herrn / Domaratius, am 7. Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / bei Eröfnung des Hoftheaters zu Weimar, gesprochen von Herrn / Domaratius, am 7. Mai",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.109Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "5g2tb0vzcenngh6"
+    }
+  ]
+}

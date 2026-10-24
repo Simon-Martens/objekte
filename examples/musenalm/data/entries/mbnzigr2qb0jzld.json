@@ -1,0 +1,91 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, W, 5 GG dazu 6 BB G-Verz, S 1 nT, SS 3-308, S 309 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aglaja (Wien) 1831",
+    "norm": "~ +++ 200194: AGLAJA Taschenbuch. VI. Neue wohlfeilere Ausgabe. Mit 6 Kupfertafeln v. F. John, nach Original-Gemälden. Wien. Gedruckt und im Verlage bei J. B. Wallishausser; Titel  s. Photo alm-238-37565",
+    "biblio": 100132,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-05-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 238,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aglaja (Wien) 1831",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 6; L/R 91; Goed IX. 33, 23; Goed VIII. 84,163",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1831. / Siebenzehnter Jahrgang. / WIEN / gedruckt und im Verlage / bey Joh. B. Wallishausser",
+  "updated": "2026-06-11 10:18:54.843Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "2pzcs0lwji6455f",
+    "uhwycvobuylyp7f"
+  ],
+  "contents": [
+    "emhnqre9u5joivx",
+    "iu318mxk7hiaa0j",
+    "5uwd7506573x0qu",
+    "rocn2crslslwhoy",
+    "a0pu2jpxvfwin0t",
+    "vdlinfhv8uprk8q",
+    "44o88w7vxlap7nx",
+    "4wo4klxxfd41puv",
+    "c4ly0cpkqtjnrhv",
+    "pylxvi1g3nnfbo3",
+    "9vd1kw1q35eo8pv",
+    "rghkstqa0xresz4",
+    "8hamfptuougc5dy",
+    "w7lnrpvelqeojj5",
+    "ygcmp9u3a09rbyk",
+    "gmy672dp0dxwulm",
+    "gmvxv0dilh6l7gp",
+    "7mc6l4shunb01za",
+    "z2jup6hh1vtu4rk",
+    "v3eq2ncbz4mh59x",
+    "sr9vg4lbahxywrm",
+    "0voked6usvpfcqt"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.443Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.443Z",
+      "agent": "1ernx4twed64bul",
+      "source_id": "f8q3ln9hralx4v3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 131308, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "486",
+  "incipit_statement": "Zeus naht oft mit dem Blitz in den sorglos / schlummernden Nächten / Leuchtet den Menschen ins Herz, strafet des / Frevelnden Sinn.",
+  "language": [],
+  "musenalm_id": 131375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 260,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gewitter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gewitter",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.032Z",
+      "agent": "hdhytmzu9u57ana",
+      "source_id": "v5cg61xnjc6lhjx"
+    }
+  ]
+}

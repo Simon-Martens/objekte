@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Beschreibung des Gartens in Hohenheim. / Das Knabenhaus« von G. H. Rapp INr 74126, Obj 19 /) # Zuschreibung: Fischer S. 190",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Knabenhaus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schöpflin sc.",
+  "scans": [
+    "alm_3108_74127_gqa5qlhzw3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Knabenhaus",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.618Z",
+      "agent": "d3csdnfdndi0txl",
+      "source_id": "26azzsrs016arwe"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.618Z",
+      "agent": "4b4lhy0iqevooje",
+      "source_id": "sz8bhw8d72dxw5w"
+    }
+  ]
+}

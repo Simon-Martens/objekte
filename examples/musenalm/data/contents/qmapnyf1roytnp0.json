@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Gleich dem Gestirn, welches der Sohn des ver- / borgnen, / Kronos geschwenkt von dem Äther, dass den / Völkern / Lichthehr, Zeichen es sei:",
+  "language": [],
+  "musenalm_id": 51298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ceres",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. CHAMISSO",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ceres",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.869Z",
+      "agent": "3emdj29jey7pglq",
+      "source_id": "da0f7u5w5l5un8p"
+    }
+  ]
+}

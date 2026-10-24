@@ -1,0 +1,91 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1-191, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aehrenlese aus den neusten ausländischen Almanachen (Leyrer) 1822",
+    "norm": "~",
+    "biblio": 100148,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1177,
+  "parallel_title": "",
+  "place_statement": "Pesth (Leyrer)",
+  "places": [
+    "4l7d1jb3frhhulr"
+  ],
+  "preferred_title": "Aehrenlese aus den neusten ausländischen Almanachen (Leyrer) 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 6; nicht bei L/R; Goed VIII. 105, 244",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Aehrenlese / aus den / neusten ausländischen / Almanachen / vom Jahre 1822, / zur / Abendunterhaltung / für gebildete Leser. / Pesth, / bey Joseph Leyrer 1822.",
+  "updated": "2026-06-11 10:18:55.492Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "vnkda696i5fj7ci"
+  ],
+  "contents": [
+    "le5ym46rsa5j2og",
+    "otag2cit0zs53pa",
+    "df1wtfa6pwy3npn",
+    "dx18utnmwgo0qa5",
+    "3qr4yfxr0zq13p5",
+    "dd5maucd63mi5v3",
+    "sbow40fk0cm3a4z",
+    "o60qjgiscx9vfrn",
+    "esjecmomniiv1hq",
+    "f1od4h9ito4eb9b",
+    "xcsh0vnn5nwnygb",
+    "hgh33gkszdhuiqy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.095Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.095Z",
+      "agent": "ahe9kwbxx40y2sg",
+      "source_id": "tjcizxkvfgxon0h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.448Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.448Z",
+      "agent": "ahe9kwbxx40y2sg",
+      "source_id": "zgmcjjz8tnr7kss"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 48829, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Das vornehmste Gemälde unter den Spolien der Kunst, welche der Franke aus dem Orte seiner Schöpfung wegführen konnte und das nun im Pariser Museum die Huldigung der Menschheit empfängt.",
+  "language": [],
+  "musenalm_id": 48828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro 2. / Die Verklärung Christi (Transfiguration) / von Raphael Sanzo von Urbin. / Gemäld auf Holz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Casparssohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro 2. / Die Verklärung Christi (Transfiguration) / von Raphael Sanzo von Urbin. / Gemäld auf Holz",
+  "updated": "2007-03-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.239Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "sms5ebusbzhry6x"
+    }
+  ]
+}

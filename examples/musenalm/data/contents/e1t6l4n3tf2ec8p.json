@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 113039, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Gabriele küßte die Hand ihres Vaters, der die seinige segnend auf ihre Stirne legte; dann entfernte sie sich und ging nach ihrem Zimmer.",
+  "language": [],
+  "musenalm_id": 113049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Duelle. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Em. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Duelle. / Erzählung",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.457Z",
+      "agent": "osmeoxw3ivqw3j5",
+      "source_id": "ihwkcs6yy6eh6cz"
+    }
+  ]
+}

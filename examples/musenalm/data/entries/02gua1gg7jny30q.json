@@ -1,0 +1,112 @@
+{
+  "annotation": "§ Titelgraphik u. § eine Graphik fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "§ S I T, 7 BB Tab darin § 5 GG, G, SS III-IV I-Verz, G, SS V-XII G-Verz, SS 1-324, 325-326 G-Verz, B 2 gAA,",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1818",
+    "norm": "~",
+    "biblio": 106027,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2388,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1818",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1818 / der / Häuslichkeit und Eintracht / gewidmet. / Herausgegeben / von / Theodor Hell. / Mit 9 Kupfern und 2 Mustertafeln. / Leipzig, / bei J. C. Hinrichs",
+  "updated": "2026-06-11 10:18:55.315Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "38clsy4o7zv9k6d"
+  ],
+  "contents": [
+    "4h950t9k5n0i0hv",
+    "yzllugv316050cs",
+    "vvg32fjootnfstk",
+    "yns7my28hzocvls",
+    "dp2dvq1vnxrq6pp",
+    "btcqdxm309lb3t2",
+    "kc0yi1ee5jtyhau",
+    "0zqc8bry41xtawv",
+    "x1l803cfejilpg9",
+    "8q91bo32us9deko",
+    "yizp0mostiiyr3w",
+    "8m2eatxshqydntj",
+    "twehjljnr00aels",
+    "ooqussm1h2fovt2",
+    "aj573mcpq19vm9k",
+    "pnkaulx3vh9lowr",
+    "b1u2q69wcq5m708",
+    "drkondnibvoi3ph",
+    "b7oh3abcehapuhj",
+    "q8z0vec201h983j",
+    "ecbqtssj9th60hl",
+    "6stn8462wpkzl1z",
+    "8ppxzkz6xq4ko9i",
+    "vxkulbsgsmjird0",
+    "8fynqzqm4n6z3x1",
+    "oa4mm7r9c2qhbln",
+    "airhf9rj5pymt36",
+    "ea8xq0fqk75w06q",
+    "fmb2l68mr07bx17",
+    "afn68wx2frkl0bn",
+    "t4gaz2rwku9txib",
+    "ttsxzvytq21um62",
+    "jrp0eyfdquotxx8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.016Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.016Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "l73qwqysck9c8k0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.063Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.063Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "myf2sd0hpeco7ap"
+    }
+  ]
+}

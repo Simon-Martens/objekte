@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 42275,01-42275,04",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42275,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_558_42275_01_cb2g3h9r01.jpg",
+    "alm_558_42275_02_65drs2ircf.jpg",
+    "alm_558_42275_03_hx4lg6v2re.jpg",
+    "alm_558_42275_04_hhbhmejzkk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": []
+}

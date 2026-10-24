@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 80 Z. 25 /) Illustration zu »Röschen Graumann« INr 46927, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. Geyser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Geyser sc.",
+  "scans": [
+    "alm_633_46929_m6thxq25ot.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.985Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "geu0r6lkeh10lnx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.985Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "jkflsbw540qyjiy"
+    }
+  ]
+}

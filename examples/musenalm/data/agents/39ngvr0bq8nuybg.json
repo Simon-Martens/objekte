@@ -1,0 +1,794 @@
+{
+  "annotation": "",
+  "biographical_data": "1821-1890",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.449Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118648071",
+          "label": "Alexis, Willibald"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/65648-3",
+          "label": "Grossherzogliches Hoftheater zu Karlsruhe"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Ab 1888 Erbmarschall der Kurmark Brandenburg."
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1821-03-21"
+      ],
+      "dateOfDeath": [
+        "1890-09-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "The original uploader was Lienhard Schulz at German Wikipedia."
+          ],
+          "creditText": [
+            "Transferred from de.wikipedia to Commons by Ireas using CommonsHelper."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20Gans%20zu%20Putlitz.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gustav%20Gans%20zu%20Putlitz.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Gustav%20Gans%20zu%20Putlitz.JPG?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/11631396X",
+        "https://d-nb.info/gnd/174076673",
+        "https://d-nb.info/gnd/172315506"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:07:44.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116350660/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1025828046",
+          "label": "Königsmarck, Adolf Wilhelm Hans von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11631401X",
+          "label": "Putlitz, Stephan Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313978",
+          "label": "Putlitz, Joachim Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313943",
+          "label": "Putlitz, Albert Eduard zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313951",
+          "label": "Putlitz, Elisabeth zu"
+        },
+        {
+          "forename": [
+            "Joachim"
+          ],
+          "nameAddition": [
+            "Baron"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/126878447",
+          "label": "Putlitz, Lita zu"
+        },
+        {
+          "forename": [
+            "Elisabeth"
+          ],
+          "nameAddition": [
+            "Gräfin"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Königsmarck"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313986",
+          "label": "Putlitz, Konrad Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/133470776",
+          "label": "Gans, Wolfgang"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116350660",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/133470776",
+          "label": "Gans, Wolfgang"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313978",
+          "label": "Putlitz, Joachim Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/11631401X",
+          "label": "Putlitz, Stephan Gans zu"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116313986",
+          "label": "Putlitz, Konrad Gans zu"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118648071",
+          "label": "Alexis, Willibald"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116313943",
+          "label": "Putlitz, Albert Eduard zu"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116313951",
+          "label": "Putlitz, Elisabeth zu"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116350660",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)11631396X",
+        "(DE-588a)172315506",
+        "(DE-588)172315506",
+        "(DE-588)174076673",
+        "(DE-588a)11631396X",
+        "(DE-588a)174076673",
+        "(DE-588a)116350660",
+        "(DE-588c)4733228-1",
+        "(DE-588a)127921028"
+      ],
+      "periodOfActivity": [
+        "1864-1889"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029713-5",
+          "label": "Karlsruhe"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4761033-5",
+          "label": "Retzin (Groß Pankow, Prignitz)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4761033-5",
+          "label": "Retzin (Groß Pankow, Prignitz)"
+        }
+      ],
+      "preferredName": "Putlitz, Gustav Heinrich Gans zu",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Gustav Heinrich Gans"
+        ],
+        "prefix": [
+          "zu"
+        ],
+        "surname": [
+          "Putlitz"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4185044-0",
+          "label": "Theaterintendant"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4392636-8",
+          "label": "Marschall <Hofamt>"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4196107-9",
+          "label": "Gutsherr"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/115998333X",
+          "label": "Edler"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Intendant"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Mansen"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "surname": [
+            "Rehse"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Bernhard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Walpurgis",
+        "Die Halben",
+        "Funken unter der Asche",
+        "Novellen",
+        "Die Alpenbraut",
+        "Das Schwert des Damokles",
+        "Was sich der Wald erzählt",
+        "Vergißmeinnicht",
+        "Brandenburgische Geschichten",
+        "Ungebundenes"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002058908"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/35205950"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1555838"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11631396X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116350660/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172315506"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174076673"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Gustav_Gans_zu_Putlitz"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Gustav_zu_Putlitz"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000055343706"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116350660"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116350660"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116350660.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116350660"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/115998333X",
+          "label": "Edler"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Putlitz, Gustav Hans zu",
+        "Putlitz, Gustav zu",
+        "Gans Edler Herr zu Putlitz, Gustav Heinrich",
+        "Gans zu Putlitz, Gustav Heinrich",
+        "Putlitz, Gustav Heinrich Hans zu",
+        "Gans zu Putliz, Gustav Heinrich",
+        "Putlitz, Gust. zu",
+        "Putlitz, Gustav Heinrich Gans von und zu",
+        "Gans, Gustav Heinrich Edler zu Putlitz",
+        "Bernhard",
+        "Putlitz, Gustav Heinrich Gans von",
+        "Puttlitz, Gustav zu, Gans Edler",
+        "Putlitz, Gustav Heinrich Gans Edler zu",
+        "Puttlitz, Gustav zu",
+        "Mansen, Gustav",
+        "Putliz, Gustav Heinrich Ganz zu",
+        "Putlitz, Gustav Heinrich Hans von und zu, Edler",
+        "Rehse, Th.",
+        "Putlitz, G. zu",
+        "Putlitz, Gustav Gans zu",
+        "Putlitz, Gustav Heinrich Gans zu",
+        "Gans Edler zu Putlitz, Gustav",
+        "Gans zu Putlitz, Gustav",
+        "Putlitz, Gustav Heinrich Hans von",
+        "Putlitz, Gustav Heinrich zu",
+        "Gans, Gustav Heinrich zu Putlitz"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Puttlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Ganz"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putliz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Gans"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Hans"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Th."
+          ],
+          "surname": [
+            "Rehse"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich"
+          ],
+          "surname": [
+            "Gans Edler Herr zu Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Gans"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Hans"
+          ],
+          "nameAddition": [
+            "Edler"
+          ],
+          "prefix": [
+            "von und zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Mansen"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Gans"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "nameAddition": [
+            "Gans Edler"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Puttlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Hans"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Gans zu Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Gans"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "personalName": [
+            "Bernhard"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Edler zu Putlitz"
+          ],
+          "surname": [
+            "Gans"
+          ]
+        },
+        {
+          "forename": [
+            "Gust."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich Gans Edler zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich"
+          ],
+          "surname": [
+            "Gans zu Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Hans"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich"
+          ],
+          "surname": [
+            "Gans zu Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich"
+          ],
+          "surname": [
+            "Gans zu Putliz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Gans Edler zu Putlitz"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Heinrich zu Putlitz"
+          ],
+          "surname": [
+            "Gans"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Gustav_Gans_zu_Putlitz",
+          "label": "https://de.wikipedia.org/wiki/Gustav_Gans_zu_Putlitz"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:33:06Z",
+    "gnd_query_biographical_data": "1821-1890",
+    "gnd_query_name": "putlitz, gustav heinrich gans von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2147,
+  "name": "Putlitz, Gustav Heinrich Gans von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB LIII, 155; Goed (H) 390",
+  "updated": "2026-06-11 13:29:24.144Z",
+  "uri": "https://d-nb.info/gnd/116350660",
+  "editor": ""
+}

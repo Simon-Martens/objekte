@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 89040, Obj 97",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "In dem Eifer der Jagd hatte der Herzog sein Gefolge weit hinter sich gelassen und stand nun einem schäumenden Eber, den er verfolgte, allein gegenüber.",
+  "language": [],
+  "musenalm_id": 88955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fürstenbraut. / Novellette",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. Carril",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fürstenbraut. / Novellette",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.096Z",
+      "agent": "c4desl7afayuss3",
+      "source_id": "9dxruopexoh6fut"
+    }
+  ]
+}

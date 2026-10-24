@@ -1,0 +1,56 @@
+{
+  "annotation": "Anmerkung am Objekt: Rimo di Francesco Petrarca, Canzone XIV. Mit einer Einleitung INr 16517, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Liebenswürdige schöne! in deinen Augen seh' ich ein süßes Licht, das mir den Weg zum Himmel zeigt.",
+  "language": [],
+  "musenalm_id": 16518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode",
+  "updated": "2001-07-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.748Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "4qfc81eqzpok7af"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.748Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "azirs5n0mfaikwo"
+    }
+  ]
+}

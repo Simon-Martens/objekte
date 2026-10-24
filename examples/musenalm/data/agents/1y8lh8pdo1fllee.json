@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "biographical_data": "e. 1840/1874",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.440Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1810"
+      ],
+      "dateOfDeath": [
+        "1874"
+      ],
+      "describedBy": {
+        "dateModified": "2023-10-17T14:35:22.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/1306330203/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/CH-001821-6",
+          "label": "https://ld.zdb-services.de/resource/organisations/CH-001821-6"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "1306330203",
+      "id": "https://d-nb.info/gnd/1306330203",
+      "preferredName": "Outrim, John",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "John"
+        ],
+        "surname": [
+          "Outrim"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/3037169829172437320003"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q25973016"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1306330203/about"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Outram, John"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "John"
+          ],
+          "surname": [
+            "Outram"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "preferred_name",
+    "gnd_matched_at": "2026-06-11T12:26:09Z",
+    "gnd_query_biographical_data": "e. 1840/1874",
+    "gnd_query_name": "outrim, john"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2008,
+  "name": "Outrim, John",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXVI, 100",
+  "updated": "2026-06-11 13:29:24.008Z",
+  "uri": "https://d-nb.info/gnd/1306330203",
+  "editor": ""
+}

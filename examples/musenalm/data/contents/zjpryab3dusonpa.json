@@ -1,0 +1,45 @@
+{
+  "annotation": ": Anm. am Objekt: Verfasser einer didaktischen Tragödie »der ewige Jude«, Herausgeber und Mitarbeiter des Taschenbuchs »Lies mich!« für 1832, 1833, u.s.w.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Zu Salona, in geschloss'nem Zimmer, / Saß das Haupt der Christenheit",
+  "language": [],
+  "musenalm_id": 62225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schneider zu Salona",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jemand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schneider zu Salona",
+  "updated": "2009-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.106Z",
+      "agent": "56yfx90lxolzuji",
+      "source_id": "u30xbqq0bsizwkh"
+    }
+  ]
+}

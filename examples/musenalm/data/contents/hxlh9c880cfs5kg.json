@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 13.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13746,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Staubbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. Darnstedt sc.",
+  "scans": [
+    "alm_219_13746_hnfd3h01t1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Staubbach",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.389Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "3j5zqqdr3i0rkap"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.389Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "qt0oa462vt1c4r7"
+    }
+  ]
+}

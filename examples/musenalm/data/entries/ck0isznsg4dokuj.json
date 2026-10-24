@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1–50, SS1–52, SS1–104",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht, Dramatisches 1849",
+    "norm": "~",
+    "biblio": 200870,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3450,
+  "parallel_title": "",
+  "place_statement": "Dresden und Leipzig (Arnold)",
+  "places": [
+    "rwbojfo6ivkzocy",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Vergißmeinnicht, Dramatisches 1849",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 164; nicht bei L/R; Goed VIII. 131, 28",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches / Vergißmeinnicht / auf das Jahr 1849 / aus / den Gärten des Auslandes nach Deutschland / verpflanzt / von / Theodor Hell. / Sechsundzwanzigstes Bändchen. / Enthält: / Bekommen oder Geben. / Lustspiel in 1 Aufzuge. / Eine Laune. / Häusliche Scene in 1 Aufzug. / Nach siebenundzwanzig Jahren. / Lustspiel in 4 Aufzügen, nebst einem Vorspiel. / Dresden und Leipzig, / in der Arnoldischen Buchhandlung. / 1849",
+  "updated": "2026-06-11 10:18:55.492Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "items": [
+    "01pg8nevnixtmbq"
+  ],
+  "contents": [
+    "4ln2umfgm55pnzy",
+    "lt7u9eg289ghsxg",
+    "imrjjf8jnmv8om6",
+    "a6qvpnf0i70qy23"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.222Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.222Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "d2sc8500wt6jhez"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.481Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.481Z",
+      "agent": "9fzvi0h7sivgamt",
+      "source_id": "zsnuvpxgov1bru1"
+    }
+  ]
+}

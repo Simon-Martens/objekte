@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Der Nebel, der den Glanz der Sterne, / Der Freude lichtes Sonnenbild, / Und meiner Jugend klare Ferne",
+  "language": [],
+  "musenalm_id": 31871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermannung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ermannung",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.392Z",
+      "agent": "ijn3e3gugtz46hh",
+      "source_id": "jjjju38i3m93mb3"
+    }
+  ]
+}

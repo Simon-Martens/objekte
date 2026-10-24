@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Als die Mutter dich geboren, / Hat die freundlichste der Horen / Unserm Erdenrund gelacht,",
+  "language": [],
+  "musenalm_id": 42116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huldigung am Wiegenfeste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Huldigung am Wiegenfeste",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.908Z",
+      "agent": "uimoj64mrnawl5d",
+      "source_id": "w0y7ez3yh9y0xf9"
+    }
+  ]
+}

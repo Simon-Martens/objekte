@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Ich bin dir ach so ferne, / Und möchte bei dir sein,",
+  "language": [],
+  "musenalm_id": 45786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 193,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gruß an Sidonie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Hamerling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gruß an Sidonie",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.420Z",
+      "agent": "zilf9bw8086r5oa",
+      "source_id": "dwwrnctb5qxmd4p"
+    }
+  ]
+}

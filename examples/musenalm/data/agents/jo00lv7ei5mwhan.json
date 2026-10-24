@@ -1,0 +1,450 @@
+{
+  "annotation": "",
+  "biographical_data": "1804-1881",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.477Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1072896028",
+          "label": "Expedition der Allg. Lit. Zeitung (Halle, Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/6146939-7",
+          "label": "Gebauersche Buchhandlung"
+        },
+        {
+          "id": "https://d-nb.info/gnd/10010210-4",
+          "label": "C. A. Schwetschke & Sohn"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4018128-5",
+          "label": "Frankfurter Nationalversammlung"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Dt. Buchhändler, Verleger, Redakteur, Schriftsteller, Politiker, Abgeordneter, ein Teil seiner Familienbibliothek befindet sich seit 1851 als Schenkung in der Marienbibliothek Halle"
+      ],
+      "dateOfBirth": [
+        "1804-04-05"
+      ],
+      "dateOfDeath": [
+        "1881-10-04"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "https://m.facebook.com/Carl-Gustav-Schwetschke-343090972494759/"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Gustav%20Schwetschke.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Gustav%20Schwetschke.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Gustav%20Schwetschke.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-10-23T19:51:47.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/113667302/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117430919",
+          "label": "Schwetschke, Karl August"
+        },
+        {
+          "id": "https://d-nb.info/gnd/104299673",
+          "label": "Schwetschke, Karl Ferdinand"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117423939",
+          "label": "Schwetschke, Eugen"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "113667302",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117423939",
+          "label": "Schwetschke, Eugen"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/117430919",
+          "label": "Schwetschke, Karl August"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/104299673",
+          "label": "Schwetschke, Karl Ferdinand"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/113667302",
+      "oldAuthorityNumber": [
+        "(DE-588a)157578100",
+        "(DE-588a)113667302"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "preferredName": "Schwetschke, Karl Gustav",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Gustav"
+        ],
+        "surname": [
+          "Schwetschke"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4000135-0",
+          "label": "Abgeordneter"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "nameAddition": [
+            "ab Uva"
+          ],
+          "personalName": [
+            "Lucilius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Bismarckias, Warzinias und andre Zeitgedichte",
+        "Tacitus Germania",
+        "Jubilaeums-Ausgabe der novae epistolae obscurorum virorum",
+        "Zeitgedichte",
+        "Vorakademische Buchdruckergeschichte der Stadt Halle",
+        "Neue Brieflein der Männer im Trüben",
+        "Codex nundinarius Germaniae literatae bisecularis",
+        "Warzinies oder Die kleine Bismarckias"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059288"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/12988864"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q216673"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/113667302/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Carl_Gustav_Schwetschke"
+        },
+        {
+          "collection": {
+            "abbr": "FFMPL",
+            "id": "https://frankfurter-personenlexikon.de",
+            "name": "Frankfurter Personenlexikon",
+            "publisher": "Frankfurter Bürgerstiftung im Holzhausenschlösschen"
+          },
+          "id": "https://frankfurter-personenlexikon.de/beacon/beacon.php?113667302"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080183097"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/113667302"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1848_schorn;22"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd113667302.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/113667302"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/113667302"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schwetschke, Carolus G.",
+        "Uva, Lucilius ab",
+        "Lucilius, ab Uva",
+        "Schwetschke, Carl Gustav",
+        "Schwetschke, Carolus Gustavus",
+        "Schwetschke, Carl G.",
+        "Schwetschke, Karl G.",
+        "Schwetschke, Gustav Karl",
+        "Schwetschke, Gustav",
+        "Schwetschke, G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carolus G."
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gustav"
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "nameAddition": [
+            "ab Uva"
+          ],
+          "personalName": [
+            "Lucilius"
+          ]
+        },
+        {
+          "forename": [
+            "G."
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Gustavus"
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav"
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Karl G."
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Carl G."
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        },
+        {
+          "forename": [
+            "Lucilius"
+          ],
+          "prefix": [
+            "ab"
+          ],
+          "surname": [
+            "Uva"
+          ]
+        },
+        {
+          "forename": [
+            "Gustav Karl"
+          ],
+          "surname": [
+            "Schwetschke"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Carl_Gustav_Schwetschke",
+          "label": "https://de.wikipedia.org/wiki/Carl_Gustav_Schwetschke"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:55:57Z",
+    "gnd_query_biographical_data": "1804-1881",
+    "gnd_query_name": "schwetschke, gustav"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2607,
+  "name": "Schwetschke, Gustav",
+  "profession": "Text",
+  "pseudonyms": "Lucilius ab Uva",
+  "refs": "Goed (H) 470; E 334",
+  "updated": "2026-06-11 13:29:24.932Z",
+  "uri": "https://d-nb.info/gnd/113667302",
+  "editor": ""
+}

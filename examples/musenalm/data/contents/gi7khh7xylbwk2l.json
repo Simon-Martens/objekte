@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Siebente Lieferung. Iphigenie auf Tauris (Sammlung INr 40729, Obj 6) s. Graphik INr 40742, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Unselige! So mag die Sonne denn / Die letzten Gräuel unsers Hauses seh'n!",
+  "language": [],
+  "musenalm_id": 40734,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Dritter Aufzug. / Erster Auftritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Dritter Aufzug. / Erster Auftritt",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.129Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "oddfr0vwp42a3gn"
+    }
+  ]
+}

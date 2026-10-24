@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite. Graphik im Kalendarium September; paginiert 10. s. Textbezug INr 73640, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73635,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Entdecker der heiligen Lanze un- / terwirft sich zur Bestätigung seines Wunders / der Feuerprobe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_905_73635_8sowntyaui.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Entdecker der heiligen Lanze un- / terwirft sich zur Bestätigung seines Wunders / der Feuerprobe",
+  "updated": "2008-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.700Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "6yhazo2xc7v1jrr"
+    }
+  ]
+}

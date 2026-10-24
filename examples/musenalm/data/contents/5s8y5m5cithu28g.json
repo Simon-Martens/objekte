@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Wohl lacht dir auf der Maienau / Der Rose Roth, des Veilchens Blau.",
+  "language": [],
+  "musenalm_id": 84547,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 369,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Veilchen und Rosern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. D. Symanski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Veilchen und Rosern",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.125Z",
+      "agent": "nyw0kvzh1qnijk0",
+      "source_id": "7o8hflr3qiz78jh"
+    }
+  ]
+}

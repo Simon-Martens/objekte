@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik 79013, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Zu den Füssen des großen Guido hatte Andreas Sirani in Bologna gesessen, nicht abgeschreckt von den oft sonderbaren Eigenthümlichkeiten dieses hohen Meisters,",
+  "language": [],
+  "musenalm_id": 79024,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisabeth Sirani, / Malerin in Bologna. / Biographische Skizze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elisabeth Sirani, / Malerin in Bologna. / Biographische Skizze",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.706Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "so3y5b2x109oruc"
+    }
+  ]
+}

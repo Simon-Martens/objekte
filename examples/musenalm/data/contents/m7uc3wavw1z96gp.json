@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Es ruht auf klarem Perlenthrone / Die Meerfey im Krystallpalast,",
+  "language": [],
+  "musenalm_id": 45427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mythus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mythus",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.479Z",
+      "agent": "h8j0pzrwje92vvq",
+      "source_id": "dw0xtpilueif588"
+    }
+  ]
+}

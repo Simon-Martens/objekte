@@ -1,0 +1,91 @@
+{
+  "annotation": "Die 12 Graphiken im Kalendarium (Portraits berühmter brandenburg.-preuss. Militärs) auch in: Kalender, Historisch-Genealogischer (Berlin) 1792",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 12 BB Kal darin 12 GG Kr, 72 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1795",
+    "norm": "~",
+    "biblio": 404196,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 806,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; L/R 16",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Calender / auf das Gemein-Jahr / 1795, / mit Genehmhaltung / der Königl. Academie der Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.768Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "fnmaym81o2zda55"
+  ],
+  "contents": [
+    "4hrbbypseolsm76",
+    "rscdpvmsf66ohb3",
+    "jdwqyw0lbwf4uby",
+    "idqb72xvcls10qt",
+    "lihrn8ry95p86as",
+    "rb15azqzjzxhfg1",
+    "doshb3qf57yiivf",
+    "ls6zx3kavxkpsf0",
+    "o8xsw7unssz6an2",
+    "ncic4vu51biai2n",
+    "175m436z055pie8",
+    "oc8k4anockebc3d",
+    "a6tb5zjw402pqp0",
+    "xisanfsis11rdyu",
+    "76v7wmz1vy3623f",
+    "na386usotca25t3",
+    "86wpqi1gib0ex4k",
+    "semkk1tbbjorq0t",
+    "ww6dvvgut96iwk9",
+    "8ofjlsjlbb1mk2b",
+    "5ti6r5czq56s72e",
+    "bo1eewt6o5lbj5h",
+    "jp2r8q0ryjqtz1k"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.212Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.212Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "g8sgu2177g2ah8h"
+    }
+  ]
+}

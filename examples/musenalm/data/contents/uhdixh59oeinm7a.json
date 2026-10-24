@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12282,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Meissen von Leipzig her",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_210_12282_7pqcu7iie8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Meissen von Leipzig her",
+  "updated": "2001-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.504Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "6nkpcv8n0ch2rgs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.504Z",
+      "agent": "tv0kfo1dowgyyed",
+      "source_id": "y2c7ejgdofj9zai"
+    }
+  ]
+}

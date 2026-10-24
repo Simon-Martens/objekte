@@ -1,0 +1,45 @@
+{
+  "annotation": "4. Frühlingsliederstrauß (Sammlung INr 9319, Obj 161) X. Vermischte Gedichte (Sammlung INr 1871, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:40.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "405",
+  "incipit_statement": "Es ist so still, es ist so schön, / So grün das Thal, so licht die Höh'n,",
+  "language": [],
+  "musenalm_id": 1645,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2000-08-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.655Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "d0xrasplpw46ukw"
+    }
+  ]
+}

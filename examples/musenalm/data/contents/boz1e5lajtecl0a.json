@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1825 gesammelt von Theodor Hell (Sammlung INr 40698, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "531",
+  "incipit_statement": "Das erste raset ungeschlacht, / Das andre Dir recht fröhlich lacht,",
+  "language": [],
+  "musenalm_id": 40703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Logogryph",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Logogryph",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.210Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ic189l0afq8nj75"
+    }
+  ]
+}

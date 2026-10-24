@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 127 Gedichten in 11 Sammlungen INr 65016-65153, Obj 76-213",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Nüsse / aus / verschiedenen Weltgegenden. / Gesammelt / von / Frater Timoleon. 1829-1931.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Nüsse / aus / verschiedenen Weltgegenden. / Gesammelt / von / Frater Timoleon. 1829-1931.",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.232Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "5r2h733qjm481h1"
+    }
+  ]
+}

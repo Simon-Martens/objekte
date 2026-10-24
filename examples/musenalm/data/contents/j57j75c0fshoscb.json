@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 42 Kapiteln",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Schon längst wurde ich von mehrern meiner Freunde und Bekannten, die meinem practischen Unterricht in der Roßarzneikunde nicht beiwohnen konnten, aufgefordert, ihnen das Wesentlichste von dem, was man bei dem Englisiren der Pferde zu beobachten hat,",
+  "language": [],
+  "musenalm_id": 109912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Vom Englisiren] I. / Einleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Vom Englisiren] I. / Einleitung",
+  "updated": "2012-05-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.433Z",
+      "agent": "ngfhgg967qz5l80",
+      "source_id": "ng1ug7wg453ibvp"
+    }
+  ]
+}

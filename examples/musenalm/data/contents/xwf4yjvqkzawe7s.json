@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Um Christnacht herum - der Wind blies kalt - / Die Freuden der runden Tafel begannen,",
+  "language": [],
+  "musenalm_id": 14241,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jung Waters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Bapt. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jung Waters",
+  "updated": "2001-04-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.495Z",
+      "agent": "47jltbo11xjvoib",
+      "source_id": "la8p5aq31wg3n7b"
+    }
+  ]
+}

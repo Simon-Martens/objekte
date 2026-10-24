@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Es stößt sich nur ans Mein und Dein. / Wenn Sie nur etwas gleich dagegen",
+  "language": [],
+  "musenalm_id": 2767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Korb",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Korb",
+  "updated": "2000-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.919Z",
+      "agent": "vn2a6zjk0dwki92",
+      "source_id": "i7oknez0e2g44vg"
+    }
+  ]
+}

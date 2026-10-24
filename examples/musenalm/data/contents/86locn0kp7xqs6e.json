@@ -1,0 +1,45 @@
+{
+  "annotation": "Ungarische Sagen ( Sammlung INr 116062, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Tarrody, Anführer der Malkontenten in Ungarn, belagerte den tapfern Fürsten Paul Esterhazy im festen Schlosse Lackenbach.",
+  "language": [],
+  "musenalm_id": 116064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Tarrody's Grab bei Lackenbach im / Oedenburger Comitate",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Tarrody's Grab bei Lackenbach im / Oedenburger Comitate",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.415Z",
+      "agent": "wzmgymh9fjau9gk",
+      "source_id": "hytxvw50hvkx5x3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtviolen. Sonnette (Sammlung INr 34449, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Wir zogen heiter durch die grünen Auen, / Vom Gold des Abendlichtes übersponnen,",
+  "language": [],
+  "musenalm_id": 34450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.571Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "827sca8h6a4w3pi"
+    }
+  ]
+}

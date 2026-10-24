@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-12 09:26:52.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140341,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / III. Aufz. 4. Sc. / Huon. Allmächtiger Himmel! Ich bin betrogen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_2373_140341_hloxyx8xmj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / III. Aufz. 4. Sc. / Huon. Allmächtiger Himmel! Ich bin betrogen!",
+  "updated": "2026-08-12 10:43:35.609Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12 09:28:31.310Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-08-12 10:43:35.609Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "7lxfp5ukw3brk12"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12 09:28:46.357Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-08-12 10:43:35.608Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "v2758yqymf3mu06"
+    }
+  ]
+}

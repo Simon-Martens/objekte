@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Zwei Blätter aus dem Tagebuche meines Freundes G***« von Franz von der Golz INr 28927, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus der Erzählung: Zwey Blätter aus / dem Tagebuche meines Freundes G. / von Franz von der Golz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sculp.",
+  "scans": [
+    "alm_374_28974_31p5w4thuv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus der Erzählung: Zwey Blätter aus / dem Tagebuche meines Freundes G. / von Franz von der Golz",
+  "updated": "2002-10-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.263Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "cohzvjgezd00zsp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.263Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "iku4oaijppxsfi3"
+    }
+  ]
+}

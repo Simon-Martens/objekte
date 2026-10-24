@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Des Pächters dicker Hans und Lieschen, / Des Pfarrers gelbgelockte Tochter,",
+  "language": [],
+  "musenalm_id": 16798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans und Lieschen. / Eine Kinderidylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans und Lieschen. / Eine Kinderidylle",
+  "updated": "2001-07-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.833Z",
+      "agent": "ewuwl9lvke5jtiz",
+      "source_id": "a6a5y0edw8o4lrv"
+    }
+  ]
+}

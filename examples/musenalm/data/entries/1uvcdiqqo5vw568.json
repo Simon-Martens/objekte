@@ -1,0 +1,150 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 7 BB Kal, T, B W, G, SS 1-189 darin 10 GG, S I-Verz, SS 191-196",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Damen 1799",
+    "norm": "~ +++ 406031",
+    "biblio": 100933,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-04-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 454,
+  "parallel_title": "",
+  "place_statement": "Tübingen (Cotta)",
+  "places": [
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch für Damen 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 112; L/R 64; Goed VIII. 49, 11",
+  "responsibility_statement": "Huber, Lafontaine, Pfeffel und andern",
+  "subtitle_statement": "",
+  "title_statement": "Taschenkalender / für / Damen. / auf das Jahr 1799. / Herausgegeben / von / Huber, Lafontaine, Pfeffel / und andern. / Mit Kupfern. / Tübingen / in der J. G. Cotta'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.821Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "1lzx1cjyqna2bko",
+    "laonlhnyq7n05c5"
+  ],
+  "contents": [
+    "o2537vd7jvnssvh",
+    "sml2mubhi8oklqw",
+    "m6obrr0vh0xegj7",
+    "ce6sjk20or456xu",
+    "uhs8uxhru5cuq69",
+    "lly9mlqn456rfxe",
+    "9dumizxwuusl1ge",
+    "j2l2t0kgyorlivl",
+    "r7rxr67l8eohz21",
+    "518ck3zn2rujrqz",
+    "f4kmbxy57oyiklk",
+    "ms2at3yv2wbsjhn",
+    "dxqjvuoiq0103kd",
+    "q84za6b7sr8ochp",
+    "b3a1pbwxrtx6zwi",
+    "tk49y5nigyd11fk",
+    "qhyknl7d8ottdk2",
+    "tpxmrxwaf9cpjv4",
+    "bivhd0s0f101m59",
+    "0i6p1icxhd5yfx2",
+    "iafbv1nc5rmd2bf",
+    "dltywpibo7f2dkc",
+    "z2gr6hx2xjmfg27",
+    "3c2y95x041sn0ba",
+    "2e0yj63z94gngw5",
+    "wgryuvgrcvq085x",
+    "pexbvixqa3artxa",
+    "q8am0icxoygh17m",
+    "nek38ldxvy7b8w2",
+    "u40e1e70hky83oa",
+    "xm937qqym2bn7af",
+    "0mudpnx18y8hi55",
+    "jhgieedfdrk9icg",
+    "9h7d6mln9jkslqy",
+    "g5h5h2w4imwnb9r",
+    "5ns3dyetwzo9axj",
+    "mzre8saj124ml90",
+    "0m34tfztv6xuao9",
+    "fam2zkf104d8361",
+    "c61v2tdl7bvyps6",
+    "yeuno3mwv4mdjk3",
+    "naxdi63bwe1gf91",
+    "obssajlc2apmgus",
+    "cuyynjcrceskp6q",
+    "mecyk9bdlwsftw4",
+    "mim0nk08a5m80rx",
+    "oela4cdon3vkq2o",
+    "5d2g32nwjh2zr9l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.673Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.673Z",
+      "agent": "6pw6iul8mmx44oj",
+      "source_id": "aiebo7b38c3jlvs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.674Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.674Z",
+      "agent": "w9gq57fj1dkxv1n",
+      "source_id": "fv74nx8lxuuh30e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.699Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.699Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "lts7m941uzpqcix"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.674Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.674Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "zq70m79qzvgt2a6"
+    }
+  ]
+}

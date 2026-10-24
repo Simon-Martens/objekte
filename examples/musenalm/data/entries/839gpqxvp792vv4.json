@@ -1,0 +1,115 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, W, S, B I-Verz, 7 BB Kal darin 3 GG, S 1 nT, SS 3-144",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für edle Weiber und Mädchen 1802",
+    "norm": "~",
+    "biblio": 112650,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-05-23T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 316,
+  "parallel_title": "",
+  "place_statement": "Pforzheim (C. F. Müller)",
+  "places": [
+    "1pn4qacgzqxv8ak"
+  ],
+  "preferred_title": "Taschenbuch für edle Weiber und Mädchen 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 151; L/R 71; Goed VIII. 56, 28",
+  "responsibility_statement": "Wilhelmine Müller",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / auf das Jahr 1802 / für / edle Weiber und Mädchen, / herausgegeben / von / Wilhelmine Müller, / gebohrner Maisch. / Mit Kupfern. / Pforzheim, / bei Christian Friedrich Müller",
+  "updated": "2026-06-11 10:18:54.700Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "gggqffntz57zaq9"
+  ],
+  "contents": [
+    "l77shdykkw615nd",
+    "9wv5symwj961nrn",
+    "cyx7k8m533pmkw0",
+    "xe6rqa25ku3xpdx",
+    "d2uljw2ezw2bll2",
+    "03qva5n1dqu2um4",
+    "900uzozg73kfyn1",
+    "v3cu1bsx1rg2q5k",
+    "whodlmkfn74bp87",
+    "sz1t60z42w5uat0",
+    "allcpub7kviyui0",
+    "fsszm6svvgesuho",
+    "81fewaak6kusjxm",
+    "dmykd2r7mos7fn2",
+    "4gs9q9yrsjzwe2q",
+    "fpz6p4jflq9h1ky",
+    "78d7qm44l4qbvk3",
+    "i0mkw7kuj3zxq2f",
+    "c6r395432fb2hf6",
+    "imfd52dzmur12wo",
+    "s83fal7b5d9lgvy",
+    "tkwubgxkijnjpen",
+    "we5hfcdh5izuht1",
+    "8bs8cxa36dppeq7",
+    "bh75aqf2strtope",
+    "shscazbr6rxoc3i",
+    "kd1yiod1ytjw6jm",
+    "sm8r5tgq3zf1a5c",
+    "k2iqfzpft94pdk2",
+    "ygpi5dyo0ic3201",
+    "krrfbzn28dww66o",
+    "gkgaxirpqrca8t2",
+    "scrjrzvpir63mfg",
+    "dv5ubwmgbev6aaz",
+    "hugi6tdd4uoufgx",
+    "hzxaipnoqgs6u0z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.633Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.633Z",
+      "agent": "3ruy368fakfbib3",
+      "source_id": "84c3itrfhiopp57"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.594Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.594Z",
+      "agent": "ibdeh1gpf166351",
+      "source_id": "c1g06hasoyw4q72"
+    }
+  ]
+}

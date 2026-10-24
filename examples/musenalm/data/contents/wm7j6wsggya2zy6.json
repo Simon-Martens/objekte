@@ -1,0 +1,56 @@
+{
+  "annotation": "TABELLEN zur Bemerkung gesellschaftlicher FREUDEN /) Monatsblatt",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133361,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jäner",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adamek del. A. Berka sc.",
+  "scans": [
+    "alm_4867_133361_vbix3xpdo9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jäner",
+  "updated": "2024-07-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.105Z",
+      "agent": "jlkwrxo4vggz8uy",
+      "source_id": "xa3f69giplwzgnj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.105Z",
+      "agent": "7mgvpns7id15ukg",
+      "source_id": "ytg4msgmx68cksk"
+    }
+  ]
+}

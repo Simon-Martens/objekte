@@ -1,0 +1,117 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S III G-Verz u. I-Verz, SS V-XXIII darin 6 GG, SS 1- 391",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Rheinisches 1841",
+    "norm": "~ +++ 407839 (Umschlaggraphiken, Graphik und SS VII,VIII)",
+    "biblio": 100511,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-06-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 596,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (J. D. Sauerländer)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch, Rheinisches 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 144; L/R 86; Goed VIII. 70, 127",
+  "responsibility_statement": "Dr. Adrian",
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / auf das Jahr 1841. / Herausgegeben / von / Dr. Adrian. / Mit 7 Stahlstichen und einer Ansicht des v. Launitz'schen Monumentes / für die Erfindung des Buchdrucks. / Frankfurt am Main. / Druck und Verlag von Johann David Sauerländer",
+  "updated": "2026-06-11 10:18:55.355Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "pi7bt1vdbfxeidb",
+    "rmh0j9tjurob17s"
+  ],
+  "contents": [
+    "uy3bwumvmo8977a",
+    "09ox0n73mb8728t",
+    "iy2kj9ereszt1hf",
+    "ivcb786ddhcuyy3",
+    "csy84iiyhsx3kaw",
+    "x7fkhgfnvn90ibo",
+    "0ef2bgt994fqdyz",
+    "dc1ya5cq6rho8al",
+    "umahzs7xddfx6af",
+    "fg8ifityth0gz55",
+    "niuez5xfp0oblrj",
+    "tzuue8t6jt6oja3",
+    "4o0s2vhynru1g0r",
+    "10oazoqjtxvdcfi",
+    "17aukexryrcg4ii",
+    "tklw3vkdtsidnsk",
+    "znirmonj9gfaluk",
+    "pn6olma83hlmev2",
+    "g09stiiwg72gw11",
+    "7ths4jq7c1qov5u",
+    "93debmay2ptpo2z",
+    "6k79unt6vm04h52",
+    "4vdrmt7hfhyffn2",
+    "88w0788znfxynsj",
+    "jnpj1mzlqzxid69",
+    "vb8bf7szwn3x6yk",
+    "aqtw17phw3bc53j",
+    "ti09b3ulwk0f0dx",
+    "c89yvjhuhnv82ma",
+    "lhascbaat8qbawy",
+    "4ieiqgh5r4gcyb0",
+    "ifjkue1hqsm0bls",
+    "lzaztiv1om527vb",
+    "nn5kd0heupyz7gu",
+    "7podjstambp8bwl",
+    "zffzx67h71j81v9",
+    "7b79tkg0qecz6zb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.712Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.712Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "8ydil0bx1ft4wbl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.067Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.067Z",
+      "agent": "vo2zh5esv5g3ixu",
+      "source_id": "z8e4qsjyrsr03do"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 114260, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Du schreibest Freund! vom Vaterlande, / Vom holden, mütterlichen Heerd?",
+  "language": [],
+  "musenalm_id": 114263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / An G.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freyh. von Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / An G.",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.432Z",
+      "agent": "kul4vu28bmx1z4v",
+      "source_id": "9njmdhv6sx5sqc0"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; Illustration zu »Der Opfertod« von Friedrich Dornau INr 134379, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134369,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clothilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_1916_134369_0wmsegukj3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Clothilde",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.124Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "s541imwzva98alu"
+    }
+  ]
+}

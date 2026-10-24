@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert VIII. Illustration zu »Ludwig XVI. König von Frankreich« INr 59832, Obj 34 s.a. Textbezug INr 59816, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig XVI. wird entwafnet. / Ludw: Von mir hat man nichts zu fürchten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59823_8cz6q5utyw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig XVI. wird entwafnet. / Ludw: Von mir hat man nichts zu fürchten",
+  "updated": "2008-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.083Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "m1xgu84kvnveoqg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.083Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "rmfo95hk89my7gq"
+    }
+  ]
+}

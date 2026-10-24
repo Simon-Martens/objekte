@@ -1,0 +1,47 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Zauberey der Töne / Die Tochter« von W. d. i. Herder INr 38020, Obj 89",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38803,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 665,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Zauberey der Töne] / Die Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [
+    "alm_511_38803_9rtx6ho5om.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Zauberey der Töne] / Die Tochter",
+  "updated": "2005-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.940Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "a6zli7rin5yyxkp"
+    }
+  ]
+}

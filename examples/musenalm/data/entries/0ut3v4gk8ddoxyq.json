@@ -1,0 +1,107 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G,S I T, SS III-IV I-Verz G-Verz, SS V-XII dazu 2 GG, G, SS 1-392 darin G, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1841",
+    "norm": "~",
+    "biblio": 100446,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2412,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1841",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1841. / Herausgegeben / von / Theodor Hell. / Dreißigster Jahrgang. / oder / Neue Folge, / Erster Jahrgang. / Mit Stahlstichen. / Leipzig, / Verlag der J. C. Hinrichsschen Buchhandlung",
+  "updated": "2026-06-11 10:18:55.955Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "olxwlrha5oablx5"
+  ],
+  "contents": [
+    "3wp43u8s5n522ca",
+    "seafimbc5kpo5dv",
+    "wq5g17gpdzo8ov5",
+    "6ei790m2qs4rw17",
+    "mnxugk1g4i4krjj",
+    "c43nvgso2nlp17v",
+    "sw9yu7nrx5vrtb3",
+    "7rk8sj97tzju6de",
+    "0n41jduia7528iv",
+    "8lsyk6xhqzgmmz3",
+    "dubhtqd5v0jh8ei",
+    "86uebeluubmf7a4",
+    "07igncxfkmghzyl",
+    "5c4br8zqlzepc3y",
+    "cszm3iia5l1d3vf",
+    "x375b1bntuwwcn1",
+    "laj46www3lpfkpv",
+    "0unb2cdt09tt4ki",
+    "9q8un90wvwkge8r",
+    "s6fxoz4ily6jfkq",
+    "03q387abfc3q391",
+    "mgsw3tqqihqp916",
+    "ajnnlbkhv1rw92b",
+    "x98akrtr4e4yzt4",
+    "ax4pqlxmlzz8h80",
+    "4yjer6ap97a146i",
+    "c7zfgau7gal1jbj",
+    "7wjcn8317fknp8u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.023Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.023Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "srehjfkb3fn7uji"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.081Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.081Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "uz5qv2iy0499vng"
+    }
+  ]
+}

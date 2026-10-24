@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Der Gassenkehrerjunge« von J. G. Seidl INr 57924, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER GASSENKEHRERJUNGE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás del. C. Mahlknecht u. J. Axmann sc. Viennae",
+  "scans": [
+    "alm_771_57923_rjqmysyj64.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER GASSENKEHRERJUNGE",
+  "updated": "2008-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.815Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "4y008qhtq2tysxw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.815Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "lxgkxgezgsweqot"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.815Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "s34p0i7my8odamz"
+    }
+  ]
+}

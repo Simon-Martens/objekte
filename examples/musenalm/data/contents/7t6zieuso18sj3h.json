@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Einleitung INr 53025, Obj 53 /) mit einer Illustration s. Graphik INr 127977, Obj 52,01",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Im Frühjahr nach Christi Geburt 1499, erhub sich Kriegsgeschrey im ganzen Schweizerland, und wer der Sachen achtete, sah Krieg und schwere Zeiten vor.",
+  "language": [],
+  "musenalm_id": 53026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die gefangenen Schweizer-Knaben.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die gefangenen Schweizer-Knaben.]",
+  "updated": "2007-11-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.417Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "85e3w6p9e6hkdm5"
+    }
+  ]
+}

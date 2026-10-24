@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38969, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "In dieser Stunde denkt sie mein, / Ich weiß, in dieser Stunde!",
+  "language": [],
+  "musenalm_id": 38976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Abends",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Abends",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.803Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "u51khdh66nwm9q6"
+    }
+  ]
+}

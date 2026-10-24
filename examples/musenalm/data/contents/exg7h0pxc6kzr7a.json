@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Hat dich Praxiteles Göttinn berückt mit dem mäch- / tigen Liebreiz, / Titians lüsterne Glut staunende Röthe geweckt:",
+  "language": [],
+  "musenalm_id": 53801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter über dem Kinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Münch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter über dem Kinde",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.846Z",
+      "agent": "g01mhp8jpiss758",
+      "source_id": "jcdtpjnqswij1ny"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, 6 GG, S, 16 SS Kal darin 6 GG, 7 SS Tab, S 1 nT, SS 3-124, S 124 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Freund des schönen Geschlechts, Der 1824",
+    "norm": "~",
+    "biblio": 404508,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 988,
+  "parallel_title": "",
+  "place_statement": "Wien",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Freund des schönen Geschlechts, Der 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 48; L/R 64; Goed VIII. 61, 68a",
+  "responsibility_statement": "Dr. Franz Rittler",
+  "subtitle_statement": "",
+  "title_statement": "Der / Freund / des / schönen Geschlechts / TASCHENBUCH / für das Jahr / 1824. / Verfasst / von / Dr. Franz Rittler. / WIEN. / Bey Jos. Riedl bürgerl. Buchbinder / im Schottenhof No.136",
+  "updated": "2026-06-11 10:18:54.673Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "kt0c37wc0hyhd4q"
+  ],
+  "contents": [
+    "mp22m9ai8duche7",
+    "1et6jzpzcsvfdo3",
+    "v3csuxz82j0ks2r",
+    "ybx7d3uu3bl8zrj",
+    "1y3osqz3jbcx4gb",
+    "8lxkqiyohpomjo8",
+    "scxklw8tniykqrn",
+    "grc2gxtypddt6qh",
+    "dcg0osiqctklofz",
+    "couz8cogv1ewv0w",
+    "ngp916pv5xy56xs",
+    "siek6s303q909gr",
+    "ob6s89nt22gb9uo",
+    "v3hoczhvzg0bwqk",
+    "7chhpqupg3rcdox",
+    "n0arp4vw13a0zat",
+    "qq8ya911rnufvlm",
+    "k5lxfed9jhzytp3",
+    "6psn2fcqispdp1d",
+    "5idgr0sj0wysc27",
+    "71uod5dqekayzog",
+    "nvyjpijkc4d8s11",
+    "c03rnxjhihz3czr",
+    "j1iy80786fribil",
+    "k5e77nsu1ztfuja",
+    "l7hq53sa82xr6s9",
+    "sm4zn4ppv3nvbmp",
+    "cuvv1h4828yhk66",
+    "l5mzyj4a7fzqg9m",
+    "576v72sbaigul5p",
+    "cafvyj4vyoyia5s",
+    "q0gk7bf8erslka8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.786Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.786Z",
+      "agent": "9ln1r7p8kwjoxp7",
+      "source_id": "p6yazuio20fjfv3"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kloster Marienberg bei Boppard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A Lasinsky delin. C. Frommel direx.",
+  "scans": [
+    "alm_868_82332_f8ku77ry5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kloster Marienberg bei Boppard",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.084Z",
+      "agent": "rvw5lmkfyfm128i",
+      "source_id": "ctikhxlrs1cfhix"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.084Z",
+      "agent": "yxu70p4laeh97im",
+      "source_id": "gf6k7862o5tu0eg"
+    }
+  ]
+}

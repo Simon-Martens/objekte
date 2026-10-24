@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "382",
+  "incipit_statement": "Wenn dich Leiden rings umfangen, / Dich die Noth zu kämpfen zwingt, / Laß die Seele nicht erhangen",
+  "language": [],
+  "musenalm_id": 90833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Erdentag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frantz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Erdentag",
+  "updated": "2013-08-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.958Z",
+      "agent": "arq1wi6im7bawmi",
+      "source_id": "2g4dn2kzxef16u3"
+    }
+  ]
+}

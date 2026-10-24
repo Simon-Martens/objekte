@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Edelstein und Perle (Sammlung INr 9330, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Ich schwör' es bei des Himmels Angesichte, / Ich schwör's beim Liebesfunkeln dieser Kerze,",
+  "language": [],
+  "musenalm_id": 1673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI.",
+  "updated": "2000-08-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.720Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "mq0xvleadawvx1k"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Die Blumen schlafen alle, / Die Blumen rings umher,",
+  "language": [],
+  "musenalm_id": 86677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Sängerloos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Sängerloos",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.168Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "ct4zk81z7t39tym"
+    }
+  ]
+}

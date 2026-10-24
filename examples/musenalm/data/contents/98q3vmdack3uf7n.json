@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123855, Obj 1); Illustration zu »U. A. w. g.« von Kotzebue (INr 123860, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Amtmann Vierling. / Potz tausend! der duftet – die Nase muß immer / erst Rapport abstatten, und dann – Sapperment! / da lachen alle Nerven im ganzen Leibe. / Die Einladungskarte. 9te Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Iunge del. I. C. Böhme sc.",
+  "scans": [
+    "alm_1286_123861_gorvgdyrk3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "3. / Amtmann Vierling. / Potz tausend! der duftet – die Nase muß immer / erst Rapport abstatten, und dann – Sapperment! / da lachen alle Nerven im ganzen Leibe. / Die Einladungskarte. 9te Scene",
+  "updated": "2010-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.852Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "80cuwp2nhbtessn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.852Z",
+      "agent": "hwl1l57k0tbbc1r",
+      "source_id": "yy9o1tjc4shplq1"
+    }
+  ]
+}

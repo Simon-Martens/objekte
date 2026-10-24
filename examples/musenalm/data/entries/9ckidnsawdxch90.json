@@ -1,0 +1,79 @@
+{
+  "annotation": "1832 erschien der 2. Teil der Geschichte des Jahres 1830 (noch 2. Jg.), der 1. Teil erschien als 2. Jg. 1831/)  ebenfalls 1832 erschien als 3. Jahrgang die Geschichte des Jahres 1831 s. Bernhard Fischer: Der Verleger Johann Friedrich Cotta. Chronologische Verlagsbibliographie 1787-1832; Nr. 2238, 2239",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der neuesten Geschichte (Cotta) 1832-1",
+    "norm": "",
+    "biblio": 407623,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2683,
+  "parallel_title": "",
+  "place_statement": "Stuttgart u. Tübingen (Cotta)",
+  "places": [
+    "fe70yed2z4cnne1",
+    "5jnnomzb8g6ysm6"
+  ],
+  "preferred_title": "Taschenbuch der neuesten Geschichte (Cotta) 1832-1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R 22",
+  "responsibility_statement": "Wolfgang Menzel",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / der / neuesten Geschichte. / Herausgegeben / von / Dr. Wolfgang Menzel. / Dritter Jahrgang. / Geschichte des Jahres 1831. / Erster Theil. / Mit 12 Portraits. / Stuttgart und Tübingen, / in der J. G. Cotta'schen Buchhandlung. / 1832",
+  "updated": "2026-06-11 10:18:55.840Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "2sdkw5goujefvh6"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.681Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.681Z",
+      "agent": "iw1wamvrel0t4g4",
+      "source_id": "277fhbx6nzaeipm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.120Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.120Z",
+      "agent": "6z5qy0vfiswoqx8",
+      "source_id": "bbrjllksnb890i1"
+    }
+  ]
+}

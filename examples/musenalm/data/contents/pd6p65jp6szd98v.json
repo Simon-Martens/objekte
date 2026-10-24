@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Als aus der grünen Hülle / Die erste Rose drang,",
+  "language": [],
+  "musenalm_id": 20835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mirta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mirta",
+  "updated": "2002-01-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.033Z",
+      "agent": "54yrh3deen85ult",
+      "source_id": "lwh83st3vsgc12z"
+    }
+  ]
+}

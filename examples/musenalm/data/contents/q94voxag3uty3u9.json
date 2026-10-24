@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30515, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Du legst dein Händchen oft so hin, / Reichst mir es nicht, ich muß es fassen,",
+  "language": [],
+  "musenalm_id": 30516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die liebe Hand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die liebe Hand",
+  "updated": "2002-11-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.675Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "xvvbi6lorzhlygi"
+    }
+  ]
+}

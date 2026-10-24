@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Es war in jenen Zeiten, wo im Erzbgebirg sich die reichen Schätze aufthaten, welche der Segen Gottes an edlen Metallen hier für die glückliche und fleißige Hand des Bergmannes in die Erde verborgen hat,",
+  "language": [],
+  "musenalm_id": 86557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Venetianer in Böhmen. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Venetianer in Böhmen. / Novelle",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.311Z",
+      "agent": "big4tm69ocucym5",
+      "source_id": "xy5rwaphqgn8cut"
+    }
+  ]
+}

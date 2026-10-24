@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. /) Illustration zu »König Heinrich IV.« von W. Shakespeare s. Textbezug INr 73330, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73331,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geh ich nur vier Schritte weiter / zu Fuß, so muß ich platzen. / König Heinrich der Vierte. / W. Shakespear's Schauspiele / II. Aufz. 2r. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_159_73331_pj04gn6zsg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geh ich nur vier Schritte weiter / zu Fuß, so muß ich platzen. / König Heinrich der Vierte. / W. Shakespear's Schauspiele / II. Aufz. 2r. Auftr.",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.731Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "9y7393f83e1isao"
+    }
+  ]
+}

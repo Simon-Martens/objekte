@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Ein armer Fischer bin ich zwar; / Und ring' um's Brod oft mit Gefahr:",
+  "language": [],
+  "musenalm_id": 36246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schweizerisches Fischerlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. B***",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schweizerisches Fischerlied",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.702Z",
+      "agent": "oyr20jblmmjcbrd",
+      "source_id": "c6ycs6z6ort4n44"
+    }
+  ]
+}

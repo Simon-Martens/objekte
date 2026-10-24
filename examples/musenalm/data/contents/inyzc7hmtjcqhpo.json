@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz. s. Textbezug INr 27916, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27917,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Flibustier #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Führich del. Esslinger sc.",
+  "scans": [
+    "alm_358_27917_7b56xlolup.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Flibustier #",
+  "updated": "2002-08-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.331Z",
+      "agent": "m8y5g9ap5pw6fd8",
+      "source_id": "b1qmxay9qzo2tv7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.331Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "up71igu27ev93ab"
+    }
+  ]
+}

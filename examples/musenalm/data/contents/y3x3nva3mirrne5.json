@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37006, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Kommt, Herr Schwager und Gevatter, / Lasset uns spaziren gehn;",
+  "language": [],
+  "musenalm_id": 37009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Philister auf der Rudelsburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fanz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Philister auf der Rudelsburg",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.960Z",
+      "agent": "dlauvagqjefeu2b",
+      "source_id": "rhk2w7n9fem5f3o"
+    }
+  ]
+}

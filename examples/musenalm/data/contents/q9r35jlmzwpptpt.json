@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Geschichte dieser Länder verlangt für sich nicht blos die Theilnahme der Freunde vaterländischer Geschichte, weil sie als wichtige Grundllage des Preußischen Staates zu betrachten sind;",
+  "language": [],
+  "musenalm_id": 58938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Historisch-statistisches Gemälde von Ost- und Westpreußen.] Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Schubert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Historisch-statistisches Gemälde von Ost- und Westpreußen.] Vorwort",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.176Z",
+      "agent": "o0b6lrjourw0us8",
+      "source_id": "vz752t8skehynjl"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "In den Furchen liegt der Schnee / Dort auf Leipzigs Weinfeldauen:",
+  "language": [],
+  "musenalm_id": 45530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 239,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leipziger Schlachtfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hans Ferdinand Maßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Leipziger Schlachtfeld",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.511Z",
+      "agent": "v6ci1eoha0m6msx",
+      "source_id": "119lxmtv91s2be0"
+    }
+  ]
+}

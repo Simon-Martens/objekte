@@ -1,0 +1,89 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Bühnenspiele (Görner) 1853",
+    "norm": "",
+    "biblio": 407634,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-01-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3912,
+  "parallel_title": "",
+  "place_statement": "Breslau (Graß, Barth u. Comp.)",
+  "places": [
+    "knek0hbqukjht1p"
+  ],
+  "preferred_title": "Almanach dramatischer Bühnenspiele (Görner) 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. A. Görner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / dramatischer Bühnenspiele / zur geselligen Unterhaltung / für Stadt und Land / von / C. A. Görner, / Hoftheater-Direktor in Neustrelitz. / Dritter Jahrgang. / Breslau, 1853. / Graß, Barth und Comp., Verlagsbuchhandlung. / (C. Zäschmar.)",
+  "updated": "2026-06-11 10:18:55.134Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "143l03bnm070o7r"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.308Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.308Z",
+      "agent": "vbnxwvvqqzta4uw",
+      "source_id": "auu6gbdg4u6enmc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.932Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.932Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "fagph7uchlzs5iw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.930Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.930Z",
+      "agent": "11py53ge49f3md9",
+      "source_id": "xr20s61y8z8y6z8"
+    }
+  ]
+}

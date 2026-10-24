@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Graphik im Kalendarium November; paginiert 4.  Illustration zu »Unglücksfälle eines blöden Mannes« INr 60861, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60851,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueble Folgen der Blödigkeit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 95",
+  "scans": [
+    "alm_947_60851_pi0p29j403.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ueble Folgen der Blödigkeit",
+  "updated": "2008-11-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.983Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "u0ctphjuvllq45z"
+    }
+  ]
+}

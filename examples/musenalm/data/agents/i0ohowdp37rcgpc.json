@@ -1,0 +1,338 @@
+{
+  "annotation": "",
+  "biographical_data": "1791-1850",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.474Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Ungarndeutscher Lyzealprofessor, Schulinspektor, Dramatiker, Lehrbuchautor, Lesebücherherausgeber"
+      ],
+      "dateOfBirth": [
+        "1791-06-14"
+      ],
+      "dateOfDeath": [
+        "1850-05-02"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/182764052",
+        "https://d-nb.info/gnd/117646660",
+        "https://d-nb.info/gnd/159205190",
+        "https://d-nb.info/gnd/172399831"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:14:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119060396/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SK",
+          "label": "Slowakei"
+        }
+      ],
+      "gndIdentifier": "119060396",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119060396",
+      "oldAuthorityNumber": [
+        "(DE-588)159205190",
+        "(DE-588a)119060396",
+        "(DE-588)117646660",
+        "(DE-588)172399831",
+        "(DE-588c)4296892-6",
+        "(DE-588a)159205190",
+        "(DE-588a)117646660",
+        "(DE-588a)182764052",
+        "(DE-588)182764052",
+        "(DE-588a)172399831"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4076329-8",
+          "label": "Preßburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4076329-8",
+          "label": "Preßburg"
+        }
+      ],
+      "preferredName": "Schröer, Tobias Gottfried",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Tobias Gottfried"
+        ],
+        "surname": [
+          "Schröer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1071151053",
+          "label": "Oeser, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071152556",
+          "label": "A. Z."
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071152335",
+          "label": "Schernberk, Theodoricus, der Jüngere"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071152017",
+          "label": "Desiderius, Pius"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071151800",
+          "label": "Tibiscanus, Elias"
+        }
+      ],
+      "publication": [
+        "Weihgeschenk für Frauen und Jungfrauen",
+        "Lebenserinnerungen",
+        "Die heilige Dorothea"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1321956"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117646660"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119060396/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/159205190"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/172399831"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/182764052"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119060396"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Schroeer_Tobias-Gottfried_1791_1850.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd119060396.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119060396"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Schröer, Tobias G.",
+        "Schröer, Tob. Gottfr.",
+        "Schröer, Gottfried Tobiáš",
+        "Schröer, Tobias Gottfried S.",
+        "Schroeer, Tobias Gottfried",
+        "Schröer, T. G.",
+        "Schröer, Tóbiás Gottfried",
+        "Schroeer, Tobias G."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Tobias Gottfried"
+          ],
+          "surname": [
+            "Schroeer"
+          ]
+        },
+        {
+          "forename": [
+            "Tobias G."
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        },
+        {
+          "forename": [
+            "Tobias G."
+          ],
+          "surname": [
+            "Schroeer"
+          ]
+        },
+        {
+          "forename": [
+            "T. G."
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        },
+        {
+          "forename": [
+            "Tob. Gottfr."
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        },
+        {
+          "forename": [
+            "Tobias Gottfried S."
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        },
+        {
+          "forename": [
+            "Tóbiás Gottfried"
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        },
+        {
+          "forename": [
+            "Gottfried Tobiáš"
+          ],
+          "surname": [
+            "Schröer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:53:00Z",
+    "gnd_query_biographical_data": "1791-1850",
+    "gnd_query_name": "schröer, tobias gottfried"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2547,
+  "name": "Schröer, Tobias Gottfried",
+  "profession": "Text",
+  "pseudonyms": "Pius Desiderus; Christian Oeser",
+  "refs": "E 326",
+  "updated": "2026-06-11 13:29:24.826Z",
+  "uri": "https://d-nb.info/gnd/119060396",
+  "editor": ""
+}

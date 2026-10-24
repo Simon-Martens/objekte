@@ -1,0 +1,88 @@
+{
+  "annotation": "<div>Jgg 1835-1848; Kolberg, Cöslin, Berlin; Hrsg. u. Autor: Wilhelm Müller</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T, 2 BB W, S I-Verz, SS 1-272",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1835",
+    "norm": "~",
+    "biblio": 111744,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1619,
+  "parallel_title": "",
+  "place_statement": "Kolberg (Post)",
+  "places": [
+    "rspwoje1sgi4wr6"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Wilhelm Müller",
+  "subtitle_statement": "",
+  "title_statement": "Des / Bettlers Gabe. / Taschenbuch / für / 1835 / von / Wilhelm Müller. / Kolberg. / Druck und Verlag von C. F. Post",
+  "updated": "2026-09-15 09:56:24.969Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "rmxyieru0933f0s"
+  ],
+  "contents": [
+    "gptn7wudi7loo8i",
+    "8rmvvbnovber66u",
+    "kd2ec7maizry4h8",
+    "3srl1xaulpu1joj",
+    "glufbcty1ajrrr6",
+    "codihq29xha3emn",
+    "r6j1hzbs3003kl8",
+    "r5brukwl59lk6j3",
+    "ok9tlc251zmvaxr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.132Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-09-15 09:56:24.973Z",
+      "agent": "840jxakjiz91dva",
+      "source_id": "j0euik2y1nk59b3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.943Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-09-15 09:56:24.972Z",
+      "agent": "c1znfhi5uhuknon",
+      "source_id": "ndtsefj5sdjhfrn"
+    }
+  ]
+}

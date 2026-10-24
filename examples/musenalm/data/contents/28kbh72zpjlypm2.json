@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Er trank, und dann? und dann?- / Ward er verliebt, und dann?",
+  "language": [],
+  "musenalm_id": 3921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Loth. / (Nach dem Französischen des Chevalier / Boussiers: / Il but, / Il devient tendre, / Et puis / Il fut / Son gendre. )",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Loth. / (Nach dem Französischen des Chevalier / Boussiers: / Il but, / Il devient tendre, / Et puis / Il fut / Son gendre. )",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.016Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "gjjoxs4hdkju6pz"
+    }
+  ]
+}

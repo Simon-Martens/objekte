@@ -1,0 +1,82 @@
+{
+  "annotation": "Exemplar mit variantem kolorierten Titel s. Photos",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S II, SS III-VIII W, SS IX-XIX dazu 4 GG, SS 1-328, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Vogl, Ziegelhauser) 1853 [var.]",
+    "norm": "~",
+    "biblio": 409700,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-11-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4610,
+  "parallel_title": "",
+  "place_statement": "Wien (Dirnböck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Vogl, Ziegelhauser) 1853 [var.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R",
+  "responsibility_statement": "Dr. Joh. Nep. Vogl",
+  "subtitle_statement": "",
+  "title_statement": "THALIA. / Taschenbuch / für / 1853. / Herausgegeben / von / Dr. Joh. Nep. Vogl. / Vierzigster Jahrgang. / Mit sechs Stahlstichen. / Wien. / In Commission bei Jacob Dirnböck",
+  "updated": "2026-06-11 10:18:55.155Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "br5wbcqr96hs0bc"
+  ],
+  "contents": [
+    "zwhpojqsohkvb5n",
+    "ed33swi2u9kw4uc",
+    "d6moc2ykyx25nnu"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.728Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.728Z",
+      "agent": "ogvv0aphvy1zxcd",
+      "source_id": "8axonfwjljfr19a"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.455Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.455Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "f9nwjlyop1j69no"
+    }
+  ]
+}

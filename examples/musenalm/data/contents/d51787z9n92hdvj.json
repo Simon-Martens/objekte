@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57850,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GRÄFIN ROSA SZAPÁRY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás gez. Stahlst. v. C. Mahlknecht in Wien",
+  "scans": [
+    "alm_770_57850_cd1unashw1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GRÄFIN ROSA SZAPÁRY",
+  "updated": "2008-06-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.936Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "pq54anplnie4fsx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.936Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "x15rz1bjonhbkb1"
+    }
+  ]
+}

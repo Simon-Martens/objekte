@@ -1,0 +1,68 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für die Schullehrer und Schulvorsteher der Königl. Preuß. Provinzen Rheinland-Westphalen 1832",
+    "norm": "",
+    "biblio": 411037,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-04-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4786,
+  "parallel_title": "",
+  "place_statement": "Barmen u. Schwelm (Falkenberg)",
+  "places": [
+    "89gtkonjjcz1oai",
+    "jm8lcdob6e54ibq"
+  ],
+  "preferred_title": "Almanach für die Schullehrer und Schulvorsteher der Königl. Preuß. Provinzen Rheinland-Westphalen 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / für die / Schullehrer und Schulvorsteher / der / Königl. Preuß. Provinzen / Rheinland-Westphalen. / Erster Jahrgang. / 1832. / Mit einem Kupfer. / Barmen und Schwelm, / in der / Falkenberg'schen Buch-, Musik- u. Kunst-Handlung",
+  "updated": "2026-06-11 10:18:54.917Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "ve9racagfvcpfs5"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.839Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.839Z",
+      "agent": "u8p895n2yi44o5c",
+      "source_id": "8nc6quho2g9ntgz"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Blumendeutung. In sechs Gedichtchen. Als Erklärung der Stahlstiche (Sammlung INr 95025, Obj 5) s. Graphik INr 95036, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Flachs, du schlichtes blaues Blümchen, / Emsigkeit, das ist dein Sinn,",
+  "language": [],
+  "musenalm_id": 95035,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.496Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "1dkyca2swf7muc1"
+    }
+  ]
+}

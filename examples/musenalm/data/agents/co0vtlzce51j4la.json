@@ -1,0 +1,695 @@
+{
+  "annotation": "",
+  "biographical_data": "1706–1790",
+  "corporate_body": false,
+  "created": "2026-06-11 10:18:56.607Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/6147458-7",
+          "label": "Benjamin Fräncklin und Johann Böhm (Philadelphia)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Parlamentsmitglied; 1785-1788 Präsident von Pennsylvania; 1776-1785 Gesandter in Frankreich, Mitunterzeichner der Unabhängigkeitserklärung und der amerikanischen Verfassung"
+      ],
+      "dateOfBirth": [
+        "1706-01-17"
+      ],
+      "dateOfDeath": [
+        "1790-04-17"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph-Siffred Duplessis"
+          ],
+          "creditText": [
+            "ZgEyj5EEKdux-g at Google Cultural Institute maximum zoom level"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Siffrein%20Duplessis%20-%20Benjamin%20Franklin%20-%20Google%20Art%20Project.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Siffrein%20Duplessis%20-%20Benjamin%20Franklin%20-%20Google%20Art%20Project.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Joseph%20Siffrein%20Duplessis%20-%20Benjamin%20Franklin%20-%20Google%20Art%20Project.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/174356722"
+      ],
+      "describedBy": {
+        "dateModified": "2026-05-12T11:23:16.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118534912/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Abia"
+          ],
+          "surname": [
+            "Franklin"
+          ]
+        },
+        {
+          "forename": [
+            "Peter"
+          ],
+          "surname": [
+            "Folger"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/122839617",
+          "label": "Franklin, Josiah"
+        },
+        {
+          "forename": [
+            "Johann"
+          ],
+          "surname": [
+            "Franklin"
+          ]
+        },
+        {
+          "forename": [
+            "Thomas"
+          ],
+          "surname": [
+            "Franklin"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1013310594",
+          "label": "Bache, Richard"
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Franklin"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XD-US",
+          "label": "USA"
+        }
+      ],
+      "gndIdentifier": "118534912",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#21.5p",
+          "label": "Personen zu Physik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/122839617",
+          "label": "Franklin, Josiah"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118534912",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/eng",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/eng"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)174356722",
+        "(DE-588a)118534912",
+        "(DE-588c)4018137-6",
+        "(DE-588)174356722",
+        "(DE-588a)126437823"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4103331-0",
+          "label": "Philadelphia, Pa."
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4007840-1",
+          "label": "Boston, Mass."
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4103331-0",
+          "label": "Philadelphia, Pa."
+        }
+      ],
+      "preferredName": "Franklin, Benjamin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Benjamin"
+        ],
+        "surname": [
+          "Franklin"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045968-8",
+          "label": "Physiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015222-4",
+          "label": "Erfinder"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Mrs. Silence Dogood"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Bonhomme"
+          ],
+          "personalName": [
+            "Richard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Bonhomme"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Silence Dogood"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Silence"
+          ],
+          "surname": [
+            "Dogood"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Saunders"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Poor Richard"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Oeuvres",
+        "Experiments and observations on electricity",
+        "Franklin, Benjamin: Political, miscellaneous and philosophical pieces",
+        "Franklin, Benjamin: Oeuvres",
+        "Political, miscellaneous and philosophical pieces",
+        "Interrogatoire de M. Franklin Deputé de Pensilvaine ou Parlement de la Grande Bretagne. - s.a",
+        "Franklin, Benjamin: Works",
+        "A collection of familiar letters and miscelaneous papers",
+        "Franklin, Benjamin: Expériences et observations sur l'électricité",
+        "The preface, proverbs and poems from Poor Richard's almanacks for 1733-1758",
+        "Works",
+        "Franklin, Benjamin: La science du bonhomme Richard",
+        "Franklin, Benjamin: Mémoires de la vie privée de Benjamin Franklin",
+        "Interrogatoire de M. Franklin Deputé de Pensilvaine ou Parlement de la Grande Bretagne. - s.a.",
+        "Franklin, Benjamin: Experiments and observations on electricity",
+        "Hrsg. von: Pennsylvania Gazette",
+        "La science du bonhomme Richard",
+        "Mémoires de la vie privée de Benjamin Franklin",
+        "Expériences et observations sur l'électricité",
+        "Franklin, Benjamin: A collection of familiar letters and miscelaneous papers"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79043402"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/56609913"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q34969"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118534912"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118534912/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/174356722"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Benjamin_Franklin"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Benjamin_Franklin"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Benjamin_Franklin"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Benjamin_Franklin"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121339941"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118534912"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118534912"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118534912"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118534912"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Frangḳlin, Benǰamin",
+        "Franḳlin, Benyamin",
+        "Fulankelin",
+        "Fräncklin, Benjamin",
+        "Silence Dogood",
+        "富兰克林",
+        "Bonhomme, Richard",
+        "本杰明·富兰克林",
+        "Φραγκλίνος, Βενιαμίν",
+        "Franklin, B.",
+        "Франклин, Б.",
+        "Fränklin, Benjamin",
+        "פראנקלין, בנימין",
+        "Dogood, Silence",
+        "Frangḳlin",
+        "Frankḳlin",
+        "Richard, Bonhomme",
+        "Saunders, Richard",
+        "本傑明·富蘭克林",
+        "Mrs. Silence Dogood",
+        "Francklin, Benjamin",
+        "Франклин, Бенджамин",
+        "Φραγκλίνος, Β.",
+        "富蘭克林",
+        "Poor Richard",
+        "Frankḳlin, Benǰamin"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Bonhomme"
+          ],
+          "personalName": [
+            "Richard"
+          ]
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Bonhomme"
+          ]
+        },
+        {
+          "personalName": [
+            "本傑明·富蘭克林"
+          ]
+        },
+        {
+          "forename": [
+            "Βενιαμίν"
+          ],
+          "surname": [
+            "Φραγκλίνος"
+          ]
+        },
+        {
+          "forename": [
+            "Benǰamin"
+          ],
+          "surname": [
+            "Frangḳlin"
+          ]
+        },
+        {
+          "personalName": [
+            "富兰克林"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Fräncklin"
+          ]
+        },
+        {
+          "personalName": [
+            "富蘭克林"
+          ]
+        },
+        {
+          "personalName": [
+            "Poor Richard"
+          ]
+        },
+        {
+          "personalName": [
+            "Frankḳlin"
+          ]
+        },
+        {
+          "forename": [
+            "Β."
+          ],
+          "surname": [
+            "Φραγκλίνος"
+          ]
+        },
+        {
+          "forename": [
+            "Бенджамин"
+          ],
+          "surname": [
+            "Франклин"
+          ]
+        },
+        {
+          "forename": [
+            "Richard"
+          ],
+          "surname": [
+            "Saunders"
+          ]
+        },
+        {
+          "forename": [
+            "Benǰamin"
+          ],
+          "surname": [
+            "Frankḳlin"
+          ]
+        },
+        {
+          "forename": [
+            "Benyamin"
+          ],
+          "surname": [
+            "Franḳlin"
+          ]
+        },
+        {
+          "forename": [
+            "Silence"
+          ],
+          "surname": [
+            "Dogood"
+          ]
+        },
+        {
+          "personalName": [
+            "Silence Dogood"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Francklin"
+          ]
+        },
+        {
+          "personalName": [
+            "Fulankelin"
+          ]
+        },
+        {
+          "personalName": [
+            "Frangḳlin"
+          ]
+        },
+        {
+          "forename": [
+            "Б."
+          ],
+          "surname": [
+            "Франклин"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Franklin"
+          ]
+        },
+        {
+          "personalName": [
+            "Mrs. Silence Dogood"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Fränklin"
+          ]
+        },
+        {
+          "personalName": [
+            "本杰明·富兰克林"
+          ]
+        },
+        {
+          "forename": [
+            "בנימין"
+          ],
+          "surname": [
+            "פראנקלין"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Benjamin_Franklin",
+          "label": "https://de.wikipedia.org/wiki/Benjamin_Franklin"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:28:18Z",
+    "gnd_query_biographical_data": "1706–1790",
+    "gnd_query_name": "franklin, benjamin"
+  },
+  "edit_comment": "",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 4018,
+  "name": "Franklin, Benjamin",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "NBU XVIII",
+  "updated": "2026-06-11 13:29:25.945Z",
+  "uri": "https://d-nb.info/gnd/118534912",
+  "editor": ""
+}

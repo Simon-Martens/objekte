@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 89027, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "In der schönen Jugendzeit, / In den rosenhellen Jahren, / Da dich Alles noch erfreut,",
+  "language": [],
+  "musenalm_id": 89035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9) Logogryphisches Kehrwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. E. Käfer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9) Logogryphisches Kehrwort",
+  "updated": "2009-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.387Z",
+      "agent": "r0f4y34v9onu8ch",
+      "source_id": "c2ohdb7i38qa34h"
+    }
+  ]
+}

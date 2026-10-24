@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IV. Illustration zu »Bertha. Oder: Der Lohn der Tugend und Schönheit und des Fleißes« INr 48323, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48293,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um solchen Preis verkauft Bertha ihr / Gespinst nicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_658_48293_alqnp8juzl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Um solchen Preis verkauft Bertha ihr / Gespinst nicht",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.645Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "jrw998vyhaenqli"
+    }
+  ]
+}

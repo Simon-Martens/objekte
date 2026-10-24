@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration des Autors s. Titelgraphik INr 53674, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war im Monat Juny, als ich nach mehrjährigem Aufenthalt in Italien die Schweiz wieder betrat.",
+  "language": [],
+  "musenalm_id": 53676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gemsjäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gemsjäger",
+  "updated": "2007-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.658Z",
+      "agent": "6lp7aqlv4cj6jw8",
+      "source_id": "r1u932c97knfngi"
+    }
+  ]
+}

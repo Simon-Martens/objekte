@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9. /) Graphik im Kalendarium September /) Illustration zu »Die Jäger« von A. W. Iffland. s. Textbezug INr 70124, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.691Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70110,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach Anton! - Das einzige / Kind - Gott erbarme dich unser / IV. Aufz. 11. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec.",
+  "scans": [
+    "alm_798_70110_3m3qayqh95.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach Anton! - Das einzige / Kind - Gott erbarme dich unser / IV. Aufz. 11. Auftr.",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.248Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "92e1y2y755aj8sx"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Clavigo« von J. W. v. Goethe; s. a. Textbezug INr 16738, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9241,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clavigo, V. Aufzug, letzte Scene. / Clavigo am Sarge Mariens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke inv. Gottschick sc.",
+  "scans": [
+    "alm_40_9241_s041e2g574.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Clavigo, V. Aufzug, letzte Scene. / Clavigo am Sarge Mariens",
+  "updated": "2000-08-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.392Z",
+      "agent": "anvuxewtojf01i3",
+      "source_id": "pcnxsbfdkwrtbix"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.392Z",
+      "agent": "jnsjgzgb69y7llq",
+      "source_id": "pe23q909k31dyh4"
+    }
+  ]
+}

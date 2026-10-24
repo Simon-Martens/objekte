@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Die Jünger sprachen einst zum Herrn: Es quälet / Die Menge sich mit schwankendem Gerücht,",
+  "language": [],
+  "musenalm_id": 98453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Petri fester Glaube. / Sonnett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Petri fester Glaube. / Sonnett",
+  "updated": "2010-03-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.693Z",
+      "agent": "7z02zmx8ocy9uwz",
+      "source_id": "rt6lohrfel8ws97"
+    }
+  ]
+}

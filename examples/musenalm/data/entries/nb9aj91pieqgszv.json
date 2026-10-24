@@ -1,0 +1,122 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, S I T, S II, SS III-VIII W, SS IX-XIV dazu 4 GG, SS XV-XVI Vrwrt d Hrsg, SS XVII-XX, SS 1-314, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia (Vogl, Ziegelhauser) 1864",
+    "norm": "~",
+    "biblio": 407506,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3231,
+  "parallel_title": "",
+  "place_statement": "Wien (Dirnböck)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia (Vogl, Ziegelhauser) 1864",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 159; nicht bei L/R",
+  "responsibility_statement": "Carl Ziegelhauser",
+  "subtitle_statement": "",
+  "title_statement": "Thalia. / Taschenbuch für 1864. / Redigirt / von / Friedrich Steinebach. / Einundfünfzigster Jahrgang. / Mit sechs Stahlstichen / Herausgegeben von dem Sohne des Gründers / Carl Ziegelhauser. / Wien. / Jacob Dirnböck's Commissions-Verlag",
+  "updated": "2026-06-11 10:18:55.152Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "items": [
+    "eth2kqliq3y745s"
+  ],
+  "contents": [
+    "sarr1ap1o0dgvzb",
+    "xu2ajch4rs87zsp",
+    "z9bfhdw98kw1gum",
+    "85rc8lvpsw3ab41",
+    "jkx72owbzkcwh3r",
+    "kkri9ki7ggx0ozd",
+    "acbbgo6tf84mkj8",
+    "bykb4n021d8bjcv",
+    "4b85hflo75opfpx",
+    "ynhduazlposl1fb",
+    "n3876cck89xk19p",
+    "w36ezajr147obvk",
+    "i2xjh937z2acxcr",
+    "0q01tjlq2kvgwjm",
+    "4w0ycrl53b80lrc",
+    "yi9hcl6ei4h7pi5",
+    "rqdkhy7nb97qoxb",
+    "w3geux3hd1nwm6a",
+    "rueywvi3gx84lty",
+    "roqmtwipgydd919",
+    "h9mmqlsd6ch3tda",
+    "t9oiquxxp6aqxm4",
+    "2nk7y7m634hmoee",
+    "dlu4i8dhgqqa7yp",
+    "m51t40okvjoytsv",
+    "t4nxinep8sv5mmm",
+    "dx0twlhk8ilwmwb",
+    "26ho3gaxx4q799q",
+    "itwvpophu81wde1",
+    "jmvb74r6gnvoqwq",
+    "bfk5zrmu2iqtn18",
+    "8r5wm0s2ydd9pfh",
+    "o4tuxgh12qq6b63",
+    "y2a0420rvzu30ug",
+    "rkykb68xeah4xxw",
+    "66fsisrdq3mzgim",
+    "2sdplmoxfmqjdgp",
+    "pm6wmhcc4yxcjub",
+    "82gjysecycnvps8",
+    "nqawkidobdsyjis",
+    "eocycwid4n6rjy8",
+    "kivzo5b55lho99h",
+    "8gjombyjo03lgxa",
+    "qemquk1nmq9pbxc",
+    "mwd72k6qtb5st17",
+    "r9ekd7pkvomcce3",
+    "t2ljjtkv00zoo7q",
+    "0r7sj10a6ix0ky6",
+    "1u4fou4e5w3w019",
+    "1n4jooktglfjg6j",
+    "u1x86fja2vm6iyd",
+    "p306vnvo4so91bk",
+    "9su3bzuwpiy2jh7",
+    "hno7t05hexwzrfz"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.731Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.731Z",
+      "agent": "ogvv0aphvy1zxcd",
+      "source_id": "kce51xae4g4dzzk"
+    }
+  ]
+}

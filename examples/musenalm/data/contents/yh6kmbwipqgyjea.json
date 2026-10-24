@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Schön ist der Mai, auch wenn im Abendglanze / Die Nachtigall uns zu dem Blüthenkranze / In's Freie ruft.",
+  "language": [],
+  "musenalm_id": 66356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sternbilder im Mai und ihre Deutung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Ludwig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sternbilder im Mai und ihre Deutung",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.272Z",
+      "agent": "kjstiikwr65p9jw",
+      "source_id": "ny0zklzrzmrutus"
+    }
+  ]
+}

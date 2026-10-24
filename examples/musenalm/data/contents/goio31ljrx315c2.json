@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus den einzelnen Kapiteln des Werkes (Sammlung INr 109645, Obj 54) Das Buch Ben hammelech wehannasir. II. Anthologie (Sammlung INr 109641, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Der Freie darbt und trägt mit Muth, / Und ist er satt, so fühlt er Demuth;",
+  "language": [],
+  "musenalm_id": 109650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freie und der Sklave (das.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Steinschneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freie und der Sklave (das.)",
+  "updated": "2016-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.393Z",
+      "agent": "m2giuxep8j2hqeq",
+      "source_id": "f3ga99jzhbapqq4"
+    }
+  ]
+}

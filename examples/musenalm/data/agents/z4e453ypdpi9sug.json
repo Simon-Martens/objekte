@@ -1,0 +1,362 @@
+{
+  "annotation": "",
+  "biographical_data": "1824-1895",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.387Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Rektor, Dichter"
+      ],
+      "dateOfBirth": [
+        "1824-03-20"
+      ],
+      "dateOfDeath": [
+        "1895-02-07"
+      ],
+      "describedBy": {
+        "dateModified": "2026-06-04T18:44:24.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-7",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-7"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/101108192/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-601",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-601"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1302497103",
+          "label": "Keck, Henriette Johanna Marie"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116090634",
+          "label": "Keck, Otto"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "101108192",
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116090634",
+          "label": "Keck, Otto"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1302497103",
+          "label": "Keck, Henriette Johanna Marie"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/101108192",
+      "oldAuthorityNumber": [
+        "(DE-588a)101108192"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4052689-6",
+          "label": "Schleswig (Stadt)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4030481-4",
+          "label": "Kiel"
+        }
+      ],
+      "preferredName": "Keck, Karl Heinrich Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Heinrich Christian"
+        ],
+        "surname": [
+          "Keck"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Karl Heinrich"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Heinrich"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Heinrich"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Über das Tragische und das Komische",
+        "Die Pfingstweihe",
+        "Anna",
+        "De Horatii epistolarum libro 1 (L1UB)",
+        "Die Kaiserwahl zu Frankfurt",
+        "Die Gudrunsage",
+        "Sedan",
+        "Heldenlieder von Adolf IV. dem Schauenburger (L1UB)"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2018052101"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/64365618"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q15438337"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/101108192/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Keck"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/101108192"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/101108192"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Keck, Henricus",
+        "Heinrich, Carl",
+        "Keck, Karl H.",
+        "Keck, Heinrich K.",
+        "Heinrich, Karl",
+        "Keck, Heinrich",
+        "Karl Heinrich",
+        "Keck, Henr.",
+        "Keck, Karl Heinrich",
+        "Keck, C. H.",
+        "Keck, Carl H.",
+        "Keck, Karl Heinrich Chrn."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Heinrich"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Heinrich"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich"
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Henr."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "C. H."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Henricus"
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "personalName": [
+            "Karl Heinrich"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Heinrich Chrn."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Heinrich K."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Karl H."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        },
+        {
+          "forename": [
+            "Carl H."
+          ],
+          "surname": [
+            "Keck"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Heinrich_Keck",
+          "label": "https://de.wikipedia.org/wiki/Karl_Heinrich_Keck"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:54:18Z",
+    "gnd_query_biographical_data": "1824-1895",
+    "gnd_query_name": "keck, karl heinrich christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1365,
+  "name": "Keck, Karl Heinrich Christian",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1046",
+  "updated": "2026-06-11 13:29:23.164Z",
+  "uri": "https://d-nb.info/gnd/101108192",
+  "editor": ""
+}

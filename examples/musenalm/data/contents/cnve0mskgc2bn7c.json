@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Ich fordre nichts von deinen Gaben, / O Glück! Behalte sie im Schoos.",
+  "language": [],
+  "musenalm_id": 34606,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterglück. / 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterglück. / 1810",
+  "updated": "2003-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.769Z",
+      "agent": "v42buu0bbkquom4",
+      "source_id": "v7bmzeldq64fbrq"
+    }
+  ]
+}

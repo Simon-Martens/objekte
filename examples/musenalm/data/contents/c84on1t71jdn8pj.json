@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Schreckt von der Höfe Lust des Ahnenlosen / Blick / Sonst Hellebarth und Bajonett zurück;",
+  "language": [],
+  "musenalm_id": 3971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die Beschreibung der Feierlich- / keiten zu Oels, bei Ankunft des Durchl. / Herzogs Friedrich August, und der / geleisteten Huldigung / (S. Journal d'Oels; plaisant, historique, politique / & litteraire. Juilllet, Aout ... 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die Beschreibung der Feierlich- / keiten zu Oels, bei Ankunft des Durchl. / Herzogs Friedrich August, und der / geleisteten Huldigung / (S. Journal d'Oels; plaisant, historique, politique / & litteraire. Juilllet, Aout ... 1793",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.828Z",
+      "agent": "6cp00jd21onlhwl",
+      "source_id": "603nbppty1xceda"
+    }
+  ]
+}

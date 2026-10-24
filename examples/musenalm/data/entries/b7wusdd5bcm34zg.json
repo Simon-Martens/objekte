@@ -1,0 +1,123 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 15 GG, 15 BB Kal darin 12 GG, B, ar: SS 1-219, 2 SS I-Verz, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1783",
+    "norm": "~",
+    "biblio": 404586,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2161,
+  "parallel_title": "",
+  "place_statement": "Lauenburg (Berenberg)",
+  "places": [
+    "d25pys9h5895ilp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grosbr. / Genealogischer / KALENDER / auf das / 1783. Jahr. / Lauenburg / bey / J. G. Berenberg",
+  "updated": "2026-06-11 10:18:55.889Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "items": [
+    "5beakkbcwbbrna4"
+  ],
+  "contents": [
+    "6nkvloak4p6f7r9",
+    "npz0bllt0jp25oj",
+    "xyoqbcp8l3ginsb",
+    "rfcsrz5r5py7isw",
+    "abpic33vre8xwbn",
+    "8ndyqun8qznc1ut",
+    "bu9o1rrever50f2",
+    "jabhjnlzuqi7fma",
+    "1hxk0slru0iecrm",
+    "8gm4gagun5lmpfh",
+    "qj24zr2yu7ik625",
+    "wnpdtaaisru5q0s",
+    "3z90vyrvx7fofmt",
+    "u5x3myoh6b685li",
+    "r7fhqj9o4u0bjbs",
+    "2z960cg4zmxrwux",
+    "2tegigdtdiqk1cz",
+    "h0vn4cl5tagq2q0",
+    "i2bn3rli21k2geg",
+    "zyhemuoern9glpj",
+    "dsz369ppldcojsn",
+    "cqbk8iqh9egzdzl",
+    "pa8mlc7xkk637dy",
+    "rltnqdl28gymoxg",
+    "efla9v2lfn2brje",
+    "x7o7966soijqtxr",
+    "ufdh9yxvtva06hy",
+    "brbbqul6e4ym3d4",
+    "38na0auup6f07qj",
+    "ffyk9uh5p1q4tvd",
+    "9o9cvcglbo2ijpe",
+    "0saqz94fj7ryfgg",
+    "y3j97mwwc66azi8",
+    "qdpo76t81ehkeke",
+    "yy0punj1zxdtawg",
+    "d4k5q3s5a3nmwie",
+    "w9zidvrjv243hzl",
+    "mfpkce4riagzstd",
+    "l24enq3mb5a3hhm",
+    "3yt88nh2sqnbmbn",
+    "wzb6gnxrmup9mn0",
+    "301nhlbhkmldupg",
+    "a4e6renamu8u6uu",
+    "q4i1m23l567f3fb",
+    "9w97lz7wdnsdlm6",
+    "0w6br7ypjv3141h",
+    "jw8dl8jdkgw1hl9",
+    "8x4gc1zk3pekn8m",
+    "9gylhr059yavjbg",
+    "of7j8b4qsc64rmz",
+    "86ylepwrjaikyhi",
+    "tzoig8qe731wst5",
+    "na2qtnstehbbae5",
+    "x1boaymgud2rqtl",
+    "cvb41zlbo5pk64x"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.535Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.535Z",
+      "agent": "kopasy0vt6efhhq",
+      "source_id": "b2sq1imjjbb1yuf"
+    }
+  ]
+}

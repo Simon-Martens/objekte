@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 114965, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Es dient ein feines Mädel, / Ist Elslein genannt, / Es dient keins seiner Herrin / So treu im ganzen Land.",
+  "language": [],
+  "musenalm_id": 114968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das Elslein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das Elslein",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.254Z",
+      "agent": "h1jhs52naysyy4l",
+      "source_id": "jlfmoy4gvgrerh9"
+    }
+  ]
+}

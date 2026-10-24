@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus der neuen Welt. Lieder eines Flüchtlings (Sammlung INr 46576, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "O femde starre Menschen, / O femde Sprach' und Sitte!",
+  "language": [],
+  "musenalm_id": 46582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.307Z",
+      "agent": "j7plmb89f8s4m2q",
+      "source_id": "dul5df9vk5ykx4s"
+    }
+  ]
+}

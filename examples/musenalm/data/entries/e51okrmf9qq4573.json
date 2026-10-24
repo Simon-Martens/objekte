@@ -1,0 +1,78 @@
+{
+  "annotation": "vom selben Hrsg s. a.: Lügen-Almanach 1847",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Närrische Blätter. Humoristisch-satyrischer Carnaval- Almanach zum Mardi-gras 1848",
+    "norm": "",
+    "biblio": 409678,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-11-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4607,
+  "parallel_title": "",
+  "place_statement": "Grimma (Verlags-Comptoir)",
+  "places": [
+    "fzsj1wa86ivt0tq"
+  ],
+  "preferred_title": "Närrische Blätter. Humoristisch-satyrischer Carnaval- Almanach zum Mardi-gras 1848",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Hermann Walden",
+  "subtitle_statement": "",
+  "title_statement": "Närrische Blätter. / Humoristisch-satyrischer Carnaval- Almanach / zum / Mardi-gras 1848. / herausgegeben / von / Hermann Walden. / Grimma, / Druck und Verlag des Verlags-Comptoirs. / 1848",
+  "updated": "2026-06-11 10:18:55.965Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "items": [
+    "r9dtwu86tu45i4a"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.394Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.394Z",
+      "agent": "em8ra7gwg5eelng",
+      "source_id": "19v1lox5xoarxdb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.174Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.174Z",
+      "agent": "hc0m08c5j8ox9fe",
+      "source_id": "4knwq4iesi0zene"
+    }
+  ]
+}

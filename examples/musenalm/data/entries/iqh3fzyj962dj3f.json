@@ -1,0 +1,94 @@
+{
+  "annotation": "§1§ §2§$ 2 Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G,T, S I-Verz, 12 BB Kal, SS 1-16 darin 8 GG, ar1: SS 1-194, ar2: SS 1-73",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1847",
+    "norm": "~",
+    "biblio": 404166,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 882,
+  "parallel_title": "",
+  "place_statement": "Berlin (Reimarus)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / Kalender / für / 1847. / Einundzwanzigster Jahrgang. / Mit sieben Stahlstichen. / Berlin, / Verlag von Carl Reimarus. / (Gropius'sche Buch- und Kunsthandlung.) / Königliche Bauschule",
+  "updated": "2026-06-11 10:18:55.756Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "ucdvxop2u52vhw0"
+  ],
+  "contents": [
+    "vgrqg2n0u4o2gjj",
+    "ubvpaqjkduooxu3",
+    "9p9tlc852jkzufa",
+    "aio390ww39c0h0s",
+    "c5pi6kqnup986n2",
+    "exokw39mx5cus2u",
+    "398igx8m940p5sy",
+    "lmeway9xbcxj062",
+    "q2tti7bxs1vex09",
+    "w0azf3fyfaz7klr",
+    "gdjef7dj62fytzp",
+    "3p93ns14cbjs0yb",
+    "13wvwdo9y5ejupt",
+    "vmm2ppylxtmbz48",
+    "ps5rdbz1ryhvrmn",
+    "pdzb1qflj7fslq1",
+    "j8fyb188m3qwfzk",
+    "opwnovypp9ud5h9",
+    "ursc8jlrkpk8hgl",
+    "85h4nwqwb9vp988",
+    "x7029cse3su1ved",
+    "yhd3li35x787sfw",
+    "j2f1clsha5jedns",
+    "7z8ic6qzebh9meh",
+    "21bhm8kbwzxf2du",
+    "9pnz22m3odu1el4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.135Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.135Z",
+      "agent": "1b5noioln9ih9oy",
+      "source_id": "k9s6ii0exw5ctrp"
+    }
+  ]
+}

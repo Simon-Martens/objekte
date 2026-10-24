@@ -1,0 +1,45 @@
+{
+  "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Ob gleich das Weib vornehmlich durch sein Herz glücklich ist: so ist es doch in noch höherm Grade glücklich, wenn ihm ein günstiges Geschick auch das gewährt, was die wesentlichen Bedürfnisse des Herzens befriedigt.",
+  "language": [],
+  "musenalm_id": 50447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das glückliche Weib. / Fortsetzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das glückliche Weib. / Fortsetzung",
+  "updated": "2007-07-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.709Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "uoduf6kbrd5g0lc"
+    }
+  ]
+}

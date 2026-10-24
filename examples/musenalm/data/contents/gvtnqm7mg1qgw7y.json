@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Oster-Sonntags-Spaziergang. Die Stadtleute« von J. M. U. d.i.: J. M. Usteri INr 54121, Obj 32 /) unter der Graphik: Alpenrosen 1826",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oster-Sonntags-Spaziergang. / Die Stadtleute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri. inv. Jh. Lips fec.",
+  "scans": [
+    "alm_738_54122_u4hm15nr0o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oster-Sonntags-Spaziergang. / Die Stadtleute",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.787Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "13cp6vjrxwe3xt5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.787Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "jlxdfmil8mgsdc7"
+    }
+  ]
+}

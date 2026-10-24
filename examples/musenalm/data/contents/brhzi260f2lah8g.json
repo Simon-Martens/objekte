@@ -1,0 +1,43 @@
+{
+  "annotation": "s. a. Urania 1832 »Bericht über die Preisaufgabe für die Novelle oder Erzählung« INr 1968",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der unterzeichnete Verleger des Taschenbuches Urania, von dem Wunsche beseelt, dasselbe immer würdiger und interessanter auszustatten, fordert alle deutsche Dichter und Dichterinnen auf, zu einem Preise zu concurriren,",
+  "language": [],
+  "musenalm_id": 9374,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Preisaufgabe / für das Jahr 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Preisaufgabe / für das Jahr 1832",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.494Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "q6m5j2vzj7v0819"
+    }
+  ]
+}

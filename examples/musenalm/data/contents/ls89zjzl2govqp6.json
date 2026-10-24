@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; nummeriert 1. /) s. Textbezug INr 108606, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108593,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otokar Koenig von Böhmen empfängt / die Belehnung von Kayser Rudolf von Habsburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_2174_108593_7cuhvq66lt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Otokar Koenig von Böhmen empfängt / die Belehnung von Kayser Rudolf von Habsburg",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.253Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "84gfuazwek8ydeg"
+    }
+  ]
+}

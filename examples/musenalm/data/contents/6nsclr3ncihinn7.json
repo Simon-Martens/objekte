@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenrosen. Als Erklärung der Stahlstiche (Sammlung INr 95504, Obj 6) s. Graphik INr 95514, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wie schelmisch lauscht aus Blättergrün die Rose, / Sie weiß es wohl, daß ihr ein Liebes nah,",
+  "language": [],
+  "musenalm_id": 95513,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sammtrose. / (Rosa Gallica.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sammtrose. / (Rosa Gallica.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.770Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "ud3kj7zoy0igoa5"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Schöne Tage sollen nie / Deinem Leben fehlen:",
+  "language": [],
+  "musenalm_id": 8438,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Elisens Almanach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In Elisens Almanach",
+  "updated": "2026-06-23 09:01:04.889Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.240Z",
+      "agent": "uiwqqj09qcwc44l",
+      "source_id": "0z4csis08gydcnx"
+    }
+  ]
+}

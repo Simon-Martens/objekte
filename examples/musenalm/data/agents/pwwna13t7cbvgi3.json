@@ -1,0 +1,346 @@
+{
+  "annotation": "",
+  "biographical_data": "1769-1839",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.467Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1769"
+      ],
+      "dateOfDeath": [
+        "1839"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "file: James Steakley; artwork: Karl Robert Schindelmayer"
+          ],
+          "creditText": [
+            "Das Jahrhundert der Freundschaft. Johann Wilhelm Ludwig Gleim und seine Zeitgenossen, ed. Ute Pott (Göttingen: Wallstein, 2004), p. 135."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Wilhelm%20von%20Gerstenberg%20%28Schindelmayer%29.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Heinrich%20Wilhelm%20von%20Gerstenberg%20%28Schindelmayer%29.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Heinrich%20Wilhelm%20von%20Gerstenberg%20%28Schindelmayer%29.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090186479"
+      ],
+      "describedBy": {
+        "dateModified": "2025-07-23T17:20:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/129098647/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "129098647",
+      "id": "https://d-nb.info/gnd/129098647",
+      "oldAuthorityNumber": [
+        "(DE-588)1090186479",
+        "(DE-588a)129098647",
+        "(DE-588a)10375945X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Schindelmeyer, Karl Robert",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl Robert"
+        ],
+        "surname": [
+          "Schindelmeyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4159575-0",
+          "label": "Herausgeber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        }
+      ],
+      "publication": [
+        "[Post-Karte von Deutschland in zwey Blättern]. - s.a. [ca. 1820]",
+        "Neueste Generalkarte Von Deutschland In XXIV Blättern",
+        "Neueste General-Karte des Erzherzogthums Österreich ob der Enns"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2001006450"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/45372157"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q3658799"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090186479"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/129098647/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000078709854"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/129098647"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/129098647"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/129098647"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Schindelmayer, Karl Robert",
+        "Schindelmeyer, C.",
+        "Schindelmeyer, Karl",
+        "Schindelmayer, C. Rob.",
+        "Schindelmayer, R.",
+        "Schindelmayer, Carl Robert",
+        "Schindelmaier, C.",
+        "Schindelmeyer, K.",
+        "Schindelmeyer, K. R.",
+        "Schindelmeyer, Carl",
+        "Schindelmayer, C. R.",
+        "Schindelmeyer, C. R.",
+        "Schindelmeyer, Carl Robert"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "C. Rob."
+          ],
+          "surname": [
+            "Schindelmayer"
+          ]
+        },
+        {
+          "forename": [
+            "K. R."
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "Karl"
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "C. R."
+          ],
+          "surname": [
+            "Schindelmayer"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Robert"
+          ],
+          "surname": [
+            "Schindelmayer"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Robert"
+          ],
+          "surname": [
+            "Schindelmayer"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Schindelmaier"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Robert"
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "C. R."
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "R."
+          ],
+          "surname": [
+            "Schindelmayer"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        },
+        {
+          "forename": [
+            "K."
+          ],
+          "surname": [
+            "Schindelmeyer"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:47:48Z",
+    "gnd_query_biographical_data": "1769-1839",
+    "gnd_query_name": "schindelmeyer, karl robert"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2443,
+  "name": "Schindelmeyer, Karl Robert",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 74",
+  "updated": "2026-06-11 13:29:24.635Z",
+  "uri": "https://d-nb.info/gnd/129098647",
+  "editor": ""
+}

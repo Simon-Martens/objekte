@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Wenn die Welt dich hat verlassen / Und dein Herz dich hat betrogen,",
+  "language": [],
+  "musenalm_id": 46018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn die Welt dich hat verlassen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad von Prittwitz und Gaffron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wenn die Welt dich hat verlassen",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.486Z",
+      "agent": "lddqf86sm2shosm",
+      "source_id": "5al9t0uqmonp6w7"
+    }
+  ]
+}

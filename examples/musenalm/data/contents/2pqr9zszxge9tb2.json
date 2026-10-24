@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Hexenlied« INr 5139, Obj 72",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hexenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Fleischer",
+  "scans": [
+    "alm_104_5140_ss5ofu3cer.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hexenlied",
+  "updated": "2000-10-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.079Z",
+      "agent": "hgga1nue1t5lk1v",
+      "source_id": "nz5fp3m0306xass"
+    }
+  ]
+}

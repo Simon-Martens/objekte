@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Fabeln (INr 93355, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "In Flora's reichem Heiligthume, / Geschmückt mit hellem Pracht -Gewand / Blüht' einer Tulpe stolze Blume; / Daneben eine Rose stand.",
+  "language": [],
+  "musenalm_id": 93356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kokettenspiegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kokettenspiegel",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.451Z",
+      "agent": "y1ldqx10hdpig92",
+      "source_id": "jz8dm3wrrre2ege"
+    }
+  ]
+}

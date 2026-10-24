@@ -1,0 +1,122 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, S I T, 7 BB Tab darin 7 GG, G, SS III-IV I-Verz, G, SS V- XII, SS 1-310 G, SS 311-316 G-Verz, 2 gAA, SS 317-318",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Penelope 1817",
+    "norm": "~",
+    "biblio": 106026,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-02T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2387,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Penelope 1817",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 93; L/R 87; Goed VIII. 76, 139",
+  "responsibility_statement": "Theodor Hell",
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / Taschenbuch / für das Jahr 1817 / der / Häuslichkeit und Eintracht / gewidmet. / Mit Beiträgen / von / L. v. Germar, Fr. Gleich, L. v. Häfely, / Aug. Lafontaine, Fr. Laun u. a. / Herausgegeben / von / Theodor Hell. / Mit dem Bildniß der Hildegard, neun Kupfern und Landschaften / von Böhm, Jury, Rosenbusch, Rosmäsler, Schnorr v. K. u. a. / nebst zwei Tafeln mit den neuesten Desseins zur / Modestick- und Strickerei. / Leipzig, / bei J. C. Hinrichs",
+  "updated": "2026-06-11 10:18:55.315Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "ajyc1nm013mz5ic"
+  ],
+  "contents": [
+    "zhsntkz4d2pt1y3",
+    "5jyxyd14rv02oyj",
+    "f8kjxcl1xm8fjel",
+    "zesf39i4jwt5jbz",
+    "vvgikvhjt94dwq3",
+    "w7y62jcw5edfvtd",
+    "kozit7el602e24r",
+    "m0k1it8c0qux1vu",
+    "kdf427108txa88k",
+    "9pnvjmkgfg8n4tq",
+    "cugo7natdppjmw4",
+    "dqeiqulg4bycq0i",
+    "2ddzhh5dyf318vf",
+    "7qwz8z3i0uuahte",
+    "68cl3g1kp6p82mz",
+    "9w97x753nkaftbs",
+    "utp62nbtxwl0fgn",
+    "o1esjoswbko3s9x",
+    "9g0vnzx54fgtfsh",
+    "t0njycirxdok84q",
+    "hga1i6cgrzty56i",
+    "kkd1le4lcmzw8o0",
+    "no7xkh91yazhc2e",
+    "zbuma2z124x8m4b",
+    "1950wt9gf3gckgv",
+    "9aihlzij9ajz45s",
+    "gqysao1k1njouo7",
+    "1niago1cvra5tqa",
+    "ydw19rybteezvqw",
+    "frytuz530rxpg39",
+    "z0beeibukp2or8u",
+    "cv1zbyr04abp49l",
+    "oukv0mje8tiwaoq",
+    "kxflauvcwaunn86",
+    "q1yvbnb9cnoe1tj",
+    "4njxhz8tvl2uqj2",
+    "4dozcp4odwpjdd1",
+    "3yw3ulufkrxvof4",
+    "a4dqov6qagjs8nx",
+    "nxife745j00kvrf",
+    "1h6su5pyqcafahz",
+    "mjgwjzudu9dkru0",
+    "vghdebxq1ly7le6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.016Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.016Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "4498qb1bs9a6xjv"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.063Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.063Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "vh5enlhj9xzp530"
+    }
+  ]
+}

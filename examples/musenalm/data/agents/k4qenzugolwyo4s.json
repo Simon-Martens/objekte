@@ -1,0 +1,244 @@
+{
+  "annotation": "",
+  "biographical_data": "1757-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.345Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1757"
+      ],
+      "describedBy": {
+        "dateModified": "2017-01-13T09:18:00.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/124173160/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "124173160",
+      "id": "https://d-nb.info/gnd/124173160",
+      "oldAuthorityNumber": [
+        "(DE-588a)124173160"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Glassbach, Benjamin",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Benjamin"
+        ],
+        "surname": [
+          "Glassbach"
+        ]
+      },
+      "professionOrOccupationAsLiteral": [
+        "Kupferstecher"
+      ],
+      "publication": [
+        "Plan Der Academie und der umliegenden Gegend. - s.a. [um 1800]",
+        "Boeozien, zu der Reise des jüngern Anacharsis. - s.a. [um 1800]",
+        "Die Cycladischen Inseln, zu den Reisen des jüngern Anacharsis. - s.a. [um 1800]",
+        "Versuch Über Das Treffen Bey Plataea zu den Reisen des jungen Anacharsis. - s.a. [um 1800]",
+        "Laconia Und Die Insel Cythera zu den Reisen des jüngern Anacharsis. - s.a. [um 1800]",
+        "Messenia, zu den Reisen des jüngern Anacharsis. - s.a. [um 1800]",
+        "Phocis und Doris zu der Reise des jüngern Anacharsis. - s.a. [um 1800]",
+        "Thessalien Zu den Reisen des jüngern Anacharsis. - s.a. [um 1800]",
+        "Der Hellespont zu der Reise des jüngern Anacharsis. - s.a. [um 1800]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n97861056"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/58379574"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q112517635"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/124173160/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109766932"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/124173160"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/124173160"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/124173160"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/124173160"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Glasbach, Johann Benjamin",
+        "Glasbach, B.",
+        "Glassbach, Johann Benjamin",
+        "Glasbach, Benjamin",
+        "Glassbach, B."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Glasbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Benjamin"
+          ],
+          "surname": [
+            "Glassbach"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Benjamin"
+          ],
+          "surname": [
+            "Glasbach"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin"
+          ],
+          "surname": [
+            "Glasbach"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Glassbach"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:31:18Z",
+    "gnd_query_biographical_data": "1757-?",
+    "gnd_query_name": "glassbach, benjamin"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 902,
+  "name": "Glassbach, Benjamin",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIV, 241",
+  "updated": "2026-06-11 13:29:22.542Z",
+  "uri": "https://d-nb.info/gnd/124173160",
+  "editor": ""
+}

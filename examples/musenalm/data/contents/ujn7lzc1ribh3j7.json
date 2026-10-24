@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Er schwebt empor auf hellen Seraphsflügeln, / Der Geist, den eine höh're Welt gebahr,",
+  "language": [],
+  "musenalm_id": 23790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie auf den Tod Friedrich Schillers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lippmann Moses Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie auf den Tod Friedrich Schillers",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.111Z",
+      "agent": "q7zvyheam3iyblc",
+      "source_id": "1muxsplu0mv9vw3"
+    }
+  ]
+}

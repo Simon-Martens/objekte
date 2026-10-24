@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 43963, Obj 14 /) Die Graphik findet sich unter dem Titel »Der Genius des Friedens« ebenfalls in: Iris (Mailath, Saphir) 1846; INr 58061",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43962,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neugierde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by F. Corbaux Engraved by C. A. Periam",
+  "scans": [
+    "alm_592_43962_rdmke994vc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Neugierde",
+  "updated": "2006-06-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.277Z",
+      "agent": "x4wr3clisfzne16",
+      "source_id": "15sj9wyb4mmwl4m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.277Z",
+      "agent": "2b6gl8vhp91d2bf",
+      "source_id": "ngkurijab9gnf80"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63668, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Ein Vogel aus Canaria / Ist unverseh'ns entschwunden. / Die Wittwe girrt: Er ist nicht da",
+  "language": [],
+  "musenalm_id": 63670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige wegen eines entflohenen Canarienvogels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige wegen eines entflohenen Canarienvogels",
+  "updated": "2009-04-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.219Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "mlxjbx9ckwzjyuk"
+    }
+  ]
+}

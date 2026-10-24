@@ -1,0 +1,309 @@
+{
+  "annotation": "",
+  "biographical_data": "1772-1857",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.437Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. phil."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Verfasser des Gildenbuches. - Studium der Theologie in Halle/Saale, seit 1798 Lehrer am dortigen Pädagogium; seit 1803 Prediger in Nord-Dedeleben"
+      ],
+      "dateOfBirth": [
+        "1772-11-25"
+      ],
+      "dateOfDeath": [
+        "1857-03-23"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T16:02:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117002437/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117002437",
+      "id": "https://d-nb.info/gnd/117002437",
+      "oldAuthorityNumber": [
+        "(DE-588a)117002437"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/1067867848",
+          "label": "Dedeleben"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4381992-8",
+          "label": "Weferlingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1067867848",
+          "label": "Dedeleben"
+        }
+      ],
+      "preferredName": "Niemeyer, Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Christian"
+        ],
+        "surname": [
+          "Niemeyer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Tristan"
+          ],
+          "surname": [
+            "Rosenblüth"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Tristan"
+          ],
+          "surname": [
+            "Rosenplüt"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Niemeyer, Christian: Huysburg",
+        "Niemeyer, Christian: Heldenzug des Herzogs Friedrich Wilhelm von Braunschweig an der Spit*",
+        "Niemeyer, Christian: Heldenbuch",
+        "Niemeyer, Christian: Falkenstein",
+        "Niemeyer, Christian: Ilsenburg",
+        "Niemeyer, Christian: Doctor Martin Luther in seinem Leben und Wirken",
+        "Niemeyer, Christian: Doktor Martin Luther in seinem Leben und Wirken",
+        "Niemeyer, Christian: Der Lindenhain",
+        "Niemeyer, Christian: Leben Johann Knox's ..."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059064"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39623106"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94888523"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117002437/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Ludwig_Niemeyer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000110574735"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117002437"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117002437"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117002437"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Niemeyer, Chr.",
+        "Rosenblüth, Tristan",
+        "Niemeyer, Johann Christian",
+        "Niemeyer, Johann Christian Ludwig",
+        "Niiemeyer, Johann Christian Ludwig",
+        "Rosenplüt, Tristan"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Christian"
+          ],
+          "surname": [
+            "Niemeyer"
+          ]
+        },
+        {
+          "forename": [
+            "Chr."
+          ],
+          "surname": [
+            "Niemeyer"
+          ]
+        },
+        {
+          "forename": [
+            "Tristan"
+          ],
+          "surname": [
+            "Rosenblüth"
+          ]
+        },
+        {
+          "forename": [
+            "Tristan"
+          ],
+          "surname": [
+            "Rosenplüt"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Ludwig"
+          ],
+          "surname": [
+            "Niemeyer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian Ludwig"
+          ],
+          "surname": [
+            "Niiemeyer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Ludwig_Niemeyer",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christian_Ludwig_Niemeyer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:23:51Z",
+    "gnd_query_biographical_data": "1772-1857",
+    "gnd_query_name": "niemeyer, johann christian ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1961,
+  "name": "Niemeyer, Johann Christian Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed X, 567",
+  "updated": "2026-06-11 13:29:23.960Z",
+  "uri": "https://d-nb.info/gnd/117002437",
+  "editor": ""
+}

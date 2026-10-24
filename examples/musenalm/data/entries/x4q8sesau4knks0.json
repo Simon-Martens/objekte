@@ -1,0 +1,109 @@
+{
+  "annotation": "Verlagsmitteilung INr 50205: »Anzeige. Der Verleger dieses Taschenbuchs bietet die drei ersten Jahrgänge der Alruna von 1805, 1807, 1809 von jetzt bis künftige Ostern, um folgende herabgesetzte Preise an: Ein ganzes Exempl. mit illum. Kupf. in Maroq. Leder geb. für 8 Thlr. 2r u. 3r Jahrg. jeder à 2 Thlr.; Ein dergl. mit braunen Kupf. in Maroq. Papier geb. für 4 Thlr. 2r u. 3r Jahrg. jeder à 1 Thlr.;  Ein dergl. mit schwarzen Kupfern, eben so geb. für 4 Thlr. 2r u. 3r Jahrg. jeder à 1 Thlr.« Die Graphiken der verschiedenen Ausgaben Jgg 1805, 1807, 1809 werden (soweit autopsiert) als Vollbild gegeben; s. Anmerkungen dort",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I-XII Vrwrt d Hrsg, ar: SS 1- 44 darin 7 GG, ar1: SS1-229, S C, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Alruna 1812",
+    "norm": "~",
+    "biblio": 106479,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2007-06-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4,
+  "parallel_title": "",
+  "place_statement": "Zürich u. Leipzig (J. B. Schiegg)",
+  "places": [
+    "d7kbujq7399g22j",
+    "7jcg3b516uoqjor"
+  ],
+  "preferred_title": "Alruna 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 22; nicht bei L/R , Goed VIII. 62, 76",
+  "responsibility_statement": "Ernst Müller",
+  "subtitle_statement": "",
+  "title_statement": "Alruna. / Ein / Taschenbuch für Freunde / der / deutschen Vorzeit. / Herausgegeben / von / Ernst Müller. / 1812. / Mit acht Bildern / der Schatz durch den Schatz / nach J. M. Usteri, von H. Lips. / Zürich und Leipzig, / bei Johann Balthasar Schiegg",
+  "updated": "2026-06-11 10:18:55.195Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "items": [
+    "a4tksdbgyltx0n3"
+  ],
+  "contents": [
+    "4szefflfsa3pv79",
+    "5p4odj665d9xxxo",
+    "cue5ogarlt8iuc5",
+    "9gd2f7ll15ai49e",
+    "5yn0ym88py3g73t",
+    "6juy8wz0dsdmjyh",
+    "pgi0agtuaw808ev",
+    "mffzpp3f9ijp9gy",
+    "cwvgkxid88jnh3l",
+    "rle5f77gd26ulau",
+    "vickjbbj6jks1gy",
+    "0m4av22kwy9w5a5",
+    "yvx4699wq2nzuf9",
+    "hw6bnf0f59d26s4",
+    "yyb7rz7kt0ow2jt",
+    "51c0apvozyec1e2",
+    "vidp7pzx1v35aub",
+    "6z6kq3l4ryv4e96",
+    "u04gx2miu5zucuh",
+    "gfmsd9ro6lh3txz",
+    "u8bilrepcqcudmo",
+    "dat61y8gptj4b4x",
+    "9ofdzxdrpql1vby",
+    "dgvq27vm0bqachf",
+    "vk2yp6w35lhq63f",
+    "b2y673b3l9tbeek",
+    "8z0m6pyxw5lmpa1",
+    "fuovsthf891lxv6",
+    "fhupw9wwuz8u59u"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.192Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.192Z",
+      "agent": "v1mpxx0n8e76xaz",
+      "source_id": "16r0r4o8h9yi3nr"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.050Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.050Z",
+      "agent": "ejbgxkeqg7hu332",
+      "source_id": "lvhzjrqfmw7hcw3"
+    }
+  ]
+}

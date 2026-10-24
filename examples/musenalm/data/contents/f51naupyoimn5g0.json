@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium März; an der Graphik Pag. 18; Illustration zu »Wie gewonnen, so zerronnen« von Fr. Fitzinger INr 135321, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135313,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es thut gewiß sehr weh?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. G. Leybold sc.",
+  "scans": [
+    "alm_3341_135313_6u4x4d7u8c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es thut gewiß sehr weh?",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.142Z",
+      "agent": "zefb5ir07ld7tkj",
+      "source_id": "50ldowuupmur6sq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.141Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "6r4ce7w9mgohgoh"
+    }
+  ]
+}

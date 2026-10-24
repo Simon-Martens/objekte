@@ -1,0 +1,70 @@
+{
+  "annotation": "Vorzugsausgabe auf Velin; vergoldete Umschlagprägung s. Photos",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, S I T, SS III-VI I-Verz, SS 1-389, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Musenalmanach (Wendt) 1832 (Vorzugsausgabe)",
+    "norm": "~",
+    "biblio": 411236,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-03-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4805,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Weidmann)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Musenalmanach (Wendt) 1832 (Vorzugsausgabe)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 82; L/R 45; Goed VIII. 123, 328 a",
+  "responsibility_statement": "Amadeus Wendt",
+  "subtitle_statement": "",
+  "title_statement": "Musenalmanach / für / das Jahr 1832. / Herausgegeben / von Amadeus Wendt. / Dritter Jahrgang. / Leipzig, / Weidmann'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.997Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "ffd4nbb4hvnrw6x"
+  ],
+  "contents": [
+    "00zvon8t8u5a1hy",
+    "xuvetxba668ez3l"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.183Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.183Z",
+      "agent": "jc7s1i1svozt3z2",
+      "source_id": "q1fndntqs8ycq1m"
+    }
+  ]
+}

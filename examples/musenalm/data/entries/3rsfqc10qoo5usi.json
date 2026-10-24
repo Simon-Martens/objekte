@@ -1,0 +1,118 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I T, SS IIII-XXI, SS 23-225",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1826",
+    "norm": "~",
+    "biblio": 405641,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2708,
+  "parallel_title": "",
+  "place_statement": "Wien (Stöckhölzer v. Hirschfeld)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch vom k.k. privil. Theater in der Leopoldstadt 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 148; L/R 119; Goed VIII. 81, 161",
+  "responsibility_statement": "Carl Meisl",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / des / kaiserl. königl. privil. / Leopoldstädter Theaters, / für das Jahr / 1826. / Herausgegeben / zum Besten der hinterlassenen Familie des Schauspielers / Ziegelhauser, / von / Carl Meisl. / Dreyzehnter Jahrgang. / Wien, 1826. / Gedruckt bey Felix Stöckholzer v. Hirschfeld",
+  "updated": "2026-06-11 10:18:55.039Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "ishm3y922qf5rjq"
+  ],
+  "contents": [
+    "jq6x3h80wkc41oy",
+    "f57y0bvk8exaovg",
+    "xnllkt1ityp4i2n",
+    "qteg69yuupe1qks",
+    "3aj1dlfbj6uuyfc",
+    "r2sob6gpv90pqgj",
+    "90i6adycnxwf0n3",
+    "pqlxhvmyn97ucvf",
+    "1k9831kzccb5ojj",
+    "e3mjc8eijdbo0yk",
+    "538ybh9ouuhwe10",
+    "f968vobruijh60b",
+    "7atuqmg5mv4bw2z",
+    "2db3ts03te5he7y",
+    "1krsjlcy394j66w",
+    "53cqksvj64oh71j",
+    "zfk6gyrtfq6yspo",
+    "qam467jw2lmumsv",
+    "y1wv1ehxojhgxia",
+    "e5scrmw914er4am",
+    "wn00kdzatyceid4",
+    "bs9xyww17h6jlhr",
+    "ex7xxcixj2j3vsm",
+    "dh89mma696gimqj",
+    "2ano0hkj4uuujur",
+    "ho4qwvpypw7ibyb",
+    "b1bo3wllggx7vdy",
+    "yvcuexzkbahawiy",
+    "kz66qwx749z1hlg",
+    "t5anziw2xsp99kg",
+    "10tnrofytr60r2c",
+    "elfw2fmsmcgtozh",
+    "slf6m2opeszauns",
+    "fl2rrb2px852e4r",
+    "fuqvrottvj1f941",
+    "103d4evcs5tjp6s",
+    "gwhwbe7gcvzyjcr",
+    "4ex1og9m4ubymu1",
+    "67a2d690jefdp05"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.159Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.159Z",
+      "agent": "qvadmgxfvt4g8yt",
+      "source_id": "3eaj5lz8l0scgrq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.126Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.126Z",
+      "agent": "7hwx2whrgf8fkrg",
+      "source_id": "r84bsz57vmahtgh"
+    }
+  ]
+}

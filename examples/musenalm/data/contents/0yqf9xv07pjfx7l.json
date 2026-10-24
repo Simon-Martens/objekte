@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Tief in unterirdischer Kammer / Sprach grollend der alte Granit:",
+  "language": [],
+  "musenalm_id": 100222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied vom Granit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jospeh Victor Scheffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied vom Granit",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.990Z",
+      "agent": "6zfv9dewzvf4jgf",
+      "source_id": "ehhlr1kazbnewz1"
+    }
+  ]
+}

@@ -1,0 +1,649 @@
+{
+  "annotation": "",
+  "biographical_data": "1474-1533",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.239Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "forename": [
+            "Guy Du Faur"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Pibrac"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/118677446",
+          "label": "Crusius, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119790505",
+          "label": "Plessen, Volrad von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118548808",
+          "label": "Heliodorus, Emesenus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/129563242",
+          "label": "Botallo, Leonardo"
+        },
+        {
+          "forename": [
+            "Paolo"
+          ],
+          "nameAddition": [
+            "der Ältere"
+          ],
+          "surname": [
+            "Giovio"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/122841174",
+          "label": "Ferri, Alfonso"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119703793",
+          "label": "Helffrich, Johannes"
+        },
+        {
+          "id": "https://d-nb.info/gnd/119758792",
+          "label": "Meletius, aus Kreta"
+        },
+        {
+          "forename": [
+            "Pietro"
+          ],
+          "surname": [
+            "Vettori"
+          ]
+        }
+      ],
+      "dateOfBirth": [
+        "1474-09-08"
+      ],
+      "dateOfDeath": [
+        "1533-07-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            ""
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ariosto.jpg",
+          "license": [
+            {
+              "abbr": "CC BY-SA 3.0",
+              "attributionRequired": true,
+              "id": "http://creativecommons.org/licenses/by-sa/3.0/",
+              "name": "Creative Commons Attribution-Share Alike 3.0"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ariosto.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ariosto.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:53.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118503952/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Giovanni Attista"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118503952",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118503952",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ita",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ita"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4002910-4",
+        "(DE-588a)127633251",
+        "(DE-588a)118503952",
+        "(DE-588a)127443169"
+      ],
+      "placeOfBirthAsLiteral": [
+        "Reggio Emilia"
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4092153-0",
+          "label": "Ferrara"
+        }
+      ],
+      "preferredName": "Ariosto, Ludovico",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludovico"
+        ],
+        "surname": [
+          "Ariosto"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Ariosto, Ludovico: Comedia intitolata Cassaria",
+        "Pibrac, Guy Du Faur de: Moralia quaedam.  1588.  (VD16 P 2559)",
+        "Ariosto, Ludovico: La Lena",
+        "Giovio, Paolo <der Ältere>: PAVLI IOVII NOVOCOMENSIS EPISCOPI NVCErini Illustrium Virorum Vitae. Acceßit ad ...  1559.  (VD16 G 2076)",
+        "Heliodorus Emesenus: De parentibus suis narratio.  1584.  (VD16 H 1676)",
+        "Ariosto, Lodovico: Orlando furioso",
+        "Ariosto, Ludovico: La Cassaria",
+        "Ariosto, Ludovico: Sattire",
+        "Ariosto, Ludovico: Cinque Canti ... li quali seguono la materia del Furioso",
+        "Giovio, Paolo <der Ältere>: PAVLI IOVII NOVOCOMENSIS EPISCOPI NVCERINI ILLVSTRIVM VIRORVM VITAE. QVIBVS NVNC ...  1567.  (VD16 G 2077)",
+        "Ariosto, Ludovico: Orlando furioso",
+        "Ferri, Alfonso: De curandis vulneribus sclopetorum.  1575.  (VD16 F 794)",
+        "Giovio, Paolo <der Ältere>: PAVLI IOVII NOVOCOMENSIS EPISCOPI NVCERINI Vitae Illustrium virorum Tomis duobus ...  1576-1578.  (VD16 G 2078)",
+        "Helffrich, Johannes: Kurtzer vnd warhafftiger Bericht Von der Reyß aus Venedig nach Hierusalem Von dannen ...  1589.  (VD16 H 1652)",
+        "Helffrich, Johannes: Kurtzer vnd warhafftiger Bericht Von der Reiß aus Venedig nach Hierusalem Von dannen in ...  1581.  (VD16 ZV 7598)",
+        "Ariosto, Ludovico: Il Negromante"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11889084c"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79041715"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/71386455"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q48900"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118503952/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludovico_Ariosto"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludovico_Ariosto"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludovico_Ariosto"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludovico_Ariosto"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121385817"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118503952"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118503952"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118503952"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118503952"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Ariost, Ludovico",
+        "Ariosto, Lodoviko",
+        "Ariost, Lodovico",
+        "Lodovico Ariosto",
+        "Tuchemolin, Joseph",
+        "Toscanella, Oratio",
+        "Ariosti, Ludovico",
+        "Ariost, Ludwig",
+        "Lodovico, Ariosto",
+        "Dousmolin, Joseph",
+        "Areostus, Ludovicus",
+        "Ariostus, Ludovicus",
+        "Arioste, Ludovic",
+        "Toscanello, Oratio",
+        "Arioste, Ludovico",
+        "Ariost, Aldvigh",
+        "Arioste, Louis",
+        "Arioste, Louys",
+        "Ariosto",
+        "Touchmolin, Joseph",
+        "Ariosto, Ludoviko",
+        "Arioste, Loys",
+        "Ariosto, Lodouico",
+        "Ariost, Ludovic",
+        "Ludovico, Ariosto",
+        "Arioste",
+        "L'Arioste",
+        "Ariosto, Lodovico",
+        "Aryosto",
+        "Ariosti",
+        "Ariosto, Ludwig",
+        "Aryost, Ludowik",
+        "Ariost"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "nameAddition": [
+            "Ariosto"
+          ],
+          "personalName": [
+            "Lodovico"
+          ]
+        },
+        {
+          "forename": [
+            "Oratio"
+          ],
+          "surname": [
+            "Toscanello"
+          ]
+        },
+        {
+          "personalName": [
+            "Ariosti"
+          ]
+        },
+        {
+          "forename": [
+            "Lodovico"
+          ],
+          "surname": [
+            "Ariost"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovico"
+          ],
+          "surname": [
+            "Ariosti"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "surname": [
+            "Ariostus"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Ariost"
+          ]
+        },
+        {
+          "personalName": [
+            "Ariost"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovic"
+          ],
+          "surname": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        },
+        {
+          "forename": [
+            "Oratio"
+          ],
+          "surname": [
+            "Toscanella"
+          ]
+        },
+        {
+          "forename": [
+            "Louys"
+          ],
+          "surname": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Lodouico"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        },
+        {
+          "forename": [
+            "Ludoviko"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Tuchemolin"
+          ]
+        },
+        {
+          "forename": [
+            "Lodovico"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        },
+        {
+          "personalName": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Touchmolin"
+          ]
+        },
+        {
+          "personalName": [
+            "Aryosto"
+          ]
+        },
+        {
+          "forename": [
+            "Loys"
+          ],
+          "surname": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "surname": [
+            "Dousmolin"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovic"
+          ],
+          "surname": [
+            "Ariost"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovico"
+          ],
+          "surname": [
+            "Ariost"
+          ]
+        },
+        {
+          "forename": [
+            "Lodoviko"
+          ],
+          "surname": [
+            "Ariosto"
+          ]
+        },
+        {
+          "forename": [
+            "Aldvigh"
+          ],
+          "surname": [
+            "Ariost"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovico"
+          ],
+          "surname": [
+            "Arioste"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "surname": [
+            "Areostus"
+          ]
+        },
+        {
+          "forename": [
+            "Ludowik"
+          ],
+          "surname": [
+            "Aryost"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Ariosto"
+          ],
+          "personalName": [
+            "Ludovico"
+          ]
+        },
+        {
+          "personalName": [
+            "Ariosto"
+          ]
+        },
+        {
+          "personalName": [
+            "Lodovico Ariosto"
+          ]
+        },
+        {
+          "personalName": [
+            "L'Arioste"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludovico_Ariosto",
+          "label": "https://de.wikipedia.org/wiki/Ludovico_Ariosto"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:49:33Z",
+    "gnd_query_biographical_data": "1474-1533",
+    "gnd_query_name": "ariosto, lodovico"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 57,
+  "name": "Ariosto, Lodovico",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 24",
+  "updated": "2026-06-11 13:29:21.367Z",
+  "uri": "https://d-nb.info/gnd/118503952",
+  "editor": ""
+}

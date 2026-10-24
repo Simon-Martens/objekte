@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. III. /) kol. Illustration zu »Buch- und Steinmarder« INr 66447, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Buchmarder und Steinmarder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer del.",
+  "scans": [
+    "alm_1135_66448_0dy49c7obq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Buchmarder und Steinmarder",
+  "updated": "2009-09-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.250Z",
+      "agent": "659oeugsapemrqw",
+      "source_id": "57ri55z4zh8gr63"
+    }
+  ]
+}

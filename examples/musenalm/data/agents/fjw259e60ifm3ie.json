@@ -1,0 +1,606 @@
+{
+  "annotation": "",
+  "biographical_data": "1810-1894",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.329Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Dr. med."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/123152-2",
+          "label": "Israelitische Kultusgemeinde Wien"
+        },
+        {
+          "id": "https://d-nb.info/gnd/3058168-0",
+          "label": "Israelitisches Blindeninstitut (Wien)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/402038-8",
+          "label": "Conservatorium der Musik in Wien"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Direktor des Musikvereins.",
+        "Promotion Dr. med. in Padua 1837; wurde nach 1873 in den Adelsstand erhoben mit dem Prädikat \"von Hochwart\"."
+      ],
+      "dateOfBirth": [
+        "1810-02-03"
+      ],
+      "dateOfDeath": [
+        "1894-03-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Leopold Pollak (Lodenitz 1806-1880 Rom)"
+          ],
+          "creditText": [
+            "This file was derived from: Leopold Pollak Bildnis Ludwig August Frankl von Hochwart.jpg:&nbsp; derivative work: Jan Arkesteijn, 2013-02-21 20:28 (UTC)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Leopold%20Pollak%20Bildnis%20Ludwig%20August%20Frankl%20von%20Hochwart-2.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leopold%20Pollak%20Bildnis%20Ludwig%20August%20Frankl%20von%20Hochwart-2.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Leopold%20Pollak%20Bildnis%20Ludwig%20August%20Frankl%20von%20Hochwart-2.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/11671560X"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116718234/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Wilhelm"
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1021285277",
+          "label": "Frankl, Paula"
+        },
+        {
+          "id": "https://d-nb.info/gnd/117536229",
+          "label": "Frankl-Hochwart, Lothar von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116715804",
+          "label": "Frankel, Zacharias"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130148997",
+          "label": "Frankl, Paul Josef"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XY",
+          "label": "Juden"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "116718234",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#27.20p",
+          "label": "Personen zu Medizin, Tiermedizin"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#11.2p",
+          "label": "Personen zu Sprache"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#9.5p",
+          "label": "Personen zu Soziologie, Gesellschaft, Arbeit, Sozialgeschichte"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/117536229",
+          "label": "Frankl-Hochwart, Lothar von"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/130148997",
+          "label": "Frankl, Paul Josef"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1021285277",
+          "label": "Frankl, Paula"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116718234",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588)11671560X",
+        "(DE-588c)4785234-3",
+        "(DE-588a)116718234",
+        "(DE-588a)11671560X"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "und-hebr",
+          "@value": "פרנקל, לודויג אוגוסט"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4537020-5",
+          "label": "Chrást (Pilsen)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Frankl, Ludwig August",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig August"
+        ],
+        "surname": [
+          "Frankl"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1143159993",
+          "label": "Philanthrop"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4028781-6",
+          "label": "Journalist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140241-8",
+          "label": "Dramatiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4199236-2",
+          "label": "Philologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "publication": [
+        "Zur Biographie Nikolaus Lenau's",
+        "The Jews in the East",
+        "Gusle",
+        "Schiller, Beethoven und Goethe in Karlsbad",
+        "Das Habsburglied",
+        "Don Juan d'Austria",
+        "Zur Biographie Franz Grillparzer's",
+        "Sonntags-Blätter für heimatliche Interessen",
+        "Hilscher, Joseph E.: Gedichte",
+        "Gedichte",
+        "Nach Jerusalem!"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr89007933"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/15527208"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q555907"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11671560X"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116718234/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/116718234"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_August_von_Frankl"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_August_Frankl_von_Hochwart"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_August_Frankl_von_Hochwart"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_August_von_Frankl"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080954066"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116718234"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116718234"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_F/Frankl-Hochwart_Ludwig-August_1810_1894.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116718234.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116718234"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Frankl, Ludw. Aug.",
+        "Frankl, L. A.",
+        "Frankl-Hochwart, Ludwig August",
+        "Hochwart, Ludwig August Frankl-",
+        "Frankl, Ludvig August",
+        "Hochwart, Ludwig August von, Ritter",
+        "Frankl, Ludwig A.",
+        "Frankl, Ludwig August, Ritter von Hochwart",
+        "Franql, Lûdwîg Ogûsṭ",
+        "Frankl, Ludwig August von, Ritter",
+        "Frankl Hochwart, Ludwig August",
+        "Frankl von Hochwart, Ludwig August",
+        "Frankel, Ludwig August",
+        "Hochwart, Ludwig August Frankl von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "surname": [
+            "Frankl Hochwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August Frankl"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hochwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "surname": [
+            "Frankl-Hochwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig August"
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hochwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "surname": [
+            "Frankel"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "surname": [
+            "Frankl von Hochwart"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig A."
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "Lûdwîg Ogûsṭ"
+          ],
+          "surname": [
+            "Franql"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw. Aug."
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August"
+          ],
+          "nameAddition": [
+            "Ritter von Hochwart"
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "L. A."
+          ],
+          "surname": [
+            "Frankl"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig August Frankl-"
+          ],
+          "surname": [
+            "Hochwart"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_August_Frankl_von_Hochwart",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_August_Frankl_von_Hochwart"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:25:00Z",
+    "gnd_query_biographical_data": "1810-1894",
+    "gnd_query_name": "frankl, ludwig august"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 774,
+  "name": "Frankl, Ludwig August",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XII, 371",
+  "updated": "2026-06-11 13:29:22.359Z",
+  "uri": "https://d-nb.info/gnd/116718234",
+  "editor": ""
+}

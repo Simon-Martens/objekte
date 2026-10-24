@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11706, Obj 140",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Wort des Trostes, Wiedersehn, / Lebenswort, von Lieb' erfunden,",
+  "language": [],
+  "musenalm_id": 11705,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "71. / Wiedersehn. / Rondeau, mit Composition",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "71. / Wiedersehn. / Rondeau, mit Composition",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.542Z",
+      "agent": "scmt2snhwdglbs9",
+      "source_id": "yvz3uzugum6nzgk"
+    }
+  ]
+}

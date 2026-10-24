@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach des Muses 1769",
+    "norm": "",
+    "biblio": 100007,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-06-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4537,
+  "parallel_title": "",
+  "place_statement": "Paris (Delalain)",
+  "places": [
+    "du5enlw6l3e30d0"
+  ],
+  "preferred_title": "Almanach des Muses 1769",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 24; G/C 92, 377",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH DES MUSES / A PARIS / Chez / DELALAIN, Libraire, / Rue de la Comédie. / M. DCC. LXIX",
+  "updated": "2026-06-11 10:18:55.131Z",
+  "variant_title": "",
+  "year": 1769,
+  "editor": "",
+  "items": [
+    "gjz0t2gh8xfrxyl"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.719Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.719Z",
+      "agent": "wdyiby59wmt7gix",
+      "source_id": "at7wtkzs2typitc"
+    }
+  ]
+}

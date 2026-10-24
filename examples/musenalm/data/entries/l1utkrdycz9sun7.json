@@ -1,0 +1,96 @@
+{
+  "annotation": "<div>im Schuber</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, Sp, verso G, T, Kal,darin 5 GG, 3 BB Tabb, S 1 T, SS 3-124, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1839",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1905,
+  "parallel_title": "",
+  "place_statement": "Wien (Pfautsch)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch für 1839. / Neunzehnter Jahrgang / Edlen Frauen und Mädchen gewidmet. / (Motto) / Ehret die Frauen, sie flechten und weben / Himmlische Rosen in’s irdische Leben / Schiller / WIEN / Verlag von Friedrich Pfautsch. / Seitzergasse No. 423",
+  "updated": "2026-07-16 08:35:24.172Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "lgakfq9nogjsp2d",
+    "mn9x6ogbwt0hxse",
+    "l5az9sq1t8tte61",
+    "ohacwzn6wucy5u5",
+    "z6sodv9d319vphx",
+    "lol2ys40dpl72q2",
+    "56ycfyjoq77pho2",
+    "9tsz51n6e6hasvb",
+    "mxka8r1m6pvt4ld",
+    "27sbg277nk5p3e8",
+    "yus7epd9lgf7fqg",
+    "s0fn7ebnnubo97w",
+    "g2unf0fik5h02lf",
+    "20308pgafx8ijnp",
+    "ah93gc7yw1i6wof",
+    "pcfuz34mjlheeka",
+    "dgeqze3see3u4aq",
+    "zj2aqs2x6rl3ind",
+    "1nqnebrefv8u9g6",
+    "qz5xzde2geshj1h",
+    "878ebxf11g61re1",
+    "8lvstfvlutm4bhc",
+    "a31rd5cvaaoadg0",
+    "20dhm0u9ta9nmz7",
+    "0js5re262mr2fuf",
+    "yfzbreabzezh185",
+    "qno4017dqcsf2tg",
+    "jvoma05d24f9s5f",
+    "06j6yfk8kd5fdyb",
+    "1p9brosistg0n5j",
+    "3k69x8qkf0vcmmo",
+    "k800cxbh13owx9z"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-14 10:08:57.397Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-16 08:35:24.172Z",
+      "agent": "5j7lr2xpauvnhrr",
+      "source_id": "e75obj4dr7e00s4"
+    }
+  ]
+}

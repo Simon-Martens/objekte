@@ -1,0 +1,45 @@
+{
+  "annotation": "Proben aus einem Buch Epigramme (Sammlung INr 24485, Obj 63) Gedichte (Sammlung INr 24470, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Das nicht heißt ein Gedicht, wenn irgend ein guter Ge- / danke",
+  "language": [],
+  "musenalm_id": 24488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Halbdichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Halbdichter",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.274Z",
+      "agent": "on0a0wityl8730t",
+      "source_id": "aoy3gk01csfps8x"
+    }
+  ]
+}

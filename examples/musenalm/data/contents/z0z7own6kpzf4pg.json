@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 111019, 111020; Obj 22, 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Nun gebe Gott uns Segen und Gedeihn! / Manch 'köstliche Dublone schwimmet dort / der Brücke zu. - Hat viel, gar viel gekostet!",
+  "language": [],
+  "musenalm_id": 111018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Belagerung von Antwerpen. / Trauerspiel / in / fünf Abtheilungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Belagerung von Antwerpen. / Trauerspiel / in / fünf Abtheilungen",
+  "updated": "2010-03-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.253Z",
+      "agent": "iiexbt3f7jmpzqb",
+      "source_id": "tyb3bjo8qswvzaj"
+    }
+  ]
+}

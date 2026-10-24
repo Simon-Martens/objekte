@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 74988-74990, Obj 44-46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Zerstreute Gedanken über Dichtkunst. / (Aus einer Rede: über deutsche Poesie; in einem / literarischen Vereine vorgelesen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Zerstreute Gedanken über Dichtkunst. / (Aus einer Rede: über deutsche Poesie; in einem / literarischen Vereine vorgelesen.)",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.656Z",
+      "agent": "utgjxyadq6s0v86",
+      "source_id": "uxlqg3ierd4lp9s"
+    }
+  ]
+}

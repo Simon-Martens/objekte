@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. Vorrede: Nr. 3. und 5 sind gemeinsam mit meinem Freunde L. Schneider bearbeitet",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Ja ja! gnädige Frau, wie ich Ihnen sage, heute ganz früh war ihr Courier schon hier und sie finden alles, wie er es bestellt hat.",
+  "language": [],
+  "musenalm_id": 54827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Ehrensachen. / Drama in drei Aufzügen nach Merville",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. W. Foerster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Ehrensachen. / Drama in drei Aufzügen nach Merville",
+  "updated": "2008-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.769Z",
+      "agent": "cvj1hp70xlt5hpm",
+      "source_id": "yxr2xl6ckq55f3l"
+    }
+  ]
+}

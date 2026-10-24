@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Du meintest wohl, daß wir mitsammen / Zwölf Stunden gestern zugebracht",
+  "language": [],
+  "musenalm_id": 86096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Strahl von Osten]. / 2. / An Johann Gabriel Seidl. / (Cilli, am 26. September 1838; fünf Uhr Morgens.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Strahl von Osten]. / 2. / An Johann Gabriel Seidl. / (Cilli, am 26. September 1838; fünf Uhr Morgens.)",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.241Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "d7jrrijnnz2ivx7"
+    }
+  ]
+}

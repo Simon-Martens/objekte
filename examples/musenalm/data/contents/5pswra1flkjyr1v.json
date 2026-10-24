@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43636, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Tressilian hat seine Anklage gegen Varney vor die Königin gebracht und Leicester erniedrigte sich, seine liebenswürdige Gattin zu verläugnen und sie für Barney's Angetraute auszugeben.",
+  "language": [],
+  "musenalm_id": 43635,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Kenilworth] 5.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Kenilworth] 5.",
+  "updated": "2006-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.939Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "v14ndeu6kzi6dvh"
+    }
+  ]
+}

@@ -1,0 +1,230 @@
+{
+  "annotation": "",
+  "biographical_data": "1765-1852",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.469Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1765"
+      ],
+      "dateOfDeath": [
+        "1852"
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-16T10:40:23.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-14",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-14"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/142455091/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "142455091",
+      "id": "https://d-nb.info/gnd/142455091",
+      "oldAuthorityNumber": [
+        "(DE-588a)142455091",
+        "(DE-588a)100329829"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/118171852X",
+          "label": "Briesen (Landkreis Dahme-Spreewald)"
+        }
+      ],
+      "preferredName": "Schlieben, Wilhelmine Louise Elisabeth von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Wilhelmine Louise Elisabeth"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Schlieben"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "An Berlin, bei der Huldigungsfeier König Friedrich Wilhelm des Zweiten. - 1786",
+        "Mitfeier denkwürdiger Begebenheiten in den Jahren 1813 bis 1816. - 1817"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/150873698"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q2576168"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/142455091/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Wilhelmine_Luise_Elisabeth_von_Schlieben"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000101329228"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/142455091"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/142455091"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Schlieben, Wilhelmine Luise Elisabeth von",
+        "Schlieben, Wilhelmine Louise von",
+        "Schlieben, Wilhelmine Luise von",
+        "Schlieben, Wilhelmine von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Wilhelmine Luise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlieben"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Louise"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlieben"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine Luise Elisabeth"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlieben"
+          ]
+        },
+        {
+          "forename": [
+            "Wilhelmine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Schlieben"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Wilhelmine_Luise_Elisabeth_von_Schlieben",
+          "label": "https://de.wikipedia.org/wiki/Wilhelmine_Luise_Elisabeth_von_Schlieben"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:49:12Z",
+    "gnd_query_biographical_data": "1765-1852",
+    "gnd_query_name": "schlieben, wilhelmine louise elisabeth von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2471,
+  "name": "Schlieben, Wilhelmine Louise Elisabeth von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1800",
+  "updated": "2026-06-11 13:29:24.675Z",
+  "uri": "https://d-nb.info/gnd/142455091",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. lithogr. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98801,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRÜHLINGSALMANACH / HERAUSGEGEBEN / VON / NICOLAUS LENAU / 1835 / F. BRODHAG'SCHE BUCH- / HANDLUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Dondorf lith Ff/M.",
+  "scans": [
+    "alm_1784_98801_za4frbzqiu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRÜHLINGSALMANACH / HERAUSGEGEBEN / VON / NICOLAUS LENAU / 1835 / F. BRODHAG'SCHE BUCH- / HANDLUNG",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.753Z",
+      "agent": "5fc2fy392haquun",
+      "source_id": "hamag90w2pvuro8"
+    }
+  ]
+}

@@ -1,0 +1,899 @@
+{
+  "annotation": "",
+  "biographical_data": "1741-1792",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.244Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "D. theol."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/1048495779",
+          "label": "Universität Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4492204-8",
+          "label": "Philanthropin Heidesheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1087280494",
+          "label": "Academia Gissensis"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2024343-1",
+          "label": "Universität Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2044109-5",
+          "label": "Universität Erfurt (1392-1816)"
+        }
+      ],
+      "dateOfBirth": [
+        "1740-08-25"
+      ],
+      "dateOfDeath": [
+        "1792-04-23"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "dexx"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Bahrdt%20old.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bahrdt%20old.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Bahrdt%20old.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-18T09:22:26.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11850598X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116039841",
+          "label": "Bahrdt, Johann Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11850598X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#6.4p",
+          "label": "Personen zu Bildungswesen"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/116039841",
+          "label": "Bahrdt, Johann Friedrich"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11850598X",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4004271-6",
+        "(DE-588a)11850598X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/1139371142",
+          "label": "Nietleben"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4023025-9",
+          "label": "Halle (Saale)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015240-6",
+          "label": "Erfurt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013243-2",
+          "label": "Bad Dürkheim"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020989-1",
+          "label": "Gießen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4283939-7",
+          "label": "Bischofswerda"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1139371142",
+          "label": "Nietleben"
+        }
+      ],
+      "preferredName": "Bahrdt, Carl Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Friedrich"
+        ],
+        "surname": [
+          "Bahrdt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4015882-2",
+          "label": "Evangelischer Theologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1359295003",
+          "label": "Schulbuchautor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4044300-0",
+          "label": "Pädagoge"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4156075-9",
+          "label": "Gastwirt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4061414-1",
+          "label": "Übersetzer"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1077188137",
+          "label": "Lauge, Beniamin Kasimir"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "nameAddition": [
+            "Kanonikus"
+          ],
+          "personalName": [
+            "Ziegra"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ignatius Kasimir"
+          ],
+          "surname": [
+            "Lauge"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Magister"
+          ],
+          "personalName": [
+            "Wromschewsky"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Johan"
+          ],
+          "surname": [
+            "Niklas"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Kasimir Renatus"
+          ],
+          "surname": [
+            "Denarrée"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Kasimir Benatus"
+          ],
+          "surname": [
+            "Denarreé"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Ignatius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Kasimir Renatus"
+          ],
+          "surname": [
+            "Denarée"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "Magister"
+          ],
+          "personalName": [
+            "Ziegra"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Ignatius K."
+          ],
+          "surname": [
+            "Lange"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Kasimir"
+          ],
+          "surname": [
+            "Lauge"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Kasimir R."
+          ],
+          "surname": [
+            "Denarrée"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Benjamin Kasimir"
+          ],
+          "surname": [
+            "Lange"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Nicolai"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Avenarius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Anmerkungen, über Dr. Bahrdts neueste Offenbarungen",
+        "Geschichte seines Lebens ... von ihm selbst geschr.. - 1790 - 1791",
+        "Katechismus der natürlichen Religion, als Grundlage eines jeden Unterrichts in der Moral und Religion",
+        "Alvaro und Ximenes",
+        "Appellation an das Publikum wegen einer Censurbedrückung das Systema ..",
+        "Glaubensbekenntniß",
+        "Cathechismus der natürlichen Religion",
+        "Entwurf einer unpartheyischen Kirchen-Geschichte neuen Testaments",
+        "Geschichte und Tagebuch meines Gefängnisses",
+        "Eine Erklärung an das Publikum über das Bahrdtische Glaubensbekenntniß ..",
+        "Handbuch der Moral für den Bürgerstand"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4006681-2",
+          "label": "Bildungswesen"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11929888w"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85262494"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29542229"
+        },
+        {
+          "collection": {
+            "abbr": "CH_HLS",
+            "icon": "https://www.hls-dhs-dss.ch/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q642074",
+            "name": "Historisches Lexikon der Schweiz (HLS)",
+            "publisher": "Historisches Lexikon der Schweiz (HLS)"
+          },
+          "id": "http://www.hls-dhs-dss.ch/textes/d/D8054.php"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213778"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11850598X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Karl_Friedrich_Bahrdt"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Bahrdt"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Carl_Friedrich_Bahrdt"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Friedrich_Bahrdt"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080767666"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11850598X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_cropp;24"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11850598X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11850598X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11850598X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11850598X"
+        },
+        {
+          "collection": {
+            "abbr": "LAGIS",
+            "icon": "https://www.lagis-hessen.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q14564246",
+            "name": "Hessische Biografie",
+            "publisher": "Hessisches Landesamt für geschichtliche Landeskunde"
+          },
+          "id": "https://www.lagis-hessen.de/pnd/11850598X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/11850598X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Nicolai, der Jüngere",
+        "Denarrée, Kasimir Renatus",
+        "Bahrt, Carl Friedrich",
+        "Bahrdt, D. C. F.",
+        "Denarreé, Kasimir Benatus",
+        "Bardt, Carl Friedrich",
+        "B., C. F.",
+        "Denarée, Kasimir Renatus",
+        "Bahrd, Carl Friederich",
+        "Bahrdtius, Carolus Fridericus",
+        "Lange, Ignatius K.",
+        "Avenarius, M.",
+        "Barth, Chr. Friedrich",
+        "C. F. B.",
+        "Ziegra",
+        "Bahrdt",
+        "Lauge, Ignatius Kasimir",
+        "Bahrdt, K. F.",
+        "Wromschewsky, Magister",
+        "Bahrdtius",
+        "Barth",
+        "Ignatius",
+        "Lange, Benjamin Kasimir",
+        "Bahrdt, C. F.",
+        "Ziegra, Kanonikus",
+        "Bahrd, Carl Friedrich",
+        "Niklas, Johan",
+        "Ziegra, Magister",
+        "Bahrdt, Carolus F.",
+        "Denarrée, Kasimir R.",
+        "Bahrdt, Carolus Friedericius",
+        "Bahrdt, Karl Friedrich",
+        "Lauge, Kasimir",
+        "Bahrdt, Carolus Fridericus",
+        "Бардт, Карл-Фридрих"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Johan"
+          ],
+          "surname": [
+            "Niklas"
+          ]
+        },
+        {
+          "forename": [
+            "Chr. Friedrich"
+          ],
+          "surname": [
+            "Barth"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Friedericius"
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Kasimir R."
+          ],
+          "surname": [
+            "Denarrée"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Bahrt"
+          ]
+        },
+        {
+          "personalName": [
+            "C. F. B."
+          ]
+        },
+        {
+          "forename": [
+            "Ignatius Kasimir"
+          ],
+          "surname": [
+            "Lauge"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Magister"
+          ],
+          "personalName": [
+            "Wromschewsky"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Avenarius"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Magister"
+          ],
+          "personalName": [
+            "Ziegra"
+          ]
+        },
+        {
+          "forename": [
+            "Kasimir Renatus"
+          ],
+          "surname": [
+            "Denarée"
+          ]
+        },
+        {
+          "forename": [
+            "Kasimir Renatus"
+          ],
+          "surname": [
+            "Denarrée"
+          ]
+        },
+        {
+          "forename": [
+            "C. F."
+          ],
+          "surname": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "Carolus F."
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friederich"
+          ],
+          "surname": [
+            "Bahrd"
+          ]
+        },
+        {
+          "personalName": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "personalName": [
+            "Barth"
+          ]
+        },
+        {
+          "forename": [
+            "D. C. F."
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus"
+          ],
+          "surname": [
+            "Bahrdtius"
+          ]
+        },
+        {
+          "personalName": [
+            "Bahrdtius"
+          ]
+        },
+        {
+          "forename": [
+            "Kasimir"
+          ],
+          "surname": [
+            "Lauge"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatius K."
+          ],
+          "surname": [
+            "Lange"
+          ]
+        },
+        {
+          "nameAddition": [
+            "der Jüngere"
+          ],
+          "personalName": [
+            "Nicolai"
+          ]
+        },
+        {
+          "personalName": [
+            "Ignatius"
+          ]
+        },
+        {
+          "forename": [
+            "Carolus Fridericus"
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Bahrd"
+          ]
+        },
+        {
+          "forename": [
+            "Карл-Фридрих"
+          ],
+          "surname": [
+            "Бардт"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Friedrich"
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "personalName": [
+            "Ziegra"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Friedrich"
+          ],
+          "surname": [
+            "Bardt"
+          ]
+        },
+        {
+          "forename": [
+            "K. F."
+          ],
+          "surname": [
+            "Bahrdt"
+          ]
+        },
+        {
+          "forename": [
+            "Kasimir Benatus"
+          ],
+          "surname": [
+            "Denarreé"
+          ]
+        },
+        {
+          "nameAddition": [
+            "Kanonikus"
+          ],
+          "personalName": [
+            "Ziegra"
+          ]
+        },
+        {
+          "forename": [
+            "Benjamin Kasimir"
+          ],
+          "surname": [
+            "Lange"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Friedrich_Bahrdt",
+          "label": "https://de.wikipedia.org/wiki/Karl_Friedrich_Bahrdt"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:51:33Z",
+    "gnd_query_biographical_data": "1741-1792",
+    "gnd_query_name": "bahrdt, karl friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 97,
+  "name": "Bahrdt, Karl Friedrich",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 811",
+  "updated": "2026-06-11 13:29:21.450Z",
+  "uri": "https://d-nb.info/gnd/11850598X",
+  "editor": ""
+}

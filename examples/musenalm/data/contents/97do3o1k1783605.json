@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Der Todtentanz« von Fr. Kind INr 13271, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todtentanz. v. Fr. Kind. / Beckers Taschenbuch 1809 S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. F. Bolt sc.",
+  "scans": [
+    "alm_216_13225_zjiz6iurrl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Todtentanz. v. Fr. Kind. / Beckers Taschenbuch 1809 S.",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.452Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "670eid9y5v93ihx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.452Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "k8ws3tsyfdi2cd0"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "zus. Bez.: Pub. by Ackermann London 1828 /) s. Textbezug INr 34429, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34428,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE SKETCH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Howard R. A. del. E. Finden sculpt.",
+  "scans": [
+    "alm_478_34428_ctb94z4ztj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE SKETCH",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.718Z",
+      "agent": "n6a5xd0oqtupi8s",
+      "source_id": "3clzpcyniwgp0zj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.718Z",
+      "agent": "8b73xenyafi8xny",
+      "source_id": "qpk2jm09mnen16a"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Gelehrten-Almanach 1826",
+    "norm": "",
+    "biblio": 404980,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1817,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Glück)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Gelehrten-Almanach 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. G. Bornmann",
+  "subtitle_statement": "",
+  "title_statement": "Gelehrten-Almanach / oder / Gallerie der vorzüglichsten Gelehrten / älterer und neuerer Zeit. / Nebst einem vollständigen Register / von / J. G. Bornmann, / Pastor zu Prausnitz, Jauerschen Kreises. / Leipzig, 1826. / Johann Friedrich Glück",
+  "updated": "2026-06-11 10:18:55.641Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "items": [
+    "sx8u7m51msi07o9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.912Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.912Z",
+      "agent": "g3gaoet7dc8k1bx",
+      "source_id": "6w8wk2b77zn12bj"
+    }
+  ]
+}

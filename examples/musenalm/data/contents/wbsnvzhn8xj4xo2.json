@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 7836, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7842,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Advocaten und Notarien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Rip. f.",
+  "scans": [
+    "alm_170_7842_x3gdlggc2t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Advocaten und Notarien",
+  "updated": "2000-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.408Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "1hnr5gjvk45ytzo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.408Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "jsu0dh6iywz8kvv"
+    }
+  ]
+}

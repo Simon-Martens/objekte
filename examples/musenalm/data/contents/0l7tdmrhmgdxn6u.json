@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Was drückt, o Holde, dich für Last? / Was trübt der Augen Blau?",
+  "language": [],
+  "musenalm_id": 25767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Jäger und die Hirtinn / Ein Wechsel-Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Jäger und die Hirtinn / Ein Wechsel-Gesang",
+  "updated": "2002-05-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.145Z",
+      "agent": "8v1rr9tn9rr7ndn",
+      "source_id": "v91bpg0199lx0ov"
+    }
+  ]
+}

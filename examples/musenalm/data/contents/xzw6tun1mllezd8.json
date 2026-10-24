@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Der Kirchhof (Sammlung INr 27406, Obj 133) Gedichte (Sammlung INr 27401, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Du Marmor,Geizger, wähnst den Schatz zu hüten, / Den dir der Tod vertraut' im Silberschreine,",
+  "language": [],
+  "musenalm_id": 27449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135.001,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Das Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf v. Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Das Grab",
+  "updated": "2002-08-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.526Z",
+      "agent": "lqm1xxbbqsqcgwa",
+      "source_id": "d4u5cz9q3avzu7a"
+    }
+  ]
+}

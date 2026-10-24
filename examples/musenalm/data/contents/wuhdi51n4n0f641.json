@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Der geschickte und rühmlich bekannte Büchsenmacher Görges, zu Frankfurt am Main, behauptet durch eigene Erfindung seinen Büchsen eine solche Einrichtung geben zu können, daß sie innerhalb schußmäßiger Weite, nah und fern, immer auf den Fleck treffen,",
+  "language": [],
+  "musenalm_id": 66708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. / Neue Entdeckung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Regierungsrath Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. / Neue Entdeckung",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.176Z",
+      "agent": "d1cx5vxdeeve5kc",
+      "source_id": "93nxqkh19woyfip"
+    }
+  ]
+}

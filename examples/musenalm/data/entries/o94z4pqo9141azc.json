@@ -1,0 +1,74 @@
+{
+  "annotation": "Kalender, od. Taschenbuch od. Taschenkalender (Offenbach: Brede; Buri; Doering) vermutlich Jgg 1783-1824; auf der Musenalm: Jgg 1803, 1813, 1815, 1817, 1823 aufrufbar unter: »Offenbach«  im Reihen-Titel. /) s. Goed VIII. 101, 223; Heidelb. Jahrb. 1821 S. 1233; 1822 Nr. 74 S. 1183",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Offenbach: Doering) 1822",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2008-04-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 365,
+  "parallel_title": "",
+  "place_statement": "Offenbach (Brede)",
+  "places": [
+    "d456jtegcum96ql"
+  ],
+  "preferred_title": "Taschenbuch (Offenbach: Döring) 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 107; K 158; nicht bei L/R; Goed. VIII. 42, 1; Goed VIII. 101, 223",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.440Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.570Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.570Z",
+      "agent": "7d3jxs1yyjk5gwl",
+      "source_id": "sjzjvqb0zjb23tj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.627Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.627Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "vfcrxf0jida38jg"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Gedichte INr 24048, 24049; Obj 31, 32 /) Der Verhängnißglaube (Sammlung INr 24038, Obj 21) Buntes aus Ost und West (Sammlung INr 24035, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beruf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beruf",
+  "updated": "2002-05-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.013Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "dnjlm8matvodul7"
+    }
+  ]
+}

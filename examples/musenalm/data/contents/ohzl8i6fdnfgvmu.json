@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Häusliche Oekonomie (Sammlung INr 76182, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Bey dem Einkauf des Tischzeugs ist jetzt die größte Vorsicht nöthig. Es ist so dünn, so steif appretirt und gemandelt, daß man durch die Lüstre und die schönen Dessins das Wichtigste, die Haltbarkeit desselben, gar leicht zu übersehehn verleitet wird.",
+  "language": [],
+  "musenalm_id": 76185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Tischzeug, feine Wäsche und Betten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Tischzeug, feine Wäsche und Betten",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.895Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "j4388ksq7ay2pn9"
+    }
+  ]
+}

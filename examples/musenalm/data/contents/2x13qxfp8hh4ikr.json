@@ -1,0 +1,45 @@
+{
+  "annotation": "Siebentes Jahr (Sammlung INr 52114, Obj 98)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Der Ostwind schneidet scharf, huhu! / Der hohe Himmelswagen flimmert;",
+  "language": [],
+  "musenalm_id": 52127,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dezemberabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dezemberabend",
+  "updated": "2007-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.713Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "m9f8czrkhjyg0yv"
+    }
+  ]
+}

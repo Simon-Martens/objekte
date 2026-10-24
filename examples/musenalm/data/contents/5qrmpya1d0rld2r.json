@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Als Gott die Menschen schuf nach seinem Bilde, / Sandt' er, der karg und unvollendend nie, / Zwei Engel in das werdende Gefilde,",
+  "language": [],
+  "musenalm_id": 95072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.428Z",
+      "agent": "jf5q6ykf9ux52yq",
+      "source_id": "wufe22q3bn9loq9"
+    }
+  ]
+}

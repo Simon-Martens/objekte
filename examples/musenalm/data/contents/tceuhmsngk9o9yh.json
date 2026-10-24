@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Shakespeare",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. Coupé sc.",
+  "scans": [
+    "alm_42_9265_ogwz8z3rfs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Shakespeare",
+  "updated": "2000-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.506Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "goevpnxwc07l6h2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.506Z",
+      "agent": "7iv6j55k1t2fudg",
+      "source_id": "vy9pi1wu8viz9vm"
+    }
+  ]
+}

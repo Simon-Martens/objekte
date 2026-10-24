@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Milord und Milady« von C. Spindler INr 103448, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:35.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (ALGAIER)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ALGAIER",
+  "scans": [
+    "alm_3417_103449_51blm4vtpv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.029Z",
+      "agent": "mx9jzlh4jlxt87l",
+      "source_id": "rk66870nfuvurhw"
+    }
+  ]
+}

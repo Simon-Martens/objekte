@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsgenossen (Sammlung INr 27131, Obj 161)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Die Lerche rief dem Veilchen zu / Die schmetternd aus hoher Bläue",
+  "language": [],
+  "musenalm_id": 27132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.340Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "dlb8kqzcdn7c67a"
+    }
+  ]
+}

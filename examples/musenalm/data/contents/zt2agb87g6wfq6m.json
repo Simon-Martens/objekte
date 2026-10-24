@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Du sprichst zu mir, o Göttin meiner Lieder! / Du fragst mich lächelnd: welches Element",
+  "language": [],
+  "musenalm_id": 14815,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vier Elemente. / Richard an Fanny",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Klotilde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die vier Elemente. / Richard an Fanny",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.615Z",
+      "agent": "j3qxc741zzed3s0",
+      "source_id": "bo9840hmmdk3vku"
+    }
+  ]
+}

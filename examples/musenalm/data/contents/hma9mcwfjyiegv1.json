@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Musikbeigaben INr 13564-13566, 37385; Obj 203-206",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13563,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 202,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer. Für drey Hände oder für Fortepiano und / Flöte oder Violine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Walzer. Für drey Hände oder für Fortepiano und / Flöte oder Violine",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.513Z",
+      "agent": "uoz96fdvbrhaw9f",
+      "source_id": "nkhplepra0rlzdf"
+    }
+  ]
+}

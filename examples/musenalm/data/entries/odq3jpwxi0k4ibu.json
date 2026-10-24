@@ -1,0 +1,118 @@
+{
+  "annotation": "§ S 82 beschädigt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, 16 BB Kal darin 6 GG, S 1 nT, SS 3-96",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Kinder 1800",
+    "norm": "~",
+    "biblio": 407360,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2012-06-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3834,
+  "parallel_title": "",
+  "place_statement": "Göttingen (Wiederhold)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Almanach für Kinder 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "NICHTS / OHNE MÜHE / ALMANACH / FÜR / KINDER. / Goettingen bei Wiederhold / 1800",
+  "updated": "2026-06-11 10:18:54.908Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "9aj9a6lturqt39o"
+  ],
+  "contents": [
+    "r8ecsypvp52808w",
+    "0phwflu9wqc5xwo",
+    "vpricn61bi1hyv0",
+    "wmnz3iha6iosts8",
+    "lxwuz564jicugz2",
+    "4vlxcn6wjii0j6p",
+    "3okckeflifqqt6h",
+    "0ga3p68wy44474r",
+    "zik8ktf7il2puzn",
+    "3wovjtuz7e5h5qb",
+    "18mohjlx1o2788t",
+    "ivlylzdv1wckz16",
+    "9e9javlh97bqgvz",
+    "dmjhashhao03fjv",
+    "yzikmagngka4gcs",
+    "pqq14l024p1dhxo",
+    "1ri5tyjwseouk6t",
+    "2c9fpa8ot1i08l9",
+    "auhzhgy2fi93o0i",
+    "v5on7bnhgx8x1d7",
+    "n23xpns0fvkkpn6",
+    "1s5nl2b4ali8jtd",
+    "ks94t2drsz36v7b",
+    "hg7ara5e1y70hs2",
+    "xkr9ydu0ncanppb",
+    "ijcr0kx1mqakcw0",
+    "proqoz9kphi337c",
+    "5r1v4fs5oel2lz1",
+    "wjpz00inf96y4fm",
+    "190m93ot7uy0p8d",
+    "jdvebebtm62kjwz",
+    "0s0p17fzpvo245y",
+    "9t1jml1m1ang1oo",
+    "jj8d43y4pue7xu7",
+    "4izvqe5vhod5ru5",
+    "oo9kqnibkvz719l",
+    "nwqmj179owsl09w",
+    "131pyk2cyw37duf",
+    "9rscdc8vvq9tj9q",
+    "xv0whbshoaezhoj",
+    "6gdkcszwrpmyl0r",
+    "cdpy9snrdlny49g",
+    "5l5scjap1dx77n6",
+    "9cx2vrx58paoqep",
+    "0sv8r6ui8n015bw",
+    "6f8ewqhqdfq80v3",
+    "barinay1ef5l96b",
+    "a06tkqodcu4kois",
+    "wss87y9puj5ptfp",
+    "zk0idqxplz9q0a0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.185Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.185Z",
+      "agent": "hzo8nzsc0h01w2x",
+      "source_id": "32iz0uoyx7bo0lf"
+    }
+  ]
+}

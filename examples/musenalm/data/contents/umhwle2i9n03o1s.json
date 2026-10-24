@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Am heilgen Osterabend, da die Hirten / Schon alle heimgetrieben, hütet' ich / Nur noch allein;",
+  "language": [],
+  "musenalm_id": 42695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 228,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jakob Böhme's Verklärung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jakob Böhme's Verklärung",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.100Z",
+      "agent": "rlu2d4ml9zlhov2",
+      "source_id": "1q9mthn233n7e86"
+    }
+  ]
+}

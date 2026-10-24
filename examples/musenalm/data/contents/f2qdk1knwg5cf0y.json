@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August; nummeriert V.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104719,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Böck und Herr Dauer / als / Clavigo und Carlos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. G. A. Liebe sc.",
+  "scans": [
+    "alm_3251_104719_83zz7l5nu0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herr Böck und Herr Dauer / als / Clavigo und Carlos",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.220Z",
+      "agent": "v0k80momy67j3zt",
+      "source_id": "0ozx6rx0zyk1yyt"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.220Z",
+      "agent": "vvn2bsy8p7l2qv3",
+      "source_id": "hlq6xrpm32f1sj2"
+    }
+  ]
+}

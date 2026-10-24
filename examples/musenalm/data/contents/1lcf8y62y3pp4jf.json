@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. Graphik im Kalendarium April /) Illustration zu »Undine« von Fouqué s. Textbezug INr 69000, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68982,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und alles kniete, und auch / die weisse Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. M. H.",
+  "scans": [
+    "alm_851_68982_fxuibymk3r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und alles kniete, und auch / die weisse Fremde",
+  "updated": "2008-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.964Z",
+      "agent": "o59s6jd1d24jajk",
+      "source_id": "87nswu7bekxgd5v"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.964Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "lfpnp88up5w1ytb"
+    }
+  ]
+}

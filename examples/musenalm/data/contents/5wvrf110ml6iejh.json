@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz. Graphik im Kalendarium paginiert 2. s. Textbezug INr 7607, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7585,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erfindung der Leier. / Invention de la Lyre",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv. et sc.",
+  "scans": [
+    "alm_163_7585_6n032656z5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erfindung der Leier. / Invention de la Lyre",
+  "updated": "2000-12-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.301Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "1et9k87vlkpbkbd"
+    }
+  ]
+}

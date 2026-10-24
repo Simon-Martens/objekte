@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historischer (Westenrieder) 1791",
+    "norm": "",
+    "biblio": 106634,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1986,
+  "parallel_title": "",
+  "place_statement": "München (Lindauer)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Kalender, Historischer (Westenrieder) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 174; L/R 20",
+  "responsibility_statement": "L. Westenrieder",
+  "subtitle_statement": "",
+  "title_statement": "Historischer / CALENDER / für / 1791. / von / L. Westenrieder / München bey J. Lindauer",
+  "updated": "2026-06-11 10:18:55.862Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "9vt8xjs2nnklvi5"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.993Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.993Z",
+      "agent": "nx4goeqb48r7zw8",
+      "source_id": "6m41adew8bs1mpp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.099Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.099Z",
+      "agent": "za3rrugqnv9cute",
+      "source_id": "qw9i2xnbwc8jhnd"
+    }
+  ]
+}

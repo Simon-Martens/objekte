@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober nummeriert 10; # Bez. am ersten Blatt der Suite /) s. Textbezug INr 135019, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:54.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135034,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn ich die Komödie spielen wollte, würdet / ihr wohl meine Helfer sein? / Si je voulois jouer la comédie voudries vous / m'aider?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodwiecki del. E. Henne sc.",
+  "scans": [
+    "alm_2047_135034_fhqsuvbfth.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wenn ich die Komödie spielen wollte, würdet / ihr wohl meine Helfer sein? / Si je voulois jouer la comédie voudries vous / m'aider?",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.133Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "h2ry6thx7ri50dg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.133Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "n1ackk5q9rha42g"
+    }
+  ]
+}

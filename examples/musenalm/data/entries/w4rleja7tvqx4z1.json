@@ -1,0 +1,85 @@
+{
+  "annotation": "$ vermutl. weiterer Jg",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, S I T, S III I-Verz, SS V- XXIV darin 4 GG, SS 1-316",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Louis Bourdin) 1847",
+    "norm": "~",
+    "biblio": 200162,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2488,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Berger)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Louis Bourdin) 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Louis Bourdin",
+  "subtitle_statement": "",
+  "title_statement": "Rosen / und Vergißmeinnicht. / Taschenbuch / für das Jahr 1847. / Herausgegeben / von / Louis Bourdin. / Mit Stahlstichen. / Leipzig, / C. Berger's Buchhandlung",
+  "updated": "2026-06-11 10:18:55.470Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "items": [
+    "o7i2jddeobzs2le"
+  ],
+  "contents": [
+    "f2ne0oogglcfat0",
+    "kawntt9g1vcst74",
+    "zj1wyl890wp85nj",
+    "m5suml4jeii23cb",
+    "vwp6ol5bylmqp07",
+    "q6t488hl52bvl85",
+    "7g7o24pzexjfg8v",
+    "ax90bt7tch11mfh",
+    "0n7m3s1p241tvl7",
+    "zbl8w9e1fdjnc1r",
+    "dhrv2ltr123wu44",
+    "4tnatda55i0wxpf",
+    "qznenxdotxpb7ol",
+    "akiiiyhmz1otdll",
+    "wmzetqx83gylkzj",
+    "fjsxs1092cmc1u7",
+    "7ovsyfhl6l164en"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.543Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.543Z",
+      "agent": "4v69h8pm7hybo3e",
+      "source_id": "5fpq5qvgs3jsaxg"
+    }
+  ]
+}

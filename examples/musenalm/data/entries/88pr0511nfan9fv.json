@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Militärisches (Leipzig) 1822",
+    "norm": "",
+    "biblio": 406416,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-11-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3626,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Baumgärtner)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Militärisches (Leipzig) 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Militärisches / Taschenbuch. / Vierter Jahrgang. / Mit einer Uebersichtscharte und einem Plane. / Leipzig, / in der Baumgärtnerschen Buchhandlung. / 1822",
+  "updated": "2026-06-11 10:18:55.390Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "items": [
+    "lq4qsvkvex20zw9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.512Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.512Z",
+      "agent": "0vy5nsjd2ks0u3f",
+      "source_id": "ciaxe4ejlpmivmc"
+    }
+  ]
+}

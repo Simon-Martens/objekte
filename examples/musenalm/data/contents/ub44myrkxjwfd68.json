@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81008, Obj 7 /) Illustration zu »Der Sieg der Seele« von  Martha von der Höhe d.i. Clara von Massow INr 81023, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81007,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Kraus del. C. Kotterba sc.",
+  "scans": [
+    "alm_1804_81007_mr9panbzub.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.898Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "miblleqiqxhxjwf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.898Z",
+      "agent": "fm74jw4j6yp7gfm",
+      "source_id": "qpgdzexyooj9e5y"
+    }
+  ]
+}

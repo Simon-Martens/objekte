@@ -1,0 +1,45 @@
+{
+  "annotation": "Jahres- und Tageszeiten (Sammlung INr 49008, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Des Sommers Blumen sah ich ach verwelken! / Von Blättern ist der stolze Baum verlassen;",
+  "language": [],
+  "musenalm_id": 49014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spätherbst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spätherbst",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.729Z",
+      "agent": "2nm1hcqes98n5i9",
+      "source_id": "ccknrow5i1mmb72"
+    }
+  ]
+}

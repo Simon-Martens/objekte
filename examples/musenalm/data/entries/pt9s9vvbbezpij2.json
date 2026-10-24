@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Novellen-Almanach, Illustrierter 1871",
+    "norm": "",
+    "biblio": 200367,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2358,
+  "parallel_title": "",
+  "place_statement": "Wien u. Leipzig (Druck der typografisch-literarisch-artistischen Anstalt von L. C. Zamarski)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Novellen-Almanach, Illustrierter 1871",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Illustrirter / Novellen-Almanach / für / 1871. / Mit Beiträgen von / K. Gutzkow, Horn und Menk-Dittmarsch. / Wien und Leipzig. / Druck der typografisch-literarisch-artistischen Anstalt / von / L. C. Zamarski",
+  "updated": "2026-06-11 10:18:55.345Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "items": [
+    "bu8nhopgwcomy1v"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.742Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.742Z",
+      "agent": "219wptr6dnjhytf",
+      "source_id": "q3nk5zreap6qj3t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.052Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.052Z",
+      "agent": "rgo231qcrzevoqg",
+      "source_id": "vg17i1y464d9fbl"
+    }
+  ]
+}

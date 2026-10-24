@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 63767, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63773,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Erwachen der Liebe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ed. Schuler sc.",
+  "scans": [
+    "alm_1047_63773_duy7xtt0gx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Erwachen der Liebe #",
+  "updated": "2009-04-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.054Z",
+      "agent": "hk6k9w6jym7fe8o",
+      "source_id": "iithppyvzsgm2us"
+    }
+  ]
+}

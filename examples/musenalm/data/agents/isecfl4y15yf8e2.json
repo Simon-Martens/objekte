@@ -1,0 +1,713 @@
+{
+  "annotation": "",
+  "biographical_data": "1770-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.253Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1381765483",
+          "label": "Peters, Josefine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1016626223",
+          "label": "Greth, Johanna von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130244309",
+          "label": "Esterházy, Almeria"
+        }
+      ],
+      "dateOfBirth": [
+        "1770-12-17"
+      ],
+      "dateOfDeath": [
+        "1827-03-26"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Joseph Karl Stieler"
+          ],
+          "creditText": [
+            "web.archive.org/web/20160623080009"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Beethoven.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Beethoven.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Beethoven.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160305748"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:51:55.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118508288/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/119096153",
+          "label": "Beethoven, Karl van"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118745980",
+          "label": "Hoven, Louis von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116108894",
+          "label": "Beethoven, Johann van"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13591647X",
+          "label": "Beethoven, Johann van"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135916488",
+          "label": "Beethoven, Ludwig van"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1028377924",
+          "label": "Beethoven, Maria Magdalena van"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118508288",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/1016626223",
+          "label": "Greth, Johanna von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130244309",
+          "label": "Esterházy, Almeria"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/135916488",
+          "label": "Beethoven, Ludwig van"
+        }
+      ],
+      "hasNieceNephew": [
+        {
+          "id": "https://d-nb.info/gnd/119096153",
+          "label": "Beethoven, Karl van"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1028377924",
+          "label": "Beethoven, Maria Magdalena van"
+        },
+        {
+          "id": "https://d-nb.info/gnd/13591647X",
+          "label": "Beethoven, Johann van"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116108894",
+          "label": "Beethoven, Johann van"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118508288",
+      "oldAuthorityNumber": [
+        "(DE-588a)134324862",
+        "(DE-588a)118508288",
+        "(DE-588a)131205293",
+        "(DE-588a)127409505",
+        "(DE-101c)310014867",
+        "(DE-588a)128146893",
+        "(DE-588c)4005212-6",
+        "(DE-588a)127037454",
+        "(DE-588a)160305756",
+        "(DE-588a)127162925",
+        "(DE-588a)160305748",
+        "(DE-588a)127295895",
+        "(DE-588)160305748"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4007666-0",
+          "label": "Bonn"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Beethoven, Ludwig van",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "prefix": [
+          "van"
+        ],
+        "surname": [
+          "Beethoven"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118083384",
+          "label": "Wawruch, Andreas Ignaz"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071634100",
+          "label": "Klumpar, Joseph"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79107741"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/32182557"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q255"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118508288"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118508288/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160305748"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118508288"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_van_Beethoven"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_van_Beethoven"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_van_Beethoven"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_van_Beethoven"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121268987"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118508288"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1792_beethoven"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118508288"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_B/Beethoven_Ludwig-Van_1770_1827.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118508288.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118508288.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118508288"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/B268457638CA4A63B7D83D26D8F0C169"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118508288"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118508288"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Betoven, Ludvig van",
+        "Beethoven, Ludwig von",
+        "Beethoven, L. v.",
+        "Beethoven, Lewis van",
+        "Bethoven, Ludwig van",
+        "Beethoven, Ludwik van",
+        "Beethoven, Ludovicus van",
+        "Van Beethoven, Ludwig",
+        "Beethoven, Lovis van",
+        "Bei duo fen",
+        "Beethoven",
+        "Beethoven, Ludvig van",
+        "Beethoven, Ludw. van",
+        "Betchoven, L. van",
+        "Beethoven, L. van",
+        "Bethoven",
+        "Beethoven, Louis van",
+        "Bethoven, Ludwig von",
+        "Beethoven, Luigi van",
+        "Beethofen",
+        "Beiduofen",
+        "Beethoven, L. de",
+        "Betchoven, Ljudvig van"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Betoven"
+          ]
+        },
+        {
+          "personalName": [
+            "Bethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ljudvig"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Betchoven"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ljudvig"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Betchoven"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludovicus"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "personalName": [
+            "Bei duo fen"
+          ]
+        },
+        {
+          "personalName": [
+            "Beethofen"
+          ]
+        },
+        {
+          "forename": [
+            "Luigi"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludw."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Bethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "personalName": [
+            "Beiduofen"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwig"
+          ],
+          "surname": [
+            "Van Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Lovis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Lewis"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "Ludwik"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Beethoven"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Betchoven"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_van_Beethoven",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_van_Beethoven"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:54:03Z",
+    "gnd_query_biographical_data": "1770-1827",
+    "gnd_query_name": "beethoven, ludwig van"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 148,
+  "name": "Beethoven, Ludwig van",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB II, 251",
+  "updated": "2026-06-11 13:29:21.516Z",
+  "uri": "https://d-nb.info/gnd/118508288",
+  "editor": ""
+}

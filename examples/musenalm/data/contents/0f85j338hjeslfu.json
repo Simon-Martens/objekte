@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Es war die ernste heil'ge Stunde, / Als brach des besten Königs Herz",
+  "language": [],
+  "musenalm_id": 59670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Königs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Königs",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.807Z",
+      "agent": "9kqncyvdpl96r3o",
+      "source_id": "x86d48vmvet3e0m"
+    }
+  ]
+}

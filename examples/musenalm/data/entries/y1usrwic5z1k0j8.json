@@ -1,0 +1,117 @@
+{
+  "annotation": "Beiträge identisch mit: Vergißmeinnicht (Wien) 1859",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, gT, T, 5 BB G-Verz darin 4 GG, SS 1-208, S I-Verz, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Iduna 1858",
+    "norm": "~",
+    "biblio": 405441,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1924,
+  "parallel_title": "",
+  "place_statement": "Wien (Lienhart) Leipzig (Liebeskind)",
+  "places": [
+    "d7kbujq7399g22j",
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Iduna 1858",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 66; L/R 95; Goed VIII. 102, 230",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "IDUNA. / Taschenbuch / für / das Jahr 1858. / Acht und dreißigster Jahrgang. / Wien, / Bei Ignaz Lienhart. / Leipzig, bei G. A. Liebeskind",
+  "updated": "2026-06-11 10:18:55.709Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "items": [
+    "innhncob56usm87"
+  ],
+  "contents": [
+    "12uu9d5xqifg51w",
+    "e52usuiul0j4sal",
+    "s37hghh9hwgnnq4",
+    "cs87m88qsnqpewj",
+    "hqfugqx5cqvtls0",
+    "5l3y5iw7ri31zfz",
+    "7n3m1silbfqfx9z",
+    "9r8fft9j5sj48ww",
+    "9m8kchhj3rboq56",
+    "f40reuekre13feb",
+    "rgufu8wxg2ea1eg",
+    "j8r1n67aja5wi48",
+    "gc21eb9qd9ck75e",
+    "i2jjba1xqf7mry0",
+    "dgqoec2ct6aabik",
+    "6stmsm3ga1a2y1k",
+    "qkf93lmoq9xlrav",
+    "dpk0dsk9kh7s1tf",
+    "ki6equqn2v70rvk",
+    "9dhgwnhsuwsny1i",
+    "gtc5xocd6p8rj60",
+    "uxflzbkbmajuqjj",
+    "84nmdr674g8bjor",
+    "q5sl5f4n59ms48y",
+    "h39qmasw8aaugyh",
+    "ovivo07cvx3jxtf",
+    "oz21tr4c73pn2z2",
+    "8u5njfgxkfzqewu",
+    "2f6re7gg94ulu51",
+    "cp28ue0atc17dkv",
+    "nybm7ehd547yteh",
+    "ykvwncwj8uy366q",
+    "sukub9ybl5wox4t",
+    "1mktjo152724guu",
+    "vvq24e6v3nq23t6",
+    "70ze65bxgm917x9",
+    "ne4q4ru22cpg63y"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.098Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.098Z",
+      "agent": "w2bayedwdqvhj9v",
+      "source_id": "w2sdy3o29vlc8i0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.097Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.097Z",
+      "agent": "2gh9s9bmjxl8x1h",
+      "source_id": "xswv3ni0li6p2ru"
+    }
+  ]
+}

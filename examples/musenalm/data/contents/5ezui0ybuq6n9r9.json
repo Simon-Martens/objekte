@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Meine Freundin, es ist der Tag der / Pfingsten erfüllet. / Ihn umarmt der Tag, welcher ins Le- / ben dich rief.",
+  "language": [],
+  "musenalm_id": 61808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Magdalena Schwarz. / Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Theob. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Magdalena Schwarz. / Elegie",
+  "updated": "2009-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.053Z",
+      "agent": "nz3ytz19v6fnz1k",
+      "source_id": "lxcrocdrlddi8f7"
+    }
+  ]
+}

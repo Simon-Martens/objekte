@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Sebalds Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Vischer. Gezeichnet von Albt. Reindel. Gestochen von Friedr. Geisler",
+  "scans": [
+    "alm_3069_82083_jup2wsjv14.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Sebalds Grab",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.073Z",
+      "agent": "2j4fmhpjuaqhaao",
+      "source_id": "2c157yzpi6q9jj2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.073Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "gmk3ivshizvtvvl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.073Z",
+      "agent": "suh3wpuo01wl4gq",
+      "source_id": "vlptdwn65w9xxv1"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "franz. unzensierte Ausgabe",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "UG, VB, T, 4 BB G-Verz, 4 GG, 47 SS Kal darin 8 GG, S Tab, B, Tab, ar: SS 1- 112 Tab, 12 BB Tab, ar1: SS 1-108, 3 SS I-Verz, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1808 (unzensiert) /) franz. Ausgabe: Almanac historique genealogique 1808",
+    "norm": "",
+    "biblio": 405068,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2060,
+  "parallel_title": "",
+  "place_statement": "Gotha (Ettinger)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1808 (unzensiert) [franz. Ausgabe: Almanac historique genealogique 1808]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANAC / historique genealogique / Pour / L'ANNÉE 1808. / Avec figures. / Leipsic",
+  "updated": "2026-06-11 10:18:55.790Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "fwh3c1k2fb91l1b"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.788Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.788Z",
+      "agent": "57058q4ca487ing",
+      "source_id": "c55kpcdlfxo7myd"
+    }
+  ]
+}

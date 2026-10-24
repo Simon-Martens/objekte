@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52344,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Casino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi",
+  "scans": [
+    "alm_714_52344_zjps11z4xt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Casino",
+  "updated": "2007-11-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.465Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "bctbeteg38fjtw9"
+    }
+  ]
+}

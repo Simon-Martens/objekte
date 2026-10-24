@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Aus altem edlen Ritterblut / Stammt Arnolf. Bieder war er deutsch und gut,",
+  "language": [],
+  "musenalm_id": 67670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Arnolf, / eine Erzählung aus dem jetzigen Jahrzehend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Arnolf, / eine Erzählung aus dem jetzigen Jahrzehend",
+  "updated": "2009-11-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.471Z",
+      "agent": "tiijnij1nbeebby",
+      "source_id": "3tlwjvp7k3bum7k"
+    }
+  ]
+}

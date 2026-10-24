@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 41399, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Aus finst'rem Schooß taucht manche Letzte auf, / Die nicht die beiden Ersten Dir bereitet,",
+  "language": [],
+  "musenalm_id": 41413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.973Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "3n3gdz6c5del64b"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Faust und Tasso und Meister sind silbergedie- / gene Stücke, / Sinnreich gebildet mit Fleiss,",
+  "language": [],
+  "musenalm_id": 123335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Werke des Dichters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Werke des Dichters",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.836Z",
+      "agent": "dz9l16q76ffup70",
+      "source_id": "n1xlzz5vjxabrtu"
+    }
+  ]
+}

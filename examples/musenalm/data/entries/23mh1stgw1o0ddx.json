@@ -1,0 +1,91 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 11 BB Kal darin 6 GG, ar: SS 1- 129, SS 129-130 Anm d Hrsg, 2 Krr, SS 159-428 darin Kr, B G-Verz, ar1: SS 1-98, ar2: SS 1-104",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1844",
+    "norm": "~",
+    "biblio": 404164,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 879,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / KALENDER / auf / das Schalt-Jahr / 1844 / herausgegeben / von der / Königl. Preuss. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.755Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "g1vf62br6s6c51h"
+  ],
+  "contents": [
+    "nyc76zpqk8ofzej",
+    "enzxua131wh1nco",
+    "tocifvtdf7itq09",
+    "obmalv6gjsc9vl6",
+    "us8mqu0dt0vxyjx",
+    "4xtz4vk3gpq0gum",
+    "pxaedzkldnmi45y",
+    "2vvj5npzjvnc6mj",
+    "hi4fbb2735a63kk",
+    "7yev41rr4swunjo",
+    "uvqpfvnpofd5d9t",
+    "eicuqh8dw4b9z28",
+    "f71o23dgzkacvbg",
+    "8cryly2k72dqdx0",
+    "ntrjdzuxefz92yn",
+    "xr99evhxdk234vt",
+    "mtz4d5jqtgibzlr",
+    "dmqzk3t07gu3jqx",
+    "aylto8isnenzj87",
+    "b73er3x8mxdwshj",
+    "oiisn59sf12nf60",
+    "7r6922oze5caj5a",
+    "flb5b3jyi57n8rr"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "ttgujqfad7dce88"
+    }
+  ]
+}

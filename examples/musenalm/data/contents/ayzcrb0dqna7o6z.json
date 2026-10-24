@@ -1,0 +1,56 @@
+{
+  "annotation": "Fabeln von Lafontaine. FABLES DE LAFONTAINE (Sammlung INr 131790, Obj 18) Übersetzung des nachstehenden Gedichts INr 131797, Obj 26 /) mit 2  Illustrationen s. Graphiken im Kalendarium INr 131784,131785; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Einst trug auf seinem schmalen / Rücken / Ein Esel eine schwere Last,",
+  "language": [],
+  "musenalm_id": 131796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Pferd und der Esel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. Gleim]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Pferd und der Esel",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.012Z",
+      "agent": "3i4im09snt5w2js",
+      "source_id": "agcqz7rcmavjikc"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.012Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "dvbays2gzra1udl"
+    }
+  ]
+}

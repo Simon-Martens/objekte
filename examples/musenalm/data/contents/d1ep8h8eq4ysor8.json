@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ist dieß meines Phönix Stätte? Ließ, auf pur- / purnem Gefieder, / Nicht in dieses Thales Schoose",
+  "language": [],
+  "musenalm_id": 10696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Phönix im Thale. / Aus dem Petrarca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Phönix im Thale. / Aus dem Petrarca",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.284Z",
+      "agent": "z30t9keae9ak7mu",
+      "source_id": "lmz1rajj5ycj51r"
+    }
+  ]
+}

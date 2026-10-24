@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde der Declamation (Hamburg) 1806",
+    "norm": "",
+    "biblio": 477,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2021-03-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4779,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Großmann und Horaczek)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch für Freunde der Declamation (Hamburg) 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 118; nicht bei L/R",
+  "responsibility_statement": "J. G. Eck",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde der Declamation / 1806 / Hamburg / bey Großmann und Horaczek",
+  "updated": "2026-06-11 10:18:54.710Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "70y6c3wztfyurf8"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.935Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.935Z",
+      "agent": "wofihau8k2qer82",
+      "source_id": "hggsxb29mf1h9mz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.422Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.422Z",
+      "agent": "t4962qj1xtqcfm9",
+      "source_id": "k5ri21fun5ihotc"
+    }
+  ]
+}

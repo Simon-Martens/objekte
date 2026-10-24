@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Der Unversöhnliche« von A. F. E. Langbein INr 13452, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13378,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unversöhnliche. v. Langbein. / S. 217",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Frosch sc.",
+  "scans": [
+    "alm_217_13378_2nyex0e05l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Unversöhnliche. v. Langbein. / S. 217",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.642Z",
+      "agent": "pvuse6e3t44mmjj",
+      "source_id": "e4m9a05tx52kt4y"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.641Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "ftmuq8tv5x7qeh8"
+    }
+  ]
+}

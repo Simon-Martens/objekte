@@ -1,0 +1,47 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 10810, Obj 165)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Mich hat die Klugheit einst geboren, / Und ich gebar die Sicherheit;",
+  "language": [],
+  "musenalm_id": 10834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [
+    "alm_2168_10834_fvku1kt5fs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "24. / Räthsel",
+  "updated": "2001-02-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.277Z",
+      "agent": "9ld8yawtzix8v24",
+      "source_id": "5konh863whq8bud"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Gemeinnütziges Schleswiger 1832",
+    "norm": "",
+    "biblio": 404536,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-24T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2932,
+  "parallel_title": "",
+  "place_statement": "Schleswig (Königl. Taubstummeninstitut)",
+  "places": [
+    "vvt7f1wlnaf9zdl"
+  ],
+  "preferred_title": "Taschenbuch, Gemeinnütziges Schleswiger 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "J. v. Schröder",
+  "subtitle_statement": "",
+  "title_statement": "Gemeinnütziges / Schleswiger Taschenbuch. / 1832. / Herausgegeben / von / J. v. Schröder, / Capitain im Schleswigschen Infanterie-Regiment. / Schleswig, / gedruckt im Königl. Taubstummen-Institut. / 1832",
+  "updated": "2026-06-11 10:18:54.549Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "l692qgrf887tp1t"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.079Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.079Z",
+      "agent": "5fu680f0ywk25vf",
+      "source_id": "7xn3fejh05u1wbj"
+    }
+  ]
+}

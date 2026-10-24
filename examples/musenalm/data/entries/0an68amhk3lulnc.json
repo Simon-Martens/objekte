@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Schlesisches 1826",
+    "norm": "",
+    "biblio": 106745,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3092,
+  "parallel_title": "",
+  "place_statement": "Hirschberg (Krahn)",
+  "places": [
+    "7e9t6imwsruyjsi"
+  ],
+  "preferred_title": "Taschenbuch, Schlesisches 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 147; L/R 97; Goed VIII. 115, 268",
+  "responsibility_statement": "W. L. Schmidt",
+  "subtitle_statement": "",
+  "title_statement": "Schlesisches / TASCHENBUCH / 1826. / Herausgegeben / von / Dr. W. L. SCHMIDT. / Hirschberg bei C. W. J. Krahn",
+  "updated": "2026-06-11 10:18:55.285Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "items": [
+    "3dgtquithcpmtuc"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.080Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.080Z",
+      "agent": "vqnaizzipesdgiq",
+      "source_id": "0jgrfljxvg6m5ge"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.453Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.453Z",
+      "agent": "1w2p9r7qdx18tgn",
+      "source_id": "xdd7a0xfojm3bwq"
+    }
+  ]
+}

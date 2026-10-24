@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "447",
+  "incipit_statement": "Die Mädchen und die Frauen / Die lob' ich für und für; / Die Blumen auf den Auen / Sind nicht von solcher Zier.",
+  "language": [],
+  "musenalm_id": 131282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 201,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ein kleines Mädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Opitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ein kleines Mädchen",
+  "updated": "2016-09-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.011Z",
+      "agent": "tbjfsz6p9q8bcrh",
+      "source_id": "q4i0zckwk69fgmu"
+    }
+  ]
+}

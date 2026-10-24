@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Es schwebet auf Rosengefieder / Mit bräutlicher lockender Pracht / Der Frühling vom Himmel, und Lieder / Erschallen und Liebe erwacht.",
+  "language": [],
+  "musenalm_id": 46535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. v. Ulmenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied",
+  "updated": "2006-10-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.399Z",
+      "agent": "cwttmuw4wau2fpy",
+      "source_id": "s5dg7b72v7skl2b"
+    }
+  ]
+}

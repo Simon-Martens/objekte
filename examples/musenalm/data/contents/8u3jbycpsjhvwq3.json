@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 28824, Obj 122",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Nachdem einst Deutschland viele Jahre hindurch Krieg geführt, und zuletzt in Verbindung mit Frankreich seine Krieger",
+  "language": [],
+  "musenalm_id": 28823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Die Rückkehr aus dem Kriege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Die Rückkehr aus dem Kriege",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.442Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "mnizm5z5phbzvac"
+    }
+  ]
+}

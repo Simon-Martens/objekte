@@ -1,0 +1,194 @@
+{
+  "annotation": "",
+  "biographical_data": "1797-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.408Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1797"
+      ],
+      "dateOfDeath": [
+        "1876"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/189484497"
+      ],
+      "describedBy": {
+        "dateModified": "2022-07-27T00:30:27.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/143643754/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-1",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-1"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "143643754",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#3.6p",
+          "label": "Personen zu Kirchengeschichte, Systematischer und Praktischer Theologie, Kirche und Konfession"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/143643754",
+      "oldAuthorityNumber": [
+        "(DE-588)189484497",
+        "(DE-588a)143643754",
+        "(DE-588c)7805636-6",
+        "(DE-588a)189484497"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4000003-5",
+          "label": "Aachen"
+        }
+      ],
+      "preferredName": "Lauffs, Leonhard Joseph",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Leonhard Joseph"
+        ],
+        "surname": [
+          "Lauffs"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4132592-8",
+          "label": "Pfarrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4030020-1",
+          "label": "Katholischer Theologe"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Leofalus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Leonhard Joseph Lauffs",
+        "Ärgernisse im Alltag des Pfarrers Leonhard Lauffs"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/169576332"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55881925"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143643754/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/189484497"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Lauffs, Leonhard J.",
+        "Lauffs, Leonhard",
+        "Leofalus"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Leonhard"
+          ],
+          "surname": [
+            "Lauffs"
+          ]
+        },
+        {
+          "personalName": [
+            "Leofalus"
+          ]
+        },
+        {
+          "forename": [
+            "Leonhard J."
+          ],
+          "surname": [
+            "Lauffs"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:04:36Z",
+    "gnd_query_biographical_data": "1797-1876",
+    "gnd_query_name": "lauffs, leonhard"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1572,
+  "name": "Lauffs, Leonhard",
+  "profession": "Text",
+  "pseudonyms": "Leofalus",
+  "refs": "E 201; DBI 1221",
+  "updated": "2026-06-11 13:29:23.507Z",
+  "uri": "https://d-nb.info/gnd/143643754",
+  "editor": ""
+}

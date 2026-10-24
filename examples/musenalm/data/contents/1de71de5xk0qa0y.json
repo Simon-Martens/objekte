@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Nicht nur in allen Stücken genau, / Frau Abel war eine geizige Frau,",
+  "language": [],
+  "musenalm_id": 46402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Frau Abel sich ein Ei holte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie Frau Abel sich ein Ei holte",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.398Z",
+      "agent": "aq3u8k3couckqq1",
+      "source_id": "qadctz9jwsbjc00"
+    }
+  ]
+}

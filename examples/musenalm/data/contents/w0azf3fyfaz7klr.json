@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 78217, Obj 9 /) unter der Graphik: gedr. v. Altmayer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BABELSBERG BEI POTSDAM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Graeb Gest. v. Sagert",
+  "scans": [
+    "alm_882_78218_rnswbdnf43.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BABELSBERG BEI POTSDAM",
+  "updated": "2008-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.784Z",
+      "agent": "kvb3cdehg6i8s0c",
+      "source_id": "c4q5751yd0ybim6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.784Z",
+      "agent": "7m6015m4p6c81a1",
+      "source_id": "ycte9kxdu7s771p"
+    }
+  ]
+}

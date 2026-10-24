@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Herbstwanderung von Basel nach Biel. Bruchstücke von Briefen an einen Freund« INr 53340, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Sanct Germanus, dort im Münsterthale, / War der Seelenhirt viel frommer Brüder,",
+  "language": [],
+  "musenalm_id": 53342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Germanus, dort im Münsterthale, / War der Seelenhirt viel frommer Brüder,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.685Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "415oa3v2ksinill"
+    }
+  ]
+}

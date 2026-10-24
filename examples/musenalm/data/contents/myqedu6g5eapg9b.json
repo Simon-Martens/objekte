@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Wer des Lebens Kelch geleeret, / Sucht ein Herz, das ihn versteht,",
+  "language": [],
+  "musenalm_id": 18251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tröstung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ungern Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tröstung",
+  "updated": "2001-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.732Z",
+      "agent": "323k0krc681l77m",
+      "source_id": "ahijfkptw9d3gib"
+    }
+  ]
+}

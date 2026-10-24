@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu folgendem Gedicht INr 86352, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Die schöne Gegend von Damaskus mit seinen Zauberhainen wird selbst von den Morgenländern unter die vier Paradiese Asiens gezählt",
+  "language": [],
+  "musenalm_id": 86351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Lob von Damaskus / und seinem paradiesischen Thale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Lob von Damaskus / und seinem paradiesischen Thale",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.408Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "f6ydj4qip6r8886"
+    }
+  ]
+}

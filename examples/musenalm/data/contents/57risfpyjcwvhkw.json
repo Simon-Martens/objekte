@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. # Titel aus dem G-Verz INr 15495 Obj 85",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15418,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnins Denkmaal oder die Ehre der Baukunst #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. Rolffsen sc.",
+  "scans": [
+    "alm_245_15418_mfvmuo5xwr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sonnins Denkmaal oder die Ehre der Baukunst #",
+  "updated": "2001-05-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.485Z",
+      "agent": "s0wdvbdvcujl5vs",
+      "source_id": "o0gfzf62n27id51"
+    }
+  ]
+}

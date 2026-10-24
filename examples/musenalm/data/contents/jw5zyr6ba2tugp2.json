@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Die Todtenmahnung« von O. H. Loeben INr 19839, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19826,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todtenmahnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm",
+  "scans": [
+    "alm_267_19826_3q5f39nhsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Todtenmahnung",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.750Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "1y59wkh9tty9ck6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.750Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "5muij5smtfytzen"
+    }
+  ]
+}

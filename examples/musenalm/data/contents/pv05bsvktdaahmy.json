@@ -1,0 +1,45 @@
+{
+  "annotation": "Französische Nüsse (Sammlung INr 65028, Obj 88) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Kein Mitleid kann man ob dem alten Narren / fühlen: / Wer hieß so schlecht ihn mit der guten Karte / spielen!",
+  "language": [],
+  "musenalm_id": 65032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kein Mitleid kann man ob dem alten Narren / fühlen: / Wer hieß so schlecht ihn mit der guten Karte / spielen!…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.192Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "etx42p7ptiyrq6i"
+    }
+  ]
+}

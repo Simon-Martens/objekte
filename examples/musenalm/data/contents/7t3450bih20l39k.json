@@ -1,0 +1,46 @@
+{
+  "annotation": "Gallerie aus Byron's Werken (Sammlung INr 43859, Obj 5) s. Graphik INr 43868, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Don Juan war durch einen Sturm verschlagen und an die Küste einer der kleineren Cycladen geworfen worden.",
+  "language": [],
+  "musenalm_id": 43867,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Juan und Haidee. / (Don Juan.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Don Juan und Haidee. / (Don Juan.)",
+  "updated": "2006-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.200Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "m06qgasn1yfqe8c"
+    }
+  ]
+}

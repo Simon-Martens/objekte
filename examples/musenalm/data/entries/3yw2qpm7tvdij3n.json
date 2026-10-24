@@ -1,0 +1,104 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, gT, 2 BB W, 3 GG, 8 BB Kal darin 11 GG, SS 22-50 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach (Küffner) 1788",
+    "norm": "~",
+    "biblio": 407657,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2013-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3916,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Küffner)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Almanach (Küffner) 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "A. W. Küffner",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / auf / das Jahr / 1788. / Nürnberg / bei / A. W. KÜFFNER",
+  "updated": "2026-06-11 10:18:55.507Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "items": [
+    "bxdzlx1pay4zycd"
+  ],
+  "contents": [
+    "bicwkja5cku1pak",
+    "nw4csjhlwk6rml8",
+    "wjkc53a0p078qrh",
+    "14aj508ewavjba5",
+    "4ab6zevyj2uiz42",
+    "24v1amxxsvt38f5",
+    "m8kblhiv05czl6x",
+    "4agvcdoh47kdjiv",
+    "27q5t3x5nuc1f36",
+    "v1fn7bgkfd7d7cn",
+    "w9zl2v7808ofwya",
+    "g2mg7w66flhqotb",
+    "zi9mjawci53q0lm",
+    "1jrfz5ktu8mpzco",
+    "01ntcj7ftzb8064",
+    "gi66c6uvfsks97n",
+    "vqcnlty2uxv65dr",
+    "4mqkeuzhs0b21eb",
+    "s7bhevw7peqjy50",
+    "5crkqtuk6yc58qf",
+    "8fayb4uxwwvqaac",
+    "f4y2eljmjfr9mbw",
+    "tpsxkvsfiwq3dyz",
+    "riq0dy0cxry91c2",
+    "tild438y59tslzw"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.310Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.310Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "04sxboi95sltefw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.083Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.083Z",
+      "agent": "62gu8wvumbpo1qi",
+      "source_id": "oysao1lx9sxmzes"
+    }
+  ]
+}

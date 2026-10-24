@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Maikäfer fliege! / Die Hecken sind alle grün,",
+  "language": [],
+  "musenalm_id": 127735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maikäfer fliege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Brunold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maikäfer fliege",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.953Z",
+      "agent": "5m7tegabhm1qw46",
+      "source_id": "w0sukekv6bwg2tb"
+    }
+  ]
+}

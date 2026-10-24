@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 11. /) s. Textbezug INr 79266, Obj 48 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwedens König fällt durch / Meuchelmord",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Gerstner sc.",
+  "scans": [
+    "alm_2490_79269_yhezkyrnmr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schwedens König fällt durch / Meuchelmord",
+  "updated": "2012-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.916Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "x734ynbrwxqt1s3"
+    }
+  ]
+}

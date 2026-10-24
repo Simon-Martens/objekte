@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Sonst! Drei Reliquien aus besserer Zeit (Sammlung INr 30611, Obj 11) Gedichte (Sammlung INr 30610, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "In meiner Nächte Einsamkeit beschlich / Mich ein Gesicht voll schmerzlich-süßer Lüge.",
+  "language": [],
+  "musenalm_id": 30614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2002-11-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.426Z",
+      "agent": "8xc9vhdufjuetwe",
+      "source_id": "n3yvt4x7yz5msey"
+    }
+  ]
+}

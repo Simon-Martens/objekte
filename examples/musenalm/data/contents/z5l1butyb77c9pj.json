@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 59166, Obj 6 /) unter der Graphik: Gedruckt von Altmayer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH / Prinz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Krüger Gest. v. Teichel",
+  "scans": [
+    "alm_883_59164_06pq2r86vz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH / Prinz von Preussen",
+  "updated": "2008-08-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.939Z",
+      "agent": "filrbdi16sdmhwd",
+      "source_id": "8q1qvvyhentc3v8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.939Z",
+      "agent": "dp1i9gllz2qxsbz",
+      "source_id": "upe6kl25cqphmi5"
+    }
+  ]
+}

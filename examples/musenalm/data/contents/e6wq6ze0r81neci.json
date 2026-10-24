@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an den übrigen Blättern der Suite. s. Textbezug INr 32796, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32793,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (d'Argent sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_455_32793_pxmfcpebqv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.763Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "gvt9k15opmgfl90"
+    }
+  ]
+}

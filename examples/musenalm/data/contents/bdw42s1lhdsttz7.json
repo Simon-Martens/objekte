@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. lt. G-Verz: Illustration zu »Die Wirkungen selbstsüchtiger Grundsätze« von A. Lafontaine INr 28284, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28277,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unglücklicher, er ist dein Vater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thursten del. Ridley sculp.",
+  "scans": [
+    "alm_362_28277_dcux4ushtw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unglücklicher, er ist dein Vater",
+  "updated": "2002-10-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.546Z",
+      "agent": "01vck2fus4d9d65",
+      "source_id": "93aznxf8f2dk28z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.545Z",
+      "agent": "ugmifjvouem3pfh",
+      "source_id": "eapgspieoims1ti"
+    }
+  ]
+}

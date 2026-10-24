@@ -1,0 +1,86 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, B W, 6 GG, S I-Verz, ar: SS 1-128, ar1: SS 1-64, ar2: SS 1-80, ar3: SS1-56, ar4: SS 1-85, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen und Vergißmeinnicht (Leipzig) 1842",
+    "norm": "~",
+    "biblio": 106737,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2484,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen und Vergißmeinnicht (Leipzig) 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; L/R 94; Goed VIII. 120, 301 b.; Goed VIII. 98, 202 b",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN / UND / VERGISSMEINNICHT / DARGEBRACHT / DEM JAHRE 1842. / Leipzig bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.470Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "fvwp6ijkpzkybkw"
+  ],
+  "contents": [
+    "wt809hi1qntf78k",
+    "otybwpm0q93sj7y",
+    "7gspyw63y9oabu9",
+    "phad63mwvb1ng7p",
+    "sdotozxwwogrf65",
+    "7uo9sn2ohgq5j8c",
+    "q59cmq1f3aj6t14",
+    "404snf2vxkmiahc",
+    "a5zjuh9t5vbryc3",
+    "9tnfw1wqu8famlc",
+    "symzrtky5tlcvi8",
+    "cq97sohh16z1pwa",
+    "rg70rjlgf784o6m",
+    "3vhkre64nexo8hx",
+    "b3wkbhh3mj71hhz",
+    "hqvmwibrg8z4udn",
+    "kk7ntypvifcf3yh",
+    "l4h4auvifsij7ld"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.092Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.092Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "8cfozhri1qssl9a"
+    }
+  ]
+}

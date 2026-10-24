@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 62895, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Geschlagen war die blut'ge Schlacht, / Ihr Sturm verhallt' in Mühlbergs Auen;",
+  "language": [],
+  "musenalm_id": 62910,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräfin von Rudolstadt. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräfin von Rudolstadt. / Romanze",
+  "updated": "2009-03-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.051Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "sv4uhgpx4g6cskj"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ich denke dein - und will entsagen / Dem Recht der Klage, leidensstill,",
+  "language": [],
+  "musenalm_id": 80911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Himmel giebt sie uns zurück. / Glosse. / Ich will nicht trauern, will nicht fragen, / Will träumen süß von Heimathsglück; / Die Liebe ließ den Himmel tagen, / Der Himmel giebt sie uns zurück. / Agens Franz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Himmel giebt sie uns zurück. / Glosse. / Ich will nicht trauern, will nicht fragen, / Will träumen süß von Heimathsglück; / Die Liebe ließ den Himmel tagen, / Der Himmel giebt sie uns zurück. / Agens Franz",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.995Z",
+      "agent": "pg4xeyhd29oq3nl",
+      "source_id": "6cekq118ajphl3h"
+    }
+  ]
+}

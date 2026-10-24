@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Plutarch auf der Wachstube am Pulverthurm« von Fr. X. Told INr 90847, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung: Plutarch auf der Wachstube / am Pulverthurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Webster del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1775_90848_l6vpuvm5zi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung: Plutarch auf der Wachstube / am Pulverthurm",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.367Z",
+      "agent": "or1fz8l642chtnf",
+      "source_id": "r3q1igg1sbi00v0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.367Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "up7jj67eyxr9arm"
+    }
+  ]
+}

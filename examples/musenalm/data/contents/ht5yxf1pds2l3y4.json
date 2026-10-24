@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Rätseln INr 85664-85673, Obj 30-39 /) Der Sammlung vorangestellt: Oft habt mit solchen Spielen / Ihr nicht ungern Euch befaßt: [...]",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthselkranz. / Gewunden / vom Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthselkranz. / Gewunden / vom Herausgeber",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.237Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "gnrftm5j0v0ytvk"
+    }
+  ]
+}

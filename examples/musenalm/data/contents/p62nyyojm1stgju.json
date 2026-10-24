@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Gedichte INr 28821, 28822; Obj 119,120",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Thiersch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Gedichte",
+  "updated": "2002-10-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.441Z",
+      "agent": "00fumpslx0ratzd",
+      "source_id": "kgjr7o67p24t13p"
+    }
+  ]
+}

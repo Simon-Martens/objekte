@@ -1,0 +1,67 @@
+{
+  "annotation": "vermutl. Jgg 1825-1828, 1832",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Allgemeines für Mädchen 1825",
+    "norm": "",
+    "biblio": 409513,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4501,
+  "parallel_title": "",
+  "place_statement": "Neustadt an der Orla (Wagner)",
+  "places": [
+    "ncpwu6c8jxvf06a"
+  ],
+  "preferred_title": "Taschenbuch, Allgemeines für Mädchen 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 108; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Allgemeines / Taschenbuch / für / Mädchen / die / den häuslichen Geschäften / sich widmen wollen. / Neustadt a. d. Orla, / bei Johann Karl Gottfried Wagner, / 1825",
+  "updated": "2026-06-11 10:18:55.673Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "lpkul6ot8z75hxt"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.180Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.180Z",
+      "agent": "7jsfpvc4q2nstil",
+      "source_id": "5dmxh87x44j49ry"
+    }
+  ]
+}

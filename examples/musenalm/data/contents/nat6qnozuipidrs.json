@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Edw. Jone's relics of the Wesh Bards, Lond, 1786. fol.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Hervor ging die Sonne nach Stürmen der / Nacht, / Und brachte den Morgen, und brachte die Schlacht.",
+  "language": [],
+  "musenalm_id": 6058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Urrins Preis. / Nach dem Wallischen des Barden / Taliesin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Urrins Preis. / Nach dem Wallischen des Barden / Taliesin #",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.228Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "yrdmqaw8day2pyk"
+    }
+  ]
+}

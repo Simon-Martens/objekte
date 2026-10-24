@@ -1,0 +1,45 @@
+{
+  "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die großen Fischereien der arctischen Erde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die großen Fischereien der arctischen Erde",
+  "updated": "2005-11-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.131Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "pnavqblaprstnee"
+    }
+  ]
+}

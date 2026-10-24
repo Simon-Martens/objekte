@@ -1,0 +1,56 @@
+{
+  "annotation": "UG recto; # Bezeichnung aus UG verso",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131686,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (mit dem Grabstich vollend. v. Meyer; F. Catel)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "mit dem Grabstich vollend. v. Meyer; F. Catel",
+  "scans": [
+    "alm_4831_131686_gebfwxkz82.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2022-12-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.037Z",
+      "agent": "u1e1ebqdfclrxya",
+      "source_id": "gz77ubjzz7fcb6n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.037Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "jjk9fn7bcd50wsa"
+    }
+  ]
+}

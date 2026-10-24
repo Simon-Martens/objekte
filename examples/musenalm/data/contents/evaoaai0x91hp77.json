@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Wann die Blumen erstehen, / Werden wir wieder an der Quelle lauschen?",
+  "language": [],
+  "musenalm_id": 42666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verlangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verlangen",
+  "updated": "2006-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.217Z",
+      "agent": "7ioe1hp46372lt8",
+      "source_id": "2mx2xxf6tji419h"
+    }
+  ]
+}

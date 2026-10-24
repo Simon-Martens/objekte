@@ -1,0 +1,61 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Unknown",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Erholungen (W. G. Becker) 1801",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1742,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Erholungen (W. G. Becker) 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 44; nicht bei L/R; Goed VIII. 485",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-06-11 10:18:55.618Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.959Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.959Z",
+      "agent": "n7zgo9f1gh6x37x",
+      "source_id": "ftawxd1xx6ptr92"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Hoch im Norden, an dem südlichen Theile der norwegischen Seeküste, liegt, unter mehreren, eine kleine unansehnliche hölzerne Stadt,",
+  "language": [],
+  "musenalm_id": 75336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Zwiefache Treue. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Zwiefache Treue. / Erzählung",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.663Z",
+      "agent": "jfhywk4cbxcodws",
+      "source_id": "okhirvlyc201exs"
+    }
+  ]
+}

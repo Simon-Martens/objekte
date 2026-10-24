@@ -1,0 +1,45 @@
+{
+  "annotation": "140q /) Scenen aus dem Landleben (Sammlung INr 48752, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Mögt so gern den Bauersmann bespötteln / Ha! und furcht die Stirn bei allem Gold!",
+  "language": [],
+  "musenalm_id": 48767,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Städter, / im Namen eines Dorfbewohners",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Städter, / im Namen eines Dorfbewohners",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.293Z",
+      "agent": "crhcmocsovty64w",
+      "source_id": "yu38lidfncg28lg"
+    }
+  ]
+}

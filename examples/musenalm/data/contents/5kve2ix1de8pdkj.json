@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Vergabung des Landes Clarus an das Stift Säckingen. Episode aus der Legende des h. Fridolin (Sammlung INr 99671, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Auf der Malstatt zu Ranggwyl / Saß des Kaisers Vogt im Freien;",
+  "language": [],
+  "musenalm_id": 99673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Wie der Todte zeugte und der Lebende / sich beugte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Wie der Todte zeugte und der Lebende / sich beugte",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.457Z",
+      "agent": "biljcxuc46g2kmt",
+      "source_id": "wkw35yqwqmehvdn"
+    }
+  ]
+}

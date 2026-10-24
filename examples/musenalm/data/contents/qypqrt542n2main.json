@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Eremit« von Berengarius Ivo d.i. Jos. Streiter INr 89495, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Eremit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_3352_89496_w2grdqbq1x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Eremit",
+  "updated": "2010-03-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.262Z",
+      "agent": "0ygqbogww13lys8",
+      "source_id": "dw8izzitcxsky00"
+    }
+  ]
+}

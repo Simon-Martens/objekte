@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Nach dem fernen Morgenlande / Zieht der Schiffer durch die Fluten,",
+  "language": [],
+  "musenalm_id": 59693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aengsten und Hoffen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Zeune",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aengsten und Hoffen",
+  "updated": "2008-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.910Z",
+      "agent": "mry8qg50xy1v36k",
+      "source_id": "dxyc9cqltrewkbn"
+    }
+  ]
+}

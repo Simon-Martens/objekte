@@ -1,0 +1,45 @@
+{
+  "annotation": "Jahres- und Tageszeiten (Sammlung INr 49008, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Leise woget auf und nieder / In dem heitern Himmelsblau, / Spielend mit dem Abenthau / Süßer Engel zart Gefieder.",
+  "language": [],
+  "musenalm_id": 49024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine schöne Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Varnhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine schöne Frau",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.657Z",
+      "agent": "ep8tm0egvn3ld0y",
+      "source_id": "hz28g4kvdw04zh9"
+    }
+  ]
+}

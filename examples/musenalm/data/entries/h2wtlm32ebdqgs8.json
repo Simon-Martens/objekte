@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, G, 7 BB Tab darin 7 GG, 2 BB G-Verz darin G, S G-Verz I-Verz, 3 SS darin 4 gAA, SS 1-283",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Freunde und Freundinnen des Schönen und Nützlichen (Leipzig) 1806",
+    "norm": "~",
+    "biblio": 200116,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-07-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3704,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Hinrichs)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für Freunde und Freundinnen des Schönen und Nützlichen (Leipzig) 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 130; nicht bei L/R",
+  "responsibility_statement": "M. Friedrich Hermann",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Freunde und Freundinnen / des Schönen und Nützlichen, / besonders / für edle Gattinnen und Mütter / und solche / die es werden wollen. / Auf / das Jahr 1806. / herausgegeben / von / M. Friedrich Herrmann. / Mit Kupfern. / Leipzig, / bei J. C. Hinrichs, 1806",
+  "updated": "2026-06-11 10:18:54.726Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "qh9oh7bmmih3kvb"
+  ],
+  "contents": [
+    "orssymx4jc4dcz2",
+    "m4nkn763vx7aunv",
+    "5l30t3y36ml03xf",
+    "bgrxpvuts71vczd",
+    "ybh6sb4s5d9l8b8",
+    "pt0ohlicm31z9o9",
+    "gh4xnkpm59qk7j4",
+    "838naip2taxc1ro",
+    "obde9ahac8oecgh",
+    "ovgel9nbvjeafhj",
+    "c75sy4lm5zup5cw",
+    "ap7vf3gstjxxaki",
+    "nk6yq9zy3uoiaip",
+    "h7ljebygujfxys1",
+    "nhvdzjkqro16r1m",
+    "p2u2rvvbqgjgi0m",
+    "fjd3yuko35el7o9",
+    "xknemdi780c1qet",
+    "ipfjcknoygepiv7",
+    "awiatizbul1i8ti",
+    "5sx146ey1abrgul",
+    "nyxzob1y5wu1ou6",
+    "df2onjh26dk7xfq",
+    "6eew3auva39w8jx",
+    "bare4stqk036z88",
+    "eox8ju96zawuhhy",
+    "4esdungu5q26hyd",
+    "qpao0l8fb1s3367",
+    "v202a8zqtl9ixfj",
+    "3yr6cmhud1ow0dx",
+    "5s1ase0m9t31f23",
+    "e76t53vb21w61a1",
+    "mo4yncm5k9dlwei",
+    "gq29cpcup13z48c",
+    "k1qt3f52cu9bey0",
+    "smw1hl5qp5ex0p0",
+    "jp1bilht25kkx4p"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.026Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.026Z",
+      "agent": "qzgmcc7lsiw9r6w",
+      "source_id": "nd19758x16pr45n"
+    }
+  ]
+}

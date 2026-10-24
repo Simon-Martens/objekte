@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, G, T, I-Verz, SS1–426",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vor und hinter den Coulissen. Almanach erprobter Bühnenspiele 1844",
+    "norm": "~",
+    "biblio": 409592,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2018-06-20T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 4538,
+  "parallel_title": "",
+  "place_statement": "Berlin (Förstner)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Vor und hinter den Coulissen. Almanach erprobter Bühnenspiele 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 173; nicht bei L/R",
+  "responsibility_statement": "Adami",
+  "subtitle_statement": "",
+  "title_statement": "Vor und hinter den Coulissen. / ALMANACH / erprobter Bühnenspiele, humoristischer Polterabend- / Masken, Theater-Mysterien, Schauspieler-Novellen / und Anekdoten. / Für / 1844. / herausgegeben / von / Friedrich Adami. / Erster Jahrgang. / Mit einem Costumbilde. / Berlin. / Verlag von Albert Förstner",
+  "updated": "2026-06-11 10:18:54.514Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "xsmvn02tern9ct7"
+  ],
+  "contents": [
+    "cnszbpds8vjxdko",
+    "kn0ao74wuhbkgx3",
+    "sy8y3vkpoos928a",
+    "o0fmfhpbvigqq95",
+    "x6yo28615lq3buv",
+    "rildtywkcmfuq9b",
+    "diehem4dlbaw5e1",
+    "poak8wotusmpien",
+    "ymossm8qx1j3ngo",
+    "xeiurpb91zfklju",
+    "av8pm1a0l4h7vk8",
+    "y3nm0yqfqnddgp6",
+    "p70wm18kg91ku5w",
+    "ckj29u1y5wacgq1",
+    "aec1j0maqyo8cg0",
+    "muk5fkogk6138m7",
+    "5uhfvzvwae7g49d",
+    "x0pyok8e3bfuo8m",
+    "z5sno6chrw33ku8",
+    "nodrhj0ti031rac",
+    "bkbnaicamcwarwu",
+    "xrmunvd1sgv0fot",
+    "xxtg07wmiq5nhs7",
+    "as9gjv4qa85nx02",
+    "fqvcei3php1v4ds",
+    "hw9487pjoe6su1q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.447Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.447Z",
+      "agent": "h1jhs52naysyy4l",
+      "source_id": "6l36z4yn00v61xq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.865Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.865Z",
+      "agent": "ksd5e4di6wauewe",
+      "source_id": "pne2kwpmt4xbe3c"
+    }
+  ]
+}

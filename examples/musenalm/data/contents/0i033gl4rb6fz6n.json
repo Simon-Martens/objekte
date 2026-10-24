@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Nein! du täuschest mich zu oft! / Aber, Hoffnung, nun nicht wieder.",
+  "language": [],
+  "musenalm_id": 5877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Hoffnung / (Ich kann, ich werde--dich nie sehen.) / Nante",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amarant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Hoffnung / (Ich kann, ich werde--dich nie sehen.) / Nante",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.145Z",
+      "agent": "1miqgfh3e5edmw6",
+      "source_id": "8l5gfqfm2semuyr"
+    }
+  ]
+}

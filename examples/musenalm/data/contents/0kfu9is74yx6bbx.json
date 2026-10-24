@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert V. /) lt. G-Verz Illustration zum Gedicht »September. An ...« von J. G. Jacobi INr 23232, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Chodowiecki del. Geyser s.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Geyser s.",
+  "scans": [
+    "alm_305_23230_5itpe0qlq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.957Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "gxcazo593ge5y4w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.957Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "vze2jx95kzf3z8u"
+    }
+  ]
+}

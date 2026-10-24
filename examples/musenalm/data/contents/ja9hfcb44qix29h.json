@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Blätter aus Agathens Papieren (Sammlung INr 39552, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Es ist doch ein wunderbares Wesen mit den menschlichen Gedanken: wie sie jetzt sinnend bei einem Gegenstande verweilen,",
+  "language": [],
+  "musenalm_id": 39554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Gedanken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Gedanken",
+  "updated": "2005-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.937Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "nhcgynr6d0f5j98"
+    }
+  ]
+}

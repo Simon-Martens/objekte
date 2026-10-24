@@ -1,0 +1,45 @@
+{
+  "annotation": "# Franz Masslieben, Pseud.",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ich, sonst Achämenides Gut, ich gehöre / jetzt dem Menippus; / Dann hat ein Anderer mich",
+  "language": [],
+  "musenalm_id": 154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "INNSCHRIFT FÜR EIN LANDGUT",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "INNSCHRIFT FÜR EIN LANDGUT",
+  "updated": "2001-06-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.974Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "rgz3nqqde4fdg8x"
+    }
+  ]
+}

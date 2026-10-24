@@ -1,0 +1,63 @@
+{
+  "annotation": "<div>Vorhanden ist: Almanac de Poche pour l'Année 1767; alm-778: vielleicht französische Ausgabe des Genealogischen Kalenders (Berlin) 1767; der vollst. Titel lautet: Almanac de Poche pour l'Année MDCCLXVII. Avec la Naissance des Rois, Reines, Princes, et Princesses de l'Europe, et Suivi de pieces agreables et utiles, et orné d'Emblemes et d'autres Figures en Taille-douce. Avec l'Approbation de l'Academie Roiale des Sciences Par les heritiers de J. G. Wolffgang à Berlin. /) wahrscheinlich frühe Ausgabe von Der Titel der späteren französischen Ausgaben des Genealogischen Kalenders lautet: Almanac généalogique pour l’Année ...</div>",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Genealogischer (Berlin) 1767",
+    "norm": "",
+    "biblio": 0,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-08-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1184,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Kalender, Genealogischer (Berlin) 1767",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 7; K 32; L/R 16",
+  "responsibility_statement": "",
+  "subtitle_statement": "",
+  "title_statement": "Almanac de Poche pour l'Année MDCCLXVII. Avec la Naissance des Rois, Reines, Princes, et Princesses de l'Europe, et Suivi de pieces agreables et utiles, et orné d'Emblemes et d'autres Figures en Taille-douce. Avec l'Approbation de l'Academie Roiale des Sciences Par les heritiers de J. G. Wolffgang à Berlin",
+  "updated": "2026-07-30 08:42:05.344Z",
+  "variant_title": "",
+  "year": 1767,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.210Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-07-30 08:42:05.345Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "q0nytgeshox22ty"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38866, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Dort unten breitet sich ein Garten weit; / Hier stand ich oft in heller Frühlingszeit,",
+  "language": [],
+  "musenalm_id": 38871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Am Fenster",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Am Fenster",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.053Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "7ccujbx7z0yjvkj"
+    }
+  ]
+}

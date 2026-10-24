@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Der Klippe Zahn hat scharf das Schiff gefaßt, / Es wird und muß mit scharfem Krach zerschellen.",
+  "language": [],
+  "musenalm_id": 66381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gerettete Schatz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günter Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gerettete Schatz",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "o11zrg5nk396fgh",
+      "source_id": "51hh9gz7w1m8z5k"
+    }
+  ]
+}

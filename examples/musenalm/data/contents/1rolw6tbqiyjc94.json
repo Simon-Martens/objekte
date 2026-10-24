@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Die holde Karin diente / An jungen Königs Hof; / Und alle schönen Frauen / verdunkelte die Zof'.",
+  "language": [],
+  "musenalm_id": 54008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jungfrau Zuversicht. / (Aus den Schwedischen Volksliedern.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Studach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jungfrau Zuversicht. / (Aus den Schwedischen Volksliedern.)",
+  "updated": "2008-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.819Z",
+      "agent": "bmvy94rxyty90b0",
+      "source_id": "nyinvisd3r8kcdq"
+    }
+  ]
+}

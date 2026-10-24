@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung und Titel s. Textbezug INr 69023, Obj 12; vermutlich Illustration zu »Die heilige Woche. Charaktergemälde aus Rom« von W. Waiblinger INr 69043, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thorwaldsen in einer Campagnenschänke #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lindau",
+  "scans": [
+    "alm_2654_69024_u6gajmkkhg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thorwaldsen in einer Campagnenschänke #",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.462Z",
+      "agent": "lbjc9wym039t07j",
+      "source_id": "f7cqrr2snog8esh"
+    }
+  ]
+}

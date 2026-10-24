@@ -1,0 +1,52 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.423Z",
+  "dimensions": "",
+  "edit_comment": "Kein Baende.xml-Anreicherungstreffer für AlmNeu-Band > 4849; bitte prüfen.",
+  "edit_fielddata": null,
+  "edit_state": "Review",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2024-08-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4872,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (Müller)",
+  "places": [],
+  "preferred_title": "Almanach (Karlsruhe 1855",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 195",
+  "responsibility_statement": "unezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ALMANACH / auf das / JAHR / 1838 / CARLSRUHE . / C. F. MÜLLER",
+  "updated": "2024-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "items": [
+    "8f2vt6kvpqklu45",
+    "tu4w928nve5frq3"
+  ],
+  "contents": [],
+  "agents": []
+}

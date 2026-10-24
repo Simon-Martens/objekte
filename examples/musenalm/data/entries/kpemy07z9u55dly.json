@@ -1,0 +1,80 @@
+{
+  "annotation": "mit Illustrationen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "vT, G, T, I-Verz, SS1–440, darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Originalien 1839",
+    "norm": "~",
+    "biblio": 111724,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2732,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch dramatischer Originalien 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 140; nicht bei L/R",
+  "responsibility_statement": "Dr. Franck",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von / Dr. Franck. / Dritter Jahrgang. / Mit drei Kupfern. / Leipzig: / F. A. Brockhaus. / 1839",
+  "updated": "2026-06-11 10:18:55.824Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "wmyrj222mcrhi26"
+  ],
+  "contents": [
+    "24ipve3tbv83x1x",
+    "7rad1s3a4qm0sdx",
+    "2o1kdn1lkqks7fm",
+    "xgokn1mcxoa5fnh",
+    "u0dza885besa2dy",
+    "gav0fwg6f2llq2q",
+    "n0ai65qtg1cohj0",
+    "f38c53pzak8b5a3",
+    "nk2iducjextm9sc",
+    "8fxyu9i957biith",
+    "p9tbna4d1ifyv30",
+    "8dx0tc3kash85ir"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.594Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.594Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "o7tas9yr1i7p77y"
+    }
+  ]
+}

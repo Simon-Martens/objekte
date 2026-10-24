@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANSICHT VON KYROW IN FINNLAND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lith. par Ch. Beggrow. Acad. Impr. Lith. de F. Davignon 1832",
+  "scans": [
+    "alm_1633_92989_61avrr5za1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANSICHT VON KYROW IN FINNLAND",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.211Z",
+      "agent": "ri9esj8u5z0036e",
+      "source_id": "sc9u2c2fcg97hhc"
+    }
+  ]
+}

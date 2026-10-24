@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122511, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Welche tief bewegte Lebensläufchen, / Welche Leidenschaft, welch’ wilder Schmerz! / Eine Bachwelle und ein Sandhäufchen / Brachen an einander sich das Herz!",
+  "language": [],
+  "musenalm_id": 122513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Aufgeregten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Aufgeregten",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.820Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "mxowgk46h657ndo"
+    }
+  ]
+}

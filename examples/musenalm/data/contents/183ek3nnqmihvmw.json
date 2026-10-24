@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16729,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AGLAJA. / Ein Taschenbuch / FÜR DAS JAHR / 1823 / Neunter Jahrgang. / WIEN, / gedruckt und im Verlage / BEI JOH. BAPT. WALLISHAUSSER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Warsow scrip. Junker sc.",
+  "scans": [
+    "alm_230_16729_fwgnksshne.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA. / Ein Taschenbuch / FÜR DAS JAHR / 1823 / Neunter Jahrgang. / WIEN, / gedruckt und im Verlage / BEI JOH. BAPT. WALLISHAUSSER",
+  "updated": "2001-05-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.757Z",
+      "agent": "h6ox1720qcjk2bz",
+      "source_id": "5216v3qv420xih0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.758Z",
+      "agent": "zuzc1anf4hbbexc",
+      "source_id": "b5zphelglultl3j"
+    }
+  ]
+}

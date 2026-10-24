@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 3774, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Ach, wie konnt' ich dich verlassen, / Und dein Auge weinen seh'n?",
+  "language": [],
+  "musenalm_id": 3773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Malvina, / nach der Trennung. / Elegie. / 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Malvina, / nach der Trennung. / Elegie. / 1792",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.003Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "8sb1piuku9rhk7y"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71358, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "So wie einige Völker in ihrem Glauben drei Himmel haben, so haben andere sieben. Diese Zahl war den Morgenländern heilig.",
+  "language": [],
+  "musenalm_id": 71380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 3ten Kupfertafel. / Mahomets Ritt in den Himmel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 3ten Kupfertafel. / Mahomets Ritt in den Himmel",
+  "updated": "2010-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.504Z",
+      "agent": "a1tvqjbk8115iq7",
+      "source_id": "f62ry0qv6y59w5x"
+    }
+  ]
+}

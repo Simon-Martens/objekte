@@ -1,0 +1,79 @@
+{
+  "annotation": "mit einem Titelkupfer",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, vT, VrlgM, T, I-Verz, SS1–448",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch dramatischer Originalien 1842",
+    "norm": "~",
+    "biblio": 106788,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-15T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 2735,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch dramatischer Originalien 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 140; nicht bei L/R",
+  "responsibility_statement": "Dr. Franck",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / dramatischer Originalien. / Herausgegeben / von Dr. Franck. / Neue Folge. / Erster Jahrgang. / Mit dem Bildnisse Franz v. Holbein's. / Leipzig: / F. A. Brockhaus. / 1842",
+  "updated": "2026-06-11 10:18:55.823Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "items": [
+    "xxnbzqdcyt6sv46"
+  ],
+  "contents": [
+    "hmiarjzlll6nn14",
+    "wq4o4g9anagiu4z",
+    "42jsvthk7eiytxf",
+    "a6d95zs51ckne96",
+    "t02p8xca5rfipcw",
+    "zanpqxi2sy48bek",
+    "xlzpff4azhjrci6",
+    "zxupf0q80eg6f6h",
+    "1tgfe4jpph0ftsg",
+    "xikebx6khf82jwt",
+    "gzfexya4r2mn00j"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.595Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.595Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "xhvqlb16ji094ro"
+    }
+  ]
+}

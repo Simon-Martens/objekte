@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131406, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Hoch sieht die Sonne. Durch des Waldes Dunkel / Stiehlt sich der Strahl, Goldringel bildend, kaum.",
+  "language": [],
+  "musenalm_id": 132415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Badende Mädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr von Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Badende Mädchen",
+  "updated": "2022-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.090Z",
+      "agent": "snnpz92vgxnioxl",
+      "source_id": "4edhspczc3x5dei"
+    }
+  ]
+}

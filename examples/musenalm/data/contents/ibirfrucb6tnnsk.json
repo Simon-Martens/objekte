@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am Blatt Kreuz-Zehn der Serie /) kol. Spielkarte: Herz-König; Illustration zu »Wallenstein« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61311,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallenstein Herzog v. Friedland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Faber du Faur inv. et del.",
+  "scans": [
+    "alm_961_61311_1vg5mrg6ap.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wallenstein Herzog v. Friedland",
+  "updated": "2009-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.859Z",
+      "agent": "l35pyvjvc73os7p",
+      "source_id": "qh4zx58mjm2yil4"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, B I-Verz, SS 1-200 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Feierabende, Weidmanns 1818",
+    "norm": "~",
+    "biblio": 408886,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2015-01-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4175,
+  "parallel_title": "",
+  "place_statement": "Marburg (Krieger)",
+  "places": [
+    "xmm598zbmohl3y6"
+  ],
+  "preferred_title": "Feierabende, Weidmanns 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 173; nicht bei L/R",
+  "responsibility_statement": "L. C. E. H. F. von Wildungen",
+  "subtitle_statement": "",
+  "title_statement": "Weidmanns Feierabende, / ein neues Handbuch / für / Jäger und Jagdfreunde, / von / L. C. E. H. F. von WILDUNGEN. / Kurhessischen Oberforstmeister / zu Marburg / Viertes Bändchen. / MARBURG. / In der J. Christ. Kriegerschen Buchhandlung. / 1818",
+  "updated": "2026-06-11 10:18:55.626Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "veqbrpz49co41ue"
+  ],
+  "contents": [
+    "64s28klp70gh145",
+    "kzrhs0iq76h7tkw",
+    "aapfl0f2nl8wpbe",
+    "blvklbkn1z9ufgg",
+    "5zd4swhpl9mhdoa",
+    "0oscrrm0588p0wa",
+    "chlta1k51c9lxh2",
+    "7xexpiigoifdqdm",
+    "fvxfxcpmt34e12i",
+    "lv3elyby3ld7h4j",
+    "gdz318mhc97y1h8",
+    "7l0yf3whoxy022k",
+    "fyw4y7bfwxjs3b6",
+    "bica3xk2qd7ecec",
+    "m8juzn40aqlhep0",
+    "vcs3likzl3fxrec",
+    "csgqwwxt97olk24",
+    "5n65i7pu53kln6q",
+    "cnzq921gwrj6jga",
+    "69ci6kk5udicoyv",
+    "qewrlfxarivaxny",
+    "1rqd7x67ftpn9ft",
+    "geak0zuqh7s5dzr",
+    "l3nzh4bojyeg7sr",
+    "wyy3aqfi7o944ww",
+    "02sn1n1hwgoiqk5",
+    "z4bs8rlnpovnrre",
+    "f78f03b4b1ro66d",
+    "huub6ng851vs6ak",
+    "7zk0juuw3mqalv5",
+    "ec7qac6x8r69yev",
+    "xdq93k0tdm0zpa8",
+    "xthfoombq7xlj0q",
+    "f5bacnxbt14o9g9",
+    "ygfudxowve6qck9",
+    "7w9znctdx54emxl",
+    "l5q8d2oelse91sl"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.339Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.339Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "k2siganx7edajus"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.082Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.082Z",
+      "agent": "9v69tnrkt52hdxy",
+      "source_id": "mkdjdq3fk0ztcl4"
+    }
+  ]
+}

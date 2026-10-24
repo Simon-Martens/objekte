@@ -1,0 +1,53 @@
+{
+  "annotation": "TA von: Bardenalmanach 1802, Neustrelitz (Albanus); Hrsgg.: F. D. Gräter und Karl Ludwig August Heino von Münchhausen; s.  Alm 325",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Altdeutsches [oJ]",
+    "norm": "",
+    "biblio": 100642,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2913,
+  "parallel_title": "",
+  "place_statement": "",
+  "places": [],
+  "preferred_title": "Taschenbuch, Altdeutsches [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 108; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Altdeutsches / Taschenbuch / Preis 16 Groschen",
+  "updated": "2026-06-11 10:18:54.585Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "j9gr67du9jnqq86"
+  ],
+  "contents": [],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Auf meiner lezten Reise nach Frankreich lernte ich ein Schicksal kennen, welches so einzig in seinen fürchterlichen Verkettungen ist, daß ich alle mir bekannt gewordenen Umstände desselben sorgfältig aufzuzeichnen Willens bin.",
+  "language": [],
+  "musenalm_id": 50404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pauline Dupuis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pauline Dupuis",
+  "updated": "2007-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.992Z",
+      "agent": "j6zj4e02mmgth5i",
+      "source_id": "6z1slvqj5oiy00i"
+    }
+  ]
+}

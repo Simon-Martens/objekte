@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Dir mit Seufzern, dir mit Blut, / Dir mit heißer Thränenflut,",
+  "language": [],
+  "musenalm_id": 5878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fanny. / Versicherung neuer Treue",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S*.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fanny. / Versicherung neuer Treue",
+  "updated": "2000-10-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.145Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "k3olv4s2cnjd5ay"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42951,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de Leipsic. / 1. à la Contradiction 2. à la ressource / 3. à l'unisson 4. au dérèglement 5. au mélange.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler",
+  "scans": [
+    "alm_156_42951_d9azqk9cf6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de Leipsic. / 1. à la Contradiction 2. à la ressource / 3. à l'unisson 4. au dérèglement 5. au mélange.",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.088Z",
+      "agent": "n3n9pdzq4tdymdn",
+      "source_id": "2jdnd6jau56xoxr"
+    }
+  ]
+}

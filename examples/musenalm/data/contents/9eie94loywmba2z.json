@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Hab' oft geträumt vom Glücke, / Vom klaren Sonnenschein,",
+  "language": [],
+  "musenalm_id": 85719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freude und Schmerz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freude und Schmerz",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.107Z",
+      "agent": "17xjqe49v1xcoot",
+      "source_id": "ns8j0crw83w3wke"
+    }
+  ]
+}

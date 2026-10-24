@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der letzte Skalde« von A. v. Helvig INr 72904, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72905,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Dähling J. H. Funcke in Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling J. H. Funcke in Berlin",
+  "scans": [
+    "alm_2693_72905_ogd9bjlf9p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.644Z",
+      "agent": "fu5wv6odvdsjkbe",
+      "source_id": "hd3iqeii72agvef"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.644Z",
+      "agent": "kts1fp7jiwg411k",
+      "source_id": "rm8h0wzsgqup3o9"
+    }
+  ]
+}

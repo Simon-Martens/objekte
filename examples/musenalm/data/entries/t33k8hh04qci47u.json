@@ -1,0 +1,115 @@
+{
+  "annotation": "keine weiteren Jgg ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "vT, T, BB G-Verz darin 6 GG, S I-Verz, SS 1-396",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Norddeutsches 1836",
+    "norm": "~",
+    "biblio": 409180,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2016-02-04T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4261,
+  "parallel_title": "",
+  "place_statement": "Wismar ( H. Schmidt & Cossel)",
+  "places": [
+    "c5wni2t7dho8317"
+  ],
+  "preferred_title": "Taschenbuch, Norddeutsches 1836",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 139; nicht bei L/R",
+  "responsibility_statement": "David Russa",
+  "subtitle_statement": "",
+  "title_statement": "Norddeutsches / Taschenbuch / auf das / Jahr 1836. / Mit Beiträgen / von / Ludwig Storch, Amalie Schoppe, geb. Weise, / Ad. von Schonen, F. W. Rogge / und / dem Herausgeber / David Russa. / Mit sechs Stahlstichen. / Wismar, / H. Schmidt und von Cossel's Rathsbuchhandlung. / (F. W. v. Cossel.) / 1836",
+  "updated": "2026-06-11 10:18:55.379Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "gooeo659e9mb6t8"
+  ],
+  "contents": [
+    "bw5666zyvkz9t84",
+    "p37pdyyk6gup436",
+    "qgbx63qf10nud1i",
+    "28mq4ehsfo7vxlm",
+    "ve6jc6uybvje3ov",
+    "oqcp1ijj1fygds9",
+    "16sknlfei4damxi",
+    "stsipy4p97cz8kk",
+    "apb1qt37y77mywz",
+    "4qc6wxj8wa7ogr7",
+    "zenqflqs7r6c9ij",
+    "l4d5q7m2aqxo1jr",
+    "7z3p7ia3xaqzudr",
+    "q3hrhiozkmxixij",
+    "8wylbwlzdctqsba",
+    "mewqd329g3szh2v",
+    "a8pgvqn2c2kwc7z",
+    "b7y7l5733rsrc6n",
+    "lnur0mkeyqcjv71",
+    "regytjp0nyw0i26",
+    "yjyb2936vdbeh56",
+    "av8hqmkf5pgfv75",
+    "qzyvd16u02bv7qf",
+    "v7cau192qcoyzqn",
+    "g8dbdqcreha49ln"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.661Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.661Z",
+      "agent": "sr9mzg83f4l8mgm",
+      "source_id": "dm347s9x225xh1k"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.356Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.356Z",
+      "agent": "gplimo7htici8gi",
+      "source_id": "hwt6p40mas63glf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.947Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.947Z",
+      "agent": "la4fule775nx9jk",
+      "source_id": "l1yjm3dfpdjxmbq"
+    }
+  ]
+}

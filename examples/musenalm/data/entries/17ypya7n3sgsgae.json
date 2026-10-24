@@ -1,0 +1,87 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I vT, S II VrlgM, verso G, S III T, S V I-Verz, S VII zT, SS VIII-XVI darin 5 GG, SS 1-394",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1835",
+    "norm": "~",
+    "biblio": 101005,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 61,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1835. / Mit sechs Stahlstichen. / Leipzig: / F. A. Brockhaus. / 1835",
+  "updated": "2026-06-11 10:18:54.889Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "items": [
+    "lxf0ecb07l8htk5"
+  ],
+  "contents": [
+    "wmyool4livldien",
+    "sh0r1ztnlaylpgh",
+    "06792i9ckvyq8uw",
+    "yfppljb83mljsft",
+    "30qh2qt9pc3a0b6",
+    "buyp0k6vnxbyh31",
+    "9r3j7872gl87suo",
+    "h7bpafhb0ssm9fz",
+    "0svw4zzr33sdew2",
+    "50ow8z2y6i1j6cm",
+    "wt71lnybjl982mg",
+    "bcaovm4q0dicfpv",
+    "f7czt1rjubzr9ya",
+    "ih4by5yavel4evt",
+    "9wghtdebrok3wwn",
+    "2wfooug6a55xxoe",
+    "0x91pehnhqeqikq",
+    "t7p0zlfig525iuf",
+    "76dgtzsg55wv9ee"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.601Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.601Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "2i7nscmyvegnlul"
+    }
+  ]
+}

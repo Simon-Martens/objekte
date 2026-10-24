@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67308, Obj 8) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67309, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Für die zoologische Gallerie des Sylvans ist noch ein kleines Thierchen aus unserer deutschen Fauna übrig geblieben,",
+  "language": [],
+  "musenalm_id": 67310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Ziesel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Ziesel",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.191Z",
+      "agent": "ju4ru5jtl9hri75",
+      "source_id": "pv5dgyqoeulwlsa"
+    }
+  ]
+}

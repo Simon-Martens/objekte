@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Das Bild von Habakuk entwarf uns noch / kein Buch;",
+  "language": [],
+  "musenalm_id": 31018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habakuk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Koller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Habakuk",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.586Z",
+      "agent": "klmzscnh01mej5u",
+      "source_id": "9hho8n2xphtjg8h"
+    }
+  ]
+}

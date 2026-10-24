@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77561, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Nein, was mir fehlt, kann ich nicht offenbaren, / Und Keinem kann ich's sagen vor Euch allen:",
+  "language": [],
+  "musenalm_id": 77564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Louise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Louise",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.741Z",
+      "agent": "qg9jxudttjp2daq",
+      "source_id": "39hvql5pbr2yp9j"
+    }
+  ]
+}

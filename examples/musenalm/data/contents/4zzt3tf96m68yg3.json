@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 83983, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83990,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Aehrenleserin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Corbould pinxt. W. Baumann sculpt.",
+  "scans": [
+    "alm_1067_83990_zg1idkdnjr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Aehrenleserin #",
+  "updated": "2009-05-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.984Z",
+      "agent": "6ui87o3eww6g9wa",
+      "source_id": "1ngq77amwco6ld6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.984Z",
+      "agent": "x7b3q8mt71tqkdg",
+      "source_id": "xmte6ainlsenctb"
+    }
+  ]
+}

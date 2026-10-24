@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Sappho« von Gramberg; INr 19404, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83181,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho, v. Gramberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_263_83181_f3nw9g442j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sappho, v. Gramberg",
+  "updated": "2001-11-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.960Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "4zg0gk5349v25jz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.960Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "htlajfvl4pvp0mq"
+    }
+  ]
+}

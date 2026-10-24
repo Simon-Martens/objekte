@@ -1,0 +1,261 @@
+{
+  "annotation": "",
+  "biographical_data": "1737-1789",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.483Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1738"
+      ],
+      "dateOfDeath": [
+        "1789"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1354555104",
+        "https://d-nb.info/gnd/177457694"
+      ],
+      "describedBy": {
+        "dateModified": "2025-11-04T07:35:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118021834/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/103044868X",
+          "label": "Spiegel von Pickelsheim, Sophie Henriette von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118021834",
+      "id": "https://d-nb.info/gnd/118021834",
+      "oldAuthorityNumber": [
+        "(DE-588a)177457694",
+        "(DE-588a)118021834",
+        "(DE-588)1354555104",
+        "(DE-588)177457694"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4022987-7",
+          "label": "Halberstadt"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4005056-7",
+          "label": "Bayreuth"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005056-7",
+          "label": "Bayreuth"
+        }
+      ],
+      "preferredName": "Spiegel von Pickelsheim, Dietrich Ernst Georg von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Dietrich Ernst Georg"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Spiegel von Pickelsheim"
+        ]
+      },
+      "professionOrOccupationAsLiteral": [
+        "Kammerherr in Bayreuth, seit 1760 Domherr in Halberstadt"
+      ],
+      "publication": [
+        "Zum Andenken der Freyfrau Caroline Spiegel von Pickelsheim. - 1780"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059327"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/58751047"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q55131985"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118021834/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1354555104"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/177457694"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000004432514X"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118021834.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118021834"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Spiegel von Pickelsheim, Dietrich Ernst Georg von",
+        "Pickelsheim, Dietrich Ernst Georg von",
+        "Spiegel von Pickelsheim, Dietrich E.",
+        "Spiegel zu Peckelsheim, Dietrich Ernst Georg von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Dietrich E."
+          ],
+          "surname": [
+            "Spiegel von Pickelsheim"
+          ]
+        },
+        {
+          "forename": [
+            "Dietrich Ernst Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spiegel von Pickelsheim"
+          ]
+        },
+        {
+          "forename": [
+            "Dietrich Ernst Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Spiegel zu Peckelsheim"
+          ]
+        },
+        {
+          "forename": [
+            "Dietrich Ernst Georg"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Pickelsheim"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "best_guess",
+    "gnd_matched_at": "2026-06-11T13:00:54Z",
+    "gnd_query_biographical_data": "1737-1789",
+    "gnd_query_name": "spiegel von pickelsheim, dietrich ernst"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2706,
+  "name": "Spiegel von Pickelsheim, Dietrich Ernst",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 418; ADB XXXV, 159",
+  "updated": "2026-06-11 13:29:25.102Z",
+  "uri": "https://d-nb.info/gnd/118021834",
+  "editor": ""
+}

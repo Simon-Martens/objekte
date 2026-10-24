@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 3 Beiträgen mit 3 graph. Sticklanleitung INr 76164-76169, 76171; Obj 63-67, 69",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Von der Schattirstickerey ist man jetzt gänzlich abgekommen. Entweder ganz reich in Gold und Silber, oder uni orange, grau und goldgelb,",
+  "language": [],
+  "musenalm_id": 76164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stickerei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stickerei",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.680Z",
+      "agent": "yc646lrifh4tem5",
+      "source_id": "4wlwnil2iqagcvf"
+    }
+  ]
+}

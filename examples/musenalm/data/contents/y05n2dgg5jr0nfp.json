@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 83620, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Das Glas gefüllt! / Der Nordwind brüllt; / die Sonne ist niedergesunken!",
+  "language": [],
+  "musenalm_id": 83634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Trinklied im Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Trinklied im Winter",
+  "updated": "2012-09-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.086Z",
+      "agent": "zddol7mg2ooigi9",
+      "source_id": "i1t2cbt6yty8zju"
+    }
+  ]
+}

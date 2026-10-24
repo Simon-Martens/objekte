@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Liebe (Sammlung INr 98298, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "MeinLieb, was schwörst du mir Treue? / Was nützt das todte Wort?",
+  "language": [],
+  "musenalm_id": 98302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2014-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.714Z",
+      "agent": "g5bo98tjkpy8a15",
+      "source_id": "438i08f5ag8r6g1"
+    }
+  ]
+}

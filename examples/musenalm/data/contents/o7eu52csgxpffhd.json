@@ -1,0 +1,47 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88117 Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geometrischer Plan des Theaters von Taorminum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Gerstner sc.",
+  "scans": [
+    "alm_3102_88068_zdpncfcmap.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geometrischer Plan des Theaters von Taorminum",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.101Z",
+      "agent": "attflh3iz28ntym",
+      "source_id": "v8f7fxu31v16ocu"
+    }
+  ]
+}

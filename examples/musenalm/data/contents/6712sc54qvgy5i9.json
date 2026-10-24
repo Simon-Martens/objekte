@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Brav, brav, der Monat hat einen herrlichen Transport geliefert! Die Schatten schwärmen am Gestade, wie die Mücken.",
+  "language": [],
+  "musenalm_id": 37281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schatten. / Erster und zweyter Transport. / Die Scene ist das unterirdische Reich an den / Gestaden des Styx",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "[Der] Fertiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schatten. / Erster und zweyter Transport. / Die Scene ist das unterirdische Reich an den / Gestaden des Styx",
+  "updated": "2004-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.145Z",
+      "agent": "p2324zi05z6zxr4",
+      "source_id": "8zktssgkls801xl"
+    }
+  ]
+}

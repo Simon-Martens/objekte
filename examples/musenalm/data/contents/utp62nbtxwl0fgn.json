@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Wir waren drei gute Bekannte, die ehemal während unsrer Anwesenheit in der Residenz das dasige neue Kaffeehaus besuchten,",
+  "language": [],
+  "musenalm_id": 76790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unglückswagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Unglückswagen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.893Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "7ikm1f9njc0f2k1"
+    }
+  ]
+}

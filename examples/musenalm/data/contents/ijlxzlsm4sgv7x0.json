@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "405",
+  "incipit_statement": "Baumeisterin Natur scheint für sich selbst zumeist / Zu baun, und baut zuletzt doch Alles für den Geist.",
+  "language": [],
+  "musenalm_id": 37134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 258,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Baumeisterin Natur scheint für sich selbst zumeist / Zu baun, und baut zuletzt doch Alles für den Geist.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.927Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "u00kziqyqpc08i9"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Todes Wiegen-Lied« von G. P. Schmidt INr 12961, Obj 63 (Photos 12960,01; 12960,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12960,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todes Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_214_12960_01_zh1thn97uz.jpg",
+    "alm_214_12960_02_0nhgwgchhp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Todes Wiegenlied",
+  "updated": "2001-03-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.567Z",
+      "agent": "1531zhkkyifz60r",
+      "source_id": "rzwt27sxv4n0tur"
+    }
+  ]
+}

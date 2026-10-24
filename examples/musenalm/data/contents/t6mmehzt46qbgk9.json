@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräch (Sammlung INr 71042, Obj 116) Sinngedichte (Sammlung INr 71031, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Widrig ist mir fürwahr, was schön tönt, ohne zu / nützen.",
+  "language": [],
+  "musenalm_id": 71043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erster",
+  "updated": "2010-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.969Z",
+      "agent": "92oewhsfc44pa2v",
+      "source_id": "os22ojh9ktux5jn"
+    }
+  ]
+}

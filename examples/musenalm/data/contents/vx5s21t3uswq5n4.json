@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen« von F. W. Schubert INr 58939, Obj 20 s.a. Textbezug INr 58959, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58931,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kloster Oliva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Poppel sc.",
+  "scans": [
+    "alm_869_58931_oy76vvvg42.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kloster Oliva",
+  "updated": "2008-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.007Z",
+      "agent": "09vqyzz1zzz8g9y",
+      "source_id": "97zbc9u69ehtf5e"
+    }
+  ]
+}

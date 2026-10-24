@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert V. /) Illustration zu »Lienhard und Gertrud« von H. Pestalozzi; s. Textbezug INr 56091, Obj11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56090,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Jb. Lips gest.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jb. Lips gest.",
+  "scans": [
+    "alm_756_56090_yjra5g5hml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.899Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "231ybwci1xs9bzw"
+    }
+  ]
+}

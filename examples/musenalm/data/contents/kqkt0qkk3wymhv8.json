@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 121928, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Heute war ein großer Festtag in Oberst Werner's Hause. Es feierte die Familie den sechzigsten Geburtstag ihres geliebten Oberhauptes,",
+  "language": [],
+  "musenalm_id": 121959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schwarze Mann im Kaffeehause. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schwarze Mann im Kaffeehause. / Eine Erzählung",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.661Z",
+      "agent": "17xjqe49v1xcoot",
+      "source_id": "0se61pc5cmg5mof"
+    }
+  ]
+}

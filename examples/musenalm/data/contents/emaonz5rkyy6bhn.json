@@ -1,0 +1,45 @@
+{
+  "annotation": "Fliegende Blätter (Sammlung INr 55899, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Als Knabe, in der geographischen Lehrstunde, glaubt man an alle Merkwürdigkeiten, aber man zweifelt daran draußen in der Natur.",
+  "language": [],
+  "musenalm_id": 55918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Knabe, in der geographischen Lehrstunde, glaubt man an alle Merkwürdigkeiten, aber man zweifelt daran draußen in der Natur.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.716Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "urgqhj0h4w6i1jz"
+    }
+  ]
+}

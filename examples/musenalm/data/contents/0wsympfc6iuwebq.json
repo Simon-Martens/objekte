@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1824, gesammelt von Theodor Hell (Sammlung INr 40605, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "439",
+  "incipit_statement": "Bist Du ein Christ, sollst Du die erste lieben, / Obgleich es Dir als schwere Pflicht erscheint,",
+  "language": [],
+  "musenalm_id": 40626,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Charade",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.152Z",
+      "agent": "utw4utrm977hsx5",
+      "source_id": "otj7j2zcbywxiwy"
+    }
+  ]
+}

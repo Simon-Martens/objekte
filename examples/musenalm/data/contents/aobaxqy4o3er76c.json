@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Abenddämm'rung liegt auf meinem Garten, / Und ich blicke mit bewölktem Sinn,",
+  "language": [],
+  "musenalm_id": 32729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwermuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwermuth",
+  "updated": "2003-04-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.599Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.599Z",
+      "agent": "zoqy5th408hrb4e",
+      "source_id": "7svvrcop2vix1vc"
+    }
+  ]
+}

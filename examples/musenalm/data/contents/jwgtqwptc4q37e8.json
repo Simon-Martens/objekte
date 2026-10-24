@@ -1,0 +1,45 @@
+{
+  "annotation": "Bunte Steine (Sammlung INr 22931, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Frau von H. siegelte einen Brief, ein Tropfen des heißen Waches fiel ihr aufs Kleid;",
+  "language": [],
+  "musenalm_id": 22937,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Eindruck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Eindruck",
+  "updated": "2002-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.780Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "33pboe2xo33xycf"
+    }
+  ]
+}

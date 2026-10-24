@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »An die Mißvergnügten« (INr 130527, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Lieben Freunde, es gab schön’re Zeiten, / Als die unsern, das ist nicht zu streiten; / Und ein edler Volk hat einst gelebt.",
+  "language": [],
+  "musenalm_id": 130526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Freunde, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Freunde, / von / Schiller",
+  "updated": "2009-12-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.073Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "0a2dp7vewzkhvh7"
+    }
+  ]
+}

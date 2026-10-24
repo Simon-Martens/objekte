@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Durch sie bewegt Homäros unser Herz, / Gibt Fidias das Leben todtem Erz;",
+  "language": [],
+  "musenalm_id": 62019,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Begeisterung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Begeisterung",
+  "updated": "2009-02-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.950Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "xma55z23bnp8iqy"
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "annotation": "",
+  "biographical_data": "1776-1841",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.480Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1776-08-15"
+      ],
+      "dateOfDeath": [
+        "1841-08-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Seyfried.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Seyfried.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Seyfried.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160256801"
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:54:02.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118938533/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/117460087",
+          "label": "Seyfried, Joseph Ritter von"
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118938533",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/117460087",
+          "label": "Seyfried, Joseph Ritter von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118938533",
+      "oldAuthorityNumber": [
+        "(DE-588a)160256801",
+        "(DE-588a)126052565",
+        "(DE-588c)4243809-3",
+        "(DE-588a)118938533",
+        "(DE-588)160256801"
+      ],
+      "periodOfActivity": [
+        "1795-"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "preferredName": "Seyfried, Ignaz Xaver von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ignaz Xaver"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Seyfried"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012434-4",
+          "label": "Dirigent"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131406-2",
+          "label": "Pianist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4140880-9",
+          "label": "Musiklehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398802-7",
+          "label": "Kapellmeister"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4604119-9",
+          "label": "Arrangeur"
+        }
+      ],
+      "publication": [
+        "Seyfried, Ignaz X. von: Abraham",
+        "Beethoven's Begräbniss",
+        "Albrechtsberger, Johann G.: J. G. Albrechtsbergers sämmtliche Schriften über Generalbaß, *. - s. a. 1838",
+        "Rochus Pumpernikel. - [ca. 1830]",
+        "[Alfred <Marsch> / Arr.]",
+        "Graduale",
+        "[Graduale Nr. 4]",
+        "[Oberon, roi des elfes / Arr.]",
+        "Preindl, Joseph: Wiener Tonschule",
+        "Beethoven, Ludwig van: Beethovens Studien",
+        "[Messen Es-Dur]",
+        "Libera",
+        "Gewey, Franz K.: Er hält wahrhaftig Wort!",
+        "Beethoven, Ludwig van: Ludwig Van Beethoven's Studien im Generalbasse, Contrapuncte u*",
+        "[Fantasien, Orch f-Moll]",
+        "Abschied von Ihr"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12178481x"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n83206817"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/44341371"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q697804"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118938533"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118938533/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160256801"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ignaz_von_Seyfried"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ignaz_von_Seyfried"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ignaz_von_Seyfried"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108570356"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118938533"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118938533"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Seyfried_Ignaz_1776_1841.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118938533.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118938533.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118938533"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118938533"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Seyfried, Jgnace de",
+        "Seyfried, Ignace de",
+        "Seyfried, Ign. v.",
+        "Seyfried von",
+        "Seyfried, Ignatz von, Ritter",
+        "Seyfried, J. R. de",
+        "Seyfried, Ignaz Joseph Maria Franciscus de Paula von",
+        "Seyfried, Ignaz von, Ritter",
+        "Seyfried, Ignatius Josephus Maria Franciscus de Paula",
+        "Seyfried, Ignaz Xaver von, Ritter",
+        "Seyfried, Ignatius, Ritter von",
+        "Seyfried, Ignaz, Ritter von",
+        "Seyfried, Ignaz X. von",
+        "Seyfried, I. von",
+        "Seyfried, Ignaz",
+        "Seyfried, Ig., Eques de",
+        "Seyfried, Ignaz Xaver, Ritter von",
+        "Seyfried, Ignaz von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Ignaz"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Xaver"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "personalName": [
+            "Seyfried"
+          ],
+          "prefix": [
+            "von"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Joseph Maria Franciscus de Paula"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz X."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatius Josephus Maria Franciscus de Paula"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatius"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "J. R."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Jgnace"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ig."
+          ],
+          "nameAddition": [
+            "Eques de"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ign."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz Xaver"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignatz"
+          ],
+          "nameAddition": [
+            "Ritter"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignaz"
+          ],
+          "nameAddition": [
+            "Ritter von"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        },
+        {
+          "forename": [
+            "Ignace"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Seyfried"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ignaz_von_Seyfried",
+          "label": "https://de.wikipedia.org/wiki/Ignaz_von_Seyfried"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T12:58:00Z",
+    "gnd_query_biographical_data": "1776-1841",
+    "gnd_query_name": "seyfried, ignaz von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2648,
+  "name": "Seyfried, Ignaz von",
+  "profession": "Text u. Musik",
+  "pseudonyms": "",
+  "refs": "ADB XXXIV, 113",
+  "updated": "2026-06-11 13:29:25.000Z",
+  "uri": "https://d-nb.info/gnd/118938533",
+  "editor": ""
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Vermischte Gedichte (Sammlung INr 29844, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Ich stand umhüllt von Herbstes Nebelgrauen / Und sah der Sonne letzten Strahl verglühen,",
+  "language": [],
+  "musenalm_id": 29851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beruhigung. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise von Hohenhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beruhigung. / Sonett",
+  "updated": "2002-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.519Z",
+      "agent": "egwykz1ou8cu8sz",
+      "source_id": "xeq7otfxyvd7h71"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 29437, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Hat's von je ihm doch geklungen! / Als er Weltenbürger ward;",
+  "language": [],
+  "musenalm_id": 29440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch und die Glocken",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Gerstenbergk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch und die Glocken",
+  "updated": "2002-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.395Z",
+      "agent": "h167uzfduv8nbnr",
+      "source_id": "b9d0v1fpy6pqq98"
+    }
+  ]
+}

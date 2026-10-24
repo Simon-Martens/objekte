@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 4884, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Wann die Hochzeitfackel lodert, / Sehet, welcher Gott sie hält!",
+  "language": [],
+  "musenalm_id": 4883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung vor Hymen. / Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung vor Hymen. / Lied",
+  "updated": "2000-10-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.288Z",
+      "agent": "hu6ba8zv7wtaxe9",
+      "source_id": "3lvkz7mlg0ivx8e"
+    }
+  ]
+}

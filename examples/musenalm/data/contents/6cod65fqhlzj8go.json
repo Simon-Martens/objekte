@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten (Sammlung INr 77212, Obj 5) s. Graphik INr 722517, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Lächelnd liegt das heit're Leben / Vor uns da im Frühlingsglanz,",
+  "language": [],
+  "musenalm_id": 77216,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todesweihe. / (Zu Hero und Leander.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todesweihe. / (Zu Hero und Leander.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.593Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "bgrauppa1wdbom6"
+    }
+  ]
+}

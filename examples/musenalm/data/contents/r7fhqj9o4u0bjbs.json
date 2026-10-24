@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habillemens Caracterystiques. / 1. d'Elise Drapper. 2. l'Indienne / 3. & 4. Neglige du Matin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_2161_107756_lmp07hry2c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Habillemens Caracterystiques. / 1. d'Elise Drapper. 2. l'Indienne / 3. & 4. Neglige du Matin",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.212Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "9oxb8bcad5jwsft"
+    }
+  ]
+}

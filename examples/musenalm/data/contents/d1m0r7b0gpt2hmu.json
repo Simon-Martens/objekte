@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Ein zartes Kind ist das Vergnügen, / Das man umarmt, und niemals frägt,",
+  "language": [],
+  "musenalm_id": 15858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Vergnügen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Christian Boie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Vergnügen",
+  "updated": "2001-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.659Z",
+      "agent": "n4kki21smc12tdq",
+      "source_id": "lqecacp4ml0r0z2"
+    }
+  ]
+}

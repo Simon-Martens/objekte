@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3 /) Graphik im Kalendarium Mai /) Illustration zum unbetitelten, unbezeichneten Beitrag von G. A. Neuhofer Nr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95800,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinderwanderung in der Schweiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber del. J. Nußbiegel sc.",
+  "scans": [
+    "alm_3829_95800_jose6n104b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kinderwanderung in der Schweiz",
+  "updated": "2012-06-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.649Z",
+      "agent": "1cxxm0968owp2z9",
+      "source_id": "kcijf6ooo8f10dn"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.649Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "wzcey97tfcikzl8"
+    }
+  ]
+}

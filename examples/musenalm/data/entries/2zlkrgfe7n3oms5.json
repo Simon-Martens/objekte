@@ -1,0 +1,55 @@
+{
+  "annotation": "# K 97 gibt nur Jg 1795 und den Verlagsort Stuttgart an; # Radtke 16 gibt nur Jg 1797 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Reichstags-Almanach 1796",
+    "norm": "",
+    "biblio": 409122,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-10-29T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4232,
+  "parallel_title": "",
+  "place_statement": "Stuttgart #",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Reichstags-Almanach 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 97 #; nicht bei L/R; Radtke 16 #",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Reichstags / Almanach / für das Jahr / 1796 / auf Kosten der / Herausgeber",
+  "updated": "2026-06-11 10:18:55.949Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "puudbjx3d2fyqy8"
+  ],
+  "contents": [],
+  "agents": []
+}

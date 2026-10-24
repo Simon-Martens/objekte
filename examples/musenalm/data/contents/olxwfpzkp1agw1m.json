@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen, Balladen, Erzählungen (Sammlung INr 55641, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Es liegt der weiße Winter wohl auf der eis'gen Höh, / Wer schreitet keck und rüstig hinauf durch Sturm und Schnee?",
+  "language": [],
+  "musenalm_id": 55643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Des Skalden Brautfahrt. / Ballade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottwalt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Des Skalden Brautfahrt. / Ballade",
+  "updated": "2008-03-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.798Z",
+      "agent": "xf1mfl5mbha5g5z",
+      "source_id": "6qdnmsn8s1gn740"
+    }
+  ]
+}

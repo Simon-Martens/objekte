@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 90510-90513, Obj 106-109",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Sonette an die Entfremdete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter C. Gottfried von Leitner. (Graz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Sonette an die Entfremdete",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.175Z",
+      "agent": "kzo5zf1o5a1ke0s",
+      "source_id": "4tmrdu161jxqe2o"
+    }
+  ]
+}

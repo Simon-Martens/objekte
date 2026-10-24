@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / Durchlauchtigsten Fürsten und Herrn / Herrn / Friedrich dem Zweyten / regierenden Landgrafen zu Hessen, / Fürsten zu Hersfeld, Grafen zu Katzen- / elnbogen, Dietz, Ziegenhain [...] / Meinem gnädigsten Landgrafen / Fürsten und Herrn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unterthänigst treu gehorsamster H. A. Fr. v. Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / Durchlauchtigsten Fürsten und Herrn / Herrn / Friedrich dem Zweyten / regierenden Landgrafen zu Hessen, / Fürsten zu Hersfeld, Grafen zu Katzen- / elnbogen, Dietz, Ziegenhain [...] / Meinem gnädigsten Landgrafen / Fürsten und Herrn",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.294Z",
+      "agent": "wyoix05eehnfe9p",
+      "source_id": "413y95a856t6zua"
+    }
+  ]
+}

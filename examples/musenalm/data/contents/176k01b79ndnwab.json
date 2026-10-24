@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ida von Toggenburg« von G. Schwab INr 54094, Obj 5 /) unter der Graphik: Alpenrosen 1826",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ida von Toggenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Löhrer gez. Jh. Lips gest.",
+  "scans": [
+    "alm_738_54095_xofkajhzia.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ida von Toggenburg",
+  "updated": "2008-01-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.686Z",
+      "agent": "67b7mjt5hj46gpd",
+      "source_id": "76jzbym5c9rbo4t"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.686Z",
+      "agent": "iwoqrcn7d9iuxfi",
+      "source_id": "vs7f11srsaca50s"
+    }
+  ]
+}

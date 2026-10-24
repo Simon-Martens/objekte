@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Die Fabel, eine lustige Jungfrau, mit schönem Verstande begabt, wurde beschuldigt, daß sie Kinder täusche",
+  "language": [],
+  "musenalm_id": 16654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fabel. / Nach Harsdörfer. / Aus dem siebenzehnten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fabel. / Nach Harsdörfer. / Aus dem siebenzehnten Jahrhundert",
+  "updated": "2001-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.662Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "nx5mjauisb20a84"
+    }
+  ]
+}

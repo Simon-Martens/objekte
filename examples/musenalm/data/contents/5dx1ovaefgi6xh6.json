@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) s. INr 18620, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18621,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kanonaden in Lÿon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. et sc. 1795",
+  "scans": [
+    "alm_192_18621_nnhvwa26ri.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kanonaden in Lÿon",
+  "updated": "2001-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.403Z",
+      "agent": "ro7bj2n3atpgubn",
+      "source_id": "908hx8v29m98xik"
+    }
+  ]
+}

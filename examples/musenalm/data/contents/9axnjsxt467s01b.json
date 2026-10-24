@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung des Herausgebers zum vorstehenden Beitrag INr 73382, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Le mémoire inopiné que j'ai reçu des nouvelles recherches de le M. Herschel qui réveillent l'attention de toute l'Europe a d´robé la place à quelques",
+  "language": [],
+  "musenalm_id": 73383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Postface de l'Editeur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Postface de l'Editeur",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.719Z",
+      "agent": "b349lt9abynr81b",
+      "source_id": "53e35no6ph3wgzr"
+    }
+  ]
+}

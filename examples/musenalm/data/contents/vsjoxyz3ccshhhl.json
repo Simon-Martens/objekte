@@ -1,0 +1,58 @@
+{
+  "annotation": "lt. G-Verz.: Eine Gruppe schwedischer Truppen /) s. Textbezug INr 130344, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130345,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Ramberg delint. et aqua fort inc. die Aqua Tinta von J. B. Hoessel in Altenburg 1809)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg delint. et aqua fort inc. die Aqua Tinta von J. B. Hoessel in Altenburg 1809",
+  "scans": [
+    "alm_2207_130345_wz1wzgdt5z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.066Z",
+      "agent": "t4wlsbli26ob7y0",
+      "source_id": "15htt7bl6sl7ksd"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.066Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "yg22u0pxssmo4rf"
+    }
+  ]
+}

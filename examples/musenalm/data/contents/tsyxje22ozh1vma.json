@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Wiedersehen über dem Grabe« von H. W. Adelmi INr 85641, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wiedersehen über dem Grabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Klieber del J. Kovatsch sc.",
+  "scans": [
+    "alm_1591_85642_ikk9k2b2rn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wiedersehen über dem Grabe",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.126Z",
+      "agent": "zds1s3x9lwhe6jn",
+      "source_id": "9qwd58xsl2yrems"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.126Z",
+      "agent": "7b9443ro2tn4o8x",
+      "source_id": "qc2321yivjo1vcr"
+    }
+  ]
+}

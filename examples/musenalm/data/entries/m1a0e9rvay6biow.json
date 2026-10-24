@@ -1,0 +1,120 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 6 GG, nT, 3 SS Vrwrt d Hrsg, 2 SS I-Verz, 9 SS VrlgM, 16 BB Kal darin 12 GG, ar: SS 1-41 G-Verz, ar1: SS 1-136, ar2: SS 1-181, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Königlich Großbritannischer Genealogischer 1799",
+    "norm": "~",
+    "biblio": 405017,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2177,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Jaeger)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Kalender, Königlich Großbritannischer Genealogischer 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 33; L/R 14",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "GROSBRITTANNISCHER / historisch-genealogischer / KALENDER / auf das Jahr / 1799. / Mit 13 Kupfern von berühmten Meistern / und / 6 Modekupfern den Geist der / Zeit am Ende des 18ten Jahrhunderts / vorstellend / Frankfurt am Main / In der Jaegerschen Buchhandlung / Fortsetzung des Lauenburger Kalenders",
+  "updated": "2026-06-11 10:18:55.893Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "b392byl6th9b0kd"
+  ],
+  "contents": [
+    "nricchv3ww864i1",
+    "msxwm2mphz7xtix",
+    "mn50qs7g1pdj16l",
+    "uve2ep1eawq3ubu",
+    "80j9d38o3aeh7v3",
+    "esbx1ykawnhllvk",
+    "c4fgqykzciwaml4",
+    "df301e68oos4yhs",
+    "qe22xmssl3tlkdr",
+    "ugs6tmx9n6nfahv",
+    "x344w2hy4xaf4qj",
+    "mm99chkwr1qhnby",
+    "xqqkjogf88q6ovs",
+    "h7dvxc6b8466i2l",
+    "v8elnb1muv0sofh",
+    "2hi7np0yn7ovks5",
+    "a8f0f0v9o6z3weu",
+    "s95ba8mxzu3f5fp",
+    "5uqyzn7ekplzfr5",
+    "q0bmckbvrsnt8ao",
+    "xn2z7111iw10vh3",
+    "8gpy7v4ammaos0f",
+    "h5olmgbl8642cd1",
+    "rnqidn2p00e2eq7",
+    "g3sz4m1exzvqwjs",
+    "k4gt0ycocfjsjja",
+    "vqeyukqbq32vfg9",
+    "y37toekqi7cf2p8",
+    "2h72wh0ef6ej8n8",
+    "kngvu49n0vhefut",
+    "eg7otzsmtcdk6xr",
+    "m226z6u08csg1yg",
+    "su4cv5nzi2vqrcr",
+    "m663fcgqc478f1g",
+    "26e6lg1yosjlmq1",
+    "0lmi95ivfvmdtpd",
+    "c348a5i5hkkr3td",
+    "cva14ghvjbosbz8",
+    "877jek1plg55cvw",
+    "2esar6hopjssww2",
+    "1ci6uc4wk9i98km",
+    "bc4qm8o1nfkzx3t",
+    "4s1tmn6m750dv8w",
+    "aayyq1r7gpa173o",
+    "chaez5t9axx2icu",
+    "rgs4pfs0ag0veto",
+    "v9a2dqh9q3utj16",
+    "1yiu3dgm287drps",
+    "71nrqtszjfhtq7s",
+    "scx8hggvsonmfe1",
+    "k2ov0o4rqij9aca",
+    "j1oyqaheisbcd71"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.071Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.071Z",
+      "agent": "pedc7hwrjrkbbit",
+      "source_id": "fxhimmtkpmzngkl"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Egmont« von J. W. von Goethe s. Textbezug INr 40648, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40647,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Egmont. IIIr. Aufz. 2te. Scene. / Egmont. Das ist dein Egmont!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc. Vienna 1824",
+  "scans": [
+    "alm_529_40647_kovapcpghq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Egmont. IIIr. Aufz. 2te. Scene. / Egmont. Das ist dein Egmont!",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.953Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "71qxcbuijeslnj7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.953Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "odffxc8fg530kmp"
+    }
+  ]
+}

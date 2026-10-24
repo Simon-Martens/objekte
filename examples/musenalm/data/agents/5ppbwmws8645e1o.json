@@ -1,0 +1,1156 @@
+{
+  "annotation": "",
+  "biographical_data": "1635-1681",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.262Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/4679588-1",
+          "label": "Deutschgesinnte Genossenschaft"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2083957-1",
+          "label": "Pegnesischer Blumenorden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2011193-9",
+          "label": "Fruchtbringende Gesellschaft"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Barockdichter; seit 1629 in Nürnberg ansässig; ab 1645 Mitglied und 1662 Präsident des Pegnesischen Blumenordens Nürnberg (Pegnitz-Schäfer Floridan), ab 1658 der Fruchtbringenden Gesellschaft (Der Erwachsene); Student in Jena (1643 imm.); 1654 nobilitiert"
+      ],
+      "dateOfBirth": [
+        "1626-04-25"
+      ],
+      "dateOfDeath": [
+        "1681-06-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Jacob von Sandrart (1630-1708)"
+          ],
+          "creditText": [
+            "https://www.britishmuseum.org/collection/image/1613351772"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sigmund%20von%20Birken%20Portrait%20von%20Jacob%20von%20Sandrart.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sigmund%20von%20Birken%20Portrait%20von%20Jacob%20von%20Sandrart.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sigmund%20von%20Birken%20Portrait%20von%20Jacob%20von%20Sandrart.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T13:33:21.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118511270/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "surname": [
+            "Betulius"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birkner"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/124542913",
+          "label": "Betulius, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/129537470",
+          "label": "Betulius, Johann Salomon"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130352888",
+          "label": "Birken, Clara Catharina von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/121823393",
+          "label": "Betulius, Daniel"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118511270",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/121823393",
+          "label": "Betulius, Daniel"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/124542913",
+          "label": "Betulius, Christian"
+        },
+        {
+          "id": "https://d-nb.info/gnd/129537470",
+          "label": "Betulius, Johann Salomon"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118511270",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4006921-7",
+        "(DE-588a)118511270"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7584477-1",
+          "label": "Skalná"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4042742-0",
+          "label": "Nürnberg"
+        }
+      ],
+      "preferredName": "Birken, Sigmund von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Sigmund"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Birken"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4015479-8",
+          "label": "Erzieher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160414-3",
+          "label": "Hofmeister"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Sigesmundus"
+          ],
+          "surname": [
+            "Betulius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Floridanus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Betulius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Der Erwachsene"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Erwachsene"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Floridan"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Birken, Sigmund von: Teutscher Kriegs Ab- und Friedens Einzug ..",
+        "Birken, Sigmund von: Die vermählte Edle Silvia",
+        "Birken, Sigmund von: Teutsche Rede- bind- und Dicht-Kunst",
+        "Birken, Sigmund von: Pegnesisches Schäfergedicht"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Betulius"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12148735z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n88271727"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/birken-siegmund-von/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/14807781"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q65501"
+        },
+        {
+          "collection": {
+            "abbr": "AAA",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://aaa.gf-franken.de",
+            "name": "Album Academicum Altorphinum (AAA)",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://aaa.gf-franken.de/de/recherche.html?permaLink=01078"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118511270"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118511270/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Sigmund_von_Birken"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Sigmund_von_Birken"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Sigmund_von_Birken"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Sigmund_von_Birken"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/000000012121521X"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118511270"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1600_nnb;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;24"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;29"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;3"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;4"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;46"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1643_betulius;65"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1644_betulius;0"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1649_arnold;99"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1649_loeffelholz;36"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1652_benz;293"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1652_lochner;97"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1659_nothelfer;8"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1660_goetsch;24"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1660_kirchmaier;51"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1668_heckel;79"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1669_cranz;14"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1674_batz;17"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1675_negelein;9"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1677_osiander;8"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1679_arnold;50"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1679_hochmann;84"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1680_stetten2;44"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1643_betulius"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1644_betulius"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118511270"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118511270.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118511270.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118511270"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118511270"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "C., S. B. P. L.",
+        "S. B.",
+        "Bircken Betulius, Sigismundus a",
+        "S. B. P. L. C.",
+        "Bircken, Sigismund",
+        "J. C. S. a B.",
+        "Birken, Sigismond van",
+        "S. v. B.",
+        "Cresciuto, Il",
+        "Birken, Sigismundus von",
+        "Betulius, Sigmund B.",
+        "Falindor",
+        "Birken, Sigmund von",
+        "S. B. K. G. P.",
+        "Floridan",
+        "Bircken, Sigmund von",
+        "Bürcken, Sigmund von",
+        "Bürcken, Siegmund von",
+        "Birken, Sigismund a",
+        "Betulius, Siegmund von",
+        "Betulius, Sigismundus von",
+        "Bircken, Siegmund von",
+        "Bustisgundus, Emilius",
+        "Betulius, Sigmund",
+        "Der Erwachsene",
+        "Birken, Sigismundus",
+        "Rüchende, Der",
+        "Birckmann, Sigismund",
+        "Betulius, Floridan",
+        "Von Birken, Siegmund",
+        "Birken, Siegmund von",
+        "Betulius, Sigismund",
+        "Birken, Sigismundus a",
+        "Erwachsene, Der",
+        "Floridanus",
+        "Betulius, Sigesmundus",
+        "B., S. v.",
+        "Betulius, Sigismundus",
+        "Birkner, Sigmund von",
+        "Betulius, Sigmund von",
+        "Von Birken, Sigmund",
+        "Birken, Sigismund von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Floridan"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "personalName": [
+            "S. B."
+          ]
+        },
+        {
+          "personalName": [
+            "Falindor"
+          ]
+        },
+        {
+          "personalName": [
+            "S. v. B."
+          ]
+        },
+        {
+          "personalName": [
+            "S. B. K. G. P."
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "personalName": [
+            "J. C. S. a B."
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bürcken"
+          ]
+        },
+        {
+          "forename": [
+            "Emilius"
+          ],
+          "surname": [
+            "Bustisgundus"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birkner"
+          ]
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Erwachsene"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Floridan"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "personalName": [
+            "Floridanus"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "S."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "B."
+          ]
+        },
+        {
+          "forename": [
+            "Sigismond"
+          ],
+          "prefix": [
+            "van"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "personalName": [
+            "S. B. P. L. C."
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Il"
+          ],
+          "surname": [
+            "Cresciuto"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bircken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "surname": [
+            "Bircken"
+          ]
+        },
+        {
+          "personalName": [
+            "Der Erwachsene"
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bürcken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "surname": [
+            "Von Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "S. B. P. L."
+          ],
+          "surname": [
+            "C."
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Sigmund B."
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Der"
+          ],
+          "surname": [
+            "Rüchende"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismundus"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Bircken Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "surname": [
+            "Birckmann"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "prefix": [
+            "a"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "surname": [
+            "Von Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Sigesmundus"
+          ],
+          "surname": [
+            "Betulius"
+          ]
+        },
+        {
+          "forename": [
+            "Sigismund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Birken"
+          ]
+        },
+        {
+          "forename": [
+            "Siegmund"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bircken"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Sigmund_von_Birken",
+          "label": "https://de.wikipedia.org/wiki/Sigmund_von_Birken"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:56:48Z",
+    "gnd_query_biographical_data": "1635-1681",
+    "gnd_query_name": "bircken, siegmund von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 204,
+  "name": "Bircken, Siegmund von",
+  "profession": "Text",
+  "pseudonyms": "Floridan",
+  "refs": "Goed III, 113",
+  "updated": "2026-06-11 13:29:21.587Z",
+  "uri": "https://d-nb.info/gnd/118511270",
+  "editor": ""
+}

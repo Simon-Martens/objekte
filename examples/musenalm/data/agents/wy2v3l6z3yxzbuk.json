@@ -1,0 +1,1058 @@
+{
+  "annotation": "",
+  "biographical_data": "1724-1804",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.385Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1235363511",
+          "label": "Feyerabend, Gottfried"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/15514-7",
+          "label": "Königliche Akademie der Wissenschaften (Berlin)"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1116746166",
+          "label": "Königliche Albertus-Universität zu Königsberg i. Pr."
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1770-1796 Professor für Logik und Metaphysik an der Universität Königsberg, 1786 und 1788 Rektor"
+      ],
+      "dateOfBirth": [
+        "1724-04-22"
+      ],
+      "dateOfDeath": [
+        "1804-02-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Becker"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Immanuel%20Kant%20-%20Gemaelde%202.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Immanuel%20Kant%20-%20Gemaelde%202.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Immanuel%20Kant%20-%20Gemaelde%202.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:52:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118559796/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "exactMatch": [
+        {
+          "id": "http://lod.gesis.org/thesoz/concept_10048507",
+          "label": "http://lod.gesis.org/thesoz/concept_10048507"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1205764151",
+          "label": "Kant, Johann Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1201912946",
+          "label": "Kant, Johann Georg"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118559796",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#4.7p",
+          "label": "Personen zu Philosophie"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1201912946",
+          "label": "Kant, Johann Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/1205764151",
+          "label": "Kant, Johann Heinrich"
+        }
+      ],
+      "hasStudent": [
+        {
+          "id": "https://d-nb.info/gnd/1235363511",
+          "label": "Feyerabend, Gottfried"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118559796",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4029507-2",
+        "(DE-588a)118559796",
+        "(DE-588a)1014915821",
+        "(DE-588a)130991147",
+        "(DE-588a)130991155"
+      ],
+      "originalScriptNameOfThePerson": [
+        {
+          "@language": "uk",
+          "@value": "Кант, Імануель"
+        }
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4031541-1",
+          "label": "Königsberg"
+        }
+      ],
+      "preferredName": "Kant, Immanuel",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Immanuel"
+        ],
+        "surname": [
+          "Kant"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4045790-4",
+          "label": "Philosoph"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4003982-1",
+          "label": "Autor"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4175743-9",
+          "label": "Privatlehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "publication": [
+        "Gesammelte Schriften",
+        "Die Religion innerhalb der Grenzen der bloßen Vernunft",
+        "Beobachtungen über das Gefühl des Schönen und Erhabenen",
+        "Metaphysische Anfangsgründe der Naturwissenschaft",
+        "Kritik der Urteilskraft"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79021614"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/kant-immanuel/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/82088490"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q9312"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118559796/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118559796"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Immanuel_Kant"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Immanuel_Kant"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Immanuel_Kant"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Immanuel_Kant"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122824025"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118559796"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118559796"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118559796.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118559796.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118559796"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118559796"
+        },
+        {
+          "collection": {
+            "abbr": "PACELLI",
+            "id": "https://www.pacelli-edition.de",
+            "name": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)",
+            "publisher": "Kritische Online-Edition der Nuntiaturberichte Eugenio Pacellis (1917-1929)"
+          },
+          "id": "https://www.pacelli-edition.de/gnd/118559796"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118559796"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kant, E.",
+        "Yimannuer-Kangde",
+        "Kant, Immanuïl",
+        "Kantius",
+        "Kant, Amanuil",
+        "칸트 이마누엘",
+        "Кант, Імануель",
+        "Kantas, Imanuelis",
+        "K`ang-te",
+        "Kants, Immanuēls",
+        "Kānt, ʿImānūīl",
+        "Yi man nu er Kang de",
+        "Kant, Immanual",
+        "Кант, Иммануил",
+        "Kant, Emmanuele",
+        "Kanti, Imanuel",
+        "Kant, Immanuell",
+        "Kānt",
+        "Kant, Emanuele",
+        "Kānt, ʿImānūʾīl",
+        "칸트",
+        "קאנט, עמנואל",
+        "Kant, Imanuil",
+        "Kantius, Immanuel",
+        "Kānt, ʿAmānūʾīl",
+        "Kantius, Immanowel",
+        "Kant, Immanowel",
+        "Kant, Immanuil",
+        "Kant, Emmanuel",
+        "Canto, I.",
+        "Kānṭ, ʿAmmānūʾīl",
+        "Kant, Imanuel",
+        "カント, イマヌエル",
+        "Kantas, I.",
+        "Kant, M.",
+        "康德",
+        "이마누엘 칸트",
+        "Kanto, I.",
+        "Kānt, `Ammānūʹīl",
+        "קנט, עמנואל",
+        "Kant, Inmanuel",
+        "Kant, Imanuell",
+        "Kanto",
+        "Kant, Imānūīl",
+        "Qanṭ, Immānū'ēl",
+        "イマヌエル・カント",
+        "Kangde, Yimannuer",
+        "Kant",
+        "K'ang-tê, I.",
+        "Kānṭ, Imainual",
+        "Kanto, Imanueru",
+        "Kant, `Imanu'el",
+        "K'ang-tê",
+        "Kant, I.",
+        "康德, 伊曼纽尔",
+        "Kant, Im.",
+        "Kant, Emanuel",
+        "I ma nu el Kan teu",
+        "Kangde",
+        "Kant, Manuel",
+        "Kants, Imanuels",
+        "K`ant`u",
+        "Kant, Manuele",
+        "Kant, Immānū'ēl",
+        "Kant, IImmanuil",
+        "Kant, Imm.",
+        "Kang de",
+        "Kant, Imanuwil",
+        "Kant, Immanuelʹ",
+        "Kan teu, I ma nu el",
+        "Pseudo-Kant",
+        "Cant",
+        "Kan teu",
+        "Ḳanṭ, ʿImanuʾel",
+        "Kant, Imainual"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "K'ang-tê"
+          ]
+        },
+        {
+          "forename": [
+            "E."
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Pseudo-Kant"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Kānt"
+          ]
+        },
+        {
+          "forename": [
+            "Imm."
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immanowel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Иммануил"
+          ],
+          "surname": [
+            "Кант"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuell"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immānū'ēl"
+          ],
+          "surname": [
+            "Qanṭ"
+          ]
+        },
+        {
+          "forename": [
+            "Imānūīl"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "ʿAmānūʾīl"
+          ],
+          "surname": [
+            "Kānt"
+          ]
+        },
+        {
+          "forename": [
+            "Імануель"
+          ],
+          "surname": [
+            "Кант"
+          ]
+        },
+        {
+          "forename": [
+            "Imainual"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Canto"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "K'ang-tê"
+          ]
+        },
+        {
+          "personalName": [
+            "Kanto"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuels"
+          ],
+          "surname": [
+            "Kants"
+          ]
+        },
+        {
+          "forename": [
+            "Immanual"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "ʿAmmānūʾīl"
+          ],
+          "surname": [
+            "Kānṭ"
+          ]
+        },
+        {
+          "personalName": [
+            "Kang de"
+          ]
+        },
+        {
+          "forename": [
+            "ʿImanuʾel"
+          ],
+          "surname": [
+            "Ḳanṭ"
+          ]
+        },
+        {
+          "personalName": [
+            "Kangde"
+          ]
+        },
+        {
+          "forename": [
+            "IImmanuil"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Kan teu"
+          ]
+        },
+        {
+          "forename": [
+            "Imanueru"
+          ],
+          "surname": [
+            "Kanto"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuïl"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuel"
+          ],
+          "surname": [
+            "Kantius"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuēls"
+          ],
+          "surname": [
+            "Kants"
+          ]
+        },
+        {
+          "forename": [
+            "Emmanuel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immanowel"
+          ],
+          "surname": [
+            "Kantius"
+          ]
+        },
+        {
+          "personalName": [
+            "イマヌエル・カント"
+          ]
+        },
+        {
+          "personalName": [
+            "Kangde"
+          ]
+        },
+        {
+          "personalName": [
+            "康德"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuel"
+          ],
+          "surname": [
+            "Kanti"
+          ]
+        },
+        {
+          "forename": [
+            "Manuel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Yi man nu er Kang de"
+          ]
+        },
+        {
+          "personalName": [
+            "K`ang-te"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuele"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Cant"
+          ]
+        },
+        {
+          "personalName": [
+            "I ma nu el Kan teu"
+          ]
+        },
+        {
+          "forename": [
+            "M."
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "I ma nu el"
+          ],
+          "surname": [
+            "Kan teu"
+          ]
+        },
+        {
+          "forename": [
+            "ʿImānūīl"
+          ],
+          "surname": [
+            "Kānt"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuelʹ"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuell"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Im."
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "イマヌエル"
+          ],
+          "surname": [
+            "カント"
+          ]
+        },
+        {
+          "forename": [
+            "עמנואל"
+          ],
+          "surname": [
+            "קנט"
+          ]
+        },
+        {
+          "forename": [
+            "Inmanuel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Imainual"
+          ],
+          "surname": [
+            "Kānṭ"
+          ]
+        },
+        {
+          "forename": [
+            "Yimannuer"
+          ],
+          "surname": [
+            "Kangde"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Kanto"
+          ]
+        },
+        {
+          "forename": [
+            "Immānū'ēl"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "עמנואל"
+          ],
+          "surname": [
+            "קאנט"
+          ]
+        },
+        {
+          "forename": [
+            "`Imanu'el"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "칸트 이마누엘"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuil"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuwil"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "K`ant`u"
+          ]
+        },
+        {
+          "forename": [
+            "`Ammānūʹīl"
+          ],
+          "surname": [
+            "Kānt"
+          ]
+        },
+        {
+          "forename": [
+            "Manuele"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuelis"
+          ],
+          "surname": [
+            "Kantas"
+          ]
+        },
+        {
+          "forename": [
+            "Amanuil"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Yimannuer-Kangde"
+          ]
+        },
+        {
+          "forename": [
+            "Emmanuele"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "I."
+          ],
+          "surname": [
+            "Kantas"
+          ]
+        },
+        {
+          "forename": [
+            "Emanuel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuil"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "Immanuïl"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "personalName": [
+            "Kantius"
+          ]
+        },
+        {
+          "forename": [
+            "伊曼纽尔"
+          ],
+          "surname": [
+            "康德"
+          ]
+        },
+        {
+          "personalName": [
+            "이마누엘 칸트"
+          ]
+        },
+        {
+          "forename": [
+            "Imanuel"
+          ],
+          "surname": [
+            "Kant"
+          ]
+        },
+        {
+          "forename": [
+            "ʿImānūʾīl"
+          ],
+          "surname": [
+            "Kānt"
+          ]
+        },
+        {
+          "personalName": [
+            "칸트"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Immanuel_Kant",
+          "label": "https://de.wikipedia.org/wiki/Immanuel_Kant"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:53:27Z",
+    "gnd_query_biographical_data": "1724-1804",
+    "gnd_query_name": "kant, immanuel"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1348,
+  "name": "Kant, Immanuel",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 2",
+  "updated": "2026-06-11 13:29:23.134Z",
+  "uri": "https://d-nb.info/gnd/118559796",
+  "editor": ""
+}

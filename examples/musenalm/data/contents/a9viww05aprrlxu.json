@@ -1,0 +1,58 @@
+{
+  "annotation": "Über der Graphik: Ahnfrau 1. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Die Ahnfrau« von Fr. Grillparzer /) s. Textbezug INr 85467, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85466,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf. Fort von mir! fort! fort!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. S. v. Perger. S. Langer sc.",
+  "scans": [
+    "alm_1583_85466_2nvcaixff8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Graf. Fort von mir! fort! fort!",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.969Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "6ej4yl23ejttchl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.969Z",
+      "agent": "p5mavct50g7b89r",
+      "source_id": "ez06zpcp4c89azi"
+    }
+  ]
+}

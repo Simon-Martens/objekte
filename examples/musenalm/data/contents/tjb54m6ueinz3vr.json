@@ -1,0 +1,56 @@
+{
+  "annotation": "an der Graphik p. 224 /) Illustration zu »Die St. Rupprechtskirche zu Wien« von Emil, d.i. J. Fr. E. Trimmel INr 129955, Obj 98",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129830,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die St. Ruprechtskirche zu Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. B.",
+  "scans": [
+    "alm_4809_129830_ohxa9yzn3q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die St. Ruprechtskirche zu Wien",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.049Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "6unsp2gto640fw2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.048Z",
+      "agent": "o70q3vimhwk7cqf",
+      "source_id": "x4sl2mlof5d4gcf"
+    }
+  ]
+}

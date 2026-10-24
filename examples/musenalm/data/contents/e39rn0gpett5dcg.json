@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59097,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cottbus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Henning gest. v. H. Fincke",
+  "scans": [
+    "alm_876_59097_ga65yetpld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cottbus",
+  "updated": "2008-08-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.640Z",
+      "agent": "kxthlk7g2kfou9x",
+      "source_id": "3olbi853fwy2d3w"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.640Z",
+      "agent": "yuzymu3frbvfdg7",
+      "source_id": "az0zpc67msjl0l8"
+    }
+  ]
+}

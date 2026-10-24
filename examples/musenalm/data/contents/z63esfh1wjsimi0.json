@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Weinlied« von W. Müller INr 22665, Obj 23 (Photos 22754,01-22754,03)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22754,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Muse. / Weinlied von Wilh. Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Schulz",
+  "scans": [
+    "alm_302_22754_01_l2ip5z22w2.jpg",
+    "alm_302_22754_02_0dp8bxhc3l.jpg",
+    "alm_302_22754_03_192wejpbmv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Meine Muse. / Weinlied von Wilh. Müller",
+  "updated": "2002-03-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.940Z",
+      "agent": "manakippfdpd18n",
+      "source_id": "6726icc8ekmnyw0"
+    }
+  ]
+}

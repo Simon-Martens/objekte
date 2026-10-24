@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "In unserer Literatur gibt es, wie in den meisten Forsten, des schönen musterhaften Hochwalds nur wenig, vieles ist Schlagholz oder Stammreis,",
+  "language": [],
+  "musenalm_id": 66711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXI. / Anzeige einiger der vorzüglichen neuern / Forst- und Jagdschriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXI. / Anzeige einiger der vorzüglichen neuern / Forst- und Jagdschriften",
+  "updated": "2009-09-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.185Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "d7jtcowl2hphdw7"
+    }
+  ]
+}

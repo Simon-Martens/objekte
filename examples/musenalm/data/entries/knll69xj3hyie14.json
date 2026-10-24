@@ -1,0 +1,90 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, Kr, 16 BB Kal darin 12 GG, 62 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Schreib- und Postkalender, Genealogischer (Berlin) 1762",
+    "norm": "~",
+    "biblio": 404999,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2518,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Schreib- und Postkalender, Genealogischer (Berlin) 1762",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / Schreib- und Post- / Calender, / auf das Gemeine Jahr / 1762. / Welcher vorstellet / die Genealogie der jetztlebenden / Hohen Häupter und anderer / Fürstlichen Personen / wie auch / die Post-Curse / und / andere nützliche Sachen. / Herausgegeben / Mit Approbation der Kön. Preuß. / Academie der Wissenschaften",
+  "updated": "2026-06-11 10:18:55.404Z",
+  "variant_title": "",
+  "year": 1762,
+  "editor": "",
+  "items": [
+    "6vg957luvs2amsx"
+  ],
+  "contents": [
+    "grcbxzoh9easy7v",
+    "xbos5eoy6vdb882",
+    "6b1hwjuo5mqk8ra",
+    "1eytbtd0rq63pql",
+    "bd1q70nkslpr2kc",
+    "31pjqp4hkueq72f",
+    "vpf2urbu7r4abq1",
+    "l7dnoot53fvjitn",
+    "1swe8m70d3wlahr",
+    "16i1zqpwihxb6qm",
+    "qwawtrx332aiccs",
+    "7e36sx6adenz8zx",
+    "n0fmibhzkgmkwgn",
+    "i09f636i08eudek",
+    "u5q7c3hhk3cv7kh",
+    "uhlb5jma9439ozj",
+    "m695f938h7vrx7e",
+    "uur87gg9scvr68e",
+    "u8wacja9zzgj0aw",
+    "3at7x0k7bicfgbz",
+    "0a2fqpxlu7yah8y",
+    "iounf5knkz7pqci",
+    "po6pyo8bn1xyeit",
+    "n9b8j4a56p74ele",
+    "2elemz00z14tj4c",
+    "lg6sn8qcir748zu",
+    "vcfa2zrpnn7jq8m",
+    "1baw6mrq5gx2gqa",
+    "u8v44ppvhmt0oty",
+    "udcuogcqguo06cz",
+    "wwuf9y6srx4wqee",
+    "lfwm5gbxoivc47q",
+    "fuj6k10pw3omo6m",
+    "juvna2ywv0joffw"
+  ],
+  "agents": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Wolst, wenn's vermagst, mir doch mal / sagen / Wie großer Mann und Kirchthurm ähnlich sind?",
+  "language": [],
+  "musenalm_id": 5480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aehnlichkeit und Verschiedenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Campe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aehnlichkeit und Verschiedenheit",
+  "updated": "2000-10-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.007Z",
+      "agent": "nuls4hlyk7nfgd0",
+      "source_id": "vc86a32vz1o12j0"
+    }
+  ]
+}

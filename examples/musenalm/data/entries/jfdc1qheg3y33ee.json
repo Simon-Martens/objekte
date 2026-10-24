@@ -1,0 +1,92 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, SS 1–208, darin 6 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1808",
+    "norm": "~",
+    "biblio": 100099,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-04T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1276,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach dramatischer Spiele zur geselligen Unterhaltung auf dem Lande 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 18; L/R 121; Goed VIII. 127, 1",
+  "responsibility_statement": "A. von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / Dramatischer Spiele / zur geselligen Unterhaltung / auf dem Lande / von / A. von Kotzebue. / Sechster Jahrgang / Leipzig / bei P. G. Kummer, / 1808",
+  "updated": "2026-06-11 10:18:54.995Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "items": [
+    "91lq5k2rwzdqhti"
+  ],
+  "contents": [
+    "n7nexyhm936268w",
+    "ew082vx9argi4fs",
+    "yrha6ty4u7actvg",
+    "immgyzbrjhy0oqj",
+    "po57e3bjiondein",
+    "s20zcbcao6t0ejy",
+    "e9h20jdzy359g7n",
+    "thnxxzk9fnb0ltu",
+    "u8ou18sesjl3pnu",
+    "ra2ql3djnw2mpyd",
+    "0vfgk6a7rk0nyuf",
+    "zpfo8tcv85b2izn",
+    "mjsfqnfw082ioy7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "g7fslpkn2ijpzhl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.871Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.871Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "we1msaj42piuuy0"
+    }
+  ]
+}

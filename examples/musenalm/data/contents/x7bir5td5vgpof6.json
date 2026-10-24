@@ -1,0 +1,45 @@
+{
+  "annotation": "Dornenkranz für Benöthigte (Sammlung INr 53173, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Das wiederfährt so leicht nun keinem Fiedler mehr; / Sie opfern meistentheils dem Bacchus viel zu sehr.",
+  "language": [],
+  "musenalm_id": 53189,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. Ueber Orpheus, / der von Bacchantinnen zerrissen wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder v. Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. Ueber Orpheus, / der von Bacchantinnen zerrissen wurde",
+  "updated": "2007-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.842Z",
+      "agent": "qn8g13ehspgkph8",
+      "source_id": "km8s9awii5olbxg"
+    }
+  ]
+}

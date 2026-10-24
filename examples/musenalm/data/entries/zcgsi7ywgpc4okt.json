@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die vaterländische Geschichte 1856/1857",
+    "norm": "",
+    "biblio": 407559,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-11-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3904,
+  "parallel_title": "",
+  "place_statement": "München (Franz)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Taschenbuch für die vaterländische Geschichte 1856/1857",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 123; nicht bei L/R 24; Goed VIII. 101, 228",
+  "responsibility_statement": "Georg Thomas Rudhart",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die vaterländische Geschichte./ Gegründet und herausgegeben / von / Joseph Freyherrn von Hormayr. / und / nach dessen Tode fortgesetzt / von / Dr. Georg Thomas Rudhart, / Vorstand des k. b. Reichsarchives. / XLII. Jahrgang der gesammten und / XXIV. der neuen Folge. / IV. der neuesten Folge. / 1856. 1857 / München. / Druck und Verlag von Georg Franz. / 1856",
+  "updated": "2026-06-11 10:18:54.698Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "items": [
+    "r2mhvwhopni6a67"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.873Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.873Z",
+      "agent": "oi7nzik00egzcl5",
+      "source_id": "9t6d122xtvxutn1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.306Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.306Z",
+      "agent": "w3nfcpalmsedpv3",
+      "source_id": "in39g2l61ypngfo"
+    }
+  ]
+}

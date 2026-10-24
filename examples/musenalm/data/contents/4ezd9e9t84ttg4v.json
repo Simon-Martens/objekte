@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 63400, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64005,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedel in Afrika #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Nilson del. A. Spieß sc.",
+  "scans": [
+    "alm_1055_64005_gsvyx82gtv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedel in Afrika #",
+  "updated": "2009-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.174Z",
+      "agent": "jvt2kfjjwcuz8go",
+      "source_id": "altvd25b1ldwzpu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.174Z",
+      "agent": "8bb100zizr2ji3a",
+      "source_id": "iexu7325dsqrkxi"
+    }
+  ]
+}

@@ -1,0 +1,643 @@
+{
+  "annotation": "",
+  "biographical_data": "1782-1848",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.374Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "1809 Tiroler Freiheitskämpfer; 1813 von Metternich wegen Vorbereitung eines weiteren Aufstands in Tirol verhaftet, ab 1827 in bayer. Diensten"
+      ],
+      "dateOfBirth": [
+        "1782-01-20"
+      ],
+      "dateOfDeath": [
+        "1848-10-05"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ignaz Fertig"
+          ],
+          "creditText": [
+            "Eigenes Foto einer Originallithographie aus eigenem Besitz"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Josef%20von%20Hormayr.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Josef%20von%20Hormayr.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Josef%20von%20Hormayr.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090222459"
+      ],
+      "describedBy": {
+        "dateModified": "2024-11-23T13:33:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118707078/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1193754925",
+          "label": "Hormayr, Theresia Anderler von"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082208728",
+          "label": "Hormayr von, Familie : 1777-1848"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "118707078",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.1p",
+          "label": "Personen der Geschichtswissenschaft (Historiker, Archäologen)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1193754925",
+          "label": "Hormayr, Theresia Anderler von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118707078",
+      "oldAuthorityNumber": [
+        "(DE-588a)127782125",
+        "(DE-588a)118707078",
+        "(DE-588a)127782133",
+        "(DE-588)1090222459",
+        "(DE-588c)4095646-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4066009-6",
+          "label": "Wien"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4027096-8",
+          "label": "Innsbruck"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "preferredName": "Hormayr, Joseph von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Joseph"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Hormayr"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4155430-9",
+          "label": "Geschichtsschreiber"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4447167-1",
+          "label": "Freiheitskämpfer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4176310-5",
+          "label": "Publizist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "J. C. H."
+          ],
+          "surname": [
+            "Merian"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. C. A."
+          ],
+          "surname": [
+            "Merian"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hendryk"
+          ],
+          "surname": [
+            "Kuyper"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "J. C. U."
+          ],
+          "surname": [
+            "Merian"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Hormayr, Josef von: Herzog Luitpold",
+        "Hormayr, Josef von: Die Bayern im Morgenlande",
+        "Hormayr, Josef von: Ueber die Monumenta Boica",
+        "Hormayr, Josef von: Die geschichtlichen Fresken in den Arkaden des Hofgartens zu Münc*",
+        "Hormayr, Josef von: Ueber Minderjährigkeit, Vormundschaft und Großjährigkeit ..",
+        "Hormayr, Josef von: Beyträge zur Geschichte Tirols im Mittelalter",
+        "Hormayr, Josef von: Kritisch-diplomatische Beiträge zur Geschichte Tirols im Mittelalter",
+        "Hormayr, Josef von: Oesterreich und Teutschland",
+        "Hormayr, Josef von: Geschichte der gefürst. Grafschaft Tirol",
+        "Hormayr, Josef von: Beyträge zur Lösung der Preisfrage .."
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb14557567z"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no95029855"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/95217834"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q78833"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090222459"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118707078/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Joseph_Hormayr,_Baron_zu_Hortenburg"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Hormayr"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Joseph_Hormayr%2C_Baron_zu_Hortenburg"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121441962"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118707078"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118707078"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_H/Hormayr-Hortenburg_Josef_1781_1848.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118707078.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118707078.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118707078"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118707078"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Merian, J. C. U.",
+        "Hormayer, Joseph von",
+        "Hormayer, J. von",
+        "Hormayr, Josef von",
+        "Hormayr-Hortenburg, Joseph von",
+        "Merian, J. C. H.",
+        "Hortenburg, Joseph von H.-",
+        "Hortenburg, Josef von",
+        "Zu Hortenburg, Joseph von H.",
+        "Hormayr zuHortenburg, Joseph von",
+        "Hormayr zu Hortenburg, Josef von",
+        "Hortenburg, Joseph H. zu von",
+        "Merian, J. C. A.",
+        "Hortenburg, Joseph Hormayr- von",
+        "Hormayr-Hortenburg, Josef von",
+        "Potpeschnigg, Joseph s.a.",
+        "Hortenburg, Joseph von H. zu",
+        "Hormayr zu Hortenburg, Joseph von",
+        "Hortenburg, Joseph von Hormayr zu",
+        "Kuyper, Hendryk"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Joseph von Hormayr"
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. H."
+          ],
+          "surname": [
+            "Merian"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von H.-"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph s.a."
+          ],
+          "surname": [
+            "Potpeschnigg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr zuHortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. A."
+          ],
+          "surname": [
+            "Merian"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr-Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph H."
+          ],
+          "prefix": [
+            "zu von"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr zu Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "J."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayer"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von H."
+          ],
+          "surname": [
+            "Zu Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph von H."
+          ],
+          "prefix": [
+            "zu"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr zu Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph Hormayr- von"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "J. C. U."
+          ],
+          "surname": [
+            "Merian"
+          ]
+        },
+        {
+          "forename": [
+            "Joseph"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr-Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hortenburg"
+          ]
+        },
+        {
+          "forename": [
+            "Hendryk"
+          ],
+          "surname": [
+            "Kuyper"
+          ]
+        },
+        {
+          "forename": [
+            "Josef"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Hormayr"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Joseph_von_Hormayr",
+          "label": "https://de.wikipedia.org/wiki/Joseph_von_Hormayr"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:47:48Z",
+    "gnd_query_biographical_data": "1782-1848",
+    "gnd_query_name": "hormayr, josef von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1235,
+  "name": "Hormayr, Josef von",
+  "profession": "Text u. Hrsg",
+  "pseudonyms": "",
+  "refs": "ADB XIII, 131",
+  "updated": "2026-06-11 13:29:22.975Z",
+  "uri": "https://d-nb.info/gnd/118707078",
+  "editor": ""
+}

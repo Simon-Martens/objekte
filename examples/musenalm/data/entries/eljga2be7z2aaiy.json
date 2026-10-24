@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für Räthsel-Freunde 1846",
+    "norm": "",
+    "biblio": 407299,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2012-05-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3742,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Köhler)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Taschenbuch für Räthsel-Freunde 1846",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Gustav Feuerlein",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / Räthsel-Freunde. / Nebst / einer Auswahl vermischter Gedichte / von / Gustav Feuerlein. / Stuttgart. / Franz Heinrich Köhler. / 1846",
+  "updated": "2026-06-11 10:18:55.065Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "items": [
+    "j64alf13p9ow1ao"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.078Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.078Z",
+      "agent": "fkz9jp4inegki77",
+      "source_id": "vj65n6hp5lc00bq"
+    }
+  ]
+}

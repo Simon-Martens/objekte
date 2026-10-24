@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Droben auf dem Berge / Steht ein Lindenbaum,",
+  "language": [],
+  "musenalm_id": 46353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfengabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bernhard Mandel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elfengabe",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.209Z",
+      "agent": "ecoa6g9h9p5tcuv",
+      "source_id": "h3dhlk5d101zm01"
+    }
+  ]
+}

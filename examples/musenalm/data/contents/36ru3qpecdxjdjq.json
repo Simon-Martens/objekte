@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Heil und Gruß der Mächtigen! Ich trete / Stolze Stadt, du Königin der Städte!",
+  "language": [],
+  "musenalm_id": 11815,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "37. / Syrakus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Nostitz und Jänkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "37. / Syrakus",
+  "updated": "2001-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.503Z",
+      "agent": "1tsjgk40ftnty4f",
+      "source_id": "xjcxmmwasacjchb"
+    }
+  ]
+}

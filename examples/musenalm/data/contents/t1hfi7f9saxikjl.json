@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Stiefmütterchen« von O. v. Loeben INr 19957, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stiefmütterchen v. Loeben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_268_19933_xgfi4km0hp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stiefmütterchen v. Loeben",
+  "updated": "2001-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.094Z",
+      "agent": "5xfyxcom8t9257f",
+      "source_id": "6l8hejnhc81r3w0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.093Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "aqfa1x5m058mw87"
+    }
+  ]
+}

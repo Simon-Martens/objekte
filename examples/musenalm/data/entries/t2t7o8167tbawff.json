@@ -1,0 +1,85 @@
+{
+  "annotation": "# vermutlich Sophie von Baudissin; 2. Bd. /) weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, T, I-Verz, SS1–244, darin 5 GG, C, VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Almanach für die Jugend von Aurelie # [oJ]",
+    "norm": "~",
+    "biblio": 200901,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 3236,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hallberger)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Theater-Almanach für die Jugend von Aurelie # [oJ]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Theater-Almanach / für die Jugend / von Aurelie. / II. Band. / Stuttgart. Eduard Hallberger / Illustr. im lith. Inst. v. Arnz & Co. in Düsseldorf",
+  "updated": "2026-06-11 10:18:54.833Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "items": [
+    "z8fxs1qxixgf1oz"
+  ],
+  "contents": [
+    "rehkuzxpuj8a9lt",
+    "jwo2t095qcukbhs",
+    "61kponhvb7zxrje",
+    "usbm16uul53vsq7",
+    "x0hhocbt4tw047b",
+    "5l2l92x2eg8lkp4",
+    "y1jb1gv9vm8t9rj",
+    "rubgkdrk2lmq5go",
+    "fzqccvwpjsbblvb",
+    "1zivs92vmvtnzdx",
+    "395u921iuhaaftv",
+    "ch5pw196t2u32r5",
+    "h960twb74u6xc00",
+    "pp8a1c5g8j9gxkm",
+    "1lijdv7f7rxn1i2",
+    "u8z7s8e1wlpyaxd",
+    "u39qmm5l0dah3s5"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.952Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.952Z",
+      "agent": "d5fnfuwmwqfsxjp",
+      "source_id": "od9adfwqsunrbqs"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Nach: »Christine ou la reine de seize ans« von Jean-François Bayard (vgl. Nouvelle biographie générale IV, S. 863)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:50.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nur Muth gefaßt, mein Nichtchen!",
+  "language": [],
+  "musenalm_id": 127943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Königin von sechzehn Jahren # / oder: Christinens Liebe und Entsagung. / Drama in zwei Aufzügen. / Nach dem Französischen frei bearbeitet / von / Theodor Hell.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell [bearb.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Königin von sechzehn Jahren # / oder: Christinens Liebe und Entsagung. / Drama in zwei Aufzügen. / Nach dem Französischen frei bearbeitet / von / Theodor Hell.",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.969Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ll3pcdi6crwzce4"
+    }
+  ]
+}

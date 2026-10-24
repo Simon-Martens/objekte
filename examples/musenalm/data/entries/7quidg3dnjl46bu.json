@@ -1,0 +1,131 @@
+{
+  "annotation": "im Schuber",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, S 1 nT, SS 3-262 darin MusB, B I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Aurora (Gräffer, Seidl) 1827",
+    "norm": "~",
+    "biblio": 106416,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1582,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Aurora (Gräffer, Seidl) 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 25; L/R 96; Goed VIII. 111, 264",
+  "responsibility_statement": "Franz Gräffer",
+  "subtitle_statement": "",
+  "title_statement": "AURORA / Taschenbuch / für / das Jahr / 1827. / Herausgegeben / von / FRANZ GRAEFFER. / Vierter Jahrgang. / Wien, / bey Joseph Riedl's sel. Wittwe. / im Schottenhofe. No 136",
+  "updated": "2026-06-11 10:18:55.523Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "nmykf44yakv6cam"
+  ],
+  "contents": [
+    "7vl71qxjmy8sns1",
+    "7hb8mk6leiiibcz",
+    "labo7tmy9vnw8ev",
+    "oc2npmmag46am5c",
+    "wkrad5pdpfo7hfv",
+    "k059asfzebx56fm",
+    "c7e517kxfms3dmi",
+    "pspedg51rk7vwl1",
+    "zc8mj3up1jlzfgv",
+    "8ijiufmfrvg0ti8",
+    "j20i1d0km2m3a09",
+    "ieyfn6j443wktnk",
+    "ef36mq2p4qybo87",
+    "ade5hl5mz0wdmje",
+    "1jtuw9j7imjsq99",
+    "cv6wqmoovtyj0k7",
+    "lix8hi97e9295cy",
+    "2xlrnv0z338vbxq",
+    "uwk99709gajdk5a",
+    "mkmyttq7327jexu",
+    "km2cwt2mjaclxty",
+    "ykv2xs75rk3hsyo",
+    "sf6282ii5gadb6w",
+    "ure19ounqhjs4xt",
+    "jpp5s9io3l01zye",
+    "7scpamqm837g86u",
+    "chdr9u2y1wugg1n",
+    "xmwopsamfe0upuj",
+    "j2yl76qyxbytsak",
+    "gcaolduf8s6ft8b",
+    "8cg6u7sy226v5ry",
+    "a8ymwlahc0dsnmj",
+    "mu6p0qohrol2gm2",
+    "1jhhdl9xsd4dvzd",
+    "18dtrqqx866dzhx",
+    "pujrcukk6u78q15",
+    "7e565zhjks83hpo",
+    "rcckealr3c9qz70",
+    "s00j2hcjdqu25w1",
+    "7xec10hobc81487",
+    "ey9w5lpgw2z2651",
+    "htn9tv0dxotq7gn",
+    "3kqqwo6j38qkpeo",
+    "uhaa18ueox6lk0s",
+    "duim94cojeytvsx",
+    "spmymrk4s3brqk4",
+    "qmnes4ce1lz68et",
+    "it6yik9b0200f5g",
+    "ydlwmc69hck918e",
+    "n0txzxgdpu6483q",
+    "ib63w8nty4boert",
+    "xf48auy6aezb70t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.932Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.932Z",
+      "agent": "cjjmyv8q19tuj7i",
+      "source_id": "3xcqqllwdqbak95"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.138Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.138Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "ev1s3knbbw4y24v"
+    }
+  ]
+}

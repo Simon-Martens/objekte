@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Wer möchte sich an Schattenbildern weiden, / Die mit erborgtem Schein das Wesen überkleiden,",
+  "language": [],
+  "musenalm_id": 1327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poesie des Lebens. / An **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poesie des Lebens. / An **",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.711Z",
+      "agent": "z7x6qq4zgxumydc",
+      "source_id": "mlyt1zaesrdkm1u"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Trommsdorfs f. Ärzte, Chemiker u. Pharmazeutiker 1803",
+    "norm": "",
+    "biblio": 409219,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4293,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Henning)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Taschenbuch, Trommsdorfs f. Ärzte, Chemiker u. Pharmazeutiker 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 162; L/R 172",
+  "responsibility_statement": "Dr. J. B. Trommsdorf",
+  "subtitle_statement": "",
+  "title_statement": "Dr. J. B. Trommsdorff's / Taschenbuch / für / Aerzte, Chemiker u. Pharmazeutiker / auf das Jahr 1803. / Mit 6 Kupfern. / Erfurt, 1803. / Henningsche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.280Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "9mrgdxmr14uh99s"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.361Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.361Z",
+      "agent": "79s6g0dyfdb2slz",
+      "source_id": "katej5t0hnnmxcj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.987Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.987Z",
+      "agent": "viypozfj2rtaa6w",
+      "source_id": "n2sbb16anre8beu"
+    }
+  ]
+}

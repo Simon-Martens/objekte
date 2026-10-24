@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:39.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Allen Sammlungen drohet leider! das Schicksal, sobald ihre Besitzer verendet sind, zerstreuet, ja oft, - schmächlich vertrödelt zu werden.",
+  "language": [],
+  "musenalm_id": 109040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXVII. / Schöne Gewehre! Rare Rehbocksgehörne! / Wer kauft?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXVII. / Schöne Gewehre! Rare Rehbocksgehörne! / Wer kauft?",
+  "updated": "2015-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.245Z",
+      "agent": "vb68kmtb3e9gd34",
+      "source_id": "c7ju1amn6b01be7"
+    }
+  ]
+}

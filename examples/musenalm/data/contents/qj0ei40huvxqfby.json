@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Herr Bibus in einem kleinen Kahn / Erkühnt sich zu fahren den Rhein hinan,",
+  "language": [],
+  "musenalm_id": 93122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der muthige Schiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der muthige Schiffer",
+  "updated": "2002-05-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.293Z",
+      "agent": "pnennqhmzrv3ms6",
+      "source_id": "85n3mrfmqes0v09"
+    }
+  ]
+}

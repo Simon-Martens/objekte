@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Biographie (Sammlung INr 67306, Obj 6) mit zahlr. Anmerkungen /) mit einer Illustration s. Titelportrait INr 67302, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mein Vater, Albrecht Ludwig Seutter von Litzen, war Patricier und Oberforstmeister der freien Reichsstadt Ulm und meine Mutter die Tochter des dortigen Bürgermeisters, Freiherrn von Welser.",
+  "language": [],
+  "musenalm_id": 67307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Persönliche Verhältnisse / des / Königlichen Würtembergischen Forstraths- / Directors, Freiherrn v. Seutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Frhr. v. Seutter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Persönliche Verhältnisse / des / Königlichen Würtembergischen Forstraths- / Directors, Freiherrn v. Seutter",
+  "updated": "2009-10-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.191Z",
+      "agent": "kvif1t1f26x4zut",
+      "source_id": "qt4j0gyo6d39n2l"
+    }
+  ]
+}

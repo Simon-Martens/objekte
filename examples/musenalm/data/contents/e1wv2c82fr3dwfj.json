@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehenden Beitrag INr 80862, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80863,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Gabriel Seidl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Grilhofer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1801_80863_n6iae2t6yl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Gabriel Seidl",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.831Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "q0yfzrf89b5fi5n"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.831Z",
+      "agent": "grlysh1qup6bhvj",
+      "source_id": "wmewq5wl0r6onwv"
+    }
+  ]
+}

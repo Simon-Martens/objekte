@@ -1,0 +1,288 @@
+{
+  "annotation": "",
+  "biographical_data": "1744->1812",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.510Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Arzt (Leibarzt des Landgrafen von Hessen-Rothenburg), Botaniker, Musikschriftsteller"
+      ],
+      "dateOfBirth": [
+        "1744-05-23"
+      ],
+      "dateOfDeath": [
+        "1826-07-22"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-11T16:49:46.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#2",
+          "label": "Katalogisierungslevel 2"
+        },
+        "id": "https://d-nb.info/gnd/10069876X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "10069876X",
+      "id": "https://d-nb.info/gnd/10069876X",
+      "oldAuthorityNumber": [
+        "(DE-588a)10069876X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4050653-8",
+          "label": "Rotenburg a. d. Fulda"
+        }
+      ],
+      "preferredName": "Weiss, Friedrich Wilhelm",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Wilhelm"
+        ],
+        "surname": [
+          "Weiss"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4003157-3",
+          "label": "Arzt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146402-3",
+          "label": "Botaniker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398800-3",
+          "label": "Musikschriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        }
+      ],
+      "publication": [
+        "Weiss, Friedrich W.: Entwurf einer Forstbotanik",
+        "Miller, John S.: Illustratio Systematis Sexualis Linnaeani quam e textu Anglico edit. ...",
+        "Weiss, Friedrich W.: Lieder mit Melodien",
+        "Weiss, Friedrich W.: Vorbereitung zum Unterricht in den Grundkenntnissen der Botanik",
+        "Müller, John S.: Illustratio systematis sexualis Linnaei",
+        "Weiss, Friedrich W.: Plantae cryptogamicae Florae Gottingensis"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/nr00030205"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/52042504"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19003293"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/10069876X/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000079958764"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/10069876X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/10069876X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/10069876X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Weis, Fridrich W.",
+        "Weiß, Friderich W.",
+        "Weis, Friedrich W.",
+        "Weiß, ...",
+        "Weiss, Friedrich W.",
+        "Weiss, Fridericus G.",
+        "Weisse, Friedrich W.",
+        "Weiss, Fridericus Guilielmus",
+        "Weis, Friedrich Wilhelm"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Fridrich W."
+          ],
+          "surname": [
+            "Weis"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus G."
+          ],
+          "surname": [
+            "Weiss"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Weiss"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Wilhelm"
+          ],
+          "surname": [
+            "Weis"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus Guilielmus"
+          ],
+          "surname": [
+            "Weiss"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Weisse"
+          ]
+        },
+        {
+          "forename": [
+            "Friderich W."
+          ],
+          "surname": [
+            "Weiß"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Weiß"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich W."
+          ],
+          "surname": [
+            "Weis"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "ascii_name",
+    "gnd_matched_at": "2026-06-11T13:19:51Z",
+    "gnd_query_biographical_data": "1744->1812",
+    "gnd_query_name": "weiß, friedrich wilhelm"
+  },
+  "edit_comment": "DNB: weak Match",
+  "edit_state": "Review",
+  "fictional": false,
+  "musenalm_id": 3090,
+  "name": "Weiß, Friedrich Wilhelm",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "DBI 2172",
+  "updated": "2026-06-11 13:29:25.667Z",
+  "uri": "https://d-nb.info/gnd/10069876X",
+  "editor": ""
+}

@@ -1,0 +1,124 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG §, VB, verso G, T, B I-Verz, 4 GG, SS 3-232",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Klio (Wien) 1822",
+    "norm": "",
+    "biblio": 411724,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2025-07-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4897,
+  "parallel_title": "",
+  "place_statement": "Wien (Riedl)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Klio (Wien) 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 72; nicht bei L/R; Goed VIII, 101, 221",
+  "responsibility_statement": "J. Carl Unger; Peter Gr. v. Sermage",
+  "subtitle_statement": "",
+  "title_statement": "KLIO / Ein Taschenbuch / historischer Aufsätze / und / heiterer Dichtungen / von J. Carl Unger / und J. Peter Gr. v. Sermage. / Dritter Jahrgang / WIEN 1822. / Bey Jos. Riedl, bürgl. Buchbinder im Schottenhofe No.143",
+  "updated": "2026-07-09 08:34:25.734Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [
+    "u1unxwgw333ewsn"
+  ],
+  "contents": [
+    "ojql618n2sdey9q",
+    "ydw0z2uznbau7zm",
+    "3731fltq6p0k7kq",
+    "je6trf9rce4rr7t",
+    "pfbqbqqb12wmtxc",
+    "vpyum95424zlo7o",
+    "d07k282vz4703cq",
+    "4ltysw3mtxu9ish",
+    "t01qsc9hrjzr2mo",
+    "7n6t88j9jkw7o9r",
+    "fx0gpo7ujd6w2ml",
+    "basa6u09x6yon4h",
+    "db8j16qdbglacyj",
+    "3snexj0d8mz6g1w",
+    "1bjtlbcg8noiz6h",
+    "pn6709wz23dwbs4",
+    "ngibd2kylxgb4rz",
+    "8h8ocbvwum9v1pt",
+    "m6il9dbla4p1afg",
+    "829adi6lm6zlzq7",
+    "78x5kytwsbk3us7",
+    "7isbownab8tfhu4",
+    "9kaod7hmf77ea70",
+    "zies6uoe7w5u1tf",
+    "ig1t0cg0io1i2ft",
+    "q7q7ihdptpv6nee",
+    "avz1zj91bbndj8q",
+    "irvffypfdp4n2jz",
+    "eo5mnyp6pvcv26a",
+    "0pat0cchto3dzwy",
+    "65m0nyi7tnf4u74",
+    "wuexdrg3b5i7fvw",
+    "88cz4yflt2u6wgt",
+    "ej8cbl3p2jw6ke2"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.205Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-07-09 08:34:25.735Z",
+      "agent": "nf6hcprj7w45n4m",
+      "source_id": "9vhf3o32ouogjzm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.205Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-07-09 08:34:25.735Z",
+      "agent": "o5dngso79tmajfb",
+      "source_id": "ec9gj4iiavx4vw2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.205Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-07-09 08:34:25.735Z",
+      "agent": "14s4e7sp59idp02",
+      "source_id": "kmfdq6o172m0vdq"
+    }
+  ]
+}

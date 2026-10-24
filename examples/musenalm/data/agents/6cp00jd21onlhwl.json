@@ -1,0 +1,530 @@
+{
+  "annotation": "",
+  "biographical_data": "1719-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.386Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Deutscher Naturwissenschaftler und Epigrammdichter; Hofrat in Göttingen; seine Bibliothek wurde ab dem 26.10.1801 in Göttingen versteigert",
+        "Bibliotheca Abr. Gotth. Kaestneri, Britanniar. regi qvondam a consil. et mathes. atqve physic. prof. p.o. celeberrimi ordine digesta, qvae Gottingae die XXVI. octob. a. MDCCCI pvblica avctionis lege divendetvr"
+      ],
+      "dateOfBirth": [
+        "1719-09-27"
+      ],
+      "dateOfDeath": [
+        "1800-06-20"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            ""
+          ],
+          "creditText": [
+            "From http://www.sil.si.edu/digitalcollections/hst/scientific-identity/fullsize/SIL14-K001-01a.jpg http://portrait.kaar.at/Stahlstiche%202/images/abraham_gotthelf_kaestner.jpg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Abraham%20Gotthelf%20K%C3%A4stner.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Abraham%20Gotthelf%20K%C3%A4stner.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Abraham%20Gotthelf%20K%C3%A4stner.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/160395445"
+      ],
+      "describedBy": {
+        "dateModified": "2024-12-09T16:06:42.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118714570/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/10086743X",
+          "label": "Kästner, Abraham"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118714570",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#28p",
+          "label": "Personen zu Mathematik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#21.5p",
+          "label": "Personen zu Physik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/10086743X",
+          "label": "Kästner, Abraham"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118714570",
+      "oldAuthorityNumber": [
+        "(DE-588)160395445",
+        "(DE-588a)160395445",
+        "(DE-588c)4096845-5",
+        "(DE-588a)118714570"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Kästner, Abraham Gotthelf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Abraham Gotthelf"
+        ],
+        "surname": [
+          "Kästner"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037945-0",
+          "label": "Mathematiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4045968-8",
+          "label": "Physiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4160419-2",
+          "label": "Hofrat"
+        }
+      ],
+      "publication": [
+        "Dem Andenken seines Freundes Christlob Mylius, Correspondentens ...",
+        "Dissertations sur les Devoir qui resultent de la Conviction ...",
+        "Gedanken über das Unvermögen der Schriftsteller Empörungen ...",
+        "Zwo Elegien",
+        "Zum Theil noch ungedruckte Sinngedichte und Einfälle",
+        "Anfangsgründe der Mathematik",
+        "Astronomische Abhandlungen",
+        "Reflexions sur l'origine du plaisir",
+        "Anmerkungen über die Markscheidekunst",
+        "Mathematische Anfangsgründe"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb123392338"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85241161"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/39450522"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61813"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118714570/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160395445"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118714570"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Abraham_Gotthelf_K%C3%A4stner"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Abraham_Gotthelf_K%C3%A4stner"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Abraham_Gotthelf_K%C3%A4stner"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Abraham_Gotthelf_K%C3%A4stner"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000108897973"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118714570"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118714570"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118714570.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118714570.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118714570"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118714570"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Kaestner, Abraham Gotthelf",
+        "Kästner, A. G.",
+        "Kaestnerus, Abrahamus G.",
+        "Kaestner, Abrahamus Gotthelff",
+        "Kaestner, Abrah. Gotth.",
+        "Kästner, Abraham",
+        "Kästner",
+        "Kaestnerus, Abraham Gotthelf",
+        "Kaestner, Abrah. Gotthelf",
+        "Knäs",
+        "A. G. K.",
+        "Kästner, Satyren von",
+        "Kästner, Abraham G.",
+        "Kaestnern, Abraham Gotthelf",
+        "K., A. G.",
+        "Kaerstner",
+        "Kaestnerus, Abrahamus Gotthelf"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Abrah. Gotth."
+          ],
+          "surname": [
+            "Kaestner"
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "Kästner"
+          ]
+        },
+        {
+          "forename": [
+            "A. G."
+          ],
+          "surname": [
+            "K."
+          ]
+        },
+        {
+          "forename": [
+            "Abraham Gotthelf"
+          ],
+          "surname": [
+            "Kaestnerus"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham"
+          ],
+          "surname": [
+            "Kästner"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham Gotthelf"
+          ],
+          "surname": [
+            "Kaestner"
+          ]
+        },
+        {
+          "forename": [
+            "Abrahamus Gotthelf"
+          ],
+          "surname": [
+            "Kaestnerus"
+          ]
+        },
+        {
+          "personalName": [
+            "Kaerstner"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham G."
+          ],
+          "surname": [
+            "Kästner"
+          ]
+        },
+        {
+          "forename": [
+            "Satyren"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Kästner"
+          ]
+        },
+        {
+          "personalName": [
+            "Kästner"
+          ]
+        },
+        {
+          "forename": [
+            "Abraham Gotthelf"
+          ],
+          "surname": [
+            "Kaestnern"
+          ]
+        },
+        {
+          "personalName": [
+            "Knäs"
+          ]
+        },
+        {
+          "forename": [
+            "Abrahamus G."
+          ],
+          "surname": [
+            "Kaestnerus"
+          ]
+        },
+        {
+          "personalName": [
+            "A. G. K."
+          ]
+        },
+        {
+          "forename": [
+            "Abrah. Gotthelf"
+          ],
+          "surname": [
+            "Kaestner"
+          ]
+        },
+        {
+          "forename": [
+            "Abrahamus Gotthelff"
+          ],
+          "surname": [
+            "Kaestner"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Abraham_Gotthelf_K%C3%A4stner",
+          "label": "https://de.wikipedia.org/wiki/Abraham_Gotthelf_K%C3%A4stner"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:53:45Z",
+    "gnd_query_biographical_data": "1719-1800",
+    "gnd_query_name": "kästner, abraham gotthelf"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1354,
+  "name": "Kästner, Abraham Gotthelf",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed IV/1, 42",
+  "updated": "2026-06-11 13:29:23.147Z",
+  "uri": "https://d-nb.info/gnd/118714570",
+  "editor": ""
+}

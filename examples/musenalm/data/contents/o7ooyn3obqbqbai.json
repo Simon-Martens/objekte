@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Gefangene« von Habermann INr 90859, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Gedichte: Der Gefangene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jn. Blaschke sc.",
+  "scans": [
+    "alm_1775_90860_7xq9qqdppq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zum Gedichte: Der Gefangene",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.287Z",
+      "agent": "puogqgth9l8pofw",
+      "source_id": "lsny370pr2zt72v"
+    }
+  ]
+}

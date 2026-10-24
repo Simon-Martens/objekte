@@ -1,0 +1,87 @@
+{
+  "annotation": "Nachweis: Bibliotheken der staatlichen Museen zu Berlin, SPK: http://opac.smb.spk-berlin.de /) Standort unter:http://www.ifskb.de/?q=node/11 (28.08.08)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, S, T, 12 BB Kal darin 12 SS 12 GG, ar: SS 1-110, ar1: SS 1-239",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Postkalender, Genealogischer und (Berlin) 1818",
+    "norm": "~",
+    "biblio": 200738,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 922,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Postkalender, Genealogischer und (Berlin) 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "GENEALOGISCHER / und / Post-Kalender / auf / das Gemein-Jahr 1818. / Mit Kupfern. / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.311Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "items": [
+    "e2wx5iar30kmala"
+  ],
+  "contents": [
+    "qx6iw4cq3rhjwgi",
+    "3ua980ifzdz1ktu",
+    "v29h441idp0hx8y",
+    "yvihu2vrhj69ofh",
+    "xhyw8oyng2kqbsx",
+    "0iskmz96gcltk9b",
+    "gwbaza320qoeom1",
+    "vo6bljdtvw6dm9c",
+    "fyq94hujvtssj37",
+    "l6e7w6hlmttvcjt",
+    "bx51tubevxdpnr2",
+    "x98m6ba7tjecrdl",
+    "imoq17ab8bq3t16",
+    "e1f5l4o5yjwj4x8",
+    "gwayoqbog8ixq5z",
+    "9cdwpn2kjfhhr8n",
+    "eia19l9we0h6drq",
+    "x2byem3myycqrji",
+    "ixe0i0v1cg3fai4",
+    "wifrxew9s4w5eys",
+    "zydfia38d08057n",
+    "7ie0k54w9mm6334",
+    "ij86cakv60w72pa",
+    "piofwe5meetzeyv",
+    "mw0tkh3h3zp0saq",
+    "gp8prj68ihf24lj",
+    "2llyvgjo4khafsn",
+    "bsy8mx3bzjztlkz",
+    "jvihb3e7yk0k2qf",
+    "kbwuynnx4oj3h0x",
+    "5kc1jraydeunjiz"
+  ],
+  "agents": []
+}

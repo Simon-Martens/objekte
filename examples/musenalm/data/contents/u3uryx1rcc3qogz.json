@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Bonapartisches (Sammlung INr 35132, Obj 101) / Gedichte (Sammlung INr 35127, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Ich nag' an Seid' und Sammt, zerfreße Stahl und Eisen. / Die Lorbeerkränze nur sind mir zu bittre Speisen.",
+  "language": [],
+  "musenalm_id": 35139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Nach seinem Tode. / Das Epigramm spricht:",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. v. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Nach seinem Tode. / Das Epigramm spricht:",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.669Z",
+      "agent": "3otd6uv72ls66y4",
+      "source_id": "7ybviez3hri5g3l"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Malerin« von Johann Langer INr 94674, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94670,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Brocky del. C. Mahlknecht gest. in Stahl Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Brocky del. C. Mahlknecht gest. in Stahl Wien",
+  "scans": [
+    "alm_1873_94670_xcxg0k7k8h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.673Z",
+      "agent": "dvo42rs2utb12ts",
+      "source_id": "s8hmdv8mmywjbo5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.673Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "zi00kyl1phma177"
+    }
+  ]
+}

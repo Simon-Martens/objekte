@@ -1,0 +1,50 @@
+{
+  "annotation": "Anhang zu Beckers Taschenbuch 1809. enthaltend: Compositionen und Tänze, von Harder, Reichardt, Himmel  und Bergt (Anhang INr 61598, Obj 163) (Photos 61608,01-61608,04)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Polonoise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_216_61608_01_yeqil7fmux.jpg",
+    "alm_216_61608_02_mftk72u6m4.jpg",
+    "alm_216_61608_03_wqwvblv2cf.jpg",
+    "alm_216_61608_04_b4fj9lgy5x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Polonoise",
+  "updated": "2001-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.979Z",
+      "agent": "25ubfkw7g6ebn5g",
+      "source_id": "s7p5deao1r0621b"
+    }
+  ]
+}

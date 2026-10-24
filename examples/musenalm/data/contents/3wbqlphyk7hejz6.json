@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: s. Eduard Allwills Papiere im deutschen Merkur, Monat April 1776.und das Gedicht Seite 110 im Wien. Musenalmanach 1778 in: Musenalmanach, Wiener 1778 INr 30809",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "O du, um die ich oft mit aufgehobnen / Armen / In manchem heißen Dranggebet",
+  "language": [],
+  "musenalm_id": 35026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine gefundene Sylli. / Amalien von D***s gewidmet. / An einem Sonntagmorgen auf dem / Wege nach Heiligenstadt im / Herbste 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine gefundene Sylli. / Amalien von D***s gewidmet. / An einem Sonntagmorgen auf dem / Wege nach Heiligenstadt im / Herbste 1780",
+  "updated": "2003-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.787Z",
+      "agent": "r0cj8qhqzdwnywn",
+      "source_id": "r6iw3bz6lfy793b"
+    }
+  ]
+}

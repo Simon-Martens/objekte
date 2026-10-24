@@ -1,0 +1,647 @@
+{
+  "annotation": "",
+  "biographical_data": "1805-1868",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.487Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/1081427701",
+          "label": "Hall, Placidus"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/40439-1",
+          "label": "Adalbert Stifter Verein"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Anfangs Privatlehrer in Wiener Adelsfamilien, u. a. im Haus des Fürsten Metternich. 18481851 Redakteur des „Wiener Boten“ und der „Linzer Zeitung“; 1850-1865 Schulrat und Inspektor der oberösterreichischen Volksschulen in Linz; Landeskonservator für Oberösterreich"
+      ],
+      "dateOfBirth": [
+        "1805-10-23"
+      ],
+      "dateOfDeath": [
+        "1868-01-28"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Bertalan Székely"
+          ],
+          "creditText": [
+            "Alfred Doppler: Stationen im Leben Adalbert Stifters. auf ooegeschichte: http://www.ooegeschichte.at/themen/kunst-und-kultur/literaturgeschichte-oberoesterreichs/adalbert-stifter/biografie/ (page-1981)"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9kely%20Portrait%20of%20Adalbert%20Stifter%201863.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sz%C3%A9kely%20Portrait%20of%20Adalbert%20Stifter%201863.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Sz%C3%A9kely%20Portrait%20of%20Adalbert%20Stifter%201863.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/143458132"
+      ],
+      "describedBy": {
+        "dateModified": "2025-10-07T10:30:41.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118618156/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1080339159",
+          "label": "Friepes, Franz"
+        },
+        {
+          "forename": [
+            "Amalia"
+          ],
+          "surname": [
+            "Mohaupt"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082353027",
+          "label": "Stifter, Johann"
+        },
+        {
+          "forename": [
+            "Magdalena"
+          ],
+          "surname": [
+            "Friepes"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082007927",
+          "label": "Mayer, Jacob"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082007668",
+          "label": "Mayer, Ferdinand"
+        },
+        {
+          "forename": [
+            "Augustin"
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1082231142",
+          "label": "Mohaupt, Philipp"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-CZ",
+          "label": "Tschechische Republik"
+        }
+      ],
+      "gndIdentifier": "118618156",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/1080339159",
+          "label": "Friepes, Franz"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/1082353027",
+          "label": "Stifter, Johann"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/1081427701",
+          "label": "Hall, Placidus"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118618156",
+      "oldAuthorityNumber": [
+        "(DE-588a)118618156",
+        "(DE-588a)143458132",
+        "(DE-588a)131190504",
+        "(DE-588)143458132",
+        "(DE-588c)4057535-4",
+        "(DE-588a)12710867X"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4290244-7",
+          "label": "Horní Planá"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4074255-6",
+          "label": "Linz"
+        }
+      ],
+      "preferredName": "Stifter, Adalbert",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Adalbert"
+        ],
+        "surname": [
+          "Stifter"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4033423-5",
+          "label": "Künstler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035088-5",
+          "label": "Lehrer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4180195-7",
+          "label": "Schulrat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4177294-5",
+          "label": "Redakteur"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Ostade"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Weihnacht, Silvester",
+        "Der Condor. - 1 CD. - [2009]",
+        "Das Haidedorf. - 1 CD (MP3). - [2009]",
+        "Der beschriebene Tännling. - 1 CD (MP3). - [2009]",
+        "Warenauslagen & Ankündigungen : aus dem alten Wien",
+        "Der Waldsteig",
+        "Stifter, Adalbert: Die Narrenburg",
+        "Feldblumen. - 1 CD (MP3). - [2009]",
+        "Brigitta",
+        "Stifter, Adalbert: Bunte Steine",
+        "Stifter, Adalbert: Der Nachsommer",
+        "Die Sonnenfinsternis",
+        "Der Hagestolz. - 1 CD (MP3). - [2009]",
+        "Vom Rechte : [Artikel, der 1850 im Wiener Boten erschien]",
+        "Ein Gang durch die Katakomben",
+        "Mitverf. von: Stifter, Amalia : Wenn dich fern von mir der Abend kühlet : Adalbert an Amalia, Amalie an Adalbert ; Briefwechsel zwischen Amalia und Adalbert Stifter",
+        "Turmalin",
+        "Mein Leben",
+        "Studien",
+        "Lebensüberdruß : Gedicht",
+        "Der Hochwald",
+        "Katzensilber",
+        "Der Heilige Abend : nach der Erzählung \"Bergkristall\"",
+        "Wanderungen durch Böhmen und Bayern. - 1 CD. - [2005]",
+        "Nur das Leben lassen wir dann bleiben : aus den Briefen von Adalbert Stifter",
+        "Stifter, Adalbert: Erzählungen",
+        "Nachkommenschaften",
+        "Die Mappe meines Urgroßvaters",
+        "L' homme sans postérité",
+        "Witiko",
+        "Das sanfte Gesetz",
+        "Der Rückblick : aus dem Nachsommer",
+        "Der Nachsommer",
+        "Bunte Steine",
+        "Stifter, Adalbert: Witiko",
+        "Granit : (erschienen 1849 unter dem Titel \"Die Pechbrenner\")",
+        "Der Waldgänger",
+        "Die Narrenburg",
+        "Winterbriefe aus Kirchschlag",
+        "Aus dem alten Wien : 1844",
+        "Stifter, Adalbert: Abdias",
+        "Stifter, Adalbert: Studien",
+        "Die Charwoche",
+        "Märchen, Sagen und Legenden",
+        "Stifter, Adalbert: Der Hochwald",
+        "Rock crystal : a Christmas tale",
+        "Bergkristall",
+        "Adalbert Stifter, der Zeichner und Maler : ein Bilderbuch",
+        "Das alte Siegel",
+        "Erzählungen",
+        "Wien und die Wiener",
+        "Indian summer",
+        "Abdias"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb119255701"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79081269"
+        },
+        {
+          "collection": {
+            "abbr": "OSTDEBIB",
+            "id": "http://www.wikidata.org/entity/Q52617553",
+            "name": "Ostdeutsche Biographie",
+            "publisher": "Kulturportal West-Ost"
+          },
+          "id": "http://kulturportal-west-ost.eu/persons/stifter-adalbert/"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/22149114"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q168542"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118618156"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118618156/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143458132"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118618156"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Adalbert_Stifter"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Adalbert_Stifter"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Adalbert_Stifter"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Adalbert_Stifter"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121235886"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118618156"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118618156"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_S/Stifter_Adalbert_1805_1868.xml?frames=yes"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118618156.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118618156.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118618156"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/D723433C216447CA8864BD10FD0E38ED"
+        },
+        {
+          "collection": {
+            "abbr": "ba-herder",
+            "icon": "https://www.herder-institut.de/favicon.ico",
+            "id": "https://www.herder-institut.de",
+            "name": "Bildarchiv / Herder-Institut",
+            "publisher": "Herder-Institut für historische Ostmitteleuropaforschung – Institut der Leibniz-Gemeinschaft"
+          },
+          "id": "https://www.herder-institut.de/bildkatalog/gnd/118618156"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "슈티프터, 아달베르트",
+        "Stiphter, Antalmpert",
+        "Stifter, Ad.",
+        "アーダルベルト・シュティフター",
+        "Stifter, Adalberto",
+        "Štifter, Adal'bert",
+        "Shuteifutô",
+        "Stifter, Adelbert",
+        "Shutifutâ",
+        "Stifter, A.",
+        "Stifter, Albert",
+        "Ostade",
+        "Stifter",
+        "Stifter, Aldabert",
+        "Shutifutā, Ādaruberuto"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "personalName": [
+            "Stifter"
+          ]
+        },
+        {
+          "forename": [
+            "Ad."
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "forename": [
+            "Ādaruberuto"
+          ],
+          "surname": [
+            "Shutifutā"
+          ]
+        },
+        {
+          "forename": [
+            "Albert"
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "personalName": [
+            "Shutifutâ"
+          ]
+        },
+        {
+          "personalName": [
+            "Shuteifutô"
+          ]
+        },
+        {
+          "forename": [
+            "Adelbert"
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "forename": [
+            "아달베르트"
+          ],
+          "surname": [
+            "슈티프터"
+          ]
+        },
+        {
+          "forename": [
+            "Adalberto"
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "personalName": [
+            "アーダルベルト・シュティフター"
+          ]
+        },
+        {
+          "forename": [
+            "Aldabert"
+          ],
+          "surname": [
+            "Stifter"
+          ]
+        },
+        {
+          "personalName": [
+            "Ostade"
+          ]
+        },
+        {
+          "forename": [
+            "Antalmpert"
+          ],
+          "surname": [
+            "Stiphter"
+          ]
+        },
+        {
+          "forename": [
+            "Adal'bert"
+          ],
+          "surname": [
+            "Štifter"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Adalbert_Stifter",
+          "label": "https://de.wikipedia.org/wiki/Adalbert_Stifter"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:04:18Z",
+    "gnd_query_biographical_data": "1805-1868",
+    "gnd_query_name": "stifter, adalbert"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2777,
+  "name": "Stifter, Adalbert",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XII, 373",
+  "updated": "2026-06-11 13:29:25.217Z",
+  "uri": "https://d-nb.info/gnd/118618156",
+  "editor": ""
+}

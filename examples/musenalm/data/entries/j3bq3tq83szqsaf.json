@@ -1,0 +1,74 @@
+{
+  "annotation": "Der Almanach ist nicht mit seinen Beiträgen aufgenommen; Titel und 2 Inhaltsverzeichnisse als Vollbild",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T,  zT, 3 BB I-Verz, ar: SS 1-86, B, ar1: T, S 3-8 I-Verz, SS 9-132",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch witziger und belehrender Anekdoten 1801 1 u. 2",
+    "norm": "~",
+    "biblio": 411148,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2878,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Schiegg)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch witziger und belehrender Anekdoten 1801 1 u. 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 108; L/R 213",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / witziger und belehrender / Anekdoten / zur Unterhaltung / für / Lacher und Denker. / In 2 Bänden. / Is Bändchen. / Leipzig, 1801. / bey J. B. Schiegg",
+  "updated": "2026-06-11 10:18:54.744Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "items": [
+    "y28kudbf0d292gd"
+  ],
+  "contents": [
+    "mr8i0b4pgevk2c3",
+    "3mpxjzig67x99h0",
+    "n6x9v5kenn1agbu",
+    "vzrzm7uz3i8pk1m",
+    "kc39vdxclsq26tm",
+    "3jwwn7iey1pfnlv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.050Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.050Z",
+      "agent": "ejbgxkeqg7hu332",
+      "source_id": "9hra8w6g8b3if6u"
+    }
+  ]
+}

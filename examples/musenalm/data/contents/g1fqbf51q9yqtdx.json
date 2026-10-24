@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44517, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44518,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER KUSS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Körner del. Ch. Hoffmeister sc.",
+  "scans": [
+    "alm_607_44518_9n5e1j7lc7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER KUSS",
+  "updated": "2006-07-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.376Z",
+      "agent": "zuqeig2avlr6rku",
+      "source_id": "y7q8fkbwityuijt"
+    }
+  ]
+}

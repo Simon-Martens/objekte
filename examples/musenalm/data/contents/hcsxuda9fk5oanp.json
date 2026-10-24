@@ -1,0 +1,56 @@
+{
+  "annotation": "Vorwort der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wir haben bey Herausgabe dieser Sammlung von Gedichten keine andere Absicht, als jene, welche der teutschen Muse gut sind, bey angehendem Frühlinge, ehe noch die Blumen der Erde sich darbiethen, mit einem poetischen Blumensträußchen zu vergnügen;",
+  "language": [],
+  "musenalm_id": 90307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. v. Lackner u. Caj. Tschink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2010-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.398Z",
+      "agent": "hk847xs3arg62qe",
+      "source_id": "7jgj0b8igtf13uy"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.398Z",
+      "agent": "2o8begoqx16dfrq",
+      "source_id": "gfekcmdtwa1ejq7"
+    }
+  ]
+}

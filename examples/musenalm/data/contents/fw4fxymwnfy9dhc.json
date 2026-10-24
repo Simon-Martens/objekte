@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Tändeleien (Sammlung INr 29202, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Sol und Luna zeigt, wie still Bemühen / Unstät wechselt in der Liebe Glück:",
+  "language": [],
+  "musenalm_id": 29210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebes- und Mondeswechsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebes- und Mondeswechsel",
+  "updated": "2002-10-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.394Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "2wfcy8laaz4y2p4"
+    }
+  ]
+}

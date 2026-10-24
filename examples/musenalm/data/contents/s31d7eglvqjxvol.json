@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60918, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In Deutschland war in diesem Zeitalter ein Gebrauch, wonach die Großen der Nation, wenn sie sich gegen den König empört,",
+  "language": [],
+  "musenalm_id": 60933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2008-11-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.915Z",
+      "agent": "st35mqg7m56yox6",
+      "source_id": "7h8do0817tfvemu"
+    }
+  ]
+}

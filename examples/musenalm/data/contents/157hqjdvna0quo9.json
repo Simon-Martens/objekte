@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 99. /) Illustration zu »Charlotte Kronau« INr 46983, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott was für eine Tochter hab ich!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Geyser sc.",
+  "scans": [
+    "alm_634_46984_nvh6tgwalj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott was für eine Tochter hab ich!",
+  "updated": "2006-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.478Z",
+      "agent": "37z1qs9sbpbcupa",
+      "source_id": "i3e5huxf1preses"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.478Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "m6mvjuojkenskq9"
+    }
+  ]
+}

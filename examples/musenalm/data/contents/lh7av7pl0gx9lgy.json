@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Gans verstieg sich, seltsam ist's! / Zu des Adlers Neste. / Fort war Adlers starke Sie; / Gänslein hintersann sich nie:",
+  "language": [],
+  "musenalm_id": 33987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Adler und die junge Gans. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Adler und die junge Gans. / Eine Fabel",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.540Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "fmmdcgdqsi5zr1o"
+    }
+  ]
+}

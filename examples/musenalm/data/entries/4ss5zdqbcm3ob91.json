@@ -1,0 +1,91 @@
+{
+  "annotation": "$ vermutl. fehlt Titelgraphik (Portrait)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, Kr, T, 12 BB Kal darin 12 GG, ar: SS 1-134, SS 135-138 G-Verz, S 138 C, ar1: SS 1-103, 3 SS, ar2: SS 1-119",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1819",
+    "norm": "~ K gibt 13 GG",
+    "biblio": 404148,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 854,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH-GENEALOGISCHER / Kalender / auf / das Gemein-Jahr 1819. / Mit Kupfern / Herausgegeben / von der Kön. Preuß. Kalender Deputation",
+  "updated": "2026-06-11 10:18:55.879Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "3gux6ogpbyxhjo3"
+  ],
+  "contents": [
+    "8k6xi7ggaa80b8l",
+    "letiqgnnlwutder",
+    "tr7ng8zglwh9fnb",
+    "tvftr2a2r2esnb6",
+    "vp86yz1fb4gsm99",
+    "ombxg0i1mz7soej",
+    "di6pgrf98dco2gj",
+    "k8u5oumwaw3nxv9",
+    "f96r2io4zgeq2ru",
+    "3eseuatfgd7w858",
+    "ya2zujok2i36skt",
+    "7znu8j7obvwjorv",
+    "tedhv120tmv98sz",
+    "nl73youzduj20l9",
+    "0ha9dezu9052etv",
+    "6y9f7943h2loku8",
+    "q3unr5alrypb372",
+    "h7h81loyyzt5pbw",
+    "ukewdoy2t8ih9l3",
+    "z76tfp2tnafeqns",
+    "7x1mqkty0xcdxe0",
+    "7unnywn2hzj424v",
+    "g1ah9k4pmfiy1c6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "yuxb1tan68hhd91"
+    }
+  ]
+}

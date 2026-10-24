@@ -1,0 +1,45 @@
+{
+  "annotation": "Kriegslust. Eine Sonnetten-Trias (Sammlung INr 53385, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Was sprichst vom Eisenspiel, vom Blitz der Waffen? / Der ew'ge Friede ward uns zugewendet,",
+  "language": [],
+  "musenalm_id": 53388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stähele",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.550Z",
+      "agent": "5aofsap5le76xfp",
+      "source_id": "1v3v98xno7hucq4"
+    }
+  ]
+}

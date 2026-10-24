@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 20165, Obj 86) §4§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "Neben dir / Ist das liebste Plätzchen mir,",
+  "language": [],
+  "musenalm_id": 20169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / In Musik gesetzt von Adalbert Gyrowetz, Capellmeister des / K.K. Hoftheaters §4§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / In Musik gesetzt von Adalbert Gyrowetz, Capellmeister des / K.K. Hoftheaters §4§",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.987Z",
+      "agent": "7dzepqoa9ah8w0r",
+      "source_id": "ghftbicsq59f5rd"
+    }
+  ]
+}

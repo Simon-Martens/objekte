@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, recto vT, verso VrlgM, verso G, T, S I-Verz, SS 1 -371",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1844",
+    "norm": "~",
+    "biblio": 101012,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-22T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 70,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Urania. / Taschenbuch auf das Jahr / 1844. / Neue Folge. / Sechster Jahrgang. / Mit dem Bildnisse Karl Förster's. / Leipzig: / F. A. Brockhaus. / 1844",
+  "updated": "2026-06-11 10:18:54.885Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "83b8licoinfy34l"
+  ],
+  "contents": [
+    "j5ib1i9qzme8mow",
+    "pbqe2c4eoi2guve",
+    "knd8c002blw31fv",
+    "t0binglxaiwax4s",
+    "8c4tq5vcaaaemwh",
+    "sgmi07fvbs4bq9k",
+    "3dm8as13xpvrysh",
+    "te9qlm4epkhom78",
+    "2kiiiag8y4wp0f0",
+    "5phwml8wohvlmg3",
+    "8iwjj1og6bsls93"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.606Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.606Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "8n2dihmwtelgle8"
+    }
+  ]
+}

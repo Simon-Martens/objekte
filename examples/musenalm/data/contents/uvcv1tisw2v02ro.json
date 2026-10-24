@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Forstezung in: Taschenbuch, Deutsches (G. Keller) 1846; INr 23637",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "O heil'ger Thilo! (denn ich bin Christ / Und habe mit den Musen nichts zu schaffen) / Der du ein General im Beten bist",
+  "language": [],
+  "musenalm_id": 23581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hanns von Katzenfingen / und / seine Frau Tante geb. F. v. K.. / Naturwüchsiges Heldengedicht / von / Apelles Storchschnabel. / Motto: Ihr Sterne / Wie gerne u.s.w. / Wanderers Nachtlied, / von einem ächten Dichter. / Erster Gesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Apelles Storchschnabel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hanns von Katzenfingen / und / seine Frau Tante geb. F. v. K.. / Naturwüchsiges Heldengedicht / von / Apelles Storchschnabel. / Motto: Ihr Sterne / Wie gerne u.s.w. / Wanderers Nachtlied, / von einem ächten Dichter. / Erster Gesang",
+  "updated": "2002-05-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.114Z",
+      "agent": "i8agbijlcc6ijdm",
+      "source_id": "5wt9hbf7i23unta"
+    }
+  ]
+}

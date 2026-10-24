@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 14461-14463, Obj 60-62 /) Anmerkung am Objekt: Der Anfang dieser Proben befindet sich in J. F. Castelli's »Selam« im sechsten Jahrgange 1817 S. 310-317, worauf sich auch die nachfolgenden Nummern beziehen",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortsetzung der Proben aus Motenebbi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fortsetzung der Proben aus Motenebbi",
+  "updated": "2001-04-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.744Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "zda4x8snv7kgl4n"
+    }
+  ]
+}

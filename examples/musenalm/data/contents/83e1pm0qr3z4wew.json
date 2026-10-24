@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Wie viel seliger ist's, hier unter dem Schatten der Palmen / Hingestreckt zu ruh'n, wie in arkadischer Zeit,",
+  "language": [],
+  "musenalm_id": 84487,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 309,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Palme. / Symbol des Sieges, auch der Fruchtbarkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Palme. / Symbol des Sieges, auch der Fruchtbarkeit",
+  "updated": "2010-12-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.929Z",
+      "agent": "cqrs6fj7ecvzmh8",
+      "source_id": "rqe4qw4oce16e5o"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Wilhelmsthal« von G. König, Oberförster in Ruhla INr 67008, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhemsthal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haldenwang sc.",
+  "scans": [
+    "alm_1144_67007_elor0jrqap.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhemsthal",
+  "updated": "2009-09-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.322Z",
+      "agent": "yos6i167q0dzqb7",
+      "source_id": "ttxmtj2rtvgz639"
+    }
+  ]
+}

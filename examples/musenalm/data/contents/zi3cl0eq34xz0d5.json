@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Alte Zeit und neue Zeit. Ein Fragment aus den nachgelassenen Papieren der verwitweten Frau Ursula Margaretha« von Karl Friedrich Kretschmann in: Taschenbuch zum geselligen Vergnügen 1805 INr 12336",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aller Augen warten auf dich - - / Ebendaselbst. S. 153",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl sc.",
+  "scans": [
+    "alm_212_12487_3wgf64arnx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aller Augen warten auf dich - - / Ebendaselbst. S. 153",
+  "updated": "2001-03-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.726Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "7bzc9bemdalrqmw"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.726Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "ormlxx3haszo77t"
+    }
+  ]
+}

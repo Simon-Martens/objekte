@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Widmungsgedicht und einleitendem Gedicht INr 6182-6184, Obj 34-36 /) Dem Beitrag vorangestellt: Weh' dem, der sich in's Nebelland / Der Träumerei'n verliert [...] /) mit zwei Illustrationen s: Graphiken INr 61663, 61664; Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wunderstein. / Fantasiegemälde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wunderstein. / Fantasiegemälde",
+  "updated": "2009-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.758Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "y6yiqwgs76phxts"
+    }
+  ]
+}

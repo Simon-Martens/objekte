@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Seht hier das Bild des Herrn von Schele!",
+  "language": [],
+  "musenalm_id": 5793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter ein Bildniß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter ein Bildniß",
+  "updated": "2000-10-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.996Z",
+      "agent": "cnpmi5umijfxrao",
+      "source_id": "m9c3bijokk6yohp"
+    }
+  ]
+}

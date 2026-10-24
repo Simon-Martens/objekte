@@ -1,0 +1,105 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "verso G, T, G, 11 BB Kal darin 10 GG, ar: SS 1-208, SS 207- 229 G-Verz, zT, ar1: SS 1-108, 77 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1816",
+    "norm": "~",
+    "biblio": 404142,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-07-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 851,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / Kalender / auf / das Schalt-Jahr 1816. / Mit Kupfern. / Herausgegeben / von der Kön. Preuß. Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.878Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "items": [
+    "7ncic93w24dgfz2"
+  ],
+  "contents": [
+    "gmw0m4r6yoaedgt",
+    "5rxlqborsotnby6",
+    "02zh46yqfy9hdco",
+    "02f9hh3ohh0xbfv",
+    "4ge6y74c6jm83qg",
+    "darzw399c19d0q7",
+    "t46b77z22i5fx55",
+    "1lcf8y62y3pp4jf",
+    "6fsv8g1mpcm4wxj",
+    "43tgwt4nt82qim3",
+    "n25pq752oixo589",
+    "88od83ici71vk4h",
+    "rqez362l5df00mm",
+    "yef2q86dlav2wy5",
+    "08szc8eo7qrxyus",
+    "xj5g4kqfvsbzgtr",
+    "l59g81jeex9z1xa",
+    "jolqago44u9tvmt",
+    "0fch0axzeozo6xl",
+    "o82qzr6v34uax4m",
+    "pocu970pcmb42st",
+    "ggazghxj6long93",
+    "ffnieryww14t7sn",
+    "2t8dgwcdlf0s14d",
+    "y4m7utdsyl61tce",
+    "2qzohelty5tgsne",
+    "eswm6oa6d1w2zh7",
+    "mvgxg6vwvy21gr3",
+    "12w4d4zrpkwl214",
+    "ox11d8hof5ate3n",
+    "77866rcxnch54bt",
+    "u26396enlqbzu3f",
+    "s6zrbmjtftw8gac",
+    "wprcwjqtgeyyokl",
+    "5r1942az9qkxvxw",
+    "bn695xgs4rgdjo4",
+    "1u58c7p14aa2971"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.214Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.214Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "fcsph4h37l9a2rr"
+    }
+  ]
+}

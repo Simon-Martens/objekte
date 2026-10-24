@@ -1,0 +1,36 @@
+{
+  "annotation": "Photos 92307,01-92307,04",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92307,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Introductio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2247_92307_01_t3yqx1yfxm.jpg",
+    "alm_2247_92307_02_gc29dimre9.jpg",
+    "alm_2247_92307_03_ow4o1m5cor.jpg",
+    "alm_2247_92307_04_5owwk3535c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Introductio",
+  "updated": "2010-01-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": []
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 12. /) Illustration zu »Die Platane« INr 100950, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Platane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sc.",
+  "scans": [
+    "alm_2013_100951_u9q5kjvg0z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Platane",
+  "updated": "2010-01-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.841Z",
+      "agent": "h38sezk5a79h4rw",
+      "source_id": "9yqqpxvb21mgl07"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.842Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "rqbt19tgc250wca"
+    }
+  ]
+}

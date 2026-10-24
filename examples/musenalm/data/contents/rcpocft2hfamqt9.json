@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Schubert's schönstes Lied. / Musikalische Novelle« von J. B. C. v. Jannach INr 113192, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113181,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Steinrucker del. Leop. Beyer sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinrucker del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1781_113181_b0yzokcs5a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.408Z",
+      "agent": "cewh4sz4est07ap",
+      "source_id": "676ekai5edpan1q"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.408Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "kci4d7okedmxtwl"
+    }
+  ]
+}

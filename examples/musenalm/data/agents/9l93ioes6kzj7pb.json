@@ -1,0 +1,402 @@
+{
+  "annotation": "",
+  "biographical_data": "1764-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.275Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Schwed. Politiker und Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1764-02-25"
+      ],
+      "dateOfDeath": [
+        "1847-12-25"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Maria Röhl"
+          ],
+          "creditText": [
+            "Richard Steffen. \"Kvinnorna kring Tegnér och andra Tegnér-studier\". Stockholm: Kooperativa Förbundets bokförlag 1947, page 105. ISBN&nbsp;9900254449."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Gustaf%20von%20Brinkman%201835.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Carl%20Gustaf%20von%20Brinkman%201835.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Carl%20Gustaf%20von%20Brinkman%201835.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-11T14:53:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116519770/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SE",
+          "label": "Schweden"
+        }
+      ],
+      "gndIdentifier": "116519770",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#16.5p",
+          "label": "Personen der Geschichte (Politiker und historische Persönlichkeiten)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116519770",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/swe",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/swe"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116519770",
+        "(DE-588c)7607825-5"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4057648-6",
+          "label": "Stockholm"
+        }
+      ],
+      "preferredName": "Brinckmann, Carl Gustav von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Carl Gustav"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Brinckmann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Selmar"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/2877152988203712790000"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q714281"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116519770/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Carl_Gustaf_von_Brinkman"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Karl_Gustav_Brinckmann"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116519770"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116519770.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd116519770.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116519770"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4018333-6",
+          "label": "Freiherr"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Brinkmann, Carl Gustaf",
+        "Brinkmann, Gustaf von",
+        "Brinckmann, Karl Gustav von",
+        "Brinkman, Carl Gustaf von",
+        "Brinkman, Carl Gustav von",
+        "Brinkmann, Carl",
+        "Brinkman, Karl Gustav von",
+        "Selmar",
+        "Brinckmann, Carl G. von",
+        "Brinkmann, Carl Gustav von",
+        "Brinkmann, Carl Gustav",
+        "Brinkmann, Karl Gustav",
+        "Brinkmann, Carl G. von",
+        "Brinkman, Karl G. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl Gustav"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gustaf"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkman"
+          ]
+        },
+        {
+          "forename": [
+            "Gustaf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gustaf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkman"
+          ]
+        },
+        {
+          "forename": [
+            "Carl G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinckmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl G."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gustav"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkman"
+          ]
+        },
+        {
+          "forename": [
+            "Karl Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinckmann"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkmann"
+          ]
+        },
+        {
+          "personalName": [
+            "Selmar"
+          ]
+        },
+        {
+          "forename": [
+            "Carl Gustav"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Brinkman"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:01:54Z",
+    "gnd_query_biographical_data": "1764-1847",
+    "gnd_query_name": "brinckmann, carl gustav von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 306,
+  "name": "Brinckmann, Carl Gustav von",
+  "profession": "Text",
+  "pseudonyms": "Selmar",
+  "refs": "Goed VI, 159; Goed XV, 444; E 44",
+  "updated": "2026-06-11 13:29:21.757Z",
+  "uri": "https://d-nb.info/gnd/116519770",
+  "editor": ""
+}

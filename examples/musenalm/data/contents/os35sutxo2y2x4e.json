@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Du, den auf meines Lebens dunklen Wegen / Die Gunst der Götter mir gesellt, / In dessen Brust sich Hochgefühle regen, / Du Ahnder einer bessern Welt.",
+  "language": [],
+  "musenalm_id": 128188,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. An den Freund. / Am Anfange des neunzehnten / Jahrhunderts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. An den Freund. / Am Anfange des neunzehnten / Jahrhunderts",
+  "updated": "2010-02-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.979Z",
+      "agent": "qxcj6iktsu2xp76",
+      "source_id": "kd4h1mk51uuqoq7"
+    }
+  ]
+}

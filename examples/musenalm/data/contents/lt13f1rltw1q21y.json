@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Bergmannsleben« von Novalis /) unter der Musikbeigabe: Novalis /) Photos 56379,01; 56379,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Der ist der Herr der Erde, der ihre Tiefen mißt,",
+  "language": [],
+  "musenalm_id": 56379,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bergmannsleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_24_56379_01_fx5ex1is3p.jpg",
+    "alm_24_56379_02_sqedthhxkt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bergmannsleben",
+  "updated": "2008-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.911Z",
+      "agent": "5j4ifce1qy52izk",
+      "source_id": "kgfyyhsc535brsy"
+    }
+  ]
+}

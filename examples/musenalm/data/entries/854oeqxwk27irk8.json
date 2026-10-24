@@ -1,0 +1,112 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, S W, B Vrwrt d Hrsg, 8 BB Kal, SS 1-174 darin 2 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Amorbacher 1806",
+    "norm": "~",
+    "biblio": 406478,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-12-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3644,
+  "parallel_title": "",
+  "place_statement": "Miltenberg (Volkhart)",
+  "places": [
+    "nx7n91pn13sz36y"
+  ],
+  "preferred_title": "Almanach, Amorbacher 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F.",
+  "subtitle_statement": "",
+  "title_statement": "Amorbacher / Almanach / auf das Jahr / 1806. Miltenberg / bey dem Hofbuchdrucker Volkhart",
+  "updated": "2026-06-11 10:18:54.810Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "items": [
+    "y3h3xlgdmeqyn4y"
+  ],
+  "contents": [
+    "kdctq3mogf4bxmt",
+    "u0bmeejvew3vudc",
+    "mh0tnhwhkifv7z2",
+    "inqgrtnbj4ojqqx",
+    "sybrpqn3nl9xbdh",
+    "2190szxd69fgnt3",
+    "i9n90nmog0xaas0",
+    "wb8vel80nitj9bl",
+    "nnodzy0mwzukd18",
+    "83ywgs9h1bt4zpj",
+    "c4cknm44dvcvvnx",
+    "7gfsc95bjb5upyt",
+    "whqra3ub6cix1av",
+    "xezqljcjca842o0",
+    "oq84iyzf3ek6ir1",
+    "16bnyg7ufdapsyo",
+    "d13rmu31jmhpx1d",
+    "aflhyjfmrtyi5ip",
+    "vzqy32w0qagcq74",
+    "87nuh5300rwv3w8",
+    "nm4qhuhm2a098vd",
+    "lv1og5hiqtv9mkl",
+    "uzefz0v4mrw8mh9",
+    "hnk74vw4gwhv5zq",
+    "7osgh5nx35p98w4",
+    "99fy2r5uqp70u94",
+    "vlv5rv64m45m2k6",
+    "9ca6f1dexc7f6z8",
+    "wzff6mq14hmzdt3",
+    "idpw0s8lw0t6ee5",
+    "44h6r2izsf93u0i",
+    "zrj0fhcjw572h70",
+    "7dhj353k4clrha8",
+    "b25zskntruk0vau",
+    "ukur5a2aefqtgby",
+    "2swhobdsx86nt66",
+    "uuyvhjrzna9fd73",
+    "0pupsiwb35012vh",
+    "gx8dzdi2921tvav",
+    "diwk1f2xeo73xci",
+    "yz64lf0bm5ovrbo",
+    "bxv3szofhxhn50x",
+    "93yxolc5cp0vp8h",
+    "5sj5yu7agpxut75"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.176Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.176Z",
+      "agent": "lkiq53bdxdvct74",
+      "source_id": "cdgt0hcpfzvq8d8"
+    }
+  ]
+}

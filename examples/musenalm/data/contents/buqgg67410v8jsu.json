@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ein Stelldichein« INr 57752, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Stelldichein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Mayer gez. Stahlst. v. C. Mahlknecht, in Wien",
+  "scans": [
+    "alm_768_57753_mwngb1a4wz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Stelldichein",
+  "updated": "2008-06-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.896Z",
+      "agent": "xz56cgtd44xrisw",
+      "source_id": "8xoxg8ctwdb2svk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.896Z",
+      "agent": "z8rsr5de0jmn33o",
+      "source_id": "qe2vvbahsbtz9se"
+    }
+  ]
+}

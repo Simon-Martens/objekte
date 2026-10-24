@@ -1,0 +1,56 @@
+{
+  "annotation": "zus. Bezeichnung : gedruckt bei E. Grünewald in Darmstadt /) s. Textbezug INr 30542, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30541,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Sonderland del. M. Hofmann sculp. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. M. Hofmann sculp. Viennae",
+  "scans": [
+    "alm_402_30541_1vet41rvug.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.711Z",
+      "agent": "qy6yej73pl7anzc",
+      "source_id": "9v0un6ap0nuvmcu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.711Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "wgxo2x83zxeb0h6"
+    }
+  ]
+}

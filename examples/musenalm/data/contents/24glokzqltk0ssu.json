@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 2 Teilen INr 88231, 88232; Obj 19, 20 /) Gedichte (Sammlung INr 88225, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Spinnerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Spinnerin",
+  "updated": "2013-04-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.223Z",
+      "agent": "3pzkf5igvpvswjd",
+      "source_id": "cdrfv387jvl3mo1"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78179, Obj 26 u. INr 78164, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Gelobt sey der Herr! denn er / erhört die Stimme meines Flehens. / Ps. 22. Vers 26",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_2197_78180_calwi5cl5s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VI. Gelobt sey der Herr! denn er / erhört die Stimme meines Flehens. / Ps. 22. Vers 26",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.735Z",
+      "agent": "0popc5h02ada6w6",
+      "source_id": "by58cjabq0zzxmj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.735Z",
+      "agent": "d123jyjypc3gn2x",
+      "source_id": "mwy4rbe7jq1rlt1"
+    }
+  ]
+}

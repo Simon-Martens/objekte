@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Noch klingt der süßen Stimme Schall / Mir zauberisch in's Ohr,",
+  "language": [],
+  "musenalm_id": 90518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Noch immer!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. v. Levitschnigg. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Noch immer!",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.371Z",
+      "agent": "e22fzyl0voj5sux",
+      "source_id": "5oyao7cjkxzn1nj"
+    }
+  ]
+}

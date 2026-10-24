@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11583, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Der junge Graf Cenci kam auf seiner Kunstreise durch Italien nach Bajä.",
+  "language": [],
+  "musenalm_id": 11585,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Die Hundsgrotte bei Puzzuolo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Die Hundsgrotte bei Puzzuolo",
+  "updated": "2001-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.309Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "dgv8fy6b6f6qfvp"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Hier seht Ihr den Balkon. Ihr wißt das Zeichen. / Braucht alle Vorsicht, Herr, kommt nicht zur Nacht.",
+  "language": [],
+  "musenalm_id": 34604,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stern von Sevilla. / Trauerspiel in fünf Aufzügen. / Nach dem gleichnamigen Schauspiel des Lope de Vega / bearbeitet. 1829",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Christian Baron von Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stern von Sevilla. / Trauerspiel in fünf Aufzügen. / Nach dem gleichnamigen Schauspiel des Lope de Vega / bearbeitet. 1829",
+  "updated": "2003-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.767Z",
+      "agent": "id1mj19iathigp2",
+      "source_id": "2fu0w6kss390hys"
+    }
+  ]
+}

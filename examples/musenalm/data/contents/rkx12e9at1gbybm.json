@@ -1,0 +1,58 @@
+{
+  "annotation": "[Unter der Graphik: Verlag von I. D. Sauerländer / Druck v. W. Maas] s. Textbezug INr 44117, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44116,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER LIEBES-ANTRAG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem v. I. Becker Gest. v. C. Müller",
+  "scans": [
+    "alm_598_44116_z2g4nvd0p1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER LIEBES-ANTRAG",
+  "updated": "2006-06-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.232Z",
+      "agent": "elnezcuv2gdb85i",
+      "source_id": "hnrj78h1g3d2rom"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.232Z",
+      "agent": "0bmeck77h5fvi5x",
+      "source_id": "wdnnihkoblhdplw"
+    }
+  ]
+}

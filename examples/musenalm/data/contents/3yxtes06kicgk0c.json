@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 31 /)  s. Textbezug INr 130857, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130846,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Partie aus Lockwitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther d. et s.",
+  "scans": [
+    "alm_3702_130846_y07fia053y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Partie aus Lockwitz",
+  "updated": "2011-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.053Z",
+      "agent": "k3qfb3024y59h2x",
+      "source_id": "h47qwgawcy4yrng"
+    }
+  ]
+}

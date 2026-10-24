@@ -1,0 +1,45 @@
+{
+  "annotation": "Weiblicher Sinn und weibliches Leben. Zweytes Buch. Freye Gemählde (Sammlung INr 50458, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Wenn man mit dem Worte Freude das bezeichnet, was man immer damit bezeichnen sollte: dann muß man gestehen, daß die Freude mehr bey den Frauen ist, als bey den Männern.",
+  "language": [],
+  "musenalm_id": 50461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Weibliche Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Weibliche Freude",
+  "updated": "2007-07-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.729Z",
+      "agent": "w1gkyrmb6cwa21o",
+      "source_id": "fiolbygv3hl69hx"
+    }
+  ]
+}

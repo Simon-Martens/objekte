@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Im Walde, nah dem Königsschloß, / Ist ein zertrümmert Haus zu schauen,",
+  "language": [],
+  "musenalm_id": 98344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 215,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mähr' von der zertrümmerten Kirche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mähr' von der zertrümmerten Kirche",
+  "updated": "2014-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.741Z",
+      "agent": "kjfa5zse6o9jzto",
+      "source_id": "b4fd21ojdwoy630"
+    }
+  ]
+}

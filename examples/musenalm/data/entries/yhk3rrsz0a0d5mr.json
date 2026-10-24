@@ -1,0 +1,102 @@
+{
+  "annotation": "Kleinformat im Schuber/) §§$ vermutl. fehlen Titelgraphik und 4 Graphiken im Kalendarium",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, T, 28 SS Kal darin 24 SS 8 GG, 7 SS Tabb, 8 BB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Wien, Müllner) 1814",
+    "norm": "~",
+    "biblio": 410714,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2020-05-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4711,
+  "parallel_title": "",
+  "place_statement": "Wien (Müllner)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenkalender (Wien, Müllner) 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschen- / Kalender / auf das Jahr / nach der Geburt Jesu Christi / 1814. / Wien, / bey Georg Müllner, bürgl. Buch- / binder in der Singerstrasse",
+  "updated": "2026-06-11 10:18:55.263Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "fxxez95mfqeawi5"
+  ],
+  "contents": [
+    "jgb9j423qmyn9xt",
+    "llpbspyoorjagqv",
+    "73sh0ma27usb7be",
+    "nwvfwkus5833bpc",
+    "3hl9bra973ushoo",
+    "ystx19gwyvnuonv",
+    "s77cf7chixq6123",
+    "3cyi0f6shcfijsg",
+    "a0to6ococo58895",
+    "daf5bk4br4liw0l",
+    "30d4mahjqg1bm23",
+    "ok42i8tavdualwp",
+    "xdjx3yurh0p4b9l",
+    "pnsnu81prprmx8m",
+    "ds1vie7vncyc2ip",
+    "stapex42hx4jj3o",
+    "4jelriveluue172",
+    "s5j90kzpkslw0e3",
+    "4vimvczrnwjwe94",
+    "5hqcsz7qap95jal",
+    "n87cojq43j0qsi5",
+    "4dceh9tahpo82ry",
+    "bio13vij4m8lz5v",
+    "uq6b2l1rrm0ft66",
+    "h44r5n1jwqr8brm",
+    "a9x1wl88g224w35",
+    "gutvwa7sjhqclqj",
+    "i7abf1a750vj8dd",
+    "f1akwjhk2jccig2",
+    "igye6b6yt8b5arn",
+    "l4eqleyp6cd7x2o",
+    "zfjegofhnceitzp",
+    "b2gx3l1q6nx2mhk",
+    "elcvmmdcnfxpxtb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.109Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.109Z",
+      "agent": "z3th13h6qnjn069",
+      "source_id": "v7pzac13m6kqbko"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9366,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thorwaldsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Vogel del. H. Meyer sc.",
+  "scans": [
+    "alm_52_9366_7di52hkxfq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thorwaldsen",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.480Z",
+      "agent": "hnc7x2p8pzr9l8y",
+      "source_id": "saj4uhsoa3ofuhj"
+    }
+  ]
+}

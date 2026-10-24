@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für die Geschichte Mährens und Schlesiens 1827",
+    "norm": "",
+    "biblio": 409003,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2015-05-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4193,
+  "parallel_title": "",
+  "place_statement": "Brünn (Trassler)",
+  "places": [
+    "mlac40mytl30b3z"
+  ],
+  "preferred_title": "Taschenbuch für die Geschichte Mährens und Schlesiens 1827",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 123; nicht bei L/R",
+  "responsibility_statement": "Gregor Wolny",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / die Geschichte / Mährens und Schlesiens. / In Verbindung mit mehreren Geschichtsfreunden / herausgegeben / von / GREGOR WOLNY / Mitglied der Benedictiner Abtei Raigern [...] / Zweiter Jahrgang / 1827. / Brünn J. J. Trassler",
+  "updated": "2026-06-11 10:18:55.806Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "items": [
+    "6tiow7ehefidv2d"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.164Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.164Z",
+      "agent": "w5h9y9l3v23rdps",
+      "source_id": "31n3s4o0fj0872m"
+    }
+  ]
+}

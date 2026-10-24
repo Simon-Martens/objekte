@@ -1,0 +1,69 @@
+{
+  "annotation": "6. Jg. /) Erscheinungsverlauf unklar",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Volkskalender, Gemeinnützig-unterhaltender für das Königl. Preuß. Rheinland-Westphalen 1825",
+    "norm": "",
+    "biblio": 410724,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2020-05-28T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4713,
+  "parallel_title": "",
+  "place_statement": "Hamm (Schulz und Wundermann)",
+  "places": [
+    "ho4rovj3ro5ljxe"
+  ],
+  "preferred_title": "Volkskalender, Gemeinnützig-unterhaltender für das Königl. Preuß. Rheinland-Westphalen 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gemeinnützig-unterhaltender / Volkskalender / für das / Königl. Preuß. Rheinland-Westphalen / auf das Gemeinjahr / 1825. / Sechster Jahrgang. / Mit vielen Abbildungen. / Hamm, / gedruckt und verlegt bei Schulz und Wundermann. / Preise [...]",
+  "updated": "2026-06-11 10:18:54.510Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "6yanvxwnhnp9zxu"
+  ],
+  "contents": [
+    "2cmj39eskvoq2kb"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.150Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.150Z",
+      "agent": "1s3j1fevggkd4qw",
+      "source_id": "jrtyh0odkk7gsde"
+    }
+  ]
+}

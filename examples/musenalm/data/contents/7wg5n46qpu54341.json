@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Eduard von Illersheim war von vierjährigen Reisen durch die schönsten Länder Europens auf sein väterliches Stammgut zurückgekehrt.",
+  "language": [],
+  "musenalm_id": 13478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebenden wider Willen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebenden wider Willen",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.596Z",
+      "agent": "ctofceimdkjw1f4",
+      "source_id": "vc3ngqewrtv68on"
+    }
+  ]
+}

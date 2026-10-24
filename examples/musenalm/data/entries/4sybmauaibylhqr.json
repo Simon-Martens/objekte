@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Caritas (Riga) 1825",
+    "norm": "",
+    "biblio": 407862,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2014-12-16T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4161,
+  "parallel_title": "",
+  "place_statement": "Riga (Häcker)",
+  "places": [
+    "i42ezbvbrf2494d"
+  ],
+  "preferred_title": "Caritas (Riga) 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Dr. Karl Ludwig Grave",
+  "subtitle_statement": "",
+  "title_statement": "Caritas. / Ein Taschenbuch / zum / Besten der Unterstützungs-Casse / des / Frauen-Vereins zu Riga / herausgegeben / von Dr. Karl Ludwig Grave. / Riga, / gedruckt bei Wilhelm Ferdinand Häcker. / 1825",
+  "updated": "2026-06-11 10:18:55.566Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "ruh49ue129szqnj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.950Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.950Z",
+      "agent": "jnraudw56r2fzpt",
+      "source_id": "vnwu1p4h7ugtprd"
+    }
+  ]
+}

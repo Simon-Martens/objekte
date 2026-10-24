@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Beitrag INr 42268, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DON VASCO DE GAMA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. C. Böhme sc.",
+  "scans": [
+    "alm_557_42250_5hrayjahu0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DON VASCO DE GAMA",
+  "updated": "2005-12-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.278Z",
+      "agent": "oec592l87zwoa47",
+      "source_id": "6h5zutq57xxk03z"
+    }
+  ]
+}

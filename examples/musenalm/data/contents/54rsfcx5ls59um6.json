@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 68622, Obj 1,1 /) Das Original befindet sich in dem Gemählde-Cabinette des Herrn Wirtschaftraths v. Ratakowsky in Wien",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Phönix, der ein Vogel ist aus Flammen, / Des heitern Äthers gluthentbrannte Rose,",
+  "language": [],
+  "musenalm_id": 68623,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 1.2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Helene Forman. / Gemählde von Rubens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Al. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Helene Forman. / Gemählde von Rubens",
+  "updated": "2001-05-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.473Z",
+      "agent": "xk1o4h9hiuycys6",
+      "source_id": "s8utute1o5frvse"
+    }
+  ]
+}

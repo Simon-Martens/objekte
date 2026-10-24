@@ -1,0 +1,514 @@
+{
+  "annotation": "",
+  "biographical_data": "1778-1836",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.365Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Jurist und Schriftsteller; Hofadvokat und Notar in Altenburg; nach Insolvenz ab 1819 in Odessa und Pest; gilt als einer der Erfinder des Skatspiels"
+      ],
+      "dateOfBirth": [
+        "1778-09-06"
+      ],
+      "dateOfDeath": [
+        "1836-03-04"
+      ],
+      "describedBy": {
+        "dateModified": "2022-03-25T17:22:50.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/115663916/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Hempel"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "115663916",
+      "id": "https://d-nb.info/gnd/115663916",
+      "oldAuthorityNumber": [
+        "(DE-588a)115663916"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4001409-5",
+          "label": "Altenburg (Thüringen)"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/7583677-4",
+          "label": "Treben"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4137172-0",
+          "label": "Pest (Stadt)"
+        }
+      ],
+      "preferredName": "Hempel, Friedrich Ferdinand",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Friedrich Ferdinand"
+        ],
+        "surname": [
+          "Hempel"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/1065484461",
+          "label": "Peregrinus Syntax"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Anastasius"
+          ],
+          "surname": [
+            "Spiridion"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Simplicissimus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Erasmus"
+          ],
+          "surname": [
+            "Sincerus"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Lampadius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Cebes"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Spiritus Asper"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Streckfuß"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Peregrinus"
+          ],
+          "surname": [
+            "Syntax"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Simplicius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Nestorius"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Hanack"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Spiridion"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Hippolit"
+          ],
+          "surname": [
+            "Lapide"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Timoleon"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "D. M. Ioanis Caroli Hempel seni iuvenis patruo nepos gentis capiti ... - [ca. 1790]",
+        "Nachtgedanken über das A-B-C-Buch",
+        "Herzog August von Sachsen-Altenburg und seine Bauern",
+        "Allgemeines deutsches Reimlexikon",
+        "Politische Stachelnüsse gereift in den Jahren 1813 - 14. - 1814",
+        "Die Strafen der Chinesen. - s.a.",
+        "Aphorismen über den Kuß",
+        "Geißler, Christian Gottfried Heinrich: Abbildung und Beschreibung der Völkerstämme und Völker unter des Russischen Kaisers Alexander menschenfreundlichen Regierung ... -  1803"
+      ],
+      "relatedSubjectHeading": [
+        {
+          "id": "https://d-nb.info/gnd/4055214-7",
+          "label": "Skat"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n79020914"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54396717"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1459063"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/115663916/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ferdinand_Hempel"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081334731"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/115663916"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd115663916.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/115663916"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "usingInstructions": [
+        "Weitere Titel ggf. auch unter dem Pseudonym"
+      ],
+      "variantName": [
+        "Hanack, ...",
+        "Simplicissimus",
+        "Streckfuß",
+        "Hempel, Friedrich",
+        "Spiridion, Regina",
+        "Cebes",
+        "Lampadius",
+        "Sincerus, Erasmus",
+        "Hanack, ..., Dr.",
+        "Syntax, Peregrinus",
+        "Timoleon",
+        "Doktor Hanack",
+        "Simplicius",
+        "Spiritus Asper",
+        "Lapide, Hippolit",
+        "Asper, Spiritus",
+        "Spiridion, Anastasius",
+        "Peregrinus Syntax",
+        "Hempel, Fridericus Ferdinandus",
+        "Nestorius",
+        "Hempel, Ferdinand"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Hempel"
+          ]
+        },
+        {
+          "forename": [
+            "Fridericus Ferdinandus"
+          ],
+          "surname": [
+            "Hempel"
+          ]
+        },
+        {
+          "personalName": [
+            "Peregrinus Syntax"
+          ]
+        },
+        {
+          "personalName": [
+            "Timoleon"
+          ]
+        },
+        {
+          "personalName": [
+            "Spiritus Asper"
+          ]
+        },
+        {
+          "forename": [
+            "Erasmus"
+          ],
+          "surname": [
+            "Sincerus"
+          ]
+        },
+        {
+          "forename": [
+            "Ferdinand"
+          ],
+          "surname": [
+            "Hempel"
+          ]
+        },
+        {
+          "personalName": [
+            "Nestorius"
+          ]
+        },
+        {
+          "personalName": [
+            "Cebes"
+          ]
+        },
+        {
+          "forename": [
+            "Spiritus"
+          ],
+          "surname": [
+            "Asper"
+          ]
+        },
+        {
+          "personalName": [
+            "Streckfuß"
+          ]
+        },
+        {
+          "personalName": [
+            "Lampadius"
+          ]
+        },
+        {
+          "forename": [
+            "Hippolit"
+          ],
+          "surname": [
+            "Lapide"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Hanack"
+          ]
+        },
+        {
+          "personalName": [
+            "Doktor Hanack"
+          ]
+        },
+        {
+          "forename": [
+            "Regina"
+          ],
+          "surname": [
+            "Spiridion"
+          ]
+        },
+        {
+          "forename": [
+            "Peregrinus"
+          ],
+          "surname": [
+            "Syntax"
+          ]
+        },
+        {
+          "personalName": [
+            "Simplicius"
+          ]
+        },
+        {
+          "forename": [
+            "Anastasius"
+          ],
+          "surname": [
+            "Spiridion"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "nameAddition": [
+            "Dr."
+          ],
+          "surname": [
+            "Hanack"
+          ]
+        },
+        {
+          "personalName": [
+            "Simplicissimus"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Ferdinand_Hempel",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Ferdinand_Hempel"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:43:06Z",
+    "gnd_query_biographical_data": "1778-1836",
+    "gnd_query_name": "hempel, friedrich ferdinand"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1140,
+  "name": "Hempel, Friedrich Ferdinand",
+  "profession": "Text",
+  "pseudonyms": "Spiritus Asper; P. Spiridion",
+  "refs": "Goed VI, 395; E 137",
+  "updated": "2026-06-11 13:29:22.886Z",
+  "uri": "https://d-nb.info/gnd/115663916",
+  "editor": ""
+}

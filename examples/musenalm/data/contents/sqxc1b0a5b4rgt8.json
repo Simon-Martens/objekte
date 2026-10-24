@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9009,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L. F. G. GOECKINGK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. f.",
+  "scans": [
+    "alm_189_9009_a19tz3nu2m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L. F. G. GOECKINGK",
+  "updated": "2001-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.271Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "aqrb0pd28wv7rmt"
+    }
+  ]
+}

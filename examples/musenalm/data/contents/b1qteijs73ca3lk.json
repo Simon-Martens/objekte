@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:12.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Mein Freund! seit Adam in den Apfel biß, / Wovon wir noch Etwas im Halse zu spüren, / Seit Moses, um zu imponiren, / Die Marmortafeln niederschmiß,",
+  "language": [],
+  "musenalm_id": 64828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Epistola / de / Arte Critica / et / Statu Critico Reipublicae Literariae / Germaniae / ad / Udalricum Germanum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Erasmus Sincerum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Epistola / de / Arte Critica / et / Statu Critico Reipublicae Literariae / Germaniae / ad / Udalricum Germanum",
+  "updated": "2009-06-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.160Z",
+      "agent": "lebe2rmk32ewec6",
+      "source_id": "8k05ns7t54cougk"
+    }
+  ]
+}

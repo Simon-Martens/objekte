@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37811, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Aus der dunkeln Ostseewellen stürmisch kalten Fluth- / geroll / Hebt sich oft ein lichtes Eiland, blüthenhell und zau- / bervoll.",
+  "language": [],
+  "musenalm_id": 37812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Eine Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Eine Sage",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.723Z",
+      "agent": "ozyc7qe9178qexh",
+      "source_id": "p04wuczsucb4qg3"
+    }
+  ]
+}

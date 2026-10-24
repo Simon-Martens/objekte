@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert V. Illustration zu »Die Wette oder: die beschämte Eifersucht« INr 48279, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48244,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn sie unschuldig wäre! Ob ichs wohl / wage oder nicht?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1811",
+  "scans": [
+    "alm_657_48244_sfcwtwobk7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wenn sie unschuldig wäre! Ob ichs wohl / wage oder nicht?",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.593Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "9krellpl2ko70kx"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.593Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "zijgypdk8yv2ij2"
+    }
+  ]
+}

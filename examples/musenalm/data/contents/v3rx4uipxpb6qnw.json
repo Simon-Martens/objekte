@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert III. /) Illustration zu »Die Seetaucher« Kapitel »Eistaucher« von V. F. S. Fischer INr 70526, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Colymbus glacialis Lin. Der Eistaucher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Susemihl sc.",
+  "scans": [
+    "alm_1153_70524_d9ll7rskzf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Colymbus glacialis Lin. Der Eistaucher",
+  "updated": "2009-11-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.391Z",
+      "agent": "0krc3qfy4wkj0vx",
+      "source_id": "c96i1rrbguc4aai"
+    }
+  ]
+}

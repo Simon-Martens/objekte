@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Der gutmüthige Sonderling, Organist Heinrich Moll, saß eben wieder zwischen den drei Mauern seines Studierstübchens am Clavir.",
+  "language": [],
+  "musenalm_id": 26113,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jagdparthie. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Jagdparthie. / Erzählung",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.234Z",
+      "agent": "5dlgex4wmvni1qx",
+      "source_id": "appdkfj284ajpbo"
+    }
+  ]
+}

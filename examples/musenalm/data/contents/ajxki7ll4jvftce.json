@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Der Lenz ist gekommen! / Es lispeln die Felder, / Es säuseln die Wälder,",
+  "language": [],
+  "musenalm_id": 53904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alpen-May",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alpen-May",
+  "updated": "2008-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.493Z",
+      "agent": "jq74p3fe1dijn5g",
+      "source_id": "o0g2ov190cay9xi"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Als Venus, durch des Malers Hand, / In ihrer jugendlichen Schöne",
+  "language": [],
+  "musenalm_id": 2676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein Gemälde, / die aus dem Meer hervorsteigende Venus / vorstellend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein Gemälde, / die aus dem Meer hervorsteigende Venus / vorstellend",
+  "updated": "2000-09-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.075Z",
+      "agent": "vurjmtt5tprr0cw",
+      "source_id": "kaemgttzko2ipa4"
+    }
+  ]
+}

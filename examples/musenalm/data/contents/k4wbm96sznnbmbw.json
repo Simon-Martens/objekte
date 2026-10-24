@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Klagt, ihr Liebenden! Klagt, Geliebte, Hütt- / ner, / Wein' ein klassisches Lied in deine Lyra!",
+  "language": [],
+  "musenalm_id": 34893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Exequien / für die große Linde / des halberstädtschen Domplatzes. / (Gepflanzt im Oktober 1618, umgehauen im April 1796.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Exequien / für die große Linde / des halberstädtschen Domplatzes. / (Gepflanzt im Oktober 1618, umgehauen im April 1796.)",
+  "updated": "2001-01-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.010Z",
+      "agent": "sb9nj6iyuwz4ari",
+      "source_id": "g190w5msuk5ndag"
+    }
+  ]
+}

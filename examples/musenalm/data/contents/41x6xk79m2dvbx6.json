@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Ein Maulwurf, zwischen Graseshalmen, / Ihm Cedern Libanons und Palmen, / Erhob, was Seltnes! sein Gesicht.",
+  "language": [],
+  "musenalm_id": 53839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maulwurf, die Wachtel und die Lerche. / Fabel.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Maulwurf, die Wachtel und die Lerche. / Fabel.",
+  "updated": "2008-01-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.634Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "0eid515g1aw4e3a"
+    }
+  ]
+}

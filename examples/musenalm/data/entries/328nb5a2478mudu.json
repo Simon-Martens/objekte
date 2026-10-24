@@ -1,0 +1,68 @@
+{
+  "annotation": "weitere Jgg nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für die Badegäste zu Tepliz 1802",
+    "norm": "",
+    "biblio": 407518,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-02-06T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4486,
+  "parallel_title": "",
+  "place_statement": "Prag und Teplitz (Gerzabek)",
+  "places": [
+    "io20468di3l63af",
+    "ot31zvyx8zx34q2"
+  ],
+  "preferred_title": "Almanach für die Badegäste zu Tepliz 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für die / Badegäste / zu Teplitz, / auf das Jahr / 1802. / Prag und Teplitz, / bei Franz Gerzabek",
+  "updated": "2026-06-11 10:18:54.914Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "lihynn5y3xak75f"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.897Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.897Z",
+      "agent": "7j87xhcx1po0572",
+      "source_id": "cz21yqibgkgrxlf"
+    }
+  ]
+}

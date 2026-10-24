@@ -1,0 +1,45 @@
+{
+  "annotation": "Chile (INr 41524, Obj 9); s. a. die Graphiken u. Karte des Taschenbuchs INr 41516, Obj 1; 41530-41541, Obj 15-26",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Auch dieser Theil der südlichen Neuen Welt war, wie die übrigen, bei der Ankunft der Europäer reicher an Menschen,",
+  "language": [],
+  "musenalm_id": 41525,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch. / a) Der Eingeborne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch. / a) Der Eingeborne",
+  "updated": "2005-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.113Z",
+      "agent": "rj7yi1mmlcs4tml",
+      "source_id": "l6ewsne26bfagkz"
+    }
+  ]
+}

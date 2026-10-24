@@ -1,0 +1,132 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B I-Verz, zT, 12 BB darin 12 GG, SS 1-320 darin 5 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch der Liebe und Freundschaft gewidmet 1819",
+    "norm": "~",
+    "biblio": 101098,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2002-10-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 382,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Gebr. Wilmans)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenbuch der Liebe und Freundschaft gewidmet 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 132; L/R 71; Goed VIII. 51, 16a",
+  "responsibility_statement": "Dr. St. Schütze",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1819. / Der / Liebe und Freundschaft gewidmet. / Herausgegeben / von / Dr. St. Schütze. / Frankfurt am Mayn / bei den Gebrüdern Wilmans",
+  "updated": "2026-06-11 10:18:55.848Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "gmwtzhmsjekg9w5"
+  ],
+  "contents": [
+    "cu9awp77l9e9e99",
+    "du200tob5fdj79u",
+    "h51slz1vzdbnilh",
+    "rf3uqmenxw36qku",
+    "gmvuqvqrboe47tb",
+    "6a28nl7l8pfdlwo",
+    "4qm95imyqurdqod",
+    "2l4432leizex4tk",
+    "4ny1idiakx9hlxi",
+    "ok3r05vi4oxyfki",
+    "yltv5w6kdtcjsuh",
+    "ycyd2w8un0i04ap",
+    "2vciwkxwlisfs7g",
+    "aawwpj8nw12uo53",
+    "05qrxx3jti1l5q5",
+    "uju24685umsvemb",
+    "8fcm4rfouxu4k1w",
+    "z5ydsc3jlusfwrb",
+    "epfwetcvza7owpn",
+    "dpbgys742277din",
+    "pfqf8bcovx95x48",
+    "1br7lfoqwc210mc",
+    "f4vja849xosmjp8",
+    "pjcmbyk5ocjpij3",
+    "ee70yf9kfcwf7ez",
+    "1pj9650t6ygu4k7",
+    "pikiir84t91yceg",
+    "lamtf45a0tanmzw",
+    "w8al5k54bi34cvw",
+    "93b0ot9ow6u81df",
+    "eh6iophtha9zeql",
+    "pdm9t60ybkjp6da",
+    "aadf2rzycn2fwkm",
+    "kkalpe24sayvs9f",
+    "l8hrr2pj9rladl0",
+    "7egghpztfpm7zhb",
+    "hib1ojua68vinez",
+    "8qgepljrj1yu3q2",
+    "f1pgtixg0c3l1ul",
+    "vfvfzq2fs70lou9",
+    "015eebuobutgsj2",
+    "ed606mylo5zj5pf",
+    "jyxvxlob91lxks4",
+    "iypew5qs3k6d9qw",
+    "736c10zdanntjjz",
+    "vsgpkhb8j1qft2f",
+    "nlnfbh65cpf6ty5",
+    "ut2qdkgk0b5avbo",
+    "rr6jgqo09915phh",
+    "tm1ds6813q56eac",
+    "b6xl1g7p0lu0oel",
+    "4zv2ju1j177i7jg",
+    "acsoykcnevvr8lc"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.635Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.635Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "d7igotai5p8nf4b"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.886Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.886Z",
+      "agent": "5qecvkripe5ua21",
+      "source_id": "tzws316zovk7ug0"
+    }
+  ]
+}

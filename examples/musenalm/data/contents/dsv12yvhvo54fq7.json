@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wissen Sie, daß ich Ihnen böse bin? So lange nicht zu schreiben! - Die Menschen oder Gegenstände, die unsern Sinnen entschwinden, sind für uns todt.",
+  "language": [],
+  "musenalm_id": 116848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ideale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josefine von Remekhazy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ideale",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.429Z",
+      "agent": "jc0gro9nxm9tpb1",
+      "source_id": "55kusod1wyfhxq7"
+    }
+  ]
+}

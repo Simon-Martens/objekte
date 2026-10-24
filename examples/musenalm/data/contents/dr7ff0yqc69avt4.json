@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Flüstre, du Süße, vom Fenster mir Liebe, / Wirf mit den Blumen die Küsse mir zu:",
+  "language": [],
+  "musenalm_id": 85848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe im Sturm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe im Sturm",
+  "updated": "2003-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.097Z",
+      "agent": "s1uxwuwtfdr9if2",
+      "source_id": "p83nwqn50380nvk"
+    }
+  ]
+}

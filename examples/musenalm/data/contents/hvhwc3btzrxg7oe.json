@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der 1. Graphik im Kalendarium. paginiert 6. Illustration zu »Der dicke Mann« von Albrecht s. Textbezug INr 32219, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:54.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32190,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Testament. / II. Th. Seite 228",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_438_32190_mrxa53iey2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Testament. / II. Th. Seite 228",
+  "updated": "2003-02-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.405Z",
+      "agent": "zluip2dqc7bl84y",
+      "source_id": "zimz3kmyhb6s7gr"
+    }
+  ]
+}

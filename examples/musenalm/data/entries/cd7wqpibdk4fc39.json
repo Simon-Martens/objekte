@@ -1,0 +1,109 @@
+{
+  "annotation": "S. 188 unten: Gedruckt bey Julius Wilhelm Hamm, dem jüng. /) 2. Titel lautet: Taschenbuch für Geschichte und Unterhaltung, auf das Jahr 1800. Herausgegeben von G. A. Neuhofer. Dritter Jahrgang. Augsburg, bey Johann Georg Rollwagen, unter der Barfüßer Kirche",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, B, 14 BB Kal darin 6 GG, T, SS 1-3 Vrwrt d Hrsg, SS 5-188 darin 6 GG, S 189 G-Verz, S 190 I Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Deutsch und französischer (Neuhofer) 1800",
+    "norm": "~",
+    "biblio": 106406,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2013,
+  "parallel_title": "",
+  "place_statement": "Augsburg (Rollwagen)",
+  "places": [
+    "lrzo2mh9qtb8qr8"
+  ],
+  "preferred_title": "Kalender, Deutsch und französischer (Neuhofer) 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 32; nicht bei L/R; ADB XXIII, 509",
+  "responsibility_statement": "G. A. Neuhofer",
+  "subtitle_statement": "",
+  "title_statement": "Deutsch und französischer / CALENDER / für / das Jahr 1800. / Enthaltend / Die Fortsetzung der Geschichte / des gegenwärtigen Krieges. / Verirrung und Rückkehr. / eine Erzählung. / Dichtungen nach Jauffret. / Augsburg / bey Johann Georg Rollwagen / unter der Barfüsserkirche",
+  "updated": "2026-06-11 10:18:55.758Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "w7qsqgxac89p3cb"
+  ],
+  "contents": [
+    "x3e777hk6uyw1ti",
+    "62zpvj9cgffr4hk",
+    "dqtpaln6l9hdfh8",
+    "q88wh4gzhsymob9",
+    "vz2k6qtuhbrzia0",
+    "yrlqnmenhcd8yvq",
+    "ax942jqp9glmo6t",
+    "c9x09t3egeukxu9",
+    "fsswtp59wfv5wpn",
+    "cby5o7yac8uyg4c",
+    "5dgfimswc28inbh",
+    "h4spja2vatfcgjl",
+    "9ob68o57wf1f64m",
+    "1jicme4ej1pnxd2",
+    "7zdd6a10s9nwffb",
+    "mrmnd7cc5mgnqto",
+    "30v6o6p86t7rvak",
+    "rog67ze78xci3vh",
+    "91h4p6pciv8xa66",
+    "6mn0789ut2jqaus",
+    "edvnrawvp711leg",
+    "bj2s1pnyv9ed229",
+    "yn5eus6fjnktnlr",
+    "c22jm656ixzvv3w",
+    "suam9avsqkhhljy",
+    "ay0eh4w7phu2a6x",
+    "rs2g841eoof954x",
+    "brcjteurjbek88p",
+    "pyy7kx4uz7xpc2c",
+    "skcwo5wwiyzde4d"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "w96zvdwyalp1ty2",
+      "source_id": "8h3114zuw8nvvrb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.002Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.002Z",
+      "agent": "n8qx3uzpvdlhykc",
+      "source_id": "jrrimzt8hv8wr49"
+    }
+  ]
+}

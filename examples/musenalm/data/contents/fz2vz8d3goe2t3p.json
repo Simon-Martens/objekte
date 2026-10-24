@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24866, Obj 147)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Als der Herbst den falben Hain / Silbern überspann,",
+  "language": [],
+  "musenalm_id": 24867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Vorfrühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Vorfrühling",
+  "updated": "2002-06-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.165Z",
+      "agent": "5fdnbj9xwyjpym9",
+      "source_id": "n8wz17ydwim84vi"
+    }
+  ]
+}

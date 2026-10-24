@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Das Wahre und das Gute gleicht dem Golde. Das Gold liegt selten offen und gediegen da;",
+  "language": [],
+  "musenalm_id": 40281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wahre und das Gute gleicht dem Golde. Das Gold liegt selten offen und gediegen da;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.984Z",
+      "agent": "02o1v7ogp6q644r",
+      "source_id": "4o1c2y1p040s1tt"
+    }
+  ]
+}

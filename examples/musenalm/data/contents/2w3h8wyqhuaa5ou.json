@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Agnes, als ich dich zuletzt gesehen auf der Wiese, zer- / stäubte / Hauchend des Löwenzahns kuglige Blum' in die Luft.",
+  "language": [],
+  "musenalm_id": 65954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todesahnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todesahnung",
+  "updated": "2009-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.309Z",
+      "agent": "4g2r3ta4uzw1gqd",
+      "source_id": "mpr1f330n7afe0c"
+    }
+  ]
+}

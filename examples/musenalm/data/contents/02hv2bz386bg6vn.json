@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert S. 303. /) Illustration zu »Der Galvanismus« INr 47611, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. S. Schröter del. et sculps.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. S. Schröter del. et sculps.",
+  "scans": [
+    "alm_648_47612_wfvs2g06lm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.599Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.599Z",
+      "agent": "nks9aoyh19lpabu",
+      "source_id": "0c5htq84myzjobs"
+    }
+  ]
+}

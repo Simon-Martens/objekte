@@ -1,0 +1,56 @@
+{
+  "annotation": "Vorwort zu: Die Lausiade. Frey nach Peter Pindar",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Du sollst wissen, geliebter Leser, daß neulich Se. Majestät, kurz vorher ehe Sie sich an den Tisch sezte, wirklich eine Laus auf ihrem Teller erblickte.",
+  "language": [],
+  "musenalm_id": 73095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Leser",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Pindar # [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Leser",
+  "updated": "2010-02-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.546Z",
+      "agent": "w3v9qhkkgi193zi",
+      "source_id": "2f0b2w96q8jydnb"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.546Z",
+      "agent": "bjik5dzyzk4cu0g",
+      "source_id": "6ls9twcolko05mk"
+    }
+  ]
+}

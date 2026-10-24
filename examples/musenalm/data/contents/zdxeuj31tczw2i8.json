@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Wie lange kämpft mit Sturm und Regen / Der Sonne Schein!",
+  "language": [],
+  "musenalm_id": 4590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Regenbogen. / Aus einem ungedruckten Romane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Engelhard geb. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Regenbogen. / Aus einem ungedruckten Romane",
+  "updated": "2000-10-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.301Z",
+      "agent": "e50fn3dat2tsaev",
+      "source_id": "4kt330wphieq6d6"
+    }
+  ]
+}

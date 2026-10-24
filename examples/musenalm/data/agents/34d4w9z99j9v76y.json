@@ -1,0 +1,314 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1827",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.463Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Engl. Forschungsreisender; ab 1816 Generalkonsul in Ägypten; sammelte ägypt. Antiquitäten für das Brit. Museum; begraben in Alexandria"
+      ],
+      "dateOfBirth": [
+        "1780-06-14"
+      ],
+      "dateOfDeath": [
+        "1827-10-30"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "John James Halls"
+          ],
+          "creditText": [
+            "Manley, Deborah; Rée, Peta (2001) Henry Salt: Artist, Traveller, Diplomat, Egyptologist, London: Libri, pp.&nbsp;Illustration 2 Retrieved on 15 July 2009. ISBN: 9781901965049."
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry%20Salt%20%28by%20John%20James%20Halls%29.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Henry%20Salt%20%28by%20John%20James%20Halls%29.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Henry%20Salt%20%28by%20John%20James%20Halls%29.JPG?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1090253052"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-13T22:37:28.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117618179/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-GB",
+          "label": "Großbritannien"
+        }
+      ],
+      "gndIdentifier": "117618179",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#19.1dp",
+          "label": "Personen zu Geografie, Heimat- und Länderkunde"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117618179",
+      "oldAuthorityNumber": [
+        "(DE-588)1090253052",
+        "(DE-588c)4530862-7",
+        "(DE-588a)117618179"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4029236-8",
+          "label": "Kairo"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4393763-9",
+          "label": "Lichfield"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/1175893110",
+          "label": "Disuk"
+        }
+      ],
+      "preferredName": "Salt, Henry",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Henry"
+        ],
+        "surname": [
+          "Salt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4017917-5",
+          "label": "Forschungsreisender"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398815-5",
+          "label": "Ägyptologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166042-0",
+          "label": "Kunstsammler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398829-5",
+          "label": "Generalkonsul"
+        }
+      ],
+      "publication": [
+        "Valentia, George A. of: Reisen nach Indien, Ceylon ...",
+        "Salt, Henry: A voyage to Abyssinia",
+        "Salt, Henry: (Heinrich Salt's) neue Reise nach Abyssinien",
+        "Salt, Henry: Voyage to Abyssinia and travels into the interior of thar country - in the Y*. - 1814",
+        "Annesley, George: Reisen nach Indien, Ceylon ...",
+        "Salt, Henry: Neue Reise nach Abyssinien in den Jahren 1809 und 1810",
+        "Annesley, George: Voyages to India, Ceylon, Abyssinia ...",
+        "Valentia, George A. of: Voyages to India, Ceylon, Abyssinia ...",
+        "Salt, Henry: Neue Reise nach Abyssinien",
+        "Salt, Henry: Voyage en Abyssinie"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb133285762"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no97054561"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/29677783"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q733780"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1090253052"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117618179/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Henry_Salt_%28%C3%84gyptologe%29"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Henry_Salt_%28Egyptologist%29"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000115565192"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117618179"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117618179"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/117618179"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Salt, Heinrich"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Heinrich"
+          ],
+          "surname": [
+            "Salt"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Henry_Salt_%28%C3%84gyptologe%29",
+          "label": "https://de.wikipedia.org/wiki/Henry_Salt_%28%C3%84gyptologe%29"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:44:03Z",
+    "gnd_query_biographical_data": "1780-1827",
+    "gnd_query_name": "salt, henry"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2368,
+  "name": "Salt, Henry",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XXIX, 356",
+  "updated": "2026-06-11 13:29:24.487Z",
+  "uri": "https://d-nb.info/gnd/117618179",
+  "editor": ""
+}

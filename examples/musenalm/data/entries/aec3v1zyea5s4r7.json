@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang KVK: BVB /) Satirischer Almanach, der, nach Monaten geordnet, für jeden Tag eine Lüge bringt /) auf der letzten Seite: Gedruckt bei Fr. Kuhnert in Creutzburg /) vom selben Hrsg s. a.: Närrische Blätter. Humoristisch-satyrischer Carnaval- Almanach zum Mardi-gras 1848",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "T, SS 1-50, S",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Lügen-Almanach 1847",
+    "norm": "",
+    "biblio": 408166,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-09-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4028,
+  "parallel_title": "",
+  "place_statement": "Creutzburg (F. Fischer)",
+  "places": [
+    "a89tbfcg6vv8aja"
+  ],
+  "preferred_title": "Lügen-Almanach 1847",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Herrmann Walden",
+  "subtitle_statement": "",
+  "title_statement": "Lügen-Almanach / für / 1847. / Herausgegeben / von / Herrmann Walden. / Motto: Das Leben ist der Güter höchstes nicht, / Der Uebel kleinstes aber - die Censur. / Creutzburg, / Verlag von F. Fischer / 1847",
+  "updated": "2026-06-11 10:18:55.922Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "items": [
+    "wpc2gr1clxee4lj"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.326Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.326Z",
+      "agent": "em8ra7gwg5eelng",
+      "source_id": "6dsez0s0vm3w5z0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.824Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.824Z",
+      "agent": "75kypfv7mh5n8ne",
+      "source_id": "6yapie9dm3vnlx0"
+    }
+  ]
+}

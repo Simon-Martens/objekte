@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48520,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRAUENZIMMER / Almanach / zum / Nutzen und Vergnügen / für das Jahr / 1819. / Leipzig / bei Carl Cnobloch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_663_48520_6wigyy9kl2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRAUENZIMMER / Almanach / zum / Nutzen und Vergnügen / für das Jahr / 1819. / Leipzig / bei Carl Cnobloch",
+  "updated": "2007-02-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.311Z",
+      "agent": "u3ev7bjxvo21hzz",
+      "source_id": "l42yahbfzxtyq1x"
+    }
+  ]
+}

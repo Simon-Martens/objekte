@@ -1,0 +1,133 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B Vrwrt d Hrsg, 2 BB G-Verz I-Verz, 8 BB Kal, SS 1-280",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Theater-Kalender (Gotha) 1799",
+    "norm": "~",
+    "biblio": 408975,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3271,
+  "parallel_title": "",
+  "place_statement": "Gotha (Ettinger)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Theater-Kalender (Gotha) 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 161; L/R 111; Goed IV/1. 680, 22",
+  "responsibility_statement": "Reichard",
+  "subtitle_statement": "",
+  "title_statement": "Theater- / Kalender / auf das Jahr / 1799. / Gotha, / bey Carl Wilhelm Ettinger",
+  "updated": "2026-06-11 10:18:54.978Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "61til60js2293id"
+  ],
+  "contents": [
+    "52hvatmzw3nrpuf",
+    "i7hghgczm3899jq",
+    "xpoxabs2b5bwhoc",
+    "qys8vuj09amymf0",
+    "t3qhkmqm7vzoeig",
+    "i90mkysr6cmafu6",
+    "dtsvmp1b2vmayb7",
+    "8md7x7p42s517cy",
+    "sf65fwv5tvx4f7q",
+    "9paqt77dsiodh8a",
+    "tnb2y4f8qdu39fj",
+    "jswnmeci5vxxxak",
+    "dm8i5z6bl69zowy",
+    "nqinofl7c6jseqk",
+    "1vbdqe0kmktd3as",
+    "kqy5qzq4xlu15u1",
+    "grsb2ufebzzw3qy",
+    "2novbgoapgrgb73",
+    "cfj5mzo7xxqyt6m",
+    "ffgyx5kaupvcn4k",
+    "ijd16b5olxc9vij",
+    "adm77tr636qrbms",
+    "2z20ylsj92jfy0w",
+    "naqow1fz8m5q9tq",
+    "w7xdh62015w4pcv",
+    "ai9681gc2qtvk5c",
+    "qjoxve970gby2de",
+    "2muizlb9udwytr6",
+    "vkrn0rr1m5chpql",
+    "rftyh3ho4sea747",
+    "vdhnmt1i2vbtq8q",
+    "p6wr9lg8h2bm8br",
+    "y8n2ecluvabpn3o",
+    "3b4dvpvc3n3o52b",
+    "zo7kectnt9pb1xx",
+    "z02frttfukf2b12",
+    "wqxa6ze62f91oxh",
+    "ygvj7612stel85l",
+    "nik9quumpx5vgaj",
+    "2w16wihpqcdzbsw",
+    "6q11961hw8r56b3",
+    "bsi6i4wsdg2nwfa",
+    "ghdl718pbkj8abg",
+    "euoo2yu6ec2emwe",
+    "ze0of5b34a2f2ri",
+    "qk8y5c6ccscq5fp",
+    "ydm2ull7m76o6b6",
+    "1qt80543ojrj517",
+    "ri6idvmxpbdbg5u",
+    "vdjra8yxnz0brlz",
+    "o225of3zbgewc21",
+    "aaqzc0c2pdtpjuk",
+    "blykw0plagdckrv",
+    "ixdx8vf5fey9xf6"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.201Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.201Z",
+      "agent": "wrhrh5ct20xv6c8",
+      "source_id": "iswppnxdtv0e1tm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.810Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.810Z",
+      "agent": "57058q4ca487ing",
+      "source_id": "k2vnvezzktynz88"
+    }
+  ]
+}

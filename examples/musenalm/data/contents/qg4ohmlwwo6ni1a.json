@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der armen Frow Zwinglin Klag. Ao. 1531« von J. M. Usteri INr 53523, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Frow Zwinglin Klag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Girardet fecit",
+  "scans": [
+    "alm_732_53522_v335fih5ad.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Frow Zwinglin Klag",
+  "updated": "2007-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.340Z",
+      "agent": "6m0s14aoyx1hbur",
+      "source_id": "mzw6hhilkoizkpg"
+    }
+  ]
+}

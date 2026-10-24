@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Distichen über Raphaels, Christus und die Apostel (Sammlung INr 84052, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:25.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Schon der Knabengestalt entdämmert nach Drü- / ben die Sehsucht:",
+  "language": [],
+  "musenalm_id": 84057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebäus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebäus",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.044Z",
+      "agent": "lddxtb72o5kmwcl",
+      "source_id": "z6r7tl84yjja5v0"
+    }
+  ]
+}

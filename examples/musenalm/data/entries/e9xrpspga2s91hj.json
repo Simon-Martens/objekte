@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, G, 11 BB Kal darin 10 GG, SS 1-149, SS 150-156 G-Verz, 42 BB Tab, 17 BB Tab, S, 36 SS Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Damenkalender, Berlinischer 1805",
+    "norm": "~",
+    "biblio": 105967,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-02-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 444,
+  "parallel_title": "",
+  "place_statement": "Berlin (Unger)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Damenkalender, Berlinischer 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 41; L/R 70; Goed VIII. 49, 8; Goed VI. 384, 10",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Berlinischer / Damen-Kalender / auf / das Jahr 1805. / mit Kupfern. / Berlin, / bei Johann Friedrich Unger",
+  "updated": "2026-06-11 10:18:55.605Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "items": [
+    "qthx1qvymjwlyu6"
+  ],
+  "contents": [
+    "3f3yoxdiv0oaxc7",
+    "41bofaje8e5bz7a",
+    "3hez064iqp56rw3",
+    "4s4igjbrvg2xifi",
+    "yhab7pnehivfotu",
+    "gv7lpau207im1ji",
+    "j722pfdsuj5qq3u",
+    "kt4n9wbp4hs7ott",
+    "kkmz442d9r9pykx",
+    "s3qi9okctkoxmgg",
+    "nczeadktnd2s5sa",
+    "lzq3uqfs5l7y3y0",
+    "est119ix0w7ikeg",
+    "5by4q3karc2cvpq",
+    "dovmyuts24mmhls",
+    "qrou7irsl66vybs",
+    "f5k238vsjj9zpru",
+    "ym2k8giazdvajtx",
+    "taiaxfryippbey4",
+    "t1qumg42co6jjby",
+    "pkiywgm2shka14g",
+    "ruf9nuvvtrwh890",
+    "e7wh8d4n0a7b0q6",
+    "r25wd4vk895jeed",
+    "iolamy4bamzwfvs",
+    "5p1d9mknhdqo65h",
+    "98pu2bsc79ypu1o",
+    "uq14r0qjhfm2c3r",
+    "8e6nyehtpiqih0q",
+    "sdzglx61m2ehjkc",
+    "zqszoess4qpvz9c",
+    "t6m6cdljms4njag",
+    "rv9pcd31ep1567v",
+    "34bdq1s6sxsjz2u",
+    "u7692zaeaz4v1yi"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.168Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.168Z",
+      "agent": "a3shc7qhwl84u6i",
+      "source_id": "nzcgfckhgl3r6tx"
+    }
+  ]
+}

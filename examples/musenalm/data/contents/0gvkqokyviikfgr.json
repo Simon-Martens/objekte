@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. mit Hinweis auf: Novelle di alcuni autori florentini. Londra Baucker 1795. 8.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "An einem Sonntage hatte in Florenz Tommaso de Pecori auf den Abend einge junge Leute zu sich eingeladen, wie er öfters zu thun pflegte;",
+  "language": [],
+  "musenalm_id": 111896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bin ich's oder bin ich's nicht? / Eine Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bin ich's oder bin ich's nicht? / Eine Novelle",
+  "updated": "2010-01-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.403Z",
+      "agent": "9mav4omm7dqt3ib",
+      "source_id": "o024l3qhxr16pjt"
+    }
+  ]
+}

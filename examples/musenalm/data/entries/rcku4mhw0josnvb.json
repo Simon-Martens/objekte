@@ -1,0 +1,78 @@
+{
+  "annotation": "Jgg 1838-1864; Stuttgart, 1842, 1844, 1845, 1847; 1849, 1856: Stuttgart (Belser); Hrsg. Gustav Plieninger /) K gibt an: Weihnachtsblüthen f. d. reifere Jugend … und als 1. Jahrgang 1839 an",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Weihnachtsblüthen 1838",
+    "norm": "",
+    "biblio": 406701,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-06-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3670,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Belser)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Weihnachtsblüthen 1838",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 174; nicht bei L/R",
+  "responsibility_statement": "Gustav Plieninger",
+  "subtitle_statement": "",
+  "title_statement": "Weihnachtsblüthen. / Ein / Almanach / für die / christliche Jugend / auf das Jahr 1838. / In Verbindung mit Andern / herausgegeben / von / Gustav Plieninger. / Mit Stahlstichen. / Stuttgart. / Verlag der Chr. Belser'schen Buchhandlung",
+  "updated": "2026-06-11 10:18:54.531Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "items": [
+    "xe47hbj817ly8i9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.276Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.276Z",
+      "agent": "biz64svfje4o2xo",
+      "source_id": "68pjiwwfhul351f"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.529Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.529Z",
+      "agent": "2juzxutoc574f19",
+      "source_id": "gi9mvu4uco00eh8"
+    }
+  ]
+}

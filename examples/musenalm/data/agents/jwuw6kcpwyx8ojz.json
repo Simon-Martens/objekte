@@ -1,0 +1,282 @@
+{
+  "annotation": "",
+  "biographical_data": "1773-?",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.438Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Advokat, Dichter, Novellist, Historiettenschriftsteller"
+      ],
+      "dateOfBirth": [
+        "1773-03-07"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/100616909",
+        "https://d-nb.info/gnd/181189356",
+        "https://d-nb.info/gnd/153640715"
+      ],
+      "describedBy": {
+        "dateModified": "2024-01-04T19:06:43.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/104295201/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#notKnown",
+          "label": "Unbekannt"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "104295201",
+      "id": "https://d-nb.info/gnd/104295201",
+      "oldAuthorityNumber": [
+        "(DE-588a)153640715",
+        "(DE-588a)100616909",
+        "(DE-588)181189356",
+        "(DE-588)100616909",
+        "(DE-588a)104295201",
+        "(DE-588)153640715",
+        "(DE-588a)181189356"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4056533-6",
+          "label": "Spremberg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065247-6",
+          "label": "Weißenfels"
+        }
+      ],
+      "preferredName": "Nöller, Johann Jonathan Ludwig Leberecht",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Jonathan Ludwig Leberecht"
+        ],
+        "surname": [
+          "Nöller"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4029050-5",
+          "label": "Jurist"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Thomann"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059068"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/48898296"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q19217294"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/100616909"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/104295201/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/153640715"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/181189356"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Lebrecht_N%C3%B6ller"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000053336588"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/104295201"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Noeller, Lebrecht",
+        "Nöller, Johann Jonathan Ludwig Lebrecht",
+        "Nöller, Jonathan Ludwig Lebrecht",
+        "Nöller, Lebrecht",
+        "Nöller, Jonathan Lebrecht",
+        "Thomann"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Jonathan Ludwig Lebrecht"
+          ],
+          "surname": [
+            "Nöller"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan Lebrecht"
+          ],
+          "surname": [
+            "Nöller"
+          ]
+        },
+        {
+          "forename": [
+            "Lebrecht"
+          ],
+          "surname": [
+            "Nöller"
+          ]
+        },
+        {
+          "forename": [
+            "Lebrecht"
+          ],
+          "surname": [
+            "Noeller"
+          ]
+        },
+        {
+          "personalName": [
+            "Thomann"
+          ]
+        },
+        {
+          "forename": [
+            "Jonathan Ludwig Lebrecht"
+          ],
+          "surname": [
+            "Nöller"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T12:24:24Z",
+    "gnd_query_biographical_data": "1773-?",
+    "gnd_query_name": "nöller, jonathan ludwig lebrecht"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1973,
+  "name": "Nöller, Jonathan Ludwig Lebrecht",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed V, 432",
+  "updated": "2026-06-11 13:29:23.971Z",
+  "uri": "https://d-nb.info/gnd/104295201",
+  "editor": ""
+}

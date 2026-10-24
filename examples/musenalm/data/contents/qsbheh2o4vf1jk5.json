@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.699Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Von der Kirche Bann belastet, / Von den meisten seiner Edlen, / Selbst von solchen, die vom Staube / Er empor zum Glück gehoben,",
+  "language": [],
+  "musenalm_id": 33905,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sarazenentreue. / (Nach der Geschichte S. Nicol. de / Jamsilla.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sarazenentreue. / (Nach der Geschichte S. Nicol. de / Jamsilla.)",
+  "updated": "2003-05-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.794Z",
+      "agent": "2hig42wpgako8md",
+      "source_id": "8otqq4p445um5i4"
+    }
+  ]
+}

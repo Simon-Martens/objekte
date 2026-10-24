@@ -1,0 +1,96 @@
+{
+  "annotation": "2. Titel: Biarmia / Taschenbuch / auf das Jahr / 1833. / Erster Jahrgang / St. Petersburg / Aus der Druckerei der IIIten Abteilung der Höchsteigenen / Kanzellei Seiner Majestät des Kaiser. / 1832. /) Auch erschienen: Titelauflage 1843",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, G, verso G, T, T, S W, B I-Verz G-Verz, SS V-VI Vrwrt d Hrsg, SS VII-XX G-Verz, SS 1- 379 darin 4 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Biarmia 1833",
+    "norm": "~",
+    "biblio": 100177,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1633,
+  "parallel_title": "",
+  "place_statement": "St. Petersburg (Brieff)",
+  "places": [
+    "isncrim54ia4qr9"
+  ],
+  "preferred_title": "Biarmia 1833",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Biarmia / Taschenbuch / auf das Jahr / 1833 / Erster Jahrgang / St. Petersburg / Bey J. Brieff",
+  "updated": "2026-06-11 10:18:55.538Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "items": [
+    "4tjfkpbjvdellja"
+  ],
+  "contents": [
+    "3duovzxu2w266d8",
+    "nduct6dpq1tn2id",
+    "bnslo01ktpfx9ju",
+    "6dnn3v9o1jimjpm",
+    "88iika928q6hk1z",
+    "jwhm9dd42vbguis",
+    "5i896zjn224n7aq",
+    "odm19nurxc21ama",
+    "buq4lytuqjkepkd",
+    "7wqywuifzzu0pm1",
+    "rwqzodzqmqjoyja",
+    "exv6qjvqs9892wd",
+    "a6psodoaj4gok24",
+    "r6b3ht93pfeuqry",
+    "bl0oqp4ltupg2mr",
+    "wmroml84l6nt3y5",
+    "tqbw6lsdw6jstxu",
+    "matyrb80s13yq83",
+    "jvy4bebi9mztke6",
+    "u5gipft3qpof4h2",
+    "efsupe95m1dodd1",
+    "kbnffdjiu1bax5a",
+    "2z26pyqwgyv9v0i",
+    "2l24yuysixelj9u",
+    "o8359ev2sydqppg",
+    "es8gzflvn4cmc6b",
+    "bl38m9czlfag0wc",
+    "314ki0ya9ych3kx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.574Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.574Z",
+      "agent": "gfgcdxu1ysongn3",
+      "source_id": "daj6onv2nyw5uq1"
+    }
+  ]
+}

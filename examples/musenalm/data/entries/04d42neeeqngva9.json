@@ -1,0 +1,93 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 12 BB Kal darin 11 GG, ar: SS 1-298, ar1: SS 1-96, 2 SS, ar2: SS 1-110, 6 SS",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Berliner 1841",
+    "norm": "~",
+    "biblio": 200860,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-08-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 876,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Berliner 1841",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 68; L/R 17; Goed VIII. 93, 179",
+  "responsibility_statement": "Kön. Preuß. Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Berliner / KALENDER / auf / das GEMEIN JAHR / 1841. / MIT KUPFERN. / Herausgegeben / VON DER KÖNIGL. PREUSS. KALENDER DEPUTATION",
+  "updated": "2026-06-11 10:18:55.754Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "items": [
+    "j1xzk9y45z4pvdu"
+  ],
+  "contents": [
+    "3nfzfjjbkqpc8fs",
+    "zlb2g7yc4zasjn5",
+    "unihesqqyv2n5if",
+    "w52lhvygzg3a4aj",
+    "gav8imggznvo5go",
+    "zfmlvzvt9840jta",
+    "uz4t43yf25tai0h",
+    "3dn5dedld4x6gq0",
+    "v6d5xy8gj8zlbji",
+    "e39rn0gpett5dcg",
+    "b5ja286g3bvyj1q",
+    "mwwjak0oon8o172",
+    "0d4rph3aojx0kwg",
+    "n58mbrh0tsxa5j7",
+    "y9drctpnhti29xt",
+    "jm4slcccoivvf0p",
+    "6ek33zyvl4ixxnf",
+    "ppplely1szalemd",
+    "qsx6c8aa1c8jsro",
+    "3dsfeerg5mo8im4",
+    "gohgmuzrqxqf1sr",
+    "pnm1s1yaj7ur1ls",
+    "8bsi45r1qncc140",
+    "4qi51pbmn7jlmbv",
+    "nl2qlnmgx85hf4g"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.209Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.209Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "ll8k5cwsk2o2825"
+    }
+  ]
+}

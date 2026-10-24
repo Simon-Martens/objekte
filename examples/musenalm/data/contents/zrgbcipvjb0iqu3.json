@@ -1,0 +1,56 @@
+{
+  "annotation": "GUARINI (s. Zwischentitel INr 71291, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Wann Liebe, meinem Frieden nicht gewogen, / Zu süßem bitterm Spiel mich will gewinnen",
+  "language": [],
+  "musenalm_id": 71293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guarini; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / II.",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.634Z",
+      "agent": "sjkch1k7fhhouea",
+      "source_id": "06tzd2ry76fjpb5"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.634Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "4cp0738uumqlqe5"
+    }
+  ]
+}

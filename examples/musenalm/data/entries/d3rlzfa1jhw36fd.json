@@ -1,0 +1,78 @@
+{
+  "annotation": "Jg 1781 u. 1782 , München (Strobl) Hrsg: L. v. Westenrieder /) s. die  Reihe: Kalender, Historischer (Westenrieder) Jgg 1787-1815",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Jahrbuch der Menschengeschichte in Bayern 1782",
+    "norm": "",
+    "biblio": 409280,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2016-04-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4312,
+  "parallel_title": "",
+  "place_statement": "München (Strobl)",
+  "places": [
+    "yx82iqb6vfm5jql"
+  ],
+  "preferred_title": "Jahrbuch der Menschengeschichte in Bayern 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Professor Westenrieder",
+  "subtitle_statement": "",
+  "title_statement": "Jahrbuch / der / Menschengeschichte / in / Bayern / vom / Professor Westenrieder. / Ersten Bandes Erster Theil. / München, 1782. / Bei Johann Baptist Strobl",
+  "updated": "2026-06-11 10:18:55.719Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "items": [
+    "1hufoo239yc8dav"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.160Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.160Z",
+      "agent": "8sud91r8p4zuza5",
+      "source_id": "0k537j2sh6ref8e"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.362Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.362Z",
+      "agent": "nx4goeqb48r7zw8",
+      "source_id": "jin3n72lcz0gwhh"
+    }
+  ]
+}

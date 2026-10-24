@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem beigebenenen Gedicht s. INr 73435, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Jede Gesellschaft kann, als eine Art von Schule für uns, betrachtet werden.",
+  "language": [],
+  "musenalm_id": 73434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Sey sorgfältig in der Wahl der / Gesellschaft, mit welcher du umgehen / willst. Suche keine andere, als gute / Gesellschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Sey sorgfältig in der Wahl der / Gesellschaft, mit welcher du umgehen / willst. Suche keine andere, als gute / Gesellschaft",
+  "updated": "2011-01-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.702Z",
+      "agent": "c8k6z31g33p9467",
+      "source_id": "g9qi3l3goah2fcg"
+    }
+  ]
+}

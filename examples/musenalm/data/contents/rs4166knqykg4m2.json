@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Capitain Vlies, eines Holländers, Tapferkeit / und wunderbare Rettung« INr 130261, Obj 32 /) über der Graphik p. 228",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Capitain Vlies, eines Holländers, Tapferkeit / und wunderbare Rettung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel pinx. J. Penzel fec.",
+  "scans": [
+    "alm_1227_130262_nxrb39rsag.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Capitain Vlies, eines Holländers, Tapferkeit / und wunderbare Rettung",
+  "updated": "2009-12-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.061Z",
+      "agent": "5gkb4vp0l46mhri",
+      "source_id": "r0eoqrbe74v6ide"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.061Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "wlt4tvr0yqyyzfe"
+    }
+  ]
+}

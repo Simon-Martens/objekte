@@ -1,0 +1,72 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Innsbrucker 1813",
+    "norm": "",
+    "biblio": 411335,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2022-12-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4823,
+  "parallel_title": "",
+  "place_statement": "Innsbruck (Wagner)",
+  "places": [
+    "z3u8iuo1iwvgby9"
+  ],
+  "preferred_title": "Taschenbuch, Innsbrucker 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Innsbrucker / Taschenbuch / auf das Jahr / 1813. / für / Freunde u. Einheimische / Innsbruck / in der Wagnerischen / Buchhandlung",
+  "updated": "2026-06-11 10:18:54.753Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "items": [
+    "r3ct2w7s45k1wh9"
+  ],
+  "contents": [
+    "84ghzpiqypm7nk7",
+    "yh637d86juekaf6",
+    "ors1haxp0nyo48m",
+    "gat90cc93bo123s"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.180Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.180Z",
+      "agent": "7jsfpvc4q2nstil",
+      "source_id": "jck8junxgbqy9n2"
+    }
+  ]
+}

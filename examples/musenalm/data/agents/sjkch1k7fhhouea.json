@@ -1,0 +1,656 @@
+{
+  "annotation": "",
+  "biographical_data": "1538-1612",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.353Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Ital. Schriftsteller; ab 1557 Prof. für Rhetorik und Dichtkunst am Archiginnasio di Ferrara; ab 1567 Diplomat in Diensten des Herzogs Alfonso d'Este"
+      ],
+      "dateOfBirth": [
+        "1538-12-10"
+      ],
+      "dateOfDeath": [
+        "1612-10-07"
+      ],
+      "depiction": [
+        {
+          "copyrighted": true,
+          "creatorName": [
+            "Rijksmuseum"
+          ],
+          "creditText": [
+            "http://hdl.handle.net/10934/RM0001.COLLECT.104542"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Giovanni%20Battista%20Guarini%2C%20RP-P-1909-5628.jpg",
+          "license": [
+            {
+              "abbr": "CC0",
+              "attributionRequired": false,
+              "id": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+              "name": "Creative Commons Zero, Public Domain Dedication"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Portret%20van%20Giovanni%20Battista%20Guarini%2C%20RP-P-1909-5628.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Portret%20van%20Giovanni%20Battista%20Guarini%2C%20RP-P-1909-5628.jpg?uselang=de"
+        }
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/188228462",
+        "https://d-nb.info/gnd/160370450"
+      ],
+      "describedBy": {
+        "dateModified": "2024-09-26T19:00:13.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118698753/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-IT",
+          "label": "Italien"
+        }
+      ],
+      "gndIdentifier": "118698753",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118698753",
+      "oldAuthorityNumber": [
+        "(DE-101c)310449251",
+        "(DE-588a)134759257",
+        "(DE-588)160370450",
+        "(DE-588c)4094193-0",
+        "(DE-588a)160370450",
+        "(DE-588a)188228462",
+        "(DE-588)188228462",
+        "(DE-588a)118698753"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4092153-0",
+          "label": "Ferrara"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4092153-0",
+          "label": "Ferrara"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4062501-1",
+          "label": "Venedig"
+        }
+      ],
+      "preferredName": "Guarini, Battista",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Battista"
+        ],
+        "surname": [
+          "Guarini"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012401-0",
+          "label": "Diplomat"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4167564-2",
+          "label": "Librettist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Serafino"
+          ],
+          "surname": [
+            "Colato"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Guarini, Battista: La idropica. - s.a.",
+        "Guarini, Giovanni B.: Il Barbiere Risposta ... all'invettiva uscitata contro il Cavaliere G*. - s.a.",
+        "Guarino, Giovanni B.: Il pastor fido",
+        "Guarini, Battista: Il pastor fido"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb11886478t"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n50033002"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54142932"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q542039"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118698753/about"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/160370450"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/188228462"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118698753"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Giovanni_Battista_Guarini"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Giovanni_Battista_Guarini"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Giovanni_Battista_Guarini"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109018539"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118698753"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118698753"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118698753"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4050152-8",
+          "label": "Ritter"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Guarini, Babtista",
+        "Guarini, Giovanni Battista",
+        "Guarini, Johannes Baptista",
+        "Guarino, Baptista",
+        "Guarini, Jean Baptiste",
+        "Guarini, Batista",
+        "Guarinius, Baptista",
+        "Guarini, Baptista",
+        "Guarini, Giovanni Baptista",
+        "Guarini, Jean B.",
+        "Guarini, Giovanni B.",
+        "Guarini, G. Battista",
+        "Guarini, Giambattista",
+        "Guarini",
+        "Colato, Serafino, [Pseud.]",
+        "Guarini, B.",
+        "Guarinus, Baptista",
+        "Guarini, Giovanbattista",
+        "Guarini, Baptiste",
+        "Colato, Serafino",
+        "Gvarini, Baptista",
+        "Guarino, Battista",
+        "Guarini, Gio. Battist.",
+        "Guarini, Giovanni Batista",
+        "Guarini, Johannes B.",
+        "Guarini, Giovanni-Battista",
+        "Guarini, Giovan Battista",
+        "Gvarini, Battista",
+        "Guarinius, B.",
+        "Guarino, Giovanni B.",
+        "Guarini, G. B.",
+        "Guarini, Giambatista",
+        "Guarini, C. Battista"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Giambatista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Baptiste"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Guarinius"
+          ]
+        },
+        {
+          "forename": [
+            "C. Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Guarinius"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Guarino"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Batista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Serafino"
+          ],
+          "surname": [
+            "Colato"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni B."
+          ],
+          "surname": [
+            "Guarino"
+          ]
+        },
+        {
+          "forename": [
+            "Battista"
+          ],
+          "surname": [
+            "Gvarini"
+          ]
+        },
+        {
+          "forename": [
+            "Baptiste"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Serafino"
+          ],
+          "nameAddition": [
+            "[Pseud.]"
+          ],
+          "surname": [
+            "Colato"
+          ]
+        },
+        {
+          "forename": [
+            "G. B."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Babtista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Guarinus"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni B."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giambattista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes Baptista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "B."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni-Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "personalName": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Baptista"
+          ],
+          "surname": [
+            "Gvarini"
+          ]
+        },
+        {
+          "forename": [
+            "Batista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovan Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "G. Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanbattista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Jean B."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Battista"
+          ],
+          "surname": [
+            "Guarino"
+          ]
+        },
+        {
+          "forename": [
+            "Gio. Battist."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Baptista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Giovanni Battista"
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        },
+        {
+          "forename": [
+            "Johannes B."
+          ],
+          "surname": [
+            "Guarini"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Giovanni_Battista_Guarini",
+          "label": "https://de.wikipedia.org/wiki/Giovanni_Battista_Guarini"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T11:36:06Z",
+    "gnd_query_biographical_data": "1538-1612",
+    "gnd_query_name": "guarini, giovanni battista"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 999,
+  "name": "Guarini, Giovanni Battista",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed (H) 182",
+  "updated": "2026-06-11 13:29:22.704Z",
+  "uri": "https://d-nb.info/gnd/118698753",
+  "editor": ""
+}

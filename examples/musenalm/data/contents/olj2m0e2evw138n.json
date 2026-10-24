@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der treue Eckart« von L. Tieck INr 65361, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65362,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der treue Eckart #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich von Ernst Rauch, Darmstadt",
+  "scans": [
+    "alm_1101_65362_zl40od9btq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der treue Eckart #",
+  "updated": "2009-07-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.830Z",
+      "agent": "902nw56856wz9rx",
+      "source_id": "nq5n1sirx7ft7bl"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.830Z",
+      "agent": "k7ib4tmw0w1jiao",
+      "source_id": "ujktjotet0w84q3"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. INr 20342, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Nicht fern dem waldumwachsnen Strom, lag ehmals eine kleine Mühle an dem einsamen Bach,",
+  "language": [],
+  "musenalm_id": 20393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Söhne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Söhne",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.806Z",
+      "agent": "t2bhwjntezhy9hb",
+      "source_id": "em1upye9lj7f6gm"
+    }
+  ]
+}

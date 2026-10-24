@@ -1,0 +1,43 @@
+{
+  "annotation": "Bedenklichkeiten in acht Bildern (Sammlung INr 30374, Obj 4) s. Graphik INr 30386, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nur dem Ganzen eingesponnen / Fühlt sich jeder stark und fest,",
+  "language": [],
+  "musenalm_id": 30387,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Bedenklichkeit im Scheiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Bedenklichkeit im Scheiden",
+  "updated": "2002-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.631Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "169m0zo50967fvu"
+    }
+  ]
+}

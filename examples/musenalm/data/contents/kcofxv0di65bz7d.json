@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 121982, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Wie sich die schwarzen Locken schlingen / Dir um das rosig junge Haupt,",
+  "language": [],
+  "musenalm_id": 121984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Einer Tanzenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Einer Tanzenden",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.692Z",
+      "agent": "fjw259e60ifm3ie",
+      "source_id": "yzo9g7k85f3jgpt"
+    }
+  ]
+}

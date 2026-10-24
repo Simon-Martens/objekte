@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Auf dem Schloße Grauenstein hatte sich an einem fröhlichen Abende eine Gesellschaft junger Leute verabredet, bey dem ersten schönen Morgen den Flug, wie sie es nannten, auf eine benachbarte Höhe zu nehmen,",
+  "language": [],
+  "musenalm_id": 53382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise nach dem Aufgang. / (Episode aus Suschen's Hochzeit, oder der / Molkenkur zweytem Theile.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise nach dem Aufgang. / (Episode aus Suschen's Hochzeit, oder der / Molkenkur zweytem Theile.)",
+  "updated": "2007-12-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.661Z",
+      "agent": "5xr1i06rwmguu38",
+      "source_id": "3nhzx9y0kbijdv8"
+    }
+  ]
+}

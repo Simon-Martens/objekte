@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Schweigend, Schicksal, ehr' ich dein Gebot. / Nimm den Kranz, den ich in selgen Stunden",
+  "language": [],
+  "musenalm_id": 4041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ergebung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Lappe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ergebung",
+  "updated": "2000-09-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.096Z",
+      "agent": "h8h7559ermyma3h",
+      "source_id": "zkbtevppyi02gc2"
+    }
+  ]
+}

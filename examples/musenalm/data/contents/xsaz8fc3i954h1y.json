@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühling (Sammlung INr 23354, Obj 12) mit einer Illustration s. Graphik INr 23355, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.066Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Unfern eines Städtchens, welches namhaft geworden durch einen häufig besuchten Jahrmarkt aller Wissenschafen",
+  "language": [],
+  "musenalm_id": 23356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sinne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sinne",
+  "updated": "2002-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.943Z",
+      "agent": "7gwss5mvx858qah",
+      "source_id": "ah42lkoz43hed9f"
+    }
+  ]
+}

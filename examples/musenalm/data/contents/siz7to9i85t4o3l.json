@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium  paginiert 6.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64753,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. J. A. Darnstedt sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_1085_64753_kbz7xwljga.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-06-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.347Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "anuaaugf489vf1p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.347Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "g4xzy0m5ds4f7wo"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. G 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Verfliesset, vielgeliebte Lieder, / Zum Meere der Vergessenheit!",
+  "language": [],
+  "musenalm_id": 1335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Lieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "JUSTUS AMMANN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Lieder",
+  "updated": "2000-07-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.980Z",
+      "agent": "1rzr5ghkrk52eb2",
+      "source_id": "l09s3eg8wmrzpzt"
+    }
+  ]
+}

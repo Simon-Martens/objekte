@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. B. Fischer: Der Verleger Johann Friedrich Cotta Chronologische Verlagsbibliographie 1787-1832. Aus den Quellen bearbeitet. Marbach a. N. 2003, S. 245",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Je grösser der Umfang eines Gartens ist, desto mehr werden Werke der Baukunst Bedürfniß für ihn.",
+  "language": [],
+  "musenalm_id": 74244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einige Vorschläge zu Gebäuden / für die GartenLandschaft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einige Vorschläge zu Gebäuden / für die GartenLandschaft",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.568Z",
+      "agent": "0qzneijgjsm86gl",
+      "source_id": "za426jxl9fooino"
+    }
+  ]
+}

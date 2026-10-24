@@ -1,0 +1,59 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, T,  T, 3 SS Vrwrt d Hrsg, 3 SS I-Verz, SS 1-320",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Bettlers Gabe, Des 1837",
+    "norm": "",
+    "biblio": 0,
+    "status": null,
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1621,
+  "parallel_title": "",
+  "place_statement": "Cöslin ( Hendeß)",
+  "places": [
+    "c7y67i2klrfutre"
+  ],
+  "preferred_title": "Bettlers Gabe, Des 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 27; nicht bei L/R",
+  "responsibility_statement": "Müller, Wilhelm",
+  "subtitle_statement": "",
+  "title_statement": "Des / Bettlers Gabe. / Taschenbuch für 1837 / von / Wilhelm Müller. / Dritter Jahrgang. / Cöslin. / Druck und Verlag von C. G. Hendeß",
+  "updated": "2026-09-16 10:34:48.497Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "gpj6tpa1lmk3vpy",
+  "items": [],
+  "contents": [
+    "z95o0w9e92iiwel",
+    "evwxhfvmjc51ukw",
+    "622wdapsppwckea",
+    "z9l66bf0gwfkg4q",
+    "br03lx54hizirs1",
+    "dm4gffcqnw5gwtf",
+    "gec9vocn1akw98t"
+  ],
+  "agents": []
+}

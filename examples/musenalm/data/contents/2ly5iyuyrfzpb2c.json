@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erzählungen beim Licht. Erster Abend. Geschichte vom rothem Männel aus Straßburg« von C. Spindler INr 103424, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:34.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (WEISSER. ALGAIER sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "WEISSER. ALGAIER sc.",
+  "scans": [
+    "alm_3417_103425_g6xiilb8gh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.001Z",
+      "agent": "mx9jzlh4jlxt87l",
+      "source_id": "jopo6v46pb72ok0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.001Z",
+      "agent": "ewmnajdflq8wfzp",
+      "source_id": "phijm5tjx4yf9hf"
+    }
+  ]
+}

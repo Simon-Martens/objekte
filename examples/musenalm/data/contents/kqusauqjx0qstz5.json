@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22383, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Es war ein heitrer Maienmorgen, als Ritter Erwin von Montagnana und sein Sohn Adelbert mit seiner stolzen und schönen Base, Mechthildis, auf die Jagd ritten.",
+  "language": [],
+  "musenalm_id": 22451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeit ist hin, wo Bertha spann! / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy, geb. von Klencke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeit ist hin, wo Bertha spann! / Novelle",
+  "updated": "2002-02-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.921Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "psc4egjwk58h6k6"
+    }
+  ]
+}

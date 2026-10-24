@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Vor der netten Schenke des Gränzdorfes Grüneklee hielten zwei Reisewagen. Der eine trug das Gepräge ausländischer Bauart und Fabrik;",
+  "language": [],
+  "musenalm_id": 75125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lebens-Räthsel. / Zehn Blätter aus dem Tagebuche / eines Freundes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lebens-Räthsel. / Zehn Blätter aus dem Tagebuche / eines Freundes",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.721Z",
+      "agent": "7qi9w7fd9odbdoj",
+      "source_id": "2r8vihkyb60euut"
+    }
+  ]
+}

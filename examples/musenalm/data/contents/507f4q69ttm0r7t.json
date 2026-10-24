@@ -1,0 +1,46 @@
+{
+  "annotation": "lt. Titel:  Versuch einer kurzgefaßten Geschichte der sämtlichen Durchl. Herzoge zu Sachsen-Coburg, bis auf die neuesten Zeiten /) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Dem Stifter der Gothaischen Linie des Sachsen-Ernestinischen Hauses, dem unglücklichen Herzog Johann Friedrich dem II. oder Mittlern, wurden von seiner andern Gemahlin Elisabeth,",
+  "language": [],
+  "musenalm_id": 91009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Versuch einer kurzgefaßten Geschichte der sämtlichen Durchl. Herzoge zu Sachsen-Coburg, bis auf die neuesten Zeiten #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christ. Heinr. Ludw. Wilh. Spiller von Mitterberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Versuch einer kurzgefaßten Geschichte der sämtlichen Durchl. Herzoge zu Sachsen-Coburg, bis auf die neuesten Zeiten #",
+  "updated": "2013-08-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.574Z",
+      "agent": "n693cniltvzn501",
+      "source_id": "6te3g42hbuoel8s"
+    }
+  ]
+}

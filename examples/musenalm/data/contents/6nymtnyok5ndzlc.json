@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung IN 39032, Obj 220)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Was suchst du, mein liebes Mädchen? / Ich suche Himmelsschlüsselchen.",
+  "language": [],
+  "musenalm_id": 39034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Himmelsschlüsselchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alwin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Himmelsschlüsselchen",
+  "updated": "2005-04-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.166Z",
+      "agent": "f3osne4kqhtasqa",
+      "source_id": "bd33b2e8dfzdgch"
+    }
+  ]
+}

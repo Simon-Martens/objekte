@@ -1,0 +1,106 @@
+{
+  "annotation": "# Bez. s. »Erinnerung wegen der Kupfer« INr 58306 /) INr 58305: Berlin, gedruckt bei Johann Friedrich Unger /) Die franz. Ausgabe mit variantem vorderen Deckel: Portraitmedaillon (Silhouette Friedrich II.) s. Photo /) 2. deutsches Exemplar: varianter vorderer Deckel: Portraitmedaillon (Silhouette Friedrich II.) s. Photo /) die Graphiken im Kalendarium hier: D. Chodowiecki. J. D. Heidenreich sc. 1793; in weiterem Exemplar von: Kalender, Historisch-Genealogischer (Berlin) 1794: Graphiken im Kalendarium: D. Chodowiecki del. et. sculp.; s. alm-4301",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, G verso, G recto, T, 7 BB Kal darin 12 GG, Kr, Tab, 4 GG, S 1 zT, SS 3-113, SS 114-115 G-Verz, 2 SS VrlgM, 70 BB davon S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Historisch-Genealogischer (Berlin) 1794",
+    "norm": "~ Die Graphik INr 58289: Kimpfel del. D. H. fecit nach Buchhorn, mit dem Titel: »Ludwig XV ermahnt den Dauphin auf dem Schlachtfelde bey Fontenay, nicht ungerechte Kriege zu führen S. 63 « ist hier (wie in der französischen Ausgabe des Kalenders) statt des 7. Blatts (ohne Titel, Plattenzustand Ia) der Suite »12 Blätter zu der Brandenburger Geschichte« wie bei Buchorn 1677-1688 und bei Engelmann 712 II c. beigegeben. /) variante Umschlaggraphik recto der franz. Ausgabe mit Portratmedaillon (Silhouette) als Photo beigegeben",
+    "biblio": 201002,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-06-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 829,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Kalender, Historisch-Genealogischer (Berlin) 1794",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 36; L/R 17",
+  "responsibility_statement": "Siwicke",
+  "subtitle_statement": "",
+  "title_statement": "Historisch Genealogischer / Calender / auf das Jahr / 1794 / MIT GENEHMHALTUNG / der Königl. Academ. d. Wissenschaften / zu Berlin",
+  "updated": "2026-06-11 10:18:55.870Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "items": [
+    "u2zgwgha693ueqn"
+  ],
+  "contents": [
+    "y77tjixdnozwsqz",
+    "5iqtvizyu3h31ld",
+    "49wx8zdo0zi740p",
+    "ok3ur34o3bqx0q9",
+    "jf04u3xa8vfhb2c",
+    "j8zxso5e3m1bwfa",
+    "r9envoptob1hdeh",
+    "g7hjwaojbdgmnij",
+    "6bz5kc2tgghgahr",
+    "oi2b9q5z94ji7s1",
+    "usnrmdr5aeuu60l",
+    "mfutuwxxe90dams",
+    "lk4nl196tsto349",
+    "0ildg6lmi31a8o7",
+    "01tna1bnvfjutvi",
+    "quoo75wcs46tw9a",
+    "vgd3o5rw9yue9z3",
+    "pg7hlavzg28141z",
+    "swrsrx3n21vgmbj",
+    "0c0islsogyvyyp1",
+    "r5srroao7t549qs",
+    "n32ttykfqubz85s",
+    "k2uha7o3u92abb6",
+    "n9ror6fri08fnhz",
+    "fx3icmnnqprnu0w",
+    "io3jvvmuhnl4ub8",
+    "lgmt9txg3enwqkm",
+    "pjwsf4xujsdldv7",
+    "xterl2pykp3x4sl",
+    "476dwt8ddeps1fm",
+    "ye7du1mbmvve1ja",
+    "sukteffu4fgmm8j",
+    "rwgobdnkmjowlvr",
+    "foo48r19rfykwsd",
+    "hssfj1uxqmz9dki",
+    "7d3qsbgns2dz25x",
+    "my31p2ilk806ubs",
+    "x0zzpqlr6r71sfa"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.213Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.213Z",
+      "agent": "wx471irzr0la1ua",
+      "source_id": "nn3tsypnme12mgp"
+    }
+  ]
+}

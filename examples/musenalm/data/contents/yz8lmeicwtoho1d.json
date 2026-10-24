@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Elegien (INr 93365, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.747Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Sträube dem Kusse Dich nicht mit scheuausweichendem Munde; / Beugst Du das Hälschen zurück, dränget der Busen sich vor,",
+  "language": [],
+  "musenalm_id": 93368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bernard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-02-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.317Z",
+      "agent": "32czpb0kbok37kn",
+      "source_id": "htsb65mx922rj81"
+    }
+  ]
+}

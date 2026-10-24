@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:28.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Was meint ihr G'vatter, wem die Reichen / Auf dieser Welt am besten gleichen?",
+  "language": [],
+  "musenalm_id": 91901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gleichniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gleichniß",
+  "updated": "2011-10-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.266Z",
+      "agent": "eips0ml7kk6xorw",
+      "source_id": "0jpsf2todowyxhq"
+    }
+  ]
+}

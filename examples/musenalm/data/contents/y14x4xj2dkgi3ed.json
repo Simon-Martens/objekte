@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Stahlstichen (Sammlung INr 637124, Obj 4) s. Graphik INr 63728, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Frisch durch Au'n und Wälder / Zieht das Völkchen hin,",
+  "language": [],
+  "musenalm_id": 63721,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Zigeuner-Kinder. / Gestochen von Eduard Schuler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Zigeuner-Kinder. / Gestochen von Eduard Schuler",
+  "updated": "2009-04-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.969Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "3j1pdl5n6znccnv"
+    }
+  ]
+}

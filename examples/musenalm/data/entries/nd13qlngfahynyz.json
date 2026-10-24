@@ -1,0 +1,90 @@
+{
+  "annotation": "Jgg 1836-1853 Die Jahrgänge geben den nachträglichen Überblick auf das Bezugsjahr. Berlin: Gedruckt bei Sittenfeld oder erschienen im Selbstverlag; Hrsgg: 1836-1845: L. Wolff; 1846-1853: A. Heinrich. Der Almanach ist die Weiterführung des »Bühnen-Repertoire«, das von L. Wolff zuvor in 7 Jgg herausgegeben worden war. K 11 u. Goed VIII. 132, 36 geben als Vorläufer an: Almanach für Freunde der Schauspielkunst, Riga 1828-1830. /) 1837-1893 erschien der Deutsche Bühnenalmanach, dessen Herausgeber A. Heinrich wohl ab 1854 wurde (nachweisbar: Jg. 1855) s.: Bühnen-Almanach, Deutscher 1837-1893",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, Vrwrt, SS 5–262",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach für Freunde der Schauspielkunst 1836",
+    "norm": "~",
+    "biblio": 200323,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-05T00:00:00",
+    "bearbeitet_von": "jb"
+  },
+  "musenalm_id": 1310,
+  "parallel_title": "",
+  "place_statement": "Berlin (Sittenfeld)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Almanach für Freunde der Schauspielkunst 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 11; L/R 130",
+  "responsibility_statement": "L. Wolff",
+  "subtitle_statement": "",
+  "title_statement": "Almanach, / für / Freunde der Schauspielkunst / auf das Jahr 1836. / Herausgegeben / von L. Wolff, / Soufleur des Königl. Theaters / Berlin, den 1. Januar 1837. / Gedruckt bei Julius Sittenfeld. / Leipzigerstraße Nr. 10",
+  "updated": "2026-06-11 10:18:54.919Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "items": [
+    "mz8e7o3vgc6qazx"
+  ],
+  "contents": [
+    "koe2utaivh7u410",
+    "u0tcju5z4yn818a",
+    "btfb91zvuhaasnc",
+    "nn2wy38qchy4vln",
+    "ci5fqqdnvx1ux1s",
+    "a32f3dex2gj2bww",
+    "1wzcegsiz0hfjju",
+    "sb4854lu45b8wbl",
+    "ifouskj2k99f590",
+    "8vz6mwsd302d4kt",
+    "esne662hg7j86ej",
+    "gz0tr72ut4d937t",
+    "v3x3eyjm97n0gh6",
+    "lk90b2i36dhlnvl",
+    "o3pvu0it7w2y9rf",
+    "5ibu5fu9j50tkz6",
+    "pwrhv8s4wa4adzu",
+    "k4hbnqrybt6em3e",
+    "soio64ckclg6lrc",
+    "hckg0bgvb3674tx",
+    "uliqp76dzxbfwc7",
+    "hr2haax38kuz9c3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.156Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.156Z",
+      "agent": "bnt3c72j2gl4qv4",
+      "source_id": "g7o5gempov5zqm9"
+    }
+  ]
+}

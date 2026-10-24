@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 37489, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37486, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Sinken konnte eine Julie, aber nur, um sich in einer lichtern Glorie zu erheben;",
+  "language": [],
+  "musenalm_id": 37494,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / (3 Th. 18 Br.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / (3 Th. 18 Br.)",
+  "updated": "2005-03-24 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.917Z",
+      "agent": "s96imdco8knk8xx",
+      "source_id": "wkor7awvc6phqfq"
+    }
+  ]
+}

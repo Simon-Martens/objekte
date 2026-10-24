@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Perlen 1844",
+    "norm": "",
+    "biblio": 101207,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2423,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Reclam)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Perlen 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 94; nicht bei L/R",
+  "responsibility_statement": "Robert Heller",
+  "subtitle_statement": "",
+  "title_statement": "Perlen. / Taschenbuch / romantischer Erzählungen / für / 1844. / Von / Robert Heller. / Leipzig, 1844. / Druck und Verlag von Ph. Reclam jun.",
+  "updated": "2026-06-11 10:18:55.957Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "siuhcswnfqzui2g"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.088Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.088Z",
+      "agent": "piabqusdjzazh86",
+      "source_id": "d6rd2ry6q665g6r"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "rvdhv66svshgj21"
+    }
+  ]
+}

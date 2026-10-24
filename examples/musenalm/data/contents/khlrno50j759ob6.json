@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44158, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44153,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "F. Overbeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schnorr del. C. Müller sc.",
+  "scans": [
+    "alm_600_44153_mps7g7ut7n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "F. Overbeck",
+  "updated": "2006-06-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.232Z",
+      "agent": "w78lomy5w24kuml",
+      "source_id": "p1uz7c3xx0s6nd7"
+    }
+  ]
+}

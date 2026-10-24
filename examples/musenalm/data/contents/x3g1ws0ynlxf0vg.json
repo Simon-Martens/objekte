@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:57.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Wie freu' ich mich des Schwalbenzuges, / Der jährlich an mein Fenster dringt,",
+  "language": [],
+  "musenalm_id": 37455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Die Schwalben. / Nach Florian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clodius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Die Schwalben. / Nach Florian",
+  "updated": "2005-03-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.734Z",
+      "agent": "y9foh5fiai75ps8",
+      "source_id": "4x729kgsqm23awr"
+    }
+  ]
+}

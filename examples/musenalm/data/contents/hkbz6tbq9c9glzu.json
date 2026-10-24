@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Oft hat Erwartung am beglückten Tage / Zum frohen Fest uns in dies Haus geführt, / Was ist es, daß mit bangem Herzensschlage / Uns heut’ in innerster Empfindung rührt?",
+  "language": [],
+  "musenalm_id": 126125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rede, / gedichtet von Fredrich Förster. / Bei der Wiedereröffnung der Königl. Theater / gesprochen von der Königl. Hof-Schauspielerin / Madame Crelinger / im Königlichen Schauspielhause am 25. Juni 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rede, / gedichtet von Fredrich Förster. / Bei der Wiedereröffnung der Königl. Theater / gesprochen von der Königl. Hof-Schauspielerin / Madame Crelinger / im Königlichen Schauspielhause am 25. Juni 1840",
+  "updated": "2010-01-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.928Z",
+      "agent": "5dfik7lfhc9fltp",
+      "source_id": "tq36givm2dx2vo7"
+    }
+  ]
+}

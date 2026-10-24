@@ -1,0 +1,333 @@
+{
+  "annotation": "",
+  "biographical_data": "1780-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.503Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Übersetzerin aus dem Englischen und Französischen"
+      ],
+      "dateOfBirth": [
+        "1778"
+      ],
+      "dateOfDeath": [
+        "1840"
+      ],
+      "describedBy": {
+        "dateModified": "2026-02-16T16:34:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-386",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-386"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/119333376/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-576",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-576"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "surname": [
+            "Ludecus"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Amalie Henriette Caroline"
+          ],
+          "surname": [
+            "Ludecus"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "119333376",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/119333376",
+      "oldAuthorityNumber": [
+        "(DE-588c)4409818-2",
+        "(DE-588a)119333376"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "preferredName": "Voigt, Amalie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Amalie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Voigt"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4372438-3",
+          "label": "Übersetzerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Cäcilie"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Cäcilia"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "A. V."
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n95033667"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27879241"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q94732091"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/119333376/about"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000035348980"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/119333376"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/119333376"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Voigt, Amalia Henriette Caroline",
+        "A. V.",
+        "Ludecus, Amalie",
+        "Ludecus, Amalie Henriette Caroline",
+        "Voigt, Amalie",
+        "Cäcilia",
+        "Voigt, Amalia",
+        "Voigt, Amalie Henriette Caroline",
+        "Cäcilie",
+        "Voigt, Amalia Henriette Caroline von",
+        "Voigt, Amalie Henriette Caroline von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Amalia Henriette Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "forename": [
+            "Amalia Henriette Caroline"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "surname": [
+            "Ludecus"
+          ]
+        },
+        {
+          "personalName": [
+            "Cäcilie"
+          ]
+        },
+        {
+          "forename": [
+            "Amalia"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie Henriette Caroline"
+          ],
+          "surname": [
+            "Ludecus"
+          ]
+        },
+        {
+          "personalName": [
+            "Cäcilia"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie Henriette Caroline"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "forename": [
+            "Amalie Henriette Caroline"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Voigt"
+          ]
+        },
+        {
+          "personalName": [
+            "A. V."
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T13:15:42Z",
+    "gnd_query_biographical_data": "1780-1840",
+    "gnd_query_name": "voigt, amalie henriette caroline von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3007,
+  "name": "Voigt, Amalie Henriette Caroline von",
+  "profession": "Text",
+  "pseudonyms": "Cäcilie",
+  "refs": "E 369",
+  "updated": "2026-06-11 13:29:25.570Z",
+  "uri": "https://d-nb.info/gnd/119333376",
+  "editor": ""
+}

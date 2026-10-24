@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3. /) Graphik im Kalendarium März /) Illustration zu »Mode Thorheiten«, hier zu »Hexen Process in Glarus« aus: Berlinische Monathsschrift 1783 Mai, S. 440 /) s. Textbezug INr 70215, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70201,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Condamnation de la Sorcière de Glarus / Hexen Process in Glarus / ibid. May 1783 S. 440",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70201_7z0eqgzddq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Condamnation de la Sorcière de Glarus / Hexen Process in Glarus / ibid. May 1783 S. 440",
+  "updated": "2008-06-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.627Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "25uxlt8qnmnd4s3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.627Z",
+      "agent": "cj6pzq84zp925pc",
+      "source_id": "em2lg9gu7pxv2wu"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.627Z",
+      "agent": "xjs462ntht4ail3",
+      "source_id": "j2difrhui5z4yjm"
+    }
+  ]
+}

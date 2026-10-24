@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Moritzburg« von F. W. Cotta INr 68650, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jagdschloß Moritzburg von der Süd-Westseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Boettger sen. sc. 1818",
+  "scans": [
+    "alm_1148_68651_1u9nb5otna.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jagdschloß Moritzburg von der Süd-Westseite",
+  "updated": "2009-10-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.261Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "ccv5ukmvxaf1e9t"
+    }
+  ]
+}

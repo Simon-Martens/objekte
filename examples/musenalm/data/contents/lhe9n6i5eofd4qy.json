@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 126 /) Illustration zu »Der Ritter und die Dryas« von Emmy *** INr 93034, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93010,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ritter und die Dryas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. M. Hofmann sc.",
+  "scans": [
+    "alm_1588_93010_9jcgy1we1e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Ritter und die Dryas",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.488Z",
+      "agent": "fdgsbm5wkwqc1i4",
+      "source_id": "93dtbxvzl9c0b5h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.488Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "lnvuuvxydd3p5x5"
+    }
+  ]
+}

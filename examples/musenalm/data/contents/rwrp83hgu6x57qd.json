@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Wiegenlied« von Psyche d. i. J. v. Bechtolsheim INr 6239, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6240,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_121_6240_vwfuo6m08a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2000-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.080Z",
+      "agent": "oqecb466dne8cni",
+      "source_id": "ozrmcwy4yb54yn4"
+    }
+  ]
+}

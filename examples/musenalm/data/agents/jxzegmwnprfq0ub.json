@@ -1,0 +1,506 @@
+{
+  "annotation": "",
+  "biographical_data": "1758-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.513Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1758-12-08"
+      ],
+      "dateOfDeath": [
+        "1840-05-10"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Johann Heinrich Wilhelm Tischbein"
+          ],
+          "creditText": [
+            "Photographer and uploader was Hajotthu at de.wikipedia"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Tischbein%20Joh.%20Hr.%20Wilh.%20Engel%20Christine%20Westphalen%40Kunsthalle%20Hamburg.JPG",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tischbein%20Joh.%20Hr.%20Wilh.%20Engel%20Christine%20Westphalen%40Kunsthalle%20Hamburg.JPG?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Tischbein%20Joh.%20Hr.%20Wilh.%20Engel%20Christine%20Westphalen%40Kunsthalle%20Hamburg.JPG?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T17:38:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/117327190/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Engeline Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Engel Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "personalName": [
+            "Westphalen"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/117327360",
+          "label": "Westphalen, Johann Ernst Friedrich"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "117327190",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/117327190",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)7541267-6",
+        "(DE-588a)117327190",
+        "(DE-588a)100819419"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4023118-5",
+          "label": "Hamburg"
+        }
+      ],
+      "preferredName": "Westphalen, Engel Christine",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Engel Christine"
+        ],
+        "surname": [
+          "Westphalen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4711802-7",
+          "label": "Stifterin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123077-2",
+          "label": "Dramatikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "professionOrOccupationAsLiteral": [
+        "Dichterin",
+        "Schriftstellerin"
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Angelika"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        },
+        {
+          "personalName": [
+            "Angelica"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Charlotte Corday",
+        "Gesänge der Zeit",
+        "Gedichte",
+        "Petrarca"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2002059479"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/67239904"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1341775"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/117327190/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Engel_Christine_Westphalen"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000081474590"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/117327190"
+        },
+        {
+          "collection": {
+            "abbr": "RAAS",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbücher",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbuechern.html?permaLink=1795_westphalen"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd117327190.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/117327190"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Westphalen, Christine von",
+        "C. W.",
+        "Angelica",
+        "Axen, Engel Christine von",
+        "Westphalen, Engel Christine von",
+        "Westphalen, Engel C.",
+        "Westphalen, Engeline Christine",
+        "Axen, Elisabeth Christina von",
+        "Axen, Christine von",
+        "Westphalen, Engeline Christina",
+        "Angelika",
+        "Axen, Engeline Christine von",
+        "Westphalen, Angelika",
+        "Westphalen, Christine"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Engel C."
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "forename": [
+            "Engel Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabeth Christina von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "personalName": [
+            "Angelika"
+          ]
+        },
+        {
+          "forename": [
+            "Angelika"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "forename": [
+            "Engel Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "forename": [
+            "Engel Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Engeline Christina"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "personalName": [
+            "C. W."
+          ]
+        },
+        {
+          "forename": [
+            "Engeline Christine"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        },
+        {
+          "forename": [
+            "Engeline Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Engeline Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Engel Christine von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "personalName": [
+            "Angelica"
+          ]
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Axen"
+          ]
+        },
+        {
+          "forename": [
+            "Christine"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Westphalen"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Engel_Christine_Westphalen",
+          "label": "https://de.wikipedia.org/wiki/Engel_Christine_Westphalen"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T13:21:33Z",
+    "gnd_query_biographical_data": "1758-1840",
+    "gnd_query_name": "westphalen, engel christine"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3124,
+  "name": "Westphalen, Engel Christine",
+  "profession": "Text",
+  "pseudonyms": "Angelika",
+  "refs": "Goed VII, 392",
+  "updated": "2026-06-11 13:29:25.728Z",
+  "uri": "https://d-nb.info/gnd/117327190",
+  "editor": ""
+}

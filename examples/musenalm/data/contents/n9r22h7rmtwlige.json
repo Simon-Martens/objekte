@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert VII. I/) llustration zu »Mandat Generalcommandant der pariser Nationalgarde und Clermont Tonnere Exdeputirter der konstituirenden National-Versammlung, Opfer der pariser Revoluzion am 10. August 1792« INr 59881, Obj 47 s.a. Textbezug INr 59861, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59860,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die braven Schweizer am 10ten August",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1794",
+  "scans": [
+    "alm_933_59860_7su59s76hc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die braven Schweizer am 10ten August",
+  "updated": "2008-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.848Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "2vs4f42icsxt9v2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.848Z",
+      "agent": "c0fepqesuedn747",
+      "source_id": "rs46bjq6jda3ikw"
+    }
+  ]
+}

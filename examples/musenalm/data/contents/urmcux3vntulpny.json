@@ -1,0 +1,45 @@
+{
+  "annotation": "Fliegende Blätter (Sammlung INr 55899, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:07.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Das Auge hat nicht stets den gleichen Maaßstab für die Außenwelt.",
+  "language": [],
+  "musenalm_id": 55919,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Auge hat nicht stets den gleichen Maaßstab für die Außenwelt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.805Z",
+      "agent": "mkvi75e7anbiiw5",
+      "source_id": "bgldzbl97zufcz7"
+    }
+  ]
+}

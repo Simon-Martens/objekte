@@ -1,0 +1,79 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Congreß Taschenbuch, Rastatter 1799",
+    "norm": "",
+    "biblio": 100866,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3088,
+  "parallel_title": "",
+  "place_statement": "Karlsruhe (Macklot); Rastatt (Sprinzing)",
+  "places": [
+    "ouysrvcrf9nrnri",
+    "jwglkpivflgjt6w"
+  ],
+  "preferred_title": "Congreß Taschenbuch, Rastatter 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 21",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Rastatter / Congreß Taschenbuch / für / 1799 / Mit 17 Silhouetten. / Carlsruhe und Rastatt / in Macklots Hofbuchhandlung und bey / Hofbuchdrucker Sprinzing",
+  "updated": "2026-06-11 10:18:55.580Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "items": [
+    "j6f2gxds93bwr2c"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.102Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.102Z",
+      "agent": "khmo7te3lma26jt",
+      "source_id": "02g6uazt90vtqzm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.157Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.157Z",
+      "agent": "5canabava44wp9b",
+      "source_id": "3fy51v3u6epcdlj"
+    }
+  ]
+}

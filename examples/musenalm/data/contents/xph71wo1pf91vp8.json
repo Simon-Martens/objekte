@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Frohe Hirten, frohe Mädchen / Eilen gern an meine Quellen,",
+  "language": [],
+  "musenalm_id": 4440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eduard's Klage. / Frei nach Pindar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-g.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eduard's Klage. / Frei nach Pindar",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.055Z",
+      "agent": "xw7hg4qczu30jj0",
+      "source_id": "me6patabixh3vwc"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Insectenfaune, Deutschlands oder Entomolisches Taschenbuch 1795",
+    "norm": "",
+    "biblio": 409653,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2018-08-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4588,
+  "parallel_title": "",
+  "place_statement": "Nürnberg",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Insectenfaune, Deutschlands oder Entomologisches Taschenbuch 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Georg Wolfgang Franz Panzer",
+  "subtitle_statement": "",
+  "title_statement": "DEUTSCHLANDS / INSECTENFAUNE / ODER / ENTOMOLOGISCHES / TASCHENBUCH / FÜR DAS JAHR 1795. / VON / GEORG WOLFGANG FRANZ PANZER. / NÜRNBERG, / IN DER FELSECKERSCHEN BUCHHANDLUNG",
+  "updated": "2026-06-11 10:18:55.713Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "g4vhkxrjcogzhal"
+  ],
+  "contents": [],
+  "agents": []
+}

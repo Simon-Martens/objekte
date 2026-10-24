@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:50.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Geh' ich frühmorgens durch das Feld, / Ha! was glänzt dort am Raine?",
+  "language": [],
+  "musenalm_id": 23013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Natürliche Grazie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Natürliche Grazie",
+  "updated": "2002-04-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.881Z",
+      "agent": "68fm6w3e6854yig",
+      "source_id": "ufywkebpnxwca3e"
+    }
+  ]
+}

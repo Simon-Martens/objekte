@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Nun ich komm' zu dir gegangen, / Mein Verlangen, Rosenwald!",
+  "language": [],
+  "musenalm_id": 48976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Floridan",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosenlied",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.360Z",
+      "agent": "5ppbwmws8645e1o",
+      "source_id": "hr50m3g3aevnejw"
+    }
+  ]
+}

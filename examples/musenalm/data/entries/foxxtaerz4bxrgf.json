@@ -1,0 +1,91 @@
+{
+  "annotation": "2 Jgg 1815, 1817; Leipzig (Kummer); Hrsg.: A. v. Kotzebue",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, SS I–VIII, T, W, Vrwt, I-Verz, SS 1–230",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Opern-Almanach 1815",
+    "norm": "~",
+    "biblio": 200434,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-01T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2365,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Kummer)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Opern-Almanach 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 92; L/R 126; Goed VIII. 114, 266",
+  "responsibility_statement": "August von Kotzebue",
+  "subtitle_statement": "",
+  "title_statement": "Opern-Almanach / für das Jahr / 1815. / Von / August von Kotzebue. / Leipzig, / bei Paul Gotthelf Kummer. / 1815",
+  "updated": "2026-06-11 10:18:55.331Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "items": [
+    "kqwili6dhvgazkz"
+  ],
+  "contents": [
+    "m0pc4x8nozv3522",
+    "yp7b1rejms2gq42",
+    "gfjf999k7e78wzf",
+    "dsmrv750ahga944",
+    "fau4plr53m6filp",
+    "3d9quipmf87fo06",
+    "h0bjuhm1mw6u4ke",
+    "4tcjxw5nmt35q4x",
+    "8sr8u12q8agc1qf",
+    "fax5vloga9z2hjs",
+    "gobch0hbrx9gqne",
+    "sdpsyrizamc6ke3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.053Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.053Z",
+      "agent": "sse24vstbh0jbtd",
+      "source_id": "9ttb10ekkoyjya2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.084Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.084Z",
+      "agent": "khbvfo3hfzb4jqp",
+      "source_id": "aycl2luyjgegtih"
+    }
+  ]
+}

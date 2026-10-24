@@ -1,0 +1,43 @@
+{
+  "annotation": "Die vier Temperamente. Nach vier Sonderland'schen Bildern (Sammlung INr 30567, Obj 5) s. Graphik INr 30570, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Gott grüß' euch, Frau Wirthin! / Willkommen! Potz Daus!",
+  "language": [],
+  "musenalm_id": 30571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Choleriker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Choleriker",
+  "updated": "2002-11-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.654Z",
+      "agent": "n05stp52kkm5on3",
+      "source_id": "vii895mbhkid7c2"
+    }
+  ]
+}

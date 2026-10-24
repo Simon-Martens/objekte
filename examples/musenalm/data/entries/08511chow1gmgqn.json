@@ -1,0 +1,98 @@
+{
+  "annotation": "6 Jgg 1798-1802; und Jg 1803 Leipzig (Wolf u. Comp.); 1798: Göttingen (Schröder); 1799, 1801: Göttingen (Dieterich), Hrsg: Karl Reinhard; Jg 1803: Leipzig (Wolf u. Comp.); Hrsgg.: u. a.: Karl Reinhard.; s. Alm-2469 /) s.a. Polyanthea. Ein Taschenbuch für das Jahr 1807. Herausgegeben  von  Karl Reinhard; alm-2447 /) Nachtitel lautet: Kleine Romanen-Bibliothek. Herausgegeben von Karl Reinhard. Erstes Bändchen. Mit Kupferstichen. Göttingen, bei Philipp Georg Schröder. 1798",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, T, 16 BB Kal, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, SS 1-253 darin 6 GG, S 254 C",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Romanen-Kalender 1798",
+    "norm": "~+++408458 (Titelportrait)",
+    "biblio": 106720,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2006-09-07T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 618,
+  "parallel_title": "",
+  "place_statement": "Göttingen (Schröder)",
+  "places": [
+    "auiohpkcp2mbx23"
+  ],
+  "preferred_title": "Romanen-Kalender 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 98; L/R 82; Goed VIII. 49, 9; ADB XXVIII, 95",
+  "responsibility_statement": "Karl Reinhard",
+  "subtitle_statement": "",
+  "title_statement": "Romanen-Kalender / für / das Jahr 1798. / Herausgegeben / von / Karl Reinhard. / Mit Kupferstichen. / Göttingen, / bei Philipp Georg Schröder",
+  "updated": "2026-06-11 10:18:55.474Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "a1u1l6ghwvk2mjz",
+    "d5gph85l7jqtqrw"
+  ],
+  "contents": [
+    "mknjwbl3cm0ijf0",
+    "pvdqusuaox94nrs",
+    "jjxbrta0wslh6ir",
+    "ft9zjbryzexjyan",
+    "u1w3dzam1283zbk",
+    "o3sg7wumzlldw1b",
+    "7fw9gzcojtkqahy",
+    "gyfn7c76wh5nmjr",
+    "9oju6i09q6xxvp9",
+    "qwrly9cb1do2up9",
+    "iazoqgr41ud6vk3",
+    "l5lbgd2m9p90h2u",
+    "w9rkx644v2c05yy",
+    "78fdhlylchgep6q",
+    "2qpl57rypvy0pot",
+    "3uuyvemdrwbjza7",
+    "om74csgwwvuhpmf",
+    "qcxybw4azu5qcw7"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.719Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.719Z",
+      "agent": "11ylx5z0u965md8",
+      "source_id": "30fowrt9l8grnef"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.148Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.148Z",
+      "agent": "rjci6z6qhvs14qb",
+      "source_id": "4j18qk1r7rzxn5k"
+    }
+  ]
+}

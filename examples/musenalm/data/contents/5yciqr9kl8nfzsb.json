@@ -1,0 +1,45 @@
+{
+  "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:53.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Hält ein Zaubrer Dich verschlossen, / Weil Du nicht hernieder blickst?",
+  "language": [],
+  "musenalm_id": 132836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Arabisches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Arabisches",
+  "updated": "2023-12-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.094Z",
+      "agent": "g7ovzuyzi8c0g2c",
+      "source_id": "hpptwpw5bv1qih2"
+    }
+  ]
+}

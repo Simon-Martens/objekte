@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Schwing dich empor zu kühnerm Fluge, / Der Dichtung Genius, der in mir wohnt,",
+  "language": [],
+  "musenalm_id": 100833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Wunsches Erfüllung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. B. von MIltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Wunsches Erfüllung",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.908Z",
+      "agent": "e36ydmk4x9m4umt",
+      "source_id": "mwiscqn0gce4lfh"
+    }
+  ]
+}

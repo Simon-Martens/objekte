@@ -1,0 +1,101 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "gT, T, W, W, 5 BB, SS 1-252 darin 2 GG, 2 BB Anm d Vf, UG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Demokritisches 1800",
+    "norm": "~",
+    "biblio": 200017,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2001-11-09T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 262,
+  "parallel_title": "",
+  "place_statement": "Erfurt (Henningsche Buchhandlung)",
+  "places": [
+    "uviv46pae1cpcuh"
+  ],
+  "preferred_title": "Taschenbuch, Demokritisches 1800",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 113, Goed (H) 62",
+  "responsibility_statement": "Unächter Seitenverwandter des weil. berühmten Graf",
+  "subtitle_statement": "",
+  "title_statement": "Demokritisches / Taschenbuch, / oder / Scherz nach dem Ernste. / Herausgegeben / von / einem unächten Seitenverwandten, / des weil. berühmten Grafen / Donamar / Erfurt, / in der Henningschen Buchhandlung. / 1800",
+  "updated": "2026-06-11 10:18:54.555Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "items": [
+    "jqa7sktww7trvol"
+  ],
+  "contents": [
+    "jjlaei7j0i8q0g8",
+    "gzlpdjj8pgj88dg",
+    "dhm7yspigtamj1c",
+    "qvlfpk4ehw6bqww",
+    "mzu25i7sgu88njp",
+    "wk6k2vco10lq0p1",
+    "zz4qt9x0q6oezmv",
+    "xy3dobg70p0bbku",
+    "yrb0vovdjb0rbuu",
+    "blxz66f36e1rjwx",
+    "qqg3o0t6arl8m04",
+    "qquo38ax1rtx3qt",
+    "8tnaqv8zovsqzmf",
+    "vsamlyolh8wy1ni",
+    "k1rjph4ehir4sjg",
+    "zyafs0il0z618nc",
+    "akl2tazadusicuu",
+    "29ntek9ass0219m",
+    "vhea7r33okygcan",
+    "uko1v5i7rj5t4sj",
+    "puv7cezwq720gr6",
+    "5md37h3lpj3zdup"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.562Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.562Z",
+      "agent": "27lkhlbux1m8s5c",
+      "source_id": "h3uds3o9vg3as3g"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.989Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.989Z",
+      "agent": "viypozfj2rtaa6w",
+      "source_id": "tpo126momkhbinp"
+    }
+  ]
+}

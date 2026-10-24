@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 49086, Obj 114) Sonette und Distichen (Sammlung INr 49072, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Amor! Dein mächtiger Pfeil, mich hat er tödlich getroffen, / Schon im elysischen Land,",
+  "language": [],
+  "musenalm_id": 49095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amors Pfeil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amors Pfeil",
+  "updated": "2007-04-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.732Z",
+      "agent": "6fcfejb1bewhh5z",
+      "source_id": "dok2q49gk5y8kzv"
+    }
+  ]
+}

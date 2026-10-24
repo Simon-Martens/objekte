@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "In der Nacht hin schifften sie vor den Azorischen / Inseln / Langsam vorbey: da umhaucht lieblicher Duft / sie so süß",
+  "language": [],
+  "musenalm_id": 33675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Schiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Morgenstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Schiffer",
+  "updated": "2003-05-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.528Z",
+      "agent": "9hensmccxc9b4rz",
+      "source_id": "y30fzemycc325x7"
+    }
+  ]
+}

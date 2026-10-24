@@ -1,0 +1,56 @@
+{
+  "annotation": "Fünf Epigramme Marots. Uebersetzt von Hammer-Purgstall (Sammlung INr 94793, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Verliebt bin ich, doch Venus will es nicht zugeben, / Daß ich es dort sei, wo man ihr kein Feuer nährt.",
+  "language": [],
+  "musenalm_id": 94794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / De l'amour chaste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marot [übers.] Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / De l'amour chaste",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.665Z",
+      "agent": "ydnw02njp3h9lk9",
+      "source_id": "srmiaywtujrj4jg"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.665Z",
+      "agent": "tawz02p17yaumx1",
+      "source_id": "ytrvsteuub2zzab"
+    }
+  ]
+}

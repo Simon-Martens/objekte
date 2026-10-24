@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "An dem dunklen Tagamante / Liegt ein Schloß wohl wild und wüst,",
+  "language": [],
+  "musenalm_id": 15222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "sz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze",
+  "updated": "2001-05-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.673Z",
+      "agent": "wmmsyhgqh7dhs7c",
+      "source_id": "3k7w80t14s6t32o"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+{
+  "annotation": "s.: Taschenkalender der neuesten Moden 1802",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, 4 GG, 14 BB Kal darin 12 GG, G, SS 1-21 G-Verz, SS 21-67 darin G MusB, S 68 I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender der neuesten Französisch und Englischen Moden 1791",
+    "norm": "~",
+    "biblio": 408559,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2014-07-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4127,
+  "parallel_title": "",
+  "place_statement": "Frankfurt (Berndt)",
+  "places": [
+    "inpa0koig1pzpcp"
+  ],
+  "preferred_title": "Taschenkalender der neuesten Französisch und Englischen Moden (Frankfurt) 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschen / KALENDER / der / neuesten Französisch / und Englischen Moden / für das 1791 Jahr / Frankfurt am Mayn / bey J. C. Berndt / Kupferstechern",
+  "updated": "2026-06-11 10:18:55.262Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "items": [
+    "bjiq4nl9wz7sco4"
+  ],
+  "contents": [
+    "qzzlvhq0v0wh87v",
+    "a3nm8k73xr89b93",
+    "dmqvdszhzgifzyy",
+    "4tgkb2th1d8ciio",
+    "v95wgb7hcdvby02",
+    "df38dc187uie2yt",
+    "4mhtrylzmjxsfpq",
+    "rqlwe7w04i23f92",
+    "bwncfn4f9lb9cp1",
+    "swzjgihfwue2v0t",
+    "pb8sxm9shp5993e",
+    "z5mv0quo0a9x4qp",
+    "cnw4zciq2rkqmau",
+    "l9d14m790vmbwx6",
+    "jn4xtcs9fr5xl2w",
+    "s22ob2oge1kjk03",
+    "ovq9bkyw8d4o5k3",
+    "nlv6tq3eh6hmo5x",
+    "um98c1a18310lq2",
+    "u27emjuhxhdqeco",
+    "uz8rpl299z0g2us",
+    "jpwln1ygr7z4mkh",
+    "ndqmp7xpnadt51i",
+    "8p55i56j3gt1n66",
+    "dun8czqggd6cshr",
+    "sb6i3ku4z2b1tkv",
+    "ehw0oqlfcdw8fy6",
+    "27t38ud8ppbfu70",
+    "ot2s4fn81y7c0ld",
+    "t9v79qbsf8wz3c2",
+    "4jixwhlfo33eswt",
+    "tgclcju96a4d47z",
+    "ivhwczpl518lwwm",
+    "axmaqjn2vqcol7j",
+    "sdqj8zji9pefrhj",
+    "6ojvg1sr4e3vj5z",
+    "vw3e0xdbc78c070",
+    "xa7r2jlxuj8u9t7",
+    "j8o6w2gaihw6s23",
+    "ut4ty1begu9w6ry",
+    "35ibiuxw6428sdr",
+    "8rlr14vfgbxyyf0",
+    "3dlsksfsjbqr5an",
+    "ea0tompsrrapsif",
+    "wigkkmxz4lwvf2w",
+    "zo7qygwm7lc6hah",
+    "w37mkxk0mefhqy4",
+    "sikxixe1tryxmmj",
+    "6i8av2y6tsz8h5y",
+    "9vcy9fb4xxx1kvv",
+    "pzg05yg0fy80b0o",
+    "vu05jik9bay5qdt",
+    "pm7flh6x5bm0m1h",
+    "dqupfpqvobb9dnm",
+    "t5zj238yfchzth8"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.544Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.544Z",
+      "agent": "xnhoheocyscp7m1",
+      "source_id": "awdyw7xaiu7s3cc"
+    }
+  ]
+}

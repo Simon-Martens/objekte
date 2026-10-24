@@ -1,0 +1,43 @@
+{
+  "annotation": "Fünf Minnelieder Oswalds von Wolkenstein, von ihm selbst in Musik gesetzt (Sammlung INr 126318, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:49.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es wer zu lang solt ich erzellen all mein not, / ja zwinget mich erst ein außerweltes mundli rot,",
+  "language": [],
+  "musenalm_id": 126322,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oswald von Wolkenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.899Z",
+      "agent": "bql8u40rryml71n",
+      "source_id": "ve8mkcp7j1qmq4g"
+    }
+  ]
+}

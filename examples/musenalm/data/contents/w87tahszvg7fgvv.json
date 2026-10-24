@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "O du, mit Gott und dir, und mit den Men- / schenkindern / Noch Unzufriedner, geh, du Murrer!",
+  "language": [],
+  "musenalm_id": 17117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Bürger. / beim Lesen der Vorrede zu seinen Gedichten, / Göttingen bei Dieterich 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Bürger. / beim Lesen der Vorrede zu seinen Gedichten, / Göttingen bei Dieterich 1789",
+  "updated": "2001-08-06 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.779Z",
+      "agent": "33cr5ecwlcsbopd",
+      "source_id": "kqus9th85jafdea"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Die Intrigue« von A. H. J. Lafontaine INr 32752, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32754,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Man enpfieng ihn im großen Saal, man hätte den / Liebling des Fürsten nicht bedeutendender empfangen können",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1798",
+  "scans": [
+    "alm_454_32754_shogsecx6q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Man enpfieng ihn im großen Saal, man hätte den / Liebling des Fürsten nicht bedeutendender empfangen können",
+  "updated": "2003-04-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.699Z",
+      "agent": "sx2y3zvwrjtbxnz",
+      "source_id": "241z04dv3scwuso"
+    }
+  ]
+}

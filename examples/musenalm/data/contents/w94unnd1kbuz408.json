@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungsgedicht zum folgenden Beitrag INr 61183, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Die Wirklichkeit, die Holde, wollt' ich malen / Im sinn'gen Bild, in ihrer eig'nen Schöne;",
+  "language": [],
+  "musenalm_id": 61182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich und Marie. / Eine Geschichte / Zueignung / An Karl und Karoline K*",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina v. Chézy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich und Marie. / Eine Geschichte / Zueignung / An Karl und Karoline K*",
+  "updated": "2008-12-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.882Z",
+      "agent": "t0u8s6dmliqgl2d",
+      "source_id": "yrg0twomo5hdbcx"
+    }
+  ]
+}

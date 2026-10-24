@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 7 Beiträgen INr 76847-76853, Obj 31-37 /) Kleine Erzählungen aus Petrarcas lateinischen Schriften (Sammlung INr 76841, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Erzählungen / (nach dem Buche de rebus memorandis.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Erzählungen / (nach dem Buche de rebus memorandis.)",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.930Z",
+      "agent": "jjhjybjbxkieqjg",
+      "source_id": "jph3zpjh5bguctq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.930Z",
+      "agent": "67zaqw1ahn1z54k",
+      "source_id": "zs9to7hjn62l6s2"
+    }
+  ]
+}

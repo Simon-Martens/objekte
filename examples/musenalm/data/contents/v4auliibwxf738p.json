@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Mit reinen frommen Sinnen, / Mit eifrigem Gebet, / Zieht Coloman von hinnen, / Dem höchsten Herrn zu dienen.",
+  "language": [],
+  "musenalm_id": 129938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Colomanus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freih. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanct Colomanus",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.026Z",
+      "agent": "otquhrfmf15x6tw",
+      "source_id": "dglhmfx8tj27n43"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Beitrag INr 83225, Obj 20 /) s. Gedicht von A. Schreiber in Bilder (Sammlung INr 83395, Obj 82) s. Graphik in: Taschenbuch, Niederrheinisches für Liebhaber des Schönen und Guten 1803; INr 83398",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amazonenschlacht #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Paul Rubens",
+  "scans": [
+    "alm_3075_83226_qkxg6ogjsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amazonenschlacht #",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.852Z",
+      "agent": "co7d0f8bep36m8x",
+      "source_id": "iv9v7pfq4zoarez"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Spiele (Sammlung INr 49247, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:01.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Die Gesellschaft der Kinder war am ersten Junius durch Besuch zahlreicher, da nahm sich das Barres wiederum sehr gut aus.",
+  "language": [],
+  "musenalm_id": 49297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. / Planetenspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. / Planetenspiel",
+  "updated": "2007-04-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.278Z",
+      "agent": "l2p9o0rcq31xal5",
+      "source_id": "wvcfrw9s7rqnm9j"
+    }
+  ]
+}

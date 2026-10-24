@@ -1,0 +1,45 @@
+{
+  "annotation": "Verona illustrata. An eine schöne Veroneserinn. Im Mai 1831 (Sammlung INr 133579, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Horch, wie wehmüthig das Glöcklein / Zum Abendgeläute klingt,",
+  "language": [],
+  "musenalm_id": 133586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Romeo und Julie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Romeo und Julie",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.029Z",
+      "agent": "98q4i55rpu2zkyi",
+      "source_id": "74ajpdh40lqeli2"
+    }
+  ]
+}

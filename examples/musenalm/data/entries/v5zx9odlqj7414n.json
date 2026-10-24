@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelauflage von: Taschenbuch, Heidelberger 1811 /) Heidelberg: gedruckt bey J. Engelmann",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "VB, verso G, S I T, S III W, S V W, SS VII-VIII Vrwrt d Hrsg, SS IX-XII I- Verz, SS XIII-XX G-Verz dazu 5 GG, SS 1- 255",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch (Mannheim) 1814 /) Titelauflage von: Taschenbuch, Heidelberger 1811",
+    "norm": "~",
+    "biblio": 100805,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-11-30T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3638,
+  "parallel_title": "",
+  "place_statement": "Mannheim (Loeffler)",
+  "places": [
+    "siwp3jn1focgmbs"
+  ],
+  "preferred_title": "Taschenbuch (Mannheim) 1814 [Titelauflage von: Taschenbuch, Heidelberger 1811]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / das Jahr 1814. / Mit / Beiträgen der vorzüglichsten deutschen / Schriftsteller. / Mannheim / bei Tobias Loeffler",
+  "updated": "2026-06-11 10:18:55.437Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "items": [
+    "r38h9mdxs9ff0cr"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.101Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.101Z",
+      "agent": "wx5owcq6aybe5f5",
+      "source_id": "3iw895wwd6qxddi"
+    }
+  ]
+}

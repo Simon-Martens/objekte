@@ -1,0 +1,95 @@
+{
+  "annotation": "2 Jgg 1830, 1831 Hamburg (Hoffmann und Campe) Hrsg: F. J. Wit. /) K gibt fälschlich »Poetisches Taschenbuch« an. ## 5 Graphiken auf den Außen- und Innenseiten des Deckels und dem Buchrücken.",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG ##, VB, S I T, SS III-X Vrwrt d Hrsg, SS XI-XIV G-Verz, SS 1-360",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Politisches (Wit) 1830",
+    "norm": "~",
+    "biblio": 100859,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2003-01-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 405,
+  "parallel_title": "",
+  "place_statement": "Hamburg (Hoffmann und Campe)",
+  "places": [
+    "n1t0pzrvxoessrs"
+  ],
+  "preferred_title": "Taschenbuch, Politisches (Wit) 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 142, L/R 211",
+  "responsibility_statement": "Wit genannt von Dörring",
+  "subtitle_statement": "",
+  "title_statement": "Politisches / Taschenbuch / für das Jahr 1830. / Herausgegeben / von / Wit, genannt von Dörring. / Erster Jahrgang. / Die Diplomaten. / Hamburg 1830. / Bei Hoffmann und Campe",
+  "updated": "2026-06-11 10:18:55.366Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "r9b53byejr3mfrh"
+  ],
+  "contents": [
+    "2nb8bd6mtygid8c",
+    "usq6izvl8gdis76",
+    "hl35vma6efpz491",
+    "9x167r4mjyqw8c0",
+    "tjibd6cim8chtla",
+    "vda7plvxztavf8f",
+    "o76eic1b5e75625",
+    "ezxbfaif6ly1qsb",
+    "65f1rhcu2bkqn3b",
+    "j2s1sjit6uzqf6l",
+    "8r270uvgeyqzque",
+    "7c512et7uzn10kg",
+    "ow7ksbieo9f1fml",
+    "ht07y2sv3lxkrxw",
+    "1kug3aleta2bh7h",
+    "kzximxot74qmhuy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.645Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.645Z",
+      "agent": "fargrml8asxp4c4",
+      "source_id": "dfzw8gbv5iw0za2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.042Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.042Z",
+      "agent": "oyn6mwwsetv5gjt",
+      "source_id": "i7ifshx6q77vf6i"
+    }
+  ]
+}

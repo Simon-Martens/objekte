@@ -1,0 +1,279 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.456Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1785"
+      ],
+      "dateOfDeath": [
+        "1840"
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-12T13:52:32.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116529938/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Julie"
+          ],
+          "surname": [
+            "Deschamps"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "des"
+          ],
+          "surname": [
+            "Champs"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Champs"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116529938",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116529938",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/ger",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/ger"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588a)116529938",
+        "(DE-588a)100800300",
+        "(DE-588c)7628233-8"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4634695-8",
+          "label": "Pillau"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        }
+      ],
+      "preferredName": "Richthofen, Julie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Richthofen"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "publication": [
+        "Die Verstossene",
+        "Die Orientalinn",
+        "Zanina oder Amerikas's goldenes Leben",
+        "Oporinen. - 1824 - 1825",
+        "Der Onkel",
+        "Helas und Helianos"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/67219176"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18916841"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116529938/about"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116529938"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116529938"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116529938"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/7538687-2",
+          "label": "Freifrau"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Champs, Julie de",
+        "Deschamps, Julie",
+        "Champs, Julie des",
+        "Richthofen, Julie Charlotte Dorothea Therese von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Champs"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "surname": [
+            "Deschamps"
+          ]
+        },
+        {
+          "forename": [
+            "Julie Charlotte Dorothea Therese"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Richthofen"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "des"
+          ],
+          "surname": [
+            "Champs"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T12:38:39Z",
+    "gnd_query_biographical_data": "1785-1840",
+    "gnd_query_name": "richthofen, julie von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 2259,
+  "name": "Richthofen, Julie von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 1675",
+  "updated": "2026-06-11 13:29:24.302Z",
+  "uri": "https://d-nb.info/gnd/116529938",
+  "editor": ""
+}

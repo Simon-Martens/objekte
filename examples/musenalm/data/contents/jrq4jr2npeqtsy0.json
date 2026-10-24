@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik (Lunamotiv nach Raffael) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind / Auf das Jahr 1824 / Mit Königl. Sächsischem allergnädigsten Privilegio / LEIPZIG / bei Georg Joachim Göschen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rentsch; Fleischmann",
+  "scans": [
+    "alm_271_20463_ir80waslex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen / Herausgegeben / von / Friedrich Kind / Auf das Jahr 1824 / Mit Königl. Sächsischem allergnädigsten Privilegio / LEIPZIG / bei Georg Joachim Göschen",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.946Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "1r7757zvfjd8ul7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.946Z",
+      "agent": "ail6kpkgq3rdfot",
+      "source_id": "iwp37c2ejjyi99f"
+    }
+  ]
+}

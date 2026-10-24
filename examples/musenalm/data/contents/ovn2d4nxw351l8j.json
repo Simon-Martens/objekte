@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 80153, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Wer klagte wohl, weil früher, als er selbst / Erwacht, sein Freund vorausgeeilt,",
+  "language": [],
+  "musenalm_id": 80160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer klagte wohl, weil früher, als er selbst / Erwacht, sein Freund vorausgeeilt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.962Z",
+      "agent": "564ow3ktop2urqv",
+      "source_id": "tdndep6cvz4ol8j"
+    }
+  ]
+}

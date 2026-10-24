@@ -1,0 +1,126 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, T, SS I- XIV G-Verz darin 5 GG, G, SS 1-320 darin 2 GG, S I- Verz VrlgM, S VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1834",
+    "norm": "~+++ 411246 (UG)",
+    "biblio": 100857,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-04-20T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1042,
+  "parallel_title": "",
+  "place_statement": "Heidelberg (Engelmann)",
+  "places": [
+    "qe6pgmcamgwms1j"
+  ],
+  "preferred_title": "Cornelia 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Aloys Schreiber",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / für / Deutsche Frauen / auf das Jahr / 1834. / HERAUSGEGEBEN / von / Aloys Schreiber. / 19. Jahrgang. Neue Folge 11. Jahrgang mit Kupfern / HEIDELBERG / im Verlag von Joseph Engelmann",
+  "updated": "2026-06-11 10:18:55.586Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "items": [
+    "bqsi51wps7k4dqx",
+    "c2zlhj0vntzk46e"
+  ],
+  "contents": [
+    "zf5g80v5vstkrr2",
+    "owpb9ta92qbh97d",
+    "8qw6p9yj5dnxjm4",
+    "irl6lws96y85oz0",
+    "uouo5xbmq7aot0p",
+    "c0oxjo8rzl9gbcl",
+    "5s8tgnaxv1um5ln",
+    "st12b7kl1inessl",
+    "64n92wue3ox8vyy",
+    "kjd0xt83oa2u8w5",
+    "cnbxff4sh3z55qc",
+    "7wbvwm28ocd5m2c",
+    "zb13n8y7ktxzf8u",
+    "h9tgzlsk6cteyut",
+    "f03043xya6e4wd1",
+    "sifjq1s4c9ffxp4",
+    "gunhk9t1gly523x",
+    "ssx9plio8otce5n",
+    "bhdioscjg80f3in",
+    "wgn0fnpjso3bf5d",
+    "5mllor5dottluul",
+    "ovzdnluus7dbp29",
+    "b9v25bqbl4og9ou",
+    "ota9lcyl9hfgp1u",
+    "qe60an4muj7m8ci",
+    "skyh952n3etn166",
+    "37bd48ttds08dej",
+    "6cpwy9el7fxbua2",
+    "nidoahbt349bzyk",
+    "utusnju26vsbruh",
+    "5xo1drqs0ehkd2s",
+    "jaiilibpl1rybji",
+    "s8s0zyn45qc6kh1",
+    "mdqz3n1f67w7pvj",
+    "3l6oxlu6ow37x1a",
+    "ngaldg7mgnlits2",
+    "5etltt3e4leioax",
+    "6ywww2p8a1t3jsd",
+    "ubb867l649pnjhe",
+    "whhi1b7vafbw73z",
+    "qtzio7vi5xcpvqz",
+    "2shrkc2y3c1vyvn",
+    "eqakx286he4xkrv",
+    "0zd05cmqnsgcr9h",
+    "8lzomvbiqea1k2m",
+    "4qb0vanlci62dzx"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.775Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.775Z",
+      "agent": "tm2yf7qv5t9ul7m",
+      "source_id": "ckow4pkhbl6hplz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.805Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.805Z",
+      "agent": "mo7kunctv2y3z7j",
+      "source_id": "n0ztwp3kc7bpsiz"
+    }
+  ]
+}

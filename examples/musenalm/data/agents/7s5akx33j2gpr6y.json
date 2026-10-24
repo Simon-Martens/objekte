@@ -1,0 +1,339 @@
+{
+  "annotation": "",
+  "biographical_data": "1806-1876",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.242Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Jusstudium; 1848 Frankfurter Nationalversammlung (Krain, Laibach); 1860 Mitglied des verstärkten Reichsrats; 1861-1867 Krainischer Landtag; 1867-1876 steiermärkischer Landtag; ab 1861 Mitglied des österr. Herrenhauses"
+      ],
+      "broaderTermInstantial": [
+        {
+          "id": "https://d-nb.info/gnd/4000464-8",
+          "label": "Adel"
+        }
+      ],
+      "dateOfBirth": [
+        "1806-04-11"
+      ],
+      "dateOfDeath": [
+        "1876-09-12"
+      ],
+      "describedBy": {
+        "dateModified": "2024-08-07T11:01:35.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-UBW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-UBW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/132962615X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116377615",
+          "label": "Auersperg, Marie von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-SI",
+          "label": "Slowenien"
+        }
+      ],
+      "gndIdentifier": "132962615X",
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/116377615",
+          "label": "Auersperg, Marie von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/132962615X",
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/510428-2",
+          "label": "Laibach"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021912-4",
+          "label": "Graz"
+        }
+      ],
+      "preferredName": "Auersperg, Anton Alexander, Graf",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anton Alexander"
+        ],
+        "nameAddition": [
+          "Graf"
+        ],
+        "surname": [
+          "Auersperg"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4046517-2",
+          "label": "Politiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        }
+      ],
+      "pseudonym": [
+        {
+          "id": "https://d-nb.info/gnd/118719033",
+          "label": "Grün, Anastasius"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/132962615X/about"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/4021778-4",
+          "label": "Graf"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "DifferentiatedPerson",
+        "Person"
+      ],
+      "variantName": [
+        "Auersperg, Anton Alex von",
+        "Auersperg, Anton Alexander von, Graf",
+        "Auersperg, Anton",
+        "Auersperg, Anton Alexander von",
+        "Auersperg, Anton Alexander v., Graf",
+        "Auersperg, Anton von",
+        "Auersperg, A. Gr. v.",
+        "Auersperg, Anton Alexis von",
+        "Auersperg, Ant. Alex. v., Graf",
+        "Auersperg, A.",
+        "A., Anton von",
+        "Auersperg, Anton Alexander Maria von",
+        "Auersperg, Ant.",
+        "Auersperg, Alexander von",
+        "Auersperg, Anton A. von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anton Alexis"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Alexander Maria"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Ant. Alex."
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Alexander"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "A."
+          ]
+        },
+        {
+          "forename": [
+            "Anton Alexander"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Ant."
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Alexander"
+          ],
+          "nameAddition": [
+            "Graf"
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "A."
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton Alex"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "A. Gr."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        },
+        {
+          "forename": [
+            "Anton A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Auersperg"
+          ]
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T10:50:33Z",
+    "gnd_query_biographical_data": "1806-1876",
+    "gnd_query_name": "auersperg, anton alexander von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 77,
+  "name": "Auersperg, Anton Alexander von",
+  "profession": "Text",
+  "pseudonyms": "Anastasius Grün",
+  "refs": "Goed (H) 180; ADB X, 27; E 12",
+  "updated": "2026-06-11 13:29:21.409Z",
+  "uri": "https://d-nb.info/gnd/132962615X",
+  "editor": ""
+}

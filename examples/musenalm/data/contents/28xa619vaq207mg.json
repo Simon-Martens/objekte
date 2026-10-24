@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41448,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mico Chlucco / König der Siminolen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Schmidt sc. Leipzig",
+  "scans": [
+    "alm_541_41448_gzhar2o0gt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mico Chlucco / König der Siminolen",
+  "updated": "2005-11-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.936Z",
+      "agent": "2hk8eonosc6wf0f",
+      "source_id": "an2w76t0iee40v0"
+    }
+  ]
+}

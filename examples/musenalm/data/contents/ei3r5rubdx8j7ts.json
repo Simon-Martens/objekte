@@ -1,0 +1,45 @@
+{
+  "annotation": "Homonyme (Sammlung INr 41330, Obj 59) Logogryphen, Palindrome, Homonymen (Sammlung INr 41319, Obj 48) Worträthsel (Sammlung INr 41314, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "405",
+  "incipit_statement": "Ich diene treu den Musen; / Es lebt in meinem Busen / Ihr unentweyhter Sinn.",
+  "language": [],
+  "musenalm_id": 41331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2003-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.245Z",
+      "agent": "03ne3lu95zmw8rf",
+      "source_id": "mx416oqesofr678"
+    }
+  ]
+}

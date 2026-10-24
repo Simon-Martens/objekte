@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Burg / von der Abendseite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geissler",
+  "scans": [
+    "alm_3069_82086_b4lvg7gfap.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Burg / von der Abendseite",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.839Z",
+      "agent": "0sr6u70smh34y2z",
+      "source_id": "qhkxcafa9eiuxlm"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.839Z",
+      "agent": "xo0woto4ruw1tjl",
+      "source_id": "qr47d3r3bsr957u"
+    }
+  ]
+}

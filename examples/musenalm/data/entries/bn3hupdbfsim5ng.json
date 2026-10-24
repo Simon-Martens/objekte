@@ -1,0 +1,103 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, vT, VrlgM, verso G, S III T, SS V-VI I-Verz, S VII G-Verz, SS IX XXI G-Verz darin 6 GG, SS 1-466",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Urania 1830",
+    "norm": "~ +++ 404855 (verso G)",
+    "biblio": 100997,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2000-08-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 53,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Brockhaus)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Urania 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 163; L/R 84; Goed VIII. 72, 128; Goed X. 145, 51-4",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "URANIA. / Taschenbuch auf das Jahr / 1830. / Mit sieben Kupfern. / Leipzig: / F. A. Brockhaus. / 1830",
+  "updated": "2026-06-11 10:18:54.892Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "9qdl98ks3od55na",
+    "agt97n8c6ihuvv4"
+  ],
+  "contents": [
+    "31f3g80h1bfh12y",
+    "fp7mz3t3gmb863i",
+    "p5jfftc4tc5wpj2",
+    "1e904h55jd4tf9s",
+    "dtn5uidex04zl09",
+    "4ft84arwfg84zdo",
+    "x90azggj1qwunpn",
+    "75c5tznmqi32vqx",
+    "8205rzo16a2iwko",
+    "1qmt3feyozwvmhk",
+    "l6ufwcr8s29ksme",
+    "eqzx3wuomo2c7a1",
+    "05m2biazklqiuuz",
+    "zi6scw7n87fyr4q",
+    "o5gsf1z7haz92u9",
+    "ybocc3vt1fncd6v",
+    "nd267arlwgbou42",
+    "u6tvwcutioafr3x",
+    "q65zke12w71wxpj",
+    "kyqz5l1wfd36qk7",
+    "j43oglnaa9hb9j8",
+    "xvtzkpk318tlykc",
+    "k645mohnsscnjxr",
+    "zxakfu4j07ga325",
+    "h93clvefbi9eeq8",
+    "uwxdhsh738uu74v",
+    "wam37nnbbmvcwbi",
+    "655wriicqte9oco",
+    "fnot0twzsyvy8l3",
+    "jgi11909tedwing",
+    "pj16mo8ujxv3j7z",
+    "sg6n9k3dyrzckny",
+    "yu9ybpxha4nqz90",
+    "8ycyb7x69buno9q"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.599Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.599Z",
+      "agent": "4q8m33atzehjoms",
+      "source_id": "8vsh1rjn36fg0ye"
+    }
+  ]
+}

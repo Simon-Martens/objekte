@@ -1,0 +1,45 @@
+{
+  "annotation": "Dänische Volkslieder (Sammlung INr 46659, Obj 202) mit Anmerkungen am Objekt zu einzelnen Elfenmotiven",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Ich legte mein Haupt auf Elfenhöh' / Meine Augen begannen zu sinken,",
+  "language": [],
+  "musenalm_id": 46660,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Elfenhöh'",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Dönniges",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Elfenhöh'",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.105Z",
+      "agent": "xe8yjskg4xmo479",
+      "source_id": "hn2gd346u8pzifc"
+    }
+  ]
+}

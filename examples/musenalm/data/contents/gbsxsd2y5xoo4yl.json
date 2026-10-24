@@ -1,0 +1,45 @@
+{
+  "annotation": "Litterarische Scherze (Sammlung INr 24645, Obj 223)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Im großen Heldenlied Byâsa's wortzerreißende Bar- / barei",
+  "language": [],
+  "musenalm_id": 24666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 243,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Indischen / des Slâghanîya",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Indischen / des Slâghanîya",
+  "updated": "2002-06-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.193Z",
+      "agent": "prpkg06tick1nmr",
+      "source_id": "t15xwjt845fqol6"
+    }
+  ]
+}

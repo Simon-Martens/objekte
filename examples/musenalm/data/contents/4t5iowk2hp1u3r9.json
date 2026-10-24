@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Auf Donauwörths Hofburg, im fürstlichen Saal / Saß Ludwigs, des Baiers, holdsel'ges Gemahl, / Im Kreise der tröstenden Frauen.",
+  "language": [],
+  "musenalm_id": 91814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Ludwig von Baiern. / und / Maria von Brabant. / 1256",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rudolph Magenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Ludwig von Baiern. / und / Maria von Brabant. / 1256",
+  "updated": "2010-02-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.437Z",
+      "agent": "7kqox787dbawbv4",
+      "source_id": "ep807qlc0b3ouhy"
+    }
+  ]
+}

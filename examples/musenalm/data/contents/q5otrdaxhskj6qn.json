@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Nachtphantasie« von Arthur vom Nordstern d.i. G. A. E. v. Nostitz-Jänkendorf INr 13979, Obj 90 (Photos 61723,01; 61723,02) /) Anhang zu Beckers Taschenbuch 1813 enthaltend: Compositionen und Tänze, von Bergt, A. Harder, Methfeßel und Zelter (Sammlung INr 61716, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61723,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtphantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bergt",
+  "scans": [
+    "alm_220_61723_01_tetzv4hske.jpg",
+    "alm_220_61723_02_uy4lz2bbjh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nachtphantasie",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.071Z",
+      "agent": "25ubfkw7g6ebn5g",
+      "source_id": "tdc60lhqvs2tzlb"
+    }
+  ]
+}

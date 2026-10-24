@@ -1,0 +1,78 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Revolutionscharaktere 1796",
+    "norm": "",
+    "biblio": 404136,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-18T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1195,
+  "parallel_title": "",
+  "place_statement": "Chemnitz (Hofmann)",
+  "places": [
+    "ytizcghqg9111a0"
+  ],
+  "preferred_title": "Almanach der Revolutionscharaktere 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 17; L/R 19",
+  "responsibility_statement": "geheimer Hofrath Girtanner",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der Revolutions-Charaktere / für das Jahr 1796, / herausgegeben / von dem / geheimen Hofrath Girtanner. / Chemnitz, / bei Karl Gottlieb Hofmann",
+  "updated": "2026-06-11 10:18:55.105Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "zch6ai9h9g97310"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.851Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.851Z",
+      "agent": "47j5607xidp5gwx",
+      "source_id": "evposyrexzags0i"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.043Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.043Z",
+      "agent": "8vatv411bf27ejn",
+      "source_id": "h3bfjffqs102wyb"
+    }
+  ]
+}

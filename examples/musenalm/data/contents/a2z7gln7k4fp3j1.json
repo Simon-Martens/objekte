@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Linde am Krotenbache zu Döbling« von Emil d.i. J. F. E. Trimmel; INr 81900, Obj 57 /) s. Photos 81899, 01; 81899,02",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81899,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE LINDE AM KROTENBACHE ZU DÖBLING. / Gedicht von Emil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ant. Hackel",
+  "scans": [
+    "alm_3321_81899_01_1rrc6d2kax.jpg",
+    "alm_3321_81899_02_fgam7lcaim.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE LINDE AM KROTENBACHE ZU DÖBLING. / Gedicht von Emil",
+  "updated": "2010-03-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.802Z",
+      "agent": "q7itjhi9ow1folm",
+      "source_id": "wn1bkowwk4bzsvm"
+    }
+  ]
+}

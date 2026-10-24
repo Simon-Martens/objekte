@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111353, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Blind, gebeugt vom langen Leben, / Wankt die Ahn' ins Gotteshaus;",
+  "language": [],
+  "musenalm_id": 111354,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eitle Wünsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eitle Wünsche",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.235Z",
+      "agent": "kfaol2n4gz6m4dn",
+      "source_id": "w70uzz5nd25c8q6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Carnevals-Anekdoten (Sammlung INr 106318, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:37.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Ludwig XIV. bemerkte auf einem Hofballe einen schön gestalteten Domino, der mit außerordentlichem Appetit Speisen und Getränke verschlang,",
+  "language": [],
+  "musenalm_id": 106319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig XIV. bemerkte auf einem Hofballe einen schön gestalteten Domino, der mit außerordentlichem Appetit Speisen und Getränke verschlang,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Polt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2015-08-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.165Z",
+      "agent": "124n4uha887tew6",
+      "source_id": "zfsckzwxod9xo5x"
+    }
+  ]
+}

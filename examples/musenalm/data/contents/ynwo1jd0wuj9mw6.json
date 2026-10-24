@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Weil nichts dich hier im Land, dem hochbeglückten hält, / Der Palmen Schatten nicht und nicht das gelbe Feld, / Von Mais, nicht Ruh' nicht Segensfülle,",
+  "language": [],
+  "musenalm_id": 94839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebewohl der arabischen Wirthin. / (Nach Victor Hugo.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebewohl der arabischen Wirthin. / (Nach Victor Hugo.)",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.713Z",
+      "agent": "xaj6m1llkx5hiyx",
+      "source_id": "2ul6pqronfduswu"
+    }
+  ]
+}

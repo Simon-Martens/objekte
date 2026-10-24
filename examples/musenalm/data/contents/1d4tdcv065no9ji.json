@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezüge INr 45201, 45202; Obj 14, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45200,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Teck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Seyffer gest. v. Seyffer",
+  "scans": [
+    "alm_617_45200_doaexy4zlc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Teck",
+  "updated": "2006-09-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.563Z",
+      "agent": "lqzutyogj2g8lna",
+      "source_id": "w6cba75endimgl6"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "annotation": "Bearbeitung von »Avis d'une mere à sa fille« aus: Oeuvres de Madame la Marquise de Lambert. Paris, 1785. 12. T. 2 /) dem »Philosophischen Taschenbuch für denkende Gottesverehrer« 1796 Hrsg. K. H. Heydenreich, Alm Nr 3081 beigebunden",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, T, SS 1-104",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Worte einer edlen Mutter 1796",
+    "norm": "~",
+    "biblio": 200276,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-05-31T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4815,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Martini)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Worte einer edlen Mutter 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "Goed VII, 274",
+  "responsibility_statement": "Professor Heydenreich",
+  "subtitle_statement": "",
+  "title_statement": "WORTE / EINER EDLEN MUTTER / an den Geist und das Herz / ihrer Tochter. / nebst einem Anhange / über weibliche Seelengrösse / vom / Herrn Professor Heydenreich / in Leipzig. / bey Gottfried Martini / Leipzig 1796",
+  "updated": "2026-06-11 10:18:55.024Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "items": [
+    "crwd7gs0accxcbx"
+  ],
+  "contents": [
+    "gnlr18ef897gioy",
+    "a7idehk34039gy1",
+    "jklwjsf9kh4i949",
+    "ivt9mqaqx1ezb2g",
+    "zi9g2hn2ouxbyfy"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.428Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.428Z",
+      "agent": "2fvtrmjxs50cbdn",
+      "source_id": "4jg9kqqebfbn3do"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.103Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.103Z",
+      "agent": "u0lf7ypcjqcowxa",
+      "source_id": "5zmvc8v64i9camh"
+    }
+  ]
+}

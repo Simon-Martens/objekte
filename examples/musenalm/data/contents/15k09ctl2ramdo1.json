@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "So manchen edlen Mann seh ich im / Staube liegen, / Und Matz ward schier aus nichts zum / großen Matador.",
+  "language": [],
+  "musenalm_id": 12754,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf tausend und aber tausend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf tausend und aber tausend",
+  "updated": "2001-03-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.468Z",
+      "agent": "ikmjp937a43bzor",
+      "source_id": "v9p5x5hvuqzf7s2"
+    }
+  ]
+}

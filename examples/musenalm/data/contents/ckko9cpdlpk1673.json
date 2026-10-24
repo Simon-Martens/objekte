@@ -1,0 +1,58 @@
+{
+  "annotation": "Sechs Charakter-Bilder nach Zeichnungen von G. Opiz (Sammlung INr 9373, Obj 7) s. Textbezug INr 19034, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9372,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beati possidentes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. Jos. Stöber sc.",
+  "scans": [
+    "alm_52_9372_jh5zgzn1re.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Beati possidentes",
+  "updated": "2000-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.494Z",
+      "agent": "1mpfrjn3gtg55av",
+      "source_id": "1g5qhqb1rtmx16l"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.494Z",
+      "agent": "yk9ibu96ud1308d",
+      "source_id": "6v650bezple3yw9"
+    }
+  ]
+}

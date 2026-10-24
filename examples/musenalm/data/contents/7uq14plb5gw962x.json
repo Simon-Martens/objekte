@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Her, God, dee du dyn Sünn verklaarst, / Un uns tho rechter Tyd / Dorch see syn hillig Licht verwaarst",
+  "language": [],
+  "musenalm_id": 84120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgensegen für lütje Kinnerkens. / (Naa dem Engelschen von J. Watts ümschräwen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bärmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgensegen für lütje Kinnerkens. / (Naa dem Engelschen von J. Watts ümschräwen.)",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.990Z",
+      "agent": "os8vs1573yz6a9b",
+      "source_id": "iyrdo3vdjqm6kgm"
+    }
+  ]
+}

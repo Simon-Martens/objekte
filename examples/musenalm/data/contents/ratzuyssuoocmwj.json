@@ -1,0 +1,46 @@
+{
+  "annotation": "Drei kleine Erzählungen (Sammlung INr 94114, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:31.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Trübes Gemengsel von Klängen, Sturm, Glut, Sonne / und Erde, / Mond, Gram, Klage, erfundene Wörter, sie geben kein Lied noch.",
+  "language": [],
+  "musenalm_id": 94116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Andor und Juczi. / Aus dem Ungarischen des Kisfaludi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Andor und Juczi. / Aus dem Ungarischen des Kisfaludi",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.684Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "m7ttxmeg9lfxr96"
+    }
+  ]
+}

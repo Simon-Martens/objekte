@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Beiträgen mit einem Motto INr 43841-43851, Obj 26-36",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder aus Frankreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder aus Frankreich",
+  "updated": "2006-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.235Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "hh6gsydtsphumhi"
+    }
+  ]
+}

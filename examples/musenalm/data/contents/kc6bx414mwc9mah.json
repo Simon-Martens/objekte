@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert No. V. /) # Titel s. Textbezug INr 106001, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11 10:18:40.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105976,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gothische Saal #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klinsky del. J. H. Darnstedt sc.",
+  "scans": [
+    "alm_2844_105976_jcbte393k7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der gothische Saal #",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.298Z",
+      "agent": "gigh2wbcx0ni1j2",
+      "source_id": "9uj3mkk8v8vk9v8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.297Z",
+      "agent": "jluxmeayxx3ga35",
+      "source_id": "o5pse65o8wcz2r1"
+    }
+  ]
+}

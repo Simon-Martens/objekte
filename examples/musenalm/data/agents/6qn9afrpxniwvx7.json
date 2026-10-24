@@ -1,0 +1,628 @@
+{
+  "annotation": "",
+  "biographical_data": "1801-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.251Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/7542447-2",
+          "label": "Sankt-Johannis-Loge Charlotte zu den Drei Nelken"
+        },
+        {
+          "id": "https://d-nb.info/gnd/16026-X",
+          "label": "Hennebergischer Altertumsforschender Verein"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Historiker, Schriftsteller, Märchen- und Sagensammler; Apothekerlehre in Arnstadt (1818-1821); Studium der Philosophie, Geschichte und Literatur in Leipzig (1829) und München (1830); Bibliothekar Herzog Bernhards von Sachsen-Meiningen (1831), Leiter der Herzoglichen öffentlichen Bibliothek in Meiningen (ab 1833); Gründer des Hennebergisch-Altertumsforschenden Vereins (1832); Leiter und Archivar des Hennebergischen Archivs (ab 1848)"
+      ],
+      "dateOfBirth": [
+        "1801-11-24"
+      ],
+      "dateOfDeath": [
+        "1860-05-14"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Unknown authorUnknown author"
+          ],
+          "creditText": [
+            "Standort: Literaturmuseum Baumbachhaus"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig-Bechstein.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ludwig-Bechstein.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Ludwig-Bechstein.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2025-04-06T14:57:14.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118654292/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Dupontreau"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "forename": [
+            "Johanna Carolina Dorothea"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1173201572",
+          "label": "Bechstein, Johann Wilhelm"
+        },
+        {
+          "forename": [
+            "Caroline"
+          ],
+          "surname": [
+            "Wiskemann"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1022364006",
+          "label": "Bechstein, Reinhold"
+        },
+        {
+          "forename": [
+            "Johanna Karoline"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Louis Hubert"
+          ],
+          "surname": [
+            "Dupontreau"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/11933237X",
+          "label": "Bechstein, Johann Matthäus"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116099992",
+          "label": "Bechstein, Ludwig"
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Dupontreau"
+          ]
+        },
+        {
+          "forename": [
+            "Hans"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Emil Ludwig"
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Therese"
+          ],
+          "surname": [
+            "Schulz"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118654292",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/1022364006",
+          "label": "Bechstein, Reinhold"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116099992",
+          "label": "Bechstein, Ludwig"
+        }
+      ],
+      "hasGrandParent": [
+        {
+          "id": "https://d-nb.info/gnd/1173201572",
+          "label": "Bechstein, Johann Wilhelm"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118654292",
+      "oldAuthorityNumber": [
+        "(DE-588a)130926205",
+        "(DE-588a)118654292",
+        "(DE-588a)126020175",
+        "(DE-588c)4087007-8"
+      ],
+      "periodOfActivity": [
+        "1837-"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4127793-4",
+          "label": "München"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4065105-8",
+          "label": "Weimar"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        }
+      ],
+      "preferredName": "Bechstein, Ludwig",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Ludwig"
+        ],
+        "surname": [
+          "Bechstein"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025098-2",
+          "label": "Historiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002475-1",
+          "label": "Apotheker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4002865-3",
+          "label": "Archivar"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4123227-6",
+          "label": "Freimaurer"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4145258-6",
+          "label": "Bibliothekar"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Bechstein"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "publication": [
+        "Bechstein, Ludwig: Faustus",
+        "Chronik der Stadt Meiningen v. 1676 bis 1834. - 1834 - 1835",
+        "Die schönsten Märchen vom Heilen",
+        "Bechstein, Ludwig: Fliegende Blätter",
+        "Bechstein, Ludwig: Der Sonntag",
+        "Bechstein, Ludwig: Die Donau-Reise und ihre schönsten Ansichten",
+        "Bechstein, Ludwig: Die Reisetage",
+        "Bechstein, Ludwig: Arabesken",
+        "Bechstein, Ludwig: Thüringische Volksmärchen",
+        "Bechstein, Ludwig: Wanderungen durch Thüringen"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb118908749"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84068683"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/36914329"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q66379"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118654292/about"
+        },
+        {
+          "collection": {
+            "abbr": "JudaicaLink",
+            "icon": "https://data.judaicalink.org/static/img/favicon.ico",
+            "id": "https://data.judaicalink.org",
+            "name": "JudaicaLink",
+            "publisher": "Stuttgart Media University"
+          },
+          "id": "https://data.judaicalink.org/data/gnd/118654292"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Ludwig_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Ludwig_Bechstein"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Ludwig_Bechstein"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000122783438"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118654292"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1821_krause;2"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118654292"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118654292.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118654292.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118654292"
+        },
+        {
+          "collection": {
+            "id": "https://www.filmportal.de"
+          },
+          "id": "https://www.filmportal.de/6C2CA01A6C974BFB91D35F9EBCD6BF85"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118654292"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Beckstein, L.",
+        "Dupontreau, Louis",
+        "Bechstein, L.",
+        "Bechstein, C.",
+        "L. B.",
+        "Beckstein, C.",
+        "Legis, D. G. Th.",
+        "베히슈타인, 루드비히",
+        "Bechštajn, Ludvig",
+        "Bechštejn, Ludvig",
+        "Behhishutain, L.",
+        "Bechštejn, Ljudvig",
+        "Bechṡteinas, Lindvigas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Lindvigas"
+          ],
+          "surname": [
+            "Bechṡteinas"
+          ]
+        },
+        {
+          "forename": [
+            "루드비히"
+          ],
+          "surname": [
+            "베히슈타인"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "surname": [
+            "Bechštejn"
+          ]
+        },
+        {
+          "personalName": [
+            "L. B."
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "Ljudvig"
+          ],
+          "surname": [
+            "Bechštejn"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Bechstein"
+          ]
+        },
+        {
+          "forename": [
+            "D. G. Th."
+          ],
+          "surname": [
+            "Legis"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Behhishutain"
+          ]
+        },
+        {
+          "forename": [
+            "C."
+          ],
+          "surname": [
+            "Beckstein"
+          ]
+        },
+        {
+          "forename": [
+            "Ludvig"
+          ],
+          "surname": [
+            "Bechštajn"
+          ]
+        },
+        {
+          "forename": [
+            "L."
+          ],
+          "surname": [
+            "Beckstein"
+          ]
+        },
+        {
+          "forename": [
+            "Louis"
+          ],
+          "surname": [
+            "Dupontreau"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Ludwig_Bechstein",
+          "label": "https://de.wikipedia.org/wiki/Ludwig_Bechstein"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:53:21Z",
+    "gnd_query_biographical_data": "1801-1860",
+    "gnd_query_name": "bechstein, ludwig"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 134,
+  "name": "Bechstein, Ludwig",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "Goed XIII, 163",
+  "updated": "2026-06-11 13:29:21.503Z",
+  "uri": "https://d-nb.info/gnd/118654292",
+  "editor": ""
+}

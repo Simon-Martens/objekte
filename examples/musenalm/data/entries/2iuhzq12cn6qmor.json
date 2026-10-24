@@ -1,0 +1,56 @@
+{
+  "annotation": "KVK, NEBIS gibt als 2. Titel an: Vortreffliches Belehrungsbuch allerhand Intriguen verschiedener Stände, meistens aber der Künstler, Handwerker, Professionisten etc. auszuweichen  [Frankfurt 1785] Wohl Auflage von: Betrugs-Lexicon, worinnen die meisten Betrügereyen in allen Ständen nebst denen darwider guten Theils dienenden Mitteln entdecket von Georg Paul Hönn 3. Ed. Coburg : Pfotenhauer. 1724: KVK-RERO",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Intriquen-Almanach 1785",
+    "norm": "",
+    "biblio": 406288,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2600,
+  "parallel_title": "",
+  "place_statement": "Frankfurt und Leipzig",
+  "places": [
+    "inpa0koig1pzpcp",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Intriquen-Almanach 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; H.-G. III. 436",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Intriquen-/ Allmanach / verschiedener / Stände, / hauptsächlich der / Künstler, Handwerker, Professionisten. / Auf gegenwärtiges Jahr. / Frankfurt und Leipzig",
+  "updated": "2026-06-11 10:18:55.713Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "items": [
+    "9un6sqjkukdarft"
+  ],
+  "contents": [],
+  "agents": []
+}

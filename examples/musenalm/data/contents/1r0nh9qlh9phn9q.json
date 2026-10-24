@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Die Wahrheit, stralend wie die Sonne, / Erschien am Eingang der Sorbonne.",
+  "language": [],
+  "musenalm_id": 6376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrheit. / Nach dem Französischen des Devaux",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrheit. / Nach dem Französischen des Devaux",
+  "updated": "2000-11-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.745Z",
+      "agent": "v5ht3d6rw3do6ml",
+      "source_id": "qxwcy0eobik9oeh"
+    }
+  ]
+}

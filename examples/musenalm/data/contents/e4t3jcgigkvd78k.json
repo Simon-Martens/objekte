@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Hier sind viel Singer, Saytenspil / Mehr Musicos und Instrument / Findet man gewißlich an khainem end [...] Schmälzel (Schmeltzl) Lobspruch der Stadt Wien (1548)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:45.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Zur Zeit des Herzogs Leopold des wahrhaft Glorreichen war in dem damals so kleinen Wien verhältnismäßig ein so übertriebener Lärm von Musik und Gesang als in unseren jetzigen Tagen und Nächten;",
+  "language": [],
+  "musenalm_id": 121958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie der Ofterdingen da war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Gräffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie der Ofterdingen da war",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.661Z",
+      "agent": "cjjmyv8q19tuj7i",
+      "source_id": "gihy74cirjc6wse"
+    }
+  ]
+}

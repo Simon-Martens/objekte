@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:56.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mir war vom Schlaf das Augenlied geschlossen; / Doch reger wachte nur mein innrer Sinn,",
+  "language": [],
+  "musenalm_id": 37531,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lieb' und Glaube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Oertel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lieb' und Glaube",
+  "updated": "2010-08-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.638Z",
+      "agent": "u657j3m1foor2a9",
+      "source_id": "63eu4ju4mqesjdb"
+    }
+  ]
+}

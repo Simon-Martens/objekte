@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50808,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sihlwald, wo Salomo Geßner wohnte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer del. ad nat.",
+  "scans": [
+    "alm_689_50808_qtq2rtqep5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sihlwald, wo Salomo Geßner wohnte",
+  "updated": "2007-07-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.717Z",
+      "agent": "riqoiuak8ign3sj",
+      "source_id": "3wi6jv3mdl5v77l"
+    }
+  ]
+}

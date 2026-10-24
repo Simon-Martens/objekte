@@ -1,0 +1,394 @@
+{
+  "annotation": "",
+  "biographical_data": "1785-1840",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.264Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Schauspieler und Jugendschriftsteller"
+      ],
+      "dateOfBirth": [
+        "1785"
+      ],
+      "dateOfDeath": [
+        "1840-01-15"
+      ],
+      "deprecatedUri": [
+        "https://d-nb.info/gnd/1157464084"
+      ],
+      "describedBy": {
+        "dateModified": "2025-05-23T19:28:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11897307X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116790482",
+          "label": "Frieb-Blumauer, Minona"
+        },
+        {
+          "forename": [
+            "Johanna Wilhelmine"
+          ],
+          "surname": [
+            "Hofmeister"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071149849",
+          "label": "Grün, Hermine"
+        },
+        {
+          "forename": [
+            "Theona"
+          ],
+          "surname": [
+            "Blumauer"
+          ]
+        },
+        {
+          "forename": [
+            "Elizabeth"
+          ],
+          "surname": [
+            "Blumauer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/1019254785",
+          "label": "Seebach, Theona"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071150847",
+          "label": "Blumauer, Elisabeth"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11897307X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#15.1p",
+          "label": "Personen zu Theater, Tanz"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116790482",
+          "label": "Frieb-Blumauer, Minona"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1071149849",
+          "label": "Grün, Hermine"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1019254785",
+          "label": "Seebach, Theona"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/1071150847",
+          "label": "Blumauer, Elisabeth"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11897307X",
+      "oldAuthorityNumber": [
+        "(DE-588)1157464084",
+        "(DE-588c)4258459-0",
+        "(DE-588a)11897307X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4011077-1",
+          "label": "Darmstadt"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008456-5",
+          "label": "Brünn"
+        }
+      ],
+      "preferredName": "Blumauer, Karl",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Karl"
+        ],
+        "surname": [
+          "Blumauer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4049050-6",
+          "label": "Regisseur"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4052154-0",
+          "label": "Schauspieler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4168391-2",
+          "label": "Lyriker"
+        }
+      ],
+      "publication": [
+        "Gedenke mein!",
+        "Blumauer, Karl: Erzählungen",
+        "Blumauer, Karl: Leselust in Spielstunden für die reifere Jugend",
+        "Das @Huhn und seine Küchlein",
+        "Die @kleine Stella und ihre Puppe",
+        "Die @Blumen-Sprache, nach vaterländischen Dichtungen",
+        "Blumauer, Karl: Medaillons oder Gemälde aus der Gallerie des Lebens im verjüngten Massnabe",
+        "Die @kleinen Enkel am Knie des erzählenden Grossvaters ; mit 17 ill. Kupfern",
+        "Erichs Erzählungen im geselligen Abendkreise"
+      ],
+      "realNameOfThePerson": [
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Bernhard"
+          ],
+          "type": "RealNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/no2007051038"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/54947940"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q18221375"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "http://www.dnb.de/SiteGlobals/StyleBundles/Bilder/favicon.png?__blob=normal&v=1",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/1157464084"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11897307X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Karl_Blumauer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Karl_Blumauer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000077353964"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11897307X"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/11897307X"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11897307X"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Blumauer, Johann Gottfried Bernhard",
+        "Blumauer",
+        "Bernhard, Johann Gottfried",
+        "Blumauer, Carl",
+        "Blaumauer, ..."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Carl"
+          ],
+          "surname": [
+            "Blumauer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried Bernhard"
+          ],
+          "surname": [
+            "Blumauer"
+          ]
+        },
+        {
+          "forename": [
+            "..."
+          ],
+          "surname": [
+            "Blaumauer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Gottfried"
+          ],
+          "surname": [
+            "Bernhard"
+          ]
+        },
+        {
+          "personalName": [
+            "Blumauer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Karl_Blumauer",
+          "label": "https://de.wikipedia.org/wiki/Karl_Blumauer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:57:42Z",
+    "gnd_query_biographical_data": "1785-1840",
+    "gnd_query_name": "blumauer, karl"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 222,
+  "name": "Blumauer, Karl",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 197",
+  "updated": "2026-06-11 13:29:21.622Z",
+  "uri": "https://d-nb.info/gnd/11897307X",
+  "editor": ""
+}

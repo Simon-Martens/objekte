@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 79310, Obj 5) s. Titelgraphik INr 79307, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die rosenfingrige Aeos des Homer eröffnet das Thor der Wolken, und röthet die Schwellen der Nacht, woraus sie eben hervorgetreten ist,",
+  "language": [],
+  "musenalm_id": 79311,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora. / von Guido Reni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Chr. Braun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aurora. / von Guido Reni",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.829Z",
+      "agent": "z8ye4fkoz7ogybi",
+      "source_id": "4nukn3xsn6smpnz"
+    }
+  ]
+}

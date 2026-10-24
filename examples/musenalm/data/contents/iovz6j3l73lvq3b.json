@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt (A) der Suite. Détail aus »Die Vorlesung. (The Lecture)« paginiert D. s. Textbezug INr 7465, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+  "scans": [
+    "alm_151_7468_ami8icmx4g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.313Z",
+      "agent": "s50e2koeoxpuipg",
+      "source_id": "opu84r8hhba26r1"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.313Z",
+      "agent": "yylanvnf5ct4jbi",
+      "source_id": "yb78gj2rgigs2y9"
+    }
+  ]
+}

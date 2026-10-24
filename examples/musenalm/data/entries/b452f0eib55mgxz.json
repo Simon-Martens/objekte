@@ -1,0 +1,86 @@
+{
+  "annotation": "einziger Jahrgang /) Nachtitel lautet: Drei Erzählungen von Talvi. Halle, Verlag von Friedrich Ruff. 1825",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, S I T, S II nT, SS V-VII Vrwrt d Hrsg, S VIII C, SS 1-303",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Psyche 1825",
+    "norm": "~",
+    "biblio": 404248,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2008-11-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 954,
+  "parallel_title": "",
+  "place_statement": "Halle (Fr. Ruff)",
+  "places": [
+    "0dzup49ixa29cu1"
+  ],
+  "preferred_title": "Psyche 1825",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 96; nicht bei L/R; Goed VIII. 116, 280; Goed XIII. 142, 57, 4",
+  "responsibility_statement": "Talvi",
+  "subtitle_statement": "",
+  "title_statement": "Psyche / Ein Taschenbuch / für das Jahr / 1825 / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+  "updated": "2026-06-11 10:18:55.945Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "sd44woqu2xadrc0"
+  ],
+  "contents": [
+    "n0m2hugt6w3jkpt",
+    "yzw0l0reuu41gmc",
+    "s677do8qab6f9w9",
+    "b24x82zeruby86u",
+    "1yq6ojik7l9y6k6",
+    "6g0vmn57ug8l9qk",
+    "z245to1nyn4o2sv"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.785Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.785Z",
+      "agent": "7h2sz4yxt1ki0lh",
+      "source_id": "kzq1892po8tfdgs"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.866Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.866Z",
+      "agent": "r3a1wq9zwf2egt0",
+      "source_id": "p1zqjuheok192j0"
+    }
+  ]
+}

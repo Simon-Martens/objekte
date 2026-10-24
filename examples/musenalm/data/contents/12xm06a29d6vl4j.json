@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Graphik INr 111354, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:18:38.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111353,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eitle Wünsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. W. LIERNUR. W. F. Wehmeijer sculps.",
+  "scans": [
+    "alm_3459_111353_8b5o0d4e0n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eitle Wünsche",
+  "updated": "2010-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.234Z",
+      "agent": "a75pe1eoewk4qiw",
+      "source_id": "dgqwe8dx8c8ry0m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.234Z",
+      "agent": "cnu5a9dtvs1e0n7",
+      "source_id": "y1001m6og1hlp4y"
+    }
+  ]
+}

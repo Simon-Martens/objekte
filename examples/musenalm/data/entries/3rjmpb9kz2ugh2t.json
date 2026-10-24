@@ -1,0 +1,68 @@
+{
+  "annotation": "Titelauflage: 1828",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch für fröhliche Gesellschafter 1824",
+    "norm": "",
+    "biblio": 406533,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-02-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3650,
+  "parallel_title": "",
+  "place_statement": "Hamburg u. Leipzig (Reclam)",
+  "places": [
+    "n1t0pzrvxoessrs",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch für fröhliche Gesellschafter 1824",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 124; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für fröhliche / Gesellschafter / und alle die es werden wollen. / Hamburg 1824. / (Leipzig bei Reclam.)",
+  "updated": "2026-06-11 10:18:54.727Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "items": [
+    "fpnp0223uqz9fja"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.134Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.134Z",
+      "agent": "qdd8mo0mp4yfcvd",
+      "source_id": "glsfslvygn2q458"
+    }
+  ]
+}

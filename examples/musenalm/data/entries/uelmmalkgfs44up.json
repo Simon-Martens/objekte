@@ -1,0 +1,67 @@
+{
+  "annotation": "s. u.: Cornelia 1871 var2.; dort die abweichenden Titel etc. als Vollbilder",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Thalia, Neue 1874; id. mit Cornelia 1871",
+    "norm": "~",
+    "biblio": 407507,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2012-10-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3888,
+  "parallel_title": "",
+  "place_statement": "Wien (Perles)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Thalia, Neue 1874; id. mit Cornelia 1871",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177; Goed VIII. 92",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neue / Thalia. / Taschenbuch für 1874. / Ausgabe der Cornelia für Oesterreich. / Mit sieben Stahlstichen. / Wien. / Verlag von Moritz Perles, / Stadt, Spiegelgasse Nr. 17",
+  "updated": "2026-06-11 10:18:55.148Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "items": [
+    "gvqnuzeas9p04ml"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.121Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.121Z",
+      "agent": "zy7hqi3kx8xuocu",
+      "source_id": "gw3fq89egqnpvum"
+    }
+  ]
+}

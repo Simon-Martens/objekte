@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Wer war der Knabe, Mutter, fragte Otto Kolonna seine Mutter, der mich gestern wegstieß?",
+  "language": [],
+  "musenalm_id": 34052,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otto und Savella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Otto und Savella",
+  "updated": "2003-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.541Z",
+      "agent": "0w2k67v3yzi61te",
+      "source_id": "ax8upvgyyuham57"
+    }
+  ]
+}

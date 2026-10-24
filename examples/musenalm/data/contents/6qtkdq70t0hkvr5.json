@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt mit Hinweis auf J. von Müllers Schweizerische Geschichte /) mit einer Illustration s. Titelgraphik INr 53147, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Wer doch liegt so blaß und hager / Auf der Krankheit Schmerzenslager, / In des Schäfer-Hüttleins Stroh?",
+  "language": [],
+  "musenalm_id": 53216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walther von Eschenbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Walther von Eschenbach",
+  "updated": "2007-12-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.688Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "58xu247qp1rl5hc"
+    }
+  ]
+}

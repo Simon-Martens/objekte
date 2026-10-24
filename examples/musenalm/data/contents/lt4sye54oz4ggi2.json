@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Schreiende Knaben, die eben aus der Schule heimkehrten, verfolgten ein altes, wahnsinniges Weib über den Preßburger Schloßberg.",
+  "language": [],
+  "musenalm_id": 109621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das alt' Babele. / Aus einem Ghetto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Kompert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das alt' Babele. / Aus einem Ghetto",
+  "updated": "2016-01-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.422Z",
+      "agent": "ckdzofz3kmy1jb2",
+      "source_id": "nzat8k6exo5kv6d"
+    }
+  ]
+}

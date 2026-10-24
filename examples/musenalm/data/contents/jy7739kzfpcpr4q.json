@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert S. 189;  III. /) Illustration zu »Mathilde, Gemalin Kaiser Heinrichs I.« INr 49769, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47941,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um unserer Mutter willen verzeih ich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin",
+  "scans": [
+    "alm_654_47941_1y4r8mdn73.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Um unserer Mutter willen verzeih ich",
+  "updated": "2007-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.461Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "b4bq1ooytueum3h"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.461Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "w96xcm3pln8xvgc"
+    }
+  ]
+}

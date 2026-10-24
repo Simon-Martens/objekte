@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 95",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "So manchen Namen hat mein Spiel / Mit Lobe schon geziert;",
+  "language": [],
+  "musenalm_id": 6051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griselde. / An meine Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. H. v. Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Griselde. / An meine Frau",
+  "updated": "2000-10-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.825Z",
+      "agent": "km5yxdev9efbrvi",
+      "source_id": "5ss59gnqc34mchi"
+    }
+  ]
+}

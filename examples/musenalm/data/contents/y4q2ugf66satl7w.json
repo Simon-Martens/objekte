@@ -1,0 +1,56 @@
+{
+  "annotation": "Fabeln von Lafontaine. FABLES DE LAFONTAINE (Sammlung INr 131790, Obj 18) Übersetzung des nachstehenden Gedichts INr 131799, Obj 28 /) mit 2  Illustrationen s. Graphiken im Kalendarium INr 131786,131787; Obj 14, 15",
+  "content_type": [],
+  "created": "2026-06-11 10:18:51.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Ein Kärner, der zu großem / Schaden / Sein kleines Fuhrwerk überla- / den. / Saß endlich fest mit seiner Last.",
+  "language": [],
+  "musenalm_id": 131798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der Fuhrmann und / Herkules. / Das Beten hilft, nur nicht / allein; / Auch eigner Fleiß muß thätig / seyn [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. Zachariä]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der Fuhrmann und / Herkules. / Das Beten hilft, nur nicht / allein; / Auch eigner Fleiß muß thätig / seyn [...]",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.013Z",
+      "agent": "wj40krq87n1bwgw",
+      "source_id": "hsi2u0iv97g2nxq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.013Z",
+      "agent": "3i4im09snt5w2js",
+      "source_id": "o98i81mpazkbx4a"
+    }
+  ]
+}

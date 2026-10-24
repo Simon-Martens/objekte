@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) nummeriert 2. /) Illustration zu »Die Räuber« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11 10:18:41.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111521,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich werde unsinnig, ich laufe davon! / IIr A. 3te Sc.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_3255_111521_7na9sf5tom.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich werde unsinnig, ich laufe davon! / IIr A. 3te Sc.",
+  "updated": "2010-03-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.367Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "6d0h4ztb1tpxah7"
+    }
+  ]
+}

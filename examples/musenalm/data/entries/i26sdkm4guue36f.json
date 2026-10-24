@@ -1,0 +1,84 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B, S I-Verz, 4 GG, 2 BB dazu 2 GG, SS 1-419",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Rosen 1837",
+    "norm": "~",
+    "biblio": 100483,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-05T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2479,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Leo)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Rosen 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 99; nicht bei L/R; Goed VIII. 119, 301",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "ROSEN. / EIN / TASCHENBUCH / FÜR 1837. / Leipzig, bei Friedrich August Leo",
+  "updated": "2026-06-11 10:18:55.472Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "items": [
+    "qzhqhgvd8mdn7bd"
+  ],
+  "contents": [
+    "5h7k85odba3l4sz",
+    "zy2o3b39xqfqkj3",
+    "dywpinybuodi9xp",
+    "y9bcla6ouzantus",
+    "uebz0cg9guairbe",
+    "edcy8d426y82943",
+    "bvjhy0ahiwzr5zb",
+    "lcd0b0aons179ts",
+    "bv57qyzmnhvkdfv",
+    "97ejefimxdtg6c6",
+    "iag797w8xle48uw",
+    "mjnv9la6vhvqdz0",
+    "09s56tqlyvq311w",
+    "5aywkg1oiyuqv2a",
+    "6vp07vpp4p5jo9g",
+    "gx71slhtacabxkf"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.093Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.093Z",
+      "agent": "lqxajiqg196qxgh",
+      "source_id": "9dgw6046f87bsd7"
+    }
+  ]
+}

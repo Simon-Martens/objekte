@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 9144, Obj 6) s. Graphik INr 9150, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Eine der fürchterlichsten Szenen der helvetischen Revolution.",
+  "language": [],
+  "musenalm_id": 18710,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Gefecht bei Stanz. / (9 Sept. 1798.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Gefecht bei Stanz. / (9 Sept. 1798.)",
+  "updated": "2001-01-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.776Z",
+      "agent": "b68wiq4xeilaqf3",
+      "source_id": "jgx9s34dvvx3g2v"
+    }
+  ]
+}

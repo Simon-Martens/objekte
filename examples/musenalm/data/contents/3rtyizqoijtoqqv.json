@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80804, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Es war der Tag so heiß, so schwer, / D'rum blickt nun tröstend auf mich her, / Ihr hellen Sternlein droben,",
+  "language": [],
+  "musenalm_id": 80805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / An die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / An die Sterne",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.948Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "jtplz1pahpatr71"
+    }
+  ]
+}

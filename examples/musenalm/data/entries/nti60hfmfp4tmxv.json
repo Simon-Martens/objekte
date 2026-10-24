@@ -1,0 +1,129 @@
+{
+  "annotation": "Buchdruckerei von J. G. Schmitt in Darmstadt /) §1§-§2§ 2 Graphiken fehlen",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "T, S I T, S III G-Verz I-Verz, SS V-XVI G-Verz darin §1§-§2§ 4 GG, SS 1-303 darin G",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Cornelia 1866",
+    "norm": "~",
+    "biblio": 404802,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-06-03T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1074,
+  "parallel_title": "",
+  "place_statement": "Darmstadt (Lange)",
+  "places": [
+    "qaajwgsna3fdmao"
+  ],
+  "preferred_title": "Cornelia 1866",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 39; L/R 93; Goed VIII. 90, 177",
+  "responsibility_statement": "Frater Hilarius",
+  "subtitle_statement": "",
+  "title_statement": "CORNELIA / TASCHENBUCH / FÜR / Deutsche Frauen / auf das / JAHR / 1866 / BEGRÜNDET / VON / ALOYS SCHREIBER / und / fortgesetzt / von Frater Hilarius / 51r JAHRGANG / DARMSTADT / DRUCK & VERLAG v. GUSTAV GEORG LANGE",
+  "updated": "2026-06-11 10:18:55.595Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "items": [
+    "yodszbjeam9cbgx"
+  ],
+  "contents": [
+    "e1104h4cfem3vgm",
+    "m8j7vic3bam0sd0",
+    "wxfsxphz7m4xr8g",
+    "h7p68u7hpff3h9q",
+    "45oeua2jeh3dxpy",
+    "vcmkxnj444xw986",
+    "xp2xm9g6y50mp7b",
+    "6cjs6ewgkoe6phw",
+    "hr5uh85tap3nw7v",
+    "sl4uzsc6qe4ygog",
+    "neyp6ohkymgmn66",
+    "kbs5foryy9r3lh4",
+    "niappll1vfqa6x5",
+    "bmb369i7yueuu7q",
+    "eajh8fdowewrr81",
+    "qlwi9td1j7283ea",
+    "al4jbwkyi0mju08",
+    "karqu4ioaxrew0a",
+    "9ep61b3hkez54ml",
+    "0lck8lkuh23tu5k",
+    "omn3mxr8r5oi9w3",
+    "6qqxijuh1di5k43",
+    "3yf5dookae4291p",
+    "pirb7wgovit6pu9",
+    "q56v7cpqgr7i60i",
+    "v0ug5m0lurhff8l",
+    "zjpa0ucy5zjpbcu",
+    "ddjyk3auww8yusd",
+    "6grnnz0w1i1dulj",
+    "ux64zqqdjdl7tc4",
+    "bbld3atmq79qo5s",
+    "892ogkjzcfbpa4c",
+    "2wd7ldm7zcxak58",
+    "t4uromiaz67cvrw",
+    "vu6xzuvxnnh8vzg",
+    "7v3i9x09ctfiriv",
+    "e6i17v0lf0il5pc",
+    "nss5kdzif82y7jh",
+    "7rqvrn21jy6nc2r",
+    "zrj2g0kbrnk17l7",
+    "ve8kwv0urjm572e",
+    "jf5lx92bct376jc",
+    "nuf3x2z4y1tsjd7",
+    "6dqf3sygxd0tjkd",
+    "d2z5xdryfsiecoy",
+    "smwsrflu1d27zfb",
+    "k92p45otsfrtx80",
+    "tw5jwrific36cdb",
+    "d9nwyp1n5gpp3jy",
+    "l2771rfobbtr2p4"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.815Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.815Z",
+      "agent": "euexsjcr9ar4su1",
+      "source_id": "5td35eqircz8hmo"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.090Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.090Z",
+      "agent": "us8oq2olriutzks",
+      "source_id": "6qf65r3utrkqejk"
+    }
+  ]
+}

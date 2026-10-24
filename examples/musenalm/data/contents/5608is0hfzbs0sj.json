@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 13503, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Grausames Mädchen! warum mich verwunden / Durch die Gewalt vom ersten Silbenpaar!",
+  "language": [],
+  "musenalm_id": 13511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Charade",
+  "updated": "2001-04-05 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.573Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "f6blliuf3q7xpbi"
+    }
+  ]
+}

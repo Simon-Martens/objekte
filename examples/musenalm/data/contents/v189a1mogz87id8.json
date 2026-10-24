@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Hirt an der Krippe zu Weihnacht« aus »Acht Oestreichische Volkslieder« von F. Rochlitz INr 20494, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20472,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirt an der Krippe von Rochlitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Fleischmann sc.",
+  "scans": [
+    "alm_271_20472_x4lcm7o6x7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirt an der Krippe von Rochlitz",
+  "updated": "2001-12-14 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.812Z",
+      "agent": "t4jzdbiq2oijmzh",
+      "source_id": "5fb23gp1x8lstid"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.812Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "x7v6dqtl4ooe2nh"
+    }
+  ]
+}

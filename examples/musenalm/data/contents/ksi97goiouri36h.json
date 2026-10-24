@@ -1,0 +1,45 @@
+{
+  "annotation": "An Elisabeth's Namenstage (Sammlung INr 65868, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:10.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "In schöner Hoffnung Farbe aufgeschossen, / Erheb' ich langsam mich in sonn'ge Höhen,",
+  "language": [],
+  "musenalm_id": 65874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alöe:",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alöe:",
+  "updated": "2009-08-10 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.027Z",
+      "agent": "whg5xn8e9tsvu69",
+      "source_id": "txvxh0eq4akfig2"
+    }
+  ]
+}

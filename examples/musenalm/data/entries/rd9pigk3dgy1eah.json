@@ -1,0 +1,88 @@
+{
+  "annotation": "Format 7,5 x 9. Mit Kalendarium für 1840, 8 Graphiken und 8 poetischen Beiträgen. Der Almanach ist  offenbar nicht Bestandteil der Reihe »Taschenkalender, Berlinischer (Berlin, Königl. Preuß. Kalender-Deputation)« 1816-1826 oder der Reihe »Kalender, Berliner (Berlin, Königl. Preuß. Kalender-Deputation)« 1827-1850",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, SS Kal darin 7 GG, SS 1-32",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1840",
+    "norm": "~",
+    "biblio": 404102,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2022-12-14T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4832,
+  "parallel_title": "",
+  "place_statement": "Berlin",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenkalender (Berlin, Königl. Preuß. Kalender-Deputation) 1840",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Königlich-Preußische Kalender-Deputation",
+  "subtitle_statement": "",
+  "title_statement": "Taschen-Kalender / auf das Jahr 1840, / mit Gedichten und 8 dazu gehörigen Kupfern. / Herausgegeben von der Königlich-Preußischen / Kalender-Deputation",
+  "updated": "2026-06-11 10:18:55.269Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "items": [
+    "5958r6eemb0hwgz"
+  ],
+  "contents": [
+    "sxk6lz7j6kmcx2d",
+    "5va7aurandtc8ke",
+    "pudpxqw7i2m3yu7",
+    "zdnpg7qqqaf1z6t",
+    "1wuuqb2fzfq1qya",
+    "k2s73x7ipgckmoc",
+    "fhdalgx1e7u3nl9",
+    "9mm7qf99f69hjno",
+    "jn20krut2amhyho",
+    "2x0099oj0u20xci",
+    "tufn32cc4yy8nhk",
+    "i6zdvfrjxosvv5a",
+    "z8c7s9z2i7qnmrz",
+    "wl33egwc6tzra22",
+    "cy0mclrj0007cbj",
+    "i21o04tlqz1ebis",
+    "96e0a91zioscc7u",
+    "k8k9jpjtnr1xuf7",
+    "wpc595i9qv6cy4n",
+    "og2ti40vqua3j0o"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.207Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.207Z",
+      "agent": "jplfdb8l9po0bel",
+      "source_id": "50dz27qd38t9wdz"
+    }
+  ]
+}

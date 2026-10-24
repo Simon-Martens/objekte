@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Goetz von Berlichingen« von J. W. von Goethe s. Textbezug INr 40573, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40572,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goetz von Berlichingen Vr. Act. / Maria. Nur einen Blick der Liebe an sein Herz, dass es sich zum Trost öffne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. J. Langer sc. Wien 1822",
+  "scans": [
+    "alm_528_40572_clecn83fss.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goetz von Berlichingen Vr. Act. / Maria. Nur einen Blick der Liebe an sein Herz, dass es sich zum Trost öffne",
+  "updated": "2005-09-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.009Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "dq0hfcwmddo70xj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.009Z",
+      "agent": "qlgmphiynirko34",
+      "source_id": "pqmzbochsgfqv4d"
+    }
+  ]
+}

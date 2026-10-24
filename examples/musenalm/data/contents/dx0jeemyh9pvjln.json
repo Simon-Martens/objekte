@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 43671, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Der Templer Brian de Bois Guilbert hatte mit einigen ihm ähnlichen Gefährten, den verwundeten Ivanhoe, Cedric, Rowena, Isaac den Juden und seine schöne Tochter Rebecca,",
+  "language": [],
+  "musenalm_id": 43669,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Ivanhoe] 2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Ivanhoe] 2.",
+  "updated": "2006-05-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.142Z",
+      "agent": "meerjmdgjan7zwy",
+      "source_id": "geczk7f79q6tr93"
+    }
+  ]
+}

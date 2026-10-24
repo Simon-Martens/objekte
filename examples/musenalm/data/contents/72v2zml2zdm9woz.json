@@ -1,0 +1,47 @@
+{
+  "annotation": "Gesellschaftliche Tänze (Sammlung INr 20188, Obj 109) (Photo 20197 u. 20198)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20198,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Francaise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_269_20198_m6i2kswxem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Francaise",
+  "updated": "2001-12-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.051Z",
+      "agent": "czigb25jnrfsy98",
+      "source_id": "ka5scxqab9dq3h4"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Isis-Vesper« von K. A. Böttiger INr 39126, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:17:59.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Haas sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_513_39127_9gus43sazw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-07-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.988Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "pb3z5l6hq0anu4r"
+    }
+  ]
+}

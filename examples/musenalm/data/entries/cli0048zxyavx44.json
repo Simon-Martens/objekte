@@ -1,0 +1,100 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso G, gT, T, S I-Verz, 6 BB G-Verz darin 6 GG, SS 1-317, B VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Vergißmeinnicht (Spindler) 1839",
+    "norm": "~",
+    "biblio": 108641,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-03-12T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3412,
+  "parallel_title": "",
+  "place_statement": "Stuttgart (Hallberger)",
+  "places": [
+    "fe70yed2z4cnne1"
+  ],
+  "preferred_title": "Vergißmeinnicht (Spindler) 1839",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 165; L/R 99; Goed VIII. 126, 332 a",
+  "responsibility_statement": "C. Spindler",
+  "subtitle_statement": "",
+  "title_statement": "Vergiss mein nicht. / Taschenbuch / für das Jahr / 1839. / Herausgegeben / von / C. Spindler. / STUTTGART / Hallberger'sche / Verlagshandlung",
+  "updated": "2026-06-11 10:18:54.857Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "items": [
+    "vg4ynx0ivfa94vg"
+  ],
+  "contents": [
+    "5yjgs7n8devx8pl",
+    "kp6u88od1hnms5w",
+    "p2yexl12y2r1ktr",
+    "jh0aeo25xu6ci5f",
+    "17jsqwyy75cc66w",
+    "6ifyrkxxpgo6l6u",
+    "zk4v5qiuj52zl6e",
+    "wzf6a7tlhpk797g",
+    "o7lv9i3h9noiwes",
+    "42n5l6jc1qnwya2",
+    "4rrp88zgsgrfpd1",
+    "ehm31q80cor1v8v",
+    "fts7fmid1u2gbbh",
+    "mcvvdyjvfiidcnf",
+    "8qb8hzapz0stp30",
+    "yty21g4nmr56s6l",
+    "5mss2n6jfnqvmrh",
+    "miynsv6stlb0cs6",
+    "gatyddzpnn6vxi0",
+    "l593lj08tsjronl",
+    "cmrj0ys9aj582q0"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.215Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.215Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "nz05ayi1rqm5y6u"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.955Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.955Z",
+      "agent": "d5fnfuwmwqfsxjp",
+      "source_id": "zr9ylf6wx7r67v6"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sospiri. Im April 1809 (Sammlung INr 19359, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Mutter aller Erdgeburten, / Von dem Himmel und der Erde",
+  "language": [],
+  "musenalm_id": 1421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wärme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wärme",
+  "updated": "2000-08-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.695Z",
+      "agent": "ymo6fj9vzc9ufg1",
+      "source_id": "74q2z02sbao1xpd"
+    }
+  ]
+}

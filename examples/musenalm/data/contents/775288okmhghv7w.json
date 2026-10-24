@@ -1,0 +1,45 @@
+{
+  "annotation": "Neptun (Sammlung INr 91519, Obj 43) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Neptun, den Mächtigen, den Erhabenen will / ich singen, / Der Erd' und Meer erschüttert!",
+  "language": [],
+  "musenalm_id": 91524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus",
+  "updated": "2013-10-28 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.245Z",
+      "agent": "qapn0q7880prdww",
+      "source_id": "afl3r5orrxaf18q"
+    }
+  ]
+}

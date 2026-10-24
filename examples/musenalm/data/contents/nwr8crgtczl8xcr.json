@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 98518, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:33.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Ach, nach einem Blumenbeet, / Das mit stillem Prangen, / Vor der Liebsten Fenster steht, / Blick' ich mit Verlangen.",
+  "language": [],
+  "musenalm_id": 98530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.859Z",
+      "agent": "m5fhxx0l8loyyhu",
+      "source_id": "1m11ux30leq4vlp"
+    }
+  ]
+}

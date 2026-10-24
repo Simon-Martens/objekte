@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:48.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Ich denke dein, wenn der Erinnrung Freude / Melodisch mir wie ferner Nachhall tönt,",
+  "language": [],
+  "musenalm_id": 123353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. H. Burdach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sie",
+  "updated": "2006-03-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.839Z",
+      "agent": "dn5dhh6simigjuj",
+      "source_id": "wvumtjw2h5ewsee"
+    }
+  ]
+}

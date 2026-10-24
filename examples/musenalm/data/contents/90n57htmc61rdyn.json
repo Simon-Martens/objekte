@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Der Weingarten« von F. Kind INr 19855, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19828,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weingarten von F. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Esslinger sc.",
+  "scans": [
+    "alm_267_19828_214jkjessk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Weingarten von F. Kind",
+  "updated": "2001-12-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.750Z",
+      "agent": "q6h2aw0d0b69xc7",
+      "source_id": "hluyroqtkw11b11"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.750Z",
+      "agent": "zfprrqdgr3ky9ts",
+      "source_id": "k8r7pq6wru15afz"
+    }
+  ]
+}

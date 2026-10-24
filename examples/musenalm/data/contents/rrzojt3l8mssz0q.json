@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken im Kalendarium INr 69423, 69424; Ob 13, 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Herrlich Leben auf dem Lande! / Wie so frei fühlt sich die Brust!",
+  "language": [],
+  "musenalm_id": 69435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / blöde / Ritter. / Komisches Singspiel / in einem Aufzuge. / Nach Scribe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / blöde / Ritter. / Komisches Singspiel / in einem Aufzuge. / Nach Scribe",
+  "updated": "2009-01-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.332Z",
+      "agent": "uto0tazb8xl0ih3",
+      "source_id": "s1n9ivp88jqtgsl"
+    }
+  ]
+}

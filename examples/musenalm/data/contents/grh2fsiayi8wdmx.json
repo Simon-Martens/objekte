@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Kastenmännchen. Ein Scherz mit 8 Bildern (Sammlung INr 60554, Obj 4) s. Graphik INr 60570, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11 10:18:11.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Rathe einmal, was ich in diesem Kästchen verwahret halte? fragte Julius Gattin, als er am nächsten Tage von der Arbeit zum Mittagsmahle kam.",
+  "language": [],
+  "musenalm_id": 60569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-11-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.076Z",
+      "agent": "jo3symqxy3hqpd5",
+      "source_id": "zr41azzbv0tuvpu"
+    }
+  ]
+}

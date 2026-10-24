@@ -1,0 +1,56 @@
+{
+  "annotation": "ausfaltbare Titelgraphik s. Textbezug INr 73261, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11 10:18:17.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73205,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Christkind, das Joseph in der Werkstatt arbeiten hilft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Annibal Carracci. C. Westermayr sc.",
+  "scans": [
+    "alm_1827_73205_k25etfr2n2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Christkind, das Joseph in der Werkstatt arbeiten hilft",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "bqfhzpplxu9hy7t",
+      "source_id": "9ynvimeczh3tabz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.560Z",
+      "agent": "2d34emvmf13qf3h",
+      "source_id": "q2j2cegkm3o4xin"
+    }
+  ]
+}

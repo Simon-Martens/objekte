@@ -1,0 +1,45 @@
+{
+  "annotation": "$ s. Anm. oben; s. Graphik INr 48863, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:18:00.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Wie der entzückte Winkelmann vor der Statue des pythischen Apoll im Vatikan; so stand ich mehrmal mit unverwandtem Auge vor diesem edeln Bilde Raphaels.",
+  "language": [],
+  "musenalm_id": 48862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro 1. / St. Margarita, / oder / Der Triumph der christlichen Heldinn / über die Hölle, von Raphael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W..... in Köln $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro 1. / St. Margarita, / oder / Der Triumph der christlichen Heldinn / über die Hölle, von Raphael",
+  "updated": "2007-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.238Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "czdx921xlr7agwz"
+    }
+  ]
+}

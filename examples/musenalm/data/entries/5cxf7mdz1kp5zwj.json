@@ -1,0 +1,110 @@
+{
+  "annotation": "einziger Jahrgang; Goed VIII. 59, 45 gibt als ev. Fortsetzung an: Almanach für Franken 1803 (Reindl); $ vielleicht Julius Graf von Soden; § Umschlaggraphik fehlt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG §, VB, verso G, T, 13 SS Kal, 2 SS dazu 2 GG, S I-Verz, 4 SS G-Verz, SS 1-147 darin 3 GG",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach (Bamberg) 1802",
+    "norm": "~",
+    "biblio": 406285,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-12-17T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1181,
+  "parallel_title": "",
+  "place_statement": "Bamberg (Reindl)",
+  "places": [
+    "8lhjg1fp51faz5c"
+  ],
+  "preferred_title": "Almanach (Bamberg) 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 8; nicht bei L/R; Goed VIII. 58, 41",
+  "responsibility_statement": "unbezeichnet $",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / für / das Jahr 1802. / Mit Kupfern. / Bamberg / bey Johann Baptist Reindl, Hofbuchdrucker",
+  "updated": "2026-06-11 10:18:55.506Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "items": [
+    "1edoikbksoli0we"
+  ],
+  "contents": [
+    "5lp1so6d1zq95ej",
+    "hedlwdob6gzlip3",
+    "5g75107yfeymjyz",
+    "o017wgg22dx41ue",
+    "n8ws1vh53r6k6m8",
+    "e5suhyvgd315ea2",
+    "j5tzvzsv8gzaqur",
+    "jlbf3okxu4fl6or",
+    "aj26ldqgdeh4d54",
+    "36x658837fx1hf2",
+    "p4o3u9s8l41g71z",
+    "ycswyrs02s8nb1d",
+    "n5ijlhaawxbaemi",
+    "a7ud0sjkzelom0b",
+    "pv5b2smy4b8hyd4",
+    "q4q13odbfuyl8xg",
+    "w28ubsevvc4x7k2",
+    "ckqxoesxdqp0t93",
+    "r1m5t6lhlcx27jb",
+    "xadrk7hsgqn57mi",
+    "mpk2pcudteneeu8",
+    "1kl36q2ouv5vmmw",
+    "7w0mrl4kzw8he2z",
+    "k5r5mty24jgk9nk",
+    "byzin40p8u4xrwo",
+    "7qaw3o78gtcf4os",
+    "1dpvyo41h6d6xs2",
+    "u9ecnp4qpi52fsn",
+    "xq8qi9v5f8c6mnp",
+    "zq64iva6tx4or5b",
+    "wyvn44fr4xf25bq",
+    "gkfpllxpqdk781z",
+    "umrrxqwdzxwlg3h",
+    "mprl9k63x99l2kc",
+    "3og3ug98zf1wr93",
+    "f3yzli3mxtt77c3",
+    "b9xfy8dvikfvji0",
+    "m71deu3dg83ywfe",
+    "co7vc669lewf4ac",
+    "azbgow6y1ca4t8q",
+    "8vzakz9yvh0db6p",
+    "v5dibwv8hidnh3t"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.137Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.137Z",
+      "agent": "el1wpc1w4lyqid8",
+      "source_id": "eufnbobgnm1itqm"
+    }
+  ]
+}

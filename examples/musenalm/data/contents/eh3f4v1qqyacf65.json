@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 20; bezieht sich auf vorstehendes Epigramm Schillers s. INr 3906, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Der Kunstkritik bin ich, wie der Religion, / Zu tiefer Reverenz erbötig.",
+  "language": [],
+  "musenalm_id": 3838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Unterschied]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Unterschied]",
+  "updated": "2000-09-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.080Z",
+      "agent": "ofgx2kmc8bbxji2",
+      "source_id": "gd0qokotgs6zifb"
+    }
+  ]
+}

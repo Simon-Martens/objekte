@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblumen (Sammlung INr 118816, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Insecte in Berstein verschlossen sind gerade so, wie eine gute Musik in einem schlechten Operntexte.",
+  "language": [],
+  "musenalm_id": 118825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Insecte in Berstein verschlossen sind gerade so, wie eine gute Musik in einem schlechten Operntexte.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. Millauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2017-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.594Z",
+      "agent": "y5noma4e54pxjw8",
+      "source_id": "p0tcmb32yjczppw"
+    }
+  ]
+}

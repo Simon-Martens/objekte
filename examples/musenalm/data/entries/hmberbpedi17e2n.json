@@ -1,0 +1,100 @@
+{
+  "annotation": "s.a. Titelauflage 1800",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "VB, verso G, T, B I-Verz VrlgM, SS 1-385",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Spiel-Almanach (Berlin) 1798",
+    "norm": "~",
+    "biblio": 200245,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2632,
+  "parallel_title": "",
+  "place_statement": "Berlin (Oehmigke)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Spiel-Almanach (Berlin) 1798",
+  "pseudonym": true,
+  "publication_statement": "",
+  "refs": "K 103; L/R 196",
+  "responsibility_statement": "Caesar",
+  "subtitle_statement": "",
+  "title_statement": "Neuer / Spiel-Almanach / fürs / Jahr 1798. / Herausgegeben / von / Caesar. / Berlin, / bei Oehmigke dem Jüngern. / (Preis, gebunden 1 Thlr. 4 Gr.)",
+  "updated": "2026-06-11 10:18:55.418Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "items": [
+    "jl6pbpvojejg6t5"
+  ],
+  "contents": [
+    "a55wz2pt3knmseh",
+    "4016n406nvcn1u9",
+    "dbqj58bvmbi6d85",
+    "1juuf7ttb3py3fq",
+    "9ykayq1kynrg7d3",
+    "7y93jgkqoj4iz4y",
+    "up01aev4tpp9mul",
+    "twh0cwo9881g7ow",
+    "ykfc0ef27bzm9vq",
+    "u6j0yepv8wxi8bt",
+    "7k3ynvcquiaiwum",
+    "w1v6kee6uqvcv80",
+    "6y81vm23ydee1tp",
+    "hkkbnhjm5ues5uw",
+    "dx9jbh9my7d5te4",
+    "5f4plyqf2jrlrob",
+    "yil56kzx2m5dr45",
+    "9b1dj9kxpttn06w",
+    "jab1mbts23zl880",
+    "ex2gegj51das5at",
+    "qyp4jurm4smrsu8",
+    "nqrsyk24iua29gc",
+    "srdes8t6ofveurq",
+    "9g9r1w2bohqidbb",
+    "4b6nru6bvs7u0zi",
+    "zg9qvg24nbpgpfw",
+    "ulfghl4aut94e0h",
+    "wt9hi0lfk5b7qpz",
+    "crooyirglzvm1oe",
+    "r1aa9omidomlz87",
+    "kqbue6thp8di8yo",
+    "bd3n74m5zwuzgty"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.115Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.115Z",
+      "agent": "q9k846vyfzd7v8f",
+      "source_id": "iomouy6k1r6tc83"
+    }
+  ]
+}

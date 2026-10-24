@@ -1,0 +1,116 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.036Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, verso G, T, 3 BB G-Verz, 47 SS Kal darin 11 GG, S Tab, B Tab, ar: SS 1-136 Tab, 12 BB Tab, ar1: SS 1-132 SS133-134 I-Verz, S 135-135 VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Kalender, Gothaischer 1819",
+    "norm": "",
+    "biblio": 405144,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2010-01-26T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2071,
+  "parallel_title": "",
+  "place_statement": "Gotha (Perthes)",
+  "places": [
+    "kt8fila0v2o8oid"
+  ],
+  "preferred_title": "Kalender, Gothaischer 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 57; L/R 12",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Gothaischer / genealogischer / Kalender / auf das Jahr / 1819. / Sechs- und Fünfzigster Jahrgang. / Gotha, / bei Justus Perthes",
+  "updated": "2026-06-11 10:18:55.793Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "v2gs8mxmwovs5bg"
+  ],
+  "contents": [
+    "mxm7v7wp9ysutly",
+    "qi9up235eybnghr",
+    "enh58hid83cryfn",
+    "z4hetl28s71q0pj",
+    "z4lxcrqpyucz42f",
+    "11zkfogiqsrix5p",
+    "9vma9f5i2toc936",
+    "ixjdem54yq91qxi",
+    "cd274ejk7v4yf5v",
+    "87ocnprf472yst9",
+    "r7iizamhgwpbkrj",
+    "pjknuwfpc7r5rmf",
+    "p7r085o9j44zc8h",
+    "vjog3yvs6ogztj4",
+    "x70itvs8usnyeys",
+    "hwhyu764qqr5r7y",
+    "m0qg5ubcvca45wv",
+    "q93dgngbxxa74lc",
+    "90tjtuvjk5x16di",
+    "l6b3cz4jfywn2e9",
+    "j97x4dzblhk1jbf",
+    "tt24xjl6nr9brmr",
+    "g539fjsd3wig331",
+    "see94wc8y11v2fg",
+    "4jjtevka2392vdp",
+    "3oqr6rongh6u3f3",
+    "q2f4lh3jutsvp1a",
+    "2clkpv8q08kqowj",
+    "pqnictuzjlnldne",
+    "7xbxoc6r4z6e3hg",
+    "5aqp92kgeq2tsst",
+    "yzap50elzf421wl",
+    "s7uqdwywfcihtks",
+    "7bf1x7rzkou8e8x",
+    "pbdju6wlxlczj90",
+    "u1z8jcgngnkhqh3",
+    "xbwaahpd7eb2tmc",
+    "vruxeqky1r48vty",
+    "jzg8ibvyel5u49z",
+    "5l42qgd3d1iph9i",
+    "6k9xypyxlwu4p1q",
+    "ktcjvo94lvrlpq9",
+    "pmnwefqr9a3np1b",
+    "fpdsfir85zmvhq7",
+    "1zcsnctxse21vtm",
+    "datpsg63dkrvzr3",
+    "bypy6sibz8g75dj",
+    "f5ck2bimdhsp6ks"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.125Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.125Z",
+      "agent": "5grnhzz5pu0r127",
+      "source_id": "p0j0s76mtxpjcd2"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Waldbrand« von Leopold Schefer INr 93916, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:30.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Novelle: Der Waldbrand / von Leopold Schefer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Rieder del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1864_93915_z7382rg7ip.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Novelle: Der Waldbrand / von Leopold Schefer",
+  "updated": "2010-01-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.483Z",
+      "agent": "djf4nkfvic4s191",
+      "source_id": "7ip0c294xsf2kdf"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.484Z",
+      "agent": "02b4dyph2gwi3m2",
+      "source_id": "8g75a6dpq628a5m"
+    }
+  ]
+}

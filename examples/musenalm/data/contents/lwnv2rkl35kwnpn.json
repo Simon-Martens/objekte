@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Umrisse zur Geographie, Topographie und Statistik des Kantons Bern« INr 74940, Obj 22 /) s. Textbezug INr 74929, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74928,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwelle an der Aare zu Bern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Rheiner del. F. Hegi sc.",
+  "scans": [
+    "alm_719_74928_a5d0n6cq74.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwelle an der Aare zu Bern",
+  "updated": "2007-11-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.813Z",
+      "agent": "6pv6k52yyglvaes",
+      "source_id": "6ua6tcqs1qmvf3z"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.813Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "8q0qi1v2mjjcdp2"
+    }
+  ]
+}

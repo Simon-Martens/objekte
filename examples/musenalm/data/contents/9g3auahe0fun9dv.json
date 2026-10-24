@@ -1,0 +1,58 @@
+{
+  "annotation": "graph. Zwischentitel. Es folgt: Sammlung von 43 Gedichten und einer Sammlung mit 3 Gedichten INr 71223-71270, Obj 10-57",
+  "content_type": [],
+  "created": "2026-06-11 10:18:15.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PETRARCA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiek i. Fr. Bolt sc. 1803",
+  "scans": [
+    "alm_3600_71222_mxinua8rv5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PETRARCA",
+  "updated": "2010-09-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.413Z",
+      "agent": "habfmm8n5c0f9yx",
+      "source_id": "5jol4dktx6gxsa7"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.413Z",
+      "agent": "jo4gipjsowa4j99",
+      "source_id": "qwkt697l2c732ay"
+    }
+  ]
+}

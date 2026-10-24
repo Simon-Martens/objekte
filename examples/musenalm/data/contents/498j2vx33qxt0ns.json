@@ -1,0 +1,48 @@
+{
+  "annotation": "MUSIK zu dem Taschenbuch zum geselligen Vergnügen, auf das Jahr 1819. Neun und zwanzigster Jahrgang (Sammlung INr 21237, Obj 131) Vertonung des Gedichts »In der letzten Stunde des Jahres in einer Gesellschaft musikalischer Freunde gesungen« von A. Wendt INr 21179, Obj 73 (Phoros 21242,01; 21242,02)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21242,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der letzten Stunde des Jahres / in einer Gesellschaft musikalischer Freunde gesungen von A. Wendt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Schneider",
+  "scans": [
+    "alm_281_21242_01_ub2lzwn77p.jpg",
+    "alm_281_21242_02_p74j9xejhe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In der letzten Stunde des Jahres / in einer Gesellschaft musikalischer Freunde gesungen von A. Wendt",
+  "updated": "2002-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.552Z",
+      "agent": "659wajziz7tp24k",
+      "source_id": "6e6xbrz9d0rt8ha"
+    }
+  ]
+}

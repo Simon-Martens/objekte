@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug von J. G. Jacobi INr 16683, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11 10:17:47.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16617,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier, unter den Schlafenden Gottes, ruht mein Sohn, / mein einziger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi sc.",
+  "scans": [
+    "alm_261_16617_298ozd8grb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hier, unter den Schlafenden Gottes, ruht mein Sohn, / mein einziger",
+  "updated": "2001-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.550Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "i5s78zegmub0eoc"
+    }
+  ]
+}

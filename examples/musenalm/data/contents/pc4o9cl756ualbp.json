@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:49.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20350,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Körners Weinberg in Loscheritz bei Dresden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. Faber n. d. Natur gez. J. G. A. Frenzel gest. in Dresden",
+  "scans": [
+    "alm_272_20350_bwsb2par9g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Körners Weinberg in Loscheritz bei Dresden",
+  "updated": "2001-12-17 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.687Z",
+      "agent": "gu3srwkz62jjovj",
+      "source_id": "s51ckmtsv9gtv9p"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.687Z",
+      "agent": "0x7ug5u1e4vyv1o",
+      "source_id": "tlbhyazlns4rxj3"
+    }
+  ]
+}

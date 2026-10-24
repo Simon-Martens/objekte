@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Das ist der Ister, der alte, getreue / Der da die Wogen vorrüberrollt,",
+  "language": [],
+  "musenalm_id": 129906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An der Donau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freyh. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An der Donau",
+  "updated": "2022-03-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.051Z",
+      "agent": "otquhrfmf15x6tw",
+      "source_id": "v3so2u7igaomis9"
+    }
+  ]
+}

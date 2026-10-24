@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe. s. INr 5689, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Freund', ich achte nicht des Mahles, / Reich an Speis' und Trank,",
+  "language": [],
+  "musenalm_id": 5688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang",
+  "updated": "2000-10-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.081Z",
+      "agent": "e9fuwd867vi6q65",
+      "source_id": "uctfxrj2epvq8st"
+    }
+  ]
+}

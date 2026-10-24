@@ -1,0 +1,67 @@
+{
+  "annotation": "weitere Jahrgänge nicht ermittelt",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Nassauisches 1832",
+    "norm": "",
+    "biblio": 406751,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2011-07-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3685,
+  "parallel_title": "",
+  "place_statement": "Herborn (Kempf)",
+  "places": [
+    "hxlwlkg28mmbo78"
+  ],
+  "preferred_title": "Taschenbuch, Nassauisches 1832",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. D. Vogel",
+  "subtitle_statement": "",
+  "title_statement": "Nassauisches / TASCHENBUCH / Erinnerungen / aus der / VATERLÄNDISCHEN VORZEIT / geweihet / von / C. D. VOGEL / Erster Jahrgang / für / 1832. / Rucheslo Mallstaette des Erdehegaus / HERBORN / J. C. Kempf",
+  "updated": "2026-06-11 10:18:55.387Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "items": [
+    "i6otnv3f6eargyq"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.076Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.076Z",
+      "agent": "b5hdqbw911h3gc0",
+      "source_id": "hdo6l3hjngoyun5"
+    }
+  ]
+}

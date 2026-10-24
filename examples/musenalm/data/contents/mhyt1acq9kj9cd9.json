@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) Graphik im Kalendarium November /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75642, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:19.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75629,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herz. Bernhardt v. W. nach der Schlacht bey / Breisach, vor ihm alle kayserl. Generale gefangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. Geyser sc.",
+  "scans": [
+    "alm_2142_75629_qe6jnd5c1r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herz. Bernhardt v. W. nach der Schlacht bey / Breisach, vor ihm alle kayserl. Generale gefangen",
+  "updated": "2010-01-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.692Z",
+      "agent": "lfyqx1j23ipmczg",
+      "source_id": "23igyskx7quyaql"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.692Z",
+      "agent": "frgalfp04iv5xmo",
+      "source_id": "bk93eh67e974o83"
+    }
+  ]
+}

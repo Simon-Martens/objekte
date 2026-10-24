@@ -1,0 +1,45 @@
+{
+  "annotation": "$ s. Anm. oben; s. Graphik INr 48865, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:04.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Eudamidas ein ehrenhafter korintischer Krieger, stolz auf den Ruhm, vom Raube des Ueberwundenen sich nie bereichert zu haben, war ohne Vermögen, nothleidend und krank.",
+  "language": [],
+  "musenalm_id": 48864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro 2. / Das Testament / von / Eudamidas. / Von Nikol. Poussin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W..... in Köln $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro 2. / Das Testament / von / Eudamidas. / Von Nikol. Poussin",
+  "updated": "2007-04-03 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.593Z",
+      "agent": "ev2ai2de3c8aird",
+      "source_id": "z3rh930i0bie84b"
+    }
+  ]
+}

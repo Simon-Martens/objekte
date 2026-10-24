@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. vom Textbezug /) Graphik im Kalendarium September /) über der Graphik P 79 /) Illustration zu »Die Trostlose« INr 115159, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115149,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trostlose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Corbould # Kotterba",
+  "scans": [
+    "alm_1898_115149_3wu87ecbvj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Trostlose",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.448Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "ipclre9xd6ui5x3"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.448Z",
+      "agent": "7oo8ds87peq2fag",
+      "source_id": "pf58zsqkgd8vx4v"
+    }
+  ]
+}

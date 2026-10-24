@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Maurerisches 1803",
+    "norm": "",
+    "biblio": 101305,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3063,
+  "parallel_title": "",
+  "place_statement": "Berlin (Schmidt)",
+  "places": [
+    "0tnbaim8zcehbp7"
+  ],
+  "preferred_title": "Taschenbuch, Maurerisches 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 136; nicht bei L/R; Goed VIII. 59, 32",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Maurerisches Taschenbuch / auf / das Jahr 5803 bis 5804 / von / X. Y. Z. / Mit einem Kupfer. / Berlin 1803, / bei Johann Wilhelm Schmidt. / ( Preis 1 Rthlr. 12 Gr.)",
+  "updated": "2026-06-11 10:18:55.393Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "items": [
+    "4346c8v34g763e2"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.147Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.147Z",
+      "agent": "is9nc7qv76i3cjj",
+      "source_id": "yo6mnb2uw6jovwt"
+    }
+  ]
+}

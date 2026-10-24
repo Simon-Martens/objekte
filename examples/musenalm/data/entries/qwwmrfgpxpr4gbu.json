@@ -1,0 +1,79 @@
+{
+  "annotation": "einziger Jahrgang in 4 Bänden. Halberstadt u. Leipzig; Hrsg.: Alexander Bronikowsky /) Der Almanach-Titel verso. Titel recto gegenüber lautet: Der Ursprung des Lotto, / genuesische Volkssage / von / Alexander Bronikowski. / Halberstadt, / bey Carl Brüggemann. / Leipzig, / in Otto Wigands Verlags-Expedition. 1831",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach der Novellen und Sagen 1831 - 1",
+    "norm": "",
+    "biblio": 405054,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2009-12-21T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1232,
+  "parallel_title": "",
+  "place_statement": "Halberstadt (Brüggemann); Leipzig (Wigand)",
+  "places": [
+    "mdhj603ygs24e0m",
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Almanach der Novellen und Sagen 1831 - 1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "Alexander Bronikowski",
+  "subtitle_statement": "",
+  "title_statement": "Almanach / der Novellen und Sagen, / herausgegeben / von / Alexander Bronikowski. / Erster Jahrgang. Erstes Bändchen. / Halberstadt, / bey Carl Brüggemann. / Leipzig, / in Otto Wigands Verlags-Expedition. 1831",
+  "updated": "2026-06-11 10:18:55.101Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "items": [
+    "e47oze6mmcmjc6o"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "k8e1epqeqxplo0k",
+      "source_id": "3kbwgczb1mbcf90"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.612Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.612Z",
+      "agent": "5915933g44sa0it",
+      "source_id": "quvi2mwmgfbx59m"
+    }
+  ]
+}

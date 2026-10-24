@@ -6,15 +6,21 @@ use sha2::{Digest, Sha256};
 use std::{
     collections::HashMap,
     path::Path,
+    sync::Arc,
     time::{SystemTime, UNIX_EPOCH},
 };
 use tokio::sync::Mutex;
 
+#[derive(Clone)]
 pub struct Auth {
+    inner: Arc<AuthStorage>,
+    scope: String,
+    pub insecure_cookie: bool,
+}
+struct AuthStorage {
     _db: turso::Database,
     conn: Mutex<turso::Connection>,
     attempts: Mutex<HashMap<String, (u32, i64)>>,
-    pub insecure_cookie: bool,
 }
 #[derive(Clone, Debug)]
 pub struct Actor {
@@ -47,6 +53,12 @@ fn unauthorized() -> WebError {
     WebError(StatusCode::UNAUTHORIZED, "Please sign in.".into())
 }
 impl Auth {
+    pub fn scoped(&self, project: &str) -> Self {
+        Self {
+            scope: project.into(),
+            ..self.clone()
+        }
+    }
     pub async fn open(path: &Path, insecure_cookie: bool) -> Result<Self> {
         let db = turso::Builder::new_local(
             path.to_str()
@@ -82,9 +94,12 @@ impl Auth {
             .await?;
         }
         Ok(Self {
-            _db: db,
-            conn: Mutex::new(conn),
-            attempts: Mutex::new(HashMap::new()),
+            inner: Arc::new(AuthStorage {
+                _db: db,
+                conn: Mutex::new(conn),
+                attempts: Mutex::new(HashMap::new()),
+            }),
+            scope: String::new(),
             insecure_cookie,
         })
     }
@@ -103,7 +118,7 @@ impl Auth {
         .await
         .map_err(WebError::internal)?
         .map_err(WebError::internal)?;
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         let count: i64 = conn
             .query("SELECT count(*) FROM users WHERE role='administrator'", ())
             .await?
@@ -120,7 +135,7 @@ impl Auth {
     pub async fn login(&self, email: &str, password: String) -> Result<String> {
         let email = email.trim().to_lowercase();
         {
-            let mut attempts = self.attempts.lock().await;
+            let mut attempts = self.inner.attempts.lock().await;
             attempts.retain(|_, (_, started)| now() - *started < 300);
             if attempts.len() >= 4096 && !attempts.contains_key(&email) {
                 return Err(WebError(
@@ -138,7 +153,7 @@ impl Auth {
             }
         }
         let record = {
-            let conn = self.conn.lock().await;
+            let conn = self.inner.conn.lock().await;
             let mut rows = conn
                 .query(
                     "SELECT id,password_hash FROM users WHERE email=?1 AND disabled=0",
@@ -167,7 +182,7 @@ impl Auth {
         }
         let token = secret();
         let csrf = secret();
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         conn.execute("DELETE FROM sessions WHERE expires_at < ?1", [now()])
             .await?;
         conn.execute(
@@ -175,7 +190,7 @@ impl Auth {
             turso::params![digest(&token), id, csrf, now() + 7 * 86400],
         )
         .await?;
-        self.attempts.lock().await.remove(&email);
+        self.inner.attempts.lock().await.remove(&email);
         Ok(token)
     }
     pub async fn actor(&self, headers: &HeaderMap) -> Result<Actor> {
@@ -189,14 +204,14 @@ impl Auth {
             .find_map(|s| s.strip_prefix("objekte_session="))
             .ok_or_else(unauthorized)?;
         let session = digest(token);
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         let mut rows = conn.query("SELECT u.id,u.display_name,u.role,s.csrf FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.token_hash=?1 AND s.expires_at>?2 AND u.disabled=0", turso::params![session.clone(), now()]).await?;
         let row = rows.next().await?.ok_or_else(unauthorized)?;
         Ok(Actor {
             id: row.get(0)?,
             name: row.get(1)?,
             role: row.get(2)?,
-            csrf: row.get(3)?,
+            csrf: digest(&format!("{}:{}", row.get::<String>(3)?, self.scope)),
             session,
         })
     }
@@ -210,7 +225,7 @@ impl Auth {
         Ok(())
     }
     pub async fn logout(&self, actor: &Actor) -> Result<()> {
-        self.conn
+        self.inner.conn
             .lock()
             .await
             .execute(
@@ -303,7 +318,7 @@ impl Auth {
         }
     }
     pub async fn users(&self) -> Result<Vec<User>> {
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         let mut rows = conn
             .query(
                 "SELECT id,email,display_name,role,disabled FROM users ORDER BY email",
@@ -324,7 +339,7 @@ impl Auth {
     }
     pub async fn set_user(&self, id: i64, new_role: &str, disabled: bool) -> Result<()> {
         role(new_role)?;
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         conn.execute("BEGIN IMMEDIATE", ()).await?;
         let result = async {
             let r = conn
@@ -368,7 +383,7 @@ impl Auth {
         result
     }
     pub async fn revoke_sessions(&self, id: i64) -> Result<()> {
-        self.conn
+        self.inner.conn
             .lock()
             .await
             .execute("DELETE FROM sessions WHERE user_id=?1", [id])
@@ -379,7 +394,7 @@ impl Auth {
         role(new_role)?;
         let address = email(address)?;
         let token = secret();
-        self.conn
+        self.inner.conn
             .lock()
             .await
             .execute(
@@ -390,7 +405,7 @@ impl Auth {
         Ok(token)
     }
     pub async fn invitations(&self) -> Result<Vec<Invitation>> {
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         let mut rows=conn.query("SELECT id,email,role,expires_at,redeemed,revoked FROM invitations ORDER BY id DESC",()).await?;
         let mut result = Vec::new();
         while let Some(r) = rows.next().await? {
@@ -405,7 +420,7 @@ impl Auth {
         Ok(result)
     }
     pub async fn revoke_invitation(&self, id: i64) -> Result<()> {
-        self.conn
+        self.inner.conn
             .lock()
             .await
             .execute("UPDATE invitations SET revoked=1 WHERE id=?1", [id])
@@ -424,7 +439,7 @@ impl Auth {
             return Err(WebError::bad("Display name required"));
         }
         let hash = password_hash(password).await?;
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         conn.execute("BEGIN IMMEDIATE", ()).await?;
         let result=async{let r=conn.query("SELECT id,email,role FROM invitations WHERE token_hash=?1 AND expires_at>?2 AND redeemed=0 AND revoked=0",turso::params![digest(token),now()]).await?.next().await?.ok_or_else(||WebError::bad("Invitation invalid or expired"))?;if r.get::<String>(1)?!=address{return Err(WebError::bad("Email does not match this invitation"));}if conn.query("SELECT id FROM users WHERE email=?1",[address.as_str()]).await?.next().await?.is_some(){return Err(WebError::bad("Email already registered"));}
  conn.execute("INSERT INTO users(email,display_name,password_hash,role) VALUES(?1,?2,?3,?4)",turso::params![address,name.trim(),hash,r.get::<String>(2)?]).await?;conn.execute("UPDATE invitations SET redeemed=1 WHERE id=?1",[r.get::<i64>(0)?]).await?;Ok(())}.await;
@@ -434,7 +449,7 @@ impl Auth {
     }
     pub async fn create_reset(&self, id: i64) -> Result<String> {
         let token = secret();
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         if conn
             .query("SELECT id FROM users WHERE id=?1 AND disabled=0", [id])
             .await?
@@ -455,7 +470,7 @@ impl Auth {
     }
     pub async fn redeem_reset(&self, token: &str, password: String) -> Result<()> {
         let hash = password_hash(password).await?;
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         conn.execute("BEGIN IMMEDIATE", ()).await?;
         let result=async{let row=conn.query("SELECT r.user_id FROM resets r JOIN users u ON u.id=r.user_id WHERE r.token_hash=?1 AND r.used=0 AND r.expires_at>?2 AND u.disabled=0",turso::params![digest(token),now()]).await?.next().await?.ok_or_else(||WebError::bad("Reset link invalid or expired"))?;let id:i64=row.get(0)?;conn.execute("UPDATE users SET password_hash=?1 WHERE id=?2",turso::params![hash,id]).await?;conn.execute("DELETE FROM sessions WHERE user_id=?1",[id]).await?;conn.execute("UPDATE resets SET used=1 WHERE user_id=?1",[id]).await?;Ok(())}.await;
         conn.execute(if result.is_ok() { "COMMIT" } else { "ROLLBACK" }, ())
@@ -463,7 +478,7 @@ impl Auth {
         result
     }
     pub async fn change_password(&self, id: i64, current: String, new: String) -> Result<()> {
-        let conn = self.conn.lock().await;
+        let conn = self.inner.conn.lock().await;
         let old: String = conn
             .query("SELECT password_hash FROM users WHERE id=?1", [id])
             .await?
@@ -497,7 +512,7 @@ impl Auth {
         if name.trim().is_empty() {
             return Err(WebError::bad("Display name required"));
         }
-        self.conn
+        self.inner.conn
             .lock()
             .await
             .execute(

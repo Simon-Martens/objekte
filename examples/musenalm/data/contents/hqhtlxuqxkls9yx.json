@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Das Blümchen der Treue« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1803. INr 11902",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12057,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aber hast du auch Glauben an meine Treue? / Ebendaselbst S. 82",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl. sc.",
+  "scans": [
+    "alm_211_12057_payvn2fyt8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aber hast du auch Glauben an meine Treue? / Ebendaselbst S. 82",
+  "updated": "2001-03-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.351Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "92038rvgqtkmmpj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.351Z",
+      "agent": "3dvnowzet6ad8zl",
+      "source_id": "gg5vzbrgu0owb1k"
+    }
+  ]
+}

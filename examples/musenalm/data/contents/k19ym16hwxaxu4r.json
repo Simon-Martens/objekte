@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59423,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Museum in Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. G. Cooke fect.",
+  "scans": [
+    "alm_896_59423_i2b87sd13v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Museum in Berlin",
+  "updated": "2008-08-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.843Z",
+      "agent": "4qmuru1kuzg7ngl",
+      "source_id": "2kfjb73v2k0bko2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.843Z",
+      "agent": "a7m5750fz1o3qqp",
+      "source_id": "3iq0qxgfh9he0xm"
+    }
+  ]
+}

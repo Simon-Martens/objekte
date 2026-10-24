@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) s. Textbezug INr 58127, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diepelsburg oder Rauber",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc. Stoll del.",
+  "scans": [
+    "alm_776_58128_an4bv6jiz2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diepelsburg oder Rauber",
+  "updated": "2008-06-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.936Z",
+      "agent": "6n5p36f2mzfscsm",
+      "source_id": "cx3lix178kze5x1"
+    }
+  ]
+}

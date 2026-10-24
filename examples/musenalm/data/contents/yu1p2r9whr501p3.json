@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:16.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Zürn' ich auch oft, wie die Hierarchie mit tyrannischen Ketten / Und mit Nebel und Dunst Geister und Herzen entehrt,",
+  "language": [],
+  "musenalm_id": 69088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18.",
+  "updated": "2010-02-12 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.455Z",
+      "agent": "6li7ibbf1vr3nv9",
+      "source_id": "pvlbqnc3nqizqkp"
+    }
+  ]
+}

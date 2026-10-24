@@ -1,0 +1,56 @@
+{
+  "annotation": "Portrait von Ignaz Franz Castelli (vgl. INr 125847, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:47.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125834,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I F Castelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Saar pinx. Fr. Stöber sc.",
+  "scans": [
+    "alm_2733_125834_i2lcjvk7go.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "I F Castelli",
+  "updated": "2010-02-15 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.765Z",
+      "agent": "napc3h8k481wgz2",
+      "source_id": "2vrs2cxpi76whj0"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.765Z",
+      "agent": "waiqlzuy6anjx1t",
+      "source_id": "5mx977x8v18cylq"
+    }
+  ]
+}

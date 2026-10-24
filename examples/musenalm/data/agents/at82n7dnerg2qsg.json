@@ -1,0 +1,449 @@
+{
+  "annotation": "",
+  "biographical_data": "1767-1824",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.344Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Franz. Maler, Illustrator, Lithograph und Schriftsteller"
+      ],
+      "dateOfBirth": [
+        "1767-01-05"
+      ],
+      "dateOfDeath": [
+        "1824-12-09"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Anne-Louis Girodet de Roussy-Trioson"
+          ],
+          "creditText": [
+            "1. Humanities Web2. arthermitage.org3. The Hermitage, St. Petersburg"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Anne-Louis%20Girodet%20autoportrait.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Anne-Louis%20Girodet%20autoportrait.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Anne-Louis%20Girodet%20autoportrait.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:40.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118817310/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-FR",
+          "label": "Frankreich"
+        }
+      ],
+      "gndIdentifier": "118817310",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118817310",
+      "languageCode": [
+        {
+          "id": "http://id.loc.gov/vocabulary/iso639-2/fre",
+          "label": "http://id.loc.gov/vocabulary/iso639-2/fre"
+        }
+      ],
+      "oldAuthorityNumber": [
+        "(DE-588c)4130119-5",
+        "(DE-588a)118817310"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4231911-0",
+          "label": "Montargis"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4044660-8",
+          "label": "Paris"
+        }
+      ],
+      "preferredName": "Girodet-Trioson, Anne Louis",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Anne Louis"
+        ],
+        "surname": [
+          "Girodet-Trioson"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4053309-8",
+          "label": "Schriftsteller"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4161277-2",
+          "label": "Illustrator"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398813-1",
+          "label": "Lithograf"
+        }
+      ],
+      "publication": [
+        "Girodet-Trioson, Anne-Louis: Oeuvres posthumes. - 1829",
+        "Girodet-Trioson, Anne-Louis: Les Amours des Dieux. - 1826"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84058477"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/27073449"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q433434"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118817310/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Anne-Louis_Girodet_de_Roussy-Trioson"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Anne-Louis_Girodet-Trioson"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Anne-Louis_Girodet_de_Roussy-Trioson"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000117534058"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118817310"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118817310"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118817310"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "Person",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Girodet de Roussy, Anne L.",
+        "Roussy, Anne L. de",
+        "Trioson, Anne Louis",
+        "Girodet de Roucy, Anne Louis",
+        "Trioson, Anne-Louis Girodet-",
+        "Girodet de Roussy Trioson, Anne-Louis",
+        "Roussy, Anne-Louis G. de",
+        "Girodet-Trioson",
+        "Girodet",
+        "Trioson, Anne-Louis G.",
+        "Girodet de Roussy, Anne Louis",
+        "Girodet de Roussy, Anne-Louis",
+        "Girodet-Trioson, Anne L.",
+        "Girodet de Roucy Trioson, Anne-Louis",
+        "Girodet de Roucy, Anne-Louis",
+        "Roucy, Anne-Louis Girodet de",
+        "Girodet-Trioson, Anne-Louis",
+        "Girodet, Anne L.",
+        "Girodet, Anne-Louis"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Anne Louis"
+          ],
+          "surname": [
+            "Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne Louis"
+          ],
+          "surname": [
+            "Girodet de Roussy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis G."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Roussy"
+          ]
+        },
+        {
+          "personalName": [
+            "Girodet-Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis Girodet-"
+          ],
+          "surname": [
+            "Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet de Roussy Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet-Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne Louis"
+          ],
+          "surname": [
+            "Girodet de Roucy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne L."
+          ],
+          "surname": [
+            "Girodet-Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne L."
+          ],
+          "surname": [
+            "Girodet"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet de Roussy"
+          ]
+        },
+        {
+          "personalName": [
+            "Girodet"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet de Roucy Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne L."
+          ],
+          "surname": [
+            "Girodet de Roussy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis Girodet"
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Roucy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne L."
+          ],
+          "prefix": [
+            "de"
+          ],
+          "surname": [
+            "Roussy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet de Roucy"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis G."
+          ],
+          "surname": [
+            "Trioson"
+          ]
+        },
+        {
+          "forename": [
+            "Anne-Louis"
+          ],
+          "surname": [
+            "Girodet"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Anne-Louis_Girodet-Trioson",
+          "label": "https://de.wikipedia.org/wiki/Anne-Louis_Girodet-Trioson"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:30:51Z",
+    "gnd_query_biographical_data": "1767-1824",
+    "gnd_query_name": "girodet-trioson, anne louis"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 893,
+  "name": "Girodet-Trioson, Anne Louis",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XIV, 180",
+  "updated": "2026-06-11 13:29:22.528Z",
+  "uri": "https://d-nb.info/gnd/118817310",
+  "editor": ""
+}

@@ -1,0 +1,331 @@
+{
+  "annotation": "",
+  "biographical_data": "1714-1759",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.389Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Maler, Zeichner, Kupferstecher und Verleger"
+      ],
+      "dateOfBirth": [
+        "1714-10-20"
+      ],
+      "dateOfDeath": [
+        "1759-01-18"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Georg Christoph Kilian"
+          ],
+          "creditText": [
+            "Self-scanned"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/PhilippAndreasKilian.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/PhilippAndreasKilian.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:PhilippAndreasKilian.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2019-04-03T15:09:17.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/12355232X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-12",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-12"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/131893556",
+          "label": "Kilian, Georg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118684728",
+          "label": "Engelbrecht, Martin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116171375",
+          "label": "Kilian, Georg Christoph"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "12355232X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#13.4p",
+          "label": "Personen zu Malerei, Zeichnung, Grafik"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasParent": [
+        {
+          "id": "https://d-nb.info/gnd/131893556",
+          "label": "Kilian, Georg"
+        }
+      ],
+      "hasSibling": [
+        {
+          "id": "https://d-nb.info/gnd/116171375",
+          "label": "Kilian, Georg Christoph"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/12355232X",
+      "oldAuthorityNumber": [
+        "(DE-588c)7523882-2",
+        "(DE-588a)12355232X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4003614-5",
+          "label": "Augsburg"
+        }
+      ],
+      "preferredName": "Kilian, Philipp Andreas",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Philipp Andreas"
+        ],
+        "surname": [
+          "Kilian"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037215-7",
+          "label": "Maler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4166165-5",
+          "label": "Kupferstecher"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4200345-3",
+          "label": "Zeichner"
+        }
+      ],
+      "publication": [
+        "Kilian, Philipp A.: Der Jugend kan dis Werck die Anfangs-Gründe Zeigen ... - [ca. 1750]",
+        "Kilian, Philipp A.: Picturae chalcographicae historiam veteris et novi testamenti .... - [ca. 1758]",
+        "Kilian, Philipp A.: Abbildungen der Geschichten des alten und neuen Testaments"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2005180072"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/66739104"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q16439531"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/12355232X/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Philipp_Andreas_Kilian"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000080776407"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd12355232X.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/12355232X"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/12355232X"
+        }
+      ],
+      "type": [
+        "Person",
+        "AuthorityResource",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Kilian, Philipp Andr.",
+        "Kilian, Philipp A.",
+        "Kilian, P. A.",
+        "Kilian, Phil. Andr.",
+        "Kilian, Philippus Andreas"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Philipp Andr."
+          ],
+          "surname": [
+            "Kilian"
+          ]
+        },
+        {
+          "forename": [
+            "P. A."
+          ],
+          "surname": [
+            "Kilian"
+          ]
+        },
+        {
+          "forename": [
+            "Philipp A."
+          ],
+          "surname": [
+            "Kilian"
+          ]
+        },
+        {
+          "forename": [
+            "Phil. Andr."
+          ],
+          "surname": [
+            "Kilian"
+          ]
+        },
+        {
+          "forename": [
+            "Philippus Andreas"
+          ],
+          "surname": [
+            "Kilian"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Philipp_Andreas_Kilian",
+          "label": "https://de.wikipedia.org/wiki/Philipp_Andreas_Kilian"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:55:18Z",
+    "gnd_query_biographical_data": "1714-1759",
+    "gnd_query_name": "kilian, philipp andreas"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 1385,
+  "name": "Kilian, Philipp Andreas",
+  "profession": "Graphik",
+  "pseudonyms": "",
+  "refs": "T/B XX, 301",
+  "updated": "2026-06-11 13:29:23.192Z",
+  "uri": "https://d-nb.info/gnd/12355232X",
+  "editor": ""
+}

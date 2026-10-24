@@ -1,0 +1,223 @@
+{
+  "annotation": "",
+  "biographical_data": "1816-1891",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.269Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "dateOfBirth": [
+        "1816"
+      ],
+      "dateOfDeath": [
+        "1891"
+      ],
+      "describedBy": {
+        "dateModified": "2011-04-01T10:16:39.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OeAW",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OeAW"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#3",
+          "label": "Katalogisierungslevel 3"
+        },
+        "id": "https://d-nb.info/gnd/143909738/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/AT-OBV",
+          "label": "https://ld.zdb-services.de/resource/organisations/AT-OBV"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Eugenie"
+          ],
+          "surname": [
+            "Popp von Böhmstetten"
+          ],
+          "type": "EarlierNameOfThePerson"
+        },
+        {
+          "forename": [
+            "Eugenie Popp"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Böhmstetten"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-AT",
+          "label": "Österreich"
+        }
+      ],
+      "gndIdentifier": "143909738",
+      "id": "https://d-nb.info/gnd/143909738",
+      "oldAuthorityNumber": [
+        "(DE-588a)143909738"
+      ],
+      "preferredName": "Bolza, Eugenie",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eugenie"
+        ],
+        "surname": [
+          "Bolza"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4246394-4",
+          "label": "Lyrikerin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4372438-3",
+          "label": "Übersetzerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Natalie"
+          ],
+          "surname": [
+            "Bolza"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/170364816"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q61197695"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/143909738/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eugenie_Bolza"
+        },
+        {
+          "collection": {
+            "abbr": "OEBL",
+            "id": "https://www.biographien.ac.at",
+            "name": "Österreichisches Biographisches Lexikon",
+            "publisher": "Österreichische Akademie der Wissenschaften"
+          },
+          "id": "https://www.biographien.ac.at/oebl/oebl_B/Bolza_Eugenie_1816_1891.xml?frames=yes"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Popp von Böhmstetten, Eugenie",
+        "Böhmstetten, Eugenie Popp von",
+        "Bolza, Natalie"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Eugenie"
+          ],
+          "surname": [
+            "Popp von Böhmstetten"
+          ]
+        },
+        {
+          "forename": [
+            "Eugenie Popp"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Böhmstetten"
+          ]
+        },
+        {
+          "forename": [
+            "Natalie"
+          ],
+          "surname": [
+            "Bolza"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eugenie_Bolza",
+          "label": "https://de.wikipedia.org/wiki/Eugenie_Bolza"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T10:59:21Z",
+    "gnd_query_biographical_data": "1816-1891",
+    "gnd_query_name": "bolza, eugenie"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 255,
+  "name": "Bolza, Eugenie",
+  "profession": "Text",
+  "pseudonyms": "Natalie; Baronesse Popp",
+  "refs": "E 36",
+  "updated": "2026-06-11 13:29:21.673Z",
+  "uri": "https://d-nb.info/gnd/143909738",
+  "editor": ""
+}

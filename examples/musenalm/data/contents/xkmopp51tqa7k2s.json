@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldklänge (Sammlung INr 26023, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11 10:17:51.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Im Wald, / Im Wald / Ist Lust und Fried',",
+  "language": [],
+  "musenalm_id": 26027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Wald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Wald",
+  "updated": "2002-07-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.993Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "4x0fwbciztx3kbq"
+    }
+  ]
+}

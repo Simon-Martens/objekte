@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Schneelavine« von J. R. Wysz d.J. INr 54581, Obj 87 /) unter der Graphik: Alpenr. 1830",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SCHNEELAVINE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lori Vater del. D. Burgdorfer sculp.",
+  "scans": [
+    "alm_742_54580_8i1j6bjg6h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE SCHNEELAVINE",
+  "updated": "2008-01-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.715Z",
+      "agent": "jl6b68q9vo9ytf5",
+      "source_id": "a71a7wxtghpurz9"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.715Z",
+      "agent": "apfgolbsarcaim2",
+      "source_id": "cz1es7a4pxbcent"
+    }
+  ]
+}

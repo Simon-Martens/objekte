@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer s. Textbezug INr 51618, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11 10:18:03.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berner- Bauernmädchen / in der Stadt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_702_51620_6375prukpm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Berner- Bauernmädchen / in der Stadt",
+  "updated": "2007-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.536Z",
+      "agent": "grbttvgkqnprgwf",
+      "source_id": "eof80kf22rq9u62"
+    }
+  ]
+}

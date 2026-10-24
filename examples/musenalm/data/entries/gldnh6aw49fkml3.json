@@ -1,0 +1,129 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, T, 3 BB Vrwrt d Hrsg, B I-Verz, 8 BB Kal, SS 1-320 darin 6 GG, 2 MusBB",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Forst- und Jagd-Kalender 1795",
+    "norm": "~",
+    "biblio": 404846,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2009-08-19T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1109,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Graff)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Forst- und Jagd-Kalender 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 46; L/R 137",
+  "responsibility_statement": "M. F. G. Leonhardi",
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Kalender / Für das Jahr / 1795. / Mit Kupfern. / Leipzig / bei Gebr. Graff",
+  "updated": "2026-06-11 10:18:55.630Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "items": [
+    "g484ge440rlcfda"
+  ],
+  "contents": [
+    "t5nh8tr6zxtbaj9",
+    "1hqpwugh7emkht8",
+    "f3je59k96xys8hp",
+    "ubfss74klgwnztx",
+    "5haahoff1xfn383",
+    "dj6ulvwmiqxgwcn",
+    "s6jh0emci5758fo",
+    "e5m5yxie3sdsa4m",
+    "gxzqhpyivo7ly1o",
+    "gqr6oklggc0n64e",
+    "walv02g3k99np5v",
+    "095heultcyhnktf",
+    "0adacohwsyafzec",
+    "0pppbrv1t9lfd66",
+    "ee01ogbr2dra492",
+    "amng2qiv5mfccv3",
+    "ppc2de2sz4krkmg",
+    "w97bq115ivtbqe7",
+    "v42vinijjfvkjpp",
+    "iejveqr9v52l0kn",
+    "zln1ur77vjx8q06",
+    "0cf7ihpc7wowsu7",
+    "5mz56evdji62yc9",
+    "q0t3qk61u992aid",
+    "vyqgqo9lbc04czf",
+    "ghrsjm1um3vtsut",
+    "rz9476zbjplfv3s",
+    "7vyd8h9ae8uf8nr",
+    "sm26y68cuk611yv",
+    "lgqie5c02rxn3q1",
+    "80qb3n568tn75t5",
+    "i58c319izfp6ssn",
+    "9utlz6rleusykgx",
+    "zqvqwv4nbqjloa9",
+    "kjx76vrh4dizi2k",
+    "apszt85dk137t5v",
+    "4wfj3s459vrzguy",
+    "f63jkjahl498ygb",
+    "4lo1kabn9o2z20j",
+    "8clq4cibt095f5y",
+    "whvwc3c2tm2prb3",
+    "x352sd7c61934ol",
+    "chzsr5i20v9ct9a",
+    "ncpu80jabdycuf7",
+    "lmjcaoivib6wves",
+    "y1hsmtb7eelp3t2",
+    "pqzgmwg4zgxerp5",
+    "m1kc9u5hhtbl4v0",
+    "p2qy8la2xeh72ih",
+    "wghopybe67jxf98"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.924Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.924Z",
+      "agent": "vzeibdcmd7xmhbm",
+      "source_id": "5qudxopubuzwrnk"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:54.825Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:54.825Z",
+      "agent": "u39rqutfrws01lt",
+      "source_id": "glld0lxvqlzwcs1"
+    }
+  ]
+}

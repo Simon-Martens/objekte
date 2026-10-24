@@ -1,0 +1,562 @@
+{
+  "annotation": "",
+  "biographical_data": "1743-1815",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.521Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "academicDegree": [
+        "Prof."
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/3001257-0",
+          "label": "Herzogliches Collegium Carolinum Braunschweig"
+        }
+      ],
+      "dateOfBirth": [
+        "1743-08-17"
+      ],
+      "dateOfDeath": [
+        "1815-07-04"
+      ],
+      "describedBy": {
+        "dateModified": "2023-11-08T19:45:31.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/11882435X/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "11882435X",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#18p",
+          "label": "Personen zu Natur, Naturwissenschaften allgemein"
+        },
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#28p",
+          "label": "Personen zu Mathematik"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/11882435X",
+      "oldAuthorityNumber": [
+        "(DE-588c)4139800-2",
+        "(DE-588a)11882435X"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4061447-5",
+          "label": "Uelzen"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4008065-1",
+          "label": "Braunschweig"
+        }
+      ],
+      "preferredName": "Zimmermann, Eberhard August Wilhelm von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Eberhard August Wilhelm"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Zimmermann"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4041423-1",
+          "label": "Naturwissenschaftler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4020214-8",
+          "label": "Geograf"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4037945-0",
+          "label": "Mathematiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4131826-2",
+          "label": "Biologe"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4025243-7",
+          "label": "Hochschullehrer"
+        }
+      ],
+      "publication": [
+        "Kurze Erklärung der zoologischen Weltcharte",
+        "Statistisch-historisches Archiv",
+        "Allgemeiner Blick auf Italien",
+        "Beobachtungen auf einer Harzreise",
+        "Über die Elastizität des Wassers",
+        "Das Merkwürdigste von Afrika ...",
+        "Australien",
+        "Beschreibung und Abbildung eines ungebornen Elephanten",
+        "Geographische Geschichte des Menschen",
+        "Die Erde und ihre Bewohner"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12330956p"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n84133685"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/89539842"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q213607"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/11882435X/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Eberhard_August_Wilhelm_von_Zimmermann"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Eberhard_August_Wilhelm_von_Zimmermann"
+        },
+        {
+          "collection": {
+            "abbr": "WIKISOURCE",
+            "icon": "https://wikisource.org/static/favicon/wikisource.ico",
+            "id": "http://www.wikidata.org/entity/Q263",
+            "name": "Wikisource",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikisource.org/wiki/Eberhard_August_Wilhelm_von_Zimmermann"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Eberhard_August_Wilhelm_von_Zimmermann"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121430278"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/11882435X"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1776_voigt;90"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_behrens;19"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1779_henninges;94"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1781_zellmann;197"
+        },
+        {
+          "collection": {
+            "abbr": "RAAE",
+            "icon": "https://www.gf-franken.de/favicon.ico",
+            "id": "https://raa.gf-franken.de",
+            "name": "Repertorium Alborum Amicorum (RAA) - Stammbucheinträge",
+            "publisher": "Department Germanistik und Komparatistik der Friedrich-Alexander-Universität Erlangen-Nürnberg in Zusammenarbeit mit der Gesellschaft für Familienforschung in Franken"
+          },
+          "id": "https://raa.gf-franken.de/de/suche-nach-stammbucheintraegen.html?permaLink=1782_buhlis;25"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd11882435X.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/11882435X"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "E.A.W.v.Z.",
+        "Z., E. A. W. v.",
+        "Zimmermann, E. A. G.",
+        "Zimmermannus, Eberhardus Augustus Wilhelmus",
+        "Zimmermann, Eberhard August Wilhelm",
+        "Zimmermann, Everard A.",
+        "E. A. W. v. Z.",
+        "Zimmermann, Eberhardt August Wilhelm von",
+        "Zimmermann, E.A.W.",
+        "Von Zimmermann, Eberhard August Wilhelm",
+        "Zimmermann, Eberh. Aug. Guilielm.",
+        "Zimmermann, Eberhardus A.",
+        "Zimmermann, E.A.W. von",
+        "Zimmermann, Eberhardus Augustus Guilielmus",
+        "Zimmermann, Eberhardus Augustus Guilelmus",
+        "Zimmermann, Eberhard A. von",
+        "Zimmermannus, Eberhardus Augustus Guilelmus",
+        "Zimmermann, E. A. W.",
+        "Zimmermann, Eberh. Aug. Wilh.",
+        "Zimmermann, E.A.G.",
+        "Zimmermann, E. A. W. von",
+        "Zimmermannus, Eberhardus Augustus Guilielmus",
+        "Z., E.A.W. v."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Eberhardus Augustus Guilelmus"
+          ],
+          "surname": [
+            "Zimmermannus"
+          ]
+        },
+        {
+          "forename": [
+            "E.A.G."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardus Augustus Guilielmus"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardt August Wilhelm"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard August Wilhelm"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard August Wilhelm"
+          ],
+          "surname": [
+            "Von Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhard A."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardus A."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardus Augustus Wilhelmus"
+          ],
+          "surname": [
+            "Zimmermannus"
+          ]
+        },
+        {
+          "personalName": [
+            "E. A. W. v. Z."
+          ]
+        },
+        {
+          "forename": [
+            "E.A.W."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Eberh. Aug. Wilh."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E.A.W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Z."
+          ]
+        },
+        {
+          "forename": [
+            "Eberh. Aug. Guilielm."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. W."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "personalName": [
+            "E.A.W.v.Z."
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardus Augustus Guilielmus"
+          ],
+          "surname": [
+            "Zimmermannus"
+          ]
+        },
+        {
+          "forename": [
+            "Eberhardus Augustus Guilelmus"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "Everard A."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E.A.W."
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. G."
+          ],
+          "surname": [
+            "Zimmermann"
+          ]
+        },
+        {
+          "forename": [
+            "E. A. W."
+          ],
+          "prefix": [
+            "v."
+          ],
+          "surname": [
+            "Z."
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Eberhard_August_Wilhelm_von_Zimmermann",
+          "label": "https://de.wikipedia.org/wiki/Eberhard_August_Wilhelm_von_Zimmermann"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years",
+    "gnd_matched_at": "2026-06-11T13:26:54Z",
+    "gnd_query_biographical_data": "1743-1815",
+    "gnd_query_name": "zimmermann, eberhard august wilhelm (von)"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 3233,
+  "name": "Zimmermann, Eberhard August Wilhelm (von)",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "ADB XLV, 256",
+  "updated": "2026-06-11 13:29:25.901Z",
+  "uri": "https://d-nb.info/gnd/11882435X",
+  "editor": ""
+}

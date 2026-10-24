@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Almanach, Nordischer 1809",
+    "norm": "",
+    "biblio": 100714,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-01-11T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 1470,
+  "parallel_title": "",
+  "place_statement": "Riga (Müller)",
+  "places": [
+    "i42ezbvbrf2494d"
+  ],
+  "preferred_title": "Almanach, Nordischer 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "F. G. Albers",
+  "subtitle_statement": "",
+  "title_statement": "Nordischer Almanach / für / das Jahr 1809. / Herausgegeben / von / F. G. Albers. / Riga; / bei Wilh. Chr. Andr. Müller.",
+  "updated": "2026-06-11 10:18:55.178Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "items": [
+    "f7nwe37mon60kq9"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "azbtol8yhsrcumv"
+    }
+  ]
+}

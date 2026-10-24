@@ -1,0 +1,45 @@
+{
+  "annotation": "# Dem Text vorangestellt: Ne crains pas cependant, ombre encor inquiète, / Que je vienne outrager ta majesté muette! [...]. A. de Lamartine",
+  "content_type": [],
+  "created": "2026-06-11 10:17:55.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "In dem Cabriolet des Eilwagens, der zweymal in der Woche von Frankfurt nach Stuttgart geht,",
+  "language": [],
+  "musenalm_id": 34466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild des Kaisers. / Novelle #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Hauff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild des Kaisers. / Novelle #",
+  "updated": "2003-05-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.588Z",
+      "agent": "ntl4yryhhmz1v3s",
+      "source_id": "9vzl38t4h52f7t7"
+    }
+  ]
+}

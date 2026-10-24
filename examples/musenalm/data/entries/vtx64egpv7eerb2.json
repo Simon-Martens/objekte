@@ -1,0 +1,71 @@
+{
+  "annotation": "Der Jg 1807 mit eigenen Beiträgen fiel kriegsbedingt aus; der Jg 1806 wurde als Ausgabe 1806/1807 ohne Kalendarium  bei nahezu identischer Ausstattung wiederholt und außerdem als Jg 1807 mit aktualisierter Genealogie, Geburtstagstabelle, Kalendarium etc herausgebracht s. Vorwort. /) Aufgenommen und als Vollbild gegeben sind hier: Vorwort, Titel und I-Verz",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, S Vrwrt d Hrsg, verso G, T, B I-Verz, B Tab, 9 BB Kal, zT, G, SS 1-91 darin 18 GG, B Tab, SS 92-192, S C, 3 BB Tab, 20 BB Tab",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Wiener 1807",
+    "norm": "~",
+    "biblio": 409009,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": false,
+    "bearbeitet_am": "2015-05-13T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 4199,
+  "parallel_title": "",
+  "place_statement": "Wien (Degen)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Taschenbuch, Wiener 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; L/R 147",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Taschenbuch / für / 1807. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+  "updated": "2026-06-11 10:18:55.275Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "0pn36inr6d10gy9"
+  ],
+  "contents": [
+    "nai08idmvkytxv1",
+    "y0aobv7p7vyxe09",
+    "p1ey7uqr9b18hri"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.717Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.717Z",
+      "agent": "uelm0e03nkq3tde",
+      "source_id": "lhhsrltvmatinqc"
+    }
+  ]
+}

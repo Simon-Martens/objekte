@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 76781, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:22.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Der König und die Königin von Karusin saßen ganz betrübt bei einander. Es war ihr einziges Kind, Prinz Saphirion, um das sie trauerten.",
+  "language": [],
+  "musenalm_id": 76799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Saphirion. / Ein Mährchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Saphirion. / Ein Mährchen",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.894Z",
+      "agent": "xf5qiko3g7u0aeu",
+      "source_id": "ubw1kuw9o1o85ld"
+    }
+  ]
+}

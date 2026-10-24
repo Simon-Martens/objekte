@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:32.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Du bist betrübt bis in den Tod! / O Landsmann, traut Gesell!",
+  "language": [],
+  "musenalm_id": 100530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 194,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Untrüborn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Untrüborn",
+  "updated": "2010-01-29 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.782Z",
+      "agent": "qwtd1omxjc7b309",
+      "source_id": "b52t4cuxptd3k5j"
+    }
+  ]
+}

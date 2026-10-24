@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:42.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Ich stand allein in schöner Waldesstelle, / Der Vögel Sang schallt nieder von den Bäumen,",
+  "language": [],
+  "musenalm_id": 116237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Portrait",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Portrait",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.450Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "qsi7oyinz83xtig"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der arme Heinrich (Sammlung INr 86632, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Bologna ist der Weisheit bekannter Ehrensitz, / Von hier strahlt über die Erde Gelehrsamkeit und Witz.",
+  "language": [],
+  "musenalm_id": 86636,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Die Arznei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ferdinand Stamm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Die Arznei",
+  "updated": "2010-01-13 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.230Z",
+      "agent": "big4tm69ocucym5",
+      "source_id": "8w2vusy6pyp6wq8"
+    }
+  ]
+}

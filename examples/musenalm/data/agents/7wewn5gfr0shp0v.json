@@ -1,0 +1,334 @@
+{
+  "annotation": "",
+  "biographical_data": "1747-1847",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.251Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "biographicalOrHistoricalInformation": [
+        "Dt. Dichterin und Salondame; Freundin von Goethe und Wieland"
+      ],
+      "dateOfBirth": [
+        "1751-06-21"
+      ],
+      "dateOfDeath": [
+        "1847-07-12"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Ludwig-Doell, Öl, 1817"
+          ],
+          "creditText": [
+            "Erbslöh-Archiv, Familienverband Julius Erbslöh, Wuppertal"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Julie-von-Bechtolsheim-%C3%96lbild-von-Ludwig-Doell-1817.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Julie-von-Bechtolsheim-%C3%96lbild-von-Ludwig-Doell-1817.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Julie-von-Bechtolsheim-%C3%96lbild-von-Ludwig-Doell-1817.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2019-03-01T10:26:54.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/116100273/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-611",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-611"
+        }
+      },
+      "earlierNameOfThePerson": [
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Keller"
+          ],
+          "type": "EarlierNameOfThePerson"
+        }
+      ],
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/1161811761",
+          "label": "Bechtolsheim, Johann Ludwig von"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#female",
+          "label": "Weiblich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "116100273",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#12.2p",
+          "label": "Personen zu Literaturgeschichte (Schriftsteller)"
+        }
+      ],
+      "hasSpouse": [
+        {
+          "id": "https://d-nb.info/gnd/1161811761",
+          "label": "Bechtolsheim, Johann Ludwig von"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/116100273",
+      "oldAuthorityNumber": [
+        "(DE-588a)116100273",
+        "(DE-588c)4647664-7"
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4997805-6",
+          "label": "Stedten (Erfurt)"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4014013-1",
+          "label": "Eisenach"
+        }
+      ],
+      "preferredName": "Bechtolsheim, Julie von",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Julie"
+        ],
+        "prefix": [
+          "von"
+        ],
+        "surname": [
+          "Bechtolsheim"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4053311-6",
+          "label": "Schriftstellerin"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "personalName": [
+            "Psyche"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n2006019052"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/25344820"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q1430558"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/116100273/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Julie_von_Bechtolsheim"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000117520107"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/116100273"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/116100273"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/116100273"
+        }
+      ],
+      "titleOfNobility": [
+        {
+          "id": "https://d-nb.info/gnd/7538687-2",
+          "label": "Freifrau"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4770088-9",
+          "label": "Gräfin"
+        }
+      ],
+      "type": [
+        "Person",
+        "DifferentiatedPerson",
+        "AuthorityResource"
+      ],
+      "variantName": [
+        "Psyche",
+        "Mauchenheim, Julie von",
+        "Keller, Julie von",
+        "Mauchenheim-Bechtolsheim, Julie von",
+        "Bechtholdsheim, Julie von"
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Keller"
+          ]
+        },
+        {
+          "personalName": [
+            "Psyche"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mauchenheim-Bechtolsheim"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Mauchenheim"
+          ]
+        },
+        {
+          "forename": [
+            "Julie"
+          ],
+          "prefix": [
+            "von"
+          ],
+          "surname": [
+            "Bechtholdsheim"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Julie_von_Bechtolsheim",
+          "label": "https://de.wikipedia.org/wiki/Julie_von_Bechtolsheim"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T10:53:24Z",
+    "gnd_query_biographical_data": "1747-1847",
+    "gnd_query_name": "bechtolsheim, julie von"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 135,
+  "name": "Bechtolsheim, Julie von",
+  "profession": "Text",
+  "pseudonyms": "",
+  "refs": "DBI 123; H/B 223",
+  "updated": "2026-06-11 13:29:21.504Z",
+  "uri": "https://d-nb.info/gnd/116100273",
+  "editor": ""
+}

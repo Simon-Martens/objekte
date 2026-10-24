@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:02.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Mein Herz ist in der Ferne, / Und wißt ihr wo es weilt?",
+  "language": [],
+  "musenalm_id": 45785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 192,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Herz ist in der Ferne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Hamerling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Herz ist in der Ferne",
+  "updated": "2006-09-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.419Z",
+      "agent": "zilf9bw8086r5oa",
+      "source_id": "gb6wzm4i85j2y1c"
+    }
+  ]
+}

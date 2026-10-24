@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze Schilderung der Landschaft Basel. Nebst dem Entwurfe einer Wanderung durch dieselbe.« INr 52323, Obj 17 /) s.a. Textbezug INr 52336, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11 10:18:05.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Basel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bentz del. F. Hegi sc.",
+  "scans": [
+    "alm_713_52326_y3aw6czpz9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Basel",
+  "updated": "2007-10-31 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.633Z",
+      "agent": "ldosmz32ve7ibjb",
+      "source_id": "twry7vhar867fgq"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.633Z",
+      "agent": "zbskhchsoqwsntq",
+      "source_id": "w6yry3q061z8a1i"
+    }
+  ]
+}

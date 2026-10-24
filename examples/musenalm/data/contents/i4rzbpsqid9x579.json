@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11 10:17:41.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2376,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MusenAlmanach / in Sardonica / Vestalis / ex Mus. Walmod. / A MDCCLXXVI / Göttingen, bey J. C. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meil",
+  "scans": [
+    "alm_77_2376_tnohdc257i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MusenAlmanach / in Sardonica / Vestalis / ex Mus. Walmod. / A MDCCLXXVI / Göttingen, bey J. C. Dieterich",
+  "updated": "2000-08-30 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.875Z",
+      "agent": "tofq8m4srkv5wfy",
+      "source_id": "591sg9ts3jgjib7"
+    }
+  ]
+}

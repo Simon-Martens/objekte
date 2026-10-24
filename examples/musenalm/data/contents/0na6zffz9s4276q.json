@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:45.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Zwo Griechinnen, die einst zur Messe kamen, / Verwunderten sich unsrer Damen,",
+  "language": [],
+  "musenalm_id": 10423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die aufgethürmten Halstücher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die aufgethürmten Halstücher",
+  "updated": "2001-02-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.367Z",
+      "agent": "b4ycj3ue3as52r2",
+      "source_id": "i19muk2uv79s7i9"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Verlagsmitteilung. s. szen. Darstellung INr 20749, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11 10:17:48.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Das vorstehende Lustspiel: Das Quartett im Hause - ist Contessas letzte dramatische Arbeit.",
+  "language": [],
+  "musenalm_id": 20750,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ankündigung / von / Carl Wilhelm Contessas / sämmtlichen Schriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ankündigung / von / Carl Wilhelm Contessas / sämmtlichen Schriften",
+  "updated": "2002-01-09 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.638Z",
+      "agent": "yekzbr1mkxuaimv",
+      "source_id": "505aw25ucq7x88i"
+    }
+  ]
+}

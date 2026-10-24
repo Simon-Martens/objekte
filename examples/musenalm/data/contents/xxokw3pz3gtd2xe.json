@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 13",
+  "content_type": [],
+  "created": "2026-06-11 10:17:43.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ein Knabe - sagt mir Danischmende / Im goldnen Buch die Wahrheit vor,",
+  "language": [],
+  "musenalm_id": 4534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Winde. / An Ariston",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Winde. / An Ariston",
+  "updated": "2000-10-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.166Z",
+      "agent": "vurjmtt5tprr0cw",
+      "source_id": "dww625zjw3xr911"
+    }
+  ]
+}

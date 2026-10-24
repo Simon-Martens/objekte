@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11 10:17:53.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35937,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (N. Thouret inv. A. Bayer sculpt.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Thouret inv. A. Bayer sculpt.",
+  "scans": [
+    "alm_491_35937_9m0ouwg7lz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-08-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.280Z",
+      "agent": "zrmsqolvt94ydaa",
+      "source_id": "st145c4c2f7i1bu"
+    }
+  ]
+}

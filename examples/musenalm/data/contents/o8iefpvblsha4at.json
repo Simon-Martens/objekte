@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:21.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Ein Prior, welcher eben Runde / Im Kreuzgang hielt, traf einen Ordensmann / Zur anberaumten Schweigestunde",
+  "language": [],
+  "musenalm_id": 76391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Klosterprior",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Petrak",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Klosterprior",
+  "updated": "2003-01-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.801Z",
+      "agent": "vdepyw8qrxrqtk6",
+      "source_id": "m6lrvtjtgn9uens"
+    }
+  ]
+}

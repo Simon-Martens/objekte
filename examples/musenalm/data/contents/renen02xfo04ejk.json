@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:23.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Dies Ländchen unterm Mond gleicht einem / Schauspielhaus. / Fortuna theilt darinn verschiedne Rollen aus!",
+  "language": [],
+  "musenalm_id": 83163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Welt. / Nach J. B. Rousseau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Welt. / Nach J. B. Rousseau",
+  "updated": "2010-02-25 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.959Z",
+      "agent": "t6wjjpa90xmd7r2",
+      "source_id": "2dsuq9xsz25svoz"
+    }
+  ]
+}

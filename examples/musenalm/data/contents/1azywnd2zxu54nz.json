@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:44.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Mild wie sich das weiche Gold / Ringelt um dein Angesicht,",
+  "language": [],
+  "musenalm_id": 115827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glückwunsch an Iphigenie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glückwunsch an Iphigenie",
+  "updated": "2010-03-04 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:02.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:02.571Z",
+      "agent": "ynz1wrh0mfk3t8y",
+      "source_id": "bz3wi3p5qw1zjc6"
+    }
+  ]
+}

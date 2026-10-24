@@ -1,0 +1,103 @@
+{
+  "annotation": "K 79 gibt lediglich Jg 1818 an /) KVK, Landesbibliothekenverbund Österreich Südtirol: Jgg 1803, 1805, 1813, 1814, 1816, 1818, 1820, 1823, 1824, 1826, 1829, 1830 /) Der Almanach ähnelt in Format und Ausstattung dem Jg 1820 von: Der Freund des schönen Geschlechts 1820; alm-984 /) für: Der Freund des schönen Geschlechts: K 48; L/R 64; Goed VIII. 61, 68a",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, UG, VB, verso G, T, 6 GG, 9 BB Kal darin 6 GG, 3 BB Tab, S 1 nT, SS 3-47, S I-Verz",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Modealmanach für Damen 1825",
+    "norm": "~",
+    "biblio": 406762,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-08-10T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3798,
+  "parallel_title": "",
+  "place_statement": "Wien (Müller)",
+  "places": [
+    "31n865keags4n1n"
+  ],
+  "preferred_title": "Modealmanach für Damen 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K 79; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Mode / Almanach / für / Damen / für das Jahr / 1825 / Wien / bey Georg Müllner, bürgl. Buchbinder / in der Singerstrasse im Curhaus",
+  "updated": "2026-06-11 10:18:56.020Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "items": [
+    "6adtgcdz7z0zog7"
+  ],
+  "contents": [
+    "vgt37i6kmisw1wb",
+    "lc6dbfwi4gzo5yy",
+    "xwywwvl9vfmwif6",
+    "q9zjev6iwj6j01c",
+    "2esqkft3r20z43r",
+    "d7px2tk2zzaiot7",
+    "bqxbf6erxyoisba",
+    "vsbjz6yeb80z95g",
+    "87jq4005txzjcvd",
+    "h7g0w4svfwpvuzb",
+    "faxt6knqp9g8jub",
+    "lhvjdhllquutq47",
+    "ikzhyj9zsspps0h",
+    "swxoillug8iwtey",
+    "2kh8o62diimjfik",
+    "mqs13sz3moip4hz",
+    "10bb6b0rr8hyp2j",
+    "g1niidi43to78ln",
+    "v0ocoa82muz3y01",
+    "cplou2bri4ullrc",
+    "rykmv6zle9tm00w",
+    "fejxs5hbsehatt7",
+    "z0a2uz03nw64u3s",
+    "snm39ze2yuzzdy8",
+    "lwz8l7l6dn2adqt",
+    "f9qe5j7wq2jqiv5",
+    "y2ij8qhy2jgyek0",
+    "q3ju3aro22b3xhe",
+    "w0atlhh9z9si9yl",
+    "zkyzupcwcbezlxo",
+    "3s6sw3xm4rrq1s1",
+    "wxdp71gh1imh4ie",
+    "upqrprftouv5krl",
+    "ifclixwba4xkjgp",
+    "lq5ky252gqvh9a3"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.108Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.108Z",
+      "agent": "vcnz4inryw4404k",
+      "source_id": "n6va569vbedo10k"
+    }
+  ]
+}

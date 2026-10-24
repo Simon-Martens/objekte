@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11 10:18:26.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CULBLANC",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92862_8pildpl0xy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CULBLANC",
+  "updated": "2010-02-26 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "sjryrwpw74yqnj4",
+      "source_id": "iew3b67n4z8sqz8"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.149Z",
+      "agent": "vtesijhtxlwbnoh",
+      "source_id": "r1ka25f4jxnmbsz"
+    }
+  ]
+}

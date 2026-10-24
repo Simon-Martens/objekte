@@ -1,0 +1,133 @@
+{
+  "annotation": "einziger Jahrgang",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, VB, verso B, S I T, SS III-VI Vrwrt d Hrsg, SS VII-VIII I-Verz, S VIII G-Verz MusBB-Verz, 8 BB Tab darin 6 GG, SS 1-nT, SS 3-198 darin 9 MusBB, S 198 C, 4 BB mit 10 MusBB, 2 BB VrlgM",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Titania 1807",
+    "norm": "~",
+    "biblio": 406644,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": true,
+    "erfasst": true,
+    "bearbeitet_am": "2011-05-27T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3666,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Tauchnitz)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Titania 1807",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R; Goed VII. 200, 29",
+  "responsibility_statement": "Carl Lang",
+  "subtitle_statement": "",
+  "title_statement": "Titania. / Taschenbuch für 1807. / Deutschlands Schönen / gewidmet. / Von / Carl Lang. / Mit Kupfern und Musikblättern. / Leipzig / bey Karl Tauchnitz",
+  "updated": "2026-06-11 10:18:54.972Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "items": [
+    "uii3gcfbar7n71i"
+  ],
+  "contents": [
+    "gxqc819ahgna5cv",
+    "eqc6gvxj36avkxr",
+    "jo5o96vceb6o7p4",
+    "too838d1ns7mb2e",
+    "tp28m9zy1ql1enk",
+    "v2osmzx8hebure5",
+    "uv3acu0gmqazoqa",
+    "98gda5zhn36writ",
+    "9gg9dnj6kwkmicu",
+    "a8mtf6wefdnth0f",
+    "bp0bvt4ehen5eym",
+    "rvhd7dibnp39ofv",
+    "gzx2rrr717dcojx",
+    "3falt9bpf53wrtl",
+    "040r6rx07gtqx79",
+    "it3mjv6pie6hi7q",
+    "tqe1pt6krypag6i",
+    "3iqfj99mrjq3m1y",
+    "im7z1qy5tqeljno",
+    "avxjhob1zp2ntj9",
+    "s6inrgzw2qd9d0b",
+    "w6w8m4hgovao9ts",
+    "tc3z4792yz21hx8",
+    "391umgm1n4q1zsw",
+    "0bls279zm2q61fm",
+    "gbokktlze6b70mu",
+    "unfmfiztzn8b89h",
+    "7b3kojiubgomoy1",
+    "a260m1jiyshigk6",
+    "jhxf6rz538qx2i8",
+    "t62lid2ldytb0nv",
+    "y6eg4dpbj0axnyg",
+    "8mai8dj6kknblir",
+    "dabg3yslrp3lcfv",
+    "zzf9i2ms7bixkzr",
+    "qbiuha6ta4gnvmo",
+    "iz8ag1vg0zxoogb",
+    "fkleakimcg9xqfv",
+    "i19hjuixsejf3iv",
+    "amxu7o087zd0wtz",
+    "9ehjipwltdmek3z",
+    "t6v2yiyifhvumdv",
+    "f5m8s68gwp9njeu",
+    "bcxaqz9m96c1349",
+    "9zjstpt7rj1ki06",
+    "bo3d629863fynl7",
+    "sfkgo4djnpgbvf5",
+    "l9i9h7u49a1zjuk",
+    "imxk5efer0pw9da",
+    "nbaeev9kqqbdp3l",
+    "3nyd6m43mchyjws",
+    "742bhtgytoepnlc",
+    "gxtgptxfshh1mrj",
+    "1fkhlvahos26bp1"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.275Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.275Z",
+      "agent": "0vejvx9ns82bwxr",
+      "source_id": "qvfkpwlj1veb6pp"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.161Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.161Z",
+      "agent": "mrctbkw5g4yg6lj",
+      "source_id": "tsh4lr3pwhar55l"
+    }
+  ]
+}

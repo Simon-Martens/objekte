@@ -1,0 +1,78 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Literarhistorisches (Prutz) 1844",
+    "norm": "",
+    "biblio": 200589,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2013-03-15T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3938,
+  "parallel_title": "",
+  "place_statement": "Leipzig (Wigand)",
+  "places": [
+    "d7kbujq7399g22j"
+  ],
+  "preferred_title": "Taschenbuch, Literarhistorisches (Prutz) 1844",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 135; nicht bei L/R; ADB XXVI, 680",
+  "responsibility_statement": "R. E. Prutz",
+  "subtitle_statement": "",
+  "title_statement": "Literarhistorisches / Taschenbuch. / Herausgegeben / von / R. E. Prutz. / ZweiterJahrgang / 1844. / Mit Beiträgen von A. Kahlert, K. A. Mayer, K. Rosenkranz / Fr. Vischer und dem Herausgeber. / Leipzig, Otto Wigand",
+  "updated": "2026-06-11 10:18:55.397Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "items": [
+    "yp2zj7vivew1x88"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.186Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.186Z",
+      "agent": "k8e1epqeqxplo0k",
+      "source_id": "p6mmwsireun1096"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.312Z",
+      "edit_comment": "",
+      "type": "Herausgeber:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.312Z",
+      "agent": "fxxm37a191ki2vr",
+      "source_id": "v680pt7rlufa6rl"
+    }
+  ]
+}

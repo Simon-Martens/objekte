@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 55229, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:06.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "O Alpenrose! / Vergönne mir daß ich dich lob' und preise; / Vergönns dem Winde, daß er mit dir kose.",
+  "language": [],
+  "musenalm_id": 55230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Alpenrose. / Ritornelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Alpenrose. / Ritornelle",
+  "updated": "2008-02-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.740Z",
+      "agent": "ana89fnya97gfjz",
+      "source_id": "vp7a3l854okwas7"
+    }
+  ]
+}

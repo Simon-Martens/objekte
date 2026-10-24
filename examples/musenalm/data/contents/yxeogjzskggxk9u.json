@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke / Verlag von J. D. Sauerländer] Illustration zu » Der rasende Roland« von L. Ariosto s. Textbezug INr 44134, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44135,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BRADAMANTE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. Schnorr v. Karolsfeld T. S. Engleheart gest.",
+  "scans": [
+    "alm_599_44135_za85899crf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BRADAMANTE",
+  "updated": "2006-06-27 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "7yfzgmx3iovs38k",
+      "source_id": "4m4h8g356vfmlly"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.904Z",
+      "agent": "8w6n9g0x6dcpwhp",
+      "source_id": "tde193c0dlujf8r"
+    }
+  ]
+}

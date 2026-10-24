@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch zur Verbreitung geographischer Kenntnisse 1830",
+    "norm": "",
+    "biblio": 404581,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-02-23T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 2891,
+  "parallel_title": "",
+  "place_statement": "Prag (Calve)",
+  "places": [
+    "io20468di3l63af"
+  ],
+  "preferred_title": "Taschenbuch zur Verbreitung geographischer Kenntnisse 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 149; nicht bei L/R",
+  "responsibility_statement": "Johann Gottfried Sommer",
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / zur / Verbreitung / geographischer Kenntnisse. / Eine Uebersicht des Neuesten und Wissenswürdigsten im / Gebiete der gesammten Länder- und Völkerkunde. / Herausgegeben / von / Johann Gottfried Sommer, / Verfasser des Gemäldes der physischen Welt. / Achter Jahrgang. / Mit 7 Kupfer- und Steintafeln. / Prag, 1830. / J. G. Calve'sche Buchhandlung",
+  "updated": "2026-06-11 10:18:55.686Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "items": [
+    "g0r20ax6daq6409"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.640Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.640Z",
+      "agent": "ysfde24avhult3h",
+      "source_id": "oi5ia6qtu98uddq"
+    }
+  ]
+}

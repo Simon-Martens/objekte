@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Weihe der Kindheit« von O. Prechtler INr 58039, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11 10:17:42.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WEIHE DER KINDHEIT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás del. J. Axmann sc. Viennae",
+  "scans": [
+    "alm_773_58040_lzhkaooo27.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WEIHE DER KINDHEIT",
+  "updated": "2008-06-16 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.963Z",
+      "agent": "eb0uid8s7k1f7eo",
+      "source_id": "myal9vueb4f7shj"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.963Z",
+      "agent": "jt9vrpcti67n6hx",
+      "source_id": "olwokimmljmwp5q"
+    }
+  ]
+}

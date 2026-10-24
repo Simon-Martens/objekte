@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) s. Textbezug INr 76725, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11 10:18:20.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76707,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gautzsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1813",
+  "scans": [
+    "alm_2385_76707_e4x4rkhu36.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gautzsch",
+  "updated": "2010-02-02 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "ovdtazhywl54x00",
+      "source_id": "4ziobfkl1bn2zad"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.715Z",
+      "agent": "dsxgxd2rsqe5f4z",
+      "source_id": "7pszo9fhj7g0zvr"
+    }
+  ]
+}

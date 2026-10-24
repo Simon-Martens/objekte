@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 90547, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11 10:18:27.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Es hüllet der Wolken finsterer Flor / Das Perlengewölbe des Himmels ein;",
+  "language": [],
+  "musenalm_id": 90552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Das Lied vom treuen Baume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gottfried Neumann. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Das Lied vom treuen Baume",
+  "updated": "2010-02-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.185Z",
+      "agent": "u56d09jffk0z5ur",
+      "source_id": "6oppgjdjmky1cgf"
+    }
+  ]
+}

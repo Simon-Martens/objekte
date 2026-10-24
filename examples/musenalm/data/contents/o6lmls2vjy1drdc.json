@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Abt« von W. Scott s. Textbezug INr 43697, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11 10:17:58.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43698,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Rosmäsler Dresd. 1826)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler Dresd. 1826",
+  "scans": [
+    "alm_582_43698_slp5rka8dg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-05-22 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.933Z",
+      "agent": "r5lvflbm4gsd3kb",
+      "source_id": "lup09dcbbazkda3"
+    }
+  ]
+}

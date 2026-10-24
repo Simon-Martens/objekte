@@ -1,0 +1,98 @@
+{
+  "annotation": "2 Jgg 1819, 1822; Nürnberg (Riegel und Wiessner)",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:36.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Edited",
+  "edition": "",
+  "extent": "UG, verso G, gT, S I T, SS III- W, SS XIII- XVIII Vrwrt d Hrsg, S G-Verz, G, SS XIX-LXVIII, SS 1-198 darin 9 GG, SS 199-206 Tab,S, Kr",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Taschenbuch, Neues von Nürnberg 1819",
+    "norm": "~",
+    "biblio": 404545,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": true,
+    "bearbeitet_am": "2010-02-25T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3069,
+  "parallel_title": "",
+  "place_statement": "Nürnberg (Riegel und Wiessner)",
+  "places": [
+    "hbh4vxva6bxz8au"
+  ],
+  "preferred_title": "Taschenbuch, Neues von Nürnberg 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "K 138; nicht bei L/R",
+  "responsibility_statement": "unbezeichnet",
+  "subtitle_statement": "",
+  "title_statement": "Neues / Taschenbuch / von / Nürnberg. / Enthaltend / eine topographisch-statistische Beschreibung / der Stadt / nebst / einer geschichtlichen Einleitung und einem voll- / ständigen Sach- und Namenregister. / Mit 9 Kupfern und 3 Vignetten von Geißler, Fleisch- / mann, Duttenhofer, Haldenwang und einem / Grundrisse. / Nürnberg / bey Riegler und Wießner / 1819",
+  "updated": "2026-06-11 10:18:55.383Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "items": [
+    "72sy93w6vj82rl8"
+  ],
+  "contents": [
+    "w57afyzwtwb7erg",
+    "v470bpshyt01onl",
+    "0yno5aw8yjriv74",
+    "y9917blzngna0mz",
+    "5203k0pv1c31pq6",
+    "ifyehbo02p1hdsb",
+    "z5ewkxkzbop924p",
+    "nh6xp6j20c24mz0",
+    "h1qu1nal3av85gt",
+    "bha5kpxybpv5h8y",
+    "6y0iveqzzq7bq1f",
+    "kd4gtlx32txgee9",
+    "d3l2u0qx00n1inz",
+    "ks16tj6kg79mfpq",
+    "oaflzk9rf1iu0rt",
+    "c56d2wawgdfxufj",
+    "lbymsobvd9woaml",
+    "yvo1l35dbz2pfzm",
+    "jx3tw5n43wgzcn8",
+    "ri7qv9tk1jkk8v1",
+    "2ms82u7n2ktk6io",
+    "y95oszistuu5r40",
+    "7dz23uvoy2dsgjh",
+    "8t2p0ukigb6434q",
+    "rqibfnz1d5uekx7",
+    "ocnh70fivy396po",
+    "fvvlor87lnyxjg5",
+    "hfp1dkn93g0dr70",
+    "pz874ccvzyrpo3h",
+    "r6ievpev502hbor"
+  ],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:56.143Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:56.143Z",
+      "agent": "5sa9n01hkze72w4",
+      "source_id": "055rdhvxju5paqg"
+    }
+  ]
+}

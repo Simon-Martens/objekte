@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:18.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Schreiber dieses erinnert sich, daß vor geraumer Zeit in einem gesellschaftlichen Kreise, wo er zugegen war, Folgendes erzählt ward: Als der ehrwürdige Dichter Pfeffel der Militär-Akademie in Colmar als Director vorstand, wurde einstmals ein junger Mann",
+  "language": [],
+  "musenalm_id": 74971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die Erscheinung in Pfeffel's Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die Erscheinung in Pfeffel's Garten",
+  "updated": "2010-02-18 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.576Z",
+      "agent": "1em6w40r21dweqr",
+      "source_id": "a7eytsphpd9i1g4"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "mit einer poetischen Beigabe s. INr 52677, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:18:08.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Dem nachsichtigen, wohlwollenden Publikum, das den ersten Jahrgang unsrer Alprosen so gütig aufgenommen, bieten wir anspruchlos hier einen zweyten dar.",
+  "language": [],
+  "musenalm_id": 52676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Statt der Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Statt der Vorrede",
+  "updated": "2007-11-20 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.836Z",
+      "agent": "k4ji2bliezq9pwr",
+      "source_id": "7hy0jxv8crt6v7m"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.836Z",
+      "agent": "i634jvfoategs25",
+      "source_id": "mhebdcxbgflq9jz"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.836Z",
+      "agent": "0v61flsplw084qp",
+      "source_id": "pys8uewa3sbd82d"
+    }
+  ]
+}

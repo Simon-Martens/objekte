@@ -1,0 +1,537 @@
+{
+  "annotation": "",
+  "biographical_data": "1783-1860",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.307Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/3071611-1",
+          "label": "Meininger Hofkapelle"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1212778-4",
+          "label": "Gewandhaus-Quartett"
+        },
+        {
+          "id": "https://d-nb.info/gnd/2018088-3",
+          "label": "Gewandhausorchester"
+        },
+        {
+          "id": "https://d-nb.info/gnd/1042996-7",
+          "label": "Landestheater Coburg"
+        },
+        {
+          "id": "https://d-nb.info/gnd/5208007-9",
+          "label": "Königlich Musikalische Kapelle zu Dresden"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "1801-05 Coburger Hofkapelle; ab 1805 Gewandhausorchester Leipzig und Mitbegründer des Gewandhausquartetts; ab 1811 Hofkapelle Dresden; Mitglied der (Königlichen) musikalischen Kapelle von 1811-1850, seit 1821 1. Cellist, Ausbildung in Komposition, Violine, Violoncello, Horn und Klavier in Hildburghausen und Meiningen, 1. Engagement 1801 in der Meininger Hofkapelle, anschließend im Gewandhausorchester Leipzig und Cellist des 1809 gegründeten Gewandhaus-Quartetts, Vervollkommnung des Cellospiels bei Bernhard Romberg in Berlin, Lehrer am Dresdner Konservatorium, umfangreiche Konzerttätigkeit als einer der besten Cellisten der Zeit, Komponist zahlreicher Violoncello-Werke, Verfasser weit verbreiteter Unterrichtswerke",
+        "Komponist",
+        "Mitglied des Gewandhausorchesters von 1805 bis März 1811; Mitglied des Orchester-Pensionsfonds; Erster Cellist für J. G. H. Voigt, der Erster Bratscher wurde"
+      ],
+      "dateOfBirth": [
+        "1783-06-20"
+      ],
+      "dateOfDeath": [
+        "1860-03-06"
+      ],
+      "depiction": [
+        {
+          "copyrighted": false,
+          "creatorName": [
+            "Josef Kriehuber"
+          ],
+          "creditText": [
+            "This file comes from Gallica Digital Library and is available under the digital ID btv1b8417276b"
+          ],
+          "id": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Dotzauer.jpg",
+          "license": [
+            {
+              "abbr": "PD",
+              "attributionRequired": false,
+              "id": "https://creativecommons.org/publicdomain/mark/1.0/",
+              "name": "Public Domain"
+            }
+          ],
+          "publisher": "Wikimedia Commons",
+          "thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Friedrich%20Dotzauer.jpg?width=270",
+          "url": "https://commons.wikimedia.org/wiki/File:Friedrich%20Dotzauer.jpg?uselang=de"
+        }
+      ],
+      "describedBy": {
+        "dateModified": "2026-03-09T13:53:01.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118680552/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/135708184",
+          "label": "Dotzauer, Ludwig"
+        },
+        {
+          "forename": [
+            "Justus Johann Georg"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christian"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Georg"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "id": "https://d-nb.info/gnd/135708176",
+          "label": "Dotzauer, Justus Bernhard Friedrich"
+        },
+        {
+          "forename": [
+            "Johanna Christiana"
+          ],
+          "surname": [
+            "Kreße"
+          ]
+        },
+        {
+          "forename": [
+            "Elisabetha Margaretha"
+          ],
+          "surname": [
+            "Großmann"
+          ]
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118680552",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#14.4p",
+          "label": "Personen zu Musik"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/135708176",
+          "label": "Dotzauer, Justus Bernhard Friedrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/135708184",
+          "label": "Dotzauer, Ludwig"
+        }
+      ],
+      "hasTeacher": [
+        {
+          "id": "https://d-nb.info/gnd/118749595",
+          "label": "Romberg, Bernhard"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118680552",
+      "oldAuthorityNumber": [
+        "(DE-588a)139222170",
+        "(DE-588a)118680552",
+        "(DE-588a)134361563",
+        "(DE-101c)310051568",
+        "(DE-588c)4091198-6"
+      ],
+      "periodOfActivity": [
+        "1811-1850"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4035206-7",
+          "label": "Leipzig"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4038453-6",
+          "label": "Meiningen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4089228-1",
+          "label": "Hildburghausen"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/1023844192",
+          "label": "Häselrieth"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4012995-0",
+          "label": "Dresden"
+        }
+      ],
+      "preferredName": "Dotzauer, Justus Johann Friedrich",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Justus Johann Friedrich"
+        ],
+        "surname": [
+          "Dotzauer"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4040841-3",
+          "label": "Musiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188376-7",
+          "label": "Violoncellist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4398803-9",
+          "label": "Kammermusiker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4032009-1",
+          "label": "Komponist"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4188376-7",
+          "label": "Violoncellist"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/118749595",
+          "label": "Romberg, Bernhard"
+        },
+        {
+          "id": "https://d-nb.info/gnd/116220066",
+          "label": "Drechsler, Karl"
+        },
+        {
+          "id": "https://d-nb.info/gnd/130664480",
+          "label": "Pesadori, Antoinette"
+        },
+        {
+          "id": "https://d-nb.info/gnd/118725343",
+          "label": "Kummer, Friedrich August"
+        }
+      ],
+      "publication": [
+        "Chant",
+        "[Concertinos, Vc Orch op. 67]",
+        "[Concertinos, Vc Orch op. 150]",
+        "[Quartette, Fg Vl Va Vc op. 36]. - ca. 1979",
+        "[Capriccios, Vc op. 35]",
+        "[Potpourris, Vc Git op. 21]",
+        "[Duos, Vl Vc op. 124]",
+        "[Duette, Vc 1 2 op. 52]",
+        "[Divertimenti, Vc Orch op. 105]",
+        "[Duette, Vc 1 2 / Ausw.]. - [circa 1910]"
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb138933905"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n87117484"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/51875014"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q84376"
+        },
+        {
+          "collection": {
+            "abbr": "DE-M512",
+            "icon": "https://bmlo.de/x/pic/favicon.gif",
+            "id": "https://bmlo.de",
+            "name": "Bayerisches Musiker-Lexikon Online",
+            "publisher": "Bayerisches Musiker-Lexikon Online"
+          },
+          "id": "https://bmlo.de/Q/GND=118680552"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118680552/about"
+        },
+        {
+          "collection": {
+            "id": "https://dbpedia.org"
+          },
+          "id": "https://dbpedia.org/resource/Friedrich_Dotzauer"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Dotzauer"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Friedrich_Dotzauer"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000109011521"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118680552"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118680552"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118680552.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118680552.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118680552"
+        }
+      ],
+      "type": [
+        "DifferentiatedPerson",
+        "AuthorityResource",
+        "Person"
+      ],
+      "variantName": [
+        "Dotzauer, J. F.",
+        "Dotzauer, Justus J.",
+        "Dotzauer, Friedrich",
+        "Dotzauer, I. I. F.",
+        "Dotzauer, J. J. F.",
+        "Dotzauer, Johann Friedrich",
+        "Dotzauer, Justus Johann",
+        "Dotzauer, Justus J. F."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Justus Johann"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Justus J. F."
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Friedrich"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "J. J. F."
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "J. F."
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich"
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "Justus J."
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        },
+        {
+          "forename": [
+            "I. I. F."
+          ],
+          "surname": [
+            "Dotzauer"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Friedrich_Dotzauer",
+          "label": "https://de.wikipedia.org/wiki/Friedrich_Dotzauer"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "exact_years_preferred_name",
+    "gnd_matched_at": "2026-06-11T11:15:03Z",
+    "gnd_query_biographical_data": "1783-1860",
+    "gnd_query_name": "dotzauer, justus johann friedrich"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 572,
+  "name": "Dotzauer, Justus Johann Friedrich",
+  "profession": "Musik",
+  "pseudonyms": "",
+  "refs": "ADB V, 365",
+  "updated": "2026-06-11 13:29:22.094Z",
+  "uri": "https://d-nb.info/gnd/118680552",
+  "editor": ""
+}

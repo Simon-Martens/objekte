@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert I. /) Illustration zu »De Launay Lezter Befehlshaber der Bastille« INr 59879, Obj 45 s.a. Textbezug INr 59848, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11 10:18:09.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59849,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "De Launay ergiebt sich zum / Gefangenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Cl. Kohl sc. V.",
+  "scans": [
+    "alm_933_59849_to93oy3ye4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "De Launay ergiebt sich zum / Gefangenen",
+  "updated": "2008-09-08 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.958Z",
+      "agent": "bteik61qqrceqcm",
+      "source_id": "rfufrjvr5m568r2"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:59.958Z",
+      "agent": "b8kayl1gshcayeq",
+      "source_id": "zicntj91psirlzt"
+    }
+  ]
+}

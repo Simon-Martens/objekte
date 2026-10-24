@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 66496, Obj 11 /) mit zahlreichen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11 10:18:13.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Das Frettchen ist nicht, wie mehrere Naturforscher und selbst Linneus geglaubt haben, eine Abart unsers bekannten Iltisses,",
+  "language": [],
+  "musenalm_id": 66497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Das Frettchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Reichsgraf von Mellin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Das Frettchen",
+  "updated": "2009-09-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.239Z",
+      "agent": "aauh6wvabz0cll5",
+      "source_id": "0l7g3pemwd6p7uq"
+    }
+  ]
+}

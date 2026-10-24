@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:46.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Was die Großen alles können! / Wer doch schon erwachsen wäre!",
+  "language": [],
+  "musenalm_id": 13939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansichten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ansichten",
+  "updated": "2001-04-11 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.394Z",
+      "agent": "z3f86v065s6vcml",
+      "source_id": "vrzuqgl8epao1k3"
+    }
+  ]
+}

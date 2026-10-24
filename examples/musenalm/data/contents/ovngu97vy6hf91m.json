@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:17:52.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Sie, es lächeln dir der Kunst Gebilde, / Voll der Wahrheit sprechen sie an / dich,",
+  "language": [],
+  "musenalm_id": 31592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS GLÜCK ZU LEBEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DAS GLÜCK ZU LEBEN",
+  "updated": "2003-02-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:58.116Z",
+      "agent": "9fm6ody20z4gtke",
+      "source_id": "9r5p5mzupohy24s"
+    }
+  ]
+}

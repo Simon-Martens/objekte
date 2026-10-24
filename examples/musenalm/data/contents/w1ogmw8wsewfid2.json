@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:14.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Rache ist der Fürsten Sehnen, / Troja! tönt das Feldgeschrei / Der gerüsteten Hellenen,",
+  "language": [],
+  "musenalm_id": 66378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iphigenia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Iphigenia",
+  "updated": "2009-09-01 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.289Z",
+      "agent": "tpwve3h1enyv5eo",
+      "source_id": "x8nwlhbkgajwtcq"
+    }
+  ]
+}

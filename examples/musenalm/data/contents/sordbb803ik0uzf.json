@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11 10:18:52.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Glückliche Zeit, wo die Menschen noch glaubten fest und unerschütterlich, und glückliche Zeit, wo ich selbst noch glaubte unerschütterlich und fest!",
+  "language": [],
+  "musenalm_id": 129650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine kleine Novelle / ohne Titel und keine Dichtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Saturn Stelzhammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine kleine Novelle / ohne Titel und keine Dichtung",
+  "updated": "2022-02-23 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:03.045Z",
+      "agent": "a014bqncl68cjih",
+      "source_id": "viv669ysmcj6oe6"
+    }
+  ]
+}

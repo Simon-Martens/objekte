@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Vorworte in: Urania 1817, INr 9243 und Urania 1818, INr 1520; sowie Verzeichniß der eingesandten Gedichte INr 9267, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11 10:17:44.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der erwünschte Erfolg, den die von mir zuerst im Jahr 1816 - für Urania 1818 - und zunächst zum Behuf dieses bei mir erscheinenden Taschenbuchs ausgesetzten Preisaufgaben",
+  "language": [],
+  "musenalm_id": 9268,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Programm / ueber die poetischen Preisaufgaben für / die Urania auf 1820",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Programm / ueber die poetischen Preisaufgaben für / die Urania auf 1820",
+  "updated": "2000-08-07 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:57.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:57.286Z",
+      "agent": "manlqagw1uz9rp2",
+      "source_id": "hka8pfo3atmx29j"
+    }
+  ]
+}

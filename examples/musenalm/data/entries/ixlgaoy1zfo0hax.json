@@ -1,0 +1,67 @@
+{
+  "annotation": "",
+  "carrier_type": [
+    "Band"
+  ],
+  "content_type": [
+    "unbewegtes Bild",
+    "Text"
+  ],
+  "created": "2026-06-11 10:17:37.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_fielddata": null,
+  "edit_state": "Seen",
+  "edition": "",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [
+    "ger"
+  ],
+  "musenalm_deprecated": {
+    "reihentitel": "Unterhaltungen und Studien aus dem Natur- und Menschenleben. Ein Almanach für die Jugend 1853",
+    "norm": "",
+    "biblio": 407923,
+    "status": [
+      "Original vorhanden"
+    ],
+    "gesichtet": false,
+    "erfasst": false,
+    "bearbeitet_am": "2010-03-08T00:00:00",
+    "bearbeitet_von": "ms"
+  },
+  "musenalm_id": 3326,
+  "parallel_title": "",
+  "place_statement": "Magdeburg (Fabricius)",
+  "places": [
+    "37pvqift972kzxs"
+  ],
+  "preferred_title": "Unterhaltungen und Studien aus dem Natur- und Menschenleben. Ein Almanach für die Jugend 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "refs": "nicht bei K; nicht bei L/R",
+  "responsibility_statement": "C. Gude und A. Grube",
+  "subtitle_statement": "",
+  "title_statement": "Unterhaltungen und Studien / aus dem / Natur- und Menschenleben. / Ein / Almanach für die Jugend / bearbeitet und herausgegeben / von / C. Gube und A. Grube. / Zweiter Jahrgang. / Magdeburg. / Verlag von E. Fabricius / 1853",
+  "updated": "2026-06-11 10:18:54.947Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "items": [
+    "x4hoc7e0if0epte"
+  ],
+  "contents": [],
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:18:55.837Z",
+      "edit_comment": "",
+      "type": "Verlag",
+      "uncertain": false,
+      "updated": "2026-06-11 10:18:55.837Z",
+      "agent": "jeetxxcj6xdbo08",
+      "source_id": "4xnznwy9ijz837o"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Blumendeutung. In sechs Gedichtchen. Als Erklärung der Stahlstiche (Sammlung INr 95025, Obj 5) s. Graphik INr 95028, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11 10:18:29.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Veilchen blühen, Veilchen duften, / In des Waldes Einsamkeit,",
+  "language": [],
+  "musenalm_id": 95027,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-01-21 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:01.344Z",
+      "agent": "zx75lnlmbmrud1g",
+      "source_id": "ee7gwwgnq0r1mvc"
+    }
+  ]
+}

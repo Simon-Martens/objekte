@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehende Seite INr 80520, Obj 14 /) Illustration zu »Das zerstörte Lebensglück« INr 80552, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11 10:18:24.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lady Molly",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Liverseege del. C. Kotterba sc.",
+  "scans": [
+    "alm_1794_80521_5ns2vtg15f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lady Molly",
+  "updated": "2010-01-19 00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "agents": [
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.992Z",
+      "agent": "7gvrwgge5t8klb1",
+      "source_id": "hpa5zz10642zme6"
+    },
+    {
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11 10:19:00.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11 10:19:00.992Z",
+      "agent": "gr3ej5rgsyjwe06",
+      "source_id": "uy2yywolzmdhn27"
+    }
+  ]
+}

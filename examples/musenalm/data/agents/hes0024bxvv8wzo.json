@@ -1,0 +1,549 @@
+{
+  "annotation": "",
+  "biographical_data": "1712-1800",
+  "corporate_body": false,
+  "created": "2026-06-11 10:17:36.303Z",
+  "data": {
+    "gnd": {
+      "@context": "https://lobid.org/gnd/context.jsonld",
+      "acquaintanceshipOrFriendship": [
+        {
+          "id": "https://d-nb.info/gnd/118572628",
+          "label": "Lichtenberg, Georg Christoph"
+        }
+      ],
+      "affiliation": [
+        {
+          "id": "https://d-nb.info/gnd/5034479-1",
+          "label": "Johann Christian Dieterich (Firma)"
+        }
+      ],
+      "biographicalOrHistoricalInformation": [
+        "Kaufmännische Ausbildung, Inhaber eines Seidenwarengeschäfts in Berlin und Gotha; 1749 Heirat mit der Tochter des Buchhändlers Johann Paul Mevius; 1752 Übernahme der Mevius'schen Buchhandlung, 1760 Gründung einer Buchhandlung in Göttingen; diese erweiterte er 1770 um eine Druckerei (1771 Faktor: Friedrich Andreas Rosenbusch); nebenbei betrieb er sein Geschäft in Gotha, bis er es 1776 (?) an seinen ersten Kommis, Karl Wilhelm Ettinger, verkaufte"
+      ],
+      "dateOfBirth": [
+        "1722-05-25"
+      ],
+      "dateOfDeath": [
+        "1800-06-18"
+      ],
+      "describedBy": {
+        "dateModified": "2023-12-12T10:32:10.000",
+        "dctCreator": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        },
+        "descriptionLevel": {
+          "id": "https://d-nb.info/standards/vocab/gnd/description-level#1",
+          "label": "Katalogisierungslevel 1"
+        },
+        "id": "https://d-nb.info/gnd/118678345/about",
+        "license": {
+          "id": "http://creativecommons.org/publicdomain/zero/1.0/",
+          "label": "http://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "maintainer": {
+          "id": "https://ld.zdb-services.de/resource/organisations/DE-101",
+          "label": "https://ld.zdb-services.de/resource/organisations/DE-101"
+        }
+      },
+      "familialRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/116111720",
+          "label": "Dieterich, Heinrich"
+        },
+        {
+          "id": "https://d-nb.info/gnd/137258836",
+          "label": "Dieterich, Hermann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/138342148",
+          "label": "Mevius, Johann Paul"
+        }
+      ],
+      "gender": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gender#male",
+          "label": "Männlich"
+        }
+      ],
+      "geographicAreaCode": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/geographic-area-code#XA-DE",
+          "label": "Deutschland"
+        }
+      ],
+      "gndIdentifier": "118678345",
+      "gndSubjectCategory": [
+        {
+          "id": "https://d-nb.info/standards/vocab/gnd/gnd-sc#2.2p",
+          "label": "Personen zu Buchwissenschaft, Buchhandel"
+        }
+      ],
+      "hasChild": [
+        {
+          "id": "https://d-nb.info/gnd/116111720",
+          "label": "Dieterich, Heinrich"
+        }
+      ],
+      "hasFriend": [
+        {
+          "id": "https://d-nb.info/gnd/118572628",
+          "label": "Lichtenberg, Georg Christoph"
+        }
+      ],
+      "hasGrandChild": [
+        {
+          "id": "https://d-nb.info/gnd/137258836",
+          "label": "Dieterich, Hermann"
+        }
+      ],
+      "id": "https://d-nb.info/gnd/118678345",
+      "oldAuthorityNumber": [
+        "(DE-588a)118678345",
+        "(DE-588c)4090798-3"
+      ],
+      "placeOfActivity": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4005728-8",
+          "label": "Berlin"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4021652-4",
+          "label": "Gotha"
+        }
+      ],
+      "placeOfBirth": [
+        {
+          "id": "https://d-nb.info/gnd/4057260-2",
+          "label": "Stendal"
+        }
+      ],
+      "placeOfDeath": [
+        {
+          "id": "https://d-nb.info/gnd/4021477-1",
+          "label": "Göttingen"
+        }
+      ],
+      "preferredName": "Dieterich, Johann Christian",
+      "preferredNameEntityForThePerson": {
+        "forename": [
+          "Johann Christian"
+        ],
+        "surname": [
+          "Dieterich"
+        ]
+      },
+      "professionOrOccupation": [
+        {
+          "id": "https://d-nb.info/gnd/4130948-0",
+          "label": "Buchhändler"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4138343-6",
+          "label": "Verleger"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4128272-3",
+          "label": "Kaufmann"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4146801-6",
+          "label": "Buchdrucker"
+        },
+        {
+          "id": "https://d-nb.info/gnd/4013091-5",
+          "label": "Drucker"
+        }
+      ],
+      "professionalRelationship": [
+        {
+          "id": "https://d-nb.info/gnd/13022636X",
+          "label": "Ettinger, Carl Wilhelm"
+        }
+      ],
+      "pseudonymNameOfThePerson": [
+        {
+          "forename": [
+            "Friedrich Andreas"
+          ],
+          "surname": [
+            "Rosenbusch"
+          ],
+          "type": "PseudonymNameOfThePerson"
+        }
+      ],
+      "sameAs": [
+        {
+          "collection": {
+            "abbr": "BNF",
+            "icon": "https://www.bnf.fr/themes/custom/bnfsi/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q19938912",
+            "name": "Bibliothèque nationale de France",
+            "publisher": "Bibliothèque nationale de France"
+          },
+          "id": "http://catalogue.bnf.fr/ark:/12148/cb12037790g"
+        },
+        {
+          "collection": {
+            "abbr": "LC",
+            "icon": "http://www.loc.gov/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q13219454",
+            "name": "NACO Authority File",
+            "publisher": "Library of Congress"
+          },
+          "id": "http://id.loc.gov/rwo/agents/n85125783"
+        },
+        {
+          "collection": {
+            "abbr": "VIAF",
+            "icon": "http://viaf.org/viaf/images/viaf.ico",
+            "id": "http://www.wikidata.org/entity/Q54919",
+            "name": "Virtual International Authority File (VIAF)",
+            "publisher": "OCLC"
+          },
+          "id": "http://viaf.org/viaf/46777464"
+        },
+        {
+          "collection": {
+            "abbr": "WIKIDATA",
+            "icon": "https://www.wikidata.org/static/favicon/wikidata.ico",
+            "id": "http://www.wikidata.org/entity/Q2013",
+            "name": "Wikidata",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "http://www.wikidata.org/entity/Q109538"
+        },
+        {
+          "collection": {
+            "abbr": "DNB",
+            "icon": "https://www.dnb.de/SiteGlobals/Frontend/DNBWeb/Images/favicon.png?__blob=normal&v=4",
+            "id": "http://www.wikidata.org/entity/Q36578",
+            "name": "Gemeinsame Normdatei (GND) im Katalog der Deutschen Nationalbibliothek",
+            "publisher": "Deutsche Nationalbibliothek"
+          },
+          "id": "https://d-nb.info/gnd/118678345/about"
+        },
+        {
+          "collection": {
+            "abbr": "dewiki",
+            "icon": "https://de.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q48183",
+            "name": "Wikipedia (Deutsch)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Dieterich"
+        },
+        {
+          "collection": {
+            "abbr": "enwiki",
+            "icon": "https://en.wikipedia.org/static/favicon/wikipedia.ico",
+            "id": "http://www.wikidata.org/entity/Q328",
+            "name": "Wikipedia (English)",
+            "publisher": "Wikimedia Foundation Inc."
+          },
+          "id": "https://en.wikipedia.org/wiki/Johann_Christian_Dieterich"
+        },
+        {
+          "collection": {
+            "id": "https://isni.org"
+          },
+          "id": "https://isni.org/isni/0000000121309988"
+        },
+        {
+          "collection": {
+            "abbr": "DE-611",
+            "icon": "https://kalliope-verbund.info/img/favicon.ico",
+            "id": "https://kalliope-verbund.info",
+            "name": "Kalliope Verbundkatalog",
+            "publisher": "Staatsbibliothek zu Berlin - Preußischer Kulturbesitz"
+          },
+          "id": "https://kalliope-verbund.info/gnd/118678345"
+        },
+        {
+          "collection": {
+            "abbr": "ARCHIV-D",
+            "icon": "https://www.archivportal-d.de/favicon.ico",
+            "id": "https://www.archivportal-d.de",
+            "name": "Archivportal-D",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.archivportal-d.de/person/gnd/118678345"
+        },
+        {
+          "collection": {
+            "abbr": "ADB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Allgemeine Deutsche Biographie (ADB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118678345.html#adbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "NDB",
+            "icon": "https://www.deutsche-biographie.de/favicon.ico",
+            "id": "https://www.deutsche-biographie.de",
+            "name": "Neue Deutsche Biographie (NDB)",
+            "publisher": "Historische Kommission bei der Bayerischen Akademie der Wissenschaften und Bayerische Staatsbibliothek"
+          },
+          "id": "https://www.deutsche-biographie.de/pnd118678345.html#ndbcontent"
+        },
+        {
+          "collection": {
+            "abbr": "DDB",
+            "icon": "https://www.deutsche-digitale-bibliothek.de/favicon.ico",
+            "id": "http://www.wikidata.org/entity/Q621630",
+            "name": "Deutsche Digitale Bibliothek",
+            "publisher": "Deutsche Digitale Bibliothek"
+          },
+          "id": "https://www.deutsche-digitale-bibliothek.de/person/gnd/118678345"
+        },
+        {
+          "collection": {
+            "abbr": "Portraitindex",
+            "icon": "https://www.portraitindex.de/favicon.ico",
+            "id": "https://www.portraitindex.de",
+            "name": "Digitaler Portraitindex der druckgraphischen Bildnisse der Frühen Neuzeit",
+            "publisher": "Deutsches Dokumentationszentrum für Kunstgeschichte - Bildarchiv Foto Marburg"
+          },
+          "id": "https://www.portraitindex.de/dokumente/pnd/118678345"
+        }
+      ],
+      "type": [
+        "AuthorityResource",
+        "Person",
+        "DifferentiatedPerson"
+      ],
+      "variantName": [
+        "Dieterich, Ioan. Christian.",
+        "Dietrich, Christian",
+        "Dieteerich, Ioh. Chr.",
+        "Dieterich, Jean Chrétien",
+        "Dieterich, Ioh. Christ.",
+        "Dieterich, Joann. Christian.",
+        "Dietrich, Johann Christian",
+        "Dieterich, Iohann. Christian.",
+        "Dieterich, Io. Christ.",
+        "Dieterich, Ioann. Christ.",
+        "Dieterich, Joann. Christ.",
+        "Rosenbusch, Friedrich Andreas",
+        "Dieterich, Jo. Christ.",
+        "Dieterich, Johann Christ.",
+        "Diederich, I. C.",
+        "Diederik, Johann Kristian",
+        "Dieterich, John Christian",
+        "Dieterich, Jonn. Christian.",
+        "Dieterich, Ioann Christian",
+        "Dieterich, Iohann. Christ.",
+        "Dieterich, Joannes Christianus",
+        "Dieterich, I. C."
+      ],
+      "variantNameEntityForThePerson": [
+        {
+          "forename": [
+            "Johann Christian"
+          ],
+          "surname": [
+            "Dietrich"
+          ]
+        },
+        {
+          "forename": [
+            "Friedrich Andreas"
+          ],
+          "surname": [
+            "Rosenbusch"
+          ]
+        },
+        {
+          "forename": [
+            "Joannes Christianus"
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Ioann Christian"
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Ioh. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann. Christian."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Ioan. Christian."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Jean Chrétien"
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Iohann. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Christian"
+          ],
+          "surname": [
+            "Dietrich"
+          ]
+        },
+        {
+          "forename": [
+            "Johann Kristian"
+          ],
+          "surname": [
+            "Diederik"
+          ]
+        },
+        {
+          "forename": [
+            "Joann. Christian."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "I. C."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Jo. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "I. C."
+          ],
+          "surname": [
+            "Diederich"
+          ]
+        },
+        {
+          "forename": [
+            "Ioh. Chr."
+          ],
+          "surname": [
+            "Dieteerich"
+          ]
+        },
+        {
+          "forename": [
+            "Jonn. Christian."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Joann. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Io. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "John Christian"
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        },
+        {
+          "forename": [
+            "Ioann. Christ."
+          ],
+          "surname": [
+            "Dieterich"
+          ]
+        }
+      ],
+      "wikipedia": [
+        {
+          "id": "https://de.wikipedia.org/wiki/Johann_Christian_Dieterich",
+          "label": "https://de.wikipedia.org/wiki/Johann_Christian_Dieterich"
+        }
+      ]
+    },
+    "gnd_candidate_count": 1,
+    "gnd_match_strategy": "single_year_exact_name",
+    "gnd_matched_at": "2026-06-11T11:13:39Z",
+    "gnd_query_biographical_data": "1712-1800",
+    "gnd_query_name": "dieterich, johann christian"
+  },
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "fictional": false,
+  "musenalm_id": 543,
+  "name": "Dieterich, Johann Christian",
+  "profession": "Text u. Sonst",
+  "pseudonyms": "",
+  "refs": "ADB V, 156",
+  "updated": "2026-06-11 13:29:22.054Z",
+  "uri": "https://d-nb.info/gnd/118678345",
+  "editor": ""
+}
